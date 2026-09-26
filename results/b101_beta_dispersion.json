@@ -1,0 +1,1115 @@
+{
+  "config": {
+    "carrier": "EU KLEMS & INTANProd, growth accounts BASIC",
+    "fit": "OLS of the share on the log mix, within each (industry, country)",
+    "floor": "each series split in half in time, both halves fitted, median |difference| over root two",
+    "industries_read": 55,
+    "min_countries": 5,
+    "min_mix_spread": 1e-06,
+    "min_years": 12,
+    "mix": "ln(CAP_QI / LAB_QI)",
+    "series_dropped": 88,
+    "series_fitted": 969,
+    "share": "LAB / VA_CP"
+  },
+  "criteria": [
+    {
+      "detail": "every series' log mix shifted by its own constant, 969 series refitted: worst change in the slope 8.632e-15. This is what lets the reading run on a file that carries no cross-country level: the shift lands entirely in the intercept.",
+      "kind": "instrument",
+      "name": "B101-9  the fitted slope does not move when the index base moves",
+      "passed": true
+    },
+    {
+      "detail": "counts and objects printed, no threshold on an estimator. Both sides of the ratio are built from half samples so the null is exactly one: across the countries of an industry, the spread of the first-half slope over the spread of (first minus second) over root two. Across 55 industries with at least 5 countries the ratio runs 0.24 to 3.62, median 0.91, and 25 of 55 sit above one and 1 above three. The same statistic on each country's SECOND half gives median 0.79, which is the check that the split itself is not driving it. Reading fixed in advance: the numerator and the denominator are the same statistic on the same countries, so one relation per industry puts the ratio at one; the middle state is where it sits inside a factor of three either way, and that is where it sits. p10 to p90 across industries is 0.55 to 1.58. **Undecided, and undecided is the reading, not a failure**: the country-specific slope the paper fits is not distinguishable here from a country's own slope moving over time. Slope range inside an industry, widest three: G46 [-0.343, +0.252], H49 [-0.402, +0.374], H51 [-0.189, +0.197]",
+      "kind": "own_reading",
+      "name": "B101-10  how far the share-mix slope spreads across countries inside an industry, which is their own restriction and not their country term",
+      "passed": null,
+      "void": true
+    },
+    {
+      "cite": "Griffith, Redding & Van Reenen 2004, Review of Economics and Statistics 86(4): 883-895, the production function and the share-smoothing paragraph",
+      "detail": "Void: their point prediction is that this ratio is one, and it is 0.91, so on this panel it holds. That is a reading about their production function and it is recorded as one. It is NOT scored, because this framework makes no competing prediction about the slope of a factor share on a factor ratio: its object is the terms two holders get at one position, and the share-mix slope is not that object. A first version of this criterion wrote one in so that a cell could be filled, which is the same error a station earlier in this line made and withdrew the same day. Median ratio 0.91; 25 of 55 industries above one, 1 above three.",
+      "grid": "unread",
+      "grid_note": {
+        "B": "not claimed: nothing of this framework's was read into any cell here, so the four-cell table is untouched. What was read is that their own stated restriction on the slope holds. It does NOT narrow where the non-integrability lives: their country term is the intercept, and on a cross-country loop a common slope contributes exactly zero while the intercept contributes all of it. A first version of this note claimed that narrowing, and the claim rested on two swapped subscripts."
+      },
+      "kind": "rival",
+      "name": "B101-11  one production function per industry-year gives one slope",
+      "passed": null,
+      "rival_entailment": "a slope that varies across industries alone carries no country variation, so its spread across the countries of one industry is estimation noise and matches a floor built from each country's own two halves",
+      "rival_premise": "footnote 20 prints sigma_ijt = alpha_ij + beta_j ln(K/L), and the text allows the coefficient on the capital-labour ratio to vary across industries j, so the slope carries no country",
+      "rival_shape": "point prediction",
+      "void": true
+    },
+    {
+      "detail": "Void: not evaluated, and it cannot be on this carrier. With sigma = alpha_ij + beta_j ln(K/L) and beta common inside an industry, the holonomy of a cross-country loop is exactly the area the intercept sweeps: the slope term is affine and common, so it telescopes. The observed log mix is the true one plus a constant fixed per series, and a fit on it returns the slope untouched while the intercept comes back as alpha - beta * e. So B101-9, that the slope is blind to the base, is precisely why the intercept is not. The cross-country half needs a 2015 cross-section, and this is the criterion that says why.",
+      "kind": "premise",
+      "name": "B101-18  the coefficient the cross-country reading needs is the one this file destroys",
+      "passed": null,
+      "void": true
+    },
+    {
+      "detail": "88 of 1057 series dropped for fewer than 12 years or no movement in the mix; 969 fitted. Industries with fewer than 5 countries are not read: 1 of 56. All named in the record.",
+      "kind": "bookkeeping",
+      "name": "B101-12  every series that was dropped is named",
+      "passed": true
+    }
+  ],
+  "report": {
+    "floor": {
+      "median_half_gap_over_sqrt2": 0.19695206766478623,
+      "pairs": 969,
+      "sd_half_gap_over_sqrt2": 0.38865768923747157
+    },
+    "industries": [
+      {
+        "countries": 21,
+        "max": 0.40589183215932545,
+        "median_beta": -0.06256301857840019,
+        "min": -1.3562613033374762,
+        "nace": "A",
+        "ratio": 0.5701839159929148,
+        "ratio_second_half": 0.685190723386033,
+        "spread_first_half": 0.3081174756196111,
+        "spread_noise": 0.5403826151129801
+      },
+      {
+        "countries": 21,
+        "max": 0.5924844053992991,
+        "median_beta": -0.06871513808358758,
+        "min": -0.5383115679382646,
+        "nace": "B",
+        "ratio": 0.549027897141292,
+        "ratio_second_half": 0.871366137747715,
+        "spread_first_half": 0.21937865565797565,
+        "spread_noise": 0.39957651842510783
+      },
+      {
+        "countries": 23,
+        "max": 0.6426466891905036,
+        "median_beta": 0.028409179614957803,
+        "min": -0.30259326090677097,
+        "nace": "C",
+        "ratio": 1.3303150948907139,
+        "ratio_second_half": 1.5733013406847673,
+        "spread_first_half": 0.3356116384374374,
+        "spread_noise": 0.25227980929210464
+      },
+      {
+        "countries": 16,
+        "max": 0.2907509647094092,
+        "median_beta": -0.01245797381813986,
+        "min": -0.31175840451538056,
+        "nace": "C10-C12",
+        "ratio": 0.6683776277046689,
+        "ratio_second_half": 0.8117422756203582,
+        "spread_first_half": 0.19298899870221423,
+        "spread_noise": 0.2887424574113496
+      },
+      {
+        "countries": 14,
+        "max": 0.2349406957767435,
+        "median_beta": 0.06596391268928092,
+        "min": -0.7924538553462633,
+        "nace": "C13-C15",
+        "ratio": 0.6670314880987122,
+        "ratio_second_half": 0.6931152587653858,
+        "spread_first_half": 0.21804462667707236,
+        "spread_noise": 0.3268880563623475
+      },
+      {
+        "countries": 16,
+        "max": 1.19382104310128,
+        "median_beta": 0.0019818697586270976,
+        "min": -0.40932419037920537,
+        "nace": "C16-C18",
+        "ratio": 0.6177972123051321,
+        "ratio_second_half": 1.1701110991867663,
+        "spread_first_half": 0.2392504640452556,
+        "spread_noise": 0.38726374816836984
+      },
+      {
+        "countries": 13,
+        "max": 2.419679010018915,
+        "median_beta": 0.14845479397448744,
+        "min": -0.30823276830541424,
+        "nace": "C19",
+        "ratio": 0.3992144829523591,
+        "ratio_second_half": 1.048441530773692,
+        "spread_first_half": 0.3066722999147987,
+        "spread_noise": 0.7681893142924775
+      },
+      {
+        "countries": 14,
+        "max": 0.3369065126663598,
+        "median_beta": -0.04906795207836131,
+        "min": -0.6361600432975253,
+        "nace": "C20",
+        "ratio": 1.6148137730281045,
+        "ratio_second_half": 1.3772973396388548,
+        "spread_first_half": 0.523573572016515,
+        "spread_noise": 0.32423154964470485
+      },
+      {
+        "countries": 13,
+        "max": 0.5834836120475573,
+        "median_beta": -0.1483605327275498,
+        "min": -0.42904600965666706,
+        "nace": "C20-C21",
+        "ratio": 0.9058179470295236,
+        "ratio_second_half": 1.159128882751018,
+        "spread_first_half": 0.3405394268372781,
+        "spread_noise": 0.3759468753671965
+      },
+      {
+        "countries": 10,
+        "max": 0.3511432551271385,
+        "median_beta": -0.09512792190446216,
+        "min": -0.6412630704464506,
+        "nace": "C21",
+        "ratio": 1.0825762505907732,
+        "ratio_second_half": 1.0859573825393654,
+        "spread_first_half": 0.27033578989316887,
+        "spread_noise": 0.24971524153208033
+      },
+      {
+        "countries": 16,
+        "max": 0.33817073694405875,
+        "median_beta": 0.07863293614280828,
+        "min": -0.33658307855998437,
+        "nace": "C22-C23",
+        "ratio": 0.7833293934531487,
+        "ratio_second_half": 0.9235109817320867,
+        "spread_first_half": 0.16961491762490746,
+        "spread_noise": 0.2165307711449388
+      },
+      {
+        "countries": 16,
+        "max": 0.856925239405848,
+        "median_beta": 0.21552459381021616,
+        "min": -0.6650627014281476,
+        "nace": "C24-C25",
+        "ratio": 0.647834339050067,
+        "ratio_second_half": 0.7443995195292701,
+        "spread_first_half": 0.20427469704850118,
+        "spread_noise": 0.315319341281034
+      },
+      {
+        "countries": 13,
+        "max": 0.3075562987514683,
+        "median_beta": 0.0021281511659516023,
+        "min": -0.24653128679299272,
+        "nace": "C26",
+        "ratio": 0.9832577724586813,
+        "ratio_second_half": 1.1030764549762795,
+        "spread_first_half": 0.18218924329941236,
+        "spread_noise": 0.18529143465994657
+      },
+      {
+        "countries": 13,
+        "max": 0.4076890587750917,
+        "median_beta": 0.05696284174820839,
+        "min": -0.13260913044235384,
+        "nace": "C26-C27",
+        "ratio": 0.8731436953143449,
+        "ratio_second_half": 0.8035873659701013,
+        "spread_first_half": 0.23466854306428256,
+        "spread_noise": 0.2687627985217237
+      },
+      {
+        "countries": 14,
+        "max": 0.5773049063626572,
+        "median_beta": -0.030568484258800606,
+        "min": -0.4462113902797614,
+        "nace": "C27",
+        "ratio": 1.427658030938564,
+        "ratio_second_half": 0.7417703384811014,
+        "spread_first_half": 0.2959911436400523,
+        "spread_noise": 0.20732636053289544
+      },
+      {
+        "countries": 15,
+        "max": 0.19708664666162257,
+        "median_beta": -0.11233384522972038,
+        "min": -0.7456859335099992,
+        "nace": "C28",
+        "ratio": 0.8505812129067059,
+        "ratio_second_half": 0.579851448449506,
+        "spread_first_half": 0.348689979493982,
+        "spread_noise": 0.40994319437458265
+      },
+      {
+        "countries": 12,
+        "max": 0.1615639281506279,
+        "median_beta": -0.031024283415600463,
+        "min": -0.24610224996081417,
+        "nace": "C29-C30",
+        "ratio": 0.6255898489688586,
+        "ratio_second_half": 0.46618549201978216,
+        "spread_first_half": 0.17708725512165355,
+        "spread_noise": 0.28307245620040233
+      },
+      {
+        "countries": 16,
+        "max": 0.26140370828502046,
+        "median_beta": -7.26087083283138e-05,
+        "min": -0.29384104618442175,
+        "nace": "C31-C33",
+        "ratio": 0.6281719001650415,
+        "ratio_second_half": 0.6065973917595077,
+        "spread_first_half": 0.197615895877428,
+        "spread_noise": 0.3145888821602937
+      },
+      {
+        "countries": 21,
+        "max": 0.5181460811701215,
+        "median_beta": -0.020236000489840842,
+        "min": -0.3679878953747889,
+        "nace": "D",
+        "ratio": 0.2706509099721332,
+        "ratio_second_half": 0.7857050440775861,
+        "spread_first_half": 0.07699002988070519,
+        "spread_noise": 0.2844624830141242
+      },
+      {
+        "countries": 22,
+        "max": 0.8520932374104008,
+        "median_beta": -0.011360542364268273,
+        "min": -0.3940242679450132,
+        "nace": "D-E",
+        "ratio": 0.846333580178247,
+        "ratio_second_half": 0.6179035546908651,
+        "spread_first_half": 0.21764858477464433,
+        "spread_noise": 0.2571664292568956
+      },
+      {
+        "countries": 22,
+        "max": 0.6158552071325359,
+        "median_beta": -0.03798944425809843,
+        "min": -0.9114274319859339,
+        "nace": "E",
+        "ratio": 0.8982898405381601,
+        "ratio_second_half": 0.4275988235106049,
+        "spread_first_half": 0.2874230951577543,
+        "spread_noise": 0.31996698858974165
+      },
+      {
+        "countries": 23,
+        "max": 0.45392901148639675,
+        "median_beta": -0.06549389581856889,
+        "min": -0.43983974166194606,
+        "nace": "F",
+        "ratio": 1.2660183058232928,
+        "ratio_second_half": 1.5230436545579231,
+        "spread_first_half": 0.23617124277166063,
+        "spread_noise": 0.18654646752368897
+      },
+      {
+        "countries": 23,
+        "max": 0.4012819779389648,
+        "median_beta": -0.04363150682316141,
+        "min": -0.6410069852467537,
+        "nace": "G",
+        "ratio": 1.5578166951073755,
+        "ratio_second_half": 0.7709852981784805,
+        "spread_first_half": 0.6075481059031554,
+        "spread_noise": 0.3899997398996157
+      },
+      {
+        "countries": 8,
+        "max": 0.4104918346251025,
+        "median_beta": 0.12945277851355882,
+        "min": -0.22498863835991376,
+        "nace": "G45",
+        "ratio": 0.24225297803699006,
+        "ratio_second_half": 1.3789132352468432,
+        "spread_first_half": 0.08086592490054699,
+        "spread_noise": 0.33380776391611344
+      },
+      {
+        "countries": 9,
+        "max": 0.2520879570680421,
+        "median_beta": -0.08979306777850248,
+        "min": -0.3433818809512866,
+        "nace": "G46",
+        "ratio": 3.617598611861725,
+        "ratio_second_half": 0.9864483893740312,
+        "spread_first_half": 0.4547029942987891,
+        "spread_noise": 0.12569194183342117
+      },
+      {
+        "countries": 9,
+        "max": 0.4220003402152523,
+        "median_beta": -0.00044959410220094686,
+        "min": -0.11989057642576344,
+        "nace": "G47",
+        "ratio": 1.0584445486175684,
+        "ratio_second_half": 0.60742426880541,
+        "spread_first_half": 0.4976497205291959,
+        "spread_noise": 0.4701708003307069
+      },
+      {
+        "countries": 22,
+        "max": 0.8435412207752385,
+        "median_beta": -0.06961806833932122,
+        "min": -0.44441908985893297,
+        "nace": "H",
+        "ratio": 0.5466246857308069,
+        "ratio_second_half": 1.0336989360697004,
+        "spread_first_half": 0.2329746585986919,
+        "spread_noise": 0.4262058861963354
+      },
+      {
+        "countries": 9,
+        "max": 0.37370452821979167,
+        "median_beta": -0.113450242211721,
+        "min": -0.4015299621575368,
+        "nace": "H49",
+        "ratio": 2.3089080646805282,
+        "ratio_second_half": 1.3018269889991108,
+        "spread_first_half": 0.2594476505122581,
+        "spread_noise": 0.11236811654870137
+      },
+      {
+        "countries": 8,
+        "max": 0.2729605308626102,
+        "median_beta": 0.013571085722112124,
+        "min": -0.6461406145249926,
+        "nace": "H50",
+        "ratio": 0.521310741283447,
+        "ratio_second_half": 0.6450448638552029,
+        "spread_first_half": 0.298588104225385,
+        "spread_noise": 0.5727641511668694
+      },
+      {
+        "countries": 7,
+        "max": 0.19671926426270184,
+        "median_beta": -0.026584357278138192,
+        "min": -0.188962295514806,
+        "nace": "H51",
+        "ratio": 1.7764742263835713,
+        "ratio_second_half": 0.4912331915665238,
+        "spread_first_half": 0.4926981600695107,
+        "spread_noise": 0.2773460784018877
+      },
+      {
+        "countries": 7,
+        "max": 0.82706054627599,
+        "median_beta": 0.013603082765478792,
+        "min": -0.19815783889753635,
+        "nace": "H52",
+        "ratio": 0.5534875467200553,
+        "ratio_second_half": 0.48753374034567426,
+        "spread_first_half": 0.2522411008954133,
+        "spread_noise": 0.4557303996994762
+      },
+      {
+        "countries": 6,
+        "max": 0.3074726878319349,
+        "median_beta": 0.06975312711802995,
+        "min": -0.11121696458642168,
+        "nace": "H53",
+        "ratio": 1.579009680218975,
+        "ratio_second_half": 0.511980997339141,
+        "spread_first_half": 0.32247080362339897,
+        "spread_noise": 0.20422344945895402
+      },
+      {
+        "countries": 23,
+        "max": 0.958077194864219,
+        "median_beta": 0.02427775360077884,
+        "min": -0.6924687037864182,
+        "nace": "I",
+        "ratio": 1.0042842015286557,
+        "ratio_second_half": 0.8208927270397856,
+        "spread_first_half": 0.4299464249906372,
+        "spread_noise": 0.42811230559656405
+      },
+      {
+        "countries": 23,
+        "max": 0.8211954226733903,
+        "median_beta": -0.022988653299930897,
+        "min": -0.47404863440375083,
+        "nace": "J",
+        "ratio": 0.8293651444066441,
+        "ratio_second_half": 0.8292807785237832,
+        "spread_first_half": 0.2848343307411454,
+        "spread_noise": 0.34343658238124475
+      },
+      {
+        "countries": 20,
+        "max": 0.2585516901175799,
+        "median_beta": -0.031242089656090575,
+        "min": -0.5070778856083267,
+        "nace": "J58-J60",
+        "ratio": 1.3935124759868462,
+        "ratio_second_half": 1.5249189346086605,
+        "spread_first_half": 0.1492051269994554,
+        "spread_noise": 0.10707125308927896
+      },
+      {
+        "countries": 17,
+        "max": 0.22364669109241755,
+        "median_beta": -0.024292913980696842,
+        "min": -0.2363097875120965,
+        "nace": "J61",
+        "ratio": 1.0810570669905653,
+        "ratio_second_half": 0.6175247964741841,
+        "spread_first_half": 0.24920951478351996,
+        "spread_noise": 0.23052392181040607
+      },
+      {
+        "countries": 19,
+        "max": 0.6205641110483355,
+        "median_beta": -0.0379780527807656,
+        "min": -0.32814354302299986,
+        "nace": "J62-J63",
+        "ratio": 1.0184529185037903,
+        "ratio_second_half": 0.2805665554978951,
+        "spread_first_half": 0.2896642586193199,
+        "spread_noise": 0.2844159541953749
+      },
+      {
+        "countries": 23,
+        "max": 0.4800466886944689,
+        "median_beta": -0.07202925981269499,
+        "min": -0.9066939616147989,
+        "nace": "K",
+        "ratio": 0.9540989336316481,
+        "ratio_second_half": 0.3720156983057452,
+        "spread_first_half": 0.5353874824962368,
+        "spread_noise": 0.5611446188901574
+      },
+      {
+        "countries": 21,
+        "max": 0.050193063895202304,
+        "median_beta": -0.030972173410721372,
+        "min": -0.12550077465038176,
+        "nace": "L",
+        "ratio": 1.244435164633711,
+        "ratio_second_half": 1.2475470057212295,
+        "spread_first_half": 0.03566670407279303,
+        "spread_noise": 0.0286609580687084
+      },
+      {
+        "countries": 22,
+        "max": 0.46804498628610214,
+        "median_beta": -0.0023795100558765235,
+        "min": -1.2538413154845296,
+        "nace": "M",
+        "ratio": 1.5521940223450392,
+        "ratio_second_half": 0.4776656132895795,
+        "spread_first_half": 0.5025624912377428,
+        "spread_noise": 0.32377556156186993
+      },
+      {
+        "countries": 23,
+        "max": 0.4628174913865421,
+        "median_beta": 0.02475239832938331,
+        "min": -0.8246066174495023,
+        "nace": "M-N",
+        "ratio": 1.5826549143516344,
+        "ratio_second_half": 1.3609084308548822,
+        "spread_first_half": 0.2910583764055922,
+        "spread_noise": 0.18390514177553982
+      },
+      {
+        "countries": 22,
+        "max": 0.6330261740705669,
+        "median_beta": 0.0647534346169904,
+        "min": -0.5155680283458769,
+        "nace": "MARKT",
+        "ratio": 1.0041444376921866,
+        "ratio_second_half": 0.5486587088634097,
+        "spread_first_half": 0.28125617638526856,
+        "spread_noise": 0.2800953387061291
+      },
+      {
+        "countries": 21,
+        "max": 0.4526446683777922,
+        "median_beta": 0.08991600334777622,
+        "min": -0.34114609208907526,
+        "nace": "MARKTxAG",
+        "ratio": 1.4664140928002092,
+        "ratio_second_half": 0.510207028254917,
+        "spread_first_half": 0.3580775390533163,
+        "spread_noise": 0.24418582773542832
+      },
+      {
+        "countries": 22,
+        "max": 0.22447655847795067,
+        "median_beta": -0.008973744097454113,
+        "min": -0.392483292069555,
+        "nace": "N",
+        "ratio": 1.6553845596569343,
+        "ratio_second_half": 1.788764302291783,
+        "spread_first_half": 0.20869879992254853,
+        "spread_noise": 0.12607269936467194
+      },
+      {
+        "countries": 23,
+        "max": 0.21948733789632732,
+        "median_beta": -0.08435231133296109,
+        "min": -0.458297720224189,
+        "nace": "O",
+        "ratio": 0.6096766574662358,
+        "ratio_second_half": 0.621868937619666,
+        "spread_first_half": 0.15502436286598037,
+        "spread_noise": 0.2542730822437067
+      },
+      {
+        "countries": 23,
+        "max": 0.20603057303806352,
+        "median_beta": -0.010253984010484832,
+        "min": -0.3269020541895632,
+        "nace": "O-Q",
+        "ratio": 1.4531779154332147,
+        "ratio_second_half": 1.0860683350549054,
+        "spread_first_half": 0.2905637176483197,
+        "spread_noise": 0.1999505460153502
+      },
+      {
+        "countries": 23,
+        "max": 0.20767607349979966,
+        "median_beta": -0.02815439956298829,
+        "min": -0.4417934180900696,
+        "nace": "P",
+        "ratio": 0.453256499080445,
+        "ratio_second_half": 0.8899071664006472,
+        "spread_first_half": 0.07310089991289737,
+        "spread_noise": 0.16127931990209202
+      },
+      {
+        "countries": 23,
+        "max": 0.5333852601456502,
+        "median_beta": -0.01319466635571118,
+        "min": -0.6966223434018716,
+        "nace": "Q",
+        "ratio": 0.7823474358764074,
+        "ratio_second_half": 0.5351552294674312,
+        "spread_first_half": 0.2753789626249509,
+        "spread_noise": 0.3519906246212256
+      },
+      {
+        "countries": 15,
+        "max": 0.25813074981700623,
+        "median_beta": 0.0051441069847042034,
+        "min": -0.8032132048938015,
+        "nace": "Q86",
+        "ratio": 0.8653817321661171,
+        "ratio_second_half": 1.519760795852419,
+        "spread_first_half": 0.1347822448268776,
+        "spread_noise": 0.15574889071150977
+      },
+      {
+        "countries": 14,
+        "max": 0.5431515954336664,
+        "median_beta": -0.011087470114995059,
+        "min": -0.5460469752820888,
+        "nace": "Q87-Q88",
+        "ratio": 1.1187602129163934,
+        "ratio_second_half": 1.1807994260142716,
+        "spread_first_half": 0.16136275583438645,
+        "spread_noise": 0.1442335488618644
+      },
+      {
+        "countries": 22,
+        "max": 0.6324397943966115,
+        "median_beta": -0.008514197678264068,
+        "min": -0.43059287440564614,
+        "nace": "R",
+        "ratio": 0.7203780129247926,
+        "ratio_second_half": 0.9621286075350933,
+        "spread_first_half": 0.2640025141803965,
+        "spread_noise": 0.36647775118583237
+      },
+      {
+        "countries": 22,
+        "max": 0.7073844853419337,
+        "median_beta": 0.08528597635707823,
+        "min": -0.4838673451831295,
+        "nace": "R-S",
+        "ratio": 0.8801552225087536,
+        "ratio_second_half": 0.6196086523878428,
+        "spread_first_half": 0.40573088435653404,
+        "spread_noise": 0.4609765118476007
+      },
+      {
+        "countries": 22,
+        "max": 0.42665739883200915,
+        "median_beta": -1.1007082244270061e-08,
+        "min": -0.9648628825389246,
+        "nace": "S",
+        "ratio": 0.7236426117802885,
+        "ratio_second_half": 0.5002233994367316,
+        "spread_first_half": 0.32811143173745344,
+        "spread_noise": 0.45341640527530763
+      },
+      {
+        "countries": 30,
+        "max": 0.513295678132244,
+        "median_beta": -0.005019680841863793,
+        "min": -0.3347574678433715,
+        "nace": "TOT",
+        "ratio": 1.1198832470237732,
+        "ratio_second_half": 0.6050703204298036,
+        "spread_first_half": 0.3798715447880527,
+        "spread_noise": 0.3392063822703017
+      },
+      {
+        "countries": 22,
+        "max": 0.3968751638982603,
+        "median_beta": -0.03525834214194522,
+        "min": -0.35768276324882886,
+        "nace": "TOT_IND",
+        "ratio": 1.1203643011465165,
+        "ratio_second_half": 0.5208796278412204,
+        "spread_first_half": 0.3463021996213762,
+        "spread_noise": 0.30909785260650524
+      }
+    ],
+    "series_dropped": [
+      {
+        "geo": "LU",
+        "nace": "A",
+        "years": 4
+      },
+      {
+        "geo": "UK",
+        "nace": "A",
+        "years": 2
+      },
+      {
+        "geo": "LV",
+        "nace": "B",
+        "years": 5
+      },
+      {
+        "geo": "SK",
+        "nace": "B",
+        "years": 3
+      },
+      {
+        "geo": "EU11",
+        "nace": "C10-C12",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C10-C12",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C10-C12",
+        "years": 6
+      },
+      {
+        "geo": "EL",
+        "nace": "C13-C15",
+        "years": 3
+      },
+      {
+        "geo": "EU11",
+        "nace": "C13-C15",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C13-C15",
+        "years": 5
+      },
+      {
+        "geo": "FI",
+        "nace": "C13-C15",
+        "years": 3
+      },
+      {
+        "geo": "LU",
+        "nace": "C13-C15",
+        "years": 10
+      },
+      {
+        "geo": "SE",
+        "nace": "C13-C15",
+        "years": 6
+      },
+      {
+        "geo": "EU11",
+        "nace": "C16-C18",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C16-C18",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C16-C18",
+        "years": 6
+      },
+      {
+        "geo": "EU11",
+        "nace": "C19",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C19",
+        "years": 5
+      },
+      {
+        "geo": "FI",
+        "nace": "C19",
+        "years": 4
+      },
+      {
+        "geo": "SE",
+        "nace": "C19",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "C19",
+        "years": 1
+      },
+      {
+        "geo": "LV",
+        "nace": "C20",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "C20",
+        "years": 1
+      },
+      {
+        "geo": "SK",
+        "nace": "C20-C21",
+        "years": 1
+      },
+      {
+        "geo": "FI",
+        "nace": "C21",
+        "years": 3
+      },
+      {
+        "geo": "NL",
+        "nace": "C21",
+        "years": 9
+      },
+      {
+        "geo": "SK",
+        "nace": "C21",
+        "years": 2
+      },
+      {
+        "geo": "UK",
+        "nace": "C21",
+        "years": 4
+      },
+      {
+        "geo": "EU11",
+        "nace": "C22-C23",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C22-C23",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C22-C23",
+        "years": 6
+      },
+      {
+        "geo": "EU11",
+        "nace": "C24-C25",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C24-C25",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C24-C25",
+        "years": 6
+      },
+      {
+        "geo": "EL",
+        "nace": "C26",
+        "years": 4
+      },
+      {
+        "geo": "LV",
+        "nace": "C26",
+        "years": 10
+      },
+      {
+        "geo": "SE",
+        "nace": "C26",
+        "years": 6
+      },
+      {
+        "geo": "EU11",
+        "nace": "C26-C27",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C26-C27",
+        "years": 5
+      },
+      {
+        "geo": "LV",
+        "nace": "C26-C27",
+        "years": 10
+      },
+      {
+        "geo": "SE",
+        "nace": "C26-C27",
+        "years": 6
+      },
+      {
+        "geo": "SE",
+        "nace": "C27",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "C27",
+        "years": 7
+      },
+      {
+        "geo": "EU11",
+        "nace": "C28",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C28",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C28",
+        "years": 6
+      },
+      {
+        "geo": "US",
+        "nace": "C28",
+        "years": 1
+      },
+      {
+        "geo": "EU11",
+        "nace": "C29-C30",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C29-C30",
+        "years": 5
+      },
+      {
+        "geo": "FI",
+        "nace": "C29-C30",
+        "years": 3
+      },
+      {
+        "geo": "LV",
+        "nace": "C29-C30",
+        "years": 5
+      },
+      {
+        "geo": "NL",
+        "nace": "C29-C30",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C29-C30",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "C29-C30",
+        "years": 4
+      },
+      {
+        "geo": "EU11",
+        "nace": "C31-C33",
+        "years": 5
+      },
+      {
+        "geo": "EU12",
+        "nace": "C31-C33",
+        "years": 5
+      },
+      {
+        "geo": "SE",
+        "nace": "C31-C33",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "D",
+        "years": 3
+      },
+      {
+        "geo": "SK",
+        "nace": "G45",
+        "years": 4
+      },
+      {
+        "geo": "SK",
+        "nace": "H",
+        "years": 4
+      },
+      {
+        "geo": "SK",
+        "nace": "H49",
+        "years": 4
+      },
+      {
+        "geo": "CZ",
+        "nace": "H50",
+        "years": 5
+      },
+      {
+        "geo": "FI",
+        "nace": "H51",
+        "years": 3
+      },
+      {
+        "geo": "SK",
+        "nace": "H51",
+        "years": 3
+      },
+      {
+        "geo": "SK",
+        "nace": "H52",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "H53",
+        "years": 6
+      },
+      {
+        "geo": "SK",
+        "nace": "J61",
+        "years": 3
+      },
+      {
+        "geo": "EL",
+        "nace": "L",
+        "years": 2
+      },
+      {
+        "geo": "LV",
+        "nace": "L",
+        "years": 5
+      },
+      {
+        "geo": "UK",
+        "nace": "MARKT",
+        "years": 1
+      },
+      {
+        "geo": "AT",
+        "nace": "Q87-Q88",
+        "years": 11
+      },
+      {
+        "geo": "AT",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "CZ",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "DE",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "DK",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "EL",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "FI",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "FR",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "IT",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "LU",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "NL",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "SI",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "SK",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "UK",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "US",
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "CY",
+        "nace": "TOT",
+        "years": 7
+      },
+      {
+        "geo": "UK",
+        "nace": "TOT",
+        "years": 1
+      },
+      {
+        "geo": "UK",
+        "nace": "TOT_IND",
+        "years": 1
+      }
+    ]
+  },
+  "stage": "B101"
+}

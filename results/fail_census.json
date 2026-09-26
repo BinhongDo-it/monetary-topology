@@ -1,0 +1,72 @@
+{
+  "by_kind": {
+    "bookkeeping": 6,
+    "instrument": 23,
+    "known_answer": 2,
+    "own_reading": 66,
+    "premise": 1,
+    "rival": 0
+  },
+  "config": {
+    "rule_count": 16,
+    "scope": "worktree under results/ minus git-ignored minus .expired",
+    "void_words": "\\b(void|not evaluated|does not run|no object|nothing to pair|not adjudicable|not run|not reproduced|not tested)\\b"
+  },
+  "duplicate_record_names": {
+    "a15_transcribed_vs_implied.json": [
+      "results/a15_transcribed_vs_implied.json",
+      "results/subset/a15_transcribed_vs_implied.json"
+    ],
+    "a16_hub_debt.json": [
+      "results/a16_hub_debt.json",
+      "results/subset/a16_hub_debt.json"
+    ],
+    "a16_need_scan.json": [
+      "results/a16_need_scan.json",
+      "results/subset/a16_need_scan.json"
+    ],
+    "a17_edge_cut.json": [
+      "results/a17_edge_cut.json",
+      "results/subset/a17_edge_cut.json"
+    ],
+    "a18_park.json": [
+      "results/a18_park.json",
+      "results/subset/a18_park.json"
+    ],
+    "a18_policy_paths.json": [
+      "results/a18_policy_paths.json",
+      "results/subset/a18_policy_paths.json"
+    ],
+    "b1_theorem.json": [
+      "results/b1_theorem.json",
+      "results/subset/b1_theorem.json"
+    ],
+    "b2_placebo_pool_width.json": [
+      "results/b2_placebo_pool_width.json",
+      "results/subset/b2_placebo_pool_width.json"
+    ]
+  },
+  "input": {
+    "criteria": 135,
+    "outside_criteria_array": 10,
+    "passed_false": 145,
+    "readings_that_came_out_false": 98,
+    "record_files": 526,
+    "self_declared_not_evaluated": 37,
+    "void_said_only_on_a_field": 3
+  },
+  "rival_criteria": 22,
+  "rival_split_value_types": {
+    "count": 6,
+    "no split": 10,
+    "prose": 18
+  },
+  "stage": "FAIL-CENSUS",
+  "uncovered": [],
+  "verdict_census": {
+    "absent": 1,
+    "fail": 122,
+    "pass": 1187,
+    "undecided": 34
+  }
+}

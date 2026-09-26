@@ -1,0 +1,309 @@
+{
+ "config": {
+  "bisection_steps": 60,
+  "jg_caps": [
+   0,
+   25,
+   50,
+   100,
+   200
+  ],
+  "jg_wages": [
+   0.5,
+   0.9,
+   1.0,
+   1.1,
+   2.0
+  ],
+  "jg_workers": 100,
+  "max_periods": 4,
+  "n_economies": 200,
+  "n_tax": 400,
+  "seed": 0,
+  "sim": {
+   "G": 20.0,
+   "H0": 0.0,
+   "W": 1.0,
+   "alpha1": 0.6,
+   "alpha2": 0.4,
+   "theta": 0.2
+  },
+  "sim_digits": 6,
+  "sim_periods": 100,
+  "sim_steady": {
+   "H": 80.0,
+   "Y": 100.0,
+   "YD": 80.0
+  },
+  "tol": 1e-12,
+  "tol_cycle": 1e-12,
+  "tol_switch": 1e-09,
+  "wage_probes": [
+   0.1,
+   0.5,
+   0.9,
+   0.99,
+   1.0,
+   1.01,
+   1.1,
+   2.0,
+   10.0
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "Model SIM, 100 periods from zero stocks, G = 20, theta = 0.2, solved from the model's own seven equations. At every date the households' stock of the unit equals the government's cumulative deficit within 1e-12, and it never goes negative, so cumulative spending is never behind cumulative taxes: in the first period the government spends 20 and taxes 7.6923. In the stationary state the flows balance, taxes 20.0000 against spending 20, while the stock stays at the deficit already run, 80.0000 against the book's 80. **A balanced flow at a positive stock is Theorem 11(1) with the cut identity at work**",
+   "kind": "known_answer",
+   "name": "B66-8",
+   "passed": true,
+   "statement": "Model SIM read through Theorem 11(1): the stock of the unit is the cumulative deficit, and the stationary state balances the flows at a positive stock"
+  },
+  {
+   "detail": "200 random economies of 3 to 7 private holders over 485 periods in all, with the unit issued only by the outside node, taxes drawn as a share of what each holder has and payments between holders drawn from the same. At every date the stock held privately equals cumulative spending less cumulative taxes within 1e-12, no stock goes below zero, and cumulative taxes never run ahead of cumulative spending. **The bound binds rather than merely holding**: in 20 of 20 runs that tax before anything has been issued, a holder's stock goes negative, which is what the nonnegativity rules out",
+   "kind": "instrument",
+   "name": "B66-9a",
+   "passed": true,
+   "statement": "Theorem 11(1) on random economies: the cut identity, and what it takes to tax"
+  },
+  {
+   "detail": "400 draws of a price and a penalty, both uniform on [0.1, 3]. The square through the two discharge routes sums to log(kappa / p) within 1e-12 on every draw. **The obligation is a sink**: no edge leaves it, and no directed cycle is positive at any price, in 400 of 400. Open a refund route, the one thing that would make the square walkable, and a positive cycle appears exactly below the penalty: the switching price found by bisection is the penalty itself within 1e-09, in 100 of 100. With a second acceptable unit, the route taken is the cheapest of the three in 400 of 400, by the square sums and by the costs alike",
+   "kind": "instrument",
+   "name": "B66-9b",
+   "passed": true,
+   "statement": "Theorem 11(2) and (3): the discharge square, its sink, and two acceptable units"
+  },
+  {
+   "detail": "The guarantee posts an edge one way: it buys an hour at the guarantee's wage and sells none. **With a labour position that does not pass between classes, that edge lies on no cycle and no directed cycle is positive at any market wage**, from a tenth of the guarantee's to ten times it. **With an agent edge at the labour position the square closes**: a directed cycle is positive exactly below the guarantee's wage, the switch found by bisection being the guarantee's wage at par and the guarantee's wage over one plus the cost of passing hours when that costs something, each within 1e-09, and never positive above. **One-wayness alone decides nothing**: with hours passing in one direction only, from the employer to the admitted class, every edge of that cycle is one-way and the switch is the guarantee's wage all the same. With the programme's edge bounded, nothing is positive again. On the flow side, with 100 workers and a cap of 0, 25, 50, 100, 200, the hours that reach an employer below the guarantee's wage are what the programme cannot take, in every cell of the grid; the cell where the two wages are equal is reported and not judged",
+   "kind": "instrument",
+   "name": "B66-9c",
+   "passed": true,
+   "statement": "Corollary 11.1: the guarantee's edge in five configurations, and the flow side"
+  }
+ ],
+ "mapping": {
+  "B66-8": "read back -> PASS; not read back -> FAIL, and the code is fixed first",
+  "B66-9": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed",
+  "B66-9c flow grid": "below the guarantee's wage and above it are read; the cell where the two are equal is reported and mapped to no verdict"
+ },
+ "report": {
+  "B66-8": {
+   "book_stock": 80.0,
+   "identity_below": 1e-12,
+   "periods": 100,
+   "stationary_stock": 79.999996,
+   "stationary_tax": 19.999999,
+   "within": 0.0001
+  },
+  "B66-9a": {
+   "economies": 200,
+   "identity_below": 1e-12,
+   "periods": 485,
+   "taxed_first_negative": 20,
+   "taxed_first_runs": 20
+  },
+  "B66-9b": {
+   "cheapest_route": 400,
+   "draws": 400,
+   "sink_clean": 400,
+   "square_below": 1e-12,
+   "switch_at_penalty": 100,
+   "switch_below": 1e-09
+  },
+  "B66-9c": {
+   "caps": [
+    0,
+    25,
+    50,
+    100,
+    200
+   ],
+   "grid": [
+    {
+     "cap": 0,
+     "to_employer": 100,
+     "verdict": "the programme takes what it can",
+     "wage": 0.5
+    },
+    {
+     "cap": 0,
+     "to_employer": 100,
+     "verdict": "the programme takes what it can",
+     "wage": 0.9
+    },
+    {
+     "cap": 0,
+     "to_employer": null,
+     "verdict": "not decided",
+     "wage": 1.0
+    },
+    {
+     "cap": 0,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 1.1
+    },
+    {
+     "cap": 0,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 2.0
+    },
+    {
+     "cap": 25,
+     "to_employer": 75,
+     "verdict": "the programme takes what it can",
+     "wage": 0.5
+    },
+    {
+     "cap": 25,
+     "to_employer": 75,
+     "verdict": "the programme takes what it can",
+     "wage": 0.9
+    },
+    {
+     "cap": 25,
+     "to_employer": null,
+     "verdict": "not decided",
+     "wage": 1.0
+    },
+    {
+     "cap": 25,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 1.1
+    },
+    {
+     "cap": 25,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 2.0
+    },
+    {
+     "cap": 50,
+     "to_employer": 50,
+     "verdict": "the programme takes what it can",
+     "wage": 0.5
+    },
+    {
+     "cap": 50,
+     "to_employer": 50,
+     "verdict": "the programme takes what it can",
+     "wage": 0.9
+    },
+    {
+     "cap": 50,
+     "to_employer": null,
+     "verdict": "not decided",
+     "wage": 1.0
+    },
+    {
+     "cap": 50,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 1.1
+    },
+    {
+     "cap": 50,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 2.0
+    },
+    {
+     "cap": 100,
+     "to_employer": 0,
+     "verdict": "the programme takes what it can",
+     "wage": 0.5
+    },
+    {
+     "cap": 100,
+     "to_employer": 0,
+     "verdict": "the programme takes what it can",
+     "wage": 0.9
+    },
+    {
+     "cap": 100,
+     "to_employer": null,
+     "verdict": "not decided",
+     "wage": 1.0
+    },
+    {
+     "cap": 100,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 1.1
+    },
+    {
+     "cap": 100,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 2.0
+    },
+    {
+     "cap": 200,
+     "to_employer": 0,
+     "verdict": "the programme takes what it can",
+     "wage": 0.5
+    },
+    {
+     "cap": 200,
+     "to_employer": 0,
+     "verdict": "the programme takes what it can",
+     "wage": 0.9
+    },
+    {
+     "cap": 200,
+     "to_employer": null,
+     "verdict": "not decided",
+     "wage": 1.0
+    },
+    {
+     "cap": 200,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 1.1
+    },
+    {
+     "cap": 200,
+     "to_employer": 100,
+     "verdict": "every hour goes to the employer",
+     "wage": 2.0
+    }
+   ],
+   "shapes": {
+    "hours passing at a cost": {
+     "expected": 0.8,
+     "match": true,
+     "positive_below_only": true,
+     "switch": 0.8
+    },
+    "hours passing at par": {
+     "expected": 1.0,
+     "match": true,
+     "positive_below_only": true,
+     "switch": 1.0
+    },
+    "hours passing one way, employer to the admitted class": {
+     "expected": 1.0,
+     "match": true,
+     "positive_below_only": true,
+     "switch": 1.0
+    },
+    "hours that do not pass between classes": {
+     "expected": null,
+     "match": true,
+     "positive_below_only": false,
+     "switch": null
+    },
+    "the programme bounded": {
+     "expected": null,
+     "match": true,
+     "positive_below_only": false,
+     "switch": null
+    }
+   },
+   "switch_below": 1e-09,
+   "workers": 100
+  }
+ },
+ "stage": "B66"
+}

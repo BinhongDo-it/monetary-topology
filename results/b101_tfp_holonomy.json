@@ -1,0 +1,333 @@
+{
+  "config": {
+    "carrier": "EU KLEMS & INTANProd, growth accounts BASIC",
+    "cells": 22324,
+    "perturb_reps": 3,
+    "perturbations": [
+      1e-06,
+      0.0001,
+      0.001,
+      0.01
+    ],
+    "seed": 101,
+    "series": 1057,
+    "series_used": [
+      "VA_Q",
+      "LAB_QI",
+      "CAP_QI",
+      "VA_CP",
+      "LAB"
+    ],
+    "series_with_no_mix_movement": 27,
+    "share": "LAB / VA_CP",
+    "smoothing": "sigma = a + b*ln(K/L), fitted within each series",
+    "source_file": [
+      "growth accounts basic.csv",
+      "204918897",
+      "1747602"
+    ],
+    "why_basic": "extended carries no value-added level series, only VAadj_G on a value-added concept that capitalises intangibles national accounts do not; a different Y, so a different definition",
+    "windows": [
+      2,
+      3,
+      5,
+      10,
+      26
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "7,951 adjacent pairs. midpoint share: worst |w(j,k)+w(k,j)| = 4.441e-16. base-period share: 1.497e-01. Half of this criterion has to fail and it is the base-period half: a weight that is not symmetric in the endpoints does not give a cochain, so nothing can be built on it.",
+      "kind": "instrument",
+      "name": "B101-2  the edge function is antisymmetric, and the base-share form is not",
+      "passed": true
+    },
+    {
+      "detail": "chaining the published bilateral formula and sweeping the area in (ln(L/K), alpha) are computed without a shared step, and the second never reads Y. Worst difference by window: n=2: 9.992e-16, n=3: 5.967e-16, n=5: 7.598e-16, n=10: 9.021e-16, n=26: 1.166e-15",
+      "kind": "instrument",
+      "name": "B101-1  the closed form: the chained index equals the swept area",
+      "passed": true
+    },
+    {
+      "detail": "counts printed, no threshold on an estimator. Non-zero above 1e-12 by window: n=2: 99.8% of 20,206, n=3: 99.8% of 19,169, n=5: 99.8% of 17,125, n=10: 99.8% of 12,247, n=26: 100.0% of 445. Median |drift| runs 2.588e-04 at n=2 to 9.481e-03 at n=26. Floor measured not declared: a relative shock of 1e-2 to every published quantity moves the n=10 median by a factor 1.05, and the construction floor is 1.665e-16, so the reading stands 1.7e+13 times above it.",
+      "kind": "own_reading",
+      "name": "B101-4  within one country-industry the chained index does not equal the direct one",
+      "passed": true
+    },
+    {
+      "detail": "sigma = a + b*ln(K/L) is affine in the log mix along every path inside a series, whatever fits the two coefficients, so the trapezoid sum telescopes. Smoothed: n=2: median 8.327e-17, 0.0% non-zero, n=3: median 9.368e-17, 0.0% non-zero, n=5: median 1.110e-16, 0.0% non-zero, n=10: median 1.665e-16, 0.0% non-zero, n=26: median 2.220e-16, 0.0% non-zero. This is the algebra checked on the panel rather than on synthetic cells, and it is also the reading: the smoothing sets the drift to zero rather than lowering it.",
+      "kind": "instrument",
+      "name": "B101-5  under GRV's own share form the drift is not reduced, it is exactly zero",
+      "passed": true
+    },
+    {
+      "cite": "Griffith, Redding & Van Reenen 2004, Review of Economics and Statistics 86(4): 883-895, equation 9 and the share-smoothing paragraph",
+      "detail": "the point prediction is exact zero and it fails in 99.8% of 12,247 ten-year windows, and in 100.0% of the twenty-six-year ones.",
+      "grid": "B",
+      "grid_note": {
+        "A": "the index-number literature knows that chained indices drift and measures it, which B79 already recorded as an A-cell reading and this does not change. What is not in that literature is the next criterion: their share smoothing does not reduce the drift, it sets it to exactly zero.",
+        "B": "per 0b, the two readings written separately before the cell is named. Ours: no scalar on the cells reproduces the observed edges, so a closed path does not return to where it started. Theirs: a translog technology makes the share affine in the log mix, so it does. Reality on this panel: non-zero in 99.8% of ten-year windows and 100% of twenty-six-year ones. Ours holds, theirs does not, so B."
+      },
+      "kind": "rival",
+      "name": "B101-6  a translog technology makes this index transitive",
+      "passed": true,
+      "rival_entailment": "an affine share makes the trapezoid sum around any closed path telescope exactly, so the chained index equals the direct index over the same window to machine precision",
+      "rival_premise": "value added is A*Phi(L,K) with Phi translog, so each factor's share of value added is affine in the log factor ratio",
+      "rival_shape": "point prediction"
+    },
+    {
+      "detail": "Void: not evaluated. LAB_QI and CAP_QI are indices based at 100 in 2015 in every series, so ln(L/K) reads exactly zero in all 1,053 cells of 2015 (max |ln(L/K)| there is 0.00e+00). The cross-country level is not in this file, so equations 10 and 11 cannot be built from it and the star half of the square has no object here. Criteria that depend on it are not run rather than failed.",
+      "kind": "premise",
+      "name": "B101-8  the cross-country half has an object in this file",
+      "passed": null,
+      "void": true
+    },
+    {
+      "detail": "station documents, the ledger section, and the theory note's pointer to this station.",
+      "kind": "bookkeeping",
+      "name": "B101-7  the write-backs",
+      "passed": true
+    }
+  ],
+  "report": {
+    "antisymmetry": {
+      "base_period": 0.149694314658359,
+      "midpoint": 4.440892098500626e-16,
+      "pairs": 7951
+    },
+    "closed_form": {
+      "10": 9.020562075079397e-16,
+      "2": 9.992007221626409e-16,
+      "26": 1.1657341758564144e-15,
+      "3": 5.967448757360216e-16,
+      "5": 7.598088824778415e-16
+    },
+    "degenerate_series": [
+      {
+        "geo": "UK",
+        "mix_spread": 0.011140562834008272,
+        "nace": "A",
+        "years": 2
+      },
+      {
+        "geo": "SE",
+        "mix_spread": 0.0553299223729596,
+        "nace": "C19",
+        "years": 2
+      },
+      {
+        "geo": "SK",
+        "mix_spread": 0.0,
+        "nace": "C19",
+        "years": 1
+      },
+      {
+        "geo": "SK",
+        "mix_spread": 0.0,
+        "nace": "C20",
+        "years": 1
+      },
+      {
+        "geo": "SK",
+        "mix_spread": 0.0,
+        "nace": "C20-C21",
+        "years": 1
+      },
+      {
+        "geo": "SK",
+        "mix_spread": 0.007570801041400635,
+        "nace": "C21",
+        "years": 2
+      },
+      {
+        "geo": "US",
+        "mix_spread": 0.0,
+        "nace": "C28",
+        "years": 1
+      },
+      {
+        "geo": "FI",
+        "mix_spread": 0.0,
+        "nace": "H51",
+        "years": 1
+      },
+      {
+        "geo": "SE",
+        "mix_spread": 2.3752804102368477,
+        "nace": "H51",
+        "years": 2
+      },
+      {
+        "geo": "EL",
+        "mix_spread": 0.21632006934464165,
+        "nace": "L",
+        "years": 2
+      },
+      {
+        "geo": "UK",
+        "mix_spread": 0.0,
+        "nace": "MARKT",
+        "years": 1
+      },
+      {
+        "geo": "AT",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "CZ",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "DE",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "DK",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "EL",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "FI",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "FR",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "IT",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "LU",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "NL",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "SI",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "SK",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "UK",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "US",
+        "mix_spread": 0.0,
+        "nace": "T",
+        "years": 1
+      },
+      {
+        "geo": "UK",
+        "mix_spread": 0.0,
+        "nace": "TOT",
+        "years": 1
+      },
+      {
+        "geo": "UK",
+        "mix_spread": 0.0,
+        "nace": "TOT_IND",
+        "years": 1
+      }
+    ],
+    "drift": {
+      "10": {
+        "raw_max": 0.19419472896755927,
+        "raw_median": 0.0027777191254713778,
+        "raw_p90": 0.017036615245279205,
+        "raw_share_nonzero": 0.9977953784600311,
+        "smoothed_max": 1.3322676295501878e-15,
+        "smoothed_median": 1.6653345369377348e-16,
+        "smoothed_share_nonzero": 0.0,
+        "windows": 12247
+      },
+      "2": {
+        "raw_max": 0.11581484794553287,
+        "raw_median": 0.00025878681908868273,
+        "raw_p90": 0.002172449869741135,
+        "raw_share_nonzero": 0.9976739582302286,
+        "smoothed_max": 4.510281037539698e-16,
+        "smoothed_median": 8.326672684688674e-17,
+        "smoothed_share_nonzero": 0.0,
+        "windows": 20206
+      },
+      "26": {
+        "raw_max": 0.21387467449933473,
+        "raw_median": 0.00948069295209436,
+        "raw_p90": 0.05016424865736892,
+        "raw_share_nonzero": 1.0,
+        "smoothed_max": 1.0269562977782698e-15,
+        "smoothed_median": 2.220446049250313e-16,
+        "smoothed_share_nonzero": 0.0,
+        "windows": 445
+      },
+      "3": {
+        "raw_max": 0.14807080223138191,
+        "raw_median": 0.00049771506080247,
+        "raw_p90": 0.0038821570393432875,
+        "raw_share_nonzero": 0.9978089623871876,
+        "smoothed_max": 6.175615574477433e-16,
+        "smoothed_median": 9.367506770274758e-17,
+        "smoothed_share_nonzero": 0.0,
+        "windows": 19169
+      },
+      "5": {
+        "raw_max": 0.17126901465178346,
+        "raw_median": 0.0010595082117487442,
+        "raw_p90": 0.007262532696193792,
+        "raw_share_nonzero": 0.9977810218978103,
+        "smoothed_max": 6.140921104957897e-16,
+        "smoothed_median": 1.1102230246251565e-16,
+        "smoothed_share_nonzero": 0.0,
+        "windows": 17125
+      }
+    },
+    "floor": {
+      "construction_floor_n10": 1.6653345369377348e-16,
+      "perturbed": {
+        "0.0001": 0.0027800207623245167,
+        "0.001": 0.002789451442111908,
+        "0.01": 0.002926309950336344,
+        "1e-06": 0.002777763022170266
+      },
+      "unperturbed_median_n10": 0.0027777191254713778
+    }
+  },
+  "stage": "B101"
+}

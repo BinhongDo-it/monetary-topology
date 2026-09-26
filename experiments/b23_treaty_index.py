@@ -42,8 +42,16 @@ STAT = {"Australia": 30.0, "Austria": 27.5, "Belgium": 30.0, "Canada": 25.0,
         "Netherlands": 15.0, "New Zealand": 30.0, "Norway": 25.0,
         "South Korea": 20.0, "Spain": 19.0, "Sweden": 30.0,
         "Switzerland": 35.0, "United Kingdom": 0.0}
-# US treaty portfolio dividend ceiling, Article 10(2)(b), reciprocal by construction
-TREATY = {"Australia": 15.0, "Austria": 15.0, "Belgium": 5.0, "Canada": 15.0,
+# US treaty portfolio dividend ceiling, Article 10(2)(b), reciprocal by construction.
+#
+# Belgium read 5.0 until 2026-09-13 and that is the wrong subparagraph. The 2006
+# convention's Article 10(2) has "a) 5 percent ... if the beneficial owner is a
+# company that owns directly at least 10 percent of the voting stock" and
+# "b) 15 percent ... in all other cases". The class this file computes on is an
+# ordinary portfolio holder, which is (b). Every other entry here is already the
+# (b) rate or that treaty's own lower one, so the entry was the odd one out and
+# the line above it named the right subparagraph the whole time.
+TREATY = {"Australia": 15.0, "Austria": 15.0, "Belgium": 15.0, "Canada": 15.0,
           "China": 10.0, "Denmark": 15.0, "France": 15.0, "Germany": 15.0,
           "India": 25.0, "Ireland": 15.0, "Italy": 15.0, "Japan": 10.0,
           "Netherlands": 15.0, "New Zealand": 15.0, "Norway": 15.0,

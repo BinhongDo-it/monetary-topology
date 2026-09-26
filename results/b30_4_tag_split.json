@@ -1,0 +1,3648 @@
+{
+  "by_class": {
+    "market": 151,
+    "not_market": 292,
+    "unclear": 73
+  },
+  "by_subkind": {
+    "aesthetic": 83,
+    "engine": 25,
+    "hardware": 31,
+    "input": 10,
+    "ip": 24,
+    "jam": 44,
+    "policy": 11,
+    "process": 22,
+    "scope": 42
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "A classification, not a reading. No price has been pulled on this carrier and none entered this file.",
+  "input": "results/b30_4_itch_tag_census.json",
+  "prices_seen_when_classifying": false,
+  "rows": [
+    {
+      "class": "market",
+      "count": 114000,
+      "name": "Horror",
+      "slug": "horror",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 89400,
+      "name": "Arcade",
+      "slug": "arcade",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 85600,
+      "name": "Survival",
+      "slug": "survival",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 76100,
+      "name": "Fantasy",
+      "slug": "fantasy",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 73300,
+      "name": "Casual",
+      "slug": "casual",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 46400,
+      "name": "Interactive Fiction",
+      "slug": "interactive-fiction",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 43000,
+      "name": "Space",
+      "slug": "space",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 39900,
+      "name": "Sci-fi",
+      "slug": "science-fiction",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 30400,
+      "name": "Music",
+      "slug": "music",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 27900,
+      "name": "Roguelike",
+      "slug": "roguelike",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 25000,
+      "name": "Fighting",
+      "slug": "fighting",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 24800,
+      "name": "Exploration",
+      "slug": "exploration",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 24400,
+      "name": "Card Game",
+      "slug": "card-game",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 24300,
+      "name": "Racing",
+      "slug": "racing",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 21500,
+      "name": "Psychological Horror",
+      "slug": "psychological-horror",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 20400,
+      "name": "Point & Click",
+      "slug": "point-and-click",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 20400,
+      "name": "Top down shooter",
+      "slug": "top-down-shooter",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 19400,
+      "name": "Mystery",
+      "slug": "mystery",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 19400,
+      "name": "Rhythm",
+      "slug": "rhythm",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 16600,
+      "name": "Text based",
+      "slug": "text-based",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 16100,
+      "name": "Survival Horror",
+      "slug": "survival-horror",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 16000,
+      "name": "Puzzle-Platformer",
+      "slug": "puzzle-platformer",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 15900,
+      "name": "Female Protagonist",
+      "slug": "female-protagonist",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 15900,
+      "name": "Romance",
+      "slug": "romance",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 15600,
+      "name": "Shoot 'Em Up",
+      "slug": "shoot-em-up",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 15400,
+      "name": "FPS",
+      "slug": "fps",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 14800,
+      "name": "Bullet Hell",
+      "slug": "bullet-hell",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 14600,
+      "name": "Action-Adventure",
+      "slug": "action-adventure",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 14600,
+      "name": "Tower Defense",
+      "slug": "tower-defense",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 14400,
+      "name": "Clicker",
+      "slug": "clicker",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 14100,
+      "name": "Dungeon Crawler",
+      "slug": "dungeon-crawler",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 13000,
+      "name": "LGBT",
+      "slug": "lgbt",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 12300,
+      "name": "3D Platformer",
+      "slug": "3d-platformer",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 12000,
+      "name": "Roguelite",
+      "slug": "roguelite",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 11600,
+      "name": "Medieval",
+      "slug": "medieval",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 11600,
+      "name": "Zombies",
+      "slug": "zombies",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 11500,
+      "name": "minigames",
+      "slug": "minigames",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 10900,
+      "name": "Runner",
+      "slug": "runner",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 9784,
+      "name": "Walking simulator",
+      "slug": "walking-simulator",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 9462,
+      "name": "Dark Fantasy",
+      "slug": "dark-fantasy",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 9459,
+      "name": "Cyberpunk",
+      "slug": "cyberpunk",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 9374,
+      "name": "Idle",
+      "slug": "idle",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 9020,
+      "name": "Boss battle",
+      "slug": "boss-battle",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 8773,
+      "name": "Board Game",
+      "slug": "board-game",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 8643,
+      "name": "Speedrun",
+      "slug": "speedrun",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 8220,
+      "name": "Management",
+      "slug": "management",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 8189,
+      "name": "maze",
+      "slug": "maze",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 7880,
+      "name": "Metroidvania",
+      "slug": "metroidvania",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 7622,
+      "name": "infinite-runner",
+      "slug": "infinite-runner",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 7614,
+      "name": "Dice",
+      "slug": "dice",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 7613,
+      "name": "Stealth",
+      "slug": "stealth",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 7246,
+      "name": "Dating Sim",
+      "slug": "dating-sim",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 7066,
+      "name": "Furry",
+      "slug": "furry",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6954,
+      "name": "Action RPG",
+      "slug": "action-rpg",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6908,
+      "name": "Endless Runner",
+      "slug": "endless-runner",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6755,
+      "name": "Farming",
+      "slug": "farming",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6670,
+      "name": "Escape Game",
+      "slug": "escape-game",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6625,
+      "name": "Incremental",
+      "slug": "incremental",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6380,
+      "name": "Post-apocalyptic",
+      "slug": "post-apocalyptic",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 6061,
+      "name": "LGBTQIA",
+      "slug": "lgbtqia",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 5990,
+      "name": "JRPG",
+      "slug": "jrpg",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 5983,
+      "name": "Queer",
+      "slug": "queer",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 5890,
+      "name": "Turn-Based Combat",
+      "slug": "turn-based-combat",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 5476,
+      "name": "party-game",
+      "slug": "party-game",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 5027,
+      "name": "Futuristic",
+      "slug": "futuristic",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4820,
+      "name": "War",
+      "slug": "war",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4759,
+      "name": "Turn-based Strategy",
+      "slug": "turn-based-strategy",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4666,
+      "name": "Tactical",
+      "slug": "tactical",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4585,
+      "name": "Parkour",
+      "slug": "parkour",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4563,
+      "name": "Historical",
+      "slug": "historical",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4543,
+      "name": "Top Down Adventure",
+      "slug": "top-down-adventure",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4516,
+      "name": "Driving",
+      "slug": "driving",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4501,
+      "name": "Gay",
+      "slug": "gay",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4496,
+      "name": "Detective",
+      "slug": "detective",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4414,
+      "name": "Real time strategy",
+      "slug": "real-time-strategy",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4228,
+      "name": "Fishing",
+      "slug": "fishing",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 4157,
+      "name": "Transgender",
+      "slug": "transgender",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3997,
+      "name": "City Builder",
+      "slug": "city-builder",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3847,
+      "name": "Life Simulation",
+      "slug": "life-simulation",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3754,
+      "name": "Deck Building",
+      "slug": "deck-building",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3616,
+      "name": "Cooking",
+      "slug": "cooking",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3450,
+      "name": "Beat 'em up",
+      "slug": "beat-em-up",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3446,
+      "name": "Hack and Slash",
+      "slug": "hack-and-slash",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3310,
+      "name": "Twin Stick Shooter",
+      "slug": "twin-stick-shooter",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 3003,
+      "name": "Dystopian",
+      "slug": "dystopian",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2974,
+      "name": "Western",
+      "slug": "western",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2918,
+      "name": "Third-Person Shooter",
+      "slug": "third-person-shooter",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2846,
+      "name": "Lesbian",
+      "slug": "lesbian",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2662,
+      "name": "Chess",
+      "slug": "chess",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2662,
+      "name": "Word game",
+      "slug": "word-game",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2548,
+      "name": "Tanks",
+      "slug": "tanks",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2540,
+      "name": "Yuri",
+      "slug": "yuri",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2515,
+      "name": "Male protagonist",
+      "slug": "male-protagonist",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2506,
+      "name": "Virtual Pet",
+      "slug": "virtual-pet",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2478,
+      "name": "Tycoon",
+      "slug": "tycoon",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2415,
+      "name": "Space Sim",
+      "slug": "space-sim",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2414,
+      "name": "Sokoban",
+      "slug": "sokoban",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2262,
+      "name": "Otome",
+      "slug": "otome",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2242,
+      "name": "Quiz",
+      "slug": "quiz",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2190,
+      "name": "Crime",
+      "slug": "crime",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 2116,
+      "name": "Souls-like",
+      "slug": "souls-like",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1952,
+      "name": "Steampunk",
+      "slug": "steampunk",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1936,
+      "name": "Football",
+      "slug": "football",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1908,
+      "name": "Brain Training",
+      "slug": "brain-training",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1901,
+      "name": "Economy",
+      "slug": "economy",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1899,
+      "name": "Strategy RPG",
+      "slug": "strategy-rpg",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1877,
+      "name": "Lovecraftian Horror",
+      "slug": "lovecraft",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1850,
+      "name": "Survivor-like",
+      "slug": "survivor-like",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1844,
+      "name": "Golf",
+      "slug": "golf",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1697,
+      "name": "Soccer",
+      "slug": "soccer",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1665,
+      "name": "MMORPG",
+      "slug": "mmorpg",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1625,
+      "name": "Tactical RPG",
+      "slug": "tactical-rpg",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1578,
+      "name": "Kinetic Novel",
+      "slug": "kinetic-novel",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1577,
+      "name": "FPS Platformer",
+      "slug": "fps-platformer",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1538,
+      "name": "Hacking",
+      "slug": "hacking",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1533,
+      "name": "Working Simulator",
+      "slug": "working-simulator",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1394,
+      "name": "Gardening",
+      "slug": "gardening",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1355,
+      "name": "Pinball",
+      "slug": "pinball",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1345,
+      "name": "Yaoi",
+      "slug": "yaoi",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1337,
+      "name": "Tarot",
+      "slug": "tarot",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1241,
+      "name": "relationship",
+      "slug": "relationship",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1200,
+      "name": "Arena Shooter",
+      "slug": "arena-shooter",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1170,
+      "name": "Auto Battler",
+      "slug": "auto-battler",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1167,
+      "name": "solitaire",
+      "slug": "solitaire",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 1002,
+      "name": "Trivia",
+      "slug": "trivia",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 992,
+      "name": "Boys' Love",
+      "slug": "boys-love",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 964,
+      "name": "On-Rails Shooter",
+      "slug": "on-rails-shooter",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 929,
+      "name": "World War II",
+      "slug": "world-war-ii",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 922,
+      "name": "Wild West",
+      "slug": "wild-west",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 910,
+      "name": "Trading",
+      "slug": "trading",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 895,
+      "name": "Heist",
+      "slug": "heist",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 884,
+      "name": "Yandere",
+      "slug": "yandere",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 859,
+      "name": "Hidden Object",
+      "slug": "hidden-object",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 826,
+      "name": "Dress Up",
+      "slug": "dress-up",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 804,
+      "name": "Slasher",
+      "slug": "slasher",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 794,
+      "name": "Amare",
+      "slug": "amare",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 706,
+      "name": "Gacha",
+      "slug": "gacha",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 701,
+      "name": "Monster Girls",
+      "slug": "monster-girls",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 695,
+      "name": "Basketball",
+      "slug": "basketball",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 692,
+      "name": "Bara",
+      "slug": "bara",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 594,
+      "name": "Tennis",
+      "slug": "tennis",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 567,
+      "name": "Movement Shooter",
+      "slug": "movement-shooter",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 551,
+      "name": "Skating",
+      "slug": "skating",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 498,
+      "name": "boxing",
+      "slug": "boxing",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 493,
+      "name": "Victorian",
+      "slug": "victorian",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 445,
+      "name": "World War I",
+      "slug": "world-war-i",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 443,
+      "name": "4X",
+      "slug": "4x",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 378,
+      "name": "sitting-simulator",
+      "slug": "sitting-simulator",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 321,
+      "name": "Isekai",
+      "slug": "isekai",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 164,
+      "name": "Picross",
+      "slug": "picross",
+      "subkind": null
+    },
+    {
+      "class": "market",
+      "count": 161,
+      "name": "Nonogram",
+      "slug": "nonogram",
+      "subkind": null
+    },
+    {
+      "class": "not_market",
+      "count": 505000,
+      "name": "No AI",
+      "slug": "no-ai",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 430000,
+      "name": "2D",
+      "slug": "2d",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 321000,
+      "name": "Singleplayer",
+      "slug": "singleplayer",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 243000,
+      "name": "Pixel Art",
+      "slug": "pixel-art",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 177000,
+      "name": "3D",
+      "slug": "3d",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 151000,
+      "name": "Short",
+      "slug": "short",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 136000,
+      "name": "Unity",
+      "slug": "unity",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 111000,
+      "name": "AI Generated",
+      "slug": "ai-generated",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 102000,
+      "name": "Retro",
+      "slug": "retro",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 86300,
+      "name": "Indie",
+      "slug": "indie",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 58400,
+      "name": "Atmospheric",
+      "slug": "atmospheric",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 56500,
+      "name": "Cute",
+      "slug": "cute",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 55800,
+      "name": "Top-Down",
+      "slug": "top-down",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 54100,
+      "name": "First-Person",
+      "slug": "first-person",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 50900,
+      "name": "Godot",
+      "slug": "godot",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 38200,
+      "name": "Funny",
+      "slug": "funny",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 36100,
+      "name": "Low-poly",
+      "slug": "low-poly",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 31800,
+      "name": "Multiplayer",
+      "slug": "multiplayer",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 28200,
+      "name": "Narrative",
+      "slug": "narrative",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 26100,
+      "name": "Story Rich",
+      "slug": "story-rich",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 25500,
+      "name": "Game Maker's Toolkit Jam",
+      "slug": "gmtkjam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 25500,
+      "name": "RPG Maker",
+      "slug": "rpgmaker",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 24700,
+      "name": "Creepy",
+      "slug": "creepy",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 23300,
+      "name": "Dark",
+      "slug": "dark",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 22300,
+      "name": "Minimalist",
+      "slug": "minimalist",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 22100,
+      "name": "Unreal Engine",
+      "slug": "unreal-engine",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 21400,
+      "name": "8-Bit",
+      "slug": "8-bit",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 21200,
+      "name": "Comedy",
+      "slug": "comedy",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 20400,
+      "name": "Relaxing",
+      "slug": "relaxing",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 19300,
+      "name": "Fast-Paced",
+      "slug": "fast-paced",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 17700,
+      "name": "Endless",
+      "slug": "endless",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 17600,
+      "name": "Difficult",
+      "slug": "difficult",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 17300,
+      "name": "Physics",
+      "slug": "physics",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 16400,
+      "name": "Side Scroller",
+      "slug": "side-scroller",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 16000,
+      "name": "Colorful",
+      "slug": "colorful",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 15700,
+      "name": "Cozy",
+      "slug": "cozy",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 15700,
+      "name": "Simple",
+      "slug": "simple",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 15400,
+      "name": "GameMaker",
+      "slug": "gamemaker",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 14700,
+      "name": "High Score",
+      "slug": "high-score",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 12100,
+      "name": "weird",
+      "slug": "weird",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 12000,
+      "name": "My First Game Jam",
+      "slug": "my-first-game-jam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 11900,
+      "name": "16-bit",
+      "slug": "16-bit",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 11900,
+      "name": "Multiple Endings",
+      "slug": "multiple-endings",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 11700,
+      "name": "Hand-drawn",
+      "slug": "hand-drawn",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 11300,
+      "name": "Turn-based",
+      "slug": "turn-based",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 10900,
+      "name": "Virtual Reality (VR)",
+      "slug": "virtual-reality",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 10700,
+      "name": "Procedural Generation",
+      "slug": "procedural",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 10200,
+      "name": "Fangame",
+      "slug": "fangame",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 10100,
+      "name": "Twine",
+      "slug": "twine",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 10000,
+      "name": "Mouse only",
+      "slug": "mouse-only",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 10000,
+      "name": "Ren'Py",
+      "slug": "renpy",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 10000,
+      "name": "Third Person",
+      "slug": "third-person",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 9575,
+      "name": "Spooky",
+      "slug": "spooky",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 9559,
+      "name": "Game Boy",
+      "slug": "gameboy",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 9329,
+      "name": "Global Game Jam",
+      "slug": "global-game-jam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 9114,
+      "name": "PSX (PlayStation)",
+      "slug": "psx",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 8902,
+      "name": "Prototype",
+      "slug": "prototype",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 8469,
+      "name": "jumping",
+      "slug": "jumping",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 8230,
+      "name": "PICO-8",
+      "slug": "pico-8",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 7819,
+      "name": "Surreal",
+      "slug": "surreal",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 7606,
+      "name": "Co-op",
+      "slug": "co-op",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 7576,
+      "name": "Abstract",
+      "slug": "abstract",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 7396,
+      "name": "Cartoon",
+      "slug": "cartoon",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 7374,
+      "name": "Isometric",
+      "slug": "isometric",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 7329,
+      "name": "Ludum Dare",
+      "slug": "ludum-dare",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 7172,
+      "name": "Sandbox",
+      "slug": "sandbox",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 6608,
+      "name": "Bitsy",
+      "slug": "bitsy",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 5585,
+      "name": "Controller",
+      "slug": "controller",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 5321,
+      "name": "Meaningful Choices",
+      "slug": "meaningful-choices",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 5224,
+      "name": "Flappy Bird",
+      "slug": "flappy-bird",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 5077,
+      "name": "Black and White",
+      "slug": "black-and-white",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 4955,
+      "name": "Open World",
+      "slug": "open-world",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 4928,
+      "name": "1-bit",
+      "slug": "1-bit",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 4808,
+      "name": "Non violent",
+      "slug": "non-violent",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 4522,
+      "name": "Game Design",
+      "slug": "game-design",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 4489,
+      "name": "Character Customization",
+      "slug": "character-customization",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 4348,
+      "name": "one-button",
+      "slug": "one-button",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 4272,
+      "name": "Crafting",
+      "slug": "crafting",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 4248,
+      "name": "blocks",
+      "slug": "blocks",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 4218,
+      "name": "Voxel",
+      "slug": "voxel",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 4192,
+      "name": "upgrades",
+      "slug": "upgrades",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 4073,
+      "name": "Local Co-Op",
+      "slug": "local-co-op",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 3973,
+      "name": "Score Attack",
+      "slug": "score-attack",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 3857,
+      "name": "Vector",
+      "slug": "vector",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3771,
+      "name": "Creative",
+      "slug": "creative",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3766,
+      "name": "Open Source",
+      "slug": "open-source",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 3752,
+      "name": "RPG Maker MZ",
+      "slug": "rpg-maker-mz",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 3749,
+      "name": "Neon",
+      "slug": "neon",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3741,
+      "name": "chiptune",
+      "slug": "chiptune",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3713,
+      "name": "Five Nights at Freddy's",
+      "slug": "fnaf",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 3702,
+      "name": "Dark Humor",
+      "slug": "dark-humor",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3662,
+      "name": "LÖVE",
+      "slug": "love2d",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 3595,
+      "name": "Ludum Dare 46",
+      "slug": "ludum-dare-46",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 3497,
+      "name": "Construct 2",
+      "slug": "construct-2",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 3457,
+      "name": "Family Friendly",
+      "slug": "family-friendly",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 3412,
+      "name": "Generator",
+      "slug": "generator",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 3357,
+      "name": "PvP",
+      "slug": "pvp",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 3315,
+      "name": "Asteroids",
+      "slug": "asteroids",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 3296,
+      "name": "Drawing",
+      "slug": "drawing",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3241,
+      "name": "Thriller",
+      "slug": "thriller",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 3195,
+      "name": "Gravity",
+      "slug": "gravity",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 3127,
+      "name": "Touch-Friendly",
+      "slug": "touch-friendly",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 3060,
+      "name": "Time Attack",
+      "slug": "time-attack",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 3047,
+      "name": "Gore",
+      "slug": "gore",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 3006,
+      "name": "Ludum Dare 48",
+      "slug": "ludum-dare-48",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 2925,
+      "name": "Scary",
+      "slug": "scary",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 2845,
+      "name": "Scratch",
+      "slug": "scratch",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 2842,
+      "name": "Tetris",
+      "slug": "tetris",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 2825,
+      "name": "NES (Nintendo Entertainment System)",
+      "slug": "nes",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 2824,
+      "name": "Typing",
+      "slug": "typing",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 2794,
+      "name": "Snake",
+      "slug": "snake",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 2751,
+      "name": "gamepad",
+      "slug": "gamepad",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 2601,
+      "name": "suspense",
+      "slug": "suspense",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 2592,
+      "name": "Explosions",
+      "slug": "explosions",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 2583,
+      "name": "Homebrew",
+      "slug": "homebrew",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 2561,
+      "name": "artificial-intelligence",
+      "slug": "artificial-intelligence",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 2490,
+      "name": "Lo-fi",
+      "slug": "lo-fi",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 2468,
+      "name": "Sprunki",
+      "slug": "sprunki",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 2435,
+      "name": "sourcecode",
+      "slug": "sourcecode",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 2430,
+      "name": "Gorilla Tag",
+      "slug": "gorilla-tag",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 2429,
+      "name": "RPG Maker MV",
+      "slug": "rpg-maker-mv",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 2385,
+      "name": "Remake",
+      "slug": "remake",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 2314,
+      "name": "Ludum Dare 50",
+      "slug": "ludum-dare-50",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 2311,
+      "name": "Gothic",
+      "slug": "gothic",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 2309,
+      "name": "PuzzleScript",
+      "slug": "puzzlescript",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 2258,
+      "name": "DRM Free",
+      "slug": "drm-free",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 2249,
+      "name": "Aseprite",
+      "slug": "aseprite",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 2247,
+      "name": "Versus",
+      "slug": "versus",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 2241,
+      "name": "Ludum Dare 49",
+      "slug": "ludum-dare-49",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 2220,
+      "name": "Real-Time",
+      "slug": "real-time",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 2152,
+      "name": "Voice Acting",
+      "slug": "voice-acting",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 2150,
+      "name": "Destruction",
+      "slug": "destruction",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 2121,
+      "name": "Synthwave",
+      "slug": "synthwave",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 2093,
+      "name": "Breakout",
+      "slug": "breakout",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 2065,
+      "name": "Minecraft",
+      "slug": "minecraft",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 2004,
+      "name": "atari",
+      "slug": "atari",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 1991,
+      "name": "secrets",
+      "slug": "secrets",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1959,
+      "name": "Commodore 64",
+      "slug": "commodore-64",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 1959,
+      "name": "Violent",
+      "slug": "violent",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 1946,
+      "name": "Incredibox",
+      "slug": "incredibox",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 1933,
+      "name": "Playdate",
+      "slug": "playdate",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 1915,
+      "name": "psychedelic",
+      "slug": "psychedelic",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1881,
+      "name": "Ludum Dare 42",
+      "slug": "ludum-dare-42",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1877,
+      "name": "Game Boy ROM",
+      "slug": "gameboy-rom",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 1861,
+      "name": "Immersive",
+      "slug": "immersive",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1850,
+      "name": "ZX Spectrum",
+      "slug": "zx-spectrum",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 1771,
+      "name": "Liminal space",
+      "slug": "liminal-space",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1758,
+      "name": "Ludum Dare 44",
+      "slug": "ludum-dare-44",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1713,
+      "name": "ascii",
+      "slug": "ascii",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1713,
+      "name": "Painting",
+      "slug": "painting",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1710,
+      "name": "Ludum Dare 41",
+      "slug": "ludum-dare-41",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1687,
+      "name": "Touhou",
+      "slug": "touhou",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 1680,
+      "name": "Oculus Quest",
+      "slug": "oculus-quest",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 1679,
+      "name": "Noir",
+      "slug": "noir",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1661,
+      "name": "Cult Classic",
+      "slug": "cult-classic",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 1654,
+      "name": "Ludum Dare 38",
+      "slug": "ludum-dare-38",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1649,
+      "name": "Ludum Dare 40",
+      "slug": "ludum-dare-40",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1648,
+      "name": "Automation",
+      "slug": "automation",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1639,
+      "name": "Manga",
+      "slug": "manga",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1635,
+      "name": "Ludum Dare 54",
+      "slug": "ludum-dare-54",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1615,
+      "name": "Trijam",
+      "slug": "trijam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1602,
+      "name": "Loot",
+      "slug": "loot",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1589,
+      "name": "Doom",
+      "slug": "doom",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 1572,
+      "name": "LOWREZJAM",
+      "slug": "lowrezjam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1568,
+      "name": "Ludum Dare 53",
+      "slug": "ludum-dare-53",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1564,
+      "name": "Ludum Dare 43",
+      "slug": "ludum-dare-43",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1550,
+      "name": "glitch",
+      "slug": "glitch",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1526,
+      "name": "Ludum Dare 45",
+      "slug": "ludum-dare-45",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1486,
+      "name": "Photorealistic",
+      "slug": "photorealistic",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1456,
+      "name": "Feel Good",
+      "slug": "feel-good",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1442,
+      "name": "GBJam",
+      "slug": "gbjam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1431,
+      "name": "Tutorial",
+      "slug": "tutorial",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 1425,
+      "name": "Ludum Dare 51",
+      "slug": "ludum-dare-51",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1423,
+      "name": "Ludum Dare 47",
+      "slug": "ludum-dare-47",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1399,
+      "name": "Ludum Dare 55",
+      "slug": "ludum-dare-55",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1379,
+      "name": "mind-bending",
+      "slug": "mind-bending",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1355,
+      "name": "one-hit-kill",
+      "slug": "one-hit-kill",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1301,
+      "name": "Ludum Dare 57",
+      "slug": "ludum-dare-57",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1247,
+      "name": "parallax",
+      "slug": "parallax",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1225,
+      "name": "Split Screen",
+      "slug": "split-screen",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 1184,
+      "name": "Ludum Dare 39",
+      "slug": "ludum-dare-39",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1147,
+      "name": "Streaming",
+      "slug": "streaming",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 1118,
+      "name": "Undertale",
+      "slug": "undertale",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 1109,
+      "name": "video",
+      "slug": "video",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 1108,
+      "name": "Perma Death",
+      "slug": "perma-death",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1102,
+      "name": "combos",
+      "slug": "combos",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1102,
+      "name": "Ludum Dare 56",
+      "slug": "ludum-dare-56",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 1093,
+      "name": "Shadows",
+      "slug": "shadows",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1074,
+      "name": "lone-survivor",
+      "slug": "lone-survivor",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1070,
+      "name": "Visualization",
+      "slug": "visualization",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1058,
+      "name": "Backrooms",
+      "slug": "backrooms",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 1056,
+      "name": "Wholesome",
+      "slug": "wholesome",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 1019,
+      "name": "Hex Based",
+      "slug": "hex-based",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 1009,
+      "name": "Classes",
+      "slug": "classes",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 977,
+      "name": "Ludum Dare 37",
+      "slug": "ludum-dare-37",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 973,
+      "name": "Ludum Dare 52",
+      "slug": "ludum-dare-52",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 971,
+      "name": "Traps",
+      "slug": "traps",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 967,
+      "name": "Oculus Rift",
+      "slug": "oculus-rift",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 928,
+      "name": "Minesweeper",
+      "slug": "minesweeper",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 918,
+      "name": "Seven Day Roguelike Challenge",
+      "slug": "7drl",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 918,
+      "name": "Two colors",
+      "slug": "two-colors",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 912,
+      "name": "Ludum Dare 35",
+      "slug": "ludum-dare-35",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 910,
+      "name": "Horrible",
+      "slug": "horrible",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 892,
+      "name": "Boring",
+      "slug": "boring",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 890,
+      "name": "Nonlinear",
+      "slug": "non-linear",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 868,
+      "name": "Pizza Tower",
+      "slug": "pizza-tower",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 845,
+      "name": "Spoopy",
+      "slug": "spoopy",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 845,
+      "name": "Team-Based",
+      "slug": "team-based",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 840,
+      "name": "Demake",
+      "slug": "demake",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 827,
+      "name": "deathmatch",
+      "slug": "deathmatch",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 824,
+      "name": "Altgame",
+      "slug": "altgame",
+      "subkind": "policy"
+    },
+    {
+      "class": "not_market",
+      "count": 808,
+      "name": "Amiga",
+      "slug": "amiga",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 800,
+      "name": "PROCJAM",
+      "slug": "procjam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 785,
+      "name": "Moddable",
+      "slug": "moddable",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 776,
+      "name": "Augmented Reality",
+      "slug": "augmented-reality",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 773,
+      "name": "Internet",
+      "slug": "internet",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 768,
+      "name": "Game Boy Advance",
+      "slug": "gameboy-advance",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 767,
+      "name": "TIC-80",
+      "slug": "tic-80",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 748,
+      "name": "Instrument",
+      "slug": "instrument",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 729,
+      "name": "Grayscale",
+      "slug": "grayscale",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 726,
+      "name": "GitHub",
+      "slug": "github",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 688,
+      "name": "Modeling",
+      "slug": "modeling",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 686,
+      "name": "watercolor",
+      "slug": "watercolor",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 670,
+      "name": "libGDX",
+      "slug": "libgdx",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 659,
+      "name": "creepypasta",
+      "slug": "creepypasta",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 640,
+      "name": "NES ROM",
+      "slug": "nes-rom",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 636,
+      "name": "Ludum Dare 36",
+      "slug": "ludum-dare-36",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 630,
+      "name": "pastel",
+      "slug": "pastel",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 627,
+      "name": "fantasy-console",
+      "slug": "fantasy-console",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 622,
+      "name": "flat-shading",
+      "slug": "flat-shading",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 617,
+      "name": "Sega Genesis",
+      "slug": "sega-genesis",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 617,
+      "name": "Soundtoy",
+      "slug": "soundtoy",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 607,
+      "name": "Wordle",
+      "slug": "wordle",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 592,
+      "name": "Ludum Dare 34",
+      "slug": "ludum-dare-34",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 587,
+      "name": "Massively multiplayer",
+      "slug": "massively-multiplayer",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 577,
+      "name": "Ludum Dare 59",
+      "slug": "ludum-dare-59",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 565,
+      "name": "Zero Gravity",
+      "slug": "zero-gravity",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 556,
+      "name": "DOS",
+      "slug": "dos",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 538,
+      "name": "Episodic",
+      "slug": "episodic",
+      "subkind": "scope"
+    },
+    {
+      "class": "not_market",
+      "count": 537,
+      "name": "Ludum Dare 58",
+      "slug": "ludum-dare-58",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 521,
+      "name": "Rotation",
+      "slug": "rotation",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 520,
+      "name": "live-action",
+      "slug": "live-action",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 485,
+      "name": "Decker",
+      "slug": "decker",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 483,
+      "name": "Kickstarter",
+      "slug": "kickstarter",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 480,
+      "name": "screensaver",
+      "slug": "screensaver",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 470,
+      "name": "Emulator",
+      "slug": "emulator",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 459,
+      "name": "MIDI",
+      "slug": "midi",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 450,
+      "name": "1GAM",
+      "slug": "1gam",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 447,
+      "name": "Suika Game",
+      "slug": "suika-game",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 446,
+      "name": "7dfps",
+      "slug": "7dfps",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 444,
+      "name": "Amstrad CPC",
+      "slug": "amstrad-cpc",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 439,
+      "name": "tablet",
+      "slug": "tablet",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 424,
+      "name": "Nintendo 64",
+      "slug": "nintendo64",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 419,
+      "name": "voice-controlled",
+      "slug": "voice-controlled",
+      "subkind": "input"
+    },
+    {
+      "class": "not_market",
+      "count": 415,
+      "name": "Super Nintendo",
+      "slug": "snes",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 386,
+      "name": "Perspective",
+      "slug": "perspective",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 372,
+      "name": "SFML",
+      "slug": "sfml",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 366,
+      "name": "TyranoBuilder",
+      "slug": "tyranobuilder",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 360,
+      "name": "Ludum Dare 33",
+      "slug": "ludum-dare-33",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 359,
+      "name": "Leap Motion",
+      "slug": "leap-motion",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 359,
+      "name": "Mega Drive",
+      "slug": "mega-drive",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 359,
+      "name": "MS-DOS",
+      "slug": "ms-dos",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 356,
+      "name": "MSX",
+      "slug": "msx",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 355,
+      "name": "discord",
+      "slug": "discord",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 355,
+      "name": "FMV",
+      "slug": "fmv",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 341,
+      "name": "Global Game Jam 2020",
+      "slug": "ggj2020",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 332,
+      "name": "Ludum Dare 32",
+      "slug": "ludum-dare-32",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 327,
+      "name": "trashcore",
+      "slug": "trashcore",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 297,
+      "name": "mashup",
+      "slug": "mashup",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 288,
+      "name": "DOOM WAD",
+      "slug": "doom-wad",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 288,
+      "name": "Stencyl",
+      "slug": "stencyl",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 276,
+      "name": "job-system",
+      "slug": "job-system",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 258,
+      "name": "non-eucledian",
+      "slug": "non-eucledian",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 245,
+      "name": "Ludum Dare 31",
+      "slug": "ludum-dare-31",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 228,
+      "name": "stop-motion",
+      "slug": "stop-motion",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 206,
+      "name": "VIC-20",
+      "slug": "vic-20",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 201,
+      "name": "Ludum Dare 30",
+      "slug": "ludum-dare-30",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 188,
+      "name": "Dreamcast",
+      "slug": "dreamcast",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 180,
+      "name": "Playstation Portable",
+      "slug": "psp",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 171,
+      "name": "Beginner Friendly",
+      "slug": "beginner-friendly",
+      "subkind": "process"
+    },
+    {
+      "class": "not_market",
+      "count": 156,
+      "name": "binaural",
+      "slug": "binaural",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 146,
+      "name": "HyperCard",
+      "slug": "hypercard",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 141,
+      "name": "Wobbly",
+      "slug": "wobbly",
+      "subkind": "aesthetic"
+    },
+    {
+      "class": "not_market",
+      "count": 124,
+      "name": "Ludum Dare 29",
+      "slug": "ludum-dare-29",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 115,
+      "name": "Corona SDK",
+      "slug": "corona-sdk",
+      "subkind": "engine"
+    },
+    {
+      "class": "not_market",
+      "count": 105,
+      "name": "CHIP-8",
+      "slug": "chip8",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 94,
+      "name": "Siren Head",
+      "slug": "siren-head",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 75,
+      "name": "kinect",
+      "slug": "kinect",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 74,
+      "name": "ggj15",
+      "slug": "ggj15",
+      "subkind": "jam"
+    },
+    {
+      "class": "not_market",
+      "count": 48,
+      "name": "Barfcade",
+      "slug": "barfcade",
+      "subkind": "ip"
+    },
+    {
+      "class": "not_market",
+      "count": 31,
+      "name": "TurboGrafx-16",
+      "slug": "turbografx",
+      "subkind": "hardware"
+    },
+    {
+      "class": "not_market",
+      "count": 20,
+      "name": "SHARECART1000",
+      "slug": "sharecart1000",
+      "subkind": "ip"
+    },
+    {
+      "class": "unclear",
+      "count": 37300,
+      "name": "Educational",
+      "slug": "educational",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 18400,
+      "name": "Experimental",
+      "slug": "experimental",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 17100,
+      "name": "Monsters",
+      "slug": "monsters",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 15500,
+      "name": "Anime",
+      "slug": "anime",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 12700,
+      "name": "Magic",
+      "slug": "magic",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 12500,
+      "name": "zine",
+      "slug": "zine",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 12000,
+      "name": "Animals",
+      "slug": "animals",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 11000,
+      "name": "Cats",
+      "slug": "cats",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 10900,
+      "name": "artgame",
+      "slug": "artgame",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 9839,
+      "name": "Robots",
+      "slug": "robots",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 8707,
+      "name": "Aliens",
+      "slug": "aliens",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 7898,
+      "name": "Halloween",
+      "slug": "halloween",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 7355,
+      "name": "nature",
+      "slug": "nature",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 5647,
+      "name": "Ghosts",
+      "slug": "ghosts",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 5618,
+      "name": "Christmas",
+      "slug": "christmas",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 5174,
+      "name": "Food",
+      "slug": "food",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 4912,
+      "name": "Forest",
+      "slug": "forest",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 4510,
+      "name": "Slice Of Life",
+      "slug": "slice-of-life",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 4068,
+      "name": "Parody",
+      "slug": "parody",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 4006,
+      "name": "Math",
+      "slug": "math",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3918,
+      "name": "underwater",
+      "slug": "underwater",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3912,
+      "name": "Meme",
+      "slug": "meme",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3681,
+      "name": "Pirates",
+      "slug": "pirates",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3590,
+      "name": "Dogs",
+      "slug": "dogs",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3487,
+      "name": "Vampire",
+      "slug": "vampire",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3425,
+      "name": "Swords",
+      "slug": "swords",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3275,
+      "name": "Time Travel",
+      "slug": "time-travel",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3183,
+      "name": "Dragons",
+      "slug": "dragons",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3146,
+      "name": "supernatural",
+      "slug": "supernatural",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3104,
+      "name": "Dreams",
+      "slug": "dreams",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3061,
+      "name": "Mental Health",
+      "slug": "mental-health",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 3023,
+      "name": "Flying",
+      "slug": "flying",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2963,
+      "name": "Wizards",
+      "slug": "wizards",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2825,
+      "name": "mythology",
+      "slug": "mythology",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2704,
+      "name": "Frogs",
+      "slug": "frog",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2616,
+      "name": "Flight",
+      "slug": "flight",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2570,
+      "name": "Mechs",
+      "slug": "mechs",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2515,
+      "name": "satire",
+      "slug": "satire",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2466,
+      "name": "Slime",
+      "slug": "slime",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2451,
+      "name": "Dinosaurs",
+      "slug": "dinosaurs",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2338,
+      "name": "Ninja",
+      "slug": "ninja",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 2128,
+      "name": "Superhero",
+      "slug": "superhero",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1987,
+      "name": "Alternate History",
+      "slug": "alternate-history",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1907,
+      "name": "Fairy Tale",
+      "slug": "fairy-tale",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1863,
+      "name": "Skeletons",
+      "slug": "skeletons",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1568,
+      "name": "Folklore",
+      "slug": "folklore",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1480,
+      "name": "Trains",
+      "slug": "trains",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1477,
+      "name": "Chicken",
+      "slug": "chicken",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1331,
+      "name": "Superpowers",
+      "slug": "superpowers",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 1041,
+      "name": "Urban",
+      "slug": "urban",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 915,
+      "name": "Desktop Pet",
+      "slug": "desktop-pet",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 861,
+      "name": "Mountains",
+      "slug": "mountains",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 832,
+      "name": "Magical Realism",
+      "slug": "magical-realism",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 829,
+      "name": "Coming Of Age",
+      "slug": "coming-of-age",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 767,
+      "name": "Horses",
+      "slug": "horses",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 658,
+      "name": "memoir",
+      "slug": "memoir",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 630,
+      "name": "Sailing",
+      "slug": "sailing",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 599,
+      "name": "Archery",
+      "slug": "archery",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 530,
+      "name": "Gender",
+      "slug": "gender",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 449,
+      "name": "Roadtrip",
+      "slug": "roadtrip",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 383,
+      "name": "Tentacles",
+      "slug": "tentacles",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 372,
+      "name": "Norse",
+      "slug": "norse",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 281,
+      "name": "Celtic",
+      "slug": "celtic",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 279,
+      "name": "Unicorns",
+      "slug": "unicorns",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 273,
+      "name": "filipino",
+      "slug": "filipino",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 242,
+      "name": "Kung Fu",
+      "slug": "kung-fu",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 219,
+      "name": "Railroad",
+      "slug": "railroad",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 193,
+      "name": "moe",
+      "slug": "moe",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 173,
+      "name": "Period Piece",
+      "slug": "period-piece",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 172,
+      "name": "astronomy",
+      "slug": "astronomy",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 136,
+      "name": "Ciphers",
+      "slug": "ciphers",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 130,
+      "name": "norway",
+      "slug": "norway",
+      "subkind": null
+    },
+    {
+      "class": "unclear",
+      "count": 79,
+      "name": "Thanksgiving",
+      "slug": "thanksgiving",
+      "subkind": null
+    }
+  ],
+  "rule": "market: names a kind a buyer substitutes within, and its size is set by how many make that kind rather than by the price level. Everything else is not a market tag, with a sub-kind recorded. unclear is the third state.",
+  "station": "B30-4",
+  "thin_end_below_1000": {
+    "by_class": {
+      "market": 26,
+      "not_market": 98,
+      "unclear": 23
+    },
+    "n": 147
+  },
+  "total": 516,
+  "what": "the split of the itch.io games-scope tag vocabulary, applied to names alone"
+}

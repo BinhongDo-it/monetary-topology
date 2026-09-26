@@ -10,56 +10,73 @@
  ],
  "criteria": [
   {
-   "detail": "Z90 x se 0.0380 against band width 0.10, ratio 0.380",
+   "detail": "Z90 x se 0.0380 against band width 0.10, ratio 0.363",
    "name": "B21-17  gate two, first stage: the instrument separates the statutory band without borrowing anything",
    "passed": true
   },
   {
-   "detail": "A leg +0.9883, H leg +0.8581, difference +0.1302 against [0.1, 0.2]; 5.6 standard errors from zero",
+   "detail": "A leg +0.9883, H leg +0.8554, difference +0.1329 against [0.1, 0.2]; 6.0 standard errors from zero",
    "name": "B21-18  the pooled difference falls inside the band the statute declares",
    "passed": true
   },
   {
-   "detail": "implied withholding before 0.1799, after 0.1289, move -0.0510; within the 82 companies carrying ex-days on both sides the move is -0.0701 with robust se 0.0366, **so it is not composition. The reading stands and the criterion that read it as a direction does not.**",
+   "detail": "implied withholding before 0.1792, after 0.1279, move -0.0513; within the 82 companies carrying at least 2 H ex-days on each side the move is -0.0840, 90 per cent half width 0.0770 at exact coverage 0.9030, robust scale 0.0392, **so it is not composition. The reading stands and the criterion that read it as a direction does not.**",
    "name": "B21-20  VOID  the direction this asked for was never implied by the statute, which admits 0, 10 and 20 per cent holders at once",
    "passed": null,
    "void": true
   },
   {
-   "detail": "before 0.1799; after 0.1289. The statute fixes the endpoints and not the movement between them.",
+   "detail": "before 0.1792; after 0.1279. The statute fixes the endpoints and not the movement between them.",
    "name": "B21-25  the implied rate stays inside the mixture the statute allows, 0 to 25 per cent, on both sides of the date",
    "passed": true
   },
   {
-   "detail": "133 companies, centre +0.1790, robust se 0.0311, 96 of 133 positive",
+   "detail": "133 companies, centre +0.1724, robust se 0.0304, 96 of 133 positive",
    "name": "B21-19  the within-company difference falls in the same band, with the company cancelled",
    "passed": true
   }
  ],
  "diagnostic_only": true,
  "diagnostic_reason": "The first measured rather than computed reading on this carrier. The drop-off ratio's level is a fifty-year argument; what is used here is the difference between two legs of one company.",
- "difference": 0.13017888366562325,
- "gate_two_ratio": 0.3799782547520879,
+ "difference": 0.13285919691365722,
+ "gate_two_ratio": 0.36290399098769893,
  "h_leg": {
-  "centre": 0.8581207120176719,
+  "centre": 0.855440398769638,
   "n": 2242,
-  "se": 0.012570586677051616
+  "se": 0.012556920450535452
  },
- "se_difference": 0.02309898205179866,
- "sigma": 5.635697857754149,
+ "half_width_difference": 0.036290399098769896,
+ "median_interval_90": {
+  "a": {
+   "exact_coverage": 0.9039919658370876,
+   "half_width": 0.025706851763629024
+  },
+  "h": {
+   "exact_coverage": 0.90479253535513,
+   "half_width": 0.025615441420182516
+  }
+ },
+ "se_difference": 0.02309154766630259,
+ "sigma": 6.022347076650757,
  "southbound_split": {
-  "after_implied": 0.12886197111202113,
-  "before_implied": 0.1798785150451252,
-  "drift": -0.051016543933104064
+  "after_implied": 0.12789012179452708,
+  "before_implied": 0.17922817484646947,
+  "drift": -0.05133805305194239,
+  "within_company_exact_coverage": 0.902969088702701,
+  "within_company_half_width": 0.07699217001845593,
+  "within_company_min_events_each_side": 2,
+  "within_company_move": -0.08397501225006648,
+  "within_company_n": 82,
+  "within_company_robust_scale": 0.039209571390664284
  },
  "stage": "B21",
  "step": "dropoff",
  "within_company": {
-  "centre": 0.17897565396778836,
+  "centre": 0.17243186576960357,
   "n": 133,
   "p10": -0.2678451017209713,
   "p90": 0.7977737315562546,
   "positive": 96,
-  "se": 0.031084110547798513
+  "se": 0.03043925851617864
  }
 }

@@ -1,0 +1,156 @@
+{
+ "config": {
+  "carrier": "A47 block 5 bound public, public and private building 0.002",
+  "preview": {
+   "R0 1.00 g 0 tau_o 0.02 (known answer)": {
+    "R0": 1.0,
+    "g": 0.0,
+    "tau_o": 0.02
+   },
+   "R0 1.16 g 0 tau_o 0.02": {
+    "R0": 1.16,
+    "g": 0.0,
+    "tau_o": 0.02
+   },
+   "R0 1.16 g 0.005 tau_o 0.02": {
+    "R0": 1.16,
+    "g": 0.005,
+    "tau_o": 0.02
+   },
+   "R0 1.16 g 0.005, no optional moves": {
+    "R0": 1.16,
+    "g": 0.005,
+    "tau_o": 0.0
+   },
+   "R0 1.45 g 0.01 tau_o 0.02": {
+    "R0": 1.45,
+    "g": 0.01,
+    "tau_o": 0.02
+   }
+  }
+ },
+ "criteria": [
+  {
+   "detail": "switches off reproduce A47",
+   "kind": "instrument",
+   "name": "A48-1",
+   "passed": true
+  },
+  {
+   "detail": "premium path and no core building",
+   "kind": "instrument",
+   "name": "A48-2",
+   "passed": true
+  },
+  {
+   "detail": "lock classification",
+   "kind": "instrument",
+   "name": "A48-3",
+   "passed": true
+  },
+  {
+   "detail": "lock rate 0.0769 printed",
+   "kind": "known_answer",
+   "name": "A48-4",
+   "passed": null
+  }
+ ],
+ "preview_seed0": {
+  "R0 1.00 g 0 tau_o 0.02 (known answer)": {
+   "core_buys": 5,
+   "core_buys_production_share": 0.0,
+   "core_price_end": 2.0,
+   "core_sales": 22,
+   "core_tenure_mean": 31.32,
+   "lock_ok": true,
+   "lock_rate": 0.0769,
+   "locked_production_share": 0.0,
+   "locks": 1,
+   "optional_core_draws": 13,
+   "optional_core_moved": 12,
+   "optional_other_moved": 258,
+   "premium_ok": true,
+   "premium_worst_rel": 0.0,
+   "prod_share": 0.4188,
+   "seconds": 0.34,
+   "top_decile": 0.5899
+  },
+  "R0 1.16 g 0 tau_o 0.02": {
+   "core_buys": 5,
+   "core_buys_production_share": 0.0,
+   "core_price_end": 2.32,
+   "core_sales": 22,
+   "core_tenure_mean": 34.45,
+   "lock_ok": true,
+   "lock_rate": 0.1429,
+   "locked_production_share": 0.0,
+   "locks": 2,
+   "optional_core_draws": 14,
+   "optional_core_moved": 12,
+   "optional_other_moved": 257,
+   "premium_ok": true,
+   "premium_worst_rel": 0.0,
+   "prod_share": 0.4188,
+   "seconds": 0.32,
+   "top_decile": 0.5899
+  },
+  "R0 1.16 g 0.005 tau_o 0.02": {
+   "core_buys": 4,
+   "core_buys_production_share": 0.0,
+   "core_price_end": 10.3072,
+   "core_sales": 21,
+   "core_tenure_mean": 42.33,
+   "lock_ok": true,
+   "lock_rate": 0.5625,
+   "locked_production_share": 0.0,
+   "locks": 9,
+   "optional_core_draws": 16,
+   "optional_core_moved": 7,
+   "optional_other_moved": 255,
+   "premium_ok": true,
+   "premium_worst_rel": 0.0,
+   "prod_share": 0.4188,
+   "seconds": 0.33,
+   "top_decile": 0.5899
+  },
+  "R0 1.16 g 0.005, no optional moves": {
+   "core_buys": 5,
+   "core_buys_production_share": 0.0,
+   "core_price_end": 10.3072,
+   "core_sales": 22,
+   "core_tenure_mean": 29.27,
+   "lock_ok": true,
+   "lock_rate": null,
+   "locked_production_share": null,
+   "locks": 0,
+   "optional_core_draws": 0,
+   "optional_core_moved": 0,
+   "optional_other_moved": 0,
+   "premium_ok": true,
+   "premium_worst_rel": 0.0,
+   "prod_share": 0.4188,
+   "seconds": 0.32,
+   "top_decile": 0.5899
+  },
+  "R0 1.45 g 0.01 tau_o 0.02": {
+   "core_buys": 3,
+   "core_buys_production_share": 0.0,
+   "core_price_end": 56.8184,
+   "core_sales": 20,
+   "core_tenure_mean": 45.9,
+   "lock_ok": true,
+   "lock_rate": 0.6875,
+   "locked_production_share": 0.0,
+   "locks": 11,
+   "optional_core_draws": 16,
+   "optional_core_moved": 5,
+   "optional_other_moved": 258,
+   "premium_ok": true,
+   "premium_worst_rel": 0.0,
+   "prod_share": 0.4188,
+   "seconds": 0.32,
+   "top_decile": 0.5899
+  }
+ },
+ "stage": "A48-block1"
+}

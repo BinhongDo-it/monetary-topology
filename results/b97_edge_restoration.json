@@ -1,0 +1,109 @@
+{
+ "config": {
+  "carrier": "CY",
+  "controls": [
+   "GR",
+   "SI",
+   "MT",
+   "PT",
+   "IE"
+  ],
+  "dose_span": [
+   "2013-03",
+   "2016-12"
+  ],
+  "edge_dates": [
+   "2014-05",
+   "2014-06",
+   "2015-04"
+  ],
+  "goods_floor": 0.2,
+  "other_leg": "U2",
+  "rate_floor": 0.02,
+  "rate_shapes": [
+   "B_L21_A_R_A_2250_EUR_N",
+   "B_L21_A_R_A_2240_EUR_N",
+   "B_L22_F_R_A_2250_EUR_N",
+   "B_L22_F_R_A_2240_EUR_N",
+   "B_A2C_F_R_A_2250_EUR_N",
+   "B_A2A_F_R_A_2240_EUR_N"
+  ],
+  "relaxations": 8,
+  "windows": [
+   3,
+   2
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "56 files on disk, 0 unreadable, 0 steps built from a short window, 12 instrument-area-date-window cells dropped for short coverage and named rather than averaged over: ['B_L22_F_R_A_2240_EUR_N:IE:2014-05:win2', 'B_L22_F_R_A_2240_EUR_N:IE:2014-05:win3', 'B_L22_F_R_A_2240_EUR_N:IE:2014-06:win2', 'B_L22_F_R_A_2240_EUR_N:IE:2014-06:win3']",
+   "kind": "instrument",
+   "name": "B97-1",
+   "passed": true,
+   "statement": "Every rate file parses, and no step is ever built from a window that is short on either side: a cell with a hole produces no reading rather than a reading over fewer months."
+  },
+  {
+   "detail": "15134 of 15623 months stand above the published floor of 0.02 percentage points, which is four rates at half a tick of 0.01 each; the largest is 4.48, 224.0 times the floor. Six areas against the euro area, fifteen pairs each.",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B97-2",
+   "passed": true,
+   "rival_entailment": "Under that premise the wedge between two positions is the same for every instrument, so the difference of any two wedges, which is a four-cycle over two positions and two goods, is exactly zero. It is read here against the grid the rates are published on, so the floor needs no estimate.",
+   "rival_premise": "Each position carries one scalar, a country premium, and every price at that position is that scalar plus a term belonging to the instrument alone.",
+   "rival_shape": "point prediction",
+   "statement": "The rival's point prediction of zero does not hold on the bank-rate squares. Passing means the rival is wrong here (`11e`)."
+  },
+  {
+   "detail": "1172 of 1296 months stand above the published floor of 0.20 percentage points, four annual rates at half a tick of 0.10 each; the largest is 7.90, 39.5 times the floor. 6 areas against the euro area.",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B97-3",
+   "passed": true,
+   "rival_entailment": "The same entailment, on a carrier that owes nothing to banking: services are mostly local and non-energy industrial goods mostly traded, and neither is priced off a bank's cost of funds. The inflation square is a twelve-month log difference, so each index's arbitrary base cancels out of it. The square of the index levels is not used for this, because a base normalisation survives in it.",
+   "rival_premise": "The same premise as B97-2, one scalar per position.",
+   "rival_shape": "point prediction",
+   "statement": "The rival's point prediction of zero does not hold on the consumer price squares either."
+  },
+  {
+   "detail": "overnight deposits, households: 0 of 5 controls at least as big; overnight deposits, firms: 0 of 5 controls at least as big; term deposits <=1y, households: 0 of 4 controls at least as big; term deposits <=1y, firms: 0 of 4 controls at least as big; loans <=1y, households (placebo): 0 of 5 controls at least as big; loans <=1y, firms (placebo): 0 of 5 controls at least as big. Clean on 6 of 6 instruments, window three months. At the domestic dates the same count is far lower, which is what dates the move to this one.",
+   "kind": "own_reading",
+   "name": "B97-4",
+   "passed": true,
+   "statement": "At the date the cross-border edge was restored, the carrier's step in the wedge is larger than every control's on every rate instrument."
+  },
+  {
+   "detail": "Not adjudicable on this carrier, which is a statement about the instruments and not about the prediction. Every rate here is a bank rate and reaches the cross-border edge through a bank's cost of funds, so none of them sits on the domestic edge alone; the placebo moved more than the treated instruments, which is the same fact read from the other side. On the goods side the level object carries a seasonal cycle of about three log points a year with no seasonally adjusted country series published in this dataflow, and the one cell that pointed the right way rests on a margin of 0.13 percentage points over a control. Neither state of the prediction was reached.",
+   "kind": "own_reading",
+   "name": "B97-5",
+   "passed": false,
+   "statement": "A price sitting on the domestic edge moves when that edge is restored and not when the cross-border one is, and a price sitting on the cross-border edge does the reverse. Three states: separated, contradicted, and no instrument that sits on one edge only."
+  },
+  {
+   "detail": "7984 rate observations on a tick of 0.01 with 0 off the grid; 9072 annual rate observations on a tick of 0.10 with 0 off the grid. The number of printed digits varies in both, because trailing zeros are dropped, and that is why the grid is checked rather than counted from the digits.",
+   "kind": "known_answer",
+   "name": "B97-6",
+   "passed": true,
+   "statement": "Every published value sits on an integer number of its own tick, which is what makes the printed grid usable as a floor rather than an artefact of the serializer."
+  }
+ ],
+ "mapping": {
+  "B97-2": "the rival's zero fails on some month -> PASS, the rival is wrong there; it holds everywhere -> FAIL, the rival is right there",
+  "B97-4": "larger than every control on every instrument -> PASS; larger on some and not others -> FAIL and the reading is reported per instrument",
+  "B97-5": "separated -> PASS; contradicted -> FAIL; no instrument on one edge only -> neither, and the record says so in its own detail rather than borrowing a verdict (`11c`)"
+ },
+ "report": {
+  "goods_squares_over_floor": [
+   1172,
+   1296
+  ],
+  "instruments_clean_at_the_cross_border_date": [
+   6,
+   6
+  ],
+  "rate_squares_over_floor": [
+   15134,
+   15623
+  ]
+ },
+ "stage": "B97"
+}

@@ -1306,6 +1306,34 @@ def cmd_perm(archives, n_draws, kinds) -> int:
 # --ladder: enumerate the cuts a person could have made, and read the spread
 # ---------------------------------------------------------------------------
 
+
+def _rank_correlation(a, b) -> float:
+    """Spearman, written out so the station keeps its one dependency.
+
+    The design's guard asks whether the spread tracks the class count as the cut
+    moves. That is a within-cell association across the enumerated cuts, and this
+    is it. Ties take their mean rank, so a class count many cuts share cannot be
+    spread over an interval it does not occupy.
+    """
+    a, b = np.asarray(a, float), np.asarray(b, float)
+    if a.size < 2:
+        return float("nan")
+
+    def ranks(x):
+        order = np.argsort(x, kind="mergesort")
+        r = np.empty(x.size, float)
+        r[order] = np.arange(x.size, dtype=float)
+        _, first, counts = np.unique(x[order], return_index=True,
+                                     return_counts=True)
+        for f, c in zip(first, counts):
+            if c > 1:
+                r[order[f:f + c]] = r[order[f:f + c]].mean()
+        return r
+
+    ra, rb = ranks(a) - ranks(a).mean(), ranks(b) - ranks(b).mean()
+    den = float(np.linalg.norm(ra) * np.linalg.norm(rb))
+    return float(ra @ rb / den) if den > 0 else float("nan")
+
 #: **Why this replaces the permutation.** A permutation asks whether the real
 #: cut is special among arbitrary cuts. That question has an answer forced by
 #: the loop construction: every loop is anchored at `00` and leaves it, so any
@@ -1450,6 +1478,42 @@ def cmd_ladder(archives) -> int:
                                 else float("nan"),
                                 "real_at": place(real[2], spr[fin])
                                 if fin.any() else float("nan")}}
+                #: The guard section 12 of the design registers reads, in its own
+                #: words, "print the class count and the spread side by side, per
+                #: cut". What went into the record instead was four summary numbers
+                #: per cell, and the criterion below became a comparison of two
+                #: COLUMNS' ranges. That comparison cannot carry the claim its
+                #: name made: a spread that is an exact function of the class
+                #: count, pointing a different way in each cell, pins the
+                #: class-count column near one and spreads the spread column over
+                #: the unit interval, and the comparison passes. Twelve cells of
+                #: that shape give 0.0900 < 0.9810, a pass, with the spread being
+                #: the class count exactly. These three are the objects the design
+                #: asked for, compact enough to sit in the record, and nothing is
+                #: gated on them.
+                cf, sf = cls[fin], spr[fin]
+                same = np.flatnonzero(fin & (cls == real[0]))
+                quint = []
+                if cf.size:
+                    edges = np.quantile(cf, [0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
+                    for q, (lo, hi) in enumerate(zip(edges[:-1], edges[1:])):
+                        m = (cf >= lo) & ((cf <= hi) if q == 4 else (cf < hi))
+                        quint.append({
+                            "class_count_from": float(lo),
+                            "class_count_to": float(hi),
+                            "n_cuts": int(m.sum()),
+                            "median_spread": float(np.median(sf[m]))
+                            if m.any() else None})
+                a["classes_against_spread"] = {
+                    "spearman_over_cuts": _rank_correlation(cf, sf),
+                    "n_finite_cuts": int(cf.size),
+                    "real_at_given_same_class_count":
+                        float((spr[same] <= real[2]).mean())
+                        if same.size and np.isfinite(real[2]) else None,
+                    "n_cuts_with_same_class_count": int(same.size),
+                    "median_spread_by_class_count_quintile": quint,
+                }
+
                 floor = FLOOR.get(archive, float("nan"))
                 a["spread_over_floor"] = {
                     "min": a["spread"]["min"] / floor,
@@ -1510,6 +1574,12 @@ def cmd_ladder(archives) -> int:
                         "median |omega| is invariant to where the delinquency "
                         "ladder is cut",
                 "passed": bool(ratio <= SIGNAL_OVER_NOISE),
+                #: Discipline 11d. This asks whether this run's reading depends
+                #: on a choice of grid, so it is about the instrument. A failure
+                #: says the cut decides the reading, which is the quantity this
+                #: station exists to produce, and it is not a failure of any
+                #: theory. No criterion in this file scores a rival.
+                "kind": "instrument",
                 "detail": (
                     f'max/min {ratio:.2f} across {r["cuts"]:,} enumerated '
                     f"{LADDER_BINS}-bin cuts, line at {SIGNAL_OVER_NOISE}; "
@@ -1520,13 +1590,34 @@ def cmd_ladder(archives) -> int:
                     f'{a["spread"]["finite"]:,} cuts give a finite spread'),
             })
     #: The guard, declared before the run: the real cut has a near-maximal class
-    #: count everywhere, so if the spread tracked the class count the quantile
-    #: column would say nothing about the cut. It does not track it, and the
-    #: check is the two columns side by side rather than an argument.
+    #: count everywhere, so if the spread rose with the class count the real
+    #: cut's spread quantile would be near-maximal everywhere too. It is not.
+    #:
+    #: Renamed 2026-09-12 to the claim this expression can carry. It used to be
+    #: called "the spread's position is not fixed by the class count", which is a
+    #: WITHIN-cell statement, and two columns' ranges across cells cannot reach
+    #: it: a spread that is an exact function of the class count, pointing a
+    #: different way in each cell, produces exactly this pattern and passes. What
+    #: the expression does rule out is the spread rising with the class count the
+    #: same way in every cell, which is the alternative the design named. The
+    #: within-cell objects are in derived and nothing is gated on them, per the
+    #: discipline that says to print the object rather than draw a line on it.
     cls_q = [a["classes"]["real_at"] for r in recs for a in r["arms"].values()]
     spr_q = [a["spread"]["real_at"] for r in recs for a in r["arms"].values()]
+    for r in recs:
+        for tag, a in r["arms"].items():
+            cvs = a.get("classes_against_spread")
+            if cvs:
+                key = f'{r["archive"]}_{tag}'
+                derived[f"classes_spread_spearman_{key}"] = cvs["spearman_over_cuts"]
+                derived[f"spread_real_at_given_same_classes_{key}"] = \
+                    cvs["real_at_given_same_class_count"]
+    rhos = [a["classes_against_spread"]["spearman_over_cuts"]
+            for r in recs for a in r["arms"].values()
+            if a.get("classes_against_spread")]
     criteria.append({
-        "name": "B12-D  the spread's position is not fixed by the class count",
+        "name": "B12-D  the real cut's spread position does not rise with its "
+                "class count across cells",
         "passed": bool(cls_q and (max(cls_q) - min(cls_q)) * 4
                        < (max(spr_q) - min(spr_q))),
         "detail": (
@@ -1534,7 +1625,16 @@ def cmd_ladder(archives) -> int:
             f"{max(cls_q):.4f} over {len(cls_q)} cells while its spread "
             f"quantile spans {min(spr_q):.4f} to {max(spr_q):.4f}: a "
             "near-constant class count against the full range of spread "
-            "positions"),
+            "positions. This rules out the spread rising with the class count "
+            "the same way in every cell and it rules out nothing wider, since a "
+            "spread that is an exact function of the class count pointing a "
+            "different way in each cell gives this same pattern. The within-cell "
+            "association is printed and gated on nothing: rank correlation of "
+            "class count against spread over the enumerated cuts runs "
+            + (", ".join(f"{x:+.3f}" for x in rhos) if rhos else "not computed")
+            + ", and the spread quantile of the real cut among the cuts sharing "
+              "its exact class count is in derived beside it"),
+        "kind": "instrument",
     })
 
     RESULTS.mkdir(parents=True, exist_ok=True)
@@ -1551,10 +1651,31 @@ def cmd_ladder(archives) -> int:
          "criteria": criteria, "derived": derived, "archives": recs},
         indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(f"  wrote {out.relative_to(ROOT)}\n")
+    #: The pass count is printed because people expect one, and then it is taken
+    #: apart, because on this station it reads better than the data. The twelve
+    #: cell criteria and the one guard are different objects and do not belong in
+    #: one fraction, and a cell that lands just under the registered line is not
+    #: an invariant reading, it is a reading whose distance from the line is
+    #: below this criterion's own resolution.
+    cells = [c for c in criteria if "between-class spread" in c["name"]]
+    mults = sorted(derived[f'spread_max_over_min_{r["archive"]}_{t}']
+                   for r in recs for t in r["arms"])
+    near = [m for m in mults if m <= SIGNAL_OVER_NOISE
+            and m > SIGNAL_OVER_NOISE * 0.85]
     n_pass = sum(c["passed"] for c in criteria)
     print(f"  {n_pass}/{len(criteria)} criteria pass. A criterion here passes "
           "when the reading does NOT\n  move with the cut, so the failures "
           "are the finding.\n")
+    if mults:
+        print(f"  read it apart, not as a fraction: {len(cells)} cell criteria "
+              f"plus 1 guard, a different object.\n"
+              f"  across the {len(mults)} cells the reading moves by "
+              f"{mults[0]:.2f}x to {mults[-1]:.2f}x, so NOT ONE cell is "
+              f"invariant;\n"
+              f"  {len(near)} of them land under the line of "
+              f"{SIGNAL_OVER_NOISE:.1f} by less than this criterion can "
+              f"resolve.\n"
+              f"  every criterion here is kind=instrument; none scores a rival.\n")
     return 0
 
 

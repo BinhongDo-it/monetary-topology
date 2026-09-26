@@ -1,0 +1,449 @@
+{
+  "config": {
+    "block_days": 5,
+    "control": "not yet drawn",
+    "draws": 2000,
+    "event_day": "settle",
+    "horizon_days": 1,
+    "object": "abs(cip_govt)",
+    "seeds": [
+      11,
+      23
+    ],
+    "tenor": "3m",
+    "window": [
+      "2007-01-01",
+      "2009-12-31"
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "8 G10 counterparties drew, 8 events read: EUR 2007-12-20, CHF 2007-12-20, GBP 2008-09-18, JPY 2008-09-25, AUD 2008-09-29, DKK 2008-09-30, NOK 2008-10-02, SEK 2008-10-17",
+      "kind": "instrument",
+      "name": "B121-12",
+      "passed": true,
+      "statement": "every G10 counterparty in the Board's swap-line file has a first settlement inside the window, and the gap is read on the day before and on that day"
+    },
+    {
+      "detail": "+8.31 bp over 8 events, floor 4.04, +2.06 floors, p 0.0545",
+      "kind": "own_reading",
+      "name": "B121-13",
+      "passed": false,
+      "state": "does not narrow past its floor",
+      "state_map": {
+        "does not narrow past its floor": "fail",
+        "narrows past its floor, sign steady": "pass",
+        "sign nothing clears the floor": "no verdict",
+        "sign turns over": "no verdict"
+      },
+      "statement": "on the day a currency's swap line first pays out, its gap moves toward zero against the G10 currencies whose line has not paid out, past two of its own floor"
+    },
+    {
+      "detail": "12 settings, steady",
+      "kind": "instrument",
+      "name": "B121-14",
+      "passed": true,
+      "statement": "the sign of that reading holds on every declared setting: horizon, control set, and whether the event is the trade or the settlement day"
+    },
+    {
+      "detail": "+2.06 and +2.04 floors, moved 0.016, stands 0.050 from the line",
+      "kind": "instrument",
+      "name": "B121-15",
+      "passed": true,
+      "statement": "two seeds put the reading in the same state and p moves less than its distance to the line"
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Arm A1 of B121; the station's other arms are open, so it is not closed.",
+  "first_drawings": {
+    "AUD": {
+      "amount_mn": 10000.0,
+      "settle": "2008-09-29",
+      "trade": "2008-09-26"
+    },
+    "CHF": {
+      "amount_mn": 4000.0,
+      "settle": "2007-12-20",
+      "trade": "2007-12-17"
+    },
+    "DKK": {
+      "amount_mn": 5000.0,
+      "settle": "2008-09-30",
+      "trade": "2008-09-26"
+    },
+    "EUR": {
+      "amount_mn": 10000.0,
+      "settle": "2007-12-20",
+      "trade": "2007-12-17"
+    },
+    "GBP": {
+      "amount_mn": 14050.0,
+      "settle": "2008-09-18",
+      "trade": "2008-09-18"
+    },
+    "JPY": {
+      "amount_mn": 29622.0,
+      "settle": "2008-09-25",
+      "trade": "2008-09-24"
+    },
+    "KRW": {
+      "amount_mn": 4000.0,
+      "settle": "2008-12-04",
+      "trade": "2008-12-02"
+    },
+    "MXN": {
+      "amount_mn": 3221.0,
+      "settle": "2009-04-23",
+      "trade": "2009-04-21"
+    },
+    "NOK": {
+      "amount_mn": 3000.0,
+      "settle": "2008-10-02",
+      "trade": "2008-09-30"
+    },
+    "SEK": {
+      "amount_mn": 10000.0,
+      "settle": "2008-10-17",
+      "trade": "2008-10-15"
+    }
+  },
+  "readings": {
+    "by_seed": {
+      "11": {
+        "by_event": [
+          {
+            "control_mean_bp": -12.336476625,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "day": "2007-12-20",
+            "effect_bp": -2.8148933750000147,
+            "treated_bp": -15.151370000000014
+          },
+          {
+            "control_mean_bp": -12.336476625,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "day": "2007-12-20",
+            "effect_bp": -8.995873374999992,
+            "treated_bp": -21.33234999999999
+          },
+          {
+            "control_mean_bp": -6.603930000000004,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "GBP",
+            "day": "2008-09-18",
+            "effect_bp": 27.565849999999998,
+            "treated_bp": 20.961919999999992
+          },
+          {
+            "control_mean_bp": -24.107476833333333,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "JPY",
+            "day": "2008-09-25",
+            "effect_bp": -25.51410316666666,
+            "treated_bp": -49.621579999999994
+          },
+          {
+            "control_mean_bp": 58.626319999999986,
+            "controls": [
+              "CAD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "AUD",
+            "day": "2008-09-29",
+            "effect_bp": 4.559270000000005,
+            "treated_bp": 63.18558999999999
+          },
+          {
+            "control_mean_bp": -8.047559500000006,
+            "controls": [
+              "CAD",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "DKK",
+            "day": "2008-09-30",
+            "effect_bp": 83.39993949999999,
+            "treated_bp": 75.35237999999998
+          },
+          {
+            "control_mean_bp": 22.027909333333316,
+            "controls": [
+              "CAD",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "NOK",
+            "day": "2008-10-02",
+            "effect_bp": 9.040650666666675,
+            "treated_bp": 31.06855999999999
+          },
+          {
+            "control_mean_bp": -29.488609999999994,
+            "controls": [
+              "CAD",
+              "NZD"
+            ],
+            "currency": "SEK",
+            "day": "2008-10-17",
+            "effect_bp": -20.73330999999999,
+            "treated_bp": -50.22191999999998
+          }
+        ],
+        "draws": 2000,
+        "events": 8,
+        "floor": 4.0386820544215185,
+        "mean_effect_bp": 8.31344128125,
+        "over_floor": 2.0584540127759023,
+        "p": 0.0544727636181909,
+        "seed": 11
+      },
+      "23": {
+        "by_event": [
+          {
+            "control_mean_bp": -12.336476625,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "day": "2007-12-20",
+            "effect_bp": -2.8148933750000147,
+            "treated_bp": -15.151370000000014
+          },
+          {
+            "control_mean_bp": -12.336476625,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "day": "2007-12-20",
+            "effect_bp": -8.995873374999992,
+            "treated_bp": -21.33234999999999
+          },
+          {
+            "control_mean_bp": -6.603930000000004,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "GBP",
+            "day": "2008-09-18",
+            "effect_bp": 27.565849999999998,
+            "treated_bp": 20.961919999999992
+          },
+          {
+            "control_mean_bp": -24.107476833333333,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "JPY",
+            "day": "2008-09-25",
+            "effect_bp": -25.51410316666666,
+            "treated_bp": -49.621579999999994
+          },
+          {
+            "control_mean_bp": 58.626319999999986,
+            "controls": [
+              "CAD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "AUD",
+            "day": "2008-09-29",
+            "effect_bp": 4.559270000000005,
+            "treated_bp": 63.18558999999999
+          },
+          {
+            "control_mean_bp": -8.047559500000006,
+            "controls": [
+              "CAD",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "DKK",
+            "day": "2008-09-30",
+            "effect_bp": 83.39993949999999,
+            "treated_bp": 75.35237999999998
+          },
+          {
+            "control_mean_bp": 22.027909333333316,
+            "controls": [
+              "CAD",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "NOK",
+            "day": "2008-10-02",
+            "effect_bp": 9.040650666666675,
+            "treated_bp": 31.06855999999999
+          },
+          {
+            "control_mean_bp": -29.488609999999994,
+            "controls": [
+              "CAD",
+              "NZD"
+            ],
+            "currency": "SEK",
+            "day": "2008-10-17",
+            "effect_bp": -20.73330999999999,
+            "treated_bp": -50.22191999999998
+          }
+        ],
+        "draws": 2000,
+        "events": 8,
+        "floor": 4.070468921505934,
+        "mean_effect_bp": 8.31344128125,
+        "over_floor": 2.0423792544703456,
+        "p": 0.05147426286856572,
+        "seed": 23
+      }
+    },
+    "knobs": [
+      {
+        "events": 8,
+        "mean_effect_bp": 8.313,
+        "name": "1d|not yet drawn|settle",
+        "over_floor": 2.18
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 0.56,
+        "name": "1d|not yet drawn|trade",
+        "over_floor": 0.14
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 7.171,
+        "name": "1d|never drew|settle",
+        "over_floor": 1.66
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 3.61,
+        "name": "1d|never drew|trade",
+        "over_floor": 0.84
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 23.463,
+        "name": "5d|not yet drawn|settle",
+        "over_floor": 3.43
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 20.374,
+        "name": "5d|not yet drawn|trade",
+        "over_floor": 2.88
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 18.973,
+        "name": "5d|never drew|settle",
+        "over_floor": 2.25
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 27.087,
+        "name": "5d|never drew|trade",
+        "over_floor": 3.16
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 29.283,
+        "name": "10d|not yet drawn|settle",
+        "over_floor": 3.15
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 36.968,
+        "name": "10d|not yet drawn|trade",
+        "over_floor": 4.28
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 12.607,
+        "name": "10d|never drew|settle",
+        "over_floor": 1.05
+      },
+      {
+        "events": 8,
+        "mean_effect_bp": 29.639,
+        "name": "10d|never drew|trade",
+        "over_floor": 2.66
+      }
+    ],
+    "seeds": {
+      "detail": "+2.06 and +2.04 floors, moved 0.016, stands 0.050 from the line",
+      "ok": true
+    }
+  },
+  "source": {
+    "events": "Board of Governors, central bank liquidity swap transaction data, cbls.csv",
+    "gap": "Du, Keerati and Schreger, cip_dataset_v4.csv, column cip_govt"
+  },
+  "stage": "B121"
+}

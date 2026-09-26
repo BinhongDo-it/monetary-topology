@@ -1,0 +1,277 @@
+{
+  "config": {
+    "block_days": 5,
+    "control": null,
+    "draws": 2000,
+    "peak_target_rate": 5.25,
+    "seeds": [
+      11,
+      23
+    ],
+    "spread_key": "spread",
+    "taf_key": "taf_frb",
+    "window": [
+      "2007-01-01",
+      "2008-08-08"
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "420 rows, 420 distinct dates, object on 407",
+      "kind": "instrument",
+      "name": "B121-1",
+      "passed": true,
+      "statement": "the panel carries one row per trading day of the window, no date twice, and the object exists on the days the reading uses"
+    },
+    {
+      "detail": "397 days, median gap 0.125 bp, largest 0.5 bp",
+      "kind": "known_answer",
+      "name": "B121-2",
+      "passed": true,
+      "statement": "the LIBOR the extension window will use, TEDRATE plus DTB3, returns the workbook's own US0003M within one basis point on every overlapping day"
+    },
+    {
+      "detail": "+9.03 bp per point of cut, floor 3.48, +2.59 of its own floor, p 0.0245",
+      "kind": "own_reading",
+      "name": "B121-3",
+      "passed": false,
+      "statement": "the rate dose does not move the wedge: the response of the daily change in LIBOR minus OIS to the cut taken that day sits inside its own floor"
+    },
+    {
+      "cite": "Taylor and Williams, A Black Swan in the Money Market, American Economic Journal: Macroeconomics 1(1): 58-83, 2009",
+      "detail": "+0.0710 bp per billion, floor 0.1008, +0.70 of its own floor, p 0.3348; not read: 8 of 16 declared settings turn the sign over",
+      "grid": "unread",
+      "kind": "rival",
+      "name": "B121-4",
+      "passed": null,
+      "rival_entailment": "the Term Auction Facility changes neither total liquidity, nor the expected path of the overnight rate, nor counterparty risk, so it changes nothing in the spread; the dose response is zero",
+      "rival_premise": "the LIBOR-OIS spread is counterparty risk, a property of the borrowing bank, not of the edge it borrows on",
+      "rival_shape": "point prediction of zero",
+      "state_map": {
+        "a declared knob turns the sign over": "no verdict, grid unread",
+        "negative past two floors, sign steady": "pass, grid B",
+        "otherwise, sign steady": "fail, grid C"
+      },
+      "statement": "the facility's dose does move it: the response to a billion of TAF outstanding is negative and past two of its own floor"
+    },
+    {
+      "detail": "16 settings, signs spread|taf_frb|no cds|2007-01-01:+1, spread|taf_frb|no cds|2007-08-09:+1, spread|taf_frb|cds|2007-01-01:+1, spread|taf_frb|cds|2007-08-09:+1, spread|taf_tot|no cds|2007-01-01:+1, spread|taf_tot|no cds|2007-08-09:+1, spread|taf_tot|cds|2007-01-01:+1, spread|taf_tot|cds|2007-08-09:+1, spread_lagged_ois|taf_frb|no cds|2007-01-01:-1, spread_lagged_ois|taf_frb|no cds|2007-08-09:-1, spread_lagged_ois|taf_frb|cds|2007-01-01:-1, spread_lagged_ois|taf_frb|cds|2007-08-09:-1, spread_lagged_ois|taf_tot|no cds|2007-01-01:-1, spread_lagged_ois|taf_tot|no cds|2007-08-09:-1, spread_lagged_ois|taf_tot|cds|2007-01-01:-1, spread_lagged_ois|taf_tot|cds|2007-08-09:-1; flipped on ['spread_lagged_ois|taf_frb|no cds|2007-01-01', 'spread_lagged_ois|taf_frb|no cds|2007-08-09', 'spread_lagged_ois|taf_frb|cds|2007-01-01', 'spread_lagged_ois|taf_frb|cds|2007-08-09', 'spread_lagged_ois|taf_tot|no cds|2007-01-01', 'spread_lagged_ois|taf_tot|no cds|2007-08-09', 'spread_lagged_ois|taf_tot|cds|2007-01-01', 'spread_lagged_ois|taf_tot|cds|2007-08-09']",
+      "kind": "instrument",
+      "name": "B121-5",
+      "passed": false,
+      "statement": "the sign of the facility's dose response holds on every setting this station has already declared, so the cell is read rather than set by a knob"
+    },
+    {
+      "detail": "cut: +2.59 and +2.54 floors, moved 0.050, stands 0.569 from the line; taf: +0.70 and +0.71 floors, moved 0.007, stands 1.292 from the line",
+      "kind": "instrument",
+      "name": "B121-6",
+      "passed": true,
+      "statement": "two seeds put every reading in the same state, and each p moves by less than its distance to the line it is read against"
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Main window only, to 2008-08-08. The extension window past Lehman is not read yet, so the station is not closed.",
+  "readings": {
+    "by_seed": {
+      "11": {
+        "cut": {
+          "coef": 9.032024971275883,
+          "draws": 2000,
+          "null_median": 0.1660407270428101,
+          "null_sd": 3.481198926203436,
+          "over_floor": 2.59451561451736,
+          "p": 0.02448775612193903,
+          "seed": 11
+        },
+        "taf": {
+          "coef": 0.0709837020443396,
+          "draws": 2000,
+          "null_median": 0.013917426354112673,
+          "null_sd": 0.10078822903088545,
+          "over_floor": 0.7042856365953947,
+          "p": 0.33483258370814595,
+          "seed": 11
+        }
+      },
+      "23": {
+        "cut": {
+          "coef": 9.032024971275883,
+          "draws": 2000,
+          "null_median": 0.06346811794219576,
+          "null_sd": 3.5499583557223406,
+          "over_floor": 2.5442622324616138,
+          "p": 0.025987006496751622,
+          "seed": 23
+        },
+        "taf": {
+          "coef": 0.0709837020443396,
+          "draws": 2000,
+          "null_median": 0.016840803357151633,
+          "null_sd": 0.09976666408610232,
+          "over_floor": 0.711497198934887,
+          "p": 0.33233383308345826,
+          "seed": 23
+        }
+      }
+    },
+    "days": 395,
+    "knobs": [
+      {
+        "cut": 9.032,
+        "cut_sign": 1,
+        "n": 395,
+        "name": "spread|taf_frb|no cds|2007-01-01",
+        "taf": 0.07098,
+        "taf_sign": 1
+      },
+      {
+        "cut": 9.1474,
+        "cut_sign": 1,
+        "n": 245,
+        "name": "spread|taf_frb|no cds|2007-08-09",
+        "taf": 0.07414,
+        "taf_sign": 1
+      },
+      {
+        "cut": 10.3014,
+        "cut_sign": 1,
+        "n": 395,
+        "name": "spread|taf_frb|cds|2007-01-01",
+        "taf": 0.03347,
+        "taf_sign": 1
+      },
+      {
+        "cut": 10.4329,
+        "cut_sign": 1,
+        "n": 245,
+        "name": "spread|taf_frb|cds|2007-08-09",
+        "taf": 0.03797,
+        "taf_sign": 1
+      },
+      {
+        "cut": 9.0145,
+        "cut_sign": 1,
+        "n": 395,
+        "name": "spread|taf_tot|no cds|2007-01-01",
+        "taf": 0.02982,
+        "taf_sign": 1
+      },
+      {
+        "cut": 9.1179,
+        "cut_sign": 1,
+        "n": 245,
+        "name": "spread|taf_tot|no cds|2007-08-09",
+        "taf": 0.03135,
+        "taf_sign": 1
+      },
+      {
+        "cut": 10.2991,
+        "cut_sign": 1,
+        "n": 395,
+        "name": "spread|taf_tot|cds|2007-01-01",
+        "taf": 0.01423,
+        "taf_sign": 1
+      },
+      {
+        "cut": 10.4252,
+        "cut_sign": 1,
+        "n": 245,
+        "name": "spread|taf_tot|cds|2007-08-09",
+        "taf": 0.01651,
+        "taf_sign": 1
+      },
+      {
+        "cut": -0.8462,
+        "cut_sign": -1,
+        "n": 395,
+        "name": "spread_lagged_ois|taf_frb|no cds|2007-01-01",
+        "taf": -0.08899,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.9846,
+        "cut_sign": -1,
+        "n": 245,
+        "name": "spread_lagged_ois|taf_frb|no cds|2007-08-09",
+        "taf": -0.09277,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.8124,
+        "cut_sign": -1,
+        "n": 395,
+        "name": "spread_lagged_ois|taf_frb|cds|2007-01-01",
+        "taf": -0.08998,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.9956,
+        "cut_sign": -1,
+        "n": 245,
+        "name": "spread_lagged_ois|taf_frb|cds|2007-08-09",
+        "taf": -0.09246,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.8347,
+        "cut_sign": -1,
+        "n": 395,
+        "name": "spread_lagged_ois|taf_tot|no cds|2007-01-01",
+        "taf": -0.04987,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.9649,
+        "cut_sign": -1,
+        "n": 245,
+        "name": "spread_lagged_ois|taf_tot|no cds|2007-08-09",
+        "taf": -0.05179,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.8121,
+        "cut_sign": -1,
+        "n": 395,
+        "name": "spread_lagged_ois|taf_tot|cds|2007-01-01",
+        "taf": -0.05014,
+        "taf_sign": -1
+      },
+      {
+        "cut": -0.9883,
+        "cut_sign": -1,
+        "n": 245,
+        "name": "spread_lagged_ois|taf_tot|cds|2007-08-09",
+        "taf": -0.05153,
+        "taf_sign": -1
+      }
+    ],
+    "seeds_agree": {
+      "detail": "cut: +2.59 and +2.54 floors, moved 0.050, stands 0.569 from the line; taf: +0.70 and +0.71 floors, moved 0.007, stands 1.292 from the line",
+      "ok": true
+    }
+  },
+  "source": {
+    "column_names": {
+      "CDSMEDIAN2": "CDS Median (15 Banks)",
+      "CD_3M": "Three-Month CD",
+      "FFE": "Effective Federal Funds Rate",
+      "FFT": "Target Federal Funds Rate",
+      "GFED03M": "Three-Month Term Fed Funds",
+      "RPGT03M": "Three-Month Repo",
+      "TAFANNOUNCEFRBNY": "TAF Announcements Dummy",
+      "TAFBAL_FRB": "TAF Outstanding Balance - US",
+      "TAFBAL_TOT": "TAF Outstanding Balance - Total",
+      "TAFDUMMY": "TAF Dummy = 1 starting on 12/12/2007",
+      "TAFSETTLE": "TAF Settlement Dummy",
+      "US0003M": "Three-Month US LIBOR",
+      "USSOC": "Three-Month US OIS",
+      "USTAFD": "TAF Dummy = 1 on TAF bid dates"
+    },
+    "fred": [
+      "TEDRATE",
+      "DTB3"
+    ],
+    "main_window": "openICPSR 114040, replication data for Taylor and Williams, A Black Swan in the Money Market, AEJ: Macroeconomics 1(1)"
+  },
+  "stage": "B121"
+}

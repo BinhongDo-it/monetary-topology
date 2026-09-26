@@ -1,0 +1,599 @@
+{
+  "config": {
+    "carrier": "none: this station runs no model. It parses network.py and reads records already on disk",
+    "claim": "incidence changes who falls below the floor exactly when neither absorber is present: a controller closing a gap in the quantity the floor is read against, or mixing",
+    "kinds": {
+      "controller": "whatever closes a gap in some quantity, named beside it",
+      "exogenous": "a constant, an external schedule, or a quantity settled outside the loop the floor sits in",
+      "proportional": "a fraction of an internal stock, with no target to close a gap against"
+    },
+    "mechanisms": [
+      "issuance",
+      "withdrawal",
+      "pass_down",
+      "debt_service",
+      "recapitalisation",
+      "writeoff"
+    ],
+    "module_sha": "c32ae652d3347f1c",
+    "script_sha": "2401bd5b69110083"
+  },
+  "sections": {
+    "run": {
+      "census": {
+        "functions": [
+          "_pass_down",
+          "_recapitalise",
+          "_run_steps",
+          "_serve_debt",
+          "_withdraw_claims"
+        ],
+        "functions_not_in_the_table": [],
+        "lines": [
+          {
+            "function": "_pass_down",
+            "line": 4074,
+            "text": "self._total_claims += amount"
+          },
+          {
+            "function": "_serve_debt",
+            "line": 4119,
+            "text": "self._total_claims += added"
+          },
+          {
+            "function": "_serve_debt",
+            "line": 4142,
+            "text": "self._total_claims += rec[\"debt_created\"] + unpaid_total - retired_total"
+          },
+          {
+            "function": "_withdraw_claims",
+            "line": 4326,
+            "text": "self._total_claims -= taken"
+          },
+          {
+            "function": "_recapitalise",
+            "line": 4368,
+            "text": "self._total_claims += amount"
+          },
+          {
+            "function": "_run_steps",
+            "line": 4663,
+            "text": "self._total_claims += issued"
+          },
+          {
+            "function": "_run_steps",
+            "line": 4915,
+            "text": "self._total_claims -= destroyed_this_round"
+          }
+        ],
+        "module_sha": "c32ae652d3347f1c",
+        "quotes_not_unique": [],
+        "table_entries_not_in_the_module": []
+      },
+      "criteria": [
+        {
+          "detail": "Every line that adds to or subtracts from the claim total, with the function it sits in: 7 lines in 5 functions, ['_pass_down', '_recapitalise', '_run_steps', '_serve_debt', '_withdraw_claims']. A line that only reads the total is not a mechanism and is excluded by requiring an augmented assignment. Functions in the module and not in the table: none. Table entries with no such line in the module: none. Table entries whose quoted line does not occur exactly once: none. State map: all three empty -> PASS; any non-empty -> FAIL, and the survey after this is reading an incomplete set.",
+          "kind": "instrument",
+          "name": "A32-0 the census is read out of the module, not remembered",
+          "passed": true
+        },
+        {
+          "detail": "Records named by the table and missing from disk: none. Mechanisms whose incidence reading was extracted: ['issuance', 'withdrawal', 'pass_down', 'debt_service', 'recapitalisation', 'writeoff']. State map: nothing missing -> PASS; any named record absent -> FAIL.",
+          "kind": "instrument",
+          "name": "A32-1 every mechanism with an incidence dial points at a record that opens",
+          "passed": true
+        },
+        {
+          "detail": "Printed, not judged. Three answers: exogenous = a constant, an external schedule, or a quantity settled outside the loop the floor sits in; proportional = a fraction of an internal stock, with no target to close a gap against; controller = whatever closes a gap in some quantity, named beside it. The census: issuance: controller, on the floor's quantity, continuous; closes the Layer 2 inflow's gap below its round 0 level; dial injection_target | withdrawal: controller, on the floor's quantity, continuous; closes the Layer 2 inflow's overshoot above its round 0 level; dial position, base and mix | pass_down: proportional, not on the floor's quantity, continuous; closes nothing: pass_rate times the pool, whatever the pool is; dial landing | debt_service: exogenous, not on the floor's quantity, continuous; closes nothing: maturity and coupon rates on the bond stock; dial levy_base, inside funding=levy | recapitalisation: exogenous, not on the floor's quantity, episodic; closes nothing: what the lenders lost last round; dial recap_target | writeoff: controller, not on the floor's quantity, episodic; closes the claim total over the resources offered, against a trigger; dial base. **Two mechanisms are controllers and only one of them closes a gap in the quantity the subsistence floor is read against**, which is the distinction the claim turns on: the write-off is a controller too, on the claim total over the resources offered, and that is a different quantity.",
+          "kind": "own_reading",
+          "name": "A32-2 what sets the amount, mechanism by mechanism",
+          "passed": true
+        },
+        {
+          "detail": "Printed, not judged. The claim, written before the check: incidence changes who falls below the floor exactly when neither absorber is present, absorber one being a controller closing a gap in the very quantity the floor is read against, absorber two being mixing, live wherever the wage elasticity is above zero. **The row a cell lands in is a property of the mechanism being dialled, not of the run.** A floor quantity controller was running in every cell of this survey, the authority being on by default, so the row does not ask whether such a controller is anywhere in the run. It asks whether the mechanism whose incidence is being turned is itself one. The write-off is the case that makes the difference visible: it ran with the authority live throughout and its shape decided anyway, so a controller absorbs its own incidence and does not absorb everybody else's. The two by two, filled from records already on disk: controller on the floor's quantity / mixing dead: 2 of 400 paired cells differ and 0 by more than the allowance, largest gap 1 (issuance e0.0, withdrawal e0.0); controller on the floor's quantity / mixing live: 4 of 477 paired cells differ and 0 by more than the allowance, largest gap 1 (issuance e0.5, withdrawal e0.5); no such controller / mixing dead: 159 of 797 paired cells differ and 74 by more than the allowance, largest gap 80 (pass_down e0.0, debt_service e0.0, recapitalisation e0.0, writeoff e0.0); no such controller / mixing live: 199 of 872 paired cells differ and 116 by more than the allowance, largest gap 119 (pass_down e0.5, debt_service e0.5, recapitalisation e0.5, recapitalisation e1.0, writeoff e0.5). **The two absorbers do not come out alike, and reporting one verdict would hide it.** Absorber one: with such a controller present, 6 of 877 paired cells differ at all and 0 differ by more than the 1 node allowance, largest gap 1. **Nothing turns a block anywhere on this side**, against an instrument that moves 42 to 125 nodes when it moves. The six that differ are one node each and are held in the third state rather than counted either way. Absorber two: with no such controller, mixing dead gives 159 of 797 differing (19.9%, 74 beyond the allowance, largest gap 80) and mixing live gives 199 of 872 (22.8%, 116 beyond, largest gap 119). **Mixing does not lower the rate, so this survey does not support absorber two**, and every cell flagged against the claim is of that one shape: no controller, mixing live, incidence decides anyway. Movement states: still = no pair in the cell differs at all; inside the jitter band = some pair differs and none by more than 1 node, which is neither movement nor stillness and is adjudicated as neither; moves = at least one pair differs by more than the allowance. Mechanisms by verdict: against the claim 4, as claimed 1, inside the jitter band, not adjudicated 1. Verdicts: as claimed = the cell is still where an absorber was present, or moves where none was; against the claim = the cell is still with no absorber present, or moves with an absorber present; inside the jitter band, not adjudicated = the cell differs, and by no more than the allowance, so it is read as neither a decision nor its absence. This is the third state, and it exists so that a one node gap and a gap of a hundred do not trigger the same verdict; no incidence reading on disk = no record pairs this mechanism's incidence dial against the count below the floor, so this one is not read either way. A32-4 says whether the dial has been swept at all, which is a different question and is checked against the repository. Cells against the claim: [('pass_down', '0.5', '29/360'), ('debt_service', '0.5', '25/288'), ('recapitalisation', '0.5', '39/45'), ('writeoff', '0.5', '23/134')]. Cells held in the jitter band: [('issuance', '0.0', '2/25'), ('issuance', '0.5', '4/27'), ('recapitalisation', '1.0', '6/45')]. **Absorber one now rests on two mechanisms, issuance and withdrawal**, which are the two the census calls controllers on the floor's own quantity, and both were swept against the floor count. The second one closed the gap A32 opened when it first ran.",
+          "kind": "own_reading",
+          "name": "A32-3 does incidence decide exactly where neither absorber is present",
+          "passed": true
+        },
+        {
+          "detail": "Printed. 0 of 6 mechanisms have no such reading, and **where the dial exists this is checked against the repository rather than asserted from the table**: the scripts and records naming the dial are listed, and so is how many of those records carry a count below the floor. none. **The list is empty, and it was not when this station first ran**: two dials had no reading against the floor count, the issuance's landing and the write-off's shape, and the two stations after this one supplied both. A33 read the landing over 52 legible pairs and A34 read the shape over 238 that fired. **Scope, and it is what the first version of this criterion got wrong**: the claim in A32-3 is about the count below the floor and about nothing else. The issuance's landing moves other readouts and that is on disk: A9's two landings on one cell read a retained wage share of 0.0333 against 0.0586 and a support ratio of 0.4021 against 0.4096. A controller absorbing incidence for the floor count is not a claim that it absorbs it everywhere.",
+          "kind": "bookkeeping",
+          "name": "A32-4 dials with no reading against the count below the floor",
+          "passed": true
+        }
+      ],
+      "grid": {
+        "controller on the floor's quantity / mixing dead": {
+          "differ": 2,
+          "differ_beyond": 0,
+          "max_gap": 1,
+          "mechanisms": [
+            "issuance e0.0",
+            "withdrawal e0.0"
+          ],
+          "pairs": 400,
+          "share_differing": 0.005
+        },
+        "controller on the floor's quantity / mixing live": {
+          "differ": 4,
+          "differ_beyond": 0,
+          "max_gap": 1,
+          "mechanisms": [
+            "issuance e0.5",
+            "withdrawal e0.5"
+          ],
+          "pairs": 477,
+          "share_differing": 0.008386
+        },
+        "no such controller / mixing dead": {
+          "differ": 159,
+          "differ_beyond": 74,
+          "max_gap": 80,
+          "mechanisms": [
+            "pass_down e0.0",
+            "debt_service e0.0",
+            "recapitalisation e0.0",
+            "writeoff e0.0"
+          ],
+          "pairs": 797,
+          "share_differing": 0.199498
+        },
+        "no such controller / mixing live": {
+          "differ": 199,
+          "differ_beyond": 116,
+          "max_gap": 119,
+          "mechanisms": [
+            "pass_down e0.5",
+            "debt_service e0.5",
+            "recapitalisation e0.5",
+            "recapitalisation e1.0",
+            "writeoff e0.5"
+          ],
+          "pairs": 872,
+          "share_differing": 0.228211
+        }
+      },
+      "survey": [
+        {
+          "by_elasticity": {
+            "0.0": {
+              "differ": 2,
+              "differ_beyond": 0,
+              "max_gap": 1,
+              "pairs": 25
+            },
+            "0.5": {
+              "differ": 4,
+              "differ_beyond": 0,
+              "max_gap": 1,
+              "pairs": 27
+            }
+          },
+          "cadence": "continuous",
+          "cells": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": true,
+              "differ": 2,
+              "differ_beyond": 0,
+              "elasticity": "0.0",
+              "max_gap": 1,
+              "mixing": false,
+              "movement": "inside the jitter band",
+              "pairs": 25,
+              "verdict": "inside the jitter band, not adjudicated"
+            },
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": true,
+              "differ": 4,
+              "differ_beyond": 0,
+              "elasticity": "0.5",
+              "max_gap": 1,
+              "mixing": true,
+              "movement": "inside the jitter band",
+              "pairs": 27,
+              "verdict": "inside the jitter band, not adjudicated"
+            }
+          ],
+          "cells_against": [],
+          "cells_held": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": true,
+              "differ": 2,
+              "differ_beyond": 0,
+              "elasticity": "0.0",
+              "max_gap": 1,
+              "mixing": false,
+              "movement": "inside the jitter band",
+              "pairs": 25,
+              "verdict": "inside the jitter band, not adjudicated"
+            },
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": true,
+              "differ": 4,
+              "differ_beyond": 0,
+              "elasticity": "0.5",
+              "max_gap": 1,
+              "mixing": true,
+              "movement": "inside the jitter band",
+              "pairs": 27,
+              "verdict": "inside the jitter band, not adjudicated"
+            }
+          ],
+          "closes": "the Layer 2 inflow's gap below its round 0 level",
+          "function": "_run_steps",
+          "key": "issuance",
+          "kind": "controller",
+          "knob": "injection_target",
+          "on_the_floors_quantity": true,
+          "quote": "issued = self._pending_issuance",
+          "record": "a33_injection_landing.json",
+          "verdict": "inside the jitter band, not adjudicated",
+          "what": "the authority creates claims into the graph"
+        },
+        {
+          "by_elasticity": {
+            "0.0": {
+              "differ": 0,
+              "differ_beyond": 0,
+              "max_gap": 0,
+              "pairs": 375
+            },
+            "0.5": {
+              "differ": 0,
+              "differ_beyond": 0,
+              "max_gap": 0,
+              "pairs": 450
+            }
+          },
+          "cadence": "continuous",
+          "cells": [
+            {
+              "as_claimed": true,
+              "controller_on_the_floors_quantity": true,
+              "differ": 0,
+              "differ_beyond": 0,
+              "elasticity": "0.0",
+              "max_gap": 0,
+              "mixing": false,
+              "movement": "still",
+              "pairs": 375,
+              "verdict": "as claimed"
+            },
+            {
+              "as_claimed": true,
+              "controller_on_the_floors_quantity": true,
+              "differ": 0,
+              "differ_beyond": 0,
+              "elasticity": "0.5",
+              "max_gap": 0,
+              "mixing": true,
+              "movement": "still",
+              "pairs": 450,
+              "verdict": "as claimed"
+            }
+          ],
+          "cells_against": [],
+          "cells_held": [],
+          "closes": "the Layer 2 inflow's overshoot above its round 0 level",
+          "function": "_withdraw_claims",
+          "key": "withdrawal",
+          "kind": "controller",
+          "knob": "position, base and mix",
+          "on_the_floors_quantity": true,
+          "quote": "self._total_claims -= taken",
+          "record": "a31_shape.json",
+          "verdict": "as claimed",
+          "what": "the same authority's other side takes claims back"
+        },
+        {
+          "by_elasticity": {
+            "0.0": {
+              "differ": 57,
+              "differ_beyond": 22,
+              "max_gap": 76,
+              "pairs": 360
+            },
+            "0.5": {
+              "differ": 59,
+              "differ_beyond": 29,
+              "max_gap": 76,
+              "pairs": 360
+            }
+          },
+          "cadence": "continuous",
+          "cells": [
+            {
+              "as_claimed": true,
+              "controller_on_the_floors_quantity": false,
+              "differ": 57,
+              "differ_beyond": 22,
+              "elasticity": "0.0",
+              "max_gap": 76,
+              "mixing": false,
+              "movement": "moves",
+              "pairs": 360,
+              "verdict": "as claimed"
+            },
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 59,
+              "differ_beyond": 29,
+              "elasticity": "0.5",
+              "max_gap": 76,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 360,
+              "verdict": "against the claim"
+            }
+          ],
+          "cells_against": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 59,
+              "differ_beyond": 29,
+              "elasticity": "0.5",
+              "max_gap": 76,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 360,
+              "verdict": "against the claim"
+            }
+          ],
+          "cells_held": [],
+          "closes": "nothing: pass_rate times the pool, whatever the pool is",
+          "function": "_pass_down",
+          "key": "pass_down",
+          "kind": "proportional",
+          "knob": "landing",
+          "on_the_floors_quantity": false,
+          "quote": "amount = spec.pass_rate * pool",
+          "record": "a29_sovereign.json",
+          "verdict": "against the claim",
+          "what": "the sovereign pool passes claims back into the graph"
+        },
+        {
+          "by_elasticity": {
+            "0.0": {
+              "differ": 54,
+              "differ_beyond": 27,
+              "max_gap": 80,
+              "pairs": 288
+            },
+            "0.5": {
+              "differ": 53,
+              "differ_beyond": 25,
+              "max_gap": 76,
+              "pairs": 288
+            }
+          },
+          "cadence": "continuous",
+          "cells": [
+            {
+              "as_claimed": true,
+              "controller_on_the_floors_quantity": false,
+              "differ": 54,
+              "differ_beyond": 27,
+              "elasticity": "0.0",
+              "max_gap": 80,
+              "mixing": false,
+              "movement": "moves",
+              "pairs": 288,
+              "verdict": "as claimed"
+            },
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 53,
+              "differ_beyond": 25,
+              "elasticity": "0.5",
+              "max_gap": 76,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 288,
+              "verdict": "against the claim"
+            }
+          ],
+          "cells_against": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 53,
+              "differ_beyond": 25,
+              "elasticity": "0.5",
+              "max_gap": 76,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 288,
+              "verdict": "against the claim"
+            }
+          ],
+          "cells_held": [],
+          "closes": "nothing: maturity and coupon rates on the bond stock",
+          "function": "_serve_debt",
+          "key": "debt_service",
+          "kind": "exogenous",
+          "knob": "levy_base, inside funding=levy",
+          "on_the_floors_quantity": false,
+          "quote": "self._total_claims += rec[\"debt_created\"]",
+          "record": "a29_maturity.json",
+          "verdict": "against the claim",
+          "what": "bonds fall due and interest accrues, and somebody pays"
+        },
+        {
+          "by_elasticity": {
+            "0.0": {
+              "differ": 14,
+              "differ_beyond": 5,
+              "max_gap": 11,
+              "pairs": 45
+            },
+            "0.5": {
+              "differ": 39,
+              "differ_beyond": 39,
+              "max_gap": 119,
+              "pairs": 45
+            },
+            "1.0": {
+              "differ": 6,
+              "differ_beyond": 0,
+              "max_gap": 1,
+              "pairs": 45
+            }
+          },
+          "cadence": "episodic",
+          "cells": [
+            {
+              "as_claimed": true,
+              "controller_on_the_floors_quantity": false,
+              "differ": 14,
+              "differ_beyond": 5,
+              "elasticity": "0.0",
+              "max_gap": 11,
+              "mixing": false,
+              "movement": "moves",
+              "pairs": 45,
+              "verdict": "as claimed"
+            },
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 39,
+              "differ_beyond": 39,
+              "elasticity": "0.5",
+              "max_gap": 119,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 45,
+              "verdict": "against the claim"
+            },
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 6,
+              "differ_beyond": 0,
+              "elasticity": "1.0",
+              "max_gap": 1,
+              "mixing": true,
+              "movement": "inside the jitter band",
+              "pairs": 45,
+              "verdict": "inside the jitter band, not adjudicated"
+            }
+          ],
+          "cells_against": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 39,
+              "differ_beyond": 39,
+              "elasticity": "0.5",
+              "max_gap": 119,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 45,
+              "verdict": "against the claim"
+            }
+          ],
+          "cells_held": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 6,
+              "differ_beyond": 0,
+              "elasticity": "1.0",
+              "max_gap": 1,
+              "mixing": true,
+              "movement": "inside the jitter band",
+              "pairs": 45,
+              "verdict": "inside the jitter band, not adjudicated"
+            }
+          ],
+          "closes": "nothing: what the lenders lost last round",
+          "function": "_recapitalise",
+          "key": "recapitalisation",
+          "kind": "exogenous",
+          "knob": "recap_target",
+          "on_the_floors_quantity": false,
+          "quote": "amount = float(self._pending_recap.sum())",
+          "record": "a18_landing.json",
+          "verdict": "against the claim",
+          "what": "new claims make last round's lenders whole"
+        },
+        {
+          "by_elasticity": {
+            "0.0": {
+              "differ": 34,
+              "differ_beyond": 20,
+              "max_gap": 77,
+              "pairs": 104
+            },
+            "0.5": {
+              "differ": 42,
+              "differ_beyond": 23,
+              "max_gap": 79,
+              "pairs": 134
+            }
+          },
+          "cadence": "episodic",
+          "cells": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 42,
+              "differ_beyond": 23,
+              "elasticity": "0.5",
+              "max_gap": 79,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 134,
+              "verdict": "against the claim"
+            },
+            {
+              "as_claimed": true,
+              "controller_on_the_floors_quantity": false,
+              "differ": 34,
+              "differ_beyond": 20,
+              "elasticity": "0.0",
+              "max_gap": 77,
+              "mixing": false,
+              "movement": "moves",
+              "pairs": 104,
+              "verdict": "as claimed"
+            }
+          ],
+          "cells_against": [
+            {
+              "as_claimed": false,
+              "controller_on_the_floors_quantity": false,
+              "differ": 42,
+              "differ_beyond": 23,
+              "elasticity": "0.5",
+              "max_gap": 79,
+              "mixing": true,
+              "movement": "moves",
+              "pairs": 134,
+              "verdict": "against the claim"
+            }
+          ],
+          "cells_held": [],
+          "closes": "the claim total over the resources offered, against a trigger",
+          "function": "_run_steps",
+          "key": "writeoff",
+          "kind": "controller",
+          "knob": "base",
+          "on_the_floors_quantity": false,
+          "quote": "if ratio > write_spec.trigger:",
+          "record": "a34_writeoff_shape.json",
+          "verdict": "against the claim",
+          "what": "claims are destroyed when they run too far ahead of resources"
+        }
+      ]
+    }
+  },
+  "stage": "A32"
+}

@@ -1,0 +1,5188 @@
+{
+ "lastupdated": "2024-08-04",
+ "page": 1,
+ "pages": 1,
+ "per_page": 500,
+ "source": {
+  "data": [
+   {
+    "value": 14.5879421234131,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AFG",
+      "value": "Afghanistan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 40.5942535400391,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ALB",
+      "value": "Albania"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 38.7630996704102,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "DZA",
+      "value": "Algeria"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.604573547840118,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AND",
+      "value": "Andorra"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 174.090515136719,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AGO",
+      "value": "Angola"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.09651613235474,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AIA",
+      "value": "Anguilla"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.81939482688904,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ATG",
+      "value": "Antigua and Barbuda"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 38.783332824707,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ARG",
+      "value": "Argentina"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 148.241226196289,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ARM",
+      "value": "Armenia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.36395359039307,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ABW",
+      "value": "Aruba"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.41668283939362,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AUS",
+      "value": "Australia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.713469207286835,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AUT",
+      "value": "Austria"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.457138150930405,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "AZE",
+      "value": "Azerbaijan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.977568686008453,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BHS",
+      "value": "Bahamas, The"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.185745358467102,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BHR",
+      "value": "Bahrain"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 28.296688079834,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BGD",
+      "value": "Bangladesh"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.38420343399048,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BRB",
+      "value": "Barbados"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.688632726669312,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BLR",
+      "value": "Belarus"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.705864608287811,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BEL",
+      "value": "Belgium"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.04862034320831,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BLZ",
+      "value": "Belize"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 211.106674194336,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BEN",
+      "value": "Benin"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.22146320343018,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BMU",
+      "value": "Bermuda"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 19.6103916168213,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BTN",
+      "value": "Bhutan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.473956823349,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BOL",
+      "value": "Bolivia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BON",
+      "value": "Bonaire"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.650504291057587,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BIH",
+      "value": "Bosnia and Herzegovina"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 4.81988048553467,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BWA",
+      "value": "Botswana"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.37927412986755,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BRA",
+      "value": "Brazil"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "VGB",
+      "value": "British Virgin Islands"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.532498598098755,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BRN",
+      "value": "Brunei Darussalam"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.687167823314667,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BGR",
+      "value": "Bulgaria"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 199.724746704102,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BFA",
+      "value": "Burkina Faso"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 609.599182128906,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "BDI",
+      "value": "Burundi"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 48.1704940795898,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CPV",
+      "value": "Cabo Verde"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1426.95983886719,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KHM",
+      "value": "Cambodia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 193.458953857422,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CMR",
+      "value": "Cameroon"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.18003904819489,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CAN",
+      "value": "Canada"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.971421658992767,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CYM",
+      "value": "Cayman Islands"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 241.880676269531,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CAF",
+      "value": "Central African Republic"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 215.510940551758,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TCD",
+      "value": "Chad"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 423.046203613281,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CHL",
+      "value": "Chile"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3.98740887641907,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CHN",
+      "value": "China"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1316.32421875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "COL",
+      "value": "Colombia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 191.480773925781,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "COM",
+      "value": "Comoros"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 845.45068359375,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "COD",
+      "value": "Congo, Dem. Rep."
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 222.775375366211,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "COG",
+      "value": "Congo, Rep."
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 330.139404296875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CRI",
+      "value": "Costa Rica"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 225.288803100586,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CIV",
+      "value": "Cote d'Ivoire"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.407460987567902,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "HRV",
+      "value": "Croatia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.27898454666138,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CUW",
+      "value": "Curacao"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.571216940879822,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CYP",
+      "value": "Cyprus"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 12.0092029571533,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CZE",
+      "value": "Czechia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 6.23220491409302,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "DNK",
+      "value": "Denmark"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 90.2278900146484,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "DJI",
+      "value": "Djibouti"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.43059825897217,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "DMA",
+      "value": "Dominica"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 22.1248188018799,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "DOM",
+      "value": "Dominican Republic"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "EAB",
+      "value": "East Asia & Pacific (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.448739469051361,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ECU",
+      "value": "Ecuador"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3.8546199798584,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "EGY",
+      "value": "Egypt, Arab Rep."
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.429484784603119,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SLV",
+      "value": "El Salvador"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 228.967514038086,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GNQ",
+      "value": "Equatorial Guinea"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 4.93847894668579,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ERI",
+      "value": "Eritrea"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.524475991725922,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "EST",
+      "value": "Estonia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 5.89536285400391,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SWZ",
+      "value": "Eswatini"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 13.7311124801636,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ETH",
+      "value": "Ethiopia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ECB",
+      "value": "Europe & Central Asia (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 6.37792730331421,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "FRO",
+      "value": "Faroe Islands"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.910048425197601,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "FJI",
+      "value": "Fiji"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.782813429832459,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "FIN",
+      "value": "Finland"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.685873091220856,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "FRA",
+      "value": "France"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 244.922546386719,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GAB",
+      "value": "Gabon"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 14.7418222427368,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GMB",
+      "value": "Gambia, The"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.865621149539948,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GEO",
+      "value": "Georgia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.701989889144897,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "DEU",
+      "value": "Germany"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.14874577522278,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GHA",
+      "value": "Ghana"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.520093500614166,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GRC",
+      "value": "Greece"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 5.2741265296936,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GRL",
+      "value": "Greenland"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.69825077056885,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GRD",
+      "value": "Grenada"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3.21316480636597,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GTM",
+      "value": "Guatemala"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3108.34375,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GIN",
+      "value": "Guinea"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 203.716125488281,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GNB",
+      "value": "Guinea-Bissau"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 89.9150695800781,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GUY",
+      "value": "Guyana"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 47.4995269775391,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "HTI",
+      "value": "Haiti"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "HIB",
+      "value": "High income (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 10.5899238586426,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "HND",
+      "value": "Honduras"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 5.87204074859619,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "HKG",
+      "value": "Hong Kong SAR, China"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 147.108200073242,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "HUN",
+      "value": "Hungary"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 141.919982910156,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ISL",
+      "value": "Iceland"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 20.7278957366943,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "IND",
+      "value": "India"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 4808.42919921875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "IDN",
+      "value": "Indonesia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 50488.171875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "IRN",
+      "value": "Iran, Islamic Rep."
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 554.465393066406,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "IRQ",
+      "value": "Iraq"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.755709409713745,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "IRL",
+      "value": "Ireland"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3.65057373046875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ISR",
+      "value": "Israel"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.617429137229919,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ITA",
+      "value": "Italy"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 81.3269805908203,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "JAM",
+      "value": "Jamaica"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 98.6905364990234,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "JPN",
+      "value": "Japan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.323472499847412,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "JOR",
+      "value": "Jordan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 129.063003540039,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KAZ",
+      "value": "Kazakhstan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 42.3316535949707,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KEN",
+      "value": "Kenya"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 827.2744140625,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KOR",
+      "value": "Korea, Rep."
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "XKX",
+      "value": "Kosovo"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.202588081359863,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KWT",
+      "value": "Kuwait"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 19.9189929962158,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KGZ",
+      "value": "Kyrgyz Republic"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3031.69677734375,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LAO",
+      "value": "Lao PDR"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LCB",
+      "value": "Latin America & Caribbean (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.4811732172966,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LVA",
+      "value": "Latvia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 4099.5078125,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LBN",
+      "value": "Lebanon"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 6.19413948059082,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LSO",
+      "value": "Lesotho"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 72.1052474975586,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LBR",
+      "value": "Liberia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.76263952255249,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LBY",
+      "value": "Libya"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.434490263462067,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LTU",
+      "value": "Lithuania"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LIB",
+      "value": "Low income (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LMB",
+      "value": "Lower middle income (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.819534301757813,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LUX",
+      "value": "Luxembourg"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 4.89717441121879,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MAC",
+      "value": "Macao SAR, China"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1173.85522460938,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MDG",
+      "value": "Madagascar"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 294.85791015625,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MWI",
+      "value": "Malawi"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.5147716999054,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MYS",
+      "value": "Malaysia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 8.21066951751709,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MDV",
+      "value": "Maldives"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 203.722534179688,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MLI",
+      "value": "Mali"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.552417278289795,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MLT",
+      "value": "Malta"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 12.035120010376,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MRT",
+      "value": "Mauritania"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 16.6290760040283,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MUS",
+      "value": "Mauritius"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 9.94168567657471,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MEX",
+      "value": "Mexico"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MEB",
+      "value": "Middle East & North Africa (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 5.94675874710083,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MDA",
+      "value": "Moldova"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 870.184753417969,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MNG",
+      "value": "Mongolia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.326476275920868,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MNE",
+      "value": "Montenegro"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.61916375160217,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MSR",
+      "value": "Montserrat"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3.94628071784973,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MAR",
+      "value": "Morocco"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 22.907154083252,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MOZ",
+      "value": "Mozambique"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 410.472595214844,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MMR",
+      "value": "Myanmar"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 6.71698379516602,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NAM",
+      "value": "Namibia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 32.4816780090332,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NPL",
+      "value": "Nepal"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.733515024185181,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NLD",
+      "value": "Netherlands"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.45575380325317,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NZL",
+      "value": "New Zealand"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 10.564323425293,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NIC",
+      "value": "Nicaragua"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 212.888137817383,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NER",
+      "value": "Niger"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 146.717681884766,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NGA",
+      "value": "Nigeria"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NAB",
+      "value": "North America (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 17.7476272583008,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "MKD",
+      "value": "North Macedonia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 8.96204280853271,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "NOR",
+      "value": "Norway"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.192684262990952,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "OMN",
+      "value": "Oman"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 43.4407234191895,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PAK",
+      "value": "Pakistan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.501403868198395,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PAN",
+      "value": "Panama"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2628.08447265625,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PRY",
+      "value": "Paraguay"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.73354005813599,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PER",
+      "value": "Peru"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 19.37526512146,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PHL",
+      "value": "Philippines"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.72278940677643,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "POL",
+      "value": "Poland"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.537629008293152,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PRT",
+      "value": "Portugal"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.804228127002716,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PRI",
+      "value": "Puerto Rico"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.23547983169556,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "QAT",
+      "value": "Qatar"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.63767790794373,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ROU",
+      "value": "Romania"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 23.6851463317871,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "RUT",
+      "value": "Russian Federation"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 300.028503417969,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "RWA",
+      "value": "Rwanda"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.707382142543793,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SMR",
+      "value": "San Marino"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 8.59929370880127,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "STP",
+      "value": "Sao Tome and Principe"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.9094260931015,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SAU",
+      "value": "Saudi Arabia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 212.330551147461,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SEN",
+      "value": "Senegal"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 40.6513977050781,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SRB",
+      "value": "Serbia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 8.45630931854248,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SYC",
+      "value": "Seychelles"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3243.86401367188,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SLE",
+      "value": "Sierra Leone"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.811010360717773,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SGP",
+      "value": "Singapore"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.43830955028534,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SXM",
+      "value": "Sint Maarten"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.486965298652649,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SVK",
+      "value": "Slovak Republic"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.533293545246124,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SVN",
+      "value": "Slovenia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.394347459077835,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SOM",
+      "value": "Somalia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 7.37613821029663,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ZAF",
+      "value": "South Africa"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SAB",
+      "value": "South Asia (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 126.743049621582,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SSD",
+      "value": "South Sudan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.590962409973145,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ESP",
+      "value": "Spain"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 55.5265464782715,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LKA",
+      "value": "Sri Lanka"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.84317195415497,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "KNA",
+      "value": "St. Kitts and Nevis"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.47842586040497,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "LCA",
+      "value": "St. Lucia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.44013321399689,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "VCT",
+      "value": "St. Vincent and the Grenadines"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SSB",
+      "value": "Sub-Saharan Africa (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 85.7226867675781,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SDN",
+      "value": "Sudan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 5.3682279586792,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SUR",
+      "value": "Suriname"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 8.31167602539063,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SWE",
+      "value": "Sweden"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.04647445678711,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "CHE",
+      "value": "Switzerland"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 417.322418212891,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "SYR",
+      "value": "Syrian Arab Republic"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 14.3962383270264,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TWN",
+      "value": "Taiwan, China"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.5442578792572,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TJK",
+      "value": "Tajikistan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 762.958374023438,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TZA",
+      "value": "Tanzania"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 11.1481275558472,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "THA",
+      "value": "Thailand"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.393393218517303,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TLS",
+      "value": "Timor-Leste"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 202.174468994141,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TGO",
+      "value": "Togo"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 3.92725038528442,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TTO",
+      "value": "Trinidad and Tobago"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.87733256816864,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TUN",
+      "value": "Tunisia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.72560548782349,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TUR",
+      "value": "Turkiye"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.50170361995697,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TKM",
+      "value": "Turkmenistan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1.09070706367493,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "TCA",
+      "value": "Turks and Caicos Islands"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1203.16076660156,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "UGA",
+      "value": "Uganda"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 7.302161693573,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "UKR",
+      "value": "Ukraine"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.36256718635559,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ARE",
+      "value": "United Arab Emirates"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.644895732402802,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "GBR",
+      "value": "United Kingdom"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 1,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "USA",
+      "value": "United States"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "UMB",
+      "value": "Upper middle income (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 26.462287902832,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "URY",
+      "value": "Uruguay"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2591.1123046875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "UZB",
+      "value": "Uzbekistan"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 7120.01123046875,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "VNM",
+      "value": "Viet Nam"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.907823741436005,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "VIR",
+      "value": "Virgin Islands (U.S.)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 2.09826374053955,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "PSE",
+      "value": "West Bank and Gaza"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": null,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "WLD",
+      "value": "WORLD (Benchmark)"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 6.44128704071045,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ZMB",
+      "value": "Zambia"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   },
+   {
+    "value": 0.54144549369812,
+    "variable": [
+     {
+      "concept": "Country",
+      "id": "ZWE",
+      "value": "Zimbabwe"
+     },
+     {
+      "concept": "Time",
+      "id": "YR2021",
+      "value": "2021"
+     },
+     {
+      "concept": "Series",
+      "id": "1000000",
+      "value": "1000000:GROSS DOMESTIC PRODUCT"
+     },
+     {
+      "concept": "Classification",
+      "id": "PPPGlob",
+      "value": "Purchasing power parity (PPP) (US$ = 1)"
+     }
+    ]
+   }
+  ],
+  "id": "90",
+  "name": "ICP 2021"
+ },
+ "total": 207
+}

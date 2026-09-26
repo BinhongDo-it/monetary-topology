@@ -96,5 +96,26 @@
         "P/G3": -0.0023974970937395805
       }
     }
-  }
+  },
+  "pre_window_spread_balance": {
+    "N": {
+      "g1_median": 0.15274593942670445,
+      "g23_median": 0.14564748254874121,
+      "log_ratio": 0.047586815562757574,
+      "ks": 0.08899297423887587,
+      "n_g1": 63,
+      "n_g23": 122
+    },
+    "P": {
+      "g1_median": 0.2550265631396402,
+      "g23_median": 0.2525593818352587,
+      "log_ratio": 0.009721312257099464,
+      "ks": 0.02762701569449616,
+      "n_g1": 322,
+      "n_g23": 634
+    }
+  },
+  "real_g1_minus_g23": -0.014062991361228017,
+  "placebo_g1_minus_g23": -0.03057701916830149,
+  "mechanical_term": "not computed and not computable from this panel: the cache carries a share-weighted spread per venue-symbol-day and no quote level, while a lattice projection acts on levels. Supplement note 1 as corrected 2026-09-12."
 }

@@ -207,8 +207,16 @@ def take(rows: list) -> list:
     return rows[i::n] if n > 1 else rows
 
 
+#: Every tag `compare` is handed since the last `report`. A tag is the list of
+#: knobs a path passes to re-run one row, so duplicates in it mean the path is
+#: replaying fewer knobs than the record carries. Collected here rather than in
+#: each of the nine paths, so that adding a path cannot forget it.
+_TAGS: list[str] = []
+
+
 def compare(tag: str, recorded: dict, rerun: dict, keys) -> list[str]:
     """Field-for-field. Returns the differing fields, named, with both values."""
+    _TAGS.append(tag)
     bad = []
     for k in keys:
         a, b = recorded.get(k), rerun.get(k)
@@ -221,7 +229,35 @@ def compare(tag: str, recorded: dict, rerun: dict, keys) -> list[str]:
     return bad
 
 
+def tags_identify(tags: list[str], name: str) -> list[str]:
+    """Does the set of knobs this path replays actually identify a row?
+
+    Every path here re-runs a recorded row by passing it a fixed list of knobs.
+    **If two rows carry the same knobs and different outputs, the list is short
+    one knob**, the replay is running at a default the row was not taken at, and
+    every row in the group except the one sitting at that default is reported as
+    differing. That is a defect in this file, not in the station, and it looks
+    exactly like a regression: hundreds of rows, thousands of fields.
+
+    It happened on the parking arm, whose sweep grew a sub-sweep over two more
+    knobs while this file kept replaying six. The tag each path already builds is
+    the list of knobs it passes, so checking the tags for duplicates catches the
+    whole family for free.
+    """
+    seen = {}
+    clash = []
+    for t in tags:
+        seen[t] = seen.get(t, 0) + 1
+    for t, n in seen.items():
+        if n > 1:
+            clash.append(f"    {name}: {n} rows share the knobs `{t}`, so this "
+                         f"path is replaying fewer knobs than the record carries")
+    return clash[:5]
+
+
 def report(name: str, checked: int, bad: list[str]) -> bool:
+    bad = list(bad) + tags_identify(_TAGS, name)
+    _TAGS.clear()
     mark = "OK  " if not bad else "DIFF"
     print(f"  [{mark}] {name}: {checked} row(s) re-run, {len(bad)} field(s) differ")
     for line in bad[:40]:
@@ -443,11 +479,20 @@ def check_a18e(quick: bool) -> bool:
         rows = rows[::8]
     bad = []
     for row in rows:
+        # `park_run` takes eight knobs and this passed six. The sweep that writes
+        # this record includes a sub-sweep over `repay` and `funding`, so those
+        # rows were being re-run at the defaults and reported as differing: 180
+        # of the 430 rows share a six-knob tuple with another row, and only the
+        # one at the defaults matched. **A replay has to pass every knob the
+        # record carries**, and `tags_identify` below now says so out loud
+        # instead of leaving it to be read off a thousand field diffs.
         fresh = a18.park_run(row["need_multiple"], row["rate"], row["seed"],
-                             row["park"], row["retain"], row["target"])
+                             row["park"], row["retain"], row["target"],
+                             row["repay"], row["funding"])
         tag = (f"floor={row['need_multiple']} rate={row['rate']} "
                f"park={row['park']} retain={row['retain']} "
-               f"target={row['target']} seed={row['seed']}")
+               f"target={row['target']} repay={row['repay']} "
+               f"route={row['funding']} seed={row['seed']}")
         bad += compare(tag, row, fresh, list(row))
     return report("a18_park (the parking arm)", len(rows), bad)
 

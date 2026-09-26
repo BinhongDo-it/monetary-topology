@@ -1,0 +1,194 @@
+{
+ "config": {
+  "carrier_exponent": 0.85,
+  "carrier_points": 3000,
+  "carrier_scales": [
+   0.55,
+   0.75,
+   1.0,
+   1.3,
+   1.65
+  ],
+  "ds_max_k": 5,
+  "grid": [
+   1.0001,
+   8.0,
+   2000
+  ],
+  "grid_fine": 8000,
+  "ks": [
+   3,
+   4,
+   5,
+   6,
+   8,
+   10
+  ],
+  "search_ks": [
+   3,
+   4
+  ],
+  "search_trials": 6000,
+  "seed": 0,
+  "trials": 200
+ },
+ "criteria": [
+  {
+   "detail": "The two Davenport-Schinzel numbers this station needs, **read back by exhaustive search over sequences rather than quoted from a table**. A sequence over `k` symbols with no two equal in a row and no alternating subsequence `abab\u2026` of length `s + 2` is one of order `s`, and the longest such sequence has length `lambda_s(k)`. **Searching all of them for `k` up to 5 returns `lambda_1(k) = k` and `lambda_2(k) = 2k - 1` on every `k`**, which are the two formulas Theorem 21(2) uses. The connection to envelopes is Davenport and Schinzel's own: where any two of `k` functions are equal at most `s` times, **the intervals of the lower envelope labelled by the function that attains it form a sequence of order `s`**, so the count of intervals is bounded by `lambda_s(k)`. Read: k=1 gives 1 and 1, k=2 gives 2 and 3, k=3 gives 3 and 5, k=4 gives 4 and 7, k=5 gives 5 and 9",
+   "kind": "known_answer",
+   "name": "B76-5",
+   "passed": true,
+   "statement": "the Davenport-Schinzel numbers lambda_1 and lambda_2, read back by exhaustive search"
+  },
+  {
+   "detail": "Families of cost polynomials of degree two drawn at 200 per size, so **every pair crosses at most twice**, which the sign-change count of B74 confirms at 2. **The envelope's switch count never exceeds `lambda_2(k) - 1 = 2k - 2`**, and the gap is wide: k=3 reaches 2 against 4, with 6 ordered pairs, k=4 reaches 3 against 6, with 12 ordered pairs, k=5 reaches 3 against 8, with 20 ordered pairs, k=6 reaches 4 against 10, with 30 ordered pairs, k=8 reaches 3 against 14, with 56 ordered pairs, k=10 reaches 3 against 18, with 90 ordered pairs. **The point is not that the bound is tight, it is that it is linear in `k` while the number of pairs is quadratic**, and the drawn maxima do not grow with `k` either. **The grid is this instrument's floor**, since two curves that cross twice inside one interval are read as crossing zero times, so the owner sequence was read again on a grid four times denser: **it is the same sequence on 400 of 400 families**",
+   "kind": "instrument",
+   "name": "B76-6a",
+   "passed": true,
+   "statement": "Theorem 21(2): the switch count never exceeds lambda_s(k) - 1, and the grid is the floor"
+  },
+  {
+   "detail": "**Where every pair crosses at most once, no technique ever leaves the envelope and comes back**: 1200 families of degree-one costs, 0 with a return. **Where pairs cross twice, returns occur**: 1200 families of degree-two costs, 16 with a return. That is Theorem 21(3) in both directions, and it is B74's domain condition read on the whole envelope rather than on one pair. **A search also finds envelopes whose owner sequence is not admissible at order one**, which is what shows the first-order bound is the wrong one and the order has to come from the pairwise crossing count. An order-one sequence has at most `k` terms and no symbol twice, so either excess length or a return breaks it, and **both kinds are reached here**: k=3 reaches 3 switches against k-1=2, owner sequence [2, 0, 2, 1], too long and a symbol repeats; k=4 reaches 3 switches against k-1=3, owner sequence [3, 0, 1, 0], a symbol repeats",
+   "kind": "instrument",
+   "name": "B76-6b",
+   "passed": true,
+   "statement": "Theorem 21(3): no return where pairs cross once, returns where they cross twice, and more than k - 1 switches are reachable"
+  },
+  {
+   "detail": "A carrier of 5 square systems, one per degree of mechanisation: the input matrix is scaled up and the labour vector down, **so the wage curves cross by construction instead of one technique dominating, which is what drawing at random produces**. The envelope changes owner 4 times, its owner sequence being [4, 3, 2, 1, 0]. **The technique owning the right end is the one with the largest maximum rate**, and `max_i R_i` is the envelope's right-hand zero to within 1e-12. **The technique owning the left end is the one with the largest wage at a zero rate, and it is a different technique.** So B75's expansion factor is not a second envelope: **it is this envelope's right-hand endpoint**, and the technique it selects is the one that owns that end and in general no other part of the curve",
+   "kind": "instrument",
+   "name": "B76-6c",
+   "passed": true,
+   "statement": "Theorem 21(4): the envelope's right-hand endpoint is B75's expansion factor, and its two ends have different owners"
+  },
+  {
+   "detail": "The same carrier, read at 3000 rates. **The technique with the lowest cost of the numeraire basket and the technique with the highest wage are the same technique at every one of them**, 3000 of 3000. The cost of the basket is one over the wage, so the lower envelope of costs and the upper envelope of wages are one line in two coordinates, **and 'choose the cheapest technique' and 'choose the technique paying the highest wage' are one instruction, not two that happen to agree**",
+   "kind": "instrument",
+   "name": "B76-6d",
+   "passed": true,
+   "statement": "Theorem 21(1): the cost lower envelope and the wage upper envelope pick the same technique everywhere"
+  }
+ ],
+ "mapping": {
+  "B76-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B76-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B76-5": {
+   "lambda_1": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5
+   },
+   "lambda_2": {
+    "1": 1,
+    "2": 3,
+    "3": 5,
+    "4": 7,
+    "5": 9
+   },
+   "searched_to_k": 5
+  },
+  "B76-6a": {
+   "grid_checked": 400,
+   "grid_stable": 400,
+   "per_k": [
+    {
+     "bound": 4,
+     "k": 3,
+     "max_switches": 2,
+     "ordered_pairs": 6,
+     "worst_pairwise_sign_changes": 2
+    },
+    {
+     "bound": 6,
+     "k": 4,
+     "max_switches": 3,
+     "ordered_pairs": 12,
+     "worst_pairwise_sign_changes": 2
+    },
+    {
+     "bound": 8,
+     "k": 5,
+     "max_switches": 3,
+     "ordered_pairs": 20,
+     "worst_pairwise_sign_changes": 2
+    },
+    {
+     "bound": 10,
+     "k": 6,
+     "max_switches": 4,
+     "ordered_pairs": 30,
+     "worst_pairwise_sign_changes": 2
+    },
+    {
+     "bound": 14,
+     "k": 8,
+     "max_switches": 3,
+     "ordered_pairs": 56,
+     "worst_pairwise_sign_changes": 2
+    },
+    {
+     "bound": 18,
+     "k": 10,
+     "max_switches": 3,
+     "ordered_pairs": 90,
+     "worst_pairwise_sign_changes": 2
+    }
+   ]
+  },
+  "B76-6b": {
+   "linear_families": 1200,
+   "linear_returns": 0,
+   "quadratic_families": 1200,
+   "quadratic_returns": 16,
+   "search": {
+    "3": {
+     "longer_than_order_one": true,
+     "runs": [
+      2,
+      0,
+      2,
+      1
+     ],
+     "switches": 3,
+     "symbol_repeats": true
+    },
+    "4": {
+     "longer_than_order_one": false,
+     "runs": [
+      3,
+      0,
+      1,
+      0
+     ],
+     "switches": 3,
+     "symbol_repeats": true
+    }
+   }
+  },
+  "B76-6c": {
+   "argmax_max_rate": 0,
+   "argmax_wage_at_zero": 4,
+   "left_owner": 4,
+   "max_rate": 6.76160011,
+   "owner_sequence": [
+    4,
+    3,
+    2,
+    1,
+    0
+   ],
+   "right_owner": 0,
+   "switches": 4,
+   "techniques": 5
+  },
+  "B76-6d": {
+   "agreeing": 3000,
+   "rates": 3000
+  }
+ },
+ "stage": "B76"
+}

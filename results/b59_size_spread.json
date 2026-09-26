@@ -1,0 +1,5375 @@
+{
+ "anchor_first_pass": [
+  {
+   "back": true,
+   "first_pass": "14295",
+   "item": "rows",
+   "this_code": "14295"
+  },
+  {
+   "back": true,
+   "first_pass": "192",
+   "item": "median rows a quarter",
+   "this_code": "192.0"
+  },
+  {
+   "back": true,
+   "first_pass": "18",
+   "item": "years",
+   "this_code": "18"
+  },
+  {
+   "back": false,
+   "first_pass": "0.9848",
+   "item": "validity corr",
+   "this_code": "0.9887"
+  },
+  {
+   "back": false,
+   "first_pass": "0.5812",
+   "item": "validity slope",
+   "this_code": "0.5916"
+  },
+  {
+   "back": false,
+   "first_pass": "0.2534",
+   "item": "validity intercept",
+   "this_code": "0.2464"
+  },
+  {
+   "back": true,
+   "first_pass": "413",
+   "item": "band 10bn and over n",
+   "this_code": "413"
+  },
+  {
+   "back": true,
+   "first_pass": "-6.8",
+   "item": "band 10bn and over median bp",
+   "this_code": "-6.85"
+  },
+  {
+   "back": true,
+   "first_pass": "1609",
+   "item": "band 1bn to 10bn n",
+   "this_code": "1609"
+  },
+  {
+   "back": true,
+   "first_pass": "-6.0",
+   "item": "band 1bn to 10bn median bp",
+   "this_code": "-5.99"
+  },
+  {
+   "back": true,
+   "first_pass": "3878",
+   "item": "band 250m to 1bn n",
+   "this_code": "3878"
+  },
+  {
+   "back": true,
+   "first_pass": "-8.2",
+   "item": "band 250m to 1bn median bp",
+   "this_code": "-8.25"
+  },
+  {
+   "back": true,
+   "first_pass": "8395",
+   "item": "band under 250m n",
+   "this_code": "8395"
+  },
+  {
+   "back": true,
+   "first_pass": "+6.6",
+   "item": "band under 250m median bp",
+   "this_code": "+6.61"
+  },
+  {
+   "back": true,
+   "first_pass": "413 / 8395",
+   "item": "all n largest / smallest",
+   "this_code": "413 / 8395"
+  },
+  {
+   "back": true,
+   "first_pass": "-13.5",
+   "item": "all gap bp",
+   "this_code": "-13.46"
+  },
+  {
+   "back": true,
+   "first_pass": "2.8",
+   "item": "all gap se bp",
+   "this_code": "2.76"
+  },
+  {
+   "back": true,
+   "first_pass": "189 / 3964",
+   "item": "zero_bound n largest / smallest",
+   "this_code": "189 / 3964"
+  },
+  {
+   "back": true,
+   "first_pass": "-25.3",
+   "item": "zero_bound gap bp",
+   "this_code": "-25.32"
+  },
+  {
+   "back": false,
+   "first_pass": "2.1",
+   "item": "zero_bound gap se bp",
+   "this_code": "1.84"
+  },
+  {
+   "back": true,
+   "first_pass": "224 / 4431",
+   "item": "off_floor n largest / smallest",
+   "this_code": "224 / 4431"
+  },
+  {
+   "back": true,
+   "first_pass": "+43.4",
+   "item": "off_floor gap bp",
+   "this_code": "+43.35"
+  },
+  {
+   "back": false,
+   "first_pass": "9.1",
+   "item": "off_floor gap se bp",
+   "this_code": "9.29"
+  },
+  {
+   "back": true,
+   "first_pass": "93 / 1393",
+   "item": "high n largest / smallest",
+   "this_code": "93 / 1393"
+  },
+  {
+   "back": true,
+   "first_pass": "+143.3",
+   "item": "high gap bp",
+   "this_code": "+143.33"
+  },
+  {
+   "back": false,
+   "first_pass": "37.7",
+   "item": "high gap se bp",
+   "this_code": "37.35"
+  }
+ ],
+ "arm": "size",
+ "arms": {
+  "average": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 54,
+       "median_bp": -16.859,
+       "n": 437
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 244,
+       "median_bp": -13.3999,
+       "n": 1644
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 823,
+       "median_bp": -10.8241,
+       "n": 4017
+      },
+      {
+       "band": "under 250m",
+       "filers": 1727,
+       "median_bp": 10.7418,
+       "n": 8863
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -27.6008,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.9743,
+      "1": 5.9251
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.6628,
+      "1": 2.6445
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 20,
+       "median_bp": 78.9198,
+       "n": 93
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 128,
+       "median_bp": -37.9514,
+       "n": 528
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 332,
+       "median_bp": -2.8014,
+       "n": 893
+      },
+      {
+       "band": "under 250m",
+       "filers": 474,
+       "median_bp": 17.1809,
+       "n": 1393
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 61.739,
+     "gap_se_bp_resampling_filers": {
+      "0": 42.6131,
+      "1": 43.8155
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 22.121,
+      "1": 22.4127
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 35,
+       "median_bp": 19.1733,
+       "n": 224
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 197,
+       "median_bp": -14.2954,
+       "n": 1024
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 622,
+       "median_bp": -11.1043,
+       "n": 2397
+      },
+      {
+       "band": "under 250m",
+       "filers": 1068,
+       "median_bp": 8.8889,
+       "n": 4431
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 10.2844,
+     "gap_se_bp_resampling_filers": {
+      "0": 19.8427,
+      "1": 20.9337
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 10.3661,
+      "1": 9.875
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 36,
+       "median_bp": -24.0824,
+       "n": 213
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 111,
+       "median_bp": -12.8555,
+       "n": 620
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 417,
+       "median_bp": -10.6396,
+       "n": 1620
+      },
+      {
+       "band": "under 250m",
+       "filers": 1289,
+       "median_bp": 11.5468,
+       "n": 4432
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -35.6292,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.5116,
+      "1": 3.4473
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.1037,
+      "1": 2.0456
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "first pass's rows over the mean of two quarter-end balances",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 1.4418,
+      "n": 437
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 0.1914,
+      "n": 1644
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 8.4693,
+      "n": 4017
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 31.4516,
+      "n": 8863
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": -1.5831,
+      "n": 93
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -136.3847,
+      "n": 528
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -105.3727,
+      "n": 893
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": -68.9671,
+      "n": 1393
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": -0.324,
+      "n": 224
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -42.376,
+      "n": 1024
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -23.2406,
+      "n": 2397
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 0.9798,
+      "n": 4431
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 1.8063,
+      "n": 213
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 10.4987,
+      "n": 620
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 18.3962,
+      "n": 1620
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 43.9683,
+      "n": 4432
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.1597,
+      "median_cost_pct": 0.5295,
+      "n": 1244,
+      "year": 2009
+     },
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.4571,
+      "n": 807,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.4659,
+      "n": 645,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.4598,
+      "n": 642,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.4499,
+      "n": 941,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.4074,
+      "n": 1014,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.4358,
+      "n": 1044,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.6054,
+      "n": 940,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 1.0575,
+      "n": 1101,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 1.7358,
+      "n": 1377,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 1.958,
+      "n": 837,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 0.4279,
+      "n": 328,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.138,
+      "n": 220,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 1.7132,
+      "n": 914,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 4.1322,
+      "n": 1217,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 4.4541,
+      "n": 804,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 2.9818,
+      "n": 619,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 2.7013,
+      "n": 267,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9912,
+    "intercept": 0.3127,
+    "median_rows_per_quarter": 192.5,
+    "quarters": 70,
+    "rows": 14961,
+    "slope": 0.7367,
+    "years": 18
+   }
+  },
+  "persistent_average": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 44,
+       "median_bp": -11.4042,
+       "n": 348
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 143,
+       "median_bp": -7.4474,
+       "n": 1139
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 469,
+       "median_bp": -6.8781,
+       "n": 2163
+      },
+      {
+       "band": "under 250m",
+       "filers": 1114,
+       "median_bp": 8.2621,
+       "n": 4713
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -19.6663,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.0713,
+      "1": 5.1631
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.1471,
+      "1": 2.1633
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 13,
+       "median_bp": 89.7311,
+       "n": 72
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 74,
+       "median_bp": -52.6703,
+       "n": 341
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 165,
+       "median_bp": -2.6239,
+       "n": 426
+      },
+      {
+       "band": "under 250m",
+       "filers": 241,
+       "median_bp": 29.1252,
+       "n": 708
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 60.6059,
+     "gap_se_bp_resampling_filers": {
+      "0": 39.2758,
+      "1": 39.7879
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 22.3883,
+      "1": 21.3874
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 27,
+       "median_bp": 15.3767,
+       "n": 168
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 112,
+       "median_bp": -12.6896,
+       "n": 659
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 328,
+       "median_bp": -7.2806,
+       "n": 1175
+      },
+      {
+       "band": "under 250m",
+       "filers": 627,
+       "median_bp": 7.551,
+       "n": 2206
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 7.8257,
+     "gap_se_bp_resampling_filers": {
+      "0": 18.88,
+      "1": 18.8263
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 8.7077,
+      "1": 8.6802
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 31,
+       "median_bp": -16.4675,
+       "n": 180
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 70,
+       "median_bp": -6.3588,
+       "n": 480
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 245,
+       "median_bp": -6.7777,
+       "n": 988
+      },
+      {
+       "band": "under 250m",
+       "filers": 825,
+       "median_bp": 8.3917,
+       "n": 2507
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -24.8593,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.313,
+      "1": 3.3341
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 1.6361,
+      "1": 1.6168
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "fed funds at both ends, repo at neither; mean balance",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 1.2526,
+      "n": 348
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 0.2462,
+      "n": 1139
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 4.9064,
+      "n": 2163
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 22.4034,
+      "n": 4713
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 5.5711,
+      "n": 72
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -134.7443,
+      "n": 341
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -98.8762,
+      "n": 426
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": -47.7449,
+      "n": 708
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": -2.4113,
+      "n": 168
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -43.729,
+      "n": 659
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -23.8283,
+      "n": 1175
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": -3.0855,
+      "n": 2206
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 1.4694,
+      "n": 180
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 9.445,
+      "n": 480
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 13.8008,
+      "n": 988
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 31.6198,
+      "n": 2507
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.1597,
+      "median_cost_pct": 0.4324,
+      "n": 781,
+      "year": 2009
+     },
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.3504,
+      "n": 503,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.331,
+      "n": 376,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.3381,
+      "n": 365,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.3418,
+      "n": 528,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.3255,
+      "n": 607,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.3636,
+      "n": 640,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.5333,
+      "n": 528,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 0.981,
+      "n": 608,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 1.7375,
+      "n": 688,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 1.906,
+      "n": 454,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 0.3164,
+      "n": 207,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.1036,
+      "n": 148,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 1.7375,
+      "n": 383,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 3.9772,
+      "n": 651,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 4.7393,
+      "n": 444,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 3.2573,
+      "n": 314,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 2.7555,
+      "n": 138,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9919,
+    "intercept": 0.2125,
+    "median_rows_per_quarter": 119.0,
+    "quarters": 70,
+    "rows": 8363,
+    "slope": 0.7829,
+    "years": 18
+   }
+  },
+  "persistent_quarter_end": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 44,
+       "median_bp": -11.6585,
+       "n": 348
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 143,
+       "median_bp": -7.8,
+       "n": 1139
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 469,
+       "median_bp": -7.4987,
+       "n": 2163
+      },
+      {
+       "band": "under 250m",
+       "filers": 1114,
+       "median_bp": 9.3546,
+       "n": 4713
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -21.0131,
+     "gap_se_bp_resampling_filers": {
+      "0": 6.8414,
+      "1": 6.959
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 3.5333,
+      "1": 3.5242
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 13,
+       "median_bp": 96.2729,
+       "n": 72
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 74,
+       "median_bp": -54.9902,
+       "n": 341
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 165,
+       "median_bp": -6.5831,
+       "n": 426
+      },
+      {
+       "band": "under 250m",
+       "filers": 241,
+       "median_bp": 25.3198,
+       "n": 708
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 70.9531,
+     "gap_se_bp_resampling_filers": {
+      "0": 41.4983,
+      "1": 44.9967
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 24.8599,
+      "1": 24.9551
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 27,
+       "median_bp": 18.2259,
+       "n": 168
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 112,
+       "median_bp": -8.3911,
+       "n": 659
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 328,
+       "median_bp": -7.4101,
+       "n": 1175
+      },
+      {
+       "band": "under 250m",
+       "filers": 627,
+       "median_bp": 5.2319,
+       "n": 2206
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 12.994,
+     "gap_se_bp_resampling_filers": {
+      "0": 21.5394,
+      "1": 21.0083
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 8.8308,
+      "1": 8.7608
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 31,
+       "median_bp": -18.8788,
+       "n": 180
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 70,
+       "median_bp": -7.6313,
+       "n": 480
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 245,
+       "median_bp": -7.6997,
+       "n": 988
+      },
+      {
+       "band": "under 250m",
+       "filers": 825,
+       "median_bp": 10.5051,
+       "n": 2507
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -29.3839,
+     "gap_se_bp_resampling_filers": {
+      "0": 4.2327,
+      "1": 4.3
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 1.7889,
+      "1": 1.7609
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "fed funds at both ends, repo at neither; quarter-end balance",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 2.6629,
+      "n": 348
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 3.6476,
+      "n": 1139
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 7.2996,
+      "n": 2163
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 26.0753,
+      "n": 4713
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 21.725,
+      "n": 72
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -137.7324,
+      "n": 341
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -74.5507,
+      "n": 426
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": -33.7057,
+      "n": 708
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": -2.8558,
+      "n": 168
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -30.1268,
+      "n": 659
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -19.5312,
+      "n": 1175
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 1.2267,
+      "n": 2206
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 2.9344,
+      "n": 180
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 11.2183,
+      "n": 480
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 15.0023,
+      "n": 988
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 35.3246,
+      "n": 2507
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.1597,
+      "median_cost_pct": 0.4934,
+      "n": 781,
+      "year": 2009
+     },
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.3911,
+      "n": 503,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.3644,
+      "n": 376,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.344,
+      "n": 365,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.3662,
+      "n": 528,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.34,
+      "n": 607,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.3852,
+      "n": 640,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.5466,
+      "n": 528,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 1.0038,
+      "n": 608,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 1.8146,
+      "n": 688,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 2.045,
+      "n": 454,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 0.3778,
+      "n": 207,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.1058,
+      "n": 148,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 1.4985,
+      "n": 383,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 4.0852,
+      "n": 651,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 4.9111,
+      "n": 444,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 3.4947,
+      "n": 314,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 2.6181,
+      "n": 138,
+      "year": 2026
+     }
+    ],
+    "corr": 0.99,
+    "intercept": 0.2207,
+    "median_rows_per_quarter": 119.0,
+    "quarters": 70,
+    "rows": 8363,
+    "slope": 0.8022,
+    "years": 18
+   }
+  },
+  "quarter_end": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 54,
+       "median_bp": -7.6212,
+       "n": 438
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 244,
+       "median_bp": -6.0704,
+       "n": 1646
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 823,
+       "median_bp": -8.4578,
+       "n": 4018
+      },
+      {
+       "band": "under 250m",
+       "filers": 1727,
+       "median_bp": 6.6155,
+       "n": 8864
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -14.2367,
+     "gap_se_bp_resampling_filers": {
+      "0": 6.4758,
+      "1": 6.5143
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.5115,
+      "1": 2.488
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 20,
+       "median_bp": 143.3329,
+       "n": 93
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 128,
+       "median_bp": -2.1205,
+       "n": 528
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 332,
+       "median_bp": -8.4397,
+       "n": 893
+      },
+      {
+       "band": "under 250m",
+       "filers": 474,
+       "median_bp": 0.0,
+       "n": 1393
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 143.3329,
+     "gap_se_bp_resampling_filers": {
+      "0": 63.4351,
+      "1": 64.2311
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 37.3501,
+      "1": 37.946
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 35,
+       "median_bp": 46.0785,
+       "n": 224
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 197,
+       "median_bp": -0.9915,
+       "n": 1024
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 622,
+       "median_bp": -8.4397,
+       "n": 2397
+      },
+      {
+       "band": "under 250m",
+       "filers": 1068,
+       "median_bp": 2.7261,
+       "n": 4431
+      }
+     ],
+     "gap_largest_minus_smallest_bp": 43.3525,
+     "gap_se_bp_resampling_filers": {
+      "0": 22.6926,
+      "1": 24.0042
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 9.294,
+      "1": 9.382
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 36,
+       "median_bp": -17.6815,
+       "n": 214
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 111,
+       "median_bp": -7.8754,
+       "n": 622
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 417,
+       "median_bp": -8.4742,
+       "n": 1621
+      },
+      {
+       "band": "under 250m",
+       "filers": 1289,
+       "median_bp": 8.5313,
+       "n": 4433
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -26.2127,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.5736,
+      "1": 3.549
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 1.9638,
+      "1": 1.9982
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "first pass: quarter-end balance, repo zero at quarter end",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 1.0028,
+      "n": 438
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -1.1027,
+      "n": 1646
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 1.0474,
+      "n": 4018
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 17.5915,
+      "n": 8864
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": -22.2398,
+      "n": 93
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -171.039,
+      "n": 528
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -178.8571,
+      "n": 893
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": -164.2758,
+      "n": 1393
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": -9.0516,
+      "n": 224
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -61.4533,
+      "n": 1024
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": -54.1397,
+      "n": 2397
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": -27.8313,
+      "n": 4431
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 2.507,
+      "n": 214
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 9.666,
+      "n": 622
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 13.205,
+      "n": 1621
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 32.2983,
+      "n": 4433
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.1597,
+      "median_cost_pct": 0.4919,
+      "n": 1244,
+      "year": 2009
+     },
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.4,
+      "n": 807,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.3839,
+      "n": 645,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.3478,
+      "n": 647,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.3333,
+      "n": 941,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.3333,
+      "n": 1014,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.349,
+      "n": 1044,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.5,
+      "n": 940,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 0.879,
+      "n": 1101,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 1.3234,
+      "n": 1377,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 1.6107,
+      "n": 837,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 0.3542,
+      "n": 328,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.119,
+      "n": 220,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 1.161,
+      "n": 914,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 3.2138,
+      "n": 1217,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 3.7271,
+      "n": 804,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 2.44,
+      "n": 619,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 2.1102,
+      "n": 267,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9887,
+    "intercept": 0.2463,
+    "median_rows_per_quarter": 192.5,
+    "quarters": 70,
+    "rows": 14966,
+    "slope": 0.5916,
+    "years": 18
+   }
+  },
+  "rc_k": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 77,
+       "median_bp": -42.6808,
+       "n": 839
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 454,
+       "median_bp": -26.113,
+       "n": 3866
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 1259,
+       "median_bp": -3.935,
+       "n": 10017
+      },
+      {
+       "band": "under 250m",
+       "filers": 2077,
+       "median_bp": 14.5109,
+       "n": 16763
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -57.1917,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.2365,
+      "1": 3.0941
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 1.6333,
+      "1": 1.632
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 51,
+       "median_bp": -32.3816,
+       "n": 285
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 306,
+       "median_bp": -19.7084,
+       "n": 1670
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 668,
+       "median_bp": 8.9818,
+       "n": 3079
+      },
+      {
+       "band": "under 250m",
+       "filers": 725,
+       "median_bp": 16.2498,
+       "n": 3468
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -48.6314,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.0188,
+      "1": 4.9521
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 3.1561,
+      "1": 3.2316
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 67,
+       "median_bp": -36.5685,
+       "n": 581
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 398,
+       "median_bp": -23.0803,
+       "n": 2922
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 1023,
+       "median_bp": 0.0,
+       "n": 6976
+      },
+      {
+       "band": "under 250m",
+       "filers": 1445,
+       "median_bp": 14.461,
+       "n": 9970
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -51.0295,
+     "gap_se_bp_resampling_filers": {
+      "0": 2.8866,
+      "1": 2.8627
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 1.611,
+      "1": 1.5646
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 45,
+       "median_bp": -57.9462,
+       "n": 258
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 209,
+       "median_bp": -33.8691,
+       "n": 944
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 670,
+       "median_bp": -10.105,
+       "n": 3041
+      },
+      {
+       "band": "under 250m",
+       "filers": 1568,
+       "median_bp": 14.5989,
+       "n": 6793
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -72.5451,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.6404,
+      "1": 3.5669
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.2008,
+      "1": 2.1827
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "repo at neither end; the RC-K quarterly average",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 9.0668,
+      "n": 839
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 27.2706,
+      "n": 3866
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 53.3334,
+      "n": 10017
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 73.6337,
+      "n": 16763
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 16.395,
+      "n": 285
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 33.1054,
+      "n": 1670
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 61.9972,
+      "n": 3079
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 73.0606,
+      "n": 3468
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 13.6903,
+      "n": 581
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 28.7266,
+      "n": 2922
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 54.1985,
+      "n": 6976
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 69.2989,
+      "n": 9970
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 2.6692,
+      "n": 258
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 23.4494,
+      "n": 944
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 51.8198,
+      "n": 3041
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 78.304,
+      "n": 6793
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.8368,
+      "n": 1585,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.8065,
+      "n": 1280,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.7729,
+      "n": 1362,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.7477,
+      "n": 1657,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.7535,
+      "n": 1836,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.7409,
+      "n": 1931,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.9889,
+      "n": 2077,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 1.5717,
+      "n": 2460,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 2.43,
+      "n": 3142,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 2.7586,
+      "n": 2409,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 1.2903,
+      "n": 930,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.4193,
+      "n": 455,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 3.2787,
+      "n": 1859,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 5.6095,
+      "n": 3248,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 5.8124,
+      "n": 2446,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 4.7904,
+      "n": 1953,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 3.9604,
+      "n": 855,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9888,
+    "intercept": 0.6852,
+    "median_rows_per_quarter": 486.0,
+    "quarters": 66,
+    "rows": 31485,
+    "slope": 0.9862,
+    "years": 17
+   }
+  },
+  "rc_k_persistent": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 41,
+       "median_bp": -16.699,
+       "n": 307
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 134,
+       "median_bp": -12.8492,
+       "n": 1078
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 429,
+       "median_bp": -5.3652,
+       "n": 1944
+      },
+      {
+       "band": "under 250m",
+       "filers": 934,
+       "median_bp": 11.8323,
+       "n": 4004
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -28.5313,
+     "gap_se_bp_resampling_filers": {
+      "0": 4.9578,
+      "1": 5.076
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.1222,
+      "1": 2.1917
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 13,
+       "median_bp": -11.3837,
+       "n": 72
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 73,
+       "median_bp": -9.8735,
+       "n": 339
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 161,
+       "median_bp": 0.8623,
+       "n": 418
+      },
+      {
+       "band": "under 250m",
+       "filers": 225,
+       "median_bp": 12.0595,
+       "n": 670
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -23.4433,
+     "gap_se_bp_resampling_filers": {
+      "0": 8.9903,
+      "1": 8.8346
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 3.6752,
+      "1": 3.7354
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 27,
+       "median_bp": -12.5401,
+       "n": 168
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 110,
+       "median_bp": -12.8492,
+       "n": 656
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 321,
+       "median_bp": -3.1896,
+       "n": 1153
+      },
+      {
+       "band": "under 250m",
+       "filers": 589,
+       "median_bp": 11.4981,
+       "n": 2067
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -24.0382,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.6359,
+      "1": 4.0207
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 1.6664,
+      "1": 1.7038
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 28,
+       "median_bp": -26.753,
+       "n": 139
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 63,
+       "median_bp": -12.7362,
+       "n": 422
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 206,
+       "median_bp": -9.6058,
+       "n": 791
+      },
+      {
+       "band": "under 250m",
+       "filers": 650,
+       "median_bp": 11.9638,
+       "n": 1937
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -38.7169,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.1674,
+      "1": 5.1527
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.3749,
+      "1": 2.4042
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "as rc_k, fed funds at both quarter ends",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 3.3275,
+      "n": 307
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 10.4231,
+      "n": 1078
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 21.9272,
+      "n": 1944
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 46.8127,
+      "n": 4004
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 6.2011,
+      "n": 72
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 10.6709,
+      "n": 339
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 25.0376,
+      "n": 418
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 37.7566,
+      "n": 670
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 6.4457,
+      "n": 168
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 10.7597,
+      "n": 656
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 21.8409,
+      "n": 1153
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 39.7078,
+      "n": 2067
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 2.1872,
+      "n": 139
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 10.3488,
+      "n": 422
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 22.1601,
+      "n": 791
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 51.661,
+      "n": 1937
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.5062,
+      "n": 494,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.4332,
+      "n": 368,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.4528,
+      "n": 360,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.559,
+      "n": 512,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.495,
+      "n": 587,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.5975,
+      "n": 621,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.6552,
+      "n": 503,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 1.3389,
+      "n": 586,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 2.277,
+      "n": 650,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 2.4701,
+      "n": 436,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 0.5109,
+      "n": 203,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.0992,
+      "n": 144,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 2.8186,
+      "n": 370,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 5.3215,
+      "n": 623,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 5.478,
+      "n": 428,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 4.4618,
+      "n": 312,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 3.7841,
+      "n": 136,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9919,
+    "intercept": 0.3598,
+    "median_rows_per_quarter": 114.5,
+    "quarters": 66,
+    "rows": 7333,
+    "slope": 0.9947,
+    "years": 17
+   }
+  },
+  "rc_k_sporadic": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 64,
+       "median_bp": -42.8586,
+       "n": 451
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 416,
+       "median_bp": -25.4294,
+       "n": 2357
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 1165,
+       "median_bp": -3.3926,
+       "n": 6394
+      },
+      {
+       "band": "under 250m",
+       "filers": 1890,
+       "median_bp": 15.7831,
+       "n": 9215
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -58.6417,
+     "gap_se_bp_resampling_filers": {
+      "0": 4.0815,
+      "1": 3.9908
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.6304,
+      "1": 2.6232
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 45,
+       "median_bp": -33.2684,
+       "n": 191
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 282,
+       "median_bp": -20.3628,
+       "n": 1140
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 614,
+       "median_bp": 13.1463,
+       "n": 2141
+      },
+      {
+       "band": "under 250m",
+       "filers": 666,
+       "median_bp": 12.7457,
+       "n": 2077
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -46.0141,
+     "gap_se_bp_resampling_filers": {
+      "0": 6.2955,
+      "1": 6.3536
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 5.0553,
+      "1": 5.0496
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 60,
+       "median_bp": -38.5345,
+       "n": 361
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 369,
+       "median_bp": -22.7482,
+       "n": 1937
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 959,
+       "median_bp": 0.0,
+       "n": 4665
+      },
+      {
+       "band": "under 250m",
+       "filers": 1353,
+       "median_bp": 15.2247,
+       "n": 5795
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -53.7592,
+     "gap_se_bp_resampling_filers": {
+      "0": 3.9955,
+      "1": 4.05
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.727,
+      "1": 2.6556
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 30,
+       "median_bp": -73.5331,
+       "n": 90
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 165,
+       "median_bp": -36.2423,
+       "n": 420
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 576,
+       "median_bp": -12.3229,
+       "n": 1729
+      },
+      {
+       "band": "under 250m",
+       "filers": 1306,
+       "median_bp": 15.8579,
+       "n": 3420
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -89.3909,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.4808,
+      "1": 5.5416
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 4.3102,
+      "1": 4.2861
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "as rc_k, no fed funds at the previous quarter end",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 17.6928,
+      "n": 451
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 38.4286,
+      "n": 2357
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 63.4987,
+      "n": 6394
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 87.5719,
+      "n": 9215
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 24.4136,
+      "n": 191
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 40.0523,
+      "n": 1140
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 74.5732,
+      "n": 2141
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 76.5238,
+      "n": 2077
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 20.7675,
+      "n": 361
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 37.1507,
+      "n": 1937
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 62.5025,
+      "n": 4665
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 79.7497,
+      "n": 5795
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 6.6436,
+      "n": 90
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 43.5718,
+      "n": 420
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 65.918,
+      "n": 1729
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 97.8378,
+      "n": 3420
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 1.1127,
+      "n": 782,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.9828,
+      "n": 685,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.9324,
+      "n": 729,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.8658,
+      "n": 860,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.9006,
+      "n": 887,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.8421,
+      "n": 932,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 1.1299,
+      "n": 1137,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 1.6893,
+      "n": 1429,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 2.439,
+      "n": 1903,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 2.8169,
+      "n": 1496,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 1.3913,
+      "n": 532,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.7775,
+      "n": 252,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 3.3306,
+      "n": 1244,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 5.6947,
+      "n": 2028,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 5.8728,
+      "n": 1601,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 4.8485,
+      "n": 1343,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 4.0036,
+      "n": 577,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9897,
+    "intercept": 0.8478,
+    "median_rows_per_quarter": 255.5,
+    "quarters": 66,
+    "rows": 18417,
+    "slope": 0.9595,
+    "years": 17
+   }
+  },
+  "rc_k_stable": {
+   "cross_section": {
+    "all": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 23,
+       "median_bp": -2.636,
+       "n": 110
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 52,
+       "median_bp": -3.6029,
+       "n": 318
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 98,
+       "median_bp": -3.447,
+       "n": 358
+      },
+      {
+       "band": "under 250m",
+       "filers": 187,
+       "median_bp": 10.6667,
+       "n": 493
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -13.3026,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.6281,
+      "1": 5.7824
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 2.663,
+      "1": 2.6788
+     },
+     "label": "whole window"
+    },
+    "high": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 5,
+       "median_bp": 7.6863,
+       "n": 29
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 19,
+       "median_bp": -89.0456,
+       "n": 63
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 34,
+       "median_bp": -0.5539,
+       "n": 62
+      },
+      {
+       "band": "under 250m",
+       "filers": 49,
+       "median_bp": 8.9257,
+       "n": 98
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -1.2394,
+     "gap_se_bp_resampling_filers": {
+      "0": 9.6506,
+      "1": 10.0541
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 5.771,
+      "1": 5.8045
+     },
+     "label": "2023-26"
+    },
+    "off_floor": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 13,
+       "median_bp": 1.1889,
+       "n": 59
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 32,
+       "median_bp": -18.5303,
+       "n": 130
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 60,
+       "median_bp": -6.5962,
+       "n": 185
+      },
+      {
+       "band": "under 250m",
+       "filers": 110,
+       "median_bp": 8.1992,
+       "n": 248
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -7.0103,
+     "gap_se_bp_resampling_filers": {
+      "0": 5.1878,
+      "1": 5.5195
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 3.348,
+      "1": 3.4322
+     },
+     "label": "off the floor, every other year"
+    },
+    "zero_bound": {
+     "bands": [
+      {
+       "band": "10bn and over",
+       "filers": 15,
+       "median_bp": -10.32,
+       "n": 51
+      },
+      {
+       "band": "1bn to 10bn",
+       "filers": 33,
+       "median_bp": -1.2588,
+       "n": 188
+      },
+      {
+       "band": "250m to 1bn",
+       "filers": 49,
+       "median_bp": -1.2764,
+       "n": 173
+      },
+      {
+       "band": "under 250m",
+       "filers": 106,
+       "median_bp": 19.4192,
+       "n": 245
+      }
+     ],
+     "gap_largest_minus_smallest_bp": -29.7392,
+     "gap_se_bp_resampling_filers": {
+      "0": 10.2495,
+      "1": 10.4026
+     },
+     "gap_se_bp_resampling_observations": {
+      "0": 5.2137,
+      "1": 5.1119
+     },
+     "label": "near the zero bound, 2009-15 and 2020-21"
+    }
+   },
+   "label": "as rc_k_persistent, both ends within the stable band of the average",
+   "levels_bp_over_effr": {
+    "all": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 5.6182,
+      "n": 110
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 9.1792,
+      "n": 318
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 9.2527,
+      "n": 358
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 25.2895,
+      "n": 493
+     }
+    ],
+    "high": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 14.7649,
+      "n": 29
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -84.7654,
+      "n": 63
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 8.3388,
+      "n": 62
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 20.5021,
+      "n": 98
+     }
+    ],
+    "off_floor": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 10.6014,
+      "n": 59
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": -8.5128,
+      "n": 130
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 4.6304,
+      "n": 185
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 20.5993,
+      "n": 248
+     }
+    ],
+    "zero_bound": [
+     {
+      "band": "10bn and over",
+      "median_bp_over_effr": 2.823,
+      "n": 51
+     },
+     {
+      "band": "1bn to 10bn",
+      "median_bp_over_effr": 12.7901,
+      "n": 188
+     },
+     {
+      "band": "250m to 1bn",
+      "median_bp_over_effr": 12.9452,
+      "n": 173
+     },
+     {
+      "band": "under 250m",
+      "median_bp_over_effr": 36.2772,
+      "n": 245
+     }
+    ]
+   },
+   "validity": {
+    "by_year": [
+     {
+      "effr_pct": 0.177,
+      "median_cost_pct": 0.3227,
+      "n": 107,
+      "year": 2010
+     },
+     {
+      "effr_pct": 0.1018,
+      "median_cost_pct": 0.3167,
+      "n": 88,
+      "year": 2011
+     },
+     {
+      "effr_pct": 0.1421,
+      "median_cost_pct": 0.2546,
+      "n": 92,
+      "year": 2012
+     },
+     {
+      "effr_pct": 0.1078,
+      "median_cost_pct": 0.2784,
+      "n": 93,
+      "year": 2013
+     },
+     {
+      "effr_pct": 0.089,
+      "median_cost_pct": 0.2723,
+      "n": 94,
+      "year": 2014
+     },
+     {
+      "effr_pct": 0.1343,
+      "median_cost_pct": 0.2916,
+      "n": 85,
+      "year": 2015
+     },
+     {
+      "effr_pct": 0.3947,
+      "median_cost_pct": 0.5428,
+      "n": 61,
+      "year": 2016
+     },
+     {
+      "effr_pct": 1.0037,
+      "median_cost_pct": 1.1246,
+      "n": 89,
+      "year": 2017
+     },
+     {
+      "effr_pct": 1.831,
+      "median_cost_pct": 2.0583,
+      "n": 93,
+      "year": 2018
+     },
+     {
+      "effr_pct": 2.1631,
+      "median_cost_pct": 2.3333,
+      "n": 85,
+      "year": 2019
+     },
+     {
+      "effr_pct": 0.3626,
+      "median_cost_pct": 0.4697,
+      "n": 45,
+      "year": 2020
+     },
+     {
+      "effr_pct": 0.0788,
+      "median_cost_pct": 0.0984,
+      "n": 53,
+      "year": 2021
+     },
+     {
+      "effr_pct": 1.676,
+      "median_cost_pct": 0.8288,
+      "n": 42,
+      "year": 2022
+     },
+     {
+      "effr_pct": 5.0262,
+      "median_cost_pct": 5.25,
+      "n": 88,
+      "year": 2023
+     },
+     {
+      "effr_pct": 5.1477,
+      "median_cost_pct": 5.2704,
+      "n": 97,
+      "year": 2024
+     },
+     {
+      "effr_pct": 4.2141,
+      "median_cost_pct": 4.3024,
+      "n": 47,
+      "year": 2025
+     },
+     {
+      "effr_pct": 3.6338,
+      "median_cost_pct": 3.6975,
+      "n": 20,
+      "year": 2026
+     }
+    ],
+    "corr": 0.9911,
+    "intercept": 0.0882,
+    "median_rows_per_quarter": 20.0,
+    "quarters": 66,
+    "rows": 1279,
+    "slope": 0.9973,
+    "years": 17
+   }
+  }
+ },
+ "balances_over_rc_k_average": [
+  {
+   "band": "10bn and over",
+   "median_quarter_end_over_average": 1.0119,
+   "median_two_end_mean_over_average": 1.0389,
+   "n": 345,
+   "previous_end": "fed funds at the previous end"
+  },
+  {
+   "band": "10bn and over",
+   "median_quarter_end_over_average": 3.1512,
+   "median_two_end_mean_over_average": 1.5756,
+   "n": 75,
+   "previous_end": "none at the previous end"
+  },
+  {
+   "band": "1bn to 10bn",
+   "median_quarter_end_over_average": 1.0159,
+   "median_two_end_mean_over_average": 1.036,
+   "n": 1138,
+   "previous_end": "fed funds at the previous end"
+  },
+  {
+   "band": "1bn to 10bn",
+   "median_quarter_end_over_average": 4.0855,
+   "median_two_end_mean_over_average": 2.0427,
+   "n": 535,
+   "previous_end": "none at the previous end"
+  },
+  {
+   "band": "250m to 1bn",
+   "median_quarter_end_over_average": 1.1641,
+   "median_two_end_mean_over_average": 1.1743,
+   "n": 2105,
+   "previous_end": "fed funds at the previous end"
+  },
+  {
+   "band": "250m to 1bn",
+   "median_quarter_end_over_average": 4.5717,
+   "median_two_end_mean_over_average": 2.2858,
+   "n": 2367,
+   "previous_end": "none at the previous end"
+  },
+  {
+   "band": "under 250m",
+   "median_quarter_end_over_average": 1.336,
+   "median_two_end_mean_over_average": 1.3739,
+   "n": 5061,
+   "previous_end": "fed funds at the previous end"
+  },
+  {
+   "band": "under 250m",
+   "median_quarter_end_over_average": 4.1471,
+   "median_two_end_mean_over_average": 2.0735,
+   "n": 7105,
+   "previous_end": "none at the previous end"
+  }
+ ],
+ "bankers_bank": {
+  "certified_never_deducting": [
+   "134455",
+   "30650",
+   "332756",
+   "3447820",
+   "540542",
+   "645317",
+   "700252",
+   "777254",
+   "994770"
+  ],
+  "class_test": "certification K656 is one and deduction K657 is positive, in the same quarter",
+  "deduction_over_limit": {
+   "class_rows_without_limit": 0,
+   "max": 0.9583,
+   "median": 0.3568,
+   "rows": 779,
+   "rows_at_limit": 0
+  },
+  "eras": [
+   {
+    "cells": {
+     "class_borrowed": {
+      "filers": 14,
+      "median_bp": 4.582,
+      "n": 139
+     },
+     "class_lent": {
+      "filers": 14,
+      "median_bp": 51.5218,
+      "n": 203
+     },
+     "class_margin": {
+      "filers": 13,
+      "median_bp": 47.2351,
+      "n": 114
+     },
+     "peer_borrowed": {
+      "filers": 1398,
+      "median_bp": 65.0505,
+      "n": 5978
+     },
+     "peer_lent": {
+      "filers": 3871,
+      "median_bp": 12.2561,
+      "n": 33817
+     },
+     "peer_margin": {
+      "filers": 685,
+      "median_bp": -54.6698,
+      "n": 1886
+     }
+    },
+    "class_asset_range_thousands": [
+     30760.0,
+     2669207.0
+    ],
+    "era": "2011Q2-2015Q4",
+    "se_bp_resampling_filers": {
+     "class_borrowed": {
+      "0": 3.3001,
+      "1": 2.7122
+     },
+     "class_lent": {
+      "0": 7.8492,
+      "1": 7.896
+     },
+     "class_margin": {
+      "0": 17.4789,
+      "1": 17.4793
+     },
+     "class_minus_peer_borrowed": {
+      "0": 3.6617,
+      "1": 3.0602
+     },
+     "class_minus_peer_lent": {
+      "0": 7.8481,
+      "1": 7.8985
+     }
+    }
+   },
+   {
+    "cells": {
+     "class_borrowed": {
+      "filers": 13,
+      "median_bp": 2.197,
+      "n": 158
+     },
+     "class_lent": {
+      "filers": 13,
+      "median_bp": 48.3277,
+      "n": 150
+     },
+     "class_margin": {
+      "filers": 12,
+      "median_bp": 52.8116,
+      "n": 130
+     },
+     "peer_borrowed": {
+      "filers": 1301,
+      "median_bp": 55.2145,
+      "n": 6604
+     },
+     "peer_lent": {
+      "filers": 2537,
+      "median_bp": 6.8525,
+      "n": 24059
+     },
+     "peer_margin": {
+      "filers": 799,
+      "median_bp": -47.867,
+      "n": 3439
+     }
+    },
+    "class_asset_range_thousands": [
+     85088.0,
+     2727170.0
+    ],
+    "era": "2016Q1-2019Q4",
+    "se_bp_resampling_filers": {
+     "class_borrowed": {
+      "0": 2.3215,
+      "1": 2.3458
+     },
+     "class_lent": {
+      "0": 7.2554,
+      "1": 7.276
+     },
+     "class_margin": {
+      "0": 10.2722,
+      "1": 10.4163
+     },
+     "class_minus_peer_borrowed": {
+      "0": 2.8025,
+      "1": 2.8366
+     },
+     "class_minus_peer_lent": {
+      "0": 7.2578,
+      "1": 7.2805
+     }
+    }
+   },
+   {
+    "cells": {
+     "class_borrowed": {
+      "filers": 12,
+      "median_bp": -1.0606,
+      "n": 72
+     },
+     "class_lent": {
+      "filers": 11,
+      "median_bp": 36.426,
+      "n": 84
+     },
+     "class_margin": {
+      "filers": 11,
+      "median_bp": 44.5065,
+      "n": 61
+     },
+     "peer_borrowed": {
+      "filers": 451,
+      "median_bp": 55.9627,
+      "n": 880
+     },
+     "peer_lent": {
+      "filers": 1802,
+      "median_bp": 2.223,
+      "n": 7985
+     },
+     "peer_margin": {
+      "filers": 202,
+      "median_bp": -56.916,
+      "n": 309
+     }
+    },
+    "class_asset_range_thousands": [
+     92886.0,
+     4181180.0
+    ],
+    "era": "2020Q1-2021Q4",
+    "se_bp_resampling_filers": {
+     "class_borrowed": {
+      "0": 1.9212,
+      "1": 2.1115
+     },
+     "class_lent": {
+      "0": 10.2965,
+      "1": 10.1561
+     },
+     "class_margin": {
+      "0": 10.3409,
+      "1": 10.5631
+     },
+     "class_minus_peer_borrowed": {
+      "0": 5.8741,
+      "1": 6.0938
+     },
+     "class_minus_peer_lent": {
+      "0": 10.2921,
+      "1": 10.1604
+     }
+    }
+   },
+   {
+    "cells": {
+     "class_borrowed": {
+      "filers": 12,
+      "median_bp": 2.4132,
+      "n": 191
+     },
+     "class_lent": {
+      "filers": 11,
+      "median_bp": 71.5852,
+      "n": 176
+     },
+     "class_margin": {
+      "filers": 11,
+      "median_bp": 78.523,
+      "n": 166
+     },
+     "peer_borrowed": {
+      "filers": 1214,
+      "median_bp": 59.5926,
+      "n": 6902
+     },
+     "peer_lent": {
+      "filers": 1908,
+      "median_bp": 5.6794,
+      "n": 22854
+     },
+     "peer_margin": {
+      "filers": 717,
+      "median_bp": -54.6162,
+      "n": 3900
+     }
+    },
+    "class_asset_range_thousands": [
+     117092.0,
+     4042157.0
+    ],
+    "era": "2022Q1-2026Q2",
+    "se_bp_resampling_filers": {
+     "class_borrowed": {
+      "0": 6.8689,
+      "1": 7.2003
+     },
+     "class_lent": {
+      "0": 16.5349,
+      "1": 16.6268
+     },
+     "class_margin": {
+      "0": 20.1804,
+      "1": 20.3786
+     },
+     "class_minus_peer_borrowed": {
+      "0": 7.2083,
+      "1": 7.5182
+     },
+     "class_minus_peer_lent": {
+      "0": 16.5392,
+      "1": 16.6354
+     }
+    }
+   }
+  ],
+  "filers": [
+   {
+    "borrowed_quarters": 38,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 4,
+    "median_assets_thousands": 110626.0,
+    "median_borrowed_bp": 4.6797,
+    "median_deduction_over_limit": 0.7616,
+    "median_lent_bp": -14.8096,
+    "quarters": 61,
+    "rssd": "1187551"
+   },
+   {
+    "borrowed_quarters": 33,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 61,
+    "median_assets_thousands": 176800.0,
+    "median_borrowed_bp": 5.0561,
+    "median_deduction_over_limit": 0.3894,
+    "median_lent_bp": 37.6131,
+    "quarters": 61,
+    "rssd": "1218446"
+   },
+   {
+    "borrowed_quarters": 20,
+    "first": "2011Q2",
+    "last": "2016Q2",
+    "lent_quarters": 19,
+    "median_assets_thousands": 97008.0,
+    "median_borrowed_bp": 2.5123,
+    "median_deduction_over_limit": 0.1309,
+    "median_lent_bp": 11.1532,
+    "quarters": 21,
+    "rssd": "155517"
+   },
+   {
+    "borrowed_quarters": 4,
+    "first": "2011Q2",
+    "last": "2015Q2",
+    "lent_quarters": 17,
+    "median_assets_thousands": 218805.0,
+    "median_borrowed_bp": 18.5251,
+    "median_deduction_over_limit": 0.1227,
+    "median_lent_bp": 66.5029,
+    "quarters": 17,
+    "rssd": "190639"
+   },
+   {
+    "borrowed_quarters": 30,
+    "first": "2016Q2",
+    "last": "2026Q2",
+    "lent_quarters": 38,
+    "median_assets_thousands": 1162548.0,
+    "median_borrowed_bp": 7.7326,
+    "median_deduction_over_limit": 0.4973,
+    "median_lent_bp": 72.0016,
+    "quarters": 41,
+    "rssd": "2451240"
+   },
+   {
+    "borrowed_quarters": 24,
+    "first": "2011Q2",
+    "last": "2017Q4",
+    "lent_quarters": 12,
+    "median_assets_thousands": 141824.0,
+    "median_borrowed_bp": 0.352,
+    "median_deduction_over_limit": 0.2536,
+    "median_lent_bp": 87.7512,
+    "quarters": 27,
+    "rssd": "2722173"
+   },
+   {
+    "borrowed_quarters": 1,
+    "first": "2011Q2",
+    "last": "2011Q3",
+    "lent_quarters": 2,
+    "median_assets_thousands": 32302.5,
+    "median_borrowed_bp": 668.638,
+    "median_deduction_over_limit": 0.4628,
+    "median_lent_bp": 29.3896,
+    "quarters": 2,
+    "rssd": "3066155"
+   },
+   {
+    "borrowed_quarters": 61,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 61,
+    "median_assets_thousands": 720844.0,
+    "median_borrowed_bp": -5.8143,
+    "median_deduction_over_limit": 0.6126,
+    "median_lent_bp": 50.1478,
+    "quarters": 61,
+    "rssd": "408642"
+   },
+   {
+    "borrowed_quarters": 46,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 38,
+    "median_assets_thousands": 2669207.0,
+    "median_borrowed_bp": -10.5769,
+    "median_deduction_over_limit": 0.4621,
+    "median_lent_bp": 59.0437,
+    "quarters": 61,
+    "rssd": "529958"
+   },
+   {
+    "borrowed_quarters": 40,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 61,
+    "median_assets_thousands": 382906.0,
+    "median_borrowed_bp": 0.8177,
+    "median_deduction_over_limit": 0.2877,
+    "median_lent_bp": 57.3491,
+    "quarters": 61,
+    "rssd": "732758"
+   },
+   {
+    "borrowed_quarters": 12,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 12,
+    "median_assets_thousands": 895962.0,
+    "median_borrowed_bp": 2.9687,
+    "median_deduction_over_limit": 0.3433,
+    "median_lent_bp": 70.3338,
+    "quarters": 61,
+    "rssd": "734538"
+   },
+   {
+    "borrowed_quarters": 45,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 56,
+    "median_assets_thousands": 146571.0,
+    "median_borrowed_bp": 4.7188,
+    "median_deduction_over_limit": 0.2306,
+    "median_lent_bp": 22.0488,
+    "quarters": 61,
+    "rssd": "77422"
+   },
+   {
+    "borrowed_quarters": 50,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 61,
+    "median_assets_thousands": 256079.0,
+    "median_borrowed_bp": 9.7295,
+    "median_deduction_over_limit": 0.3617,
+    "median_lent_bp": 51.2968,
+    "quarters": 61,
+    "rssd": "859655"
+   },
+   {
+    "borrowed_quarters": 61,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 49,
+    "median_assets_thousands": 887007.0,
+    "median_borrowed_bp": -2.0814,
+    "median_deduction_over_limit": 0.293,
+    "median_lent_bp": 69.095,
+    "quarters": 61,
+    "rssd": "930358"
+   },
+   {
+    "borrowed_quarters": 61,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 61,
+    "median_assets_thousands": 729531.0,
+    "median_borrowed_bp": 8.5222,
+    "median_deduction_over_limit": 0.379,
+    "median_lent_bp": 19.2871,
+    "quarters": 61,
+    "rssd": "959715"
+   },
+   {
+    "borrowed_quarters": 34,
+    "first": "2011Q2",
+    "last": "2026Q2",
+    "lent_quarters": 61,
+    "median_assets_thousands": 297960.0,
+    "median_borrowed_bp": 13.7922,
+    "median_deduction_over_limit": 0.4167,
+    "median_lent_bp": 42.2358,
+    "quarters": 61,
+    "rssd": "977250"
+   }
+  ],
+  "quarters": [
+   {
+    "certified_without_deduction": 0,
+    "class": 15,
+    "class_borrowed": 10,
+    "class_lent": 13,
+    "quarter": "2011Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 15,
+    "class_borrowed": 8,
+    "class_lent": 12,
+    "quarter": "2011Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 11,
+    "quarter": "2011Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 9,
+    "class_lent": 10,
+    "quarter": "2012Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 13,
+    "quarter": "2012Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 8,
+    "class_lent": 12,
+    "quarter": "2012Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 9,
+    "class_lent": 11,
+    "quarter": "2012Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 5,
+    "class_lent": 11,
+    "quarter": "2013Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 6,
+    "class_lent": 11,
+    "quarter": "2013Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 11,
+    "quarter": "2013Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 10,
+    "quarter": "2013Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 10,
+    "quarter": "2014Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 10,
+    "quarter": "2014Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 10,
+    "quarter": "2014Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 6,
+    "class_lent": 10,
+    "quarter": "2014Q4"
+   },
+   {
+    "certified_without_deduction": 1,
+    "class": 14,
+    "class_borrowed": 8,
+    "class_lent": 10,
+    "quarter": "2015Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 8,
+    "class_lent": 11,
+    "quarter": "2015Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 6,
+    "class_lent": 9,
+    "quarter": "2015Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 7,
+    "class_lent": 8,
+    "quarter": "2015Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 8,
+    "class_lent": 10,
+    "quarter": "2016Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 14,
+    "class_borrowed": 7,
+    "class_lent": 11,
+    "quarter": "2016Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 8,
+    "class_lent": 9,
+    "quarter": "2016Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 9,
+    "class_lent": 9,
+    "quarter": "2016Q4"
+   },
+   {
+    "certified_without_deduction": 1,
+    "class": 13,
+    "class_borrowed": 8,
+    "class_lent": 10,
+    "quarter": "2017Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2017Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 13,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2017Q3"
+   },
+   {
+    "certified_without_deduction": 1,
+    "class": 13,
+    "class_borrowed": 11,
+    "class_lent": 11,
+    "quarter": "2017Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 10,
+    "quarter": "2018Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2018Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 8,
+    "quarter": "2018Q3"
+   },
+   {
+    "certified_without_deduction": 1,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2018Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2019Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2019Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2019Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2019Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 11,
+    "quarter": "2020Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 10,
+    "quarter": "2020Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 8,
+    "class_lent": 10,
+    "quarter": "2020Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 9,
+    "class_lent": 11,
+    "quarter": "2020Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 9,
+    "class_lent": 10,
+    "quarter": "2021Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 9,
+    "class_lent": 11,
+    "quarter": "2021Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 9,
+    "class_lent": 10,
+    "quarter": "2021Q3"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 8,
+    "class_lent": 11,
+    "quarter": "2021Q4"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 9,
+    "class_lent": 11,
+    "quarter": "2022Q1"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2022Q2"
+   },
+   {
+    "certified_without_deduction": 0,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2022Q3"
+   },
+   {
+    "certified_without_deduction": 1,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 11,
+    "quarter": "2022Q4"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2023Q1"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2023Q2"
+   },
+   {
+    "certified_without_deduction": 3,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2023Q3"
+   },
+   {
+    "certified_without_deduction": 3,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 9,
+    "quarter": "2023Q4"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2024Q1"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2024Q2"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 10,
+    "class_lent": 9,
+    "quarter": "2024Q3"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2024Q4"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2025Q1"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2025Q2"
+   },
+   {
+    "certified_without_deduction": 2,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2025Q3"
+   },
+   {
+    "certified_without_deduction": 3,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2025Q4"
+   },
+   {
+    "certified_without_deduction": 3,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2026Q1"
+   },
+   {
+    "certified_without_deduction": 4,
+    "class": 12,
+    "class_borrowed": 11,
+    "class_lent": 10,
+    "quarter": "2026Q2"
+   }
+  ],
+  "rule": "12 CFR 327.5(b)"
+ },
+ "board_classes": {
+  "fit_gaps": {
+   "larger minus smaller, 18bn and over": {
+    "fit_gap_bp": -31.9678,
+    "se_bp_resampling_filers": {
+     "0": 44.5124,
+     "1": 248.9805
+    }
+   },
+   "larger minus smaller, 5bn to 18bn": {
+    "fit_gap_bp": -32.9283,
+    "se_bp_resampling_filers": {
+     "0": 51.2586,
+     "1": 139.807
+    }
+   }
+  },
+  "fr2420_large": 18000000,
+  "fr2420_mid": 5000000,
+  "pooled": {
+   "larger": {
+    "filers": 13,
+    "fit_fed_funds_at_w0_bp": -27.7023,
+    "fit_repo_at_w1_bp": -3.2077,
+    "rows": 66,
+    "share_of_rows_weight_below_half": 0.0455,
+    "weight_p10": 0.684,
+    "weight_p50": 0.9959,
+    "weight_p90": 1.0
+   },
+   "smaller, 18bn and over": {
+    "filers": 59,
+    "fit_fed_funds_at_w0_bp": 4.2655,
+    "fit_repo_at_w1_bp": -12.3975,
+    "rows": 296,
+    "share_of_rows_weight_below_half": 0.2095,
+    "weight_p10": 0.1651,
+    "weight_p50": 0.8902,
+    "weight_p90": 1.0
+   },
+   "smaller, 5bn to 18bn": {
+    "filers": 102,
+    "fit_fed_funds_at_w0_bp": 5.226,
+    "fit_repo_at_w1_bp": -4.2778,
+    "rows": 518,
+    "share_of_rows_weight_below_half": 0.1178,
+    "weight_p10": 0.2789,
+    "weight_p50": 1.0,
+    "weight_p90": 1.0
+   }
+  },
+  "quarters": [
+   {
+    "larger": {
+     "filers": 15,
+     "no_repo_at_either_end": 0,
+     "weight_mixed": 8,
+     "weight_one": 2,
+     "weight_zero": 0,
+     "with_rc_k_average": 11
+    },
+    "quarter": "2015Q4",
+    "ranked_on_reserves": 2340,
+    "smaller, 18bn and over": {
+     "filers": 66,
+     "no_repo_at_either_end": 5,
+     "weight_mixed": 29,
+     "weight_one": 16,
+     "weight_zero": 4,
+     "with_rc_k_average": 52
+    },
+    "smaller, 5bn to 18bn": {
+     "filers": 94,
+     "no_repo_at_either_end": 5,
+     "weight_mixed": 29,
+     "weight_one": 53,
+     "weight_zero": 4,
+     "with_rc_k_average": 94
+    }
+   },
+   {
+    "larger": {
+     "filers": 15,
+     "no_repo_at_either_end": 0,
+     "weight_mixed": 8,
+     "weight_one": 3,
+     "weight_zero": 0,
+     "with_rc_k_average": 12
+    },
+    "quarter": "2016Q1",
+    "ranked_on_reserves": 2379,
+    "smaller, 18bn and over": {
+     "filers": 67,
+     "no_repo_at_either_end": 6,
+     "weight_mixed": 34,
+     "weight_one": 12,
+     "weight_zero": 4,
+     "with_rc_k_average": 53
+    },
+    "smaller, 5bn to 18bn": {
+     "filers": 89,
+     "no_repo_at_either_end": 5,
+     "weight_mixed": 25,
+     "weight_one": 57,
+     "weight_zero": 5,
+     "with_rc_k_average": 89
+    }
+   },
+   {
+    "larger": {
+     "filers": 15,
+     "no_repo_at_either_end": 0,
+     "weight_mixed": 8,
+     "weight_one": 2,
+     "weight_zero": 0,
+     "with_rc_k_average": 11
+    },
+    "quarter": "2016Q2",
+    "ranked_on_reserves": 2362,
+    "smaller, 18bn and over": {
+     "filers": 67,
+     "no_repo_at_either_end": 7,
+     "weight_mixed": 31,
+     "weight_one": 16,
+     "weight_zero": 3,
+     "with_rc_k_average": 55
+    },
+    "smaller, 5bn to 18bn": {
+     "filers": 90,
+     "no_repo_at_either_end": 8,
+     "weight_mixed": 23,
+     "weight_one": 56,
+     "weight_zero": 6,
+     "with_rc_k_average": 90
+    }
+   },
+   {
+    "larger": {
+     "filers": 15,
+     "no_repo_at_either_end": 0,
+     "weight_mixed": 9,
+     "weight_one": 3,
+     "weight_zero": 0,
+     "with_rc_k_average": 13
+    },
+    "quarter": "2016Q3",
+    "ranked_on_reserves": 2345,
+    "smaller, 18bn and over": {
+     "filers": 68,
+     "no_repo_at_either_end": 7,
+     "weight_mixed": 30,
+     "weight_one": 15,
+     "weight_zero": 3,
+     "with_rc_k_average": 54
+    },
+    "smaller, 5bn to 18bn": {
+     "filers": 89,
+     "no_repo_at_either_end": 6,
+     "weight_mixed": 24,
+     "weight_one": 54,
+     "weight_zero": 5,
+     "with_rc_k_average": 89
+    }
+   },
+   {
+    "larger": {
+     "filers": 15,
+     "no_repo_at_either_end": 1,
+     "weight_mixed": 9,
+     "weight_one": 3,
+     "weight_zero": 0,
+     "with_rc_k_average": 14
+    },
+    "quarter": "2016Q4",
+    "ranked_on_reserves": 2336,
+    "smaller, 18bn and over": {
+     "filers": 70,
+     "no_repo_at_either_end": 5,
+     "weight_mixed": 31,
+     "weight_one": 15,
+     "weight_zero": 3,
+     "with_rc_k_average": 52
+    },
+    "smaller, 5bn to 18bn": {
+     "filers": 93,
+     "no_repo_at_either_end": 6,
+     "weight_mixed": 23,
+     "weight_one": 60,
+     "weight_zero": 5,
+     "with_rc_k_average": 93
+    }
+   },
+   {
+    "larger": {
+     "filers": 15,
+     "no_repo_at_either_end": 1,
+     "weight_mixed": 7,
+     "weight_one": 4,
+     "weight_zero": 0,
+     "with_rc_k_average": 13
+    },
+    "quarter": "2017Q1",
+    "ranked_on_reserves": 1415,
+    "smaller, 18bn and over": {
+     "filers": 70,
+     "no_repo_at_either_end": 6,
+     "weight_mixed": 30,
+     "weight_one": 17,
+     "weight_zero": 3,
+     "with_rc_k_average": 54
+    },
+    "smaller, 5bn to 18bn": {
+     "filers": 94,
+     "no_repo_at_either_end": 8,
+     "weight_mixed": 24,
+     "weight_one": 59,
+     "weight_zero": 6,
+     "with_rc_k_average": 94
+    }
+   }
+  ],
+  "top": 15
+ },
+ "config": {
+  "anchor_absent": [
+   "2009Q2"
+  ],
+  "bands_thousands_of_dollars": [
+   [
+    "10bn and over",
+    10000000,
+    null
+   ],
+   [
+    "1bn to 10bn",
+    1000000,
+    10000000
+   ],
+   [
+    "250m to 1bn",
+    250000,
+    1000000
+   ],
+   [
+    "under 250m",
+    null,
+    250000
+   ]
+  ],
+  "bankers_at_limit_tolerance": 0.0,
+  "bankers_class": "certification K656 is one and deduction K657 is positive, in the same quarter",
+  "bankers_eras": [
+   [
+    "2011Q2-2015Q4",
+    "2011Q2",
+    "2015Q4"
+   ],
+   [
+    "2016Q1-2019Q4",
+    "2016Q1",
+    "2019Q4"
+   ],
+   [
+    "2020Q1-2021Q4",
+    "2020Q1",
+    "2021Q4"
+   ],
+   [
+    "2022Q1-2026Q2",
+    "2022Q1",
+    "2026Q2"
+   ]
+  ],
+  "board_quarters": [
+   "2015Q4",
+   "2016Q1",
+   "2016Q2",
+   "2016Q3",
+   "2016Q4",
+   "2017Q1"
+  ],
+  "board_top": 15,
+  "bootstrap_draws": 2000,
+  "cache": "data/cache/b59_call_report.json",
+  "cache_sha256": "7990adacf0ce78bf4efeb63adfff55f4338e21bca4845e1f996c5c037268d728",
+  "decompose_draws": 200,
+  "effr": "data/b59/EFFR.csv",
+  "effr_sha256": "ccfe82a9042dc141d5d1dc18b0a39424150c739abff511c6e29a47cecdb549fe",
+  "environments": [
+   [
+    "all",
+    "whole window"
+   ],
+   [
+    "zero_bound",
+    "near the zero bound, 2009-15 and 2020-21"
+   ],
+   [
+    "off_floor",
+    "off the floor, every other year"
+   ],
+   [
+    "high",
+    "2023-26"
+   ]
+  ],
+  "fdic_consecutive_quarters": 4,
+  "fdic_eras": [
+   [
+    "2010Q1-2011Q1",
+    "2010Q1",
+    "2011Q1"
+   ],
+   [
+    "2011Q2-2015Q4",
+    "2011Q2",
+    "2015Q4"
+   ],
+   [
+    "2016Q1-2019Q4",
+    "2016Q1",
+    "2019Q4"
+   ],
+   [
+    "2020Q1-2021Q4",
+    "2020Q1",
+    "2021Q4"
+   ],
+   [
+    "2022Q1-2026Q2",
+    "2022Q1",
+    "2026Q2"
+   ]
+  ],
+  "fdic_line_thousands_of_dollars": 10000000,
+  "fdic_segments": [
+   [
+    "under 1bn",
+    null,
+    1000000
+   ],
+   [
+    "1bn to 5bn",
+    1000000,
+    5000000
+   ],
+   [
+    "5bn to 10bn",
+    5000000,
+    10000000
+   ],
+   [
+    "10bn to 20bn",
+    10000000,
+    20000000
+   ],
+   [
+    "20bn to 50bn",
+    20000000,
+    50000000
+   ],
+   [
+    "50bn and over",
+    50000000,
+    null
+   ]
+  ],
+  "fr2420_large_thousands_of_dollars": 18000000,
+  "fr2420_mid_thousands_of_dollars": 5000000,
+  "near_zero_years": [
+   2009,
+   2010,
+   2011,
+   2012,
+   2013,
+   2014,
+   2015,
+   2020,
+   2021
+  ],
+  "seeds": [
+   0,
+   1
+  ],
+  "stable_band": [
+   0.8,
+   1.25
+  ],
+  "window": [
+   "2009Q1",
+   "2026Q2"
+  ]
+ },
+ "criteria": {
+  "B59-S1": {
+   "detail": "69 single-period archives; 3353 missing in none; refused columns in none; filers without a value, summed over those periods, 0. The one-year product serves 2009Q1, 2009Q2, 2009Q3, 2009Q4 and carries no RC-K, so those periods have no average",
+   "kind": "instrument",
+   "name": "the RC-K quarterly average 3353 is read under the archive's own description in every period whose archive carries RC-K, and no wanted column is refused in any period",
+   "passed": true
+  },
+  "B59-S10": {
+   "detail": "16 class filers, 9 more certify and never deduct; fewest class filers in a quarter with a borrowing price 5 (2013Q1), with a lending price 8 (2015Q4); 2011Q2-2015Q4: class borrowing +4.6 bp, peers +65.1; class lending +51.5, peers +12.3; class margin +47.2 (se 17.5); 2016Q1-2019Q4: class borrowing +2.2 bp, peers +55.2; class lending +48.3, peers +6.9; class margin +52.8 (se 10.3); 2020Q1-2021Q4: class borrowing -1.1 bp, peers +56.0; class lending +36.4, peers +2.2; class margin +44.5 (se 10.3); 2022Q1-2026Q2: class borrowing +2.4 bp, peers +59.6; class lending +71.6, peers +5.7; class margin +78.5 (se 20.2)",
+   "kind": "own_reading",
+   "name": "the class 12 CFR 327.5(b) names is read off RC-O as filers that certify and deduct in the same quarter, and in every era of the certification its borrowing price, its lending price and its margin are printed against EFFR next to filers outside the class in its asset range, with filer-resampled standard errors under two seeds and every class filer on its own",
+   "passed": true
+  },
+  "B59-S11": {
+   "detail": "779 class rows with a limit filed; deduction over limit median 0.357, largest 0.958; rows at the limit 0; class rows with no limit filed 0",
+   "kind": "premise",
+   "name": "on every class row read here the deduction sits below its limit, so the exclusion the rule writes is not capped on those rows",
+   "passed": true
+  },
+  "B59-S2": {
+   "detail": "all 19 items come back",
+   "kind": "known_answer",
+   "name": "with 2009Q2 treated as absent, this code gives back the first pass's row count, band counts, band medians and environment gaps",
+   "passed": true
+  },
+  "B59-S3": {
+   "detail": "validity corr: 0.9887 against 0.9848, not back; validity slope: 0.5916 against 0.5812, not back; validity intercept: 0.2464 against 0.2534, not back; all gap se bp: 2.76 against 2.8, back; zero_bound gap se bp: 1.84 against 2.1, not back; off_floor gap se bp: 9.29 against 9.1, not back; high gap se bp: 37.35 against 37.7, not back",
+   "kind": "known_answer",
+   "name": "the first pass's validity fit, to four decimals, and its observation-resampled standard errors, to one decimal, come back",
+   "passed": false
+  },
+  "B59-S4": {
+   "detail": "10bn and over, fed funds at the previous end: n 345, quarter end 1.012, mean of two ends 1.039; 10bn and over, none at the previous end: n 75, quarter end 3.151, mean of two ends 1.576; 1bn to 10bn, fed funds at the previous end: n 1138, quarter end 1.016, mean of two ends 1.036; 1bn to 10bn, none at the previous end: n 535, quarter end 4.085, mean of two ends 2.043; 250m to 1bn, fed funds at the previous end: n 2105, quarter end 1.164, mean of two ends 1.174; 250m to 1bn, none at the previous end: n 2367, quarter end 4.572, mean of two ends 2.286; under 250m, fed funds at the previous end: n 5061, quarter end 1.336, mean of two ends 1.374; under 250m, none at the previous end: n 7105, quarter end 4.147, mean of two ends 2.074",
+   "kind": "own_reading",
+   "name": "the quarter-end balance and the mean of two quarter ends are printed against the RC-K average, by band and by the fed funds position at the previous quarter end",
+   "passed": true
+  },
+  "B59-S5": {
+   "detail": "quarter_end: slope 0.5916, corr 0.9887, intercept 0.2463, 14966 rows; average: slope 0.7367, corr 0.9912, intercept 0.3127, 14961 rows; persistent_quarter_end: slope 0.8022, corr 0.9900, intercept 0.2207, 8363 rows; persistent_average: slope 0.7829, corr 0.9919, intercept 0.2125, 8363 rows; rc_k: slope 0.9862, corr 0.9888, intercept 0.6852, 31485 rows; rc_k_persistent: slope 0.9947, corr 0.9919, intercept 0.3598, 7333 rows; rc_k_sporadic: slope 0.9595, corr 0.9897, intercept 0.8478, 18417 rows; rc_k_stable: slope 0.9973, corr 0.9911, intercept 0.0882, 1279 rows",
+   "kind": "own_reading",
+   "name": "for every arm the yearly median cost is printed against the yearly mean effective rate with slope, correlation and intercept",
+   "passed": true
+  },
+  "B59-S6": {
+   "detail": "quarter_end all: -14.24 bp, filer se 6.48; quarter_end zero_bound: -26.21 bp, filer se 3.57; quarter_end off_floor: +43.35 bp, filer se 22.69; quarter_end high: +143.33 bp, filer se 63.44; average all: -27.60 bp, filer se 5.97; average zero_bound: -35.63 bp, filer se 3.51; average off_floor: +10.28 bp, filer se 19.84; average high: +61.74 bp, filer se 42.61; persistent_quarter_end all: -21.01 bp, filer se 6.84; persistent_quarter_end zero_bound: -29.38 bp, filer se 4.23; persistent_quarter_end off_floor: +12.99 bp, filer se 21.54; persistent_quarter_end high: +70.95 bp, filer se 41.50; persistent_average all: -19.67 bp, filer se 5.07; persistent_average zero_bound: -24.86 bp, filer se 3.31; persistent_average off_floor: +7.83 bp, filer se 18.88; persistent_average high: +60.61 bp, filer se 39.28; rc_k all: -57.19 bp, filer se 3.24; rc_k zero_bound: -72.55 bp, filer se 3.64; rc_k off_floor: -51.03 bp, filer se 2.89; rc_k high: -48.63 bp, filer se 5.02; rc_k_persistent all: -28.53 bp, filer se 4.96; rc_k_persistent zero_bound: -38.72 bp, filer se 5.17; rc_k_persistent off_floor: -24.04 bp, filer se 3.64; rc_k_persistent high: -23.44 bp, filer se 8.99; rc_k_sporadic all: -58.64 bp, filer se 4.08; rc_k_sporadic zero_bound: -89.39 bp, filer se 5.48; rc_k_sporadic off_floor: -53.76 bp, filer se 4.00; rc_k_sporadic high: -46.01 bp, filer se 6.30; rc_k_stable all: -13.30 bp, filer se 5.63; rc_k_stable zero_bound: -29.74 bp, filer se 10.25; rc_k_stable off_floor: -7.01 bp, filer se 5.19; rc_k_stable high: -1.24 bp, filer se 9.65",
+   "kind": "own_reading",
+   "name": "for every arm and rate environment the largest-minus-smallest band gap is printed with its filer-resampled standard error under two seeds, next to the band medians against the quarter median and against EFFR",
+   "passed": true
+  },
+  "B59-S7": {
+   "detail": "left out, no position at either end: 12898; all: fit -54.39 bp (se 6.68), no-repo medians -58.99 bp (se 2.36); zero_bound: fit -53.52 bp (se 7.71), no-repo medians -65.32 bp (se 2.17); off_floor: fit -52.74 bp (se 8.93), no-repo medians -49.34 bp (se 3.21); high: fit -51.97 bp (se 58.33), no-repo medians -49.32 bp (se 6.20)",
+   "kind": "own_reading",
+   "name": "without the no-repo filter, the repo-weight decomposition prints per band and environment the three strata, the repo-only spread quartiles and the fitted fed funds price, and the largest-minus-smallest gap of the fit with its filer-resampled standard error",
+   "passed": true
+  },
+  "B59-S8": {
+   "detail": "the four-quarter class differs from the quarter-end side of the line on 54 of 31485 rows; 2010Q1-2011Q1: across -0.8 bp (se 9.0), inside small -43.9 bp (se 7.6); 2011Q2-2015Q4: across -11.7 bp (se 7.1), inside small -39.6 bp (se 6.8); 2016Q1-2019Q4: across -1.2 bp (se 10.6), inside small -34.8 bp (se 2.8); 2020Q1-2021Q4: across -2.2 bp (se 13.3), inside small -53.1 bp (se 8.4); 2022Q1-2026Q2: across -8.8 bp (se 5.9), inside small -29.8 bp (se 4.6)",
+   "kind": "own_reading",
+   "name": "on the RC-K arm, cost against EFFR is printed by asset segment and era, with the step across the FDIC size line and the step inside its small class, each with a filer-resampled standard error",
+   "passed": true
+  },
+  "B59-S9": {
+   "detail": "larger-class filer-quarters with no repo at either end: 2015Q4 0, 2016Q1 0, 2016Q2 0, 2016Q3 0, 2016Q4 1, 2017Q1 1; pooled repo weight at quarter ends p10 0.68, median 1.00, share of rows below half 0.05; larger minus smaller, 18bn and over: fit -32.0 bp, filer se 44.5 / 249.0; larger minus smaller, 5bn to 18bn: fit -32.9 bp, filer se 51.3 / 139.8. The Board's rates also pool Eurodollar borrowing, whose interest the archive files on RIAD4172, apart from RIAD4180",
+   "kind": "premise",
+   "name": "in every quarter of the Board's window, the Board's larger class has a filer carrying fed funds with no repo at either quarter end, so a fed funds price for that class can be read without extrapolating a repo weight",
+   "passed": false
+  }
+ },
+ "decomposition": {
+  "left_out_no_position_at_either_end": 12898,
+  "regimes": {
+   "all": {
+    "bands": [
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 2.5529,
+       "repo_at_w1_bp": -3.2236
+      },
+      "band": "10bn and over",
+      "mixed": {
+       "filers": 107,
+       "median_bp_over_effr": -1.3603,
+       "n": 2625
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": -0.1543,
+       "repo_at_w1_bp": -2.1255
+      },
+      "w=0": {
+       "filers": 49,
+       "median_bp_over_effr": 3.7819,
+       "n": 456
+      },
+      "w=1": {
+       "filers": 134,
+       "median_bp_over_effr": -3.6287,
+       "n": 2612,
+       "quartiles_bp_over_effr": [
+        -133.7521,
+        22.5201
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 15.248,
+       "repo_at_w1_bp": 0.81
+      },
+      "band": "1bn to 10bn",
+      "mixed": {
+       "filers": 373,
+       "median_bp_over_effr": 5.6759,
+       "n": 4323
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 7.9099,
+       "repo_at_w1_bp": 4.4829
+      },
+      "w=0": {
+       "filers": 239,
+       "median_bp_over_effr": 17.0176,
+       "n": 1933
+      },
+      "w=1": {
+       "filers": 706,
+       "median_bp_over_effr": 0.5404,
+       "n": 15407,
+       "quartiles_bp_over_effr": [
+        -97.4856,
+        28.2437
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 35.3844,
+       "repo_at_w1_bp": 8.8007
+      },
+      "band": "250m to 1bn",
+      "mixed": {
+       "filers": 609,
+       "median_bp_over_effr": 11.0294,
+       "n": 5256
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 14.6399,
+       "repo_at_w1_bp": 9.1693
+      },
+      "w=0": {
+       "filers": 810,
+       "median_bp_over_effr": 38.8766,
+       "n": 5221
+      },
+      "w=1": {
+       "filers": 1293,
+       "median_bp_over_effr": 9.2591,
+       "n": 26512,
+       "quartiles_bp_over_effr": [
+        -47.3934,
+        44.1389
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 62.3709,
+       "repo_at_w1_bp": 21.4544
+      },
+      "band": "under 250m",
+      "mixed": {
+       "filers": 517,
+       "median_bp_over_effr": 32.8302,
+       "n": 3750
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 54.2359,
+       "repo_at_w1_bp": 22.6929
+      },
+      "w=0": {
+       "filers": 1637,
+       "median_bp_over_effr": 62.7705,
+       "n": 10977
+      },
+      "w=1": {
+       "filers": 951,
+       "median_bp_over_effr": 21.6025,
+       "n": 14859,
+       "quartiles_bp_over_effr": [
+        -7.4233,
+        67.6147
+       ]
+      }
+     }
+    ],
+    "gap_mixed_fit_bp": -54.3902,
+    "gap_mixed_fit_se_bp_resampling_filers": {
+     "0": 6.6782,
+     "1": 6.5001
+    },
+    "gap_w0_medians_bp": -58.9886,
+    "gap_w0_se_bp_resampling_filers": {
+     "0": 2.358,
+     "1": 2.2862
+    },
+    "label": "whole window"
+   },
+   "high": {
+    "bands": [
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 4.9503,
+       "repo_at_w1_bp": -157.3698
+      },
+      "band": "10bn and over",
+      "mixed": {
+       "filers": 47,
+       "median_bp_over_effr": -105.8291,
+       "n": 404
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": -9.4221,
+       "repo_at_w1_bp": -165.5982
+      },
+      "w=0": {
+       "filers": 23,
+       "median_bp_over_effr": 9.1447,
+       "n": 114
+      },
+      "w=1": {
+       "filers": 82,
+       "median_bp_over_effr": -154.5064,
+       "n": 812,
+       "quartiles_bp_over_effr": [
+        -268.1754,
+        -4.0363
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 20.1727,
+       "repo_at_w1_bp": -242.337
+      },
+      "band": "1bn to 10bn",
+      "mixed": {
+       "filers": 100,
+       "median_bp_over_effr": -144.2988,
+       "n": 505
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 11.5252,
+       "repo_at_w1_bp": -243.8595
+      },
+      "w=0": {
+       "filers": 147,
+       "median_bp_over_effr": 20.6625,
+       "n": 710
+      },
+      "w=1": {
+       "filers": 283,
+       "median_bp_over_effr": -241.586,
+       "n": 2762,
+       "quartiles_bp_over_effr": [
+        -363.4862,
+        -126.1384
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 35.6113,
+       "repo_at_w1_bp": -219.0693
+      },
+      "band": "250m to 1bn",
+      "mixed": {
+       "filers": 142,
+       "median_bp_over_effr": -153.2305,
+       "n": 637
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": -2.9218,
+       "repo_at_w1_bp": -207.8268
+      },
+      "w=0": {
+       "filers": 376,
+       "median_bp_over_effr": 38.3813,
+       "n": 1380
+      },
+      "w=1": {
+       "filers": 349,
+       "median_bp_over_effr": -219.4226,
+       "n": 3081,
+       "quartiles_bp_over_effr": [
+        -349.4202,
+        -95.5645
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 58.4005,
+       "repo_at_w1_bp": -223.5759
+      },
+      "band": "under 250m",
+      "mixed": {
+       "filers": 58,
+       "median_bp_over_effr": -116.3333,
+       "n": 249
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 42.5522,
+       "repo_at_w1_bp": -208.6365
+      },
+      "w=0": {
+       "filers": 513,
+       "median_bp_over_effr": 58.4656,
+       "n": 1999
+      },
+      "w=1": {
+       "filers": 132,
+       "median_bp_over_effr": -226.4599,
+       "n": 1061,
+       "quartiles_bp_over_effr": [
+        -358.163,
+        -94.9511
+       ]
+      }
+     }
+    ],
+    "gap_mixed_fit_bp": -51.9744,
+    "gap_mixed_fit_se_bp_resampling_filers": {
+     "0": 58.3273,
+     "1": 63.1282
+    },
+    "gap_w0_medians_bp": -49.321,
+    "gap_w0_se_bp_resampling_filers": {
+     "0": 6.1977,
+     "1": 6.1609
+    },
+    "label": "2023-26"
+   },
+   "off_floor": {
+    "bands": [
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 7.2175,
+       "repo_at_w1_bp": -75.5112
+      },
+      "band": "10bn and over",
+      "mixed": {
+       "filers": 90,
+       "median_bp_over_effr": -31.7765,
+       "n": 1259
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": -1.6388,
+       "repo_at_w1_bp": -54.8711
+      },
+      "w=0": {
+       "filers": 36,
+       "median_bp_over_effr": 8.689,
+       "n": 268
+      },
+      "w=1": {
+       "filers": 117,
+       "median_bp_over_effr": -90.8991,
+       "n": 1653,
+       "quartiles_bp_over_effr": [
+        -192.1073,
+        4.7023
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 17.06,
+       "repo_at_w1_bp": -99.2919
+      },
+      "band": "1bn to 10bn",
+      "mixed": {
+       "filers": 237,
+       "median_bp_over_effr": -53.9339,
+       "n": 1808
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 1.7551,
+       "repo_at_w1_bp": -86.9948
+      },
+      "w=0": {
+       "filers": 209,
+       "median_bp_over_effr": 18.572,
+       "n": 1321
+      },
+      "w=1": {
+       "filers": 522,
+       "median_bp_over_effr": -100.5854,
+       "n": 7470,
+       "quartiles_bp_over_effr": [
+        -209.3746,
+        -27.3814
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 37.1427,
+       "repo_at_w1_bp": -83.6381
+      },
+      "band": "250m to 1bn",
+      "mixed": {
+       "filers": 343,
+       "median_bp_over_effr": -43.7184,
+       "n": 2240
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 14.0808,
+       "repo_at_w1_bp": -72.9999
+      },
+      "w=0": {
+       "filers": 646,
+       "median_bp_over_effr": 39.1508,
+       "n": 3420
+      },
+      "w=1": {
+       "filers": 776,
+       "median_bp_over_effr": -83.8635,
+       "n": 10237,
+       "quartiles_bp_over_effr": [
+        -177.4995,
+        -21.1918
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 58.2154,
+       "repo_at_w1_bp": -61.4052
+      },
+      "band": "under 250m",
+      "mixed": {
+       "filers": 249,
+       "median_bp_over_effr": -18.5049,
+       "n": 1304
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 51.0983,
+       "repo_at_w1_bp": -44.7643
+      },
+      "w=0": {
+       "filers": 1104,
+       "median_bp_over_effr": 58.0297,
+       "n": 6157
+      },
+      "w=1": {
+       "filers": 438,
+       "median_bp_over_effr": -62.9539,
+       "n": 4661,
+       "quartiles_bp_over_effr": [
+        -146.2311,
+        -8.2551
+       ]
+      }
+     }
+    ],
+    "gap_mixed_fit_bp": -52.737,
+    "gap_mixed_fit_se_bp_resampling_filers": {
+     "0": 8.9289,
+     "1": 9.2069
+    },
+    "gap_w0_medians_bp": -49.3407,
+    "gap_w0_se_bp_resampling_filers": {
+     "0": 3.2147,
+     "1": 3.2308
+    },
+    "label": "off the floor, every other year"
+   },
+   "zero_bound": {
+    "bands": [
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 1.8783,
+       "repo_at_w1_bp": 10.2203
+      },
+      "band": "10bn and over",
+      "mixed": {
+       "filers": 91,
+       "median_bp_over_effr": 5.3396,
+       "n": 1366
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 3.6712,
+       "repo_at_w1_bp": 6.4564
+      },
+      "w=0": {
+       "filers": 31,
+       "median_bp_over_effr": 1.8899,
+       "n": 188
+      },
+      "w=1": {
+       "filers": 108,
+       "median_bp_over_effr": 12.4128,
+       "n": 959,
+       "quartiles_bp_over_effr": [
+        0.3804,
+        75.2707
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 12.7149,
+       "repo_at_w1_bp": 19.2407
+      },
+      "band": "1bn to 10bn",
+      "mixed": {
+       "filers": 285,
+       "median_bp_over_effr": 17.1362,
+       "n": 2515
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 8.8746,
+       "repo_at_w1_bp": 20.9354
+      },
+      "w=0": {
+       "filers": 106,
+       "median_bp_over_effr": 14.8529,
+       "n": 612
+      },
+      "w=1": {
+       "filers": 642,
+       "median_bp_over_effr": 19.1243,
+       "n": 7937,
+       "quartiles_bp_over_effr": [
+        5.0343,
+        68.3129
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 37.6801,
+       "repo_at_w1_bp": 27.8023
+      },
+      "band": "250m to 1bn",
+      "mixed": {
+       "filers": 492,
+       "median_bp_over_effr": 30.5448,
+       "n": 3016
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 25.1702,
+       "repo_at_w1_bp": 32.5279
+      },
+      "w=0": {
+       "filers": 412,
+       "median_bp_over_effr": 38.7889,
+       "n": 1801
+      },
+      "w=1": {
+       "filers": 1205,
+       "median_bp_over_effr": 27.5836,
+       "n": 16275,
+       "quartiles_bp_over_effr": [
+        8.7891,
+        72.2724
+       ]
+      }
+     },
+     {
+      "all_fit": {
+       "fed_funds_at_w0_bp": 66.5658,
+       "repo_at_w1_bp": 39.8146
+      },
+      "band": "under 250m",
+      "mixed": {
+       "filers": 459,
+       "median_bp_over_effr": 45.9052,
+       "n": 2446
+      },
+      "mixed_fit": {
+       "fed_funds_at_w0_bp": 57.191,
+       "repo_at_w1_bp": 42.0584
+      },
+      "w=0": {
+       "filers": 1205,
+       "median_bp_over_effr": 67.2071,
+       "n": 4820
+      },
+      "w=1": {
+       "filers": 912,
+       "median_bp_over_effr": 39.8267,
+       "n": 10198,
+       "quartiles_bp_over_effr": [
+        13.9583,
+        89.6128
+       ]
+      }
+     }
+    ],
+    "gap_mixed_fit_bp": -53.5198,
+    "gap_mixed_fit_se_bp_resampling_filers": {
+     "0": 7.7099,
+     "1": 8.0466
+    },
+    "gap_w0_medians_bp": -65.3172,
+    "gap_w0_se_bp_resampling_filers": {
+     "0": 2.1666,
+     "1": 2.2109
+    },
+    "label": "near the zero bound, 2009-15 and 2020-21"
+   }
+  }
+ },
+ "diagnostic_only": true,
+ "diagnostic_reason": "the size arm is read here and not scored: the nearest size class named in rule text, the FDIC's $10 billion line between small and large institutions, coincides with the top band's lower edge, but its two rate schedules overlap and it names the fed funds position only on its large side, while the step that reads lies inside its small class; the one class rule text names on the lending side of this position, the banker's bank of 12 CFR 327.5(b), writes its term on its own assessment base, where it can lower and cannot raise what the class's borrowers pay, while the smaller filers pay more; no grid is assigned to any reading in this record",
+ "fdic_line": {
+  "class_run": [
+   "2008Q4",
+   "2026Q2"
+  ],
+  "consecutive_quarters": 4,
+  "line_thousands_of_dollars": 10000000,
+  "rows": 31485,
+  "rows_class_differs_from_quarter_end_side": 54,
+  "rows_outside_the_class_run": 0,
+  "segments": [
+   {
+    "era": "2010Q1-2011Q1",
+    "filers": 906,
+    "median_bp_over_effr": 70.7804,
+    "n": 1704,
+    "segment": "under 1bn"
+   },
+   {
+    "era": "2010Q1-2011Q1",
+    "filers": 37,
+    "median_bp_over_effr": 26.8902,
+    "n": 82,
+    "segment": "1bn to 5bn"
+   },
+   {
+    "era": "2010Q1-2011Q1",
+    "filers": 5,
+    "median_bp_over_effr": 4.6037,
+    "n": 14,
+    "segment": "5bn to 10bn"
+   },
+   {
+    "era": "2010Q1-2011Q1",
+    "filers": 9,
+    "median_bp_over_effr": 3.7825,
+    "n": 27,
+    "segment": "10bn to 20bn"
+   },
+   {
+    "era": "2010Q1-2011Q1",
+    "filers": 5,
+    "median_bp_over_effr": 2.2204,
+    "n": 14,
+    "segment": "20bn to 50bn"
+   },
+   {
+    "era": "2010Q1-2011Q1",
+    "filers": 6,
+    "median_bp_over_effr": 0.5985,
+    "n": 19,
+    "segment": "50bn and over"
+   },
+   {
+    "era": "2011Q2-2015Q4",
+    "filers": 1677,
+    "median_bp_over_effr": 68.5796,
+    "n": 7188,
+    "segment": "under 1bn"
+   },
+   {
+    "era": "2011Q2-2015Q4",
+    "filers": 84,
+    "median_bp_over_effr": 28.9734,
+    "n": 452,
+    "segment": "1bn to 5bn"
+   },
+   {
+    "era": "2011Q2-2015Q4",
+    "filers": 11,
+    "median_bp_over_effr": 16.5842,
+    "n": 45,
+    "segment": "5bn to 10bn"
+   },
+   {
+    "era": "2011Q2-2015Q4",
+    "filers": 6,
+    "median_bp_over_effr": 4.8699,
+    "n": 28,
+    "segment": "10bn to 20bn"
+   },
+   {
+    "era": "2011Q2-2015Q4",
+    "filers": 6,
+    "median_bp_over_effr": 2.3627,
+    "n": 38,
+    "segment": "20bn to 50bn"
+   },
+   {
+    "era": "2011Q2-2015Q4",
+    "filers": 7,
+    "median_bp_over_effr": -3.7526,
+    "n": 40,
+    "segment": "50bn and over"
+   },
+   {
+    "era": "2016Q1-2019Q4",
+    "filers": 1734,
+    "median_bp_over_effr": 60.1352,
+    "n": 8968,
+    "segment": "under 1bn"
+   },
+   {
+    "era": "2016Q1-2019Q4",
+    "filers": 141,
+    "median_bp_over_effr": 25.3445,
+    "n": 791,
+    "segment": "1bn to 5bn"
+   },
+   {
+    "era": "2016Q1-2019Q4",
+    "filers": 26,
+    "median_bp_over_effr": 14.2043,
+    "n": 109,
+    "segment": "5bn to 10bn"
+   },
+   {
+    "era": "2016Q1-2019Q4",
+    "filers": 12,
+    "median_bp_over_effr": 12.9654,
+    "n": 66,
+    "segment": "10bn to 20bn"
+   },
+   {
+    "era": "2016Q1-2019Q4",
+    "filers": 12,
+    "median_bp_over_effr": 8.689,
+    "n": 70,
+    "segment": "20bn to 50bn"
+   },
+   {
+    "era": "2016Q1-2019Q4",
+    "filers": 10,
+    "median_bp_over_effr": 10.9253,
+    "n": 84,
+    "segment": "50bn and over"
+   },
+   {
+    "era": "2020Q1-2021Q4",
+    "filers": 491,
+    "median_bp_over_effr": 73.6802,
+    "n": 942,
+    "segment": "under 1bn"
+   },
+   {
+    "era": "2020Q1-2021Q4",
+    "filers": 118,
+    "median_bp_over_effr": 20.6239,
+    "n": 289,
+    "segment": "1bn to 5bn"
+   },
+   {
+    "era": "2020Q1-2021Q4",
+    "filers": 21,
+    "median_bp_over_effr": 7.8734,
+    "n": 62,
+    "segment": "5bn to 10bn"
+   },
+   {
+    "era": "2020Q1-2021Q4",
+    "filers": 12,
+    "median_bp_over_effr": 5.6955,
+    "n": 40,
+    "segment": "10bn to 20bn"
+   },
+   {
+    "era": "2020Q1-2021Q4",
+    "filers": 7,
+    "median_bp_over_effr": 1.754,
+    "n": 34,
+    "segment": "20bn to 50bn"
+   },
+   {
+    "era": "2020Q1-2021Q4",
+    "filers": 9,
+    "median_bp_over_effr": 18.7921,
+    "n": 18,
+    "segment": "50bn and over"
+   },
+   {
+    "era": "2022Q1-2026Q2",
+    "filers": 1397,
+    "median_bp_over_effr": 66.3872,
+    "n": 7978,
+    "segment": "under 1bn"
+   },
+   {
+    "era": "2022Q1-2026Q2",
+    "filers": 292,
+    "median_bp_over_effr": 36.6203,
+    "n": 1649,
+    "segment": "1bn to 5bn"
+   },
+   {
+    "era": "2022Q1-2026Q2",
+    "filers": 61,
+    "median_bp_over_effr": 23.2364,
+    "n": 373,
+    "segment": "5bn to 10bn"
+   },
+   {
+    "era": "2022Q1-2026Q2",
+    "filers": 27,
+    "median_bp_over_effr": 14.4632,
+    "n": 168,
+    "segment": "10bn to 20bn"
+   },
+   {
+    "era": "2022Q1-2026Q2",
+    "filers": 17,
+    "median_bp_over_effr": 13.5739,
+    "n": 95,
+    "segment": "20bn to 50bn"
+   },
+   {
+    "era": "2022Q1-2026Q2",
+    "filers": 17,
+    "median_bp_over_effr": 22.7406,
+    "n": 98,
+    "segment": "50bn and over"
+   }
+  ],
+  "steps": [
+   {
+    "across_line": {
+     "filers_lower": 5,
+     "filers_upper": 9,
+     "lower": "5bn to 10bn",
+     "se_bp_resampling_filers": {
+      "0": 8.9576,
+      "1": 9.0134
+     },
+     "step_bp": -0.8212,
+     "upper": "10bn to 20bn"
+    },
+    "era": "2010Q1-2011Q1",
+    "inside_small_class": {
+     "filers_lower": 906,
+     "filers_upper": 37,
+     "lower": "under 1bn",
+     "se_bp_resampling_filers": {
+      "0": 7.6426,
+      "1": 7.86
+     },
+     "step_bp": -43.8902,
+     "upper": "1bn to 5bn"
+    }
+   },
+   {
+    "across_line": {
+     "filers_lower": 11,
+     "filers_upper": 6,
+     "lower": "5bn to 10bn",
+     "se_bp_resampling_filers": {
+      "0": 7.1286,
+      "1": 7.1753
+     },
+     "step_bp": -11.7143,
+     "upper": "10bn to 20bn"
+    },
+    "era": "2011Q2-2015Q4",
+    "inside_small_class": {
+     "filers_lower": 1677,
+     "filers_upper": 84,
+     "lower": "under 1bn",
+     "se_bp_resampling_filers": {
+      "0": 6.8399,
+      "1": 6.9089
+     },
+     "step_bp": -39.6062,
+     "upper": "1bn to 5bn"
+    }
+   },
+   {
+    "across_line": {
+     "filers_lower": 26,
+     "filers_upper": 12,
+     "lower": "5bn to 10bn",
+     "se_bp_resampling_filers": {
+      "0": 10.6051,
+      "1": 10.5382
+     },
+     "step_bp": -1.2389,
+     "upper": "10bn to 20bn"
+    },
+    "era": "2016Q1-2019Q4",
+    "inside_small_class": {
+     "filers_lower": 1734,
+     "filers_upper": 141,
+     "lower": "under 1bn",
+     "se_bp_resampling_filers": {
+      "0": 2.7525,
+      "1": 2.8877
+     },
+     "step_bp": -34.7907,
+     "upper": "1bn to 5bn"
+    }
+   },
+   {
+    "across_line": {
+     "filers_lower": 21,
+     "filers_upper": 12,
+     "lower": "5bn to 10bn",
+     "se_bp_resampling_filers": {
+      "0": 13.2705,
+      "1": 11.8893
+     },
+     "step_bp": -2.1779,
+     "upper": "10bn to 20bn"
+    },
+    "era": "2020Q1-2021Q4",
+    "inside_small_class": {
+     "filers_lower": 491,
+     "filers_upper": 118,
+     "lower": "under 1bn",
+     "se_bp_resampling_filers": {
+      "0": 8.4102,
+      "1": 8.3448
+     },
+     "step_bp": -53.0563,
+     "upper": "1bn to 5bn"
+    }
+   },
+   {
+    "across_line": {
+     "filers_lower": 61,
+     "filers_upper": 27,
+     "lower": "5bn to 10bn",
+     "se_bp_resampling_filers": {
+      "0": 5.8721,
+      "1": 5.7932
+     },
+     "step_bp": -8.7732,
+     "upper": "10bn to 20bn"
+    },
+    "era": "2022Q1-2026Q2",
+    "inside_small_class": {
+     "filers_lower": 1397,
+     "filers_upper": 292,
+     "lower": "under 1bn",
+     "se_bp_resampling_filers": {
+      "0": 4.564,
+      "1": 4.4796
+     },
+     "step_bp": -29.767,
+     "upper": "1bn to 5bn"
+    }
+   }
+  ]
+ },
+ "stage": "B59"
+}

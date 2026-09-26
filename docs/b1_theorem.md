@@ -129,6 +129,18 @@ function `ψ` on nodes is the 1-cochain `d⁰ψ(u, v) = ψ(v) − ψ(u)`. A coch
 **exact** if it equals `d⁰ψ` for some `ψ`. The content of `d¹ ∘ d⁰ = 0` on a graph
 is elementary: a coboundary telescopes, so it sums to zero around every cycle.
 
+That statement is old and has two other names. On an electrical network it is
+Kirchhoff's voltage law. In index number theory it is Fisher's circular test
+(Fisher 1922), and the failure of a chained index to return to unity when prices
+and quantities return to their base values is **chain drift**, which the scanner
+data literature measures directly (Diewert 2021). B79 reads the connection the
+rest of the way: the standard transitive index, GEKS (Ivancic, Diewert and Fox
+2011, eq. 5), is exactly the least squares projection of `ω` onto the exact
+subspace on the graph of pairwise comparisons, so what a transitive index
+discards is the non-exact part, whose size is `ρ` of §14 and whose dimension is
+`b₁` of that graph. A chain drift is one reading of that residual along one path;
+`ρ` is the whole of it and does not depend on a path.
+
 The **one-index null** is the assertion that a single `φ: N → ℝ` exists with
 `w_a(i, j) = φ(j) − φ(i)` for every agent class and every edge. This is the claim
 that terms do not depend on who is transacting.
@@ -290,7 +302,8 @@ shorter phrase invites the dimensional reading.
   `(a,b) ∈ E(H)`.
 
 This is the standard generating set for the cycle space of a Cartesian product of
-graphs. Because `ω` vanishes identically on every agent edge, the agent cycles
+graphs (Imrich and Klavžar, *Product Graphs*), and the splitting of `H¹` that
+follows from it is the Künneth formula for the product. Because `ω` vanishes identically on every agent edge, the agent cycles
 contribute zero regardless of the field. So
 
 ```
@@ -403,7 +416,10 @@ cancels out of a ratio.
 squares and nothing else: `x_p − x_q` is the sum around the four-cycle of §3, so
 what the identity delivers is the squared magnitude of the **square** component.
 On a general graph that is weaker than the non-exact part, because the non-exact
-part is curl plus harmonic and the two are not the same object. **Here they
+part is curl plus harmonic and the two are not the same object. That three-way
+split of a 1-cochain on a graph is the discrete Hodge decomposition, and its use
+to rank items from inconsistent pairwise comparisons is HodgeRank (Jiang, Lim,
+Yao and Ye 2011, *Mathematical Programming*). **Here they
 coincide, and the reason is proved rather than assumed:** §12 shows that filling
 the squares of `Γ` leaves `H¹(Γ) ≅ H¹(G) ⊕ H¹(H)`, that agent cycles vanish for
 every field by Theorem 2, and that slice cycles vanish in every field this
@@ -539,6 +555,11 @@ A non-zero measured sum still proves `ω` is not exact, so **Corollary 1 survive
 untouched**. What does not survive is attribution: the sum can no longer be
 assigned to price differences rather than to transfer wedges without a separate
 argument. The existence claim is robust; the interpretation is not.
+
+Where the standard price constructions set this edge (complete markets, general
+equilibrium, search, the assignment game, and each degree of price discrimination)
+is laid out, each from its own text, in
+[standard_constructions_on_the_agent_edge.md](standard_constructions_on_the_agent_edge.md).
 
 ### A2. Connectivity
 
@@ -1233,6 +1254,41 @@ by firms resetting at different dates disperses `p_i` across sellers, which leav
 the field inside `C⁰(G)`, so `w = dφ` stays exact and the cycle sum stays zero
 however large that dispersion is. What such a mechanism buys is slower dynamics for
 `φ`, and §14.5 states the domain fact it runs into.
+
+### Corollary 5.5 has a larger sibling, and it is not in this file
+
+Corollary 5.4 and Corollary 5.5 place the single-price account at `ρ(ω)² = 0`
+with the common field exact. That locus is where the account holds with **no
+friction at all**, and the literature does not stop there. A bid-ask spread, a
+transaction cost and a haircut are each written as a wedge around a scalar price,
+and a field of that shape returns a non-zero sum on a directed cycle. **So a
+non-zero closed loop does not by itself leave the account being generalised**,
+and Corollary 5.5 alone does not settle what a carrier's reading rules out.
+
+What does settle it is Corollary 6.1 of
+[`b4_directed_edges.md`](b4_directed_edges.md): the single-price account together
+with all of its friction extensions is exactly the locus on which a second
+quantity vanishes, one ratio per cycle, bounded in `[0, 1]`, readable wherever
+both directions of an edge are quoted. The friction there is free to differ from
+edge to edge and from class to class. It is stated in that file because it is a
+corollary of Theorem 6 there, and Theorem 6 needs both directions of every edge,
+which is a hypothesis this file never makes.
+
+**Two letters, and they are not the same quantity.** `ρ(ω)` above is Theorem 5's
+residual modulus, the squared distance from the enlarged field to the image of
+`d⁰`, and it vanishes on the frictionless locus. The ratio of
+`b4_directed_edges.md` Theorem 6(4), written `rho` in the code and records there,
+is `|S − S'| / −(S + S')` on one cycle, and it vanishes on the larger one.
+Neither bounds the other and they answer different questions. In prose the second
+is named in words; the identifier `rho` belongs to it and appears here only when
+code or a record is being quoted.
+
+**Both files also have a Theorem 4 and a Theorem 5, and in each case they are
+different theorems.** §13.3 above is this file's Theorem 4, additive
+separability, while Theorem 4 of `b4_directed_edges.md` is the sub-potential
+criterion; §14 is this file's Theorem 5, while Theorem 5 of that file is the
+one-sided bound on a directed graph. A citation across the two therefore names
+the file before the number, as §9.1 already does.
 
 ### 14.3 What this licenses, and what it does not
 

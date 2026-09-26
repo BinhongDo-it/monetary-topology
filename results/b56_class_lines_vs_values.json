@@ -101,11 +101,16 @@
       "passed": true
     },
     {
+      "cite": "Stole chapter 34, read for station B58",
       "criterion": "rival: a seller that has paid to sort gives each sorted block its own price, so distinct values == blocks named",
       "detail": "the rival's point prediction fails where it was read; 0 of 3 read operators hit it. mbta_boston 11 blocks -> 3 values; mta_maryland 4 blocks -> 2 values; mta_new_york 4 blocks -> 2 values",
+      "grid": "B",
+      "grid_note": "the rival stakes one value per named block; where it misses, the two accounts differ on that operator",
       "kind": "rival",
       "name": "B56-5",
-      "passed": true
+      "passed": true,
+      "rival_entailment": "the inverse elasticity rule sets a distinct price wherever elasticities differ, so a seller that has already bought the sorting writes as many distinct values as it named blocks",
+      "rival_premise": "a seller who has paid to sort prices each named block by that block's own elasticity"
     },
     {
       "criterion": "the same pair of segments, drawn and credentialed by two operators under the same federal condition, gets the same verdict",

@@ -1,0 +1,187 @@
+{
+  "config": {
+    "ages": [
+      3,
+      9
+    ],
+    "back": 0.5,
+    "efficiency": [
+      0.2,
+      2.0
+    ],
+    "flat_tol": 1e-09,
+    "imports": "b78_scrapping",
+    "linkages": [
+      {
+        "back": 0.0,
+        "link": 1,
+        "name": "no shared good"
+      },
+      {
+        "back": 0.0,
+        "link": 0,
+        "name": "chain two uses chain one's good"
+      },
+      {
+        "back": 0.5,
+        "link": 1,
+        "name": "chain one uses chain two's good"
+      },
+      {
+        "back": 0.5,
+        "link": 0,
+        "name": "each uses the other's good"
+      }
+    ],
+    "pair_ages": [
+      2,
+      6
+    ],
+    "pairs_per_linkage": 250,
+    "rates": [
+      0.0,
+      0.9,
+      91
+    ],
+    "residual_tol": 1e-09,
+    "seed": 95,
+    "single_profiles": 6000
+  },
+  "criteria": [
+    {
+      "detail": "B78's own first profile gives lives [6, 7, 8, 8] at its own spot rates [0.0, 0.2, 0.5, 0.9], read through its own solver, and every profile this station searched lands in exactly one of the three directions, 5991 of 5991. **The machine system, the price solver and the economic life are all imported**, so a disagreement between the two stations is a real one",
+      "kind": "known_answer",
+      "name": "B95-1",
+      "passed": true
+    },
+    {
+      "detail": "over 5991 drawn efficiency profiles read across 91 rates, **the economic life falls somewhere on 0 of them**, rises on 1285 and stays flat on 4706. B78 drew 120 and found none; this is 50 times that and still none. **Both of the other two directions occur**, so the search can tell them apart and the zero is not the only thing it can report",
+      "kind": "own_reading",
+      "name": "B95-2",
+      "passed": true
+    },
+    {
+      "detail": "the life rises with the rate on 1285 of 5991 profiles (21.4%) and is flat on the rest. **The mechanism is in the construction**: building a machine costs `c` up front while running an old one costs `a` each period, so a higher rate makes building dearer relative to running and the economy keeps the machine longer. **This is a reading about this carrier and not a theorem**: what is shown is that the registered configuration is absent here and that the opposite is common",
+      "kind": "own_reading",
+      "name": "B95-3",
+      "passed": true
+    },
+    {
+      "detail": "sweeping one life with the other held, over four linkages: chain one uses chain two's good: 183 of 183, median spread 4.497e-01; chain two uses chain one's good: 0 of 202, median spread 2.039e-16; each uses the other's good: 163 of 163, median spread 5.548e-01; no shared good: 0 of 209, median spread 0.000e+00. **The wage moves with the first life on every system in all four**, so the sweep is live in both arguments. **What separates the cells is one thing only**: whether chain two's good enters chain one's processes. It does in the two that couple and not in the two that do not, and **whether chain two is built out of chain one's good makes no difference at all**, which is the reading the first version of this station got backwards. The uncoupled cells sit at 2.0e-16, machine noise. **The mechanism is that the numeraire is chain one's good**: with no way back, chain one is a closed block and the wage solves out of it alone, so chain two is a non-basic in Sraffa's sense and its life is not in the wage. `B96` reads the same fact off a single-product system",
+      "kind": "own_reading",
+      "name": "B95-4",
+      "passed": true
+    },
+    {
+      "detail": "on the linkages where chain two's good does not enter chain one the wage is flat in the second life on all 411 of 411 systems, **and more than one second life is viable on 276 of them**, so there is a tie and the maximiser over it is whichever the enumeration reaches first. Changing the second chain's profile moved it on 24. **Whether a tie happens to break differently is luck; that the objective is flat is not**, so the measurement has to be the wage's spread over the other life and not the identity of the maximiser. The wrong one reports a coupling of exactly zero size as a coupling",
+      "kind": "own_reading",
+      "name": "B95-5",
+      "passed": true
+    },
+    {
+      "detail": "the economic life is the truncation with the highest wage and every truncation from 1 to 8 is tried: 8 of 8 are viable at `r = 0.2` and the life returned, 7, is the one carrying the largest of them. **Nothing here is read off a rule for where to stop**, which matters because the whole station is about how that stopping point moves. The two-chain sweeps enumerate both lives the same way, 163 systems on the mutually linked side",
+      "kind": "instrument",
+      "name": "B95-6",
+      "passed": true
+    },
+    {
+      "detail": "every drawn system is solved and the answer put back into the rows it came from: `B p - (1 + r) A p - w l` over 747 solves is at worst 2.71e-14. **Reading the same rows as commodities and solving `l M^-1` instead**, which is the orientation this station shipped first, **leaves a residual of up to 1.71e+02 and is above tolerance on 746 of 746**. The two orientations are both invertible and both return a positive wage, so nothing downstream can tell them apart: **the only thing that separates them is putting the answer back into the equations**, and this station now does it on every solve",
+      "kind": "instrument",
+      "name": "B95-8",
+      "passed": true
+    },
+    {
+      "detail": "B78's file names this station against both registrations it opened, so a reader of it finds what several machines do and what the rate does. `D20`",
+      "kind": "bookkeeping",
+      "name": "B95-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B95-1": {
+      "b78_lives": [
+        6,
+        7,
+        8,
+        8
+      ],
+      "rates": [
+        0.0,
+        0.2,
+        0.5,
+        0.9
+      ],
+      "searched": 5991
+    },
+    "B95-2": {
+      "b78_search": 120,
+      "examples": [],
+      "falls": 0,
+      "flat": 4706,
+      "rises": 1285,
+      "searched": 5991
+    },
+    "B95-3": {
+      "rises": 1285,
+      "searched": 5991,
+      "share": 0.214488399265565
+    },
+    "B95-4": {
+      "chain one uses chain two's good": {
+        "back": 0.5,
+        "link": 1,
+        "median_spread_over_t2": 0.4496816659449573,
+        "systems": 183,
+        "wage_moves_with_t1": 183,
+        "wage_moves_with_t2": 183
+      },
+      "chain two uses chain one's good": {
+        "back": 0.0,
+        "link": 0,
+        "median_spread_over_t2": 2.0385186534805602e-16,
+        "systems": 202,
+        "wage_moves_with_t1": 202,
+        "wage_moves_with_t2": 0
+      },
+      "each uses the other's good": {
+        "back": 0.5,
+        "link": 0,
+        "median_spread_over_t2": 0.5547641191497883,
+        "systems": 163,
+        "wage_moves_with_t1": 163,
+        "wage_moves_with_t2": 163
+      },
+      "no shared good": {
+        "back": 0.0,
+        "link": 1,
+        "median_spread_over_t2": 0.0,
+        "systems": 209,
+        "wage_moves_with_t1": 209,
+        "wage_moves_with_t2": 0
+      }
+    },
+    "B95-5": {
+      "argmax_moved": 24,
+      "checked": 411,
+      "flat_in_t2": 411,
+      "ties_to_break": 276
+    },
+    "B95-6": {
+      "life": 7,
+      "mutual_systems": 163,
+      "truncations": 8,
+      "viable": 8
+    },
+    "B95-7": {
+      "b78_names_b95": true
+    },
+    "B95-8": {
+      "solved": 747,
+      "swapped": 746,
+      "swapped_above_tol": 746,
+      "worst_residual": 2.7102349618393746e-14,
+      "worst_swapped": 170.96906455028937
+    }
+  },
+  "stage": "B95"
+}

@@ -31,13 +31,20 @@ often one-way. This document generalises to directed edges, and the result is
 version of this table said *unique up to a constant*, which Theorem 5 does not
 say and its proof does not show. Strong connectivity bounds every coordinate
 difference; it does not collapse the sub-potential polytope to a point. The
-polytope is a single point only when the field is exact, `ω = d⁰φ`, which in the
-directed setting is the special case rather than the rule. A canonical potential
-therefore has to be **chosen** by an extra rule, such as the pointwise largest
-or smallest admissible one, and cannot be deduced from connectivity. Corrected
-2026-08-11; the theorem statement in §4 and the proof were right throughout, and
-the error was confined to this summary table, which is the part a reader sees
-first.
+polytope is a single point modulo constants exactly when every pair of positions
+lies on a common closed walk of sum zero: `φ(v) − φ(u)` ranges over exactly
+`[D(u,v), −D(v,u)]`, where `D` is the largest walk sum, and both ends are
+attained by the potential of Theorem 4's proof with its source placed at `u` and
+at `v`. An exact field, `ω = d⁰φ`, is one such case and not the only one:
+frictionless two-way edges that connect every position pin the point down, while
+other edges may keep strict slack. In the directed setting either is the special
+case rather than the rule. A canonical potential therefore has to be **chosen**
+by an extra rule, such as the pointwise largest or smallest admissible one, and
+cannot be deduced from connectivity. Corrected 2026-08-11; the theorem statement
+in §4 and the proof were right throughout, and the error was confined to this
+summary table, which is the part a reader sees first. Amended 2026-09-11: the
+single-point condition had been stated as exactness, which is sufficient and not
+necessary; the sentence now states the condition that is both.
 
 Three consequences that change what the next stage may claim.
 
@@ -402,6 +409,83 @@ the midpoint term on about 3% of cells.
 whatever the spreads are; Theorem 6(5) only says which part of the numerator is
 carrying the information.
 
+### Corollary 6.1: the vanishing locus is the scalar account together with its frictions
+
+Theorem 6(4) is stated on the square of section 5.1. The same argument holds on
+any cycle, because Theorem 4 bounds every directed cycle and not only every
+four-cycle. Traverse a cycle `C` in both directions:
+
+```
+S   =   Σ_C ŵ  +  Σ_C ω̄
+S'  =  −Σ_C ŵ  +  Σ_C ω̄
+```
+
+so `S − S' = 2 Σ_C ŵ` and `S + S' = 2 Σ_C ω̄`, each direction is non-positive by
+Theorem 4, and `|S − S'| ≤ −(S + S')` follows as before. On a cycle the ratio of
+Theorem 6(4) reads `|Σ_C ŵ| / −Σ_C ω̄`.
+
+**The degenerate cell is forced, not chosen.** `ω̄ ≤ 0` on every edge, so
+`Σ_C ω̄ = 0` only when `ω̄` vanishes on every edge of `C`; then `S = Σ_C ŵ` and
+`S' = −Σ_C ŵ` are both non-positive, which makes `Σ_C ŵ` zero. A frictionless
+cycle has a zero numerator as well. Reading the ratio as zero there is the only
+value Theorem 4 permits, rather than a convention adopted to keep the definition
+total.
+
+**Corollary 6.1.** Under the hypotheses of Theorem 6, the following are
+equivalent.
+
+1. The ratio of Theorem 6(4) vanishes on every cycle.
+2. `ŵ` is exact.
+3. There is a `ψ` on the vertices with `ω(u,v) = ψ(v) − ψ(u) + ω̄(u,v)`, and `ω̄`
+   symmetric and non-positive.
+
+**Proof.** (3) ⟹ (2) by substitution: reversal flips the first term and fixes the
+second, so `ŵ = d⁰ψ`. (2) ⟹ (1): an exact `ŵ` sums to zero on every cycle, so
+`S = S'`, and the paragraph above covers the cycles whose denominator also
+vanishes. (1) ⟹ (2): where the denominator is non-zero the ratio vanishes only if
+`Σ_C ŵ = 0`, and where it is zero that sum is forced to zero anyway, so `ŵ` has
+vanishing sums on every cycle and is exact by the (2) ⟺ (3) equivalence of
+`b1_theorem.md` Theorem 1, which is generic on a connected graph and does not use
+the product structure. (2) ⟹ (3) is the split written out, with `ω̄ ≤ 0` from
+Theorem 6(1). ∎
+
+**When the potential descends to positions.** Clause (3) gives a potential on the
+enlarged vertex set, so `ψ` may still carry the class index. It descends to a
+scalar on positions exactly when `ŵ` vanishes on the agent edges, that is, when
+moving one position between two holders costs the same in both directions. Under
+that condition (3) reads
+
+```
+ω(u, v)  =  φ(v) − φ(u)  +  ω̄(u, v)
+```
+
+with `φ` on positions: one price vector together with a friction. Section 5.1
+assumes exactly this when it sets the agent edges to zero in both directions.
+
+**What it fixes.** A non-zero closed loop does not on its own leave the
+single-price account, because every friction extension of that account returns a
+non-zero sum on a directed cycle: a bid-ask spread, a transaction cost and a
+haircut are all written as a wedge around a scalar price. Corollary 6.1 says what
+does leave it. The account and all of its friction extensions occupy one locus,
+the ratio is zero there and nowhere else, and the friction may differ freely from
+edge to edge and from class to class without moving off it. So the quantity
+separating this framework from that entire family is one dimensionless number per
+cycle, bounded in `[0, 1]` by Theorem 6(4), and readable wherever both directions
+of an edge are quoted.
+
+**What "symmetric" has to mean.** Theorem 6(5) is the narrowing. A friction that
+is common in level but not as a fraction of the level puts a class-dependent term
+into `ŵ`, so it is not of the form in clause (3) and it sits off the locus by an
+amount first order in the spread difference. The same mechanism one level down is
+a friction that differs between the two legs of a single edge, which is not a
+symmetric friction at all and leaks into `ŵ` the same way. A stage reading the
+ratio therefore reports the two parts of the numerator separately, which is
+Theorem 6(5)'s registered consequence.
+
+**What it does not say.** Nothing about magnitude. And it does not reach a
+one-way edge, where the split degenerates rather than growing large; section 5.2
+states which of the two is in front of you.
+
 ### 5.2 One-way edges make the split unavailable, and that is the criterion
 
 `ŵ` and `ω̄` are defined only where both directions exist. A one-way edge is the
@@ -500,6 +584,9 @@ dispersion.
 | Theorem 6 (3), **the reduction** | `from_antisymmetric` vs `potential_from_cochain` | on an antisymmetric field the directed machinery reproduces Theorem 1's potential **bitwise** |
 | §5.1 | `directed_square` | `S ± S'` as directed cycle sums, against `ŵ` and `ω̄` computed separately |
 | §5.1 invariance | `directed_square` | a spread common to both classes moves `S + S'` and leaves `S − S'` unchanged |
+| Corollary 6.1, the identity | `split`, `simple_directed_cycles` | `S ± S'` against `ŵ` and `ω̄` on cycles of every length the enumerator produces, not only on the square |
+| Corollary 6.1, the degenerate cell | `sub_potential` | a field whose friction is identically zero and whose index part is not: no sub-potential exists, so reading the ratio as zero there is forced rather than conventional |
+| Corollary 6.1, the equivalence | `split`, `sub_potential` | the ratio sits at machine precision on an exact antisymmetric part however wide the symmetric friction, and is non-zero both when that part is not exact and when the friction is drawn separately for each leg |
 | §5.2 | `DirectedField.one_way`, `split` | the split declines to produce a value where the reverse leg is absent |
 
 The reduction row is the one that matters. Everything else can be right while
@@ -529,7 +616,7 @@ representation.
 
 ### 8.1 Results
 
-`python experiments/b4_directed_edges.py`, seed `0`. **Eight of eight pass.**
+`python experiments/b4_directed_edges.py`, seed `0`. **Every criterion passes.**
 
 | criterion | number |
 |---|---|
@@ -541,11 +628,15 @@ representation.
 | B4-6 **the reduction** | 12 fields, **0 byte-level mismatches** |
 | B4-7 the square splits | worst residual `1.11e-15` over 226 squares |
 | B4-8 the index ignores a common spread | index unchanged to `8.88e-16`; friction moved by at least `0.222` |
+| B4-9 the index bound | 226 squares, 0 disagreements; 52 of them have both cycles non-positive |
+| B4-10 the identity off the square | 504 cycles, of lengths 2, 3, 4 and 5; residuals at machine precision |
+| B4-11 the degenerate cell is unreachable | 200 frictionless fields carrying a cycle with a non-zero index part, **0** of them admit a sub-potential |
+| B4-12 the equivalence | exact: machine precision, and unmoved by a friction an order of magnitude wider. Not exact: `0.3039`. Friction drawn per leg: `0.6518` |
 
 `tests/test_b4_directed.py` carries 23 unit tests on hand-built graphs, where the
 answer can be read off by eye rather than trusted from a draw.
 
-**Those eight check the code. One of the theorems has since been checked against
+**Those check the code. One of the theorems has since been checked against
 the world.** `experiments/b4_split_probe.py` computes §5.1's two halves on B13's
 carrier and finds the friction half non-positive in **49,116 of 49,116** states,
 with the split available in `98.1%` of events. B4-5 and B4-7 are the synthetic

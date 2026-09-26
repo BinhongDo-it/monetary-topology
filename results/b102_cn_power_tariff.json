@@ -1,0 +1,1847 @@
+{
+  "config": {
+    "arm_a_provinces": [
+      "jiangsu",
+      "shandong",
+      "shanghai",
+      "shenzhen",
+      "sichuan",
+      "zhejiang"
+    ],
+    "arm_a_registered_zero": [
+      "jiangsu",
+      "shandong",
+      "shenzhen",
+      "sichuan",
+      "zhejiang"
+    ],
+    "arm_b_bounds": {
+      "anhui": {
+        "ordinary": [
+          180,
+          350
+        ],
+        "registered": [
+          280,
+          450
+        ]
+      },
+      "beijing": {
+        "ordinary": [
+          240,
+          400
+        ],
+        "registered": [
+          340,
+          500
+        ]
+      },
+      "guangdong_nonsummer": {
+        "ordinary": [
+          200,
+          400
+        ],
+        "registered": [
+          300,
+          500
+        ]
+      },
+      "guangdong_summer": {
+        "ordinary": [
+          260,
+          600
+        ],
+        "registered": [
+          360,
+          700
+        ]
+      },
+      "hunan_springautumn": {
+        "ordinary": [
+          200,
+          350
+        ],
+        "registered": [
+          300,
+          350
+        ]
+      },
+      "hunan_wintersummer": {
+        "ordinary": [
+          200,
+          450
+        ],
+        "registered": [
+          300,
+          450
+        ]
+      },
+      "jiangsu": {
+        "ordinary": null,
+        "registered": null
+      },
+      "shanghai": {
+        "ordinary": [
+          3120,
+          4800
+        ],
+        "registered": [
+          4320,
+          6000
+        ]
+      },
+      "sichuan_five": {
+        "ordinary": [
+          180,
+          280
+        ],
+        "registered": [
+          280,
+          380
+        ]
+      },
+      "sichuan_six": {
+        "ordinary": [
+          180,
+          280
+        ],
+        "registered": [
+          310,
+          410
+        ]
+      },
+      "sichuan_summer_five": {
+        "ordinary": [
+          260,
+          460
+        ],
+        "registered": [
+          360,
+          560
+        ]
+      }
+    },
+    "arm_b_increments": {
+      "anhui": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "beijing": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "guangdong_nonsummer": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "guangdong_summer": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "hunan_springautumn": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "hunan_wintersummer": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "jiangsu": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "shanghai": [
+        "0.0000",
+        "0.0500",
+        "0.3000"
+      ],
+      "sichuan_five": [
+        "0.0000",
+        "0.1000",
+        "0.3000"
+      ],
+      "sichuan_six": [
+        "0.0000",
+        "0.1000",
+        "0.3000"
+      ],
+      "sichuan_summer_five": [
+        "0.0000",
+        "0.1000",
+        "0.3000"
+      ]
+    },
+    "arm_b_schedules": [
+      "anhui",
+      "beijing",
+      "guangdong_nonsummer",
+      "guangdong_summer",
+      "hunan_springautumn",
+      "hunan_wintersummer",
+      "jiangsu",
+      "shanghai",
+      "sichuan_five",
+      "sichuan_six",
+      "sichuan_summer_five"
+    ],
+    "arm_b_structure_published": [
+      "anhui",
+      "beijing",
+      "guangdong_nonsummer",
+      "guangdong_summer",
+      "hunan_springautumn",
+      "hunan_wintersummer",
+      "shanghai",
+      "sichuan_five",
+      "sichuan_six",
+      "sichuan_summer_five"
+    ],
+    "arm_c_readable": [
+      "hunan",
+      "jiangsu",
+      "shanghai"
+    ],
+    "arm_c_registered": [
+      "anhui",
+      "hunan",
+      "jiangsu",
+      "jilin",
+      "shanghai"
+    ],
+    "arm_d_excluded": [
+      "hunan_nonresidential",
+      "hunan_pooled"
+    ],
+    "arm_d_flat_surcharge": {
+      "anhui_seven": "0.0200",
+      "guangdong_seven": "0.0370",
+      "jiangsu_seven": "0.0200",
+      "shanghai_seven": "0.0240"
+    },
+    "arm_d_schedules": [
+      "anhui_seven",
+      "guangdong_seven",
+      "jiangsu_seven",
+      "shanghai_seven"
+    ],
+    "money_unit": "1e-4 yuan, integer",
+    "voltage_rows": [
+      "anhui",
+      "beijing"
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "schedules read from the constant table: 6 arm-A provinces, 11 arm-B schedules. Problems: none",
+      "kind": "instrument",
+      "name": "B102-1",
+      "passed": true
+    },
+    {
+      "detail": "segment construction against a pointwise walk on anhui, beijing, guangdong_nonsummer, guangdong_summer, hunan_springautumn, hunan_wintersummer, shanghai, sichuan_five, sichuan_six, sichuan_summer_five. Disagreements: none",
+      "kind": "instrument",
+      "name": "B102-2",
+      "passed": true
+    },
+    {
+      "detail": "provinces whose text carries one increment for all periods, read back: shandong, zhejiang, shenzhen, sichuan, jiangsu. Non-zero squares among them: none",
+      "kind": "known_answer",
+      "name": "B102-3",
+      "passed": true
+    },
+    {
+      "detail": "arm B, per schedule, objects printed not counted. anhui: d takes 0.0000, 0.0500, 0.2500; squares 0.0500, -0.0500, 0.2500, -0.2500 | beijing: d takes 0.0000, 0.0500, 0.2500; squares 0.0500, -0.0500, 0.2500, -0.2500 | guangdong_nonsummer: d takes 0.0000, 0.0500, 0.2500; squares 0.0500, -0.0500, 0.2500, -0.2500 | guangdong_summer: d takes 0.0000, 0.0500, 0.2500; squares 0.0500, -0.0500, 0.2500, -0.2500 | hunan_springautumn: d takes 0.0000, 0.0500; squares 0.0500, -0.0500, 0.0000 | hunan_wintersummer: d takes 0.0000, 0.0500; squares 0.0500, -0.0500, 0.0000 | jiangsu: structure not published | shanghai: d takes 0.0000, 0.0500, 0.2500; squares 0.0500, -0.0500, 0.2500, -0.2500 | sichuan_five: d takes 0.0000, 0.1000, 0.2000; squares 0.1000, 0.1000, -0.2000 | sichuan_six: d takes 0.0000, 0.1000, 0.2000, 0.3000; squares 0.1000, 0.2000, -0.1000, -0.2000 | sichuan_summer_five: d takes 0.0000, 0.1000, 0.2000; squares 0.1000, -0.1000, 0.2000, -0.2000 || floor multiples: anhui 0.0500 = 5x, anhui -0.0500 = 5x, anhui 0.2500 = 25x, anhui -0.2500 = 25x, beijing 0.0500 = 500x, beijing -0.0500 = 500x, beijing 0.2500 = 2500x, beijing -0.2500 = 2500x, guangdong_nonsummer 0.0500 = 5x, guangdong_nonsummer -0.0500 = 5x, guangdong_nonsummer 0.2500 = 25x, guangdong_nonsummer -0.2500 = 25x, guangdong_summer 0.0500 = 5x, guangdong_summer -0.0500 = 5x, guangdong_summer 0.2500 = 25x, guangdong_summer -0.2500 = 25x, hunan_springautumn 0.0500 = 50x, hunan_springautumn -0.0500 = 50x, hunan_wintersummer 0.0500 = 50x, hunan_wintersummer -0.0500 = 50x, shanghai 0.0500 = 5x, shanghai -0.0500 = 5x, shanghai 0.2500 = 25x, shanghai -0.2500 = 25x, sichuan_five 0.1000 = 1000x, sichuan_five 0.1000 = 1000x, sichuan_five -0.2000 = 2000x, sichuan_six 0.1000 = 1000x, sichuan_six 0.2000 = 2000x, sichuan_six -0.1000 = 1000x, sichuan_six -0.2000 = 2000x, sichuan_summer_five 0.1000 = 1000x, sichuan_summer_five -0.1000 = 1000x, sichuan_summer_five 0.2000 = 2000x, sichuan_summer_five -0.2000 = 2000x. Squares inside their own floor: none",
+      "kind": "own_reading",
+      "name": "B102-4",
+      "passed": true
+    },
+    {
+      "detail": "sign changes per schedule, reported not scored (D48, fourth shape): anhui=3, beijing=3, guangdong_nonsummer=3, guangdong_summer=3, hunan_springautumn=1, hunan_wintersummer=1, shanghai=3, sichuan_five=1, sichuan_six=1, sichuan_summer_five=3",
+      "kind": "own_reading",
+      "name": "B102-5",
+      "passed": true
+    },
+    {
+      "detail": "bare rival predicts the class difference is zero at every position. Read: d takes the values 0.0000, 0.0500, 0.1000, 0.2000, 0.2500, 0.3000 across 10 published schedules.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B102-6",
+      "passed": true,
+      "rival_entailment": "phi carries no class index, so the difference between any two classes is zero at every position and every four-cycle sum is zero",
+      "rival_premise": "a scalar phi(j) on positions; one kilowatt hour at one position has one price",
+      "rival_shape": "point prediction of zero"
+    },
+    {
+      "detail": "additive rival predicts the class difference is constant in j, so every four-cycle sum is exactly zero. Read: 35 of 37 squares non-zero; values -0.0500, -0.1000, -0.2000, -0.2500, 0.0500, 0.1000, 0.2000, 0.2500. These are not that many independent readings: the two Guangdong seasons are one policy, and d depends only on the increments and the shift, not on where the edges sit, so the two seasons return the same numbers by construction. Independent schedules here: 6 (anhui, beijing, guangdong, hunan, shanghai, sichuan).",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B102-7",
+      "passed": true,
+      "rival_entailment": "the difference P(a,j) - P(a',j) equals psi(a) - psi(a'), which does not depend on j, so every four-cycle sum is exactly zero",
+      "rival_premise": "P(a, j) = phi(j) + psi(a) for some phi on positions and psi on classes",
+      "rival_shape": "point prediction of zero"
+    },
+    {
+      "detail": "multiplicative rival permits the class difference to vary with j but not to change sign, because it is one price curve scaled. Two independent routes refute it here: arm B's squares alternate, and on arm D the difference itself crosses zero, which a scaled copy of a non-negative price curve cannot do. Arm B, counted inside each schedule and never across the join: anhui=3, beijing=3, guangdong_nonsummer=3, guangdong_summer=3, hunan_springautumn=1, hunan_wintersummer=1, shanghai=3, sichuan_five=1, sichuan_six=1, sichuan_summer_five=3. The weakest schedule alone already carries 1.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B102-8",
+      "passed": true,
+      "rival_entailment": "the difference is (1 - alpha) * phi(j), which keeps the sign of phi, so the four-cycle sums cannot change sign",
+      "rival_premise": "P(a, j) = alpha_a * phi(j) with phi non-decreasing in j and alpha_a a per-class scale",
+      "rival_shape": "one-sided (no sign change)"
+    },
+    {
+      "detail": "arm D: a household of seven or more may elect one surcharge for every kilowatt hour instead of the blocks, so the two classes face curves of different shape rather than different level. The squares here are the block increments and nothing else, so provinces are forced to the same squares whatever flat number they picked; what carries the reading is where that number sits relative to the increments, and that is one reading per province. anhui_seven: flat surcharge 0.0200 against block increments, so d by tier is -0.0200, 0.0300, 0.2800; squares 0.0500, 0.3000, 0.2500; floor multiples 200, 300, 2800 | guangdong_seven: flat surcharge 0.0370 against block increments, so d by tier is -0.0370, 0.0130, 0.2630; squares 0.0500, 0.3000, 0.2500; floor multiples 37, 13, 263 | jiangsu_seven: flat surcharge 0.0200 against block increments, so d by tier is -0.0200, 0.0300, 0.2800; squares 0.0500, 0.3000, 0.2500; floor multiples 200, 300, 2800 | shanghai_seven: flat surcharge 0.0240 against block increments, so d by tier is -0.0240, 0.0260, 0.2760; squares 0.0500, 0.3000, 0.2500; floor multiples 24, 26, 276 || kept out of this arm, with the reason: hunan_nonresidential (0.046 yuan on every kilowatt hour, no blocks): a different kind of buyer altogether, schools and welfare premises rather than households, so the class is not the one this station indexes on. | hunan_pooled (0.016 yuan on every kilowatt hour, no blocks): this rate is for dwellings with no household meter, not an option a metered household may elect. Without a household meter the position index, the j-th kilowatt hour of this household's month, is not defined on that side, so the two classes are not standing at the same position and the square has no object. The elective versions in Shanghai, Guangdong and Anhui are different: those households keep their own meter and elect the rate.. The difference itself crosses zero in anhui_seven, guangdong_seven, jiangsu_seven, shanghai_seven: the ordinary household pays less on the first block and more on the other two, at the same position. What is read here is the set of published schedules and who may reach each one, not what any household paid. The flat option is elective, so a household of seven may take it or stay on the blocks and will presumably take whichever is cheaper; that choice is inside the class and does not open the flat schedule to a household of four, which cannot reach it at any price. No claim is made here about realised bills, because the election is not published.",
+      "kind": "own_reading",
+      "name": "B102-11",
+      "passed": true
+    },
+    {
+      "detail": "arm C. The registered question was whether the quota comes off the metered quantity before the blocks apply or off the bill afterwards. The published mechanism is neither: it comes out of the first block's quantity, so the edges do not move and the first few kilowatt hours are priced at zero for that class. anhui: 10 kWh free to 城乡低保户 and 农村五保户, and it is handed back as money through the civil affairs payment rather than taken off any block, so the marginal price is the same at every position and this arm does not apply here. This is the arm's failure case and it is published | hunan: 10 kWh free to 最低生活保障户 and 城乡特困人员救助户, deducted from the first block's quantity, stated as 免费用电量纳入第一档分档电量, so d is 0.5880 on the first 10 positions and 0.0000 after them; one square of -0.5880, which is 588 times this province's tick | jiangsu: 15 kWh free to 城乡低保户 and 农村五保户, deducted from the first block's quantity for that month, so d is 0.5283 on the first 15 positions and 0.0000 after them; one square of -0.5283, which is 5283 times this province's tick | jilin: 10 kWh free to 城乡低保户 and 农村五保户, and it is handed back as money through the civil affairs payment rather than taken off any block, so the marginal price is the same at every position and this arm does not apply here. This is the arm's failure case and it is published | shanghai: 15 kWh free to 低保户, deducted from the peak period's quantity first, then the valley's, capped at actual use, so d is 0.6170 on the first 15 positions and 0.0000 after them; one square of -0.6170, which is 61 times this province's tick. A household above the quota pays the same money either way, so what differs is the schedule and not the bill; the schedule is what the rivals make claims about and no claim is made here about money.",
+      "kind": "own_reading",
+      "name": "B102-10",
+      "passed": true
+    },
+    {
+      "detail": "the voltage dimension is registered as additive and read back at zero. anhui: gaps 0.0150, 0.0150, 0.0150, 0.0150 across tier 1, tier 2, tier 3, pooled rate; squares 0.0000, 0.0000, 0.0000 | beijing: gaps 0.0100, 0.0100, 0.0100 across tier 1, tier 2, tier 3; squares 0.0000, 0.0000. Non-constant: none. This matters because it is the same table: Anhui prints four rows at two voltages with one constant gap, and the household dimension that is not additive sits beside it. The reading is not that published tariffs are non-additive in general, it is that some of their class dimensions are and some are not, and one document shows both.",
+      "kind": "known_answer",
+      "name": "B102-12",
+      "passed": true
+    },
+    {
+      "detail": "every schedule in the constant table carries a source string, including the ones that read zero. Without one: none",
+      "kind": "bookkeeping",
+      "name": "B102-9",
+      "passed": true
+    }
+  ],
+  "report": {
+    "arm_a": {
+      "jiangsu": {
+        "any_nonzero": false,
+        "kind": "increments",
+        "periods": [
+          "peak",
+          "valley"
+        ],
+        "source": "Yixing municipal explainer of the provincial tiered tariff, which prints the block increments and the two period prices without ever qualifying one by the other; the province also bills 先峰谷后阶梯, period first and block second, which is the same construction as Guangdong's",
+        "squares": [
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.0500",
+            "step_in_b": "0.0500",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.3000",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.2500",
+            "step_in_b": "0.2500",
+            "tier_high": "3",
+            "tier_low": "2"
+          }
+        ],
+        "tick": "0.0001"
+      },
+      "shandong": {
+        "any_nonzero": false,
+        "kind": "levels",
+        "periods": [
+          "peak",
+          "valley"
+        ],
+        "source": "Tai'an municipal reprint of the provincial notice, PDF",
+        "squares": [
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.0500",
+            "step_in_b": "0.0500",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.3000",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.2500",
+            "step_in_b": "0.2500",
+            "tier_high": "3",
+            "tier_low": "2"
+          }
+        ],
+        "tick": "0.0001"
+      },
+      "shanghai": {
+        "any_nonzero": true,
+        "kind": "increments",
+        "periods": [
+          "peak",
+          "valley"
+        ],
+        "source": "Shanghai DRC tiered-tariff implementation notice, read in the browser and checked twice against the original sentences",
+        "squares": [
+          {
+            "floor_multiple": 3,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0300",
+            "step_in_a": "0.0600",
+            "step_in_b": "0.0300",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 18,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.1800",
+            "step_in_a": "0.3600",
+            "step_in_b": "0.1800",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 15,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.1500",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.1500",
+            "tier_high": "3",
+            "tier_low": "2"
+          }
+        ],
+        "tick": "0.0100"
+      },
+      "shenzhen": {
+        "any_nonzero": false,
+        "kind": "levels",
+        "periods": [
+          "peak",
+          "flat",
+          "valley"
+        ],
+        "source": "Shenzhen DRC residential price schedule, PDF, official",
+        "squares": [
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "flat",
+            "square": "0.0000",
+            "step_in_a": "0.0500",
+            "step_in_b": "0.0500",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "flat",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.0500",
+            "step_in_b": "0.0500",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "flat",
+            "square": "0.0000",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.3000",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "flat",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.3000",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "flat",
+            "square": "0.0000",
+            "step_in_a": "0.2500",
+            "step_in_b": "0.2500",
+            "tier_high": "3",
+            "tier_low": "2"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "flat",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.2500",
+            "step_in_b": "0.2500",
+            "tier_high": "3",
+            "tier_low": "2"
+          }
+        ],
+        "tick": "0.0001"
+      },
+      "sichuan": {
+        "any_nonzero": false,
+        "kind": "increments",
+        "periods": [
+          "flat",
+          "valley"
+        ],
+        "source": "the Xuzhou district implementing guide's worked example, where a 400 kilowatt hour month split 100 peak, 150 flat and 150 valley is charged the tier surcharge on quantity alone",
+        "squares": [
+          {
+            "floor_multiple": 0,
+            "period_a": "flat",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.1000",
+            "step_in_b": "0.1000",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "flat",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.3000",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "flat",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.2000",
+            "step_in_b": "0.2000",
+            "tier_high": "3",
+            "tier_low": "2"
+          }
+        ],
+        "tick": "0.0001"
+      },
+      "zhejiang": {
+        "any_nonzero": false,
+        "kind": "levels",
+        "periods": [
+          "peak",
+          "valley"
+        ],
+        "source": "provincial compilation, level: other (D32), original not yet checked",
+        "squares": [
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.0500",
+            "step_in_b": "0.0500",
+            "tier_high": "2",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.3000",
+            "step_in_b": "0.3000",
+            "tier_high": "3",
+            "tier_low": "1"
+          },
+          {
+            "floor_multiple": 0,
+            "period_a": "peak",
+            "period_b": "valley",
+            "square": "0.0000",
+            "step_in_a": "0.2500",
+            "step_in_b": "0.2500",
+            "tier_high": "3",
+            "tier_low": "2"
+          }
+        ],
+        "tick": "0.0001"
+      }
+    },
+    "arm_b": {
+      "anhui": {
+        "bounds_ordinary": [
+          180,
+          350
+        ],
+        "bounds_registered": [
+          280,
+          450
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500",
+          "0.2500"
+        ],
+        "floor_multiples": [
+          5,
+          25
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "the notice prints the registered household's blocks, 第一档电量为0-280千瓦时，第二档电量为281-450千瓦时，第三档电量为451千瓦时及以上, and says they follow from adding 100. The ordinary edges are that arithmetic run backwards and are recorded as derived rather than quoted. Seven and up may also elect the pooled rate, whose number has not been read.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 180
+          },
+          {
+            "d": "0.0500",
+            "from": 181,
+            "to": 280
+          },
+          {
+            "d": "0.0000",
+            "from": 281,
+            "to": 350
+          },
+          {
+            "d": "0.2500",
+            "from": 351,
+            "to": 450
+          },
+          {
+            "d": "0.0000",
+            "from": 451,
+            "to": null
+          }
+        ],
+        "sign_changes": 3,
+        "source": "Anhui DRC notice on the multi-person policy, republished in full with the issuing body named",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 230,
+            "position_low": 90,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 315,
+            "position_low": 230,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.2500",
+            "d_low": "0.0000",
+            "position_high": 400,
+            "position_low": 315,
+            "sign": 1,
+            "square": "0.2500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2500",
+            "position_high": 451,
+            "position_low": 400,
+            "sign": -1,
+            "square": "-0.2500"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0100"
+      },
+      "beijing": {
+        "bounds_ordinary": [
+          240,
+          400
+        ],
+        "bounds_registered": [
+          340,
+          500
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500",
+          "0.2500"
+        ],
+        "floor_multiples": [
+          500,
+          2500
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "the explainer says the added kilowatt hours go on the first tier while the block table moves both finite edges by 100; both sentences are official and they do not say the same thing. The block table is used here because it is the one that can be put straight into the price schedule. Recorded rather than flattened.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 240
+          },
+          {
+            "d": "0.0500",
+            "from": 241,
+            "to": 340
+          },
+          {
+            "d": "0.0000",
+            "from": 341,
+            "to": 400
+          },
+          {
+            "d": "0.2500",
+            "from": 401,
+            "to": 500
+          },
+          {
+            "d": "0.0000",
+            "from": 501,
+            "to": null
+          }
+        ],
+        "sign_changes": 3,
+        "source": "Beijing DRC notice on multi-person households, its policy explainer, and the municipal retail price schedule (three official documents)",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 290,
+            "position_low": 120,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 370,
+            "position_low": 290,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.2500",
+            "d_low": "0.0000",
+            "position_high": 450,
+            "position_low": 370,
+            "sign": 1,
+            "square": "0.2500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2500",
+            "position_high": 501,
+            "position_low": 450,
+            "sign": -1,
+            "square": "-0.2500"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 6,
+        "tick": "0.0001"
+      },
+      "guangdong_nonsummer": {
+        "bounds_ordinary": [
+          200,
+          400
+        ],
+        "bounds_registered": [
+          300,
+          500
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500",
+          "0.2500"
+        ],
+        "floor_multiples": [
+          5,
+          25
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 200
+          },
+          {
+            "d": "0.0500",
+            "from": 201,
+            "to": 300
+          },
+          {
+            "d": "0.0000",
+            "from": 301,
+            "to": 400
+          },
+          {
+            "d": "0.2500",
+            "from": 401,
+            "to": 500
+          },
+          {
+            "d": "0.0000",
+            "from": 501,
+            "to": null
+          }
+        ],
+        "sign_changes": 3,
+        "source": "same two letters and the same explainer",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 250,
+            "position_low": 100,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 350,
+            "position_low": 250,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.2500",
+            "d_low": "0.0000",
+            "position_high": 450,
+            "position_low": 350,
+            "sign": 1,
+            "square": "0.2500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2500",
+            "position_high": 501,
+            "position_low": 450,
+            "sign": -1,
+            "square": "-0.2500"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0100"
+      },
+      "guangdong_summer": {
+        "bounds_ordinary": [
+          260,
+          600
+        ],
+        "bounds_registered": [
+          360,
+          700
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500",
+          "0.2500"
+        ],
+        "floor_multiples": [
+          5,
+          25
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "increments published without a base; d does not need one.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 260
+          },
+          {
+            "d": "0.0500",
+            "from": 261,
+            "to": 360
+          },
+          {
+            "d": "0.0000",
+            "from": 361,
+            "to": 600
+          },
+          {
+            "d": "0.2500",
+            "from": 601,
+            "to": 700
+          },
+          {
+            "d": "0.0000",
+            "from": 701,
+            "to": null
+          }
+        ],
+        "sign_changes": 3,
+        "source": "Guangdong DRC letters 2021/826 and 2023/553 for the shift, Guangzhou DRC price explainer for the ordinary boundaries and the increments",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 310,
+            "position_low": 130,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 480,
+            "position_low": 310,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.2500",
+            "d_low": "0.0000",
+            "position_high": 650,
+            "position_low": 480,
+            "sign": 1,
+            "square": "0.2500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2500",
+            "position_high": 701,
+            "position_low": 650,
+            "sign": -1,
+            "square": "-0.2500"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0100"
+      },
+      "hunan_springautumn": {
+        "bounds_ordinary": [
+          200,
+          350
+        ],
+        "bounds_registered": [
+          300,
+          350
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500"
+        ],
+        "floor_multiples": [
+          50
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 2,
+        "note": "March, April, May, September, October, November. The notice raises the first tier's base alone, so the second edge stays where it is. Guangdong raises all three. Same national increments, same 100 kilowatt hours, different structure, and both provinces say which one in their own text.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 200
+          },
+          {
+            "d": "0.0500",
+            "from": 201,
+            "to": 300
+          },
+          {
+            "d": "0.0000",
+            "from": 301,
+            "to": 350
+          },
+          {
+            "d": "0.0000",
+            "from": 351,
+            "to": null
+          }
+        ],
+        "sign_changes": 1,
+        "source": "Hunan DRC 2024/14 (湘发改价调规), full text, republished by Huarong county government with the document number",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 250,
+            "position_low": 100,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 325,
+            "position_low": 250,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0000",
+            "position_high": 351,
+            "position_low": 325,
+            "sign": 0,
+            "square": "0.0000"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0010"
+      },
+      "hunan_wintersummer": {
+        "bounds_ordinary": [
+          200,
+          450
+        ],
+        "bounds_registered": [
+          300,
+          450
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500"
+        ],
+        "floor_multiples": [
+          50
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 2,
+        "note": "January, February, June, July, August, December. Same levels and same tick as the other season: a province publishes one price list, and the seasons differ only in where the second edge sits.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 200
+          },
+          {
+            "d": "0.0500",
+            "from": 201,
+            "to": 300
+          },
+          {
+            "d": "0.0000",
+            "from": 301,
+            "to": 450
+          },
+          {
+            "d": "0.0000",
+            "from": 451,
+            "to": null
+          }
+        ],
+        "sign_changes": 1,
+        "source": "same notice, the other season",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 250,
+            "position_low": 100,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 375,
+            "position_low": 250,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0000",
+            "position_high": 451,
+            "position_low": 375,
+            "sign": 0,
+            "square": "0.0000"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0010"
+      },
+      "jiangsu": {
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "note": "the amount is known and the structure is not, so this row stays in the third cell with its numbers ready. The reply gives the blocks as monthly 230 and 400 at 0.5283, 0.5783 and 0.8283. That corrects something written earlier in this station's life: a caliber warning said Jiangsu had moved to annual blocks in 2021 and that the Yixing figures were stale. It had no source, it was inferred from a headline that was never opened, and this text says the blocks are monthly and unchanged. Withdrawn.",
+        "shift_pattern": "100 kilowatt hours a month at five people; which edges that moves is not stated in any text found, exactly as in Shanghai's and Sichuan's notices",
+        "source": "the provincial DRC's reply to proposal 1164 of the 2021 provincial congress, which restates 苏发改价格发〔2021〕106号",
+        "structure_published": false,
+        "threshold_people": null
+      },
+      "shanghai": {
+        "bounds_ordinary": [
+          3120,
+          4800
+        ],
+        "bounds_registered": [
+          4320,
+          6000
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.0500",
+          "0.2500"
+        ],
+        "floor_multiples": [
+          5,
+          25
+        ],
+        "increments": [
+          "0.0000",
+          "0.0500",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "neither notice names a tier; the clause stops at 每户每月增加100度的阶梯电量基数. The edges come from the newspaper's restatement, 第一档为0-4320度(360×12); 第二档为4320-6000度, and from its worked example, where a 6000 kilowatt hour year is charged 4320 at the first price and the rest at the first price plus 0.05. Both finite edges move by 1200. Blocks are annual here, unlike every other province in this table.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 3120
+          },
+          {
+            "d": "0.0500",
+            "from": 3121,
+            "to": 4320
+          },
+          {
+            "d": "0.0000",
+            "from": 4321,
+            "to": 4800
+          },
+          {
+            "d": "0.2500",
+            "from": 4801,
+            "to": 6000
+          },
+          {
+            "d": "0.0000",
+            "from": 6001,
+            "to": null
+          }
+        ],
+        "sign_changes": 3,
+        "source": "Shanghai DRC notice on water, electricity and gas (2020) for the policy and 沪发改价管〔2012〕020号 for the blocks; the resulting edges from Xinmin Evening News the day after the policy took effect, with a worked example",
+        "squares": [
+          {
+            "d_high": "0.0500",
+            "d_low": "0.0000",
+            "position_high": 3720,
+            "position_low": 1560,
+            "sign": 1,
+            "square": "0.0500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.0500",
+            "position_high": 4560,
+            "position_low": 3720,
+            "sign": -1,
+            "square": "-0.0500"
+          },
+          {
+            "d_high": "0.2500",
+            "d_low": "0.0000",
+            "position_high": 5400,
+            "position_low": 4560,
+            "sign": 1,
+            "square": "0.2500"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2500",
+            "position_high": 6001,
+            "position_low": 5400,
+            "sign": -1,
+            "square": "-0.2500"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0100"
+      },
+      "sichuan_five": {
+        "bounds_ordinary": [
+          180,
+          280
+        ],
+        "bounds_registered": [
+          280,
+          380
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.1000",
+          "0.2000"
+        ],
+        "floor_multiples": [
+          1000,
+          2000
+        ],
+        "increments": [
+          "0.0000",
+          "0.1000",
+          "0.3000"
+        ],
+        "nonzero_squares": 3,
+        "note": "October to June, and from 2026-07-01 this is the non-summer schedule rather than the whole year. Sichuan's second-tier increment is 0.10, not the 0.05 every other province read here took. The national guidance set 0.05 as a floor, not a number, and this province went to double it. The guide states it twice, in words and in a worked example where 0.5224 becomes 0.6224. Level: an implementing guide republished, not the provincial price notice itself.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 180
+          },
+          {
+            "d": "0.1000",
+            "from": 181,
+            "to": 280
+          },
+          {
+            "d": "0.2000",
+            "from": 281,
+            "to": 380
+          },
+          {
+            "d": "0.0000",
+            "from": 381,
+            "to": null
+          }
+        ],
+        "sign_changes": 1,
+        "source": "Sichuan DRC 2024/668 for the policy; the implementing guide issued by Xuzhou district, Yibin, for the blocks and the increments, with two worked examples",
+        "squares": [
+          {
+            "d_high": "0.1000",
+            "d_low": "0.0000",
+            "position_high": 230,
+            "position_low": 90,
+            "sign": 1,
+            "square": "0.1000"
+          },
+          {
+            "d_high": "0.2000",
+            "d_low": "0.1000",
+            "position_high": 330,
+            "position_low": 230,
+            "sign": 1,
+            "square": "0.1000"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2000",
+            "position_high": 381,
+            "position_low": 330,
+            "sign": -1,
+            "square": "-0.2000"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0001"
+      },
+      "sichuan_six": {
+        "bounds_ordinary": [
+          180,
+          280
+        ],
+        "bounds_registered": [
+          310,
+          410
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.1000",
+          "0.2000",
+          "0.3000"
+        ],
+        "floor_multiples": [
+          1000,
+          2000
+        ],
+        "increments": [
+          "0.0000",
+          "0.1000",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "October to June, as above. Above five people the base rises 30 kilowatt hours per person per month, so a six-person household's edges are 280+30 and 380+30. The class is a family indexed by household size rather than a two-way split, and this is the second member of it.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 180
+          },
+          {
+            "d": "0.1000",
+            "from": 181,
+            "to": 280
+          },
+          {
+            "d": "0.3000",
+            "from": 281,
+            "to": 310
+          },
+          {
+            "d": "0.2000",
+            "from": 311,
+            "to": 410
+          },
+          {
+            "d": "0.0000",
+            "from": 411,
+            "to": null
+          }
+        ],
+        "sign_changes": 1,
+        "source": "same guide, its second worked example",
+        "squares": [
+          {
+            "d_high": "0.1000",
+            "d_low": "0.0000",
+            "position_high": 230,
+            "position_low": 90,
+            "sign": 1,
+            "square": "0.1000"
+          },
+          {
+            "d_high": "0.3000",
+            "d_low": "0.1000",
+            "position_high": 295,
+            "position_low": 230,
+            "sign": 1,
+            "square": "0.2000"
+          },
+          {
+            "d_high": "0.2000",
+            "d_low": "0.3000",
+            "position_high": 360,
+            "position_low": 295,
+            "sign": -1,
+            "square": "-0.1000"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2000",
+            "position_high": 411,
+            "position_low": 360,
+            "sign": -1,
+            "square": "-0.2000"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 6,
+        "tick": "0.0001"
+      },
+      "sichuan_summer_five": {
+        "bounds_ordinary": [
+          260,
+          460
+        ],
+        "bounds_registered": [
+          360,
+          560
+        ],
+        "distinct_d": [
+          "0.0000",
+          "0.1000",
+          "0.2000"
+        ],
+        "floor_multiples": [
+          1000,
+          2000
+        ],
+        "increments": [
+          "0.0000",
+          "0.1000",
+          "0.3000"
+        ],
+        "nonzero_squares": 4,
+        "note": "July to September from 2026-07-01: ordinary blocks 0-260, 261-460, 460 and up, with the prices unchanged at 0.5224, 0.6224 and 0.8224, which confirms the 0.10 increment independently. The registered blocks are DERIVED, not quoted: the implementing guide moves both edges by 100 and the adjustment says 阶梯电量基数同步调整. Recorded as derived so that a later reader does not take it for a quotation. This row exists because it gives the same province two shapes in two seasons off one policy: the summer second block is 200 wide against a shift of 100, so the segment where the difference returns to zero survives, while in the other months that block is exactly 100 wide and it collapses. Same province, same rule, same shift, different arithmetic, different shape.",
+        "segments": [
+          {
+            "d": "0.0000",
+            "from": 1,
+            "to": 260
+          },
+          {
+            "d": "0.1000",
+            "from": 261,
+            "to": 360
+          },
+          {
+            "d": "0.0000",
+            "from": 361,
+            "to": 460
+          },
+          {
+            "d": "0.2000",
+            "from": 461,
+            "to": 560
+          },
+          {
+            "d": "0.0000",
+            "from": 561,
+            "to": null
+          }
+        ],
+        "sign_changes": 3,
+        "source": "the 2026 provincial adjustment as reported with the DRC's own explanation, for the ordinary summer blocks; the registered blocks are derived, see note",
+        "squares": [
+          {
+            "d_high": "0.1000",
+            "d_low": "0.0000",
+            "position_high": 310,
+            "position_low": 130,
+            "sign": 1,
+            "square": "0.1000"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.1000",
+            "position_high": 410,
+            "position_low": 310,
+            "sign": -1,
+            "square": "-0.1000"
+          },
+          {
+            "d_high": "0.2000",
+            "d_low": "0.0000",
+            "position_high": 510,
+            "position_low": 410,
+            "sign": 1,
+            "square": "0.2000"
+          },
+          {
+            "d_high": "0.0000",
+            "d_low": "0.2000",
+            "position_high": 561,
+            "position_low": 510,
+            "sign": -1,
+            "square": "-0.2000"
+          }
+        ],
+        "structure_published": true,
+        "threshold_people": 5,
+        "tick": "0.0001"
+      }
+    },
+    "arm_c": {
+      "anhui": {
+        "classes": "城乡低保户 and 农村五保户",
+        "deducts_from": null,
+        "mechanism": "transfer",
+        "mechanism_published": false,
+        "note": "采取先征后返方式，由民政部门统一将退电费款发放到低保户、五保户的存折上. Jilin's mechanism in different words and through the same department: the money is refunded by civil affairs into a passbook, nothing leaves any block, and the marginal price is untouched at every position. Two provinces do it this way and two do it as a price, and all four say which in their own rule.",
+        "quota_kwh": 10,
+        "source": "the provincial implementing rules as reported in 2012, and Xuancheng's explainer, which grants the quota and says 具体办法另行规定"
+      },
+      "hunan": {
+        "bites_price": "0.5880",
+        "bites_price_name": "the first-tier base price below 1 kV, printed in the same notice",
+        "classes": "最低生活保障户 and 城乡特困人员救助户",
+        "deducts_from": "the first block's quantity, stated as 免费用电量纳入第一档分档电量",
+        "floor_multiple": 588,
+        "mechanism_published": true,
+        "note": "the province says in five characters what Jiangsu says in a municipal explainer: the free quantity is counted into the first block. Two provinces, worded independently, same mechanism.",
+        "quota_kwh": 10,
+        "segments": [
+          {
+            "d": "0.5880",
+            "from": 1,
+            "to": 10
+          },
+          {
+            "d": "0.0000",
+            "from": 11,
+            "to": null
+          }
+        ],
+        "source": "Hunan DRC 2024/14, the provincial original read in full",
+        "squares": [
+          {
+            "position_high": 11,
+            "position_low": 1,
+            "square": "-0.5880"
+          }
+        ],
+        "tick": "0.0010"
+      },
+      "jiangsu": {
+        "bites_price": "0.5283",
+        "bites_price_name": "the undifferentiated first-tier price",
+        "classes": "城乡低保户 and 农村五保户",
+        "deducts_from": "the first block's quantity for that month",
+        "floor_multiple": 5283,
+        "mechanism_published": true,
+        "note": "由供电企业从其抄表月份第一档电量中扣除对应的免费电量后计算当月应收电费. The deduction comes out of the first block, so the block edges do not move and the first fifteen kilowatt hours are priced at zero for that class. Level: two municipal explainers of a provincial rule, 2014 and current, agreeing word for word. The 0.5283 is the undifferentiated residential price and the provincial DRC still gives it as that in 2021, so it is stable across at least seven years.",
+        "quota_kwh": 15,
+        "segments": [
+          {
+            "d": "0.5283",
+            "from": 1,
+            "to": 15
+          },
+          {
+            "d": "0.0000",
+            "from": 16,
+            "to": null
+          }
+        ],
+        "source": "Yixing municipal government's explainer of the provincial tiered tariff (2014) for the mechanism, and Lianyungang's current municipal Q&A for the same sentence, the same fifteen kilowatt hours, and the added fact that the free quantity is settled annually",
+        "squares": [
+          {
+            "position_high": 16,
+            "position_low": 1,
+            "square": "-0.5283"
+          }
+        ],
+        "tick": "0.0001"
+      },
+      "jilin": {
+        "classes": "城乡低保户 and 农村五保户",
+        "deducts_from": null,
+        "mechanism": "transfer",
+        "mechanism_published": false,
+        "note": "先收后返. The household pays the ordinary bill, the supply company works out what the free quantity was worth, the provincial finance department pays it to civil affairs, and it is handed back together with the 低保 payment itself. Nothing is deducted from any block. This is the failure case for this arm and it is published: the marginal price is untouched at every position, so by the rule about two prices this is a transfer and not a price, and it does not enter the station. Three provinces do it as a price and this one does it as a transfer, and each of them says which in its own rule.",
+        "quota_kwh": 10,
+        "source": "Jilin City's published answers on current water, heat, gas and electricity policy"
+      },
+      "shanghai": {
+        "bites_price": "0.6170",
+        "bites_price_name": "the first-tier price, which is what a peak kilowatt hour costs before the tier surcharge",
+        "classes": "低保户",
+        "deducts_from": "the peak period's quantity first, then the valley's, capped at actual use",
+        "floor_multiple": 61,
+        "mechanism_published": true,
+        "note": "先扣减峰时段电量，后扣减谷时段电量，最多不超过实际用电量. The quota bites in the peak bucket rather than the first block, so the position it is free on is a time of day rather than a place in the month's running total. Same shape, different axis.",
+        "quota_kwh": 15,
+        "segments": [
+          {
+            "d": "0.6170",
+            "from": 1,
+            "to": 15
+          },
+          {
+            "d": "0.0000",
+            "from": 16,
+            "to": null
+          }
+        ],
+        "source": "沪发改价管〔2012〕020号, quoted",
+        "squares": [
+          {
+            "position_high": 16,
+            "position_low": 1,
+            "square": "-0.6170"
+          }
+        ],
+        "tick": "0.0100"
+      }
+    },
+    "arm_d": {
+      "anhui_seven": {
+        "bounds": [
+          180,
+          350
+        ],
+        "d_by_tier": [
+          "-0.0200",
+          "0.0300",
+          "0.2800"
+        ],
+        "d_changes_sign": true,
+        "elective_within_class": true,
+        "flat_surcharge": "0.0200",
+        "floor_multiples": [
+          200,
+          300,
+          2800
+        ],
+        "note": "0.5853 against a first tier of 0.5653, so the surcharge is 0.02 flat with no blocks. Three provinces now offer this and all three put the flat number strictly inside the first block's gap of 0.05: Anhui 0.020, Shanghai 0.024, Guangdong 0.037. None of them had to.",
+        "source": "Anhui's residential price table (Lu'an DRC) for the levels and the pooled rate, Xuancheng's explainer for the same numbers and the wording 每度提高2分钱但不执行阶梯分档, and the provincial multi-person notice for who may elect it",
+        "squares": [
+          {
+            "square": "0.0500",
+            "tier_high": 2,
+            "tier_low": 1
+          },
+          {
+            "square": "0.3000",
+            "tier_high": 3,
+            "tier_low": 1
+          },
+          {
+            "square": "0.2500",
+            "tier_high": 3,
+            "tier_low": 2
+          }
+        ],
+        "threshold_people": 7,
+        "tick": "0.0001"
+      },
+      "guangdong_seven": {
+        "bounds": [
+          260,
+          600
+        ],
+        "d_by_tier": [
+          "-0.0370",
+          "0.0130",
+          "0.2630"
+        ],
+        "d_changes_sign": true,
+        "elective_within_class": true,
+        "flat_surcharge": "0.0370",
+        "floor_multiples": [
+          37,
+          13,
+          263
+        ],
+        "note": "the pooled-meter rate is the residential rate raised by a flat 0.037 yuan on every kilowatt hour, with no blocks. A household of seven or more may elect it. Guangdong and Shanghai chose different flat numbers, 0.037 and 0.024, and both landed strictly inside the first block's gap of 0.05, which is what produces the crossing in each.",
+        "source": "粤价〔2012〕146号 for the flat surcharge, quoted by the provincial DRC's own price desk; 粤发改价格函〔2021〕826号 for who may elect it",
+        "squares": [
+          {
+            "square": "0.0500",
+            "tier_high": 2,
+            "tier_low": 1
+          },
+          {
+            "square": "0.3000",
+            "tier_high": 3,
+            "tier_low": 1
+          },
+          {
+            "square": "0.2500",
+            "tier_high": 3,
+            "tier_low": 2
+          }
+        ],
+        "threshold_people": 7,
+        "tick": "0.0010"
+      },
+      "jiangsu_seven": {
+        "bounds": [
+          230,
+          400
+        ],
+        "d_by_tier": [
+          "-0.0200",
+          "0.0300",
+          "0.2800"
+        ],
+        "d_changes_sign": true,
+        "elective_within_class": true,
+        "flat_surcharge": "0.0200",
+        "floor_multiples": [
+          200,
+          300,
+          2800
+        ],
+        "note": "人数满7人及以上的，也可选择申请执行居民合表电价（高于居民生活用电基本电价每度电2分钱），不执行阶梯式电价. Same flat number as Anhui's and the same clause shape as Shanghai's and Guangdong's: the household keeps its own meter and elects the pooled rate.",
+        "source": "the provincial DRC's reply to proposal 1164 of the 2021 provincial congress, quoting 苏发改价格发〔2021〕106号",
+        "squares": [
+          {
+            "square": "0.0500",
+            "tier_high": 2,
+            "tier_low": 1
+          },
+          {
+            "square": "0.3000",
+            "tier_high": 3,
+            "tier_low": 1
+          },
+          {
+            "square": "0.2500",
+            "tier_high": 3,
+            "tier_low": 2
+          }
+        ],
+        "threshold_people": 7,
+        "tick": "0.0001"
+      },
+      "shanghai_seven": {
+        "bounds": [
+          3120,
+          4800
+        ],
+        "d_by_tier": [
+          "-0.0240",
+          "0.0260",
+          "0.2760"
+        ],
+        "d_changes_sign": true,
+        "elective_within_class": true,
+        "flat_surcharge": "0.0240",
+        "floor_multiples": [
+          24,
+          26,
+          276
+        ],
+        "note": "the flat surcharge is printed to three decimals and the block increments to two, so the finer of the two published ticks governs. The option is elective within the class: a household of seven may take it or stay on the blocks, and one of four cannot take it at all.",
+        "source": "沪发改价管〔2012〕020号, quoted",
+        "squares": [
+          {
+            "square": "0.0500",
+            "tier_high": 2,
+            "tier_low": 1
+          },
+          {
+            "square": "0.3000",
+            "tier_high": 3,
+            "tier_low": 1
+          },
+          {
+            "square": "0.2500",
+            "tier_high": 3,
+            "tier_low": 2
+          }
+        ],
+        "threshold_people": 7,
+        "tick": "0.0010"
+      }
+    },
+    "independence": {
+      "independent_policies": [
+        "anhui",
+        "beijing",
+        "guangdong",
+        "hunan",
+        "shanghai",
+        "sichuan"
+      ],
+      "schedules_read": [
+        "anhui",
+        "beijing",
+        "guangdong_nonsummer",
+        "guangdong_summer",
+        "hunan_springautumn",
+        "hunan_wintersummer",
+        "shanghai",
+        "sichuan_five",
+        "sichuan_six",
+        "sichuan_summer_five"
+      ],
+      "why": "the two Guangdong seasons share one notice, one threshold and one shift; d depends on the increments and the shift alone, so the seasons are forced to the same numbers and are one reading"
+    },
+    "voltage": {
+      "anhui": {
+        "constant": true,
+        "gaps": [
+          "0.0150",
+          "0.0150",
+          "0.0150",
+          "0.0150"
+        ],
+        "rows": [
+          "tier 1",
+          "tier 2",
+          "tier 3",
+          "pooled rate"
+        ],
+        "source": "Anhui residential price table (Lu'an DRC) and Xuancheng's explainer, which print the same four rows at two voltages",
+        "squares": [
+          "0.0000",
+          "0.0000",
+          "0.0000"
+        ],
+        "tick": "0.0001"
+      },
+      "beijing": {
+        "constant": true,
+        "gaps": [
+          "0.0100",
+          "0.0100",
+          "0.0100"
+        ],
+        "rows": [
+          "tier 1",
+          "tier 2",
+          "tier 3"
+        ],
+        "source": "Beijing municipal retail price schedule, table 1",
+        "squares": [
+          "0.0000",
+          "0.0000"
+        ],
+        "tick": "0.0001"
+      }
+    }
+  },
+  "stage": "B102"
+}

@@ -1,0 +1,146 @@
+{
+ "config": {
+  "fixed_params": {
+   "a": 0.2,
+   "c": 0.5,
+   "l0": 0.3,
+   "l1": 0.1,
+   "q": 1.0
+  },
+  "fixed_periods": 5,
+  "fixed_rates": [
+   0.0,
+   0.02,
+   0.05,
+   0.1,
+   0.2
+  ],
+  "input_column_sums": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "joint_weight": [
+   0.0,
+   0.8
+  ],
+  "linear_floor": 1e-06,
+  "n_systems": 400,
+  "r_fractions": [
+   0.0,
+   0.1,
+   0.25,
+   0.5,
+   0.75
+  ],
+  "rate_grid": 200,
+  "rate_max": 3.0,
+  "seed": 0,
+  "sizes": [
+   2,
+   6
+  ],
+  "tol": 1e-12,
+  "tol_cycle": 1e-10,
+  "tol_rank": 1e-09
+ },
+ "criteria": [
+  {
+   "detail": "Steedman (1975), *Positive Profits with Negative Surplus Value*, Economic Journal 85(337), 114-123, p. 115. Two processes: `5` of commodity 1 and `1` labour give `6` of commodity 1 and `1` of commodity 2; `10` of commodity 2 and `1` labour give `3` of commodity 1 and `12` of commodity 2. **Ten published numbers are read back**, worst gap 0.000e+00: the labour values `(-1, 2)`; the activity levels `(5, 1)` for the net product `(8, 7)`; total labour `6`; the workers' bundle `(3, 5)` needing activity `(9, -2)` and so a variable capital of `7`; the capitalists' bundle `(5, 2)` needing activity `(-4, 3)` and so a surplus value of `-1`; and the same `-1` again as `L - V`. **The rate of profits comes out positive, 0.2000, with a positive price vector**, so the system has positive profits and a negative aggregate surplus value at the same time. The wage basket `(0.5, 5/6)` times the `6` units of labour is the workers' bundle exactly; the paper prints the second entry rounded to `0.83`",
+   "kind": "known_answer",
+   "name": "B70-5",
+   "passed": true,
+   "statement": "Steedman (1975): positive profits with a negative aggregate surplus value"
+  },
+  {
+   "detail": "400 random square joint production systems of 2 to 6 processes, at 5 rates each, 2000 points where the price system is solvable. **The sale leg returns the whole output bundle less the wage bill, and it equals `(1 + r)` times what the input bundle cost**, within 1e-10 at every point: the identity is algebraic and holds whatever the signs are. **Where both legs are positive the cycle sums are all equal to log(1 + r)**, within 1e-10, at 1969 of 1969 points. The remaining 31 points have a non-positive leg, which is joint production's own doing: a price can come out negative, and then the logarithmic form of the field is undefined on that edge while the identity still holds. **So Theorem 12(1) of B67 needs no single production; what it needs is that the legs be positive**",
+   "kind": "instrument",
+   "name": "B70-6a",
+   "passed": true,
+   "statement": "Theorem 15(1): equal cycle sums are the price equations under joint production too"
+  },
+  {
+   "detail": "400 random systems. **The drawn graph has three vertices and three edges per process plus the money vertices held at par, so `b1 = E - V + 1 = n`, one independent cycle per process**, on every system, and that number does not mention the commodity count at all. With `n = m` the matrix `B - A` has full rank on all 400 systems, which is the square assumption written as `b1 = m`. **Drop a process and the price vector is left undetermined on a subspace of dimension exactly `m - n = 1`**, on 326 of the systems large enough to test. **Add a process and the price equations have no exact solution**, on 326 of them, the smallest least-squares residual 2.415e+00. So the classical square system is the coincidence of two index sets, and the inequality methods are what one does when they come apart",
+   "kind": "instrument",
+   "name": "B70-6b",
+   "passed": true,
+   "statement": "Theorem 15(2): one independent cycle per process, whatever the commodity count"
+  },
+  {
+   "detail": "400 random systems, of which **153 have at least one negative labour value**. For every one of them, the activity vector that would deliver one net unit of that commodity and nothing else has a negative component, 153 of 153: **the unit is not a feasible net output, and the number called its value is the labour of an activity nobody can run.** In the other direction, 37 systems have a non-negative inverse `(B - A)^{-1}`, so every unit vector is a feasible net output, and **all their labour values are strictly positive**, 37 of 37. So the sign of a labour value under joint production is a statement about the cone of feasible net outputs, not about labour",
+   "kind": "instrument",
+   "name": "B70-6c",
+   "passed": true,
+   "statement": "Theorem 15(3): a negative labour value is a statement about the feasible cone"
+  },
+  {
+   "detail": "400 systems, each read twice: once with its own output matrix and once with the identity, which is the same inputs under single production. A rate is counted here when `l (B - (1+r)A)^{-1}` is positive in every component, which is what gives a positive wage and positive prices together; the probe is 200 points on `[0, 3]`. **Under single production every system has exactly one stretch and it begins at a zero rate**, 400 of 400. **Under joint production 52 of 400 systems have no such rate at all**, and the rest have one: 0 stretch on 52 systems, 1 stretch on 348 systems. So on these draws joint production does not multiply the rate, it destroys it: a system can be productive, with a positive net output available at non-negative activity levels, and still admit no rate of profit whatever at which every price and the wage are positive. **Several disjoint stretches are possible in the literature and did not occur in this sample; that is reported rather than claimed either way**",
+   "kind": "instrument",
+   "name": "B70-6d",
+   "passed": true,
+   "statement": "how many rates of profit carry a positive price vector"
+  },
+  {
+   "detail": "A machine of constant efficiency lasting 5 periods, written as joint production: commodity `0` is the good and commodity `k + 1` is a machine that has been used `k` times; one process builds a new machine and each of the others uses a machine of one age and returns it one period older, the last one scrapping it. **The machine's age is a position, exactly as the date is in B69's Corollary 14.2**, and the value of a part-worn machine is then a coordinate of the price field rather than an accounting convention. **At `r = 0` the schedule is exactly straight-line**, within 1e-10, because the price equations there make the fall in the machine's price the same number every period. **At every positive rate it is not**, and the departure grows with the rate: r = 0.02 gives 0.0119, r = 0.05 gives 0.0295, r = 0.1 gives 0.0578, r = 0.2 gives 0.1109. So straight-line depreciation is the zero-rate member of this family and nothing more",
+   "kind": "instrument",
+   "name": "B70-6e",
+   "passed": true,
+   "statement": "Corollary 15.1: fixed capital, and the depreciation schedule as a coordinate"
+  }
+ ],
+ "mapping": {
+  "B70-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B70-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B70-5": {
+   "positive_price_rates": 1,
+   "published_numbers": 10,
+   "within": 1e-10
+  },
+  "B70-6a": {
+   "points": 2000,
+   "readable": 1969,
+   "systems": 400,
+   "within": 1e-10
+  },
+  "B70-6b": {
+   "b1_matches": 400,
+   "overdetermined": 326,
+   "square_full_rank": 400,
+   "systems": 400,
+   "underdetermined": 326
+  },
+  "B70-6c": {
+   "all_positive": 37,
+   "cone_holds": 153,
+   "nonneg_inverse": 37,
+   "systems": 400,
+   "with_negative": 153
+  },
+  "B70-6d": {
+   "joint": 400,
+   "joint_no_stretch": 52,
+   "single": 400,
+   "single_from_zero": 400,
+   "single_one_stretch": 400,
+   "stretch_counts": {
+    "0": 52,
+    "1": 348
+   }
+  },
+  "B70-6e": {
+   "linear_floor": 1e-06,
+   "periods": 5,
+   "rates": [
+    0.0,
+    0.02,
+    0.05,
+    0.1,
+    0.2
+   ],
+   "within": 1e-10
+  }
+ },
+ "stage": "B70"
+}

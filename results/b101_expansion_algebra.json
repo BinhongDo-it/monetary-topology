@@ -1,0 +1,186 @@
+{
+  "config": {
+    "rounds": 55,
+    "seed": 101,
+    "seeds_swept": 8,
+    "tail": 15
+  },
+  "criteria": [
+    {
+      "detail": "thirds of the run, medians. Authority off: 66.09, 65.95, 65.95, a last-over-first of 0.998, and from round 10 onward a relative swing of 0.0043. Authority on: 99.21, 195.76, 295.26, last-over-first 2.98. Reading fixed in advance: a system with no issuance has no engine for the level, so its trend sits at one while the other does not. **The closed run falls during the first rounds as it settles out of its starting configuration and then holds; a first shape measured peak-to-trough over the whole run, read that settling as movement, and failed on it.** Nothing else in the module moves the level.",
+      "kind": "instrument",
+      "name": "X1  claim creation is the only engine of the level",
+      "passed": true
+    },
+    {
+      "detail": "the heaviest edge (0, 2) was tripled and the routing rebuilt: worst change 0.000e+00, identical True. The rebuild clips the adjacency into [0, 1], so a weight above one is the same edge as a weight of one. **Whatever 'thickening an edge' means in this module, it is not this**, and the two channels that do carry weight are the industry and broadcast fields.",
+      "kind": "instrument",
+      "name": "X2  thickening an edge in the adjacency changes no routing",
+      "passed": true
+    },
+    {
+      "detail": "Void: printed, not adjudicated, because no criterion was registered on it before the run. 16 cells, eight seeds by the authority on and off. Log correlation between the tail volume and the tail effective support is -0.966. The support ranges do not overlap across the two authority settings (22.43 to 26.85 off, 13.78 to 17.11 on) while the volume ranges do not overlap. **A contest of support sets is not the same contest as one of levels**, and how far apart they are is what this prints.",
+      "kind": "own_reading",
+      "name": "X3  the support set is a proxy for the level and not the level",
+      "passed": null,
+      "void": true
+    },
+    {
+      "detail": "it does not model expansion, test any theory of it, or make the two-graph catch-up reading. It records what the module does with the three inputs the question named, so the next session starts from measurements rather than from a chat transcript.",
+      "kind": "bookkeeping",
+      "name": "X4  what this driver does not do",
+      "passed": true
+    }
+  ],
+  "report": {
+    "level": {
+      "closed_first_round": 75.58456376033539,
+      "closed_settled_swing_from_round_10": 0.004296961511436878,
+      "closed_thirds": [
+        66.08849352330691,
+        65.95301845918709,
+        65.95244560236041
+      ],
+      "closed_trend": 0.9979414280203177,
+      "open_thirds": [
+        99.20949735448039,
+        195.75851168219634,
+        295.2588019119989
+      ],
+      "open_trend": 2.976114281246933,
+      "rounds": 55
+    },
+    "support_vs_level": {
+      "log_corr": -0.9660071796124937,
+      "rows": [
+        {
+          "rule": "none",
+          "seed": 0,
+          "support": 26.04936951341496,
+          "volume": 66.11602077867688
+        },
+        {
+          "rule": "endogenous",
+          "seed": 0,
+          "support": 15.90650175782622,
+          "volume": 315.6023409606567
+        },
+        {
+          "rule": "none",
+          "seed": 1,
+          "support": 24.42254402243148,
+          "volume": 65.97888328639861
+        },
+        {
+          "rule": "endogenous",
+          "seed": 1,
+          "support": 14.722685038779495,
+          "volume": 306.5509295031617
+        },
+        {
+          "rule": "none",
+          "seed": 2,
+          "support": 24.89196752848739,
+          "volume": 66.26688176955237
+        },
+        {
+          "rule": "endogenous",
+          "seed": 2,
+          "support": 15.593649954294428,
+          "volume": 311.86156558711565
+        },
+        {
+          "rule": "none",
+          "seed": 3,
+          "support": 26.85246594723401,
+          "volume": 65.99568969971885
+        },
+        {
+          "rule": "endogenous",
+          "seed": 3,
+          "support": 17.109431998716317,
+          "volume": 298.16404871127764
+        },
+        {
+          "rule": "none",
+          "seed": 4,
+          "support": 22.431667583274578,
+          "volume": 65.74881093369635
+        },
+        {
+          "rule": "endogenous",
+          "seed": 4,
+          "support": 13.775817560233035,
+          "volume": 308.0939436106954
+        },
+        {
+          "rule": "none",
+          "seed": 5,
+          "support": 23.057461707381268,
+          "volume": 65.8337185494886
+        },
+        {
+          "rule": "endogenous",
+          "seed": 5,
+          "support": 14.349777194004096,
+          "volume": 302.90876172315353
+        },
+        {
+          "rule": "none",
+          "seed": 6,
+          "support": 25.575571237438368,
+          "volume": 65.83936574390198
+        },
+        {
+          "rule": "endogenous",
+          "seed": 6,
+          "support": 15.820956117681726,
+          "volume": 314.6015102945518
+        },
+        {
+          "rule": "none",
+          "seed": 7,
+          "support": 26.06859031253096,
+          "volume": 65.82272545208957
+        },
+        {
+          "rule": "endogenous",
+          "seed": 7,
+          "support": 16.532156318007072,
+          "volume": 306.5517151886152
+        }
+      ],
+      "support_ranges": {
+        "authority_off": [
+          22.431667583274578,
+          26.85246594723401
+        ],
+        "authority_on": [
+          13.775817560233035,
+          17.109431998716317
+        ]
+      },
+      "support_ranges_overlap": false,
+      "volume_ranges": {
+        "authority_off": [
+          65.74881093369635,
+          66.26688176955237
+        ],
+        "authority_on": [
+          298.16404871127764,
+          315.6023409606567
+        ]
+      },
+      "volume_ranges_overlap": false
+    },
+    "thicken": {
+      "edge": [
+        0,
+        2
+      ],
+      "identical": true,
+      "worst": 0.0
+    }
+  },
+  "stage": "B101-X"
+}

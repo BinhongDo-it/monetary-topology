@@ -147,9 +147,19 @@ def pair_energy(values: np.ndarray) -> tuple[float, float]:
 
 
 def rank_within(values: np.ndarray) -> np.ndarray:
-    """Ranks, so a conclusion that survives does not depend on any band."""
+    """Ranks within one date, kept as an identity and not as evidence.
+
+    ``k`` currencies on one date always rank ``0`` to ``k - 1``, so
+    ``pair_energy`` on these ranks is ``(k*k - 1)/6`` whatever the values are.
+    It counts the currencies quoted and says nothing about the band; band
+    dependence is read from the band sweep. Amended 2026-09-11.
+    """
     order = np.argsort(np.argsort(values))
     return order.astype(float)
+
+
+def quarter_of(day: dt.date) -> tuple[int, int]:
+    return day.year, (day.month - 1) // 3 + 1
 
 
 def analyse(data: dict, band: float) -> dict:
@@ -159,7 +169,9 @@ def analyse(data: dict, band: float) -> dict:
     energy: dict = defaultdict(list)
     energy_rank: dict = defaultdict(list)
     worst_identity = 0.0
+    worst_rank_identity = 0.0
     per_date: dict = defaultdict(list)
+    per_tenor_quarter: dict = defaultdict(list)
     for (g, tenor, date), by_cur in dev.items():
         if len(by_cur) < 2:
             continue
@@ -171,8 +183,15 @@ def analyse(data: dict, band: float) -> dict:
                 worst_identity, abs(enum - var) / max(abs(var), 1e-12)
             )
             energy[(g, tenor)].append(enum)
-            energy_rank[(g, tenor)].append(pair_energy(rank_within(vals))[0])
-            per_date[(g, parse_date(date))].append(enum)
+            z_rank = pair_energy(rank_within(vals))[0]
+            energy_rank[(g, tenor)].append(z_rank)
+            k = vals.size
+            worst_rank_identity = max(
+                worst_rank_identity, abs(z_rank - (k * k - 1) / 6.0)
+            )
+            day = parse_date(date)
+            per_date[(g, day)].append(enum)
+            per_tenor_quarter[(g, tenor, quarter_of(day))].append(enum)
 
     # -- the noise floor, from two constructions of the same object --------
     #
@@ -215,6 +234,8 @@ def analyse(data: dict, band: float) -> dict:
         "energy_matched": {g: summarise(matched, g) for g in ("g10", "eme")},
         "floor": {g: summarise(floor, g) for g in ("g10", "eme")},
         "per_date": per_date,
+        "per_tenor_quarter": per_tenor_quarter,
+        "worst_rank_identity": worst_rank_identity,
     }
 
 
@@ -431,11 +452,33 @@ def main() -> int:
           f"ranges {min(ratios):.1f} to {max(ratios):.1f} against "
           f"{B3_3_FACTOR}")
 
+    # §6 registers B3-4 on quarters: each quarter pools its G10 date-tenor
+    # cells at equal weight. The first implementation read the nine tenors'
+    # full-sample averages instead; that reading is printed beside it.
+    pooled: dict = defaultdict(list)
+    for (g, day), zs in r["per_date"].items():
+        if g == "g10":
+            pooled[quarter_of(day)].extend(zs)
+    q_root = {q: float(np.sqrt(np.mean(v))) for q, v in sorted(pooled.items())}
+    q_over = [q for q, v in q_root.items() if v > B3_4_BP]
+    b3_4 = bool(q_root) and bool(len(q_over) / len(q_root) > B3_4_SHARE)
     over = [bool(np.sqrt(v) > B3_4_BP) for v in g10.values()]
-    b3_4 = bool(over) and bool(sum(over) / len(over) > B3_4_SHARE)
+    by_tenor = {}
+    for tenor in TENORS:
+        cells = {q: v for (g, t, q), v in r["per_tenor_quarter"].items()
+                 if g == "g10" and t == tenor}
+        if cells:
+            n_over = sum(bool(np.sqrt(np.mean(v)) > B3_4_BP) for v in cells.values())
+            by_tenor[tenor] = f"{n_over}/{len(cells)}"
+    at_or_below = [f"{y}Q{n} {v:.1f}" for (y, n), v in q_root.items()
+                   if v <= B3_4_BP]
     print(f"  B3-4  cross-currency cycles do not vanish in G10: "
-          f"{'pass' if b3_4 else 'FAIL'}, {sum(over)}/{len(over)} tenors above "
-          f"{B3_4_BP:.0f} bp")
+          f"{'pass' if b3_4 else 'FAIL'}, {len(q_over)}/{len(q_root)} quarters "
+          f"above {B3_4_BP:.0f} bp")
+    print(f"      quarters at or below: {', '.join(at_or_below) or 'none'}")
+    print(f"      by tenor, quarters above: "
+          f"{', '.join(f'{t} {s}' for t, s in by_tenor.items())}; "
+          f"full-sample average {sum(over)}/{len(over)} tenors")
 
     legs = leg_decomposition(data, args.band if not args.scan else BANDS[-1])
     lg = legs.get("g10", {})
@@ -485,12 +528,9 @@ def main() -> int:
           f"{min(cn_ratios):.1f} to {max(cn_ratios):.1f} against "
           f"{B3_3_FACTOR}" if cn_ratios else "  B3-8  void: no matched cells")
 
-    rk = r["energy_rank"].get("g10", {})
-    if rk:
-        print(f"      rank version, band-free by construction: sqrt Z on "
-              f"ranks {min(np.sqrt(list(rk.values()))):.2f} to "
-              f"{max(np.sqrt(list(rk.values()))):.2f} across tenors, "
-              f"non-zero everywhere the banded version is")
+    print(f"      rank version: equals (k^2 - 1)/6 on every cell, worst "
+          f"deviation {r['worst_rank_identity']:.1e}. It counts the currencies "
+          f"quoted and is not evidence about the band")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / "b3_cip_slice.json"
@@ -513,9 +553,17 @@ def main() -> int:
                 "leg_decomposition": legs,
                 "bands": {
                     str(b): {
-                        k: v for k, v in runs[b].items() if k != "per_date"
+                        k: v for k, v in runs[b].items()
+                        if k not in ("per_date", "per_tenor_quarter")
                     }
                     for b in runs
+                },
+                "b3_4_quarters": {
+                    "above": len(q_over),
+                    "n": len(q_root),
+                    "at_or_below": at_or_below,
+                    "by_tenor_quarters_above": by_tenor,
+                    "full_sample_tenors_above": f"{sum(over)}/{len(over)}",
                 },
                 "verdicts": {
                     "B3-1": b3_1, "B3-2": b3_2, "B3-3": b3_3,

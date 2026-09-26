@@ -1,0 +1,4483 @@
+{
+  "anomalies": [],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Counts only. No dispersion is computed and no criterion is scored. The bin semantics are read off the printed identities rather than assumed.",
+  "dispersion_computed": false,
+  "filter_path_problems": [],
+  "filters": [
+    {
+      "key": "total",
+      "label": null,
+      "path": "/games/tag-<slug>"
+    },
+    {
+      "key": "free",
+      "label": "Free",
+      "path": "/games/free/tag-<slug>"
+    },
+    {
+      "key": "paid",
+      "label": "Paid",
+      "path": "/games/store/tag-<slug>"
+    },
+    {
+      "key": "le5",
+      "label": "$5 or less",
+      "path": "/games/5-dollars-or-less/tag-<slug>"
+    },
+    {
+      "key": "le15",
+      "label": "$15 or less",
+      "path": "/games/15-dollars-or-less/tag-<slug>"
+    }
+  ],
+  "per_page": 36,
+  "station": "B30-4",
+  "tags": [
+    {
+      "counts": {
+        "free": 88092,
+        "le15": 4205,
+        "le5": 3366,
+        "paid": 4318,
+        "total": 92410
+      },
+      "derived": {
+        "bin_0_5": 3366,
+        "bin_15_up": 113,
+        "bin_5_15": 839,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -84726,
+        "monotone": true
+      },
+      "directory_count": 114000,
+      "name": "Horror",
+      "slug": "horror",
+      "titles": {
+        "free": "Top free games tagged Horror - itch.io",
+        "le15": "Top games $15 or less tagged Horror - itch.io",
+        "le5": "Top games $5 or less tagged Horror - itch.io",
+        "paid": "Top paid games tagged Horror - itch.io",
+        "total": "Top games tagged Horror - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 83134,
+        "le15": 3719,
+        "le5": 3168,
+        "paid": 3799,
+        "total": 86932
+      },
+      "derived": {
+        "bin_0_5": 3168,
+        "bin_15_up": 80,
+        "bin_5_15": 551,
+        "free_plus_paid_minus_total": 1,
+        "le5_minus_free": -79966,
+        "monotone": true
+      },
+      "directory_count": 89400,
+      "name": "Arcade",
+      "slug": "arcade",
+      "titles": {
+        "free": "Top free games tagged Arcade - itch.io",
+        "le15": "Top games $15 or less tagged Arcade - itch.io",
+        "le5": "Top games $5 or less tagged Arcade - itch.io",
+        "paid": "Top paid games tagged Arcade - itch.io",
+        "total": "Top games tagged Arcade - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 78930,
+        "le15": 2420,
+        "le5": 1978,
+        "paid": 2526,
+        "total": 81457
+      },
+      "derived": {
+        "bin_0_5": 1978,
+        "bin_15_up": 106,
+        "bin_5_15": 442,
+        "free_plus_paid_minus_total": -1,
+        "le5_minus_free": -76952,
+        "monotone": true
+      },
+      "directory_count": 85600,
+      "name": "Survival",
+      "slug": "survival",
+      "titles": {
+        "free": "Top free Survival games - itch.io",
+        "le15": "Top Survival games $15 or less - itch.io",
+        "le5": "Top Survival games $5 or less - itch.io",
+        "paid": "Top paid Survival games - itch.io",
+        "total": "Top Survival games - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 37404,
+        "le15": 2259,
+        "le5": 1491,
+        "paid": 2444,
+        "total": 39848
+      },
+      "derived": {
+        "bin_0_5": 1491,
+        "bin_15_up": 185,
+        "bin_5_15": 768,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -35913,
+        "monotone": true
+      },
+      "directory_count": 76100,
+      "name": "Fantasy",
+      "slug": "fantasy",
+      "titles": {
+        "free": "Top free games tagged Fantasy - itch.io",
+        "le15": "Top games $15 or less tagged Fantasy - itch.io",
+        "le5": "Top games $5 or less tagged Fantasy - itch.io",
+        "paid": "Top paid games tagged Fantasy - itch.io",
+        "total": "Top games tagged Fantasy - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 65875,
+        "le15": 3349,
+        "le5": 2855,
+        "paid": 3454,
+        "total": 69328
+      },
+      "derived": {
+        "bin_0_5": 2855,
+        "bin_15_up": 105,
+        "bin_5_15": 494,
+        "free_plus_paid_minus_total": 1,
+        "le5_minus_free": -63020,
+        "monotone": true
+      },
+      "directory_count": 73300,
+      "name": "Casual",
+      "slug": "casual",
+      "titles": {
+        "free": "Top free games tagged Casual - itch.io",
+        "le15": "Top games $15 or less tagged Casual - itch.io",
+        "le5": "Top games $5 or less tagged Casual - itch.io",
+        "paid": "Top paid games tagged Casual - itch.io",
+        "total": "Top games tagged Casual - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 41795,
+        "le15": 1114,
+        "le5": 828,
+        "paid": 1185,
+        "total": 44967
+      },
+      "derived": {
+        "bin_0_5": 828,
+        "bin_15_up": 71,
+        "bin_5_15": 286,
+        "free_plus_paid_minus_total": -1987,
+        "le5_minus_free": -40967,
+        "monotone": true
+      },
+      "directory_count": 46400,
+      "name": "Interactive Fiction",
+      "slug": "interactive-fiction",
+      "titles": {
+        "free": "Top free Interactive Fiction games - itch.io",
+        "le15": "Top Interactive Fiction games $15 or less - itch.io",
+        "le5": "Top Interactive Fiction games $5 or less - itch.io",
+        "paid": "Top paid Interactive Fiction games - itch.io",
+        "total": "Top Interactive Fiction games - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 37068,
+        "le15": 1331,
+        "le5": 1065,
+        "paid": 1393,
+        "total": 38460
+      },
+      "derived": {
+        "bin_0_5": 1065,
+        "bin_15_up": 62,
+        "bin_5_15": 266,
+        "free_plus_paid_minus_total": 1,
+        "le5_minus_free": -36003,
+        "monotone": true
+      },
+      "directory_count": 43000,
+      "name": "Space",
+      "slug": "space",
+      "titles": {
+        "free": "Top free games tagged Space - itch.io",
+        "le15": "Top games $15 or less tagged Space - itch.io",
+        "le5": "Top games $5 or less tagged Space - itch.io",
+        "paid": "Top paid games tagged Space - itch.io",
+        "total": "Top games tagged Space - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 24227,
+        "le15": 1469,
+        "le5": 1003,
+        "paid": 1562,
+        "total": 25789
+      },
+      "derived": {
+        "bin_0_5": 1003,
+        "bin_15_up": 93,
+        "bin_5_15": 466,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -23224,
+        "monotone": true
+      },
+      "directory_count": 39900,
+      "name": "Sci-fi",
+      "slug": "science-fiction",
+      "titles": {
+        "free": "Top free games tagged Sci-fi - itch.io",
+        "le15": "Top games $15 or less tagged Sci-fi - itch.io",
+        "le5": "Top games $5 or less tagged Sci-fi - itch.io",
+        "paid": "Top paid games tagged Sci-fi - itch.io",
+        "total": "Top games tagged Sci-fi - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 13748,
+        "le15": 575,
+        "le5": 451,
+        "paid": 618,
+        "total": 14366
+      },
+      "derived": {
+        "bin_0_5": 451,
+        "bin_15_up": 43,
+        "bin_5_15": 124,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13297,
+        "monotone": true
+      },
+      "directory_count": 30400,
+      "name": "Music",
+      "slug": "music",
+      "titles": {
+        "free": "Top free games tagged Music - itch.io",
+        "le15": "Top games $15 or less tagged Music - itch.io",
+        "le5": "Top games $5 or less tagged Music - itch.io",
+        "paid": "Top paid games tagged Music - itch.io",
+        "total": "Top games tagged Music - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 24745,
+        "le15": 1056,
+        "le5": 712,
+        "paid": 1105,
+        "total": 25849
+      },
+      "derived": {
+        "bin_0_5": 712,
+        "bin_15_up": 49,
+        "bin_5_15": 344,
+        "free_plus_paid_minus_total": 1,
+        "le5_minus_free": -24033,
+        "monotone": true
+      },
+      "directory_count": 27900,
+      "name": "Roguelike",
+      "slug": "roguelike",
+      "titles": {
+        "free": "Top free games tagged Roguelike - itch.io",
+        "le15": "Top games $15 or less tagged Roguelike - itch.io",
+        "le5": "Top games $5 or less tagged Roguelike - itch.io",
+        "paid": "Top paid games tagged Roguelike - itch.io",
+        "total": "Top games tagged Roguelike - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 22966,
+        "le15": 641,
+        "le5": 500,
+        "paid": 687,
+        "total": 23653
+      },
+      "derived": {
+        "bin_0_5": 500,
+        "bin_15_up": 46,
+        "bin_5_15": 141,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -22466,
+        "monotone": true
+      },
+      "directory_count": 25000,
+      "name": "Fighting",
+      "slug": "fighting",
+      "titles": {
+        "free": "Top free Fighting games - itch.io",
+        "le15": "Top Fighting games $15 or less - itch.io",
+        "le5": "Top Fighting games $5 or less - itch.io",
+        "paid": "Top paid Fighting games - itch.io",
+        "total": "Top Fighting games - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 21046,
+        "le15": 1228,
+        "le5": 804,
+        "paid": 1305,
+        "total": 22351
+      },
+      "derived": {
+        "bin_0_5": 804,
+        "bin_15_up": 77,
+        "bin_5_15": 424,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -20242,
+        "monotone": true
+      },
+      "directory_count": 24800,
+      "name": "Exploration",
+      "slug": "exploration",
+      "titles": {
+        "free": "Top free games tagged Exploration - itch.io",
+        "le15": "Top games $15 or less tagged Exploration - itch.io",
+        "le5": "Top games $5 or less tagged Exploration - itch.io",
+        "paid": "Top paid games tagged Exploration - itch.io",
+        "total": "Top games tagged Exploration - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 18176,
+        "le15": 612,
+        "le5": 471,
+        "paid": 650,
+        "total": 18826
+      },
+      "derived": {
+        "bin_0_5": 471,
+        "bin_15_up": 38,
+        "bin_5_15": 141,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -17705,
+        "monotone": true
+      },
+      "directory_count": 24400,
+      "name": "Card Game",
+      "slug": "card-game",
+      "titles": {
+        "free": "Top free Card Game games - itch.io",
+        "le15": "Top Card Game games $15 or less - itch.io",
+        "le5": "Top Card Game games $5 or less - itch.io",
+        "paid": "Top paid Card Game games - itch.io",
+        "total": "Top Card Game games - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 22391,
+        "le15": 782,
+        "le5": 650,
+        "paid": 827,
+        "total": 23218
+      },
+      "derived": {
+        "bin_0_5": 650,
+        "bin_15_up": 45,
+        "bin_5_15": 132,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -21741,
+        "monotone": true
+      },
+      "directory_count": 24300,
+      "name": "Racing",
+      "slug": "racing",
+      "titles": {
+        "free": "Top free Racing games - itch.io",
+        "le15": "Top Racing games $15 or less - itch.io",
+        "le5": "Top Racing games $5 or less - itch.io",
+        "paid": "Top paid Racing games - itch.io",
+        "total": "Top Racing games - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 17106,
+        "le15": 1410,
+        "le5": 1162,
+        "paid": 1448,
+        "total": 18555
+      },
+      "derived": {
+        "bin_0_5": 1162,
+        "bin_15_up": 38,
+        "bin_5_15": 248,
+        "free_plus_paid_minus_total": -1,
+        "le5_minus_free": -15944,
+        "monotone": true
+      },
+      "directory_count": 21500,
+      "name": "Psychological Horror",
+      "slug": "psychological-horror",
+      "titles": {
+        "free": "Top free games tagged Psychological Horror - itch.io",
+        "le15": "Top games $15 or less tagged Psychological Horror - itch.io",
+        "le5": "Top games $5 or less tagged Psychological Horror - itch.io",
+        "paid": "Top paid games tagged Psychological Horror - itch.io",
+        "total": "Top games tagged Psychological Horror - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 18468,
+        "le15": 861,
+        "le5": 585,
+        "paid": 901,
+        "total": 19368
+      },
+      "derived": {
+        "bin_0_5": 585,
+        "bin_15_up": 40,
+        "bin_5_15": 276,
+        "free_plus_paid_minus_total": 1,
+        "le5_minus_free": -17883,
+        "monotone": true
+      },
+      "directory_count": 20400,
+      "name": "Point & Click",
+      "slug": "point-and-click",
+      "titles": {
+        "free": "Top free games tagged Point & Click - itch.io",
+        "le15": "Top games $15 or less tagged Point & Click - itch.io",
+        "le5": "Top games $5 or less tagged Point & Click - itch.io",
+        "paid": "Top paid games tagged Point & Click - itch.io",
+        "total": "Top games tagged Point & Click - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 19245,
+        "le15": 504,
+        "le5": 403,
+        "paid": 515,
+        "total": 19760
+      },
+      "derived": {
+        "bin_0_5": 403,
+        "bin_15_up": 11,
+        "bin_5_15": 101,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -18842,
+        "monotone": true
+      },
+      "directory_count": 20400,
+      "name": "Top down shooter",
+      "slug": "top-down-shooter",
+      "titles": {
+        "free": "Top free games tagged Top down shooter - itch.io",
+        "le15": "Top games $15 or less tagged Top down shooter - itch.io",
+        "le5": "Top games $5 or less tagged Top down shooter - itch.io",
+        "paid": "Top paid games tagged Top down shooter - itch.io",
+        "total": "Top games tagged Top down shooter - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 14654,
+        "le15": 1052,
+        "le5": 697,
+        "paid": 1124,
+        "total": 15778
+      },
+      "derived": {
+        "bin_0_5": 697,
+        "bin_15_up": 72,
+        "bin_5_15": 355,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13957,
+        "monotone": true
+      },
+      "directory_count": 19400,
+      "name": "Mystery",
+      "slug": "mystery",
+      "titles": {
+        "free": "Top free games tagged Mystery - itch.io",
+        "le15": "Top games $15 or less tagged Mystery - itch.io",
+        "le5": "Top games $5 or less tagged Mystery - itch.io",
+        "paid": "Top paid games tagged Mystery - itch.io",
+        "total": "Top games tagged Mystery - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 18235,
+        "le15": 323,
+        "le5": 247,
+        "paid": 344,
+        "total": 18579
+      },
+      "derived": {
+        "bin_0_5": 247,
+        "bin_15_up": 21,
+        "bin_5_15": 76,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -17988,
+        "monotone": true
+      },
+      "directory_count": 19400,
+      "name": "Rhythm",
+      "slug": "rhythm",
+      "titles": {
+        "free": "Top free Rhythm games - itch.io",
+        "le15": "Top Rhythm games $15 or less - itch.io",
+        "le5": "Top Rhythm games $5 or less - itch.io",
+        "paid": "Top paid Rhythm games - itch.io",
+        "total": "Top Rhythm games - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 13875,
+        "le15": 428,
+        "le5": 337,
+        "paid": 443,
+        "total": 14318
+      },
+      "derived": {
+        "bin_0_5": 337,
+        "bin_15_up": 15,
+        "bin_5_15": 91,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13538,
+        "monotone": true
+      },
+      "directory_count": 16600,
+      "name": "Text based",
+      "slug": "text-based",
+      "titles": {
+        "free": "Top free games tagged Text based - itch.io",
+        "le15": "Top games $15 or less tagged Text based - itch.io",
+        "le5": "Top games $5 or less tagged Text based - itch.io",
+        "paid": "Top paid games tagged Text based - itch.io",
+        "total": "Top games tagged Text based - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 12799,
+        "le15": 934,
+        "le5": 740,
+        "paid": 950,
+        "total": 13749
+      },
+      "derived": {
+        "bin_0_5": 740,
+        "bin_15_up": 16,
+        "bin_5_15": 194,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -12059,
+        "monotone": true
+      },
+      "directory_count": 16100,
+      "name": "Survival Horror",
+      "slug": "survival-horror",
+      "titles": {
+        "free": "Top free games tagged Survival Horror - itch.io",
+        "le15": "Top games $15 or less tagged Survival Horror - itch.io",
+        "le5": "Top games $5 or less tagged Survival Horror - itch.io",
+        "paid": "Top paid games tagged Survival Horror - itch.io",
+        "total": "Top games tagged Survival Horror - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 15149,
+        "le15": 609,
+        "le5": 461,
+        "paid": 634,
+        "total": 15783
+      },
+      "derived": {
+        "bin_0_5": 461,
+        "bin_15_up": 25,
+        "bin_5_15": 148,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -14688,
+        "monotone": true
+      },
+      "directory_count": 16000,
+      "name": "Puzzle-Platformer",
+      "slug": "puzzle-platformer",
+      "titles": {
+        "free": "Top free games tagged Puzzle-Platformer - itch.io",
+        "le15": "Top games $15 or less tagged Puzzle-Platformer - itch.io",
+        "le5": "Top games $5 or less tagged Puzzle-Platformer - itch.io",
+        "paid": "Top paid games tagged Puzzle-Platformer - itch.io",
+        "total": "Top games tagged Puzzle-Platformer - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 11394,
+        "le15": 855,
+        "le5": 476,
+        "paid": 946,
+        "total": 12340
+      },
+      "derived": {
+        "bin_0_5": 476,
+        "bin_15_up": 91,
+        "bin_5_15": 379,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -10918,
+        "monotone": true
+      },
+      "directory_count": 15900,
+      "name": "Female Protagonist",
+      "slug": "female-protagonist",
+      "titles": {
+        "free": "Top free games tagged Female Protagonist - itch.io",
+        "le15": "Top games $15 or less tagged Female Protagonist - itch.io",
+        "le5": "Top games $5 or less tagged Female Protagonist - itch.io",
+        "paid": "Top paid games tagged Female Protagonist - itch.io",
+        "total": "Top games tagged Female Protagonist - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 9188,
+        "le15": 645,
+        "le5": 340,
+        "paid": 730,
+        "total": 9918
+      },
+      "derived": {
+        "bin_0_5": 340,
+        "bin_15_up": 85,
+        "bin_5_15": 305,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -8848,
+        "monotone": true
+      },
+      "directory_count": 15900,
+      "name": "Romance",
+      "slug": "romance",
+      "titles": {
+        "free": "Top free games tagged Romance - itch.io",
+        "le15": "Top games $15 or less tagged Romance - itch.io",
+        "le5": "Top games $5 or less tagged Romance - itch.io",
+        "paid": "Top paid games tagged Romance - itch.io",
+        "total": "Top games tagged Romance - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 14134,
+        "le15": 875,
+        "le5": 663,
+        "paid": 887,
+        "total": 15021
+      },
+      "derived": {
+        "bin_0_5": 663,
+        "bin_15_up": 12,
+        "bin_5_15": 212,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13471,
+        "monotone": true
+      },
+      "directory_count": 15600,
+      "name": "Shoot 'Em Up",
+      "slug": "shoot-em-up",
+      "titles": {
+        "free": "Top free games tagged Shoot 'Em Up - itch.io",
+        "le15": "Top games $15 or less tagged Shoot 'Em Up - itch.io",
+        "le5": "Top games $5 or less tagged Shoot 'Em Up - itch.io",
+        "paid": "Top paid games tagged Shoot 'Em Up - itch.io",
+        "total": "Top games tagged Shoot 'Em Up - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 13424,
+        "le15": 579,
+        "le5": 431,
+        "paid": 617,
+        "total": 14041
+      },
+      "derived": {
+        "bin_0_5": 431,
+        "bin_15_up": 38,
+        "bin_5_15": 148,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -12993,
+        "monotone": true
+      },
+      "directory_count": 15400,
+      "name": "FPS",
+      "slug": "fps",
+      "titles": {
+        "free": "Top free games tagged FPS - itch.io",
+        "le15": "Top games $15 or less tagged FPS - itch.io",
+        "le5": "Top games $5 or less tagged FPS - itch.io",
+        "paid": "Top paid games tagged FPS - itch.io",
+        "total": "Top games tagged FPS - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 14096,
+        "le15": 502,
+        "le5": 383,
+        "paid": 515,
+        "total": 14611
+      },
+      "derived": {
+        "bin_0_5": 383,
+        "bin_15_up": 13,
+        "bin_5_15": 119,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13713,
+        "monotone": true
+      },
+      "directory_count": 14800,
+      "name": "Bullet Hell",
+      "slug": "bullet-hell",
+      "titles": {
+        "free": "Top free games tagged Bullet Hell - itch.io",
+        "le15": "Top games $15 or less tagged Bullet Hell - itch.io",
+        "le5": "Top games $5 or less tagged Bullet Hell - itch.io",
+        "paid": "Top paid games tagged Bullet Hell - itch.io",
+        "total": "Top games tagged Bullet Hell - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 11451,
+        "le15": 989,
+        "le5": 702,
+        "paid": 1041,
+        "total": 12492
+      },
+      "derived": {
+        "bin_0_5": 702,
+        "bin_15_up": 52,
+        "bin_5_15": 287,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -10749,
+        "monotone": true
+      },
+      "directory_count": 14600,
+      "name": "Action-Adventure",
+      "slug": "action-adventure",
+      "titles": {
+        "free": "Top free games tagged Action-Adventure - itch.io",
+        "le15": "Top games $15 or less tagged Action-Adventure - itch.io",
+        "le5": "Top games $5 or less tagged Action-Adventure - itch.io",
+        "paid": "Top paid games tagged Action-Adventure - itch.io",
+        "total": "Top games tagged Action-Adventure - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 13751,
+        "le15": 361,
+        "le5": 281,
+        "paid": 370,
+        "total": 14121
+      },
+      "derived": {
+        "bin_0_5": 281,
+        "bin_15_up": 9,
+        "bin_5_15": 80,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13470,
+        "monotone": true
+      },
+      "directory_count": 14600,
+      "name": "Tower Defense",
+      "slug": "tower-defense",
+      "titles": {
+        "free": "Top free games tagged Tower Defense - itch.io",
+        "le15": "Top games $15 or less tagged Tower Defense - itch.io",
+        "le5": "Top games $5 or less tagged Tower Defense - itch.io",
+        "paid": "Top paid games tagged Tower Defense - itch.io",
+        "total": "Top games tagged Tower Defense - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 13443,
+        "le15": 410,
+        "le5": 378,
+        "paid": 420,
+        "total": 13863
+      },
+      "derived": {
+        "bin_0_5": 378,
+        "bin_15_up": 10,
+        "bin_5_15": 32,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -13065,
+        "monotone": true
+      },
+      "directory_count": 14400,
+      "name": "Clicker",
+      "slug": "clicker",
+      "titles": {
+        "free": "Top free games tagged Clicker - itch.io",
+        "le15": "Top games $15 or less tagged Clicker - itch.io",
+        "le5": "Top games $5 or less tagged Clicker - itch.io",
+        "paid": "Top paid games tagged Clicker - itch.io",
+        "total": "Top games tagged Clicker - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 9332,
+        "le15": 517,
+        "le5": 339,
+        "paid": 549,
+        "total": 9999
+      },
+      "derived": {
+        "bin_0_5": 339,
+        "bin_15_up": 32,
+        "bin_5_15": 178,
+        "free_plus_paid_minus_total": -118,
+        "le5_minus_free": -8993,
+        "monotone": true
+      },
+      "directory_count": 14100,
+      "name": "Dungeon Crawler",
+      "slug": "dungeon-crawler",
+      "titles": {
+        "free": "Top free games tagged Dungeon Crawler - itch.io",
+        "le15": "Top games $15 or less tagged Dungeon Crawler - itch.io",
+        "le5": "Top games $5 or less tagged Dungeon Crawler - itch.io",
+        "paid": "Top paid games tagged Dungeon Crawler - itch.io",
+        "total": "Top games tagged Dungeon Crawler - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 6422,
+        "le15": 465,
+        "le5": 226,
+        "paid": 515,
+        "total": 8431
+      },
+      "derived": {
+        "bin_0_5": 226,
+        "bin_15_up": 50,
+        "bin_5_15": 239,
+        "free_plus_paid_minus_total": -1494,
+        "le5_minus_free": -6196,
+        "monotone": true
+      },
+      "directory_count": 13000,
+      "name": "LGBT",
+      "slug": "lgbt",
+      "titles": {
+        "free": "Top free games tagged LGBT - itch.io",
+        "le15": "Top games $15 or less tagged LGBT - itch.io",
+        "le5": "Top games $5 or less tagged LGBT - itch.io",
+        "paid": "Top paid games tagged LGBT - itch.io",
+        "total": "Top games tagged LGBT - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 11523,
+        "le15": 391,
+        "le5": 305,
+        "paid": 410,
+        "total": 11933
+      },
+      "derived": {
+        "bin_0_5": 305,
+        "bin_15_up": 19,
+        "bin_5_15": 86,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -11218,
+        "monotone": true
+      },
+      "directory_count": 12300,
+      "name": "3D Platformer",
+      "slug": "3d-platformer",
+      "titles": {
+        "free": "Top free games tagged 3D Platformer - itch.io",
+        "le15": "Top games $15 or less tagged 3D Platformer - itch.io",
+        "le5": "Top games $5 or less tagged 3D Platformer - itch.io",
+        "paid": "Top paid games tagged 3D Platformer - itch.io",
+        "total": "Top games tagged 3D Platformer - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 10883,
+        "le15": 590,
+        "le5": 401,
+        "paid": 617,
+        "total": 11500
+      },
+      "derived": {
+        "bin_0_5": 401,
+        "bin_15_up": 27,
+        "bin_5_15": 189,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -10482,
+        "monotone": true
+      },
+      "directory_count": 12000,
+      "name": "Roguelite",
+      "slug": "roguelite",
+      "titles": {
+        "free": "Top free games tagged Roguelite - itch.io",
+        "le15": "Top games $15 or less tagged Roguelite - itch.io",
+        "le5": "Top games $5 or less tagged Roguelite - itch.io",
+        "paid": "Top paid games tagged Roguelite - itch.io",
+        "total": "Top games tagged Roguelite - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 6328,
+        "le15": 295,
+        "le5": 195,
+        "paid": 315,
+        "total": 6643
+      },
+      "derived": {
+        "bin_0_5": 195,
+        "bin_15_up": 20,
+        "bin_5_15": 100,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -6133,
+        "monotone": true
+      },
+      "directory_count": 11600,
+      "name": "Medieval",
+      "slug": "medieval",
+      "titles": {
+        "free": "Top free games tagged Medieval - itch.io",
+        "le15": "Top games $15 or less tagged Medieval - itch.io",
+        "le5": "Top games $5 or less tagged Medieval - itch.io",
+        "paid": "Top paid games tagged Medieval - itch.io",
+        "total": "Top games tagged Medieval - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 9676,
+        "le15": 531,
+        "le5": 442,
+        "paid": 547,
+        "total": 10409
+      },
+      "derived": {
+        "bin_0_5": 442,
+        "bin_15_up": 16,
+        "bin_5_15": 89,
+        "free_plus_paid_minus_total": -186,
+        "le5_minus_free": -9234,
+        "monotone": true
+      },
+      "directory_count": 11600,
+      "name": "Zombies",
+      "slug": "zombies",
+      "titles": {
+        "free": "Top free games tagged Zombies - itch.io",
+        "le15": "Top games $15 or less tagged Zombies - itch.io",
+        "le5": "Top games $5 or less tagged Zombies - itch.io",
+        "paid": "Top paid games tagged Zombies - itch.io",
+        "total": "Top games tagged Zombies - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 10217,
+        "le15": 399,
+        "le5": 332,
+        "paid": 425,
+        "total": 10642
+      },
+      "derived": {
+        "bin_0_5": 332,
+        "bin_15_up": 26,
+        "bin_5_15": 67,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -9885,
+        "monotone": true
+      },
+      "directory_count": 11500,
+      "name": "minigames",
+      "slug": "minigames",
+      "titles": {
+        "free": "Top free games tagged minigames - itch.io",
+        "le15": "Top games $15 or less tagged minigames - itch.io",
+        "le5": "Top games $5 or less tagged minigames - itch.io",
+        "paid": "Top paid games tagged minigames - itch.io",
+        "total": "Top games tagged minigames - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 10370,
+        "le15": 330,
+        "le5": 293,
+        "paid": 341,
+        "total": 10711
+      },
+      "derived": {
+        "bin_0_5": 293,
+        "bin_15_up": 11,
+        "bin_5_15": 37,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -10077,
+        "monotone": true
+      },
+      "directory_count": 10900,
+      "name": "Runner",
+      "slug": "runner",
+      "titles": {
+        "free": "Top free games tagged Runner - itch.io",
+        "le15": "Top games $15 or less tagged Runner - itch.io",
+        "le5": "Top games $5 or less tagged Runner - itch.io",
+        "paid": "Top paid games tagged Runner - itch.io",
+        "total": "Top games tagged Runner - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 8971,
+        "le15": 442,
+        "le5": 343,
+        "paid": 455,
+        "total": 9426
+      },
+      "derived": {
+        "bin_0_5": 343,
+        "bin_15_up": 13,
+        "bin_5_15": 99,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -8628,
+        "monotone": true
+      },
+      "directory_count": 9784,
+      "name": "Walking simulator",
+      "slug": "walking-simulator",
+      "titles": {
+        "free": "Top free games tagged Walking simulator - itch.io",
+        "le15": "Top games $15 or less tagged Walking simulator - itch.io",
+        "le5": "Top games $5 or less tagged Walking simulator - itch.io",
+        "paid": "Top paid games tagged Walking simulator - itch.io",
+        "total": "Top games tagged Walking simulator - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3835,
+        "le15": 278,
+        "le5": 172,
+        "paid": 318,
+        "total": 4153
+      },
+      "derived": {
+        "bin_0_5": 172,
+        "bin_15_up": 40,
+        "bin_5_15": 106,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3663,
+        "monotone": true
+      },
+      "directory_count": 9462,
+      "name": "Dark Fantasy",
+      "slug": "dark-fantasy",
+      "titles": {
+        "free": "Top free games tagged Dark Fantasy - itch.io",
+        "le15": "Top games $15 or less tagged Dark Fantasy - itch.io",
+        "le5": "Top games $5 or less tagged Dark Fantasy - itch.io",
+        "paid": "Top paid games tagged Dark Fantasy - itch.io",
+        "total": "Top games tagged Dark Fantasy - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 5023,
+        "le15": 293,
+        "le5": 189,
+        "paid": 323,
+        "total": 5346
+      },
+      "derived": {
+        "bin_0_5": 189,
+        "bin_15_up": 30,
+        "bin_5_15": 104,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4834,
+        "monotone": true
+      },
+      "directory_count": 9459,
+      "name": "Cyberpunk",
+      "slug": "cyberpunk",
+      "titles": {
+        "free": "Top free games tagged Cyberpunk - itch.io",
+        "le15": "Top games $15 or less tagged Cyberpunk - itch.io",
+        "le5": "Top games $5 or less tagged Cyberpunk - itch.io",
+        "paid": "Top paid games tagged Cyberpunk - itch.io",
+        "total": "Top games tagged Cyberpunk - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 8424,
+        "le15": 412,
+        "le5": 355,
+        "paid": 422,
+        "total": 8846
+      },
+      "derived": {
+        "bin_0_5": 355,
+        "bin_15_up": 10,
+        "bin_5_15": 57,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -8069,
+        "monotone": true
+      },
+      "directory_count": 9374,
+      "name": "Idle",
+      "slug": "idle",
+      "titles": {
+        "free": "Top free games tagged Idle - itch.io",
+        "le15": "Top games $15 or less tagged Idle - itch.io",
+        "le5": "Top games $5 or less tagged Idle - itch.io",
+        "paid": "Top paid games tagged Idle - itch.io",
+        "total": "Top games tagged Idle - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 7463,
+        "le15": 294,
+        "le5": 239,
+        "paid": 305,
+        "total": 7768
+      },
+      "derived": {
+        "bin_0_5": 239,
+        "bin_15_up": 11,
+        "bin_5_15": 55,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -7224,
+        "monotone": true
+      },
+      "directory_count": 9020,
+      "name": "Boss battle",
+      "slug": "boss-battle",
+      "titles": {
+        "free": "Top free games tagged Boss battle - itch.io",
+        "le15": "Top games $15 or less tagged Boss battle - itch.io",
+        "le5": "Top games $5 or less tagged Boss battle - itch.io",
+        "paid": "Top paid games tagged Boss battle - itch.io",
+        "total": "Top games tagged Boss battle - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4359,
+        "le15": 366,
+        "le5": 296,
+        "paid": 384,
+        "total": 4743
+      },
+      "derived": {
+        "bin_0_5": 296,
+        "bin_15_up": 18,
+        "bin_5_15": 70,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4063,
+        "monotone": true
+      },
+      "directory_count": 8773,
+      "name": "Board Game",
+      "slug": "board-game",
+      "titles": {
+        "free": "Top free games tagged Board Game - itch.io",
+        "le15": "Top games $15 or less tagged Board Game - itch.io",
+        "le5": "Top games $5 or less tagged Board Game - itch.io",
+        "paid": "Top paid games tagged Board Game - itch.io",
+        "total": "Top games tagged Board Game - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 8278,
+        "le15": 259,
+        "le5": 208,
+        "paid": 264,
+        "total": 8542
+      },
+      "derived": {
+        "bin_0_5": 208,
+        "bin_15_up": 5,
+        "bin_5_15": 51,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -8070,
+        "monotone": true
+      },
+      "directory_count": 8643,
+      "name": "Speedrun",
+      "slug": "speedrun",
+      "titles": {
+        "free": "Top free games tagged Speedrun - itch.io",
+        "le15": "Top games $15 or less tagged Speedrun - itch.io",
+        "le5": "Top games $5 or less tagged Speedrun - itch.io",
+        "paid": "Top paid games tagged Speedrun - itch.io",
+        "total": "Top games tagged Speedrun - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 7137,
+        "le15": 395,
+        "le5": 245,
+        "paid": 435,
+        "total": 7572
+      },
+      "derived": {
+        "bin_0_5": 245,
+        "bin_15_up": 40,
+        "bin_5_15": 150,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -6892,
+        "monotone": true
+      },
+      "directory_count": 8220,
+      "name": "Management",
+      "slug": "management",
+      "titles": {
+        "free": "Top free games tagged Management - itch.io",
+        "le15": "Top games $15 or less tagged Management - itch.io",
+        "le5": "Top games $5 or less tagged Management - itch.io",
+        "paid": "Top paid games tagged Management - itch.io",
+        "total": "Top games tagged Management - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 7580,
+        "le15": 346,
+        "le5": 306,
+        "paid": 356,
+        "total": 7936
+      },
+      "derived": {
+        "bin_0_5": 306,
+        "bin_15_up": 10,
+        "bin_5_15": 40,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -7274,
+        "monotone": true
+      },
+      "directory_count": 8189,
+      "name": "maze",
+      "slug": "maze",
+      "titles": {
+        "free": "Top free games tagged maze - itch.io",
+        "le15": "Top games $15 or less tagged maze - itch.io",
+        "le5": "Top games $5 or less tagged maze - itch.io",
+        "paid": "Top paid games tagged maze - itch.io",
+        "total": "Top games tagged maze - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 6218,
+        "le15": 310,
+        "le5": 178,
+        "paid": 340,
+        "total": 6558
+      },
+      "derived": {
+        "bin_0_5": 178,
+        "bin_15_up": 30,
+        "bin_5_15": 132,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -6040,
+        "monotone": true
+      },
+      "directory_count": 7880,
+      "name": "Metroidvania",
+      "slug": "metroidvania",
+      "titles": {
+        "free": "Top free games tagged Metroidvania - itch.io",
+        "le15": "Top games $15 or less tagged Metroidvania - itch.io",
+        "le5": "Top games $5 or less tagged Metroidvania - itch.io",
+        "paid": "Top paid games tagged Metroidvania - itch.io",
+        "total": "Top games tagged Metroidvania - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 7372,
+        "le15": 153,
+        "le5": 145,
+        "paid": 156,
+        "total": 7528
+      },
+      "derived": {
+        "bin_0_5": 145,
+        "bin_15_up": 3,
+        "bin_5_15": 8,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -7227,
+        "monotone": true
+      },
+      "directory_count": 7622,
+      "name": "infinite-runner",
+      "slug": "infinite-runner",
+      "titles": {
+        "free": "Top free games tagged infinite-runner - itch.io",
+        "le15": "Top games $15 or less tagged infinite-runner - itch.io",
+        "le5": "Top games $5 or less tagged infinite-runner - itch.io",
+        "paid": "Top paid games tagged infinite-runner - itch.io",
+        "total": "Top games tagged infinite-runner - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3705,
+        "le15": 135,
+        "le5": 102,
+        "paid": 138,
+        "total": 3843
+      },
+      "derived": {
+        "bin_0_5": 102,
+        "bin_15_up": 3,
+        "bin_5_15": 33,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3603,
+        "monotone": true
+      },
+      "directory_count": 7614,
+      "name": "Dice",
+      "slug": "dice",
+      "titles": {
+        "free": "Top free games tagged Dice - itch.io",
+        "le15": "Top games $15 or less tagged Dice - itch.io",
+        "le5": "Top games $5 or less tagged Dice - itch.io",
+        "paid": "Top paid games tagged Dice - itch.io",
+        "total": "Top games tagged Dice - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 7128,
+        "le15": 166,
+        "le5": 111,
+        "paid": 181,
+        "total": 7309
+      },
+      "derived": {
+        "bin_0_5": 111,
+        "bin_15_up": 15,
+        "bin_5_15": 55,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -7017,
+        "monotone": true
+      },
+      "directory_count": 7613,
+      "name": "Stealth",
+      "slug": "stealth",
+      "titles": {
+        "free": "Top free games tagged Stealth - itch.io",
+        "le15": "Top games $15 or less tagged Stealth - itch.io",
+        "le5": "Top games $5 or less tagged Stealth - itch.io",
+        "paid": "Top paid games tagged Stealth - itch.io",
+        "total": "Top games tagged Stealth - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4915,
+        "le15": 293,
+        "le5": 136,
+        "paid": 355,
+        "total": 5270
+      },
+      "derived": {
+        "bin_0_5": 136,
+        "bin_15_up": 62,
+        "bin_5_15": 157,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4779,
+        "monotone": true
+      },
+      "directory_count": 7246,
+      "name": "Dating Sim",
+      "slug": "dating-sim",
+      "titles": {
+        "free": "Top free games tagged Dating Sim - itch.io",
+        "le15": "Top games $15 or less tagged Dating Sim - itch.io",
+        "le5": "Top games $5 or less tagged Dating Sim - itch.io",
+        "paid": "Top paid games tagged Dating Sim - itch.io",
+        "total": "Top games tagged Dating Sim - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4760,
+        "le15": 192,
+        "le5": 112,
+        "paid": 208,
+        "total": 3377
+      },
+      "derived": {
+        "bin_0_5": 112,
+        "bin_15_up": 16,
+        "bin_5_15": 80,
+        "free_plus_paid_minus_total": 1591,
+        "le5_minus_free": -4648,
+        "monotone": true
+      },
+      "directory_count": 7066,
+      "name": "Furry",
+      "slug": "furry",
+      "titles": {
+        "free": "Top free games tagged Furry - itch.io",
+        "le15": "Top games $15 or less tagged Furry - itch.io",
+        "le5": "Top games $5 or less tagged Furry - itch.io",
+        "paid": "Top paid games tagged Furry - itch.io",
+        "total": "Top games tagged Furry - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4824,
+        "le15": 423,
+        "le5": 283,
+        "paid": 463,
+        "total": 5287
+      },
+      "derived": {
+        "bin_0_5": 283,
+        "bin_15_up": 40,
+        "bin_5_15": 140,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4541,
+        "monotone": true
+      },
+      "directory_count": 6954,
+      "name": "Action RPG",
+      "slug": "action-rpg",
+      "titles": {
+        "free": "Top free games tagged Action RPG - itch.io",
+        "le15": "Top games $15 or less tagged Action RPG - itch.io",
+        "le5": "Top games $5 or less tagged Action RPG - itch.io",
+        "paid": "Top paid games tagged Action RPG - itch.io",
+        "total": "Top games tagged Action RPG - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 6634,
+        "le15": 162,
+        "le5": 150,
+        "paid": 173,
+        "total": 6807
+      },
+      "derived": {
+        "bin_0_5": 150,
+        "bin_15_up": 11,
+        "bin_5_15": 12,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -6484,
+        "monotone": true
+      },
+      "directory_count": 6908,
+      "name": "Endless Runner",
+      "slug": "endless-runner",
+      "titles": {
+        "free": "Top free games tagged Endless Runner - itch.io",
+        "le15": "Top games $15 or less tagged Endless Runner - itch.io",
+        "le5": "Top games $5 or less tagged Endless Runner - itch.io",
+        "paid": "Top paid games tagged Endless Runner - itch.io",
+        "total": "Top games tagged Endless Runner - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4379,
+        "le15": 171,
+        "le5": 113,
+        "paid": 187,
+        "total": 4566
+      },
+      "derived": {
+        "bin_0_5": 113,
+        "bin_15_up": 16,
+        "bin_5_15": 58,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4266,
+        "monotone": true
+      },
+      "directory_count": 6755,
+      "name": "Farming",
+      "slug": "farming",
+      "titles": {
+        "free": "Top free games tagged Farming - itch.io",
+        "le15": "Top games $15 or less tagged Farming - itch.io",
+        "le5": "Top games $5 or less tagged Farming - itch.io",
+        "paid": "Top paid games tagged Farming - itch.io",
+        "total": "Top games tagged Farming - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 5964,
+        "le15": 253,
+        "le5": 199,
+        "paid": 258,
+        "total": 6222
+      },
+      "derived": {
+        "bin_0_5": 199,
+        "bin_15_up": 5,
+        "bin_5_15": 54,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -5765,
+        "monotone": true
+      },
+      "directory_count": 6670,
+      "name": "Escape Game",
+      "slug": "escape-game",
+      "titles": {
+        "free": "Top free games tagged Escape Game - itch.io",
+        "le15": "Top games $15 or less tagged Escape Game - itch.io",
+        "le5": "Top games $5 or less tagged Escape Game - itch.io",
+        "paid": "Top paid games tagged Escape Game - itch.io",
+        "total": "Top games tagged Escape Game - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 6188,
+        "le15": 276,
+        "le5": 241,
+        "paid": 280,
+        "total": 6468
+      },
+      "derived": {
+        "bin_0_5": 241,
+        "bin_15_up": 4,
+        "bin_5_15": 35,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -5947,
+        "monotone": true
+      },
+      "directory_count": 6625,
+      "name": "Incremental",
+      "slug": "incremental",
+      "titles": {
+        "free": "Top free games tagged Incremental - itch.io",
+        "le15": "Top games $15 or less tagged Incremental - itch.io",
+        "le5": "Top games $5 or less tagged Incremental - itch.io",
+        "paid": "Top paid games tagged Incremental - itch.io",
+        "total": "Top games tagged Incremental - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3577,
+        "le15": 197,
+        "le5": 130,
+        "paid": 213,
+        "total": 3790
+      },
+      "derived": {
+        "bin_0_5": 130,
+        "bin_15_up": 16,
+        "bin_5_15": 67,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3447,
+        "monotone": true
+      },
+      "directory_count": 6380,
+      "name": "Post-apocalyptic",
+      "slug": "post-apocalyptic",
+      "titles": {
+        "free": "Top free games tagged Post-apocalyptic - itch.io",
+        "le15": "Top games $15 or less tagged Post-apocalyptic - itch.io",
+        "le5": "Top games $5 or less tagged Post-apocalyptic - itch.io",
+        "paid": "Top paid games tagged Post-apocalyptic - itch.io",
+        "total": "Top games tagged Post-apocalyptic - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2371,
+        "le15": 163,
+        "le5": 88,
+        "paid": 177,
+        "total": 2548
+      },
+      "derived": {
+        "bin_0_5": 88,
+        "bin_15_up": 14,
+        "bin_5_15": 75,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2283,
+        "monotone": true
+      },
+      "directory_count": 6061,
+      "name": "LGBTQIA",
+      "slug": "lgbtqia",
+      "titles": {
+        "free": "Top free games tagged LGBTQIA - itch.io",
+        "le15": "Top games $15 or less tagged LGBTQIA - itch.io",
+        "le5": "Top games $5 or less tagged LGBTQIA - itch.io",
+        "paid": "Top paid games tagged LGBTQIA - itch.io",
+        "total": "Top games tagged LGBTQIA - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2646,
+        "le15": 330,
+        "le5": 178,
+        "paid": 363,
+        "total": 3145
+      },
+      "derived": {
+        "bin_0_5": 178,
+        "bin_15_up": 33,
+        "bin_5_15": 152,
+        "free_plus_paid_minus_total": -136,
+        "le5_minus_free": -2468,
+        "monotone": true
+      },
+      "directory_count": 5990,
+      "name": "JRPG",
+      "slug": "jrpg",
+      "titles": {
+        "free": "Top free games tagged JRPG - itch.io",
+        "le15": "Top games $15 or less tagged JRPG - itch.io",
+        "le5": "Top games $5 or less tagged JRPG - itch.io",
+        "paid": "Top paid games tagged JRPG - itch.io",
+        "total": "Top games tagged JRPG - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2155,
+        "le15": 130,
+        "le5": 77,
+        "paid": 138,
+        "total": 2293
+      },
+      "derived": {
+        "bin_0_5": 77,
+        "bin_15_up": 8,
+        "bin_5_15": 53,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2078,
+        "monotone": true
+      },
+      "directory_count": 5983,
+      "name": "Queer",
+      "slug": "queer",
+      "titles": {
+        "free": "Top free games tagged Queer - itch.io",
+        "le15": "Top games $15 or less tagged Queer - itch.io",
+        "le5": "Top games $5 or less tagged Queer - itch.io",
+        "paid": "Top paid games tagged Queer - itch.io",
+        "total": "Top games tagged Queer - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4831,
+        "le15": 306,
+        "le5": 171,
+        "paid": 332,
+        "total": 5163
+      },
+      "derived": {
+        "bin_0_5": 171,
+        "bin_15_up": 26,
+        "bin_5_15": 135,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4660,
+        "monotone": true
+      },
+      "directory_count": 5890,
+      "name": "Turn-Based Combat",
+      "slug": "turn-based-combat",
+      "titles": {
+        "free": "Top free games tagged Turn-Based Combat - itch.io",
+        "le15": "Top games $15 or less tagged Turn-Based Combat - itch.io",
+        "le5": "Top games $5 or less tagged Turn-Based Combat - itch.io",
+        "paid": "Top paid games tagged Turn-Based Combat - itch.io",
+        "total": "Top games tagged Turn-Based Combat - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4162,
+        "le15": 198,
+        "le5": 137,
+        "paid": 201,
+        "total": 4363
+      },
+      "derived": {
+        "bin_0_5": 137,
+        "bin_15_up": 3,
+        "bin_5_15": 61,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4025,
+        "monotone": true
+      },
+      "directory_count": 5476,
+      "name": "party-game",
+      "slug": "party-game",
+      "titles": {
+        "free": "Top free games tagged party-game - itch.io",
+        "le15": "Top games $15 or less tagged party-game - itch.io",
+        "le5": "Top games $5 or less tagged party-game - itch.io",
+        "paid": "Top paid games tagged party-game - itch.io",
+        "total": "Top games tagged party-game - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3198,
+        "le15": 172,
+        "le5": 120,
+        "paid": 186,
+        "total": 3384
+      },
+      "derived": {
+        "bin_0_5": 120,
+        "bin_15_up": 14,
+        "bin_5_15": 52,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3078,
+        "monotone": true
+      },
+      "directory_count": 5027,
+      "name": "Futuristic",
+      "slug": "futuristic",
+      "titles": {
+        "free": "Top free games tagged Futuristic - itch.io",
+        "le15": "Top games $15 or less tagged Futuristic - itch.io",
+        "le5": "Top games $5 or less tagged Futuristic - itch.io",
+        "paid": "Top paid games tagged Futuristic - itch.io",
+        "total": "Top games tagged Futuristic - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3277,
+        "le15": 236,
+        "le5": 172,
+        "paid": 252,
+        "total": 3529
+      },
+      "derived": {
+        "bin_0_5": 172,
+        "bin_15_up": 16,
+        "bin_5_15": 64,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3105,
+        "monotone": true
+      },
+      "directory_count": 4820,
+      "name": "War",
+      "slug": "war",
+      "titles": {
+        "free": "Top free games tagged War - itch.io",
+        "le15": "Top games $15 or less tagged War - itch.io",
+        "le5": "Top games $5 or less tagged War - itch.io",
+        "paid": "Top paid games tagged War - itch.io",
+        "total": "Top games tagged War - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4127,
+        "le15": 224,
+        "le5": 138,
+        "paid": 253,
+        "total": 4380
+      },
+      "derived": {
+        "bin_0_5": 138,
+        "bin_15_up": 29,
+        "bin_5_15": 86,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3989,
+        "monotone": true
+      },
+      "directory_count": 4759,
+      "name": "Turn-based Strategy",
+      "slug": "turn-based-strategy",
+      "titles": {
+        "free": "Top free games tagged Turn-based Strategy - itch.io",
+        "le15": "Top games $15 or less tagged Turn-based Strategy - itch.io",
+        "le5": "Top games $5 or less tagged Turn-based Strategy - itch.io",
+        "paid": "Top paid games tagged Turn-based Strategy - itch.io",
+        "total": "Top games tagged Turn-based Strategy - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3729,
+        "le15": 213,
+        "le5": 143,
+        "paid": 235,
+        "total": 3964
+      },
+      "derived": {
+        "bin_0_5": 143,
+        "bin_15_up": 22,
+        "bin_5_15": 70,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3586,
+        "monotone": true
+      },
+      "directory_count": 4666,
+      "name": "Tactical",
+      "slug": "tactical",
+      "titles": {
+        "free": "Top free games tagged Tactical - itch.io",
+        "le15": "Top games $15 or less tagged Tactical - itch.io",
+        "le5": "Top games $5 or less tagged Tactical - itch.io",
+        "paid": "Top paid games tagged Tactical - itch.io",
+        "total": "Top games tagged Tactical - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 4368,
+        "le15": 124,
+        "le5": 105,
+        "paid": 128,
+        "total": 4496
+      },
+      "derived": {
+        "bin_0_5": 105,
+        "bin_15_up": 4,
+        "bin_5_15": 19,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -4263,
+        "monotone": true
+      },
+      "directory_count": 4585,
+      "name": "Parkour",
+      "slug": "parkour",
+      "titles": {
+        "free": "Top free games tagged Parkour - itch.io",
+        "le15": "Top games $15 or less tagged Parkour - itch.io",
+        "le5": "Top games $5 or less tagged Parkour - itch.io",
+        "paid": "Top paid games tagged Parkour - itch.io",
+        "total": "Top games tagged Parkour - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2850,
+        "le15": 188,
+        "le5": 117,
+        "paid": 198,
+        "total": 3048
+      },
+      "derived": {
+        "bin_0_5": 117,
+        "bin_15_up": 10,
+        "bin_5_15": 71,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2733,
+        "monotone": true
+      },
+      "directory_count": 4563,
+      "name": "Historical",
+      "slug": "historical",
+      "titles": {
+        "free": "Top free games tagged Historical - itch.io",
+        "le15": "Top games $15 or less tagged Historical - itch.io",
+        "le5": "Top games $5 or less tagged Historical - itch.io",
+        "paid": "Top paid games tagged Historical - itch.io",
+        "total": "Top games tagged Historical - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3721,
+        "le15": 150,
+        "le5": 121,
+        "paid": 155,
+        "total": 3876
+      },
+      "derived": {
+        "bin_0_5": 121,
+        "bin_15_up": 5,
+        "bin_5_15": 29,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3600,
+        "monotone": true
+      },
+      "directory_count": 4543,
+      "name": "Top Down Adventure",
+      "slug": "top-down-adventure",
+      "titles": {
+        "free": "Top free games tagged Top Down Adventure - itch.io",
+        "le15": "Top games $15 or less tagged Top Down Adventure - itch.io",
+        "le5": "Top games $5 or less tagged Top Down Adventure - itch.io",
+        "paid": "Top paid games tagged Top Down Adventure - itch.io",
+        "total": "Top games tagged Top Down Adventure - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3977,
+        "le15": 206,
+        "le5": 162,
+        "paid": 216,
+        "total": 4193
+      },
+      "derived": {
+        "bin_0_5": 162,
+        "bin_15_up": 10,
+        "bin_5_15": 44,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3815,
+        "monotone": true
+      },
+      "directory_count": 4516,
+      "name": "Driving",
+      "slug": "driving",
+      "titles": {
+        "free": "Top free games tagged Driving - itch.io",
+        "le15": "Top games $15 or less tagged Driving - itch.io",
+        "le5": "Top games $5 or less tagged Driving - itch.io",
+        "paid": "Top paid games tagged Driving - itch.io",
+        "total": "Top games tagged Driving - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1959,
+        "le15": 135,
+        "le5": 73,
+        "paid": 149,
+        "total": 3217
+      },
+      "derived": {
+        "bin_0_5": 73,
+        "bin_15_up": 14,
+        "bin_5_15": 62,
+        "free_plus_paid_minus_total": -1109,
+        "le5_minus_free": -1886,
+        "monotone": true
+      },
+      "directory_count": 4501,
+      "name": "Gay",
+      "slug": "gay",
+      "titles": {
+        "free": "Top free games tagged Gay - itch.io",
+        "le15": "Top games $15 or less tagged Gay - itch.io",
+        "le5": "Top games $5 or less tagged Gay - itch.io",
+        "paid": "Top paid games tagged Gay - itch.io",
+        "total": "Top games tagged Gay - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3394,
+        "le15": 251,
+        "le5": 155,
+        "paid": 271,
+        "total": 3665
+      },
+      "derived": {
+        "bin_0_5": 155,
+        "bin_15_up": 20,
+        "bin_5_15": 96,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3239,
+        "monotone": true
+      },
+      "directory_count": 4496,
+      "name": "Detective",
+      "slug": "detective",
+      "titles": {
+        "free": "Top free games tagged Detective - itch.io",
+        "le15": "Top games $15 or less tagged Detective - itch.io",
+        "le5": "Top games $5 or less tagged Detective - itch.io",
+        "paid": "Top paid games tagged Detective - itch.io",
+        "total": "Top games tagged Detective - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3990,
+        "le15": 190,
+        "le5": 135,
+        "paid": 208,
+        "total": 4198
+      },
+      "derived": {
+        "bin_0_5": 135,
+        "bin_15_up": 18,
+        "bin_5_15": 55,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3855,
+        "monotone": true
+      },
+      "directory_count": 4414,
+      "name": "Real time strategy",
+      "slug": "real-time-strategy",
+      "titles": {
+        "free": "Top free games tagged Real time strategy - itch.io",
+        "le15": "Top games $15 or less tagged Real time strategy - itch.io",
+        "le5": "Top games $5 or less tagged Real time strategy - itch.io",
+        "paid": "Top paid games tagged Real time strategy - itch.io",
+        "total": "Top games tagged Real time strategy - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3657,
+        "le15": 104,
+        "le5": 85,
+        "paid": 111,
+        "total": 3768
+      },
+      "derived": {
+        "bin_0_5": 85,
+        "bin_15_up": 7,
+        "bin_5_15": 19,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3572,
+        "monotone": true
+      },
+      "directory_count": 4228,
+      "name": "Fishing",
+      "slug": "fishing",
+      "titles": {
+        "free": "Top free games tagged Fishing - itch.io",
+        "le15": "Top games $15 or less tagged Fishing - itch.io",
+        "le5": "Top games $5 or less tagged Fishing - itch.io",
+        "paid": "Top paid games tagged Fishing - itch.io",
+        "total": "Top games tagged Fishing - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1315,
+        "le15": 66,
+        "le5": 38,
+        "paid": 70,
+        "total": 1385
+      },
+      "derived": {
+        "bin_0_5": 38,
+        "bin_15_up": 4,
+        "bin_5_15": 28,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1277,
+        "monotone": true
+      },
+      "directory_count": 4157,
+      "name": "Transgender",
+      "slug": "transgender",
+      "titles": {
+        "free": "Top free games tagged Transgender - itch.io",
+        "le15": "Top games $15 or less tagged Transgender - itch.io",
+        "le5": "Top games $5 or less tagged Transgender - itch.io",
+        "paid": "Top paid games tagged Transgender - itch.io",
+        "total": "Top games tagged Transgender - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2934,
+        "le15": 158,
+        "le5": 94,
+        "paid": 187,
+        "total": 3121
+      },
+      "derived": {
+        "bin_0_5": 94,
+        "bin_15_up": 29,
+        "bin_5_15": 64,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2840,
+        "monotone": true
+      },
+      "directory_count": 3997,
+      "name": "City Builder",
+      "slug": "city-builder",
+      "titles": {
+        "free": "Top free games tagged City Builder - itch.io",
+        "le15": "Top games $15 or less tagged City Builder - itch.io",
+        "le5": "Top games $5 or less tagged City Builder - itch.io",
+        "paid": "Top paid games tagged City Builder - itch.io",
+        "total": "Top games tagged City Builder - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3103,
+        "le15": 168,
+        "le5": 109,
+        "paid": 198,
+        "total": 3301
+      },
+      "derived": {
+        "bin_0_5": 109,
+        "bin_15_up": 30,
+        "bin_5_15": 59,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2994,
+        "monotone": true
+      },
+      "directory_count": 3847,
+      "name": "Life Simulation",
+      "slug": "life-simulation",
+      "titles": {
+        "free": "Top free games tagged Life Simulation - itch.io",
+        "le15": "Top games $15 or less tagged Life Simulation - itch.io",
+        "le5": "Top games $5 or less tagged Life Simulation - itch.io",
+        "paid": "Top paid games tagged Life Simulation - itch.io",
+        "total": "Top games tagged Life Simulation - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3257,
+        "le15": 129,
+        "le5": 75,
+        "paid": 143,
+        "total": 3400
+      },
+      "derived": {
+        "bin_0_5": 75,
+        "bin_15_up": 14,
+        "bin_5_15": 54,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -3182,
+        "monotone": true
+      },
+      "directory_count": 3754,
+      "name": "Deck Building",
+      "slug": "deck-building",
+      "titles": {
+        "free": "Top free games tagged Deck Building - itch.io",
+        "le15": "Top games $15 or less tagged Deck Building - itch.io",
+        "le5": "Top games $5 or less tagged Deck Building - itch.io",
+        "paid": "Top paid games tagged Deck Building - itch.io",
+        "total": "Top games tagged Deck Building - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3025,
+        "le15": 68,
+        "le5": 52,
+        "paid": 71,
+        "total": 3096
+      },
+      "derived": {
+        "bin_0_5": 52,
+        "bin_15_up": 3,
+        "bin_5_15": 16,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2973,
+        "monotone": true
+      },
+      "directory_count": 3616,
+      "name": "Cooking",
+      "slug": "cooking",
+      "titles": {
+        "free": "Top free games tagged Cooking - itch.io",
+        "le15": "Top games $15 or less tagged Cooking - itch.io",
+        "le5": "Top games $5 or less tagged Cooking - itch.io",
+        "paid": "Top paid games tagged Cooking - itch.io",
+        "total": "Top games tagged Cooking - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2957,
+        "le15": 125,
+        "le5": 84,
+        "paid": 143,
+        "total": 3139
+      },
+      "derived": {
+        "bin_0_5": 84,
+        "bin_15_up": 18,
+        "bin_5_15": 41,
+        "free_plus_paid_minus_total": -39,
+        "le5_minus_free": -2873,
+        "monotone": true
+      },
+      "directory_count": 3450,
+      "name": "Beat 'em up",
+      "slug": "beat-em-up",
+      "titles": {
+        "free": "Top free games tagged Beat 'em up - itch.io",
+        "le15": "Top games $15 or less tagged Beat 'em up - itch.io",
+        "le5": "Top games $5 or less tagged Beat 'em up - itch.io",
+        "paid": "Top paid games tagged Beat 'em up - itch.io",
+        "total": "Top games tagged Beat 'em up - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3023,
+        "le15": 152,
+        "le5": 101,
+        "paid": 179,
+        "total": 3202
+      },
+      "derived": {
+        "bin_0_5": 101,
+        "bin_15_up": 27,
+        "bin_5_15": 51,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2922,
+        "monotone": true
+      },
+      "directory_count": 3446,
+      "name": "Hack and Slash",
+      "slug": "hack-and-slash",
+      "titles": {
+        "free": "Top free games tagged Hack and Slash - itch.io",
+        "le15": "Top games $15 or less tagged Hack and Slash - itch.io",
+        "le5": "Top games $5 or less tagged Hack and Slash - itch.io",
+        "paid": "Top paid games tagged Hack and Slash - itch.io",
+        "total": "Top games tagged Hack and Slash - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 3057,
+        "le15": 200,
+        "le5": 129,
+        "paid": 203,
+        "total": 3260
+      },
+      "derived": {
+        "bin_0_5": 129,
+        "bin_15_up": 3,
+        "bin_5_15": 71,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2928,
+        "monotone": true
+      },
+      "directory_count": 3310,
+      "name": "Twin Stick Shooter",
+      "slug": "twin-stick-shooter",
+      "titles": {
+        "free": "Top free games tagged Twin Stick Shooter - itch.io",
+        "le15": "Top games $15 or less tagged Twin Stick Shooter - itch.io",
+        "le5": "Top games $5 or less tagged Twin Stick Shooter - itch.io",
+        "paid": "Top paid games tagged Twin Stick Shooter - itch.io",
+        "total": "Top games tagged Twin Stick Shooter - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1906,
+        "le15": 96,
+        "le5": 60,
+        "paid": 106,
+        "total": 2012
+      },
+      "derived": {
+        "bin_0_5": 60,
+        "bin_15_up": 10,
+        "bin_5_15": 36,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1846,
+        "monotone": true
+      },
+      "directory_count": 3003,
+      "name": "Dystopian",
+      "slug": "dystopian",
+      "titles": {
+        "free": "Top free games tagged Dystopian - itch.io",
+        "le15": "Top games $15 or less tagged Dystopian - itch.io",
+        "le5": "Top games $5 or less tagged Dystopian - itch.io",
+        "paid": "Top paid games tagged Dystopian - itch.io",
+        "total": "Top games tagged Dystopian - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1861,
+        "le15": 84,
+        "le5": 62,
+        "paid": 87,
+        "total": 1948
+      },
+      "derived": {
+        "bin_0_5": 62,
+        "bin_15_up": 3,
+        "bin_5_15": 22,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1799,
+        "monotone": true
+      },
+      "directory_count": 2974,
+      "name": "Western",
+      "slug": "western",
+      "titles": {
+        "free": "Top free games tagged Western - itch.io",
+        "le15": "Top games $15 or less tagged Western - itch.io",
+        "le5": "Top games $5 or less tagged Western - itch.io",
+        "paid": "Top paid games tagged Western - itch.io",
+        "total": "Top games tagged Western - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2645,
+        "le15": 126,
+        "le5": 88,
+        "paid": 132,
+        "total": 2777
+      },
+      "derived": {
+        "bin_0_5": 88,
+        "bin_15_up": 6,
+        "bin_5_15": 38,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2557,
+        "monotone": true
+      },
+      "directory_count": 2918,
+      "name": "Third-Person Shooter",
+      "slug": "third-person-shooter",
+      "titles": {
+        "free": "Top free games tagged Third-Person Shooter - itch.io",
+        "le15": "Top games $15 or less tagged Third-Person Shooter - itch.io",
+        "le5": "Top games $5 or less tagged Third-Person Shooter - itch.io",
+        "paid": "Top paid games tagged Third-Person Shooter - itch.io",
+        "total": "Top games tagged Third-Person Shooter - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1190,
+        "le15": 98,
+        "le5": 50,
+        "paid": 101,
+        "total": 1291
+      },
+      "derived": {
+        "bin_0_5": 50,
+        "bin_15_up": 3,
+        "bin_5_15": 48,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1140,
+        "monotone": true
+      },
+      "directory_count": 2846,
+      "name": "Lesbian",
+      "slug": "lesbian",
+      "titles": {
+        "free": "Top free games tagged Lesbian - itch.io",
+        "le15": "Top games $15 or less tagged Lesbian - itch.io",
+        "le5": "Top games $5 or less tagged Lesbian - itch.io",
+        "paid": "Top paid games tagged Lesbian - itch.io",
+        "total": "Top games tagged Lesbian - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2202,
+        "le15": 93,
+        "le5": 75,
+        "paid": 96,
+        "total": 2298
+      },
+      "derived": {
+        "bin_0_5": 75,
+        "bin_15_up": 3,
+        "bin_5_15": 18,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2127,
+        "monotone": true
+      },
+      "directory_count": 2662,
+      "name": "Chess",
+      "slug": "chess",
+      "titles": {
+        "free": "Top free games tagged Chess - itch.io",
+        "le15": "Top games $15 or less tagged Chess - itch.io",
+        "le5": "Top games $5 or less tagged Chess - itch.io",
+        "paid": "Top paid games tagged Chess - itch.io",
+        "total": "Top games tagged Chess - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2247,
+        "le15": 132,
+        "le5": 112,
+        "paid": 137,
+        "total": 2384
+      },
+      "derived": {
+        "bin_0_5": 112,
+        "bin_15_up": 5,
+        "bin_5_15": 20,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2135,
+        "monotone": true
+      },
+      "directory_count": 2662,
+      "name": "Word game",
+      "slug": "word-game",
+      "titles": {
+        "free": "Top free games tagged Word game - itch.io",
+        "le15": "Top games $15 or less tagged Word game - itch.io",
+        "le5": "Top games $5 or less tagged Word game - itch.io",
+        "paid": "Top paid games tagged Word game - itch.io",
+        "total": "Top games tagged Word game - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2188,
+        "le15": 75,
+        "le5": 63,
+        "paid": 78,
+        "total": 2266
+      },
+      "derived": {
+        "bin_0_5": 63,
+        "bin_15_up": 3,
+        "bin_5_15": 12,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2125,
+        "monotone": true
+      },
+      "directory_count": 2548,
+      "name": "Tanks",
+      "slug": "tanks",
+      "titles": {
+        "free": "Top free games tagged Tanks - itch.io",
+        "le15": "Top games $15 or less tagged Tanks - itch.io",
+        "le5": "Top games $5 or less tagged Tanks - itch.io",
+        "paid": "Top paid games tagged Tanks - itch.io",
+        "total": "Top games tagged Tanks - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1546,
+        "le15": 124,
+        "le5": 58,
+        "paid": 134,
+        "total": 1680
+      },
+      "derived": {
+        "bin_0_5": 58,
+        "bin_15_up": 10,
+        "bin_5_15": 66,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1488,
+        "monotone": true
+      },
+      "directory_count": 2540,
+      "name": "Yuri",
+      "slug": "yuri",
+      "titles": {
+        "free": "Top free games tagged Yuri - itch.io",
+        "le15": "Top games $15 or less tagged Yuri - itch.io",
+        "le5": "Top games $5 or less tagged Yuri - itch.io",
+        "paid": "Top paid games tagged Yuri - itch.io",
+        "total": "Top games tagged Yuri - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1132,
+        "le15": 75,
+        "le5": 46,
+        "paid": 84,
+        "total": 1216
+      },
+      "derived": {
+        "bin_0_5": 46,
+        "bin_15_up": 9,
+        "bin_5_15": 29,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1086,
+        "monotone": true
+      },
+      "directory_count": 2515,
+      "name": "Male protagonist",
+      "slug": "male-protagonist",
+      "titles": {
+        "free": "Top free games tagged Male protagonist - itch.io",
+        "le15": "Top games $15 or less tagged Male protagonist - itch.io",
+        "le5": "Top games $5 or less tagged Male protagonist - itch.io",
+        "paid": "Top paid games tagged Male protagonist - itch.io",
+        "total": "Top games tagged Male protagonist - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2051,
+        "le15": 94,
+        "le5": 78,
+        "paid": 98,
+        "total": 2149
+      },
+      "derived": {
+        "bin_0_5": 78,
+        "bin_15_up": 4,
+        "bin_5_15": 16,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1973,
+        "monotone": true
+      },
+      "directory_count": 2506,
+      "name": "Virtual Pet",
+      "slug": "virtual-pet",
+      "titles": {
+        "free": "Top free games tagged Virtual Pet - itch.io",
+        "le15": "Top games $15 or less tagged Virtual Pet - itch.io",
+        "le5": "Top games $5 or less tagged Virtual Pet - itch.io",
+        "paid": "Top paid games tagged Virtual Pet - itch.io",
+        "total": "Top games tagged Virtual Pet - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2206,
+        "le15": 139,
+        "le5": 102,
+        "paid": 156,
+        "total": 2362
+      },
+      "derived": {
+        "bin_0_5": 102,
+        "bin_15_up": 17,
+        "bin_5_15": 37,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2104,
+        "monotone": true
+      },
+      "directory_count": 2478,
+      "name": "Tycoon",
+      "slug": "tycoon",
+      "titles": {
+        "free": "Top free games tagged Tycoon - itch.io",
+        "le15": "Top games $15 or less tagged Tycoon - itch.io",
+        "le5": "Top games $5 or less tagged Tycoon - itch.io",
+        "paid": "Top paid games tagged Tycoon - itch.io",
+        "total": "Top games tagged Tycoon - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1996,
+        "le15": 129,
+        "le5": 86,
+        "paid": 142,
+        "total": 2138
+      },
+      "derived": {
+        "bin_0_5": 86,
+        "bin_15_up": 13,
+        "bin_5_15": 43,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1910,
+        "monotone": true
+      },
+      "directory_count": 2415,
+      "name": "Space Sim",
+      "slug": "space-sim",
+      "titles": {
+        "free": "Top free games tagged Space Sim - itch.io",
+        "le15": "Top games $15 or less tagged Space Sim - itch.io",
+        "le5": "Top games $5 or less tagged Space Sim - itch.io",
+        "paid": "Top paid games tagged Space Sim - itch.io",
+        "total": "Top games tagged Space Sim - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2288,
+        "le15": 105,
+        "le5": 74,
+        "paid": 113,
+        "total": 2401
+      },
+      "derived": {
+        "bin_0_5": 74,
+        "bin_15_up": 8,
+        "bin_5_15": 31,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -2214,
+        "monotone": true
+      },
+      "directory_count": 2414,
+      "name": "Sokoban",
+      "slug": "sokoban",
+      "titles": {
+        "free": "Top free games tagged Sokoban - itch.io",
+        "le15": "Top games $15 or less tagged Sokoban - itch.io",
+        "le5": "Top games $5 or less tagged Sokoban - itch.io",
+        "paid": "Top paid games tagged Sokoban - itch.io",
+        "total": "Top games tagged Sokoban - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1690,
+        "le15": 169,
+        "le5": 63,
+        "paid": 223,
+        "total": 1913
+      },
+      "derived": {
+        "bin_0_5": 63,
+        "bin_15_up": 54,
+        "bin_5_15": 106,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1627,
+        "monotone": true
+      },
+      "directory_count": 2262,
+      "name": "Otome",
+      "slug": "otome",
+      "titles": {
+        "free": "Top free games tagged Otome - itch.io",
+        "le15": "Top games $15 or less tagged Otome - itch.io",
+        "le5": "Top games $5 or less tagged Otome - itch.io",
+        "paid": "Top paid games tagged Otome - itch.io",
+        "total": "Top games tagged Otome - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 2003,
+        "le15": 59,
+        "le5": 55,
+        "paid": 60,
+        "total": 2063
+      },
+      "derived": {
+        "bin_0_5": 55,
+        "bin_15_up": 1,
+        "bin_5_15": 4,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1948,
+        "monotone": true
+      },
+      "directory_count": 2242,
+      "name": "Quiz",
+      "slug": "quiz",
+      "titles": {
+        "free": "Top free games tagged Quiz - itch.io",
+        "le15": "Top games $15 or less tagged Quiz - itch.io",
+        "le5": "Top games $5 or less tagged Quiz - itch.io",
+        "paid": "Top paid games tagged Quiz - itch.io",
+        "total": "Top games tagged Quiz - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1396,
+        "le15": 106,
+        "le5": 76,
+        "paid": 112,
+        "total": 1508
+      },
+      "derived": {
+        "bin_0_5": 76,
+        "bin_15_up": 6,
+        "bin_5_15": 30,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1320,
+        "monotone": true
+      },
+      "directory_count": 2190,
+      "name": "Crime",
+      "slug": "crime",
+      "titles": {
+        "free": "Top free games tagged Crime - itch.io",
+        "le15": "Top games $15 or less tagged Crime - itch.io",
+        "le5": "Top games $5 or less tagged Crime - itch.io",
+        "paid": "Top paid games tagged Crime - itch.io",
+        "total": "Top games tagged Crime - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1711,
+        "le15": 56,
+        "le5": 40,
+        "paid": 61,
+        "total": 1772
+      },
+      "derived": {
+        "bin_0_5": 40,
+        "bin_15_up": 5,
+        "bin_5_15": 16,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1671,
+        "monotone": true
+      },
+      "directory_count": 2116,
+      "name": "Souls-like",
+      "slug": "souls-like",
+      "titles": {
+        "free": "Top free games tagged Souls-like - itch.io",
+        "le15": "Top games $15 or less tagged Souls-like - itch.io",
+        "le5": "Top games $5 or less tagged Souls-like - itch.io",
+        "paid": "Top paid games tagged Souls-like - itch.io",
+        "total": "Top games tagged Souls-like - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1204,
+        "le15": 55,
+        "le5": 31,
+        "paid": 61,
+        "total": 1265
+      },
+      "derived": {
+        "bin_0_5": 31,
+        "bin_15_up": 6,
+        "bin_5_15": 24,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1173,
+        "monotone": true
+      },
+      "directory_count": 1952,
+      "name": "Steampunk",
+      "slug": "steampunk",
+      "titles": {
+        "free": "Top free games tagged Steampunk - itch.io",
+        "le15": "Top games $15 or less tagged Steampunk - itch.io",
+        "le5": "Top games $5 or less tagged Steampunk - itch.io",
+        "paid": "Top paid games tagged Steampunk - itch.io",
+        "total": "Top games tagged Steampunk - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1614,
+        "le15": 131,
+        "le5": 112,
+        "paid": 136,
+        "total": 1750
+      },
+      "derived": {
+        "bin_0_5": 112,
+        "bin_15_up": 5,
+        "bin_5_15": 19,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1502,
+        "monotone": true
+      },
+      "directory_count": 1936,
+      "name": "Football",
+      "slug": "football",
+      "titles": {
+        "free": "Top free games tagged Football - itch.io",
+        "le15": "Top games $15 or less tagged Football - itch.io",
+        "le5": "Top games $5 or less tagged Football - itch.io",
+        "paid": "Top paid games tagged Football - itch.io",
+        "total": "Top games tagged Football - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1695,
+        "le15": 118,
+        "le5": 107,
+        "paid": 125,
+        "total": 1820
+      },
+      "derived": {
+        "bin_0_5": 107,
+        "bin_15_up": 7,
+        "bin_5_15": 11,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1588,
+        "monotone": true
+      },
+      "directory_count": 1908,
+      "name": "Brain Training",
+      "slug": "brain-training",
+      "titles": {
+        "free": "Top free games tagged Brain Training - itch.io",
+        "le15": "Top games $15 or less tagged Brain Training - itch.io",
+        "le5": "Top games $5 or less tagged Brain Training - itch.io",
+        "paid": "Top paid games tagged Brain Training - itch.io",
+        "total": "Top games tagged Brain Training - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1639,
+        "le15": 99,
+        "le5": 67,
+        "paid": 119,
+        "total": 1758
+      },
+      "derived": {
+        "bin_0_5": 67,
+        "bin_15_up": 20,
+        "bin_5_15": 32,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1572,
+        "monotone": true
+      },
+      "directory_count": 1901,
+      "name": "Economy",
+      "slug": "economy",
+      "titles": {
+        "free": "Top free games tagged Economy - itch.io",
+        "le15": "Top games $15 or less tagged Economy - itch.io",
+        "le5": "Top games $5 or less tagged Economy - itch.io",
+        "paid": "Top paid games tagged Economy - itch.io",
+        "total": "Top games tagged Economy - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1367,
+        "le15": 150,
+        "le5": 97,
+        "paid": 168,
+        "total": 1535
+      },
+      "derived": {
+        "bin_0_5": 97,
+        "bin_15_up": 18,
+        "bin_5_15": 53,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1270,
+        "monotone": true
+      },
+      "directory_count": 1899,
+      "name": "Strategy RPG",
+      "slug": "strategy-rpg",
+      "titles": {
+        "free": "Top free games tagged Strategy RPG - itch.io",
+        "le15": "Top games $15 or less tagged Strategy RPG - itch.io",
+        "le5": "Top games $5 or less tagged Strategy RPG - itch.io",
+        "paid": "Top paid games tagged Strategy RPG - itch.io",
+        "total": "Top games tagged Strategy RPG - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1175,
+        "le15": 92,
+        "le5": 59,
+        "paid": 98,
+        "total": 1273
+      },
+      "derived": {
+        "bin_0_5": 59,
+        "bin_15_up": 6,
+        "bin_5_15": 33,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1116,
+        "monotone": true
+      },
+      "directory_count": 1877,
+      "name": "Lovecraftian Horror",
+      "slug": "lovecraft",
+      "titles": {
+        "free": "Top free games tagged Lovecraftian Horror - itch.io",
+        "le15": "Top games $15 or less tagged Lovecraftian Horror - itch.io",
+        "le5": "Top games $5 or less tagged Lovecraftian Horror - itch.io",
+        "paid": "Top paid games tagged Lovecraftian Horror - itch.io",
+        "total": "Top games tagged Lovecraftian Horror - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1710,
+        "le15": 65,
+        "le5": 56,
+        "paid": 65,
+        "total": 1775
+      },
+      "derived": {
+        "bin_0_5": 56,
+        "bin_15_up": 0,
+        "bin_5_15": 9,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1654,
+        "monotone": true
+      },
+      "directory_count": 1850,
+      "name": "Survivor-like",
+      "slug": "survivor-like",
+      "titles": {
+        "free": "Top free games tagged Survivor-like - itch.io",
+        "le15": "Top games $15 or less tagged Survivor-like - itch.io",
+        "le5": "Top games $5 or less tagged Survivor-like - itch.io",
+        "paid": "Top paid games tagged Survivor-like - itch.io",
+        "total": "Top games tagged Survivor-like - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1709,
+        "le15": 72,
+        "le5": 62,
+        "paid": 74,
+        "total": 1783
+      },
+      "derived": {
+        "bin_0_5": 62,
+        "bin_15_up": 2,
+        "bin_5_15": 10,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1647,
+        "monotone": true
+      },
+      "directory_count": 1844,
+      "name": "Golf",
+      "slug": "golf",
+      "titles": {
+        "free": "Top free games tagged Golf - itch.io",
+        "le15": "Top games $15 or less tagged Golf - itch.io",
+        "le5": "Top games $5 or less tagged Golf - itch.io",
+        "paid": "Top paid games tagged Golf - itch.io",
+        "total": "Top games tagged Golf - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1409,
+        "le15": 126,
+        "le5": 99,
+        "paid": 130,
+        "total": 1539
+      },
+      "derived": {
+        "bin_0_5": 99,
+        "bin_15_up": 4,
+        "bin_5_15": 27,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1310,
+        "monotone": true
+      },
+      "directory_count": 1697,
+      "name": "Soccer",
+      "slug": "soccer",
+      "titles": {
+        "free": "Top free games tagged Soccer - itch.io",
+        "le15": "Top games $15 or less tagged Soccer - itch.io",
+        "le5": "Top games $5 or less tagged Soccer - itch.io",
+        "paid": "Top paid games tagged Soccer - itch.io",
+        "total": "Top games tagged Soccer - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 795,
+        "le15": 32,
+        "le5": 25,
+        "paid": 35,
+        "total": 830
+      },
+      "derived": {
+        "bin_0_5": 25,
+        "bin_15_up": 3,
+        "bin_5_15": 7,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -770,
+        "monotone": true
+      },
+      "directory_count": 1665,
+      "name": "MMORPG",
+      "slug": "mmorpg",
+      "titles": {
+        "free": "Top free games tagged MMORPG - itch.io",
+        "le15": "Top games $15 or less tagged MMORPG - itch.io",
+        "le5": "Top games $5 or less tagged MMORPG - itch.io",
+        "paid": "Top paid games tagged MMORPG - itch.io",
+        "total": "Top games tagged MMORPG - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 969,
+        "le15": 101,
+        "le5": 48,
+        "paid": 117,
+        "total": 1086
+      },
+      "derived": {
+        "bin_0_5": 48,
+        "bin_15_up": 16,
+        "bin_5_15": 53,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -921,
+        "monotone": true
+      },
+      "directory_count": 1625,
+      "name": "Tactical RPG",
+      "slug": "tactical-rpg",
+      "titles": {
+        "free": "Top free games tagged Tactical RPG - itch.io",
+        "le15": "Top games $15 or less tagged Tactical RPG - itch.io",
+        "le5": "Top games $5 or less tagged Tactical RPG - itch.io",
+        "paid": "Top paid games tagged Tactical RPG - itch.io",
+        "total": "Top games tagged Tactical RPG - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1222,
+        "le15": 65,
+        "le5": 46,
+        "paid": 66,
+        "total": 1288
+      },
+      "derived": {
+        "bin_0_5": 46,
+        "bin_15_up": 1,
+        "bin_5_15": 19,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1176,
+        "monotone": true
+      },
+      "directory_count": 1578,
+      "name": "Kinetic Novel",
+      "slug": "kinetic-novel",
+      "titles": {
+        "free": "Top free games tagged Kinetic Novel - itch.io",
+        "le15": "Top games $15 or less tagged Kinetic Novel - itch.io",
+        "le5": "Top games $5 or less tagged Kinetic Novel - itch.io",
+        "paid": "Top paid games tagged Kinetic Novel - itch.io",
+        "total": "Top games tagged Kinetic Novel - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1465,
+        "le15": 50,
+        "le5": 38,
+        "paid": 51,
+        "total": 1516
+      },
+      "derived": {
+        "bin_0_5": 38,
+        "bin_15_up": 1,
+        "bin_5_15": 12,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1427,
+        "monotone": true
+      },
+      "directory_count": 1577,
+      "name": "FPS Platformer",
+      "slug": "fps-platformer",
+      "titles": {
+        "free": "Top free games tagged FPS Platformer - itch.io",
+        "le15": "Top games $15 or less tagged FPS Platformer - itch.io",
+        "le5": "Top games $5 or less tagged FPS Platformer - itch.io",
+        "paid": "Top paid games tagged FPS Platformer - itch.io",
+        "total": "Top games tagged FPS Platformer - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1160,
+        "le15": 66,
+        "le5": 41,
+        "paid": 72,
+        "total": 1232
+      },
+      "derived": {
+        "bin_0_5": 41,
+        "bin_15_up": 6,
+        "bin_5_15": 25,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1119,
+        "monotone": true
+      },
+      "directory_count": 1538,
+      "name": "Hacking",
+      "slug": "hacking",
+      "titles": {
+        "free": "Top free games tagged Hacking - itch.io",
+        "le15": "Top games $15 or less tagged Hacking - itch.io",
+        "le5": "Top games $5 or less tagged Hacking - itch.io",
+        "paid": "Top paid games tagged Hacking - itch.io",
+        "total": "Top games tagged Hacking - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1387,
+        "le15": 51,
+        "le5": 39,
+        "paid": 52,
+        "total": 1465
+      },
+      "derived": {
+        "bin_0_5": 39,
+        "bin_15_up": 1,
+        "bin_5_15": 12,
+        "free_plus_paid_minus_total": -26,
+        "le5_minus_free": -1348,
+        "monotone": true
+      },
+      "directory_count": 1533,
+      "name": "Working Simulator",
+      "slug": "working-simulator",
+      "titles": {
+        "free": "Top free games tagged Working Simulator - itch.io",
+        "le15": "Top games $15 or less tagged Working Simulator - itch.io",
+        "le5": "Top games $5 or less tagged Working Simulator - itch.io",
+        "paid": "Top paid games tagged Working Simulator - itch.io",
+        "total": "Top games tagged Working Simulator - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1119,
+        "le15": 42,
+        "le5": 29,
+        "paid": 43,
+        "total": 1162
+      },
+      "derived": {
+        "bin_0_5": 29,
+        "bin_15_up": 1,
+        "bin_5_15": 13,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1090,
+        "monotone": true
+      },
+      "directory_count": 1394,
+      "name": "Gardening",
+      "slug": "gardening",
+      "titles": {
+        "free": "Top free games tagged Gardening - itch.io",
+        "le15": "Top games $15 or less tagged Gardening - itch.io",
+        "le5": "Top games $5 or less tagged Gardening - itch.io",
+        "paid": "Top paid games tagged Gardening - itch.io",
+        "total": "Top games tagged Gardening - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1252,
+        "le15": 67,
+        "le5": 55,
+        "paid": 68,
+        "total": 1320
+      },
+      "derived": {
+        "bin_0_5": 55,
+        "bin_15_up": 1,
+        "bin_5_15": 12,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1197,
+        "monotone": true
+      },
+      "directory_count": 1355,
+      "name": "Pinball",
+      "slug": "pinball",
+      "titles": {
+        "free": "Top free games tagged Pinball - itch.io",
+        "le15": "Top games $15 or less tagged Pinball - itch.io",
+        "le5": "Top games $5 or less tagged Pinball - itch.io",
+        "paid": "Top paid games tagged Pinball - itch.io",
+        "total": "Top games tagged Pinball - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 558,
+        "le15": 74,
+        "le5": 41,
+        "paid": 90,
+        "total": 648
+      },
+      "derived": {
+        "bin_0_5": 41,
+        "bin_15_up": 16,
+        "bin_5_15": 33,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -517,
+        "monotone": true
+      },
+      "directory_count": 1345,
+      "name": "Yaoi",
+      "slug": "yaoi",
+      "titles": {
+        "free": "Top free games tagged Yaoi - itch.io",
+        "le15": "Top games $15 or less tagged Yaoi - itch.io",
+        "le5": "Top games $5 or less tagged Yaoi - itch.io",
+        "paid": "Top paid games tagged Yaoi - itch.io",
+        "total": "Top games tagged Yaoi - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 366,
+        "le15": 29,
+        "le5": 19,
+        "paid": 30,
+        "total": 396
+      },
+      "derived": {
+        "bin_0_5": 19,
+        "bin_15_up": 1,
+        "bin_5_15": 10,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -347,
+        "monotone": true
+      },
+      "directory_count": 1337,
+      "name": "Tarot",
+      "slug": "tarot",
+      "titles": {
+        "free": "Top free games tagged Tarot - itch.io",
+        "le15": "Top games $15 or less tagged Tarot - itch.io",
+        "le5": "Top games $5 or less tagged Tarot - itch.io",
+        "paid": "Top paid games tagged Tarot - itch.io",
+        "total": "Top games tagged Tarot - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 735,
+        "le15": 45,
+        "le5": 28,
+        "paid": 51,
+        "total": 786
+      },
+      "derived": {
+        "bin_0_5": 28,
+        "bin_15_up": 6,
+        "bin_5_15": 17,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -707,
+        "monotone": true
+      },
+      "directory_count": 1241,
+      "name": "relationship",
+      "slug": "relationship",
+      "titles": {
+        "free": "Top free games tagged relationship - itch.io",
+        "le15": "Top games $15 or less tagged relationship - itch.io",
+        "le5": "Top games $5 or less tagged relationship - itch.io",
+        "paid": "Top paid games tagged relationship - itch.io",
+        "total": "Top games tagged relationship - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1109,
+        "le15": 56,
+        "le5": 37,
+        "paid": 56,
+        "total": 1165
+      },
+      "derived": {
+        "bin_0_5": 37,
+        "bin_15_up": 0,
+        "bin_5_15": 19,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1072,
+        "monotone": true
+      },
+      "directory_count": 1200,
+      "name": "Arena Shooter",
+      "slug": "arena-shooter",
+      "titles": {
+        "free": "Top free games tagged Arena Shooter - itch.io",
+        "le15": "Top games $15 or less tagged Arena Shooter - itch.io",
+        "le5": "Top games $5 or less tagged Arena Shooter - itch.io",
+        "paid": "Top paid games tagged Arena Shooter - itch.io",
+        "total": "Top games tagged Arena Shooter - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 1110,
+        "le15": 38,
+        "le5": 30,
+        "paid": 39,
+        "total": 1149
+      },
+      "derived": {
+        "bin_0_5": 30,
+        "bin_15_up": 1,
+        "bin_5_15": 8,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -1080,
+        "monotone": true
+      },
+      "directory_count": 1170,
+      "name": "Auto Battler",
+      "slug": "auto-battler",
+      "titles": {
+        "free": "Top free games tagged Auto Battler - itch.io",
+        "le15": "Top games $15 or less tagged Auto Battler - itch.io",
+        "le5": "Top games $5 or less tagged Auto Battler - itch.io",
+        "paid": "Top paid games tagged Auto Battler - itch.io",
+        "total": "Top games tagged Auto Battler - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 634,
+        "le15": 63,
+        "le5": 47,
+        "paid": 65,
+        "total": 699
+      },
+      "derived": {
+        "bin_0_5": 47,
+        "bin_15_up": 2,
+        "bin_5_15": 16,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -587,
+        "monotone": true
+      },
+      "directory_count": 1167,
+      "name": "solitaire",
+      "slug": "solitaire",
+      "titles": {
+        "free": "Top free games tagged solitaire - itch.io",
+        "le15": "Top games $15 or less tagged solitaire - itch.io",
+        "le5": "Top games $5 or less tagged solitaire - itch.io",
+        "paid": "Top paid games tagged solitaire - itch.io",
+        "total": "Top games tagged solitaire - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 883,
+        "le15": 47,
+        "le5": 38,
+        "paid": 47,
+        "total": 930
+      },
+      "derived": {
+        "bin_0_5": 38,
+        "bin_15_up": 0,
+        "bin_5_15": 9,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -845,
+        "monotone": true
+      },
+      "directory_count": 1002,
+      "name": "Trivia",
+      "slug": "trivia",
+      "titles": {
+        "free": "Top free games tagged Trivia - itch.io",
+        "le15": "Top games $15 or less tagged Trivia - itch.io",
+        "le5": "Top games $5 or less tagged Trivia - itch.io",
+        "paid": "Top paid games tagged Trivia - itch.io",
+        "total": "Top games tagged Trivia - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 520,
+        "le15": 72,
+        "le5": 38,
+        "paid": 84,
+        "total": 604
+      },
+      "derived": {
+        "bin_0_5": 38,
+        "bin_15_up": 12,
+        "bin_5_15": 34,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -482,
+        "monotone": true
+      },
+      "directory_count": 992,
+      "name": "Boys' Love",
+      "slug": "boys-love",
+      "titles": {
+        "free": "Top free games tagged Boys' Love - itch.io",
+        "le15": "Top games $15 or less tagged Boys' Love - itch.io",
+        "le5": "Top games $5 or less tagged Boys' Love - itch.io",
+        "paid": "Top paid games tagged Boys' Love - itch.io",
+        "total": "Top games tagged Boys' Love - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 903,
+        "le15": 27,
+        "le5": 23,
+        "paid": 28,
+        "total": 931
+      },
+      "derived": {
+        "bin_0_5": 23,
+        "bin_15_up": 1,
+        "bin_5_15": 4,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -880,
+        "monotone": true
+      },
+      "directory_count": 964,
+      "name": "On-Rails Shooter",
+      "slug": "on-rails-shooter",
+      "titles": {
+        "free": "Top free games tagged On-Rails Shooter - itch.io",
+        "le15": "Top games $15 or less tagged On-Rails Shooter - itch.io",
+        "le5": "Top games $5 or less tagged On-Rails Shooter - itch.io",
+        "paid": "Top paid games tagged On-Rails Shooter - itch.io",
+        "total": "Top games tagged On-Rails Shooter - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 612,
+        "le15": 49,
+        "le5": 34,
+        "paid": 51,
+        "total": 663
+      },
+      "derived": {
+        "bin_0_5": 34,
+        "bin_15_up": 2,
+        "bin_5_15": 15,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -578,
+        "monotone": true
+      },
+      "directory_count": 929,
+      "name": "World War II",
+      "slug": "world-war-ii",
+      "titles": {
+        "free": "Top free games tagged World War II - itch.io",
+        "le15": "Top games $15 or less tagged World War II - itch.io",
+        "le5": "Top games $5 or less tagged World War II - itch.io",
+        "paid": "Top paid games tagged World War II - itch.io",
+        "total": "Top games tagged World War II - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 567,
+        "le15": 28,
+        "le5": 18,
+        "paid": 30,
+        "total": 597
+      },
+      "derived": {
+        "bin_0_5": 18,
+        "bin_15_up": 2,
+        "bin_5_15": 10,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -549,
+        "monotone": true
+      },
+      "directory_count": 922,
+      "name": "Wild West",
+      "slug": "wild-west",
+      "titles": {
+        "free": "Top free games tagged Wild West - itch.io",
+        "le15": "Top games $15 or less tagged Wild West - itch.io",
+        "le5": "Top games $5 or less tagged Wild West - itch.io",
+        "paid": "Top paid games tagged Wild West - itch.io",
+        "total": "Top games tagged Wild West - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 753,
+        "le15": 36,
+        "le5": 21,
+        "paid": 42,
+        "total": 795
+      },
+      "derived": {
+        "bin_0_5": 21,
+        "bin_15_up": 6,
+        "bin_5_15": 15,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -732,
+        "monotone": true
+      },
+      "directory_count": 910,
+      "name": "Trading",
+      "slug": "trading",
+      "titles": {
+        "free": "Top free games tagged Trading - itch.io",
+        "le15": "Top games $15 or less tagged Trading - itch.io",
+        "le5": "Top games $5 or less tagged Trading - itch.io",
+        "paid": "Top paid games tagged Trading - itch.io",
+        "total": "Top games tagged Trading - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 455,
+        "le15": 10,
+        "le5": 8,
+        "paid": 11,
+        "total": 466
+      },
+      "derived": {
+        "bin_0_5": 8,
+        "bin_15_up": 1,
+        "bin_5_15": 2,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -447,
+        "monotone": true
+      },
+      "directory_count": 895,
+      "name": "Heist",
+      "slug": "heist",
+      "titles": {
+        "free": "Top free games tagged Heist - itch.io",
+        "le15": "Top games $15 or less tagged Heist - itch.io",
+        "le5": "Top games $5 or less tagged Heist - itch.io",
+        "paid": "Top paid games tagged Heist - itch.io",
+        "total": "Top games tagged Heist - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 658,
+        "le15": 23,
+        "le5": 13,
+        "paid": 25,
+        "total": 683
+      },
+      "derived": {
+        "bin_0_5": 13,
+        "bin_15_up": 2,
+        "bin_5_15": 10,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -645,
+        "monotone": true
+      },
+      "directory_count": 884,
+      "name": "Yandere",
+      "slug": "yandere",
+      "titles": {
+        "free": "Top free games tagged Yandere - itch.io",
+        "le15": "Top games $15 or less tagged Yandere - itch.io",
+        "le5": "Top games $5 or less tagged Yandere - itch.io",
+        "paid": "Top paid games tagged Yandere - itch.io",
+        "total": "Top games tagged Yandere - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 719,
+        "le15": 90,
+        "le5": 53,
+        "paid": 91,
+        "total": 810
+      },
+      "derived": {
+        "bin_0_5": 53,
+        "bin_15_up": 1,
+        "bin_5_15": 37,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -666,
+        "monotone": true
+      },
+      "directory_count": 859,
+      "name": "Hidden Object",
+      "slug": "hidden-object",
+      "titles": {
+        "free": "Top free games tagged Hidden Object - itch.io",
+        "le15": "Top games $15 or less tagged Hidden Object - itch.io",
+        "le5": "Top games $5 or less tagged Hidden Object - itch.io",
+        "paid": "Top paid games tagged Hidden Object - itch.io",
+        "total": "Top games tagged Hidden Object - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 714,
+        "le15": 14,
+        "le5": 14,
+        "paid": 14,
+        "total": 728
+      },
+      "derived": {
+        "bin_0_5": 14,
+        "bin_15_up": 0,
+        "bin_5_15": 0,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -700,
+        "monotone": true
+      },
+      "directory_count": 826,
+      "name": "Dress Up",
+      "slug": "dress-up",
+      "titles": {
+        "free": "Top free games tagged Dress Up - itch.io",
+        "le15": "Top games $15 or less tagged Dress Up - itch.io",
+        "le5": "Top games $5 or less tagged Dress Up - itch.io",
+        "paid": "Top paid games tagged Dress Up - itch.io",
+        "total": "Top games tagged Dress Up - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 533,
+        "le15": 54,
+        "le5": 43,
+        "paid": 55,
+        "total": 588
+      },
+      "derived": {
+        "bin_0_5": 43,
+        "bin_15_up": 1,
+        "bin_5_15": 11,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -490,
+        "monotone": true
+      },
+      "directory_count": 804,
+      "name": "Slasher",
+      "slug": "slasher",
+      "titles": {
+        "free": "Top free games tagged Slasher - itch.io",
+        "le15": "Top games $15 or less tagged Slasher - itch.io",
+        "le5": "Top games $5 or less tagged Slasher - itch.io",
+        "paid": "Top paid games tagged Slasher - itch.io",
+        "total": "Top games tagged Slasher - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 629,
+        "le15": 56,
+        "le5": 21,
+        "paid": 71,
+        "total": 700
+      },
+      "derived": {
+        "bin_0_5": 21,
+        "bin_15_up": 15,
+        "bin_5_15": 35,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -608,
+        "monotone": true
+      },
+      "directory_count": 794,
+      "name": "Amare",
+      "slug": "amare",
+      "titles": {
+        "free": "Top free games tagged Amare - itch.io",
+        "le15": "Top games $15 or less tagged Amare - itch.io",
+        "le5": "Top games $5 or less tagged Amare - itch.io",
+        "paid": "Top paid games tagged Amare - itch.io",
+        "total": "Top games tagged Amare - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 554,
+        "le15": 6,
+        "le5": 5,
+        "paid": 6,
+        "total": 560
+      },
+      "derived": {
+        "bin_0_5": 5,
+        "bin_15_up": 0,
+        "bin_5_15": 1,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -549,
+        "monotone": true
+      },
+      "directory_count": 706,
+      "name": "Gacha",
+      "slug": "gacha",
+      "titles": {
+        "free": "Top free games tagged Gacha - itch.io",
+        "le15": "Top games $15 or less tagged Gacha - itch.io",
+        "le5": "Top games $5 or less tagged Gacha - itch.io",
+        "paid": "Top paid games tagged Gacha - itch.io",
+        "total": "Top games tagged Gacha - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 131,
+        "le15": 12,
+        "le5": 8,
+        "paid": 12,
+        "total": 143
+      },
+      "derived": {
+        "bin_0_5": 8,
+        "bin_15_up": 0,
+        "bin_5_15": 4,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -123,
+        "monotone": true
+      },
+      "directory_count": 701,
+      "name": "Monster Girls",
+      "slug": "monster-girls",
+      "titles": {
+        "free": "Top free games tagged Monster Girls - itch.io",
+        "le15": "Top games $15 or less tagged Monster Girls - itch.io",
+        "le5": "Top games $5 or less tagged Monster Girls - itch.io",
+        "paid": "Top paid games tagged Monster Girls - itch.io",
+        "total": "Top games tagged Monster Girls - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 608,
+        "le15": 29,
+        "le5": 24,
+        "paid": 30,
+        "total": 638
+      },
+      "derived": {
+        "bin_0_5": 24,
+        "bin_15_up": 1,
+        "bin_5_15": 5,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -584,
+        "monotone": true
+      },
+      "directory_count": 695,
+      "name": "Basketball",
+      "slug": "basketball",
+      "titles": {
+        "free": "Top free games tagged Basketball - itch.io",
+        "le15": "Top games $15 or less tagged Basketball - itch.io",
+        "le5": "Top games $5 or less tagged Basketball - itch.io",
+        "paid": "Top paid games tagged Basketball - itch.io",
+        "total": "Top games tagged Basketball - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 167,
+        "le15": 14,
+        "le5": 8,
+        "paid": 17,
+        "total": 184
+      },
+      "derived": {
+        "bin_0_5": 8,
+        "bin_15_up": 3,
+        "bin_5_15": 6,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -159,
+        "monotone": true
+      },
+      "directory_count": 692,
+      "name": "Bara",
+      "slug": "bara",
+      "titles": {
+        "free": "Top free games tagged Bara - itch.io",
+        "le15": "Top games $15 or less tagged Bara - itch.io",
+        "le5": "Top games $5 or less tagged Bara - itch.io",
+        "paid": "Top paid games tagged Bara - itch.io",
+        "total": "Top games tagged Bara - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 518,
+        "le15": 31,
+        "le5": 26,
+        "paid": 37,
+        "total": 555
+      },
+      "derived": {
+        "bin_0_5": 26,
+        "bin_15_up": 6,
+        "bin_5_15": 5,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -492,
+        "monotone": true
+      },
+      "directory_count": 594,
+      "name": "Tennis",
+      "slug": "tennis",
+      "titles": {
+        "free": "Top free games tagged Tennis - itch.io",
+        "le15": "Top games $15 or less tagged Tennis - itch.io",
+        "le5": "Top games $5 or less tagged Tennis - itch.io",
+        "paid": "Top paid games tagged Tennis - itch.io",
+        "total": "Top games tagged Tennis - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 526,
+        "le15": 15,
+        "le5": 8,
+        "paid": 17,
+        "total": 543
+      },
+      "derived": {
+        "bin_0_5": 8,
+        "bin_15_up": 2,
+        "bin_5_15": 7,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -518,
+        "monotone": true
+      },
+      "directory_count": 567,
+      "name": "Movement Shooter",
+      "slug": "movement-shooter",
+      "titles": {
+        "free": "Top free games tagged Movement Shooter - itch.io",
+        "le15": "Top games $15 or less tagged Movement Shooter - itch.io",
+        "le5": "Top games $5 or less tagged Movement Shooter - itch.io",
+        "paid": "Top paid games tagged Movement Shooter - itch.io",
+        "total": "Top games tagged Movement Shooter - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 470,
+        "le15": 14,
+        "le5": 12,
+        "paid": 16,
+        "total": 486
+      },
+      "derived": {
+        "bin_0_5": 12,
+        "bin_15_up": 2,
+        "bin_5_15": 2,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -458,
+        "monotone": true
+      },
+      "directory_count": 551,
+      "name": "Skating",
+      "slug": "skating",
+      "titles": {
+        "free": "Top free games tagged Skating - itch.io",
+        "le15": "Top games $15 or less tagged Skating - itch.io",
+        "le5": "Top games $5 or less tagged Skating - itch.io",
+        "paid": "Top paid games tagged Skating - itch.io",
+        "total": "Top games tagged Skating - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 386,
+        "le15": 22,
+        "le5": 15,
+        "paid": 28,
+        "total": 414
+      },
+      "derived": {
+        "bin_0_5": 15,
+        "bin_15_up": 6,
+        "bin_5_15": 7,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -371,
+        "monotone": true
+      },
+      "directory_count": 498,
+      "name": "boxing",
+      "slug": "boxing",
+      "titles": {
+        "free": "Top free games tagged boxing - itch.io",
+        "le15": "Top games $15 or less tagged boxing - itch.io",
+        "le5": "Top games $5 or less tagged boxing - itch.io",
+        "paid": "Top paid games tagged boxing - itch.io",
+        "total": "Top games tagged boxing - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 204,
+        "le15": 18,
+        "le5": 9,
+        "paid": 20,
+        "total": 224
+      },
+      "derived": {
+        "bin_0_5": 9,
+        "bin_15_up": 2,
+        "bin_5_15": 9,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -195,
+        "monotone": true
+      },
+      "directory_count": 493,
+      "name": "Victorian",
+      "slug": "victorian",
+      "titles": {
+        "free": "Top free games tagged Victorian - itch.io",
+        "le15": "Top games $15 or less tagged Victorian - itch.io",
+        "le5": "Top games $5 or less tagged Victorian - itch.io",
+        "paid": "Top paid games tagged Victorian - itch.io",
+        "total": "Top games tagged Victorian - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 280,
+        "le15": 20,
+        "le5": 12,
+        "paid": 22,
+        "total": 302
+      },
+      "derived": {
+        "bin_0_5": 12,
+        "bin_15_up": 2,
+        "bin_5_15": 8,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -268,
+        "monotone": true
+      },
+      "directory_count": 445,
+      "name": "World War I",
+      "slug": "world-war-i",
+      "titles": {
+        "free": "Top free games tagged World War I - itch.io",
+        "le15": "Top games $15 or less tagged World War I - itch.io",
+        "le5": "Top games $5 or less tagged World War I - itch.io",
+        "paid": "Top paid games tagged World War I - itch.io",
+        "total": "Top games tagged World War I - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 360,
+        "le15": 38,
+        "le5": 16,
+        "paid": 44,
+        "total": 404
+      },
+      "derived": {
+        "bin_0_5": 16,
+        "bin_15_up": 6,
+        "bin_5_15": 22,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -344,
+        "monotone": true
+      },
+      "directory_count": 443,
+      "name": "4X",
+      "slug": "4x",
+      "titles": {
+        "free": "Top free games tagged 4X - itch.io",
+        "le15": "Top games $15 or less tagged 4X - itch.io",
+        "le5": "Top games $5 or less tagged 4X - itch.io",
+        "paid": "Top paid games tagged 4X - itch.io",
+        "total": "Top games tagged 4X - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 335,
+        "le15": 17,
+        "le5": 14,
+        "paid": 17,
+        "total": 352
+      },
+      "derived": {
+        "bin_0_5": 14,
+        "bin_15_up": 0,
+        "bin_5_15": 3,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -321,
+        "monotone": true
+      },
+      "directory_count": 378,
+      "name": "sitting-simulator",
+      "slug": "sitting-simulator",
+      "titles": {
+        "free": "Top free games tagged sitting-simulator - itch.io",
+        "le15": "Top games $15 or less tagged sitting-simulator - itch.io",
+        "le5": "Top games $5 or less tagged sitting-simulator - itch.io",
+        "paid": "Top paid games tagged sitting-simulator - itch.io",
+        "total": "Top games tagged sitting-simulator - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 175,
+        "le15": 8,
+        "le5": 4,
+        "paid": 16,
+        "total": 191
+      },
+      "derived": {
+        "bin_0_5": 4,
+        "bin_15_up": 8,
+        "bin_5_15": 4,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -171,
+        "monotone": true
+      },
+      "directory_count": 321,
+      "name": "Isekai",
+      "slug": "isekai",
+      "titles": {
+        "free": "Top free games tagged Isekai - itch.io",
+        "le15": "Top games $15 or less tagged Isekai - itch.io",
+        "le5": "Top games $5 or less tagged Isekai - itch.io",
+        "paid": "Top paid games tagged Isekai - itch.io",
+        "total": "Top games tagged Isekai - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 135,
+        "le15": 22,
+        "le5": 12,
+        "paid": 22,
+        "total": 157
+      },
+      "derived": {
+        "bin_0_5": 12,
+        "bin_15_up": 0,
+        "bin_5_15": 10,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -123,
+        "monotone": true
+      },
+      "directory_count": 164,
+      "name": "Picross",
+      "slug": "picross",
+      "titles": {
+        "free": "Top free games tagged Picross - itch.io",
+        "le15": "Top games $15 or less tagged Picross - itch.io",
+        "le5": "Top games $5 or less tagged Picross - itch.io",
+        "paid": "Top paid games tagged Picross - itch.io",
+        "total": "Top games tagged Picross - itch.io"
+      }
+    },
+    {
+      "counts": {
+        "free": 125,
+        "le15": 25,
+        "le5": 15,
+        "paid": 25,
+        "total": 150
+      },
+      "derived": {
+        "bin_0_5": 15,
+        "bin_15_up": 0,
+        "bin_5_15": 10,
+        "free_plus_paid_minus_total": 0,
+        "le5_minus_free": -110,
+        "monotone": true
+      },
+      "directory_count": 161,
+      "name": "Nonogram",
+      "slug": "nonogram",
+      "titles": {
+        "free": "Top free games tagged Nonogram - itch.io",
+        "le15": "Top games $15 or less tagged Nonogram - itch.io",
+        "le5": "Top games $5 or less tagged Nonogram - itch.io",
+        "paid": "Top paid games tagged Nonogram - itch.io",
+        "total": "Top games tagged Nonogram - itch.io"
+      }
+    }
+  ],
+  "timing_sample": [
+    {
+      "bytes": 92770,
+      "from_cache": false,
+      "seconds": 0.5147496999707073,
+      "url": "https://itch.io/games/free/tag-horror"
+    },
+    {
+      "bytes": 99138,
+      "from_cache": false,
+      "seconds": 0.4781053999904543,
+      "url": "https://itch.io/games/store/tag-horror"
+    },
+    {
+      "bytes": 99823,
+      "from_cache": false,
+      "seconds": 0.6557815000414848,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-horror"
+    },
+    {
+      "bytes": 100952,
+      "from_cache": false,
+      "seconds": 0.6542025001253933,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-horror"
+    },
+    {
+      "bytes": 92789,
+      "from_cache": false,
+      "seconds": 0.4606025000102818,
+      "url": "https://itch.io/games/tag-arcade"
+    },
+    {
+      "bytes": 93398,
+      "from_cache": false,
+      "seconds": 0.7161561998073012,
+      "url": "https://itch.io/games/free/tag-arcade"
+    },
+    {
+      "bytes": 96158,
+      "from_cache": false,
+      "seconds": 0.6078395999502391,
+      "url": "https://itch.io/games/store/tag-arcade"
+    },
+    {
+      "bytes": 98153,
+      "from_cache": false,
+      "seconds": 1.265118099981919,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-arcade"
+    },
+    {
+      "bytes": 98328,
+      "from_cache": false,
+      "seconds": 0.6313185000326484,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-arcade"
+    },
+    {
+      "bytes": 93473,
+      "from_cache": false,
+      "seconds": 0.46605870011262596,
+      "url": "https://itch.io/games/tag-survival"
+    },
+    {
+      "bytes": 94081,
+      "from_cache": false,
+      "seconds": 0.4617117999587208,
+      "url": "https://itch.io/games/free/tag-survival"
+    },
+    {
+      "bytes": 101891,
+      "from_cache": false,
+      "seconds": 0.8258475000038743,
+      "url": "https://itch.io/games/store/tag-survival"
+    },
+    {
+      "bytes": 102314,
+      "from_cache": false,
+      "seconds": 0.5964321000501513,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-survival"
+    },
+    {
+      "bytes": 103321,
+      "from_cache": false,
+      "seconds": 0.7015003999695182,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-survival"
+    },
+    {
+      "bytes": 94887,
+      "from_cache": false,
+      "seconds": 0.45088019990362227,
+      "url": "https://itch.io/games/tag-fantasy"
+    },
+    {
+      "bytes": 96019,
+      "from_cache": false,
+      "seconds": 1.3115677000023425,
+      "url": "https://itch.io/games/free/tag-fantasy"
+    },
+    {
+      "bytes": 101381,
+      "from_cache": false,
+      "seconds": 0.6103815000969917,
+      "url": "https://itch.io/games/store/tag-fantasy"
+    },
+    {
+      "bytes": 101743,
+      "from_cache": false,
+      "seconds": 0.5847561000846326,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-fantasy"
+    },
+    {
+      "bytes": 102650,
+      "from_cache": false,
+      "seconds": 0.6055139999371022,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-fantasy"
+    },
+    {
+      "bytes": 93275,
+      "from_cache": false,
+      "seconds": 0.43836580007337034,
+      "url": "https://itch.io/games/tag-casual"
+    },
+    {
+      "bytes": 94177,
+      "from_cache": false,
+      "seconds": 0.8403350000735372,
+      "url": "https://itch.io/games/free/tag-casual"
+    },
+    {
+      "bytes": 101270,
+      "from_cache": false,
+      "seconds": 0.6250699998345226,
+      "url": "https://itch.io/games/store/tag-casual"
+    },
+    {
+      "bytes": 102071,
+      "from_cache": false,
+      "seconds": 0.635626400122419,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-casual"
+    },
+    {
+      "bytes": 101803,
+      "from_cache": false,
+      "seconds": 0.8525735998991877,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-casual"
+    },
+    {
+      "bytes": 100621,
+      "from_cache": false,
+      "seconds": 0.493914500111714,
+      "url": "https://itch.io/games/tag-interactive-fiction"
+    },
+    {
+      "bytes": 101823,
+      "from_cache": false,
+      "seconds": 0.6135937999933958,
+      "url": "https://itch.io/games/free/tag-interactive-fiction"
+    },
+    {
+      "bytes": 105925,
+      "from_cache": false,
+      "seconds": 0.7452803999185562,
+      "url": "https://itch.io/games/store/tag-interactive-fiction"
+    },
+    {
+      "bytes": 108245,
+      "from_cache": false,
+      "seconds": 0.6209431001916528,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-interactive-fiction"
+    },
+    {
+      "bytes": 107924,
+      "from_cache": false,
+      "seconds": 0.6454984000883996,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-interactive-fiction"
+    },
+    {
+      "bytes": 93566,
+      "from_cache": false,
+      "seconds": 0.5441469000652432,
+      "url": "https://itch.io/games/tag-space"
+    },
+    {
+      "bytes": 94186,
+      "from_cache": false,
+      "seconds": 0.6930011999793351,
+      "url": "https://itch.io/games/free/tag-space"
+    },
+    {
+      "bytes": 100316,
+      "from_cache": false,
+      "seconds": 0.8341861001681536,
+      "url": "https://itch.io/games/store/tag-space"
+    },
+    {
+      "bytes": 99529,
+      "from_cache": false,
+      "seconds": 0.6021853000856936,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-space"
+    },
+    {
+      "bytes": 100213,
+      "from_cache": false,
+      "seconds": 0.8438730998896062,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-space"
+    },
+    {
+      "bytes": 95773,
+      "from_cache": false,
+      "seconds": 0.6351553001441061,
+      "url": "https://itch.io/games/tag-science-fiction"
+    },
+    {
+      "bytes": 95923,
+      "from_cache": false,
+      "seconds": 0.5532283999491483,
+      "url": "https://itch.io/games/free/tag-science-fiction"
+    },
+    {
+      "bytes": 101755,
+      "from_cache": false,
+      "seconds": 0.6240634000860155,
+      "url": "https://itch.io/games/store/tag-science-fiction"
+    },
+    {
+      "bytes": 100718,
+      "from_cache": false,
+      "seconds": 0.8147853000555187,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-science-fiction"
+    },
+    {
+      "bytes": 102092,
+      "from_cache": false,
+      "seconds": 0.6245607000309974,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-science-fiction"
+    },
+    {
+      "bytes": 92255,
+      "from_cache": false,
+      "seconds": 0.5304959998466074,
+      "url": "https://itch.io/games/tag-music"
+    },
+    {
+      "bytes": 91501,
+      "from_cache": false,
+      "seconds": 0.5764099999796599,
+      "url": "https://itch.io/games/free/tag-music"
+    },
+    {
+      "bytes": 101328,
+      "from_cache": false,
+      "seconds": 0.7350654001347721,
+      "url": "https://itch.io/games/store/tag-music"
+    },
+    {
+      "bytes": 99666,
+      "from_cache": false,
+      "seconds": 0.6102187000215054,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-music"
+    },
+    {
+      "bytes": 102053,
+      "from_cache": false,
+      "seconds": 0.6620272998698056,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-music"
+    },
+    {
+      "bytes": 94648,
+      "from_cache": false,
+      "seconds": 0.4716916000470519,
+      "url": "https://itch.io/games/tag-roguelike"
+    },
+    {
+      "bytes": 93780,
+      "from_cache": false,
+      "seconds": 0.5018253999296576,
+      "url": "https://itch.io/games/free/tag-roguelike"
+    },
+    {
+      "bytes": 102251,
+      "from_cache": false,
+      "seconds": 0.642035000026226,
+      "url": "https://itch.io/games/store/tag-roguelike"
+    },
+    {
+      "bytes": 100222,
+      "from_cache": false,
+      "seconds": 0.7210159997921437,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-roguelike"
+    },
+    {
+      "bytes": 102388,
+      "from_cache": false,
+      "seconds": 0.7744958000257611,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-roguelike"
+    },
+    {
+      "bytes": 92881,
+      "from_cache": false,
+      "seconds": 0.3210897999815643,
+      "url": "https://itch.io/games/tag-fighting"
+    },
+    {
+      "bytes": 93540,
+      "from_cache": false,
+      "seconds": 0.7669561000075191,
+      "url": "https://itch.io/games/free/tag-fighting"
+    },
+    {
+      "bytes": 101115,
+      "from_cache": false,
+      "seconds": 0.7280361999291927,
+      "url": "https://itch.io/games/store/tag-fighting"
+    },
+    {
+      "bytes": 99759,
+      "from_cache": false,
+      "seconds": 0.7108297999948263,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-fighting"
+    },
+    {
+      "bytes": 101910,
+      "from_cache": false,
+      "seconds": 1.408561599906534,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-fighting"
+    },
+    {
+      "bytes": 92531,
+      "from_cache": false,
+      "seconds": 0.9701300000306219,
+      "url": "https://itch.io/games/tag-exploration"
+    },
+    {
+      "bytes": 94322,
+      "from_cache": false,
+      "seconds": 0.5883260001428425,
+      "url": "https://itch.io/games/free/tag-exploration"
+    },
+    {
+      "bytes": 100530,
+      "from_cache": false,
+      "seconds": 0.5850430999416858,
+      "url": "https://itch.io/games/store/tag-exploration"
+    },
+    {
+      "bytes": 99147,
+      "from_cache": false,
+      "seconds": 0.7524155001156032,
+      "url": "https://itch.io/games/5-dollars-or-less/tag-exploration"
+    },
+    {
+      "bytes": 101226,
+      "from_cache": false,
+      "seconds": 0.5959467999637127,
+      "url": "https://itch.io/games/15-dollars-or-less/tag-exploration"
+    },
+    {
+      "bytes": 97298,
+      "from_cache": false,
+      "seconds": 0.4651251998730004,
+      "url": "https://itch.io/games/tag-card-game"
+    }
+  ],
+  "totals": {
+    "enumeration_pages_if_every_tag_read": 1656,
+    "paid_sum_over_tags_double_counted": 57067,
+    "tags": 151
+  },
+  "what": "step three piece two: the published counts for every market tag, total and four cumulative price filters"
+}

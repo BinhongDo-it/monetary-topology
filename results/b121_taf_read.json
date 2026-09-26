@@ -1,0 +1,194 @@
+{
+  "config": {
+    "bands": [
+      "1bn to 10bn",
+      "250m to 1bn",
+      "under 250m"
+    ],
+    "class_writing": "ever",
+    "cuts": 2,
+    "draws": 2000,
+    "seeds": [
+      11,
+      23
+    ],
+    "spans": {
+      "before": [
+        "2007Q2",
+        "2007Q3"
+      ],
+      "before_wide": [
+        "2007Q2",
+        "2007Q4"
+      ],
+      "during": [
+        "2008Q1",
+        "2009Q4"
+      ]
+    },
+    "statistic": "share above the line"
+  },
+  "criteria": [
+    {
+      "detail": "262 filers in the class; members priced per band and quarter 4 to 26",
+      "kind": "instrument",
+      "name": "B121-20",
+      "passed": true,
+      "statement": "the class is joined and priced: in every quarter read, some banks in each small band are on the edge and some are off it"
+    },
+    {
+      "detail": "outside minus inside -0.0116 (-0.55 se); the sign turns over on ['ever|log odds|before', 'ever|log odds|before_wide', 'active|log odds|before', 'active|log odds|before_wide']",
+      "grid": "unread",
+      "kind": "rival",
+      "name": "B121-21",
+      "passed": null,
+      "rival_entailment": "a split of sound banks into any two groups carries no difference in that price",
+      "rival_premise": "sound banks borrowing overnight pay one price at that position",
+      "rival_shape": "point prediction of zero",
+      "state": "sign turns over",
+      "state_map": {
+        "inside two se, sign steady": "fail, grid C",
+        "past two se, sign steady": "pass, grid B",
+        "sign nothing clears the floor": "no verdict, grid unread",
+        "sign turns over": "no verdict, grid unread"
+      },
+      "statement": "while the TAF ran, the banks off the edge and the banks on it paid differently for overnight funds, past two of its own standard errors"
+    },
+    {
+      "detail": "before +0.0039, during -0.0116, change -0.0155 (-0.35 se); the sign turns over on ['ever|log odds|before', 'ever|log odds|before_wide', 'active|log odds|before', 'active|log odds|before_wide']",
+      "kind": "own_reading",
+      "name": "B121-22",
+      "passed": null,
+      "state": "sign turns over",
+      "state_map": {
+        "inside two se, sign steady": "fail",
+        "past two se, sign steady": "pass",
+        "sign nothing clears the floor": "no verdict",
+        "sign turns over": "no verdict"
+      },
+      "statement": "the difference arrived with the edge: during the TAF minus before its announcement, past two of its own standard errors"
+    },
+    {
+      "detail": "during_se: -0.55 and -0.55, moved 0.003, stands 1.451 from the line; change_se: -0.35 and -0.35, moved 0.000, stands 1.654 from the line",
+      "kind": "instrument",
+      "name": "B121-23",
+      "passed": true,
+      "statement": "two seeds leave both readings in one state, and each moves less than its distance to the line"
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Arm E of B121; the station has other arms open.",
+  "readings": {
+    "by_seed": {
+      "11": {
+        "before": 0.003876224446161219,
+        "change": -0.015492893542784865,
+        "change_se": -0.3462145829204529,
+        "draws": 2000,
+        "during": -0.011616669096623646,
+        "during_se": -0.547658025136835,
+        "se": {
+          "before": 0.04841150150691524,
+          "change": 0.04474939620421636,
+          "during": 0.021211538155989158
+        },
+        "seed": 11
+      },
+      "23": {
+        "before": 0.003876224446161219,
+        "change": -0.015492893542784865,
+        "change_se": -0.3465469244986235,
+        "draws": 2000,
+        "during": -0.011616669096623646,
+        "during_se": -0.5506170697476699,
+        "se": {
+          "before": 0.047909870716052246,
+          "change": 0.04470648113585092,
+          "during": 0.02109754625287442
+        },
+        "seed": 23
+      }
+    },
+    "counts": {
+      "class": 262,
+      "max_members": 26,
+      "min_members": 4
+    },
+    "knobs": [
+      {
+        "before": 0.003876224446161219,
+        "change": -0.015492893542784865,
+        "change_se": -0.35502448049600294,
+        "during": -0.011616669096623646,
+        "during_se": -0.5483047042880269,
+        "name": "ever|share above the line|before"
+      },
+      {
+        "before": -0.00801857902250296,
+        "change": -0.003598090074120687,
+        "change_se": -0.08245135460428045,
+        "during": -0.011616669096623646,
+        "during_se": -0.5483047042880269,
+        "name": "ever|share above the line|before_wide"
+      },
+      {
+        "before": 0.02549464446705913,
+        "change": 0.4537333910428054,
+        "change_se": 1.6383918780426914,
+        "during": 0.47922803550986454,
+        "during_se": 2.8355794458863244,
+        "name": "ever|log odds|before"
+      },
+      {
+        "before": -0.005499589756045831,
+        "change": 0.48472762526591034,
+        "change_se": 1.7503093666378768,
+        "during": 0.47922803550986454,
+        "during_se": 2.8355794458863244,
+        "name": "ever|log odds|before_wide"
+      },
+      {
+        "before": 0.003876224446161219,
+        "change": -0.018491873589171995,
+        "change_se": -0.35740616177308265,
+        "during": -0.014615649143010776,
+        "during_se": -0.4601599855187886,
+        "name": "active|share above the line|before"
+      },
+      {
+        "before": -0.00801857902250296,
+        "change": -0.006597070120507817,
+        "change_se": -0.12750646922544548,
+        "during": -0.014615649143010776,
+        "during_se": -0.4601599855187886,
+        "name": "active|share above the line|before_wide"
+      },
+      {
+        "before": 0.02549464446705913,
+        "change": 1.0451456003682174,
+        "change_se": 2.778252854941211,
+        "during": 1.0706402448352765,
+        "during_se": 4.136919193175927,
+        "name": "active|log odds|before"
+      },
+      {
+        "before": -0.005499589756045831,
+        "change": 1.0761398345913225,
+        "change_se": 2.8606431168212025,
+        "during": 1.0706402448352765,
+        "during_se": 4.136919193175927,
+        "name": "active|log odds|before_wide"
+      }
+    ],
+    "seeds": {
+      "detail": "during_se: -0.55 and -0.55, moved 0.003, stands 1.451 from the line; change_se: -0.35 and -0.35, moved 0.000, stands 1.654 from the line",
+      "ok": true
+    }
+  },
+  "source": {
+    "class": "results/b121_taf_class.json",
+    "line": "FRED DFF, quarter mean",
+    "price": "Call Report RC-K and RI 4180, read by b59_size_spread.arm_rc_k"
+  },
+  "stage": "B121"
+}

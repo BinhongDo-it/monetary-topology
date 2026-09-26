@@ -117,6 +117,7 @@ from .industry import (
     friction_vector,
     coefficient_perturbation,
     perturbation_is_off,
+    industry_layers,
 )
 from .config import LAYER_1, LAYER_2, MonetaryAuthority, SpendRule, WageChannel
 
@@ -232,6 +233,17 @@ _REWIRE_OFFSET = 51_413
 #: nothing to do with, and the bitwise reproduction would then be a claim about
 #: draw order rather than about the mechanism.
 _EDGE_CUT_OFFSET = 90_311
+
+#: And one more for who is willing to cut at all, because that draw is taken
+#: once at construction while the cut stream is consumed round by round. Making
+#: them share would move every later cut by one draw the moment the willingness
+#: knob leaves its default, and the reading would then be about draw order.
+_CUTTER_OFFSET = 61_949
+
+#: A stream of its own for channel formation (``IndustrySpec.channel_rate``),
+#: for the same reason as the rewire and edge-cut streams: turning it on must
+#: not shift any other draw.
+_CHANNEL_OFFSET = 40_127
 
 #: A stream of its own for the rank-and-fill control arm, same reason again. It
 #: is drawn from once, at build time, and only when that arm is on, so a run
@@ -1427,6 +1439,283 @@ class ParkSpec:
         return self.return_rate > 0.0
 
 
+#: Where claims the sovereign passes down land. See ``SovereignSpec.landing``.
+SOVEREIGN_LANDINGS: tuple[str, ...] = ("parkers", "production", "uniform")
+
+#: Who a levy that serves the sovereign's debt falls on. See
+#: ``SovereignSpec.levy_base``.
+SOVEREIGN_LEVY_BASES: tuple[str, ...] = ("equal", "threshold")
+
+#: The history fields the debt service writes, when it runs.
+DEBT_FIELDS: tuple[str, ...] = ("debt_due", "debt_levied", "debt_levied_l2",
+                                "debt_created", "debt_capitalized",
+                                "debt_extinguished")
+
+#: Whose accounts an authority that also takes back takes from. See
+#: ``WithdrawSpec``. ``none`` is off.
+WITHDRAW_POSITIONS: tuple[str, ...] = ("none", "financial", "proportional",
+                                       "production")
+#: How the amount is split among the accounts inside the position.
+WITHDRAW_BASES: tuple[str, ...] = ("holdings", "equal", "threshold")
+#: The columns that switch adds to the history, ``None`` when it is off.
+WITHDRAW_FIELDS: tuple[str, ...] = ("withdrawn", "withdrawn_unmet",
+                                    "withdrawn_l2")
+
+#: The write-off's counters. Allocated only when ``trace_writeoff`` is on.
+#: **A per-head levy is capped at each account, and the cap is where the two
+#: shapes come apart.** ``uncollected`` is what the cap left behind and is not
+#: carried forward; ``payers`` is how many accounts the levy could draw on at
+#: all; ``drained`` is how many this round emptied, which is how the paying
+#: set shrinks; ``share`` is the amount aimed at each payer, which rises as
+#: that set shrinks and so makes the cap bite harder. Pro rata cannot leave a
+#: shortfall, because what it aims at each account is a fraction of what that
+#: account holds, so ``uncollected`` is structurally zero there and reading a
+#: non-zero would mean this comment is wrong about the code.
+WRITEOFF_TRACE_FIELDS: tuple[str, ...] = ("writeoff_uncollected",
+                                          "writeoff_payers",
+                                          "writeoff_drained",
+                                          "writeoff_share")
+
+
+@dataclass(frozen=True)
+class SovereignSpec:
+    """A sovereign drawn outside the graph, whose bonds are bought with parked claims.
+
+    **Why outside.** The sovereign sets the edge set: which edges may exist,
+    their direction and size, and the rules that draw on every agent. The
+    party that draws the graph is not one of its nodes. Ruled 2026-09-11.
+
+    **Buying a bond is parking.** A financial-layer node that buys a sovereign
+    or local-government bond takes claims out of every account the flow can
+    route through, and the claims still exist: they are the buyer's, held as a
+    bond. That is ``ParkSpec`` as it stands, so this switch adds nothing on the
+    buying side and needs ``park.rate > 0`` to have anything to act on.
+
+    **The other side of the purchase leaves the graph.** The proceeds go into a
+    pool outside it. What the pool passes down enters the graph at the
+    receiving nodes as an in-edge from outside, so the subsistence floor counts
+    it as their inflow. It is kept out of the flow matrix, which holds edges
+    between nodes, so every support and cycle measure still reads trades
+    between nodes only.
+
+    **Two knobs, one job each.** With ``P(t)`` the claims parked in round ``t``
+    and ``G(t)`` the pool when round ``t`` opens,
+
+        G(t+1) = (1 - pass_rate) * G(t) + bond_share * P(t)
+
+    so in steady state each round passes down ``bond_share * P`` whatever
+    ``pass_rate`` is, and ``pass_rate`` sets only the mean lag, ``1 / pass_rate``
+    rounds. ``bond_share`` decides how much of the parked money can come back,
+    ``pass_rate`` how fast.
+
+    **Debt is served only when asked.** With ``maturity_rate`` and
+    ``coupon_rate`` at zero the stock rolls over for ever and nobody is repaid.
+    Set either and a share of the bonds falls due each round, interest accrues
+    on what is outstanding, and ``funding`` names who pays: the holders by
+    rolling it over, the nodes still trading through a levy, or new claims.
+    What a holder is paid enters the graph as an in-edge from outside, as the
+    pass-down does, and the floor counts it; a levy leaves the graph and is
+    nobody's inflow.
+
+    **Off by default, and then bit for bit.** With ``pass_rate = 0`` the round
+    loop never calls the pass-down, the pool is never touched, and the history
+    fields this adds stay ``None``. With ``pass_rate > 0`` and both debt rates
+    at zero the loop never calls the debt service either, and the run is the
+    one it was before the debt service existed.
+    """
+
+    #: Share of the pool passed down each round. Zero is off, and the default.
+    pass_rate: float = 0.0
+    #: Share of each round's parking that buys bonds, whose proceeds go into
+    #: the pool. The rest is parked as before and nothing comes back for it:
+    #: reserves, cash, assets held abroad.
+    bond_share: float = 1.0
+    #: Who receives what is passed down. ``parkers``: the nodes that parked, in
+    #: proportion to what each holds parked. ``production``: every live node
+    #: outside the financial layer, the intermediate block included, in equal
+    #: shares. ``uniform``: every live node, in equal shares.
+    landing: str = "production"
+    #: Share of the bonds outstanding that falls due each round: a geometric
+    #: maturity, mean term ``1 / maturity_rate`` rounds. Zero is a perpetual
+    #: bond, and the default.
+    maturity_rate: float = 0.0
+    #: Interest per round on the bonds outstanding, owed to their holders.
+    #: Zero is the default.
+    coupon_rate: float = 0.0
+    #: Who pays what falls due, one of ``RESUPPLY_FUNDING``. ``creditors``: the
+    #: holders carry it, principal rolls into new bonds and the coupon is added
+    #: to their holding. ``levy``: the nodes still trading pay, and what cannot
+    #: be collected is paid pro rata, unpaid principal rolling and unpaid
+    #: coupon added to the holding. ``issuance``: claims are created and paid
+    #: to the holders in the same round.
+    funding: str = "creditors"
+    #: Who a levy falls on. ``equal``: ``_settle_levy``'s rule, the same share
+    #: for every node still trading, a node that cannot fund its share paying
+    #: what it has. ``threshold``: A6's progressive base, in proportion to the
+    #: part of a node's account above the mean account of the nodes still
+    #: trading. Parked claims are not assessed.
+    levy_base: str = "equal"
+
+    def __post_init__(self) -> None:
+        if not 0.0 <= self.pass_rate <= 1.0:
+            raise ValueError("pass_rate must lie in [0, 1]")
+        if not 0.0 <= self.bond_share <= 1.0:
+            raise ValueError("bond_share must lie in [0, 1]")
+        if self.landing not in SOVEREIGN_LANDINGS:
+            raise ValueError(
+                f"landing must be one of {SOVEREIGN_LANDINGS}, got {self.landing!r}")
+        if not 0.0 <= self.maturity_rate <= 1.0:
+            raise ValueError("maturity_rate must lie in [0, 1]")
+        if not 0.0 <= self.coupon_rate <= 1.0:
+            raise ValueError("coupon_rate must lie in [0, 1]")
+        if self.funding not in RESUPPLY_FUNDING:
+            raise ValueError(
+                f"funding must be one of {RESUPPLY_FUNDING}, got {self.funding!r}")
+        if self.levy_base not in SOVEREIGN_LEVY_BASES:
+            raise ValueError(
+                f"levy_base must be one of {SOVEREIGN_LEVY_BASES}, "
+                f"got {self.levy_base!r}")
+        if self.serves_debt and not self.active:
+            raise ValueError(
+                "maturity_rate or coupon_rate > 0 needs pass_rate > 0: with "
+                "nothing passed down no bond is bought, so there is no debt to "
+                "serve")
+
+    @property
+    def active(self) -> bool:
+        return self.pass_rate > 0.0
+
+    @property
+    def serves_debt(self) -> bool:
+        return self.maturity_rate > 0.0 or self.coupon_rate > 0.0
+
+
+@dataclass(frozen=True)
+class WithdrawSpec:
+    """The issuance rule's other side: claims taken back when the inflow runs
+    above the level that rule aims at.
+
+    **What it changes.** ``MonetaryAuthority(rule="endogenous")`` issues
+    ``gain * (target - inflow)`` while the Layer 2 inflow is short of the
+    opening round's, and nothing while it is above. The rule therefore moves in
+    one direction, and what it issues into a dip stays in the graph once the
+    dip is over. This adds the other direction. Off by default, and off is the
+    run it always was.
+
+    **Where it takes from is the reading, not a detail.** The rule pins one
+    aggregate, the Layer 2 inflow, while the subsistence floor is read per
+    node. So the same pinned aggregate can leave a different set of nodes below
+    the floor depending on whose account the claims come out of. ``position``
+    names that set and nothing else.
+
+    **It sits on ``NetworkConfig`` rather than on ``MonetaryAuthority``** for
+    the reason ``injection_target`` does: ``economy.py``'s block model shares
+    that dataclass and reads neither field, so a switch put there would be live
+    in one model and silently inert in the other.
+
+    **Claims taken back stop existing.** They are not parked and not paid to
+    anyone: the account falls, the claim total falls with it, and the round's
+    conservation check sees both. Parked claims are not assessed, as a levy
+    does not assess them. No account is taken below zero, and what the cap
+    leaves uncollected is recorded and not carried: the next round reads the
+    gap again.
+    """
+
+    #: Whose accounts the claims come out of. ``none`` is off, and the default.
+    #: ``financial``: the financial layer, in proportion to what each node
+    #: holds, which is the layer the issuance lands in. ``proportional``: every
+    #: live node, in proportion to what it holds. ``production``: every live
+    #: node outside the financial layer, the intermediate block included, in
+    #: proportion to what it holds, which is the set the sovereign's
+    #: ``production`` landing pays into.
+    position: str = "none"
+    #: Share of the overshoot taken back each round, the mirror of the
+    #: authority's own gain.
+    gain: float = 1.0
+    #: How the amount is split among the accounts inside the position, which
+    #: is the shape of the collection as against the set it falls on.
+    #: ``holdings``: in proportion to what each node holds, the default and the
+    #: run it always was. ``equal``: the same amount from every node inside the
+    #: position that holds something, which is ``_settle_levy``'s rule with the
+    #: denominator named below. ``threshold``: A6's progressive base, in
+    #: proportion to the part of a node's account above the mean account of the
+    #: nodes inside the position, and never more than that part, the mean taken
+    #: over every live node inside it so that empty accounts count in the
+    #: denominator. Each is capped at the account, nothing spills outside the
+    #: position, and what the cap leaves uncollected is recorded and not
+    #: carried, as for ``holdings``.
+    #:
+    #: **Why ``equal`` is divided by the nodes holding something rather than by
+    #: every live node.** Measured on this carrier before the switch was
+    #: written: dividing by every live node collects 0.167 to 0.614 of what the
+    #: rule asks for, because most accounts are empty (one cell has 50 positive
+    #: accounts among 200 live nodes and a median account of zero). A rule that
+    #: collects a quarter of what it asks for changes the aggregate, and the
+    #: aggregate is the channel a comparison of shapes has to hold still.
+    base: str = "holdings"
+    #: Two or more positions collected in one round, each with its own shape
+    #: and its own share of the amount: ``((position, base, share), ...)``.
+    #: Empty is off, and off is the single-position rule above, untouched.
+    #:
+    #: **Why it is a field and not two switches.** ``position`` and ``base``
+    #: already span "which set" and "which shape", and what this adds is
+    #: neither: it is the ratio in which two sets are drawn on at once. The
+    #: first round sampled that ratio at three points, 0, about 0.75 and 1 of
+    #: the take falling on the financial layer, and read the same count below
+    #: the floor at all three. This fills the ratio in and lets the two sets
+    #: carry different shapes while it does.
+    #:
+    #: Shares are shares of the amount, must be positive and sum to one, and
+    #: the positions must be distinct. When it is set, ``position`` and
+    #: ``base`` above are not read.
+    mix: tuple[tuple[str, str, float], ...] = ()
+
+    def __post_init__(self) -> None:
+        if self.position not in WITHDRAW_POSITIONS:
+            raise ValueError(
+                f"position must be one of {WITHDRAW_POSITIONS}, got "
+                f"{self.position!r}")
+        if not 0.0 < self.gain <= 1.0:
+            raise ValueError("gain must lie in (0, 1]")
+        if self.base not in WITHDRAW_BASES:
+            raise ValueError(
+                f"base must be one of {WITHDRAW_BASES}, got {self.base!r}")
+        if self.mix:
+            if len(self.mix) < 2:
+                raise ValueError(
+                    "mix needs two or more entries: one entry is the single "
+                    "position rule, which position and base already say")
+            seen = set()
+            total = 0.0
+            for entry in self.mix:
+                if len(entry) != 3:
+                    raise ValueError(
+                        f"a mix entry is (position, base, share), got {entry!r}")
+                where, how, share = entry
+                if where == "none" or where not in WITHDRAW_POSITIONS:
+                    raise ValueError(
+                        f"a mix position must be one of "
+                        f"{WITHDRAW_POSITIONS[1:]}, got {where!r}")
+                if how not in WITHDRAW_BASES:
+                    raise ValueError(
+                        f"a mix base must be one of {WITHDRAW_BASES}, got "
+                        f"{how!r}")
+                if not 0.0 < float(share) <= 1.0:
+                    raise ValueError("a mix share must lie in (0, 1]")
+                if where in seen:
+                    raise ValueError(
+                        f"mix names {where!r} twice: one entry per position")
+                seen.add(where)
+                total += float(share)
+            if abs(total - 1.0) > 1e-12:
+                raise ValueError(
+                    f"mix shares must sum to one, they sum to {total!r}")
+
+    @property
+    def active(self) -> bool:
+        return self.position != "none" or bool(self.mix)
+
+
 @dataclass(frozen=True)
 class EdgeCutSpec:
     """Edges removed from the graph itself, rather than a node ceasing to trade.
@@ -1483,6 +1772,30 @@ class EdgeCutSpec:
     #: to the caller rather than raised on.
     trigger: float = 0.0
 
+    #: ``self_cut`` only: of the nodes the trigger catches, the share that
+    #: actually withdraw. One is every one of them, and is the default.
+    #:
+    #: **``share`` is a share of edges and this is a share of nodes**, which is
+    #: the whole distinction it exists for: ``share`` is how deep a withdrawal
+    #: goes and this is how wide it spreads. Without it the width is endogenous
+    #: and saturates, so a run cannot ask what happens at a width the feedback
+    #: does not produce on its own.
+    #:
+    #: **Drawn once, as a disposition of a node, not a coin flipped each
+    #: round.** A per-round draw would let the set of withdrawers accumulate to
+    #: everyone, which is the thing this knob is for preventing, and it is also
+    #: the wrong model: withdrawing is something a node is, not something that
+    #: happens to it again every round.
+    #:
+    #: **At one nothing is drawn at all**, so a run at the default consumes the
+    #: same stream it consumed before this field existed and reproduces it to
+    #: the last bit.
+    #:
+    #: Not named ``participation``: that word already means taking part in the
+    #: economy in this repository, and one word for two objects is how a reader
+    #: ends up unable to tell which is meant.
+    cutter_share: float = 1.0
+
     def __post_init__(self) -> None:
         if self.mode not in EDGE_CUT_MODES:
             raise ValueError(
@@ -1496,6 +1809,16 @@ class EdgeCutSpec:
             raise ValueError(
                 f"targeting must be one of {EDGE_CUT_TARGETING}, "
                 f"got {self.targeting!r}"
+            )
+        if not 0.0 <= self.cutter_share <= 1.0:
+            raise ValueError("cutter_share must lie in [0, 1]")
+        if self.cutter_share < 1.0 and self.mode != "self_cut":
+            # Rejected rather than ignored. A knob that silently does nothing
+            # under some modes is a field with nothing guarding it, and the
+            # reader finds out on the day the reading is already written down.
+            raise ValueError(
+                "cutter_share below one is defined for mode 'self_cut' only, "
+                f"got mode {self.mode!r}"
             )
         if self.trigger < 0.0:
             raise ValueError("trigger must be non-negative")
@@ -1606,12 +1929,31 @@ class WriteOffSpec:
     #: hydra clause: the equity that absorbs the loss is conserved, and what
     #: grows back is funded from the layer that is not.
     refill: bool = False
+    #: How the destroyed claims are taken off the accounts still trading, from
+    #: ``WITHDRAW_BASES``. ``holdings`` is pro rata to what each node holds,
+    #: the default and the rule this switch has always had, written into the
+    #: module as one multiplication. ``equal`` takes the same amount off every
+    #: account holding something and ``threshold`` takes from the part above
+    #: the mean, both capped at the account, with what the cap leaves
+    #: uncollected recorded and not carried.
+    #:
+    #: **The parked side is pro rata whatever this says.** The dial asks who
+    #: among the nodes still trading carries a write-off; claims already out of
+    #: circulation are not trading, and the trigger counts them, so they fall
+    #: in proportion. The amount aimed at the held side is the rate times what
+    #: is held, which leaves the total destroyed equal to the rate times the
+    #: claim total whenever no cap binds.
+    base: str = "holdings"
 
     def __post_init__(self) -> None:
         if not 0.0 <= self.rate < 1.0:
             raise ValueError("write-off rate must lie in [0, 1)")
         if self.trigger < 0.0:
             raise ValueError("write-off trigger must be non-negative")
+        if self.base not in WITHDRAW_BASES:
+            raise ValueError(
+                f"write-off base must be one of {WITHDRAW_BASES}, got "
+                f"{self.base!r}")
 
     @property
     def active(self) -> bool:
@@ -1877,6 +2219,13 @@ class NetworkConfig:
     spec: NetworkSpec = field(default_factory=NetworkSpec)
     spend: SpendRule = field(default_factory=SpendRule)
     wages: WageChannel = field(default_factory=WageChannel)
+    #: Record the write-off's four counters on the history. Off by default and
+    #: off is the run as it was. **It is not a mechanism and it changes
+    #: nothing**: the switch exists so the arrays are not allocated on the
+    #: hundreds of runs that have no use for them, and so that turning it on
+    #: is a statement that can be checked rather than assumed.
+    trace_writeoff: bool = False
+
     authority: MonetaryAuthority = field(
         default_factory=lambda: MonetaryAuthority(rule="endogenous")
     )
@@ -1915,6 +2264,15 @@ class NetworkConfig:
 
     #: Claims moved out of circulation without being destroyed. Off by default.
     park: ParkSpec = field(default_factory=ParkSpec)
+
+    #: A sovereign outside the graph whose bonds are bought with parked claims.
+    #: Off by default; needs ``park`` on when it is on.
+    sovereign: SovereignSpec = field(default_factory=SovereignSpec)
+
+    #: The issuance rule's other side: claims taken back while the inflow runs
+    #: above the level that rule aims at. Off by default; needs the endogenous
+    #: rule when it is on.
+    withdraw: WithdrawSpec = field(default_factory=WithdrawSpec)
 
     #: Industries as clusters of agents, with a Leontief matrix between them.
     #: ``count = 0`` is off and no line of ``industry.py`` is reached.
@@ -1967,6 +2325,22 @@ class NetworkConfig:
                 f"injection_target must be one of {INJECTION_TARGETS}, "
                 f"got {self.injection_target!r}"
             )
+        if self.sovereign.active:
+            if not self.park.active:
+                raise ValueError(
+                    "sovereign.pass_rate > 0 needs park.rate > 0: the bonds are "
+                    "bought with parked claims, so with nothing parked there is "
+                    "nothing to pass down")
+            if self.park.returns:
+                raise ValueError(
+                    "sovereign and park.return_rate cannot both be on: both bring "
+                    "the same parked stock back, so running the two would bring "
+                    "it back twice")
+        if self.withdraw.active and self.authority.rule != "endogenous":
+            raise ValueError(
+                "withdraw.position needs authority.rule == 'endogenous': what "
+                "is taken back is the overshoot of that rule's own target, and "
+                "the other rules have no target to overshoot")
 
 
 def effective_support(inflow: np.ndarray) -> float:
@@ -2014,6 +2388,35 @@ class NetworkHistory:
     adjacency: np.ndarray  # the potential graph, fixed for the whole run
     snapshots: dict[int, np.ndarray]  # round -> flow matrix, if requested
     epsilon_absolute: float  # the cutoff actually used, in claim units
+    #: The sovereign's four columns. ``None`` unless ``sovereign`` is on.
+    sovereign_pool: np.ndarray | None = None  # (rounds,) proceeds outside the graph, end of round
+    passed_down: np.ndarray | None = None  # (rounds,) passed into the graph this round
+    passed_down_l2: np.ndarray | None = None  # (rounds,) the part landing outside Layer 1
+    bond_stock: np.ndarray | None = None  # (rounds,) bonds outstanding
+    #: The debt service's six columns. ``None`` unless the sovereign serves its
+    #: debt, that is unless ``maturity_rate`` or ``coupon_rate`` is above zero.
+    debt_due: np.ndarray | None = None  # (rounds,) coupon plus principal falling due
+    debt_levied: np.ndarray | None = None  # (rounds,) collected by a levy
+    debt_levied_l2: np.ndarray | None = None  # (rounds,) the part of it paid outside Layer 1
+    debt_created: np.ndarray | None = None  # (rounds,) new claims paid to holders
+    debt_capitalized: np.ndarray | None = None  # (rounds,) coupon added to holdings of bonds
+    debt_extinguished: np.ndarray | None = None  # (rounds,) principal repaid, bonds retired
+    #: The withdrawal's three columns. ``None`` unless ``withdraw`` is on.
+    withdrawn: np.ndarray | None = None  # (rounds,) claims taken back this round
+    withdrawn_unmet: np.ndarray | None = None  # (rounds,) what no account in the position could fund
+    withdrawn_l2: np.ndarray | None = None  # (rounds,) the part taken outside Layer 1
+    #: The write-off's four counters. ``None`` unless ``trace_writeoff`` is on.
+    #: **These record and do not act.** Nothing in the loop reads them, so a
+    #: run with the switch on has to come back bit for bit against a run with
+    #: it off, and that is the check A35-2 makes rather than the weaker one of
+    #: comparing the switch off against the module before the fields existed.
+    writeoff_uncollected: np.ndarray | None = None  # (rounds,) aimed at minus taken
+    writeoff_payers: np.ndarray | None = None  # (rounds,) accounts the levy could draw on
+    writeoff_drained: np.ndarray | None = None  # (rounds,) accounts this round emptied
+    writeoff_share: np.ndarray | None = None  # (rounds,) the per-head share aimed at each payer
+    cut_out: np.ndarray | None = None  # (rounds, n) out-edges cut from this node this round
+    #: ``None`` unless the sovereign serves its debt with a levy.
+    levy_out: np.ndarray | None = None  # (rounds, n) taken from this node by the levy
 
     def tail_mean(self, metric: str, last: int = 50) -> float:
         series = np.asarray(getattr(self, metric), dtype=float)
@@ -2216,6 +2619,24 @@ class Network:
         #: reproduces bit for bit. Volume Two section 3 is what asks for it:
         #: it orders four bases by formation lag and the ordering is the claim.
         self._friction_of = friction_vector(config.industry)
+        #: Each node's tenure in its current industry, in [0, 1]. Everyone
+        #: starts at one: the economy a run starts from is an established one,
+        #: and that is the reference the supply switch measures a shortfall
+        #: against. A switch of industry resets the mover to zero. Allocated
+        #: whether or not the switch is on, like the diagnostics above; nothing
+        #: reads it while ``supply_skill`` is zero.
+        self._tenure = np.ones(n)
+        #: Who a membership transfer moved: those moved out, those moved in,
+        #: and where the latter came from, kept so a return moves exactly them
+        #: back. None until a transfer has happened. The count is a diagnostic.
+        self._transfer_moved: tuple[np.ndarray, np.ndarray, np.ndarray] | None = None
+        self._transfer_count = 0
+        #: Channel formation: its own stream, which payer has ever had a live
+        #: contact in which industry (None until the rule first runs), and how
+        #: many channels it has formed, a diagnostic.
+        self._channel_rng = np.random.default_rng(config.seed + _CHANNEL_OFFSET)
+        self._had_contact: np.ndarray | None = None
+        self._channel_count = 0
         self.wage_mask = wage_mask
 
         # Discretionary routing follows the graph minus the payroll edges: wages
@@ -2275,6 +2696,10 @@ class Network:
         #: any other draw, and two counters. ``_shock_fired`` makes the one-shot
         #: arm one-shot even if the round is revisited.
         self._cut_rng = np.random.default_rng(config.seed + _EDGE_CUT_OFFSET)
+        #: Who is willing to withdraw at all, fixed for the run. ``None`` at
+        #: the default, and then nothing is drawn and nothing is filtered, so
+        #: the arm is the arm it was before this existed.
+        self._will_cut = self._draw_cutters()
         self._shock_fired = False
         self._edges_cut = 0
         #: Cumulative claims the existing creditors have sent to keep
@@ -2309,6 +2734,33 @@ class Network:
         #: per-node figure so that who parked can be read, and added back into
         #: the conservation check, because they still exist.
         self._parked = np.zeros(n)
+        #: The sovereign's side, outside the graph: proceeds not yet passed down
+        #: and bonds outstanding, neither of them a claim any node can spend,
+        #: plus what has been passed down so far, in total and per receiving
+        #: node. Read only when ``sovereign`` is on.
+        self._sovereign_pool = 0.0
+        self._bond_stock = 0.0
+        self._passed_total = 0.0
+        self._passed_by_node = np.zeros(n)
+        self._passed_this_round = 0.0
+        self._passed_l2_this_round = 0.0
+        #: The debt service's side: bonds held per node, a part of ``_parked``
+        #: kept only when the debt is served; every bond ever bought, which is
+        #: the pool's own book because ``_bond_stock`` is net of retirements
+        #: once bonds mature; what has been retired and capitalized so far; and
+        #: this round's six figures.
+        self._bonds_held = np.zeros(n)
+        self._bonds_bought = 0.0
+        self._debt_retired_total = 0.0
+        self._debt_capitalized_total = 0.0
+        self._debt_round = dict.fromkeys(DEBT_FIELDS, 0.0)
+        #: The withdrawal's side: what the rule asked for at the end of last
+        #: round, and what this round took, could not take, and took outside
+        #: the financial layer. Read only when ``withdraw`` is on.
+        self._pending_withdrawal = 0.0
+        self._withdrawn_this_round = 0.0
+        self._withdrawn_unmet_this_round = 0.0
+        self._withdrawn_l2_this_round = 0.0
         #: Circulating claims before the first round, the reference the return
         #: shortfall is measured against. Set on the first round rather than
         #: here, because ``holdings`` does not exist yet at this point, and
@@ -2591,6 +3043,13 @@ class Network:
         if not ind.enabled:
             return None
         self._update_damage()
+        self._grow_tenure()
+        if ind.demand_skill > 0.0 and ind.skill_rate > 0.0:
+            # Buyers split an industry's share by tenure, and tenure moves every
+            # round, so this arm rebuilds the routing every round. With the
+            # demand switch at zero the routing is rebuilt only when something
+            # changes, as before.
+            self._rebuild_route()
         if ind.switch_rate <= 0.0 or self._last_inflow is None:
             return None
         inflow = self._last_inflow
@@ -2620,6 +3079,9 @@ class Network:
                 continue
             order = np.argsort(inflow[nodes_v], kind="stable")
             cand = nodes_v[order[:k]]
+            if ind.switch_destination == "proportional":
+                movers.extend(self._proportional_moves(cand, uniq, means))
+                continue
             cand = cand[self._industry_of[cand] != best]
             own = means[np.searchsorted(uniq, self._industry_of[cand])] if cand.size else np.zeros(0)
             fees = np.zeros(cand.size)
@@ -2671,10 +3133,147 @@ class Network:
                 self.holdings[self._l1] += fee * w
         for i, g, _ in movers:
             self._industry_of[i] = g
+            # What a member knew how to do stays behind in the industry it
+            # left. Reset whether or not the supply switch is on; nothing reads
+            # the value while it is off.
+            self._tenure[i] = 0.0
         self._switch_count += len(movers)
         self._io_weights = route_weights(self._io, self._industry_of)
         self._rebuild_route()
         return matrix if matrix.any() else None
+
+    def _proportional_moves(
+        self, cand: np.ndarray, uniq: np.ndarray, means: np.ndarray
+    ) -> list[tuple[int, int, float]]:
+        """Destinations when every better-paid industry of the layer is open.
+
+        A candidate may move into any industry of its layer whose mean inflow
+        beats its own industry's by that destination's entry threshold: the
+        test the default rule applies to the best-paid industry alone, applied
+        to each. Candidates of one industry share an own mean and so share the
+        eligible set, and they are split across it in proportion to each
+        destination's gain above its threshold, by largest remainder, ties to
+        the lower industry index, the most attractive destination taking the
+        lowest-inflow candidates first. No draw is made, so the run stays
+        deterministic.
+
+        The weight is the gain *above* the threshold, so a destination that just
+        clears it takes almost nobody and one that just misses takes nobody:
+        the split is continuous at the threshold. With ``switch_cost`` zero the
+        threshold is zero and any strictly better-paid industry is open, which
+        matches the default rule's behaviour at zero cost.
+
+        Who is a candidate, the fee (the same share of the mover's own
+        industry's mean inflow, capped at what it holds, charged only with a
+        positive cost) and everything after the move are the default rule's.
+        """
+        ind = self.config.industry
+        out: list[tuple[int, int, float]] = []
+        if cand.size == 0:
+            return out
+        base = float(ind.switch_cost)
+        thr = np.array([self._entry_threshold(int(g), base) for g in uniq])
+        g_cand = self._industry_of[cand]
+        pos = {int(g): i for i, g in enumerate(uniq)}
+        idx_all = np.arange(uniq.size)
+        for g_own in np.unique(g_cand):
+            group = cand[g_cand == g_own]
+            own = float(means[pos[int(g_own)]])
+            scale = max(own, 1e-12)
+            ok = (uniq != g_own) & np.isfinite(thr)
+            gain = np.where(ok, means - own - np.where(ok, thr, 0.0) * scale, 0.0)
+            ok = ok & (gain > 0.0)
+            if not ok.any():
+                continue
+            w = np.where(ok, gain, 0.0)
+            quota = group.size * w / w.sum()
+            n = np.floor(quota).astype(int)
+            rest = group.size - int(n.sum())
+            if rest > 0:
+                frac = np.where(ok, quota - n, -1.0)
+                for j in np.lexsort((idx_all, -frac))[:rest]:
+                    n[j] += 1
+            fee_each = base * max(own, 0.0) if base > 0.0 else 0.0
+            at = 0
+            for j in np.lexsort((idx_all, -w)):
+                if n[j] <= 0:
+                    continue
+                for i in group[at:at + n[j]]:
+                    fee = min(fee_each, max(float(self.holdings[i]), 0.0)) if base > 0.0 else 0.0
+                    out.append((int(i), int(uniq[j]), float(fee)))
+                at += int(n[j])
+        return out
+
+    def _form_channels(self) -> None:
+        """Form lost channels again at a finite rate. A no-op when off.
+
+        Each round, every live payer that has had a live contact in an industry
+        and now has none forms one new discretionary edge into that industry
+        with probability ``channel_rate``. Every industry counts: a payer buys
+        from an industry through its intermediate requirement where ``A`` has a
+        coefficient, and through final demand, which ``_apply_industry`` spreads
+        over every industry, always. The new counterparty is a live member of the industry
+        drawn by in-degree plus one, the way the construction aims every other
+        edge, leaving out anyone the payer already reaches through the payroll
+        mask. Only channels the payer has had are formed again: the market
+        structure the construction drew is not extended.
+
+        Runs after the round's switching and any transfer event and before
+        anything is spent, so a channel formed this round routes this round.
+        """
+        ind = self.config.industry
+        if not ind.enabled or ind.channel_rate <= 0.0:
+            return
+        g = self._industry_of
+        n = self._n
+        count = int(ind.count)
+        uniform = bool(self.config.spec.uniform_access)
+        disc = (self.adjacency > 0) if uniform else ((self.adjacency - self.wage_mask) > 0)
+        live_member = self._alive & (g >= 0)
+        onehot = np.zeros((n, count))
+        onehot[np.flatnonzero(live_member), g[live_member]] = 1.0
+        contact = (disc.astype(float) @ onehot) > 0
+        if self._had_contact is None:
+            self._had_contact = contact.copy()
+        self._had_contact |= contact
+        buyers = np.flatnonzero(live_member)
+        if buyers.size == 0:
+            return
+        has_members = onehot.any(axis=0)
+        cand = self._had_contact[buyers] & ~contact[buyers] & has_members[None, :]
+        pairs = np.argwhere(cand)
+        if pairs.size == 0:
+            return
+        rng = self._channel_rng
+        draws = rng.random(len(pairs))
+        indeg = self.adjacency.sum(axis=0)
+        changed = False
+        for (bi, k), u in zip(pairs, draws):
+            if u >= ind.channel_rate:
+                continue
+            i = int(buyers[bi])
+            members = np.flatnonzero(onehot[:, k] > 0)
+            if not uniform:
+                members = members[self.wage_mask[i, members] == 0]
+            members = members[members != i]
+            if members.size == 0:
+                continue
+            w = indeg[members] + 1.0
+            j = int(rng.choice(members, p=w / w.sum()))
+            if ind.channel_conserve_degree:
+                held = np.flatnonzero(disc[i])
+                held = held[held != j]
+                if held.size:
+                    drop = int(rng.choice(held))
+                    self.adjacency[i, drop] = 0.0
+                    disc[i, drop] = False
+            self.adjacency[i, j] = 1.0
+            disc[i, j] = True
+            self._channel_count += 1
+            changed = True
+        if changed:
+            np.fill_diagonal(self.adjacency, 0.0)
+            self._rebuild_route()
 
     def _greedy_reroute(self, route: np.ndarray, spent: np.ndarray) -> np.ndarray:
         """Rank the counterparties and fill them in order. A no-op when off.
@@ -2828,15 +3427,126 @@ class Network:
             return None
         g = self._industry_of
         live = (g >= 0) & self._alive
-        current = np.bincount(g[live], minlength=ind.count).astype(float)
+        if ind.supply_skill > 0.0:
+            # Capacity weighted by tenure. With every member at one the weights
+            # are exact ones, so the sum is the headcount to the last bit and a
+            # run in which nobody changes industry reproduces the one without.
+            w = self._skill_weights()
+            current = np.bincount(g[live], weights=w[live], minlength=ind.count)
+        else:
+            current = np.bincount(g[live], minlength=ind.count).astype(float)
+        reference = self._capacity_reference()
         ratio = np.divide(
             current,
-            self._initial_agents,
+            reference,
             out=np.ones(ind.count),
-            where=self._initial_agents > 0,
+            where=reference > 0,
         )
         deliverable = 1.0 - ind.supply_elasticity * (1.0 - np.minimum(ratio, 1.0))
         return matrix * deliverable[g][None, :]
+
+    def _demand_weights(self) -> np.ndarray:
+        """Each node's weight as a seller when a buyer splits what it spends on
+        the node's industry: ``1 - demand_skill * (1 - s)``. One method, so a
+        stage reading the premium form overrides this alone."""
+        return 1.0 - self.config.industry.demand_skill * (1.0 - self._tenure)
+
+    def _skill_weights(self) -> np.ndarray:
+        """Each node's contribution to its industry's deliverable capacity.
+
+        ``1 - supply_skill * (1 - s)``: a fully established member counts one,
+        a newcomer counts ``1 - supply_skill``. One method, so a stage that
+        wants to read the premium form of the same quantity overrides this and
+        ``_capacity_reference`` together and touches nothing else.
+        """
+        return 1.0 - self.config.industry.supply_skill * (1.0 - self._tenure)
+
+    def _capacity_reference(self) -> np.ndarray:
+        """What each industry's capacity is measured against: its t=0 headcount.
+
+        With tenure starting at one this is also its t=0 capacity. Frozen, like
+        the headcount it replaces: an industry that has lost its skill is
+        compared with what it was.
+        """
+        return self._initial_agents
+
+    def _grow_tenure(self) -> None:
+        """Advance every live member's tenure by one round.
+
+        ``s <- s + skill_rate * (1 - s)``. Returns at once while both tenure
+        switches are off, so a run without them reaches none of this arithmetic.
+        A member at one stays at exactly one, because ``skill_rate * (1 - 1)``
+        is an exact zero.
+        """
+        ind = self.config.industry
+        if (ind.supply_skill <= 0.0 and ind.demand_skill <= 0.0) or ind.skill_rate <= 0.0:
+            return
+        live = (self._industry_of >= 0) & self._alive
+        s = self._tenure[live]
+        self._tenure[live] = s + ind.skill_rate * (1.0 - s)
+
+    def _transfer(self, t: int) -> None:
+        """Change who belongs to one industry, once, and optionally change it back.
+
+        Returns at once while ``transfer_share`` is zero, so a run without the
+        event reaches none of this and reproduces the run before it bit for bit.
+        """
+        ind = self.config.industry
+        if not ind.enabled or ind.transfer_share <= 0.0:
+            return
+        if t == ind.transfer_round:
+            self._transfer_out()
+        elif t == ind.transfer_back_round and self._transfer_moved is not None:
+            self._transfer_back()
+
+    def _transfer_out(self) -> None:
+        """Move a share of the industry's live members out, and restaff it.
+
+        Members are taken in index order and sent round robin to the other
+        industries of the same layer; replacements are the first live nodes of
+        those industries in index order. Deterministic on purpose, and not read
+        off inflow: choosing who moves by how they are doing would put a
+        selection on top of the event.
+        """
+        ind = self.config.industry
+        k = int(ind.transfer_industry)
+        g = self._industry_of
+        layers = industry_layers(ind)
+        same = (g >= 0) & (layers[np.maximum(g, 0)] == layers[k]) & self._alive
+        members = np.flatnonzero(same & (g == k))
+        m = int(round(ind.transfer_share * members.size))
+        others = np.array([j for j in range(ind.count)
+                           if layers[j] == layers[k] and j != k], dtype=int)
+        empty = np.zeros(0, dtype=int)
+        if m == 0 or others.size == 0:
+            self._transfer_moved = (empty, empty, empty)
+            return
+        out_nodes = members[:m]
+        dest = others[np.arange(m) % others.size]
+        in_nodes = np.flatnonzero(same & (g != k))[:m] if ind.transfer_replace else empty
+        in_origin = g[in_nodes].copy()
+        g[out_nodes] = dest
+        g[in_nodes] = k
+        self._tenure[out_nodes] = 0.0
+        self._tenure[in_nodes] = 0.0
+        self._transfer_moved = (out_nodes, in_nodes, in_origin)
+        self._transfer_count += int(out_nodes.size + in_nodes.size)
+        self._io_weights = route_weights(self._io, self._industry_of)
+        self._rebuild_route()
+
+    def _transfer_back(self) -> None:
+        """Move the same people back, and reset their tenure a second time."""
+        ind = self.config.industry
+        out_nodes, in_nodes, in_origin = self._transfer_moved
+        g = self._industry_of
+        g[out_nodes] = int(ind.transfer_industry)
+        g[in_nodes] = in_origin
+        self._tenure[out_nodes] = 0.0
+        self._tenure[in_nodes] = 0.0
+        self._transfer_count += int(out_nodes.size + in_nodes.size)
+        self._transfer_moved = None
+        self._io_weights = route_weights(self._io, self._industry_of)
+        self._rebuild_route()
 
     def _perturb_coefficients(self) -> None:
         """Advance ``A`` one period: ``A' = diag(r) A diag(s)``.
@@ -2952,6 +3662,11 @@ class Network:
         """
         if self._io_weights is None:
             return discretionary
+        if self.config.industry.demand_skill > 0.0:
+            # Regular customers: each seller counts at its demand weight inside
+            # the split below, which normalises within each industry, so only
+            # the ratio between members of one industry reaches the routing.
+            discretionary = discretionary * self._demand_weights()[None, :]
         # Only the intermediate-input part of a node's spending is what the
         # Leontief matrix describes. The rest is final demand -- payroll,
         # consumption, rent -- and no coefficient in ``A`` constrains where it
@@ -3361,6 +4076,151 @@ class Network:
         self.holdings += back
         self._returned_this_round = float(amount)
 
+    def _pass_down(self) -> np.ndarray | None:
+        """The sovereign passes a share of its pool into the graph.
+
+        Called only when ``sovereign`` is on, so the default path does not
+        reach this method.
+
+        **Where claims enter the graph**, beside the authority's issuance and
+        the recapitalisation and before the round's conservation baseline, for
+        the reason those two sit there: seen from inside the graph these are
+        claims arriving from outside it, and the guard is about what the
+        round's trades do to the claims already in.
+
+        **An in-edge from outside.** The amount lands on the receivers'
+        holdings and comes back per node, so the round loop can add it to the
+        inflow the subsistence floor reads. It stays out of the flow matrix.
+
+        Returns the per-node amount, or ``None`` when nothing moved.
+        """
+        spec = self.config.sovereign
+        self._passed_this_round = 0.0
+        self._passed_l2_this_round = 0.0
+        pool = self._sovereign_pool
+        if pool <= 0.0:
+            return None
+        amount = spec.pass_rate * pool
+        if amount <= 0.0:
+            return None
+        alive = self._alive.astype(float)
+        if spec.landing == "parkers":
+            weights = np.maximum(self._parked, 0.0) * alive
+        elif spec.landing == "production":
+            weights = np.zeros(self._n)
+            weights[self._l2] = 1.0
+            weights *= alive
+        else:
+            weights = alive
+        total = float(weights.sum())
+        if total <= 0.0:
+            return None
+        share = amount * (weights / total)
+        self._sovereign_pool = pool - amount
+        self.holdings += share
+        self._total_claims += amount
+        self._passed_by_node += share
+        self._passed_this_round = float(amount)
+        self._passed_l2_this_round = float(share[self._l2].sum())
+        return share
+
+    def _serve_debt(self) -> np.ndarray | None:
+        """What falls due on the sovereign's bonds this round, and who pays it.
+
+        Called only when the sovereign serves its debt, so a run with both debt
+        rates at zero does not reach this method.
+
+        **On the bonds held when the round opens**, before this round's buying:
+        holder ``i`` is owed coupon ``coupon_rate * b_i`` and principal
+        ``maturity_rate * b_i``. **In the zone where claims enter and leave the
+        graph**, after the pass-down and before the conservation baseline, for
+        the reason the pass-down sits there.
+
+        ``creditors``: the holders carry it. Principal rolls into new bonds,
+        which changes nothing, and the coupon is added to what they hold.
+        ``levy``: the nodes still trading pay, on the base ``levy_base`` names,
+        and each holder receives what was collected in proportion to what it is
+        owed; unpaid principal rolls and unpaid coupon is added to the holding.
+        ``issuance``: claims are created and paid in full.
+
+        Returns what the holders received, per node, an in-edge from outside
+        the graph and so part of the inflow the floor reads, or ``None`` when
+        nothing was paid.
+        """
+        spec = self.config.sovereign
+        rec = self._debt_round
+        for key in rec:
+            rec[key] = 0.0
+        # Cleared unconditionally and before the guard below, so the vector a
+        # round reads is this round's and never the previous one's. The scalar
+        # beside it, ``debt_levied``, is cleared by the loop above; this is the
+        # same clearing for the per-node form, and keeping the two in one place
+        # is what stops them drifting apart.
+        self._levy_out_this_round = np.zeros(self._n)
+        held = self._bonds_held
+        coupon = spec.coupon_rate * held
+        principal = spec.maturity_rate * held
+        due = float(coupon.sum()) + float(principal.sum())
+        rec["debt_due"] = due
+        if due <= 0.0:
+            return None
+        if spec.funding == "creditors":
+            self._bonds_held += coupon
+            self._parked += coupon
+            added = float(coupon.sum())
+            self._bond_stock += added
+            self._total_claims += added
+            rec["debt_capitalized"] = added
+            return None
+        owed = coupon + principal
+        if spec.funding == "issuance":
+            share = 1.0
+            rec["debt_created"] = due
+        else:
+            take = self._levy_for_debt(due)
+            collected = float(take.sum())
+            self.holdings -= take
+            self._levy_out_this_round = take
+            share = collected / due
+            rec["debt_levied"] = collected
+            rec["debt_levied_l2"] = float(take[self._l2].sum())
+        paid = share * owed
+        retired = share * principal
+        unpaid = (1.0 - share) * coupon
+        self.holdings += paid
+        self._bonds_held += unpaid - retired
+        self._parked += unpaid - retired
+        retired_total = float(retired.sum())
+        unpaid_total = float(unpaid.sum())
+        self._bond_stock += unpaid_total - retired_total
+        self._total_claims += rec["debt_created"] + unpaid_total - retired_total
+        rec["debt_extinguished"] = retired_total
+        rec["debt_capitalized"] = unpaid_total
+        return paid if share > 0.0 else None
+
+    def _levy_for_debt(self, due: float) -> np.ndarray:
+        """What a levy of ``due`` collects from each node, on ``levy_base``.
+
+        ``equal`` is ``_settle_levy``'s rule: the same share for every node
+        still trading, and a node that cannot fund its share pays what it has.
+        ``threshold`` is A6's progressive base: in proportion to the part of a
+        node's account above the mean account of the nodes still trading, and
+        never more than that part. Parked claims are not assessed.
+        """
+        alive = self._alive
+        n_live = int(alive.sum())
+        if n_live == 0:
+            return np.zeros(self._n)
+        cash = np.maximum(self.holdings, 0.0)
+        if self.config.sovereign.levy_base == "equal":
+            return np.where(alive, np.minimum(due / n_live, cash), 0.0)
+        mean = float(cash[alive].sum()) / n_live
+        excess = np.where(alive, np.maximum(cash - mean, 0.0), 0.0)
+        base = float(excess.sum())
+        if base <= 0.0:
+            return np.zeros(self._n)
+        return excess * min(1.0, due / base)
+
     def _park_claims(self) -> None:
         """Move a share of what a node holds out of the trading system.
 
@@ -3397,6 +4257,16 @@ class Network:
             return
         self.holdings -= amount
         self._parked += amount
+        sov = self.config.sovereign
+        if sov.active:
+            # The other side of the purchase. The buyer's parked stock is the
+            # bond; the proceeds leave the graph for the sovereign's pool.
+            raised = sov.bond_share * float(amount.sum())
+            self._sovereign_pool += raised
+            self._bond_stock += raised
+            self._bonds_bought += raised
+            if sov.serves_debt:
+                self._bonds_held += sov.bond_share * amount
 
     def _settle_levy(self) -> None:
         """``funding="levy"``: everybody still trading refunds the lenders.
@@ -3429,6 +4299,88 @@ class Network:
         self.holdings -= take
         self.holdings += owed * (collected / total)
         self._levied += collected
+
+    def _take_from(self, position: str, base: str, amount: float) -> np.ndarray:
+        """What one position hands over, in one shape, for ``amount``.
+
+        Zeros when there is nothing inside the position to take, which the
+        caller records as uncollected. Capped at each account, so the single
+        position path needs no further cap.
+        """
+        holdings = np.maximum(self.holdings, 0.0) * self._alive
+        inside = self._alive.copy()
+        if position in ("financial", "production"):
+            keep = np.zeros(self._n, dtype=bool)
+            keep[self._l1 if position == "financial" else self._l2] = True
+            inside &= keep
+        pool = np.where(inside, holdings, 0.0)
+        total = float(pool.sum())
+        if total <= 0.0:
+            return np.zeros(self._n)
+        if base == "equal":
+            payers = pool > 0.0
+            return np.where(payers,
+                            np.minimum(amount / int(payers.sum()), pool), 0.0)
+        if base == "threshold":
+            mean = total / int(inside.sum())
+            excess = np.where(inside, np.maximum(pool - mean, 0.0), 0.0)
+            span = float(excess.sum())
+            if span <= 0.0:
+                return np.zeros(self._n)
+            return excess * min(1.0, amount / span)
+        return np.minimum(amount * (pool / total), pool)
+
+    def _withdraw_claims(self) -> None:
+        """Take back what the issuance rule asked for at the end of last round.
+
+        Called only when ``withdraw`` is on, so the default path does not reach
+        this method. It runs where the issuance lands, before the round's
+        conservation snapshot, because it is the other half of that step: the
+        one place in a round where the claim total moves without a trade.
+
+        **Inside the position, capped at each account, and no spilling outside
+        it.** What the cap leaves uncollected is recorded. Pushing it onto the
+        accounts that could fund it would quietly change who paid, and who paid
+        is what this switch exists to read.
+
+        **``position`` names the set and ``base`` the shape.** The two are
+        orthogonal and the reading needs both: the same pinned aggregate taken
+        from the same set can still leave a different set of nodes below the
+        floor depending on how it is split among them.
+        """
+        spec = self.config.withdraw
+        self._withdrawn_this_round = 0.0
+        self._withdrawn_unmet_this_round = 0.0
+        self._withdrawn_l2_this_round = 0.0
+        amount = self._pending_withdrawal
+        self._pending_withdrawal = 0.0
+        if amount <= 0.0:
+            return
+        if spec.mix:
+            # Each entry draws its own share of the amount, in its own shape,
+            # off the accounts as they stood when this step opened, so the
+            # entries do not see each other's take and the order they are
+            # listed in does not change the result. Distinct positions can
+            # still overlap: ``proportional`` contains both layers. The sum is
+            # therefore capped at the account once more, which binds only on an
+            # overlap and is reported when it does.
+            take = np.zeros(self._n)
+            for where, how, share in spec.mix:
+                take = take + self._take_from(where, how,
+                                              float(amount) * float(share))
+            take = np.minimum(take,
+                              np.maximum(self.holdings, 0.0) * self._alive)
+        else:
+            take = self._take_from(spec.position, spec.base, amount)
+        taken = float(take.sum())
+        if taken <= 0.0:
+            self._withdrawn_unmet_this_round = float(amount)
+            return
+        self.holdings -= take
+        self._total_claims -= taken
+        self._withdrawn_this_round = taken
+        self._withdrawn_unmet_this_round = float(amount) - taken
+        self._withdrawn_l2_this_round = float(take[self._l2].sum())
 
     def _recapitalise(self) -> float:
         """``funding="issuance"``: new claims make last round's lenders whole.
@@ -3472,6 +4424,33 @@ class Network:
         self._pending_recap[:] = 0.0
         return amount
 
+    def _draw_cutters(self) -> np.ndarray | None:
+        """Who is willing to withdraw, drawn once for the run.
+
+        ``None`` when the knob is at its default, and the caller then filters
+        nothing: no draw is made, no stream is advanced, and the arm is bitwise
+        the arm it was before this method existed.
+
+        **Drawn over every node, not over the stressed set.** The stressed set
+        changes from round to round, so drawing over it would make willingness
+        a property of the round rather than of the node, and the set of
+        withdrawers would accumulate to everyone whatever the share said. That
+        is the failure this knob exists to remove, so it must not be rebuilt
+        inside it.
+
+        Its own generator, seeded off the cut stream's offset, so that turning
+        this on does not shift any draw the cut itself makes.
+        """
+        ec = self.config.edge_cut
+        if ec.cutter_share >= 1.0:
+            return None
+        k = int(round(ec.cutter_share * self._n))
+        mask = np.zeros(self._n, dtype=bool)
+        if k > 0:
+            rng = np.random.default_rng(self.config.seed + _CUTTER_OFFSET)
+            mask[rng.choice(self._n, size=k, replace=False)] = True
+        return mask
+
     def _cut_edges(self, t: int, inflow: np.ndarray | None) -> None:
         """Remove edges from the graph. A no-op when the switch is off.
 
@@ -3484,6 +4463,12 @@ class Network:
         exists to break it.
         """
         ec = self.config.edge_cut
+        # Cleared unconditionally and before the guard, so the vector a round
+        # reads is this round's and never the previous one's. Rows, because a
+        # row is who this node can pay: the quantity is the row sum of the cut
+        # matrix and it means the same thing under all three modes, which is
+        # what keeps one field from carrying two semantics.
+        self._cut_out_this_round = np.zeros(self._n)
         if not ec.active:
             return
 
@@ -3530,6 +4515,12 @@ class Network:
             if inflow is None:
                 return
             stressed = inflow < ec.trigger
+            if self._will_cut is not None:
+                # Willingness is fixed for the run, so a node the trigger
+                # catches every round either withdraws every round or never
+                # does. The trigger still has to fire: this narrows who acts on
+                # it and does not make anyone act without it.
+                stressed = stressed & self._will_cut
             if not stressed.any():
                 return
             if ec.mode == "self_cut":
@@ -3560,6 +4551,7 @@ class Network:
             return
         self.adjacency[cut] = 0.0
         self._edges_cut += int(cut.sum())
+        self._cut_out_this_round = cut.sum(axis=1).astype(float)
         # The routing has to be rebuilt or the next round pays along edges that
         # are gone. ``_rebuild_route`` also refreshes ``_has_out``, which is
         # what turns a node whose out-edges are all cut into one that spends
@@ -3718,6 +4710,38 @@ class Network:
             "parked": np.zeros(rounds),
             "returned": np.zeros(rounds),
         }
+        cut_on = cfg.edge_cut.active
+        if cut_on:
+            out["cut_out"] = np.zeros((rounds, n))
+        # The sovereign's four columns exist only when it is on, so with it off
+        # the history is built from the same keys as before.
+        sov_on = cfg.sovereign.active
+        if sov_on:
+            for key in ("sovereign_pool", "passed_down", "passed_down_l2",
+                        "bond_stock"):
+                out[key] = np.zeros(rounds)
+        # The debt service's six, likewise only when it runs.
+        debt_on = sov_on and cfg.sovereign.serves_debt
+        if debt_on:
+            for key in DEBT_FIELDS:
+                out[key] = np.zeros(rounds)
+        # Per node, and only under the one funding route that takes anything
+        # from a node. Under the other two nothing is taken and a field of
+        # zeros would say something different from nothing being recorded.
+        levy_on = debt_on and cfg.sovereign.funding == "levy"
+        if levy_on:
+            out["levy_out"] = np.zeros((rounds, n))
+        # The withdrawal's three, likewise only when it runs.
+        withdraw_on = cfg.withdraw.active
+        if withdraw_on:
+            for key in WITHDRAW_FIELDS:
+                out[key] = np.zeros(rounds)
+        # The write-off's four counters, only when asked for. They record and
+        # do not act, so this allocation is the whole of what the switch does.
+        trace_writeoff = bool(cfg.trace_writeoff)
+        if trace_writeoff:
+            for key in WRITEOFF_TRACE_FIELDS:
+                out[key] = np.zeros(rounds)
 
         # The real side. Constant every round, exactly as in ``economy.py``:
         # nothing in this stage produces or consumes resources, so R and R_a
@@ -3742,11 +4766,92 @@ class Network:
                 self._total_claims += issued
             self._pending_issuance = 0.0
 
+            # The other side of the same rule, in the same zone: what it asked
+            # to take back at the end of last round. Its own ledger closes
+            # here, because this is the only step in the round that moves the
+            # claim total without a trade. A no-op unless ``withdraw`` is on.
+            if withdraw_on:
+                stock_before = (float(self.holdings.sum())
+                                + float(self._parked.sum()))
+                low_before = float(self.holdings.min())
+                self._withdraw_claims()
+                moved = (stock_before - float(self.holdings.sum())
+                         - float(self._parked.sum()))
+                tol = 1e-9 * max(1.0, stock_before / cfg.initial_claims)
+                if (abs(moved - self._withdrawn_this_round) > tol
+                        or self._withdrawn_unmet_this_round < -tol
+                        or float(self.holdings.min()) < min(0.0, low_before) - tol):
+                    raise AssertionError(
+                        f"withdrawal ledger does not close at round {t}: moved "
+                        f"{moved!r} against taken "
+                        f"{self._withdrawn_this_round!r}, uncollected "
+                        f"{self._withdrawn_unmet_this_round!r}, least account "
+                        f"{float(self.holdings.min())!r} against "
+                        f"{low_before!r} before it")
+
             # Beside the authority's own issuance, and for the same reason it
             # sits here: this is the one place in the round where claims are
             # allowed to come into existence, so it is outside the guard below.
             # A no-op unless `resupply.funding` is "issuance".
             self._recapitalise()
+            # The sovereign's pass-down, in the same zone and for the same
+            # reason: claims arriving from outside the graph. Its two books are
+            # checked here in the loop, because they are this mechanism's
+            # conservation: what landed equals what was passed, and the pool
+            # equals bonds bought less everything passed so far.
+            boundary_in = None
+            if sov_on:
+                entering = float(self.holdings.sum()) + float(self._parked.sum())
+                boundary_in = self._pass_down()
+                landed = (float(self.holdings.sum()) + float(self._parked.sum())
+                          - entering)
+                self._passed_total += self._passed_this_round
+                tol = 1e-9 * max(1.0, entering / cfg.initial_claims,
+                                 self._bonds_bought / cfg.initial_claims)
+                if (abs(landed - self._passed_this_round) > tol
+                        or abs(self._bonds_bought - self._passed_total
+                               - self._sovereign_pool) > tol
+                        or self._sovereign_pool < -tol):
+                    raise AssertionError(
+                        f"sovereign ledger does not close at round {t}: landed "
+                        f"{landed!r} against passed {self._passed_this_round!r}, "
+                        f"pool {self._sovereign_pool!r} against bonds bought "
+                        f"less passed {self._bonds_bought - self._passed_total!r}")
+            if debt_on:
+                # The debt service, in the same zone: what holders are paid
+                # arrives from outside the graph and a levy leaves it. Its own
+                # books close here: what moved in the graph is what was created
+                # and capitalized less what was retired, the bond stock is every
+                # bond bought less retirements plus capitalized coupon, and the
+                # holdings of bonds add up to that stock.
+                entering = float(self.holdings.sum()) + float(self._parked.sum())
+                paid_in = self._serve_debt()
+                rec = self._debt_round
+                moved = (float(self.holdings.sum()) + float(self._parked.sum())
+                         - entering)
+                expect = (rec["debt_created"] + rec["debt_capitalized"]
+                          - rec["debt_extinguished"])
+                self._debt_retired_total += rec["debt_extinguished"]
+                self._debt_capitalized_total += rec["debt_capitalized"]
+                net = (self._bonds_bought - self._debt_retired_total
+                       + self._debt_capitalized_total)
+                tol = 1e-9 * max(1.0, entering / cfg.initial_claims,
+                                 self._bonds_bought / cfg.initial_claims,
+                                 self._debt_capitalized_total
+                                 / cfg.initial_claims)
+                if (abs(moved - expect) > tol
+                        or abs(net - self._bond_stock) > tol
+                        or abs(float(self._bonds_held.sum())
+                               - self._bond_stock) > tol
+                        or rec["debt_levied"] > rec["debt_due"] + tol):
+                    raise AssertionError(
+                        f"debt ledger does not close at round {t}: moved "
+                        f"{moved!r} against {expect!r}, bonds "
+                        f"{self._bond_stock!r} against {net!r} and held "
+                        f"{float(self._bonds_held.sum())!r}")
+                if paid_in is not None:
+                    boundary_in = (paid_in if boundary_in is None
+                                   else boundary_in + paid_in)
 
             # The conservation check counts parked claims, because parking
             # moves them out of the trading accounts and not out of existence.
@@ -3788,6 +4893,8 @@ class Network:
             # switch this round is made against the new matrix.
             self._perturb_coefficients()
             switch_matrix = self._switch_industries()
+            self._transfer(t)
+            self._form_channels()
             if self._circulating_baseline is None:
                 self._circulating_baseline = float(self.holdings.sum())
             self._returned_this_round = 0.0
@@ -3853,10 +4960,85 @@ class Network:
             if write_spec.active:
                 ratio = self._total_claims / max(resources_offered, 1e-12)
                 if ratio > write_spec.trigger:
-                    destroyed_this_round = write_spec.rate * self._total_claims
-                    self.holdings *= 1.0 - write_spec.rate
+                    # Read before the levy, because ``drained`` is a
+                    # transition and the set it is counted against is the one
+                    # that existed when the levy was aimed.
+                    if trace_writeoff:
+                        held_before = np.maximum(self.holdings, 0.0) * self._alive
+                        payers_before = held_before > 0.0
+                        n_payers = int(payers_before.sum())
+                        out["writeoff_payers"][t] = n_payers
+                        out["writeoff_share"][t] = (
+                            write_spec.rate * float(self.holdings.sum())
+                            / n_payers if n_payers else 0.0)
+                    if write_spec.base == "holdings":
+                        # Untouched, so the default path is the run it always
+                        # was rather than a reimplementation of it.
+                        destroyed_this_round = (write_spec.rate
+                                                * self._total_claims)
+                        self.holdings *= 1.0 - write_spec.rate
+                    else:
+                        # The same amount, aimed at the held side in a
+                        # different shape. ``_take_from`` is the withdrawal's
+                        # splitter, already capped at each account, and
+                        # ``proportional`` there means every live node, which
+                        # is the set a write-off falls on.
+                        aimed = write_spec.rate * float(self.holdings.sum())
+                        taken = self._take_from("proportional",
+                                                write_spec.base, aimed)
+                        self.holdings -= taken
+                        destroyed_this_round = (
+                            float(taken.sum())
+                            + write_spec.rate * float(self._parked.sum()))
+                        # What the cap left is not recorded in a field of its
+                        # own: ``written_off`` already carries what was
+                        # actually destroyed, so a shape that cannot reach the
+                        # amount it aimed at shows up as a smaller total, and
+                        # the reading compares those totals across bases.
+                    # **Parked claims are written off in the same proportion**,
+                    # and without this line the identity does not close as soon
+                    # as anything is parked: the amount destroyed is taken on
+                    # the claim total, which counts parked claims, while only
+                    # the held side was being reduced. Measured before the fix,
+                    # over 80 rounds with a parking rate of 0.02, the gap
+                    # between the claim total and held plus parked reached 167
+                    # on an opening stock of 100, against 1e-12 with either
+                    # switch on alone. No record on disk carries both, so
+                    # nothing already read is touched, and with nothing parked
+                    # this line scales a zero array and cannot move a bit.
+                    #
+                    # **It is also what the trigger already says.** The write
+                    # off fires on the claim total over the resources offered,
+                    # and that ratio counts parked claims among the claims with
+                    # no backing; writing off everything except them would be a
+                    # different rule from the one the trigger describes.
+                    self._parked *= 1.0 - write_spec.rate
+                    self._bonds_held *= 1.0 - write_spec.rate
+                    self._bond_stock *= 1.0 - write_spec.rate
                     self._total_claims -= destroyed_this_round
                     out["written_off"][t] = destroyed_this_round
+                    if trace_writeoff:
+                        # ``aimed`` is the held side only, which is the side a
+                        # base can shape. The parked share is scaled straight
+                        # and no cap applies to it, so it is outside this
+                        # measurement by construction rather than by choice.
+                        #
+                        # **What was taken is measured off the accounts, not
+                        # read back from the branch that took it.** The first
+                        # version of these lines set the taken amount equal to
+                        # the aimed amount on the pro rata path, which made
+                        # "pro rata leaves nothing uncollected" true by
+                        # construction rather than by measurement, and a
+                        # criterion resting on it could not have failed. One
+                        # subtraction over the same array serves all three
+                        # shapes and none of them gets a branch of its own.
+                        held_after = np.maximum(self.holdings, 0.0) * self._alive
+                        aimed_held = write_spec.rate * float(held_before.sum())
+                        took_held = float(held_before.sum() - held_after.sum())
+                        out["writeoff_uncollected"][t] = max(
+                            0.0, aimed_held - took_held)
+                        out["writeoff_drained"][t] = int(
+                            (payers_before & (held_after <= 0.0)).sum())
 
             # The subsistence floor, read on this round's inflow. Guarded, so a
             # run without a floor never evaluates it.
@@ -3866,12 +5048,17 @@ class Network:
                 # spending rule and it is re-read every round, so a node
                 # whose inflow returns is simply not below it any more.
                 inflow_by_node = flow.sum(axis=0)
+                if boundary_in is not None:
+                    # The pass-down is an in-edge from outside the graph.
+                    inflow_by_node = inflow_by_node + boundary_in
                 short = inflow_by_node < sub.need
                 self._short_for[short] += 1
                 self._short_for[~short] = 0
                 self._below = self._short_for >= sub.grace
             elif sub.active:
                 inflow_by_node = flow.sum(axis=0)
+                if boundary_in is not None:
+                    inflow_by_node = inflow_by_node + boundary_in
                 short = (inflow_by_node < sub.need) & self._alive
                 self._short_for[short] += 1
                 self._short_for[~short] = 0
@@ -3941,6 +5128,23 @@ class Network:
             out["frozen_holdings"][t] = float(self.holdings[out_of_market].sum())
             out["parked"][t] = float(self._parked.sum())
             out["returned"][t] = self._returned_this_round
+            if sov_on:
+                out["sovereign_pool"][t] = self._sovereign_pool
+                out["passed_down"][t] = self._passed_this_round
+                out["passed_down_l2"][t] = self._passed_l2_this_round
+                out["bond_stock"][t] = self._bond_stock
+            if debt_on:
+                for key, value in self._debt_round.items():
+                    out[key][t] = value
+            if levy_on:
+                out["levy_out"][t] = self._levy_out_this_round
+            if withdraw_on:
+                out["withdrawn"][t] = self._withdrawn_this_round
+                out["withdrawn_unmet"][t] = self._withdrawn_unmet_this_round
+                out["withdrawn_l2"][t] = self._withdrawn_l2_this_round
+
+            if cut_on:
+                out["cut_out"][t] = self._cut_out_this_round
 
             out["holdings"][t] = self.holdings
             out["active_resources"][t] = resources_offered
@@ -3965,6 +5169,14 @@ class Network:
                 self._pending_issuance = max(
                     0.0, auth.gain * (self._baseline_active - l2_inflow)
                 )
+            # The negative half of the same gap. The line above takes the
+            # positive half and drops the rest, which is what makes the rule
+            # one-directional; this takes what it dropped, and only when the
+            # switch is on, so with it off the line above is the whole rule
+            # exactly as it was.
+            if withdraw_on:
+                self._pending_withdrawal = cfg.withdraw.gain * max(
+                    0.0, l2_inflow - self._baseline_active)
 
             # The hydra clause, after the issuance rule has had its say: what was
             # destroyed is funded again from the layer that is not conserved.

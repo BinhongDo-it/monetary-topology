@@ -996,7 +996,7 @@ closed.
 B6-16 and B6-17**, on the dollar leg only. Availability check in
 `docs/b6c_orderbook_availability.md`. It remains outside the window and remains
 the same population elTOQUE scrapes, so it is **not** the independent referee
-`b5_orphan_prereg.md` §7.4 asks for and is not used as one.
+`b5_orphan_prereg.md` §4.4 asks for and is not used as one.
 
 **Still not contained**: the euro, MLC and tether legs of §3.3, for which A1
 stays an assumption; the offer-arrival ratio `r` of §4.3, which the order

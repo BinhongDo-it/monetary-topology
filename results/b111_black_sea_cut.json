@@ -1,0 +1,7197 @@
+{
+ "config": {
+  "W_column": [
+   "W.wheat.euronext",
+   "2026-09"
+  ],
+  "W_column_2025": [
+   "REF2025.W.wheat.euronext",
+   "2025-09"
+  ],
+  "coverage_families": [
+   [
+    "UA",
+    "broker weekly report 2026",
+    "2026-05-29",
+    "2026-09-11"
+   ],
+   [
+    "UA",
+    "interior price page 2026",
+    "2026-05-29",
+    "2026-09-11"
+   ],
+   [
+    "UA",
+    "broker weekly report 2025",
+    "2025-06-06",
+    "2025-08-29"
+   ],
+   [
+    "UA",
+    "exchange purchase price page 2026",
+    "2026-05-29",
+    "2026-09-11"
+   ],
+   [
+    "UA",
+    "exchange purchase price page 2025",
+    "2025-05-30",
+    "2025-09-12"
+   ],
+   [
+    "W",
+    "futures history 2025",
+    "2025-05-30",
+    "2025-09-12"
+   ],
+   [
+    "RU",
+    "weekly grain report 2026",
+    "2026-05-22",
+    "2026-09-11"
+   ],
+   [
+    "RU",
+    "weekly grain report 2025",
+    "2025-05-30",
+    "2025-08-29"
+   ]
+  ],
+  "data": "data/b111_black_sea_prices.json",
+  "families": {
+   "RU": {
+    "interiors": [
+     {
+      "column": "R0.wheat3.exw_european_russia.sovecon",
+      "source": "weekly grain report",
+      "twin": "REF2025.R0.wheat3.exw_european_russia.sovecon",
+      "twin_note": null
+     }
+    ],
+    "open_pairs": [
+     {
+      "commodity": null,
+      "cut": "R1.wheat125.fob_novo.rusagrotrans",
+      "cut_twin": null,
+      "open": "R2.wheat125.fob_baltic.rusagrotrans",
+      "open_twin": null,
+      "source": "Rusagrotrans via Interfax",
+      "twin_note": "no Baltic quote before the cut or in 2025 in these sources"
+     },
+     {
+      "commodity": null,
+      "cut": "R1.wheat125.fob_novo.ikar",
+      "cut_twin": null,
+      "open": "R2.wheat125.fob_baltic.ikar",
+      "open_twin": null,
+      "source": "weekly grain report",
+      "twin_note": "the Baltic line first appears 2026-08-21; no Baltic quote before the cut or in 2025 in these sources"
+     }
+    ],
+    "ports": [
+     {
+      "commodity": null,
+      "port": "R1.wheat125.fob_novo.ikar",
+      "source": "weekly grain report",
+      "twin": "REF2025.R1.wheat125.fob_novo.ikar",
+      "twin_note": null
+     }
+    ]
+   },
+   "UA": {
+    "interiors": [
+     {
+      "column": "U0.wheat2.exw_elevator.graintrade",
+      "source": "exchange purchase price page",
+      "twin": "REF2025.U0.wheat2.exw_elevator.graintrade",
+      "twin_note": null
+     },
+     {
+      "column": "U0.wheat.exw",
+      "source": "interior price page",
+      "twin": null,
+      "twin_note": "the interior price page shows no 2025 weeks and one June 2026 week"
+     }
+    ],
+    "open_pairs": [
+     {
+      "commodity": "corn",
+      "cut": "U1.corn.cpt_odesa",
+      "cut_twin": null,
+      "open": "U2.corn.fca_chop",
+      "open_twin": null,
+      "source": "broker weekly report",
+      "twin_note": "the FCA Chop dollar index starts 2026-07-17, so neither June 2026 nor 2025 has a window"
+     },
+     {
+      "commodity": "corn",
+      "cut": "U1.corn.cpt_terminal.graintrade",
+      "cut_twin": "REF2025.U1.corn.cpt_terminal.graintrade",
+      "open": "U2.corn.daf.graintrade",
+      "open_twin": "REF2025.U2.corn.daf.graintrade",
+      "source": "exchange purchase price page",
+      "twin_note": null
+     }
+    ],
+    "ports": [
+     {
+      "commodity": "wheat",
+      "port": "U1.wheat115.cpt_odesa",
+      "source": "broker weekly report",
+      "twin": null,
+      "twin_note": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02"
+     },
+     {
+      "commodity": "wheat",
+      "port": "U1.wheat2.cpt_terminal.graintrade",
+      "source": "exchange purchase price page",
+      "twin": "REF2025.U1.wheat2.cpt_terminal.graintrade",
+      "twin_note": null
+     }
+    ]
+   }
+  },
+  "grid": {
+   "R0.wheat3.exw_european_russia.sovecon": 25.0,
+   "U0.wheat2.exw_elevator.graintrade": 1.0,
+   "U1.corn.cpt_odesa": 1.0,
+   "U1.corn.cpt_terminal.graintrade": 1.0,
+   "U1.wheat115.cpt_odesa": 1.0,
+   "U1.wheat2.cpt_terminal.graintrade": 1.0,
+   "U2.corn.daf.graintrade": 1.0,
+   "U2.corn.fca_chop": 1.0,
+   "W.wheat.euronext": 0.25
+  },
+  "june": [
+   "2026-06-05",
+   "2026-06-12",
+   "2026-06-19",
+   "2026-06-26"
+  ],
+  "june_2025": [
+   "2025-06-06",
+   "2025-06-13",
+   "2025-06-20",
+   "2025-06-27"
+  ],
+  "pre_cut": "2026-06-26",
+  "presence": [
+   {
+    "column": "U1.wheat115.cpt_odesa",
+    "commodity": "wheat",
+    "contract": null,
+    "issues": "broker weekly",
+    "role": "port",
+    "side": "UA",
+    "source": "broker weekly report",
+    "twin": null
+   },
+   {
+    "column": "U1.corn.cpt_odesa",
+    "commodity": "corn",
+    "contract": null,
+    "issues": "broker weekly",
+    "role": "port",
+    "side": "UA",
+    "source": "broker weekly report",
+    "twin": null
+   },
+   {
+    "column": "U2.corn.fca_chop",
+    "commodity": null,
+    "contract": null,
+    "issues": "broker weekly",
+    "role": "open route",
+    "side": "UA",
+    "source": "broker weekly report",
+    "twin": null
+   },
+   {
+    "column": "U1.wheat2.cpt_terminal.graintrade",
+    "commodity": "wheat",
+    "contract": null,
+    "issues": "exchange page",
+    "role": "port",
+    "side": "UA",
+    "source": "exchange purchase price page",
+    "twin": "REF2025.U1.wheat2.cpt_terminal.graintrade"
+   },
+   {
+    "column": "U1.corn.cpt_terminal.graintrade",
+    "commodity": "corn",
+    "contract": null,
+    "issues": "exchange page",
+    "role": "port",
+    "side": "UA",
+    "source": "exchange purchase price page",
+    "twin": "REF2025.U1.corn.cpt_terminal.graintrade"
+   },
+   {
+    "column": "U2.corn.daf.graintrade",
+    "commodity": null,
+    "contract": null,
+    "issues": "exchange page",
+    "role": "open route",
+    "side": "UA",
+    "source": "exchange purchase price page",
+    "twin": "REF2025.U2.corn.daf.graintrade"
+   },
+   {
+    "column": "U0.wheat2.exw_elevator.graintrade",
+    "commodity": null,
+    "contract": null,
+    "issues": "exchange page",
+    "role": "interior",
+    "side": "UA",
+    "source": "exchange purchase price page",
+    "twin": "REF2025.U0.wheat2.exw_elevator.graintrade"
+   },
+   {
+    "column": "U0.wheat.exw",
+    "commodity": null,
+    "contract": null,
+    "issues": "interior page",
+    "role": "interior",
+    "side": "UA",
+    "source": "interior price page",
+    "twin": null
+   },
+   {
+    "column": "R1.wheat125.fob_novo.ikar",
+    "commodity": null,
+    "contract": null,
+    "issues": "weekly report",
+    "role": "port",
+    "side": "RU",
+    "source": "weekly grain report",
+    "twin": "REF2025.R1.wheat125.fob_novo.ikar"
+   },
+   {
+    "column": "R2.wheat125.fob_baltic.ikar",
+    "commodity": null,
+    "contract": null,
+    "issues": "weekly report",
+    "role": "open route",
+    "side": "RU",
+    "source": "weekly grain report",
+    "twin": null
+   },
+   {
+    "column": "R0.wheat3.exw_european_russia.sovecon",
+    "commodity": null,
+    "contract": null,
+    "issues": "weekly report",
+    "role": "interior",
+    "side": "RU",
+    "source": "weekly grain report",
+    "twin": "REF2025.R0.wheat3.exw_european_russia.sovecon"
+   },
+   {
+    "column": "R1.wheat125.fob_novo.rusagrotrans",
+    "commodity": null,
+    "contract": null,
+    "issues": "Rusagrotrans note",
+    "role": "port",
+    "side": "RU",
+    "source": "Rusagrotrans via Interfax",
+    "twin": null
+   },
+   {
+    "column": "R2.wheat125.fob_baltic.rusagrotrans",
+    "commodity": null,
+    "contract": null,
+    "issues": "Rusagrotrans note",
+    "role": "open route",
+    "side": "RU",
+    "source": "Rusagrotrans via Interfax",
+    "twin": null
+   },
+   {
+    "column": "W.wheat.euronext",
+    "commodity": null,
+    "contract": "2026-09",
+    "issues": "broker weekly",
+    "role": "world",
+    "side": "W",
+    "source": "broker weekly report",
+    "twin": "REF2025.W.wheat.euronext",
+    "twin_contract": "2025-09",
+    "twin_issues": "futures history"
+   }
+  ],
+  "presence_windows": {
+   "Rusagrotrans note 2026": "weekly grain report 2026",
+   "broker weekly 2026": "broker weekly report 2026",
+   "exchange page 2025": "exchange purchase price page 2025",
+   "exchange page 2026": "exchange purchase price page 2026",
+   "futures history 2025": "futures history 2025",
+   "interior page 2026": "interior price page 2026",
+   "weekly report 2025": "weekly grain report 2025",
+   "weekly report 2026": "weekly grain report 2026"
+  },
+  "read_steps": [
+   [
+    "UA",
+    "2026-07-22",
+    "up"
+   ],
+   [
+    "UA",
+    "2026-08-01/12",
+    "down"
+   ],
+   [
+    "RU",
+    "2026-07-10",
+    "up"
+   ],
+   [
+    "RU",
+    "2026-07-27/2026-07-31",
+    "up"
+   ],
+   [
+    "RU",
+    "2026-08-10/2026-08-14",
+    "up"
+   ]
+  ],
+  "same_weeks_2025": [
+   "2025-05-30",
+   "2025-09-12"
+  ],
+  "study": [
+   "2026-05-22",
+   "2026-09-11"
+  ],
+  "windows_weeks": [
+   1,
+   2
+  ]
+ },
+ "context": {
+  "export_duty_ru": [
+   {
+    "period": "2026-05-27/2026-06-02",
+    "rub_per_t": 0,
+    "source": "https://ru.themoscowtimes.com/2026/05/25/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-rost-na-proshloy-nedele-a196172"
+   },
+   {
+    "period": "2026-06-03/2026-06-09",
+    "rub_per_t": 0,
+    "source": "https://ru.themoscowtimes.com/2026/06/01/eksportnye-tseny-na-pshenitsu-rf-stabilny-v-iyune-ozhidaetsya-snizhenie-obemov-postavok-a196898"
+   },
+   {
+    "period": "2026-06-23/2026-06-30",
+    "rub_per_t": 0,
+    "source": "https://ru.themoscowtimes.com/2026/06/22/eksportnye-tseny-na-pshenitsu-rf-snizilis-s-priblizheniem-postupleniya-novogo-urozhaya-a198833"
+   },
+   {
+    "period": "2026-07-01/2026-07-07",
+    "rub_per_t": 0,
+    "source": "https://cropgpt.ai/russian-wheat-export-prices-slide-as-harvest-starts"
+   },
+   {
+    "period": "2026-07-08/2026-07-14",
+    "rub_per_t": 370.1,
+    "source": "https://ru.themoscowtimes.com/2026/07/06/eksportnye-tseny-na-pshenitsu-rf-snizhayutsya-na-fone-ozhidaniy-khoroshego-urozhaya-v-prichernomore-a200079"
+   },
+   {
+    "period": "2026-07-15/2026-07-21",
+    "rub_per_t": 0,
+    "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260"
+   },
+   {
+    "period": "2026-07-22/2026-07-28",
+    "rub_per_t": 0,
+    "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260"
+   },
+   {
+    "period": "2026-07-29/2026-08-04",
+    "rub_per_t": 0,
+    "source": "https://ru.themoscowtimes.com/2026/08/03/eksportnye-tseny-na-pshenitsu-rf-obvalilis-pod-davleniem-vozrastayuschego-frakhta-i-strakhovki-a202524"
+   },
+   {
+    "period": "2026-08-05/2026-08-11",
+    "rub_per_t": 5.7,
+    "source": "https://ru.themoscowtimes.com/2026/08/03/eksportnye-tseny-na-pshenitsu-rf-obvalilis-pod-davleniem-vozrastayuschego-frakhta-i-strakhovki-a202524"
+   },
+   {
+    "period": "2026-08-12/2026-08-18",
+    "rub_per_t": 326.6,
+    "source": "https://ru.themoscowtimes.com/2026/08/10/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-padenie-otgruzki-rezko-zamedlilis-a203073"
+   },
+   {
+    "period": "2026-08-19/2026-08-25",
+    "rub_per_t": 721.1,
+    "source": "https://ru.themoscowtimes.com/2026/08/17/eksportnye-tseny-na-pshenitsu-rf-prodolzhayut-padat-na-fone-rosta-problem-v-otgruzkakh-a203655"
+   },
+   {
+    "period": "2026-08-26/2026-09-01",
+    "rub_per_t": 1012.1,
+    "source": "https://ru.themoscowtimes.com/2026/08/24/eksportnye-tseny-na-pshenitsu-rf-po-prezhnemu-idut-vniz-na-fone-problem-s-otgruzkami-a204156"
+   },
+   {
+    "period": "2026-09-02/2026-09-08",
+    "rub_per_t": 787.5,
+    "source": "https://ru.themoscowtimes.com/2026/08/31/eksportnye-tseny-na-pshenitsu-rf-rastut-na-fone-rezkogo-sokraschenie-predlozheniya-iz-achb-a204814"
+   },
+   {
+    "period": "2026-09-09/2026-09-15",
+    "rub_per_t": 1179.3,
+    "source": "https://ru.themoscowtimes.com/2026/09/14/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-vsled-za-mirovymi-a206028"
+   },
+   {
+    "period": "2026-09-16/2026-09-22",
+    "rub_per_t": 1146.3,
+    "source": "https://ru.themoscowtimes.com/2026/09/14/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-vsled-za-mirovymi-a206028"
+   }
+  ],
+  "minimum_export_price_ua": [
+   {
+    "month": "2026-05",
+    "term": "corn.cpt",
+    "usd_per_t": 168
+   },
+   {
+    "month": "2026-05",
+    "term": "corn.fob",
+    "usd_per_t": 180
+   },
+   {
+    "month": "2026-05",
+    "term": "wheat.cpt",
+    "usd_per_t": 174
+   },
+   {
+    "month": "2026-05",
+    "term": "wheat.fob",
+    "usd_per_t": 184
+   },
+   {
+    "month": "2026-06",
+    "term": "corn.cpt",
+    "usd_per_t": 153
+   },
+   {
+    "month": "2026-06",
+    "term": "corn.fob",
+    "usd_per_t": 194
+   },
+   {
+    "month": "2026-06",
+    "term": "wheat.cpt",
+    "usd_per_t": 176
+   },
+   {
+    "month": "2026-06",
+    "term": "wheat.fob",
+    "usd_per_t": 180
+   },
+   {
+    "month": "2026-07",
+    "term": "corn.cpt",
+    "usd_per_t": 169
+   },
+   {
+    "month": "2026-07",
+    "term": "corn.fob",
+    "usd_per_t": 183
+   },
+   {
+    "month": "2026-07",
+    "term": "wheat.cpt",
+    "usd_per_t": 180
+   },
+   {
+    "month": "2026-07",
+    "term": "wheat.fob",
+    "usd_per_t": 189
+   },
+   {
+    "month": "2026-08",
+    "term": "corn.cpt",
+    "usd_per_t": 119
+   },
+   {
+    "month": "2026-08",
+    "term": "corn.dap",
+    "usd_per_t": 131
+   },
+   {
+    "month": "2026-08",
+    "term": "corn.fob",
+    "usd_per_t": 144
+   },
+   {
+    "month": "2026-08",
+    "term": "wheat.cpt",
+    "usd_per_t": 122
+   },
+   {
+    "month": "2026-09",
+    "term": "corn.cpt",
+    "usd_per_t": 195
+   },
+   {
+    "month": "2026-09",
+    "term": "corn.dap",
+    "usd_per_t": 176
+   },
+   {
+    "month": "2026-09",
+    "term": "corn.fob",
+    "usd_per_t": 187
+   },
+   {
+    "month": "2026-09",
+    "term": "wheat.cpt",
+    "usd_per_t": 146
+   }
+  ],
+  "steps": [
+   {
+    "date": "2026-07",
+    "event": "July strikes: port facilities 67, civilian vessels in port 35, vessels in the corridor 22",
+    "side": "UA",
+    "source": "https://unn.ua/en/news/ukraines-grain-exports-have-collapsed-due-to-the-situation-in-the-black-sea-what-happened-to-the-maritime-corridor"
+   },
+   {
+    "date": "2026-07-22",
+    "event": "no vessel entered the corridor ports, first time since the corridor opened",
+    "side": "UA",
+    "source": "https://unn.ua/en/news/ukraines-grain-exports-have-collapsed-due-to-the-situation-in-the-black-sea-what-happened-to-the-maritime-corridor"
+   },
+   {
+    "date": "2026-07-23",
+    "event": "officials report no traffic on the corridor after strikes on 28 commercial vessels in a month, ports open",
+    "side": "UA",
+    "source": "https://maritime-executive.com/article/shipping-suspended-on-ukraine-s-black-sea-corridor-due-to-increased-attacks"
+   },
+   {
+    "date": "2026-08-01/12",
+    "event": "exports 0.59 Mt, about three tenths of need",
+    "side": "UA",
+    "source": "https://unn.ua/en/news/ukraines-grain-exports-have-collapsed-due-to-the-situation-in-the-black-sea-what-happened-to-the-maritime-corridor"
+   },
+   {
+    "date": "2026-08",
+    "event": "minimum allowable export prices computed with a 0.714 coefficient on the base estimate",
+    "side": "UA",
+    "source": "https://dia.dp.gov.ua/onovleno-mexanizm-minimalnix-eksportnix-cin-dlya-pidtrimki-eksportu-agroprodukci%D1%97/"
+   },
+   {
+    "date": "2026-07-10",
+    "event": "shipping from Russian shallow-water ports of the Azov-Black Sea basin restricted for security from Friday 10 July (Reuters sources)",
+    "side": "RU",
+    "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260"
+   },
+   {
+    "date": "2026-07-10",
+    "event": "shipping through the Don-Azov channel temporarily halted after an attack on Russian vessels",
+    "side": "RU",
+    "source": "https://www.investing.com/news/commodities-news/russian-wheat-export-prices-hold-steady-amid-black-sea-tensions-93CH-4814792"
+   },
+   {
+    "date": "2026-07-20/2026-07-24",
+    "event": "temporary ban on vessel movements at Novorossiysk between midnight and 5 a.m. after drone attacks",
+    "side": "RU",
+    "source": "https://www.investing.com/news/commodities-news/russian-wheat-export-prices-hold-steady-amid-black-sea-tensions-93CH-4814792"
+   },
+   {
+    "date": "2026-07-27/2026-07-31",
+    "event": "ZTKT and the Efko port in Taman damaged by shelling; several deep-water terminals cut grain intake",
+    "side": "RU",
+    "source": "https://ru.themoscowtimes.com/2026/08/03/eksportnye-tseny-na-pshenitsu-rf-obvalilis-pod-davleniem-vozrastayuschego-frakhta-i-strakhovki-a202524"
+   },
+   {
+    "date": "2026-08-03/2026-08-07",
+    "event": "Taman work not resumed (earlier expected 1-2 weeks); ZTKT still not working; freight up about 10 a tonne",
+    "side": "RU",
+    "source": "https://ru.themoscowtimes.com/2026/08/10/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-padenie-otgruzki-rezko-zamedlilis-a203073"
+   },
+   {
+    "date": "2026-08-10/2026-08-14",
+    "event": "NZT and NKHP in Novorossiysk stopped after an air attack; KSK stopped intake and loading though undamaged; about 10% of basin transshipment capacity working by the end of the week (SovEcon)",
+    "side": "RU",
+    "source": "https://ru.themoscowtimes.com/2026/08/17/eksportnye-tseny-na-pshenitsu-rf-prodolzhayut-padat-na-fone-rosta-problem-v-otgruzkakh-a203655"
+   },
+   {
+    "date": "2026-08-17/2026-08-21",
+    "event": "most shipments through Azov-Black Sea ports stopped all week",
+    "side": "RU",
+    "source": "https://ru.themoscowtimes.com/2026/08/24/eksportnye-tseny-na-pshenitsu-rf-po-prezhnemu-idut-vniz-na-fone-problem-s-otgruzkami-a204156"
+   }
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "909 cells, 0 incomplete",
+   "kind": "bookkeeping",
+   "name": "B111-1",
+   "passed": true,
+   "statement": "every cell carries a source URL, a price date, a published date, a basis and a grade"
+  },
+  {
+   "detail": "49 declared columns, 0 cells off their column",
+   "kind": "instrument",
+   "name": "B111-2",
+   "passed": true,
+   "statement": "one column holds one unit, one basis and one grade, and W one futures contract per column"
+  },
+  {
+   "detail": "794 differences logged, 0 off",
+   "kind": "instrument",
+   "name": "B111-3",
+   "passed": true,
+   "statement": "every difference is taken within one week across columns, or within one column across weeks"
+  },
+  {
+   "detail": "UA broker weekly report 2026: 16 of 16 weeks; UA interior price page 2026: 16 of 16 weeks; UA broker weekly report 2025: 13 of 13 weeks; UA exchange purchase price page 2026: 16 of 16 weeks; UA exchange purchase price page 2025: 16 of 16 weeks; W futures history 2025: 16 of 16 weeks; RU weekly grain report 2026: 17 of 17 weeks; RU weekly grain report 2025: 14 of 14 weeks; 64 page rows counted against the cells on disk",
+   "kind": "bookkeeping",
+   "name": "B111-4",
+   "passed": true,
+   "statement": "every week in each source's window has a coverage row, weeks that read zero included, and a row that counts its cells counts the cells on disk from that page"
+  }
+ ],
+ "mapping": [
+  [
+   "a, c, d: dose up",
+   "move below minus the floor",
+   "matches"
+  ],
+  [
+   "a, c, d: dose up",
+   "move above the floor",
+   "does not match"
+  ],
+  [
+   "a, c, d: dose down",
+   "move above the floor",
+   "matches"
+  ],
+  [
+   "a, c, d: dose down",
+   "move below minus the floor",
+   "does not match"
+  ],
+  [
+   "b: dose up",
+   "move above the floor",
+   "matches"
+  ],
+  [
+   "b: dose up",
+   "move below minus the floor",
+   "does not match"
+  ],
+  [
+   "b: dose down",
+   "move below minus the floor",
+   "matches"
+  ],
+  [
+   "b: dose down",
+   "move above the floor",
+   "does not match"
+  ],
+  [
+   "any",
+   "move within the floor",
+   "not read"
+  ],
+  [
+   "any",
+   "floor not measured",
+   "not read"
+  ],
+  [
+   "any",
+   "an end cell missing, flagged, or at or below the minimum export price",
+   "not read"
+  ],
+  [
+   "a, long windows",
+   "no dated step inside the window",
+   "not read"
+  ],
+  [
+   "d only",
+   "the same week of 2025 not on disk",
+   "not read"
+  ]
+ ],
+ "objects": {
+  "a": {
+   "RU": [
+    {
+     "baseline": {
+      "W_mean": 201.5833,
+      "base_weeks": [
+       "2026-06-12",
+       "2026-06-19",
+       "2026-06-26"
+      ],
+      "grid_legs": [
+       "W.wheat.euronext"
+      ],
+      "grid_pp": 0.124,
+      "port_mean": 232.6667
+     },
+     "baseline_2025": {
+      "W_mean": 202.875,
+      "base_weeks": [
+       "2025-06-06",
+       "2025-06-13",
+       "2025-06-20",
+       "2025-06-27"
+      ],
+      "grid_legs": [
+       "W.wheat.euronext"
+      ],
+      "grid_pp": 0.1232,
+      "port_mean": 224.5
+     },
+     "commodity": null,
+     "floors": {
+      "1": {
+       "floor": 0.8061,
+       "grid": 0.124,
+       "noise": 0.8061,
+       "why_no_2025": null,
+       "windows_2025": 13,
+       "windows_june_2026": 2,
+       "zero_moves": 0
+      },
+      "2": {
+       "floor": 1.8145,
+       "grid": 0.124,
+       "noise": 1.8145,
+       "why_no_2025": null,
+       "windows_2025": 12,
+       "windows_june_2026": 1,
+       "zero_moves": 0
+      },
+      "3": {
+       "floor": 3.8676,
+       "grid": 0.124,
+       "noise": 3.8676,
+       "why_no_2025": null,
+       "windows_2025": 11,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "4": {
+       "floor": 4.5001,
+       "grid": 0.124,
+       "noise": 4.5001,
+       "why_no_2025": null,
+       "windows_2025": 10,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "5": {
+       "floor": 5.8664,
+       "grid": 0.124,
+       "noise": 5.8664,
+       "why_no_2025": null,
+       "windows_2025": 9,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "6": {
+       "floor": 6.0727,
+       "grid": 0.124,
+       "noise": 6.0727,
+       "why_no_2025": null,
+       "windows_2025": 8,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "7": {
+       "floor": 6.7053,
+       "grid": 0.124,
+       "noise": 6.7053,
+       "why_no_2025": null,
+       "windows_2025": 7,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "8": {
+       "floor": 9.388,
+       "grid": 0.124,
+       "noise": 9.388,
+       "why_no_2025": null,
+       "windows_2025": 6,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "9": {
+       "floor": 9.232,
+       "grid": 0.124,
+       "noise": 9.232,
+       "why_no_2025": null,
+       "windows_2025": 5,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "10": {
+       "floor": 9.1704,
+       "grid": 0.124,
+       "noise": 9.1704,
+       "why_no_2025": null,
+       "windows_2025": 4,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "11": {
+       "floor": 8.6012,
+       "grid": 0.124,
+       "noise": 8.6012,
+       "why_no_2025": null,
+       "windows_2025": 3,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      }
+     },
+     "long_windows": [
+      {
+       "floor_pp": 0.8061,
+       "from": "2026-06-26",
+       "move_pp": -1.5289,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-03",
+       "weeks": 1
+      },
+      {
+       "floor_pp": 1.8145,
+       "from": "2026-06-26",
+       "move_pp": -7.9864,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-10",
+       "weeks": 2
+      },
+      {
+       "floor_pp": 3.8676,
+       "from": "2026-06-26",
+       "move_pp": -13.7831,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-10"
+       ],
+       "to": "2026-07-17",
+       "weeks": 3
+      },
+      {
+       "floor_pp": 4.5001,
+       "from": "2026-06-26",
+       "move_pp": -13.163,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-10"
+       ],
+       "to": "2026-07-24",
+       "weeks": 4
+      },
+      {
+       "floor_pp": 5.8664,
+       "from": "2026-06-26",
+       "move_pp": -12.0705,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31"
+       ],
+       "to": "2026-07-31",
+       "weeks": 5
+      },
+      {
+       "floor_pp": 6.0727,
+       "from": "2026-06-26",
+       "move_pp": -14.7733,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31"
+       ],
+       "to": "2026-08-07",
+       "weeks": 6
+      },
+      {
+       "floor_pp": 6.7053,
+       "from": "2026-06-26",
+       "move_pp": -19.4026,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31",
+        "2026-08-10/2026-08-14"
+       ],
+       "to": "2026-08-14",
+       "weeks": 7
+      },
+      {
+       "floor_pp": 9.388,
+       "from": "2026-06-26",
+       "move_pp": -19.3193,
+       "reason": "2026-08-21 flagged nominal",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31",
+        "2026-08-10/2026-08-14"
+       ],
+       "to": "2026-08-21",
+       "weeks": 8
+      },
+      {
+       "floor_pp": 9.232,
+       "from": "2026-06-26",
+       "move_pp": -27.2565,
+       "reason": "2026-08-28 flagged nominal",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31",
+        "2026-08-10/2026-08-14"
+       ],
+       "to": "2026-08-28",
+       "weeks": 9
+      },
+      {
+       "floor_pp": 9.1704,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31",
+        "2026-08-10/2026-08-14"
+       ],
+       "to": "2026-09-04",
+       "weeks": 10
+      },
+      {
+       "floor_pp": 8.6012,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-10",
+        "2026-07-27/2026-07-31",
+        "2026-08-10/2026-08-14"
+       ],
+       "to": "2026-09-11",
+       "weeks": 11
+      }
+     ],
+     "path": [
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-05-22",
+       "delivery": "not stated",
+       "minimum_export_price": null,
+       "port": 242.0,
+       "port_flags": [],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": 207.5,
+       "W_flags": [],
+       "W_move_pct": 2.9351,
+       "date": "2026-05-29",
+       "delivery": "not stated",
+       "minimum_export_price": null,
+       "port": 242.0,
+       "port_flags": [
+        "approx"
+       ],
+       "port_move_pct": 4.0115,
+       "port_unchanged_weeks": 1,
+       "readable": false,
+       "relative_pp": 1.0764
+      },
+      {
+       "W": 203.0,
+       "W_flags": [
+        "zone"
+       ],
+       "W_move_pct": 0.7028,
+       "date": "2026-06-05",
+       "delivery": "second half of July-early August",
+       "minimum_export_price": null,
+       "port": 242.0,
+       "port_flags": [],
+       "port_move_pct": 4.0115,
+       "port_unchanged_weeks": 2,
+       "readable": false,
+       "relative_pp": 3.3087
+      },
+      {
+       "W": 200.75,
+       "W_flags": [],
+       "W_move_pct": -0.4134,
+       "date": "2026-06-12",
+       "minimum_export_price": null,
+       "port": 234.0,
+       "port_flags": [],
+       "port_move_pct": 0.5731,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 0.9865
+      },
+      {
+       "W": 201.25,
+       "W_flags": [],
+       "W_move_pct": -0.1654,
+       "date": "2026-06-19",
+       "delivery": "second half of July-early August",
+       "minimum_export_price": null,
+       "port": 233.0,
+       "port_flags": [],
+       "port_move_pct": 0.1433,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 0.3086
+      },
+      {
+       "W": 202.75,
+       "W_flags": [],
+       "W_move_pct": 0.5788,
+       "date": "2026-06-26",
+       "delivery": "second half of July-early August",
+       "minimum_export_price": null,
+       "port": 231.0,
+       "port_flags": [],
+       "port_move_pct": -0.7163,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -1.2951
+      },
+      {
+       "W": 201.5,
+       "W_flags": [],
+       "W_move_pct": -0.0413,
+       "date": "2026-07-03",
+       "delivery": "August",
+       "minimum_export_price": null,
+       "port": 226.0,
+       "port_flags": [],
+       "port_move_pct": -2.8653,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -2.824
+      },
+      {
+       "W": 216.25,
+       "W_flags": [],
+       "W_move_pct": 7.2757,
+       "date": "2026-07-10",
+       "minimum_export_price": null,
+       "port": 228.0,
+       "port_flags": [],
+       "port_move_pct": -2.0057,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -9.2815
+      },
+      {
+       "W": 234.0,
+       "W_flags": [],
+       "W_move_pct": 16.081,
+       "date": "2026-07-17",
+       "delivery": "August",
+       "minimum_export_price": null,
+       "port": 235.0,
+       "port_flags": [],
+       "port_move_pct": 1.0029,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -15.0782
+      },
+      {
+       "W": 232.75,
+       "W_flags": [],
+       "W_move_pct": 15.4609,
+       "date": "2026-07-24",
+       "delivery": "second half of August",
+       "minimum_export_price": null,
+       "port": 235.0,
+       "port_flags": [],
+       "port_move_pct": 1.0029,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": -14.4581
+      },
+      {
+       "W": 222.75,
+       "W_flags": [],
+       "W_move_pct": 10.5002,
+       "date": "2026-07-31",
+       "delivery": "early September",
+       "minimum_export_price": null,
+       "port": 226.0,
+       "port_flags": [],
+       "port_move_pct": -2.8653,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -13.3655
+      },
+      {
+       "W": 223.0,
+       "W_flags": [],
+       "W_move_pct": 10.6242,
+       "date": "2026-08-07",
+       "delivery": "first half of September",
+       "minimum_export_price": null,
+       "port": 220.0,
+       "port_flags": [],
+       "port_move_pct": -5.4441,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -16.0684
+      },
+      {
+       "W": 228.0,
+       "W_flags": [],
+       "W_move_pct": 13.1046,
+       "date": "2026-08-14",
+       "delivery": "September",
+       "minimum_export_price": null,
+       "port": 215.0,
+       "port_flags": [],
+       "port_move_pct": -7.5931,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -20.6977
+      },
+      {
+       "W": 223.5,
+       "W_flags": [],
+       "W_move_pct": 10.8723,
+       "date": "2026-08-21",
+       "delivery": "end of September",
+       "minimum_export_price": null,
+       "port": 210.0,
+       "port_flags": [
+        "nominal"
+       ],
+       "port_move_pct": -9.7421,
+       "port_unchanged_weeks": 0,
+       "readable": false,
+       "relative_pp": -20.6144
+      },
+      {
+       "W": 239.5,
+       "W_flags": [],
+       "W_move_pct": 18.8094,
+       "date": "2026-08-28",
+       "minimum_export_price": null,
+       "port": 210.0,
+       "port_flags": [
+        "nominal"
+       ],
+       "port_move_pct": -9.7421,
+       "port_unchanged_weeks": 1,
+       "readable": false,
+       "relative_pp": -28.5515
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-09-04",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-09-11",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      }
+     ],
+     "path_2025": [
+      {
+       "W": 200.75,
+       "W_flags": [],
+       "W_move_pct": -1.0474,
+       "date": "2025-05-30",
+       "delivery": "second half of July",
+       "minimum_export_price": null,
+       "port": 225.0,
+       "port_flags": [],
+       "port_move_pct": 0.2227,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 1.2702
+      },
+      {
+       "W": 204.75,
+       "W_flags": [],
+       "W_move_pct": 0.9242,
+       "date": "2025-06-06",
+       "delivery": "second half of July",
+       "minimum_export_price": null,
+       "port": 225.0,
+       "port_flags": [],
+       "port_move_pct": 0.2227,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": -0.7015
+      },
+      {
+       "W": 202.75,
+       "W_flags": [],
+       "W_move_pct": -0.0616,
+       "date": "2025-06-13",
+       "delivery": "end of July",
+       "minimum_export_price": null,
+       "port": 222.0,
+       "port_flags": [],
+       "port_move_pct": -1.1136,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -1.052
+      },
+      {
+       "W": 208.0,
+       "W_flags": [],
+       "W_move_pct": 2.5262,
+       "date": "2025-06-20",
+       "delivery": "second half of July",
+       "minimum_export_price": null,
+       "port": 227.0,
+       "port_flags": [],
+       "port_move_pct": 1.1136,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -1.4126
+      },
+      {
+       "W": 196.0,
+       "W_flags": [],
+       "W_move_pct": -3.3888,
+       "date": "2025-06-27",
+       "delivery": "second half of July",
+       "minimum_export_price": null,
+       "port": 224.0,
+       "port_flags": [],
+       "port_move_pct": -0.2227,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 3.1661
+      },
+      {
+       "W": 195.75,
+       "W_flags": [],
+       "W_move_pct": -3.512,
+       "date": "2025-07-04",
+       "delivery": "August",
+       "minimum_export_price": null,
+       "port": 225.0,
+       "port_flags": [],
+       "port_move_pct": 0.2227,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 3.7347
+      },
+      {
+       "W": 201.0,
+       "W_flags": [],
+       "W_move_pct": -0.9242,
+       "date": "2025-07-11",
+       "delivery": "August",
+       "minimum_export_price": null,
+       "port": 229.0,
+       "port_flags": [],
+       "port_move_pct": 2.0045,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 2.9287
+      },
+      {
+       "W": 202.5,
+       "W_flags": [],
+       "W_move_pct": -0.1848,
+       "date": "2025-07-18",
+       "delivery": "August",
+       "minimum_export_price": null,
+       "port": 236.0,
+       "port_flags": [],
+       "port_move_pct": 5.1225,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 5.3073
+      },
+      {
+       "W": 195.5,
+       "W_flags": [],
+       "W_move_pct": -3.6352,
+       "date": "2025-07-25",
+       "delivery": "second half of August",
+       "minimum_export_price": null,
+       "port": 239.0,
+       "port_flags": [],
+       "port_move_pct": 6.4588,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 10.094
+      },
+      {
+       "W": 194.5,
+       "W_flags": [],
+       "W_move_pct": -4.1282,
+       "date": "2025-08-01",
+       "minimum_export_price": null,
+       "port": 236.0,
+       "port_flags": [],
+       "port_move_pct": 5.1225,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 9.2507
+      },
+      {
+       "W": 196.5,
+       "W_flags": [],
+       "W_move_pct": -3.1423,
+       "date": "2025-08-08",
+       "delivery": "early September",
+       "minimum_export_price": null,
+       "port": 239.0,
+       "port_flags": [],
+       "port_move_pct": 6.4588,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 9.6011
+      },
+      {
+       "W": 195.5,
+       "W_flags": [],
+       "W_move_pct": -3.6352,
+       "date": "2025-08-15",
+       "delivery": "second half of September",
+       "minimum_export_price": null,
+       "port": 238.5,
+       "port_flags": [],
+       "port_move_pct": 6.2361,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 9.8713
+      },
+      {
+       "W": 196.5,
+       "W_flags": [],
+       "W_move_pct": -3.1423,
+       "date": "2025-08-22",
+       "delivery": "second half of September",
+       "minimum_export_price": null,
+       "port": 235.0,
+       "port_flags": [],
+       "port_move_pct": 4.6771,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 7.8194
+      },
+      {
+       "W": 191.5,
+       "W_flags": [],
+       "W_move_pct": -5.6069,
+       "date": "2025-08-29",
+       "delivery": "end of September-early October",
+       "minimum_export_price": null,
+       "port": 230.0,
+       "port_flags": [],
+       "port_move_pct": 2.4499,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 8.0568
+      },
+      {
+       "W": 183.75,
+       "W_flags": [],
+       "date": "2025-09-05",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2025-09-12",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      }
+     ],
+     "port": "R1.wheat125.fob_novo.ikar",
+     "readings": [
+      {
+       "dose": "up",
+       "floor_pp": 0.8061,
+       "from": "2026-07-10",
+       "move_pp": -5.7967,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "step": "2026-07-10",
+       "to": "2026-07-17",
+       "weeks": 1
+      },
+      {
+       "dose": "up",
+       "floor_pp": 1.8145,
+       "from": "2026-07-10",
+       "move_pp": -5.1766,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "step": "2026-07-10",
+       "to": "2026-07-24",
+       "weeks": 2
+      },
+      {
+       "dose": "up",
+       "floor_pp": 0.8061,
+       "from": "2026-07-24",
+       "move_pp": 1.0925,
+       "reason": "moved up past the floor",
+       "state": "does not match",
+       "step": "2026-07-27/2026-07-31",
+       "to": "2026-07-31",
+       "weeks": 1
+      },
+      {
+       "dose": "up",
+       "floor_pp": 1.8145,
+       "from": "2026-07-24",
+       "move_pp": -1.6103,
+       "reason": "move within the floor",
+       "state": "not read",
+       "step": "2026-07-27/2026-07-31",
+       "to": "2026-08-07",
+       "weeks": 2
+      },
+      {
+       "dose": "up",
+       "floor_pp": 0.8061,
+       "from": "2026-08-07",
+       "move_pp": -4.6294,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "step": "2026-08-10/2026-08-14",
+       "to": "2026-08-14",
+       "weeks": 1
+      },
+      {
+       "dose": "up",
+       "floor_pp": 1.8145,
+       "from": "2026-08-07",
+       "move_pp": -4.546,
+       "reason": "2026-08-21 flagged nominal",
+       "state": "not read",
+       "step": "2026-08-10/2026-08-14",
+       "to": "2026-08-21",
+       "weeks": 2
+      }
+     ],
+     "source": "weekly grain report",
+     "twin": "REF2025.R1.wheat125.fob_novo.ikar"
+    }
+   ],
+   "UA": [
+    {
+     "baseline": {
+      "W_mean": 201.5833,
+      "base_weeks": [
+       "2026-06-12",
+       "2026-06-19",
+       "2026-06-26"
+      ],
+      "grid_legs": [
+       "U1.wheat115.cpt_odesa",
+       "W.wheat.euronext"
+      ],
+      "grid_pp": 0.587,
+      "port_mean": 216.0
+     },
+     "baseline_2025": null,
+     "commodity": "wheat",
+     "floors": {
+      "1": {
+       "floor": 1.6535,
+       "grid": 0.587,
+       "noise": 1.6535,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 2,
+       "zero_moves": 0
+      },
+      "2": {
+       "floor": 3.307,
+       "grid": 0.587,
+       "noise": 3.307,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 1,
+       "zero_moves": 0
+      },
+      "3": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "4": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "5": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "6": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "7": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "8": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "9": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "10": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "11": {
+       "floor": null,
+       "grid": 0.587,
+       "noise": null,
+       "why_no_2025": "the broker's 2025 weekly reports quote DAP Odesa ranges, another column; its CPT index starts 2025-09-02",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      }
+     },
+     "long_windows": [
+      {
+       "floor_pp": 1.6535,
+       "from": "2026-06-26",
+       "move_pp": -2.1577,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-03",
+       "weeks": 1
+      },
+      {
+       "floor_pp": 3.307,
+       "from": "2026-06-26",
+       "move_pp": -9.0118,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-10",
+       "weeks": 2
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -19.6689,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-17",
+       "weeks": 3
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -21.8266,
+       "reason": "2026-07-24 flagged nominal",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22"
+       ],
+       "to": "2026-07-24",
+       "weeks": 4
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -18.2548,
+       "reason": "floor not measured",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22"
+       ],
+       "to": "2026-07-31",
+       "weeks": 5
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -18.3788,
+       "reason": "2026-08-07 flagged nominal",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-07",
+       "weeks": 6
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -20.8592,
+       "reason": "floor not measured",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-14",
+       "weeks": 7
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -18.6268,
+       "reason": "floor not measured",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-21",
+       "weeks": 8
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": -31.1936,
+       "reason": "floor not measured",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-28",
+       "weeks": 9
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-09-04",
+       "weeks": 10
+      },
+      {
+       "floor_pp": null,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-09-11",
+       "weeks": 11
+      }
+     ],
+     "path": [
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-05-22",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": 207.5,
+       "W_flags": [],
+       "W_move_pct": 2.9351,
+       "date": "2026-05-29",
+       "minimum_export_price": 174.0,
+       "port": 222.0,
+       "port_flags": [],
+       "port_move_pct": 2.7778,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -0.1573
+      },
+      {
+       "W": 203.0,
+       "W_flags": [
+        "zone"
+       ],
+       "W_move_pct": 0.7028,
+       "date": "2026-06-05",
+       "minimum_export_price": 176.0,
+       "port": 220.0,
+       "port_flags": [],
+       "port_move_pct": 1.8519,
+       "port_unchanged_weeks": 0,
+       "readable": false,
+       "relative_pp": 1.1491
+      },
+      {
+       "W": 200.75,
+       "W_flags": [],
+       "W_move_pct": -0.4134,
+       "date": "2026-06-12",
+       "minimum_export_price": 176.0,
+       "port": 218.0,
+       "port_flags": [],
+       "port_move_pct": 0.9259,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 1.3393
+      },
+      {
+       "W": 201.25,
+       "W_flags": [],
+       "W_move_pct": -0.1654,
+       "date": "2026-06-19",
+       "minimum_export_price": 176.0,
+       "port": 217.0,
+       "port_flags": [],
+       "port_move_pct": 0.463,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 0.6283
+      },
+      {
+       "W": 202.75,
+       "W_flags": [],
+       "W_move_pct": 0.5788,
+       "date": "2026-06-26",
+       "minimum_export_price": 176.0,
+       "port": 213.0,
+       "port_flags": [],
+       "port_move_pct": -1.3889,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -1.9676
+      },
+      {
+       "W": 201.5,
+       "W_flags": [],
+       "W_move_pct": -0.0413,
+       "date": "2026-07-03",
+       "minimum_export_price": 180.0,
+       "port": 207.0,
+       "port_flags": [],
+       "port_move_pct": -4.1667,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -4.1253
+      },
+      {
+       "W": 216.25,
+       "W_flags": [],
+       "W_move_pct": 7.2757,
+       "date": "2026-07-10",
+       "minimum_export_price": 180.0,
+       "port": 208.0,
+       "port_flags": [],
+       "port_move_pct": -3.7037,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -10.9794
+      },
+      {
+       "W": 234.0,
+       "W_flags": [],
+       "W_move_pct": 16.081,
+       "date": "2026-07-17",
+       "minimum_export_price": 180.0,
+       "port": 204.0,
+       "port_flags": [],
+       "port_move_pct": -5.5556,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -21.6366
+      },
+      {
+       "W": 232.75,
+       "W_flags": [],
+       "W_move_pct": 15.4609,
+       "date": "2026-07-24",
+       "minimum_export_price": 180.0,
+       "port": 198.0,
+       "port_flags": [
+        "nominal"
+       ],
+       "port_move_pct": -8.3333,
+       "port_unchanged_weeks": 0,
+       "readable": false,
+       "relative_pp": -23.7943
+      },
+      {
+       "W": 222.75,
+       "W_flags": [],
+       "W_move_pct": 10.5002,
+       "date": "2026-07-31",
+       "minimum_export_price": 180.0,
+       "port": 195.0,
+       "port_flags": [],
+       "port_move_pct": -9.7222,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -20.2224
+      },
+      {
+       "W": 223.0,
+       "W_flags": [],
+       "W_move_pct": 10.6242,
+       "date": "2026-08-07",
+       "minimum_export_price": 122.0,
+       "port": 195.0,
+       "port_flags": [
+        "nominal"
+       ],
+       "port_move_pct": -9.7222,
+       "port_unchanged_weeks": 1,
+       "readable": false,
+       "relative_pp": -20.3464
+      },
+      {
+       "W": 228.0,
+       "W_flags": [],
+       "W_move_pct": 13.1046,
+       "date": "2026-08-14",
+       "minimum_export_price": 122.0,
+       "port": 195.0,
+       "port_flags": [],
+       "port_move_pct": -9.7222,
+       "port_unchanged_weeks": 2,
+       "readable": true,
+       "relative_pp": -22.8268
+      },
+      {
+       "W": 223.5,
+       "W_flags": [],
+       "W_move_pct": 10.8723,
+       "date": "2026-08-21",
+       "minimum_export_price": 122.0,
+       "port": 195.0,
+       "port_flags": [],
+       "port_move_pct": -9.7222,
+       "port_unchanged_weeks": 3,
+       "readable": true,
+       "relative_pp": -20.5945
+      },
+      {
+       "W": 239.5,
+       "W_flags": [],
+       "W_move_pct": 18.8094,
+       "date": "2026-08-28",
+       "minimum_export_price": 122.0,
+       "port": 185.0,
+       "port_flags": [],
+       "port_move_pct": -14.3519,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -33.1613
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-09-04",
+       "minimum_export_price": 146.0,
+       "port": 185.0,
+       "port_flags": [],
+       "port_unchanged_weeks": 1,
+       "readable": false
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-09-11",
+       "minimum_export_price": 146.0,
+       "port": 180.0,
+       "port_flags": [],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      }
+     ],
+     "path_2025": null,
+     "port": "U1.wheat115.cpt_odesa",
+     "readings": [
+      {
+       "dose": "up",
+       "floor_pp": 1.6535,
+       "from": "2026-07-17",
+       "move_pp": -2.1577,
+       "reason": "2026-07-24 flagged nominal",
+       "state": "not read",
+       "step": "2026-07-22",
+       "to": "2026-07-24",
+       "weeks": 1
+      },
+      {
+       "dose": "up",
+       "floor_pp": 3.307,
+       "from": "2026-07-17",
+       "move_pp": 1.4142,
+       "reason": "move within the floor",
+       "state": "not read",
+       "step": "2026-07-22",
+       "to": "2026-07-31",
+       "weeks": 2
+      },
+      {
+       "dose": "down",
+       "floor_pp": 1.6535,
+       "from": "2026-07-31",
+       "move_pp": -0.124,
+       "reason": "2026-08-07 flagged nominal",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-07",
+       "weeks": 1
+      },
+      {
+       "dose": "down",
+       "floor_pp": 3.307,
+       "from": "2026-07-31",
+       "move_pp": -2.6044,
+       "reason": "move within the floor",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-14",
+       "weeks": 2
+      }
+     ],
+     "source": "broker weekly report",
+     "twin": null
+    },
+    {
+     "baseline": {
+      "W_mean": 201.5833,
+      "base_weeks": [
+       "2026-06-12",
+       "2026-06-19",
+       "2026-06-26"
+      ],
+      "grid_legs": [
+       "U1.wheat2.cpt_terminal.graintrade",
+       "W.wheat.euronext"
+      ],
+      "grid_pp": 0.5827,
+      "port_mean": 218.0
+     },
+     "baseline_2025": {
+      "W_mean": 202.875,
+      "base_weeks": [
+       "2025-06-06",
+       "2025-06-13",
+       "2025-06-20",
+       "2025-06-27"
+      ],
+      "grid_legs": [
+       "U1.wheat2.cpt_terminal.graintrade",
+       "W.wheat.euronext"
+      ],
+      "grid_pp": 0.583,
+      "port_mean": 217.5
+     },
+     "commodity": "wheat",
+     "floors": {
+      "1": {
+       "floor": 0.865,
+       "grid": 0.5827,
+       "noise": 0.865,
+       "why_no_2025": null,
+       "windows_2025": 14,
+       "windows_june_2026": 2,
+       "zero_moves": 0
+      },
+      "2": {
+       "floor": 2.8959,
+       "grid": 0.5827,
+       "noise": 2.8959,
+       "why_no_2025": null,
+       "windows_2025": 13,
+       "windows_june_2026": 1,
+       "zero_moves": 1
+      },
+      "3": {
+       "floor": 3.3323,
+       "grid": 0.5827,
+       "noise": 3.3323,
+       "why_no_2025": null,
+       "windows_2025": 12,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "4": {
+       "floor": 4.6971,
+       "grid": 0.5827,
+       "noise": 4.6971,
+       "why_no_2025": null,
+       "windows_2025": 11,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "5": {
+       "floor": 5.8041,
+       "grid": 0.5827,
+       "noise": 5.8041,
+       "why_no_2025": null,
+       "windows_2025": 10,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "6": {
+       "floor": 8.8589,
+       "grid": 0.5827,
+       "noise": 8.8589,
+       "why_no_2025": null,
+       "windows_2025": 9,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "7": {
+       "floor": 8.9039,
+       "grid": 0.5827,
+       "noise": 8.9039,
+       "why_no_2025": null,
+       "windows_2025": 8,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "8": {
+       "floor": 8.9489,
+       "grid": 0.5827,
+       "noise": 8.9489,
+       "why_no_2025": null,
+       "windows_2025": 7,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "9": {
+       "floor": 8.6596,
+       "grid": 0.5827,
+       "noise": 8.6596,
+       "why_no_2025": null,
+       "windows_2025": 6,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "10": {
+       "floor": 6.8583,
+       "grid": 0.5827,
+       "noise": 6.8583,
+       "why_no_2025": null,
+       "windows_2025": 5,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "11": {
+       "floor": 6.8749,
+       "grid": 0.5827,
+       "noise": 6.8749,
+       "why_no_2025": null,
+       "windows_2025": 4,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      }
+     },
+     "long_windows": [
+      {
+       "floor_pp": 0.865,
+       "from": "2026-06-26",
+       "move_pp": -3.0496,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-03",
+       "weeks": 1
+      },
+      {
+       "floor_pp": 2.8959,
+       "from": "2026-06-26",
+       "move_pp": -10.3667,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-10",
+       "weeks": 2
+      },
+      {
+       "floor_pp": 3.3323,
+       "from": "2026-06-26",
+       "move_pp": -21.4656,
+       "reason": "no dated step inside the window",
+       "state": "not read",
+       "steps_inside": [],
+       "to": "2026-07-17",
+       "weeks": 3
+      },
+      {
+       "floor_pp": 4.6971,
+       "from": "2026-06-26",
+       "move_pp": -20.8455,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-22"
+       ],
+       "to": "2026-07-24",
+       "weeks": 4
+      },
+      {
+       "floor_pp": 5.8041,
+       "from": "2026-06-26",
+       "move_pp": -15.8848,
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "steps_inside": [
+        "2026-07-22"
+       ],
+       "to": "2026-07-31",
+       "weeks": 5
+      },
+      {
+       "floor_pp": 8.8589,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-07",
+       "weeks": 6
+      },
+      {
+       "floor_pp": 8.9039,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-14",
+       "weeks": 7
+      },
+      {
+       "floor_pp": 8.9489,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-21",
+       "weeks": 8
+      },
+      {
+       "floor_pp": 8.6596,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-28",
+       "weeks": 9
+      },
+      {
+       "floor_pp": 6.8583,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-09-04",
+       "weeks": 10
+      },
+      {
+       "floor_pp": 6.8749,
+       "from": "2026-06-26",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "steps_inside": [
+        "2026-07-22",
+        "2026-08-01/12"
+       ],
+       "to": "2026-09-11",
+       "weeks": 11
+      }
+     ],
+     "path": [
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-05-22",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": 207.5,
+       "W_flags": [],
+       "W_move_pct": 2.9351,
+       "date": "2026-05-29",
+       "minimum_export_price": 174.0,
+       "port": 220.0,
+       "port_flags": [],
+       "port_move_pct": 0.9174,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -2.0177
+      },
+      {
+       "W": 203.0,
+       "W_flags": [
+        "zone"
+       ],
+       "W_move_pct": 0.7028,
+       "date": "2026-06-05",
+       "minimum_export_price": 176.0,
+       "port": 221.0,
+       "port_flags": [],
+       "port_move_pct": 1.3761,
+       "port_unchanged_weeks": 0,
+       "readable": false,
+       "relative_pp": 0.6734
+      },
+      {
+       "W": 200.75,
+       "W_flags": [],
+       "W_move_pct": -0.4134,
+       "date": "2026-06-12",
+       "minimum_export_price": 176.0,
+       "port": 218.0,
+       "port_flags": [],
+       "port_move_pct": 0.0,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 0.4134
+      },
+      {
+       "W": 201.25,
+       "W_flags": [],
+       "W_move_pct": -0.1654,
+       "date": "2026-06-19",
+       "minimum_export_price": 176.0,
+       "port": 218.0,
+       "port_flags": [],
+       "port_move_pct": 0.0,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": 0.1654
+      },
+      {
+       "W": 202.75,
+       "W_flags": [],
+       "W_move_pct": 0.5788,
+       "date": "2026-06-26",
+       "minimum_export_price": 176.0,
+       "port": 218.0,
+       "port_flags": [],
+       "port_move_pct": 0.0,
+       "port_unchanged_weeks": 2,
+       "readable": true,
+       "relative_pp": -0.5788
+      },
+      {
+       "W": 201.5,
+       "W_flags": [],
+       "W_move_pct": -0.0413,
+       "date": "2026-07-03",
+       "minimum_export_price": 180.0,
+       "port": 210.0,
+       "port_flags": [],
+       "port_move_pct": -3.6697,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -3.6284
+      },
+      {
+       "W": 216.25,
+       "W_flags": [],
+       "W_move_pct": 7.2757,
+       "date": "2026-07-10",
+       "minimum_export_price": 180.0,
+       "port": 210.0,
+       "port_flags": [],
+       "port_move_pct": -3.6697,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": -10.9455
+      },
+      {
+       "W": 234.0,
+       "W_flags": [],
+       "W_move_pct": 16.081,
+       "date": "2026-07-17",
+       "minimum_export_price": 180.0,
+       "port": 205.0,
+       "port_flags": [],
+       "port_move_pct": -5.9633,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -22.0443
+      },
+      {
+       "W": 232.75,
+       "W_flags": [],
+       "W_move_pct": 15.4609,
+       "date": "2026-07-24",
+       "minimum_export_price": 180.0,
+       "port": 205.0,
+       "port_flags": [],
+       "port_move_pct": -5.9633,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": -21.4242
+      },
+      {
+       "W": 222.75,
+       "W_flags": [],
+       "W_move_pct": 10.5002,
+       "date": "2026-07-31",
+       "minimum_export_price": 180.0,
+       "port": 205.0,
+       "port_flags": [],
+       "port_move_pct": -5.9633,
+       "port_unchanged_weeks": 2,
+       "readable": true,
+       "relative_pp": -16.4635
+      },
+      {
+       "W": 223.0,
+       "W_flags": [],
+       "date": "2026-08-07",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": 228.0,
+       "W_flags": [],
+       "date": "2026-08-14",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": 223.5,
+       "W_flags": [],
+       "date": "2026-08-21",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": 239.5,
+       "W_flags": [],
+       "date": "2026-08-28",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-09-04",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2026-09-11",
+       "minimum_export_price": null,
+       "port": null,
+       "port_flags": [
+        "missing"
+       ],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      }
+     ],
+     "path_2025": [
+      {
+       "W": 200.75,
+       "W_flags": [],
+       "W_move_pct": -1.0474,
+       "date": "2025-05-30",
+       "minimum_export_price": null,
+       "port": 228.0,
+       "port_flags": [],
+       "port_move_pct": 4.8276,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 5.875
+      },
+      {
+       "W": 204.75,
+       "W_flags": [],
+       "W_move_pct": 0.9242,
+       "date": "2025-06-06",
+       "minimum_export_price": null,
+       "port": 225.0,
+       "port_flags": [],
+       "port_move_pct": 3.4483,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 2.5241
+      },
+      {
+       "W": 202.75,
+       "W_flags": [],
+       "W_move_pct": -0.0616,
+       "date": "2025-06-13",
+       "minimum_export_price": null,
+       "port": 225.0,
+       "port_flags": [],
+       "port_move_pct": 3.4483,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": 3.5099
+      },
+      {
+       "W": 208.0,
+       "W_flags": [],
+       "W_move_pct": 2.5262,
+       "date": "2025-06-20",
+       "minimum_export_price": null,
+       "port": 210.0,
+       "port_flags": [],
+       "port_move_pct": -3.4483,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -5.9745
+      },
+      {
+       "W": 196.0,
+       "W_flags": [],
+       "W_move_pct": -3.3888,
+       "date": "2025-06-27",
+       "minimum_export_price": null,
+       "port": 210.0,
+       "port_flags": [],
+       "port_move_pct": -3.4483,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": -0.0595
+      },
+      {
+       "W": 195.75,
+       "W_flags": [],
+       "W_move_pct": -3.512,
+       "date": "2025-07-04",
+       "minimum_export_price": null,
+       "port": 211.0,
+       "port_flags": [],
+       "port_move_pct": -2.9885,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 0.5235
+      },
+      {
+       "W": 201.0,
+       "W_flags": [],
+       "W_move_pct": -0.9242,
+       "date": "2025-07-11",
+       "minimum_export_price": null,
+       "port": 213.0,
+       "port_flags": [],
+       "port_move_pct": -2.069,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -1.1448
+      },
+      {
+       "W": 202.5,
+       "W_flags": [],
+       "W_move_pct": -0.1848,
+       "date": "2025-07-18",
+       "minimum_export_price": null,
+       "port": 214.0,
+       "port_flags": [],
+       "port_move_pct": -1.6092,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": -1.4244
+      },
+      {
+       "W": 195.5,
+       "W_flags": [],
+       "W_move_pct": -3.6352,
+       "date": "2025-07-25",
+       "minimum_export_price": null,
+       "port": 222.0,
+       "port_flags": [],
+       "port_move_pct": 2.069,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 5.7042
+      },
+      {
+       "W": 194.5,
+       "W_flags": [],
+       "W_move_pct": -4.1282,
+       "date": "2025-08-01",
+       "minimum_export_price": null,
+       "port": 222.0,
+       "port_flags": [],
+       "port_move_pct": 2.069,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": 6.1971
+      },
+      {
+       "W": 196.5,
+       "W_flags": [],
+       "W_move_pct": -3.1423,
+       "date": "2025-08-08",
+       "minimum_export_price": null,
+       "port": 230.0,
+       "port_flags": [],
+       "port_move_pct": 5.7471,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 8.8895
+      },
+      {
+       "W": 195.5,
+       "W_flags": [],
+       "W_move_pct": -3.6352,
+       "date": "2025-08-15",
+       "minimum_export_price": null,
+       "port": 230.0,
+       "port_flags": [],
+       "port_move_pct": 5.7471,
+       "port_unchanged_weeks": 1,
+       "readable": true,
+       "relative_pp": 9.3824
+      },
+      {
+       "W": 196.5,
+       "W_flags": [],
+       "W_move_pct": -3.1423,
+       "date": "2025-08-22",
+       "minimum_export_price": null,
+       "port": 230.0,
+       "port_flags": [],
+       "port_move_pct": 5.7471,
+       "port_unchanged_weeks": 2,
+       "readable": true,
+       "relative_pp": 8.8895
+      },
+      {
+       "W": 191.5,
+       "W_flags": [],
+       "W_move_pct": -5.6069,
+       "date": "2025-08-29",
+       "minimum_export_price": null,
+       "port": 229.0,
+       "port_flags": [],
+       "port_move_pct": 5.2874,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 10.8943
+      },
+      {
+       "W": 183.75,
+       "W_flags": [],
+       "W_move_pct": -9.427,
+       "date": "2025-09-05",
+       "minimum_export_price": null,
+       "port": 222.0,
+       "port_flags": [],
+       "port_move_pct": 2.069,
+       "port_unchanged_weeks": 0,
+       "readable": true,
+       "relative_pp": 11.496
+      },
+      {
+       "W": null,
+       "W_flags": [
+        "missing"
+       ],
+       "date": "2025-09-12",
+       "minimum_export_price": null,
+       "port": 220.0,
+       "port_flags": [],
+       "port_unchanged_weeks": 0,
+       "readable": false
+      }
+     ],
+     "port": "U1.wheat2.cpt_terminal.graintrade",
+     "readings": [
+      {
+       "dose": "up",
+       "floor_pp": 0.865,
+       "from": "2026-07-17",
+       "move_pp": 0.6201,
+       "reason": "move within the floor",
+       "state": "not read",
+       "step": "2026-07-22",
+       "to": "2026-07-24",
+       "weeks": 1
+      },
+      {
+       "dose": "up",
+       "floor_pp": 2.8959,
+       "from": "2026-07-17",
+       "move_pp": 5.5808,
+       "reason": "moved up past the floor",
+       "state": "does not match",
+       "step": "2026-07-22",
+       "to": "2026-07-31",
+       "weeks": 2
+      },
+      {
+       "dose": "down",
+       "floor_pp": 0.865,
+       "from": "2026-07-31",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-07",
+       "weeks": 1
+      },
+      {
+       "dose": "down",
+       "floor_pp": 2.8959,
+       "from": "2026-07-31",
+       "move_pp": null,
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-14",
+       "weeks": 2
+      }
+     ],
+     "source": "exchange purchase price page",
+     "twin": "REF2025.U1.wheat2.cpt_terminal.graintrade"
+    }
+   ]
+  },
+  "b": {
+   "RU": [
+    {
+     "adjacent_changes": [
+      {
+       "change": 21.0,
+       "from": "2026-08-11",
+       "steps_inside": [
+        "2026-08-10/2026-08-14"
+       ],
+       "to": "2026-08-18"
+      }
+     ],
+     "commodity": null,
+     "cut": "R1.wheat125.fob_novo.rusagrotrans",
+     "floors": {
+      "1": {
+       "floor": null,
+       "grid": 0.0,
+       "noise": null,
+       "why_no_2025": "no Baltic quote before the cut or in 2025 in these sources",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "2": {
+       "floor": null,
+       "grid": 0.0,
+       "noise": null,
+       "why_no_2025": "no Baltic quote before the cut or in 2025 in these sources",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      }
+     },
+     "open": "R2.wheat125.fob_baltic.rusagrotrans",
+     "path": [
+      {
+       "cut": 221.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-08-11",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 240.0,
+       "open_unchanged_weeks": 0,
+       "premium": 19.0
+      },
+      {
+       "cut": 215.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-08-18",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 255.0,
+       "open_unchanged_weeks": 0,
+       "premium": 40.0
+      }
+     ],
+     "path_2025": null,
+     "readings": [
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-10",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-10",
+       "to": "2026-07-17",
+       "weeks": 1
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-10",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-10",
+       "to": "2026-07-24",
+       "weeks": 2
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-24",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-27/2026-07-31",
+       "to": "2026-07-31",
+       "weeks": 1
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-24",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-27/2026-07-31",
+       "to": "2026-08-07",
+       "weeks": 2
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-08-07",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-08-10/2026-08-14",
+       "to": "2026-08-14",
+       "weeks": 1
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-08-07",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-08-10/2026-08-14",
+       "to": "2026-08-21",
+       "weeks": 2
+      }
+     ],
+     "source": "Rusagrotrans via Interfax"
+    },
+    {
+     "adjacent_changes": [
+      {
+       "change": 15.0,
+       "from": "2026-08-21",
+       "steps_inside": [],
+       "to": "2026-08-28"
+      }
+     ],
+     "commodity": null,
+     "cut": "R1.wheat125.fob_novo.ikar",
+     "floors": {
+      "1": {
+       "floor": null,
+       "grid": 0.0,
+       "noise": null,
+       "why_no_2025": "the Baltic line first appears 2026-08-21; no Baltic quote before the cut or in 2025 in these sources",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "2": {
+       "floor": null,
+       "grid": 0.0,
+       "noise": null,
+       "why_no_2025": "the Baltic line first appears 2026-08-21; no Baltic quote before the cut or in 2025 in these sources",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      }
+     },
+     "open": "R2.wheat125.fob_baltic.ikar",
+     "path": [
+      {
+       "cut": 210.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-08-21",
+       "flags": [
+        "approx",
+        "nominal"
+       ],
+       "minimum_export_price": null,
+       "open": 248.0,
+       "open_unchanged_weeks": 0,
+       "premium": 38.0
+      },
+      {
+       "cut": 210.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-08-28",
+       "flags": [
+        "nominal"
+       ],
+       "minimum_export_price": null,
+       "open": 263.0,
+       "open_unchanged_weeks": 0,
+       "premium": 53.0
+      }
+     ],
+     "path_2025": null,
+     "readings": [
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-10",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-10",
+       "to": "2026-07-17",
+       "weeks": 1
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-10",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-10",
+       "to": "2026-07-24",
+       "weeks": 2
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-24",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-27/2026-07-31",
+       "to": "2026-07-31",
+       "weeks": 1
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-24",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-07-27/2026-07-31",
+       "to": "2026-08-07",
+       "weeks": 2
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-08-07",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-08-10/2026-08-14",
+       "to": "2026-08-14",
+       "weeks": 1
+      },
+      {
+       "change": null,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-08-07",
+       "reason": "an end cell missing",
+       "state": "not read",
+       "step": "2026-08-10/2026-08-14",
+       "to": "2026-08-21",
+       "weeks": 2
+      }
+     ],
+     "source": "weekly grain report"
+    }
+   ],
+   "UA": [
+    {
+     "adjacent_changes": [
+      {
+       "change": 2.0,
+       "from": "2026-07-17",
+       "steps_inside": [
+        "2026-07-22"
+       ],
+       "to": "2026-07-24"
+      },
+      {
+       "change": -5.0,
+       "from": "2026-07-24",
+       "steps_inside": [],
+       "to": "2026-07-31"
+      },
+      {
+       "change": 2.0,
+       "from": "2026-07-31",
+       "steps_inside": [
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-07"
+      },
+      {
+       "change": 5.0,
+       "from": "2026-08-07",
+       "steps_inside": [
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-14"
+      },
+      {
+       "change": 0.0,
+       "from": "2026-08-14",
+       "steps_inside": [],
+       "to": "2026-08-21"
+      },
+      {
+       "change": 10.0,
+       "from": "2026-08-21",
+       "steps_inside": [],
+       "to": "2026-08-28"
+      },
+      {
+       "change": 0.0,
+       "from": "2026-08-28",
+       "steps_inside": [],
+       "to": "2026-09-04"
+      },
+      {
+       "change": 1.0,
+       "from": "2026-09-04",
+       "steps_inside": [],
+       "to": "2026-09-11"
+      }
+     ],
+     "commodity": "corn",
+     "cut": "U1.corn.cpt_odesa",
+     "floors": {
+      "1": {
+       "floor": null,
+       "grid": 2.0,
+       "noise": null,
+       "why_no_2025": "the FCA Chop dollar index starts 2026-07-17, so neither June 2026 nor 2025 has a window",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      },
+      "2": {
+       "floor": null,
+       "grid": 2.0,
+       "noise": null,
+       "why_no_2025": "the FCA Chop dollar index starts 2026-07-17, so neither June 2026 nor 2025 has a window",
+       "windows_2025": 0,
+       "windows_june_2026": 0,
+       "zero_moves": 0
+      }
+     },
+     "open": "U2.corn.fca_chop",
+     "path": [
+      {
+       "cut": 208.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-07-17",
+       "flags": [
+        "nominal"
+       ],
+       "minimum_export_price": 169.0,
+       "open": 234.0,
+       "open_unchanged_weeks": 0,
+       "premium": 26.0
+      },
+      {
+       "cut": 200.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-07-24",
+       "flags": [
+        "nominal"
+       ],
+       "minimum_export_price": 169.0,
+       "open": 228.0,
+       "open_unchanged_weeks": 0,
+       "premium": 28.0
+      },
+      {
+       "cut": 200.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-07-31",
+       "flags": [
+        "nominal"
+       ],
+       "minimum_export_price": 169.0,
+       "open": 223.0,
+       "open_unchanged_weeks": 0,
+       "premium": 23.0
+      },
+      {
+       "cut": 195.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-08-07",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 220.0,
+       "open_unchanged_weeks": 0,
+       "premium": 25.0
+      },
+      {
+       "cut": 190.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-08-14",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 220.0,
+       "open_unchanged_weeks": 1,
+       "premium": 30.0
+      },
+      {
+       "cut": 190.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-08-21",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 220.0,
+       "open_unchanged_weeks": 2,
+       "premium": 30.0
+      },
+      {
+       "cut": 185.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-08-28",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 225.0,
+       "open_unchanged_weeks": 0,
+       "premium": 40.0
+      },
+      {
+       "cut": 185.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-09-04",
+       "flags": [
+        "cut port at or below the minimum export price"
+       ],
+       "minimum_export_price": 195.0,
+       "open": 225.0,
+       "open_unchanged_weeks": 1,
+       "premium": 40.0
+      },
+      {
+       "cut": 180.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-09-11",
+       "flags": [
+        "cut port at or below the minimum export price"
+       ],
+       "minimum_export_price": 195.0,
+       "open": 221.0,
+       "open_unchanged_weeks": 0,
+       "premium": 41.0
+      }
+     ],
+     "path_2025": null,
+     "readings": [
+      {
+       "change": 2.0,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-17",
+       "reason": "flagged: 2026-07-17 nominal; 2026-07-24 nominal",
+       "state": "not read",
+       "step": "2026-07-22",
+       "to": "2026-07-24",
+       "weeks": 1
+      },
+      {
+       "change": -3.0,
+       "dose": "up",
+       "floor": null,
+       "from": "2026-07-17",
+       "reason": "flagged: 2026-07-17 nominal; 2026-07-31 nominal",
+       "state": "not read",
+       "step": "2026-07-22",
+       "to": "2026-07-31",
+       "weeks": 2
+      },
+      {
+       "change": 2.0,
+       "dose": "down",
+       "floor": null,
+       "from": "2026-07-31",
+       "reason": "flagged: 2026-07-31 nominal",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-07",
+       "weeks": 1
+      },
+      {
+       "change": 7.0,
+       "dose": "down",
+       "floor": null,
+       "from": "2026-07-31",
+       "reason": "flagged: 2026-07-31 nominal",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-14",
+       "weeks": 2
+      }
+     ],
+     "source": "broker weekly report"
+    },
+    {
+     "adjacent_changes": [
+      {
+       "change": 1.0,
+       "from": "2026-05-29",
+       "steps_inside": [],
+       "to": "2026-06-05"
+      },
+      {
+       "change": 3.0,
+       "from": "2026-06-05",
+       "steps_inside": [],
+       "to": "2026-06-12"
+      },
+      {
+       "change": 3.0,
+       "from": "2026-06-12",
+       "steps_inside": [],
+       "to": "2026-06-19"
+      },
+      {
+       "change": 1.0,
+       "from": "2026-06-19",
+       "steps_inside": [],
+       "to": "2026-06-26"
+      },
+      {
+       "change": 6.0,
+       "from": "2026-06-26",
+       "steps_inside": [],
+       "to": "2026-07-03"
+      },
+      {
+       "change": 0.0,
+       "from": "2026-07-03",
+       "steps_inside": [],
+       "to": "2026-07-10"
+      },
+      {
+       "change": 0.0,
+       "from": "2026-07-10",
+       "steps_inside": [],
+       "to": "2026-07-17"
+      },
+      {
+       "change": -1.0,
+       "from": "2026-07-17",
+       "steps_inside": [
+        "2026-07-22"
+       ],
+       "to": "2026-07-24"
+      },
+      {
+       "change": 13.0,
+       "from": "2026-07-24",
+       "steps_inside": [],
+       "to": "2026-07-31"
+      },
+      {
+       "change": -4.0,
+       "from": "2026-07-31",
+       "steps_inside": [
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-07"
+      },
+      {
+       "change": 3.0,
+       "from": "2026-08-07",
+       "steps_inside": [
+        "2026-08-01/12"
+       ],
+       "to": "2026-08-14"
+      },
+      {
+       "change": -5.0,
+       "from": "2026-08-14",
+       "steps_inside": [],
+       "to": "2026-08-21"
+      }
+     ],
+     "commodity": "corn",
+     "cut": "U1.corn.cpt_terminal.graintrade",
+     "floors": {
+      "1": {
+       "floor": 3.0,
+       "grid": 2.0,
+       "noise": 3.0,
+       "why_no_2025": null,
+       "windows_2025": 15,
+       "windows_june_2026": 3,
+       "zero_moves": 2
+      },
+      "2": {
+       "floor": 4.0,
+       "grid": 2.0,
+       "noise": 4.0,
+       "why_no_2025": null,
+       "windows_2025": 14,
+       "windows_june_2026": 2,
+       "zero_moves": 1
+      }
+     },
+     "open": "U2.corn.daf.graintrade",
+     "path": [
+      {
+       "cut": 224.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-05-29",
+       "flags": [],
+       "minimum_export_price": 168.0,
+       "open": 214.0,
+       "open_unchanged_weeks": 0,
+       "premium": -10.0
+      },
+      {
+       "cut": 224.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-06-05",
+       "flags": [],
+       "minimum_export_price": 153.0,
+       "open": 215.0,
+       "open_unchanged_weeks": 0,
+       "premium": -9.0
+      },
+      {
+       "cut": 221.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-06-12",
+       "flags": [],
+       "minimum_export_price": 153.0,
+       "open": 215.0,
+       "open_unchanged_weeks": 1,
+       "premium": -6.0
+      },
+      {
+       "cut": 217.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-06-19",
+       "flags": [],
+       "minimum_export_price": 153.0,
+       "open": 214.0,
+       "open_unchanged_weeks": 0,
+       "premium": -3.0
+      },
+      {
+       "cut": 216.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-06-26",
+       "flags": [],
+       "minimum_export_price": 153.0,
+       "open": 214.0,
+       "open_unchanged_weeks": 1,
+       "premium": -2.0
+      },
+      {
+       "cut": 211.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-07-03",
+       "flags": [],
+       "minimum_export_price": 169.0,
+       "open": 215.0,
+       "open_unchanged_weeks": 0,
+       "premium": 4.0
+      },
+      {
+       "cut": 211.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-07-10",
+       "flags": [],
+       "minimum_export_price": 169.0,
+       "open": 215.0,
+       "open_unchanged_weeks": 1,
+       "premium": 4.0
+      },
+      {
+       "cut": 211.0,
+       "cut_unchanged_weeks": 2,
+       "date": "2026-07-17",
+       "flags": [],
+       "minimum_export_price": 169.0,
+       "open": 215.0,
+       "open_unchanged_weeks": 2,
+       "premium": 4.0
+      },
+      {
+       "cut": 205.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-07-24",
+       "flags": [],
+       "minimum_export_price": 169.0,
+       "open": 208.0,
+       "open_unchanged_weeks": 0,
+       "premium": 3.0
+      },
+      {
+       "cut": 185.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2026-07-31",
+       "flags": [],
+       "minimum_export_price": 169.0,
+       "open": 201.0,
+       "open_unchanged_weeks": 0,
+       "premium": 16.0
+      },
+      {
+       "cut": 185.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2026-08-07",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 197.0,
+       "open_unchanged_weeks": 0,
+       "premium": 12.0
+      },
+      {
+       "cut": 185.0,
+       "cut_unchanged_weeks": 2,
+       "date": "2026-08-14",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 200.0,
+       "open_unchanged_weeks": 0,
+       "premium": 15.0
+      },
+      {
+       "cut": 185.0,
+       "cut_unchanged_weeks": 3,
+       "date": "2026-08-21",
+       "flags": [],
+       "minimum_export_price": 119.0,
+       "open": 195.0,
+       "open_unchanged_weeks": 0,
+       "premium": 10.0
+      }
+     ],
+     "path_2025": [
+      {
+       "cut": 227.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-05-30",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 209.0,
+       "open_unchanged_weeks": 0,
+       "premium": -18.0
+      },
+      {
+       "cut": 226.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-06-06",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 209.0,
+       "open_unchanged_weeks": 1,
+       "premium": -17.0
+      },
+      {
+       "cut": 224.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-06-13",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 209.0,
+       "open_unchanged_weeks": 2,
+       "premium": -15.0
+      },
+      {
+       "cut": 224.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2025-06-20",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 209.0,
+       "open_unchanged_weeks": 3,
+       "premium": -15.0
+      },
+      {
+       "cut": 225.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-06-27",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 210.0,
+       "open_unchanged_weeks": 0,
+       "premium": -15.0
+      },
+      {
+       "cut": 215.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-07-04",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 210.0,
+       "open_unchanged_weeks": 1,
+       "premium": -5.0
+      },
+      {
+       "cut": 205.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-07-11",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 218.0,
+       "open_unchanged_weeks": 0,
+       "premium": 13.0
+      },
+      {
+       "cut": 208.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-07-18",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 213.0,
+       "open_unchanged_weeks": 0,
+       "premium": 5.0
+      },
+      {
+       "cut": 210.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-07-25",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 213.0,
+       "open_unchanged_weeks": 1,
+       "premium": 3.0
+      },
+      {
+       "cut": 210.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2025-08-01",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 212.0,
+       "open_unchanged_weeks": 0,
+       "premium": 2.0
+      },
+      {
+       "cut": 205.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-08-08",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 212.0,
+       "open_unchanged_weeks": 1,
+       "premium": 7.0
+      },
+      {
+       "cut": 200.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-08-15",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 212.0,
+       "open_unchanged_weeks": 2,
+       "premium": 12.0
+      },
+      {
+       "cut": 200.0,
+       "cut_unchanged_weeks": 1,
+       "date": "2025-08-22",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 209.0,
+       "open_unchanged_weeks": 0,
+       "premium": 9.0
+      },
+      {
+       "cut": 200.0,
+       "cut_unchanged_weeks": 2,
+       "date": "2025-08-29",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 204.0,
+       "open_unchanged_weeks": 0,
+       "premium": 4.0
+      },
+      {
+       "cut": 197.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-09-05",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 204.0,
+       "open_unchanged_weeks": 1,
+       "premium": 7.0
+      },
+      {
+       "cut": 204.0,
+       "cut_unchanged_weeks": 0,
+       "date": "2025-09-12",
+       "flags": [],
+       "minimum_export_price": null,
+       "open": 204.0,
+       "open_unchanged_weeks": 2,
+       "premium": 0.0
+      }
+     ],
+     "readings": [
+      {
+       "change": -1.0,
+       "dose": "up",
+       "floor": 3.0,
+       "from": "2026-07-17",
+       "reason": "move within the floor",
+       "state": "not read",
+       "step": "2026-07-22",
+       "to": "2026-07-24",
+       "weeks": 1
+      },
+      {
+       "change": 12.0,
+       "dose": "up",
+       "floor": 4.0,
+       "from": "2026-07-17",
+       "reason": "moved up past the floor",
+       "state": "matches",
+       "step": "2026-07-22",
+       "to": "2026-07-31",
+       "weeks": 2
+      },
+      {
+       "change": -4.0,
+       "dose": "down",
+       "floor": 3.0,
+       "from": "2026-07-31",
+       "reason": "moved down past the floor",
+       "state": "matches",
+       "step": "2026-08-01/12",
+       "to": "2026-08-07",
+       "weeks": 1
+      },
+      {
+       "change": -1.0,
+       "dose": "down",
+       "floor": 4.0,
+       "from": "2026-07-31",
+       "reason": "move within the floor",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "to": "2026-08-14",
+       "weeks": 2
+      }
+     ],
+     "source": "exchange purchase price page"
+    }
+   ]
+  },
+  "c": {
+   "cut_segment_weeks": [
+    "2026-07-24",
+    "2026-07-31"
+   ],
+   "families": [
+    {
+     "port": "U1.wheat115.cpt_odesa",
+     "readings": [
+      {
+       "cut_week": "2026-07-24",
+       "floor_pp": 1.6535,
+       "move_pp": -2.1577,
+       "reason": "2026-07-24 flagged nominal",
+       "state": "not read",
+       "weakening_segment_end": "2026-07-17",
+       "weeks": 1
+      },
+      {
+       "cut_week": "2026-07-31",
+       "floor_pp": 3.307,
+       "move_pp": 1.4142,
+       "reason": "move within the floor",
+       "state": "not read",
+       "weakening_segment_end": "2026-07-17",
+       "weeks": 2
+      }
+     ],
+     "source": "broker weekly report"
+    },
+    {
+     "port": "U1.wheat2.cpt_terminal.graintrade",
+     "readings": [
+      {
+       "cut_week": "2026-07-24",
+       "floor_pp": 0.865,
+       "move_pp": 0.6201,
+       "reason": "move within the floor",
+       "state": "not read",
+       "weakening_segment_end": "2026-07-17",
+       "weeks": 1
+      },
+      {
+       "cut_week": "2026-07-31",
+       "floor_pp": 2.8959,
+       "move_pp": 5.5808,
+       "reason": "moved up past the floor",
+       "state": "does not match",
+       "weakening_segment_end": "2026-07-17",
+       "weeks": 2
+      }
+     ],
+     "source": "exchange purchase price page"
+    }
+   ],
+   "weakening_segment_end": "2026-07-17"
+  },
+  "d": {
+   "RU": [
+    {
+     "column": "R0.wheat3.exw_european_russia.sovecon",
+     "floor": {
+      "floor": 175.0,
+      "grid": 25.0,
+      "noise": 175.0,
+      "why_no_2025": null,
+      "windows_2025": 13,
+      "windows_june_2026": 2,
+      "zero_moves": 0
+     },
+     "readings": [
+      {
+       "W_change": 17.75,
+       "change": -675.0,
+       "change_2025": -700.0,
+       "dose": "up",
+       "floor": 175.0,
+       "reason": "moved down past the floor",
+       "same_week_2025": "2025-07-18",
+       "state": "matches",
+       "step": "2026-07-10",
+       "unchanged_weeks": 0,
+       "week": "2026-07-17"
+      },
+      {
+       "W_change": -1.25,
+       "change": -175.0,
+       "change_2025": 225.0,
+       "dose": "up",
+       "floor": 175.0,
+       "reason": "move within the floor",
+       "same_week_2025": "2025-07-25",
+       "state": "not read",
+       "step": "2026-07-10",
+       "unchanged_weeks": 0,
+       "week": "2026-07-24"
+      },
+      {
+       "W_change": -10.0,
+       "change": -825.0,
+       "change_2025": 225.0,
+       "dose": "up",
+       "floor": 175.0,
+       "reason": "moved down past the floor",
+       "same_week_2025": "2025-08-01",
+       "state": "matches",
+       "step": "2026-07-27/2026-07-31",
+       "unchanged_weeks": 0,
+       "week": "2026-07-31"
+      },
+      {
+       "W_change": 0.25,
+       "change": -350.0,
+       "change_2025": 200.0,
+       "dose": "up",
+       "floor": 175.0,
+       "reason": "moved down past the floor",
+       "same_week_2025": "2025-08-08",
+       "state": "matches",
+       "step": "2026-07-27/2026-07-31",
+       "unchanged_weeks": 0,
+       "week": "2026-08-07"
+      },
+      {
+       "W_change": 5.0,
+       "change": -325.0,
+       "change_2025": -100.0,
+       "dose": "up",
+       "floor": 175.0,
+       "reason": "moved down past the floor",
+       "same_week_2025": "2025-08-15",
+       "state": "matches",
+       "step": "2026-08-10/2026-08-14",
+       "unchanged_weeks": 0,
+       "week": "2026-08-14"
+      },
+      {
+       "W_change": -4.5,
+       "change": -2600.0,
+       "change_2025": -225.0,
+       "dose": "up",
+       "floor": 175.0,
+       "reason": "moved down past the floor",
+       "same_week_2025": "2025-08-22",
+       "state": "matches",
+       "step": "2026-08-10/2026-08-14",
+       "unchanged_weeks": 0,
+       "week": "2026-08-21"
+      }
+     ],
+     "source": "weekly grain report",
+     "twin": "REF2025.R0.wheat3.exw_european_russia.sovecon",
+     "unit": "RUB/t"
+    }
+   ],
+   "UA": [
+    {
+     "column": "U0.wheat2.exw_elevator.graintrade",
+     "floor": {
+      "floor": 65.5,
+      "grid": 1.0,
+      "noise": 65.5,
+      "why_no_2025": null,
+      "windows_2025": 15,
+      "windows_june_2026": 3,
+      "zero_moves": 3
+     },
+     "readings": [
+      {
+       "W_change": -1.25,
+       "change": -59.0,
+       "change_2025": 188.0,
+       "dose": "up",
+       "floor": 65.5,
+       "reason": "move within the floor",
+       "same_week_2025": "2025-07-25",
+       "state": "not read",
+       "step": "2026-07-22",
+       "unchanged_weeks": 0,
+       "week": "2026-07-24"
+      },
+      {
+       "W_change": -10.0,
+       "change": 2.0,
+       "change_2025": 69.0,
+       "dose": "up",
+       "floor": 65.5,
+       "reason": "move within the floor",
+       "same_week_2025": "2025-08-01",
+       "state": "not read",
+       "step": "2026-07-22",
+       "unchanged_weeks": 0,
+       "week": "2026-07-31"
+      },
+      {
+       "W_change": 0.25,
+       "change": -81.0,
+       "change_2025": 166.0,
+       "dose": "down",
+       "floor": 65.5,
+       "reason": "moved down past the floor",
+       "same_week_2025": "2025-08-08",
+       "state": "does not match",
+       "step": "2026-08-01/12",
+       "unchanged_weeks": 0,
+       "week": "2026-08-07"
+      },
+      {
+       "W_change": 5.0,
+       "change": 0.0,
+       "change_2025": 58.0,
+       "dose": "down",
+       "floor": 65.5,
+       "reason": "move within the floor",
+       "same_week_2025": "2025-08-15",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "unchanged_weeks": 1,
+       "week": "2026-08-14"
+      }
+     ],
+     "source": "exchange purchase price page",
+     "twin": "REF2025.U0.wheat2.exw_elevator.graintrade",
+     "unit": "UAH/t"
+    },
+    {
+     "column": "U0.wheat.exw",
+     "floor": {
+      "floor": null,
+      "grid": null,
+      "noise": null,
+      "why_no_2025": "the interior price page shows no 2025 weeks and one June 2026 week",
+      "windows_2025": 0,
+      "windows_june_2026": 0,
+      "zero_moves": 0
+     },
+     "readings": [
+      {
+       "W_change": -1.25,
+       "change": null,
+       "change_2025": null,
+       "dose": "up",
+       "floor": null,
+       "reason": "an end cell missing",
+       "same_week_2025": "2025-07-25",
+       "state": "not read",
+       "step": "2026-07-22",
+       "unchanged_weeks": null,
+       "week": "2026-07-24"
+      },
+      {
+       "W_change": -10.0,
+       "change": null,
+       "change_2025": null,
+       "dose": "up",
+       "floor": null,
+       "reason": "an end cell missing",
+       "same_week_2025": "2025-08-01",
+       "state": "not read",
+       "step": "2026-07-22",
+       "unchanged_weeks": 0,
+       "week": "2026-07-31"
+      },
+      {
+       "W_change": 0.25,
+       "change": -250.0,
+       "change_2025": null,
+       "dose": "down",
+       "floor": null,
+       "reason": "the same week of 2025 not on disk",
+       "same_week_2025": "2025-08-08",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "unchanged_weeks": 0,
+       "week": "2026-08-07"
+      },
+      {
+       "W_change": 5.0,
+       "change": -500.0,
+       "change_2025": null,
+       "dose": "down",
+       "floor": null,
+       "reason": "the same week of 2025 not on disk",
+       "same_week_2025": "2025-08-15",
+       "state": "not read",
+       "step": "2026-08-01/12",
+       "unchanged_weeks": 0,
+       "week": "2026-08-14"
+      }
+     ],
+     "source": "interior price page",
+     "twin": null,
+     "unit": "UAH/t"
+    }
+   ]
+  },
+  "e": {
+   "codes": {
+    "approx": "A",
+    "at or below the minimum export price": "F",
+    "implied from the next issue": "I",
+    "issue not read": ".",
+    "no issue found": "0",
+    "nominal": "N",
+    "not in the rewrite read": "W",
+    "not on the page": "P",
+    "not quoted": "-",
+    "quoted": "Q",
+    "quoted as a range": "R",
+    "rolled to another contract": "C",
+    "zone": "Z"
+   },
+   "families": [
+    {
+     "column": "U1.wheat115.cpt_odesa",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1472",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1483",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1491",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1499",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1507",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1515",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1525",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1533",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "N",
+       "source": "https://t.me/spike_brokers/1539",
+       "state": "nominal",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1544",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "N",
+       "source": "https://t.me/spike_brokers/1550",
+       "state": "nominal",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1555",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1560",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1565",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1568",
+       "state": "quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1571",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "port",
+     "side": "UA",
+     "source": "broker weekly report",
+     "summary": {
+      "before": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": "2026-07-24",
+      "from_step_week": {
+       "priced": 6,
+       "unpriced": 2,
+       "unread": 0
+      },
+      "states_before": {
+       "quoted": 8
+      },
+      "states_from_step_week": {
+       "nominal": 2,
+       "quoted": 6
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     }
+    },
+    {
+     "column": "U1.corn.cpt_odesa",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1472",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1483",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1491",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1499",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1507",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1515",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1525",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "N",
+       "source": "https://t.me/spike_brokers/1533",
+       "state": "nominal",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "N",
+       "source": "https://t.me/spike_brokers/1539",
+       "state": "nominal",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "N",
+       "source": "https://t.me/spike_brokers/1544",
+       "state": "nominal",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1550",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1555",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1560",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1565",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "F",
+       "source": "https://t.me/spike_brokers/1568",
+       "state": "at or below the minimum export price",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "F",
+       "source": "https://t.me/spike_brokers/1571",
+       "state": "at or below the minimum export price",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "port",
+     "side": "UA",
+     "source": "broker weekly report",
+     "summary": {
+      "before": {
+       "priced": 7,
+       "unpriced": 1,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": "2026-07-24",
+      "from_step_week": {
+       "priced": 4,
+       "unpriced": 4,
+       "unread": 0
+      },
+      "states_before": {
+       "nominal": 1,
+       "quoted": 7
+      },
+      "states_from_step_week": {
+       "at or below the minimum export price": 2,
+       "nominal": 2,
+       "quoted": 4
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     }
+    },
+    {
+     "column": "U2.corn.fca_chop",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1533",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1539",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1544",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1550",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1555",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1560",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1565",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1568",
+       "state": "quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1571",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "open route",
+     "side": "UA",
+     "source": "broker weekly report",
+     "summary": {
+      "before": {
+       "priced": 1,
+       "unpriced": 7,
+       "unread": 0
+      },
+      "first_priced_week": "2026-07-17",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {
+       "not quoted": 7,
+       "quoted": 1
+      },
+      "states_from_step_week": {
+       "quoted": 8
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     }
+    },
+    {
+     "column": "U1.wheat2.cpt_terminal.graintrade",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-travnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-19-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-26-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-3-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-10-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-17-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-24-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-31-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-30-travnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-6-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-13-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-20-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-27-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-4-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-11-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-18-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-25-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-1-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-8-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-15-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-22-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-29"
+      },
+      {
+       "cell_date": "2025-09-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-05"
+      },
+      {
+       "cell_date": "2025-09-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-12"
+      }
+     ],
+     "role": "port",
+     "side": "UA",
+     "source": "exchange purchase price page",
+     "summary": {
+      "before": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": "2026-08-07",
+      "from_step_week": {
+       "priced": 2,
+       "unpriced": 6,
+       "unread": 0
+      },
+      "states_before": {
+       "quoted": 8
+      },
+      "states_from_step_week": {
+       "not quoted": 6,
+       "quoted": 2
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 16,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "quoted": 16
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 16
+     }
+    },
+    {
+     "column": "U1.corn.cpt_terminal.graintrade",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-travnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-19-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-26-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-3-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-10-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-17-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-24-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-31-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-7-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-14-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-21-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-30-travnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-6-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-13-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-20-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-27-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-4-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-11-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-18-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-25-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-1-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-8-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-15-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-22-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-29"
+      },
+      {
+       "cell_date": "2025-09-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-05"
+      },
+      {
+       "cell_date": "2025-09-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-12"
+      }
+     ],
+     "role": "port",
+     "side": "UA",
+     "source": "exchange purchase price page",
+     "summary": {
+      "before": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": "2026-08-28",
+      "from_step_week": {
+       "priced": 5,
+       "unpriced": 3,
+       "unread": 0
+      },
+      "states_before": {
+       "quoted": 8
+      },
+      "states_from_step_week": {
+       "not quoted": 3,
+       "quoted": 5
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 16,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "quoted": 16
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 16
+     }
+    },
+    {
+     "column": "U2.corn.daf.graintrade",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-travnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-19-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-26-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-3-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-10-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-17-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-24-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-31-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-7-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-14-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-21-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-28-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-4-veresnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-11-veresnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-30-travnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-6-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-13-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-20-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-27-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-4-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-11-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-18-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-25-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-1-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-8-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-15-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-22-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-29"
+      },
+      {
+       "cell_date": "2025-09-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-05"
+      },
+      {
+       "cell_date": "2025-09-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-12"
+      }
+     ],
+     "role": "open route",
+     "side": "UA",
+     "source": "exchange purchase price page",
+     "summary": {
+      "before": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {
+       "quoted": 8
+      },
+      "states_from_step_week": {
+       "quoted": 8
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 16,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "quoted": 16
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 16
+     }
+    },
+    {
+     "column": "U0.wheat2.exw_elevator.graintrade",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-travnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-19-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-26-chervnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-3-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-10-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-17-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-24-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-31-lipnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-7-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-14-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-21-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-28-serpnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-4-veresnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-11-veresnya-2026-roku.html",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-30-travnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-6-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-13-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-20-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-27-chervnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-4-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-11-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-18-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-25-lipnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-1-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-8-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-15-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-22-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-29-serpnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-08-29"
+      },
+      {
+       "cell_date": "2025-09-05",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-5-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-05"
+      },
+      {
+       "cell_date": "2025-09-12",
+       "code": "Q",
+       "source": "https://graintrade.com.ua/en/novosti/zakupivelni-tcini-na-zerno-v-ukraini-na-12-veresnya-2025-roku.html",
+       "state": "quoted",
+       "week": "2025-09-12"
+      }
+     ],
+     "role": "interior",
+     "side": "UA",
+     "source": "exchange purchase price page",
+     "summary": {
+      "before": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {
+       "quoted": 8
+      },
+      "states_from_step_week": {
+       "quoted": 8
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 16,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "quoted": 16
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 16
+     }
+    },
+    {
+     "column": "U0.wheat.exw",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-27",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": null,
+       "code": "P",
+       "source": null,
+       "state": "not on the page",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-08-03",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-10",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-17",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-25",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-31",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-07",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-14",
+       "code": "Q",
+       "source": "https://ukragroconsult.com/en/grain-prices/",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "interior",
+     "side": "UA",
+     "source": "interior price page",
+     "summary": {
+      "before": {
+       "priced": 1,
+       "unpriced": 0,
+       "unread": 7
+      },
+      "first_priced_week": "2026-06-26",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 7,
+       "unpriced": 0,
+       "unread": 1
+      },
+      "states_before": {
+       "not on the page": 7,
+       "quoted": 1
+      },
+      "states_from_step_week": {
+       "not on the page": 1,
+       "quoted": 7
+      },
+      "step_week": "2026-07-24",
+      "weeks_before": 8,
+      "weeks_from_step_week": 8
+     }
+    },
+    {
+     "column": "R1.wheat125.fob_novo.ikar",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-22",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/05/25/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-rost-na-proshloy-nedele-a196172",
+       "state": "quoted",
+       "week": "2026-05-22"
+      },
+      {
+       "cell_date": "2026-05-29",
+       "code": "A",
+       "source": "https://ru.themoscowtimes.com/2026/06/01/eksportnye-tseny-na-pshenitsu-rf-stabilny-v-iyune-ozhidaetsya-snizhenie-obemov-postavok-a196898",
+       "state": "approx",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Q",
+       "source": "https://www.brecorder.com/news/amp/40424609",
+       "state": "quoted",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/06/22/eksportnye-tseny-na-pshenitsu-rf-snizilis-s-priblizheniem-postupleniya-novogo-urozhaya-a198833",
+       "state": "implied from the next issue",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/06/22/eksportnye-tseny-na-pshenitsu-rf-snizilis-s-priblizheniem-postupleniya-novogo-urozhaya-a198833",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://cropgpt.ai/russian-wheat-export-prices-slide-as-harvest-starts",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/07/06/eksportnye-tseny-na-pshenitsu-rf-snizhayutsya-na-fone-ozhidaniy-khoroshego-urozhaya-v-prichernomore-a200079",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260",
+       "state": "implied from the next issue",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://www.investing.com/news/commodities-news/russian-wheat-export-prices-hold-steady-amid-black-sea-tensions-93CH-4814792",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/03/eksportnye-tseny-na-pshenitsu-rf-obvalilis-pod-davleniem-vozrastayuschego-frakhta-i-strakhovki-a202524",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/10/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-padenie-otgruzki-rezko-zamedlilis-a203073",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/17/eksportnye-tseny-na-pshenitsu-rf-prodolzhayut-padat-na-fone-rosta-problem-v-otgruzkakh-a203655",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "N",
+       "source": "https://ru.themoscowtimes.com/2026/08/24/eksportnye-tseny-na-pshenitsu-rf-po-prezhnemu-idut-vniz-na-fone-problem-s-otgruzkami-a204156",
+       "state": "nominal",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "N",
+       "source": "https://ru.themoscowtimes.com/2026/08/31/eksportnye-tseny-na-pshenitsu-rf-rastut-na-fone-rezkogo-sokraschenie-predlozheniya-iz-achb-a204814",
+       "state": "nominal",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": null,
+       "code": "0",
+       "source": null,
+       "state": "no issue found",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/02/eksportnye-tseny-na-pshenitsu-rf-novogo-urozhaya-ne-izmenilis-rynok-neaktiven-v-preddverii-novogo-sezona-a165018",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/09/eksportnye-tseny-na-pshenitsu-rf-novogo-urozhaya-ne-izmenilis-na-proshloy-nedele-a165725",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/16/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-a166166",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/23/eksportnye-tseny-na-rossiyskuyu-pshenitsu-na-proshloy-nedele-vyrosli-vsled-za-mirovymi-a166868",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/30/eksportnye-tseny-na-rossiyskuyu-pshenitsu-snizilis-na-proshloy-nedele-a167465",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/07/eksportnye-tseny-na-rossiyskuyu-pshenitsu-podrosli-na-proshloy-nedele-a168107",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/14/eksportnye-tseny-na-rossiyskuyu-pshenitsu-vyrosli-otgruzki-aktiviziruyutsya-a168709",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/21/eksportnye-tseny-na-rossiyskuyu-pshenitsu-vnov-vyrosli-postuplenie-novogo-urozhaya-poka-ne-uspevaet-za-sprosom-a169318",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/28/eksportnye-tseny-na-rossiyskuyu-pshenitsu-prodolzhili-rost-na-proshloy-nedele-a170018",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2025/08/11/eksportnye-tseny-na-rossiyskuyu-pshenitsu-povysilis-na-proshloy-nedele-a171304",
+       "state": "implied from the next issue",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/08/11/eksportnye-tseny-na-rossiyskuyu-pshenitsu-povysilis-na-proshloy-nedele-a171304",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/08/18/eksportnye-tseny-na-rossiyskuyu-pshenitsu-ponizilis-po-itogam-proshloy-nedeli-a171976",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/08/25/eksportnye-tseny-na-rossiyskuyu-pshenitsu-upali-na-proshloy-nedele-analitiki-vidyat-uskorenie-otgruzok-a172569",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/09/01/eksportnye-tseny-na-rossiyskuyu-pshenitsu-prodolzhili-snizhenie-a173198",
+       "state": "quoted",
+       "week": "2025-08-29"
+      }
+     ],
+     "role": "port",
+     "side": "RU",
+     "source": "weekly grain report",
+     "summary": {
+      "before": {
+       "priced": 8,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-22",
+      "first_unpriced_week_from_step_week": "2026-08-21",
+      "from_step_week": {
+       "priced": 5,
+       "unpriced": 3,
+       "unread": 1
+      },
+      "states_before": {
+       "approx": 1,
+       "implied from the next issue": 2,
+       "quoted": 5
+      },
+      "states_from_step_week": {
+       "no issue found": 1,
+       "nominal": 2,
+       "not quoted": 1,
+       "quoted": 5
+      },
+      "step_week": "2026-07-17",
+      "weeks_before": 8,
+      "weeks_from_step_week": 9
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 14,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "implied from the next issue": 1,
+       "quoted": 13
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 14
+     }
+    },
+    {
+     "column": "R2.wheat125.fob_baltic.ikar",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-05-22"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": null,
+       "code": "W",
+       "source": null,
+       "state": "not in the rewrite read",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": null,
+       "code": "0",
+       "source": null,
+       "state": "no issue found",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": null,
+       "code": "W",
+       "source": null,
+       "state": "not in the rewrite read",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": null,
+       "code": "0",
+       "source": null,
+       "state": "no issue found",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": null,
+       "code": "W",
+       "source": null,
+       "state": "not in the rewrite read",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": null,
+       "code": "-",
+       "source": null,
+       "state": "not quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "A",
+       "source": "https://ru.themoscowtimes.com/2026/08/24/eksportnye-tseny-na-pshenitsu-rf-po-prezhnemu-idut-vniz-na-fone-problem-s-otgruzkami-a204156",
+       "state": "approx",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/31/eksportnye-tseny-na-pshenitsu-rf-rastut-na-fone-rezkogo-sokraschenie-predlozheniya-iz-achb-a204814",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/09/14/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-vsled-za-mirovymi-a206028",
+       "state": "implied from the next issue",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/09/14/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-vsled-za-mirovymi-a206028",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "open route",
+     "side": "RU",
+     "source": "weekly grain report",
+     "summary": {
+      "before": {
+       "priced": 0,
+       "unpriced": 4,
+       "unread": 4
+      },
+      "first_priced_week": "2026-08-21",
+      "first_unpriced_week_from_step_week": "2026-07-17",
+      "from_step_week": {
+       "priced": 4,
+       "unpriced": 4,
+       "unread": 1
+      },
+      "states_before": {
+       "no issue found": 2,
+       "not in the rewrite read": 2,
+       "not quoted": 4
+      },
+      "states_from_step_week": {
+       "approx": 1,
+       "implied from the next issue": 1,
+       "not in the rewrite read": 1,
+       "not quoted": 4,
+       "quoted": 2
+      },
+      "step_week": "2026-07-17",
+      "weeks_before": 8,
+      "weeks_from_step_week": 9
+     }
+    },
+    {
+     "column": "R0.wheat3.exw_european_russia.sovecon",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": "2026-05-22",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/05/25/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-rost-na-proshloy-nedele-a196172",
+       "state": "quoted",
+       "week": "2026-05-22"
+      },
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/06/01/eksportnye-tseny-na-pshenitsu-rf-stabilny-v-iyune-ozhidaetsya-snizhenie-obemov-postavok-a196898",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": null,
+       "code": "W",
+       "source": null,
+       "state": "not in the rewrite read",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/06/22/eksportnye-tseny-na-pshenitsu-rf-snizilis-s-priblizheniem-postupleniya-novogo-urozhaya-a198833",
+       "state": "implied from the next issue",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/06/22/eksportnye-tseny-na-pshenitsu-rf-snizilis-s-priblizheniem-postupleniya-novogo-urozhaya-a198833",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://cropgpt.ai/russian-wheat-export-prices-slide-as-harvest-starts",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/07/06/eksportnye-tseny-na-pshenitsu-rf-snizhayutsya-na-fone-ozhidaniy-khoroshego-urozhaya-v-prichernomore-a200079",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260",
+       "state": "implied from the next issue",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/07/20/eksportnye-tseny-na-pshenitsu-rf-podskochili-vsled-za-obostreniem-v-azovo-chernomorskom-basseyne-a201260",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/08/03/eksportnye-tseny-na-pshenitsu-rf-obvalilis-pod-davleniem-vozrastayuschego-frakhta-i-strakhovki-a202524",
+       "state": "implied from the next issue",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/03/eksportnye-tseny-na-pshenitsu-rf-obvalilis-pod-davleniem-vozrastayuschego-frakhta-i-strakhovki-a202524",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/10/eksportnye-tseny-na-pshenitsu-rf-prodolzhili-padenie-otgruzki-rezko-zamedlilis-a203073",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/17/eksportnye-tseny-na-pshenitsu-rf-prodolzhayut-padat-na-fone-rosta-problem-v-otgruzkakh-a203655",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/24/eksportnye-tseny-na-pshenitsu-rf-po-prezhnemu-idut-vniz-na-fone-problem-s-otgruzkami-a204156",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/08/31/eksportnye-tseny-na-pshenitsu-rf-rastut-na-fone-rezkogo-sokraschenie-predlozheniya-iz-achb-a204814",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": "2026-09-04",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2026/09/14/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-vsled-za-mirovymi-a206028",
+       "state": "implied from the next issue",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": "2026-09-11",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2026/09/14/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-vsled-za-mirovymi-a206028",
+       "state": "quoted",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/02/eksportnye-tseny-na-pshenitsu-rf-novogo-urozhaya-ne-izmenilis-rynok-neaktiven-v-preddverii-novogo-sezona-a165018",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/09/eksportnye-tseny-na-pshenitsu-rf-novogo-urozhaya-ne-izmenilis-na-proshloy-nedele-a165725",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/16/eksportnye-tseny-na-pshenitsu-rf-snizilis-na-proshloy-nedele-a166166",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/23/eksportnye-tseny-na-rossiyskuyu-pshenitsu-na-proshloy-nedele-vyrosli-vsled-za-mirovymi-a166868",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/06/30/eksportnye-tseny-na-rossiyskuyu-pshenitsu-snizilis-na-proshloy-nedele-a167465",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/07/eksportnye-tseny-na-rossiyskuyu-pshenitsu-podrosli-na-proshloy-nedele-a168107",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/14/eksportnye-tseny-na-rossiyskuyu-pshenitsu-vyrosli-otgruzki-aktiviziruyutsya-a168709",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/21/eksportnye-tseny-na-rossiyskuyu-pshenitsu-vnov-vyrosli-postuplenie-novogo-urozhaya-poka-ne-uspevaet-za-sprosom-a169318",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/07/28/eksportnye-tseny-na-rossiyskuyu-pshenitsu-prodolzhili-rost-na-proshloy-nedele-a170018",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "I",
+       "source": "https://ru.themoscowtimes.com/2025/08/11/eksportnye-tseny-na-rossiyskuyu-pshenitsu-povysilis-na-proshloy-nedele-a171304",
+       "state": "implied from the next issue",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/08/11/eksportnye-tseny-na-rossiyskuyu-pshenitsu-povysilis-na-proshloy-nedele-a171304",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/08/18/eksportnye-tseny-na-rossiyskuyu-pshenitsu-ponizilis-po-itogam-proshloy-nedeli-a171976",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/08/25/eksportnye-tseny-na-rossiyskuyu-pshenitsu-upali-na-proshloy-nedele-analitiki-vidyat-uskorenie-otgruzok-a172569",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://ru.themoscowtimes.com/2025/09/01/eksportnye-tseny-na-rossiyskuyu-pshenitsu-prodolzhili-snizhenie-a173198",
+       "state": "quoted",
+       "week": "2025-08-29"
+      }
+     ],
+     "role": "interior",
+     "side": "RU",
+     "source": "weekly grain report",
+     "summary": {
+      "before": {
+       "priced": 7,
+       "unpriced": 0,
+       "unread": 1
+      },
+      "first_priced_week": "2026-05-22",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 9,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {
+       "implied from the next issue": 2,
+       "not in the rewrite read": 1,
+       "quoted": 5
+      },
+      "states_from_step_week": {
+       "implied from the next issue": 2,
+       "quoted": 7
+      },
+      "step_week": "2026-07-17",
+      "weeks_before": 8,
+      "weeks_from_step_week": 9
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 14,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "implied from the next issue": 1,
+       "quoted": 13
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 14
+     }
+    },
+    {
+     "column": "R1.wheat125.fob_novo.rusagrotrans",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-05-22"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-11",
+       "code": "I",
+       "source": "https://www.interfax.ru/business/1110088",
+       "state": "implied from the next issue",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-18",
+       "code": "Q",
+       "source": "https://www.interfax.ru/business/1110088",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "port",
+     "side": "RU",
+     "source": "Rusagrotrans via Interfax",
+     "summary": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 8
+      },
+      "first_priced_week": "2026-08-07",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 2,
+       "unpriced": 0,
+       "unread": 7
+      },
+      "states_before": {
+       "issue not read": 8
+      },
+      "states_from_step_week": {
+       "implied from the next issue": 1,
+       "issue not read": 7,
+       "quoted": 1
+      },
+      "step_week": "2026-07-17",
+      "weeks_before": 8,
+      "weeks_from_step_week": 9
+     }
+    },
+    {
+     "column": "R2.wheat125.fob_baltic.rusagrotrans",
+     "contract": null,
+     "path": [
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-05-22"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-11",
+       "code": "I",
+       "source": "https://www.interfax.ru/business/1110088",
+       "state": "implied from the next issue",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-18",
+       "code": "Q",
+       "source": "https://www.interfax.ru/business/1110088",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": null,
+       "code": ".",
+       "source": null,
+       "state": "issue not read",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": null,
+     "role": "open route",
+     "side": "RU",
+     "source": "Rusagrotrans via Interfax",
+     "summary": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 8
+      },
+      "first_priced_week": "2026-08-07",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 2,
+       "unpriced": 0,
+       "unread": 7
+      },
+      "states_before": {
+       "issue not read": 8
+      },
+      "states_from_step_week": {
+       "implied from the next issue": 1,
+       "issue not read": 7,
+       "quoted": 1
+      },
+      "step_week": "2026-07-17",
+      "weeks_before": 8,
+      "weeks_from_step_week": 9
+     }
+    },
+    {
+     "column": "W.wheat.euronext",
+     "contract": "2026-09",
+     "path": [
+      {
+       "cell_date": "2026-05-29",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1472",
+       "state": "quoted",
+       "week": "2026-05-29"
+      },
+      {
+       "cell_date": "2026-06-05",
+       "code": "Z",
+       "source": "https://t.me/spike_brokers/1483",
+       "state": "zone",
+       "week": "2026-06-05"
+      },
+      {
+       "cell_date": "2026-06-12",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1491",
+       "state": "quoted",
+       "week": "2026-06-12"
+      },
+      {
+       "cell_date": "2026-06-19",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1499",
+       "state": "quoted",
+       "week": "2026-06-19"
+      },
+      {
+       "cell_date": "2026-06-26",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1507",
+       "state": "quoted",
+       "week": "2026-06-26"
+      },
+      {
+       "cell_date": "2026-07-03",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1515",
+       "state": "quoted",
+       "week": "2026-07-03"
+      },
+      {
+       "cell_date": "2026-07-10",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1525",
+       "state": "quoted",
+       "week": "2026-07-10"
+      },
+      {
+       "cell_date": "2026-07-17",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1533",
+       "state": "quoted",
+       "week": "2026-07-17"
+      },
+      {
+       "cell_date": "2026-07-24",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1539",
+       "state": "quoted",
+       "week": "2026-07-24"
+      },
+      {
+       "cell_date": "2026-07-31",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1544",
+       "state": "quoted",
+       "week": "2026-07-31"
+      },
+      {
+       "cell_date": "2026-08-07",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1550",
+       "state": "quoted",
+       "week": "2026-08-07"
+      },
+      {
+       "cell_date": "2026-08-14",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1555",
+       "state": "quoted",
+       "week": "2026-08-14"
+      },
+      {
+       "cell_date": "2026-08-21",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1560",
+       "state": "quoted",
+       "week": "2026-08-21"
+      },
+      {
+       "cell_date": "2026-08-28",
+       "code": "Q",
+       "source": "https://t.me/spike_brokers/1565",
+       "state": "quoted",
+       "week": "2026-08-28"
+      },
+      {
+       "cell_date": null,
+       "code": "C",
+       "source": null,
+       "state": "rolled to another contract",
+       "week": "2026-09-04"
+      },
+      {
+       "cell_date": null,
+       "code": "C",
+       "source": null,
+       "state": "rolled to another contract",
+       "week": "2026-09-11"
+      }
+     ],
+     "path_2025": [
+      {
+       "cell_date": "2025-05-30",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-05-30"
+      },
+      {
+       "cell_date": "2025-06-06",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-06-06"
+      },
+      {
+       "cell_date": "2025-06-13",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-06-13"
+      },
+      {
+       "cell_date": "2025-06-20",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-06-20"
+      },
+      {
+       "cell_date": "2025-06-27",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-06-27"
+      },
+      {
+       "cell_date": "2025-07-04",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-07-04"
+      },
+      {
+       "cell_date": "2025-07-11",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-07-11"
+      },
+      {
+       "cell_date": "2025-07-18",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-07-18"
+      },
+      {
+       "cell_date": "2025-07-25",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-07-25"
+      },
+      {
+       "cell_date": "2025-08-01",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-08-01"
+      },
+      {
+       "cell_date": "2025-08-08",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-08-08"
+      },
+      {
+       "cell_date": "2025-08-15",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-08-15"
+      },
+      {
+       "cell_date": "2025-08-22",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-08-22"
+      },
+      {
+       "cell_date": "2025-08-29",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-08-29"
+      },
+      {
+       "cell_date": "2025-09-05",
+       "code": "Q",
+       "source": "https://www.investing.com/commodities/milling-wheat-n2-historical-data",
+       "state": "quoted",
+       "week": "2025-09-05"
+      },
+      {
+       "cell_date": null,
+       "code": "C",
+       "source": null,
+       "state": "rolled to another contract",
+       "week": "2025-09-12"
+      }
+     ],
+     "role": "world",
+     "side": "W",
+     "source": "broker weekly report",
+     "summary": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2026-05-29",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 14,
+       "unpriced": 0,
+       "unread": 2
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "quoted": 13,
+       "rolled to another contract": 2,
+       "zone": 1
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 16
+     },
+     "summary_2025": {
+      "before": {
+       "priced": 0,
+       "unpriced": 0,
+       "unread": 0
+      },
+      "first_priced_week": "2025-05-30",
+      "first_unpriced_week_from_step_week": null,
+      "from_step_week": {
+       "priced": 15,
+       "unpriced": 0,
+       "unread": 1
+      },
+      "states_before": {},
+      "states_from_step_week": {
+       "quoted": 15,
+       "rolled to another contract": 1
+      },
+      "step_week": null,
+      "weeks_before": 0,
+      "weeks_from_step_week": 16
+     }
+    }
+   ],
+   "first_cut_step_week": {
+    "RU": "2026-07-17",
+    "UA": "2026-07-24"
+   },
+   "kinds": {
+    "priced": [
+     "quoted",
+     "quoted as a range",
+     "implied from the next issue",
+     "approx",
+     "zone"
+    ],
+    "unpriced": [
+     "nominal",
+     "at or below the minimum export price",
+     "not quoted"
+    ],
+    "unread": [
+     "not in the rewrite read",
+     "no issue found",
+     "not on the page",
+     "issue not read",
+     "rolled to another contract"
+    ]
+   }
+  }
+ },
+ "stage": "B111",
+ "states": {
+  "a": {
+   "RU weekly grain report": {
+    "does not match": 1,
+    "matches": 3,
+    "not read": 2
+   },
+   "UA broker weekly report": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 4
+   },
+   "UA exchange purchase price page": {
+    "does not match": 1,
+    "matches": 0,
+    "not read": 3
+   }
+  },
+  "a_long_windows": {
+   "RU weekly grain report": {
+    "does not match": 0,
+    "matches": 5,
+    "not read": 6
+   },
+   "UA broker weekly report": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 11
+   },
+   "UA exchange purchase price page": {
+    "does not match": 0,
+    "matches": 2,
+    "not read": 9
+   }
+  },
+  "b": {
+   "RU Rusagrotrans via Interfax": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 6
+   },
+   "RU weekly grain report": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 6
+   },
+   "UA broker weekly report": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 4
+   },
+   "UA exchange purchase price page": {
+    "does not match": 0,
+    "matches": 2,
+    "not read": 2
+   }
+  },
+  "c": {
+   "UA broker weekly report": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 2
+   },
+   "UA exchange purchase price page": {
+    "does not match": 1,
+    "matches": 0,
+    "not read": 1
+   }
+  },
+  "d": {
+   "RU weekly grain report": {
+    "does not match": 0,
+    "matches": 5,
+    "not read": 1
+   },
+   "UA exchange purchase price page": {
+    "does not match": 1,
+    "matches": 0,
+    "not read": 3
+   },
+   "UA interior price page": {
+    "does not match": 0,
+    "matches": 0,
+    "not read": 4
+   }
+  }
+ }
+}

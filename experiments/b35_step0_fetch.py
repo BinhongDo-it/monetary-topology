@@ -443,7 +443,16 @@ def main():
     # Name the record by what is in it. Two runs with different HS heads or a
     # different destination used to write the same file, and the second silently
     # replaced the first. Same shape as the B34 step three overwrite.
-    tag = "-".join(args.hs) + "_" + tag_of(args.cty)
+    #
+    # 2026-09-10: the same defect, one dimension short. The tag carried the HS
+    # heads and the destination but not the YEARS, so a 2021 pull followed by a
+    # 2023 pull left only 2023 on disk under a name that claims neither. Nothing
+    # was lost because the per month cache is keyed by year, which is rule 6
+    # doing its job, but the file the next reader opens was wrong for an hour.
+    # A tag that names some of what is in the file is a tag that lies about the
+    # rest, so every predicate that varies between runs goes in it.
+    yrs = ("%d-%d" % tuple(args.years)) if args.years else "probe"
+    tag = "-".join(args.hs) + "_" + tag_of(args.cty) + "_" + yrs
     p = out / ("b35_census_raw_%s.json" % tag)
     p.write_text(json.dumps(allrecs, ensure_ascii=False, indent=1), encoding="utf-8")
     print("written: %s" % p)

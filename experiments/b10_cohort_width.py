@@ -6626,6 +6626,10 @@ B8_1_SIGNAL = (
 
 SIGNAL_FLOORS = ("ambient", "resolution")
 
+#: The registered payment scheme, the one `print_signal` reads as the main
+#: one.  The other is the robustness check, scored by B10-10.
+SIGNAL_MAIN_SCHEME = "sub"
+
 
 def signal_payload(legs_acc, omega_acc, mad_scale) -> dict:
     """§8·24's two statistics, on two floors, for both payment schemes.
@@ -6699,6 +6703,124 @@ def signal_payload(legs_acc, omega_acc, mad_scale) -> dict:
             "readable_line": SIGNAL_READABLE,
             "inherited_line": SIGNAL_INHERITED,
             "fannie_beside": [list(r) for r in B8_1_SIGNAL]}
+
+
+#: §8·24's criteria.  A pure function of the payload, so it can be scored
+#: against a record already on disk and against doctored copies of it without
+#: a rescan (discipline 11f wants the failure grown, not asserted).
+#:
+#: The names start at ten.  `B10-0` and `B10-1` were step names in the slice
+#: station's work plan, which was voided; nothing was ever scored under them,
+#: and reusing the numbers would make two different things share a key.
+def signal_criteria(pl: dict) -> list:
+    """Four criteria on §8·24, one per kind (discipline 11d).
+
+    The only constant any of them draws a line on is `SIGNAL_READABLE`, which
+    is §21.2's operative line transcribed, not a number chosen here.  The
+    first carrier's six archives are printed beside and **no line is drawn on
+    them**: a threshold anchored on what another carrier happened to produce
+    is the shape discipline 11 forbids.
+    """
+    line = pl["readable_line"]
+    arms = {s: pl["schemes"][s]["by_arm"].get("mod") for s in LEG_SCHEMES}
+    rr = {s: (a["ratios"]["resolution"]["raw"] if a else None)
+          for s, a in arms.items()}
+    known = {s: v for s, v in rr.items() if v is not None}
+
+    #: 1. instrument.  Two payment schemes, one verdict.  The choice between
+    #: them is ours, so if it moved the side of the line the reading would be
+    #: a property of that choice.
+    sides = {s: (v > line) for s, v in known.items()}
+    c10 = bool(known) and len(set(sides.values())) == 1
+
+    #: 2. own reading.  The loop sum on the modification arm stands above the
+    #: instrument's own resolution.  It reads the **registered** scheme, the
+    #: one `print_signal` takes as the main one, so that this criterion and
+    #: the agreement check above are separable: if they both read every
+    #: scheme, a scheme landing on the wrong side would fail them together
+    #: and the two would never be telling different things.
+    main_ratio = rr.get(SIGNAL_MAIN_SCHEME)
+    c11 = main_ratio is not None and main_ratio > line
+
+    #: 3. rival.  A scalar on positions makes every closed loop sum to zero
+    #: exactly, so the residual would carry nothing but quantisation and the
+    #: ratio would sit at the floor.  Registered as that prediction failing,
+    #: so passing means the rival is wrong (discipline 11e, first clause).
+    c12 = c11
+
+    #: 4. bookkeeping.  The first carrier's archives travel with the record,
+    #: and so does the list of what this step does not deliver.
+    beside = pl.get("fannie_beside") or []
+    c13 = len(beside) == len(B8_1_SIGNAL) and all(len(r) == 6 for r in beside)
+
+    spread = (max(known.values()) / min(known.values())
+              if len(known) > 1 and min(known.values()) else None)
+    band = [r[3] for r in B8_1_SIGNAL]
+
+    return [
+        {"name": "B10-10", "kind": "instrument",
+         "text": "The two payment schemes put the modification arm's loop sum "
+                 "on the same side of the readable line. The scheme is this "
+                 "stage's choice, so a verdict that moved with it would be a "
+                 "property of the choice rather than of the carrier.",
+         "passed": c10,
+         "detail": "schemes %s; ratios %s; widest over narrowest %s"
+                   % (sorted(known), {s: round(v, 1) for s, v in known.items()},
+                      ("%.6f" % spread) if spread else "one scheme only")},
+        {"name": "B10-11", "kind": "own_reading",
+         "text": "On the second carrier the modification arm's loop sum stands "
+                 "above the instrument's own resolution floor, the line being "
+                 "§21.2's, transcribed, and the floor being measured on this "
+                 "carrier rather than carried over from the first. Read on "
+                 "the registered payment scheme; the other one is the "
+                 "robustness check and B10-10 is where it is scored.",
+         "passed": c11,
+         "detail": "readable line %.1f; registered scheme %s reads %s; all "
+                   "schemes %s"
+                   % (line, SIGNAL_MAIN_SCHEME,
+                      ("%.1f" % main_ratio) if main_ratio else "nothing",
+                      {s: round(v, 1) for s, v in known.items()})},
+        {"name": "B10-12", "kind": "rival", "grid": "B",
+         "rival_shape": "point prediction of zero",
+         "rival_premise":
+             "a scalar on positions exists and every term is its gradient, so "
+             "every closed loop sums to zero exactly, however much the "
+             "contract changed along the way",
+         "rival_entailment":
+             "a loop sum that is zero exactly leaves a residual carrying "
+             "nothing but the instrument's own quantisation, so the ratio of "
+             "the residual's scale to the measured resolution floor would sit "
+             "at the floor. A ratio standing above the readable line refutes "
+             "it, and the floor here is measured on this carrier, not "
+             "asserted.",
+         "polarity":
+             "registered as the rival's prediction failing, so passing means "
+             "the rival is wrong (discipline 11e, first clause, second part)",
+         "opposite_prediction":
+             "this frame predicts the loop sum is non-zero on a carrier whose "
+             "positions carry a class index, so the cell admits both outcomes "
+             "(discipline 11e, sixth clause). The first carrier is where the "
+             "same prediction was scored as B8-1.",
+         "text": "The rival's scalar puts every closed loop at exactly zero, "
+                 "so the modification arm's residual would sit at the measured "
+                 "floor. The criterion passes when it does not, read on the "
+                 "registered payment scheme.",
+         "passed": c12,
+         "detail": "registered scheme %s reads %s against a readable line "
+                   "of %.1f; all schemes %s"
+                   % (SIGNAL_MAIN_SCHEME,
+                      ("%.1f" % main_ratio) if main_ratio else "nothing",
+                      line, {s: round(v, 1) for s, v in known.items()})},
+        {"name": "B10-13", "kind": "bookkeeping",
+         "text": "The first carrier's six archives travel with the record so "
+                 "that the two carriers can be read beside each other. **No "
+                 "line is drawn on them**: a threshold anchored on what "
+                 "another carrier happened to produce is the shape discipline "
+                 "11 forbids, so the band is printed and not scored.",
+         "passed": c13,
+         "detail": "%d archives carried, first carrier's raw ratios span "
+                   "%.0f to %.0f" % (len(beside), min(band), max(band))},
+    ]
 
 
 def _branch3(a, b, first, second, third):
@@ -6943,12 +7065,31 @@ def cmd_signal(only) -> int:
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / partial_name("b10_signal", only)
+    crits = signal_criteria(pl)
+    print("\n  I. §8·24's criteria, by what each one asks (discipline 11d)")
+    for c in crits:
+        print("     %-8s %-12s %-4s %s"
+              % (c["name"], c["kind"], "PASS" if c["passed"] else "FAIL",
+                 c["detail"]))
+
     out.write_text(json.dumps(
-        {"stage": "B10", "step": "signal", "diagnostic_only": True,
+        {"stage": "B10", "step": "signal",
+         #: A full pass carries this stage's registered reading, so it is no
+         #: longer diagnostic.  A `--only` pass is a slice of it and stays
+         #: diagnostic: one vintage is not the reading.
+         "diagnostic_only": bool(only),
          "diagnostic_reason":
-             "Registered before the code. B8-1's shape on the "
-             "second carrier: MAD(signal)/MAD(floor), then the same with leg "
-             "1's closed form removed. §8·12 is not re-asked here.",
+             ("One vintage only, a slice of the registered reading rather "
+              "than the reading."
+              if only else
+              "Not diagnostic. B8-1's shape on the second carrier: "
+              "MAD(signal)/MAD(floor), then the same with leg 1's closed form "
+              "removed, scored as four criteria. What it still does not "
+              "deliver is in `scope_not_delivered`."),
+         "scope_not_delivered":
+             "§8·12 is not re-asked here; that is §8·25, and nothing in this "
+             "record says §1.1 has an answer on this carrier.",
+         "criteria": crits,
          "estimator": "b8_0b_floor.mad_scale, imported",
          "floor_is": "|omega - closed| on the clean-cure arm (§18.7), NOT "
                      "§8·21's never-delinquent floor",
@@ -13722,6 +13863,69 @@ def cmd_selftest() -> int:
     return 1 if fails else 0
 
 
+def cmd_signal_selftest() -> int:
+    """Grow a failure for each of §8·24's criteria (discipline 11f).
+
+    It scores `signal_criteria` against the payload already in
+    `results/b10_signal.json` and against doctored copies of it, so it costs
+    no scan.  A criterion nobody has seen fail is not a criterion, and the
+    one that matters is B10-12: its whole content is that the residual does
+    not sit at the measured floor.
+    """
+    import copy
+
+    src = RESULTS / "b10_signal.json"
+    if not src.exists():
+        print(f"  no {src.name} on disk. Run --signal once first.")
+        return 1
+    pl = json.loads(src.read_text(encoding="utf-8"))
+    fails = []
+
+    def check(label, payload, expect_false):
+        got = {c["name"]: c["passed"] for c in signal_criteria(payload)}
+        for n in expect_false:
+            if got[n]:
+                fails.append(f"{label}: {n} still passed")
+        for n in got:
+            if n not in expect_false and not got[n]:
+                fails.append(f"{label}: {n} failed and should not have")
+        print("  %-42s %s" % (label,
+                              (", ".join(expect_false) + " now fails")
+                              if expect_false else "every criterion passes"))
+
+    check("the payload on disk", pl, [])
+
+    #: B10-11 and B10-12 together: put the residual at the floor, which is
+    #: the world the rival describes.  Both have to notice, and they fail
+    #: together by construction: one is this frame's reading of the same
+    #: quantity, the other is the rival's point prediction about it.
+    at_floor = copy.deepcopy(pl)
+    for s in LEG_SCHEMES:
+        at_floor["schemes"][s]["by_arm"]["mod"]["ratios"]["resolution"]["raw"] = 0.9
+    check("residual put at the measured floor", at_floor, ["B10-11", "B10-12"])
+
+    #: B10-10 alone: let the two payment schemes land on opposite sides.  The
+    #: reading would then be a property of a choice this stage made.
+    split = copy.deepcopy(pl)
+    names = list(LEG_SCHEMES)
+    other = [s for s in names if s != SIGNAL_MAIN_SCHEME][0]
+    split["schemes"][other]["by_arm"]["mod"]["ratios"]["resolution"]["raw"] = 0.5
+    check("the robustness scheme put on the other side", split, ["B10-10"])
+
+    #: B10-13 alone: drop an archive from the beside table.
+    short = copy.deepcopy(pl)
+    short["fannie_beside"] = short["fannie_beside"][:-1]
+    check("one archive dropped from the beside table", short, ["B10-13"])
+
+    if fails:
+        print("\n  selftest FAILED")
+        for x in fails:
+            print("     " + x)
+        return 1
+    print("\n  selftest passed")
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--selftest", action="store_true")
@@ -13762,10 +13966,16 @@ def main(argv=None) -> int:
                          "closed form. No never-delinquent floor, no "
                          "triangle loop.")
     ap.add_argument("--rescan", action="store_true")
+    ap.add_argument("--signal-selftest", action="store_true",
+                    dest="signal_selftest",
+                    help="grow a failure for each of §8·24's criteria against "
+                         "the payload already on disk. No scan.")
     ap.add_argument("--only", action="append")
     a = ap.parse_args(argv)
     if a.selftest:
         return cmd_selftest()
+    if a.signal_selftest:
+        return cmd_signal_selftest()
     if a.depth:
         return cmd_depth(a.only)
     if a.triangles:

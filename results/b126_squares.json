@@ -1,0 +1,6753 @@
+{
+ "arm": "squares",
+ "config": {
+  "default": {
+   "clean": 3.0,
+   "scope": "all",
+   "sizes": "750"
+  },
+  "draws": 50,
+  "exclude": {
+   "bordeaux-index-sauternes": "a merchant's own label",
+   "chateau-doisy-daene-bordeaux-sec": "dry white, Bordeaux appellation",
+   "chateau-dyquem-y-bordeaux": "dry white, Bordeaux appellation"
+  },
+  "scan": {
+   "clean": [
+    0.0,
+    3.0
+   ],
+   "scope": [
+    "yquem",
+    "all"
+   ],
+   "sizes": [
+    "750",
+    "all"
+   ]
+  },
+  "seed": 126,
+  "source": "data/b126/parsed/ via experiments/b126_parse.py"
+ },
+ "criteria": [
+  {
+   "detail": "yquem/750/c0 151, all/750/c0 1368, yquem/750/c3 145, all/750/c3 1319, yquem/all/c0 566, all/all/c0 4031, yquem/all/c3 556, all/all/c3 3909",
+   "kind": "instrument",
+   "name": "B126-11",
+   "passed": true,
+   "statement": "the floor exists: pseudo-squares from one house's lots on every scan point"
+  },
+  {
+   "detail": "750/c0: |S| 0.333 floor 0.175 ratio 1.91 band 1.74-2.56; 750/c3: |S| 0.331 floor 0.177 ratio 1.87 band 1.56-2.34; all/c0: |S| 0.372 floor 0.249 ratio 1.49 band 1.21-1.75; all/c3: |S| 0.351 floor 0.246 ratio 1.43 band 1.36-1.87",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B126-12",
+   "passed": true,
+   "rival_entailment": "in S = [p(u,A)-p(u,B)] - [p(v,A)-p(v,B)] the house levels and the values cancel, so S = 0",
+   "rival_premise": "price = the wine's value + one level per house",
+   "rival_shape": "point",
+   "state": "above the floor at every scan point",
+   "state_map": {
+    "above the floor at every scan point": true,
+    "moves across the scan": null,
+    "no object": null,
+    "on or under the floor at every scan point": false
+   },
+   "statement": "separable house level, all wines: the square of two vintages and two houses in one quarter is zero"
+  },
+  {
+   "detail": "750/c0: |S| 0.219 floor 0.203 ratio 1.08 band 0.93-2.02; 750/c3: |S| 0.219 floor 0.219 ratio 1.00 band 0.92-1.77; all/c0: |S| 0.320 floor 0.251 ratio 1.28 band 1.13-1.78; all/c3: |S| 0.291 floor 0.253 ratio 1.15 band 1.12-1.80",
+   "kind": "own_reading",
+   "name": "B126-12y",
+   "passed": null,
+   "state": "moves across the scan",
+   "state_map": {
+    "above the floor at every scan point": false,
+    "moves across the scan": null,
+    "no object": null,
+    "on or under the floor at every scan point": true
+   },
+   "statement": "Yquem alone, the densest wine: the squares sit on the floor (both houses have many paths to every vintage)"
+  },
+  {
+   "detail": "750/c0: |S| 0.246 floor 0.189 ratio 1.30 band 1.06-1.74; 750/c3: |S| 0.234 floor 0.197 ratio 1.19 band 0.97-1.76; all/c0: |S| 0.328 floor 0.256 ratio 1.28 band 1.12-1.62; all/c3: |S| 0.305 floor 0.253 ratio 1.21 band 1.09-1.60",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B126-12a",
+   "passed": null,
+   "rival_entailment": "in S = [p(u,A)-p(u,B)] - [p(v,A)-p(v,B)] the house levels and the values cancel, so S = 0",
+   "rival_premise": "price = the wine's value + one level per house",
+   "rival_shape": "point",
+   "state": "moves across the scan",
+   "state_map": {
+    "above the floor at every scan point": true,
+    "moves across the scan": null,
+    "no object": null,
+    "on or under the floor at every scan point": false
+   },
+   "statement": "separable house level, all wines, squares inside one wine: the square of two vintages and two houses in one quarter is zero"
+  },
+  {
+   "detail": "750/c0: |S| 0.421 floor 0.171 ratio 2.46 band 1.69-3.20; 750/c3: |S| 0.422 floor 0.173 ratio 2.44 band 1.81-3.16; all/c0: |S| 0.412 floor 0.249 ratio 1.65 band 1.34-2.09; all/c3: |S| 0.394 floor 0.241 ratio 1.63 band 1.27-1.93",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B126-12b",
+   "passed": true,
+   "rival_entailment": "in S = [p(u,A)-p(u,B)] - [p(v,A)-p(v,B)] the house levels and the values cancel, so S = 0",
+   "rival_premise": "price = the wine's value + one level per house",
+   "rival_shape": "point",
+   "state": "above the floor at every scan point",
+   "state_map": {
+    "above the floor at every scan point": true,
+    "moves across the scan": null,
+    "no object": null,
+    "on or under the floor at every scan point": false
+   },
+   "statement": "separable house level, all wines, squares across two wines: the square of two vintages and two houses in one quarter is zero"
+  },
+  {
+   "detail": "750/c0: squares +0.125 (n=31, p 0.742), floor -0.167 (n=47); 750/c3: squares +0.163 (n=30, p 0.816), floor -0.143 (n=45); all/c0: squares -0.212 (n=51, p 0.067), floor +0.009 (n=88); all/c3: squares -0.147 (n=51, p 0.149), floor -0.022 (n=84) | across wines: 750/c0: squares -0.236 (n=63, p 0.031), floor +0.107 (n=167); 750/c3: squares -0.235 (n=62, p 0.037), floor +0.149 (n=162); all/c0: squares -0.165 (n=96, p 0.048), floor +0.273 (n=230); all/c3: squares -0.177 (n=95, p 0.042), floor +0.259 (n=229)",
+   "kind": "own_reading",
+   "name": "B126-14",
+   "passed": null,
+   "state": "sign moves across the scan",
+   "state_map": {
+    "negative at every scan point": true,
+    "no object": null,
+    "positive at every scan point": false,
+    "sign moves across the scan": null
+   },
+   "statement": "inside one wine, a unit's median |square| rank-correlates negatively with its density (thinner units carry larger squares)"
+  },
+  {
+   "detail": "yquem/750/c0 loops 77 squares 201, all/750/c0 loops 195 squares 554, yquem/750/c3 loops 75 squares 200, all/750/c3 loops 186 squares 541, yquem/all/c0 loops 195 squares 928, all/all/c0 loops 427 squares 2205, yquem/all/c3 loops 190 squares 871, all/all/c3 loops 414 squares 2096",
+   "kind": "bookkeeping",
+   "name": "B126-13",
+   "passed": true,
+   "statement": "loops (b1), squares and pseudo-squares per quarter printed"
+  }
+ ],
+ "scan": [
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "any",
+    "scope": "yquem",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.235882,
+    "rho": -0.150111,
+    "units": 26
+   },
+   "density_real": {
+    "p": 0.229385,
+    "rho": -0.14735,
+    "units": 26
+   },
+   "floor_q90": 0.636479,
+   "loops": 77,
+   "median_abs_floor": 0.20259,
+   "median_abs_square": 0.21907,
+   "per_quarter": {
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2020Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2020Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2021Q1": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2021Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2022Q3": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 4
+    },
+    "2023Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 7
+    },
+    "2023Q2": {
+     "houses": 4,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2023Q3": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2023Q4": {
+     "houses": 4,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2024Q1": {
+     "houses": 5,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2024Q2": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 6
+    },
+    "2024Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 8
+    },
+    "2024Q4": {
+     "houses": 6,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 8
+    },
+    "2025Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 24,
+     "squares": 3,
+     "units": 13
+    },
+    "2025Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 12
+    },
+    "2025Q3": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 4,
+     "squares": 2,
+     "units": 17
+    },
+    "2025Q4": {
+     "houses": 8,
+     "loops": 12,
+     "pseudo": 12,
+     "squares": 23,
+     "units": 18
+    },
+    "2026Q1": {
+     "houses": 11,
+     "loops": 12,
+     "pseudo": 15,
+     "squares": 18,
+     "units": 28
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 38,
+     "pseudo": 87,
+     "squares": 148,
+     "units": 31
+    },
+    "2026Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 16
+    }
+   },
+   "pseudo_squares": 151,
+   "quarters_with_loops": 12,
+   "ratio": 1.08135,
+   "ratio_boot_5_95": [
+    0.931364,
+    2.02346
+   ],
+   "share_squares_over_floor_q90": 0.106965,
+   "squares": 201
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "any",
+    "scope": "all",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.964018,
+    "rho": 0.134302,
+    "units": 171
+   },
+   "density_real": {
+    "p": 0.00949525,
+    "rho": -0.291393,
+    "units": 66
+   },
+   "floor_q90": 0.62692,
+   "loops": 195,
+   "median_abs_floor": 0.174762,
+   "median_abs_square": 0.333165,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 13
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 14
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 28
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 16
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 25,
+     "squares": 0,
+     "units": 32
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 25,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 46,
+     "squares": 0,
+     "units": 41
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 1,
+     "units": 31
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 28
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 15,
+     "squares": 0,
+     "units": 35
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 15,
+     "squares": 0,
+     "units": 31
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 21
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 24
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 1,
+     "units": 32
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 6,
+     "pseudo": 63,
+     "squares": 11,
+     "units": 85
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 43,
+     "squares": 2,
+     "units": 60
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 2,
+     "pseudo": 31,
+     "squares": 3,
+     "units": 53
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 6,
+     "pseudo": 34,
+     "squares": 17,
+     "units": 55
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 78,
+     "squares": 3,
+     "units": 52
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 6,
+     "pseudo": 16,
+     "squares": 21,
+     "units": 45
+    },
+    "2024Q3": {
+     "houses": 6,
+     "loops": 4,
+     "pseudo": 31,
+     "squares": 7,
+     "units": 48
+    },
+    "2024Q4": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 6,
+     "squares": 6,
+     "units": 58
+    },
+    "2025Q1": {
+     "houses": 6,
+     "loops": 10,
+     "pseudo": 198,
+     "squares": 32,
+     "units": 75
+    },
+    "2025Q2": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 36,
+     "squares": 6,
+     "units": 52
+    },
+    "2025Q3": {
+     "houses": 10,
+     "loops": 11,
+     "pseudo": 55,
+     "squares": 10,
+     "units": 85
+    },
+    "2025Q4": {
+     "houses": 10,
+     "loops": 28,
+     "pseudo": 180,
+     "squares": 52,
+     "units": 100
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 28,
+     "pseudo": 116,
+     "squares": 68,
+     "units": 109
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 67,
+     "pseudo": 285,
+     "squares": 308,
+     "units": 120
+    },
+    "2026Q3": {
+     "houses": 9,
+     "loops": 9,
+     "pseudo": 35,
+     "squares": 5,
+     "units": 69
+    }
+   },
+   "pseudo_squares": 1368,
+   "quarters_with_loops": 18,
+   "ratio": 1.90639,
+   "ratio_boot_5_95": [
+    1.74316,
+    2.56053
+   ],
+   "share_squares_over_floor_q90": 0.243682,
+   "squares": 554
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "any",
+    "scope": "yquem",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.122939,
+    "rho": -0.236154,
+    "units": 25
+   },
+   "density_real": {
+    "p": 0.523738,
+    "rho": 0.0115385,
+    "units": 25
+   },
+   "floor_q90": 0.647413,
+   "loops": 75,
+   "median_abs_floor": 0.219084,
+   "median_abs_square": 0.218698,
+   "per_quarter": {
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2020Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2020Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2021Q1": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2021Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2022Q3": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 4
+    },
+    "2023Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 7
+    },
+    "2023Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2023Q3": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2023Q4": {
+     "houses": 4,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2024Q1": {
+     "houses": 5,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2024Q2": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 6
+    },
+    "2024Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 8
+    },
+    "2024Q4": {
+     "houses": 6,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 8
+    },
+    "2025Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 24,
+     "squares": 3,
+     "units": 13
+    },
+    "2025Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 12
+    },
+    "2025Q3": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 4,
+     "squares": 2,
+     "units": 17
+    },
+    "2025Q4": {
+     "houses": 8,
+     "loops": 12,
+     "pseudo": 12,
+     "squares": 23,
+     "units": 18
+    },
+    "2026Q1": {
+     "houses": 11,
+     "loops": 12,
+     "pseudo": 15,
+     "squares": 18,
+     "units": 28
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 38,
+     "pseudo": 87,
+     "squares": 148,
+     "units": 31
+    },
+    "2026Q3": {
+     "houses": 6,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 11
+    }
+   },
+   "pseudo_squares": 145,
+   "quarters_with_loops": 12,
+   "ratio": 0.998239,
+   "ratio_boot_5_95": [
+    0.91608,
+    1.77425
+   ],
+   "share_squares_over_floor_q90": 0.095,
+   "squares": 200
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "any",
+    "scope": "all",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.994003,
+    "rho": 0.194991,
+    "units": 166
+   },
+   "density_real": {
+    "p": 0.011994,
+    "rho": -0.276825,
+    "units": 64
+   },
+   "floor_q90": 0.626109,
+   "loops": 186,
+   "median_abs_floor": 0.176931,
+   "median_abs_square": 0.331415,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 13
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 14
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 28
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 16
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 25,
+     "squares": 0,
+     "units": 32
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 25,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 46,
+     "squares": 0,
+     "units": 41
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 1,
+     "units": 31
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 28
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 15,
+     "squares": 0,
+     "units": 35
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 15,
+     "squares": 0,
+     "units": 31
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 21
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 24
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 1,
+     "units": 32
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 6,
+     "pseudo": 63,
+     "squares": 11,
+     "units": 85
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 1,
+     "pseudo": 43,
+     "squares": 1,
+     "units": 58
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 2,
+     "pseudo": 31,
+     "squares": 3,
+     "units": 51
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 6,
+     "pseudo": 34,
+     "squares": 17,
+     "units": 55
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 78,
+     "squares": 3,
+     "units": 51
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 6,
+     "pseudo": 16,
+     "squares": 21,
+     "units": 44
+    },
+    "2024Q3": {
+     "houses": 6,
+     "loops": 4,
+     "pseudo": 31,
+     "squares": 7,
+     "units": 48
+    },
+    "2024Q4": {
+     "houses": 8,
+     "loops": 3,
+     "pseudo": 6,
+     "squares": 3,
+     "units": 57
+    },
+    "2025Q1": {
+     "houses": 6,
+     "loops": 8,
+     "pseudo": 198,
+     "squares": 29,
+     "units": 74
+    },
+    "2025Q2": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 36,
+     "squares": 6,
+     "units": 50
+    },
+    "2025Q3": {
+     "houses": 10,
+     "loops": 10,
+     "pseudo": 55,
+     "squares": 10,
+     "units": 83
+    },
+    "2025Q4": {
+     "houses": 10,
+     "loops": 27,
+     "pseudo": 166,
+     "squares": 48,
+     "units": 96
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 28,
+     "pseudo": 116,
+     "squares": 68,
+     "units": 109
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 67,
+     "pseudo": 268,
+     "squares": 308,
+     "units": 119
+    },
+    "2026Q3": {
+     "houses": 8,
+     "loops": 7,
+     "pseudo": 17,
+     "squares": 3,
+     "units": 64
+    }
+   },
+   "pseudo_squares": 1319,
+   "quarters_with_loops": 18,
+   "ratio": 1.87313,
+   "ratio_boot_5_95": [
+    1.56279,
+    2.33797
+   ],
+   "share_squares_over_floor_q90": 0.235675,
+   "squares": 541
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "any",
+    "scope": "yquem",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 0.503748,
+    "rho": 0.00252101,
+    "units": 35
+   },
+   "density_real": {
+    "p": 0.433783,
+    "rho": -0.0338744,
+    "units": 31
+   },
+   "floor_q90": 0.71649,
+   "loops": 195,
+   "median_abs_floor": 0.250629,
+   "median_abs_square": 0.320206,
+   "per_quarter": {
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 4
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2020Q1": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2020Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 4
+    },
+    "2021Q1": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 4
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 5
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 6
+    },
+    "2021Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 6
+    },
+    "2022Q3": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 5
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 7
+    },
+    "2023Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 7
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2023Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 6
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2024Q1": {
+     "houses": 6,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 10
+    },
+    "2024Q2": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 6,
+     "squares": 3,
+     "units": 9
+    },
+    "2024Q3": {
+     "houses": 7,
+     "loops": 2,
+     "pseudo": 3,
+     "squares": 2,
+     "units": 13
+    },
+    "2024Q4": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 2,
+     "squares": 5,
+     "units": 10
+    },
+    "2025Q1": {
+     "houses": 4,
+     "loops": 8,
+     "pseudo": 65,
+     "squares": 29,
+     "units": 16
+    },
+    "2025Q2": {
+     "houses": 6,
+     "loops": 9,
+     "pseudo": 10,
+     "squares": 19,
+     "units": 14
+    },
+    "2025Q3": {
+     "houses": 7,
+     "loops": 19,
+     "pseudo": 7,
+     "squares": 37,
+     "units": 22
+    },
+    "2025Q4": {
+     "houses": 11,
+     "loops": 29,
+     "pseudo": 58,
+     "squares": 105,
+     "units": 28
+    },
+    "2026Q1": {
+     "houses": 12,
+     "loops": 37,
+     "pseudo": 70,
+     "squares": 179,
+     "units": 33
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 64,
+     "pseudo": 319,
+     "squares": 510,
+     "units": 33
+    },
+    "2026Q3": {
+     "houses": 9,
+     "loops": 16,
+     "pseudo": 10,
+     "squares": 34,
+     "units": 20
+    }
+   },
+   "pseudo_squares": 566,
+   "quarters_with_loops": 15,
+   "ratio": 1.27761,
+   "ratio_boot_5_95": [
+    1.12874,
+    1.78172
+   ],
+   "share_squares_over_floor_q90": 0.185884,
+   "squares": 928
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "any",
+    "scope": "all",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 0.998001,
+    "rho": 0.199707,
+    "units": 234
+   },
+   "density_real": {
+    "p": 0.0489755,
+    "rho": -0.17662,
+    "units": 96
+   },
+   "floor_q90": 0.796559,
+   "loops": 427,
+   "median_abs_floor": 0.248811,
+   "median_abs_square": 0.371783,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 12
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 18
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 10,
+     "squares": 0,
+     "units": 13
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 8
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 21,
+     "squares": 0,
+     "units": 17
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 17
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 12
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 15
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 13
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 12
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 10
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 15,
+     "squares": 0,
+     "units": 21
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 13
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 12,
+     "squares": 3,
+     "units": 45
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 26
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 31,
+     "squares": 1,
+     "units": 49
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 46,
+     "squares": 0,
+     "units": 38
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 76,
+     "squares": 0,
+     "units": 51
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 2,
+     "pseudo": 27,
+     "squares": 3,
+     "units": 44
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 4,
+     "pseudo": 9,
+     "squares": 10,
+     "units": 37
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 66,
+     "squares": 1,
+     "units": 45
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 67,
+     "squares": 0,
+     "units": 50
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 32
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 34,
+     "squares": 0,
+     "units": 34
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 56,
+     "squares": 1,
+     "units": 42
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 7,
+     "pseudo": 103,
+     "squares": 12,
+     "units": 94
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 3,
+     "pseudo": 82,
+     "squares": 4,
+     "units": 70
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 72,
+     "squares": 6,
+     "units": 65
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 14,
+     "pseudo": 90,
+     "squares": 68,
+     "units": 76
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 142,
+     "squares": 3,
+     "units": 69
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 12,
+     "pseudo": 68,
+     "squares": 51,
+     "units": 68
+    },
+    "2024Q3": {
+     "houses": 8,
+     "loops": 10,
+     "pseudo": 70,
+     "squares": 20,
+     "units": 73
+    },
+    "2024Q4": {
+     "houses": 9,
+     "loops": 14,
+     "pseudo": 46,
+     "squares": 28,
+     "units": 74
+    },
+    "2025Q1": {
+     "houses": 8,
+     "loops": 22,
+     "pseudo": 457,
+     "squares": 130,
+     "units": 95
+    },
+    "2025Q2": {
+     "houses": 10,
+     "loops": 17,
+     "pseudo": 139,
+     "squares": 48,
+     "units": 67
+    },
+    "2025Q3": {
+     "houses": 11,
+     "loops": 35,
+     "pseudo": 152,
+     "squares": 85,
+     "units": 111
+    },
+    "2025Q4": {
+     "houses": 12,
+     "loops": 55,
+     "pseudo": 553,
+     "squares": 218,
+     "units": 137
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 73,
+     "pseudo": 462,
+     "squares": 492,
+     "units": 138
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 110,
+     "pseudo": 939,
+     "squares": 932,
+     "units": 157
+    },
+    "2026Q3": {
+     "houses": 10,
+     "loops": 35,
+     "pseudo": 151,
+     "squares": 88,
+     "units": 94
+    }
+   },
+   "pseudo_squares": 4031,
+   "quarters_with_loops": 23,
+   "ratio": 1.49424,
+   "ratio_boot_5_95": [
+    1.2067,
+    1.7491
+   ],
+   "share_squares_over_floor_q90": 0.19093,
+   "squares": 2205
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "any",
+    "scope": "yquem",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 0.250875,
+    "rho": -0.122558,
+    "units": 35
+   },
+   "density_real": {
+    "p": 0.626187,
+    "rho": 0.0550459,
+    "units": 31
+   },
+   "floor_q90": 0.7147,
+   "loops": 190,
+   "median_abs_floor": 0.253438,
+   "median_abs_square": 0.290759,
+   "per_quarter": {
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 4
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2020Q1": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2020Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 4
+    },
+    "2021Q1": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 4
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 5
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 6
+    },
+    "2021Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 6
+    },
+    "2022Q3": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 5
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 7
+    },
+    "2023Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 7
+    },
+    "2023Q2": {
+     "houses": 4,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2023Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 6
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2024Q1": {
+     "houses": 6,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 10
+    },
+    "2024Q2": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 6,
+     "squares": 3,
+     "units": 9
+    },
+    "2024Q3": {
+     "houses": 7,
+     "loops": 2,
+     "pseudo": 3,
+     "squares": 2,
+     "units": 12
+    },
+    "2024Q4": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 2,
+     "squares": 5,
+     "units": 10
+    },
+    "2025Q1": {
+     "houses": 4,
+     "loops": 8,
+     "pseudo": 65,
+     "squares": 29,
+     "units": 16
+    },
+    "2025Q2": {
+     "houses": 6,
+     "loops": 9,
+     "pseudo": 10,
+     "squares": 19,
+     "units": 14
+    },
+    "2025Q3": {
+     "houses": 7,
+     "loops": 19,
+     "pseudo": 7,
+     "squares": 37,
+     "units": 22
+    },
+    "2025Q4": {
+     "houses": 11,
+     "loops": 28,
+     "pseudo": 58,
+     "squares": 92,
+     "units": 28
+    },
+    "2026Q1": {
+     "houses": 12,
+     "loops": 37,
+     "pseudo": 70,
+     "squares": 179,
+     "units": 33
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 62,
+     "pseudo": 319,
+     "squares": 479,
+     "units": 33
+    },
+    "2026Q3": {
+     "houses": 9,
+     "loops": 14,
+     "pseudo": 0,
+     "squares": 21,
+     "units": 15
+    }
+   },
+   "pseudo_squares": 556,
+   "quarters_with_loops": 15,
+   "ratio": 1.14726,
+   "ratio_boot_5_95": [
+    1.11573,
+    1.7975
+   ],
+   "share_squares_over_floor_q90": 0.135476,
+   "squares": 871
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "any",
+    "scope": "all",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 1.0,
+    "rho": 0.222761,
+    "units": 233
+   },
+   "density_real": {
+    "p": 0.0224888,
+    "rho": -0.209074,
+    "units": 95
+   },
+   "floor_q90": 0.742539,
+   "loops": 414,
+   "median_abs_floor": 0.246007,
+   "median_abs_square": 0.350759,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 12
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 18
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 10,
+     "squares": 0,
+     "units": 13
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 8
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 21,
+     "squares": 0,
+     "units": 17
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 17
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 12
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 15
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 13
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 12
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 10
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 15,
+     "squares": 0,
+     "units": 21
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 13
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 12,
+     "squares": 3,
+     "units": 45
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 26
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 31,
+     "squares": 1,
+     "units": 49
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 46,
+     "squares": 0,
+     "units": 38
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 76,
+     "squares": 0,
+     "units": 51
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 2,
+     "pseudo": 27,
+     "squares": 3,
+     "units": 44
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 4,
+     "pseudo": 9,
+     "squares": 10,
+     "units": 37
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 66,
+     "squares": 1,
+     "units": 45
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 67,
+     "squares": 0,
+     "units": 50
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 32
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 34,
+     "squares": 0,
+     "units": 34
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 56,
+     "squares": 1,
+     "units": 42
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 7,
+     "pseudo": 103,
+     "squares": 12,
+     "units": 94
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 74,
+     "squares": 3,
+     "units": 69
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 72,
+     "squares": 6,
+     "units": 63
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 14,
+     "pseudo": 90,
+     "squares": 68,
+     "units": 76
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 142,
+     "squares": 3,
+     "units": 68
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 12,
+     "pseudo": 68,
+     "squares": 51,
+     "units": 67
+    },
+    "2024Q3": {
+     "houses": 8,
+     "loops": 10,
+     "pseudo": 70,
+     "squares": 20,
+     "units": 72
+    },
+    "2024Q4": {
+     "houses": 9,
+     "loops": 12,
+     "pseudo": 46,
+     "squares": 20,
+     "units": 73
+    },
+    "2025Q1": {
+     "houses": 8,
+     "loops": 21,
+     "pseudo": 428,
+     "squares": 128,
+     "units": 95
+    },
+    "2025Q2": {
+     "houses": 10,
+     "loops": 17,
+     "pseudo": 139,
+     "squares": 48,
+     "units": 66
+    },
+    "2025Q3": {
+     "houses": 11,
+     "loops": 33,
+     "pseudo": 152,
+     "squares": 81,
+     "units": 109
+    },
+    "2025Q4": {
+     "houses": 12,
+     "loops": 53,
+     "pseudo": 538,
+     "squares": 195,
+     "units": 134
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 73,
+     "pseudo": 462,
+     "squares": 492,
+     "units": 138
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 108,
+     "pseudo": 899,
+     "squares": 882,
+     "units": 155
+    },
+    "2026Q3": {
+     "houses": 10,
+     "loops": 32,
+     "pseudo": 121,
+     "squares": 67,
+     "units": 89
+    }
+   },
+   "pseudo_squares": 3909,
+   "quarters_with_loops": 23,
+   "ratio": 1.42581,
+   "ratio_boot_5_95": [
+    1.36112,
+    1.87128
+   ],
+   "share_squares_over_floor_q90": 0.17605,
+   "squares": 2096
+  }
+ ],
+ "split": [
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "same_wine",
+    "scope": "all",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.130435,
+    "rho": -0.166643,
+    "units": 47
+   },
+   "density_real": {
+    "p": 0.741629,
+    "rho": 0.125429,
+    "units": 31
+   },
+   "floor_q90": 0.687328,
+   "loops": 195,
+   "median_abs_floor": 0.188671,
+   "median_abs_square": 0.245599,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 10
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 28
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 32
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 41
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 31
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 35
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 31
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 21
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 24
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 32
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 6,
+     "pseudo": 11,
+     "squares": 3,
+     "units": 85
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 60
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 2,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 53
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 6,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 55
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 52
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 6,
+     "pseudo": 2,
+     "squares": 3,
+     "units": 45
+    },
+    "2024Q3": {
+     "houses": 6,
+     "loops": 4,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 48
+    },
+    "2024Q4": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 0,
+     "squares": 2,
+     "units": 58
+    },
+    "2025Q1": {
+     "houses": 6,
+     "loops": 10,
+     "pseudo": 32,
+     "squares": 5,
+     "units": 75
+    },
+    "2025Q2": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 3,
+     "squares": 1,
+     "units": 52
+    },
+    "2025Q3": {
+     "houses": 10,
+     "loops": 11,
+     "pseudo": 5,
+     "squares": 2,
+     "units": 85
+    },
+    "2025Q4": {
+     "houses": 10,
+     "loops": 28,
+     "pseudo": 32,
+     "squares": 26,
+     "units": 100
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 28,
+     "pseudo": 18,
+     "squares": 23,
+     "units": 109
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 67,
+     "pseudo": 97,
+     "squares": 154,
+     "units": 120
+    },
+    "2026Q3": {
+     "houses": 9,
+     "loops": 9,
+     "pseudo": 8,
+     "squares": 1,
+     "units": 69
+    }
+   },
+   "pseudo_squares": 237,
+   "quarters_with_loops": 18,
+   "ratio": 1.30173,
+   "ratio_boot_5_95": [
+    1.05876,
+    1.74347
+   ],
+   "share_squares_over_floor_q90": 0.112613,
+   "squares": 222
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "cross_wine",
+    "scope": "all",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.913043,
+    "rho": 0.107083,
+    "units": 167
+   },
+   "density_real": {
+    "p": 0.0314843,
+    "rho": -0.2358,
+    "units": 63
+   },
+   "floor_q90": 0.610587,
+   "loops": 195,
+   "median_abs_floor": 0.170849,
+   "median_abs_square": 0.420837,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 13
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 14
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 28
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 16
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 20,
+     "squares": 0,
+     "units": 32
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 23,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 43,
+     "squares": 0,
+     "units": 41
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 1,
+     "units": 31
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 28
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 14,
+     "squares": 0,
+     "units": 35
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 14,
+     "squares": 0,
+     "units": 31
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 21
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 24
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 0,
+     "units": 32
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 6,
+     "pseudo": 52,
+     "squares": 8,
+     "units": 85
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 40,
+     "squares": 2,
+     "units": 60
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 2,
+     "pseudo": 26,
+     "squares": 3,
+     "units": 53
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 6,
+     "pseudo": 31,
+     "squares": 17,
+     "units": 55
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 74,
+     "squares": 3,
+     "units": 52
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 6,
+     "pseudo": 14,
+     "squares": 18,
+     "units": 45
+    },
+    "2024Q3": {
+     "houses": 6,
+     "loops": 4,
+     "pseudo": 29,
+     "squares": 6,
+     "units": 48
+    },
+    "2024Q4": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 6,
+     "squares": 4,
+     "units": 58
+    },
+    "2025Q1": {
+     "houses": 6,
+     "loops": 10,
+     "pseudo": 166,
+     "squares": 27,
+     "units": 75
+    },
+    "2025Q2": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 33,
+     "squares": 5,
+     "units": 52
+    },
+    "2025Q3": {
+     "houses": 10,
+     "loops": 11,
+     "pseudo": 50,
+     "squares": 8,
+     "units": 85
+    },
+    "2025Q4": {
+     "houses": 10,
+     "loops": 28,
+     "pseudo": 148,
+     "squares": 26,
+     "units": 100
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 28,
+     "pseudo": 98,
+     "squares": 45,
+     "units": 109
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 67,
+     "pseudo": 188,
+     "squares": 154,
+     "units": 120
+    },
+    "2026Q3": {
+     "houses": 9,
+     "loops": 9,
+     "pseudo": 27,
+     "squares": 4,
+     "units": 69
+    }
+   },
+   "pseudo_squares": 1131,
+   "quarters_with_loops": 18,
+   "ratio": 2.46321,
+   "ratio_boot_5_95": [
+    1.69315,
+    3.2001
+   ],
+   "share_squares_over_floor_q90": 0.328313,
+   "squares": 332
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "same_wine",
+    "scope": "all",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.18041,
+    "rho": -0.142942,
+    "units": 45
+   },
+   "density_real": {
+    "p": 0.815592,
+    "rho": 0.163088,
+    "units": 30
+   },
+   "floor_q90": 0.673589,
+   "loops": 186,
+   "median_abs_floor": 0.197358,
+   "median_abs_square": 0.234047,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 10
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 28
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 32
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 41
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 31
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 35
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 31
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 21
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 24
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 32
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 6,
+     "pseudo": 11,
+     "squares": 3,
+     "units": 85
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 1,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 58
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 2,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 51
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 6,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 55
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 51
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 6,
+     "pseudo": 2,
+     "squares": 3,
+     "units": 44
+    },
+    "2024Q3": {
+     "houses": 6,
+     "loops": 4,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 48
+    },
+    "2024Q4": {
+     "houses": 8,
+     "loops": 3,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 57
+    },
+    "2025Q1": {
+     "houses": 6,
+     "loops": 8,
+     "pseudo": 32,
+     "squares": 5,
+     "units": 74
+    },
+    "2025Q2": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 3,
+     "squares": 1,
+     "units": 50
+    },
+    "2025Q3": {
+     "houses": 10,
+     "loops": 10,
+     "pseudo": 5,
+     "squares": 2,
+     "units": 83
+    },
+    "2025Q4": {
+     "houses": 10,
+     "loops": 27,
+     "pseudo": 28,
+     "squares": 26,
+     "units": 96
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 28,
+     "pseudo": 18,
+     "squares": 23,
+     "units": 109
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 67,
+     "pseudo": 96,
+     "squares": 154,
+     "units": 119
+    },
+    "2026Q3": {
+     "houses": 8,
+     "loops": 7,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 64
+    }
+   },
+   "pseudo_squares": 226,
+   "quarters_with_loops": 18,
+   "ratio": 1.1859,
+   "ratio_boot_5_95": [
+    0.972179,
+    1.76445
+   ],
+   "share_squares_over_floor_q90": 0.104545,
+   "squares": 220
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "cross_wine",
+    "scope": "all",
+    "sizes": "750"
+   },
+   "density_floor": {
+    "p": 0.972514,
+    "rho": 0.149391,
+    "units": 162
+   },
+   "density_real": {
+    "p": 0.0369815,
+    "rho": -0.234501,
+    "units": 62
+   },
+   "floor_q90": 0.613953,
+   "loops": 186,
+   "median_abs_floor": 0.172645,
+   "median_abs_square": 0.421642,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 1
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 14
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 13
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 16
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 14
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 4
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 28
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 16
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 20,
+     "squares": 0,
+     "units": 32
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 23,
+     "squares": 0,
+     "units": 28
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 43,
+     "squares": 0,
+     "units": 41
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 1,
+     "units": 31
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 1,
+     "squares": 1,
+     "units": 28
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 14,
+     "squares": 0,
+     "units": 35
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 14,
+     "squares": 0,
+     "units": 31
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 21
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 24
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 7,
+     "squares": 0,
+     "units": 32
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 6,
+     "pseudo": 52,
+     "squares": 8,
+     "units": 85
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 1,
+     "pseudo": 40,
+     "squares": 1,
+     "units": 58
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 2,
+     "pseudo": 26,
+     "squares": 3,
+     "units": 51
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 6,
+     "pseudo": 31,
+     "squares": 17,
+     "units": 55
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 3,
+     "pseudo": 74,
+     "squares": 3,
+     "units": 51
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 6,
+     "pseudo": 14,
+     "squares": 18,
+     "units": 44
+    },
+    "2024Q3": {
+     "houses": 6,
+     "loops": 4,
+     "pseudo": 29,
+     "squares": 6,
+     "units": 48
+    },
+    "2024Q4": {
+     "houses": 8,
+     "loops": 3,
+     "pseudo": 6,
+     "squares": 2,
+     "units": 57
+    },
+    "2025Q1": {
+     "houses": 6,
+     "loops": 8,
+     "pseudo": 166,
+     "squares": 24,
+     "units": 74
+    },
+    "2025Q2": {
+     "houses": 8,
+     "loops": 5,
+     "pseudo": 33,
+     "squares": 5,
+     "units": 50
+    },
+    "2025Q3": {
+     "houses": 10,
+     "loops": 10,
+     "pseudo": 50,
+     "squares": 8,
+     "units": 83
+    },
+    "2025Q4": {
+     "houses": 10,
+     "loops": 27,
+     "pseudo": 138,
+     "squares": 22,
+     "units": 96
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 28,
+     "pseudo": 98,
+     "squares": 45,
+     "units": 109
+    },
+    "2026Q2": {
+     "houses": 13,
+     "loops": 67,
+     "pseudo": 172,
+     "squares": 154,
+     "units": 119
+    },
+    "2026Q3": {
+     "houses": 8,
+     "loops": 7,
+     "pseudo": 15,
+     "squares": 3,
+     "units": 64
+    }
+   },
+   "pseudo_squares": 1093,
+   "quarters_with_loops": 18,
+   "ratio": 2.44224,
+   "ratio_boot_5_95": [
+    1.80964,
+    3.1619
+   ],
+   "share_squares_over_floor_q90": 0.317757,
+   "squares": 321
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "same_wine",
+    "scope": "all",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 0.541229,
+    "rho": 0.00862175,
+    "units": 88
+   },
+   "density_real": {
+    "p": 0.0669665,
+    "rho": -0.211879,
+    "units": 51
+   },
+   "floor_q90": 0.75245,
+   "loops": 427,
+   "median_abs_floor": 0.255545,
+   "median_abs_square": 0.328058,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 12
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 18
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 13
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 17
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 17
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 12
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 15
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 12
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 21
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 45
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 26
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 49
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 38
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 51
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 2,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 44
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 4,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 37
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 45
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 50
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 32
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 34
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 42
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 7,
+     "pseudo": 17,
+     "squares": 3,
+     "units": 94
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 3,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 70
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 65
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 14,
+     "pseudo": 7,
+     "squares": 6,
+     "units": 76
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 11,
+     "squares": 0,
+     "units": 69
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 12,
+     "pseudo": 8,
+     "squares": 11,
+     "units": 68
+    },
+    "2024Q3": {
+     "houses": 8,
+     "loops": 10,
+     "pseudo": 5,
+     "squares": 5,
+     "units": 73
+    },
+    "2024Q4": {
+     "houses": 9,
+     "loops": 14,
+     "pseudo": 3,
+     "squares": 9,
+     "units": 74
+    },
+    "2025Q1": {
+     "houses": 8,
+     "loops": 22,
+     "pseudo": 83,
+     "squares": 33,
+     "units": 95
+    },
+    "2025Q2": {
+     "houses": 10,
+     "loops": 17,
+     "pseudo": 20,
+     "squares": 21,
+     "units": 67
+    },
+    "2025Q3": {
+     "houses": 11,
+     "loops": 35,
+     "pseudo": 14,
+     "squares": 42,
+     "units": 111
+    },
+    "2025Q4": {
+     "houses": 12,
+     "loops": 55,
+     "pseudo": 105,
+     "squares": 113,
+     "units": 137
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 73,
+     "pseudo": 82,
+     "squares": 196,
+     "units": 138
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 110,
+     "pseudo": 344,
+     "squares": 527,
+     "units": 157
+    },
+    "2026Q3": {
+     "houses": 10,
+     "loops": 35,
+     "pseudo": 17,
+     "squares": 36,
+     "units": 94
+    }
+   },
+   "pseudo_squares": 771,
+   "quarters_with_loops": 23,
+   "ratio": 1.28376,
+   "ratio_boot_5_95": [
+    1.11751,
+    1.62073
+   ],
+   "share_squares_over_floor_q90": 0.174603,
+   "squares": 1008
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "pair": "cross_wine",
+    "scope": "all",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 1.0,
+    "rho": 0.273228,
+    "units": 230
+   },
+   "density_real": {
+    "p": 0.047976,
+    "rho": -0.164718,
+    "units": 96
+   },
+   "floor_q90": 0.811044,
+   "loops": 427,
+   "median_abs_floor": 0.249376,
+   "median_abs_square": 0.412301,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 12
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 18
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 9,
+     "squares": 0,
+     "units": 13
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 8
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 19,
+     "squares": 0,
+     "units": 17
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 17
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 12
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 15
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 13
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 12
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 12,
+     "squares": 0,
+     "units": 21
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 13
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 10,
+     "squares": 2,
+     "units": 45
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 26
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 26,
+     "squares": 1,
+     "units": 49
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 42,
+     "squares": 0,
+     "units": 38
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 71,
+     "squares": 0,
+     "units": 51
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 2,
+     "pseudo": 25,
+     "squares": 2,
+     "units": 44
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 4,
+     "pseudo": 7,
+     "squares": 9,
+     "units": 37
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 61,
+     "squares": 1,
+     "units": 45
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 63,
+     "squares": 0,
+     "units": 50
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 32
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 32,
+     "squares": 0,
+     "units": 34
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 54,
+     "squares": 0,
+     "units": 42
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 7,
+     "pseudo": 86,
+     "squares": 9,
+     "units": 94
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 3,
+     "pseudo": 76,
+     "squares": 4,
+     "units": 70
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 66,
+     "squares": 5,
+     "units": 65
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 14,
+     "pseudo": 83,
+     "squares": 62,
+     "units": 76
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 131,
+     "squares": 3,
+     "units": 69
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 12,
+     "pseudo": 60,
+     "squares": 40,
+     "units": 68
+    },
+    "2024Q3": {
+     "houses": 8,
+     "loops": 10,
+     "pseudo": 65,
+     "squares": 15,
+     "units": 73
+    },
+    "2024Q4": {
+     "houses": 9,
+     "loops": 14,
+     "pseudo": 43,
+     "squares": 19,
+     "units": 74
+    },
+    "2025Q1": {
+     "houses": 8,
+     "loops": 22,
+     "pseudo": 374,
+     "squares": 97,
+     "units": 95
+    },
+    "2025Q2": {
+     "houses": 10,
+     "loops": 17,
+     "pseudo": 119,
+     "squares": 27,
+     "units": 67
+    },
+    "2025Q3": {
+     "houses": 11,
+     "loops": 35,
+     "pseudo": 138,
+     "squares": 43,
+     "units": 111
+    },
+    "2025Q4": {
+     "houses": 12,
+     "loops": 55,
+     "pseudo": 448,
+     "squares": 105,
+     "units": 137
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 73,
+     "pseudo": 380,
+     "squares": 296,
+     "units": 138
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 110,
+     "pseudo": 595,
+     "squares": 405,
+     "units": 157
+    },
+    "2026Q3": {
+     "houses": 10,
+     "loops": 35,
+     "pseudo": 134,
+     "squares": 52,
+     "units": 94
+    }
+   },
+   "pseudo_squares": 3260,
+   "quarters_with_loops": 23,
+   "ratio": 1.65333,
+   "ratio_boot_5_95": [
+    1.34275,
+    2.08872
+   ],
+   "share_squares_over_floor_q90": 0.213033,
+   "squares": 1197
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "same_wine",
+    "scope": "all",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 0.434283,
+    "rho": -0.0223117,
+    "units": 84
+   },
+   "density_real": {
+    "p": 0.148926,
+    "rho": -0.147059,
+    "units": 51
+   },
+   "floor_q90": 0.708609,
+   "loops": 414,
+   "median_abs_floor": 0.253096,
+   "median_abs_square": 0.305058,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 12
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 18
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 13
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 17
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 17
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 12
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 15
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 12
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 21
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 45
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 26
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 49
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 38
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 51
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 2,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 44
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 4,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 37
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 45
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 4,
+     "squares": 0,
+     "units": 50
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 0,
+     "squares": 1,
+     "units": 32
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 2,
+     "squares": 0,
+     "units": 34
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 2,
+     "squares": 1,
+     "units": 42
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 7,
+     "pseudo": 17,
+     "squares": 3,
+     "units": 94
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 69
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 6,
+     "squares": 1,
+     "units": 63
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 14,
+     "pseudo": 7,
+     "squares": 6,
+     "units": 76
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 11,
+     "squares": 0,
+     "units": 68
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 12,
+     "pseudo": 8,
+     "squares": 11,
+     "units": 67
+    },
+    "2024Q3": {
+     "houses": 8,
+     "loops": 10,
+     "pseudo": 5,
+     "squares": 5,
+     "units": 72
+    },
+    "2024Q4": {
+     "houses": 9,
+     "loops": 12,
+     "pseudo": 3,
+     "squares": 7,
+     "units": 73
+    },
+    "2025Q1": {
+     "houses": 8,
+     "loops": 21,
+     "pseudo": 80,
+     "squares": 33,
+     "units": 95
+    },
+    "2025Q2": {
+     "houses": 10,
+     "loops": 17,
+     "pseudo": 20,
+     "squares": 21,
+     "units": 66
+    },
+    "2025Q3": {
+     "houses": 11,
+     "loops": 33,
+     "pseudo": 14,
+     "squares": 42,
+     "units": 109
+    },
+    "2025Q4": {
+     "houses": 12,
+     "loops": 53,
+     "pseudo": 101,
+     "squares": 100,
+     "units": 134
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 73,
+     "pseudo": 82,
+     "squares": 196,
+     "units": 138
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 108,
+     "pseudo": 341,
+     "squares": 496,
+     "units": 155
+    },
+    "2026Q3": {
+     "houses": 10,
+     "loops": 32,
+     "pseudo": 7,
+     "squares": 23,
+     "units": 89
+    }
+   },
+   "pseudo_squares": 751,
+   "quarters_with_loops": 23,
+   "ratio": 1.20531,
+   "ratio_boot_5_95": [
+    1.09495,
+    1.60048
+   ],
+   "share_squares_over_floor_q90": 0.147524,
+   "squares": 949
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "pair": "cross_wine",
+    "scope": "all",
+    "sizes": "all"
+   },
+   "density_floor": {
+    "p": 1.0,
+    "rho": 0.259201,
+    "units": 229
+   },
+   "density_real": {
+    "p": 0.0424788,
+    "rho": -0.176547,
+    "units": 95
+   },
+   "floor_q90": 0.751022,
+   "loops": 414,
+   "median_abs_floor": 0.241227,
+   "median_abs_square": 0.393729,
+   "per_quarter": {
+    "2011Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 3
+    },
+    "2012Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 2
+    },
+    "2012Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 12
+    },
+    "2013Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2013Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2013Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 18
+    },
+    "2014Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2014Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 9,
+     "squares": 0,
+     "units": 13
+    },
+    "2014Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2015Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 8
+    },
+    "2015Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 5
+    },
+    "2015Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2015Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 19,
+     "squares": 0,
+     "units": 17
+    },
+    "2016Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2016Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2016Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 8
+    },
+    "2016Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 17
+    },
+    "2017Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 12
+    },
+    "2017Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 9
+    },
+    "2017Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 15
+    },
+    "2017Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 13
+    },
+    "2018Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 1,
+     "squares": 0,
+     "units": 12
+    },
+    "2018Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2018Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 10
+    },
+    "2018Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 12,
+     "squares": 0,
+     "units": 21
+    },
+    "2019Q1": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 6
+    },
+    "2019Q2": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 3,
+     "squares": 0,
+     "units": 13
+    },
+    "2019Q3": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 7
+    },
+    "2019Q4": {
+     "houses": 1,
+     "loops": 0,
+     "pseudo": 0,
+     "squares": 0,
+     "units": 13
+    },
+    "2020Q1": {
+     "houses": 3,
+     "loops": 2,
+     "pseudo": 10,
+     "squares": 2,
+     "units": 45
+    },
+    "2020Q2": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 5,
+     "squares": 0,
+     "units": 26
+    },
+    "2020Q3": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 26,
+     "squares": 1,
+     "units": 49
+    },
+    "2020Q4": {
+     "houses": 2,
+     "loops": 0,
+     "pseudo": 42,
+     "squares": 0,
+     "units": 38
+    },
+    "2021Q1": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 71,
+     "squares": 0,
+     "units": 51
+    },
+    "2021Q2": {
+     "houses": 2,
+     "loops": 2,
+     "pseudo": 25,
+     "squares": 2,
+     "units": 44
+    },
+    "2021Q3": {
+     "houses": 3,
+     "loops": 4,
+     "pseudo": 7,
+     "squares": 9,
+     "units": 37
+    },
+    "2021Q4": {
+     "houses": 3,
+     "loops": 1,
+     "pseudo": 61,
+     "squares": 1,
+     "units": 45
+    },
+    "2022Q1": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 63,
+     "squares": 0,
+     "units": 50
+    },
+    "2022Q2": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 6,
+     "squares": 0,
+     "units": 32
+    },
+    "2022Q3": {
+     "houses": 3,
+     "loops": 0,
+     "pseudo": 32,
+     "squares": 0,
+     "units": 34
+    },
+    "2022Q4": {
+     "houses": 2,
+     "loops": 1,
+     "pseudo": 54,
+     "squares": 0,
+     "units": 42
+    },
+    "2023Q1": {
+     "houses": 4,
+     "loops": 7,
+     "pseudo": 86,
+     "squares": 9,
+     "units": 94
+    },
+    "2023Q2": {
+     "houses": 5,
+     "loops": 2,
+     "pseudo": 68,
+     "squares": 3,
+     "units": 69
+    },
+    "2023Q3": {
+     "houses": 6,
+     "loops": 3,
+     "pseudo": 66,
+     "squares": 5,
+     "units": 63
+    },
+    "2023Q4": {
+     "houses": 6,
+     "loops": 14,
+     "pseudo": 83,
+     "squares": 62,
+     "units": 76
+    },
+    "2024Q1": {
+     "houses": 7,
+     "loops": 4,
+     "pseudo": 131,
+     "squares": 3,
+     "units": 68
+    },
+    "2024Q2": {
+     "houses": 7,
+     "loops": 12,
+     "pseudo": 60,
+     "squares": 40,
+     "units": 67
+    },
+    "2024Q3": {
+     "houses": 8,
+     "loops": 10,
+     "pseudo": 65,
+     "squares": 15,
+     "units": 72
+    },
+    "2024Q4": {
+     "houses": 9,
+     "loops": 12,
+     "pseudo": 43,
+     "squares": 13,
+     "units": 73
+    },
+    "2025Q1": {
+     "houses": 8,
+     "loops": 21,
+     "pseudo": 348,
+     "squares": 95,
+     "units": 95
+    },
+    "2025Q2": {
+     "houses": 10,
+     "loops": 17,
+     "pseudo": 119,
+     "squares": 27,
+     "units": 66
+    },
+    "2025Q3": {
+     "houses": 11,
+     "loops": 33,
+     "pseudo": 138,
+     "squares": 39,
+     "units": 109
+    },
+    "2025Q4": {
+     "houses": 12,
+     "loops": 53,
+     "pseudo": 437,
+     "squares": 95,
+     "units": 134
+    },
+    "2026Q1": {
+     "houses": 13,
+     "loops": 73,
+     "pseudo": 380,
+     "squares": 296,
+     "units": 138
+    },
+    "2026Q2": {
+     "houses": 14,
+     "loops": 108,
+     "pseudo": 558,
+     "squares": 386,
+     "units": 155
+    },
+    "2026Q3": {
+     "houses": 10,
+     "loops": 32,
+     "pseudo": 114,
+     "squares": 44,
+     "units": 89
+    }
+   },
+   "pseudo_squares": 3158,
+   "quarters_with_loops": 23,
+   "ratio": 1.63219,
+   "ratio_boot_5_95": [
+    1.26984,
+    1.93064
+   ],
+   "share_squares_over_floor_q90": 0.20619,
+   "squares": 1147
+  }
+ ],
+ "stage": "B126"
+}

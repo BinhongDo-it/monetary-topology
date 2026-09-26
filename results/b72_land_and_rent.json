@@ -1,0 +1,87 @@
+{
+ "config": {
+  "bisection_steps": 60,
+  "corn_input": [
+   0.1,
+   0.6
+  ],
+  "labour_input": [
+   0.2,
+   1.5
+  ],
+  "lands": [
+   2,
+   5
+  ],
+  "n_systems": 400,
+  "r_grid": 400,
+  "r_max": 2.0,
+  "seed": 0,
+  "switch_floor": 1e-06,
+  "tol": 1e-12,
+  "tol_cycle": 1e-10
+ },
+ "criteria": [
+  {
+   "detail": "400 drawn sets of 2 to 5 lands, each land using between 0.1 and 0.6 corn and between 0.2 and 1.5 labour per unit of corn. **The order of cultivation reverses with the rate of profit on 227 of them**, 260 crossings in all, at rates between 0.0142 and 1.9854 with a median of 0.6770. This is Sraffa's section 86, which the Centro Sraffa survey renders as: *the order of cultivation is dictated by costs of production, and since relative costs depend on distribution the order may vary with it and is not given by Nature*. **Read here, the wage is the lower envelope of the lands' own wage curves, each a straight line in the rate, and a reversal is two lines crossing**, which is the same shape as the reswitching of B67-6b. The companion reading is read back at the same time: **the land that attains the envelope pays no rent and no other rent is negative**, on 400 of 400 systems at a rate of 0.25",
+   "kind": "known_answer",
+   "name": "B72-5",
+   "passed": true,
+   "statement": "Sraffa's section 86: the order of cultivation varies with distribution and is not given by Nature"
+  },
+  {
+   "detail": "400 systems at four rates, 1600 points where the wage and both legs are positive. **With the rent set at what each land's cycle carries over the common value, every cycle sums to log(1 + r)**, within 1e-10 at every point. So the rent is not an extra price to be determined alongside the others: **it is exactly the amount by which a cycle would otherwise carry more than the rest, taken off it**",
+   "kind": "instrument",
+   "name": "B72-6a",
+   "passed": true,
+   "statement": "Theorem 17(2): the rent is what makes every cycle carry the same sum"
+  },
+  {
+   "detail": "400 systems at rates drawn in `[0, 0.5]`. **Exactly one land pays no rent and no rent is negative**, on 400 of 400, the smallest positive rent 0.000072. **Take any other land as the marginal one and some rent goes negative**, on 400 of 400, the most negative -5.2096. So which land is marginal is not chosen: **it is forced by the requirement that no rent be negative**, which is von Neumann's condition (7') of B71 applied to an input no process produces",
+   "kind": "instrument",
+   "name": "B72-6b",
+   "passed": true,
+   "statement": "Theorem 17(3): which land is marginal is forced by the rents being non-negative"
+  },
+  {
+   "detail": "400 systems. **The operated methods number `k + n - 1` and the unknowns `n + k`**, so the price equations are one short, on 400 of 400. **The zero rent on the marginal land is what closes the system**, and the closed corn system has full rank on 400 of 400. The graph is then built as vertices and edges and `b1` read as `E - rank(incidence)`, not from a formula. **Under extensive rent each land is bought by exactly one bundle, so it is a pendant vertex and `b1` is the process count**, on 400 of 400. **Put two methods on one land, which is intensive rent, and that land is bought by two bundles: it closes a cycle and `b1` goes up by one**, on 400 of 400. So the difference between the two kinds of rent is a difference in `b1`, and **the extra equation intensive rent is known to need is that extra cycle**",
+   "kind": "instrument",
+   "name": "B72-6c",
+   "passed": true,
+   "statement": "the counting, and the difference between extensive and intensive rent as a difference in b1"
+  }
+ ],
+ "mapping": {
+  "B72-5": "constructed and read back -> PASS; not -> FAIL, and the code or the reading of the source is fixed first",
+  "B72-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B72-5": {
+   "crossings": 260,
+   "marginal_zero": 400,
+   "systems": 400,
+   "with_switch": 227,
+   "within": 1e-10
+  },
+  "B72-6a": {
+   "equal": 1600,
+   "points": 1600,
+   "systems": 400,
+   "within": 1e-10
+  },
+  "B72-6b": {
+   "one_zero": 400,
+   "others_fail": 400,
+   "systems": 400,
+   "within": 1e-10
+  },
+  "B72-6c": {
+   "b1_extensive": 400,
+   "b1_intensive": 400,
+   "full_rank": 400,
+   "short_by_one": 400,
+   "systems": 400
+  }
+ },
+ "stage": "B72"
+}

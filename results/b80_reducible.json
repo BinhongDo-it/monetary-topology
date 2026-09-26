@@ -1,0 +1,992 @@
+{
+ "config": {
+  "bisect_iters": 60,
+  "factor_tol": 1e-06,
+  "gap_floor": 0.0001,
+  "published_tol": 1e-08,
+  "reps": 10,
+  "seed": 80,
+  "solver": "b75_rectangular_programme, imported not rewritten"
+ },
+ "criteria": [
+  {
+   "detail": "example 1 irreducible, alpha = beta = 1.259921050 against the published 1.259921048 and against 2^(1/3) = 1.259921050; example 2 reducible, alpha 1.259921050 and beta 1.000000000 against the published 1.259921052 and 1.000000001",
+   "kind": "known_answer",
+   "name": "B80-1",
+   "passed": true,
+   "statement": "both published example economies return their published expansion and interest factors, and their published reducibility"
+  },
+  {
+   "detail": "17 economies, two enumerations over two different index sets: 17 agree. 14 of them reducible and 3 irreducible, so both branches occur",
+   "kind": "instrument",
+   "name": "B80-2",
+   "passed": true,
+   "statement": "enumerating independent subsets over goods and over activities give the same family, which checks the translation of the definition"
+  },
+  {
+   "detail": "10 simple economies (B = I). **alpha_0 is the max of 1/lambda over the parts closed under consumption** in 10 of 10, and **beta_0 is 1/lambda_PF of the whole matrix**, equivalently the min over all strongly connected components, in 10 of 10. Both cross readings fail: beta_0 off the closed family is wrong in 7 of 10, alpha_0 off the all-components family is wrong in 3 of 10. So neither single family carries both halves",
+   "kind": "own_reading",
+   "name": "B80-3",
+   "passed": true,
+   "statement": "on a simple economy alpha_0 is the max over the parts closed under consumption while beta_0 is 1/lambda_PF of the whole matrix, so the two factors are not read off one family"
+  },
+  {
+   "detail": "10 simple economies: the support of the intensity vector is closed under consumption and sits inside the part attaining alpha_0 in 10 of 10. The price vector's support is not confined that way in 3 of 10, which is the asymmetry stated as a count",
+   "kind": "own_reading",
+   "name": "B80-4",
+   "passed": true,
+   "statement": "the support of the intensity vector is closed under consumption and lies in the part attaining alpha_0; the price vector's support is not confined"
+  },
+  {
+   "detail": "11 irreducible economies, every one with |alpha - beta| below 1e-06, 0 exception(s); 11 reducible, of which 5 carry a gap above 1e-04, largest 1.511786. Reducible permits a gap and does not force one, so this is stated in one direction only",
+   "kind": "own_reading",
+   "name": "B80-5",
+   "passed": true,
+   "statement": "an irreducible economy has alpha_0 = beta_0 and a reducible one may carry a gap, so the gap is a statement about connectivity"
+  },
+  {
+   "detail": "both off-diagonal cells exhibited. Irreducible with a spread: gap 1.29e-14 and cycle sums spanning 0.0427 over 5 activities on 4 goods, 1 of them idle. It takes more activities than goods: on 20 irreducible simple economies the worst spread was 3.89e-14, because with B = I and A irreducible the Perron vector is strictly positive so nothing is idle. Reducible with no spread inside a part: gap 0.259921 while each of the 2 parts carries one common sum to within 1e-6. So a gap is a statement about connectivity and a spread is a statement about the field",
+   "kind": "own_reading",
+   "name": "B80-6",
+   "passed": true,
+   "statement": "the gap between the factors and the spread of the cycle sums are two objects: both off-diagonal cells are exhibited"
+  },
+  {
+   "detail": "three registrations closed by this station: B75 -> B80-3 and B80-4; B71 -> B80-1, B80-2 and B80-5; B77 -> B80-4",
+   "kind": "bookkeeping",
+   "name": "B80-7",
+   "passed": true,
+   "statement": "the three registrations this station closes, each named with the criterion that answers it"
+  }
+ ],
+ "mapping": {
+  "B80-1": "both factors inside the published tolerance and the reducibility of each example as published -> PASS; else FAIL",
+  "B80-2": "the two enumerations agree on every economy AND both reducible and irreducible cases occur -> PASS; any disagreement, or only one branch present, -> FAIL",
+  "B80-3": "alpha_0 matches the max over closed parts everywhere AND beta_0 matches 1/lambda_PF everywhere AND the one-family reading is wrong somewhere -> PASS. The third clause is required: if it were never wrong the two families would be one and this criterion would be empty",
+  "B80-4": "the intensity support closed and inside the top part everywhere, AND the price support outside it somewhere -> PASS; else FAIL",
+  "B80-5": "no irreducible economy carries a gap AND at least one reducible economy does -> PASS; else FAIL. Stated one way: reducible permits a gap and does not force one",
+  "B80-6": "both off-diagonal cells exhibited -> PASS; either missing -> FAIL, and a missing cell would be a finding about the two objects being one, not a broken check",
+  "B80-7": "three registrations, each with the criterion that answers it -> PASS"
+ },
+ "report": {
+  "B80-1": {
+   "published": [
+    {
+     "alpha": 1.2599210498949045,
+     "beta": 1.2599210498948419,
+     "example": "example 1",
+     "irreducible": true,
+     "published_alpha": 1.2599210478365421,
+     "published_beta": 1.2599210478365421,
+     "shape": [
+      3,
+      4
+     ]
+    },
+    {
+     "alpha": 1.2599210498949138,
+     "beta": 0.99999999999997,
+     "example": "example 2",
+     "irreducible": false,
+     "published_alpha": 1.259921052493155,
+     "published_beta": 1.0000000009313226,
+     "shape": [
+      5,
+      6
+     ]
+    }
+   ]
+  },
+  "B80-2": {
+   "enumeration_cases": [
+    {
+     "agree": true,
+     "case": "example 1",
+     "irreducible": true,
+     "n_independent": 1,
+     "shape": [
+      3,
+      4
+     ]
+    },
+    {
+     "agree": true,
+     "case": "example 2",
+     "irreducible": false,
+     "n_independent": 3,
+     "shape": [
+      5,
+      6
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 0",
+     "irreducible": false,
+     "n_independent": 3,
+     "shape": [
+      5,
+      4
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 1",
+     "irreducible": false,
+     "n_independent": 2,
+     "shape": [
+      4,
+      3
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 2",
+     "irreducible": true,
+     "n_independent": 1,
+     "shape": [
+      5,
+      3
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 3",
+     "irreducible": false,
+     "n_independent": 7,
+     "shape": [
+      4,
+      5
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 4",
+     "irreducible": false,
+     "n_independent": 3,
+     "shape": [
+      3,
+      5
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 5",
+     "irreducible": false,
+     "n_independent": 5,
+     "shape": [
+      5,
+      3
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 6",
+     "irreducible": false,
+     "n_independent": 8,
+     "shape": [
+      5,
+      5
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 7",
+     "irreducible": false,
+     "n_independent": 8,
+     "shape": [
+      5,
+      5
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 8",
+     "irreducible": true,
+     "n_independent": 1,
+     "shape": [
+      5,
+      3
+     ]
+    },
+    {
+     "agree": true,
+     "case": "draw 9",
+     "irreducible": false,
+     "n_independent": 12,
+     "shape": [
+      5,
+      5
+     ]
+    },
+    {
+     "agree": true,
+     "case": "block 0",
+     "irreducible": false,
+     "n_independent": 14,
+     "shape": [
+      5,
+      7
+     ]
+    },
+    {
+     "agree": true,
+     "case": "block 1",
+     "irreducible": false,
+     "n_independent": 17,
+     "shape": [
+      5,
+      7
+     ]
+    },
+    {
+     "agree": true,
+     "case": "block 2",
+     "irreducible": false,
+     "n_independent": 8,
+     "shape": [
+      5,
+      7
+     ]
+    },
+    {
+     "agree": true,
+     "case": "block 3",
+     "irreducible": false,
+     "n_independent": 24,
+     "shape": [
+      4,
+      6
+     ]
+    },
+    {
+     "agree": true,
+     "case": "block 4",
+     "irreducible": false,
+     "n_independent": 53,
+     "shape": [
+      5,
+      7
+     ]
+    }
+   ]
+  },
+  "B80-3": {
+   "two_families": [
+    {
+     "alpha0": 0.6665733331440118,
+     "alpha_off_all_components_by": 2.2671485194281944,
+     "beta0": 0.6665733331439947,
+     "beta_off_closed_family_by": 8.215650382226158e-15,
+     "case": 0,
+     "closed_parts": [
+      [
+       1,
+       2,
+       3
+      ]
+     ],
+     "max_over_closed": 0.6665733331440029,
+     "min_over_all_components": 0.6665733331440029,
+     "n": 6,
+     "one_over_perron_whole": 0.6665733331440036,
+     "strong_components": [
+      [
+       0
+      ],
+      [
+       1,
+       2,
+       3
+      ],
+      [
+       4,
+       5
+      ]
+     ]
+    },
+    {
+     "alpha0": 1.9875209469994646,
+     "alpha_off_all_components_by": 1.9875208145947454e-09,
+     "beta0": 0.5242575944682824,
+     "beta_off_closed_family_by": 1.4632633505436614,
+     "case": 1,
+     "closed_parts": [
+      [
+       0
+      ]
+     ],
+     "max_over_closed": 1.9875209450119438,
+     "min_over_all_components": 0.524257594468295,
+     "n": 5,
+     "one_over_perron_whole": 0.5242575944682952,
+     "strong_components": [
+      [
+       0
+      ],
+      [
+       1,
+       2,
+       3,
+       4
+      ]
+     ]
+    },
+    {
+     "alpha0": 0.7102892368334206,
+     "alpha_off_all_components_by": 1.432187701766452e-14,
+     "beta0": 0.4796595725367901,
+     "beta_off_closed_family_by": 0.2306296642966162,
+     "case": 2,
+     "closed_parts": [
+      [
+       0,
+       1
+      ]
+     ],
+     "max_over_closed": 0.7102892368334063,
+     "min_over_all_components": 0.47965961995384226,
+     "n": 5,
+     "one_over_perron_whole": 0.479659619953842,
+     "strong_components": [
+      [
+       0,
+       1
+      ],
+      [
+       2,
+       3,
+       4
+      ]
+     ]
+    },
+    {
+     "alpha0": 0.8802476166631985,
+     "alpha_off_all_components_by": 1.186770154049979,
+     "beta0": 0.8802476166631206,
+     "beta_off_closed_family_by": 3.8968828164342995e-14,
+     "case": 3,
+     "closed_parts": [
+      [
+       0,
+       1
+      ]
+     ],
+     "max_over_closed": 0.8802476166631595,
+     "min_over_all_components": 0.8802476166631595,
+     "n": 6,
+     "one_over_perron_whole": 0.8802476166631581,
+     "strong_components": [
+      [
+       0,
+       1
+      ],
+      [
+       2
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       5
+      ]
+     ]
+    },
+    {
+     "alpha0": 0.4339048856637491,
+     "alpha_off_all_components_by": 3.321836977894363,
+     "beta0": 0.4339048856637319,
+     "beta_off_closed_family_by": 8.493206138382448e-15,
+     "case": 4,
+     "closed_parts": [
+      [
+       0,
+       1,
+       2,
+       3
+      ]
+     ],
+     "max_over_closed": 0.4339048856637404,
+     "min_over_all_components": 0.4339048856637404,
+     "n": 5,
+     "one_over_perron_whole": 0.43390488566374097,
+     "strong_components": [
+      [
+       0,
+       1,
+       2,
+       3
+      ],
+      [
+       4
+      ]
+     ]
+    },
+    {
+     "alpha0": 1.9751296432510759,
+     "alpha_off_all_components_by": 1.975129393372299e-09,
+     "beta0": 0.37749508728226094,
+     "beta_off_closed_family_by": 1.5976345539936856,
+     "case": 5,
+     "closed_parts": [
+      [
+       0
+      ]
+     ],
+     "max_over_closed": 1.9751296412759465,
+     "min_over_all_components": 0.37749508728227005,
+     "n": 6,
+     "one_over_perron_whole": 0.37749508728226994,
+     "strong_components": [
+      [
+       0
+      ],
+      [
+       1
+      ],
+      [
+       2,
+       3,
+       4,
+       5
+      ]
+     ]
+    },
+    {
+     "alpha0": 0.8824552258640128,
+     "alpha_off_all_components_by": 8.824552200081826e-10,
+     "beta0": 0.5088433296671462,
+     "beta_off_closed_family_by": 0.3736118953144114,
+     "case": 6,
+     "closed_parts": [
+      [
+       1
+      ]
+     ],
+     "max_over_closed": 0.8824552249815576,
+     "min_over_all_components": 0.5088433296671602,
+     "n": 6,
+     "one_over_perron_whole": 0.5088433296671597,
+     "strong_components": [
+      [
+       0
+      ],
+      [
+       1
+      ],
+      [
+       2,
+       3,
+       4,
+       5
+      ]
+     ]
+    },
+    {
+     "alpha0": 1.0130136967425547,
+     "alpha_off_all_components_by": 1.0130134509012123e-09,
+     "beta0": 0.5098362661215976,
+     "beta_off_closed_family_by": 0.5031774296079436,
+     "case": 7,
+     "closed_parts": [
+      [
+       3
+      ]
+     ],
+     "max_over_closed": 1.0130136957295413,
+     "min_over_all_components": 0.509836266121609,
+     "n": 5,
+     "one_over_perron_whole": 0.509836266121609,
+     "strong_components": [
+      [
+       0,
+       1,
+       2
+      ],
+      [
+       3
+      ],
+      [
+       4
+      ]
+     ]
+    },
+    {
+     "alpha0": 1.3171965131840007,
+     "alpha_off_all_components_by": 1.3171965740355063e-09,
+     "beta0": 0.8650070394055518,
+     "beta_off_closed_family_by": 0.4521894724612523,
+     "case": 8,
+     "closed_parts": [
+      [
+       2
+      ]
+     ],
+     "max_over_closed": 1.317196511866804,
+     "min_over_all_components": 0.8650070647023177,
+     "n": 4,
+     "one_over_perron_whole": 0.8650070647023177,
+     "strong_components": [
+      [
+       0
+      ],
+      [
+       1
+      ],
+      [
+       2
+      ],
+      [
+       3
+      ]
+     ]
+    },
+    {
+     "alpha0": 1.1915260253992659,
+     "alpha_off_all_components_by": 1.1915259889860863e-09,
+     "beta0": 0.39955662017002286,
+     "beta_off_closed_family_by": 0.791969404037717,
+     "case": 9,
+     "closed_parts": [
+      [
+       0
+      ]
+     ],
+     "max_over_closed": 1.19152602420774,
+     "min_over_all_components": 0.3995566201700331,
+     "n": 4,
+     "one_over_perron_whole": 0.39955662017003263,
+     "strong_components": [
+      [
+       0
+      ],
+      [
+       1,
+       2,
+       3
+      ]
+     ]
+    }
+   ]
+  },
+  "B80-4": {
+   "supports": [
+    {
+     "case": 0,
+     "p_inside_top": true,
+     "support_p": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "support_x": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "top_part": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 1,
+     "p_inside_top": true,
+     "support_p": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "support_x": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "top_part": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 2,
+     "p_inside_top": false,
+     "support_p": [
+      0,
+      1,
+      5
+     ],
+     "support_x": [
+      0,
+      1
+     ],
+     "top_part": [
+      0,
+      1
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 3,
+     "p_inside_top": false,
+     "support_p": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "support_x": [
+      1,
+      2
+     ],
+     "top_part": [
+      1,
+      2
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 4,
+     "p_inside_top": true,
+     "support_p": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "support_x": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "top_part": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 5,
+     "p_inside_top": true,
+     "support_p": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "support_x": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "top_part": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 6,
+     "p_inside_top": false,
+     "support_p": [
+      2
+     ],
+     "support_x": [
+      0
+     ],
+     "top_part": [
+      0
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 7,
+     "p_inside_top": true,
+     "support_p": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "support_x": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "top_part": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 8,
+     "p_inside_top": true,
+     "support_p": [
+      0
+     ],
+     "support_x": [
+      0
+     ],
+     "top_part": [
+      0
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    },
+    {
+     "case": 9,
+     "p_inside_top": true,
+     "support_p": [
+      0
+     ],
+     "support_x": [
+      0
+     ],
+     "top_part": [
+      0
+     ],
+     "x_inside_top": true,
+     "x_support_closed": true
+    }
+   ]
+  },
+  "B80-5": {
+   "irreducible_cases": [
+    {
+     "alpha": 1.2599210498949045,
+     "beta": 1.2599210498948419,
+     "case": "example 1",
+     "gap": 6.261657858885883e-14
+    },
+    {
+     "alpha": 0.44083854751253454,
+     "beta": 0.4408385475125149,
+     "case": "dense 0",
+     "gap": 1.965094753586527e-14
+    },
+    {
+     "alpha": 0.30659597805685596,
+     "beta": 0.3065959780568435,
+     "case": "dense 1",
+     "gap": 1.2434497875801753e-14
+    },
+    {
+     "alpha": 0.36210344304562125,
+     "beta": 0.36210344304560654,
+     "case": "dense 2",
+     "gap": 1.4710455076283324e-14
+    },
+    {
+     "alpha": 0.4377802306219583,
+     "beta": 0.43778023062194554,
+     "case": "dense 3",
+     "gap": 1.27675647831893e-14
+    },
+    {
+     "alpha": 0.336856387519264,
+     "beta": 0.3368563875192501,
+     "case": "dense 4",
+     "gap": 1.3877787807814457e-14
+    },
+    {
+     "alpha": 0.5155637297184701,
+     "beta": 0.5155637297184466,
+     "case": "dense 5",
+     "gap": 2.353672812205332e-14
+    },
+    {
+     "alpha": 0.4089469606467879,
+     "beta": 0.40894696064676334,
+     "case": "dense 6",
+     "gap": 2.4591439995447217e-14
+    },
+    {
+     "alpha": 0.2583185589577626,
+     "beta": 0.2583185589577369,
+     "case": "dense 7",
+     "gap": 2.5701663020072374e-14
+    },
+    {
+     "alpha": 0.33793613135900064,
+     "beta": 0.3379361313589804,
+     "case": "dense 8",
+     "gap": 2.0261570199409107e-14
+    },
+    {
+     "alpha": 0.29335876377973163,
+     "beta": 0.2933587637797164,
+     "case": "dense 9",
+     "gap": 1.5210055437364645e-14
+    }
+   ],
+   "reducible_cases": [
+    {
+     "alpha": 1.2599210498949138,
+     "beta": 0.99999999999997,
+     "case": "example 2",
+     "gap": 0.2599210498949438
+    },
+    {
+     "alpha": 0.5333827794937431,
+     "beta": 0.5333827794937089,
+     "case": "simple 0",
+     "gap": 3.419486915845482e-14
+    },
+    {
+     "alpha": 1.105488884809915,
+     "beta": 0.5586857192044314,
+     "case": "simple 1",
+     "gap": 0.5468031656054835
+    },
+    {
+     "alpha": 0.8080028232967247,
+     "beta": 0.6280835047750049,
+     "case": "simple 2",
+     "gap": 0.17991931852171983
+    },
+    {
+     "alpha": 1.7475546028884192,
+     "beta": 0.33308453056798093,
+     "case": "simple 3",
+     "gap": 1.4144700723204382
+    },
+    {
+     "alpha": 2.099423935518912,
+     "beta": 0.5876377552420826,
+     "case": "simple 4",
+     "gap": 1.5117861802768293
+    },
+    {
+     "alpha": 0.8035420577836312,
+     "beta": 0.8035420577835963,
+     "case": "simple 5",
+     "gap": 3.4861002973229915e-14
+    },
+    {
+     "alpha": 0.5336463324362506,
+     "beta": 0.5336463324362275,
+     "case": "simple 6",
+     "gap": 2.3092638912203256e-14
+    },
+    {
+     "alpha": 0.7284077853787885,
+     "beta": 0.7284077853787558,
+     "case": "simple 7",
+     "gap": 3.26405569239796e-14
+    },
+    {
+     "alpha": 0.5912664132045571,
+     "beta": 0.5912664132045407,
+     "case": "simple 8",
+     "gap": 1.6431300764452317e-14
+    },
+    {
+     "alpha": 0.5447985535660305,
+     "beta": 0.5447985535659987,
+     "case": "simple 9",
+     "gap": 3.175237850427948e-14
+    }
+   ]
+  },
+  "B80-6": {
+   "irreducible_with_spread": {
+    "case": "rectangular 7",
+    "gap": 1.2878587085651816e-14,
+    "idle_activities": [
+     1
+    ],
+    "n_activities": 5,
+    "n_goods": 4,
+    "spread": 0.042733478744445774,
+    "square_economies_tried": 20,
+    "worst_square_spread": 3.885780586188048e-14
+   },
+   "reducible_without_spread": {
+    "case": "example 2",
+    "gap": 0.2599210498949438,
+    "parts": [
+     [
+      0,
+      1,
+      2,
+      3
+     ],
+     [
+      2,
+      3,
+      4,
+      5
+     ]
+    ],
+    "within_part_spread": [
+     3.3306690738754696e-16,
+     1.1657341758564144e-14
+    ]
+   }
+  },
+  "B80-7": {
+   "registrations": [
+    {
+     "answered_by": "B80-3 and B80-4: alpha is the max over the parts closed under consumption and the intensity vector lives in the one attaining it; beta is not read off that family at all, it is the whole matrix",
+     "registered_by": "B75",
+     "text": "which component alpha and beta are read off in a reducible system, which needs the decomposition computed first"
+    },
+    {
+     "answered_by": "B80-1, B80-2 and B80-5: independence is enumerated two ways, the two published examples read back, and irreducibility is what forces the two factors together",
+     "registered_by": "B71",
+     "text": "the Kemeny-Morgenstern-Thompson generalisation, which relaxes the positivity assumption"
+    },
+    {
+     "answered_by": "B80-4: the active set is confined to a part closed under consumption, whatever the size of the index set, because the constraint is on the support and not on the count",
+     "registered_by": "B77",
+     "text": "joining the continuum's active set to B75's reducible decomposition"
+    }
+   ]
+  }
+ },
+ "sources": {
+  "examples_and_statement": "QuantEcon, Von Neumann Growth Model (and a Generalization): the two example economies, the definition of an independent subset, Theorem I and Theorem II, and the line alpha_0 = max_i alpha_i and beta_0 = min_i beta_i stated for a simple economy with B = I",
+  "original": "Kemeny, J. G., Morgenstern, O. and Thompson, G. L. (1956), A Generalization of the von Neumann Model of an Expanding Economy, Econometrica 24, 115-135"
+ },
+ "stage": "B80"
+}

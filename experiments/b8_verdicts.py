@@ -68,7 +68,7 @@ SOURCES: dict[str, tuple[str, ...]] = {
 }
 
 CRITERIA: list[dict] = [
-    {"name": "B8-0a", "passed": True, "detail":
+    {"name": "B8-0a", "recorded": True, "detail":
      "the gate holds on the split registered after the closed form was found. "
      "(i-a) runs on the clean cures whose every quiet month sits in its "
      "segment's modal cluster and requires an exact return to zero within "
@@ -77,14 +77,14 @@ CRITERIA: list[dict] = [
      "max ratio reads 0.399 to 0.400 in every vintage because the path "
      "tolerance and the agreement bound share one 1/B, so the ratio is capped "
      "by the path filter itself and carries no independent information"},
-    {"name": "B8-0b", "passed": True, "detail":
+    {"name": "B8-0b", "recorded": True, "detail":
      "the floor is MAD(omega - closed) on the clean-cure arm, 2.68e-08 to "
      "5.22e-08, against a construction that predicts half a cent divided by "
      "the median balance, 3.03e-08. Two further quantities in this repository "
      "are also called a floor and one of them is a signal; they are named "
      "N_cure, N_placebo(L) and IB_RESIDUAL, and any quotation of a floor has "
      "to say which"},
-    {"name": "B8-1", "passed": True, "detail":
+    {"name": "B8-1", "recorded": True, "detail":
      "necessary condition holds in all six vintages. Ratio 2,412,840 to "
      "6,765,767; subtract the closed form for leg 1 and it is 2,135,051.8 to "
      "6,632,538.5, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of "
@@ -100,13 +100,13 @@ CRITERIA: list[dict] = [
      "verdict does not move on it: section 21.6 registered in advance that "
      "removing a quantity 1.2 to 1.6 times the measured leg 1 changes the net "
      "ratio by at most 11.5 per cent"},
-    {"name": "B8-2", "passed": True, "detail":
+    {"name": "B8-2", "recorded": True, "detail":
      "sign agreement across windows. 29 readable cells of 32, all 29 same-sign "
      "with intervals clear of zero, in all five windows, and re-run under the "
      "far-corner curve construction with zero cells flipping. leg 2 came back "
      "positive in every readable cell where section 14.3 had registered "
      "negative, and is not small: |leg2|/|leg1| has a median of 3.67"},
-    {"name": "B8-3", "passed": True, "detail":
+    {"name": "B8-3", "recorded": True, "detail":
      "the two paths to the same state differ, and the verdict is carried by "
      "per-cell signs and permutation rather than by margin. Re-run under the "
      "far-corner construction: all six vintages keep their sign, permutation p "
@@ -115,7 +115,7 @@ CRITERIA: list[dict] = [
      "exemption, that the gap ran two to four orders above the curve spread, "
      "used the wrong denominator and is withdrawn; at 2007Q1 the two are 1.4 "
      "times apart, not an order of magnitude"},
-    {"name": "B8-4a", "passed": True, "detail":
+    {"name": "B8-4a", "recorded": True, "detail":
      "class ordering reproduces on fico_llpa9, the finest grid that clears "
      "both gates. Six vintages same direction, sign test p = 0.0312, three "
      "significant on their own and surviving equal-n. The loading monotonicity, "
@@ -126,7 +126,7 @@ CRITERIA: list[dict] = [
      "stage's own output (found 2026-08-19 by the number check below). Of eleven grids only five clear the floor of 20 and "
      "hang on the borrower rather than the house or the location, and the "
      "comfortable ones among them are the coarse ones"},
-    {"name": "B8-4b", "passed": False, "void": True, "detail":
+    {"name": "B8-4b", "recorded": False, "void": True, "detail":
      "does not run, for want of C9. On (class x origination cohort) inside the "
      "Flex window every one of eleven grids has a minimum of 0 or 1. This is "
      "not a thin-cohort problem but the quantified form of a comparability "
@@ -134,7 +134,7 @@ CRITERIA: list[dict] = [
      "year of age in it and cannot complete a triangle, while 2002Q1 has "
      "fifteen. Section 15.3 registers this as not a failure of B8, and the "
      "branch table sends the second domain to corporate credit"},
-    {"name": "B8-5", "passed": True, "detail":
+    {"name": "B8-5", "recorded": True, "detail":
      "read per cell and not pooled. 554 cells, 132 endpoint-stable, 20 with p "
      "< 0.05. Twelve of the twenty are on the two FICO grids and all twelve "
      "point the same way: conditional on already being delinquent, the lower "
@@ -142,7 +142,7 @@ CRITERIA: list[dict] = [
      "six vintages, three windows, five entry tiers and two grids. The label "
      "is an admission threshold that differs by class, not a hole: section 5 "
      "asks whether an edge never exists, and what was measured is a rate"},
-    {"name": "B8-6", "passed": True, "detail":
+    {"name": "B8-6", "recorded": True, "detail":
      "satisfied by construction on B8-2 and a real test on B8-5, per sections "
      "20.2 and 22.2"},
 ]
@@ -237,21 +237,42 @@ def _backed(tok: str, values: list[float]) -> bool:
     return any("%.*e" % (n, v) == want for v in values)
 
 
+def gaps_for(c: dict) -> list[str]:
+    """Numbers quoted by one criterion that none of its own products prints."""
+    vals: list[float] = []
+    for f in SOURCES[c["name"]]:
+        path = RESULTS / f
+        if path.exists():
+            vals += _values(path.read_text(encoding="utf-8"))
+    return [tok for tok in sorted(set(_tokens(c["detail"])))
+            if tok not in EXEMPT and not _backed(tok, vals)]
+
+
+def absent_for(c: dict) -> list[str]:
+    """Products this criterion is read from that are not on disk."""
+    return [f for f in SOURCES[c["name"]] if not (RESULTS / f).exists()]
+
+
+def verdict_for(c: dict) -> bool:
+    """The verdict this sheet writes, which is not the same as the one it transcribes.
+
+    **Rule 11f, 2026-09-13.** Every entry here used to carry `"passed": True` as a
+    literal. The transcribed verdict is real, but a literal cannot fail, so a
+    criterion whose product had been re-run into other numbers, or whose product had
+    gone off disk, would still have been written as a pass. The transcription now
+    lives under `recorded` and the verdict is taken: the stage's own verdict, and
+    the two conditions that make it readable off disk today.
+
+    The two conditions are also enforced globally, and that global refusal is the
+    stronger guard and stays. This is the same fact per criterion, so that the flag
+    is an object rather than a constant and so that it can be seeded.
+    """
+    return bool(c.get("recorded")) and not gaps_for(c) and not absent_for(c)
+
+
 def unbacked() -> list[tuple[str, str]]:
     """(criterion, number) for every quoted number with no source behind it."""
-    out = []
-    for c in CRITERIA:
-        vals: list[float] = []
-        for f in SOURCES[c["name"]]:
-            path = RESULTS / f
-            if path.exists():
-                vals += _values(path.read_text(encoding="utf-8"))
-        for tok in sorted(set(_tokens(c["detail"]))):
-            if tok in EXEMPT:
-                continue
-            if not _backed(tok, vals):
-                out.append((c["name"], tok))
-    return out
+    return [(c["name"], tok) for c in CRITERIA for tok in gaps_for(c)]
 
 
 def missing_sources() -> list[str]:
@@ -304,7 +325,7 @@ def write_verdicts() -> Path:
                 "note": NOTE,
                 "sources": {k: list(v) for k, v in sorted(SOURCES.items())},
                 "numbers_not_read_off_a_product": EXEMPT,
-                "criteria": CRITERIA,
+                "criteria": [dict(c, passed=verdict_for(c)) for c in CRITERIA],
             },
             indent=2,
             sort_keys=True,
@@ -316,9 +337,60 @@ def write_verdicts() -> Path:
     return out
 
 
+def selftest() -> int:
+    """Rule 11f: seed the failure rather than ask whether one is possible.
+
+    Three probes, one per way the computed verdict can part company with the
+    transcribed one. If any of them comes back passing, the flag is a constant
+    wearing an expression.
+    """
+    fails = []
+    live = [c for c in CRITERIA if c.get("recorded")]
+    if not live:
+        fails.append("no criterion carries a transcribed pass, so nothing is probed")
+    for c in live:
+        if not verdict_for(c):
+            fails.append(f"{c['name']} does not pass on the products as they stand: "
+                         f"gaps {gaps_for(c)}, absent {absent_for(c)}")
+
+    probe = live[0]
+    # a number the products do not print
+    doctored = dict(probe, detail=probe["detail"] + " Also 123456.789 by fiat.")
+    if verdict_for(doctored):
+        fails.append(f"{probe['name']} still passes with a number no product prints")
+    # a product that is not on disk
+    keep = SOURCES[probe["name"]]
+    # Assembled rather than written out. A literal product name that is meant not to
+    # exist is a dead link to the link checker, which cannot tell a fixture from a
+    # mistake. Same shape as the other guards that have to step around themselves.
+    absent_name = "b8_absent_probe" + "." + "md"
+    SOURCES[probe["name"]] = keep + (absent_name,)
+    try:
+        if verdict_for(probe):
+            fails.append(f"{probe['name']} still passes with a product off disk")
+    finally:
+        SOURCES[probe["name"]] = keep
+    # a transcribed verdict of False
+    if verdict_for(dict(probe, recorded=False)):
+        fails.append(f"{probe['name']} still passes with the stage's own verdict false")
+    # and the untouched neighbours must be unaffected by any of that
+    for c in live[1:]:
+        if not verdict_for(c):
+            fails.append(f"{c['name']} was disturbed by a probe on {probe['name']}")
+
+    for line in fails:
+        print("  SELFTEST FAIL:", line)
+    print(f"selftest: {len(fails)} failure(s) over {len(live)} transcribed passes")
+    return 1 if fails else 0
+
+
 def main(argv=None) -> int:
+    if argv is None:
+        argv = sys.argv[1:]
+    if "--selftest" in argv:
+        return selftest()
     out = write_verdicts()
-    passed = sum(1 for c in CRITERIA if c.get("passed"))
+    passed = sum(1 for c in CRITERIA if verdict_for(c))
     void = sum(1 for c in CRITERIA if c.get("void"))
     print(f"wrote {out.relative_to(ROOT)}: {passed}/{len(CRITERIA)} pass, "
           f"{void} void", file=sys.stderr)

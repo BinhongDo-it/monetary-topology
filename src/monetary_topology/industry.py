@@ -111,6 +111,16 @@ class IndustrySpec:
     #: leave a dying industry at no cost make the absorbing wall unobservable.
     switch_cost: float = 0.0
 
+    #: Where a switcher may go. ``"best"``, the default, is the layer's best-paid
+    #: industry alone, so an industry that is not at the top of its layer's pay
+    #: ranking receives nobody. ``"proportional"`` opens every industry of the
+    #: layer whose mean inflow beats the mover's own industry's by that
+    #: destination's entry threshold, the same test ``"best"`` applies to the top
+    #: one, and splits the movers across them in proportion to each one's gain
+    #: above its threshold. Who moves, what a move costs and the tenure reset are
+    #: the same under both.
+    switch_destination: str = "best"
+
     #: An industry counts as damaged when its agent count falls below this
     #: share of the mean industry size in its layer. Zero is off. A share
     #: rather than a headcount so the bar moves with the model's scale instead
@@ -214,6 +224,94 @@ class IndustrySpec:
     #: anywhere in it can reach an aggregate.
     supply_elasticity: float = 0.0
 
+    #: How fast a member's standing in its industry builds, per round. Each
+    #: live member's tenure moves ``s <- s + skill_rate * (1 - s)``, and a
+    #: switch of industry resets it to zero. Read only while ``supply_skill``
+    #: is positive, so a run that leaves that switch at zero never reaches it.
+    #:
+    #: This is the slow half of the asymmetry Volume Two section 3 turns on:
+    #: what an industry knows how to do is built over years, and it is lost the
+    #: moment its people are moved. Zero is a legitimate endpoint of the sweep,
+    #: the case in which a newcomer never becomes skilled at all.
+    skill_rate: float = 0.0
+
+    #: How much of a member's contribution to its industry's deliverable
+    #: capacity depends on tenure: a member contributes
+    #: ``1 - supply_skill * (1 - s)``. Zero is off and reproduces the run
+    #: without it bit for bit.
+    #:
+    #: Written as a shortfall below a fully established member. The premium
+    #: form, a newcomer at one and an established member above it, differs from
+    #: this by a constant factor, and the constant cancels in every ratio the
+    #: model reads. The reference point does not cancel, because the supply
+    #: constraint caps the delivery ratio at one. Measured from a newcomer, an
+    #: established member's skill sits above the cap as idle capacity, and
+    #: losing it costs nothing until headcount falls as well. Measured from an
+    #: established member, which is what the downstream requirement grew up
+    #: around, replacing people with newcomers binds at once. Tenure therefore
+    #: starts at one for every member at t=0, and the reference capacity is the
+    #: t=0 headcount, so a run in which nobody leaves an industry reproduces
+    #: the run without this switch bit for bit.
+    supply_skill: float = 0.0
+
+    #: The demand side of the same stock: regular customers. When a buyer
+    #: splits what it spends on one industry among its contacts there, each
+    #: member counts at ``1 - demand_skill (1 - s)``, so a member who has just
+    #: arrived is passed over in favour of the established ones until its tenure
+    #: grows. Zero is off. Every buyer's split is normalised within the
+    #: industry, so only the ratio between members matters: with every member at
+    #: tenure one the weights are exact ones, and a run in which nobody changes
+    #: industry reproduces the run without this switch bit for bit.
+    demand_skill: float = 0.0
+
+    #: Share of one industry's live members whose membership is reassigned in
+    #: a single round. Zero is off, and none of the four fields below is read.
+    #:
+    #: The event is a change in the rule that says who belongs to the cluster:
+    #: an industry relocated, reorganised or handed over. Claims do not move
+    #: and nobody pays anything; only membership changes. The members moved out
+    #: go round robin to the other industries of the same layer, and with
+    #: ``transfer_replace`` the same number of live nodes from those industries,
+    #: taken by index, move in. Everyone moved on either side starts again at
+    #: tenure zero, so with ``supply_skill`` at zero the event is a relabelling,
+    #: and with it positive the relabelling costs what the movers knew.
+    transfer_share: float = 0.0
+
+    #: The round the membership changes. It happens after that round's own
+    #: switching and before anything is spent, so the people moved meet the
+    #: round's supply constraint at tenure zero, as a switcher does.
+    transfer_round: int = 0
+
+    #: Which industry is reassigned.
+    transfer_industry: int = 0
+
+    #: Whether the industry is restaffed from the rest of its layer at once.
+    #: False leaves it weakened: the members go and nobody replaces them.
+    transfer_replace: bool = True
+
+    #: The round the same people are moved back: those moved out return to the
+    #: industry and those moved in return where they came from, and their
+    #: tenure starts again at zero a second time. Negative is no return.
+    transfer_back_round: int = -1
+
+    #: The rate at which a lost channel is formed again. A channel is a
+    #: discretionary edge from a payer to a live member of an industry; every
+    #: industry is bought from, through ``A`` where it has a coefficient and
+    #: through final demand, which is spread over all of them. The graph is
+    #: otherwise fixed, so
+    #: a payer whose last contact in such an industry dies, switches out or is
+    #: moved by an event has lost that channel, and the industry has lost that
+    #: payer's demand, for good. At a positive rate each such payer forms one new
+    #: edge into the industry each round with this probability. Zero is off and
+    #: reproduces the fixed graph. The difficulty of rebuilding a channel enters
+    #: through this rate alone; no price of search is modelled.
+    channel_rate: float = 0.0
+
+    #: Whether a formed channel redirects one of the payer's existing
+    #: discretionary edges (True, out-degree fixed) or is added to them (False,
+    #: density rises), the same choice ``RewireSpec.conserve_degree`` offers.
+    channel_conserve_degree: bool = False
+
     seed: int = 0
 
     def __post_init__(self) -> None:
@@ -233,6 +331,8 @@ class IndustrySpec:
             raise ValueError("switch_rate must lie in [0, 1]")
         if self.switch_cost < 0.0:
             raise ValueError("switch_cost must be non-negative")
+        if self.switch_destination not in ("best", "proportional"):
+            raise ValueError("switch_destination must be 'best' or 'proportional'")
         if not 0.0 <= self.min_share:
             raise ValueError("min_share must be non-negative")
         if self.recovery_friction < 0.0:
@@ -246,6 +346,23 @@ class IndustrySpec:
                 raise ValueError(f"{name} must exceed -1; -1 would zero the matrix")
         if not 0.0 <= self.supply_elasticity <= 1.0:
             raise ValueError("supply_elasticity must lie in [0, 1]")
+        if not 0.0 <= self.skill_rate <= 1.0:
+            raise ValueError("skill_rate must lie in [0, 1]")
+        if not 0.0 <= self.supply_skill <= 1.0:
+            raise ValueError("supply_skill must lie in [0, 1]")
+        if not 0.0 <= self.demand_skill <= 1.0:
+            raise ValueError("demand_skill must lie in [0, 1]")
+        if not 0.0 <= self.transfer_share <= 1.0:
+            raise ValueError("transfer_share must lie in [0, 1]")
+        if self.transfer_share > 0.0:
+            if not 0 <= self.transfer_industry < self.count:
+                raise ValueError("transfer_industry must name an industry")
+            if self.transfer_round < 0:
+                raise ValueError("transfer_round must be non-negative")
+            if 0 <= self.transfer_back_round <= self.transfer_round:
+                raise ValueError("transfer_back_round must come after transfer_round")
+        if not 0.0 <= self.channel_rate <= 1.0:
+            raise ValueError("channel_rate must lie in [0, 1]")
 
     @property
     def enabled(self) -> bool:
@@ -267,6 +384,7 @@ class IndustrySpec:
             "weight_shape": self.weight_shape,
             "switch_rate": self.switch_rate,
             "switch_cost": self.switch_cost,
+            "switch_destination": self.switch_destination,
             "min_share": self.min_share,
             "recovery_friction": self.recovery_friction,
             "friction_spread": self.friction_spread,
@@ -275,6 +393,16 @@ class IndustrySpec:
             "col_drift": self.col_drift,
             "col_drift_financial": self.col_drift_financial,
             "supply_elasticity": self.supply_elasticity,
+            "skill_rate": self.skill_rate,
+            "supply_skill": self.supply_skill,
+            "demand_skill": self.demand_skill,
+            "transfer_share": self.transfer_share,
+            "transfer_round": self.transfer_round,
+            "transfer_industry": self.transfer_industry,
+            "transfer_replace": self.transfer_replace,
+            "transfer_back_round": self.transfer_back_round,
+            "channel_rate": self.channel_rate,
+            "channel_conserve_degree": self.channel_conserve_degree,
             "seed": self.seed,
         }
         fields.update(changes)

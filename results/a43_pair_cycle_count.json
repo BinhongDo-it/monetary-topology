@@ -1,0 +1,265 @@
+{
+  "config": {
+    "bridge_counts": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "carrier": "NetworkSpec default, adjacency support only",
+    "note": "no run is needed: this reads the graph as built",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "b1 = |E| - |V| + components, counted on the joined support by union-find, against b1(G1) + b1(G2) + max(k - 1, 0) for k bridges. Five seeds by six bridge counts: worst disagreement 0. The max is there because at k = 0 the two graphs are separate components and no cycle is lost or gained; the first bridge joins them and closes nothing.",
+      "kind": "instrument",
+      "name": "A43-1  the closed form for a joined pair matches the count",
+      "passed": true
+    },
+    {
+      "detail": "A25 settles one net figure between the two sides, so the join is one edge. Cross-graph block at one bridge: [0, 0, 0, 0, 0], five seeds. A single bridge lies in no cycle, so there is no closed path that leaves one graph and returns, and a holonomy between the two graphs has no object on this machine. **That is a property of what a clearing system is and not a fault**: it settles a net figure, which is one number. The count also says the price of changing it: k bridges buy k - 1 independent cycles, so two buy the first. Joining position by position on the shared 200-position set buys 199, which is n - 1 and is B79's square block for a product with K2.",
+      "kind": "own_reading",
+      "name": "A43-2  the pair machinery carries no cross-graph cycle at all",
+      "passed": true
+    },
+    {
+      "detail": "closes: whether A40 and A42 could have read catch-up as a loop and did not. They could not; there was none to read. Opens: a boundary with more than one edge, which is a different clearing rule and not a flag on this one. Neither A40's nor A42's readings change, because neither claimed to read a cycle.",
+      "kind": "bookkeeping",
+      "name": "A43-3  what this closes and what it opens",
+      "passed": true
+    }
+  ],
+  "report": {
+    "cross_graph_block": {
+      "k0": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "k1": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "nodes_per_graph": 200,
+      "pairwise": [
+        199,
+        199,
+        199,
+        199,
+        199
+      ]
+    },
+    "rows": [
+      {
+        "b1_each": [
+          1190,
+          1190
+        ],
+        "edges_each": 1389,
+        "joined": {
+          "0": {
+            "b1": 2380,
+            "components": 2
+          },
+          "1": {
+            "b1": 2380,
+            "components": 1
+          },
+          "10": {
+            "b1": 2389,
+            "components": 1
+          },
+          "2": {
+            "b1": 2381,
+            "components": 1
+          },
+          "3": {
+            "b1": 2382,
+            "components": 1
+          },
+          "5": {
+            "b1": 2384,
+            "components": 1
+          }
+        },
+        "n": 200,
+        "pairwise": {
+          "b1": 2579,
+          "bridges": 200
+        },
+        "seed": 0
+      },
+      {
+        "b1_each": [
+          1173,
+          1173
+        ],
+        "edges_each": 1372,
+        "joined": {
+          "0": {
+            "b1": 2346,
+            "components": 2
+          },
+          "1": {
+            "b1": 2346,
+            "components": 1
+          },
+          "10": {
+            "b1": 2355,
+            "components": 1
+          },
+          "2": {
+            "b1": 2347,
+            "components": 1
+          },
+          "3": {
+            "b1": 2348,
+            "components": 1
+          },
+          "5": {
+            "b1": 2350,
+            "components": 1
+          }
+        },
+        "n": 200,
+        "pairwise": {
+          "b1": 2545,
+          "bridges": 200
+        },
+        "seed": 1
+      },
+      {
+        "b1_each": [
+          1175,
+          1175
+        ],
+        "edges_each": 1374,
+        "joined": {
+          "0": {
+            "b1": 2350,
+            "components": 2
+          },
+          "1": {
+            "b1": 2350,
+            "components": 1
+          },
+          "10": {
+            "b1": 2359,
+            "components": 1
+          },
+          "2": {
+            "b1": 2351,
+            "components": 1
+          },
+          "3": {
+            "b1": 2352,
+            "components": 1
+          },
+          "5": {
+            "b1": 2354,
+            "components": 1
+          }
+        },
+        "n": 200,
+        "pairwise": {
+          "b1": 2549,
+          "bridges": 200
+        },
+        "seed": 2
+      },
+      {
+        "b1_each": [
+          1168,
+          1168
+        ],
+        "edges_each": 1367,
+        "joined": {
+          "0": {
+            "b1": 2336,
+            "components": 2
+          },
+          "1": {
+            "b1": 2336,
+            "components": 1
+          },
+          "10": {
+            "b1": 2345,
+            "components": 1
+          },
+          "2": {
+            "b1": 2337,
+            "components": 1
+          },
+          "3": {
+            "b1": 2338,
+            "components": 1
+          },
+          "5": {
+            "b1": 2340,
+            "components": 1
+          }
+        },
+        "n": 200,
+        "pairwise": {
+          "b1": 2535,
+          "bridges": 200
+        },
+        "seed": 3
+      },
+      {
+        "b1_each": [
+          1163,
+          1163
+        ],
+        "edges_each": 1362,
+        "joined": {
+          "0": {
+            "b1": 2326,
+            "components": 2
+          },
+          "1": {
+            "b1": 2326,
+            "components": 1
+          },
+          "10": {
+            "b1": 2335,
+            "components": 1
+          },
+          "2": {
+            "b1": 2327,
+            "components": 1
+          },
+          "3": {
+            "b1": 2328,
+            "components": 1
+          },
+          "5": {
+            "b1": 2330,
+            "components": 1
+          }
+        },
+        "n": 200,
+        "pairwise": {
+          "b1": 2525,
+          "bridges": 200
+        },
+        "seed": 4
+      }
+    ]
+  },
+  "stage": "A43"
+}

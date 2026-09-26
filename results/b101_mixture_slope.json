@@ -1,0 +1,252 @@
+{
+  "config": {
+    "aggregates_excluded": [
+      "M-N",
+      "MARKT",
+      "NMARKT",
+      "TOT",
+      "TOT_IND"
+    ],
+    "carrier": "EU KLEMS growth accounts BASIC joined to the labour accounts on (industry, country)",
+    "classes": 18,
+    "fit": "imported from b101_beta_dispersion, not rewritten",
+    "min_countries": 5,
+    "min_years_composition": 6
+  },
+  "criteria": [
+    {
+      "detail": "19 industries joined, fewest matched countries in any of them 20, minimum required 5",
+      "kind": "instrument",
+      "name": "B101-36",
+      "passed": true,
+      "text": "The two caches join on (industry, country) and every industry read carries at least the minimum countries on both sides, with the matched count printed per industry rather than a mean over them."
+    },
+    {
+      "detail": "rank correlation -0.4456 across 19 industries, its own scale about 0.236; composition ratio median 3.204, slope ratio median 0.863",
+      "kind": "own_reading",
+      "name": "B101-37",
+      "passed": true,
+      "text": "The relation between how differently the countries of an industry staff it and how far apart their fitted slopes are. Printed against the rank correlation's own scale, with no line drawn on it."
+    },
+    {
+      "detail": "19 industries carried in full",
+      "kind": "bookkeeping",
+      "name": "B101-38",
+      "passed": true,
+      "text": "Every industry read is named with both of its axes and both of its floors, so a reader can rebuild either axis without this script."
+    }
+  ],
+  "industries": [
+    {
+      "beta_across": 0.3978648034475632,
+      "beta_ratio": 1.0730983455220062,
+      "beta_within": 0.37076266598288604,
+      "comp_across": 0.27061117263984225,
+      "comp_ratio": 3.0293144177991578,
+      "comp_within": 0.08933083045121652,
+      "countries_matched": 20,
+      "median_beta": -0.09160721554685629,
+      "nace": "A"
+    },
+    {
+      "beta_across": 0.23804122208418294,
+      "beta_ratio": 0.8779129952017736,
+      "beta_within": 0.2711444338849013,
+      "comp_across": 0.29214352990915693,
+      "comp_ratio": 3.50251104025189,
+      "comp_within": 0.08340973848526309,
+      "countries_matched": 20,
+      "median_beta": -0.09126346686119557,
+      "nace": "B"
+    },
+    {
+      "beta_across": 0.17878193133437947,
+      "beta_ratio": 0.8459856747305612,
+      "beta_within": 0.21132973840404556,
+      "comp_across": 0.21185017238112297,
+      "comp_ratio": 2.4795813815455596,
+      "comp_within": 0.08543787832810458,
+      "countries_matched": 22,
+      "median_beta": 0.04926363952128269,
+      "nace": "C"
+    },
+    {
+      "beta_across": 0.2338374382751932,
+      "beta_ratio": 1.2528669073464938,
+      "beta_within": 0.1866418826325684,
+      "comp_across": 0.2266121472830903,
+      "comp_ratio": 2.963430406882462,
+      "comp_within": 0.0764695356964657,
+      "countries_matched": 21,
+      "median_beta": -0.020236000489840842,
+      "nace": "D"
+    },
+    {
+      "beta_across": 0.14928841782651228,
+      "beta_ratio": 0.8204299727840275,
+      "beta_within": 0.18196363221582523,
+      "comp_across": 0.26597337664713633,
+      "comp_ratio": 3.213701799434525,
+      "comp_within": 0.08276230753392749,
+      "countries_matched": 22,
+      "median_beta": -0.03798944425809843,
+      "nace": "E"
+    },
+    {
+      "beta_across": 0.17801219635473509,
+      "beta_ratio": 1.1727273323002738,
+      "beta_within": 0.1517933380179422,
+      "comp_across": 0.2278892495648711,
+      "comp_ratio": 3.4032475592145106,
+      "comp_within": 0.06696228987158057,
+      "countries_matched": 22,
+      "median_beta": -0.059891931963049316,
+      "nace": "F"
+    },
+    {
+      "beta_across": 0.18558732837833883,
+      "beta_ratio": 0.7267959792059516,
+      "beta_within": 0.25534996572366714,
+      "comp_across": 0.24916335045176888,
+      "comp_ratio": 3.3467095667947264,
+      "comp_within": 0.07445024597410832,
+      "countries_matched": 22,
+      "median_beta": -0.051087459054662034,
+      "nace": "G"
+    },
+    {
+      "beta_across": 0.37810259897587667,
+      "beta_ratio": 1.0988507367754423,
+      "beta_within": 0.34408913451285655,
+      "comp_across": 0.22535125439248144,
+      "comp_ratio": 2.918282226587211,
+      "comp_within": 0.07722051429412938,
+      "countries_matched": 21,
+      "median_beta": -0.06832230290476436,
+      "nace": "H"
+    },
+    {
+      "beta_across": 0.1994330163608887,
+      "beta_ratio": 0.4016793678867401,
+      "beta_within": 0.4964980337678733,
+      "comp_across": 0.2868567651479119,
+      "comp_ratio": 4.3645052651158736,
+      "comp_within": 0.06572492131941468,
+      "countries_matched": 22,
+      "median_beta": 0.03898080102889344,
+      "nace": "I"
+    },
+    {
+      "beta_across": 0.3426499118053942,
+      "beta_ratio": 1.391813235791697,
+      "beta_within": 0.2461895770164067,
+      "comp_across": 0.20850384074354306,
+      "comp_ratio": 2.9151632172682844,
+      "comp_within": 0.07152389941957556,
+      "countries_matched": 22,
+      "median_beta": -0.019560164736037326,
+      "nace": "J"
+    },
+    {
+      "beta_across": 0.13415497066075865,
+      "beta_ratio": 0.37473924150303695,
+      "beta_within": 0.35799552276051516,
+      "comp_across": 0.26919096485003263,
+      "comp_ratio": 3.18154774221854,
+      "comp_within": 0.08461006612533867,
+      "countries_matched": 22,
+      "median_beta": -0.08015468650267436,
+      "nace": "K"
+    },
+    {
+      "beta_across": 0.03351366518547105,
+      "beta_ratio": 1.3760097555480677,
+      "beta_within": 0.024355688649985253,
+      "comp_across": 0.2432722428308115,
+      "comp_ratio": 3.0794743109120692,
+      "comp_within": 0.07899797766416823,
+      "countries_matched": 20,
+      "median_beta": -0.030712555926222254,
+      "nace": "L"
+    },
+    {
+      "beta_across": 0.22927779534151208,
+      "beta_ratio": 0.8628809437151809,
+      "beta_within": 0.2657119698974276,
+      "comp_across": 0.1996944822675713,
+      "comp_ratio": 3.5678276533996893,
+      "comp_within": 0.055970888077311605,
+      "countries_matched": 21,
+      "median_beta": 0.016474104554065155,
+      "nace": "M"
+    },
+    {
+      "beta_across": 0.21737611902171658,
+      "beta_ratio": 1.4341180320928055,
+      "beta_within": 0.15157477568600128,
+      "comp_across": 0.22355673854152647,
+      "comp_ratio": 2.7340655285326343,
+      "comp_within": 0.0817671472056885,
+      "countries_matched": 21,
+      "median_beta": -0.019777152074913793,
+      "nace": "N"
+    },
+    {
+      "beta_across": 0.09398310808701589,
+      "beta_ratio": 0.6137423871487638,
+      "beta_within": 0.15313119975895603,
+      "comp_across": 0.24621030551592174,
+      "comp_ratio": 3.204265703562323,
+      "comp_within": 0.07683829254303066,
+      "countries_matched": 22,
+      "median_beta": -0.09270676610935508,
+      "nace": "O"
+    },
+    {
+      "beta_across": 0.06946660172103669,
+      "beta_ratio": 0.6832177534098964,
+      "beta_within": 0.10167563909797907,
+      "comp_across": 0.19756199113339942,
+      "comp_ratio": 4.279798650827506,
+      "comp_within": 0.04616151535427969,
+      "countries_matched": 22,
+      "median_beta": -0.02751545193421079,
+      "nace": "P"
+    },
+    {
+      "beta_across": 0.15719577256324724,
+      "beta_ratio": 0.8155320023316733,
+      "beta_within": 0.19275242677640061,
+      "comp_across": 0.23297107727747562,
+      "comp_ratio": 2.8263945752712356,
+      "comp_within": 0.08242694750258588,
+      "countries_matched": 22,
+      "median_beta": -0.01708590227772796,
+      "nace": "Q"
+    },
+    {
+      "beta_across": 0.21682170326310624,
+      "beta_ratio": 0.584932803705604,
+      "beta_within": 0.37067796828887095,
+      "comp_across": 0.22707471554099962,
+      "comp_ratio": 3.3787297428907848,
+      "comp_within": 0.06720712599721523,
+      "countries_matched": 21,
+      "median_beta": -0.01433223677991022,
+      "nace": "R"
+    },
+    {
+      "beta_across": 0.2654689995753416,
+      "beta_ratio": 0.8767732931706552,
+      "beta_within": 0.30277952310263934,
+      "comp_across": 0.22750252729488682,
+      "comp_ratio": 3.4433793364824528,
+      "comp_within": 0.06606955117738773,
+      "countries_matched": 21,
+      "median_beta": -8.994225016435786e-08,
+      "nace": "S"
+    }
+  ],
+  "stage": "B101",
+  "step": "mixture_slope"
+}

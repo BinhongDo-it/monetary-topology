@@ -1,0 +1,6400 @@
+{
+  "config": {
+    "fraud_cent": [
+      "0",
+      "1/100"
+    ],
+    "left_out_by_rule": [
+      "Small Ticket rows",
+      "Large Ticket rows",
+      "merged cells",
+      "incentive rows",
+      "refunds",
+      "payment transactions",
+      "rebates"
+    ],
+    "mastercard_reader": {
+      "column_pad_pt": 12.0,
+      "continuation_gap_pt": 16.5,
+      "line_tolerance_pt": 2.0
+    },
+    "reference": {
+      "fraud": "0",
+      "ticket": "100",
+      "transform": "log1p"
+    },
+    "schedules": [
+      "Visa USA Interchange Reimbursement Fees, effective 18 April 2026",
+      "Mastercard 2026-2027 U.S. Region Interchange Programs and Rates, effective 17 April 2026",
+      "Mastercard 2025-2026 U.S. Region Interchange Programs and Rates, effective 11 April 2025 (regulated rows and the edition comparison)"
+    ],
+    "tables": [
+      "debit_card_present",
+      "debit_card_not_present",
+      "prepaid_card_present",
+      "prepaid_card_not_present",
+      "business_and_purchasing_prepaid",
+      "corporate_prepaid",
+      "business_debit",
+      "consumer_credit_card_present_a",
+      "consumer_credit_card_present_b",
+      "consumer_credit_card_not_present",
+      "small_merchant_credit",
+      "business_credit_spend_tier",
+      "mc_consumer_credit",
+      "mc_debit_prepaid",
+      "mc_small_business_credit",
+      "mc_commercial_and_large_market",
+      "mc_regulated",
+      "mc_pin_debit"
+    ],
+    "tickets": [
+      "10",
+      "25",
+      "50",
+      "100",
+      "250",
+      "1000"
+    ],
+    "transforms": [
+      "log1p",
+      "neglog1m"
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "the class names each table is read under are found in that table's own header rows, and hand-checked cells parse to their printed terms: four on the Visa schedule and seven on Mastercard's, where rows are rebuilt from word positions (a continued label, a cap printed on the line under the rates, a class column past the label, a printed N/A read as absent). Header words missing: none. Hand-checked cells: 11 of 11 match. Mastercard rows rebuilt: 119; cells in them that are neither one rate nor N/A, which Mastercard never prints and a misplaced word would make: 0.",
+      "kind": "instrument",
+      "name": "B123-1",
+      "passed": true
+    },
+    {
+      "detail": "the class index is the card's or its issuer's: in the regulatory tables exactly one column is the regulated issuer's and the rest are exempt issuers', a line 12 CFR 235.5 draws at ten billion dollars of issuer assets, which the merchant can neither see nor choose; in the product tables the columns are card products. Tables breaking the one-regulated-column shape: none.",
+      "kind": "premise",
+      "name": "B123-2",
+      "passed": true
+    },
+    {
+      "detail": "two answers known before the schedule is read. First, every regulated cell must be the cap 12 CFR 235.3 sets, 0.05 per cent plus $0.21, and one cent more where the fraud adjustment of 12 CFR 235.4 applies (Visa stars it, Mastercard prints it as its own row): 83 of 83 cells are (63 on Visa's schedule, 20 on Mastercard's two editions). Second, the Board's covered average fee must not exceed $0.22 + 0.05% of the covered average ticket, plus half a cent for the printed rounding: 220 of 220 network-years hold.",
+      "kind": "known_answer",
+      "name": "B123-3",
+      "passed": true
+    },
+    {
+      "detail": "the registered reading: the printed schedule does not factor, so squares with four present cells are non-zero on every declared setting. Regulatory tables: Visa 237 read (152 holding one sign), 69 zero, 21 unread; Mastercard 431 read (281 holding one sign), 15 zero, 16 unread. Product tables: Visa 4209 read (4041 holding one sign), 1385 zero, 16 unread; Mastercard 2156 read (1827 holding one sign), 818 zero, 40 unread. A square is read where it is non-zero on every setting its cells apply to, out of 6 tickets, two transforms and the fraud cent; whether its sign also holds is printed and decides nothing.",
+      "kind": "own_reading",
+      "name": "B123-4",
+      "passed": true
+    },
+    {
+      "detail": "separable rival on the networks' own card products. It covers any class markup the same on every program. Read: 6365 squares non-zero on every setting, 5868 of them holding one sign throughout; 2203 exactly zero on every setting (pairs of products a network prices identically on both programs). By network: Visa 4209 read (4041 holding one sign), 1385 zero, 16 unread; Mastercard 2156 read (1827 holding one sign), 818 zero, 40 unread. A criterion of this kind passes when the rival is wrong.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B123-5",
+      "passed": true,
+      "rival_entailment": "the ratio of two classes' prices is the same on every program, so every square's log sum is zero, on every ticket and in either transform",
+      "rival_premise": "log price(program, class) = phi(program) + psi(class): one scalar on programs and one factor per class",
+      "rival_shape": "point prediction of zero"
+    },
+    {
+      "detail": "separable rival on the statutory line, exempt against regulated issuers. The regulated column is one cap on every program (Visa prints it in every row, Mastercard once for all purchases) and the exempt column varies by program, so the class ratio moves with the program. Read: 668 squares non-zero on every setting, 433 of them holding one sign throughout; 84 zero, 37 unread. By network: Visa 237 read (152 holding one sign), 69 zero, 21 unread; Mastercard 431 read (281 holding one sign), 15 zero, 16 unread.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B123-6",
+      "passed": true,
+      "rival_entailment": "the ratio of two classes' prices is the same on every program, so every square's log sum is zero, on every ticket and in either transform",
+      "rival_premise": "log price(program, class) = phi(program) + psi(class): one scalar on programs and one factor per class",
+      "rival_shape": "point prediction of zero"
+    },
+    {
+      "detail": "every file read is in the fetch manifest with the SHA-256 of the bytes on disk, and every table's pages, class list, rows used and rows left out (with the reason) are printed into the record. Files read: 4; not matching the manifest: none. Rows left out: 46.",
+      "kind": "bookkeeping",
+      "name": "B123-7",
+      "passed": true
+    }
+  ],
+  "mastercard_editions": {
+    "current": "2026-04-17",
+    "earlier": "2025-04-11",
+    "earlier_squares": {
+      "mc_commercial_and_large_market": {
+        "read": 34,
+        "unread": 0,
+        "zero": 17
+      },
+      "mc_consumer_credit": {
+        "read": 1893,
+        "unread": 40,
+        "zero": 649
+      },
+      "mc_debit_prepaid": {
+        "read": 89,
+        "unread": 0,
+        "zero": 142
+      },
+      "mc_debit_statutory": {
+        "read": 215,
+        "unread": 9,
+        "zero": 7
+      },
+      "mc_prepaid_statutory": {
+        "read": 216,
+        "unread": 7,
+        "zero": 8
+      },
+      "mc_small_business_credit": {
+        "read": 140,
+        "unread": 0,
+        "zero": 10
+      }
+    },
+    "rows": {
+      "mc_commercial_and_large_market": {
+        "cells_changed": [],
+        "labels_differing": [],
+        "left_out_before": 7,
+        "left_out_now": 7,
+        "rows": 8
+      },
+      "mc_consumer_credit": {
+        "cells_changed": [],
+        "labels_differing": [],
+        "left_out_before": 10,
+        "left_out_now": 10,
+        "rows": 28
+      },
+      "mc_debit_prepaid": {
+        "cells_changed": [],
+        "labels_differing": [],
+        "left_out_before": 10,
+        "left_out_now": 10,
+        "rows": 22
+      },
+      "mc_pin_debit": {
+        "cells_changed": [],
+        "labels_differing": [],
+        "left_out_before": 0,
+        "left_out_now": 0,
+        "rows": 7
+      },
+      "mc_regulated": {
+        "cells_changed": [],
+        "labels_differing": [],
+        "left_out_before": 0,
+        "left_out_now": 0,
+        "rows": 4
+      },
+      "mc_small_business_credit": {
+        "cells_changed": [],
+        "labels_differing": [],
+        "left_out_before": 6,
+        "left_out_now": 6,
+        "rows": 6
+      }
+    }
+  },
+  "report": {
+    "_fed": {
+      "rows": 220
+    },
+    "business_and_purchasing_prepaid": {
+      "classes": [
+        "exempt business prepaid",
+        "exempt purchasing prepaid",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 16,
+        "max_abs_residual": "0.007007",
+        "rms_residual": "0.003481"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt business prepaid",
+            "regulated"
+          ],
+          "ref_log": "0.007794",
+          "rows": [
+            "Non-Qualified",
+            "Card Present"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt purchasing prepaid",
+            "regulated"
+          ],
+          "ref_log": "0.007794",
+          "rows": [
+            "Non-Qualified",
+            "Card Present"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt business prepaid",
+            "regulated"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Non-Qualified",
+            "Card Not Present"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt purchasing prepaid",
+            "regulated"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Non-Qualified",
+            "Card Not Present"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt business prepaid",
+            "regulated"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Non-Qualified",
+            "Consumer Bill Payment Service, Commercial Prepaid"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt purchasing prepaid",
+            "regulated"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Non-Qualified",
+            "Consumer Bill Payment Service, Commercial Prepaid"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "regulatory",
+      "independent_squares_if_complete": 10,
+      "network": "visa",
+      "page": 19,
+      "pages": [
+        19
+      ],
+      "read_negative": 5,
+      "read_positive": 6,
+      "read_sign_stable": 11,
+      "rows_left_out": [
+        {
+          "row": "Visa Purchasing Prepaid Large Ticket",
+          "why": "Large Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "rows_used": [
+        "Non-Qualified",
+        "Card Present",
+        "Card Not Present",
+        "Consumer Bill Payment Service, Commercial Prepaid",
+        "Visa Business Utility Recurring Bill Payment (Visa Business Prepaid Only)",
+        "Business Utilities (Visa Business Prepaid Only)"
+      ],
+      "squares": {
+        "read": 19,
+        "unread": 0,
+        "zero": 8
+      }
+    },
+    "business_credit_spend_tier": {
+      "classes": [
+        "tier_I",
+        "tier_II",
+        "tier_III",
+        "tier_IV",
+        "tier_V"
+      ],
+      "cpd": {
+        "cells": 35,
+        "max_abs_residual": "0.001392",
+        "rms_residual": "0.000539"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "tier_I",
+            "tier_II"
+          ],
+          "ref_log": "0.000007",
+          "rows": [
+            "Business Product 3",
+            "Business Product 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "tier_I",
+            "tier_III"
+          ],
+          "ref_log": "0.000010",
+          "rows": [
+            "Business Product 3",
+            "Business Product 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "tier_I",
+            "tier_IV"
+          ],
+          "ref_log": "0.000014",
+          "rows": [
+            "Business Product 3",
+            "Business Product 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "tier_I",
+            "tier_V"
+          ],
+          "ref_log": "0.000017",
+          "rows": [
+            "Business Product 3",
+            "Business Product 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "tier_II",
+            "tier_III"
+          ],
+          "ref_log": "0.000002",
+          "rows": [
+            "Business Product 3",
+            "Business Product 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "tier_II",
+            "tier_IV"
+          ],
+          "ref_log": "0.000007",
+          "rows": [
+            "Business Product 3",
+            "Business Product 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 24,
+      "network": "visa",
+      "page": 21,
+      "pages": [
+        21
+      ],
+      "read_negative": 100,
+      "read_positive": 0,
+      "read_sign_stable": 100,
+      "rows_left_out": [],
+      "rows_used": [
+        "Business Product 3",
+        "Business Product 2",
+        "Business Product 1",
+        "Consumer Bill Payment Service, Business Credit",
+        "Business Travel",
+        "Business Non-Qualified",
+        "Business Utility Program"
+      ],
+      "squares": {
+        "read": 190,
+        "unread": 0,
+        "zero": 20
+      }
+    },
+    "business_debit": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 12,
+        "max_abs_residual": "0.006314",
+        "rms_residual": "0.003776"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.007340",
+          "rows": [
+            "Business Debit, Card Present",
+            "Business Debit, Card Not Present"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.007340",
+          "rows": [
+            "Business Debit, Card Present",
+            "Consumer Bill Payment Service, Business Debit"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.012204",
+          "rows": [
+            "Business Debit, Card Present",
+            "Business Debit, Non-Qualified"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.010368",
+          "rows": [
+            "Business Debit, Card Present",
+            "Business Utility Program, Recurring Bill Payment"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.002951",
+          "rows": [
+            "Business Debit, Card Present",
+            "Business Utility Program, Card Not Present Only"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.004864",
+          "rows": [
+            "Business Debit, Card Not Present",
+            "Business Debit, Non-Qualified"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "regulatory",
+      "independent_squares_if_complete": 5,
+      "network": "visa",
+      "page": 21,
+      "pages": [
+        21
+      ],
+      "read_negative": 6,
+      "read_positive": 0,
+      "read_sign_stable": 6,
+      "rows_left_out": [],
+      "rows_used": [
+        "Business Debit, Card Present",
+        "Business Debit, Card Not Present",
+        "Consumer Bill Payment Service, Business Debit",
+        "Business Debit, Non-Qualified",
+        "Business Utility Program, Recurring Bill Payment",
+        "Business Utility Program, Card Not Present Only"
+      ],
+      "squares": {
+        "read": 14,
+        "unread": 0,
+        "zero": 1
+      }
+    },
+    "consumer_credit_card_not_present": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "cpd": {
+        "cells": 96,
+        "max_abs_residual": "0.003013",
+        "rms_residual": "0.001574"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "infinite_spend_not_qualified"
+          ],
+          "ref_log": "-0.002443",
+          "rows": [
+            "Recurring Tier 1",
+            "Recurring Tier 2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "signature"
+          ],
+          "ref_log": "-0.002443",
+          "rows": [
+            "Recurring Tier 1",
+            "Recurring Tier 2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "traditional_rewards"
+          ],
+          "ref_log": "-0.002443",
+          "rows": [
+            "Recurring Tier 1",
+            "Recurring Tier 2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "all_other"
+          ],
+          "ref_log": "-0.002443",
+          "rows": [
+            "Recurring Tier 1",
+            "Recurring Tier 2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_not_qualified",
+            "signature_preferred"
+          ],
+          "ref_log": "0.002443",
+          "rows": [
+            "Recurring Tier 1",
+            "Recurring Tier 2"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "signature_preferred",
+            "signature"
+          ],
+          "ref_log": "-0.002443",
+          "rows": [
+            "Recurring Tier 1",
+            "Recurring Tier 2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 90,
+      "network": "visa",
+      "page": 11,
+      "pages": [
+        11
+      ],
+      "read_negative": 698,
+      "read_positive": 1098,
+      "read_sign_stable": 1796,
+      "rows_left_out": [
+        {
+          "row": "Type 1",
+          "why": "an adjustment, not a fee program: -0.05%"
+        },
+        {
+          "row": "Type 2",
+          "why": "an adjustment, not a fee program: -0.10%"
+        },
+        {
+          "row": "Type 3",
+          "why": "an adjustment, not a fee program: -0.15%"
+        }
+      ],
+      "rows_used": [
+        "Recurring Tier 1",
+        "Recurring Tier 2",
+        "Recurring Tier 3",
+        "Recurring",
+        "Product 1",
+        "Advertising 1",
+        "Insurance 1",
+        "Education 1: applies to transactions >=$500",
+        "Healthcare 1: applies to transactions >=$500",
+        "Real Estate 1: applies to transactions >=$500",
+        "Services 1: applies to transactions >=$100",
+        "Travel 1",
+        "Restaurant 1",
+        "Taxi 1",
+        "Charity 1",
+        "Government 1",
+        "Consumer Bill Payment Service, Consumer Credit 1",
+        "CPS/Utility",
+        "Non-Qualified Consumer Credit"
+      ],
+      "squares": {
+        "read": 1826,
+        "unread": 0,
+        "zero": 739
+      }
+    },
+    "consumer_credit_card_present_a": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "cpd": {
+        "cells": 72,
+        "max_abs_residual": "0.003231",
+        "rms_residual": "0.001222"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "traditional_rewards"
+          ],
+          "ref_log": "0.000198",
+          "rows": [
+            "Supermarket Credit— Tier* 0",
+            "Supermarket Credit— Tier* I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "all_other"
+          ],
+          "ref_log": "0.000198",
+          "rows": [
+            "Supermarket Credit— Tier* 0",
+            "Supermarket Credit— Tier* I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_not_qualified",
+            "traditional_rewards"
+          ],
+          "ref_log": "0.000198",
+          "rows": [
+            "Supermarket Credit— Tier* 0",
+            "Supermarket Credit— Tier* I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_not_qualified",
+            "all_other"
+          ],
+          "ref_log": "0.000198",
+          "rows": [
+            "Supermarket Credit— Tier* 0",
+            "Supermarket Credit— Tier* I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "signature_preferred",
+            "traditional_rewards"
+          ],
+          "ref_log": "0.000198",
+          "rows": [
+            "Supermarket Credit— Tier* 0",
+            "Supermarket Credit— Tier* I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "signature_preferred",
+            "all_other"
+          ],
+          "ref_log": "0.000198",
+          "rows": [
+            "Supermarket Credit— Tier* 0",
+            "Supermarket Credit— Tier* I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 60,
+      "network": "visa",
+      "page": 9,
+      "pages": [
+        9
+      ],
+      "read_negative": 512,
+      "read_positive": 459,
+      "read_sign_stable": 971,
+      "rows_left_out": [
+        {
+          "row": "Small Ticket",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        },
+        {
+          "row": "Service Station and Government Small Ticket",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "rows_used": [
+        "Supermarket Credit— Tier* 0",
+        "Supermarket Credit— Tier* I",
+        "Supermarket Credit— Tier* II",
+        "Supermarket Credit— Tier* III",
+        "Supermarket Credit— All Other",
+        "Retail Credit-Performance Threshold* I",
+        "Retail Credit-Performance Threshold* II",
+        "Retail Credit-Performance Threshold* III",
+        "Product 2",
+        "Fuel",
+        "Advertising 2",
+        "Insurance 2",
+        "Education 2: applies to transactions >=$500"
+      ],
+      "squares": {
+        "read": 976,
+        "unread": 0,
+        "zero": 194
+      }
+    },
+    "consumer_credit_card_present_b": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "cpd": {
+        "cells": 48,
+        "max_abs_residual": "0.002210",
+        "rms_residual": "0.001335"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "infinite_spend_not_qualified"
+          ],
+          "ref_log": null,
+          "rows": [
+            "Healthcare 2: applies to transactions >=$500",
+            "Real Estate 2: applies to transactions >=$500"
+          ],
+          "settings": 4,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "signature"
+          ],
+          "ref_log": null,
+          "rows": [
+            "Healthcare 2: applies to transactions >=$500",
+            "Real Estate 2: applies to transactions >=$500"
+          ],
+          "settings": 4,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "traditional_rewards"
+          ],
+          "ref_log": null,
+          "rows": [
+            "Healthcare 2: applies to transactions >=$500",
+            "Real Estate 2: applies to transactions >=$500"
+          ],
+          "settings": 4,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "all_other"
+          ],
+          "ref_log": null,
+          "rows": [
+            "Healthcare 2: applies to transactions >=$500",
+            "Real Estate 2: applies to transactions >=$500"
+          ],
+          "settings": 4,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_not_qualified",
+            "signature_preferred"
+          ],
+          "ref_log": null,
+          "rows": [
+            "Healthcare 2: applies to transactions >=$500",
+            "Real Estate 2: applies to transactions >=$500"
+          ],
+          "settings": 4,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "signature_preferred",
+            "signature"
+          ],
+          "ref_log": null,
+          "rows": [
+            "Healthcare 2: applies to transactions >=$500",
+            "Real Estate 2: applies to transactions >=$500"
+          ],
+          "settings": 4,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 45,
+      "network": "visa",
+      "page": 10,
+      "pages": [
+        10
+      ],
+      "read_negative": 162,
+      "read_positive": 321,
+      "read_sign_stable": 483,
+      "rows_left_out": [],
+      "rows_used": [
+        "Healthcare 2: applies to transactions >=$500",
+        "Real Estate 2: applies to transactions >=$500",
+        "Services 2: applies to transactions >=$100",
+        "Travel 2",
+        "Restaurant 2",
+        "Taxi 2",
+        "Charity 2",
+        "Government 2",
+        "Consumer Bill Payment Service, Consumer Credit 2",
+        "Non-Qualified Consumer Credit"
+      ],
+      "squares": {
+        "read": 490,
+        "unread": 0,
+        "zero": 185
+      }
+    },
+    "corporate_prepaid": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 6,
+        "max_abs_residual": "0.000972",
+        "rms_residual": "0.000687"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Non-Qualified",
+            "Corporate Prepaid"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Non-Qualified",
+            "Consumer Bill Payment Service, Commercial"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "regulatory",
+      "independent_squares_if_complete": 2,
+      "network": "visa",
+      "page": 19,
+      "pages": [
+        19
+      ],
+      "read_negative": 0,
+      "read_positive": 2,
+      "read_sign_stable": 2,
+      "rows_left_out": [],
+      "rows_used": [
+        "Non-Qualified",
+        "Corporate Prepaid",
+        "Consumer Bill Payment Service, Commercial"
+      ],
+      "squares": {
+        "read": 2,
+        "unread": 0,
+        "zero": 1
+      }
+    },
+    "debit_card_not_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 30,
+        "max_abs_residual": "0.005455",
+        "rms_residual": "0.002678"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.003478",
+          "rows": [
+            "CPS/Retail 2 – Card Not Present, Debit",
+            "CPS/Utility Recurring Bill Payment, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.001489",
+          "rows": [
+            "CPS/Retail 2 – Card Not Present, Debit",
+            "CPS/Utility, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009872",
+          "rows": [
+            "CPS/Retail 2 – Card Not Present, Debit",
+            "Consumer Bill Payment Service Consumer Debit"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009872",
+          "rows": [
+            "CPS/Retail 2 – Card Not Present, Debit",
+            "CPS/Card Not Present, Debit"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009872",
+          "rows": [
+            "CPS/Retail 2 – Card Not Present, Debit",
+            "CPS/e-Commerce Basic, Debit"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009380",
+          "rows": [
+            "CPS/Retail 2 – Card Not Present, Debit",
+            "CPS/e-Commerce Preferred Retail, Debit"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "regulatory",
+      "independent_squares_if_complete": 14,
+      "network": "visa",
+      "page": 6,
+      "pages": [
+        6
+      ],
+      "read_negative": 65,
+      "read_positive": 3,
+      "read_sign_stable": 68,
+      "rows_left_out": [
+        {
+          "row": "CPS/Debt Repayment 2 CPS/Debt Repayment (No Fee)",
+          "why": "not a single rate: 0.65% + $0.15 ($2.00 Cap) 0.65% + $0.15 ($0.65 Cap)"
+        }
+      ],
+      "rows_used": [
+        "CPS/Retail 2 – Card Not Present, Debit",
+        "CPS/Utility Recurring Bill Payment, Debit",
+        "CPS/Utility, Debit",
+        "CPS/Government",
+        "Consumer Bill Payment Service Consumer Debit",
+        "CPS/Card Not Present, Debit",
+        "CPS/e-Commerce Basic, Debit",
+        "CPS/e-Commerce Preferred Retail, Debit",
+        "CPS/e-Commerce Preferred Hotel and Car Rental, Debit",
+        "CPS/e-Commerce Preferred Passenger Transport, Debit",
+        "CPS/Hotel and Car Rental Card Not Present, Debit",
+        "CPS/Passenger Transport Card Not Present, Debit",
+        "CPS/Account Funding, Debit",
+        "Electronic Interchange Reimbursement Fee (EIRF), Debit3",
+        "Standard Interchange Reimbursement Fee, Debit"
+      ],
+      "squares": {
+        "read": 94,
+        "unread": 0,
+        "zero": 11
+      }
+    },
+    "debit_card_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 18,
+        "max_abs_residual": "0.004084",
+        "rms_residual": "0.001908"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.006460",
+          "rows": [
+            "CPS/Supermarket, Debit",
+            "CPS/Retail, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.006460",
+          "rows": [
+            "CPS/Supermarket, Debit",
+            "CPS/Automated Fuel Dispenser (AFD), Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.006460",
+          "rows": [
+            "CPS/Supermarket, Debit",
+            "CPS/Service Station, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009822",
+          "rows": [
+            "CPS/Supermarket, Debit",
+            "CPS/Restaurant, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009822",
+          "rows": [
+            "CPS/Supermarket, Debit",
+            "CPS/Hotel and Car Rental Card Present, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009822",
+          "rows": [
+            "CPS/Supermarket, Debit",
+            "CPS/Passenger Transport Card Present, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "CPS/Retail, Debit",
+            "CPS/Automated Fuel Dispenser (AFD), Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "CPS/Retail, Debit",
+            "CPS/Service Station, Debit"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "regulatory",
+      "independent_squares_if_complete": 8,
+      "network": "visa",
+      "page": 5,
+      "pages": [
+        5
+      ],
+      "read_negative": 8,
+      "read_positive": 0,
+      "read_sign_stable": 8,
+      "rows_left_out": [
+        {
+          "row": "CPS/Small Ticket, Debit",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "rows_used": [
+        "CPS/Supermarket, Debit",
+        "CPS/Retail, Debit",
+        "CPS/Automated Fuel Dispenser (AFD), Debit",
+        "CPS/Service Station, Debit",
+        "CPS/Restaurant, Debit",
+        "CPS/Hotel and Car Rental Card Present, Debit",
+        "CPS/Passenger Transport Card Present, Debit",
+        "Travel Service, Debit",
+        "CPS/Retail Key Entry, Debit2"
+      ],
+      "squares": {
+        "read": 27,
+        "unread": 2,
+        "zero": 7
+      }
+    },
+    "mc_commercial_and_large_market": {
+      "classes": [
+        "commercial_debit",
+        "commercial_prepaid",
+        "large_market_credit"
+      ],
+      "cpd": {
+        "cells": 21,
+        "max_abs_residual": "0.002369",
+        "rms_residual": "0.000886"
+      },
+      "derived": false,
+      "edition": "2026-04-17",
+      "examples_read": [
+        {
+          "classes": [
+            "commercial_debit",
+            "large_market_credit"
+          ],
+          "ref_log": "0.000486",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "commercial_prepaid",
+            "large_market_credit"
+          ],
+          "ref_log": "0.000486",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "commercial_debit",
+            "commercial_prepaid"
+          ],
+          "ref_log": "0.005367",
+          "rows": [
+            "Charities",
+            "Data Rate II"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "commercial_debit",
+            "large_market_credit"
+          ],
+          "ref_log": "0.003906",
+          "rows": [
+            "Charities",
+            "Data Rate II"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "commercial_prepaid",
+            "large_market_credit"
+          ],
+          "ref_log": "-0.001461",
+          "rows": [
+            "Charities",
+            "Data Rate II"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "commercial_debit",
+            "large_market_credit"
+          ],
+          "ref_log": "0.001467",
+          "rows": [
+            "Charities",
+            "Data Rate II (Petroleum MCCs)"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 14,
+      "network": "mastercard",
+      "page": 8,
+      "pages": [
+        8
+      ],
+      "read_negative": 13,
+      "read_positive": 21,
+      "read_sign_stable": 34,
+      "rows_left_out": [
+        {
+          "row": "Large Ticket",
+          "why": "Large Ticket: its ticket threshold is not printed in this schedule"
+        },
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Rebate",
+          "why": "a rebate, not a sale"
+        },
+        {
+          "row": "Commercial Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 4",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "rows_used": [
+        "Charities",
+        "Data Rate I",
+        "Data Rate II",
+        "Data Rate II (Petroleum MCCs)",
+        "Data Rate III",
+        "Standard",
+        "T&E Rate",
+        "Utilities"
+      ],
+      "squares": {
+        "read": 34,
+        "unread": 0,
+        "zero": 17
+      }
+    },
+    "mc_consumer_credit": {
+      "classes": [
+        "core",
+        "enhanced_value",
+        "world",
+        "world_high_value",
+        "world_elite"
+      ],
+      "cpd": {
+        "cells": 125,
+        "max_abs_residual": "0.003143",
+        "rms_residual": "0.001345"
+      },
+      "derived": false,
+      "edition": "2026-04-17",
+      "examples_read": [
+        {
+          "classes": [
+            "core",
+            "enhanced_value"
+          ],
+          "ref_log": "0.001474",
+          "rows": [
+            "Charities",
+            "Convenience Purchases Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "core",
+            "world"
+          ],
+          "ref_log": "0.002455",
+          "rows": [
+            "Charities",
+            "Convenience Purchases Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "core",
+            "world_high_value"
+          ],
+          "ref_log": "0.006372",
+          "rows": [
+            "Charities",
+            "Convenience Purchases Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "core",
+            "world_elite"
+          ],
+          "ref_log": "0.006372",
+          "rows": [
+            "Charities",
+            "Convenience Purchases Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "enhanced_value",
+            "world"
+          ],
+          "ref_log": "0.000981",
+          "rows": [
+            "Charities",
+            "Convenience Purchases Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "enhanced_value",
+            "world_high_value"
+          ],
+          "ref_log": "0.004898",
+          "rows": [
+            "Charities",
+            "Convenience Purchases Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "core",
+            "world"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Charities",
+            "Petroleum Base"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "core",
+            "world_high_value"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Charities",
+            "Petroleum Base"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "core",
+            "world_elite"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Charities",
+            "Petroleum Base"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "enhanced_value",
+            "world"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Charities",
+            "Petroleum Base"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "product",
+      "independent_squares_if_complete": 108,
+      "network": "mastercard",
+      "page": 1,
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "read_negative": 1091,
+      "read_positive": 533,
+      "read_sign_stable": 1624,
+      "rows_left_out": [
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs4)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket5 Card Present",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket2 Card-Not-Present",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "T&E Large Ticket",
+          "why": "Large Ticket: its ticket threshold is not printed in this schedule"
+        },
+        {
+          "row": "Consumer Credit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 4",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 5",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "rows_used": [
+        "Airline",
+        "Charities",
+        "Convenience Purchases Base",
+        "Convenience Purchases Tier I",
+        "Full UCAF",
+        "Key-entered",
+        "Lodging and Auto Rental",
+        "Merchant UCAF",
+        "Merit I",
+        "Merit I (Insurance MCCs1)",
+        "Merit I (Real Estate MCCs2)",
+        "Merit I (Day Care MCCs3)",
+        "Merit III Base",
+        "Merit III Tier 1",
+        "Merit III Tier 2",
+        "Merit III Tier 3",
+        "PassengerTransport",
+        "Petroleum Base",
+        "Public Sector",
+        "Restaurant",
+        "Service Industries",
+        "Standard",
+        "Supermarket Base",
+        "Supermarket Tier 1",
+        "Supermarket Tier 2",
+        "Supermarket Tier 3",
+        "T&E",
+        "Utilities"
+      ],
+      "squares": {
+        "read": 1893,
+        "unread": 40,
+        "zero": 649
+      }
+    },
+    "mc_debit_prepaid": {
+      "classes": [
+        "debit",
+        "prepaid"
+      ],
+      "cpd": {
+        "cells": 44,
+        "max_abs_residual": "0.000620",
+        "rms_residual": "0.000310"
+      },
+      "derived": false,
+      "edition": "2026-04-17",
+      "examples_read": [
+        {
+          "classes": [
+            "debit",
+            "prepaid"
+          ],
+          "ref_log": "0.001570",
+          "rows": [
+            "Charities",
+            "Full UCAF"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "debit",
+            "prepaid"
+          ],
+          "ref_log": "0.001570",
+          "rows": [
+            "Charities",
+            "Key-Entered"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "debit",
+            "prepaid"
+          ],
+          "ref_log": "0.001570",
+          "rows": [
+            "Charities",
+            "Merchant UCAF"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "debit",
+            "prepaid"
+          ],
+          "ref_log": "0.001570",
+          "rows": [
+            "Charities",
+            "Merit I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "debit",
+            "prepaid"
+          ],
+          "ref_log": "0.000988",
+          "rows": [
+            "Charities",
+            "Merit III Base"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "debit",
+            "prepaid"
+          ],
+          "ref_log": "0.001570",
+          "rows": [
+            "Emerging Markets",
+            "Full UCAF"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 21,
+      "network": "mastercard",
+      "page": 4,
+      "pages": [
+        4,
+        5
+      ],
+      "read_negative": 69,
+      "read_positive": 20,
+      "read_sign_stable": 89,
+      "rows_left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs f)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket Base",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket Tier 1",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Supermarket Tier 1",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 2",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 3",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Consumer Debit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "rows_used": [
+        "Charities",
+        "Emerging Markets",
+        "Emerging Markets (Education /Gov’t MCCs d)",
+        "Full UCAF",
+        "Key-Entered",
+        "Lodging and Auto Rental",
+        "Merchant UCAF",
+        "Merit I",
+        "Merit I (Real Estate MCCs)",
+        "Merit I (Consumer Loan MCCs e)",
+        "Merit III Base",
+        "Merit III Tier 1",
+        "Merit III Tier 2",
+        "Merit III Tier 3",
+        "Passenger Transport",
+        "Petroleum CAT/AFD",
+        "Petroleum Service Station",
+        "Restaurant",
+        "Service Industries",
+        "Standard",
+        "Supermarket Base",
+        "Utilities"
+      ],
+      "squares": {
+        "read": 89,
+        "unread": 0,
+        "zero": 142
+      }
+    },
+    "mc_debit_statutory": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 44,
+        "max_abs_residual": "0.004472",
+        "rms_residual": "0.002217"
+      },
+      "derived": true,
+      "edition": "2026-04-17",
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.005428",
+          "rows": [
+            "Charities",
+            "Emerging Markets"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.007905",
+          "rows": [
+            "Charities",
+            "Emerging Markets (Education /Gov’t MCCs d)"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.001967",
+          "rows": [
+            "Charities",
+            "Full UCAF"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.001967",
+          "rows": [
+            "Charities",
+            "Key-Entered"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.002957",
+          "rows": [
+            "Charities",
+            "Lodging and Auto Rental"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.001967",
+          "rows": [
+            "Charities",
+            "Merchant UCAF"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Emerging Markets",
+            "Merit I (Real Estate MCCs)"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Emerging Markets",
+            "Merit I (Consumer Loan MCCs e)"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.003966",
+          "rows": [
+            "Emerging Markets",
+            "Utilities"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Merit I (Real Estate MCCs)",
+            "Merit I (Consumer Loan MCCs e)"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "regulatory",
+      "independent_squares_if_complete": 21,
+      "network": "mastercard",
+      "page": 4,
+      "pages": [
+        4,
+        5,
+        6
+      ],
+      "read_negative": 48,
+      "read_positive": 86,
+      "read_sign_stable": 134,
+      "rows_left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs f)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket Base",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket Tier 1",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Supermarket Tier 1",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 2",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 3",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Consumer Debit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "rows_used": [
+        "Charities",
+        "Emerging Markets",
+        "Emerging Markets (Education /Gov’t MCCs d)",
+        "Full UCAF",
+        "Key-Entered",
+        "Lodging and Auto Rental",
+        "Merchant UCAF",
+        "Merit I",
+        "Merit I (Real Estate MCCs)",
+        "Merit I (Consumer Loan MCCs e)",
+        "Merit III Base",
+        "Merit III Tier 1",
+        "Merit III Tier 2",
+        "Merit III Tier 3",
+        "Passenger Transport",
+        "Petroleum CAT/AFD",
+        "Petroleum Service Station",
+        "Restaurant",
+        "Service Industries",
+        "Standard",
+        "Supermarket Base",
+        "Utilities"
+      ],
+      "squares": {
+        "read": 215,
+        "unread": 9,
+        "zero": 7
+      }
+    },
+    "mc_earlier_pin_debit": {
+      "classes": [
+        "rate"
+      ],
+      "edition": "2025-04-11",
+      "family": "cap",
+      "network": "mastercard",
+      "pages": [
+        11
+      ],
+      "rows_left_out": [],
+      "rows_used": [
+        "PIN Debit All Other Base",
+        "PIN Debit Convenience Base",
+        "PIN Debit Supermarket/Warehouse Base",
+        "PIN Debit Payment Transaction",
+        "PIN Debit Payment Transaction (Gaming Payment MCCs p)",
+        "PIN Regulated POS Debit",
+        "PIN Regulated POS Debit with Fraud Adjustment"
+      ]
+    },
+    "mc_earlier_regulated": {
+      "classes": [
+        "debit",
+        "prepaid"
+      ],
+      "edition": "2025-04-11",
+      "family": "cap",
+      "network": "mastercard",
+      "pages": [
+        6
+      ],
+      "rows_left_out": [],
+      "rows_used": [
+        "Regulated POS Debit",
+        "Regulated POS Debit with Fraud Adjustment",
+        "Regulated POS Debit Small Ticket",
+        "Regulated POS Debit Small Ticket with Fraud Adjustment"
+      ]
+    },
+    "mc_pin_debit": {
+      "classes": [
+        "rate"
+      ],
+      "edition": "2026-04-17",
+      "family": "cap",
+      "network": "mastercard",
+      "pages": [
+        11
+      ],
+      "rows_left_out": [],
+      "rows_used": [
+        "PIN Debit All Other Base",
+        "PIN Debit Convenience Base",
+        "PIN Debit Supermarket/Warehouse Base",
+        "PIN Debit Payment Transaction",
+        "PIN Debit Payment Transaction (Gaming Payment MCCs p)",
+        "PIN Regulated POS Debit",
+        "PIN Regulated POS Debit with Fraud Adjustment"
+      ]
+    },
+    "mc_prepaid_statutory": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 44,
+        "max_abs_residual": "0.004582",
+        "rms_residual": "0.002406"
+      },
+      "derived": true,
+      "edition": "2026-04-17",
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.005428",
+          "rows": [
+            "Charities",
+            "Emerging Markets"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.007905",
+          "rows": [
+            "Charities",
+            "Emerging Markets (Education /Gov’t MCCs d)"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.003537",
+          "rows": [
+            "Charities",
+            "Full UCAF"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.003537",
+          "rows": [
+            "Charities",
+            "Key-Entered"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.002957",
+          "rows": [
+            "Charities",
+            "Lodging and Auto Rental"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.003537",
+          "rows": [
+            "Charities",
+            "Merchant UCAF"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Emerging Markets",
+            "Merit I (Real Estate MCCs)"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Emerging Markets",
+            "Merit I (Consumer Loan MCCs e)"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.003966",
+          "rows": [
+            "Emerging Markets",
+            "Utilities"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Merit I (Real Estate MCCs)",
+            "Merit I (Consumer Loan MCCs e)"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "regulatory",
+      "independent_squares_if_complete": 21,
+      "network": "mastercard",
+      "page": 4,
+      "pages": [
+        4,
+        5,
+        6
+      ],
+      "read_negative": 52,
+      "read_positive": 95,
+      "read_sign_stable": 147,
+      "rows_left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs f)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket Base",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket Tier 1",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Supermarket Tier 1",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 2",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 3",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Consumer Debit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "rows_used": [
+        "Charities",
+        "Emerging Markets",
+        "Emerging Markets (Education /Gov’t MCCs d)",
+        "Full UCAF",
+        "Key-Entered",
+        "Lodging and Auto Rental",
+        "Merchant UCAF",
+        "Merit I",
+        "Merit I (Real Estate MCCs)",
+        "Merit I (Consumer Loan MCCs e)",
+        "Merit III Base",
+        "Merit III Tier 1",
+        "Merit III Tier 2",
+        "Merit III Tier 3",
+        "Passenger Transport",
+        "Petroleum CAT/AFD",
+        "Petroleum Service Station",
+        "Restaurant",
+        "Service Industries",
+        "Standard",
+        "Supermarket Base",
+        "Utilities"
+      ],
+      "squares": {
+        "read": 216,
+        "unread": 7,
+        "zero": 8
+      }
+    },
+    "mc_regulated": {
+      "classes": [
+        "debit",
+        "prepaid"
+      ],
+      "edition": "2026-04-17",
+      "family": "cap",
+      "network": "mastercard",
+      "pages": [
+        6
+      ],
+      "rows_left_out": [],
+      "rows_used": [
+        "Regulated POS Debit",
+        "Regulated POS Debit with Fraud Adjustment",
+        "Regulated POS Debit Small Ticket",
+        "Regulated POS Debit Small Ticket with Fraud Adjustment"
+      ]
+    },
+    "mc_small_business_credit": {
+      "classes": [
+        "level_1_business_core",
+        "level_2_business_world",
+        "level_3_business_world_elite",
+        "level_4",
+        "level_5"
+      ],
+      "cpd": {
+        "cells": 30,
+        "max_abs_residual": "0.001298",
+        "rms_residual": "0.000562"
+      },
+      "derived": false,
+      "edition": "2026-04-17",
+      "examples_read": [
+        {
+          "classes": [
+            "level_1_business_core",
+            "level_2_business_world"
+          ],
+          "ref_log": "0.001459",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "level_1_business_core",
+            "level_3_business_world_elite"
+          ],
+          "ref_log": "0.001945",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "level_1_business_core",
+            "level_4"
+          ],
+          "ref_log": "0.002915",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "level_1_business_core",
+            "level_5"
+          ],
+          "ref_log": "0.003401",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "level_2_business_world",
+            "level_3_business_world_elite"
+          ],
+          "ref_log": "0.000486",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "level_2_business_world",
+            "level_4"
+          ],
+          "ref_log": "0.001457",
+          "rows": [
+            "Charities",
+            "Data Rate I"
+          ],
+          "settings": 24,
+          "sign": 1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [],
+      "family": "product",
+      "independent_squares_if_complete": 20,
+      "network": "mastercard",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "read_negative": 40,
+      "read_positive": 40,
+      "read_sign_stable": 80,
+      "rows_left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Rebate",
+          "why": "a rebate, not a sale"
+        },
+        {
+          "row": "Commercial Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 4",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "rows_used": [
+        "Charities",
+        "Data Rate I",
+        "Data Rate II",
+        "Standard",
+        "T&E Rate",
+        "Utilities"
+      ],
+      "squares": {
+        "read": 140,
+        "unread": 0,
+        "zero": 10
+      }
+    },
+    "prepaid_card_not_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 30,
+        "max_abs_residual": "0.005831",
+        "rms_residual": "0.002876"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.003478",
+          "rows": [
+            "CPS/Retail 2 Card Not Present, Prepaid",
+            "CPS/Utility Recurring Bill Payment, Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "0.001489",
+          "rows": [
+            "CPS/Retail 2 Card Not Present, Prepaid",
+            "CPS/Utility, Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.011344",
+          "rows": [
+            "CPS/Retail 2 Card Not Present, Prepaid",
+            "Consumer Bill Payment Service, Consumer, Prepaid"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.011344",
+          "rows": [
+            "CPS/Retail 2 Card Not Present, Prepaid",
+            "CPS/Card Not Present, Prepaid"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.011344",
+          "rows": [
+            "CPS/Retail 2 Card Not Present, Prepaid",
+            "CPS/e-Commerce Basic, Prepaid"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.011344",
+          "rows": [
+            "CPS/Retail 2 Card Not Present, Prepaid",
+            "CPS/e-Commerce Preferred Retail, Prepaid"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.013324",
+          "rows": [
+            "CPS/Utility, Prepaid",
+            "CPS/Account Funding, Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.013324",
+          "rows": [
+            "CPS/Utility, Prepaid",
+            "Electronic Interchange Reimbursement Fee (EIRF), Prepaid3"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "regulatory",
+      "independent_squares_if_complete": 14,
+      "network": "visa",
+      "page": 8,
+      "pages": [
+        8
+      ],
+      "read_negative": 49,
+      "read_positive": 0,
+      "read_sign_stable": 49,
+      "rows_left_out": [
+        {
+          "row": "CPS/Debt Repayment 2 CPS/Debt Repayment (No Fee)",
+          "why": "not a single rate: 0.65% + $0.15 ($2.00 Cap) 0.65% + $0.15 ($0.65 Cap)"
+        }
+      ],
+      "rows_used": [
+        "CPS/Retail 2 Card Not Present, Prepaid",
+        "CPS/Utility Recurring Bill Payment, Prepaid",
+        "CPS/Utility, Prepaid",
+        "CPS/Government, Prepaid",
+        "Consumer Bill Payment Service, Consumer, Prepaid",
+        "CPS/Card Not Present, Prepaid",
+        "CPS/e-Commerce Basic, Prepaid",
+        "CPS/e-Commerce Preferred Retail, Prepaid",
+        "CPS/e-Commerce Preferred Hotel and Car Rental, Prepaid",
+        "CPS/e-Commerce Preferred Passenger Transport, Prepaid",
+        "CPS/Hotel and Car Rental Card Not Present, Prepaid",
+        "CPS/Passenger Transport, Prepaid",
+        "CPS/Account Funding, Prepaid",
+        "Electronic Interchange Reimbursement Fee (EIRF), Prepaid3",
+        "Standard Interchange Reimbursement Fee, Prepaid"
+      ],
+      "squares": {
+        "read": 73,
+        "unread": 2,
+        "zero": 30
+      }
+    },
+    "prepaid_card_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "cpd": {
+        "cells": 18,
+        "max_abs_residual": "0.004158",
+        "rms_residual": "0.001991"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.015818",
+          "rows": [
+            "CPS/Supermarket, Prepaid",
+            "CPS/Retail Key Entry, Prepaid2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.006396",
+          "rows": [
+            "CPS/Retail, Prepaid",
+            "CPS/Retail Key Entry, Prepaid2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009857",
+          "rows": [
+            "CPS/Automated Fuel Dispenser (AFD), Prepaid",
+            "CPS/Retail Key Entry, Prepaid2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009857",
+          "rows": [
+            "CPS/Service Station, Prepaid",
+            "CPS/Retail Key Entry, Prepaid2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.006396",
+          "rows": [
+            "CPS/Hotel and Car Rental Card Present, Prepaid",
+            "CPS/Retail Key Entry, Prepaid2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.006396",
+          "rows": [
+            "CPS/Restaurant, Prepaid",
+            "CPS/Retail Key Entry, Prepaid2"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009422",
+          "rows": [
+            "CPS/Supermarket, Prepaid",
+            "CPS/Retail, Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.005961",
+          "rows": [
+            "CPS/Supermarket, Prepaid",
+            "CPS/Automated Fuel Dispenser (AFD), Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.005961",
+          "rows": [
+            "CPS/Supermarket, Prepaid",
+            "CPS/Service Station, Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "exempt",
+            "regulated"
+          ],
+          "ref_log": "-0.009422",
+          "rows": [
+            "CPS/Supermarket, Prepaid",
+            "CPS/Hotel and Car Rental Card Present, Prepaid"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "regulatory",
+      "independent_squares_if_complete": 8,
+      "network": "visa",
+      "page": 7,
+      "pages": [
+        7
+      ],
+      "read_negative": 8,
+      "read_positive": 0,
+      "read_sign_stable": 8,
+      "rows_left_out": [
+        {
+          "row": "CPS/Small Ticket, Prepaid",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "rows_used": [
+        "CPS/Supermarket, Prepaid",
+        "CPS/Retail, Prepaid",
+        "CPS/Automated Fuel Dispenser (AFD), Prepaid",
+        "CPS/Service Station, Prepaid",
+        "CPS/Hotel and Car Rental Card Present, Prepaid",
+        "CPS/Restaurant, Prepaid",
+        "CPS/Passenger Transport Card Present, Prepaid",
+        "Travel Service, Prepaid",
+        "CPS/Retail Key Entry, Prepaid2"
+      ],
+      "squares": {
+        "read": 8,
+        "unread": 17,
+        "zero": 11
+      }
+    },
+    "small_merchant_credit": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "cpd": {
+        "cells": 72,
+        "max_abs_residual": "0.002911",
+        "rms_residual": "0.001243"
+      },
+      "derived": false,
+      "edition": null,
+      "examples_read": [
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "infinite_spend_not_qualified"
+          ],
+          "ref_log": "0.000013",
+          "rows": [
+            "Small Merchant Product 2",
+            "Small Merchant Product 1"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "signature"
+          ],
+          "ref_log": "0.000013",
+          "rows": [
+            "Small Merchant Product 2",
+            "Small Merchant Product 1"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "traditional_rewards"
+          ],
+          "ref_log": "0.000013",
+          "rows": [
+            "Small Merchant Product 2",
+            "Small Merchant Product 1"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "all_other"
+          ],
+          "ref_log": "-0.000081",
+          "rows": [
+            "Small Merchant Product 2",
+            "Small Merchant Product 1"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_not_qualified",
+            "signature_preferred"
+          ],
+          "ref_log": "-0.000013",
+          "rows": [
+            "Small Merchant Product 2",
+            "Small Merchant Product 1"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "read"
+        },
+        {
+          "classes": [
+            "infinite_spend_not_qualified",
+            "all_other"
+          ],
+          "ref_log": "-0.000094",
+          "rows": [
+            "Small Merchant Product 2",
+            "Small Merchant Product 1"
+          ],
+          "settings": 24,
+          "sign": -1,
+          "sign_stable": true,
+          "state": "read"
+        }
+      ],
+      "examples_unread": [
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "infinite_spend_not_qualified"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Small Merchant Education 1 & 2",
+            "Small Merchant Recurring 1 & 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "signature"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Small Merchant Education 1 & 2",
+            "Small Merchant Recurring 1 & 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "traditional_rewards"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Small Merchant Education 1 & 2",
+            "Small Merchant Recurring 1 & 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        },
+        {
+          "classes": [
+            "infinite_spend_qualified",
+            "all_other"
+          ],
+          "ref_log": "0.000000",
+          "rows": [
+            "Small Merchant Education 1 & 2",
+            "Small Merchant Recurring 1 & 2"
+          ],
+          "settings": 24,
+          "sign": 0,
+          "sign_stable": false,
+          "state": "unread"
+        }
+      ],
+      "family": "product",
+      "independent_squares_if_complete": 55,
+      "network": "visa",
+      "page": 12,
+      "pages": [
+        12
+      ],
+      "read_negative": 347,
+      "read_positive": 344,
+      "read_sign_stable": 691,
+      "rows_left_out": [
+        {
+          "row": "Type 1",
+          "why": "an adjustment, not a fee program: -0.05%"
+        },
+        {
+          "row": "Type 2",
+          "why": "an adjustment, not a fee program: -0.10%"
+        },
+        {
+          "row": "Type 3",
+          "why": "an adjustment, not a fee program: -0.15%"
+        }
+      ],
+      "rows_used": [
+        "Small Merchant Product 2",
+        "Small Merchant Product 1",
+        "Small Merchant Advertising 1 & 2",
+        "Small Merchant Education 1 & 2",
+        "Small Merchant Healthcare1 & 2",
+        "Small Merchant Insurance 1 & 2",
+        "Small Merchant Real Estate 1 & 2",
+        "Small Merchant Recurring 1 & 2",
+        "Small Merchant Services 1 & 2",
+        "Small Merchant Restaurant 1 & 2",
+        "Small Merchant Supermarket 1 & 2",
+        "Small Merchant Taxi 1 & 2"
+      ],
+      "squares": {
+        "read": 727,
+        "unread": 16,
+        "zero": 247
+      }
+    }
+  },
+  "stage": "B123",
+  "tables": {
+    "business_and_purchasing_prepaid": {
+      "classes": [
+        "exempt business prepaid",
+        "exempt purchasing prepaid",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "Visa Purchasing Prepaid Large Ticket",
+          "why": "Large Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        19
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2.95% + $0.10",
+            "2.95% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Non-Qualified"
+        },
+        {
+          "cells": [
+            "2.15% + $0.10",
+            "2.15% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Card Present"
+        },
+        {
+          "cells": [
+            "2.65% + $0.10",
+            "2.65% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Card Not Present"
+        },
+        {
+          "cells": [
+            "2.65% + $0.10",
+            "2.65% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Commercial Prepaid"
+        },
+        {
+          "cells": [
+            "$0.75",
+            null,
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Visa Business Utility Recurring Bill Payment (Visa Business Prepaid Only)"
+        },
+        {
+          "cells": [
+            "$1.50",
+            null,
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Business Utilities (Visa Business Prepaid Only)"
+        }
+      ]
+    },
+    "business_credit_spend_tier": {
+      "classes": [
+        "tier_I",
+        "tier_II",
+        "tier_III",
+        "tier_IV",
+        "tier_V"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "product",
+      "left_out": [],
+      "network": "visa",
+      "pages": [
+        21
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2.40% + $0.10",
+            "2.55% + $0.10",
+            "2.60% + $0.10",
+            "2.70% + $0.10",
+            "2.75% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Business Product 3"
+        },
+        {
+          "cells": [
+            "1.90% + $0.10",
+            "2.05% + $0.10",
+            "2.10% + $0.10",
+            "2.20% + $0.10",
+            "2.25% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Business Product 2"
+        },
+        {
+          "cells": [
+            "2.65% + $0.10",
+            "2.80% + $0.10",
+            "2.85% + $0.10",
+            "2.95% + $0.10",
+            "3.00% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Business Product 1"
+        },
+        {
+          "cells": [
+            "2.65% + $0.10",
+            "2.80% + $0.10",
+            "2.85% + $0.10",
+            "2.95% + $0.10",
+            "3.00% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Business Credit"
+        },
+        {
+          "cells": [
+            "2.35% + $0.10",
+            "2.50% + $0.10",
+            "2.55% + $0.10",
+            "2.65% + $0.10",
+            "2.70% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Business Travel"
+        },
+        {
+          "cells": [
+            "3.15% + $0.20",
+            "3.15% + $0.20",
+            "3.15% + $0.20",
+            "3.15% + $0.20",
+            "3.15% + $0.20"
+          ],
+          "min_ticket": "0",
+          "row": "Business Non-Qualified"
+        },
+        {
+          "cells": [
+            "$1.50",
+            "$1.50",
+            "$1.50",
+            "$1.50",
+            "$1.50"
+          ],
+          "min_ticket": "0",
+          "row": "Business Utility Program"
+        }
+      ]
+    },
+    "business_debit": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [],
+      "network": "visa",
+      "pages": [
+        21
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.70% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Business Debit, Card Present"
+        },
+        {
+          "cells": [
+            "2.45% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Business Debit, Card Not Present"
+        },
+        {
+          "cells": [
+            "2.45% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Business Debit"
+        },
+        {
+          "cells": [
+            "2.95% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Business Debit, Non-Qualified"
+        },
+        {
+          "cells": [
+            "$0.75",
+            "0.05% +$0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Business Utility Program, Recurring Bill Payment"
+        },
+        {
+          "cells": [
+            "$1.50",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Business Utility Program, Card Not Present Only"
+        }
+      ]
+    },
+    "consumer_credit_card_not_present": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Type 1",
+          "why": "an adjustment, not a fee program: -0.05%"
+        },
+        {
+          "row": "Type 2",
+          "why": "an adjustment, not a fee program: -0.10%"
+        },
+        {
+          "row": "Type 3",
+          "why": "an adjustment, not a fee program: -0.15%"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        11
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.85% + $0.05",
+            "1.33% + $0.05",
+            "1.85% + $0.05",
+            "1.33% + $0.05",
+            "1.33% + $0.05",
+            "1.33% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Recurring Tier 1"
+        },
+        {
+          "cells": [
+            "2.20% + $0.05",
+            "1.43% + $0.05",
+            "2.20% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Recurring Tier 2"
+        },
+        {
+          "cells": [
+            "2.30% + $0.05",
+            "1.53% + $0.05",
+            "2.30% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Recurring Tier 3"
+        },
+        {
+          "cells": [
+            "2.30% + $0.05",
+            "1.53% + $0.05",
+            "2.30% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Recurring"
+        },
+        {
+          "cells": [
+            "2.60% + $0.10",
+            "2.20% + $0.10",
+            "2.50% + $0.10",
+            "2.05% + $0.10",
+            "2.04% + $0.10",
+            "1.89% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Product 1"
+        },
+        {
+          "cells": [
+            "2.40% + $0.10",
+            "1.85% + $0.10",
+            "2.40% + $0.10",
+            "1.85% + $0.10",
+            "1.80% + $0.10",
+            "1.65% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Advertising 1"
+        },
+        {
+          "cells": [
+            "2.35% + $0.10",
+            "1.53% + $0.05",
+            "2.35% + $0.10",
+            "1.53% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Insurance 1"
+        },
+        {
+          "cells": [
+            "2.25% + $0.10",
+            "1.53% + $0.05",
+            "2.25% + $0.10",
+            "1.53% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05"
+          ],
+          "min_ticket": "500",
+          "row": "Education 1: applies to transactions >=$500"
+        },
+        {
+          "cells": [
+            "2.40% + $0.10",
+            "1.53% + $0.05",
+            "2.40% + $0.10",
+            "1.53% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05"
+          ],
+          "min_ticket": "500",
+          "row": "Healthcare 1: applies to transactions >=$500"
+        },
+        {
+          "cells": [
+            "2.25% + $0.10",
+            "1.53% + $0.05",
+            "2.25% + $0.10",
+            "1.53% + $0.05",
+            "1.53% + $0.05",
+            "1.53% + $0.05"
+          ],
+          "min_ticket": "500",
+          "row": "Real Estate 1: applies to transactions >=$500"
+        },
+        {
+          "cells": [
+            "2.40% + $0.10",
+            "1.95% + $0.10",
+            "2.40% + $0.10",
+            "1.95% + $0.10",
+            "1.80% + $0.10",
+            "1.65% + $0.10"
+          ],
+          "min_ticket": "100",
+          "row": "Services 1: applies to transactions >=$100"
+        },
+        {
+          "cells": [
+            "2.55% + $0.10",
+            "2.25% + $0.10",
+            "2.40% + $0.10",
+            "2.25% + $0.10",
+            "1.95% + $0.10",
+            "1.75% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Travel 1"
+        },
+        {
+          "cells": [
+            "2.70% (min. $0.08)",
+            "2.70% (min. $0.08)",
+            "2.70% (min. $0.08)",
+            "2.70% (min. $0.08)",
+            "2.20% (min. $0.08)",
+            "2.20% (min. $0.08)"
+          ],
+          "min_ticket": "0",
+          "row": "Restaurant 1"
+        },
+        {
+          "cells": [
+            "2.70% (min. $0.08)",
+            "2.70% (min. $0.08)",
+            "2.70% (min. $0.08)",
+            "2.70% (min. $0.08)",
+            "2.20% (min. $0.08)",
+            "2.20% (min. $0.08)"
+          ],
+          "min_ticket": "0",
+          "row": "Taxi 1"
+        },
+        {
+          "cells": [
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Charity 1"
+        },
+        {
+          "cells": [
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Government 1"
+        },
+        {
+          "cells": [
+            "2.60% + $0.10",
+            "2.20% + $0.10",
+            "2.50% + $0.10",
+            "2.05% + $0.10",
+            "2.04% + $0.10",
+            "1.89% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Consumer Credit 1"
+        },
+        {
+          "cells": [
+            "$0.75",
+            "$0.75",
+            "$0.75",
+            "$0.75",
+            "$0.75",
+            "$0.75"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Utility"
+        },
+        {
+          "cells": [
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Non-Qualified Consumer Credit"
+        }
+      ]
+    },
+    "consumer_credit_card_present_a": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Small Ticket",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        },
+        {
+          "row": "Service Station and Government Small Ticket",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        9
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.65% + $0.05",
+            "1.55% + $0.05",
+            "1.65% + $0.05",
+            "1.55% + $0.05",
+            "1.18% + $0.05",
+            "1.18% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Credit— Tier* 0"
+        },
+        {
+          "cells": [
+            "1.65% + $0.05",
+            "1.55% + $0.05",
+            "1.65% + $0.05",
+            "1.55% + $0.05",
+            "1.20% + $0.05",
+            "1.20% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Credit— Tier* I"
+        },
+        {
+          "cells": [
+            "1.65% + $0.05",
+            "1.55% + $0.05",
+            "1.65% + $0.05",
+            "1.55% + $0.05",
+            "1.22% + $0.05",
+            "1.22% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Credit— Tier* II"
+        },
+        {
+          "cells": [
+            "1.75% + $0.05",
+            "1.60% + $0.05",
+            "1.75% + $0.05",
+            "1.60% + $0.05",
+            "1.22% + $0.05",
+            "1.22% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Credit— Tier* III"
+        },
+        {
+          "cells": [
+            "2.00% + $0.07",
+            "1.65% + $0.07",
+            "2.00% + $0.07",
+            "1.65% + $0.07",
+            "1.50% + $0.07",
+            "1.50% + $0.07"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Credit— All Other"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.90% + $0.10",
+            "2.10% + $0.10",
+            "1.65% + $0.10",
+            "1.43% + $0.10",
+            "1.43% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Retail Credit-Performance Threshold* I"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.90% + $0.10",
+            "2.10% + $0.10",
+            "1.65% + $0.10",
+            "1.47% + $0.10",
+            "1.47% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Retail Credit-Performance Threshold* II"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.90% + $0.10",
+            "2.10% + $0.10",
+            "1.65% + $0.10",
+            "1.51% + $0.10",
+            "1.51% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Retail Credit-Performance Threshold* III"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.90% + $0.10",
+            "2.10% + $0.10",
+            "1.65% + $0.10",
+            "1.65% + $0.10",
+            "1.51% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Product 2"
+        },
+        {
+          "cells": [
+            "1.15% + $0.25 ($1.10 Cap)",
+            "1.15% + $0.25 ($1.10 Cap)",
+            "1.15% + $0.25 ($1.10 Cap)",
+            "1.15% + $0.25 ($1.10 Cap)",
+            "1.15% + $0.25 ($1.10 Cap)",
+            "1.15% + $0.25 ($1.10 Cap)"
+          ],
+          "min_ticket": "0",
+          "row": "Fuel"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.75% + $0.10",
+            "2.30% + $0.10",
+            "1.75% + $0.10",
+            "1.70% + $0.10",
+            "1.55% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Advertising 2"
+        },
+        {
+          "cells": [
+            "2.25% + $0.10",
+            "1.43% + $0.05",
+            "2.25% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Insurance 2"
+        },
+        {
+          "cells": [
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "500",
+          "row": "Education 2: applies to transactions >=$500"
+        }
+      ]
+    },
+    "consumer_credit_card_present_b": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "product",
+      "left_out": [],
+      "network": "visa",
+      "pages": [
+        10
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.43% + $0.05",
+            "2.30% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "500",
+          "row": "Healthcare 2: applies to transactions >=$500"
+        },
+        {
+          "cells": [
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "500",
+          "row": "Real Estate 2: applies to transactions >=$500"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.85% + $0.10",
+            "2.30% + $0.10",
+            "1.85% + $0.10",
+            "1.70% + $0.10",
+            "1.55% + $0.10"
+          ],
+          "min_ticket": "100",
+          "row": "Services 2: applies to transactions >=$100"
+        },
+        {
+          "cells": [
+            "2.55% + $0.10",
+            "2.25% + $0.10",
+            "2.40% + $0.10",
+            "2.25% + $0.10",
+            "1.95% + $0.10",
+            "1.75% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Travel 2"
+        },
+        {
+          "cells": [
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.10% (min. $0.04)",
+            "2.10% (min. $0.04)"
+          ],
+          "min_ticket": "0",
+          "row": "Restaurant 2"
+        },
+        {
+          "cells": [
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.10% (min. $0.04)",
+            "2.10% (min. $0.04)"
+          ],
+          "min_ticket": "0",
+          "row": "Taxi 2"
+        },
+        {
+          "cells": [
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05",
+            "1.35% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Charity 2"
+        },
+        {
+          "cells": [
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10",
+            "1.55% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Government 2"
+        },
+        {
+          "cells": [
+            "2.60% + $0.10",
+            "2.20% + $0.10",
+            "2.50% + $0.10",
+            "2.05% + $0.10",
+            "2.04% + $0.10",
+            "1.89% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Consumer Credit 2"
+        },
+        {
+          "cells": [
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10",
+            "3.15% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Non-Qualified Consumer Credit"
+        }
+      ]
+    },
+    "corporate_prepaid": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [],
+      "network": "visa",
+      "pages": [
+        19
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2.95% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Non-Qualified"
+        },
+        {
+          "cells": [
+            "2.65% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Corporate Prepaid"
+        },
+        {
+          "cells": [
+            "2.65% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Commercial"
+        }
+      ]
+    },
+    "debit_card_not_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "CPS/Debt Repayment 2 CPS/Debt Repayment (No Fee)",
+          "why": "not a single rate: 0.65% + $0.15 ($2.00 Cap) 0.65% + $0.15 ($0.65 Cap)"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        6
+      ],
+      "rows": [
+        {
+          "cells": [
+            "0.65% + $0.15 ($2.00 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Retail 2 – Card Not Present, Debit"
+        },
+        {
+          "cells": [
+            "$0.45",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Utility Recurring Bill Payment, Debit"
+        },
+        {
+          "cells": [
+            "$0.65",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Utility, Debit"
+        },
+        {
+          "cells": [
+            "0.65% + $0.15 ($2.00 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Government"
+        },
+        {
+          "cells": [
+            "1.65% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service Consumer Debit"
+        },
+        {
+          "cells": [
+            "1.65% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Card Not Present, Debit"
+        },
+        {
+          "cells": [
+            "1.65% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Basic, Debit"
+        },
+        {
+          "cells": [
+            "1.60% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Preferred Retail, Debit"
+        },
+        {
+          "cells": [
+            "1.70% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Preferred Hotel and Car Rental, Debit"
+        },
+        {
+          "cells": [
+            "1.70% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Preferred Passenger Transport, Debit"
+        },
+        {
+          "cells": [
+            "1.70% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Hotel and Car Rental Card Not Present, Debit"
+        },
+        {
+          "cells": [
+            "1.70% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Passenger Transport Card Not Present, Debit"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Account Funding, Debit"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Electronic Interchange Reimbursement Fee (EIRF), Debit3"
+        },
+        {
+          "cells": [
+            "1.90% + $0.25",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Standard Interchange Reimbursement Fee, Debit"
+        }
+      ]
+    },
+    "debit_card_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "CPS/Small Ticket, Debit",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        5
+      ],
+      "rows": [
+        {
+          "cells": [
+            "$0.30",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Supermarket, Debit"
+        },
+        {
+          "cells": [
+            "0.80% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Retail, Debit"
+        },
+        {
+          "cells": [
+            "0.80% + $0.15 ($0.95 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Automated Fuel Dispenser (AFD), Debit"
+        },
+        {
+          "cells": [
+            "0.80% + $0.15 ($0.95 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Service Station, Debit"
+        },
+        {
+          "cells": [
+            "1.19% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Restaurant, Debit"
+        },
+        {
+          "cells": [
+            "1.19% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Hotel and Car Rental Card Present, Debit"
+        },
+        {
+          "cells": [
+            "1.19% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Passenger Transport Card Present, Debit"
+        },
+        {
+          "cells": [
+            "1.19% + $0.10",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Travel Service, Debit"
+        },
+        {
+          "cells": [
+            "1.65% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Retail Key Entry, Debit2"
+        }
+      ]
+    },
+    "mc_commercial_and_large_market": {
+      "classes": [
+        "commercial_debit",
+        "commercial_prepaid",
+        "large_market_credit"
+      ],
+      "derived": false,
+      "edition": "2026-04-17",
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Large Ticket",
+          "why": "Large Ticket: its ticket threshold is not printed in this schedule"
+        },
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Rebate",
+          "why": "a rebate, not a sale"
+        },
+        {
+          "row": "Commercial Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 4",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "network": "mastercard",
+      "pages": [
+        8
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Charities"
+        },
+        {
+          "cells": [
+            "2.65% + 0.10",
+            "2.65% + 0.10",
+            "2.70% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Data Rate I"
+        },
+        {
+          "cells": [
+            "2.10% + 0.10",
+            "2.65% + 0.10",
+            "2.50% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Data Rate II"
+        },
+        {
+          "cells": [
+            "2.05% + 0.10",
+            "2.05% + 0.10",
+            "2.20% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Data Rate II (Petroleum MCCs)"
+        },
+        {
+          "cells": [
+            null,
+            null,
+            "1.90% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Data Rate III"
+        },
+        {
+          "cells": [
+            "2.95% + 0.10",
+            "2.95% + 0.10",
+            "2.95% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Standard"
+        },
+        {
+          "cells": [
+            "2.35% + 0.10",
+            "2.35% + 0.10",
+            "2.65% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "T&E Rate"
+        },
+        {
+          "cells": [
+            "0.00% + 1.50",
+            "0.00% + 1.50",
+            null
+          ],
+          "min_ticket": "0",
+          "row": "Utilities"
+        }
+      ]
+    },
+    "mc_consumer_credit": {
+      "classes": [
+        "core",
+        "enhanced_value",
+        "world",
+        "world_high_value",
+        "world_elite"
+      ],
+      "derived": false,
+      "edition": "2026-04-17",
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs4)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket5 Card Present",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket2 Card-Not-Present",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "T&E Large Ticket",
+          "why": "Large Ticket: its ticket threshold is not printed in this schedule"
+        },
+        {
+          "row": "Consumer Credit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 4",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Credit Refund Group 5",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "network": "mastercard",
+      "pages": [
+        1,
+        2,
+        3
+      ],
+      "rows": [
+        {
+          "cells": [
+            null,
+            null,
+            null,
+            "2.55% + 0.10",
+            "2.55% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Airline"
+        },
+        {
+          "cells": [
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Charities"
+        },
+        {
+          "cells": [
+            "1.65% + 0.04",
+            "1.80% + 0.04",
+            "1.90% + 0.04",
+            "2.30% + 0.04",
+            "2.30% + 0.04"
+          ],
+          "min_ticket": "0",
+          "row": "Convenience Purchases Base"
+        },
+        {
+          "cells": [
+            "1.35% + 0.00",
+            "1.35% + 0.00",
+            "1.45% + 0.00",
+            "1.60% + 0.00",
+            "1.60% + 0.00"
+          ],
+          "min_ticket": "0",
+          "row": "Convenience Purchases Tier I"
+        },
+        {
+          "cells": [
+            "1.95% + 0.10",
+            "2.10% + 0.10",
+            "2.20% + 0.10",
+            "2.60% + 0.10",
+            "2.60% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Full UCAF"
+        },
+        {
+          "cells": [
+            "1.95% + 0.10",
+            "2.10% + 0.10",
+            "2.20% + 0.10",
+            "2.60% + 0.10",
+            "2.60% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Key-entered"
+        },
+        {
+          "cells": [
+            "1.65% + 0.10",
+            "1.75% + 0.10",
+            null,
+            null,
+            null
+          ],
+          "min_ticket": "0",
+          "row": "Lodging and Auto Rental"
+        },
+        {
+          "cells": [
+            "1.95% + 0.10",
+            "2.10% + 0.10",
+            "2.20% + 0.10",
+            "2.60% + 0.10",
+            "2.60% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merchant UCAF"
+        },
+        {
+          "cells": [
+            "1.95% + 0.10",
+            "2.10% + 0.10",
+            "2.20% + 0.10",
+            "2.60% + 0.10",
+            "2.60% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I"
+        },
+        {
+          "cells": [
+            "1.43% + 0.05",
+            "1.43% + 0.05",
+            "1.43% + 0.05",
+            "2.25% + 0.10",
+            "2.25% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Insurance MCCs1)"
+        },
+        {
+          "cells": [
+            "1.43% + 0.05",
+            "1.43% + 0.05",
+            "1.43% + 0.05",
+            "2.20% + 0.10",
+            "2.20% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Real Estate MCCs2)"
+        },
+        {
+          "cells": [
+            "1.60% + 0.10",
+            "1.60% + 0.10",
+            "1.60% + 0.10",
+            null,
+            null
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Day Care MCCs3)"
+        },
+        {
+          "cells": [
+            "1.65% + 0.10",
+            "1.80% + 0.10",
+            "1.90% + 0.10",
+            "2.30% + 0.10",
+            "2.30% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Base"
+        },
+        {
+          "cells": [
+            "1.43% + 0.10",
+            "1.43% + 0.10",
+            "1.53% + 0.10",
+            "2.05% + 0.10",
+            "2.05% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 1"
+        },
+        {
+          "cells": [
+            "1.48% + 0.10",
+            "1.48% + 0.10",
+            "1.58% + 0.10",
+            "2.10% + 0.10",
+            "2.10% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 2"
+        },
+        {
+          "cells": [
+            "1.55% + 0.10",
+            "1.55% + 0.10",
+            "1.65% + 0.10",
+            "2.15% + 0.10",
+            "2.15% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 3"
+        },
+        {
+          "cells": [
+            "1.65% + 0.10",
+            "1.75% + 0.10",
+            null,
+            null,
+            null
+          ],
+          "min_ticket": "0",
+          "row": "PassengerTransport"
+        },
+        {
+          "cells": [
+            "1.90% + 0.00 (0.95 max)",
+            "1.90% + 0.00 (0.95 max)",
+            "2.00% + 0.00 (0.95 max)",
+            "2.00% + 0.00 (0.95 max)",
+            "2.00% + 0.00 (0.95 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum Base"
+        },
+        {
+          "cells": [
+            "1.55% + 0.10",
+            "1.55% + 0.10",
+            "1.55% + 0.10",
+            "1.55% + 0.10",
+            "1.55% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Public Sector"
+        },
+        {
+          "cells": [
+            null,
+            null,
+            "1.85% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Restaurant"
+        },
+        {
+          "cells": [
+            "1.15% + 0.05",
+            "1.15% + 0.05",
+            "1.15% + 0.05",
+            "1.15% + 0.05",
+            "1.15% + 0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Service Industries"
+        },
+        {
+          "cells": [
+            "3.15% + 0.10",
+            "3.15% + 0.10",
+            "3.15% + 0.10",
+            "3.15% + 0.10",
+            "3.15% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Standard"
+        },
+        {
+          "cells": [
+            "1.45% + 0.10",
+            "1.60% + 0.10",
+            "1.70% + 0.10",
+            "2.10% + 0.10",
+            "2.10% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Base"
+        },
+        {
+          "cells": [
+            "1.15% + 0.05",
+            "1.15% + 0.05",
+            "1.25% + 0.05",
+            "1.25% + 0.05",
+            "1.25% + 0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Tier 1"
+        },
+        {
+          "cells": [
+            "1.15% + 0.05",
+            "1.15% + 0.05",
+            "1.25% + 0.05",
+            "1.25% + 0.05",
+            "1.25% + 0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Tier 2"
+        },
+        {
+          "cells": [
+            "1.22% + 0.05",
+            "1.22% + 0.05",
+            "1.32% + 0.05",
+            "1.32% + 0.05",
+            "1.32% + 0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Tier 3"
+        },
+        {
+          "cells": [
+            null,
+            null,
+            "2.25% + 0.10",
+            "2.55% + 0.10",
+            "2.55% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "T&E"
+        },
+        {
+          "cells": [
+            "0.00% + 0.75",
+            "0.00% + 0.75",
+            "0.00% + 0.75",
+            "0.00% + 0.75",
+            "0.00% + 0.75"
+          ],
+          "min_ticket": "0",
+          "row": "Utilities"
+        }
+      ]
+    },
+    "mc_debit_prepaid": {
+      "classes": [
+        "debit",
+        "prepaid"
+      ],
+      "derived": false,
+      "edition": "2026-04-17",
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs f)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket Base",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket Tier 1",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Supermarket Tier 1",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 2",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 3",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Consumer Debit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "network": "mastercard",
+      "pages": [
+        4,
+        5
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.45% + 0.15",
+            "1.45% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Charities"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25",
+            "0.80% + 0.25"
+          ],
+          "min_ticket": "0",
+          "row": "Emerging Markets"
+        },
+        {
+          "cells": [
+            "0.65% + 0.15 (2.00 max)",
+            "0.65% + 0.15 (2.00 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Emerging Markets (Education /Gov’t MCCs d)"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "1.76% + 0.20"
+          ],
+          "min_ticket": "0",
+          "row": "Full UCAF"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "1.76% + 0.20"
+          ],
+          "min_ticket": "0",
+          "row": "Key-Entered"
+        },
+        {
+          "cells": [
+            "1.15% + 0.15",
+            "1.15% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Lodging and Auto Rental"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "1.76% + 0.20"
+          ],
+          "min_ticket": "0",
+          "row": "Merchant UCAF"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "1.76% + 0.20"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25 (5.00 max)",
+            "0.80% + 0.25 (5.00 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Real Estate MCCs)"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25 (2.95 max)",
+            "0.80% + 0.25 (2.95 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Consumer Loan MCCs e)"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15",
+            "1.15% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Base"
+        },
+        {
+          "cells": [
+            "0.70% + 0.15",
+            "0.70% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 1"
+        },
+        {
+          "cells": [
+            "0.83% + 0.15",
+            "0.83% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 2"
+        },
+        {
+          "cells": [
+            "0.95% + 0.15",
+            "0.95% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 3"
+        },
+        {
+          "cells": [
+            "1.60% + 0.15",
+            "1.60% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "Passenger Transport"
+        },
+        {
+          "cells": [
+            "0.70% + 0.17 (0.95 max)",
+            "0.70% + 0.17 (0.95 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum CAT/AFD"
+        },
+        {
+          "cells": [
+            "0.70% + 0.17 (0.95 max)",
+            "0.70% + 0.17 (0.95 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum Service Station"
+        },
+        {
+          "cells": [
+            "1.19% + 0.10",
+            "1.19% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Restaurant"
+        },
+        {
+          "cells": [
+            "1.15% + 0.05",
+            "1.15% + 0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Service Industries"
+        },
+        {
+          "cells": [
+            "1.90% + 0.25",
+            "1.90% + 0.25"
+          ],
+          "min_ticket": "0",
+          "row": "Standard"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15 (0.35 max)",
+            "1.05% + 0.15 (0.35 max)"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Base"
+        },
+        {
+          "cells": [
+            "0.00% + 0.65",
+            "0.00% + 0.65"
+          ],
+          "min_ticket": "0",
+          "row": "Utilities"
+        }
+      ]
+    },
+    "mc_debit_statutory": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": true,
+      "edition": "2026-04-17",
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs f)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket Base",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket Tier 1",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Supermarket Tier 1",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 2",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 3",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Consumer Debit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "network": "mastercard",
+      "pages": [
+        4,
+        5,
+        6
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.45% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Charities"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Emerging Markets"
+        },
+        {
+          "cells": [
+            "0.65% + 0.15 (2.00 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Emerging Markets (Education /Gov’t MCCs d)"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Full UCAF"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Key-Entered"
+        },
+        {
+          "cells": [
+            "1.15% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Lodging and Auto Rental"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merchant UCAF"
+        },
+        {
+          "cells": [
+            "1.65% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25 (5.00 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Real Estate MCCs)"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25 (2.95 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Consumer Loan MCCs e)"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Base"
+        },
+        {
+          "cells": [
+            "0.70% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 1"
+        },
+        {
+          "cells": [
+            "0.83% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 2"
+        },
+        {
+          "cells": [
+            "0.95% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 3"
+        },
+        {
+          "cells": [
+            "1.60% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Passenger Transport"
+        },
+        {
+          "cells": [
+            "0.70% + 0.17 (0.95 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum CAT/AFD"
+        },
+        {
+          "cells": [
+            "0.70% + 0.17 (0.95 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum Service Station"
+        },
+        {
+          "cells": [
+            "1.19% + 0.10",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Restaurant"
+        },
+        {
+          "cells": [
+            "1.15% + 0.05",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Service Industries"
+        },
+        {
+          "cells": [
+            "1.90% + 0.25",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Standard"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15 (0.35 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Base"
+        },
+        {
+          "cells": [
+            "0.00% + 0.65",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Utilities"
+        }
+      ]
+    },
+    "mc_earlier_pin_debit": {
+      "classes": [
+        "rate"
+      ],
+      "derived": false,
+      "edition": "2025-04-11",
+      "family": "cap",
+      "left_out": [],
+      "network": "mastercard",
+      "pages": [
+        11
+      ],
+      "rows": [
+        {
+          "cells": [
+            "0.90% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit All Other Base"
+        },
+        {
+          "cells": [
+            "0.75% + 0.17 (0.95 max)"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Convenience Base"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15 (0.35 max)"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Supermarket/Warehouse Base"
+        },
+        {
+          "cells": [
+            "0.19% + 0.53"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Payment Transaction"
+        },
+        {
+          "cells": [
+            "0.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Payment Transaction (Gaming Payment MCCs p)"
+        },
+        {
+          "cells": [
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Regulated POS Debit"
+        },
+        {
+          "cells": [
+            "0.05% + 0.22"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Regulated POS Debit with Fraud Adjustment"
+        }
+      ]
+    },
+    "mc_earlier_regulated": {
+      "classes": [
+        "debit",
+        "prepaid"
+      ],
+      "derived": false,
+      "edition": "2025-04-11",
+      "family": "cap",
+      "left_out": [],
+      "network": "mastercard",
+      "pages": [
+        6
+      ],
+      "rows": [
+        {
+          "cells": [
+            "0.05% + 0.21",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit"
+        },
+        {
+          "cells": [
+            "0.05% + 0.22",
+            "0.05% + 0.22"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit with Fraud Adjustment"
+        },
+        {
+          "cells": [
+            "0.05% + 0.21",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit Small Ticket"
+        },
+        {
+          "cells": [
+            "0.05% + 0.22",
+            "0.05% + 0.22"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit Small Ticket with Fraud Adjustment"
+        }
+      ]
+    },
+    "mc_pin_debit": {
+      "classes": [
+        "rate"
+      ],
+      "derived": false,
+      "edition": "2026-04-17",
+      "family": "cap",
+      "left_out": [],
+      "network": "mastercard",
+      "pages": [
+        11
+      ],
+      "rows": [
+        {
+          "cells": [
+            "0.90% + 0.15"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit All Other Base"
+        },
+        {
+          "cells": [
+            "0.75% + 0.17 (0.95 max)"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Convenience Base"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15 (0.35 max)"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Supermarket/Warehouse Base"
+        },
+        {
+          "cells": [
+            "0.19% + 0.53"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Payment Transaction"
+        },
+        {
+          "cells": [
+            "0.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Debit Payment Transaction (Gaming Payment MCCs p)"
+        },
+        {
+          "cells": [
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Regulated POS Debit"
+        },
+        {
+          "cells": [
+            "0.05% + 0.22"
+          ],
+          "min_ticket": "0",
+          "row": "PIN Regulated POS Debit with Fraud Adjustment"
+        }
+      ]
+    },
+    "mc_prepaid_statutory": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": true,
+      "edition": "2026-04-17",
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Payment Transaction (Gaming Payments MCCs f)",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Small Ticket Base",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Small Ticket Tier 1",
+          "why": "Small Ticket: its ticket threshold is not printed for this row, or is printed as $5 and below, under every ticket on the declared grid"
+        },
+        {
+          "row": "Supermarket Tier 1",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 2",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Supermarket Tier 3",
+          "why": "no rate in any class"
+        },
+        {
+          "row": "Consumer Debit Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Consumer Debit Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "network": "mastercard",
+      "pages": [
+        4,
+        5,
+        6
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.45% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Charities"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Emerging Markets"
+        },
+        {
+          "cells": [
+            "0.65% + 0.15 (2.00 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Emerging Markets (Education /Gov’t MCCs d)"
+        },
+        {
+          "cells": [
+            "1.76% + 0.20",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Full UCAF"
+        },
+        {
+          "cells": [
+            "1.76% + 0.20",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Key-Entered"
+        },
+        {
+          "cells": [
+            "1.15% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Lodging and Auto Rental"
+        },
+        {
+          "cells": [
+            "1.76% + 0.20",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merchant UCAF"
+        },
+        {
+          "cells": [
+            "1.76% + 0.20",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25 (5.00 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Real Estate MCCs)"
+        },
+        {
+          "cells": [
+            "0.80% + 0.25 (2.95 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit I (Consumer Loan MCCs e)"
+        },
+        {
+          "cells": [
+            "1.15% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Base"
+        },
+        {
+          "cells": [
+            "0.70% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 1"
+        },
+        {
+          "cells": [
+            "0.83% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 2"
+        },
+        {
+          "cells": [
+            "0.95% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Merit III Tier 3"
+        },
+        {
+          "cells": [
+            "1.60% + 0.15",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Passenger Transport"
+        },
+        {
+          "cells": [
+            "0.70% + 0.17 (0.95 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum CAT/AFD"
+        },
+        {
+          "cells": [
+            "0.70% + 0.17 (0.95 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Petroleum Service Station"
+        },
+        {
+          "cells": [
+            "1.19% + 0.10",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Restaurant"
+        },
+        {
+          "cells": [
+            "1.15% + 0.05",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Service Industries"
+        },
+        {
+          "cells": [
+            "1.90% + 0.25",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Standard"
+        },
+        {
+          "cells": [
+            "1.05% + 0.15 (0.35 max)",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Supermarket Base"
+        },
+        {
+          "cells": [
+            "0.00% + 0.65",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Utilities"
+        }
+      ]
+    },
+    "mc_regulated": {
+      "classes": [
+        "debit",
+        "prepaid"
+      ],
+      "derived": false,
+      "edition": "2026-04-17",
+      "family": "cap",
+      "left_out": [],
+      "network": "mastercard",
+      "pages": [
+        6
+      ],
+      "rows": [
+        {
+          "cells": [
+            "0.05% + 0.21",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit"
+        },
+        {
+          "cells": [
+            "0.05% + 0.22",
+            "0.05% + 0.22"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit with Fraud Adjustment"
+        },
+        {
+          "cells": [
+            "0.05% + 0.21",
+            "0.05% + 0.21"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit Small Ticket"
+        },
+        {
+          "cells": [
+            "0.05% + 0.22",
+            "0.05% + 0.22"
+          ],
+          "min_ticket": "0",
+          "row": "Regulated POS Debit Small Ticket with Fraud Adjustment"
+        }
+      ]
+    },
+    "mc_small_business_credit": {
+      "classes": [
+        "level_1_business_core",
+        "level_2_business_world",
+        "level_3_business_world_elite",
+        "level_4",
+        "level_5"
+      ],
+      "derived": false,
+      "edition": "2026-04-17",
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Payment Transaction",
+          "why": "a payment to the card, not a sale"
+        },
+        {
+          "row": "Rebate",
+          "why": "a rebate, not a sale"
+        },
+        {
+          "row": "Commercial Refund Group 1",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 2",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 3",
+          "why": "a refund, not a fee on a sale"
+        },
+        {
+          "row": "Commercial Refund Group 4",
+          "why": "a refund, not a fee on a sale"
+        }
+      ],
+      "network": "mastercard",
+      "pages": [
+        7
+      ],
+      "rows": [
+        {
+          "cells": [
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10",
+            "2.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Charities"
+        },
+        {
+          "cells": [
+            "2.65% + 0.10",
+            "2.80% + 0.10",
+            "2.85% + 0.10",
+            "2.95% + 0.10",
+            "3.00% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Data Rate I"
+        },
+        {
+          "cells": [
+            "1.90% + 0.10",
+            "2.05% + 0.10",
+            "2.10% + 0.10",
+            "2.20% + 0.10",
+            "2.25% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Data Rate II"
+        },
+        {
+          "cells": [
+            "2.95% + 0.10",
+            "3.10% + 0.10",
+            "3.15% + 0.10",
+            "3.25% + 0.10",
+            "3.30% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Standard"
+        },
+        {
+          "cells": [
+            "2.35% + 0.10",
+            "2.50% + 0.10",
+            "2.55% + 0.10",
+            "2.65% + 0.10",
+            "2.70% + 0.10"
+          ],
+          "min_ticket": "0",
+          "row": "T&E Rate"
+        },
+        {
+          "cells": [
+            "0.00% + 1.50",
+            "0.00% + 1.50",
+            "0.00% + 1.50",
+            "0.00% + 1.50",
+            "0.00% + 1.50"
+          ],
+          "min_ticket": "0",
+          "row": "Utilities"
+        }
+      ]
+    },
+    "prepaid_card_not_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "CPS/Debt Repayment 2 CPS/Debt Repayment (No Fee)",
+          "why": "not a single rate: 0.65% + $0.15 ($2.00 Cap) 0.65% + $0.15 ($0.65 Cap)"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        8
+      ],
+      "rows": [
+        {
+          "cells": [
+            "0.65% + $0.15 ($2.00 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Retail 2 Card Not Present, Prepaid"
+        },
+        {
+          "cells": [
+            "$0.45",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Utility Recurring Bill Payment, Prepaid"
+        },
+        {
+          "cells": [
+            "$0.65",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Utility, Prepaid"
+        },
+        {
+          "cells": [
+            "0.65% + $0.15 ($2.00 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Government, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Consumer Bill Payment Service, Consumer, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Card Not Present, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Basic, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Preferred Retail, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Preferred Hotel and Car Rental, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/e-Commerce Preferred Passenger Transport, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Hotel and Car Rental Card Not Present, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Passenger Transport, Prepaid"
+        },
+        {
+          "cells": [
+            "1.80% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Account Funding, Prepaid"
+        },
+        {
+          "cells": [
+            "1.80% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Electronic Interchange Reimbursement Fee (EIRF), Prepaid3"
+        },
+        {
+          "cells": [
+            "1.90% + $0.25",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Standard Interchange Reimbursement Fee, Prepaid"
+        }
+      ]
+    },
+    "prepaid_card_present": {
+      "classes": [
+        "exempt",
+        "regulated"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "regulatory",
+      "left_out": [
+        {
+          "row": "CPS/Small Ticket, Prepaid",
+          "why": "Small Ticket: eligibility threshold not printed in this schedule"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        7
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.15% + $0.15 ($0.35 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Supermarket, Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Retail, Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15 ($0.95 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Automated Fuel Dispenser (AFD), Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15 ($0.95 Cap)",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Service Station, Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Hotel and Car Rental Card Present, Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Restaurant, Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Passenger Transport Card Present, Prepaid"
+        },
+        {
+          "cells": [
+            "1.15% + $0.15",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "Travel Service, Prepaid"
+        },
+        {
+          "cells": [
+            "1.75% + $0.20",
+            "0.05% + $0.21*"
+          ],
+          "min_ticket": "0",
+          "row": "CPS/Retail Key Entry, Prepaid2"
+        }
+      ]
+    },
+    "small_merchant_credit": {
+      "classes": [
+        "infinite_spend_qualified",
+        "infinite_spend_not_qualified",
+        "signature_preferred",
+        "signature",
+        "traditional_rewards",
+        "all_other"
+      ],
+      "derived": false,
+      "edition": null,
+      "family": "product",
+      "left_out": [
+        {
+          "row": "Type 1",
+          "why": "an adjustment, not a fee program: -0.05%"
+        },
+        {
+          "row": "Type 2",
+          "why": "an adjustment, not a fee program: -0.10%"
+        },
+        {
+          "row": "Type 3",
+          "why": "an adjustment, not a fee program: -0.15%"
+        }
+      ],
+      "network": "visa",
+      "pages": [
+        12
+      ],
+      "rows": [
+        {
+          "cells": [
+            "1.88% + $0.10",
+            "1.43% + $0.10",
+            "1.88% + $0.10",
+            "1.43% + $0.10",
+            "1.43% + $0.10",
+            "1.29% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Product 2"
+        },
+        {
+          "cells": [
+            "2.18% + $0.10",
+            "1.73% + $0.10",
+            "2.18% + $0.10",
+            "1.73% + $0.10",
+            "1.73% + $0.10",
+            "1.58% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Product 1"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.75% + $0.10",
+            "2.30% + $0.10",
+            "1.75% + $0.10",
+            "1.70% + $0.10",
+            "1.55% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Advertising 1 & 2"
+        },
+        {
+          "cells": [
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Education 1 & 2"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.43% + $0.05",
+            "2.30% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Healthcare1 & 2"
+        },
+        {
+          "cells": [
+            "2.25% + $0.10",
+            "1.43% + $0.05",
+            "2.25% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Insurance 1 & 2"
+        },
+        {
+          "cells": [
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "2.15% + $0.10",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Real Estate 1 & 2"
+        },
+        {
+          "cells": [
+            "2.20% + $0.05",
+            "1.43% + $0.05",
+            "2.20% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05",
+            "1.43% + $0.05"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Recurring 1 & 2"
+        },
+        {
+          "cells": [
+            "2.30% + $0.10",
+            "1.85% + $0.10",
+            "2.30% + $0.10",
+            "1.85% + $0.10",
+            "1.70% + $0.10",
+            "1.55% + $0.10"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Services 1 & 2"
+        },
+        {
+          "cells": [
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.10% (min. $0.04)",
+            "2.10% (min. $0.04)"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Restaurant 1 & 2"
+        },
+        {
+          "cells": [
+            "2.00% + $0.07",
+            "1.65% + $0.07",
+            "2.00% + $0.07",
+            "1.65% + $0.07",
+            "1.50% + $0.07",
+            "1.50% + $0.07"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Supermarket 1 & 2"
+        },
+        {
+          "cells": [
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.60% (min. $0.04)",
+            "2.10% (min. $0.04)",
+            "2.10% (min. $0.04)"
+          ],
+          "min_ticket": "0",
+          "row": "Small Merchant Taxi 1 & 2"
+        }
+      ]
+    }
+  }
+}

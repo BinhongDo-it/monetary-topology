@@ -1,0 +1,92 @@
+{
+  "config": {
+    "identity": "dln LAB_QI = dln T + sum_k vbar_k dln S_k",
+    "sections": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T"
+    ],
+    "sources": [
+      "labour accounts.csv",
+      "growth accounts basic.csv",
+      "national accounts.csv"
+    ],
+    "totals_tried": [
+      "H_EMP",
+      "EMP"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "whether the class shares count hours or persons, read against the published labour services index",
+      "detail": "7,161 adjacent-year steps inside one section and country. Reproducing the published labour services index as the total plus the class term: with HOURS as the total, rmse 0.00108, correlation +0.9998, within 1e-3 in 6,972; with PERSONS, rmse 0.03284, correlation +0.8370, within 1e-3 in 479. Dropping the class term entirely gives 0.02033 and 0.03765, so the class shares are doing work in both. The reading is HOURS, by a factor of 30.33 in root mean square error. PASS records that the two readings are far enough apart to tell them apart at all.",
+      "kind": "known_answer",
+      "name": "B106-9",
+      "passed": true,
+      "payload": {
+        "hours": {
+          "corr": 0.999834217231145,
+          "mae": 0.0001391805854405197,
+          "rmse": 0.0010826518033877192,
+          "within_1e-3": 6972,
+          "within_1e-6": 5272
+        },
+        "hours_without_class_term": {
+          "corr": 0.9425220593984084,
+          "mae": 0.011234632746714822,
+          "rmse": 0.020327995058044376,
+          "within_1e-3": 945,
+          "within_1e-6": 431
+        },
+        "n": 7161,
+        "persons": {
+          "corr": 0.8370451993079102,
+          "mae": 0.017399338747922967,
+          "rmse": 0.03284008910467464,
+          "within_1e-3": 479,
+          "within_1e-6": 4
+        },
+        "persons_without_class_term": {
+          "corr": 0.7744314852817964,
+          "mae": 0.022004075761642098,
+          "rmse": 0.03765283286230078,
+          "within_1e-3": 369,
+          "within_1e-6": 2
+        },
+        "rmse_ratio": 30.333011040036062,
+        "verdict": "hours"
+      }
+    },
+    {
+      "criterion": "what the verdict changes about the field's reading",
+      "detail": "the difference between the two totals is the change in hours per worker, and it is not small: sd 0.0325 against 0.0569 for hours and 0.0441 for persons, correlation between the two totals +0.8221. So the two readings are genuinely different objects and the verdict above is load bearing. With the verdict at HOURS, the field is relative HOURLY pay and part-time composition is not an alternative for any of the leftover.",
+      "kind": "instrument",
+      "name": "B106-10",
+      "passed": true,
+      "payload": {
+        "corr_totals": 0.8221225480642388,
+        "gap_sd": 0.03250684993631306,
+        "hours_sd": 0.056898085957959636,
+        "persons_sd": 0.044055161286456694
+      }
+    }
+  ],
+  "stage": "B106"
+}

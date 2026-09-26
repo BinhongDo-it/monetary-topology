@@ -1,0 +1,2103 @@
+{
+ "arm": "A",
+ "config": {
+  "dose": "FM.B.U2.EUR.4F.KR.DFR.CHG summed by calendar month",
+  "lags": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "product_sets": {
+   "all": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "deposits": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "loans": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ]
+  },
+  "state_line_p": 0.1,
+  "windows": {
+   "hikes": [
+    "2021-07",
+    "2024-05"
+   ],
+   "hikes_and_cuts": [
+    "2021-01",
+    "2025-06"
+   ]
+  }
+ },
+ "criteria": [
+  {
+   "detail": "largest identity residual 7.02e-14; countries per setting [14, 15, 19]",
+   "kind": "instrument",
+   "name": "B128-1",
+   "passed": true,
+   "statement": "the interaction sums to zero over countries and over products in every month, and every panel is balanced"
+  },
+  {
+   "detail": "6 of 16 settings see every loan product move",
+   "kind": "known_answer",
+   "name": "B128-2",
+   "passed": false,
+   "statement": "the same regression on each loan product's euro-area mean rate sees the dose (p <= 0.10 against its own shifts)"
+  },
+  {
+   "detail": "state over 24 settings: differs across settings; mapping: responds in every setting -> the interaction moves with the dose; no response in every setting -> the interaction does not move with the dose; differs across settings -> unread (11f), no verdict",
+   "kind": "own_reading",
+   "name": "B128-3",
+   "passed": null,
+   "statement": "print S, its shift floor and p for every window, product set and lag, and map the three states"
+  }
+ ],
+ "mapping": {
+  "differs across settings": "unread (11f), no verdict",
+  "no response in every setting": "the interaction does not move with the dose",
+  "responds in every setting": "the interaction moves with the dose"
+ },
+ "overall": "differs across settings",
+ "rows": [
+  {
+   "S": 0.2808,
+   "cells": 150,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 5.684341886080802e-14,
+   "lag": 0,
+   "largest_cells": [
+    [
+     "MT",
+     "A2A_F_R_2_2240",
+     1.493
+    ],
+    [
+     "MT",
+     "A2A_F_R_3_2240",
+     -1.347
+    ],
+    [
+     "MT",
+     "A2D_F_R_A_2250",
+     0.999
+    ],
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     0.888
+    ],
+    [
+     "LV",
+     "A2D_F_R_A_2250",
+     -0.819
+    ]
+   ],
+   "level_p": [
+    0.0303,
+    0.1212,
+    0.0,
+    0.1212,
+    0.3939,
+    0.1212,
+    0.0,
+    0.0,
+    0.3636,
+    0.0909
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.482,
+    0.312,
+    0.573,
+    0.251,
+    0.04,
+    0.29,
+    0.311,
+    0.383,
+    0.006,
+    0.05
+   ],
+   "null_p90": 0.3307,
+   "p": 0.303,
+   "products": "all",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.208,
+   "cells": 150,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 5.684341886080802e-14,
+   "lag": 1,
+   "largest_cells": [
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     1.122
+    ],
+    [
+     "MT",
+     "A2B_F_R_A_2250",
+     -0.782
+    ],
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     0.707
+    ],
+    [
+     "LV",
+     "A2A_F_R_2_2240",
+     -0.521
+    ],
+    [
+     "PT",
+     "A2A_F_R_1_2240",
+     0.442
+    ]
+   ],
+   "level_p": [
+    0.0909,
+    0.0,
+    0.0303,
+    0.0909,
+    0.0303,
+    0.0606,
+    0.0303,
+    0.0,
+    0.303,
+    0.1515
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.598,
+    0.726,
+    0.753,
+    0.528,
+    0.504,
+    0.592,
+    0.503,
+    0.664,
+    0.018,
+    0.08
+   ],
+   "null_p90": 0.2636,
+   "p": 0.5758,
+   "products": "all",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.2408,
+   "cells": 150,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 5.684341886080802e-14,
+   "lag": 2,
+   "largest_cells": [
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     1.555
+    ],
+    [
+     "MT",
+     "A2A_F_R_2_2240",
+     0.88
+    ],
+    [
+     "MT",
+     "A2B_F_R_A_2250",
+     -0.739
+    ],
+    [
+     "MT",
+     "A2A_F_R_3_2240",
+     -0.553
+    ],
+    [
+     "SK",
+     "A2D_F_R_A_2250",
+     -0.548
+    ]
+   ],
+   "level_p": [
+    0.0303,
+    0.0606,
+    0.0,
+    0.0909,
+    0.1818,
+    0.1212,
+    0.0,
+    0.0,
+    0.2424,
+    0.1818
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.789,
+    0.769,
+    0.913,
+    0.627,
+    0.468,
+    0.669,
+    0.593,
+    0.721,
+    0.028,
+    0.088
+   ],
+   "null_p90": 0.2562,
+   "p": 0.1818,
+   "products": "all",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.2466,
+   "cells": 150,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 5.684341886080802e-14,
+   "lag": 3,
+   "largest_cells": [
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     1.655
+    ],
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     0.963
+    ],
+    [
+     "MT",
+     "A2B_F_R_A_2250",
+     -0.799
+    ],
+    [
+     "SK",
+     "A2A_F_R_2_2240",
+     -0.602
+    ],
+    [
+     "ES",
+     "A2B_F_R_A_2250",
+     -0.582
+    ]
+   ],
+   "level_p": [
+    0.0909,
+    0.0606,
+    0.0303,
+    0.1212,
+    0.0909,
+    0.0909,
+    0.0,
+    0.0,
+    0.2424,
+    0.1515
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.693,
+    0.789,
+    0.886,
+    0.619,
+    0.558,
+    0.712,
+    0.632,
+    0.729,
+    0.03,
+    0.096
+   ],
+   "null_p90": 0.2679,
+   "p": 0.1818,
+   "products": "all",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.3418,
+   "cells": 90,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 6.039613253960852e-14,
+   "lag": 0,
+   "largest_cells": [
+    [
+     "MT",
+     "A2A_F_R_2_2240",
+     1.464
+    ],
+    [
+     "MT",
+     "A2A_F_R_3_2240",
+     -1.376
+    ],
+    [
+     "MT",
+     "A2D_F_R_A_2250",
+     0.97
+    ],
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     0.914
+    ],
+    [
+     "LV",
+     "A2D_F_R_A_2250",
+     -0.8
+    ]
+   ],
+   "level_p": [
+    0.0303,
+    0.1212,
+    0.0,
+    0.1212,
+    0.3939,
+    0.1212
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.482,
+    0.312,
+    0.573,
+    0.251,
+    0.04,
+    0.29
+   ],
+   "null_p90": 0.4038,
+   "p": 0.2727,
+   "products": "loans",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.2435,
+   "cells": 90,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 6.039613253960852e-14,
+   "lag": 1,
+   "largest_cells": [
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     1.036
+    ],
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     0.705
+    ],
+    [
+     "MT",
+     "A2B_F_R_A_2250",
+     -0.652
+    ],
+    [
+     "LV",
+     "A2A_F_R_2_2240",
+     -0.607
+    ],
+    [
+     "MT",
+     "A2D_F_R_A_2250",
+     0.542
+    ]
+   ],
+   "level_p": [
+    0.0909,
+    0.0,
+    0.0303,
+    0.0909,
+    0.0303,
+    0.0606
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.598,
+    0.726,
+    0.753,
+    0.528,
+    0.504,
+    0.592
+   ],
+   "null_p90": 0.3152,
+   "p": 0.5455,
+   "products": "loans",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.2891,
+   "cells": 90,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 6.039613253960852e-14,
+   "lag": 2,
+   "largest_cells": [
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     1.542
+    ],
+    [
+     "MT",
+     "A2A_F_R_2_2240",
+     0.916
+    ],
+    [
+     "MT",
+     "A2B_F_R_A_2250",
+     -0.703
+    ],
+    [
+     "SK",
+     "A2D_F_R_A_2250",
+     -0.562
+    ],
+    [
+     "SK",
+     "A2A_F_R_2_2240",
+     -0.549
+    ]
+   ],
+   "level_p": [
+    0.0303,
+    0.0606,
+    0.0,
+    0.0909,
+    0.1818,
+    0.1212
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.789,
+    0.769,
+    0.913,
+    0.627,
+    0.468,
+    0.669
+   ],
+   "null_p90": 0.305,
+   "p": 0.1212,
+   "products": "loans",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.2947,
+   "cells": 90,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "MT",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 6.039613253960852e-14,
+   "lag": 3,
+   "largest_cells": [
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     1.595
+    ],
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     0.915
+    ],
+    [
+     "MT",
+     "A2B_F_R_A_2250",
+     -0.755
+    ],
+    [
+     "SK",
+     "A2A_F_R_2_2240",
+     -0.662
+    ],
+    [
+     "ES",
+     "A2B_F_R_A_2250",
+     -0.561
+    ]
+   ],
+   "level_p": [
+    0.0909,
+    0.0606,
+    0.0303,
+    0.1212,
+    0.0909,
+    0.0909
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.693,
+    0.789,
+    0.886,
+    0.619,
+    0.558,
+    0.712
+   ],
+   "null_p90": 0.3269,
+   "p": 0.1818,
+   "products": "loans",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.0964,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 2.0650148258027912e-14,
+   "lag": 0,
+   "largest_cells": [
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.316
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.223
+    ],
+    [
+     "CY",
+     "L22_F_R_A_2240",
+     -0.199
+    ],
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.191
+    ],
+    [
+     "FR",
+     "L22_F_R_A_2240",
+     0.19
+    ]
+   ],
+   "level_p": [
+    0.0,
+    0.0,
+    0.3333,
+    0.0303
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.291,
+    0.378,
+    0.012,
+    0.055
+   ],
+   "null_p90": 0.0919,
+   "p": 0.0909,
+   "products": "deposits",
+   "shifts": 33,
+   "state": "responds",
+   "window": "hikes"
+  },
+  {
+   "S": 0.1026,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 2.0650148258027912e-14,
+   "lag": 1,
+   "largest_cells": [
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.297
+    ],
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.286
+    ],
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.284
+    ],
+    [
+     "LU",
+     "L21_A_R_A_2240",
+     -0.219
+    ],
+    [
+     "MT",
+     "L22_F_R_A_2250",
+     0.172
+    ]
+   ],
+   "level_p": [
+    0.0303,
+    0.0,
+    0.2121,
+    0.0909
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.461,
+    0.65,
+    0.029,
+    0.081
+   ],
+   "null_p90": 0.1081,
+   "p": 0.2121,
+   "products": "deposits",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.1245,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 2.0650148258027912e-14,
+   "lag": 2,
+   "largest_cells": [
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.444
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.293
+    ],
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.29
+    ],
+    [
+     "LU",
+     "L21_A_R_A_2240",
+     -0.265
+    ],
+    [
+     "MT",
+     "L22_F_R_A_2250",
+     0.225
+    ]
+   ],
+   "level_p": [
+    0.0606,
+    0.0,
+    0.1818,
+    0.1515
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.546,
+    0.702,
+    0.039,
+    0.084
+   ],
+   "null_p90": 0.1186,
+   "p": 0.0909,
+   "products": "deposits",
+   "shifts": 33,
+   "state": "responds",
+   "window": "hikes"
+  },
+  {
+   "S": 0.1245,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 4.5,
+   "identity_max": 2.0650148258027912e-14,
+   "lag": 3,
+   "largest_cells": [
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.491
+    ],
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.33
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.32
+    ],
+    [
+     "LU",
+     "L21_A_R_A_2240",
+     -0.267
+    ],
+    [
+     "SI",
+     "L22_F_R_A_2250",
+     -0.209
+    ]
+   ],
+   "level_p": [
+    0.0,
+    0.0,
+    0.1515,
+    0.1515
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.589,
+    0.714,
+    0.041,
+    0.089
+   ],
+   "null_p90": 0.1239,
+   "p": 0.1212,
+   "products": "deposits",
+   "shifts": 33,
+   "state": "no response",
+   "window": "hikes"
+  },
+  {
+   "S": 0.1524,
+   "cells": 140,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 7.016609515630989e-14,
+   "lag": 0,
+   "largest_cells": [
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     -0.577
+    ],
+    [
+     "LT",
+     "A2D_F_R_A_2250",
+     0.494
+    ],
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.428
+    ],
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     -0.391
+    ],
+    [
+     "LV",
+     "A2D_F_R_A_2250",
+     -0.38
+    ]
+   ],
+   "level_p": [
+    0.0192,
+    0.0,
+    0.0,
+    0.0577,
+    0.3077,
+    0.0962,
+    0.0,
+    0.0,
+    0.2115,
+    0.0
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.461,
+    0.525,
+    0.645,
+    0.388,
+    0.091,
+    0.376,
+    0.391,
+    0.503,
+    0.018,
+    0.09
+   ],
+   "null_p90": 0.2193,
+   "p": 0.5962,
+   "products": "all",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.1232,
+   "cells": 140,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 7.016609515630989e-14,
+   "lag": 1,
+   "largest_cells": [
+    [
+     "DE",
+     "A2B_F_R_A_2250",
+     -0.385
+    ],
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.357
+    ],
+    [
+     "BE",
+     "A2B_F_R_A_2250",
+     -0.35
+    ],
+    [
+     "PT",
+     "A2B_F_R_A_2250",
+     -0.312
+    ],
+    [
+     "SI",
+     "A2A_F_R_1_2240",
+     0.308
+    ]
+   ],
+   "level_p": [
+    0.0385,
+    0.0192,
+    0.0192,
+    0.0385,
+    0.0192,
+    0.0385,
+    0.0385,
+    0.0,
+    0.1538,
+    0.0192
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.69,
+    0.773,
+    0.832,
+    0.627,
+    0.481,
+    0.633,
+    0.559,
+    0.74,
+    0.033,
+    0.125
+   ],
+   "null_p90": 0.1595,
+   "p": 0.7115,
+   "products": "all",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.138,
+   "cells": 140,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 7.016609515630989e-14,
+   "lag": 2,
+   "largest_cells": [
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     -0.591
+    ],
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.51
+    ],
+    [
+     "LT",
+     "A2B_F_R_A_2250",
+     0.396
+    ],
+    [
+     "SI",
+     "L22_F_R_A_2250",
+     -0.393
+    ],
+    [
+     "DE",
+     "A2B_F_R_A_2250",
+     -0.309
+    ]
+   ],
+   "level_p": [
+    0.0192,
+    0.0385,
+    0.0,
+    0.0385,
+    0.1346,
+    0.0577,
+    0.0,
+    0.0,
+    0.1346,
+    0.0577
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.778,
+    0.845,
+    0.916,
+    0.699,
+    0.413,
+    0.681,
+    0.627,
+    0.794,
+    0.04,
+    0.132
+   ],
+   "null_p90": 0.1591,
+   "p": 0.25,
+   "products": "all",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.1271,
+   "cells": 140,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 7.016609515630989e-14,
+   "lag": 3,
+   "largest_cells": [
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.502
+    ],
+    [
+     "LT",
+     "A2B_F_R_A_2250",
+     0.431
+    ],
+    [
+     "SI",
+     "L22_F_R_A_2250",
+     -0.39
+    ],
+    [
+     "ES",
+     "A2B_F_R_A_2250",
+     -0.343
+    ],
+    [
+     "DE",
+     "A2B_F_R_A_2250",
+     -0.301
+    ]
+   ],
+   "level_p": [
+    0.0577,
+    0.0577,
+    0.0192,
+    0.0577,
+    0.0962,
+    0.0385,
+    0.0,
+    0.0,
+    0.1154,
+    0.0769
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.762,
+    0.831,
+    0.925,
+    0.701,
+    0.464,
+    0.725,
+    0.655,
+    0.804,
+    0.042,
+    0.139
+   ],
+   "null_p90": 0.1521,
+   "p": 0.4038,
+   "products": "all",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.1673,
+   "cells": 84,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 6.128431095930864e-14,
+   "lag": 0,
+   "largest_cells": [
+    [
+     "SK",
+     "A2B_F_R_A_2250",
+     -0.48
+    ],
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.475
+    ],
+    [
+     "LT",
+     "A2D_F_R_A_2250",
+     0.363
+    ],
+    [
+     "SK",
+     "A2A_F_R_3_2240",
+     0.353
+    ],
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     -0.349
+    ]
+   ],
+   "level_p": [
+    0.0192,
+    0.0,
+    0.0,
+    0.0577,
+    0.3077,
+    0.0962
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.461,
+    0.525,
+    0.645,
+    0.388,
+    0.091,
+    0.376
+   ],
+   "null_p90": 0.2715,
+   "p": 0.7308,
+   "products": "loans",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.1339,
+   "cells": 84,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 6.128431095930864e-14,
+   "lag": 1,
+   "largest_cells": [
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.433
+    ],
+    [
+     "DE",
+     "A2B_F_R_A_2250",
+     -0.361
+    ],
+    [
+     "PT",
+     "A2B_F_R_A_2250",
+     -0.346
+    ],
+    [
+     "BE",
+     "A2B_F_R_A_2250",
+     -0.34
+    ],
+    [
+     "EE",
+     "A2A_F_R_1_2240",
+     -0.294
+    ]
+   ],
+   "level_p": [
+    0.0385,
+    0.0192,
+    0.0192,
+    0.0385,
+    0.0192,
+    0.0385
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.69,
+    0.773,
+    0.832,
+    0.627,
+    0.481,
+    0.633
+   ],
+   "null_p90": 0.1879,
+   "p": 0.7885,
+   "products": "loans",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.1515,
+   "cells": 84,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 6.128431095930864e-14,
+   "lag": 2,
+   "largest_cells": [
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.572
+    ],
+    [
+     "LV",
+     "A2B_F_R_A_2250",
+     -0.544
+    ],
+    [
+     "LT",
+     "A2B_F_R_A_2250",
+     0.352
+    ],
+    [
+     "BE",
+     "A2B_F_R_A_2250",
+     -0.291
+    ],
+    [
+     "PT",
+     "A2B_F_R_A_2250",
+     -0.29
+    ]
+   ],
+   "level_p": [
+    0.0192,
+    0.0385,
+    0.0,
+    0.0385,
+    0.1346,
+    0.0577
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.778,
+    0.845,
+    0.916,
+    0.699,
+    0.413,
+    0.681
+   ],
+   "null_p90": 0.1909,
+   "p": 0.3269,
+   "products": "loans",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.1384,
+   "cells": 84,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 6.128431095930864e-14,
+   "lag": 3,
+   "largest_cells": [
+    [
+     "FR",
+     "A2B_F_R_A_2250",
+     0.562
+    ],
+    [
+     "LT",
+     "A2B_F_R_A_2250",
+     0.394
+    ],
+    [
+     "ES",
+     "A2B_F_R_A_2250",
+     -0.337
+    ],
+    [
+     "DE",
+     "A2B_F_R_A_2250",
+     -0.281
+    ],
+    [
+     "BE",
+     "A2B_F_R_A_2250",
+     -0.267
+    ]
+   ],
+   "level_p": [
+    0.0577,
+    0.0577,
+    0.0192,
+    0.0577,
+    0.0962,
+    0.0385
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "level_response": [
+    0.762,
+    0.831,
+    0.925,
+    0.701,
+    0.464,
+    0.725
+   ],
+   "null_p90": 0.1734,
+   "p": 0.4038,
+   "products": "loans",
+   "shifts": 52,
+   "state": "no response",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.0805,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 2.2870594307278225e-14,
+   "lag": 0,
+   "largest_cells": [
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.281
+    ],
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.201
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.178
+    ],
+    [
+     "FR",
+     "L22_F_R_A_2240",
+     0.151
+    ],
+    [
+     "MT",
+     "L21_A_R_A_2250",
+     0.138
+    ]
+   ],
+   "level_p": [
+    0.0,
+    0.0,
+    0.1538,
+    0.0
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.363,
+    0.475,
+    0.025,
+    0.093
+   ],
+   "null_p90": 0.0675,
+   "p": 0.0,
+   "products": "deposits",
+   "shifts": 52,
+   "state": "responds",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.0851,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 2.2870594307278225e-14,
+   "lag": 1,
+   "largest_cells": [
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.274
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.23
+    ],
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.198
+    ],
+    [
+     "BE",
+     "L22_F_R_A_2250",
+     0.155
+    ],
+    [
+     "MT",
+     "L22_F_R_A_2250",
+     0.154
+    ]
+   ],
+   "level_p": [
+    0.0192,
+    0.0,
+    0.0962,
+    0.0192
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.53,
+    0.712,
+    0.045,
+    0.122
+   ],
+   "null_p90": 0.0791,
+   "p": 0.0385,
+   "products": "deposits",
+   "shifts": 52,
+   "state": "responds",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.0967,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 2.2870594307278225e-14,
+   "lag": 2,
+   "largest_cells": [
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.287
+    ],
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.277
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.234
+    ],
+    [
+     "SI",
+     "L22_F_R_A_2250",
+     -0.188
+    ],
+    [
+     "BE",
+     "L22_F_R_A_2250",
+     0.184
+    ]
+   ],
+   "level_p": [
+    0.0192,
+    0.0,
+    0.0769,
+    0.0577
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.591,
+    0.757,
+    0.052,
+    0.129
+   ],
+   "null_p90": 0.0859,
+   "p": 0.0,
+   "products": "deposits",
+   "shifts": 52,
+   "state": "responds",
+   "window": "hikes_and_cuts"
+  },
+  {
+   "S": 0.0944,
+   "cells": 76,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "GR",
+    "IE",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "dose_total": 2.5,
+   "identity_max": 2.2870594307278225e-14,
+   "lag": 3,
+   "largest_cells": [
+    [
+     "MT",
+     "L22_F_R_A_2240",
+     -0.314
+    ],
+    [
+     "NL",
+     "L22_F_R_A_2250",
+     -0.305
+    ],
+    [
+     "NL",
+     "L21_A_R_A_2240",
+     0.247
+    ],
+    [
+     "SI",
+     "L22_F_R_A_2250",
+     -0.194
+    ],
+    [
+     "LU",
+     "L21_A_R_A_2250",
+     0.181
+    ]
+   ],
+   "level_p": [
+    0.0,
+    0.0,
+    0.0962,
+    0.0769
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "level_response": [
+    0.622,
+    0.766,
+    0.054,
+    0.133
+   ],
+   "null_p90": 0.086,
+   "p": 0.0577,
+   "products": "deposits",
+   "shifts": 52,
+   "state": "responds",
+   "window": "hikes_and_cuts"
+  }
+ ],
+ "source": {
+  "dose": "data/raw/b128/fm_keyrates.csv",
+  "rates": "data/raw/b128/mir_B_*.csv"
+ },
+ "stage": "B128"
+}

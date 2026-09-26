@@ -1,0 +1,17 @@
+{
+  "cell_seconds": {
+    "1s attempts 1 x 1": 0.158,
+    "1s attempts 1 x 10": 0.194,
+    "1s attempts 10 x 1": 0.195,
+    "1s attempts 10 x 10": 0.526,
+    "unbounded attempts 1 x 1": 0.16,
+    "unbounded attempts 1 x 10": 0.191,
+    "unbounded attempts 10 x 1": 0.189,
+    "unbounded attempts 10 x 10": 0.541
+  },
+  "cells_total": 1080,
+  "control_seconds": 0.143,
+  "estimate_seconds": 316.6,
+  "note": "measured on the machine that ran --time, on the heaviest cell of each tier at the smallest line and at no line (D38); --run --arm credit reads this file and refuses without it",
+  "zero_line_cells": 72
+}

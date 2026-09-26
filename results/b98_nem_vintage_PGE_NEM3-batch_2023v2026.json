@@ -1,0 +1,71 @@
+{
+  "config": {
+    "arm": "B98-F",
+    "class_a": "the earlier batch",
+    "class_b": "the later batch",
+    "max_any_cell": 10.0,
+    "plausible_median": [
+      0.0,
+      2.0
+    ],
+    "positions": 576,
+    "source_name": "joined_PGE_NEM3-batch_2023v2026.csv"
+  },
+  "criteria": [
+    {
+      "detail": "576 positions joined on (utility, month, hour, daytype); the two medians are 0.05859 and 0.07514 per kilowatt hour, and the highest single cell is 2.52139. **The unit is read off the middle of each column, not off its extreme**: a table in dollars per megawatt hour puts its median in the tens, while a high avoided cost in the right unit is a price and not a fault",
+      "kind": "instrument",
+      "name": "B98-F1  the two schedules meet on one position key, in one unit",
+      "passed": true
+    },
+    {
+      "detail": "branch two, not a level shift: the difference moves with the position by more than the two grids allow. The difference runs -0.56081 to 1.92634, a spread of 2.48715 against a floor of 0.00002 (ticks 1e-05 and 1e-05, read value by value), which is 124357.5 times it. **The floor is the two publishers' own resolution and no threshold is drawn on the spread; the reading is the branch named above.**",
+      "kind": "own_reading",
+      "name": "B98-F2  whether the two classes differ by a constant",
+      "passed": true
+    },
+    {
+      "detail": "branch one, the shape depends on the class: the crossing pairs put the square above the floor. Crossing blocks: 165559 pairs, median 0.02137, max 2.48715, 165371 above the floor 0.00004. Inside one block: 41 pairs, median 0.01198, max 0.10826, 41 above the floor 0.00004. **The two groups are never summed.** Both sides move here, so a within-block pair is one where the earlier batch happens to repeat a value rather than one where it is constant by construction; that group is small and is reported apart only to keep the two arms' records the same shape. The granularity behind the split is reported again as counts by the fourth criterion.",
+      "kind": "own_reading",
+      "name": "B98-F3  the square, within a block and across blocks, apart",
+      "passed": true
+    },
+    {
+      "detail": "the earlier batch takes 539 distinct values across 576 positions and the later batch takes 557. **The coarser side caps what a square can resolve**, so the independent crossing pairs are bounded by that count and not by the position count.",
+      "kind": "instrument",
+      "name": "B98-F4  how many values each side takes, before any reading",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B98-F1": {
+      "max_cell": 2.52139,
+      "median_p2": 0.05859,
+      "median_p3": 0.07514,
+      "out_of_range": 0,
+      "positions": 576
+    },
+    "B98-F2": {
+      "floor": 2e-05,
+      "max_gap": 1.9263399999999997,
+      "min_gap": -0.56081,
+      "spread": 2.4871499999999997,
+      "tick_nem2": 1e-05,
+      "tick_nem3": 1e-05
+    },
+    "B98-F3": {
+      "across_above_floor": 165371,
+      "across_pairs": 165559,
+      "blocks": 539,
+      "floor": 4e-05,
+      "within_above_floor": 41,
+      "within_pairs": 41
+    },
+    "B98-F4": {
+      "distinct_nem2": 539,
+      "distinct_nem3": 557,
+      "positions": 576
+    }
+  },
+  "stage": "B98-F"
+}

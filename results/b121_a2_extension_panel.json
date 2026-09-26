@@ -1,0 +1,4361 @@
+{
+  "announcement_check": {
+    "both": [
+      "2007-12-12",
+      "2007-12-21",
+      "2008-01-04",
+      "2008-03-07",
+      "2008-05-02",
+      "2008-07-30"
+    ],
+    "page_in_main_window": [
+      "2007-12-12",
+      "2007-12-21",
+      "2008-01-04",
+      "2008-02-01",
+      "2008-02-29",
+      "2008-03-07",
+      "2008-03-28",
+      "2008-05-02",
+      "2008-05-29",
+      "2008-07-01",
+      "2008-07-30"
+    ],
+    "page_only": [
+      "2008-02-01",
+      "2008-02-29",
+      "2008-03-28",
+      "2008-05-29",
+      "2008-07-01"
+    ],
+    "workbook_marks": [
+      "2007-12-12",
+      "2007-12-21",
+      "2008-01-04",
+      "2008-03-07",
+      "2008-03-11",
+      "2008-05-02",
+      "2008-07-30"
+    ],
+    "workbook_only": [
+      "2008-03-11"
+    ]
+  },
+  "announcements": [
+    {
+      "date": "2007-12-12",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve and other central banks announce measures designed to address elevated pressures in short-term funding markets"
+    },
+    {
+      "date": "2007-12-21",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve intends to continue TAF auctions as necessary"
+    },
+    {
+      "date": "2008-01-04",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve will conduct two auctions of 28-day credit through its Term Auction Facility in January"
+    },
+    {
+      "date": "2008-02-01",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve will conduct two auctions of 28-day credit through its Term Auction Facility in February"
+    },
+    {
+      "date": "2008-02-29",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve will offer $30 billion in 28-day credit through its Term Auction Facility on March 10 and March 24, 2008"
+    },
+    {
+      "date": "2008-03-07",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve announces two initiatives to address heightened liquidity pressures in term funding markets"
+    },
+    {
+      "date": "2008-03-28",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve will offer $50 billion in 28-day credit through its Term Auction Facility on April 7 and April 21, 2008"
+    },
+    {
+      "date": "2008-05-02",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve, European Central Bank, and Swiss National Bank announce an expansion of liquidity measures"
+    },
+    {
+      "date": "2008-05-29",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve will offer $75 billion in 28-day credit through its Term Auction Facility on June 2, 16, and 30, 2008"
+    },
+    {
+      "date": "2008-07-01",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve will offer $75 billion in 28-day credit through its Term Auction Facility on July 14 and 28, 2008"
+    },
+    {
+      "date": "2008-07-30",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve announces steps to enhance the effectiveness of its existing liquidity facilities"
+    },
+    {
+      "date": "2008-09-29",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve and other central banks announce further coordinated actions to expand significantly the capacity to provide U.S. dollar liquidity"
+    },
+    {
+      "date": "2008-10-06",
+      "kind": "not the facility's size",
+      "title": "Board announces that it will begin to pay interest on depository institutions' required and excess reserve balances"
+    },
+    {
+      "date": "2008-10-07",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve and other central banks announce schedules for term and forward auctions of U.S. dollar liquidity for fourth quarter"
+    },
+    {
+      "date": "2008-12-19",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve and other central banks announce schedules for term auctions of U.S. dollar liquidity"
+    },
+    {
+      "date": "2009-06-25",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve announces extensions of and modifications to a number of its liquidity programs"
+    },
+    {
+      "date": "2009-07-24",
+      "kind": "reduction",
+      "title": "Federal Reserve announces that amounts of Term Auction Facility (TAF) credit offered at each of the two August auctions will be reduced to $100 billion"
+    },
+    {
+      "date": "2009-08-19",
+      "kind": "not the facility's size",
+      "title": "Federal Reserve announces new schedule of margins applicable for collateral pledged by depository institutions"
+    },
+    {
+      "date": "2009-08-28",
+      "kind": "reduction",
+      "title": "Federal Reserve announces amounts of Term Auction Facility (TAF) credit offered at September auctions will be reduced to $75 billion"
+    },
+    {
+      "date": "2009-09-24",
+      "kind": "expansion or schedule",
+      "title": "Federal Reserve announces Term Auction Facility (TAF) and Term Securities Lending Facility (TSLF) schedules through January 2010"
+    }
+  ],
+  "auctions": {
+    "2007-12-20": {
+      "amount_mn": 20000.1,
+      "loans": 31,
+      "rates": [
+        "4.650"
+      ]
+    },
+    "2007-12-27": {
+      "amount_mn": 20000.0,
+      "loans": 24,
+      "rates": [
+        "4.670"
+      ]
+    },
+    "2008-01-17": {
+      "amount_mn": 30000.0,
+      "loans": 42,
+      "rates": [
+        "3.950"
+      ]
+    },
+    "2008-01-31": {
+      "amount_mn": 30000.0,
+      "loans": 39,
+      "rates": [
+        "3.123"
+      ]
+    },
+    "2008-02-14": {
+      "amount_mn": 30000.0,
+      "loans": 37,
+      "rates": [
+        "3.010"
+      ]
+    },
+    "2008-02-28": {
+      "amount_mn": 30000.0,
+      "loans": 38,
+      "rates": [
+        "3.080"
+      ]
+    },
+    "2008-03-13": {
+      "amount_mn": 50000.1,
+      "loans": 47,
+      "rates": [
+        "2.800"
+      ]
+    },
+    "2008-03-27": {
+      "amount_mn": 50000.2,
+      "loans": 39,
+      "rates": [
+        "2.615"
+      ]
+    },
+    "2008-04-10": {
+      "amount_mn": 50000.0,
+      "loans": 32,
+      "rates": [
+        "2.820"
+      ]
+    },
+    "2008-04-24": {
+      "amount_mn": 50000.0,
+      "loans": 44,
+      "rates": [
+        "2.870"
+      ]
+    },
+    "2008-05-08": {
+      "amount_mn": 74999.9,
+      "loans": 60,
+      "rates": [
+        "2.220"
+      ]
+    },
+    "2008-05-22": {
+      "amount_mn": 74999.7,
+      "loans": 72,
+      "rates": [
+        "2.100"
+      ]
+    },
+    "2008-06-05": {
+      "amount_mn": 75000.1,
+      "loans": 49,
+      "rates": [
+        "2.260"
+      ]
+    },
+    "2008-06-19": {
+      "amount_mn": 74999.9,
+      "loans": 58,
+      "rates": [
+        "2.360"
+      ]
+    },
+    "2008-07-03": {
+      "amount_mn": 74999.8,
+      "loans": 58,
+      "rates": [
+        "2.340"
+      ]
+    },
+    "2008-07-17": {
+      "amount_mn": 75000.0,
+      "loans": 65,
+      "rates": [
+        "2.300"
+      ]
+    },
+    "2008-07-31": {
+      "amount_mn": 75000.0,
+      "loans": 61,
+      "rates": [
+        "2.350"
+      ]
+    },
+    "2008-08-14": {
+      "amount_mn": 75000.0,
+      "loans": 68,
+      "rates": [
+        "2.450",
+        "2.754"
+      ]
+    },
+    "2008-08-28": {
+      "amount_mn": 75000.0,
+      "loans": 60,
+      "rates": [
+        "2.380"
+      ]
+    },
+    "2008-09-11": {
+      "amount_mn": 50000.0,
+      "loans": 55,
+      "rates": [
+        "2.530",
+        "2.670"
+      ]
+    },
+    "2008-09-25": {
+      "amount_mn": 75000.3,
+      "loans": 31,
+      "rates": [
+        "3.750"
+      ]
+    },
+    "2008-10-09": {
+      "amount_mn": 138091.5,
+      "loans": 71,
+      "rates": [
+        "1.390"
+      ]
+    },
+    "2008-10-23": {
+      "amount_mn": 113271.0,
+      "loans": 76,
+      "rates": [
+        "1.110"
+      ]
+    },
+    "2008-11-06": {
+      "amount_mn": 138939.1,
+      "loans": 91,
+      "rates": [
+        "0.600"
+      ]
+    },
+    "2008-11-20": {
+      "amount_mn": 104477.6,
+      "loans": 82,
+      "rates": [
+        "0.510"
+      ]
+    },
+    "2008-12-04": {
+      "amount_mn": 66470.5,
+      "loans": 82,
+      "rates": [
+        "0.420"
+      ]
+    },
+    "2008-12-18": {
+      "amount_mn": 63013.8,
+      "loans": 71,
+      "rates": [
+        "0.280"
+      ]
+    },
+    "2008-12-22": {
+      "amount_mn": 12629.0,
+      "loans": 16,
+      "rates": [
+        "0.528"
+      ]
+    },
+    "2008-12-23": {
+      "amount_mn": 31075.0,
+      "loans": 16,
+      "rates": [
+        "0.380"
+      ]
+    },
+    "2009-01-02": {
+      "amount_mn": 102979.0,
+      "loans": 74,
+      "rates": [
+        "0.200"
+      ]
+    },
+    "2009-01-15": {
+      "amount_mn": 107747.0,
+      "loans": 97,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-01-29": {
+      "amount_mn": 136051.0,
+      "loans": 103,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-02-12": {
+      "amount_mn": 142327.7,
+      "loans": 117,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-02-26": {
+      "amount_mn": 111812.7,
+      "loans": 99,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-03-12": {
+      "amount_mn": 117772.0,
+      "loans": 116,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-03-26": {
+      "amount_mn": 101642.3,
+      "loans": 104,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-04-09": {
+      "amount_mn": 106299.1,
+      "loans": 104,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-04-23": {
+      "amount_mn": 83829.8,
+      "loans": 99,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-05-07": {
+      "amount_mn": 131561.5,
+      "loans": 124,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-05-21": {
+      "amount_mn": 55517.3,
+      "loans": 96,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-06-04": {
+      "amount_mn": 95587.7,
+      "loans": 104,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-06-18": {
+      "amount_mn": 48022.8,
+      "loans": 98,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-07-02": {
+      "amount_mn": 86336.5,
+      "loans": 106,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-07-16": {
+      "amount_mn": 47767.5,
+      "loans": 88,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-07-30": {
+      "amount_mn": 82375.0,
+      "loans": 103,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-08-13": {
+      "amount_mn": 42940.8,
+      "loans": 91,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-08-27": {
+      "amount_mn": 73404.1,
+      "loans": 97,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-09-10": {
+      "amount_mn": 31908.0,
+      "loans": 75,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-09-24": {
+      "amount_mn": 55763.0,
+      "loans": 83,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-10-08": {
+      "amount_mn": 24830.0,
+      "loans": 75,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-10-22": {
+      "amount_mn": 39565.9,
+      "loans": 83,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-11-05": {
+      "amount_mn": 13152.2,
+      "loans": 53,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-11-19": {
+      "amount_mn": 31119.1,
+      "loans": 82,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-12-03": {
+      "amount_mn": 16730.2,
+      "loans": 49,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2009-12-17": {
+      "amount_mn": 46035.1,
+      "loans": 102,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2010-01-14": {
+      "amount_mn": 38530.8,
+      "loans": 121,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2010-02-11": {
+      "amount_mn": 15425.6,
+      "loans": 103,
+      "rates": [
+        "0.250"
+      ]
+    },
+    "2010-03-11": {
+      "amount_mn": 3409.7,
+      "loans": 53,
+      "rates": [
+        "0.500"
+      ]
+    }
+  },
+  "config": {
+    "ois_horizon_days": 91,
+    "window": [
+      "2008-08-11",
+      "2009-12-31"
+    ]
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Part four of arm A2. It builds the extension window and prints the objects in it; no criterion is scored here.",
+  "ois_substitute_check": {
+    "days": 420,
+    "largest_gap_bp": -88.154,
+    "median_gap_bp": -9.747,
+    "median_gap_from_2007_08_09_bp": -14.152,
+    "spread_changes_corr": 0.421449,
+    "spread_levels_corr": 0.868152
+  },
+  "panel": [
+    {
+      "date": "2008-08-11",
+      "libor3m": 2.8,
+      "ois_realised": 1.392308,
+      "rate_change_day": false,
+      "spread": 1.407692,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-12",
+      "libor3m": 2.8,
+      "ois_realised": 1.374066,
+      "rate_change_day": false,
+      "spread": 1.425934,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-13",
+      "libor3m": 2.8,
+      "ois_realised": 1.356154,
+      "rate_change_day": false,
+      "spread": 1.443846,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-14",
+      "libor3m": 2.81,
+      "ois_realised": 1.337033,
+      "rate_change_day": false,
+      "spread": 1.472967,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-15",
+      "libor3m": 2.81,
+      "ois_realised": 1.317912,
+      "rate_change_day": false,
+      "spread": 1.492088,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-18",
+      "libor3m": 2.81,
+      "ois_realised": 1.262747,
+      "rate_change_day": false,
+      "spread": 1.547253,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-19",
+      "libor3m": 2.81,
+      "ois_realised": 1.245604,
+      "rate_change_day": false,
+      "spread": 1.564396,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-20",
+      "libor3m": 2.81,
+      "ois_realised": 1.228022,
+      "rate_change_day": false,
+      "spread": 1.581978,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-21",
+      "libor3m": 2.81,
+      "ois_realised": 1.211319,
+      "rate_change_day": false,
+      "spread": 1.598681,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-22",
+      "libor3m": 2.81,
+      "ois_realised": 1.195385,
+      "rate_change_day": false,
+      "spread": 1.614615,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-26",
+      "libor3m": 2.81,
+      "ois_realised": 1.134066,
+      "rate_change_day": false,
+      "spread": 1.675934,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-27",
+      "libor3m": 2.81,
+      "ois_realised": 1.118132,
+      "rate_change_day": false,
+      "spread": 1.691868,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-28",
+      "libor3m": 2.81,
+      "ois_realised": 1.102088,
+      "rate_change_day": false,
+      "spread": 1.707912,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-08-29",
+      "libor3m": 2.81,
+      "ois_realised": 1.086484,
+      "rate_change_day": false,
+      "spread": 1.723516,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-02",
+      "libor3m": 2.81,
+      "ois_realised": 1.023297,
+      "rate_change_day": false,
+      "spread": 1.786703,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-03",
+      "libor3m": 2.81,
+      "ois_realised": 1.005165,
+      "rate_change_day": false,
+      "spread": 1.804835,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-04",
+      "libor3m": 2.82,
+      "ois_realised": 0.985495,
+      "rate_change_day": false,
+      "spread": 1.834505,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-05",
+      "libor3m": 2.81,
+      "ois_realised": 0.965165,
+      "rate_change_day": false,
+      "spread": 1.844835,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-08",
+      "libor3m": 2.82,
+      "ois_realised": 0.904725,
+      "rate_change_day": false,
+      "spread": 1.915275,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-09",
+      "libor3m": 2.82,
+      "ois_realised": 0.884615,
+      "rate_change_day": false,
+      "spread": 1.935385,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-10",
+      "libor3m": 2.82,
+      "ois_realised": 0.862527,
+      "rate_change_day": false,
+      "spread": 1.957473,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-11",
+      "libor3m": 2.82,
+      "ois_realised": 0.842088,
+      "rate_change_day": false,
+      "spread": 1.977912,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-12",
+      "libor3m": 2.82,
+      "ois_realised": 0.820659,
+      "rate_change_day": false,
+      "spread": 1.999341,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-15",
+      "libor3m": 2.82,
+      "ois_realised": 0.750769,
+      "rate_change_day": false,
+      "spread": 2.069231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-16",
+      "libor3m": 2.88,
+      "ois_realised": 0.730879,
+      "rate_change_day": false,
+      "spread": 2.149121,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-17",
+      "libor3m": 3.06,
+      "ois_realised": 0.701429,
+      "rate_change_day": false,
+      "spread": 2.358571,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-18",
+      "libor3m": 3.2,
+      "ois_realised": 0.678901,
+      "rate_change_day": false,
+      "spread": 2.521099,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-19",
+      "libor3m": 3.21,
+      "ois_realised": 0.663846,
+      "rate_change_day": false,
+      "spread": 2.546154,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-22",
+      "libor3m": 3.2,
+      "ois_realised": 0.618352,
+      "rate_change_day": false,
+      "spread": 2.581648,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-23",
+      "libor3m": 3.21,
+      "ois_realised": 0.603516,
+      "rate_change_day": false,
+      "spread": 2.606484,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-24",
+      "libor3m": 3.48,
+      "ois_realised": 0.591648,
+      "rate_change_day": false,
+      "spread": 2.888352,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-25",
+      "libor3m": 3.77,
+      "ois_realised": 0.579341,
+      "rate_change_day": false,
+      "spread": 3.190659,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-26",
+      "libor3m": 3.76,
+      "ois_realised": 0.568462,
+      "rate_change_day": false,
+      "spread": 3.191538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-29",
+      "libor3m": 3.88,
+      "ois_realised": 0.530659,
+      "rate_change_day": false,
+      "spread": 3.349341,
+      "taf_announce_day": true,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-09-30",
+      "libor3m": 4.05,
+      "ois_realised": 0.509341,
+      "rate_change_day": false,
+      "spread": 3.540659,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-10-01",
+      "libor3m": 4.15,
+      "ois_realised": 0.498242,
+      "rate_change_day": false,
+      "spread": 3.651758,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-10-02",
+      "libor3m": 4.21,
+      "ois_realised": 0.492418,
+      "rate_change_day": false,
+      "spread": 3.717582,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-10-03",
+      "libor3m": 4.33,
+      "ois_realised": 0.481209,
+      "rate_change_day": false,
+      "spread": 3.848791,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-10-06",
+      "libor3m": 4.29,
+      "ois_realised": 0.438462,
+      "rate_change_day": false,
+      "spread": 3.851538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-10-07",
+      "libor3m": 4.32,
+      "ois_realised": 0.406813,
+      "rate_change_day": false,
+      "spread": 3.913187,
+      "taf_announce_day": true,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 2.0
+    },
+    {
+      "date": "2008-10-08",
+      "libor3m": 4.52,
+      "ois_realised": 0.383407,
+      "rate_change_day": true,
+      "spread": 4.136593,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-09",
+      "libor3m": 4.75,
+      "ois_realised": 0.369121,
+      "rate_change_day": false,
+      "spread": 4.380879,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-10",
+      "libor3m": 4.82,
+      "ois_realised": 0.361429,
+      "rate_change_day": false,
+      "spread": 4.458571,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-14",
+      "libor3m": 4.64,
+      "ois_realised": 0.327473,
+      "rate_change_day": false,
+      "spread": 4.312527,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-15",
+      "libor3m": 4.55,
+      "ois_realised": 0.317692,
+      "rate_change_day": false,
+      "spread": 4.232308,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-16",
+      "libor3m": 4.5,
+      "ois_realised": 0.310549,
+      "rate_change_day": false,
+      "spread": 4.189451,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-17",
+      "libor3m": 4.42,
+      "ois_realised": 0.306044,
+      "rate_change_day": false,
+      "spread": 4.113956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-20",
+      "libor3m": 4.06,
+      "ois_realised": 0.291429,
+      "rate_change_day": false,
+      "spread": 3.768571,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-21",
+      "libor3m": 3.83,
+      "ois_realised": 0.286264,
+      "rate_change_day": false,
+      "spread": 3.543736,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-22",
+      "libor3m": 3.54,
+      "ois_realised": 0.27989,
+      "rate_change_day": false,
+      "spread": 3.26011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-23",
+      "libor3m": 3.54,
+      "ois_realised": 0.271978,
+      "rate_change_day": false,
+      "spread": 3.268022,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-24",
+      "libor3m": 3.52,
+      "ois_realised": 0.263516,
+      "rate_change_day": false,
+      "spread": 3.256484,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-27",
+      "libor3m": 3.51,
+      "ois_realised": 0.238571,
+      "rate_change_day": false,
+      "spread": 3.271429,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-28",
+      "libor3m": 3.46,
+      "ois_realised": 0.233187,
+      "rate_change_day": false,
+      "spread": 3.226813,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.5
+    },
+    {
+      "date": "2008-10-29",
+      "libor3m": 3.42,
+      "ois_realised": 0.231319,
+      "rate_change_day": true,
+      "spread": 3.188681,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-10-30",
+      "libor3m": 3.19,
+      "ois_realised": 0.230549,
+      "rate_change_day": false,
+      "spread": 2.959451,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-10-31",
+      "libor3m": 3.03,
+      "ois_realised": 0.230659,
+      "rate_change_day": false,
+      "spread": 2.799341,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-03",
+      "libor3m": 2.86,
+      "ois_realised": 0.230989,
+      "rate_change_day": false,
+      "spread": 2.629011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-04",
+      "libor3m": 2.71,
+      "ois_realised": 0.231099,
+      "rate_change_day": false,
+      "spread": 2.478901,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-05",
+      "libor3m": 2.51,
+      "ois_realised": 0.231209,
+      "rate_change_day": false,
+      "spread": 2.278791,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-06",
+      "libor3m": 2.39,
+      "ois_realised": 0.231209,
+      "rate_change_day": false,
+      "spread": 2.158791,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-07",
+      "libor3m": 2.29,
+      "ois_realised": 0.230769,
+      "rate_change_day": false,
+      "spread": 2.059231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-10",
+      "libor3m": 2.23,
+      "ois_realised": 0.229121,
+      "rate_change_day": false,
+      "spread": 2.000879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-12",
+      "libor3m": 2.13,
+      "ois_realised": 0.227143,
+      "rate_change_day": false,
+      "spread": 1.902857,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-13",
+      "libor3m": 2.15,
+      "ois_realised": 0.225824,
+      "rate_change_day": false,
+      "spread": 1.924176,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-14",
+      "libor3m": 2.24,
+      "ois_realised": 0.224505,
+      "rate_change_day": false,
+      "spread": 2.015495,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-17",
+      "libor3m": 2.24,
+      "ois_realised": 0.22022,
+      "rate_change_day": false,
+      "spread": 2.01978,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-18",
+      "libor3m": 2.22,
+      "ois_realised": 0.218791,
+      "rate_change_day": false,
+      "spread": 2.001209,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-19",
+      "libor3m": 2.17,
+      "ois_realised": 0.217143,
+      "rate_change_day": false,
+      "spread": 1.952857,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-20",
+      "libor3m": 2.15,
+      "ois_realised": 0.214066,
+      "rate_change_day": false,
+      "spread": 1.935934,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-21",
+      "libor3m": 2.16,
+      "ois_realised": 0.21,
+      "rate_change_day": false,
+      "spread": 1.95,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-24",
+      "libor3m": 2.17,
+      "ois_realised": 0.197143,
+      "rate_change_day": false,
+      "spread": 1.972857,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-25",
+      "libor3m": 2.2,
+      "ois_realised": 0.192967,
+      "rate_change_day": false,
+      "spread": 2.007033,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-26",
+      "libor3m": 2.18,
+      "ois_realised": 0.189451,
+      "rate_change_day": false,
+      "spread": 1.990549,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-11-28",
+      "libor3m": 2.22,
+      "ois_realised": 0.182747,
+      "rate_change_day": false,
+      "spread": 2.037253,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-01",
+      "libor3m": 2.22,
+      "ois_realised": 0.172857,
+      "rate_change_day": false,
+      "spread": 2.047143,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-02",
+      "libor3m": 2.21,
+      "ois_realised": 0.16989,
+      "rate_change_day": false,
+      "spread": 2.04011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-03",
+      "libor3m": 2.2,
+      "ois_realised": 0.168242,
+      "rate_change_day": false,
+      "spread": 2.031758,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-04",
+      "libor3m": 2.19,
+      "ois_realised": 0.168242,
+      "rate_change_day": false,
+      "spread": 2.021758,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-05",
+      "libor3m": 2.19,
+      "ois_realised": 0.169121,
+      "rate_change_day": false,
+      "spread": 2.020879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-08",
+      "libor3m": 2.19,
+      "ois_realised": 0.171758,
+      "rate_change_day": false,
+      "spread": 2.018242,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-09",
+      "libor3m": 2.16,
+      "ois_realised": 0.172527,
+      "rate_change_day": false,
+      "spread": 1.987473,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-10",
+      "libor3m": 2.1,
+      "ois_realised": 0.173407,
+      "rate_change_day": false,
+      "spread": 1.926593,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-11",
+      "libor3m": 2.0,
+      "ois_realised": 0.173846,
+      "rate_change_day": false,
+      "spread": 1.826154,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-12",
+      "libor3m": 1.92,
+      "ois_realised": 0.173846,
+      "rate_change_day": false,
+      "spread": 1.746154,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-15",
+      "libor3m": 1.87,
+      "ois_realised": 0.174066,
+      "rate_change_day": false,
+      "spread": 1.695934,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 1.0
+    },
+    {
+      "date": "2008-12-16",
+      "libor3m": 1.85,
+      "ois_realised": 0.174396,
+      "rate_change_day": true,
+      "spread": 1.675604,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-17",
+      "libor3m": 1.58,
+      "ois_realised": 0.175055,
+      "rate_change_day": false,
+      "spread": 1.404945,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-18",
+      "libor3m": 1.52,
+      "ois_realised": 0.175714,
+      "rate_change_day": false,
+      "spread": 1.344286,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-19",
+      "libor3m": 1.5,
+      "ois_realised": 0.176484,
+      "rate_change_day": false,
+      "spread": 1.323516,
+      "taf_announce_day": true,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-22",
+      "libor3m": 1.47,
+      "ois_realised": 0.178681,
+      "rate_change_day": false,
+      "spread": 1.291319,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-23",
+      "libor3m": 1.47,
+      "ois_realised": 0.179341,
+      "rate_change_day": false,
+      "spread": 1.290659,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-24",
+      "libor3m": 1.47,
+      "ois_realised": 0.18,
+      "rate_change_day": false,
+      "spread": 1.29,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-29",
+      "libor3m": 1.46,
+      "ois_realised": 0.183187,
+      "rate_change_day": false,
+      "spread": 1.276813,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-30",
+      "libor3m": 1.44,
+      "ois_realised": 0.183956,
+      "rate_change_day": false,
+      "spread": 1.256044,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2008-12-31",
+      "libor3m": 1.43,
+      "ois_realised": 0.184176,
+      "rate_change_day": false,
+      "spread": 1.245824,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-02",
+      "libor3m": 1.41,
+      "ois_realised": 0.184945,
+      "rate_change_day": false,
+      "spread": 1.225055,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-05",
+      "libor3m": 1.42,
+      "ois_realised": 0.186374,
+      "rate_change_day": false,
+      "spread": 1.233626,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-06",
+      "libor3m": 1.41,
+      "ois_realised": 0.186923,
+      "rate_change_day": false,
+      "spread": 1.223077,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-07",
+      "libor3m": 1.4,
+      "ois_realised": 0.187253,
+      "rate_change_day": false,
+      "spread": 1.212747,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-08",
+      "libor3m": 1.35,
+      "ois_realised": 0.187692,
+      "rate_change_day": false,
+      "spread": 1.162308,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-09",
+      "libor3m": 1.26,
+      "ois_realised": 0.188352,
+      "rate_change_day": false,
+      "spread": 1.071648,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-12",
+      "libor3m": 1.16,
+      "ois_realised": 0.19,
+      "rate_change_day": false,
+      "spread": 0.97,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-13",
+      "libor3m": 1.09,
+      "ois_realised": 0.190659,
+      "rate_change_day": false,
+      "spread": 0.899341,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-14",
+      "libor3m": 1.08,
+      "ois_realised": 0.190769,
+      "rate_change_day": false,
+      "spread": 0.889231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-15",
+      "libor3m": 1.09,
+      "ois_realised": 0.19044,
+      "rate_change_day": false,
+      "spread": 0.89956,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-16",
+      "libor3m": 1.14,
+      "ois_realised": 0.18978,
+      "rate_change_day": false,
+      "spread": 0.95022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-20",
+      "libor3m": 1.12,
+      "ois_realised": 0.187363,
+      "rate_change_day": false,
+      "spread": 0.932637,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-21",
+      "libor3m": 1.12,
+      "ois_realised": 0.186484,
+      "rate_change_day": false,
+      "spread": 0.933516,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-22",
+      "libor3m": 1.16,
+      "ois_realised": 0.186044,
+      "rate_change_day": false,
+      "spread": 0.973956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-23",
+      "libor3m": 1.17,
+      "ois_realised": 0.185824,
+      "rate_change_day": false,
+      "spread": 0.984176,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-26",
+      "libor3m": 1.18,
+      "ois_realised": 0.185165,
+      "rate_change_day": false,
+      "spread": 0.994835,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-27",
+      "libor3m": 1.18,
+      "ois_realised": 0.184945,
+      "rate_change_day": false,
+      "spread": 0.995055,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-28",
+      "libor3m": 1.17,
+      "ois_realised": 0.184835,
+      "rate_change_day": false,
+      "spread": 0.985165,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-29",
+      "libor3m": 1.17,
+      "ois_realised": 0.184505,
+      "rate_change_day": false,
+      "spread": 0.985495,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-01-30",
+      "libor3m": 1.18,
+      "ois_realised": 0.184396,
+      "rate_change_day": false,
+      "spread": 0.995604,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-02",
+      "libor3m": 1.23,
+      "ois_realised": 0.183956,
+      "rate_change_day": false,
+      "spread": 1.046044,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-03",
+      "libor3m": 1.23,
+      "ois_realised": 0.183516,
+      "rate_change_day": false,
+      "spread": 1.046484,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-04",
+      "libor3m": 1.24,
+      "ois_realised": 0.182857,
+      "rate_change_day": false,
+      "spread": 1.057143,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-05",
+      "libor3m": 1.24,
+      "ois_realised": 0.182308,
+      "rate_change_day": false,
+      "spread": 1.057692,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-06",
+      "libor3m": 1.24,
+      "ois_realised": 0.181648,
+      "rate_change_day": false,
+      "spread": 1.058352,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-09",
+      "libor3m": 1.23,
+      "ois_realised": 0.17978,
+      "rate_change_day": false,
+      "spread": 1.05022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-10",
+      "libor3m": 1.22,
+      "ois_realised": 0.178901,
+      "rate_change_day": false,
+      "spread": 1.041099,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-11",
+      "libor3m": 1.23,
+      "ois_realised": 0.178242,
+      "rate_change_day": false,
+      "spread": 1.051758,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-12",
+      "libor3m": 1.23,
+      "ois_realised": 0.177473,
+      "rate_change_day": false,
+      "spread": 1.052527,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-13",
+      "libor3m": 1.24,
+      "ois_realised": 0.176923,
+      "rate_change_day": false,
+      "spread": 1.063077,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-17",
+      "libor3m": 1.25,
+      "ois_realised": 0.174066,
+      "rate_change_day": false,
+      "spread": 1.075934,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-18",
+      "libor3m": 1.25,
+      "ois_realised": 0.173077,
+      "rate_change_day": false,
+      "spread": 1.076923,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-19",
+      "libor3m": 1.25,
+      "ois_realised": 0.172637,
+      "rate_change_day": false,
+      "spread": 1.077363,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-20",
+      "libor3m": 1.25,
+      "ois_realised": 0.172308,
+      "rate_change_day": false,
+      "spread": 1.077692,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-23",
+      "libor3m": 1.25,
+      "ois_realised": 0.171429,
+      "rate_change_day": false,
+      "spread": 1.078571,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-24",
+      "libor3m": 1.25,
+      "ois_realised": 0.171099,
+      "rate_change_day": false,
+      "spread": 1.078901,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-25",
+      "libor3m": 1.26,
+      "ois_realised": 0.170659,
+      "rate_change_day": false,
+      "spread": 1.089341,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-26",
+      "libor3m": 1.26,
+      "ois_realised": 0.17011,
+      "rate_change_day": false,
+      "spread": 1.08989,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-02-27",
+      "libor3m": 1.26,
+      "ois_realised": 0.16978,
+      "rate_change_day": false,
+      "spread": 1.09022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-02",
+      "libor3m": 1.27,
+      "ois_realised": 0.169011,
+      "rate_change_day": false,
+      "spread": 1.100989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-03",
+      "libor3m": 1.27,
+      "ois_realised": 0.169011,
+      "rate_change_day": false,
+      "spread": 1.100989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-04",
+      "libor3m": 1.28,
+      "ois_realised": 0.169011,
+      "rate_change_day": false,
+      "spread": 1.110989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-05",
+      "libor3m": 1.28,
+      "ois_realised": 0.169011,
+      "rate_change_day": false,
+      "spread": 1.110989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-06",
+      "libor3m": 1.29,
+      "ois_realised": 0.169121,
+      "rate_change_day": false,
+      "spread": 1.120879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-09",
+      "libor3m": 1.31,
+      "ois_realised": 0.169451,
+      "rate_change_day": false,
+      "spread": 1.140549,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-10",
+      "libor3m": 1.33,
+      "ois_realised": 0.169231,
+      "rate_change_day": false,
+      "spread": 1.160769,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-11",
+      "libor3m": 1.33,
+      "ois_realised": 0.169121,
+      "rate_change_day": false,
+      "spread": 1.160879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-12",
+      "libor3m": 1.32,
+      "ois_realised": 0.169011,
+      "rate_change_day": false,
+      "spread": 1.150989,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-13",
+      "libor3m": 1.32,
+      "ois_realised": 0.169231,
+      "rate_change_day": false,
+      "spread": 1.150769,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-16",
+      "libor3m": 1.31,
+      "ois_realised": 0.16989,
+      "rate_change_day": false,
+      "spread": 1.14011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-17",
+      "libor3m": 1.3,
+      "ois_realised": 0.17011,
+      "rate_change_day": false,
+      "spread": 1.12989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-18",
+      "libor3m": 1.29,
+      "ois_realised": 0.170769,
+      "rate_change_day": false,
+      "spread": 1.119231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-19",
+      "libor3m": 1.23,
+      "ois_realised": 0.171648,
+      "rate_change_day": false,
+      "spread": 1.058352,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-20",
+      "libor3m": 1.22,
+      "ois_realised": 0.172418,
+      "rate_change_day": false,
+      "spread": 1.047582,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-23",
+      "libor3m": 1.22,
+      "ois_realised": 0.174725,
+      "rate_change_day": false,
+      "spread": 1.045275,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-24",
+      "libor3m": 1.23,
+      "ois_realised": 0.175495,
+      "rate_change_day": false,
+      "spread": 1.054505,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-25",
+      "libor3m": 1.23,
+      "ois_realised": 0.175934,
+      "rate_change_day": false,
+      "spread": 1.054066,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-26",
+      "libor3m": 1.23,
+      "ois_realised": 0.176264,
+      "rate_change_day": false,
+      "spread": 1.053736,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-27",
+      "libor3m": 1.22,
+      "ois_realised": 0.176593,
+      "rate_change_day": false,
+      "spread": 1.043407,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-30",
+      "libor3m": 1.21,
+      "ois_realised": 0.177363,
+      "rate_change_day": false,
+      "spread": 1.032637,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-03-31",
+      "libor3m": 1.19,
+      "ois_realised": 0.178022,
+      "rate_change_day": false,
+      "spread": 1.011978,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-01",
+      "libor3m": 1.18,
+      "ois_realised": 0.178462,
+      "rate_change_day": false,
+      "spread": 1.001538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-02",
+      "libor3m": 1.17,
+      "ois_realised": 0.178571,
+      "rate_change_day": false,
+      "spread": 0.991429,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-03",
+      "libor3m": 1.16,
+      "ois_realised": 0.178901,
+      "rate_change_day": false,
+      "spread": 0.981099,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-06",
+      "libor3m": 1.16,
+      "ois_realised": 0.18,
+      "rate_change_day": false,
+      "spread": 0.98,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-07",
+      "libor3m": 1.15,
+      "ois_realised": 0.18044,
+      "rate_change_day": false,
+      "spread": 0.96956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-08",
+      "libor3m": 1.14,
+      "ois_realised": 0.180659,
+      "rate_change_day": false,
+      "spread": 0.959341,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-09",
+      "libor3m": 1.13,
+      "ois_realised": 0.180769,
+      "rate_change_day": false,
+      "spread": 0.949231,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-14",
+      "libor3m": 1.12,
+      "ois_realised": 0.18044,
+      "rate_change_day": false,
+      "spread": 0.93956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-15",
+      "libor3m": 1.11,
+      "ois_realised": 0.18022,
+      "rate_change_day": false,
+      "spread": 0.92978,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-16",
+      "libor3m": 1.11,
+      "ois_realised": 0.18022,
+      "rate_change_day": false,
+      "spread": 0.92978,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-17",
+      "libor3m": 1.1,
+      "ois_realised": 0.18044,
+      "rate_change_day": false,
+      "spread": 0.91956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-20",
+      "libor3m": 1.1,
+      "ois_realised": 0.180989,
+      "rate_change_day": false,
+      "spread": 0.919011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-21",
+      "libor3m": 1.1,
+      "ois_realised": 0.180879,
+      "rate_change_day": false,
+      "spread": 0.919121,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-22",
+      "libor3m": 1.1,
+      "ois_realised": 0.180769,
+      "rate_change_day": false,
+      "spread": 0.919231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-23",
+      "libor3m": 1.09,
+      "ois_realised": 0.180549,
+      "rate_change_day": false,
+      "spread": 0.909451,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-24",
+      "libor3m": 1.07,
+      "ois_realised": 0.18044,
+      "rate_change_day": false,
+      "spread": 0.88956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-27",
+      "libor3m": 1.05,
+      "ois_realised": 0.18011,
+      "rate_change_day": false,
+      "spread": 0.86989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-28",
+      "libor3m": 1.04,
+      "ois_realised": 0.18,
+      "rate_change_day": false,
+      "spread": 0.86,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-29",
+      "libor3m": 1.03,
+      "ois_realised": 0.17989,
+      "rate_change_day": false,
+      "spread": 0.85011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-04-30",
+      "libor3m": 1.02,
+      "ois_realised": 0.17956,
+      "rate_change_day": false,
+      "spread": 0.84044,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-01",
+      "libor3m": 1.01,
+      "ois_realised": 0.179121,
+      "rate_change_day": false,
+      "spread": 0.830879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-05",
+      "libor3m": 0.99,
+      "ois_realised": 0.177473,
+      "rate_change_day": false,
+      "spread": 0.812527,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-06",
+      "libor3m": 0.97,
+      "ois_realised": 0.177363,
+      "rate_change_day": false,
+      "spread": 0.792637,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-07",
+      "libor3m": 0.96,
+      "ois_realised": 0.177253,
+      "rate_change_day": false,
+      "spread": 0.782747,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-08",
+      "libor3m": 0.94,
+      "ois_realised": 0.177253,
+      "rate_change_day": false,
+      "spread": 0.762747,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-11",
+      "libor3m": 0.92,
+      "ois_realised": 0.177253,
+      "rate_change_day": false,
+      "spread": 0.742747,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-12",
+      "libor3m": 0.91,
+      "ois_realised": 0.177253,
+      "rate_change_day": false,
+      "spread": 0.732747,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-13",
+      "libor3m": 0.88,
+      "ois_realised": 0.177143,
+      "rate_change_day": false,
+      "spread": 0.702857,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-14",
+      "libor3m": 0.85,
+      "ois_realised": 0.177033,
+      "rate_change_day": false,
+      "spread": 0.672967,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-15",
+      "libor3m": 0.83,
+      "ois_realised": 0.176813,
+      "rate_change_day": false,
+      "spread": 0.653187,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-18",
+      "libor3m": 0.79,
+      "ois_realised": 0.176484,
+      "rate_change_day": false,
+      "spread": 0.613516,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-19",
+      "libor3m": 0.75,
+      "ois_realised": 0.176703,
+      "rate_change_day": false,
+      "spread": 0.573297,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-20",
+      "libor3m": 0.72,
+      "ois_realised": 0.177033,
+      "rate_change_day": false,
+      "spread": 0.542967,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-21",
+      "libor3m": 0.66,
+      "ois_realised": 0.177033,
+      "rate_change_day": false,
+      "spread": 0.482967,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-22",
+      "libor3m": 0.66,
+      "ois_realised": 0.176923,
+      "rate_change_day": false,
+      "spread": 0.483077,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-26",
+      "libor3m": 0.66,
+      "ois_realised": 0.176264,
+      "rate_change_day": false,
+      "spread": 0.483736,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-27",
+      "libor3m": 0.67,
+      "ois_realised": 0.176044,
+      "rate_change_day": false,
+      "spread": 0.493956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-28",
+      "libor3m": 0.67,
+      "ois_realised": 0.175714,
+      "rate_change_day": false,
+      "spread": 0.494286,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-05-29",
+      "libor3m": 0.66,
+      "ois_realised": 0.175165,
+      "rate_change_day": false,
+      "spread": 0.484835,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-01",
+      "libor3m": 0.65,
+      "ois_realised": 0.173407,
+      "rate_change_day": false,
+      "spread": 0.476593,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-02",
+      "libor3m": 0.65,
+      "ois_realised": 0.172857,
+      "rate_change_day": false,
+      "spread": 0.477143,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-03",
+      "libor3m": 0.64,
+      "ois_realised": 0.172308,
+      "rate_change_day": false,
+      "spread": 0.467692,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-04",
+      "libor3m": 0.63,
+      "ois_realised": 0.171758,
+      "rate_change_day": false,
+      "spread": 0.458242,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-05",
+      "libor3m": 0.63,
+      "ois_realised": 0.171099,
+      "rate_change_day": false,
+      "spread": 0.458901,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-08",
+      "libor3m": 0.65,
+      "ois_realised": 0.169121,
+      "rate_change_day": false,
+      "spread": 0.480879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-09",
+      "libor3m": 0.65,
+      "ois_realised": 0.168791,
+      "rate_change_day": false,
+      "spread": 0.481209,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-10",
+      "libor3m": 0.64,
+      "ois_realised": 0.168462,
+      "rate_change_day": false,
+      "spread": 0.471538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-11",
+      "libor3m": 0.63,
+      "ois_realised": 0.168352,
+      "rate_change_day": false,
+      "spread": 0.461648,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-12",
+      "libor3m": 0.62,
+      "ois_realised": 0.168132,
+      "rate_change_day": false,
+      "spread": 0.451868,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-15",
+      "libor3m": 0.61,
+      "ois_realised": 0.167033,
+      "rate_change_day": false,
+      "spread": 0.442967,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-16",
+      "libor3m": 0.61,
+      "ois_realised": 0.166484,
+      "rate_change_day": false,
+      "spread": 0.443516,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-17",
+      "libor3m": 0.61,
+      "ois_realised": 0.165714,
+      "rate_change_day": false,
+      "spread": 0.444286,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-18",
+      "libor3m": 0.61,
+      "ois_realised": 0.164725,
+      "rate_change_day": false,
+      "spread": 0.445275,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-19",
+      "libor3m": 0.61,
+      "ois_realised": 0.163736,
+      "rate_change_day": false,
+      "spread": 0.446264,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-22",
+      "libor3m": 0.61,
+      "ois_realised": 0.160769,
+      "rate_change_day": false,
+      "spread": 0.449231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-23",
+      "libor3m": 0.61,
+      "ois_realised": 0.15978,
+      "rate_change_day": false,
+      "spread": 0.45022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-24",
+      "libor3m": 0.6,
+      "ois_realised": 0.159121,
+      "rate_change_day": false,
+      "spread": 0.440879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-25",
+      "libor3m": 0.6,
+      "ois_realised": 0.158571,
+      "rate_change_day": false,
+      "spread": 0.441429,
+      "taf_announce_day": true,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-26",
+      "libor3m": 0.6,
+      "ois_realised": 0.158022,
+      "rate_change_day": false,
+      "spread": 0.441978,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-29",
+      "libor3m": 0.6,
+      "ois_realised": 0.156484,
+      "rate_change_day": false,
+      "spread": 0.443516,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-06-30",
+      "libor3m": 0.59,
+      "ois_realised": 0.155275,
+      "rate_change_day": false,
+      "spread": 0.434725,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-01",
+      "libor3m": 0.59,
+      "ois_realised": 0.153846,
+      "rate_change_day": false,
+      "spread": 0.436154,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-02",
+      "libor3m": 0.58,
+      "ois_realised": 0.153187,
+      "rate_change_day": false,
+      "spread": 0.426813,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-06",
+      "libor3m": 0.55,
+      "ois_realised": 0.151648,
+      "rate_change_day": false,
+      "spread": 0.398352,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-07",
+      "libor3m": 0.54,
+      "ois_realised": 0.150989,
+      "rate_change_day": false,
+      "spread": 0.389011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-08",
+      "libor3m": 0.52,
+      "ois_realised": 0.150659,
+      "rate_change_day": false,
+      "spread": 0.369341,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-09",
+      "libor3m": 0.51,
+      "ois_realised": 0.15033,
+      "rate_change_day": false,
+      "spread": 0.35967,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-10",
+      "libor3m": 0.5,
+      "ois_realised": 0.15,
+      "rate_change_day": false,
+      "spread": 0.35,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-13",
+      "libor3m": 0.51,
+      "ois_realised": 0.149231,
+      "rate_change_day": false,
+      "spread": 0.360769,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-14",
+      "libor3m": 0.51,
+      "ois_realised": 0.149121,
+      "rate_change_day": false,
+      "spread": 0.360879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-15",
+      "libor3m": 0.51,
+      "ois_realised": 0.148901,
+      "rate_change_day": false,
+      "spread": 0.361099,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-16",
+      "libor3m": 0.51,
+      "ois_realised": 0.148681,
+      "rate_change_day": false,
+      "spread": 0.361319,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-17",
+      "libor3m": 0.5,
+      "ois_realised": 0.148352,
+      "rate_change_day": false,
+      "spread": 0.351648,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-20",
+      "libor3m": 0.51,
+      "ois_realised": 0.147363,
+      "rate_change_day": false,
+      "spread": 0.362637,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-21",
+      "libor3m": 0.5,
+      "ois_realised": 0.147143,
+      "rate_change_day": false,
+      "spread": 0.352857,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-22",
+      "libor3m": 0.5,
+      "ois_realised": 0.146813,
+      "rate_change_day": false,
+      "spread": 0.353187,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-23",
+      "libor3m": 0.5,
+      "ois_realised": 0.146374,
+      "rate_change_day": false,
+      "spread": 0.353626,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-24",
+      "libor3m": 0.5,
+      "ois_realised": 0.145934,
+      "rate_change_day": false,
+      "spread": 0.354066,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": true,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-27",
+      "libor3m": 0.5,
+      "ois_realised": 0.144505,
+      "rate_change_day": false,
+      "spread": 0.355495,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-28",
+      "libor3m": 0.49,
+      "ois_realised": 0.144066,
+      "rate_change_day": false,
+      "spread": 0.345934,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-29",
+      "libor3m": 0.49,
+      "ois_realised": 0.143407,
+      "rate_change_day": false,
+      "spread": 0.346593,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-30",
+      "libor3m": 0.48,
+      "ois_realised": 0.142747,
+      "rate_change_day": false,
+      "spread": 0.337253,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-07-31",
+      "libor3m": 0.48,
+      "ois_realised": 0.141978,
+      "rate_change_day": false,
+      "spread": 0.338022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-03",
+      "libor3m": 0.47,
+      "ois_realised": 0.13978,
+      "rate_change_day": false,
+      "spread": 0.33022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-04",
+      "libor3m": 0.47,
+      "ois_realised": 0.139231,
+      "rate_change_day": false,
+      "spread": 0.330769,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-05",
+      "libor3m": 0.47,
+      "ois_realised": 0.138791,
+      "rate_change_day": false,
+      "spread": 0.331209,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-06",
+      "libor3m": 0.46,
+      "ois_realised": 0.138352,
+      "rate_change_day": false,
+      "spread": 0.321648,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-07",
+      "libor3m": 0.46,
+      "ois_realised": 0.137802,
+      "rate_change_day": false,
+      "spread": 0.322198,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-10",
+      "libor3m": 0.46,
+      "ois_realised": 0.136154,
+      "rate_change_day": false,
+      "spread": 0.323846,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-11",
+      "libor3m": 0.45,
+      "ois_realised": 0.135824,
+      "rate_change_day": false,
+      "spread": 0.314176,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-12",
+      "libor3m": 0.45,
+      "ois_realised": 0.135604,
+      "rate_change_day": false,
+      "spread": 0.314396,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-13",
+      "libor3m": 0.44,
+      "ois_realised": 0.135275,
+      "rate_change_day": false,
+      "spread": 0.304725,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-14",
+      "libor3m": 0.43,
+      "ois_realised": 0.134945,
+      "rate_change_day": false,
+      "spread": 0.295055,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-17",
+      "libor3m": 0.43,
+      "ois_realised": 0.133736,
+      "rate_change_day": false,
+      "spread": 0.296264,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-18",
+      "libor3m": 0.42,
+      "ois_realised": 0.133187,
+      "rate_change_day": false,
+      "spread": 0.286813,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-19",
+      "libor3m": 0.42,
+      "ois_realised": 0.132527,
+      "rate_change_day": false,
+      "spread": 0.287473,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-20",
+      "libor3m": 0.41,
+      "ois_realised": 0.131868,
+      "rate_change_day": false,
+      "spread": 0.278132,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-21",
+      "libor3m": 0.39,
+      "ois_realised": 0.131319,
+      "rate_change_day": false,
+      "spread": 0.258681,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-24",
+      "libor3m": 0.39,
+      "ois_realised": 0.12978,
+      "rate_change_day": false,
+      "spread": 0.26022,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-25",
+      "libor3m": 0.38,
+      "ois_realised": 0.129451,
+      "rate_change_day": false,
+      "spread": 0.250549,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-26",
+      "libor3m": 0.37,
+      "ois_realised": 0.129011,
+      "rate_change_day": false,
+      "spread": 0.240989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-27",
+      "libor3m": 0.36,
+      "ois_realised": 0.128681,
+      "rate_change_day": false,
+      "spread": 0.231319,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-08-28",
+      "libor3m": 0.35,
+      "ois_realised": 0.128462,
+      "rate_change_day": false,
+      "spread": 0.221538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": true,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-01",
+      "libor3m": 0.33,
+      "ois_realised": 0.127582,
+      "rate_change_day": false,
+      "spread": 0.202418,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-02",
+      "libor3m": 0.33,
+      "ois_realised": 0.127253,
+      "rate_change_day": false,
+      "spread": 0.202747,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-03",
+      "libor3m": 0.32,
+      "ois_realised": 0.127033,
+      "rate_change_day": false,
+      "spread": 0.192967,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-04",
+      "libor3m": 0.31,
+      "ois_realised": 0.126703,
+      "rate_change_day": false,
+      "spread": 0.183297,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-08",
+      "libor3m": 0.3,
+      "ois_realised": 0.125385,
+      "rate_change_day": false,
+      "spread": 0.174615,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-09",
+      "libor3m": 0.3,
+      "ois_realised": 0.125055,
+      "rate_change_day": false,
+      "spread": 0.174945,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-10",
+      "libor3m": 0.3,
+      "ois_realised": 0.124615,
+      "rate_change_day": false,
+      "spread": 0.175385,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-11",
+      "libor3m": 0.3,
+      "ois_realised": 0.124286,
+      "rate_change_day": false,
+      "spread": 0.175714,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-14",
+      "libor3m": 0.29,
+      "ois_realised": 0.123187,
+      "rate_change_day": false,
+      "spread": 0.166813,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-15",
+      "libor3m": 0.29,
+      "ois_realised": 0.122747,
+      "rate_change_day": false,
+      "spread": 0.167253,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-16",
+      "libor3m": 0.29,
+      "ois_realised": 0.122418,
+      "rate_change_day": false,
+      "spread": 0.167582,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-17",
+      "libor3m": 0.29,
+      "ois_realised": 0.122088,
+      "rate_change_day": false,
+      "spread": 0.167912,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-18",
+      "libor3m": 0.29,
+      "ois_realised": 0.121648,
+      "rate_change_day": false,
+      "spread": 0.168352,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-21",
+      "libor3m": 0.29,
+      "ois_realised": 0.12044,
+      "rate_change_day": false,
+      "spread": 0.16956,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-22",
+      "libor3m": 0.29,
+      "ois_realised": 0.12011,
+      "rate_change_day": false,
+      "spread": 0.16989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-23",
+      "libor3m": 0.29,
+      "ois_realised": 0.11967,
+      "rate_change_day": false,
+      "spread": 0.17033,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-24",
+      "libor3m": 0.28,
+      "ois_realised": 0.119341,
+      "rate_change_day": false,
+      "spread": 0.160659,
+      "taf_announce_day": true,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-25",
+      "libor3m": 0.28,
+      "ois_realised": 0.119121,
+      "rate_change_day": false,
+      "spread": 0.160879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-28",
+      "libor3m": 0.28,
+      "ois_realised": 0.118571,
+      "rate_change_day": false,
+      "spread": 0.161429,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-29",
+      "libor3m": 0.29,
+      "ois_realised": 0.118681,
+      "rate_change_day": false,
+      "spread": 0.171319,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-09-30",
+      "libor3m": 0.29,
+      "ois_realised": 0.119121,
+      "rate_change_day": false,
+      "spread": 0.170879,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-01",
+      "libor3m": 0.28,
+      "ois_realised": 0.118462,
+      "rate_change_day": false,
+      "spread": 0.161538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-02",
+      "libor3m": 0.28,
+      "ois_realised": 0.117582,
+      "rate_change_day": false,
+      "spread": 0.162418,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-05",
+      "libor3m": 0.28,
+      "ois_realised": 0.115714,
+      "rate_change_day": false,
+      "spread": 0.164286,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-06",
+      "libor3m": 0.28,
+      "ois_realised": 0.115714,
+      "rate_change_day": false,
+      "spread": 0.164286,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-07",
+      "libor3m": 0.28,
+      "ois_realised": 0.115604,
+      "rate_change_day": false,
+      "spread": 0.164396,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-08",
+      "libor3m": 0.28,
+      "ois_realised": 0.115385,
+      "rate_change_day": false,
+      "spread": 0.164615,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-09",
+      "libor3m": 0.28,
+      "ois_realised": 0.115275,
+      "rate_change_day": false,
+      "spread": 0.164725,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-13",
+      "libor3m": 0.28,
+      "ois_realised": 0.114835,
+      "rate_change_day": false,
+      "spread": 0.165165,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-14",
+      "libor3m": 0.28,
+      "ois_realised": 0.114725,
+      "rate_change_day": false,
+      "spread": 0.165275,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-15",
+      "libor3m": 0.28,
+      "ois_realised": 0.114505,
+      "rate_change_day": false,
+      "spread": 0.165495,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-16",
+      "libor3m": 0.28,
+      "ois_realised": 0.114505,
+      "rate_change_day": false,
+      "spread": 0.165495,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-19",
+      "libor3m": 0.28,
+      "ois_realised": 0.114505,
+      "rate_change_day": false,
+      "spread": 0.165495,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-20",
+      "libor3m": 0.28,
+      "ois_realised": 0.114615,
+      "rate_change_day": false,
+      "spread": 0.165385,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-21",
+      "libor3m": 0.28,
+      "ois_realised": 0.114835,
+      "rate_change_day": false,
+      "spread": 0.165165,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-22",
+      "libor3m": 0.28,
+      "ois_realised": 0.114945,
+      "rate_change_day": false,
+      "spread": 0.165055,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-23",
+      "libor3m": 0.28,
+      "ois_realised": 0.114945,
+      "rate_change_day": false,
+      "spread": 0.165055,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-26",
+      "libor3m": 0.28,
+      "ois_realised": 0.115055,
+      "rate_change_day": false,
+      "spread": 0.164945,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-27",
+      "libor3m": 0.28,
+      "ois_realised": 0.115165,
+      "rate_change_day": false,
+      "spread": 0.164835,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-28",
+      "libor3m": 0.28,
+      "ois_realised": 0.115275,
+      "rate_change_day": false,
+      "spread": 0.164725,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-29",
+      "libor3m": 0.28,
+      "ois_realised": 0.115385,
+      "rate_change_day": false,
+      "spread": 0.164615,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-10-30",
+      "libor3m": 0.28,
+      "ois_realised": 0.115495,
+      "rate_change_day": false,
+      "spread": 0.164505,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-02",
+      "libor3m": 0.28,
+      "ois_realised": 0.115934,
+      "rate_change_day": false,
+      "spread": 0.164066,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-03",
+      "libor3m": 0.28,
+      "ois_realised": 0.116154,
+      "rate_change_day": false,
+      "spread": 0.163846,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-04",
+      "libor3m": 0.28,
+      "ois_realised": 0.116154,
+      "rate_change_day": false,
+      "spread": 0.163846,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-05",
+      "libor3m": 0.28,
+      "ois_realised": 0.116264,
+      "rate_change_day": false,
+      "spread": 0.163736,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-06",
+      "libor3m": 0.27,
+      "ois_realised": 0.116374,
+      "rate_change_day": false,
+      "spread": 0.153626,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-09",
+      "libor3m": 0.27,
+      "ois_realised": 0.116703,
+      "rate_change_day": false,
+      "spread": 0.153297,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-10",
+      "libor3m": 0.27,
+      "ois_realised": 0.116703,
+      "rate_change_day": false,
+      "spread": 0.153297,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-12",
+      "libor3m": 0.27,
+      "ois_realised": 0.116593,
+      "rate_change_day": false,
+      "spread": 0.153407,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-13",
+      "libor3m": 0.27,
+      "ois_realised": 0.116593,
+      "rate_change_day": false,
+      "spread": 0.153407,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-16",
+      "libor3m": 0.27,
+      "ois_realised": 0.116593,
+      "rate_change_day": false,
+      "spread": 0.153407,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-17",
+      "libor3m": 0.27,
+      "ois_realised": 0.116703,
+      "rate_change_day": false,
+      "spread": 0.153297,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-18",
+      "libor3m": 0.27,
+      "ois_realised": 0.116813,
+      "rate_change_day": false,
+      "spread": 0.153187,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-19",
+      "libor3m": 0.27,
+      "ois_realised": 0.116923,
+      "rate_change_day": false,
+      "spread": 0.153077,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-20",
+      "libor3m": 0.26,
+      "ois_realised": 0.117143,
+      "rate_change_day": false,
+      "spread": 0.142857,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-23",
+      "libor3m": 0.26,
+      "ois_realised": 0.117582,
+      "rate_change_day": false,
+      "spread": 0.142418,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-24",
+      "libor3m": 0.26,
+      "ois_realised": 0.117582,
+      "rate_change_day": false,
+      "spread": 0.142418,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-25",
+      "libor3m": 0.26,
+      "ois_realised": 0.117582,
+      "rate_change_day": false,
+      "spread": 0.142418,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-27",
+      "libor3m": 0.26,
+      "ois_realised": 0.117802,
+      "rate_change_day": false,
+      "spread": 0.142198,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-11-30",
+      "libor3m": 0.26,
+      "ois_realised": 0.118132,
+      "rate_change_day": false,
+      "spread": 0.141868,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-01",
+      "libor3m": 0.26,
+      "ois_realised": 0.118242,
+      "rate_change_day": false,
+      "spread": 0.141758,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-02",
+      "libor3m": 0.25,
+      "ois_realised": 0.118462,
+      "rate_change_day": false,
+      "spread": 0.131538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-03",
+      "libor3m": 0.26,
+      "ois_realised": 0.118791,
+      "rate_change_day": false,
+      "spread": 0.141209,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-04",
+      "libor3m": 0.26,
+      "ois_realised": 0.119341,
+      "rate_change_day": false,
+      "spread": 0.140659,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-07",
+      "libor3m": 0.26,
+      "ois_realised": 0.120769,
+      "rate_change_day": false,
+      "spread": 0.139231,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-08",
+      "libor3m": 0.26,
+      "ois_realised": 0.120989,
+      "rate_change_day": false,
+      "spread": 0.139011,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-09",
+      "libor3m": 0.26,
+      "ois_realised": 0.121209,
+      "rate_change_day": false,
+      "spread": 0.138791,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-10",
+      "libor3m": 0.25,
+      "ois_realised": 0.121538,
+      "rate_change_day": false,
+      "spread": 0.128462,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-11",
+      "libor3m": 0.25,
+      "ois_realised": 0.122088,
+      "rate_change_day": false,
+      "spread": 0.127912,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-14",
+      "libor3m": 0.25,
+      "ois_realised": 0.124066,
+      "rate_change_day": false,
+      "spread": 0.125934,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-15",
+      "libor3m": 0.25,
+      "ois_realised": 0.124835,
+      "rate_change_day": false,
+      "spread": 0.125165,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-16",
+      "libor3m": 0.25,
+      "ois_realised": 0.125275,
+      "rate_change_day": false,
+      "spread": 0.124725,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-17",
+      "libor3m": 0.25,
+      "ois_realised": 0.125824,
+      "rate_change_day": false,
+      "spread": 0.124176,
+      "taf_announce_day": false,
+      "taf_auction_day": true,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-18",
+      "libor3m": 0.25,
+      "ois_realised": 0.126484,
+      "rate_change_day": false,
+      "spread": 0.123516,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-21",
+      "libor3m": 0.25,
+      "ois_realised": 0.128462,
+      "rate_change_day": false,
+      "spread": 0.121538,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-22",
+      "libor3m": 0.25,
+      "ois_realised": 0.129011,
+      "rate_change_day": false,
+      "spread": 0.120989,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-23",
+      "libor3m": 0.25,
+      "ois_realised": 0.12967,
+      "rate_change_day": false,
+      "spread": 0.12033,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-24",
+      "libor3m": 0.25,
+      "ois_realised": 0.13033,
+      "rate_change_day": false,
+      "spread": 0.11967,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-29",
+      "libor3m": 0.25,
+      "ois_realised": 0.133187,
+      "rate_change_day": false,
+      "spread": 0.116813,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-30",
+      "libor3m": 0.25,
+      "ois_realised": 0.132967,
+      "rate_change_day": false,
+      "spread": 0.117033,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    },
+    {
+      "date": "2009-12-31",
+      "libor3m": 0.25,
+      "ois_realised": 0.134286,
+      "rate_change_day": false,
+      "spread": 0.115714,
+      "taf_announce_day": false,
+      "taf_auction_day": false,
+      "taf_reduce_day": false,
+      "target": 0.25
+    }
+  ],
+  "rate_steps": [
+    {
+      "date": "2008-10-08",
+      "step_pp": -0.5,
+      "target_after": 1.5
+    },
+    {
+      "date": "2008-10-29",
+      "step_pp": -0.5,
+      "target_after": 1.0
+    },
+    {
+      "date": "2008-12-16",
+      "step_pp": -0.75,
+      "target_after": 0.25
+    }
+  ],
+  "source": {
+    "announcements": "Board of Governors, TAF page, list of related press releases",
+    "auctions": "Board of Governors, TAF transaction data, taf.csv",
+    "libor": "TEDRATE + DTB3 (FRED)",
+    "ois": "realised DFF over the next 91 days (FRED)"
+  },
+  "stage": "B121"
+}

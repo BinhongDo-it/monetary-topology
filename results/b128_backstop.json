@@ -1,0 +1,308 @@
+{
+ "config": {
+  "cover": {
+   "hh_overnight": "household deposit",
+   "hh_term": "household deposit",
+   "house": "loan",
+   "nfc_loan": "loan",
+   "nfc_overnight": "corporate deposit",
+   "nfc_term": "corporate deposit"
+  },
+  "floor_pp": 0.02,
+  "products": {
+   "hh_overnight": "L21_A_R_A_2250",
+   "hh_term": "L22_F_R_A_2250",
+   "house": "A2C_F_R_A_2250",
+   "nfc_loan": "A2A_F_R_A_2240",
+   "nfc_overnight": "L21_A_R_A_2240",
+   "nfc_term": "L22_F_R_A_2240"
+  }
+ },
+ "criteria": [
+  {
+   "detail": "CY: 2354/2395 against B97 2354/2395; with squares at exactly the floor counted as rounding, as B97 states: 2343; GR: 3193/3240 against B97 3193/3240; with squares at exactly the floor counted as rounding, as B97 states: 3173",
+   "kind": "known_answer",
+   "name": "B128-14",
+   "passed": true,
+   "statement": "the 15 squares per carrier, read from B97's own raw files with B97's comparison as coded, reproduce B97's counts"
+  },
+  {
+   "detail": "CY: same cover 461/467, mixed cover 1882/1928; GR: same cover 625/648, mixed cover 2548/2592",
+   "kind": "own_reading",
+   "name": "B128-15",
+   "passed": true,
+   "statement": "print, per carrier, how many months the three same-cover pairs (which the backstop cannot enter) stand above the floor, beside the twelve mixed-cover pairs"
+  }
+ ],
+ "reading": "backstop as a feature; B97 squares split",
+ "rows": {
+  "CY": {
+   "pairs": {
+    "hh_overnight / hh_term": {
+     "above": 152,
+     "above_raw": 152,
+     "max_over_floor": 114.5,
+     "months": 156,
+     "same_cover": true
+    },
+    "hh_overnight / house": {
+     "above": 156,
+     "above_raw": 156,
+     "max_over_floor": 127.5,
+     "months": 156,
+     "same_cover": false
+    },
+    "hh_overnight / nfc_loan": {
+     "above": 156,
+     "above_raw": 156,
+     "max_over_floor": 194.5,
+     "months": 156,
+     "same_cover": false
+    },
+    "hh_overnight / nfc_overnight": {
+     "above": 133,
+     "above_raw": 138,
+     "max_over_floor": 78.0,
+     "months": 155,
+     "same_cover": false
+    },
+    "hh_overnight / nfc_term": {
+     "above": 156,
+     "above_raw": 156,
+     "max_over_floor": 123.0,
+     "months": 156,
+     "same_cover": false
+    },
+    "hh_term / house": {
+     "above": 153,
+     "above_raw": 154,
+     "max_over_floor": 107.5,
+     "months": 156,
+     "same_cover": false
+    },
+    "hh_term / nfc_loan": {
+     "above": 154,
+     "above_raw": 155,
+     "max_over_floor": 176.0,
+     "months": 156,
+     "same_cover": false
+    },
+    "hh_term / nfc_term": {
+     "above": 213,
+     "above_raw": 214,
+     "max_over_floor": 70.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "house / nfc_loan": {
+     "above": 154,
+     "above_raw": 155,
+     "max_over_floor": 123.0,
+     "months": 156,
+     "same_cover": true
+    },
+    "nfc_overnight / hh_term": {
+     "above": 148,
+     "above_raw": 150,
+     "max_over_floor": 161.5,
+     "months": 155,
+     "same_cover": false
+    },
+    "nfc_overnight / house": {
+     "above": 155,
+     "above_raw": 155,
+     "max_over_floor": 164.0,
+     "months": 155,
+     "same_cover": false
+    },
+    "nfc_overnight / nfc_loan": {
+     "above": 155,
+     "above_raw": 155,
+     "max_over_floor": 224.0,
+     "months": 155,
+     "same_cover": false
+    },
+    "nfc_overnight / nfc_term": {
+     "above": 155,
+     "above_raw": 155,
+     "max_over_floor": 159.0,
+     "months": 155,
+     "same_cover": true
+    },
+    "nfc_term / house": {
+     "above": 148,
+     "above_raw": 148,
+     "max_over_floor": 90.5,
+     "months": 156,
+     "same_cover": false
+    },
+    "nfc_term / nfc_loan": {
+     "above": 155,
+     "above_raw": 155,
+     "max_over_floor": 143.0,
+     "months": 156,
+     "same_cover": false
+    }
+   },
+   "split": {
+    "all": [
+     2343,
+     2395
+    ],
+    "all_raw": [
+     2354,
+     2395
+    ],
+    "mixed_cover": [
+     1882,
+     1928
+    ],
+    "same_cover": [
+     461,
+     467
+    ]
+   }
+  },
+  "GR": {
+   "pairs": {
+    "hh_overnight / hh_term": {
+     "above": 196,
+     "above_raw": 203,
+     "max_over_floor": 114.5,
+     "months": 216,
+     "same_cover": true
+    },
+    "hh_overnight / house": {
+     "above": 207,
+     "above_raw": 208,
+     "max_over_floor": 81.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "hh_overnight / nfc_loan": {
+     "above": 216,
+     "above_raw": 216,
+     "max_over_floor": 194.5,
+     "months": 216,
+     "same_cover": false
+    },
+    "hh_overnight / nfc_overnight": {
+     "above": 209,
+     "above_raw": 211,
+     "max_over_floor": 53.5,
+     "months": 216,
+     "same_cover": false
+    },
+    "hh_overnight / nfc_term": {
+     "above": 209,
+     "above_raw": 209,
+     "max_over_floor": 161.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "hh_term / house": {
+     "above": 209,
+     "above_raw": 213,
+     "max_over_floor": 102.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "hh_term / nfc_loan": {
+     "above": 216,
+     "above_raw": 216,
+     "max_over_floor": 165.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "hh_term / nfc_term": {
+     "above": 212,
+     "above_raw": 214,
+     "max_over_floor": 63.5,
+     "months": 216,
+     "same_cover": false
+    },
+    "house / nfc_loan": {
+     "above": 213,
+     "above_raw": 214,
+     "max_over_floor": 186.0,
+     "months": 216,
+     "same_cover": true
+    },
+    "nfc_overnight / hh_term": {
+     "above": 211,
+     "above_raw": 213,
+     "max_over_floor": 119.5,
+     "months": 216,
+     "same_cover": false
+    },
+    "nfc_overnight / house": {
+     "above": 215,
+     "above_raw": 215,
+     "max_over_floor": 79.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "nfc_overnight / nfc_loan": {
+     "above": 216,
+     "above_raw": 216,
+     "max_over_floor": 198.5,
+     "months": 216,
+     "same_cover": false
+    },
+    "nfc_overnight / nfc_term": {
+     "above": 216,
+     "above_raw": 216,
+     "max_over_floor": 165.5,
+     "months": 216,
+     "same_cover": true
+    },
+    "nfc_term / house": {
+     "above": 213,
+     "above_raw": 214,
+     "max_over_floor": 155.0,
+     "months": 216,
+     "same_cover": false
+    },
+    "nfc_term / nfc_loan": {
+     "above": 215,
+     "above_raw": 215,
+     "max_over_floor": 140.0,
+     "months": 216,
+     "same_cover": false
+    }
+   },
+   "split": {
+    "all": [
+     3173,
+     3240
+    ],
+    "all_raw": [
+     3193,
+     3240
+    ],
+    "mixed_cover": [
+     2548,
+     2592
+    ],
+    "same_cover": [
+     625,
+     648
+    ]
+   }
+  }
+ },
+ "source": {
+  "b97_counts": {
+   "CY": [
+    2354,
+    2395
+   ],
+   "GR": [
+    3193,
+    3240
+   ]
+  },
+  "rates": "data/raw/mir (B97's fetch)"
+ },
+ "stage": "B128"
+}

@@ -1,0 +1,85 @@
+{
+  "config": {
+    "actions_per_graph": 5,
+    "extra_scale": 1.5,
+    "graphs_per_size": 200,
+    "imports": [
+      "b103_time_reachability"
+    ],
+    "max_enum_n": 6,
+    "seed": 104,
+    "sizes": [
+      16,
+      32,
+      64
+    ],
+    "tol": "1e-09"
+  },
+  "criteria": [
+    {
+      "detail": "every connected labelled graph on 2 to 6 vertices with every missing edge added once (189587 actions, 2827313 pairs), and 3000 actions on sparse random connected graphs of 16, 32, 64 vertices (2632000 pairs). The largest move of any pair, read from the fits before and after, exceeds the joined pair's by no more than 1e-09 on every action. The pairs whose potential difference under a unit current from j to i equals R are exactly those with one end attached at i and the other at j, mismatches 0 and 0; 42804 and 680 actions have a part hanging off an end, so the attaining set is more than the joined pair. Outside that set the closest pair stays below the bound by a share 7.25e-06 of R",
+      "kind": "own_reading",
+      "name": "B104-1",
+      "passed": true,
+      "statement": "no relative level moves by more than the joined pair's, and the pairs that move by exactly that much are those with one end hanging off i and the other hanging off j"
+    },
+    {
+      "detail": "the same actions: on every one, the block of the graph after the action that holds the new edge has exactly the vertices of the blocks on the path (mismatches 0 and 0). 126156 and 14144 vertices lie outside it; each part outside meets it in exactly one vertex (exceptions 0 and 0), and every vertex outside moves with that vertex to within 1e-09. So 162876 of 2827313 pairs in the enumeration and 19583 of 2632000 on the random graphs cannot move under the action they face. The converse is printed and not judged: distinct vertices of that block differ in potential by at least a share 1.8e-08 of R here, which holds for weights off a set of measure zero and not for every weight. Read from the fits, 0 and 2 pairs hang from different vertices of that block yet move by less than 1e-09; the move their potential gaps predict is at most 4.25e-10",
+      "kind": "own_reading",
+      "name": "B104-2",
+      "passed": true,
+      "statement": "the blocks on the block-cut path between i and j are together the block the action creates, and every vertex outside it moves with the one vertex of it that it hangs from"
+    },
+    {
+      "detail": "the same actions: the path crosses two blocks or more on 96315 and 849 of them, at most 5 and 5 blocks, and 134418 of 310934 and 1025 of 4034 blocks on the paths are a single edge. On every block the potential under a unit current rises from the gateway toward i to the gateway toward j by the block's own resistance, computed on its edges alone, to within 1e-09 of R, and no vertex of a block lies outside its gateways by more than 1e-09 of R. Inside a block the closest vertex stays clear of both gateways by a share 7.25e-06 of R",
+      "kind": "own_reading",
+      "name": "B104-3",
+      "passed": true,
+      "statement": "along the path the joined pair's move is shared among the blocks in proportion to each block's own resistance between its two gateways, and every vertex of a block lies between its gateways, so every pair split by a gateway moves the way the joined pair does"
+    }
+  ],
+  "report": {
+    "compared_below": "1e-09",
+    "enumeration": {
+      "actions": 189587,
+      "actions_leaving_vertices_outside_the_block_they_create": 82416,
+      "actions_whose_path_crosses_two_blocks_or_more": 96315,
+      "actions_with_parts_hanging_off_an_end": 42804,
+      "blocks_on_paths": 310934,
+      "largest_move_predicted_for_those": null,
+      "most_blocks_on_one_path": 5,
+      "off_path_vertices": 126156,
+      "pairs": 2827313,
+      "pairs_hanging_apart_read_below_it": 0,
+      "pairs_hanging_together": 162876,
+      "pairs_read_moving_above_the_tolerance": 2664437,
+      "share_of_pairs_hanging_together": 0.05761,
+      "single_edge_blocks_on_paths": 134418,
+      "smallest_relative_gap_below_the_bound": 7.25e-06,
+      "smallest_relative_margin_inside_a_block": 7.25e-06,
+      "smallest_relative_potential_gap_between_path_vertices": 9.85e-08,
+      "vertices": 1134205
+    },
+    "random_sparse": {
+      "actions": 3000,
+      "actions_leaving_vertices_outside_the_block_they_create": 2786,
+      "actions_whose_path_crosses_two_blocks_or_more": 849,
+      "actions_with_parts_hanging_off_an_end": 680,
+      "blocks_on_paths": 4034,
+      "largest_move_predicted_for_those": 4.25e-10,
+      "most_blocks_on_one_path": 5,
+      "off_path_vertices": 14144,
+      "pairs": 2632000,
+      "pairs_hanging_apart_read_below_it": 2,
+      "pairs_hanging_together": 19583,
+      "pairs_read_moving_above_the_tolerance": 2612415,
+      "share_of_pairs_hanging_together": 0.00744,
+      "single_edge_blocks_on_paths": 1025,
+      "smallest_relative_gap_below_the_bound": 0.000214,
+      "smallest_relative_margin_inside_a_block": 0.000124,
+      "smallest_relative_potential_gap_between_path_vertices": 1.8e-08,
+      "vertices": 112000
+    }
+  },
+  "stage": "B104"
+}

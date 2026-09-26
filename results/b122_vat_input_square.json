@@ -1,0 +1,719 @@
+{
+  "config": {
+    "arithmetic": "fractions.Fraction, exact; logarithms printed only",
+    "carriers": [
+      "CN-2026",
+      "JP-2023-10-01..2026-09-30",
+      "JP-2026-10-01..2028-09-30",
+      "JP-2028-10-01..2030-09-30",
+      "JP-2030-10-01..2031-09-30",
+      "JP-2031-10-01.."
+    ],
+    "cn_classes": [
+      "general=1/1",
+      "simplified=0/1",
+      "advanced_manufacturing=21/20"
+    ],
+    "jp_periods": [
+      "2023-10-01..2026-09-30=4/5",
+      "2026-10-01..2028-09-30=7/10",
+      "2028-10-01..2030-09-30=1/2",
+      "2030-10-01..2031-09-30=3/10",
+      "2031-10-01..=0/1"
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "every statutory value carries its provision, and every square is computed twice, once as a ratio of the four cell factors and once from the written-out closed form, which share no helper. Unsourced values: none. Squares where the two paths differ: none of 14.",
+      "kind": "instrument",
+      "name": "B122-1",
+      "passed": true
+    },
+    {
+      "detail": "the rate is written per input and the deduction ratio per class, and neither provision names the other's index; a buyer (in the Japanese arm, a seller) can cross between classes, and the crossing applies to every input at once, so its cost cancels between two positions and the square is a loop. Violations: none.",
+      "kind": "premise",
+      "name": "B122-2",
+      "passed": true
+    },
+    {
+      "detail": "the coefficients the tax agency prints in Q130 (110 分の 7.8 for the standard rate, 108 分の 6.24 for the reduced rate) are read back from this table's rates as v/(1+v) x 78/100, the national share. Checked on 10 rows; mismatches: none.",
+      "kind": "known_answer",
+      "name": "B122-3",
+      "passed": true
+    },
+    {
+      "detail": "the registered reading is that the statutory term log(1 + v(1 - r)) does not separate, so squares with two distinct rates and two distinct ratios are non-zero, exactly. CN-2026 9/9 non-zero, 4 independent, logs -0.027909, -0.036040, -0.063949, 0.001506, 0.002011, 0.003517, 0.029414, 0.038051, 0.067465; JP-2023-10-01..2026-09-30 1/1 non-zero, 1 independent, logs -0.003929; JP-2026-10-01..2028-09-30 1/1 non-zero, 1 independent, logs -0.005842; JP-2028-10-01..2030-09-30 1/1 non-zero, 1 independent, logs -0.009569; JP-2030-10-01..2031-09-30 1/1 non-zero, 1 independent, logs -0.013170; JP-2031-10-01.. 1/1 non-zero, 1 independent, logs -0.018349.",
+      "kind": "own_reading",
+      "name": "B122-4",
+      "passed": true
+    },
+    {
+      "detail": "the bare scalar field puts one cost on one input whoever buys it. Read: 16 of 16 class gaps are non-zero; largest 0.122218 in log. A seller who offset the statutory wedge by charging the disadvantaged class less would restore one cost only by writing a price that depends on the buyer's class and the input's rate together, which is itself a two-index schedule.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B122-5",
+      "passed": true,
+      "rival_entailment": "phi carries no class index, so the ratio of two classes' costs is one on every input",
+      "rival_premise": "cost(j, a) = phi(j): a price is a scalar on positions, one input has one cost whoever buys it",
+      "rival_shape": "point prediction of zero"
+    },
+    {
+      "detail": "the separable rival lets the class enter the cost as a factor, provided it is the same factor on every input: every symmetric class-level friction, every class markup, and every published class-only conversion constant has this form, and it makes every square exactly one. Read: 14 of 14 squares differ from one, decided in exact rational arithmetic with no tolerance.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B122-6",
+      "passed": true,
+      "rival_entailment": "the ratio of two classes' costs is exp(psi(a) - psi(b)) on every input, so the ratio of that ratio across two inputs, which is the square, is one",
+      "rival_premise": "log cost(j, a) = phi(j) + psi(a): the class changes the cost by one proportion on every input",
+      "rival_shape": "point prediction of zero"
+    },
+    {
+      "detail": "each carrier's law, per-input rates, per-class ratios and class edge are printed into the record with their provisions. Missing: none; carriers: 6.",
+      "kind": "bookkeeping",
+      "name": "B122-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "CN-2026": {
+      "cells": {
+        "goods|advanced_manufacturing": "1987/2000",
+        "goods|general": "1/1",
+        "goods|simplified": "113/100",
+        "services|advanced_manufacturing": "997/1000",
+        "services|general": "1/1",
+        "services|simplified": "53/50",
+        "transport_construction|advanced_manufacturing": "1991/2000",
+        "transport_construction|general": "1/1",
+        "transport_construction|simplified": "109/100"
+      },
+      "class_axis": "buyer",
+      "class_gaps": [
+        {
+          "against": "general",
+          "class": "simplified",
+          "input": "goods",
+          "log": "0.122218",
+          "ratio": "113/100",
+          "zero": false
+        },
+        {
+          "against": "general",
+          "class": "simplified",
+          "input": "transport_construction",
+          "log": "0.086178",
+          "ratio": "109/100",
+          "zero": false
+        },
+        {
+          "against": "general",
+          "class": "simplified",
+          "input": "services",
+          "log": "0.058269",
+          "ratio": "53/50",
+          "zero": false
+        },
+        {
+          "against": "general",
+          "class": "advanced_manufacturing",
+          "input": "goods",
+          "log": "-0.006521",
+          "ratio": "1987/2000",
+          "zero": false
+        },
+        {
+          "against": "general",
+          "class": "advanced_manufacturing",
+          "input": "transport_construction",
+          "log": "-0.004510",
+          "ratio": "1991/2000",
+          "zero": false
+        },
+        {
+          "against": "general",
+          "class": "advanced_manufacturing",
+          "input": "services",
+          "log": "-0.003005",
+          "ratio": "997/1000",
+          "zero": false
+        }
+      ],
+      "independent_squares": 4,
+      "jurisdiction": "China",
+      "nonzero_squares": 9,
+      "period": "from 2026-01-01",
+      "squares": [
+        {
+          "classes": [
+            "general",
+            "simplified"
+          ],
+          "inputs": [
+            "goods",
+            "transport_construction"
+          ],
+          "log": "-0.036040",
+          "ratio": "109/113",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "general",
+            "advanced_manufacturing"
+          ],
+          "inputs": [
+            "goods",
+            "transport_construction"
+          ],
+          "log": "0.002011",
+          "ratio": "1991/1987",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "simplified",
+            "advanced_manufacturing"
+          ],
+          "inputs": [
+            "goods",
+            "transport_construction"
+          ],
+          "log": "0.038051",
+          "ratio": "224983/216583",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "general",
+            "simplified"
+          ],
+          "inputs": [
+            "goods",
+            "services"
+          ],
+          "log": "-0.063949",
+          "ratio": "106/113",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "general",
+            "advanced_manufacturing"
+          ],
+          "inputs": [
+            "goods",
+            "services"
+          ],
+          "log": "0.003517",
+          "ratio": "1994/1987",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "simplified",
+            "advanced_manufacturing"
+          ],
+          "inputs": [
+            "goods",
+            "services"
+          ],
+          "log": "0.067465",
+          "ratio": "112661/105311",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "general",
+            "simplified"
+          ],
+          "inputs": [
+            "transport_construction",
+            "services"
+          ],
+          "log": "-0.027909",
+          "ratio": "106/109",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "general",
+            "advanced_manufacturing"
+          ],
+          "inputs": [
+            "transport_construction",
+            "services"
+          ],
+          "log": "0.001506",
+          "ratio": "1994/1991",
+          "two_paths_agree": true,
+          "zero": false
+        },
+        {
+          "classes": [
+            "simplified",
+            "advanced_manufacturing"
+          ],
+          "inputs": [
+            "transport_construction",
+            "services"
+          ],
+          "log": "0.029414",
+          "ratio": "108673/105523",
+          "two_paths_agree": true,
+          "zero": false
+        }
+      ]
+    },
+    "JP-2023-10-01..2026-09-30": {
+      "cells": {
+        "reduced|invoice_issuer": "1/1",
+        "reduced|non_issuer": "127/125",
+        "standard|invoice_issuer": "1/1",
+        "standard|non_issuer": "51/50"
+      },
+      "class_axis": "seller",
+      "class_gaps": [
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "standard",
+          "log": "0.019803",
+          "ratio": "51/50",
+          "zero": false
+        },
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "reduced",
+          "log": "0.015873",
+          "ratio": "127/125",
+          "zero": false
+        }
+      ],
+      "independent_squares": 1,
+      "jurisdiction": "Japan",
+      "nonzero_squares": 1,
+      "period": "2023-10-01..2026-09-30",
+      "squares": [
+        {
+          "classes": [
+            "invoice_issuer",
+            "non_issuer"
+          ],
+          "inputs": [
+            "standard",
+            "reduced"
+          ],
+          "log": "-0.003929",
+          "ratio": "254/255",
+          "two_paths_agree": true,
+          "zero": false
+        }
+      ]
+    },
+    "JP-2026-10-01..2028-09-30": {
+      "cells": {
+        "reduced|invoice_issuer": "1/1",
+        "reduced|non_issuer": "128/125",
+        "standard|invoice_issuer": "1/1",
+        "standard|non_issuer": "103/100"
+      },
+      "class_axis": "seller",
+      "class_gaps": [
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "standard",
+          "log": "0.029559",
+          "ratio": "103/100",
+          "zero": false
+        },
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "reduced",
+          "log": "0.023717",
+          "ratio": "128/125",
+          "zero": false
+        }
+      ],
+      "independent_squares": 1,
+      "jurisdiction": "Japan",
+      "nonzero_squares": 1,
+      "period": "2026-10-01..2028-09-30",
+      "squares": [
+        {
+          "classes": [
+            "invoice_issuer",
+            "non_issuer"
+          ],
+          "inputs": [
+            "standard",
+            "reduced"
+          ],
+          "log": "-0.005842",
+          "ratio": "512/515",
+          "two_paths_agree": true,
+          "zero": false
+        }
+      ]
+    },
+    "JP-2028-10-01..2030-09-30": {
+      "cells": {
+        "reduced|invoice_issuer": "1/1",
+        "reduced|non_issuer": "26/25",
+        "standard|invoice_issuer": "1/1",
+        "standard|non_issuer": "21/20"
+      },
+      "class_axis": "seller",
+      "class_gaps": [
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "standard",
+          "log": "0.048790",
+          "ratio": "21/20",
+          "zero": false
+        },
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "reduced",
+          "log": "0.039221",
+          "ratio": "26/25",
+          "zero": false
+        }
+      ],
+      "independent_squares": 1,
+      "jurisdiction": "Japan",
+      "nonzero_squares": 1,
+      "period": "2028-10-01..2030-09-30",
+      "squares": [
+        {
+          "classes": [
+            "invoice_issuer",
+            "non_issuer"
+          ],
+          "inputs": [
+            "standard",
+            "reduced"
+          ],
+          "log": "-0.009569",
+          "ratio": "104/105",
+          "two_paths_agree": true,
+          "zero": false
+        }
+      ]
+    },
+    "JP-2030-10-01..2031-09-30": {
+      "cells": {
+        "reduced|invoice_issuer": "1/1",
+        "reduced|non_issuer": "132/125",
+        "standard|invoice_issuer": "1/1",
+        "standard|non_issuer": "107/100"
+      },
+      "class_axis": "seller",
+      "class_gaps": [
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "standard",
+          "log": "0.067659",
+          "ratio": "107/100",
+          "zero": false
+        },
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "reduced",
+          "log": "0.054488",
+          "ratio": "132/125",
+          "zero": false
+        }
+      ],
+      "independent_squares": 1,
+      "jurisdiction": "Japan",
+      "nonzero_squares": 1,
+      "period": "2030-10-01..2031-09-30",
+      "squares": [
+        {
+          "classes": [
+            "invoice_issuer",
+            "non_issuer"
+          ],
+          "inputs": [
+            "standard",
+            "reduced"
+          ],
+          "log": "-0.013170",
+          "ratio": "528/535",
+          "two_paths_agree": true,
+          "zero": false
+        }
+      ]
+    },
+    "JP-2031-10-01..": {
+      "cells": {
+        "reduced|invoice_issuer": "1/1",
+        "reduced|non_issuer": "27/25",
+        "standard|invoice_issuer": "1/1",
+        "standard|non_issuer": "11/10"
+      },
+      "class_axis": "seller",
+      "class_gaps": [
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "standard",
+          "log": "0.095310",
+          "ratio": "11/10",
+          "zero": false
+        },
+        {
+          "against": "invoice_issuer",
+          "class": "non_issuer",
+          "input": "reduced",
+          "log": "0.076961",
+          "ratio": "27/25",
+          "zero": false
+        }
+      ],
+      "independent_squares": 1,
+      "jurisdiction": "Japan",
+      "nonzero_squares": 1,
+      "period": "2031-10-01..",
+      "squares": [
+        {
+          "classes": [
+            "invoice_issuer",
+            "non_issuer"
+          ],
+          "inputs": [
+            "standard",
+            "reduced"
+          ],
+          "log": "-0.018349",
+          "ratio": "54/55",
+          "two_paths_agree": true,
+          "zero": false
+        }
+      ]
+    }
+  },
+  "stage": "B122",
+  "tables": {
+    "CN-2026": {
+      "class_axis": "buyer",
+      "class_edge": "增值税法 第九条第二款：小规模纳税人会计核算健全，能够提供准确税务资料的，可以向主管税务机关办理登记，按照本法规定的一般计税方法计算缴纳增值税。登记对纳税人的全部购进同时生效，与买的是哪一件无关",
+      "classes": [
+        {
+          "class": "general",
+          "r": "1/1",
+          "source": "增值税法 第十四条：应纳税额为当期销项税额抵扣当期进项税额后的余额"
+        },
+        {
+          "class": "simplified",
+          "r": "0/1",
+          "source": "增值税法 第八条第二款（小规模纳税人按销售额和征收率简易计税）；第二十二条第一项（适用简易计税方法计税项目对应的进项税额不得抵扣）"
+        },
+        {
+          "class": "advanced_manufacturing",
+          "condition": "加计抵减额只能抵减应纳税额，本行在抵减前应纳税额足以吸收它时成立",
+          "r": "21/20",
+          "source": "财政部 税务总局公告2023年第43号：先进制造业企业按当期可抵扣进项税额加计5%抵减应纳增值税税额，2023-01-01 至 2027-12-31"
+        }
+      ],
+      "inputs": [
+        {
+          "input": "goods",
+          "source": "增值税法 第十条第一项：销售货物……除本条第二项、第四项、第五项规定外，税率为百分之十三",
+          "v": "13/100"
+        },
+        {
+          "input": "transport_construction",
+          "source": "增值税法 第十条第二项：销售交通运输、邮政、基础电信、建筑、不动产租赁服务……税率为百分之九",
+          "v": "9/100"
+        },
+        {
+          "input": "services",
+          "source": "增值税法 第十条第三项：销售服务、无形资产……税率为百分之六",
+          "v": "3/50"
+        }
+      ],
+      "jurisdiction": "China",
+      "law": "中华人民共和国增值税法（2024-12-25 通过，第三十八条：2026-01-01 施行）；条文取自国家税务总局税收政策库全文页"
+    },
+    "JP-2023-10-01..2026-09-30": {
+      "class_axis": "seller",
+      "class_edge": "免税事業者は適格請求書発行事業者の登録を申請できる。登録はその事業者の全ての課税売上げに同時に効き、品目を選ばない",
+      "classes": [
+        {
+          "class": "invoice_issuer",
+          "r": "1/1",
+          "source": "問130【答】：適格請求書発行事業者からの課税仕入れは仕入税額控除の対象"
+        },
+        {
+          "class": "non_issuer",
+          "r": "4/5",
+          "source": "国税庁「消費税の仕入税額控除制度における適格請求書等保存方式に関するQ&A」問130【令和８年４月改訂】の（注）の表；改正令附則22①、23①：仕入税額相当額の80％（2023-10-01..2026-09-30）"
+        }
+      ],
+      "inputs": [
+        {
+          "input": "standard",
+          "printed_national": "39/550",
+          "source": "問130：支払対価の額に110分の7.8（標準税率、国税分）；国税・地方税合計10%",
+          "v": "1/10"
+        },
+        {
+          "input": "reduced",
+          "printed_national": "13/225",
+          "source": "問130：軽減税率の対象となる場合は108分の6.24（国税分）；合計8%",
+          "v": "2/25"
+        }
+      ],
+      "jurisdiction": "Japan",
+      "law": "消費税法の適格請求書等保存方式と、その経過措置",
+      "period": "2023-10-01..2026-09-30"
+    },
+    "JP-2026-10-01..2028-09-30": {
+      "class_axis": "seller",
+      "class_edge": "免税事業者は適格請求書発行事業者の登録を申請できる。登録はその事業者の全ての課税売上げに同時に効き、品目を選ばない",
+      "classes": [
+        {
+          "class": "invoice_issuer",
+          "r": "1/1",
+          "source": "問130【答】：適格請求書発行事業者からの課税仕入れは仕入税額控除の対象"
+        },
+        {
+          "class": "non_issuer",
+          "r": "7/10",
+          "source": "国税庁「消費税の仕入税額控除制度における適格請求書等保存方式に関するQ&A」問130【令和８年４月改訂】の（注）の表；改正令附則22①、23①：仕入税額相当額の70％（2026-10-01..2028-09-30）"
+        }
+      ],
+      "inputs": [
+        {
+          "input": "standard",
+          "printed_national": "39/550",
+          "source": "問130：支払対価の額に110分の7.8（標準税率、国税分）；国税・地方税合計10%",
+          "v": "1/10"
+        },
+        {
+          "input": "reduced",
+          "printed_national": "13/225",
+          "source": "問130：軽減税率の対象となる場合は108分の6.24（国税分）；合計8%",
+          "v": "2/25"
+        }
+      ],
+      "jurisdiction": "Japan",
+      "law": "消費税法の適格請求書等保存方式と、その経過措置",
+      "period": "2026-10-01..2028-09-30"
+    },
+    "JP-2028-10-01..2030-09-30": {
+      "class_axis": "seller",
+      "class_edge": "免税事業者は適格請求書発行事業者の登録を申請できる。登録はその事業者の全ての課税売上げに同時に効き、品目を選ばない",
+      "classes": [
+        {
+          "class": "invoice_issuer",
+          "r": "1/1",
+          "source": "問130【答】：適格請求書発行事業者からの課税仕入れは仕入税額控除の対象"
+        },
+        {
+          "class": "non_issuer",
+          "r": "1/2",
+          "source": "国税庁「消費税の仕入税額控除制度における適格請求書等保存方式に関するQ&A」問130【令和８年４月改訂】の（注）の表；改正令附則22①、23①：仕入税額相当額の50％（2028-10-01..2030-09-30）"
+        }
+      ],
+      "inputs": [
+        {
+          "input": "standard",
+          "printed_national": "39/550",
+          "source": "問130：支払対価の額に110分の7.8（標準税率、国税分）；国税・地方税合計10%",
+          "v": "1/10"
+        },
+        {
+          "input": "reduced",
+          "printed_national": "13/225",
+          "source": "問130：軽減税率の対象となる場合は108分の6.24（国税分）；合計8%",
+          "v": "2/25"
+        }
+      ],
+      "jurisdiction": "Japan",
+      "law": "消費税法の適格請求書等保存方式と、その経過措置",
+      "period": "2028-10-01..2030-09-30"
+    },
+    "JP-2030-10-01..2031-09-30": {
+      "class_axis": "seller",
+      "class_edge": "免税事業者は適格請求書発行事業者の登録を申請できる。登録はその事業者の全ての課税売上げに同時に効き、品目を選ばない",
+      "classes": [
+        {
+          "class": "invoice_issuer",
+          "r": "1/1",
+          "source": "問130【答】：適格請求書発行事業者からの課税仕入れは仕入税額控除の対象"
+        },
+        {
+          "class": "non_issuer",
+          "r": "3/10",
+          "source": "国税庁「消費税の仕入税額控除制度における適格請求書等保存方式に関するQ&A」問130【令和８年４月改訂】の（注）の表；改正令附則22①、23①：仕入税額相当額の30％（2030-10-01..2031-09-30）"
+        }
+      ],
+      "inputs": [
+        {
+          "input": "standard",
+          "printed_national": "39/550",
+          "source": "問130：支払対価の額に110分の7.8（標準税率、国税分）；国税・地方税合計10%",
+          "v": "1/10"
+        },
+        {
+          "input": "reduced",
+          "printed_national": "13/225",
+          "source": "問130：軽減税率の対象となる場合は108分の6.24（国税分）；合計8%",
+          "v": "2/25"
+        }
+      ],
+      "jurisdiction": "Japan",
+      "law": "消費税法の適格請求書等保存方式と、その経過措置",
+      "period": "2030-10-01..2031-09-30"
+    },
+    "JP-2031-10-01..": {
+      "class_axis": "seller",
+      "class_edge": "免税事業者は適格請求書発行事業者の登録を申請できる。登録はその事業者の全ての課税売上げに同時に効き、品目を選ばない",
+      "classes": [
+        {
+          "class": "invoice_issuer",
+          "r": "1/1",
+          "source": "問130【答】：適格請求書発行事業者からの課税仕入れは仕入税額控除の対象"
+        },
+        {
+          "class": "non_issuer",
+          "r": "0/1",
+          "source": "問130【答】冒頭：適格請求書発行事業者以外の者からの課税仕入れは、原則、仕入税額控除を行うことはできない；経過措置は制度開始後８年間（表の最終期間は令和13年９月30日まで）"
+        }
+      ],
+      "inputs": [
+        {
+          "input": "standard",
+          "printed_national": "39/550",
+          "source": "問130：支払対価の額に110分の7.8（標準税率、国税分）；国税・地方税合計10%",
+          "v": "1/10"
+        },
+        {
+          "input": "reduced",
+          "printed_national": "13/225",
+          "source": "問130：軽減税率の対象となる場合は108分の6.24（国税分）；合計8%",
+          "v": "2/25"
+        }
+      ],
+      "jurisdiction": "Japan",
+      "law": "消費税法の適格請求書等保存方式と、その経過措置",
+      "period": "2031-10-01.."
+    }
+  }
+}

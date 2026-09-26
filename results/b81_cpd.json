@@ -1,0 +1,880 @@
+{
+ "config": {
+  "country_range": [
+   3,
+   8
+  ],
+  "early_stop_spread": 1e-13,
+  "product_range": [
+   3,
+   9
+  ],
+  "reps": 10,
+  "seed": 81,
+  "sparse_density_range": [
+   0.25,
+   0.55
+  ],
+  "tol": 1e-10
+ },
+ "criteria": [
+  {
+   "detail": "10 tableaux: worst triple sum 2.22e-16, worst shift on changing the base country 2.22e-16, worst residual-design inner product 2.11e-15. Transitivity and base invariance are what that paper claims and they hold to machine precision",
+   "kind": "known_answer",
+   "name": "B81-1",
+   "passed": true,
+   "statement": "the two properties that paper claims for the estimator: the parities are transitive and they do not move with the base region"
+  },
+  {
+   "detail": "10 tableaux: every cycle of the bipartite graph sums to 2.22e-16 on the fitted values and to 2.207 or more on the raw log prices. The cycle count equals `E - V + 1` by closed form and by incidence rank in every case. **So transitivity is not a property of dummy regressions, it is that the fitted value is a difference of a potential**",
+   "kind": "own_reading",
+   "name": "B81-2",
+   "passed": true,
+   "statement": "the fitted value is a coboundary on the bipartite graph, so every cycle of that graph sums to zero on it while the raw log prices do not"
+  },
+  {
+   "detail": "10 tableaux. The bipartite graph CPD projects on has `b1 = MR - (M+R) + 1 = (M-1)(R-1)`, closed form against incidence rank in 10 of 10, running 8 to 36. The complete country graph GEKS projects on has `(R-1)(R-2)/2`, running 1 to 15. **Two methods, one operation, two graphs, and the count of what each discards is not the same number**",
+   "kind": "own_reading",
+   "name": "B81-3",
+   "passed": true,
+   "statement": "the two methods project on two graphs, and the dimension of what each discards is (M-1)(R-1) against (R-1)(R-2)/2"
+  },
+  {
+   "detail": "10 complete equal-weight tableaux: the worst gap between CPD's `beta_b - beta_a` and GEKS on the Jevons index is 2.00e-15, so **the two graphs give one answer there**. The routes share no code: one is an OLS on dummies, the other averages over products and then multiplies out the GEKS formula. **Where they part is the incomplete tableau**: GEKS needs every bilateral index and a bilateral index needs the two countries to price something in common, while CPD needs only that the bipartite graph is connected, which is a weaker condition and is what B81-5 counts",
+   "kind": "own_reading",
+   "name": "B81-4",
+   "passed": true,
+   "statement": "on a complete equal-weight tableau the two projections return the same parities, computed by two routes sharing no code"
+  },
+  {
+   "detail": "40 sparse tableaux, 13 of them disconnected. The design matrix's rank deficiency equals the number of components in 40 of 40, and `b1 = E - V + c` matches the incidence rank throughout. **So whether the parities are identified at all is a connectivity question about the tableau**: one component is one free constant, and two components are two, which is a parity that cannot be read rather than one read badly",
+   "kind": "own_reading",
+   "name": "B81-5",
+   "passed": true,
+   "statement": "an incomplete tableau can disconnect, and then the parities are not identified: the design matrix's rank deficiency counts the components"
+  },
+  {
+   "detail": "10 tableaux, dropping each dummy in turn: the fitted values move by at most 2.44e-15 while the coefficients themselves move by up to 1.139. **Both halves are required**: unchanged fitted values with unchanged coefficients would mean the gauge was not exercised",
+   "kind": "instrument",
+   "name": "B81-6",
+   "passed": true,
+   "statement": "the gauge: dropping a different dummy moves the coefficients and leaves the fitted values where they were"
+  },
+  {
+   "detail": "B79 registered: the same reading on the country-product-dummy estimator, which is a regression rather than a projection and therefore a different loss. Answered here, and the registration's wording was half wrong: a regression onto dummies IS a projection, and the loss is the same sum of squares. What differs is the graph. B81-2 shows the fitted value is a coboundary on the bipartite product-by-country graph, B81-3 counts what each graph discards, and B81-4 shows the two answers coincide on a complete equal-weight tableau",
+   "kind": "bookkeeping",
+   "name": "B81-7",
+   "passed": true,
+   "statement": "B79's registration, named, with the correction to its wording"
+  }
+ ],
+ "mapping": {
+  "B81-1": "transitivity, base invariance and orthogonality all inside tolerance -> PASS; any outside -> FAIL",
+  "B81-2": "cycles sum to zero on the fitted values AND do not on the raw prices AND the cycle count matches both the closed form and the rank -> PASS. The second clause is required: if the raw prices were transitive too, the criterion would be reading an identity",
+  "B81-3": "both closed forms match their incidence ranks -> PASS; else FAIL",
+  "B81-4": "the two routes agree within tolerance -> PASS; a disagreement would mean one of the two implementations is wrong, since on a complete equal-weight tableau the two projections are the same object",
+  "B81-5": "rank deficiency equals the component count everywhere AND at least one drawn tableau is disconnected AND at least one is connected -> PASS; otherwise the sampling did not exercise the reading",
+  "B81-6": "fitted values unchanged AND coefficients moved -> PASS; both unchanged means the gauge was never exercised, so that is a FAIL and not a pass",
+  "B81-7": "the registration named with what answers it -> PASS"
+ },
+ "report": {
+  "B81-1": {
+   "published_claims": [
+    {
+     "M": 3,
+     "R": 5,
+     "worst_base_shift": 1.1102230246251565e-16,
+     "worst_orthogonality": 1.2212453270876722e-15,
+     "worst_triple": 1.1102230246251565e-16
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "worst_base_shift": 5.551115123125783e-17,
+     "worst_orthogonality": 1.5543122344752192e-15,
+     "worst_triple": 5.551115123125783e-17
+    },
+    {
+     "M": 4,
+     "R": 4,
+     "worst_base_shift": 5.551115123125783e-17,
+     "worst_orthogonality": 1.6653345369377348e-15,
+     "worst_triple": 0.0
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "worst_base_shift": 1.3877787807814457e-17,
+     "worst_orthogonality": 1.7763568394002505e-15,
+     "worst_triple": 1.3877787807814457e-17
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "worst_base_shift": 0.0,
+     "worst_orthogonality": 1.1102230246251565e-15,
+     "worst_triple": 0.0
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "worst_base_shift": 2.7755575615628914e-17,
+     "worst_orthogonality": 1.8318679906315083e-15,
+     "worst_triple": 2.7755575615628914e-17
+    },
+    {
+     "M": 3,
+     "R": 7,
+     "worst_base_shift": 5.551115123125783e-17,
+     "worst_orthogonality": 2.1094237467877974e-15,
+     "worst_triple": 1.1102230246251565e-16
+    },
+    {
+     "M": 7,
+     "R": 7,
+     "worst_base_shift": 5.551115123125783e-17,
+     "worst_orthogonality": 1.9984014443252818e-15,
+     "worst_triple": 1.1102230246251565e-16
+    },
+    {
+     "M": 8,
+     "R": 4,
+     "worst_base_shift": 5.551115123125783e-17,
+     "worst_orthogonality": 1.3322676295501878e-15,
+     "worst_triple": 5.551115123125783e-17
+    },
+    {
+     "M": 5,
+     "R": 5,
+     "worst_base_shift": 2.220446049250313e-16,
+     "worst_orthogonality": 1.887379141862766e-15,
+     "worst_triple": 2.220446049250313e-16
+    }
+   ]
+  },
+  "B81-2": {
+   "coboundary": [
+    {
+     "M": 5,
+     "R": 6,
+     "b1_closed": 20,
+     "b1_rank": 20,
+     "cycles": 20,
+     "edges": 30,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 2.65288496590318
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "b1_closed": 15,
+     "b1_rank": 15,
+     "cycles": 15,
+     "edges": 24,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 4.186460611791562
+    },
+    {
+     "M": 4,
+     "R": 7,
+     "b1_closed": 18,
+     "b1_rank": 18,
+     "cycles": 18,
+     "edges": 28,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 3.6665832397177445
+    },
+    {
+     "M": 3,
+     "R": 3,
+     "b1_closed": 4,
+     "b1_rank": 4,
+     "cycles": 4,
+     "edges": 9,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 2.2094940165375814
+    },
+    {
+     "M": 3,
+     "R": 3,
+     "b1_closed": 4,
+     "b1_rank": 4,
+     "cycles": 4,
+     "edges": 9,
+     "loops_on_fitted": 1.3877787807814457e-17,
+     "loops_on_raw": 2.5621841309589315
+    },
+    {
+     "M": 4,
+     "R": 5,
+     "b1_closed": 12,
+     "b1_rank": 12,
+     "cycles": 12,
+     "edges": 20,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 3.4022913468714133
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "b1_closed": 20,
+     "b1_rank": 20,
+     "cycles": 20,
+     "edges": 30,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 3.213388615775489
+    },
+    {
+     "M": 4,
+     "R": 4,
+     "b1_closed": 9,
+     "b1_rank": 9,
+     "cycles": 9,
+     "edges": 16,
+     "loops_on_fitted": 1.1102230246251565e-16,
+     "loops_on_raw": 2.2073490148540786
+    },
+    {
+     "M": 8,
+     "R": 4,
+     "b1_closed": 21,
+     "b1_rank": 21,
+     "cycles": 21,
+     "edges": 32,
+     "loops_on_fitted": 2.220446049250313e-16,
+     "loops_on_raw": 4.8536248211120725
+    },
+    {
+     "M": 3,
+     "R": 7,
+     "b1_closed": 12,
+     "b1_rank": 12,
+     "cycles": 12,
+     "edges": 21,
+     "loops_on_fitted": 5.551115123125783e-17,
+     "loops_on_raw": 4.092069349573764
+    }
+   ]
+  },
+  "B81-3": {
+   "two_graphs": [
+    {
+     "M": 3,
+     "R": 7,
+     "bipartite_b1_closed": 12,
+     "bipartite_b1_rank": 12,
+     "country_b1_closed": 15,
+     "country_b1_rank": 15
+    },
+    {
+     "M": 5,
+     "R": 5,
+     "bipartite_b1_closed": 16,
+     "bipartite_b1_rank": 16,
+     "country_b1_closed": 6,
+     "country_b1_rank": 6
+    },
+    {
+     "M": 3,
+     "R": 5,
+     "bipartite_b1_closed": 8,
+     "bipartite_b1_rank": 8,
+     "country_b1_closed": 6,
+     "country_b1_rank": 6
+    },
+    {
+     "M": 4,
+     "R": 7,
+     "bipartite_b1_closed": 18,
+     "bipartite_b1_rank": 18,
+     "country_b1_closed": 15,
+     "country_b1_rank": 15
+    },
+    {
+     "M": 4,
+     "R": 4,
+     "bipartite_b1_closed": 9,
+     "bipartite_b1_rank": 9,
+     "country_b1_closed": 3,
+     "country_b1_rank": 3
+    },
+    {
+     "M": 7,
+     "R": 3,
+     "bipartite_b1_closed": 12,
+     "bipartite_b1_rank": 12,
+     "country_b1_closed": 1,
+     "country_b1_rank": 1
+    },
+    {
+     "M": 7,
+     "R": 7,
+     "bipartite_b1_closed": 36,
+     "bipartite_b1_rank": 36,
+     "country_b1_closed": 15,
+     "country_b1_rank": 15
+    },
+    {
+     "M": 8,
+     "R": 5,
+     "bipartite_b1_closed": 28,
+     "bipartite_b1_rank": 28,
+     "country_b1_closed": 6,
+     "country_b1_rank": 6
+    },
+    {
+     "M": 6,
+     "R": 5,
+     "bipartite_b1_closed": 20,
+     "bipartite_b1_rank": 20,
+     "country_b1_closed": 6,
+     "country_b1_rank": 6
+    },
+    {
+     "M": 8,
+     "R": 4,
+     "bipartite_b1_closed": 21,
+     "bipartite_b1_rank": 21,
+     "country_b1_closed": 3,
+     "country_b1_rank": 3
+    }
+   ]
+  },
+  "B81-4": {
+   "agree": true,
+   "cpd_vs_geks": [
+    {
+     "M": 7,
+     "R": 7,
+     "worst_gap": 6.661338147750939e-16
+    },
+    {
+     "M": 3,
+     "R": 4,
+     "worst_gap": 1.942890293094024e-16
+    },
+    {
+     "M": 4,
+     "R": 5,
+     "worst_gap": 3.3306690738754696e-16
+    },
+    {
+     "M": 5,
+     "R": 7,
+     "worst_gap": 1.9984014443252818e-15
+    },
+    {
+     "M": 5,
+     "R": 4,
+     "worst_gap": 1.8041124150158794e-16
+    },
+    {
+     "M": 6,
+     "R": 3,
+     "worst_gap": 1.8041124150158794e-16
+    },
+    {
+     "M": 8,
+     "R": 5,
+     "worst_gap": 5.551115123125783e-16
+    },
+    {
+     "M": 3,
+     "R": 5,
+     "worst_gap": 4.996003610813204e-16
+    },
+    {
+     "M": 7,
+     "R": 4,
+     "worst_gap": 1.1102230246251565e-16
+    },
+    {
+     "M": 3,
+     "R": 7,
+     "worst_gap": 5.551115123125783e-16
+    }
+   ],
+   "worst_gap": 1.9984014443252818e-15
+  },
+  "B81-5": {
+   "incomplete": [
+    {
+     "M": 6,
+     "R": 5,
+     "b1_closed": 7,
+     "b1_rank": 7,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 17,
+     "rank": 10
+    },
+    {
+     "M": 6,
+     "R": 6,
+     "b1_closed": 11,
+     "b1_rank": 11,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 22,
+     "rank": 11
+    },
+    {
+     "M": 3,
+     "R": 3,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 6,
+     "rank": 5
+    },
+    {
+     "M": 4,
+     "R": 4,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 7,
+     "rank": 6
+    },
+    {
+     "M": 6,
+     "R": 6,
+     "b1_closed": 9,
+     "b1_rank": 9,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 20,
+     "rank": 11
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 6,
+     "rank": 6
+    },
+    {
+     "M": 3,
+     "R": 5,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 3,
+     "deficiency": 3,
+     "edges": 5,
+     "rank": 5
+    },
+    {
+     "M": 5,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 6,
+     "rank": 6
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 11,
+     "rank": 9
+    },
+    {
+     "M": 3,
+     "R": 5,
+     "b1_closed": 3,
+     "b1_rank": 3,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 10,
+     "rank": 7
+    },
+    {
+     "M": 6,
+     "R": 6,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 12,
+     "rank": 10
+    },
+    {
+     "M": 6,
+     "R": 5,
+     "b1_closed": 4,
+     "b1_rank": 4,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 14,
+     "rank": 10
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "b1_closed": 3,
+     "b1_rank": 3,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 13,
+     "rank": 10
+    },
+    {
+     "M": 4,
+     "R": 5,
+     "b1_closed": 5,
+     "b1_rank": 5,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 13,
+     "rank": 8
+    },
+    {
+     "M": 3,
+     "R": 5,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 9,
+     "rank": 7
+    },
+    {
+     "M": 4,
+     "R": 4,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 6,
+     "rank": 6
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 6,
+     "rank": 6
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 5,
+     "rank": 5
+    },
+    {
+     "M": 3,
+     "R": 6,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 7,
+     "rank": 7
+    },
+    {
+     "M": 6,
+     "R": 3,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 9,
+     "rank": 7
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 7,
+     "rank": 6
+    },
+    {
+     "M": 5,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 7,
+     "rank": 7
+    },
+    {
+     "M": 3,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 4,
+     "rank": 4
+    },
+    {
+     "M": 6,
+     "R": 5,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 4,
+     "deficiency": 4,
+     "edges": 7,
+     "rank": 7
+    },
+    {
+     "M": 4,
+     "R": 6,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 10,
+     "rank": 9
+    },
+    {
+     "M": 4,
+     "R": 6,
+     "b1_closed": 4,
+     "b1_rank": 4,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 13,
+     "rank": 9
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 9,
+     "rank": 9
+    },
+    {
+     "M": 3,
+     "R": 4,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 6,
+     "rank": 5
+    },
+    {
+     "M": 5,
+     "R": 3,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 7,
+     "rank": 7
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "b1_closed": 0,
+     "b1_rank": 0,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 9,
+     "rank": 9
+    },
+    {
+     "M": 4,
+     "R": 5,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 10,
+     "rank": 8
+    },
+    {
+     "M": 5,
+     "R": 4,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 9,
+     "rank": 8
+    },
+    {
+     "M": 6,
+     "R": 3,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 9,
+     "rank": 8
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "b1_closed": 6,
+     "b1_rank": 6,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 15,
+     "rank": 9
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 7,
+     "rank": 6
+    },
+    {
+     "M": 6,
+     "R": 6,
+     "b1_closed": 4,
+     "b1_rank": 4,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 15,
+     "rank": 11
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 1,
+     "b1_rank": 1,
+     "components": 2,
+     "deficiency": 2,
+     "edges": 6,
+     "rank": 5
+    },
+    {
+     "M": 4,
+     "R": 3,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 8,
+     "rank": 6
+    },
+    {
+     "M": 3,
+     "R": 4,
+     "b1_closed": 2,
+     "b1_rank": 2,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 8,
+     "rank": 6
+    },
+    {
+     "M": 6,
+     "R": 3,
+     "b1_closed": 3,
+     "b1_rank": 3,
+     "components": 1,
+     "deficiency": 1,
+     "edges": 11,
+     "rank": 8
+    }
+   ]
+  },
+  "B81-6": {
+   "gauge": [
+    {
+     "M": 4,
+     "R": 5,
+     "coefficients_moved": 0.6419893460458876,
+     "fitted_spread": 1.5543122344752192e-15
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "coefficients_moved": 0.7558271651627109,
+     "fitted_spread": 1.3322676295501878e-15
+    },
+    {
+     "M": 7,
+     "R": 5,
+     "coefficients_moved": 0.5292218446272499,
+     "fitted_spread": 1.3322676295501878e-15
+    },
+    {
+     "M": 5,
+     "R": 4,
+     "coefficients_moved": 0.7092667617007966,
+     "fitted_spread": 2.4424906541753444e-15
+    },
+    {
+     "M": 7,
+     "R": 4,
+     "coefficients_moved": 0.87539894128308,
+     "fitted_spread": 1.5543122344752192e-15
+    },
+    {
+     "M": 6,
+     "R": 4,
+     "coefficients_moved": 0.6945932317497329,
+     "fitted_spread": 2.3314683517128287e-15
+    },
+    {
+     "M": 5,
+     "R": 3,
+     "coefficients_moved": 1.139416090236604,
+     "fitted_spread": 1.3322676295501878e-15
+    },
+    {
+     "M": 4,
+     "R": 5,
+     "coefficients_moved": 0.6260547607603173,
+     "fitted_spread": 1.6653345369377348e-15
+    },
+    {
+     "M": 4,
+     "R": 6,
+     "coefficients_moved": 0.6326140465047344,
+     "fitted_spread": 1.887379141862766e-15
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "coefficients_moved": 1.0295669364871374,
+     "fitted_spread": 2.220446049250313e-15
+    }
+   ]
+  },
+  "B81-7": {
+   "registration": {
+    "answered_by": "Answered here, and the registration's wording was half wrong: a regression onto dummies IS a projection, and the loss is the same sum of squares. What differs is the graph. B81-2 shows the fitted value is a coboundary on the bipartite product-by-country graph, B81-3 counts what each graph discards, and B81-4 shows the two answers coincide on a complete equal-weight tableau",
+    "text": "B79 registered: the same reading on the country-product-dummy estimator, which is a regression rather than a projection and therefore a different loss"
+   }
+  }
+ },
+ "sources": {
+  "cpd_equation_and_claims": "Coondoo, D., Majumder, A. and Ray, R. (2004), A Method of Calculating Regional Consumer Price Differentials with Illustrative Evidence from India, Review of Income and Wealth 50(1), 51-68, equation (1) and the passage stating that the estimates are invariant to the choice of numeraire region and therefore satisfy circularity",
+  "cpd_origin": "Summers, R. (1973); weighted CPD and the Rao system, Rao, D. S. P. (2005), Review of Income and Wealth",
+  "geks_side": "carried by B79 in this repository"
+ },
+ "stage": "B81"
+}

@@ -1,0 +1,2614 @@
+{
+ "arm": "retail",
+ "config": {
+  "age_groups": [
+   [
+    "fresh",
+    0,
+    365
+   ],
+   [
+    "stale",
+    365,
+    1095
+   ],
+   [
+    "very stale",
+    1095,
+    1000000
+   ]
+  ],
+  "currency": "USD listings only",
+  "default": {
+   "clean": 3.0,
+   "fresh": 365,
+   "sizes": "bottle"
+  },
+  "exclude": {
+   "bordeaux-index-sauternes": "a merchant's own label",
+   "chateau-doisy-daene-bordeaux-sec": "dry white, Bordeaux appellation",
+   "chateau-dyquem-y-bordeaux": "dry white, Bordeaux appellation"
+  },
+  "scan": {
+   "clean": [
+    0.0,
+    3.0
+   ],
+   "fresh": [
+    365,
+    730
+   ],
+   "sizes": [
+    "bottle",
+    "all"
+   ]
+  },
+  "source": "data/b126/parsed/ via experiments/b126_parse.py"
+ },
+ "criteria": [
+  {
+   "detail": "bottle/f365/c0: fresh n=157 own 0.170 interp 0.187 hull 0.38/0.41; stale n=19 own 0.172 interp 0.202 hull 0.42/0.37; very stale n=23 own 0.363 interp 0.374 hull 0.48/0.39 | bottle/f365/c3: fresh n=157 own 0.172 interp 0.198 hull 0.38/0.43; stale n=19 own 0.171 interp 0.171 hull 0.42/0.42; very stale n=23 own 0.361 interp 0.375 hull 0.48/0.43 | bottle/f730/c0: fresh n=160 own 0.146 interp 0.215 hull 0.35/0.33; stale n=20 own 0.167 interp 0.112 hull 0.55/0.50; very stale n=24 own 0.398 interp 0.346 hull 0.46/0.33 | bottle/f730/c3: fresh n=160 own 0.145 interp 0.208 hull 0.34/0.31; stale n=20 own 0.160 interp 0.105 hull 0.55/0.50; very stale n=24 own 0.394 interp 0.349 hull 0.50/0.33 | all/f365/c0: fresh n=180 own 0.203 interp 0.240 hull 0.36/0.39; stale n=28 own 0.202 interp 0.211 hull 0.46/0.46; very stale n=26 own 0.364 interp 0.433 hull 0.38/0.38 | all/f365/c3: fresh n=180 own 0.201 interp 0.236 hull 0.38/0.41; stale n=28 own 0.203 interp 0.198 hull 0.50/0.50; very stale n=26 own 0.357 interp 0.466 hull 0.38/0.42 | all/f730/c0: fresh n=185 own 0.165 interp 0.238 hull 0.36/0.30; stale n=29 own 0.167 interp 0.186 hull 0.66/0.52; very stale n=29 own 0.360 interp 0.360 hull 0.38/0.34 | all/f730/c3: fresh n=185 own 0.172 interp 0.230 hull 0.37/0.29; stale n=29 own 0.156 interp 0.178 hull 0.66/0.52; very stale n=29 own 0.350 interp 0.364 hull 0.38/0.34",
+   "kind": "own_reading",
+   "name": "B126-9",
+   "passed": null,
+   "state": "moves across the scan",
+   "state_map": {
+    "fails at every scan point": false,
+    "holds at every scan point": true,
+    "moves across the scan": null,
+    "no object": null
+   },
+   "statement": "stale units: the neighbours' interpolation is closer to the listing than the unit's own last sale"
+  },
+  {
+   "detail": "bottle/f365/c0: fresh n=157 own 0.170 interp 0.187 hull 0.38/0.41 | bottle/f365/c3: fresh n=157 own 0.172 interp 0.198 hull 0.38/0.43 | bottle/f730/c0: fresh n=160 own 0.146 interp 0.215 hull 0.35/0.33 | bottle/f730/c3: fresh n=160 own 0.145 interp 0.208 hull 0.34/0.31 | all/f365/c0: fresh n=180 own 0.203 interp 0.240 hull 0.36/0.39 | all/f365/c3: fresh n=180 own 0.201 interp 0.236 hull 0.38/0.41 | all/f730/c0: fresh n=185 own 0.165 interp 0.238 hull 0.36/0.30 | all/f730/c3: fresh n=185 own 0.172 interp 0.230 hull 0.37/0.29",
+   "kind": "known_answer",
+   "name": "B126-9k",
+   "passed": true,
+   "state": "holds at every scan point",
+   "state_map": {
+    "fails at every scan point": false,
+    "holds at every scan point": true,
+    "moves across the scan": null,
+    "no object": null
+   },
+   "statement": "fresh units, where the two readings coincide: own last sale at least as close as the interpolation"
+  },
+  {
+   "detail": "see B126-9 detail, hull listing/own",
+   "kind": "own_reading",
+   "name": "B126-10",
+   "passed": null,
+   "state": "moves across the scan",
+   "state_map": {
+    "fails at every scan point": false,
+    "holds at every scan point": true,
+    "moves across the scan": null,
+    "no object": null
+   },
+   "statement": "stale units: the listing lies inside its anchors' range more often than the own last sale does"
+  }
+ ],
+ "rows_default": [
+  {
+   "age": 1726,
+   "err_interp": 0.280984,
+   "err_own": 0.149787,
+   "in_hull": true,
+   "interp": 3.30279,
+   "listing_net": 3.58377,
+   "own_in_hull": true,
+   "own_last": 3.43399,
+   "unit": "carmes-de-rieussec-sauternes|2005"
+  },
+  {
+   "age": 25,
+   "err_interp": 1.21571,
+   "err_own": 0.217573,
+   "in_hull": false,
+   "interp": 4.61134,
+   "listing_net": 3.39563,
+   "own_in_hull": false,
+   "own_last": 3.17805,
+   "unit": "carmes-de-rieussec-sauternes|2011"
+  },
+  {
+   "age": 1409,
+   "err_interp": 0.713243,
+   "err_own": 0.0335963,
+   "in_hull": false,
+   "interp": 3.85073,
+   "listing_net": 3.13749,
+   "own_in_hull": false,
+   "own_last": 3.17108,
+   "unit": "carmes-de-rieussec-sauternes|2014"
+  },
+  {
+   "age": 1360,
+   "err_interp": 0.752631,
+   "err_own": 0.391132,
+   "in_hull": true,
+   "interp": 4.07496,
+   "listing_net": 3.32233,
+   "own_in_hull": false,
+   "own_last": 2.93119,
+   "unit": "carmes-de-rieussec-sauternes|2015"
+  },
+  {
+   "age": 164,
+   "err_interp": 0.770351,
+   "err_own": 0.953137,
+   "in_hull": true,
+   "interp": 4.1164,
+   "listing_net": 3.34605,
+   "own_in_hull": true,
+   "own_last": 4.29918,
+   "unit": "carmes-de-rieussec-sauternes|2016"
+  },
+  {
+   "age": 113,
+   "err_interp": 0.313071,
+   "err_own": 0.973741,
+   "in_hull": false,
+   "interp": 3.89182,
+   "listing_net": 3.57875,
+   "own_in_hull": false,
+   "own_last": 4.55249,
+   "unit": "castelnau-de-suduiraut-sauternes|2001"
+  },
+  {
+   "age": 15,
+   "err_interp": 0.342604,
+   "err_own": 0.0557828,
+   "in_hull": false,
+   "interp": 4.88189,
+   "listing_net": 4.53929,
+   "own_in_hull": true,
+   "own_last": 4.59507,
+   "unit": "chateau-climens-premier-cru-classe-barsac|1988"
+  },
+  {
+   "age": 55,
+   "err_interp": 0.100532,
+   "err_own": 0.185794,
+   "in_hull": true,
+   "interp": 4.94843,
+   "listing_net": 4.8479,
+   "own_in_hull": true,
+   "own_last": 5.0337,
+   "unit": "chateau-climens-premier-cru-classe-barsac|1990"
+  },
+  {
+   "age": 1337,
+   "err_interp": 0.297979,
+   "err_own": 0.423559,
+   "in_hull": false,
+   "interp": 4.46954,
+   "listing_net": 4.17156,
+   "own_in_hull": true,
+   "own_last": 4.59512,
+   "unit": "chateau-climens-premier-cru-classe-barsac|1995"
+  },
+  {
+   "age": 1316,
+   "err_interp": 0.432352,
+   "err_own": 1.3106,
+   "in_hull": false,
+   "interp": 4.51082,
+   "listing_net": 4.07847,
+   "own_in_hull": false,
+   "own_last": 5.38907,
+   "unit": "chateau-climens-premier-cru-classe-barsac|1999"
+  },
+  {
+   "age": 3783,
+   "err_interp": 0.290803,
+   "err_own": 0.633163,
+   "in_hull": true,
+   "interp": 4.74168,
+   "listing_net": 4.45088,
+   "own_in_hull": false,
+   "own_last": 3.81771,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2000"
+  },
+  {
+   "age": 3,
+   "err_interp": 0.838755,
+   "err_own": 0.10639,
+   "in_hull": false,
+   "interp": 4.24017,
+   "listing_net": 5.07892,
+   "own_in_hull": false,
+   "own_last": 4.97253,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2001"
+  },
+  {
+   "age": 3454,
+   "err_interp": 0.502493,
+   "err_own": 0.0365422,
+   "in_hull": false,
+   "interp": 4.59308,
+   "listing_net": 4.09059,
+   "own_in_hull": false,
+   "own_last": 4.12713,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2002"
+  },
+  {
+   "age": 57,
+   "err_interp": 0.704136,
+   "err_own": 0.159858,
+   "in_hull": false,
+   "interp": 4.75791,
+   "listing_net": 4.05378,
+   "own_in_hull": false,
+   "own_last": 4.21364,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2003"
+  },
+  {
+   "age": 1258,
+   "err_interp": 0.324687,
+   "err_own": 1.47961,
+   "in_hull": false,
+   "interp": 4.37847,
+   "listing_net": 4.05378,
+   "own_in_hull": false,
+   "own_last": 5.53339,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2004"
+  },
+  {
+   "age": 87,
+   "err_interp": 0.131287,
+   "err_own": 0.253864,
+   "in_hull": true,
+   "interp": 4.07306,
+   "listing_net": 4.20435,
+   "own_in_hull": false,
+   "own_last": 4.45822,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2005"
+  },
+  {
+   "age": 165,
+   "err_interp": 0.387307,
+   "err_own": 0.303417,
+   "in_hull": false,
+   "interp": 4.56403,
+   "listing_net": 4.17672,
+   "own_in_hull": false,
+   "own_last": 3.8733,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2006"
+  },
+  {
+   "age": 254,
+   "err_interp": 0.323671,
+   "err_own": 0.192116,
+   "in_hull": false,
+   "interp": 4.04856,
+   "listing_net": 4.37223,
+   "own_in_hull": false,
+   "own_last": 4.56435,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2007"
+  },
+  {
+   "age": 242,
+   "err_interp": 0.23902,
+   "err_own": 0.162374,
+   "in_hull": false,
+   "interp": 4.49574,
+   "listing_net": 4.25672,
+   "own_in_hull": false,
+   "own_last": 4.09434,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2008"
+  },
+  {
+   "age": 61,
+   "err_interp": 0.185936,
+   "err_own": 0.130348,
+   "in_hull": true,
+   "interp": 4.39029,
+   "listing_net": 4.20435,
+   "own_in_hull": true,
+   "own_last": 4.3347,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2009"
+  },
+  {
+   "age": 309,
+   "err_interp": 0.0553978,
+   "err_own": 0.370087,
+   "in_hull": true,
+   "interp": 4.26074,
+   "listing_net": 4.31614,
+   "own_in_hull": false,
+   "own_last": 4.68623,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2010"
+  },
+  {
+   "age": 768,
+   "err_interp": 0.131731,
+   "err_own": 0.141751,
+   "in_hull": true,
+   "interp": 4.32751,
+   "listing_net": 4.45924,
+   "own_in_hull": true,
+   "own_last": 4.60099,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2011"
+  },
+  {
+   "age": 118,
+   "err_interp": 0.175344,
+   "err_own": 0.289408,
+   "in_hull": false,
+   "interp": 4.09559,
+   "listing_net": 3.92025,
+   "own_in_hull": true,
+   "own_last": 4.20965,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2013"
+  },
+  {
+   "age": 546,
+   "err_interp": 0.153927,
+   "err_own": 0.0437563,
+   "in_hull": false,
+   "interp": 4.27942,
+   "listing_net": 4.12549,
+   "own_in_hull": false,
+   "own_last": 4.16925,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2014"
+  },
+  {
+   "age": 144,
+   "err_interp": 0.315897,
+   "err_own": 0.192907,
+   "in_hull": false,
+   "interp": 4.3571,
+   "listing_net": 4.0412,
+   "own_in_hull": true,
+   "own_last": 4.23411,
+   "unit": "chateau-climens-premier-cru-classe-barsac|2015"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.198443,
+   "err_own": 0.107444,
+   "in_hull": false,
+   "interp": 4.04802,
+   "listing_net": 4.24646,
+   "own_in_hull": false,
+   "own_last": 4.35391,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|1988"
+  },
+  {
+   "age": 320,
+   "err_interp": 0.467868,
+   "err_own": 0.168925,
+   "in_hull": false,
+   "interp": 4.71433,
+   "listing_net": 4.24646,
+   "own_in_hull": false,
+   "own_last": 4.07754,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|1989"
+  },
+  {
+   "age": 156,
+   "err_interp": 0.840672,
+   "err_own": 0.35601,
+   "in_hull": false,
+   "interp": 3.54958,
+   "listing_net": 4.39025,
+   "own_in_hull": false,
+   "own_last": 4.03424,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2001"
+  },
+  {
+   "age": 109,
+   "err_interp": 0.0378361,
+   "err_own": 0.256265,
+   "in_hull": true,
+   "interp": 3.82046,
+   "listing_net": 3.78263,
+   "own_in_hull": false,
+   "own_last": 3.52636,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2003"
+  },
+  {
+   "age": 179,
+   "err_interp": 0.0886372,
+   "err_own": 0.109188,
+   "in_hull": false,
+   "interp": 3.73412,
+   "listing_net": 3.82276,
+   "own_in_hull": false,
+   "own_last": 3.71357,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2004"
+  },
+  {
+   "age": 1044,
+   "err_interp": 0.120518,
+   "err_own": 0.161436,
+   "in_hull": false,
+   "interp": 3.72562,
+   "listing_net": 3.84614,
+   "own_in_hull": false,
+   "own_last": 3.6847,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2005"
+  },
+  {
+   "age": 57,
+   "err_interp": 0.000349062,
+   "err_own": 0.0677594,
+   "in_hull": true,
+   "interp": 3.66956,
+   "listing_net": 3.66991,
+   "own_in_hull": false,
+   "own_last": 3.73767,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2006"
+  },
+  {
+   "age": 102,
+   "err_interp": 0.247358,
+   "err_own": 0.300862,
+   "in_hull": true,
+   "interp": 4.19578,
+   "listing_net": 3.94842,
+   "own_in_hull": false,
+   "own_last": 3.64756,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2007"
+  },
+  {
+   "age": 58,
+   "err_interp": 0.480512,
+   "err_own": 0.908157,
+   "in_hull": false,
+   "interp": 3.72332,
+   "listing_net": 4.20383,
+   "own_in_hull": false,
+   "own_last": 5.11199,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2009"
+  },
+  {
+   "age": 141,
+   "err_interp": 0.64239,
+   "err_own": 0.0249608,
+   "in_hull": false,
+   "interp": 4.47302,
+   "listing_net": 3.83063,
+   "own_in_hull": false,
+   "own_last": 3.80567,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2010"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.150037,
+   "err_own": 0.0034268,
+   "in_hull": false,
+   "interp": 3.6806,
+   "listing_net": 3.83063,
+   "own_in_hull": false,
+   "own_last": 3.83406,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2011"
+  },
+  {
+   "age": 102,
+   "err_interp": 0.110683,
+   "err_own": 0.0441801,
+   "in_hull": false,
+   "interp": 3.67425,
+   "listing_net": 3.56357,
+   "own_in_hull": false,
+   "own_last": 3.51939,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2013"
+  },
+  {
+   "age": 71,
+   "err_interp": 0.208411,
+   "err_own": 0.307028,
+   "in_hull": true,
+   "interp": 3.63666,
+   "listing_net": 3.84507,
+   "own_in_hull": true,
+   "own_last": 3.53804,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2014"
+  },
+  {
+   "age": 367,
+   "err_interp": 0.0782519,
+   "err_own": 0.0360364,
+   "in_hull": true,
+   "interp": 3.73278,
+   "listing_net": 3.65452,
+   "own_in_hull": true,
+   "own_last": 3.69056,
+   "unit": "chateau-coutet-premier-cru-classe-barsac|2015"
+  },
+  {
+   "age": 1621,
+   "err_interp": 0.109158,
+   "err_own": 0.113868,
+   "in_hull": true,
+   "interp": 4.64537,
+   "listing_net": 4.75452,
+   "own_in_hull": true,
+   "own_last": 4.86839,
+   "unit": "chateau-de-fargues-sauternes|1986"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.00380759,
+   "err_own": 0.126307,
+   "in_hull": true,
+   "interp": 4.83273,
+   "listing_net": 4.83654,
+   "own_in_hull": true,
+   "own_last": 4.96284,
+   "unit": "chateau-de-fargues-sauternes|1990"
+  },
+  {
+   "age": 2391,
+   "err_interp": 0.556785,
+   "err_own": 0.454511,
+   "in_hull": true,
+   "interp": 4.27975,
+   "listing_net": 4.83654,
+   "own_in_hull": true,
+   "own_last": 4.38203,
+   "unit": "chateau-de-fargues-sauternes|1995"
+  },
+  {
+   "age": 340,
+   "err_interp": 0.111181,
+   "err_own": 0.316109,
+   "in_hull": true,
+   "interp": 4.34806,
+   "listing_net": 4.45924,
+   "own_in_hull": true,
+   "own_last": 4.14313,
+   "unit": "chateau-de-fargues-sauternes|1996"
+  },
+  {
+   "age": 2300,
+   "err_interp": 0.491461,
+   "err_own": 0.25257,
+   "in_hull": false,
+   "interp": 4.14313,
+   "listing_net": 4.6346,
+   "own_in_hull": false,
+   "own_last": 4.38203,
+   "unit": "chateau-de-fargues-sauternes|1997"
+  },
+  {
+   "age": 141,
+   "err_interp": 0.116437,
+   "err_own": 0.0956459,
+   "in_hull": true,
+   "interp": 3.93105,
+   "listing_net": 4.04749,
+   "own_in_hull": true,
+   "own_last": 4.14313,
+   "unit": "chateau-de-fargues-sauternes|1998"
+  },
+  {
+   "age": 57,
+   "err_interp": 0.788167,
+   "err_own": 1.15993,
+   "in_hull": false,
+   "interp": 4.19678,
+   "listing_net": 4.98495,
+   "own_in_hull": false,
+   "own_last": 3.82501,
+   "unit": "chateau-de-fargues-sauternes|1999"
+  },
+  {
+   "age": 57,
+   "err_interp": 0.064314,
+   "err_own": 0.739906,
+   "in_hull": false,
+   "interp": 4.31078,
+   "listing_net": 4.24646,
+   "own_in_hull": false,
+   "own_last": 3.50656,
+   "unit": "chateau-de-fargues-sauternes|2002"
+  },
+  {
+   "age": 71,
+   "err_interp": 0.606303,
+   "err_own": 0.0116424,
+   "in_hull": false,
+   "interp": 3.63498,
+   "listing_net": 4.24128,
+   "own_in_hull": false,
+   "own_last": 4.22964,
+   "unit": "chateau-de-fargues-sauternes|2003"
+  },
+  {
+   "age": 148,
+   "err_interp": 0.0938341,
+   "err_own": 0.639744,
+   "in_hull": true,
+   "interp": 4.6254,
+   "listing_net": 4.53156,
+   "own_in_hull": false,
+   "own_last": 3.89182,
+   "unit": "chateau-de-fargues-sauternes|2005"
+  },
+  {
+   "age": 431,
+   "err_interp": 0.0971619,
+   "err_own": 0.422126,
+   "in_hull": true,
+   "interp": 4.41256,
+   "listing_net": 4.3154,
+   "own_in_hull": true,
+   "own_last": 3.89328,
+   "unit": "chateau-de-fargues-sauternes|2006"
+  },
+  {
+   "age": 310,
+   "err_interp": 0.297211,
+   "err_own": 0.527099,
+   "in_hull": false,
+   "interp": 3.97971,
+   "listing_net": 4.27692,
+   "own_in_hull": false,
+   "own_last": 4.80402,
+   "unit": "chateau-de-fargues-sauternes|2007"
+  },
+  {
+   "age": 108,
+   "err_interp": 0.66377,
+   "err_own": 0.819086,
+   "in_hull": true,
+   "interp": 4.22292,
+   "listing_net": 4.88669,
+   "own_in_hull": true,
+   "own_last": 4.0676,
+   "unit": "chateau-de-fargues-sauternes|2009"
+  },
+  {
+   "age": 156,
+   "err_interp": 0.159936,
+   "err_own": 0.0211385,
+   "in_hull": true,
+   "interp": 4.06579,
+   "listing_net": 3.90586,
+   "own_in_hull": true,
+   "own_last": 3.927,
+   "unit": "chateau-de-malle-2eme-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 279,
+   "err_interp": 0.529151,
+   "err_own": 0.875724,
+   "in_hull": true,
+   "interp": 2.83148,
+   "listing_net": 3.36063,
+   "own_in_hull": true,
+   "own_last": 2.48491,
+   "unit": "chateau-de-myrat-2eme-cru-classe-sauternes|2007"
+  },
+  {
+   "age": 245,
+   "err_interp": 0.353148,
+   "err_own": 0.0764853,
+   "in_hull": false,
+   "interp": 3.82946,
+   "listing_net": 4.18261,
+   "own_in_hull": false,
+   "own_last": 4.2591,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|1986"
+  },
+  {
+   "age": 326,
+   "err_interp": 0.276628,
+   "err_own": 0.811168,
+   "in_hull": false,
+   "interp": 4.17074,
+   "listing_net": 4.44737,
+   "own_in_hull": true,
+   "own_last": 3.6362,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|1988"
+  },
+  {
+   "age": 823,
+   "err_interp": 0.964646,
+   "err_own": 1.12057,
+   "in_hull": false,
+   "interp": 3.58991,
+   "listing_net": 4.55455,
+   "own_in_hull": true,
+   "own_last": 3.43399,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|1990"
+  },
+  {
+   "age": 1453,
+   "err_interp": 0.308487,
+   "err_own": 0.432164,
+   "in_hull": true,
+   "interp": 3.34255,
+   "listing_net": 3.65104,
+   "own_in_hull": true,
+   "own_last": 3.21888,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|1996"
+  },
+  {
+   "age": 748,
+   "err_interp": 0.340716,
+   "err_own": 0.701762,
+   "in_hull": true,
+   "interp": 3.30133,
+   "listing_net": 3.64204,
+   "own_in_hull": false,
+   "own_last": 4.34381,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|1997"
+  },
+  {
+   "age": 3,
+   "err_interp": 0.43403,
+   "err_own": 0.514952,
+   "in_hull": false,
+   "interp": 3.63966,
+   "listing_net": 4.07369,
+   "own_in_hull": true,
+   "own_last": 3.55874,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 201,
+   "err_interp": 0.380082,
+   "err_own": 0.157444,
+   "in_hull": false,
+   "interp": 3.49636,
+   "listing_net": 3.87644,
+   "own_in_hull": false,
+   "own_last": 4.03389,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|2003"
+  },
+  {
+   "age": 143,
+   "err_interp": 0.062698,
+   "err_own": 0.427419,
+   "in_hull": true,
+   "interp": 3.79871,
+   "listing_net": 3.86141,
+   "own_in_hull": false,
+   "own_last": 3.43399,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|2005"
+  },
+  {
+   "age": 1128,
+   "err_interp": 0.566107,
+   "err_own": 0.566765,
+   "in_hull": false,
+   "interp": 3.63824,
+   "listing_net": 4.20435,
+   "own_in_hull": true,
+   "own_last": 3.63759,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|2009"
+  },
+  {
+   "age": 102,
+   "err_interp": 0.21788,
+   "err_own": 0.445533,
+   "in_hull": false,
+   "interp": 3.91653,
+   "listing_net": 4.13441,
+   "own_in_hull": true,
+   "own_last": 3.68888,
+   "unit": "chateau-de-rayne-vigneau-premier-cru-classe-sauternes|2010"
+  },
+  {
+   "age": 111,
+   "err_interp": 0.234075,
+   "err_own": 0.00603991,
+   "in_hull": false,
+   "interp": 4.13993,
+   "listing_net": 3.90586,
+   "own_in_hull": false,
+   "own_last": 3.9119,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|1996"
+  },
+  {
+   "age": 244,
+   "err_interp": 0.253295,
+   "err_own": 0.0636374,
+   "in_hull": false,
+   "interp": 4.08393,
+   "listing_net": 3.83063,
+   "own_in_hull": false,
+   "own_last": 3.767,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|2000"
+  },
+  {
+   "age": 181,
+   "err_interp": 0.0258657,
+   "err_own": 0.298098,
+   "in_hull": false,
+   "interp": 3.79196,
+   "listing_net": 3.7661,
+   "own_in_hull": false,
+   "own_last": 4.06419,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|2001"
+  },
+  {
+   "age": 176,
+   "err_interp": 0.238827,
+   "err_own": 0.0979222,
+   "in_hull": false,
+   "interp": 4.02145,
+   "listing_net": 3.78263,
+   "own_in_hull": false,
+   "own_last": 3.6847,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|2009"
+  },
+  {
+   "age": 204,
+   "err_interp": 0.00297048,
+   "err_own": 0.843951,
+   "in_hull": true,
+   "interp": 3.97879,
+   "listing_net": 3.97582,
+   "own_in_hull": false,
+   "own_last": 3.13187,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|2011"
+  },
+  {
+   "age": 607,
+   "err_interp": 0.360321,
+   "err_own": 1.02663,
+   "in_hull": false,
+   "interp": 3.9441,
+   "listing_net": 3.58377,
+   "own_in_hull": false,
+   "own_last": 4.61041,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|2015"
+  },
+  {
+   "age": 410,
+   "err_interp": 0.344748,
+   "err_own": 0.431387,
+   "in_hull": false,
+   "interp": 4.05955,
+   "listing_net": 3.7148,
+   "own_in_hull": false,
+   "own_last": 3.28342,
+   "unit": "chateau-doisy-daene-2eme-cru-classe-barsac|2016"
+  },
+  {
+   "age": 84,
+   "err_interp": 0.14542,
+   "err_own": 0.0579408,
+   "in_hull": false,
+   "interp": 5.86669,
+   "listing_net": 6.01211,
+   "own_in_hull": false,
+   "own_last": 5.95417,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1986"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.131219,
+   "err_own": 0.267885,
+   "in_hull": false,
+   "interp": 5.97258,
+   "listing_net": 5.84136,
+   "own_in_hull": false,
+   "own_last": 6.10925,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1988"
+  },
+  {
+   "age": 59,
+   "err_interp": 0.245466,
+   "err_own": 0.231381,
+   "in_hull": false,
+   "interp": 6.09516,
+   "listing_net": 5.8497,
+   "own_in_hull": true,
+   "own_last": 6.08108,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1989"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.00916874,
+   "err_own": 0.248153,
+   "in_hull": true,
+   "interp": 5.84209,
+   "listing_net": 5.83292,
+   "own_in_hull": true,
+   "own_last": 6.08108,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1990"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.325691,
+   "err_own": 0.0193691,
+   "in_hull": false,
+   "interp": 5.99638,
+   "listing_net": 5.67069,
+   "own_in_hull": false,
+   "own_last": 5.65132,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1991"
+  },
+  {
+   "age": 57,
+   "err_interp": 0.160189,
+   "err_own": 0.0168105,
+   "in_hull": false,
+   "interp": 5.66576,
+   "listing_net": 5.82595,
+   "own_in_hull": false,
+   "own_last": 5.80914,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1993"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.0558303,
+   "err_own": 0.228788,
+   "in_hull": false,
+   "interp": 5.84246,
+   "listing_net": 5.89829,
+   "own_in_hull": false,
+   "own_last": 5.6695,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1994"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.0588949,
+   "err_own": 0.0292026,
+   "in_hull": true,
+   "interp": 5.76984,
+   "listing_net": 5.82873,
+   "own_in_hull": false,
+   "own_last": 5.85793,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1995"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.175607,
+   "err_own": 0.17189,
+   "in_hull": false,
+   "interp": 5.84629,
+   "listing_net": 5.67069,
+   "own_in_hull": true,
+   "own_last": 5.84258,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1996"
+  },
+  {
+   "age": 55,
+   "err_interp": 0.00879186,
+   "err_own": 0.0747142,
+   "in_hull": true,
+   "interp": 5.77443,
+   "listing_net": 5.78322,
+   "own_in_hull": false,
+   "own_last": 5.85793,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1997"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.182906,
+   "err_own": 0.21618,
+   "in_hull": false,
+   "interp": 5.70973,
+   "listing_net": 5.52682,
+   "own_in_hull": false,
+   "own_last": 5.743,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|1999"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.298703,
+   "err_own": 0.177877,
+   "in_hull": true,
+   "interp": 6.18506,
+   "listing_net": 5.88636,
+   "own_in_hull": false,
+   "own_last": 5.70848,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2000"
+  },
+  {
+   "age": 85,
+   "err_interp": 0.63108,
+   "err_own": 0.1763,
+   "in_hull": false,
+   "interp": 5.72778,
+   "listing_net": 6.35886,
+   "own_in_hull": false,
+   "own_last": 6.53516,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2001"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.353094,
+   "err_own": 0.134458,
+   "in_hull": false,
+   "interp": 6.19655,
+   "listing_net": 5.84345,
+   "own_in_hull": false,
+   "own_last": 5.70899,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2002"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.103817,
+   "err_own": 0.199841,
+   "in_hull": false,
+   "interp": 5.748,
+   "listing_net": 5.64419,
+   "own_in_hull": false,
+   "own_last": 5.84403,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2003"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.212878,
+   "err_own": 0.071653,
+   "in_hull": false,
+   "interp": 5.92261,
+   "listing_net": 5.70973,
+   "own_in_hull": false,
+   "own_last": 5.78139,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2004"
+  },
+  {
+   "age": 41,
+   "err_interp": 0.151245,
+   "err_own": 0.0799415,
+   "in_hull": false,
+   "interp": 5.75295,
+   "listing_net": 5.9042,
+   "own_in_hull": false,
+   "own_last": 5.98414,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2005"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.0038798,
+   "err_own": 0.109788,
+   "in_hull": true,
+   "interp": 5.86595,
+   "listing_net": 5.86207,
+   "own_in_hull": true,
+   "own_last": 5.75228,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2006"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.036097,
+   "err_own": 0.0463444,
+   "in_hull": false,
+   "interp": 5.75485,
+   "listing_net": 5.79095,
+   "own_in_hull": false,
+   "own_last": 5.7446,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2007"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.269877,
+   "err_own": 0.17845,
+   "in_hull": false,
+   "interp": 5.83603,
+   "listing_net": 5.56615,
+   "own_in_hull": true,
+   "own_last": 5.7446,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2008"
+  },
+  {
+   "age": 56,
+   "err_interp": 0.273488,
+   "err_own": 0.0632605,
+   "in_hull": false,
+   "interp": 5.71723,
+   "listing_net": 5.99072,
+   "own_in_hull": false,
+   "own_last": 5.92746,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2009"
+  },
+  {
+   "age": 85,
+   "err_interp": 0.0112564,
+   "err_own": 0.0317543,
+   "in_hull": true,
+   "interp": 5.74679,
+   "listing_net": 5.73554,
+   "own_in_hull": true,
+   "own_last": 5.70378,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2010"
+  },
+  {
+   "age": 63,
+   "err_interp": 0.0164371,
+   "err_own": 0.198922,
+   "in_hull": true,
+   "interp": 5.74611,
+   "listing_net": 5.72967,
+   "own_in_hull": false,
+   "own_last": 5.53075,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2011"
+  },
+  {
+   "age": 101,
+   "err_interp": 0.0154303,
+   "err_own": 0.00794103,
+   "in_hull": true,
+   "interp": 5.89174,
+   "listing_net": 5.87631,
+   "own_in_hull": true,
+   "own_last": 5.88425,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2013"
+  },
+  {
+   "age": 113,
+   "err_interp": 0.140135,
+   "err_own": 0.224883,
+   "in_hull": false,
+   "interp": 5.9698,
+   "listing_net": 5.82966,
+   "own_in_hull": true,
+   "own_last": 6.05455,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2014"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.15749,
+   "err_own": 0.204205,
+   "in_hull": false,
+   "interp": 5.98557,
+   "listing_net": 5.82808,
+   "own_in_hull": true,
+   "own_last": 6.03229,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2015"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.0387712,
+   "err_own": 0.01286,
+   "in_hull": true,
+   "interp": 5.90493,
+   "listing_net": 5.86616,
+   "own_in_hull": true,
+   "own_last": 5.87902,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2016"
+  },
+  {
+   "age": 135,
+   "err_interp": 0.0177651,
+   "err_own": 0.0784491,
+   "in_hull": true,
+   "interp": 5.85072,
+   "listing_net": 5.83296,
+   "own_in_hull": false,
+   "own_last": 5.75451,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2017"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.0470107,
+   "err_own": 0.00171978,
+   "in_hull": false,
+   "interp": 5.73612,
+   "listing_net": 5.78313,
+   "own_in_hull": false,
+   "own_last": 5.78485,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2018"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.0933716,
+   "err_own": 0.0307888,
+   "in_hull": false,
+   "interp": 5.78615,
+   "listing_net": 5.69277,
+   "own_in_hull": false,
+   "own_last": 5.72356,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2019"
+  },
+  {
+   "age": 179,
+   "err_interp": 0.0419445,
+   "err_own": 0.108959,
+   "in_hull": false,
+   "interp": 5.67599,
+   "listing_net": 5.63404,
+   "own_in_hull": false,
+   "own_last": 5.743,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2020"
+  },
+  {
+   "age": 205,
+   "err_interp": 0.273813,
+   "err_own": 0.0163901,
+   "in_hull": false,
+   "interp": 5.92445,
+   "listing_net": 5.65064,
+   "own_in_hull": false,
+   "own_last": 5.63425,
+   "unit": "chateau-dyquem-premier-cru-superieur-sauternes|2021"
+  },
+  {
+   "age": 200,
+   "err_interp": 0.256689,
+   "err_own": 0.35288,
+   "in_hull": false,
+   "interp": 3.64123,
+   "listing_net": 3.89792,
+   "own_in_hull": true,
+   "own_last": 3.54504,
+   "unit": "chateau-filhot-2eme-cru-classe-sauternes|1988"
+  },
+  {
+   "age": 3,
+   "err_interp": 0.312661,
+   "err_own": 0.321483,
+   "in_hull": false,
+   "interp": 3.54875,
+   "listing_net": 3.86141,
+   "own_in_hull": false,
+   "own_last": 3.53992,
+   "unit": "chateau-filhot-2eme-cru-classe-sauternes|1990"
+  },
+  {
+   "age": 1285,
+   "err_interp": 0.0883691,
+   "err_own": 0.0444269,
+   "in_hull": false,
+   "interp": 3.56678,
+   "listing_net": 3.47841,
+   "own_in_hull": false,
+   "own_last": 3.43399,
+   "unit": "chateau-filhot-2eme-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 220,
+   "err_interp": 0.282567,
+   "err_own": 0.834466,
+   "in_hull": false,
+   "interp": 5.40045,
+   "listing_net": 5.68302,
+   "own_in_hull": false,
+   "own_last": 4.84855,
+   "unit": "chateau-gilette-creme-de-tete-sauternes|1990"
+  },
+  {
+   "age": 111,
+   "err_interp": 0.365198,
+   "err_own": 0.044886,
+   "in_hull": true,
+   "interp": 4.38075,
+   "listing_net": 4.01556,
+   "own_in_hull": true,
+   "own_last": 4.06044,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|1988"
+  },
+  {
+   "age": 314,
+   "err_interp": 0.111155,
+   "err_own": 0.466032,
+   "in_hull": false,
+   "interp": 4.26024,
+   "listing_net": 4.14909,
+   "own_in_hull": false,
+   "own_last": 4.61512,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|1989"
+  },
+  {
+   "age": 143,
+   "err_interp": 0.241478,
+   "err_own": 0.136237,
+   "in_hull": true,
+   "interp": 4.50835,
+   "listing_net": 4.26687,
+   "own_in_hull": true,
+   "own_last": 4.13063,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|1990"
+  },
+  {
+   "age": 165,
+   "err_interp": 0.427408,
+   "err_own": 0.163906,
+   "in_hull": false,
+   "interp": 4.48119,
+   "listing_net": 4.05378,
+   "own_in_hull": false,
+   "own_last": 3.88987,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|1996"
+  },
+  {
+   "age": 255,
+   "err_interp": 0.377259,
+   "err_own": 0.345018,
+   "in_hull": false,
+   "interp": 4.46785,
+   "listing_net": 4.09059,
+   "own_in_hull": false,
+   "own_last": 3.74557,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|1998"
+  },
+  {
+   "age": 1264,
+   "err_interp": 0.281524,
+   "err_own": 0.0974624,
+   "in_hull": true,
+   "interp": 4.16318,
+   "listing_net": 3.88165,
+   "own_in_hull": true,
+   "own_last": 3.78419,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2000"
+  },
+  {
+   "age": 71,
+   "err_interp": 0.0704657,
+   "err_own": 0.423922,
+   "in_hull": true,
+   "interp": 3.91877,
+   "listing_net": 3.98924,
+   "own_in_hull": false,
+   "own_last": 4.41316,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 155,
+   "err_interp": 0.348282,
+   "err_own": 0.145927,
+   "in_hull": false,
+   "interp": 4.20969,
+   "listing_net": 3.86141,
+   "own_in_hull": false,
+   "own_last": 4.00733,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2003"
+  },
+  {
+   "age": 13,
+   "err_interp": 0.0631946,
+   "err_own": 0.106262,
+   "in_hull": false,
+   "interp": 4.01161,
+   "listing_net": 3.94842,
+   "own_in_hull": false,
+   "own_last": 4.05468,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2005"
+  },
+  {
+   "age": 104,
+   "err_interp": 0.105197,
+   "err_own": 0.0687372,
+   "in_hull": true,
+   "interp": 3.81505,
+   "listing_net": 3.92025,
+   "own_in_hull": true,
+   "own_last": 3.98898,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2007"
+  },
+  {
+   "age": 113,
+   "err_interp": 0.235531,
+   "err_own": 0.11233,
+   "in_hull": false,
+   "interp": 4.12668,
+   "listing_net": 3.89115,
+   "own_in_hull": true,
+   "own_last": 4.00348,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2009"
+  },
+  {
+   "age": 169,
+   "err_interp": 0.218641,
+   "err_own": 0.429435,
+   "in_hull": false,
+   "interp": 3.54746,
+   "listing_net": 3.7661,
+   "own_in_hull": false,
+   "own_last": 4.19553,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2010"
+  },
+  {
+   "age": 146,
+   "err_interp": 0.389078,
+   "err_own": 0.324729,
+   "in_hull": false,
+   "interp": 4.22602,
+   "listing_net": 3.83694,
+   "own_in_hull": false,
+   "own_last": 3.51221,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2011"
+  },
+  {
+   "age": 995,
+   "err_interp": 0.0598235,
+   "err_own": 0.180007,
+   "in_hull": true,
+   "interp": 4.04906,
+   "listing_net": 3.98924,
+   "own_in_hull": true,
+   "own_last": 4.16925,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2013"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.185161,
+   "err_own": 0.551948,
+   "in_hull": false,
+   "interp": 3.58038,
+   "listing_net": 3.76554,
+   "own_in_hull": false,
+   "own_last": 4.31749,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2014"
+  },
+  {
+   "age": 617,
+   "err_interp": 0.415422,
+   "err_own": 0.103465,
+   "in_hull": true,
+   "interp": 4.09451,
+   "listing_net": 3.67908,
+   "own_in_hull": true,
+   "own_last": 3.78255,
+   "unit": "chateau-guiraud-premier-cru-classe-sauternes|2015"
+  },
+  {
+   "age": 1505,
+   "err_interp": 1.56623,
+   "err_own": 0.346731,
+   "in_hull": true,
+   "interp": 2.71069,
+   "listing_net": 4.27692,
+   "own_in_hull": true,
+   "own_last": 3.93019,
+   "unit": "chateau-la-tour-blanche-premier-cru-classe-sauternes|1997"
+  },
+  {
+   "age": 4,
+   "err_interp": 0.950188,
+   "err_own": 0.22355,
+   "in_hull": false,
+   "interp": 3.31668,
+   "listing_net": 4.26687,
+   "own_in_hull": false,
+   "own_last": 4.49042,
+   "unit": "chateau-la-tour-blanche-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 13,
+   "err_interp": 0.0611901,
+   "err_own": 0.157259,
+   "in_hull": true,
+   "interp": 4.08965,
+   "listing_net": 4.02846,
+   "own_in_hull": true,
+   "own_last": 3.8712,
+   "unit": "chateau-la-tour-blanche-premier-cru-classe-sauternes|2003"
+  },
+  {
+   "age": 5,
+   "err_interp": 0.0656893,
+   "err_own": 0.157259,
+   "in_hull": false,
+   "interp": 3.91183,
+   "listing_net": 3.84614,
+   "own_in_hull": false,
+   "own_last": 3.68888,
+   "unit": "chateau-la-tour-blanche-premier-cru-classe-sauternes|2005"
+  },
+  {
+   "age": 102,
+   "err_interp": 0.0242776,
+   "err_own": 0.0433151,
+   "in_hull": true,
+   "interp": 4.11338,
+   "listing_net": 4.13766,
+   "own_in_hull": true,
+   "own_last": 4.09434,
+   "unit": "chateau-la-tour-blanche-premier-cru-classe-sauternes|2009"
+  },
+  {
+   "age": 362,
+   "err_interp": 0.30619,
+   "err_own": 0.232318,
+   "in_hull": false,
+   "interp": 4.0306,
+   "listing_net": 3.72441,
+   "own_in_hull": false,
+   "own_last": 3.95672,
+   "unit": "chateau-la-tour-blanche-premier-cru-classe-sauternes|2010"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.050473,
+   "err_own": 0.0144743,
+   "in_hull": true,
+   "interp": 4.19684,
+   "listing_net": 4.24731,
+   "own_in_hull": true,
+   "own_last": 4.26179,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|1988"
+  },
+  {
+   "age": 334,
+   "err_interp": 0.141847,
+   "err_own": 0.0664045,
+   "in_hull": false,
+   "interp": 4.55853,
+   "listing_net": 4.41668,
+   "own_in_hull": false,
+   "own_last": 4.48309,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|1989"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.334969,
+   "err_own": 0.363755,
+   "in_hull": false,
+   "interp": 4.42556,
+   "listing_net": 4.09059,
+   "own_in_hull": true,
+   "own_last": 4.45435,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|1990"
+  },
+  {
+   "age": 995,
+   "err_interp": 0.262662,
+   "err_own": 0.102289,
+   "in_hull": false,
+   "interp": 4.03702,
+   "listing_net": 3.77436,
+   "own_in_hull": false,
+   "own_last": 3.67207,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|1997"
+  },
+  {
+   "age": 71,
+   "err_interp": 0.595373,
+   "err_own": 0.366051,
+   "in_hull": true,
+   "interp": 3.65622,
+   "listing_net": 4.25159,
+   "own_in_hull": true,
+   "own_last": 3.88554,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 56,
+   "err_interp": 0.0575231,
+   "err_own": 0.148676,
+   "in_hull": false,
+   "interp": 3.78972,
+   "listing_net": 3.73219,
+   "own_in_hull": false,
+   "own_last": 3.58352,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2002"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.407639,
+   "err_own": 0.416496,
+   "in_hull": false,
+   "interp": 3.77006,
+   "listing_net": 4.1777,
+   "own_in_hull": true,
+   "own_last": 3.7612,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2003"
+  },
+  {
+   "age": 328,
+   "err_interp": 0.0582657,
+   "err_own": 0.152595,
+   "in_hull": true,
+   "interp": 4.02048,
+   "listing_net": 3.96221,
+   "own_in_hull": true,
+   "own_last": 3.80962,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2005"
+  },
+  {
+   "age": 1925,
+   "err_interp": 0.374984,
+   "err_own": 0.114336,
+   "in_hull": false,
+   "interp": 4.21144,
+   "listing_net": 3.83646,
+   "own_in_hull": false,
+   "own_last": 3.72212,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2006"
+  },
+  {
+   "age": 301,
+   "err_interp": 0.422524,
+   "err_own": 0.513657,
+   "in_hull": false,
+   "interp": 4.18862,
+   "listing_net": 3.7661,
+   "own_in_hull": false,
+   "own_last": 4.27975,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2007"
+  },
+  {
+   "age": 156,
+   "err_interp": 0.173003,
+   "err_own": 0.125712,
+   "in_hull": true,
+   "interp": 3.9698,
+   "listing_net": 3.7968,
+   "own_in_hull": true,
+   "own_last": 3.92251,
+   "unit": "chateau-lafaurie-peyraguey-premier-cru-classe-sauternes|2009"
+  },
+  {
+   "age": 1474,
+   "err_interp": 0.929569,
+   "err_own": 1.67862,
+   "in_hull": false,
+   "interp": 3.96793,
+   "listing_net": 4.8975,
+   "own_in_hull": false,
+   "own_last": 3.21888,
+   "unit": "chateau-rabaud-promis-premier-cru-classe-sauternes|1997"
+  },
+  {
+   "age": 71,
+   "err_interp": 0.585736,
+   "err_own": 0.00102944,
+   "in_hull": true,
+   "interp": 3.32732,
+   "listing_net": 3.91305,
+   "own_in_hull": true,
+   "own_last": 3.91202,
+   "unit": "chateau-rabaud-promis-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 352,
+   "err_interp": 0.222114,
+   "err_own": 0.184079,
+   "in_hull": false,
+   "interp": 3.88427,
+   "listing_net": 4.10638,
+   "own_in_hull": false,
+   "own_last": 4.29046,
+   "unit": "chateau-raymond-lafon-sauternes|1990"
+  },
+  {
+   "age": 2405,
+   "err_interp": 0.611175,
+   "err_own": 0.910126,
+   "in_hull": false,
+   "interp": 3.29468,
+   "listing_net": 3.90586,
+   "own_in_hull": false,
+   "own_last": 2.99573,
+   "unit": "chateau-raymond-lafon-sauternes|1995"
+  },
+  {
+   "age": 1320,
+   "err_interp": 0.194503,
+   "err_own": 0.16577,
+   "in_hull": true,
+   "interp": 3.94379,
+   "listing_net": 3.74929,
+   "own_in_hull": true,
+   "own_last": 3.58352,
+   "unit": "chateau-raymond-lafon-sauternes|1998"
+  },
+  {
+   "age": 1149,
+   "err_interp": 0.791128,
+   "err_own": 0.194434,
+   "in_hull": false,
+   "interp": 3.2437,
+   "listing_net": 4.03483,
+   "own_in_hull": false,
+   "own_last": 4.22926,
+   "unit": "chateau-raymond-lafon-sauternes|2001"
+  },
+  {
+   "age": 571,
+   "err_interp": 0.610898,
+   "err_own": 0.107787,
+   "in_hull": false,
+   "interp": 3.30935,
+   "listing_net": 3.92025,
+   "own_in_hull": false,
+   "own_last": 3.81246,
+   "unit": "chateau-raymond-lafon-sauternes|2003"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.199682,
+   "err_own": 0.271264,
+   "in_hull": false,
+   "interp": 3.4794,
+   "listing_net": 3.67908,
+   "own_in_hull": true,
+   "own_last": 3.40782,
+   "unit": "chateau-raymond-lafon-sauternes|2006"
+  },
+  {
+   "age": 60,
+   "err_interp": 0.531757,
+   "err_own": 0.580116,
+   "in_hull": false,
+   "interp": 3.57081,
+   "listing_net": 4.10257,
+   "own_in_hull": true,
+   "own_last": 3.52245,
+   "unit": "chateau-raymond-lafon-sauternes|2007"
+  },
+  {
+   "age": 239,
+   "err_interp": 0.379762,
+   "err_own": 0.0180201,
+   "in_hull": false,
+   "interp": 3.35184,
+   "listing_net": 3.7316,
+   "own_in_hull": false,
+   "own_last": 3.74962,
+   "unit": "chateau-raymond-lafon-sauternes|2009"
+  },
+  {
+   "age": 25,
+   "err_interp": 0.184316,
+   "err_own": 0.144781,
+   "in_hull": true,
+   "interp": 4.23237,
+   "listing_net": 4.41668,
+   "own_in_hull": false,
+   "own_last": 4.56146,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1986"
+  },
+  {
+   "age": 3,
+   "err_interp": 0.0318581,
+   "err_own": 0.106598,
+   "in_hull": false,
+   "interp": 4.53773,
+   "listing_net": 4.56959,
+   "own_in_hull": false,
+   "own_last": 4.46299,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1988"
+  },
+  {
+   "age": 8,
+   "err_interp": 0.11941,
+   "err_own": 0.0511585,
+   "in_hull": false,
+   "interp": 4.45762,
+   "listing_net": 4.57703,
+   "own_in_hull": false,
+   "own_last": 4.52587,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1989"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.130671,
+   "err_own": 0.183963,
+   "in_hull": false,
+   "interp": 4.40759,
+   "listing_net": 4.27692,
+   "own_in_hull": true,
+   "own_last": 4.46088,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1990"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.470749,
+   "err_own": 0.268675,
+   "in_hull": false,
+   "interp": 3.91053,
+   "listing_net": 4.38128,
+   "own_in_hull": true,
+   "own_last": 4.11261,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1995"
+  },
+  {
+   "age": 158,
+   "err_interp": 0.049989,
+   "err_own": 0.202366,
+   "in_hull": true,
+   "interp": 4.25969,
+   "listing_net": 4.2097,
+   "own_in_hull": false,
+   "own_last": 4.00733,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1996"
+  },
+  {
+   "age": 176,
+   "err_interp": 0.77207,
+   "err_own": 0.0232233,
+   "in_hull": false,
+   "interp": 3.63948,
+   "listing_net": 4.41155,
+   "own_in_hull": false,
+   "own_last": 4.43478,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1997"
+  },
+  {
+   "age": 12,
+   "err_interp": 0.47206,
+   "err_own": 0.031605,
+   "in_hull": true,
+   "interp": 3.91819,
+   "listing_net": 4.39025,
+   "own_in_hull": true,
+   "own_last": 4.42186,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|1999"
+  },
+  {
+   "age": 773,
+   "err_interp": 0.121841,
+   "err_own": 0.189546,
+   "in_hull": true,
+   "interp": 4.62508,
+   "listing_net": 4.74693,
+   "own_in_hull": true,
+   "own_last": 4.55738,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2000"
+  },
+  {
+   "age": 25,
+   "err_interp": 0.613744,
+   "err_own": 0.281365,
+   "in_hull": false,
+   "interp": 3.9332,
+   "listing_net": 4.54695,
+   "own_in_hull": false,
+   "own_last": 4.82831,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 123,
+   "err_interp": 0.441893,
+   "err_own": 0.313605,
+   "in_hull": false,
+   "interp": 4.44438,
+   "listing_net": 4.00248,
+   "own_in_hull": false,
+   "own_last": 3.68888,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2002"
+  },
+  {
+   "age": 34,
+   "err_interp": 0.198509,
+   "err_own": 0.0421254,
+   "in_hull": true,
+   "interp": 3.90406,
+   "listing_net": 4.10257,
+   "own_in_hull": true,
+   "own_last": 4.06044,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2003"
+  },
+  {
+   "age": 1204,
+   "err_interp": 0.00691949,
+   "err_own": 1.95474,
+   "in_hull": true,
+   "interp": 4.19743,
+   "listing_net": 4.20435,
+   "own_in_hull": false,
+   "own_last": 6.1591,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2004"
+  },
+  {
+   "age": 3,
+   "err_interp": 0.0971418,
+   "err_own": 0.231852,
+   "in_hull": false,
+   "interp": 4.00543,
+   "listing_net": 4.10257,
+   "own_in_hull": false,
+   "own_last": 4.33442,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2005"
+  },
+  {
+   "age": 525,
+   "err_interp": 0.258563,
+   "err_own": 2.77159,
+   "in_hull": false,
+   "interp": 4.14242,
+   "listing_net": 3.88385,
+   "own_in_hull": false,
+   "own_last": 6.65544,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2006"
+  },
+  {
+   "age": 21,
+   "err_interp": 0.0394605,
+   "err_own": 0.00208899,
+   "in_hull": true,
+   "interp": 3.90886,
+   "listing_net": 3.94832,
+   "own_in_hull": true,
+   "own_last": 3.95041,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2007"
+  },
+  {
+   "age": 320,
+   "err_interp": 0.11802,
+   "err_own": 0.209777,
+   "in_hull": true,
+   "interp": 3.78784,
+   "listing_net": 3.90586,
+   "own_in_hull": true,
+   "own_last": 3.69608,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2008"
+  },
+  {
+   "age": 85,
+   "err_interp": 0.651169,
+   "err_own": 0.535122,
+   "in_hull": false,
+   "interp": 3.50922,
+   "listing_net": 4.16039,
+   "own_in_hull": true,
+   "own_last": 3.62527,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2009"
+  },
+  {
+   "age": 29,
+   "err_interp": 0.446728,
+   "err_own": 0.949037,
+   "in_hull": false,
+   "interp": 3.6378,
+   "listing_net": 4.08453,
+   "own_in_hull": false,
+   "own_last": 3.13549,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2011"
+  },
+  {
+   "age": 71,
+   "err_interp": 0.302114,
+   "err_own": 0.298758,
+   "in_hull": false,
+   "interp": 3.72635,
+   "listing_net": 4.02846,
+   "own_in_hull": true,
+   "own_last": 3.7297,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2014"
+  },
+  {
+   "age": 85,
+   "err_interp": 0.0650817,
+   "err_own": 0.0618915,
+   "in_hull": true,
+   "interp": 3.92649,
+   "listing_net": 3.86141,
+   "own_in_hull": true,
+   "own_last": 3.9233,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2015"
+  },
+  {
+   "age": 165,
+   "err_interp": 0.0137929,
+   "err_own": 0.0419938,
+   "in_hull": true,
+   "interp": 3.96874,
+   "listing_net": 3.98253,
+   "own_in_hull": true,
+   "own_last": 3.94053,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2016"
+  },
+  {
+   "age": 53,
+   "err_interp": 0.0619334,
+   "err_own": 0.0257432,
+   "in_hull": true,
+   "interp": 4.10185,
+   "listing_net": 4.03992,
+   "own_in_hull": true,
+   "own_last": 4.01417,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2017"
+  },
+  {
+   "age": 137,
+   "err_interp": 0.184247,
+   "err_own": 0.284137,
+   "in_hull": true,
+   "interp": 3.90744,
+   "listing_net": 3.7232,
+   "own_in_hull": true,
+   "own_last": 4.00733,
+   "unit": "chateau-rieussec-premier-cru-classe-sauternes|2018"
+  },
+  {
+   "age": 791,
+   "err_interp": 0.14611,
+   "err_own": 0.242307,
+   "in_hull": false,
+   "interp": 4.26544,
+   "listing_net": 4.41155,
+   "own_in_hull": false,
+   "own_last": 4.16925,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|1989"
+  },
+  {
+   "age": 78,
+   "err_interp": 0.0548272,
+   "err_own": 0.106199,
+   "in_hull": true,
+   "interp": 4.28046,
+   "listing_net": 4.22563,
+   "own_in_hull": true,
+   "own_last": 4.33183,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|1990"
+  },
+  {
+   "age": 198,
+   "err_interp": 0.178103,
+   "err_own": 0.173396,
+   "in_hull": false,
+   "interp": 3.93282,
+   "listing_net": 3.75472,
+   "own_in_hull": true,
+   "own_last": 3.92811,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|1995"
+  },
+  {
+   "age": 246,
+   "err_interp": 0.244135,
+   "err_own": 0.499718,
+   "in_hull": false,
+   "interp": 4.13715,
+   "listing_net": 4.38128,
+   "own_in_hull": false,
+   "own_last": 3.88156,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|1996"
+  },
+  {
+   "age": 2307,
+   "err_interp": 0.201164,
+   "err_own": 0.361384,
+   "in_hull": true,
+   "interp": 4.43341,
+   "listing_net": 4.63457,
+   "own_in_hull": true,
+   "own_last": 4.27319,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2000"
+  },
+  {
+   "age": 13,
+   "err_interp": 0.621327,
+   "err_own": 0.145665,
+   "in_hull": false,
+   "interp": 3.9557,
+   "listing_net": 4.57703,
+   "own_in_hull": false,
+   "own_last": 4.72269,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2001"
+  },
+  {
+   "age": 74,
+   "err_interp": 0.152616,
+   "err_own": 0.198901,
+   "in_hull": false,
+   "interp": 4.05837,
+   "listing_net": 3.90575,
+   "own_in_hull": true,
+   "own_last": 4.10465,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2003"
+  },
+  {
+   "age": 995,
+   "err_interp": 0.42174,
+   "err_own": 0.027944,
+   "in_hull": false,
+   "interp": 4.22786,
+   "listing_net": 3.80612,
+   "own_in_hull": false,
+   "own_last": 3.83406,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2004"
+  },
+  {
+   "age": 57,
+   "err_interp": 0.163543,
+   "err_own": 0.227298,
+   "in_hull": true,
+   "interp": 3.87766,
+   "listing_net": 4.0412,
+   "own_in_hull": false,
+   "own_last": 4.2685,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2005"
+  },
+  {
+   "age": 757,
+   "err_interp": 0.0250431,
+   "err_own": 0.170913,
+   "in_hull": true,
+   "interp": 4.00086,
+   "listing_net": 3.97582,
+   "own_in_hull": true,
+   "own_last": 3.8049,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2006"
+  },
+  {
+   "age": 88,
+   "err_interp": 0.568179,
+   "err_own": 0.115438,
+   "in_hull": false,
+   "interp": 4.33427,
+   "listing_net": 3.7661,
+   "own_in_hull": false,
+   "own_last": 3.65066,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2007"
+  },
+  {
+   "age": 3,
+   "err_interp": 0.454292,
+   "err_own": 0.0405664,
+   "in_hull": false,
+   "interp": 3.82263,
+   "listing_net": 4.27692,
+   "own_in_hull": false,
+   "own_last": 4.31749,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2009"
+  },
+  {
+   "age": 130,
+   "err_interp": 0.136242,
+   "err_own": 0.0116309,
+   "in_hull": true,
+   "interp": 4.05649,
+   "listing_net": 3.92025,
+   "own_in_hull": true,
+   "own_last": 3.90862,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2010"
+  },
+  {
+   "age": 109,
+   "err_interp": 0.131988,
+   "err_own": 0.135216,
+   "in_hull": true,
+   "interp": 4.06642,
+   "listing_net": 3.93443,
+   "own_in_hull": true,
+   "own_last": 4.06965,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2011"
+  },
+  {
+   "age": 327,
+   "err_interp": 0.23935,
+   "err_own": 0.264719,
+   "in_hull": true,
+   "interp": 4.08537,
+   "listing_net": 3.84602,
+   "own_in_hull": true,
+   "own_last": 4.11074,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2013"
+  },
+  {
+   "age": 29,
+   "err_interp": 0.26797,
+   "err_own": 0.227827,
+   "in_hull": false,
+   "interp": 4.27045,
+   "listing_net": 4.00248,
+   "own_in_hull": true,
+   "own_last": 4.23031,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2014"
+  },
+  {
+   "age": 207,
+   "err_interp": 0.0556102,
+   "err_own": 0.143326,
+   "in_hull": true,
+   "interp": 4.07117,
+   "listing_net": 4.01556,
+   "own_in_hull": true,
+   "own_last": 4.15888,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2015"
+  },
+  {
+   "age": 85,
+   "err_interp": 0.0703699,
+   "err_own": 0.00616492,
+   "in_hull": true,
+   "interp": 3.97623,
+   "listing_net": 3.90586,
+   "own_in_hull": true,
+   "own_last": 3.91202,
+   "unit": "chateau-suduiraut-premier-cru-classe-sauternes|2016"
+  },
+  {
+   "age": 113,
+   "err_interp": 0.753236,
+   "err_own": 0.643003,
+   "in_hull": false,
+   "interp": 4.9706,
+   "listing_net": 5.72384,
+   "own_in_hull": false,
+   "own_last": 5.08084,
+   "unit": "cuvee-madame-chateau-coutet-barsac|1988"
+  },
+  {
+   "age": 707,
+   "err_interp": 0.170699,
+   "err_own": 4.16122e-05,
+   "in_hull": false,
+   "interp": 5.01851,
+   "listing_net": 5.1892,
+   "own_in_hull": false,
+   "own_last": 5.18925,
+   "unit": "cuvee-madame-chateau-coutet-barsac|1995"
+  },
+  {
+   "age": 92,
+   "err_interp": 0.157795,
+   "err_own": 0.12444,
+   "in_hull": true,
+   "interp": 5.64735,
+   "listing_net": 5.80515,
+   "own_in_hull": true,
+   "own_last": 5.92959,
+   "unit": "lextravagant-de-doisy-daene-sauternes|2003"
+  },
+  {
+   "age": 176,
+   "err_interp": 0.0868239,
+   "err_own": 0.107848,
+   "in_hull": true,
+   "interp": 5.36805,
+   "listing_net": 5.28122,
+   "own_in_hull": true,
+   "own_last": 5.38907,
+   "unit": "lextravagant-de-doisy-daene-sauternes|2006"
+  },
+  {
+   "age": 14,
+   "err_interp": 0.772733,
+   "err_own": 0.763759,
+   "in_hull": false,
+   "interp": 5.47492,
+   "listing_net": 4.70219,
+   "own_in_hull": true,
+   "own_last": 5.46595,
+   "unit": "lextravagant-de-doisy-daene-sauternes|2007"
+  },
+  {
+   "age": 129,
+   "err_interp": 0.147468,
+   "err_own": 0.190945,
+   "in_hull": true,
+   "interp": 5.34068,
+   "listing_net": 5.19321,
+   "own_in_hull": true,
+   "own_last": 5.00227,
+   "unit": "lextravagant-de-doisy-daene-sauternes|2010"
+  },
+  {
+   "age": 25,
+   "err_interp": 0.362333,
+   "err_own": 0.131284,
+   "in_hull": false,
+   "interp": 2.947,
+   "listing_net": 3.30934,
+   "own_in_hull": true,
+   "own_last": 3.17805,
+   "unit": "lions-de-suduiraut-sauternes|2016"
+  }
+ ],
+ "scan": [
+  {
+   "cfg": {
+    "clean": 0.0,
+    "fresh": 365,
+    "sizes": "bottle"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.186535,
+     "median_err_own": 0.1703,
+     "share_interp_closer": 0.464968,
+     "share_listing_in_hull": 0.382166,
+     "share_own_in_hull": 0.414013,
+     "units": 157
+    },
+    "stale": {
+     "median_err_interp": 0.202204,
+     "median_err_own": 0.172288,
+     "share_interp_closer": 0.631579,
+     "share_listing_in_hull": 0.421053,
+     "share_own_in_hull": 0.368421,
+     "units": 19
+    },
+    "very stale": {
+     "median_err_interp": 0.373609,
+     "median_err_own": 0.362759,
+     "share_interp_closer": 0.478261,
+     "share_listing_in_hull": 0.478261,
+     "share_own_in_hull": 0.391304,
+     "units": 23
+    }
+   },
+   "markup": 0.326874,
+   "markup_units": 186,
+   "pooled_stale": {
+    "interp_closer": 23,
+    "sign_p_one_sided": 0.321984,
+    "units": 42
+   },
+   "units": 199
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "fresh": 365,
+    "sizes": "bottle"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.198443,
+     "median_err_own": 0.17189,
+     "share_interp_closer": 0.477707,
+     "share_listing_in_hull": 0.375796,
+     "share_own_in_hull": 0.433121,
+     "units": 157
+    },
+    "stale": {
+     "median_err_interp": 0.170699,
+     "median_err_own": 0.170913,
+     "share_interp_closer": 0.631579,
+     "share_listing_in_hull": 0.421053,
+     "share_own_in_hull": 0.421053,
+     "units": 19
+    },
+    "very stale": {
+     "median_err_interp": 0.374984,
+     "median_err_own": 0.361384,
+     "share_interp_closer": 0.478261,
+     "share_listing_in_hull": 0.478261,
+     "share_own_in_hull": 0.434783,
+     "units": 23
+    }
+   },
+   "markup": 0.328248,
+   "markup_units": 186,
+   "pooled_stale": {
+    "interp_closer": 23,
+    "sign_p_one_sided": 0.321984,
+    "units": 42
+   },
+   "units": 199
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "fresh": 730,
+    "sizes": "bottle"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.214764,
+     "median_err_own": 0.145758,
+     "share_interp_closer": 0.45625,
+     "share_listing_in_hull": 0.35,
+     "share_own_in_hull": 0.325,
+     "units": 160
+    },
+    "stale": {
+     "median_err_interp": 0.111551,
+     "median_err_own": 0.167091,
+     "share_interp_closer": 0.65,
+     "share_listing_in_hull": 0.55,
+     "share_own_in_hull": 0.5,
+     "units": 20
+    },
+    "very stale": {
+     "median_err_interp": 0.346136,
+     "median_err_own": 0.397512,
+     "share_interp_closer": 0.541667,
+     "share_listing_in_hull": 0.458333,
+     "share_own_in_hull": 0.333333,
+     "units": 24
+    }
+   },
+   "markup": 0.339182,
+   "markup_units": 200,
+   "pooled_stale": {
+    "interp_closer": 26,
+    "sign_p_one_sided": 0.145608,
+    "units": 44
+   },
+   "units": 204
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "fresh": 730,
+    "sizes": "bottle"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.208042,
+     "median_err_own": 0.145485,
+     "share_interp_closer": 0.4625,
+     "share_listing_in_hull": 0.34375,
+     "share_own_in_hull": 0.3125,
+     "units": 160
+    },
+    "stale": {
+     "median_err_interp": 0.105011,
+     "median_err_own": 0.160369,
+     "share_interp_closer": 0.65,
+     "share_listing_in_hull": 0.55,
+     "share_own_in_hull": 0.5,
+     "units": 20
+    },
+    "very stale": {
+     "median_err_interp": 0.349143,
+     "median_err_own": 0.393993,
+     "share_interp_closer": 0.541667,
+     "share_listing_in_hull": 0.5,
+     "share_own_in_hull": 0.333333,
+     "units": 24
+    }
+   },
+   "markup": 0.345904,
+   "markup_units": 200,
+   "pooled_stale": {
+    "interp_closer": 26,
+    "sign_p_one_sided": 0.145608,
+    "units": 44
+   },
+   "units": 204
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "fresh": 365,
+    "sizes": "all"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.240409,
+     "median_err_own": 0.203179,
+     "share_interp_closer": 0.483333,
+     "share_listing_in_hull": 0.361111,
+     "share_own_in_hull": 0.388889,
+     "units": 180
+    },
+    "stale": {
+     "median_err_interp": 0.211353,
+     "median_err_own": 0.201858,
+     "share_interp_closer": 0.571429,
+     "share_listing_in_hull": 0.464286,
+     "share_own_in_hull": 0.464286,
+     "units": 28
+    },
+    "very stale": {
+     "median_err_interp": 0.433223,
+     "median_err_own": 0.36353,
+     "share_interp_closer": 0.538462,
+     "share_listing_in_hull": 0.384615,
+     "share_own_in_hull": 0.384615,
+     "units": 26
+    }
+   },
+   "markup": 0.395941,
+   "markup_units": 215,
+   "pooled_stale": {
+    "interp_closer": 30,
+    "sign_p_one_sided": 0.248309,
+    "units": 54
+   },
+   "units": 234
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "fresh": 365,
+    "sizes": "all"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.236001,
+     "median_err_own": 0.201047,
+     "share_interp_closer": 0.483333,
+     "share_listing_in_hull": 0.377778,
+     "share_own_in_hull": 0.411111,
+     "units": 180
+    },
+    "stale": {
+     "median_err_interp": 0.198134,
+     "median_err_own": 0.203166,
+     "share_interp_closer": 0.607143,
+     "share_listing_in_hull": 0.5,
+     "share_own_in_hull": 0.5,
+     "units": 28
+    },
+    "very stale": {
+     "median_err_interp": 0.465884,
+     "median_err_own": 0.356686,
+     "share_interp_closer": 0.538462,
+     "share_listing_in_hull": 0.384615,
+     "share_own_in_hull": 0.423077,
+     "units": 26
+    }
+   },
+   "markup": 0.402784,
+   "markup_units": 215,
+   "pooled_stale": {
+    "interp_closer": 31,
+    "sign_p_one_sided": 0.170445,
+    "units": 54
+   },
+   "units": 234
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "fresh": 730,
+    "sizes": "all"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.23752,
+     "median_err_own": 0.165196,
+     "share_interp_closer": 0.448649,
+     "share_listing_in_hull": 0.362162,
+     "share_own_in_hull": 0.297297,
+     "units": 185
+    },
+    "stale": {
+     "median_err_interp": 0.185926,
+     "median_err_own": 0.16658,
+     "share_interp_closer": 0.689655,
+     "share_listing_in_hull": 0.655172,
+     "share_own_in_hull": 0.517241,
+     "units": 29
+    },
+    "very stale": {
+     "median_err_interp": 0.360019,
+     "median_err_own": 0.360041,
+     "share_interp_closer": 0.551724,
+     "share_listing_in_hull": 0.37931,
+     "share_own_in_hull": 0.344828,
+     "units": 29
+    }
+   },
+   "markup": 0.400372,
+   "markup_units": 234,
+   "pooled_stale": {
+    "interp_closer": 36,
+    "sign_p_one_sided": 0.0434744,
+    "units": 58
+   },
+   "units": 243
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "fresh": 730,
+    "sizes": "all"
+   },
+   "groups": {
+    "fresh": {
+     "median_err_interp": 0.230361,
+     "median_err_own": 0.171657,
+     "share_interp_closer": 0.459459,
+     "share_listing_in_hull": 0.372973,
+     "share_own_in_hull": 0.286486,
+     "units": 185
+    },
+    "stale": {
+     "median_err_interp": 0.178288,
+     "median_err_own": 0.156404,
+     "share_interp_closer": 0.655172,
+     "share_listing_in_hull": 0.655172,
+     "share_own_in_hull": 0.517241,
+     "units": 29
+    },
+    "very stale": {
+     "median_err_interp": 0.364167,
+     "median_err_own": 0.349864,
+     "share_interp_closer": 0.586207,
+     "share_listing_in_hull": 0.37931,
+     "share_own_in_hull": 0.344828,
+     "units": 29
+    }
+   },
+   "markup": 0.410549,
+   "markup_units": 234,
+   "pooled_stale": {
+    "interp_closer": 36,
+    "sign_p_one_sided": 0.0434744,
+    "units": 58
+   },
+   "units": 243
+  }
+ ],
+ "stage": "B126"
+}

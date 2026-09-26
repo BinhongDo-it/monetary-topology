@@ -374,9 +374,16 @@ def main_arm() -> None:
     print(f"\n  damaged-set jaccard, greedy against shuffled, by seed: "
           f"[{', '.join(f'{v:.4f}' for v in js)}]")
 
+    # rule 11f, 2026-09-13: this verdict was a literal True. These are
+    # three-way readings with no threshold, so the flag is not a verdict on
+    # the reading; it says the reading was produced, one value per seed, so
+    # that an arm which quietly returns nothing is not written as read.
+    a26_3_read = (len(js) == len(SEEDS)
+                  and all(len(col(a, "support_close")) == len(SEEDS)
+                          for a in ("off", "shuffled", "greedy")))
     crit = [{
         "name": "A26-3",
-        "passed": True,
+        "passed": a26_3_read,
         "detail": ("three-way read, no threshold. support close by arm: "
                    f"off {[round(v, 4) for v in col('off', 'support_close')]}, "
                    f"shuffled "
@@ -600,7 +607,12 @@ def cross(issuance: bool = True) -> None:
             verdict = ("undecided at this carrier: the second difference does "
                        "not hold one sign across seeds")
     print(f"\n  A26-4 on {key}: {verdict}")
-    crit = [{"name": "A26-4", "passed": True,
+    # rule 11f, 2026-09-13: this verdict was a literal True. These are
+    # three-way readings with no threshold, so the flag is not a verdict on
+    # the reading; it says the reading was produced, one value per seed, so
+    # that an arm which quietly returns nothing is not written as read.
+    a26_4_read = bool(verdict) and (len(v) == len(SEEDS) if readable else not v)
+    crit = [{"name": "A26-4", "passed": a26_4_read,
              "detail": f"{verdict}. Values by seed: "
                        f"{[round(x, 3) for x in v]}"}]
     write_record("cross_nomoney" if not issuance else "cross", {
@@ -721,7 +733,14 @@ def overlap() -> None:
         f"arithmetic, jaccard {min(jac):.4f} to {max(jac):.4f}; the blind cut "
         f"runs {min(blind):.3f} to {max(blind):.3f}. Read against the blind "
         f"column, not against zero")
-    crit = [{"name": "A26-6", "passed": True, "detail": detail}]
+    # rule 11f, 2026-09-13: this verdict was a literal True. These are
+    # three-way readings with no threshold, so the flag is not a verdict on
+    # the reading; it says the reading was produced, one value per seed, so
+    # that an arm which quietly returns nothing is not written as read.
+    a26_6_read = (bool(rows)
+                  and len(ratios) == len(jac) == len(blind) == len(rows)
+                  and {r["seed"] for r in rows} == set(SEEDS))
+    crit = [{"name": "A26-6", "passed": a26_6_read, "detail": detail}]
     print(f"\n  A26-6: {detail}")
     write_record("overlap", {"criteria": crit, "rows": rows,
                              "diagnostic_only": True,
@@ -896,7 +915,11 @@ def cross_queue() -> None:
                    "so the earlier undecidable was not only about saturation")
     print(f"\n  A26-4b at share {deep}: {verdict}")
     write_record("cross_queue", {
-        "criteria": [{"name": "A26-4b", "passed": True, "detail": verdict}],
+        # rule 11f, 2026-09-13, as A26-4: the flag says the second difference
+        # was computed on every seed, not that the reading came out any way.
+        "criteria": [{"name": "A26-4b",
+                      "passed": bool(verdict) and len(v) == len(SEEDS),
+                      "detail": verdict}],
         "rows": [dict(v, key=f"{k[0]}|{k[1]}|{k[2]}") for k, v in runs.items()],
         "interactions": inter, "room": room,
         "diagnostic_only": True,
@@ -1000,7 +1023,10 @@ def split_probe(seeds=None) -> None:
           f"{len(plus)} against {len(minus)} points, a clean separator is "
           f"cheap: this is a list to test, not a result")
     write_record("split", {
-        "criteria": [{"name": "A26-8", "passed": True,
+        # rule 11f, 2026-09-13: the detail counts separators out of properties
+        # tried, so the flag takes both counts instead of asserting True.
+        "criteria": [{"name": "A26-8",
+                      "passed": bool(rows) and bool(keys) and bool(plus) and bool(minus),
                       "detail": (f"seeds {list(seeds)}, cut share {share}. "
                                  f"Signs "
                                  f"{[r['sign'] for r in rows]}. Properties "

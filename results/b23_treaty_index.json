@@ -33,16 +33,16 @@
   {
    "binding": true,
    "country": "Belgium",
-   "gap": 0.25,
+   "gap": 0.15,
    "index_bp": {
-    "1%": 24.795450343301425,
-    "2%": 49.18849071596255,
-    "3%": 73.18890928346272,
-    "5%": 120.0494609682362,
-    "8%": 187.62276455523033
+    "1%": 14.88464675704186,
+    "2%": 29.542118974313826,
+    "3%": 43.977593477699045,
+    "5%": 72.20247973487098,
+    "8%": 112.99555253933465
    },
    "statutory": 30.0,
-   "treaty": 5.0
+   "treaty": 15.0
   },
   {
    "binding": true,
@@ -285,12 +285,12 @@
  ],
  "criteria": [
   {
-   "detail": "16 of 20 binding; at a 3% yield the index runs 11.7 to 73.2 bp, median 34.2",
+   "detail": "16 of 20 binding; at a 3% yield the index runs 11.7 to 58.7 bp, median 34.2",
    "name": "B23-1  the statutory class index is nonzero wherever the two published rates differ, and zero where they do not",
    "passed": true
   },
   {
-   "detail": "11 distinct gaps over 16 countries, against one value on the A+H carrier",
+   "detail": "10 distinct gaps over 16 countries, against one value on the A+H carrier",
    "name": "B23-2  the treatment takes many values, which is what this carrier was opened for",
    "passed": true
   }

@@ -63,6 +63,16 @@ Usage::
 
     python scripts/check_dead_links.py          # exit 1 if anything is unresolvable
     python scripts/check_dead_links.py --list   # also print what was scanned
+    python scripts/check_dead_links.py --root ../topology-fingerprints
+
+**The third line is the one that was missing.** This script rooted itself at the
+repository it lives in, so the other arm was not scanned by it at all: not
+overlooked, structurally out of view. The first run against the other arm was
+not clean, and what it found was already published. A checker that cannot see a
+tree is not guarding that tree, and the fix is a second root rather than a
+second checker. The count is deliberately not written here: it is the size of a
+set that shrinks as the references are repaired, so it would be wrong by the
+next commit. Run it.
 """
 
 from __future__ import annotations
@@ -75,6 +85,25 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+#: Which prefixes name the *other* arm, and which of this arm's own files are
+#: allowed to name absent documents, both depend on which repository is being
+#: scanned. Keyed by directory name so ``--root`` sets them together.
+ARMS = {
+    "monetary-topology": {
+        "external": ("topology-fingerprints/",),
+        "exempt": ("docs/MEASUREMENT.md", "scripts/check_dead_links.py",
+                   "scripts/run_b8_package.py"),
+    },
+    "topology-fingerprints": {
+        "external": ("monetary-topology/",),
+        # The other arm's pitfall ledger, in both renderings, for the same
+        # reason the first arm's is exempt: naming the retired file is the
+        # evidence, and forbidding the name deletes it.
+        "exempt": ("docs/MEASUREMENT_FINGERPRINTS.md",
+                   "docs/MEASUREMENT_FINGERPRINTS.en.md"),
+    },
+}
 
 #: A document reference: a path-shaped token ending in ``.md``. The character
 #: class carries CJK explicitly so a Chinese file name is a candidate and not
@@ -100,11 +129,10 @@ EXEMPT_SOURCES = ("_WHY_ABSENT.md",)
 #:
 #: This file names the pattern it exempts, in a string, which the scanner would
 #: otherwise read as a reference.
-EXEMPT_FILES = ("docs/MEASUREMENT.md", "scripts/check_dead_links.py",
-                # This one holds the moved register's name in a constant and
-                # searches the products for it. It is the guard for that string,
-                # so carrying it is the point rather than the defect.
-                "scripts/run_b8_package.py")
+EXEMPT_FILES = ARMS["monetary-topology"]["exempt"]
+# The third entry above holds the moved register's name in a constant and
+# searches the products for it. It is the guard for that string, so carrying it
+# is the point rather than the defect. ``--root`` replaces this whole tuple.
 
 #: **Moldova's country-code top-level domain is ``.md``.** So a hostname like
 #: ``legis.md`` or ``bnm.md`` is character-for-character the shape of a markdown
@@ -137,6 +165,18 @@ EXTERNAL_HOSTS = ("legis.md", "bnm.md")
 #: result documents inside the net, and those are one of this arm's own
 #: classes of published file, so leaving them unchecked would be a bad trade.
 PRODUCT_LINE = re.compile("[" + chr(34) + chr(39) + "]results[" + chr(34) + chr(39) + "]")
+
+#: A token that begins with an underscore is a fragment, not a name. It is what
+#: the pattern keeps after it stops at a character a filename cannot contain:
+#: the star in a prose glob, ``ri_l1_gate*_results.md``, and the closing brace
+#: in a format string, ``f"f20_null_{ycol}_{meth}_results.md"``. Both were being
+#: reported for the life of this check as documents a reader cannot open, and
+#: both are the opposite of that: one names a whole family that is present, the
+#: other names a path the program writes.
+#:
+#: Safe because no published file in either arm begins with an underscore, so
+#: this cannot swallow a real one. Checked before the rule was written.
+FRAGMENT_PREFIX = "_"
 
 #: The other arm's repository. A cross-arm reference is not a dead link: it
 #: resolves for a reader who has both, which is the intended audience of a
@@ -190,6 +230,8 @@ def scan(paths: list[str]) -> dict[str, list[str]]:
             continue
         miss = set()
         for m in DOC.finditer(text):
+            if m.group(0).startswith(FRAGMENT_PREFIX):
+                continue
             # A reference wrapped across a line break leaves its tail looking
             # like a whole filename: `b7_interaction_` + newline + `rank.md`.
             # The signature is exact -- the character before the match is a
@@ -225,9 +267,44 @@ def scan(paths: list[str]) -> dict[str, list[str]]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--list", action="store_true", help="print the scanned count")
+    ap.add_argument("--root", help="scan this repository instead of the one this file lives in")
+    ap.add_argument("--selftest", action="store_true",
+                    help="plant the two ways this checker can scan nothing and report clean")
     a = ap.parse_args()
 
+    if a.selftest:
+        return selftest()
+
+    if a.root:
+        global ROOT, EXTERNAL_PREFIXES, EXEMPT_FILES
+        ROOT = Path(a.root).resolve()
+        # ``--root ../topology-fingerprints`` resolves against the caller's cwd, and a
+        # path that does not exist still carries the arm's name, so ARMS.get below
+        # accepts it and candidates() then walks nothing. The run printed
+        # "0 unresolvable document references across 0 candidate files" and exited 0,
+        # which reads exactly like a clean scan. Checked 2026-09-15; the empirical arm
+        # had never been scanned from the documented working directory.
+        if not ROOT.is_dir():
+            print(f"--root does not name a directory that exists: {a.root}\n"
+                  f"  resolved to {ROOT}\n"
+                  f"  a relative --root resolves against the current directory, "
+                  f"not against this file")
+            return 2
+        arm = ARMS.get(ROOT.name)
+        if arm is None:
+            print(f"{ROOT.name} is not one of the two arms: {', '.join(sorted(ARMS))}")
+            return 2
+        EXTERNAL_PREFIXES = arm["external"]
+        EXEMPT_FILES = arm["exempt"]
+        print(f"scanning {ROOT.name}")
+
     paths = candidates()
+    # A repository arm always has candidates. Zero of them means this run examined
+    # nothing, and a checker that examined nothing must not print a clean line.
+    if not paths:
+        print(f"0 candidate files under {ROOT}. This scan examined nothing, so it is\n"
+              f"not a clean result. Check that the root is the arm you meant.")
+        return 2
     bad = scan(paths)
     if a.list:
         print(f"scanned {len(paths)} candidate files")
@@ -243,6 +320,58 @@ def main() -> int:
     print("\nEach is a link a reader cannot follow. Either the document belongs in\n"
           "the repository, or the reference should state the conclusion in place.")
     return 1
+
+
+def selftest() -> int:
+    """Plant each way this checker can scan nothing, and require it to say so.
+
+    A guard that has never been shown failing is not a guard. Both plants here are
+    the shape that was live on disk until 2026-09-15: the run ends with a clean
+    line and exit 0 while nothing was read.
+    """
+    import subprocess
+    import tempfile
+
+    me = [sys.executable, str(Path(__file__).resolve())]
+    fails = []
+
+    # 1. a root that does not exist, carrying an arm's name
+    with tempfile.TemporaryDirectory() as tmp:
+        missing = Path(tmp) / "nowhere" / "topology-fingerprints"
+        r = subprocess.run(me + ["--root", str(missing)], capture_output=True, text=True)
+        if r.returncode == 0:
+            fails.append(f"missing root exited 0: {r.stdout.strip()}")
+        else:
+            print(f"  ok  missing root -> exit {r.returncode}")
+
+    # 2. a root that exists, carries an arm's name, and holds no candidate
+    with tempfile.TemporaryDirectory() as tmp:
+        empty = Path(tmp) / "topology-fingerprints"
+        empty.mkdir(parents=True)
+        r = subprocess.run(me + ["--root", str(empty)], capture_output=True, text=True)
+        if r.returncode == 0:
+            fails.append(f"empty root exited 0: {r.stdout.strip()}")
+        elif "examined nothing" not in r.stdout:
+            fails.append(f"empty root failed for the wrong reason: {r.stdout.strip()}")
+        else:
+            print(f"  ok  empty root -> exit {r.returncode}")
+
+    # 3. the arm this file lives in still scans and still passes
+    r = subprocess.run(me, capture_output=True, text=True)
+    if r.returncode != 0:
+        fails.append(f"own arm no longer passes: {r.stdout.strip()}")
+    elif " across 0 candidate files" in r.stdout:
+        fails.append("own arm reported zero candidates")
+    else:
+        print(f"  ok  own arm -> {r.stdout.strip().splitlines()[-1]}")
+
+    if fails:
+        print("\nselftest FAILED")
+        for x in fails:
+            print("   " + x)
+        return 1
+    print("\nselftest passed")
+    return 0
 
 
 if __name__ == "__main__":

@@ -1,0 +1,71 @@
+{
+  "config": {
+    "arm": "B98-E",
+    "class_a": "the NEM-2 credit",
+    "class_b": "the NEM-3 credit",
+    "max_any_cell": 10.0,
+    "plausible_median": [
+      0.0,
+      2.0
+    ],
+    "positions": 576,
+    "source_name": "joined_PGE_EV2_2026.csv"
+  },
+  "criteria": [
+    {
+      "detail": "576 positions joined on (utility, month, hour, daytype); the two medians are 0.31151 and 0.07514 per kilowatt hour, and the highest single cell is 1.19289. **The unit is read off the middle of each column, not off its extreme**: a table in dollars per megawatt hour puts its median in the tens, while a high avoided cost in the right unit is a price and not a fault",
+      "kind": "instrument",
+      "name": "B98-E1  the two schedules meet on one position key, in one unit",
+      "passed": true
+    },
+    {
+      "detail": "branch two, not a level shift: the difference moves with the position by more than the two grids allow. The difference runs -0.56887 to 0.60894, a spread of 1.17781 against a floor of 0.00002 (ticks 1e-05 and 1e-05, read value by value), which is 58890.5 times it. **The floor is the two publishers' own resolution and no threshold is drawn on the spread; the reading is the branch named above.**",
+      "kind": "own_reading",
+      "name": "B98-E2  whether the two classes differ by a constant",
+      "passed": true
+    },
+    {
+      "detail": "branch one, the shape depends on the class: the crossing pairs put the square above the floor. Crossing blocks: 94528 pairs, median 0.16705, max 1.06822, 94522 above the floor 0.00004. Inside one block: 71072 pairs, median 0.02265, max 1.17781, 70980 above the floor 0.00004. **The two groups are never summed.** Inside one block the NEM-2 credit is equal by construction, so the square there is just the NEM-3 difference and carries nothing about class; it is printed because the granularity it reports belongs on the record. The granularity behind the split is reported again as counts by the fourth criterion.",
+      "kind": "own_reading",
+      "name": "B98-E3  the square, within a block and across blocks, apart",
+      "passed": true
+    },
+    {
+      "detail": "the NEM-2 credit takes 5 distinct values across 576 positions and the NEM-3 credit takes 557. **The coarser side caps what a square can resolve**, so the independent crossing pairs are bounded by that count and not by the position count.",
+      "kind": "instrument",
+      "name": "B98-E4  how many values each side takes, before any reading",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B98-E1": {
+      "max_cell": 1.19289,
+      "median_p2": 0.31151,
+      "median_p3": 0.07514,
+      "out_of_range": 0,
+      "positions": 576
+    },
+    "B98-E2": {
+      "floor": 2e-05,
+      "max_gap": 0.60894,
+      "min_gap": -0.56887,
+      "spread": 1.17781,
+      "tick_nem2": 1e-05,
+      "tick_nem3": 1e-05
+    },
+    "B98-E3": {
+      "across_above_floor": 94522,
+      "across_pairs": 94528,
+      "blocks": 5,
+      "floor": 4e-05,
+      "within_above_floor": 70980,
+      "within_pairs": 71072
+    },
+    "B98-E4": {
+      "distinct_nem2": 5,
+      "distinct_nem3": 557,
+      "positions": 576
+    }
+  },
+  "stage": "B98-E"
+}

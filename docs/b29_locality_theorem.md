@@ -78,6 +78,38 @@ modulo `n`, hence `phi(c)` is an integer multiple of `n`. Define
 **In words. Arbitrage of any range `r` and any horizon `L` with `L*r < n` closes
 every loop the agents can walk and cannot touch the one that they cannot.**
 
+**Theorem 7(4) and 7(5).** Added 2026-09-11. Let `1 <= r < n/2` and `L >= 3`.
+
+4. If `L*r < n`, the containment in item 1 is an equality: `V(L) = ker(wind)`,
+   and exactly one dimension survives.
+5. If `L >= ⌈n/r⌉`, then `V(L) = Z`, and nothing survives.
+
+*Proof.* For `1 <= k <= r - 1` the triangle `(i, i+k, i+k+1)` has length
+`3 <= L`, so it lies in `V(L)`, and it says that the step-`(k+1)` edge out of
+`i` equals the step-`k` edge out of `i` followed by a step-1 edge. By induction
+on `k`, every edge is congruent, modulo the span of the triangles, to a path of
+step-1 edges. Every cycle is therefore congruent to a cycle of the bare ring,
+which is a multiple of `R`, so `Z` modulo the triangles has dimension at most 1.
+Every triangle has `wind = 0` and `wind(R) = 1`, so the triangles span exactly
+`ker(wind)`. Below the threshold the Lemma puts `V(L)` inside `ker(wind)` and
+the triangles put `ker(wind)` inside `V(L)`, which is (4). For (5), put
+`m = ⌈n/r⌉`. Since `m <= n <= m*r`, there are `m` steps in `{1..r}` summing to
+`n`. Their partial sums rise strictly from `0` to `n`, so the walk visits `m`
+distinct positions and is a simple cycle of length `m`, with `m >= 3` because
+`r < n/2`, and with `wind = 1`. It lies in `V(L)`, and together with `ker(wind)`
+it spans `Z`. `[]`
+
+The two side conditions mark the edge of the construction. At `r = 1` there are
+no triangles and `ker(wind) = 0`, so (4) holds for every `L < n` with no
+condition on `L`. At `r >= 2` and `L <= 2` no cycle fits inside the horizon,
+`V(L) = 0`, and all of `b1` survives: an agent who cannot close a triangle closes
+nothing.
+
+**The proof is also the count behind §4.1.** Raising the range from `k` to
+`k + 1` adds `n` edges and `n` triangles, each new triangle carrying one of the
+new edges, so every new degree of freedom arrives with its own local constraint
+and the winding class is never touched.
+
 **General form.** Drop the ring. Let `X_L` be the 2-complex whose 1-skeleton is
 the trading graph and whose 2-cells are its cycles of length at most `L`. The
 surviving inconsistency is `H_1(X_L; R)`, of dimension
@@ -86,8 +118,9 @@ surviving inconsistency is `H_1(X_L; R)`, of dimension
 gap = b1(G) - rank V(L)
 ```
 
-**This is the quantity the station measures.** For the ring at range `r` it is 1
-when `L*r < n` and 0 otherwise. For an `n_x` by `n_y` torus at `r = 1, L = 4` it
+**This is the quantity the station measures.** For the ring at range `r < n/2`
+and horizon `L >= 3` it is 1 when `L*r < n` and 0 otherwise, by Theorem 7(4) and
+7(5). For an `n_x` by `n_y` torus at `r = 1, L = 4` it
 is the number of directions whose circumference exceeds 4.
 
 ---
@@ -125,7 +158,10 @@ this construction would want. SVD with a rank cut fixes it.
 | 20 | 4 | 4 | 80 | 61 | 560 | 60 | **1** | 0 | 9.9e-15 | 1.2831 | 5 |
 | 20 | 4 | 5 | 80 | 61 | 2104 | 61 | **0** | 1 | 1.2e-14 | 0.0000 | 5 |
 
-**Three things this table establishes and the proof did not.**
+**Three things this table shows. The first two are now proved** (Theorem 7(4)
+and 7(5), added 2026-09-11), **so on those two the table checks the proof**: a row
+that disagreed with the closed rule would mean the code was wrong. The third is a
+property of the computation.
 
 **The containment is an equality.** `rank V(L) = b1 - 1` in every configuration
 with a surviving defect, so `V(L)` is exactly `ker(wind)` rather than merely
@@ -246,11 +282,15 @@ incompleteness as a small perturbation of completeness.
 
 ## 5. Precedent
 
-**Arbitrage as curvature or holonomy is not new and is not claimed here.**
+**Neighbouring constructions that read arbitrage as curvature or holonomy, with the difference from each.**
 
 - **Ilinski**, *Physics of Finance: Gauge Modelling in Non-Equilibrium Pricing*
   (Wiley, ISBN 9780471877387; earlier as arXiv:hep-th/9710148, 1997), models
   prices as a gauge field on a lattice with arbitrage as the field strength.
+  **Its cycle is a triangular arbitrage among assets at one moment, and a nonzero
+  curvature is an opportunity to be traded away; here the cycle is a square of two
+  classes and two positions, and the nonzero is what survives arbitrage.** The full
+  comparison is in [b0c_related_literature.md](b0c_related_literature.md) §2b.
 - **Farinelli**, *Geometric Arbitrage Theory and Market Dynamics Reloaded*
   (arXiv:0910.1671), identifies arbitrage with the curvature of a principal fibre
   bundle and parameterises arbitrage strategies by its holonomy, and relates
@@ -264,16 +304,14 @@ incompleteness as a small perturbation of completeness.
   auctioneer.
 - **Armstrong and Sudderth**, *Locally Coherent Rates of Exchange* (University of
   Minnesota technical report 459, 1985, 33pp). **The title collides and the
-  content is unread**: the abstract is not served with the record and the report
-  itself has not been retrieved. Recorded here as an open check rather than as
-  either support or a conflict.
+  report itself was not retrieved**, and nothing in this document depends on it.
 
 **What is added.** The 2-complex is not chosen for mathematical convenience; it is
 **generated by a behavioural parameter**, how far an agent can actually walk a
 loop. Once that identification is made the threshold `L*r >= n` and the
-density-versus-range corollary follow. **Whether the bounded-reach version already
-appears in Ilinski's lattice treatment has not been checked**, and until the book
-is read that is an open question rather than a novelty claim.
+density-versus-range corollary follow. Ilinski's lattice has no bound on reach: its
+curvature is traded away wherever it appears, which is the opposite reading of the
+same nonzero.
 
 ---
 

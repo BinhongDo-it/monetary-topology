@@ -3,46 +3,65 @@
   "criteria": [
     {
       "detail": "loans in cells of at least 20: conventional 13,256,641, fha 2,295,274, va 1,098,949. A programme with none reports zero dispersion, which is an absence and not a narrow pool, and every criterion below would read it as the second",
+      "kind": "instrument",
       "name": "PW-0  every programme has cells at the headline threshold",
       "passed": true
     },
     {
-      "detail": "within-cell dispersion, log income: VA 0.14545 against FHA 0.13994, conventional 0.27483; ranked income: VA 0.05271 against FHA 0.04887, conventional 0.05396",
+      "detail": "within-cell dispersion, pooled-ladder rank: VA 0.04086 against FHA 0.03519, conventional 0.05680; log income: VA 0.14545 against FHA 0.13994, conventional 0.27483; within-programme rank: VA 0.05271 against FHA 0.04887, conventional 0.05396",
+      "kind": "own_reading",
       "name": "PW-1  the VA pool is wider than the FHA pool",
       "passed": true
     },
     {
-      "detail": "VA over conventional: log income 0.5292, ranked income 0.9769, against the registered floor 0.80. Loan-limit truncation biases the log-income ratio down and cannot touch the ranked one",
+      "detail": "VA over conventional, as a ratio of within-cell variances with the ratio of standard deviations it implies in brackets: pooled-ladder rank 0.7195 (0.8482), log income 0.5292 (0.7275), within-programme rank 0.9769 (0.9884), against the registered floor 0.80, which sits on the variance (section 3). The verdict is the pooled-ladder figure. Loan-limit truncation biases the log-income ratio down, and the within-programme rank is a monotone relabelling of each programme's own scale, so it reports the same width for any two pools whose shapes agree and carries no comparison of width at all. The other two are printed and do not enter",
+      "kind": "own_reading",
       "name": "PW-2  the VA pool is comparable to the conventional pool",
       "passed": false
     },
     {
-      "detail": "rate dispersion per unit of ranked-income dispersion: conventional 6.336, VA 5.168, FHA 7.445. A pure pool-width account makes this ratio constant across programmes",
-      "name": "PW-3  the graded grid converts pool width into rate dispersion",
+      "detail": "pool width orders conventional > va > fha on the pooled ladder and conventional > va > fha on log income, while rate dispersion orders fha > conventional > va. Inversions, a pair holding more pool and less price: conventional over fha, va over fha on the pooled ladder, conventional over fha, va over fha on log income. The widest of them: conventional holds 1.614 times fha's pool on the pooled ladder and 1.964 times on log income, against 0.940 times its rate dispersion. This framework reads the same question as a position carrying different terms for different classes, so it does not require the two orderings to agree, which is why the cell is B and not both accounts wrong. The stronger ordering this station registered on top of that is PW-3b, and it is a separate line",
+      "grid": "B",
+      "kind": "rival",
+      "name": "PW-3a  rival: rate dispersion at fixed position does not follow pool width",
+      "passed": true,
+      "rival_entailment": "Write d(rate, p) = f(d(income, p)) with one f shared by the three programmes. The account asserts only that f increases, and every increasing f preserves order, so the ordering of rate dispersion across programmes must equal the ordering of pool width. Pool width orders conventional > VA > FHA on both width measures, so rate dispersion must order conventional > VA > FHA. Any pair holding more pool and less price contradicts the premise, with no functional form assumed and no parameter fitted.",
+      "rival_premise": "Rate dispersion at a fixed position is a function of the pool of borrowers standing at that position and of nothing else: one position carries one schedule, so two borrowers there differ in price only through where they sit in that pool. Written out for this carrier in docs/b2_measurement.md section 8, whose table assigns high rate dispersion to the wide pools and low to the narrow one.",
+      "rival_shape": "direction: a full ordering of three programmes, one of six, and order-preserving under any increasing function, so neither a functional form nor a fitted parameter stands behind it"
+    },
+    {
+      "detail": "rate dispersion per unit of pooled-ladder income dispersion: conventional 6.019, VA 6.666, FHA 10.339. Per unit of log income: conventional 1.244, VA 1.873, FHA 2.600; per unit of within-programme rank: conventional 6.336, VA 5.168, FHA 7.445, and that last denominator holds no width, so a ratio built on it is not a conversion rate. This is one reading registered by this station on top of PW-3a and its failure withdraws that reading",
+      "kind": "own_reading",
+      "name": "PW-3b  the graded grid converts a given pool into more rate dispersion than a flat grid does",
       "passed": false
     },
     {
       "detail": "within-cell variance lower bound: VA 52.7425, FHA 33.4032, conventional 45.2571. FHA and VA underwrite to higher ceilings, which inflates both, so a pass here is weak and only a failure would be strong",
+      "kind": "own_reading",
       "name": "PW-4  debt-to-income does not contradict the premise",
       "passed": true
     },
     {
       "detail": "largest deviation from the mean missing rate is 0.0056 on income against 0.10; income conventional 0.0137, fha 0.0058, va 0.0047; dti conventional 0.0073, fha 0.0058, va 0.0033",
+      "kind": "instrument",
       "name": "PW-5  the three samples are comparable at all",
       "passed": true
     },
     {
       "detail": "within-cell dispersion of LTV: conventional 226.009, VA 84.795, FHA 26.428. A check on the instrument and not on the pool: the rules pin LTV for both government programmes and a method that cannot see that is not measuring dispersion. A failure voids the rest",
+      "kind": "instrument",
       "name": "PW-6  negative control: the down-payment rules pin loan-to-value",
       "passed": true
     },
     {
-      "detail": "PW-1 and PW-2 together, evaluated at every folded threshold: log_income@10000 at 5 fails; rank_income at 5 holds; log_income@10000 at 20 fails; rank_income at 20 holds; log_income@10000 at 50 fails; rank_income at 50 holds",
+      "detail": "PW-1 and PW-2 together, evaluated at every folded threshold and compared within each measure: log_income@10000 at 5 fails; rank_income at 5 holds; pooled_rank_income at 5 fails; log_income@10000 at 20 fails; rank_income at 20 holds; pooled_rank_income at 20 fails; log_income@10000 at 50 fails; rank_income at 50 holds; pooled_rank_income at 50 fails",
+      "kind": "instrument",
       "name": "PW-7  the minimum-size threshold is not carrying the verdict",
-      "passed": false
+      "passed": true
     },
     {
       "detail": "PW-1 and PW-2 on log income at each income band: 1000 fails; 10000 fails; inf fails. Rows removed at the headline band: conventional income 0.000104, ltv 0.000073, fha income 0.000072, ltv 0.000096, va income 0.000078, ltv 0.000032. LTV dispersion by band, conventional: 110 225.739, 150 226.009, inf 91970479.005",
+      "kind": "instrument",
       "name": "PW-8  the plausibility band is not carrying the verdict",
       "passed": true
     }
@@ -116,6 +135,13 @@
             "within": 91970479.0045846,
             "within_share": 0.9828017531607225
           },
+          "pooled_rank_income": {
+            "between": 0.028073628890318225,
+            "n_cells": 257892,
+            "n_loans": 13256641,
+            "within": 0.05679734835029925,
+            "within_share": 0.6692199170662692
+          },
           "rank_income": {
             "between": 0.026977963361751733,
             "n_cells": 257892,
@@ -179,6 +205,13 @@
             "within": 79913971.42148831,
             "within_share": 0.9828010645259759
           },
+          "pooled_rank_income": {
+            "between": 0.030646536471934716,
+            "n_cells": 437413,
+            "n_loans": 15262245,
+            "within": 0.056281400437300975,
+            "within_share": 0.6474489380331921
+          },
           "rank_income": {
             "between": 0.029352997360246297,
             "n_cells": 437413,
@@ -241,6 +274,13 @@
             "n_loans": 7847173,
             "within": 156210350.60992536,
             "within_share": 0.9828022889963286
+          },
+          "pooled_rank_income": {
+            "between": 0.023458109731607335,
+            "n_cells": 85629,
+            "n_loans": 7769274,
+            "within": 0.05719022011057112,
+            "within_share": 0.7091308675887926
           },
           "rank_income": {
             "between": 0.02288994828501162,
@@ -324,6 +364,13 @@
             "within": 442555.3436840365,
             "within_share": 0.9703371060849287
           },
+          "pooled_rank_income": {
+            "between": 0.020725175707717036,
+            "n_cells": 59564,
+            "n_loans": 2295274,
+            "within": 0.03519176751449921,
+            "within_share": 0.629357856252007
+          },
           "rank_income": {
             "between": 0.029400866503321993,
             "n_cells": 59564,
@@ -387,6 +434,13 @@
             "within": 38470347.952880844,
             "within_share": 0.9168431169946963
           },
+          "pooled_rank_income": {
+            "between": 0.02385786589989175,
+            "n_cells": 272052,
+            "n_loans": 4396533,
+            "within": 0.03507638701849159,
+            "within_share": 0.5951782754770482
+          },
           "rank_income": {
             "between": 0.03344258243323353,
             "n_cells": 272052,
@@ -449,6 +503,13 @@
             "n_loans": 847055,
             "within": 554803.9498772346,
             "within_share": 0.9843676748240137
+          },
+          "pooled_rank_income": {
+            "between": 0.018000456691927652,
+            "n_cells": 9361,
+            "n_loans": 865006,
+            "within": 0.03540133380666601,
+            "within_share": 0.6629240981648041
           },
           "rank_income": {
             "between": 0.02460273218253889,
@@ -532,6 +593,13 @@
             "within": 11412.31938190907,
             "within_share": 0.9520929956354138
           },
+          "pooled_rank_income": {
+            "between": 0.018680217567643598,
+            "n_cells": 24586,
+            "n_loans": 1098949,
+            "within": 0.04086457024902255,
+            "within_share": 0.6862829098466425
+          },
           "rank_income": {
             "between": 0.023851363050082786,
             "n_cells": 24586,
@@ -595,6 +663,13 @@
             "within": 40229.230197094555,
             "within_share": 0.8829773753265117
           },
+          "pooled_rank_income": {
+            "between": 0.023016843969760198,
+            "n_cells": 153727,
+            "n_loans": 2201600,
+            "within": 0.040454614057142166,
+            "within_share": 0.6373670199918124
+          },
           "rank_income": {
             "between": 0.02917551863835066,
             "n_cells": 153727,
@@ -657,6 +732,13 @@
             "n_loans": 430347,
             "within": 83.02510304729128,
             "within_share": 0.9310570448583523
+          },
+          "pooled_rank_income": {
+            "between": 0.016339351933030793,
+            "n_cells": 5862,
+            "n_loans": 550486,
+            "within": 0.04086589915334818,
+            "within_share": 0.7143732153476847
           },
           "rank_income": {
             "between": 0.02102342102836735,

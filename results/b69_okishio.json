@@ -1,0 +1,111 @@
+{
+ "config": {
+  "bisection_steps": 60,
+  "column_sums": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "n_substitutions": 3,
+  "n_systems": 200,
+  "r_fractions": [
+   0.0,
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   0.9,
+   0.99
+  ],
+  "seed": 0,
+  "sizes": [
+   3,
+   8
+  ],
+  "sub_spread": [
+   0.6,
+   1.4
+  ],
+  "tol": 1e-12,
+  "tol_bound": 1e-12,
+  "tol_cycle": 1e-10,
+  "value_of_basket": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "wage_max": 20.0
+ },
+ "criteria": [
+  {
+   "detail": "915 of 1800 drawn substitutions are cheaper at the current prices, and **every one of them raises the rate of profit**, with the real wage basket held fixed in kind. Zero counterexamples. This is Okishio's theorem of 1961, *Technical Changes and the Rate of Profit*, Kobe University Economic Review 7, read back here on drawn systems; the starting page is given as 85 in one secondary source and 86 in another, and both are reported rather than merged. The rate is `1 / lambda_PF(A + b l) - 1` throughout, so the theorem is a statement about a Perron root and the wage basket is what is held fixed",
+   "kind": "known_answer",
+   "name": "B69-5",
+   "passed": true,
+   "statement": "Okishio (1961): with the real wage fixed, a technique cheaper at the current prices does not lower the rate of profit"
+  },
+  {
+   "detail": "1800 draws. **The old field's production cycle for industry k carries log(1 + r)** within 1e-10, and the same cycle run with the new method carries more than that exactly when the new column is cheaper at the old prices, on all 1800 draws. **So the cost criterion is not an extra assumption about behaviour: it is the statement that the new method's cycle shows an excess sum in the field that is in force**, and the theorem says that excess survives the re-solving of the whole field rather than turning negative",
+   "kind": "instrument",
+   "name": "B69-6a",
+   "passed": true,
+   "statement": "Theorem 14(2): the cost criterion is the statement that the new method's cycle shows an excess sum in the field in force"
+  },
+  {
+   "detail": "885 of 1800 drawn substitutions are dearer at the current prices, and **the rate of profit falls on every one of them**, 885 of 885, rising on 0. **So Theorem 14(1) is an equivalence and not an implication**: the sign of the change in the general rate of profit is the sign of the cost saving on the one column that changed, read at the prices in force. Okishio's half is the upper Collatz-Wielandt bound and this half is the lower one, and off column k the two matrices agree so both extrema are still attained at lambda. The largest fall seen is 0.1994 in the rate. What this does not say: nobody adopts a dearer column in this setting, and the arm is here because an equivalence is a stronger statement than the published implication and has to be shown on both sides",
+   "kind": "instrument",
+   "name": "B69-6b",
+   "passed": true,
+   "statement": "Theorem 14(1) is an equivalence: a dearer column lowers the rate, every time"
+  },
+  {
+   "detail": "1800 draws, 7 test vectors each. **The price vector is the family's member at the current rate, up to the unit of account**, within 1e-10 on every draw, since `p = (1 + r)(p b) l (I - (1 + r) A)^{-1}` follows from the price equation. **Every member of the family bounds the Perron root of the new augmented matrix**, at all 12600 points: the member at `r = 0` is the labour value vector and gives the Fundamental Marxian Theorem, the member at the current rate gives Okishio's theorem, and the rest give bounds nobody has asked for. **The two theorems are one inequality evaluated at two points of one family**",
+   "kind": "instrument",
+   "name": "B69-6c",
+   "passed": true,
+   "statement": "Corollary 14.1: one bound, and the family of Theorem 13 supplies its test vectors"
+  },
+  {
+   "detail": "915 cheaper substitutions. **For every one of them there is a rise in the real wage basket that exactly cancels the gain in the rate of profit**, found by bisection inside a window of 20, on 915 of 915. The median cancelling rise is 0.0541 of the basket and the range is 0.0000 to 1.6163. **So the direction the rate moves after a technical change is fixed by two inputs, the technique and the basket, and the theorem holds the second one still.** Which way the basket moves is not a statement this framework supplies",
+   "kind": "instrument",
+   "name": "B69-6d",
+   "passed": true,
+   "statement": "Theorem 14(3): a rise in the wage basket cancels the gain, and the cancelling rise is a number"
+  }
+ ],
+ "mapping": {
+  "B69-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B69-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B69-5": {
+   "cheaper": 915,
+   "draws": 1800,
+   "holds": 915,
+   "strict": 915
+  },
+  "B69-6a": {
+   "agree": 1800,
+   "points": 1800,
+   "within": 1e-10
+  },
+  "B69-6b": {
+   "dearer": 885,
+   "falls": 885,
+   "rises": 0
+  },
+  "B69-6c": {
+   "draws": 1800,
+   "member_within": 1e-10,
+   "points": 12600,
+   "valid": 12600
+  },
+  "B69-6d": {
+   "bisection_steps": 60,
+   "cheaper": 915,
+   "found": 915,
+   "window": 20.0
+  }
+ },
+ "stage": "B69"
+}

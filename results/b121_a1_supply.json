@@ -1,0 +1,738 @@
+{
+  "config": {
+    "block_days": 5,
+    "control": "G10 currencies the release does not touch",
+    "draws": 2000,
+    "horizon_days": 1,
+    "object": "abs(cip_govt), 3m",
+    "seeds": [
+      11,
+      23
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "7 releases, 18 currency-events",
+      "kind": "instrument",
+      "name": "B121-16",
+      "passed": true,
+      "statement": "every release is read from the Board's own text and every touched currency is read against at least one untouched G10 currency"
+    },
+    {
+      "detail": "+5.05 bp over 18 currency-events, floor 3.07, +1.64 floors, p 0.0840; the sign turns over on ['2d', '5d']",
+      "kind": "own_reading",
+      "name": "B121-17",
+      "passed": null,
+      "state": "sign turns over",
+      "state_map": {
+        "does not narrow past its floor": "fail",
+        "narrows past its floor, sign steady": "pass",
+        "sign nothing clears the floor": "no verdict",
+        "sign turns over": "no verdict"
+      },
+      "statement": "on the day a release sets up or enlarges a currency's swap line, that currency's gap moves toward zero against the G10 currencies the release does not touch, past two of its own floor"
+    },
+    {
+      "detail": "4 settings, turns over, turned over on ['2d', '5d']",
+      "kind": "instrument",
+      "name": "B121-18",
+      "passed": false,
+      "statement": "the sign holds on every declared horizon"
+    },
+    {
+      "detail": "+1.64 and +1.71 floors, moved 0.070, stands 0.323 from the line",
+      "kind": "instrument",
+      "name": "B121-19",
+      "passed": true,
+      "statement": "two seeds leave the reading in one state and p moves less than its distance to the line"
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Arm A1 of B121, supply side; the station has other arms open.",
+  "readings": {
+    "by_seed": {
+      "11": {
+        "by_event": [
+          {
+            "control_mean_bp": -8.230966750000002,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -6.329983249999989,
+            "release": "2007-12-12",
+            "treated_bp": -14.560949999999991
+          },
+          {
+            "control_mean_bp": -8.230966750000002,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": -7.647643250000007,
+            "release": "2007-12-12",
+            "treated_bp": -15.878610000000009
+          },
+          {
+            "control_mean_bp": -15.795337106249999,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -2.2866448937500046,
+            "release": "2008-05-02",
+            "treated_bp": -18.081982000000004
+          },
+          {
+            "control_mean_bp": -15.795337106249999,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": -1.5433928937499992,
+            "release": "2008-05-02",
+            "treated_bp": -17.338729999999998
+          },
+          {
+            "control_mean_bp": -2.1932342222222223,
+            "controls": [
+              "AUD",
+              "CAD",
+              "CHF",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -2.4665107777777786,
+            "release": "2008-07-30",
+            "treated_bp": -4.659745000000001
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": 19.50192199999998,
+            "release": "2008-09-18",
+            "treated_bp": -5.512080000000026
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": 66.550162,
+            "release": "2008-09-18",
+            "treated_bp": 41.536159999999995
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "JPY",
+            "effect_bp": 91.653592,
+            "release": "2008-09-18",
+            "treated_bp": 66.63959
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "GBP",
+            "effect_bp": 45.975922,
+            "release": "2008-09-18",
+            "treated_bp": 20.961919999999992
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CAD",
+            "effect_bp": 37.21691200000001,
+            "release": "2008-09-18",
+            "treated_bp": 12.202910000000003
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "AUD",
+            "effect_bp": -9.630170333333346,
+            "release": "2008-09-24",
+            "treated_bp": 25.224639999999994
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "SEK",
+            "effect_bp": -10.107740333333332,
+            "release": "2008-09-24",
+            "treated_bp": 24.747070000000008
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "DKK",
+            "effect_bp": -5.830310333333351,
+            "release": "2008-09-24",
+            "treated_bp": 29.02449999999999
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "NOK",
+            "effect_bp": -0.8250603333333331,
+            "release": "2008-09-24",
+            "treated_bp": 34.02975000000001
+          },
+          {
+            "control_mean_bp": -41.26223142857143,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "GBP",
+            "effect_bp": -34.01519857142855,
+            "release": "2008-10-13",
+            "treated_bp": -75.27742999999998
+          },
+          {
+            "control_mean_bp": -41.26223142857143,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -44.50537857142859,
+            "release": "2008-10-13",
+            "treated_bp": -85.76761000000002
+          },
+          {
+            "control_mean_bp": -41.26223142857143,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": -3.5242985714285666,
+            "release": "2008-10-13",
+            "treated_bp": -44.78653
+          },
+          {
+            "control_mean_bp": -1.3802144444444433,
+            "controls": [
+              "AUD",
+              "CAD",
+              "CHF",
+              "DKK",
+              "EUR",
+              "GBP",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "JPY",
+            "effect_bp": -41.368995555555564,
+            "release": "2008-10-14",
+            "treated_bp": -42.749210000000005
+          }
+        ],
+        "draws": 2000,
+        "events": 18,
+        "floor": 3.072120606653839,
+        "mean_effect_bp": 5.04539901841931,
+        "over_floor": 1.6423180156051134,
+        "p": 0.08395802098950525,
+        "seed": 11
+      },
+      "23": {
+        "by_event": [
+          {
+            "control_mean_bp": -8.230966750000002,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -6.329983249999989,
+            "release": "2007-12-12",
+            "treated_bp": -14.560949999999991
+          },
+          {
+            "control_mean_bp": -8.230966750000002,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": -7.647643250000007,
+            "release": "2007-12-12",
+            "treated_bp": -15.878610000000009
+          },
+          {
+            "control_mean_bp": -15.795337106249999,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -2.2866448937500046,
+            "release": "2008-05-02",
+            "treated_bp": -18.081982000000004
+          },
+          {
+            "control_mean_bp": -15.795337106249999,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": -1.5433928937499992,
+            "release": "2008-05-02",
+            "treated_bp": -17.338729999999998
+          },
+          {
+            "control_mean_bp": -2.1932342222222223,
+            "controls": [
+              "AUD",
+              "CAD",
+              "CHF",
+              "DKK",
+              "GBP",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -2.4665107777777786,
+            "release": "2008-07-30",
+            "treated_bp": -4.659745000000001
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": 19.50192199999998,
+            "release": "2008-09-18",
+            "treated_bp": -5.512080000000026
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": 66.550162,
+            "release": "2008-09-18",
+            "treated_bp": 41.536159999999995
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "JPY",
+            "effect_bp": 91.653592,
+            "release": "2008-09-18",
+            "treated_bp": 66.63959
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "GBP",
+            "effect_bp": 45.975922,
+            "release": "2008-09-18",
+            "treated_bp": 20.961919999999992
+          },
+          {
+            "control_mean_bp": -25.014002000000005,
+            "controls": [
+              "AUD",
+              "DKK",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CAD",
+            "effect_bp": 37.21691200000001,
+            "release": "2008-09-18",
+            "treated_bp": 12.202910000000003
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "AUD",
+            "effect_bp": -9.630170333333346,
+            "release": "2008-09-24",
+            "treated_bp": 25.224639999999994
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "SEK",
+            "effect_bp": -10.107740333333332,
+            "release": "2008-09-24",
+            "treated_bp": 24.747070000000008
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "DKK",
+            "effect_bp": -5.830310333333351,
+            "release": "2008-09-24",
+            "treated_bp": 29.02449999999999
+          },
+          {
+            "control_mean_bp": 34.85481033333334,
+            "controls": [
+              "CAD",
+              "CHF",
+              "EUR",
+              "GBP",
+              "JPY",
+              "NZD"
+            ],
+            "currency": "NOK",
+            "effect_bp": -0.8250603333333331,
+            "release": "2008-09-24",
+            "treated_bp": 34.02975000000001
+          },
+          {
+            "control_mean_bp": -41.26223142857143,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "GBP",
+            "effect_bp": -34.01519857142855,
+            "release": "2008-10-13",
+            "treated_bp": -75.27742999999998
+          },
+          {
+            "control_mean_bp": -41.26223142857143,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "EUR",
+            "effect_bp": -44.50537857142859,
+            "release": "2008-10-13",
+            "treated_bp": -85.76761000000002
+          },
+          {
+            "control_mean_bp": -41.26223142857143,
+            "controls": [
+              "AUD",
+              "CAD",
+              "DKK",
+              "JPY",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "CHF",
+            "effect_bp": -3.5242985714285666,
+            "release": "2008-10-13",
+            "treated_bp": -44.78653
+          },
+          {
+            "control_mean_bp": -1.3802144444444433,
+            "controls": [
+              "AUD",
+              "CAD",
+              "CHF",
+              "DKK",
+              "EUR",
+              "GBP",
+              "NOK",
+              "NZD",
+              "SEK"
+            ],
+            "currency": "JPY",
+            "effect_bp": -41.368995555555564,
+            "release": "2008-10-14",
+            "treated_bp": -42.749210000000005
+          }
+        ],
+        "draws": 2000,
+        "events": 18,
+        "floor": 2.9465800855597046,
+        "mean_effect_bp": 5.04539901841931,
+        "over_floor": 1.7122897976353266,
+        "p": 0.07546226886556721,
+        "seed": 23
+      }
+    },
+    "horizons": [
+      {
+        "events": 18,
+        "mean_effect_bp": 5.045,
+        "name": "1d",
+        "over_floor": 1.51
+      },
+      {
+        "events": 18,
+        "mean_effect_bp": -7.371,
+        "name": "2d",
+        "over_floor": -1.94
+      },
+      {
+        "events": 18,
+        "mean_effect_bp": -4.988,
+        "name": "5d",
+        "over_floor": -0.96
+      },
+      {
+        "events": 18,
+        "mean_effect_bp": 5.741,
+        "name": "10d",
+        "over_floor": 0.83
+      }
+    ],
+    "seeds": {
+      "detail": "+1.64 and +1.71 floors, moved 0.070, stands 0.323 from the line",
+      "ok": true
+    }
+  },
+  "source": {
+    "gap": "Du, Keerati and Schreger, cip_dataset_v4.csv",
+    "releases": {
+      "2007-12-12": {
+        "currencies": [
+          "EUR",
+          "CHF"
+        ],
+        "file": "data/raw/b121/press/20071212a.html",
+        "text": "swap lines established with the ECB ($20bn) and the SNB ($4bn)"
+      },
+      "2008-05-02": {
+        "currencies": [
+          "EUR",
+          "CHF"
+        ],
+        "file": "data/raw/b121/press/20080502a.html",
+        "text": "ECB and SNB lines raised to $50bn and $12bn"
+      },
+      "2008-07-30": {
+        "currencies": [
+          "EUR"
+        ],
+        "file": "data/raw/b121/press/20080730a.html",
+        "text": "ECB line raised from $50bn to $55bn"
+      },
+      "2008-09-18": {
+        "currencies": [
+          "EUR",
+          "CHF",
+          "JPY",
+          "GBP",
+          "CAD"
+        ],
+        "file": "data/raw/b121/press/20080918a.html",
+        "text": "ECB and SNB lines raised; new lines with the BoJ ($60bn), BoE ($40bn), BoC ($10bn)"
+      },
+      "2008-09-24": {
+        "currencies": [
+          "AUD",
+          "SEK",
+          "DKK",
+          "NOK"
+        ],
+        "file": "data/raw/b121/press/20080924a.html",
+        "text": "new lines with the RBA and Riksbank ($10bn each), Danmarks Nationalbank and Norges Bank ($5bn each)"
+      },
+      "2008-10-13": {
+        "currencies": [
+          "GBP",
+          "EUR",
+          "CHF"
+        ],
+        "file": "data/raw/b121/press/20081013a.html",
+        "text": "BoE, ECB and SNB lines sized to accommodate full allotment"
+      },
+      "2008-10-14": {
+        "currencies": [
+          "JPY"
+        ],
+        "file": "data/raw/b121/press/20081014a.html",
+        "text": "the BoJ line increased (title on the Board's release list)"
+      }
+    }
+  },
+  "stage": "B121"
+}

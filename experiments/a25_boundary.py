@@ -394,7 +394,13 @@ def probe() -> None:
         "criteria": [
             {"name": "A25-1  the boundary is off by default",
              "passed": bool(all(same)), "detail": v1},
-            {"name": "A25-2  the crossing is a bridge", "detail": v2},
+            # **A criterion with no object is neither passed nor failed.**
+            # This one had no ``passed`` field at all, so nothing counted it in
+            # either direction; a census that walks records had to name it as a
+            # gap rather than read it. ``None`` plus ``void`` is the shape the
+            # undecided cell is supposed to have.
+            {"name": "A25-2  the crossing is a bridge", "passed": None,
+             "void": True, "detail": v2},
             {"name": "A25-3  the ceiling binds",
              "passed": bool(ever and never), "detail": v3},
             {"name": "A25-4  what happens once it binds",

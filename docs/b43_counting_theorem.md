@@ -205,9 +205,17 @@ produced values. Theorem 2 makes that precise.
 > **Corollary 2.2 (the position of an atom).** Each such atom sits at a written
 > term. Not near it, not at a transform of it: at it.
 >
-> **Corollary 2.3 (the mass of an atom).** The mass at `t_a` is at least
-> `|S_a|`, with equality iff no position outside `S` carries the value `t_a`.
-> If the baseline distribution is atomless, equality holds almost surely.
+> **Corollary 2.3 (the mass of an atom).** The mass at a value `y` is
+> `sum{ |S_b| : t_b = y } + #{ v not in S : x_v = y }`. So the mass at `t_a` is
+> at least `|S_a|`, with equality iff no other class written at `t_a` binds
+> anyone and no position outside `S` has baseline `t_a`. If the baseline
+> distribution is atomless, the second term vanishes almost surely.
+
+*Proof of 2.3.* By Lemma B a position in `S` takes the term of its class, and a
+position outside `S` keeps its baseline, so the mass at `y` is the sum of the two
+counts. `[]` Amended 2026-09-11: the earlier wording compared the mass with
+`|S_a|` alone. That is exact under Theorem 2's condition, where no two binding
+classes share a term; the sum holds with no condition.
 
 **These sharpen section 2.3 in three ways, and one of them is a correction.**
 
@@ -228,7 +236,9 @@ place either one.
 the complement happens to carry, and the contamination vanishes only when
 baselines are atomless. On a discrete baseline it does not vanish, and the
 enumeration in this station runs on a discrete baseline precisely so that this
-term is visible rather than assumed away.
+term is visible rather than assumed away. The first term of the sum is a
+different thing: it pools every binding class written at the same number into
+one atom, the same merge Corollary 2.1 makes in the count.
 
 ---
 
@@ -472,3 +482,39 @@ written into any retrievable document, whether it lands on two prices between
 which there is no cheap exchange, and whether a published rule already ties the
 two terms to each other. **The proof supplies necessity. It supplies no
 observability, and it should not be cited as if it did.**
+
+---
+
+## 9. What the law does not need, and what the registration machine buys
+
+**9.1 No heterogeneity of valuation is needed.** The classical chain runs:
+willingness to pay differs, the seller wants to charge by it, and so needs to sort
+buyers and block arbitrage. Heterogeneity is the cause and the two conditions are
+the means. In the currency-conversion corpus the cause is absent. A 1990 East German
+mark is worth the same to a holder born in 1930 as to one born in 1980; the
+procedures there sort by identity (year of birth, place of registration,
+nationality, age, legal or natural person), not by valuation. **The two enabling
+conditions are present, and several prices appear anyway.** The two conditions are
+enough to produce more than one price; valuation heterogeneity is not required. The
+classical account is not contradicted on these carriers. It has no reason to look at
+them, and the count is a reading it does not produce. (The largest number of values
+seen in that corpus is an observation about the corpus; the theorems above put no
+bound on the number of classes.)
+
+**9.2 The registration machine buys classes, not revenue.** England, 1377 to 1381:
+one country, one set of collectors, the same tax base.
+
+| Year | Partition | Classes | Outcome |
+|---|---|---|---|
+| 1377 | flat poll tax, 4d a head | 1 | collected |
+| 1379 | graduated by social rank | 7 | collected, at about 37% of what was expected |
+| 1381 | mixed | mixed | enacted and not collected (`refusing to register`), followed by the revolt |
+
+The same machine collected one class and failed on seven. **Because 1377 and 1379
+share a base and differ in the number of classes, they separate the two effects:
+what registration buys is the partition, not the money.** The 1379 row is in the B33
+table of [RESULTS.md](../RESULTS.md). The yields (1379: 18,600 pounds against an
+expected 50,000) come from a tertiary source and are graded as such in
+[b30_results.md](b30_results.md), where the primary edition of the returns is named;
+the structural reading uses only the count of classes and the direction of the
+outcome.

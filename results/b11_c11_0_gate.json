@@ -1,0 +1,659 @@
+{
+ "config": {
+  "agency": "Fitch",
+  "classes": [
+   "Corporate",
+   "Financial",
+   "Insurance"
+  ],
+  "investment_grade": [
+   "AAA",
+   "AA+",
+   "AA",
+   "AA-",
+   "A+",
+   "A",
+   "A-",
+   "BBB+",
+   "BBB",
+   "BBB-"
+  ],
+  "scale": [
+   "AAA",
+   "AA+",
+   "AA",
+   "AA-",
+   "A+",
+   "A",
+   "A-",
+   "BBB+",
+   "BBB",
+   "BBB-",
+   "BB+",
+   "BB",
+   "BB-",
+   "B+",
+   "B",
+   "B-",
+   "CCC+",
+   "CCC",
+   "CCC-",
+   "CC",
+   "C"
+  ],
+  "series": {
+   "LT IDR": [
+    "Long Term Issuer Default Rating"
+   ],
+   "LT IDR + LC LT IDR": [
+    "Long Term Issuer Default Rating",
+    "Local Currency Long Term Issuer Default Rating"
+   ]
+  },
+  "threshold": 200
+ },
+ "criteria": [
+  {
+   "detail": "6 issuers on the long-term IDR by row key (7 with a same-day re-rating); every variant reads 6 to 7. The investment-grade screen keeps 15 of the 259 issuers with an RD, where 200 needs 77.2%. State: undecided: short of the threshold on Fitch, and the registered exit reads S&P before judging. For S&P to carry the gate it has to add 193 qualifying issuers Fitch does not have, 28 times Fitch's own count. Three states: at least 200 passes; short on Fitch alone is undecided until S&P is read (ruling 5); short after S&P stops the station (ruling 6)",
+   "kind": "premise",
+   "name": "B11-C11-0  issuers that close IG -> RD -> re-rated, against 200",
+   "passed": null,
+   "undecided": true
+  },
+  {
+   "detail": "25 distinct symbols over 29,534 rows; outside the scale and RD, D, WD, NR: none",
+   "kind": "instrument",
+   "name": "B11-C11-0a  every symbol on the series is a rung of the scale or a named off-scale code",
+   "passed": true
+  },
+  {
+   "detail": "LT IDR / row key: 6 (same day 7); LT IDR / union of identifiers: 6 (same day 7); LT IDR + LC LT IDR / row key: 6 (same day 7); LT IDR + LC LT IDR / union of identifiers: 6 (same day 7)",
+   "kind": "instrument",
+   "name": "B11-C11-0b  the count does not depend on how issuers are identified",
+   "passed": true
+  },
+  {
+   "detail": "15 issuers printed, 6 of them close the loop",
+   "kind": "bookkeeping",
+   "name": "B11-C11-0c  every issuer that was investment grade before an RD is printed with its path",
+   "passed": true
+  },
+  {
+   "detail": "20260801 Fitch Ratings Corporate.csv: 2003-09-04 to 2025-07-31, 14,287 rows on 2012-06-15; 20260801 Fitch Ratings Financial.csv: 2003-01-24 to 2025-07-31, 53,209 rows on 2012-06-15; 20260801 Fitch Ratings Insurance.csv: 2012-06-15 to 2025-07-31, 2,752 rows on 2012-06-15",
+   "kind": "premise",
+   "name": "B11-C11-2  the snapshot on disk reaches back to 2012-06-15, so a rolling window does not bind",
+   "passed": true
+  }
+ ],
+ "report": {
+  "objects": {
+   "Corporate|legal_entity_identifier:2138004624W8CKCSJ177": {
+    "best_before_first_rd": "BBB-",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "Petrofac Limited",
+    "path": [
+     "2018-07-02 WD",
+     "2020-05-05 BBB-",
+     "2021-04-29 BB-",
+     "2021-05-07 WD",
+     "2021-10-26 B+",
+     "2023-12-14 B-",
+     "2024-04-16 CC",
+     "2024-05-17 C",
+     "2024-06-19 RD"
+    ],
+    "rd_dates": [
+     "2024-06-19"
+    ],
+    "rerated": false
+   },
+   "Corporate|legal_entity_identifier:254900F7HJRH1PGZB447": {
+    "best_before_first_rd": "BBB-",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": true,
+    "loop_before_withdrawal": true,
+    "loop_dates": [
+     "2018-05-01",
+     "2021-04-16"
+    ],
+    "loop_same_day": true,
+    "name": "Andrade Gutierrez Engenharia S.A.",
+    "path": [
+     "2013-04-15 BBB-",
+     "2015-06-30 BB+",
+     "2016-02-05 B+",
+     "2016-09-19 B-",
+     "2018-05-01 RD",
+     "2018-08-28 CCC-",
+     "2019-08-26 CCC+",
+     "2020-04-30 CCC-",
+     "2020-12-17 C",
+     "2021-04-16 RD",
+     "2023-02-10 CCC-",
+     "2024-07-09 CC",
+     "2025-01-02 C",
+     "2025-01-24 WD"
+    ],
+    "rd_dates": [
+     "2018-05-01",
+     "2021-04-16"
+    ],
+    "rerated": true
+   },
+   "Corporate|legal_entity_identifier:30030098VQ1KJRLBL498": {
+    "best_before_first_rd": "BBB+",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "Chongqing Energy Investment Group Co., Ltd.",
+    "path": [
+     "2019-01-07 BBB+",
+     "2019-11-15 BBB",
+     "2021-03-10 RD",
+     "2021-03-10 WD"
+    ],
+    "rd_dates": [
+     "2021-03-10"
+    ],
+    "rerated": false
+   },
+   "Corporate|legal_entity_identifier:300300TPKHKYUJHYUQ64": {
+    "best_before_first_rd": "BBB+",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": true,
+    "loop_before_withdrawal": true,
+    "loop_dates": [
+     "2023-12-21"
+    ],
+    "loop_same_day": true,
+    "name": "Dalian Wanda Commercial Management Group Co., Ltd.",
+    "path": [
+     "2013-10-29 BBB+",
+     "2016-02-03 BBB",
+     "2018-01-03 BB+",
+     "2023-05-31 BB-",
+     "2023-07-13 B",
+     "2023-07-21 C",
+     "2023-08-03 CC",
+     "2023-11-22 C",
+     "2023-12-21 RD",
+     "2023-12-21 CC",
+     "2024-12-05 C",
+     "2024-12-23 RD",
+     "2024-12-23 CC"
+    ],
+    "rd_dates": [
+     "2023-12-21",
+     "2024-12-23"
+    ],
+    "rerated": true
+   },
+   "Corporate|legal_entity_identifier:3SHLIX0OPDNYROUX5331": {
+    "best_before_first_rd": "BBB-",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "Noble Group Ltd.",
+    "path": [
+     "2012-06-15 BBB-",
+     "2016-05-17 BB+",
+     "2017-05-16 BB-",
+     "2017-05-25 B-",
+     "2017-06-23 CCC",
+     "2017-11-17 CC",
+     "2018-01-31 C",
+     "2018-03-22 RD",
+     "2018-12-23 WD"
+    ],
+    "rd_dates": [
+     "2018-03-22"
+    ],
+    "rerated": false
+   },
+   "Corporate|legal_entity_identifier:529900U8HKV15GJC4O60": {
+    "best_before_first_rd": "BBB",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": true,
+    "loop_before_withdrawal": false,
+    "loop_dates": [
+     "2016-10-27"
+    ],
+    "loop_same_day": true,
+    "name": "Samarco Mineracao S.A.",
+    "path": [
+     "2012-06-15 BBB",
+     "2015-12-01 BB-",
+     "2016-05-10 CCC",
+     "2016-07-15 C",
+     "2016-10-27 RD",
+     "2020-11-04 WD",
+     "2024-02-16 B-"
+    ],
+    "rd_dates": [
+     "2016-10-27"
+    ],
+    "rerated": true
+   },
+   "Corporate|legal_entity_identifier:549300L59XR0I8CDIL13": {
+    "best_before_first_rd": "BBB+",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "Integratel Perú S.A.A.",
+    "path": [
+     "2012-06-15 BBB+",
+     "2018-02-15 WD",
+     "2019-03-27 BBB",
+     "2021-03-04 BBB-",
+     "2022-03-01 BB+",
+     "2023-01-30 BB",
+     "2023-02-27 BB-",
+     "2024-02-21 B+",
+     "2024-12-19 B-",
+     "2025-02-19 C",
+     "2025-04-22 RD",
+     "2025-05-30 D",
+     "2025-05-30 WD"
+    ],
+    "rd_dates": [
+     "2025-04-22"
+    ],
+    "rerated": false
+   },
+   "Corporate|legal_entity_identifier:549300VFQWRKICUFNU92": {
+    "best_before_first_rd": "BBB+",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": true,
+    "loop_before_withdrawal": true,
+    "loop_dates": [
+     "2020-12-03"
+    ],
+    "loop_same_day": true,
+    "name": "Nabors Industries, Inc.",
+    "path": [
+     "2012-06-15 BBB+",
+     "2012-08-10 BBB",
+     "2016-02-04 BBB-",
+     "2017-08-25 BB+",
+     "2018-01-16 BB",
+     "2019-02-11 BB-",
+     "2020-03-20 B-",
+     "2020-10-30 C",
+     "2020-12-03 RD",
+     "2020-12-03 CCC+",
+     "2022-11-15 B-"
+    ],
+    "rd_dates": [
+     "2020-12-03"
+    ],
+    "rerated": true
+   },
+   "Corporate|legal_entity_identifier:8M3THTGWLTYZVE6BBY25": {
+    "best_before_first_rd": "BBB-",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": true,
+    "name": "Lumen Technologies, Inc.",
+    "path": [
+     "2012-06-15 BBB-",
+     "2013-02-13 BB+",
+     "2017-11-01 BB",
+     "2023-03-27 B",
+     "2023-08-29 B-",
+     "2023-11-02 CCC-",
+     "2024-03-28 RD",
+     "2024-03-28 CCC+"
+    ],
+    "rd_dates": [
+     "2024-03-28"
+    ],
+    "rerated": false
+   },
+   "Corporate|obligor_identifier:96175726": {
+    "best_before_first_rd": "BBB",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": true,
+    "loop_before_withdrawal": false,
+    "loop_dates": [
+     "2018-11-26"
+    ],
+    "loop_same_day": true,
+    "name": "Odebrecht Engenharia e Construcao S.A.",
+    "path": [
+     "2015-06-03 BBB",
+     "2015-06-30 BBB-",
+     "2016-03-01 BB",
+     "2016-05-03 B+",
+     "2016-07-25 B-",
+     "2017-01-17 CC",
+     "2018-04-27 C",
+     "2018-05-29 CC",
+     "2018-10-26 C",
+     "2018-11-26 RD",
+     "2021-03-31 CCC-",
+     "2021-03-31 WD"
+    ],
+    "rd_dates": [
+     "2018-11-26"
+    ],
+    "rerated": true
+   },
+   "Corporate|obligor_name:\"Nabors Industries, Ltd.\"": {
+    "best_before_first_rd": "BBB+",
+    "class": "Corporate",
+    "ig_before": true,
+    "loop": true,
+    "loop_before_withdrawal": true,
+    "loop_dates": [
+     "2020-12-03"
+    ],
+    "loop_same_day": true,
+    "name": "Nabors Industries, Ltd.",
+    "path": [
+     "2012-06-15 BBB+",
+     "2012-08-10 BBB",
+     "2016-02-04 BBB-",
+     "2017-08-25 BB+",
+     "2018-01-16 BB",
+     "2019-02-11 BB-",
+     "2020-03-20 B-",
+     "2020-10-30 C",
+     "2020-12-03 RD",
+     "2020-12-03 CCC+",
+     "2022-11-15 B-"
+    ],
+    "rd_dates": [
+     "2020-12-03"
+    ],
+    "rerated": true
+   },
+   "Financial|legal_entity_identifier:213800ZYT9DTU1VP2I80": {
+    "best_before_first_rd": "BBB",
+    "class": "Financial",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "TradeXBank AG",
+    "path": [
+     "2014-04-08 BBB",
+     "2015-01-16 BBB-",
+     "2019-08-20 BBB",
+     "2022-03-07 RD",
+     "2022-03-29 WD"
+    ],
+    "rd_dates": [
+     "2022-03-07"
+    ],
+    "rerated": false
+   },
+   "Financial|legal_entity_identifier:549300K4BNOIQ154O537": {
+    "best_before_first_rd": "BBB",
+    "class": "Financial",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "Washington Prime Group, L.P.",
+    "path": [
+     "2014-05-08 BBB",
+     "2014-09-16 BBB-",
+     "2019-01-24 BB+",
+     "2019-05-22 BB-",
+     "2020-01-24 B",
+     "2020-05-29 CCC+",
+     "2020-08-27 CC",
+     "2021-02-17 C",
+     "2021-05-19 RD",
+     "2021-06-15 D",
+     "2021-10-15 WD"
+    ],
+    "rd_dates": [
+     "2021-05-19"
+    ],
+    "rerated": false
+   },
+   "Financial|legal_entity_identifier:549300RWGA2GV6YQYT67": {
+    "best_before_first_rd": "BBB",
+    "class": "Financial",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "Washington Prime Group Inc.",
+    "path": [
+     "2014-05-08 BBB",
+     "2014-09-16 BBB-",
+     "2019-01-24 BB+",
+     "2019-05-22 BB-",
+     "2020-01-24 B",
+     "2020-05-29 CCC+",
+     "2020-08-27 CC",
+     "2021-02-17 C",
+     "2021-05-19 RD",
+     "2021-06-15 D",
+     "2021-10-15 WD"
+    ],
+    "rd_dates": [
+     "2021-05-19"
+    ],
+    "rerated": false
+   },
+   "Insurance|legal_entity_identifier:549300N477OUMMDGVR39": {
+    "best_before_first_rd": "BBB",
+    "class": "Insurance",
+    "ig_before": true,
+    "loop": false,
+    "loop_before_withdrawal": false,
+    "loop_dates": [],
+    "loop_same_day": false,
+    "name": "FWU Life Insurance Lux S.A.",
+    "path": [
+     "2012-06-15 BBB-",
+     "2014-07-03 BBB",
+     "2024-07-29 CC",
+     "2024-09-11 RD",
+     "2025-01-29 D",
+     "2025-02-05 WD"
+    ],
+    "rd_dates": [
+     "2024-09-11"
+    ],
+    "rerated": false
+   }
+  },
+  "spans": {
+   "20260801 Fitch Ratings Corporate.csv": {
+    "before_rule_start": 1,
+    "earliest": "2003-09-04",
+    "latest": "2025-07-31",
+    "on_rule_start": 14287,
+    "rows": 124469
+   },
+   "20260801 Fitch Ratings Financial.csv": {
+    "before_rule_start": 1,
+    "earliest": "2003-01-24",
+    "latest": "2025-07-31",
+    "on_rule_start": 53209,
+    "rows": 310887
+   },
+   "20260801 Fitch Ratings Insurance.csv": {
+    "before_rule_start": 0,
+    "earliest": "2012-06-15",
+    "latest": "2025-07-31",
+    "on_rule_start": 2752,
+    "rows": 12223
+   }
+  },
+  "unknown_symbols": [],
+  "variants": {
+   "LT IDR + LC LT IDR / row key": {
+    "best_before_first_rd": {
+     "B": 66,
+     "B+": 54,
+     "B-": 26,
+     "BB": 18,
+     "BB+": 11,
+     "BB-": 42,
+     "BBB": 6,
+     "BBB+": 5,
+     "BBB-": 4,
+     "CC": 5,
+     "CCC": 13,
+     "CCC+": 4,
+     "CCC-": 1,
+     "none before the first RD": 5
+    },
+    "ig_before_an_rd": 15,
+    "issuers_with_rd": 260,
+    "loop_exchanges_by_window": {
+     "covid": 3,
+     "energy": 1,
+     "outside": 2,
+     "rates": 1
+    },
+    "loops": 6,
+    "loops_before_withdrawal": 4,
+    "loops_by_class": {
+     "Corporate": 6
+    },
+    "loops_same_day": 7,
+    "rerated_after_an_rd": 112
+   },
+   "LT IDR + LC LT IDR / union of identifiers": {
+    "best_before_first_rd": {
+     "B": 66,
+     "B+": 54,
+     "B-": 26,
+     "BB": 18,
+     "BB+": 11,
+     "BB-": 42,
+     "BBB": 6,
+     "BBB+": 5,
+     "BBB-": 4,
+     "CC": 5,
+     "CCC": 13,
+     "CCC+": 4,
+     "CCC-": 1,
+     "none before the first RD": 5
+    },
+    "ig_before_an_rd": 15,
+    "issuers_with_rd": 260,
+    "loop_exchanges_by_window": {
+     "covid": 3,
+     "energy": 1,
+     "outside": 2,
+     "rates": 1
+    },
+    "loops": 6,
+    "loops_before_withdrawal": 4,
+    "loops_by_class": {
+     "Corporate": 6
+    },
+    "loops_same_day": 7,
+    "rerated_after_an_rd": 112
+   },
+   "LT IDR / row key": {
+    "best_before_first_rd": {
+     "B": 71,
+     "B+": 52,
+     "B-": 25,
+     "BB": 18,
+     "BB+": 11,
+     "BB-": 39,
+     "BBB": 6,
+     "BBB+": 5,
+     "BBB-": 4,
+     "CC": 5,
+     "CCC": 13,
+     "CCC+": 4,
+     "CCC-": 1,
+     "none before the first RD": 5
+    },
+    "ig_before_an_rd": 15,
+    "issuers_with_rd": 259,
+    "loop_exchanges_by_window": {
+     "covid": 3,
+     "energy": 1,
+     "outside": 2,
+     "rates": 1
+    },
+    "loops": 6,
+    "loops_before_withdrawal": 4,
+    "loops_by_class": {
+     "Corporate": 6
+    },
+    "loops_same_day": 7,
+    "rerated_after_an_rd": 110
+   },
+   "LT IDR / union of identifiers": {
+    "best_before_first_rd": {
+     "B": 71,
+     "B+": 52,
+     "B-": 25,
+     "BB": 18,
+     "BB+": 11,
+     "BB-": 39,
+     "BBB": 6,
+     "BBB+": 5,
+     "BBB-": 4,
+     "CC": 5,
+     "CCC": 13,
+     "CCC+": 4,
+     "CCC-": 1,
+     "none before the first RD": 5
+    },
+    "ig_before_an_rd": 15,
+    "issuers_with_rd": 259,
+    "loop_exchanges_by_window": {
+     "covid": 3,
+     "energy": 1,
+     "outside": 2,
+     "rates": 1
+    },
+    "loops": 6,
+    "loops_before_withdrawal": 4,
+    "loops_by_class": {
+     "Corporate": 6
+    },
+    "loops_same_day": 7,
+    "rerated_after_an_rd": 110
+   }
+  },
+  "verdict": {
+   "largest": 7,
+   "multiple_of_fitch_needed": 27.57143,
+   "needed_from_sp": 193,
+   "passed": null,
+   "retained_share": 0.05791506,
+   "share_needed": 0.7722008,
+   "state": "undecided: short of the threshold on Fitch, and the registered exit reads S&P before judging"
+  }
+ },
+ "stage": "B11-C11-0"
+}

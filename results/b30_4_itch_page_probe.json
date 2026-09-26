@@ -1,0 +1,168 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "A probe. It establishes what the page prints and costs. No dispersion is computed and no criterion is scored.",
+  "pages": [
+    {
+      "bytes": 92263,
+      "count_spans": [
+        "(92,410 results)",
+        "92,410 results"
+      ],
+      "count_spans_total": 2,
+      "directory_count": 114000,
+      "first_total_phrase": "92,410 results",
+      "label": "thick: tag-horror",
+      "price_like_links": [
+        {
+          "around": "gister_action=\"header\" href=\"/register\">Register Indie game store Free games Fun games Horror games Game development Assets Comics <a href=\"/sales",
+          "href": "/games/free"
+        },
+        {
+          "around": "s Game development Assets Comics Sales Bundles Jobs Tags Game Engines <div id=\"browse_games_8176465\" class=\"browse_games_pag",
+          "href": "/sales"
+        },
+        {
+          "around": "lass=\"icon icon-triangle-down\" aria-hidden=\"true\"> Price Free On Sale <span class=\"icon icon-cart\" aria-hidden=\"",
+          "href": "/games/free/tag-horror"
+        },
+        {
+          "around": "en=\"true\"> Price Free On Sale Paid <span class=\"icon icon-cart\" ari",
+          "href": "/games/on-sale/tag-horror"
+        },
+        {
+          "around": "final-witness\" class=\"title game_link\" data-label=\"game:4973081:title\">Final Witness $0 -100% You found the truth. Can you survive? A PSX-style horror game. <div class=\"game_auth",
+          "href": "/s/200189/final-witness-on-sale-for-a-limited"
+        }
+      ],
+      "scale": "thick",
+      "slug": "horror",
+      "title": "Top games tagged Horror - itch.io",
+      "url": "https://itch.io/games/tag-horror"
+    },
+    {
+      "bytes": 90280,
+      "count_spans": [
+        "(3,768 results)",
+        "3,768 results"
+      ],
+      "count_spans_total": 2,
+      "directory_count": 4228,
+      "first_total_phrase": "3,768 results",
+      "label": "middle: tag-fishing",
+      "price_like_links": [
+        {
+          "around": "gister_action=\"header\" href=\"/register\">Register Indie game store Free games Fun games Horror games Game development Assets Comics <a href=\"/sales",
+          "href": "/games/free"
+        },
+        {
+          "around": "s Game development Assets Comics Sales Bundles Jobs Tags Game Engines <div id=\"browse_games_9290073\" class=\"browse_games_pag",
+          "href": "/sales"
+        },
+        {
+          "around": "lass=\"icon icon-triangle-down\" aria-hidden=\"true\"> Price Free On Sale <span class=\"icon icon-cart\" aria-hidden",
+          "href": "/games/free/tag-fishing"
+        },
+        {
+          "around": "n=\"true\"> Price Free On Sale Paid <span class=\"icon icon-cart\" a",
+          "href": "/games/on-sale/tag-fishing"
+        },
+        {
+          "around": "an class=\"icon icon-filter\"> Featured Related collections <img data-lazy_src=\"https://img.itch.",
+          "href": "/c/7892492/free-games"
+        }
+      ],
+      "scale": "middle",
+      "slug": "fishing",
+      "title": "Top games tagged Fishing - itch.io",
+      "url": "https://itch.io/games/tag-fishing"
+    },
+    {
+      "bytes": 90175,
+      "count_spans": [
+        "(150 results)",
+        "150 results"
+      ],
+      "count_spans_total": 2,
+      "directory_count": 161,
+      "first_total_phrase": "150 results",
+      "label": "thin: tag-nonogram",
+      "price_like_links": [
+        {
+          "around": "href=\"/register\" data-label=\"register\">Register Indie game store Free games Fun games Horror games Game development Assets Comics <a href=\"/sales",
+          "href": "/games/free"
+        },
+        {
+          "around": "s Game development Assets Comics Sales Bundles Jobs Tags Game Engines <div id=\"browse_games_8210807\" class=\"browse_games_pag",
+          "href": "/sales"
+        },
+        {
+          "around": "lass=\"icon icon-triangle-down\" aria-hidden=\"true\"> Price Free On Sale <span aria-hidden=\"true\" class=\"icon i",
+          "href": "/games/free/tag-nonogram"
+        },
+        {
+          "around": "=\"true\"> Price Free On Sale Paid <span aria-hidden=\"true\" cla",
+          "href": "/games/on-sale/tag-nonogram"
+        }
+      ],
+      "scale": "thin",
+      "slug": "nonogram",
+      "title": "Top games tagged Nonogram - itch.io",
+      "url": "https://itch.io/games/tag-nonogram"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "horror",
+      "b": "lovecraft",
+      "bytes": 95163,
+      "first_total_phrase": "725 results",
+      "kind": "nested",
+      "title": "Top games tagged Horror and Lovecraftian Horror - itch.io",
+      "url": "https://itch.io/games/tag-horror/tag-lovecraft"
+    },
+    {
+      "a": "picross",
+      "b": "nonogram",
+      "bytes": 92882,
+      "first_total_phrase": "92 results",
+      "kind": "synonym",
+      "title": "Top games tagged Nonogram and Picross - itch.io",
+      "url": "https://itch.io/games/tag-picross/tag-nonogram"
+    }
+  ],
+  "prices_used_in_any_reading": false,
+  "station": "B30-4",
+  "timing": [
+    {
+      "bytes": 92263,
+      "from_cache": false,
+      "seconds": 0.6453613999765366,
+      "url": "https://itch.io/games/tag-horror"
+    },
+    {
+      "bytes": 90280,
+      "from_cache": false,
+      "seconds": 0.6236614999361336,
+      "url": "https://itch.io/games/tag-fishing"
+    },
+    {
+      "bytes": 90175,
+      "from_cache": false,
+      "seconds": 0.46143740019761026,
+      "url": "https://itch.io/games/tag-nonogram"
+    },
+    {
+      "bytes": 95163,
+      "from_cache": false,
+      "seconds": 0.6670474000275135,
+      "url": "https://itch.io/games/tag-horror/tag-lovecraft"
+    },
+    {
+      "bytes": 92882,
+      "from_cache": false,
+      "seconds": 0.8564687999896705,
+      "url": "https://itch.io/games/tag-picross/tag-nonogram"
+    }
+  ],
+  "what": "step three piece one: a probe of the itch.io tag browse page, to find the price bands, whether the binning is a knob, and the cost per request at three scales"
+}

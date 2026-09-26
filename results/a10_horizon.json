@@ -1,0 +1,464 @@
+{
+  "config": {
+    "carrier": "A10 registered carrier, asset layer off",
+    "high": {
+      "rate": 0.1,
+      "trigger": 10.0
+    },
+    "horizons": [
+      300,
+      600,
+      1200,
+      2400
+    ],
+    "low": {
+      "rate": 0.02,
+      "trigger": 2.0
+    },
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "tail": 25,
+    "top_share_nodes": "ceil(n / 100) of the last round's holdings"
+  },
+  "criteria": [
+    {
+      "detail": "60 of 60 runs conserve claims to 1e-09 of the identity's largest term",
+      "kind": "instrument",
+      "name": "A10H-1 claims conserved in every run, destruction entering the identity",
+      "passed": true
+    },
+    {
+      "detail": "43 of 43 reported values reproduced",
+      "kind": "known_answer",
+      "name": "A10H-2 the reported horizon table is reproduced to its printed digits",
+      "passed": true
+    }
+  ],
+  "nodes": 200,
+  "stage": "A10H",
+  "table": [
+    {
+      "arm": "control",
+      "destroyed": 0.0,
+      "gini": 0.936768,
+      "gini_diff": 0.0,
+      "horizon": 300,
+      "mr": 33.540185,
+      "mr_rel": 1.0,
+      "peak_median": 299,
+      "peak_rounds": [
+        299,
+        299,
+        299
+      ],
+      "support_last": 13.939033,
+      "support_last_rel": 1.0,
+      "support_tail": 13.952138,
+      "support_tail_rel": 1.0,
+      "top1": 0.231394,
+      "top1_diff": 0.0
+    },
+    {
+      "arm": "refill, low",
+      "destroyed": 10445.509,
+      "gini": 0.937786,
+      "gini_diff": 0.001017,
+      "horizon": 300,
+      "mr": 33.524558,
+      "mr_rel": 0.999534,
+      "peak_median": 299,
+      "peak_rounds": [
+        299,
+        299,
+        299
+      ],
+      "support_last": 13.98466,
+      "support_last_rel": 1.003273,
+      "support_tail": 13.997142,
+      "support_tail_rel": 1.003226,
+      "top1": 0.244707,
+      "top1_diff": 0.013313
+    },
+    {
+      "arm": "refill, high",
+      "destroyed": 49295.488,
+      "gini": 0.942565,
+      "gini_diff": 0.005796,
+      "horizon": 300,
+      "mr": 32.224101,
+      "mr_rel": 0.960761,
+      "peak_median": 299,
+      "peak_rounds": [
+        299,
+        299,
+        299
+      ],
+      "support_last": 13.817837,
+      "support_last_rel": 0.991305,
+      "support_tail": 13.828503,
+      "support_tail_rel": 0.991139,
+      "top1": 0.29323,
+      "top1_diff": 0.061836
+    },
+    {
+      "arm": "no refill, low",
+      "destroyed": 2873.056,
+      "gini": 0.929239,
+      "gini_diff": -0.007529,
+      "horizon": 300,
+      "mr": 5.478172,
+      "mr_rel": 0.163332,
+      "peak_median": 299,
+      "peak_rounds": [
+        298,
+        299,
+        299
+      ],
+      "support_last": 15.48366,
+      "support_last_rel": 1.110813,
+      "support_tail": 15.486699,
+      "support_tail_rel": 1.109988,
+      "top1": 0.236309,
+      "top1_diff": 0.004915
+    },
+    {
+      "arm": "no refill, high",
+      "destroyed": 2446.176,
+      "gini": 0.933012,
+      "gini_diff": -0.003757,
+      "horizon": 300,
+      "mr": 9.365076,
+      "mr_rel": 0.27922,
+      "peak_median": 86,
+      "peak_rounds": [
+        163,
+        86,
+        84
+      ],
+      "support_last": 14.696117,
+      "support_last_rel": 1.054314,
+      "support_tail": 14.707946,
+      "support_tail_rel": 1.054171,
+      "top1": 0.233779,
+      "top1_diff": 0.002385
+    },
+    {
+      "arm": "control",
+      "destroyed": 0.0,
+      "gini": 0.937542,
+      "gini_diff": 0.0,
+      "horizon": 600,
+      "mr": 66.440635,
+      "mr_rel": 1.0,
+      "peak_median": 599,
+      "peak_rounds": [
+        599,
+        599,
+        599
+      ],
+      "support_last": 13.787274,
+      "support_last_rel": 1.0,
+      "support_tail": 13.790536,
+      "support_tail_rel": 1.0,
+      "top1": 0.230932,
+      "top1_diff": 0.0
+    },
+    {
+      "arm": "refill, low",
+      "destroyed": 41085.734,
+      "gini": 0.938518,
+      "gini_diff": 0.000976,
+      "horizon": 600,
+      "mr": 66.456942,
+      "mr_rel": 1.000245,
+      "peak_median": 599,
+      "peak_rounds": [
+        599,
+        599,
+        599
+      ],
+      "support_last": 13.840259,
+      "support_last_rel": 1.003843,
+      "support_tail": 13.84336,
+      "support_tail_rel": 1.00383,
+      "top1": 0.244278,
+      "top1_diff": 0.013346
+    },
+    {
+      "arm": "refill, high",
+      "destroyed": 211044.081,
+      "gini": 0.943183,
+      "gini_diff": 0.005641,
+      "horizon": 600,
+      "mr": 64.716921,
+      "mr_rel": 0.974056,
+      "peak_median": 599,
+      "peak_rounds": [
+        599,
+        599,
+        599
+      ],
+      "support_last": 13.696375,
+      "support_last_rel": 0.993407,
+      "support_tail": 13.698949,
+      "support_tail_rel": 0.993359,
+      "top1": 0.292909,
+      "top1_diff": 0.061977
+    },
+    {
+      "arm": "no refill, low",
+      "destroyed": 6232.464,
+      "gini": 0.929267,
+      "gini_diff": -0.008275,
+      "horizon": 600,
+      "mr": 5.488568,
+      "mr_rel": 0.082609,
+      "peak_median": 549,
+      "peak_rounds": [
+        550,
+        549,
+        547
+      ],
+      "support_last": 15.480853,
+      "support_last_rel": 1.122836,
+      "support_tail": 15.482198,
+      "support_tail_rel": 1.122668,
+      "top1": 0.236333,
+      "top1_diff": 0.005401
+    },
+    {
+      "arm": "no refill, high",
+      "destroyed": 5760.612,
+      "gini": 0.932957,
+      "gini_diff": -0.004585,
+      "horizon": 600,
+      "mr": 9.519954,
+      "mr_rel": 0.143285,
+      "peak_median": 86,
+      "peak_rounds": [
+        163,
+        86,
+        84
+      ],
+      "support_last": 14.711497,
+      "support_last_rel": 1.067034,
+      "support_tail": 14.706986,
+      "support_tail_rel": 1.066455,
+      "top1": 0.233812,
+      "top1_diff": 0.002879
+    },
+    {
+      "arm": "control",
+      "destroyed": 0.0,
+      "gini": 0.937936,
+      "gini_diff": 0.0,
+      "horizon": 1200,
+      "mr": 132.241831,
+      "mr_rel": 1.0,
+      "peak_median": 1199,
+      "peak_rounds": [
+        1199,
+        1199,
+        1199
+      ],
+      "support_last": 13.710655,
+      "support_last_rel": 1.0,
+      "support_tail": 13.711332,
+      "support_tail_rel": 1.0,
+      "top1": 0.230693,
+      "top1_diff": 0.0
+    },
+    {
+      "arm": "refill, low",
+      "destroyed": 162854.636,
+      "gini": 0.93889,
+      "gini_diff": 0.000955,
+      "horizon": 1200,
+      "mr": 132.322356,
+      "mr_rel": 1.000609,
+      "peak_median": 1199,
+      "peak_rounds": [
+        1199,
+        1199,
+        1199
+      ],
+      "support_last": 13.767395,
+      "support_last_rel": 1.004138,
+      "support_tail": 13.768038,
+      "support_tail_rel": 1.004136,
+      "top1": 0.244057,
+      "top1_diff": 0.013364
+    },
+    {
+      "arm": "refill, high",
+      "destroyed": 859473.863,
+      "gini": 0.943491,
+      "gini_diff": 0.005556,
+      "horizon": 1200,
+      "mr": 129.704071,
+      "mr_rel": 0.98081,
+      "peak_median": 1199,
+      "peak_rounds": [
+        1199,
+        1199,
+        1199
+      ],
+      "support_last": 13.636178,
+      "support_last_rel": 0.994568,
+      "support_tail": 13.636704,
+      "support_tail_rel": 0.994557,
+      "top1": 0.292747,
+      "top1_diff": 0.062054
+    },
+    {
+      "arm": "no refill, low",
+      "destroyed": 12953.415,
+      "gini": 0.929305,
+      "gini_diff": -0.008631,
+      "horizon": 1200,
+      "mr": 5.488659,
+      "mr_rel": 0.041505,
+      "peak_median": 887,
+      "peak_rounds": [
+        1126,
+        754,
+        887
+      ],
+      "support_last": 15.484968,
+      "support_last_rel": 1.129411,
+      "support_tail": 15.48236,
+      "support_tail_rel": 1.129165,
+      "top1": 0.236298,
+      "top1_diff": 0.005605
+    },
+    {
+      "arm": "no refill, high",
+      "destroyed": 12422.414,
+      "gini": 0.932963,
+      "gini_diff": -0.004972,
+      "horizon": 1200,
+      "mr": 9.502999,
+      "mr_rel": 0.071861,
+      "peak_median": 86,
+      "peak_rounds": [
+        163,
+        86,
+        84
+      ],
+      "support_last": 14.717554,
+      "support_last_rel": 1.073439,
+      "support_tail": 14.708566,
+      "support_tail_rel": 1.072731,
+      "top1": 0.233893,
+      "top1_diff": 0.0032
+    },
+    {
+      "arm": "control",
+      "destroyed": 0.0,
+      "gini": 0.938132,
+      "gini_diff": 0.0,
+      "horizon": 2400,
+      "mr": 263.843937,
+      "mr_rel": 1.0,
+      "peak_median": 2399,
+      "peak_rounds": [
+        2399,
+        2399,
+        2399
+      ],
+      "support_last": 13.671868,
+      "support_last_rel": 1.0,
+      "support_tail": 13.672102,
+      "support_tail_rel": 1.0,
+      "top1": 0.230575,
+      "top1_diff": 0.0
+    },
+    {
+      "arm": "refill, low",
+      "destroyed": 648346.405,
+      "gini": 0.939076,
+      "gini_diff": 0.000944,
+      "horizon": 2400,
+      "mr": 264.052366,
+      "mr_rel": 1.00079,
+      "peak_median": 2399,
+      "peak_rounds": [
+        2399,
+        2399,
+        2399
+      ],
+      "support_last": 13.730522,
+      "support_last_rel": 1.00429,
+      "support_tail": 13.730745,
+      "support_tail_rel": 1.004289,
+      "top1": 0.243947,
+      "top1_diff": 0.013372
+    },
+    {
+      "arm": "refill, high",
+      "destroyed": 3456069.412,
+      "gini": 0.943644,
+      "gini_diff": 0.005511,
+      "horizon": 2400,
+      "mr": 259.676121,
+      "mr_rel": 0.984203,
+      "peak_median": 2399,
+      "peak_rounds": [
+        2399,
+        2399,
+        2399
+      ],
+      "support_last": 13.605995,
+      "support_last_rel": 0.995182,
+      "support_tail": 13.60618,
+      "support_tail_rel": 0.995178,
+      "top1": 0.292667,
+      "top1_diff": 0.062093
+    },
+    {
+      "arm": "no refill, low",
+      "destroyed": 26395.264,
+      "gini": 0.92932,
+      "gini_diff": -0.008813,
+      "horizon": 2400,
+      "mr": 5.488555,
+      "mr_rel": 0.020802,
+      "peak_median": 1513,
+      "peak_rounds": [
+        1513,
+        1450,
+        2317
+      ],
+      "support_last": 15.4803,
+      "support_last_rel": 1.132274,
+      "support_tail": 15.482142,
+      "support_tail_rel": 1.132389,
+      "top1": 0.236329,
+      "top1_diff": 0.005754
+    },
+    {
+      "arm": "no refill, high",
+      "destroyed": 25780.022,
+      "gini": 0.933038,
+      "gini_diff": -0.005094,
+      "horizon": 2400,
+      "mr": 9.12113,
+      "mr_rel": 0.03457,
+      "peak_median": 86,
+      "peak_rounds": [
+        1774,
+        86,
+        84
+      ],
+      "support_last": 14.708835,
+      "support_last_rel": 1.075847,
+      "support_tail": 14.703715,
+      "support_tail_rel": 1.075454,
+      "top1": 0.233743,
+      "top1_diff": 0.003168
+    }
+  ]
+}

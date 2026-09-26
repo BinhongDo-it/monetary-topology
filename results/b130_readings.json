@@ -1,0 +1,526 @@
+{
+ "config": {
+  "c3_year": "2025",
+  "hdb_items": {
+   "rental_flats_1_room": {
+    "label": "Rental Flats, 1-Room, Total",
+    "page": 15,
+    "value": "30,494"
+   },
+   "rental_flats_under_management": {
+    "label": "Dwelling Units Under Management, Rental Flats, Total",
+    "page": 15,
+    "value": "63,558"
+   },
+   "renting_out_active_cases_2025_03_31": {
+    "label": "Active cases for Renting Out of Flat (as at 31 March 2025)",
+    "page": 10,
+    "value": "59,567"
+   },
+   "resident_population_in_hdb_pct": {
+    "label": "Percentage of Singapore resident population living in HDB flats",
+    "page": 7,
+    "value": "76.0"
+   },
+   "sold_flats_under_management": {
+    "label": "Dwelling Units Under Management, Sold Flats, Total",
+    "page": 15,
+    "value": "1,089,522"
+   }
+  },
+  "sources": {
+   "dgs_households_by_dwelling.json": "https://data.gov.sg/api/action/datastore_search?limit=1000&resource_id=d_edf8bb4773c25dd16b8b6875fd0b52da",
+   "dgs_income_per_member_by_dwelling.json": "https://data.gov.sg/api/action/datastore_search?limit=1000&resource_id=d_c49b6cc84ccab3a0523ad15a907e57be",
+   "hdb_buying_couples_and_families.html": "https://www.hdb.gov.sg/buying-a-flat/flat-grant-and-loan-eligibility/couples-and-families",
+   "hdb_key_statistics_2024_2025.pdf": "https://www.hdb.gov.sg/-/media/hdb-pulse/reports/annual-reports-and-financial-statements/HDB_Key-Statistics-2025.pdf",
+   "hdb_renting_out_flat_eligibility.html": "https://www.hdb.gov.sg/managing-my-home/home-ownership/renting-out-a-flat-or-bedrooms/renting-out-a-flat/eligibility",
+   "singstat_m810401.json": "https://tablebuilder.singstat.gov.sg/api/table/tabledata/M810401"
+  }
+ },
+ "criteria": [
+  {
+   "detail": {
+    "files": {
+     "dgs_households_by_dwelling.json": "ok",
+     "dgs_income_per_member_by_dwelling.json": "ok",
+     "hdb_buying_couples_and_families.html": "ok",
+     "hdb_key_statistics_2024_2025.pdf": "ok",
+     "hdb_renting_out_flat_eligibility.html": "ok",
+     "singstat_m810401.json": "ok"
+    },
+    "hdb_items": {
+     "rental_flats_1_room": {
+      "found_on_page": true,
+      "label": "Rental Flats, 1-Room, Total",
+      "page": 15,
+      "value": "30,494"
+     },
+     "rental_flats_under_management": {
+      "found_on_page": true,
+      "label": "Dwelling Units Under Management, Rental Flats, Total",
+      "page": 15,
+      "value": "63,558"
+     },
+     "renting_out_active_cases_2025_03_31": {
+      "found_on_page": true,
+      "label": "Active cases for Renting Out of Flat (as at 31 March 2025)",
+      "page": 10,
+      "value": "59,567"
+     },
+     "resident_population_in_hdb_pct": {
+      "found_on_page": true,
+      "label": "Percentage of Singapore resident population living in HDB flats",
+      "page": 7,
+      "value": "76.0"
+     },
+     "sold_flats_under_management": {
+      "found_on_page": true,
+      "label": "Dwelling Units Under Management, Sold Flats, Total",
+      "page": 15,
+      "value": "1,089,522"
+     }
+    },
+    "pdf_chars_per_page": {
+     "page 1": 38,
+     "page 10": 869,
+     "page 11": 1298,
+     "page 12": 1819,
+     "page 13": 95,
+     "page 14": 2541,
+     "page 15": 3019,
+     "page 16": 1109,
+     "page 17": 2033,
+     "page 18": 633,
+     "page 19": 727,
+     "page 2": 410,
+     "page 20": 1521,
+     "page 21": 1029,
+     "page 22": 301,
+     "page 23": 383,
+     "page 24": 50,
+     "page 25": 50,
+     "page 26": 75,
+     "page 27": 0,
+     "page 3": 2433,
+     "page 4": 1084,
+     "page 5": 1280,
+     "page 6": 21,
+     "page 7": 1978,
+     "page 8": 629,
+     "page 9": 1100
+    },
+    "pdf_pages_opened": 27
+   },
+   "kind": "instrument",
+   "name": "B130-1",
+   "passed": true
+  },
+  {
+   "detail": {
+    "n_years": 29,
+    "sign_counts": {
+     "+": 29,
+     "-": 0,
+     "0": 0
+    },
+    "years": {
+     "1980": {
+      "condo": 49.2,
+      "hdb": 61.5,
+      "hdb_minus_condo": 12.3,
+      "landed": 75.4
+     },
+     "1990": {
+      "condo": 78.0,
+      "hdb": 89.8,
+      "hdb_minus_condo": 11.8,
+      "landed": 87.6
+     },
+     "1995": {
+      "condo": 83.3,
+      "hdb": 90.6,
+      "hdb_minus_condo": 7.3,
+      "landed": 92.3
+     },
+     "2000": {
+      "condo": 80.8,
+      "hdb": 93.1,
+      "hdb_minus_condo": 12.3,
+      "landed": 89.8
+     },
+     "2001": {
+      "condo": 82.6,
+      "hdb": 94.0,
+      "hdb_minus_condo": 11.4,
+      "landed": 95.0
+     },
+     "2002": {
+      "condo": 82.6,
+      "hdb": 94.1,
+      "hdb_minus_condo": 11.5,
+      "landed": 92.8
+     },
+     "2003": {
+      "condo": 80.9,
+      "hdb": 93.4,
+      "hdb_minus_condo": 12.5,
+      "landed": 92.2
+     },
+     "2004": {
+      "condo": 80.8,
+      "hdb": 94.2,
+      "hdb_minus_condo": 13.4,
+      "landed": 91.1
+     },
+     "2005": {
+      "condo": 77.2,
+      "hdb": 93.0,
+      "hdb_minus_condo": 15.8,
+      "landed": 89.8
+     },
+     "2006": {
+      "condo": 77.1,
+      "hdb": 92.2,
+      "hdb_minus_condo": 15.1,
+      "landed": 90.1
+     },
+     "2007": {
+      "condo": 77.1,
+      "hdb": 91.9,
+      "hdb_minus_condo": 14.8,
+      "landed": 88.9
+     },
+     "2008": {
+      "condo": 79.6,
+      "hdb": 91.7,
+      "hdb_minus_condo": 12.1,
+      "landed": 89.3
+     },
+     "2009": {
+      "condo": 77.2,
+      "hdb": 90.4,
+      "hdb_minus_condo": 13.2,
+      "landed": 90.2
+     },
+     "2010": {
+      "condo": 76.6,
+      "hdb": 88.8,
+      "hdb_minus_condo": 12.2,
+      "landed": 88.7
+     },
+     "2011": {
+      "condo": 79.0,
+      "hdb": 90.1,
+      "hdb_minus_condo": 11.1,
+      "landed": 88.7
+     },
+     "2012": {
+      "condo": 80.3,
+      "hdb": 91.7,
+      "hdb_minus_condo": 11.4,
+      "landed": 89.5
+     },
+     "2013": {
+      "condo": 82.5,
+      "hdb": 91.8,
+      "hdb_minus_condo": 9.3,
+      "landed": 91.2
+     },
+     "2014": {
+      "condo": 83.3,
+      "hdb": 91.6,
+      "hdb_minus_condo": 8.3,
+      "landed": 90.9
+     },
+     "2015": {
+      "condo": 84.1,
+      "hdb": 92.0,
+      "hdb_minus_condo": 7.9,
+      "landed": 92.0
+     },
+     "2016": {
+      "condo": 84.1,
+      "hdb": 92.2,
+      "hdb_minus_condo": 8.1,
+      "landed": 92.8
+     },
+     "2017": {
+      "condo": 83.6,
+      "hdb": 92.1,
+      "hdb_minus_condo": 8.5,
+      "landed": 92.0
+     },
+     "2018": {
+      "condo": 84.9,
+      "hdb": 92.2,
+      "hdb_minus_condo": 7.3,
+      "landed": 92.8
+     },
+     "2019": {
+      "condo": 83.1,
+      "hdb": 91.9,
+      "hdb_minus_condo": 8.8,
+      "landed": 91.5
+     },
+     "2020": {
+      "condo": 81.6,
+      "hdb": 89.2,
+      "hdb_minus_condo": 7.6,
+      "landed": 89.2
+     },
+     "2021": {
+      "condo": 80.3,
+      "hdb": 90.9,
+      "hdb_minus_condo": 10.6,
+      "landed": 89.7
+     },
+     "2022": {
+      "condo": 81.9,
+      "hdb": 90.9,
+      "hdb_minus_condo": 9.0,
+      "landed": 90.7
+     },
+     "2023": {
+      "condo": 82.8,
+      "hdb": 91.3,
+      "hdb_minus_condo": 8.5,
+      "landed": 90.1
+     },
+     "2024": {
+      "condo": 85.3,
+      "hdb": 92.2,
+      "hdb_minus_condo": 6.9,
+      "landed": 90.2
+     },
+     "2025": {
+      "condo": 86.9,
+      "hdb": 92.3,
+      "hdb_minus_condo": 5.4,
+      "landed": 91.4
+     }
+    }
+   },
+   "kind": "own_reading",
+   "name": "B130-2",
+   "passed": true
+  },
+  {
+   "detail": {
+    "bound_1_2_room_as_public_rental": {
+     "non_resident_share_of_whole_flat_tenancies_at_least": 0.456,
+     "resident_market_tenants_at_most": 32406
+    },
+    "bound_every_non_owner_a_market_tenant": {
+     "non_resident_share_of_whole_flat_tenancies_at_least": 0.0,
+     "resident_market_tenants_at_most": 88289
+    },
+    "consistency": {
+     "1_2_room_non_owners_le_public_rental_flats": true
+    },
+    "flats_rented_out_whole": 59567.0,
+    "non_owner_households_by_type": {
+     "HDB 1- And 2-Room Flats": 55883,
+     "HDB 3-Room Flats": 11124,
+     "HDB 4-Room Flats": 14384,
+     "HDB 5-Room And Executive Flats": 6898
+    },
+    "non_owners_1_2_room": 55883,
+    "non_owners_3_room_and_up": 32406,
+    "public_rental_flats_under_management": 63558.0,
+    "why_each_is_an_upper_bound": [
+     "non-owners include rent-free households and households renting a bedroom",
+     "the tight bound assumes every 1-2 room non-owner is a public-rental tenant; public rental flats are 1- and 2-room, and they outnumber the 1-2 room non-owners",
+     "SingStat counts resident households in June; HDB counts active rentals on 31 March"
+    ],
+    "year": "2025"
+   },
+   "kind": "own_reading",
+   "name": "B130-3",
+   "passed": true
+  },
+  {
+   "detail": {
+    "grid": "B",
+    "per_year": {
+     "2000": {
+      "cell": "B",
+      "condo_income_per_member": 3758.0,
+      "hdb_minus_condo": 12.3,
+      "max_hdb_income_per_member": 1709.0,
+      "read": true
+     },
+     "2001": {
+      "cell": "B",
+      "condo_income_per_member": 4134.0,
+      "hdb_minus_condo": 11.4,
+      "max_hdb_income_per_member": 1832.0,
+      "read": true
+     },
+     "2002": {
+      "cell": "B",
+      "condo_income_per_member": 3800.0,
+      "hdb_minus_condo": 11.5,
+      "max_hdb_income_per_member": 1805.0,
+      "read": true
+     },
+     "2003": {
+      "cell": "B",
+      "condo_income_per_member": 3859.0,
+      "hdb_minus_condo": 12.5,
+      "max_hdb_income_per_member": 1752.0,
+      "read": true
+     },
+     "2004": {
+      "cell": "B",
+      "condo_income_per_member": 3698.0,
+      "hdb_minus_condo": 13.4,
+      "max_hdb_income_per_member": 1745.0,
+      "read": true
+     },
+     "2005": {
+      "cell": "B",
+      "condo_income_per_member": 4136.0,
+      "hdb_minus_condo": 15.8,
+      "max_hdb_income_per_member": 1865.0,
+      "read": true
+     },
+     "2006": {
+      "cell": "B",
+      "condo_income_per_member": 4501.0,
+      "hdb_minus_condo": 15.1,
+      "max_hdb_income_per_member": 1904.0,
+      "read": true
+     },
+     "2007": {
+      "cell": "B",
+      "condo_income_per_member": 4954.0,
+      "hdb_minus_condo": 14.8,
+      "max_hdb_income_per_member": 2062.0,
+      "read": true
+     },
+     "2008": {
+      "cell": "B",
+      "condo_income_per_member": 5171.0,
+      "hdb_minus_condo": 12.1,
+      "max_hdb_income_per_member": 2311.0,
+      "read": true
+     },
+     "2009": {
+      "cell": "B",
+      "condo_income_per_member": 5205.0,
+      "hdb_minus_condo": 13.2,
+      "max_hdb_income_per_member": 2246.0,
+      "read": true
+     },
+     "2010": {
+      "cell": "B",
+      "condo_income_per_member": 5393.0,
+      "hdb_minus_condo": 12.2,
+      "max_hdb_income_per_member": 2357.0,
+      "read": true
+     },
+     "2011": {
+      "cell": "B",
+      "condo_income_per_member": 5934.0,
+      "hdb_minus_condo": 11.1,
+      "max_hdb_income_per_member": 2535.0,
+      "read": true
+     },
+     "2012": {
+      "cell": "B",
+      "condo_income_per_member": 6213.0,
+      "hdb_minus_condo": 11.4,
+      "max_hdb_income_per_member": 2655.0,
+      "read": true
+     },
+     "2013": {
+      "cell": "B",
+      "condo_income_per_member": 6277.0,
+      "hdb_minus_condo": 9.3,
+      "max_hdb_income_per_member": 2795.0,
+      "read": true
+     },
+     "2014": {
+      "cell": "B",
+      "condo_income_per_member": 6416.0,
+      "hdb_minus_condo": 8.3,
+      "max_hdb_income_per_member": 2932.0,
+      "read": true
+     },
+     "2015": {
+      "cell": "B",
+      "condo_income_per_member": 6943.0,
+      "hdb_minus_condo": 7.9,
+      "max_hdb_income_per_member": 3037.0,
+      "read": true
+     },
+     "2016": {
+      "cell": "B",
+      "condo_income_per_member": 6683.0,
+      "hdb_minus_condo": 8.1,
+      "max_hdb_income_per_member": 3057.0,
+      "read": true
+     },
+     "2017": {
+      "cell": "B",
+      "condo_income_per_member": 6694.0,
+      "hdb_minus_condo": 8.5,
+      "max_hdb_income_per_member": 3211.0,
+      "read": true
+     },
+     "2018": {
+      "cell": "B",
+      "condo_income_per_member": 6909.0,
+      "hdb_minus_condo": 7.3,
+      "max_hdb_income_per_member": 3294.0,
+      "read": true
+     },
+     "2019": {
+      "cell": "B",
+      "condo_income_per_member": 6938.0,
+      "hdb_minus_condo": 8.8,
+      "max_hdb_income_per_member": 3397.0,
+      "read": true
+     },
+     "2020": {
+      "cell": "B",
+      "condo_income_per_member": 6733.0,
+      "hdb_minus_condo": 7.6,
+      "max_hdb_income_per_member": 3332.0,
+      "read": true
+     },
+     "2021": {
+      "cell": "B",
+      "condo_income_per_member": 6934.0,
+      "hdb_minus_condo": 10.6,
+      "max_hdb_income_per_member": 3486.0,
+      "read": true
+     },
+     "2022": {
+      "cell": "B",
+      "condo_income_per_member": 7414.0,
+      "hdb_minus_condo": 9.0,
+      "max_hdb_income_per_member": 3706.0,
+      "read": true
+     },
+     "2023": {
+      "cell": "B",
+      "condo_income_per_member": 7508.0,
+      "hdb_minus_condo": 8.5,
+      "max_hdb_income_per_member": 3873.0,
+      "read": true
+     }
+    },
+    "rival_shape": "one-sided inequality"
+   },
+   "grid": "B",
+   "kind": "rival",
+   "name": "B130-4",
+   "passed": true,
+   "rival_entailment": "Condominium residents earn more per household member than residents of every HDB flat type in each year read; so under the premise the condominium owner-occupied share is at least the HDB share in each such year.",
+   "rival_premise": "Tenure is a function of household resources: ownership rises with household income, whatever rules a housing segment carries.",
+   "rival_shape": "one-sided inequality"
+  }
+ ],
+ "stage": "B130"
+}

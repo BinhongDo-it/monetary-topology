@@ -1,0 +1,673 @@
+{
+ "config": {
+  "dispersions": [
+   0.0,
+   0.25,
+   0.5,
+   1.0,
+   2.0,
+   4.0
+  ],
+  "imports": "b81_cpd",
+  "reps": 10,
+  "seed": 84,
+  "shapes": [
+   [
+    4,
+    5
+   ],
+   [
+    5,
+    6
+   ],
+   [
+    6,
+    6
+   ],
+   [
+    7,
+    5
+   ],
+   [
+    8,
+    7
+   ]
+  ],
+  "tableau_density": 0.7,
+  "vanishing": [
+   0.1,
+   0.001,
+   1e-06,
+   1e-09,
+   1e-12
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "unit weights reproduce B81's fitted values to 0.00e+00 over 10 tableaux, importing B81's solver rather than a second copy of it; scaling every weight by 7.3 moves the parities by 2.22e-15. On the 10 connected tableaux, re-gauging to each of the other base countries moves no pairwise parity difference by more than 2.22e-16, **while the raw coefficients move by at least 0.1630 when the weights change**, which is what makes the first half of that sentence say anything",
+   "kind": "known_answer",
+   "name": "B84-1",
+   "passed": true,
+   "statement": "unit weights reproduce B81's fit, and the fit is invariant to an overall scaling of the weights"
+  },
+  {
+   "detail": "every cycle of the bipartite graph sums to at most 2.22e-16 on the weighted fitted values, at dispersion 1.5, while the same cycles on the raw log prices reach at least 0.9283 on every tableau. **The second half is what stops this reading an identity**: a tableau whose raw prices already telescoped would pass the first half for free, and so would a tableau with no cycle at all, which is why the count is in the verdict: 98 cycles were tested",
+   "kind": "own_reading",
+   "name": "B84-2",
+   "passed": true,
+   "statement": "the weighted fitted value is a coboundary, while the raw log prices are not"
+  },
+  {
+   "detail": "over 6 weight dispersions on 10 tableaux: the first Betti number and the design's rank deficiency hold at every dispersion on 10 of 10, equal to the closed form and to the component count; **and the parities move on 10 of 10**, by up to 1.8190. Both halves are required: an unchanged topology on its own is also what a weight that never reached the solve would look like",
+   "kind": "own_reading",
+   "name": "B84-3",
+   "passed": true,
+   "statement": "the weights change the metric and not the topology: b1 and the rank deficiency hold while the parities move"
+  },
+  {
+   "detail": "driving one edge's weight down the ladder (0.1, 0.001, 1e-06, 1e-09, 1e-12). **Inside a cycle**: on 10 of 10 edges the parities converge to the solution with that edge deleted, worst distance at the bottom of the ladder 1.12e-12, while the first Betti number drops by one only at zero itself. The approach is linear in the weight, read off the ladder rather than assumed: dividing the weight by a factor divides the distance by the same factor, ratio between 0.849 and 1.003 over every step of every edge. **On a bridge**: 10 of 10 raise the component count by one instead and leave the Betti number alone, so what a vanishing weight costs there is not a dimension of residual but the comparability of two parities. Both kinds are drawn on purpose. **At the density the rest of this station uses the graphs come back two-edge-connected**, so no bridge exists there at all and the boundary case is unreachable: the 10 bridges are drawn from tableaux at density 0.3, where pendant edges appear. A first version took whichever edge came first, drew ten cycles and no bridge, and left this half never evaluated",
+   "kind": "own_reading",
+   "name": "B84-4",
+   "passed": true,
+   "statement": "zero is not a small weight, it is an edge leaving the graph"
+  },
+  {
+   "detail": "largest change in any pairwise parity comparison between the weighted and the unweighted fit, in logs, by the dispersion of log weight. The spread of the difference rather than its largest element, since a parity vector is defined only up to one constant and the spread is the same number under any gauge: sd 0.0 -> median 0.0000 max 0.0000; sd 0.25 -> median 0.1522 max 0.2805; sd 0.5 -> median 0.3567 max 0.6181; sd 1.0 -> median 0.6839 max 1.2494; sd 2.0 -> median 0.8084 max 1.5454; sd 4.0 -> median 1.5997 max 3.0928. No line is drawn on any of these: the reading is that the two projections are the same operation with different answers, and how different is a property of the weights rather than a verdict",
+   "kind": "own_reading",
+   "name": "B84-5",
+   "passed": true,
+   "statement": "how far the two projections get, printed against the dispersion of the weights"
+  },
+  {
+   "detail": "the weighted design solved by least squares and the weighted graph Laplacian `L_w psi = d0' W y` give fitted values agreeing to 6.27e-15 over 10 tableaux. **This is an implementation check and not a second route** (`D35` second clause): the normal equations make the two equal by a theorem, so what it can catch is a coding error, which is worth exactly that",
+   "kind": "instrument",
+   "name": "B84-6",
+   "passed": true,
+   "statement": "the weighted design and the weighted Laplacian solve the same system"
+  },
+  {
+   "detail": "B81 section 6 carries the claim it registered, and names this station against it. `D20`: the source of a registration is written back in the round that discharges it, not later.",
+   "kind": "bookkeeping",
+   "name": "B84-7",
+   "passed": true,
+   "statement": "B81's section 6 registration is discharged"
+  }
+ ],
+ "report": {
+  "B84-1": {
+   "connected_tableaux": 10,
+   "least_raw_shift_under_weights": 0.16304616191954516,
+   "worst_base_change": 2.220446049250313e-16,
+   "worst_scale": 2.220446049250313e-15,
+   "worst_unit": 0.0
+  },
+  "B84-2": {
+   "cycles_tested": 98,
+   "least_raw_cycle": 0.9282784884391689,
+   "worst_fitted_cycle": 2.220446049250313e-16
+  },
+  "B84-3": {
+   "parities_moved_on": 10,
+   "rows": [
+    {
+     "M": 8,
+     "R": 7,
+     "b1_closed_form": 26,
+     "b1_seen": [
+      26
+     ],
+     "components": 1,
+     "edges": 40,
+     "parity_spread_over_weights": 1.2286129544805657,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 7,
+     "R": 5,
+     "b1_closed_form": 13,
+     "b1_seen": [
+      13
+     ],
+     "components": 1,
+     "edges": 24,
+     "parity_spread_over_weights": 1.2189283329306173,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 8,
+     "R": 7,
+     "b1_closed_form": 18,
+     "b1_seen": [
+      18
+     ],
+     "components": 1,
+     "edges": 32,
+     "parity_spread_over_weights": 1.8189717254074507,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 6,
+     "R": 6,
+     "b1_closed_form": 16,
+     "b1_seen": [
+      16
+     ],
+     "components": 1,
+     "edges": 27,
+     "parity_spread_over_weights": 1.0253424704061345,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 7,
+     "R": 5,
+     "b1_closed_form": 14,
+     "b1_seen": [
+      14
+     ],
+     "components": 1,
+     "edges": 25,
+     "parity_spread_over_weights": 0.8917008241269041,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "b1_closed_form": 13,
+     "b1_seen": [
+      13
+     ],
+     "components": 1,
+     "edges": 23,
+     "parity_spread_over_weights": 1.192063830181245,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 8,
+     "R": 7,
+     "b1_closed_form": 24,
+     "b1_seen": [
+      24
+     ],
+     "components": 1,
+     "edges": 38,
+     "parity_spread_over_weights": 1.1390140713938914,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 5,
+     "R": 6,
+     "b1_closed_form": 11,
+     "b1_seen": [
+      11
+     ],
+     "components": 1,
+     "edges": 21,
+     "parity_spread_over_weights": 0.6299867633447508,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 7,
+     "R": 5,
+     "b1_closed_form": 14,
+     "b1_seen": [
+      14
+     ],
+     "components": 1,
+     "edges": 25,
+     "parity_spread_over_weights": 0.5782599660852727,
+     "rank_deficiency_seen": [
+      1
+     ]
+    },
+    {
+     "M": 7,
+     "R": 5,
+     "b1_closed_form": 12,
+     "b1_seen": [
+      12
+     ],
+     "components": 1,
+     "edges": 23,
+     "parity_spread_over_weights": 1.2402634461756394,
+     "rank_deficiency_seen": [
+      1
+     ]
+    }
+   ],
+   "topology_moved_on": 0,
+   "widest_parity_spread": 1.8189717254074507
+  },
+  "B84-4": {
+   "bridge_edges": [
+    {
+     "b1_after": 1,
+     "b1_before": 1,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      0,
+      3
+     ]
+    },
+    {
+     "b1_after": 0,
+     "b1_before": 0,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      1,
+      4
+     ]
+    },
+    {
+     "b1_after": 1,
+     "b1_before": 1,
+     "bridge": true,
+     "components_after": 2,
+     "components_before": 1,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      2,
+      6
+     ]
+    },
+    {
+     "b1_after": 1,
+     "b1_before": 1,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      0,
+      2
+     ]
+    },
+    {
+     "b1_after": 0,
+     "b1_before": 0,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 0,
+     "b1_before": 0,
+     "bridge": true,
+     "components_after": 2,
+     "components_before": 1,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      1,
+      0
+     ]
+    },
+    {
+     "b1_after": 3,
+     "b1_before": 3,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      6,
+      2
+     ]
+    },
+    {
+     "b1_after": 0,
+     "b1_before": 0,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      0,
+      4
+     ]
+    },
+    {
+     "b1_after": 0,
+     "b1_before": 0,
+     "bridge": true,
+     "components_after": 4,
+     "components_before": 3,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      3,
+      4
+     ]
+    },
+    {
+     "b1_after": 0,
+     "b1_before": 0,
+     "bridge": true,
+     "components_after": 3,
+     "components_before": 2,
+     "density": 0.3,
+     "distance_to_deleted_solution": [
+      null,
+      null,
+      null,
+      null,
+      null
+     ],
+     "edge": [
+      0,
+      1
+     ]
+    }
+   ],
+   "cycle_edges": [
+    {
+     "b1_after": 15,
+     "b1_before": 16,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.031338056709154405,
+      0.00033207909883625764,
+      3.322791637394573e-07,
+      3.3228053641920496e-10,
+      3.331779296900095e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 12,
+     "b1_before": 13,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.10098453406753649,
+      0.001117487638371606,
+      1.1186909242288934e-06,
+      1.1186903625670652e-09,
+      1.1186607196123077e-12
+     ],
+     "edge": [
+      0,
+      1
+     ]
+    },
+    {
+     "b1_after": 8,
+     "b1_before": 9,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.04949943035619089,
+      0.0005452514840749711,
+      5.458106860090073e-07,
+      5.458103413680249e-10,
+      5.448141937591799e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 15,
+     "b1_before": 16,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.017382706700065753,
+      0.00018597585956559026,
+      1.8610711238764566e-07,
+      1.8610790686324208e-10,
+      1.8751666885918894e-13
+     ],
+     "edge": [
+      0,
+      1
+     ]
+    },
+    {
+     "b1_after": 9,
+     "b1_before": 10,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.014501119447335231,
+      0.0001586541074601877,
+      1.5880487080899286e-07,
+      1.588018605502839e-10,
+      1.584010700383942e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 4,
+     "b1_before": 5,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.09353547450512278,
+      0.0011017354753029007,
+      1.1037166103289309e-06,
+      1.1037133429425694e-09,
+      1.1020073742429304e-12
+     ],
+     "edge": [
+      0,
+      1
+     ]
+    },
+    {
+     "b1_after": 7,
+     "b1_before": 8,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.03064009085148306,
+      0.0003397210786532656,
+      3.4009428112602436e-07,
+      3.400935644215508e-10,
+      3.393396674766791e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 7,
+     "b1_before": 8,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.05428087392077241,
+      0.0005979212922052612,
+      5.985345211678705e-07,
+      5.985354434301371e-10,
+      5.974110095507967e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 17,
+     "b1_before": 18,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.05806908454636073,
+      0.00062016744084048,
+      6.205931682989885e-07,
+      6.205929103941799e-10,
+      6.191713808334498e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    },
+    {
+     "b1_after": 9,
+     "b1_before": 10,
+     "bridge": false,
+     "components_after": 1,
+     "components_before": 1,
+     "distance_to_deleted_solution": [
+      0.03810315851067605,
+      0.00041269146015987523,
+      4.130377732058932e-07,
+      4.130379094302583e-10,
+      4.1303072073617386e-13
+     ],
+     "edge": [
+      0,
+      0
+     ]
+    }
+   ],
+   "rate_in_the_weight": [
+    0.8489830508489983,
+    1.0025302260381985
+   ]
+  },
+  "B84-5": {
+   "by_dispersion": {
+    "0.0": {
+     "max": 0.0,
+     "median": 0.0
+    },
+    "0.25": {
+     "max": 0.28050289869935263,
+     "median": 0.15219459501679022
+    },
+    "0.5": {
+     "max": 0.618133253692944,
+     "median": 0.3567367077492248
+    },
+    "1.0": {
+     "max": 1.2493621346776373,
+     "median": 0.6839060000259292
+    },
+    "2.0": {
+     "max": 1.545411552649397,
+     "median": 0.808360315359786
+    },
+    "4.0": {
+     "max": 3.0927794270432054,
+     "median": 1.5997097705025292
+    }
+   }
+  },
+  "B84-6": {
+   "worst_gap": 6.2727600891321345e-15
+  },
+  "B84-7": {
+   "b81_section_6_carries_the_claim": true,
+   "b81_section_6_names_b84": true
+  }
+ },
+ "stage": "B84"
+}

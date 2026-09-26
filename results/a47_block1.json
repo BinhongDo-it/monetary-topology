@@ -1,0 +1,262 @@
+{
+ "config": {
+  "arms": {
+   "A3 (rules off)": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "pool_pass_rate": 1.0,
+    "residence_bound": false
+   },
+   "bound, cost, listed 0.271": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.271,
+    "landlord": "listed",
+    "liquidation": "cost",
+    "pool_pass_rate": 1.0,
+    "residence_bound": true
+   },
+   "bound, cost, public": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "cost",
+    "pool_pass_rate": 1.0,
+    "residence_bound": true
+   },
+   "bound, market, listed 0.271": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.271,
+    "landlord": "listed",
+    "liquidation": "market",
+    "pool_pass_rate": 1.0,
+    "residence_bound": true
+   },
+   "bound, market, listed 0.421": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.421,
+    "landlord": "listed",
+    "liquidation": "market",
+    "pool_pass_rate": 1.0,
+    "residence_bound": true
+   },
+   "bound, market, public": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "pool_pass_rate": 1.0,
+    "residence_bound": true
+   },
+   "bound, market, public, owners bid": {
+    "bidders_exclude_owners": false,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "pool_pass_rate": 1.0,
+    "residence_bound": true
+   }
+  },
+  "reproduction_seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "rounds": 300
+ },
+ "criteria": [
+  {
+   "detail": "all rules off reproduces A3 bit for bit",
+   "kind": "instrument",
+   "name": "A47-1",
+   "passed": true
+  },
+  {
+   "detail": "conservation every round; unit cap and count at the end, every arm",
+   "kind": "instrument",
+   "name": "A47-2",
+   "passed": true
+  }
+ ],
+ "preview_seed0": {
+  "A3 (rules off)": {
+   "exited_total": 0.0,
+   "landlord_sales_total": 0,
+   "landlord_units_end": 0.0,
+   "liquidations_total": 0,
+   "max_units_held": 21.0,
+   "net_worth_production_layer_share": 0.0,
+   "net_worth_top_decile_share": 1.0,
+   "owners_end": 16,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    52.1738,
+    820.5785,
+    2531.2724
+   ],
+   "price_ratio_end_to_start_low_tier": 120.1441,
+   "rent_total": 3029.0443,
+   "sales_total": 225,
+   "seconds": 0.12,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 61.0,
+   "units_owned_by_nobody": 39.0
+  },
+  "bound, cost, listed 0.271": {
+   "exited_total": 42.3793,
+   "landlord_sales_total": 152,
+   "landlord_units_end": 80.0,
+   "liquidations_total": 175,
+   "max_units_held": 1.0,
+   "net_worth_production_layer_share": 0.0012,
+   "net_worth_top_decile_share": 0.9988,
+   "owners_end": 20,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    0.01,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 0.1079,
+   "rent_total": 70.8812,
+   "sales_total": 249,
+   "seconds": 0.14,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 20.0,
+   "units_with_landlord": 80.0
+  },
+  "bound, cost, public": {
+   "exited_total": 0.0,
+   "landlord_sales_total": 150,
+   "landlord_units_end": 80.0,
+   "liquidations_total": 173,
+   "max_units_held": 1.0,
+   "net_worth_production_layer_share": 0.0013,
+   "net_worth_top_decile_share": 0.9987,
+   "owners_end": 20,
+   "passed_down_total": 161.3224,
+   "pool_end": 0.5,
+   "price_end_by_tier": [
+    0.0101,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 0.0939,
+   "rent_total": 77.3224,
+   "sales_total": 246,
+   "seconds": 0.14,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 20.0,
+   "units_with_landlord": 80.0
+  },
+  "bound, market, listed 0.271": {
+   "exited_total": 106.5851,
+   "landlord_sales_total": 195,
+   "landlord_units_end": 29.0,
+   "liquidations_total": 167,
+   "max_units_held": 1.0,
+   "net_worth_production_layer_share": 0.0036,
+   "net_worth_top_decile_share": 0.9964,
+   "owners_end": 71,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    0.0954,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 1.0332,
+   "rent_total": 248.5322,
+   "sales_total": 835,
+   "seconds": 0.16,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 71.0,
+   "units_with_landlord": 29.0
+  },
+  "bound, market, listed 0.421": {
+   "exited_total": 162.3426,
+   "landlord_sales_total": 199,
+   "landlord_units_end": 27.0,
+   "liquidations_total": 169,
+   "max_units_held": 1.0,
+   "net_worth_production_layer_share": 0.0046,
+   "net_worth_top_decile_share": 0.9954,
+   "owners_end": 73,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    0.1243,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 1.3462,
+   "rent_total": 256.1472,
+   "sales_total": 837,
+   "seconds": 0.18,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 73.0,
+   "units_with_landlord": 27.0
+  },
+  "bound, market, public": {
+   "exited_total": 0.0,
+   "landlord_sales_total": 180,
+   "landlord_units_end": 29.0,
+   "liquidations_total": 152,
+   "max_units_held": 1.0,
+   "net_worth_production_layer_share": 0.0018,
+   "net_worth_top_decile_share": 0.9982,
+   "owners_end": 71,
+   "passed_down_total": 345.2288,
+   "pool_end": 1.0,
+   "price_end_by_tier": [
+    0.0099,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 0.0922,
+   "rent_total": 221.938,
+   "sales_total": 852,
+   "seconds": 0.15,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 71.0,
+   "units_with_landlord": 29.0
+  },
+  "bound, market, public, owners bid": {
+   "exited_total": 0.0,
+   "landlord_sales_total": 145,
+   "landlord_units_end": 81.0,
+   "liquidations_total": 169,
+   "max_units_held": 1.0,
+   "net_worth_production_layer_share": 0.0099,
+   "net_worth_top_decile_share": 0.9901,
+   "owners_end": 19,
+   "passed_down_total": 12493.5704,
+   "pool_end": 25.9842,
+   "price_end_by_tier": [
+    25.7937,
+    172.3149,
+    418.3387
+   ],
+   "price_ratio_end_to_start_low_tier": 52.6754,
+   "rent_total": 9273.0687,
+   "sales_total": 235,
+   "seconds": 0.13,
+   "structure_ok": true,
+   "supply": 100.0,
+   "units_in_nodes": 19.0,
+   "units_with_landlord": 81.0
+  }
+ },
+ "stage": "A47-block1"
+}

@@ -338,7 +338,7 @@ def run(names) -> int:
       "through the first cure after the modification, inclusive.\n")
     A("| archive | loops | spread p50 | p90 | max | **p50 / floor** | "
       "loops with a balloon | their p50 | their max |")
-    A("|---|---|---|---|---|---|---|---|")
+    A("|---|---|---|---|---|---|---|---|---|")
     for name, nl, q, mx, nb, bq, bm in loops_out:
         fl = FLOOR.get(name, float("nan"))
         A(f"| {name} | {nl:,} | {q[0]:.3e} | {q[1]:.3e} | {mx:.3e} | "

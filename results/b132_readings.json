@@ -1,0 +1,4028 @@
+{
+ "config": {
+  "insee_fr_2023": {
+   "with": 7.1,
+   "without": 4.8
+  },
+  "insee_tolerance": 0.2,
+  "version_gap_pct": 0.5,
+  "years": [
+   2019,
+   2025
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "1674 overlapping country-item-years; deflator change differs by a median 0.011 points, by more than 0.5 point in 150",
+   "kind": "instrument",
+   "name": "B132-1",
+   "passed": true
+  },
+  {
+   "detail": "France 2023: with CP122 7.05 % against INSEE's 7.1 %, without 4.94 % against 4.8 % (INSEE takes out FISIM only; CP122 also holds explicit fees)",
+   "kind": "known_answer",
+   "name": "B132-2",
+   "passed": true
+  },
+  {
+   "detail": "208 country-years. Euro area 2023: national accounts 6.288 %, HICP 5.427 %, CP122 pulls 1.368, CP042 0.351, without both 5.329 %. 2023, gap above zero and CP122 alone larger than the gap: 10 areas",
+   "kind": "own_reading",
+   "name": "B132-3",
+   "passed": true
+  },
+  {
+   "detail": "195 country-years; euro area 2023: CP122 61.621 %, HICP CP126 4.35 %. On 116 member years, correlation of CP122's price change with the change in the deposit rate's annual mean: 0.562",
+   "kind": "own_reading",
+   "name": "B132-4",
+   "passed": true
+  },
+  {
+   "detail": "177 country-years (aggregates excluded): median |CP042 - CP041| 0.70 points, within 0.01 point in 17, within 0.5 point in 70",
+   "kind": "own_reading",
+   "name": "B132-5",
+   "passed": true
+  },
+  {
+   "detail": "31 areas, 2020 -> 2024 cumulated. Euro area: national accounts 18.9 %, HICP 20.02 %, national accounts without CP122 and CP042 18.22 %",
+   "kind": "own_reading",
+   "name": "B132-6",
+   "passed": true
+  }
+ ],
+ "objects": {
+  "B132-1": {
+   "above": [
+    "BA TOTAL 2014: -0.65 against 0.02",
+    "BA TOTAL 2022: 12.57 against 10.11",
+    "BA TOTAL 2023: 9.48 against 6.76",
+    "BE CP042 2010: 1.95 against 1.11",
+    "BE CP042 2011: 1.79 against 1.08",
+    "BE CP042 2014: 2.09 against 1.09",
+    "BE CP042 2020: 1.46 against 2.22",
+    "BE CP042 2022: 3.41 against 5.44",
+    "BE TOTAL 2022: 10.07 against 10.85",
+    "CY CP042 2020: -3.25 against 0.48",
+    "CY CP042 2021: -3.36 against 2.35",
+    "CY CP042 2022: -3.47 against 3.57",
+    "CY TOTAL 2021: 0.39 against 1.57",
+    "CY TOTAL 2022: 5.36 against 7.60",
+    "CZ CP042 1997: 7.76 against 8.31",
+    "CZ CP042 2007: 7.67 against 7.09",
+    "CZ CP042 2008: 19.51 against 18.83",
+    "CZ CP042 2009: 0.42 against -0.29",
+    "CZ CP042 2010: 5.24 against 18.87",
+    "CZ CP042 2011: 1.06 against -1.35",
+    "CZ CP042 2012: -2.17 against -3.88",
+    "CZ CP042 2013: -6.46 against -5.06",
+    "CZ CP042 2014: -4.52 against -3.28",
+    "CZ CP042 2015: 1.56 against 5.29",
+    "CZ CP042 2016: 3.15 against 5.90",
+    "CZ CP042 2017: 6.80 against 10.57",
+    "CZ CP042 2018: 11.48 against 13.35",
+    "CZ CP042 2019: 7.20 against 7.95",
+    "CZ CP042 2020: 1.30 against 5.69",
+    "CZ CP042 2021: 9.25 against 13.35",
+    "CZ CP042 2022: 15.66 against 14.55",
+    "CZ TOTAL 2010: 5.17 against 7.09",
+    "CZ TOTAL 2015: 0.89 against 1.43",
+    "CZ TOTAL 2016: 1.38 against 1.99",
+    "CZ TOTAL 2017: 5.19 against 5.84",
+    "CZ TOTAL 2021: 6.19 against 7.60",
+    "CZ TOTAL 2022: 20.36 against 19.79",
+    "EE CP042 2011: 3.51 against 4.59",
+    "EE CP042 2012: 2.55 against 5.48",
+    "EE CP042 2013: 2.16 against 3.55",
+    "EE CP042 2014: 0.91 against 1.46",
+    "EE CP042 2015: -0.06 against 4.46",
+    "EE CP042 2016: -0.16 against 4.02",
+    "EE CP042 2017: 3.59 against 5.94",
+    "EE CP042 2018: 8.68 against 7.80",
+    "EE CP042 2021: 5.94 against 1.94",
+    "EE CP042 2022: 19.56 against 14.44",
+    "EE TOTAL 2015: -0.49 against 0.10",
+    "EE TOTAL 2016: 1.06 against 1.57",
+    "EE TOTAL 2022: 16.96 against 16.10",
+    "EL TOTAL 2022: 6.22 against 6.75",
+    "EL TOTAL 2023: 4.96 against 3.87",
+    "ES CP042 2022: 1.37 against 2.28",
+    "FR CP042 2019: 0.00 against 0.91",
+    "HR CP042 2022: 8.07 against 2.86",
+    "IE TOTAL 2023: 7.19 against 6.52",
+    "IT TOTAL 2022: 7.61 against 6.78",
+    "LT CP042 2022: 23.51 against 16.02",
+    "LT CP042 2023: 16.70 against 7.39",
+    "LV CP042 1996: 5.29 against 8.92",
+    "LV CP042 1997: 14.70 against 15.29",
+    "LV CP042 2000: 13.02 against 13.81",
+    "LV CP042 2001: 2.21 against 6.41",
+    "LV CP042 2002: 44.94 against 2.10",
+    "LV CP042 2003: 11.25 against 0.99",
+    "LV CP042 2004: 3.18 against 14.19",
+    "LV CP042 2005: 23.46 against 14.95",
+    "LV CP042 2006: 52.88 against 29.17",
+    "LV CP042 2007: 27.63 against 24.52",
+    "LV CP042 2008: 3.71 against 7.22",
+    "LV CP042 2009: -34.27 against -10.33",
+    "LV CP042 2010: -7.05 against -7.72",
+    "LV CP042 2011: 23.85 against 6.30",
+    "LV CP042 2012: 14.50 against 8.81",
+    "LV CP042 2014: 6.60 against 4.24",
+    "LV CP042 2015: -5.92 against -1.58",
+    "LV CP042 2016: 5.73 against 3.30",
+    "LV CP042 2017: 6.86 against 4.43",
+    "LV CP042 2018: 5.34 against 3.77",
+    "LV CP042 2019: 5.31 against 4.60",
+    "LV CP042 2021: 7.26 against 2.16",
+    "LV CP042 2022: 24.80 against 13.04",
+    "LV TOTAL 2002: 1.83 against -1.15",
+    "LV TOTAL 2003: -4.47 against -5.74",
+    "LV TOTAL 2004: 2.51 against 3.12",
+    "LV TOTAL 2005: 5.12 against 3.84",
+    "LV TOTAL 2006: 10.04 against 6.81",
+    "LV TOTAL 2007: 11.28 against 9.95",
+    "LV TOTAL 2008: 12.56 against 13.64",
+    "LV TOTAL 2009: -4.32 against 1.94",
+    "LV TOTAL 2011: 6.63 against 4.50",
+    "LV TOTAL 2012: 4.58 against 3.58",
+    "LV TOTAL 2015: -0.67 against 0.07",
+    "LV TOTAL 2021: 3.31 against 2.52",
+    "LV TOTAL 2022: 15.23 against 13.68",
+    "MT CP042 2016: 5.21 against 4.34",
+    "MT TOTAL 2010: 2.24 against 2.95",
+    "MT TOTAL 2022: 5.35 against 4.71",
+    "MT TOTAL 2023: 5.33 against 10.73",
+    "NL CP042 2009: 2.43 against 1.40",
+    "NL TOTAL 2011: 1.95 against 2.63",
+    "NL TOTAL 2017: 1.34 against 2.01",
+    "NL TOTAL 2020: 1.40 against 2.04",
+    "NL TOTAL 2021: 3.02 against 4.38",
+    "PL CP042 2023: 10.82 against 9.66",
+    "PT TOTAL 2022: 8.16 against 7.63",
+    "RO CP042 2002: 1.74 against 0.31",
+    "RO CP042 2003: -0.38 against -1.72",
+    "RO CP042 2004: 10.01 against 9.35",
+    "RO CP042 2006: 8.33 against 7.60",
+    "RO CP042 2007: 22.64 against 72.99",
+    "RO CP042 2008: 12.86 against 18.07",
+    "RO CP042 2009: -9.35 against -10.06",
+    "RO CP042 2010: 0.54 against 15.49",
+    "RO CP042 2011: 0.03 against -1.50",
+    "RO CP042 2014: 1.49 against -0.56",
+    "RO CP042 2015: 0.97 against 2.73",
+    "RO CP042 2016: -0.14 against 3.98",
+    "RO CP042 2017: -0.20 against 3.61",
+    "RO CP042 2018: 0.58 against -0.28",
+    "RO CP042 2019: 8.00 against 5.15",
+    "RO CP042 2020: 12.78 against 0.29",
+    "RO CP042 2021: 0.81 against 1.52",
+    "RO CP042 2022: 21.89 against 14.12",
+    "RO TOTAL 2021: 3.49 against 2.92",
+    "RS CP042 2022: 6.11 against 7.42",
+    "SE CP042 2011: 10.43 against 9.63",
+    "SE CP042 2014: -1.11 against -1.76",
+    "SE CP042 2020: 2.59 against 5.07",
+    "SE CP042 2021: 0.82 against 4.38",
+    "SE CP042 2022: -2.41 against -4.63",
+    "SI CP042 2009: 10.02 against -0.11",
+    "SI CP042 2010: -6.17 against -0.97",
+    "SI CP042 2011: -3.11 against 0.82",
+    "SI CP042 2012: -2.64 against 0.39",
+    "SI CP042 2013: 7.15 against 0.29",
+    "SI CP042 2014: -2.55 against 0.53",
+    "SI CP042 2015: 5.09 against 2.85",
+    "SI CP042 2016: 4.48 against 3.35",
+    "SI CP042 2019: 0.87 against 1.41",
+    "SI CP042 2020: 0.75 against 1.40",
+    "SI CP042 2022: 11.85 against 11.24",
+    "SI TOTAL 2009: 0.93 against -0.13",
+    "SI TOTAL 2010: 1.45 against 2.04",
+    "SI TOTAL 2013: 2.22 against 1.49",
+    "SK CP042 2022: 12.88 against 10.89",
+    "SK CP042 2023: 5.84 against 4.50",
+    "SK CP042 2024: 5.89 against 2.67",
+    "SK TOTAL 2023: 9.48 against 10.19",
+    "SK TOTAL 2024: 2.39 against 3.05"
+   ],
+   "median_abs_points": 0.011,
+   "overlap": 1674
+  },
+  "B132-2": {
+   "with": 7.048,
+   "without": 4.938
+  },
+  "B132-3": {
+   "cp122_exceeds_gap_2023": [
+    "AT: gap 0.85, CP122 pulls 1.26",
+    "CY: gap 0.17, CP122 pulls 0.69",
+    "EA19: gap 0.87, CP122 pulls 1.38",
+    "EA20: gap 0.86, CP122 pulls 1.37",
+    "ES: gap 1.76, CP122 pulls 2.47",
+    "EU27_2020: gap 0.21, CP122 pulls 1.26",
+    "FR: gap 1.38, CP122 pulls 2.17",
+    "IE: gap 1.34, CP122 pulls 1.67",
+    "RS: gap 0.55, CP122 pulls 1.28",
+    "SI: gap 0.23, CP122 pulls 1.67"
+   ],
+   "rows": {
+    "AT 2019": {
+     "gap": 0.187,
+     "gap_without_both": 0.134,
+     "hicp": 1.489,
+     "na": 1.677,
+     "na_without_both": 1.623,
+     "pull_CP042": 0.278,
+     "pull_CP122": -0.038
+    },
+    "AT 2020": {
+     "gap": -0.384,
+     "gap_without_both": -0.374,
+     "hicp": 1.393,
+     "na": 1.008,
+     "na_without_both": 1.019,
+     "pull_CP042": 0.378,
+     "pull_CP122": -0.259
+    },
+    "AT 2021": {
+     "gap": -0.815,
+     "gap_without_both": -0.548,
+     "hicp": 2.757,
+     "na": 1.941,
+     "na_without_both": 2.208,
+     "pull_CP042": 0.143,
+     "pull_CP122": -0.13
+    },
+    "AT 2022": {
+     "gap": -0.71,
+     "gap_without_both": -0.284,
+     "hicp": 8.622,
+     "na": 7.912,
+     "na_without_both": 8.338,
+     "pull_CP042": 0.364,
+     "pull_CP122": 0.196
+    },
+    "AT 2023": {
+     "gap": 0.852,
+     "gap_without_both": -0.422,
+     "hicp": 7.706,
+     "na": 8.558,
+     "na_without_both": 7.284,
+     "pull_CP042": 0.857,
+     "pull_CP122": 1.26
+    },
+    "AT 2024": {
+     "gap": 0.407,
+     "gap_without_both": -0.062,
+     "hicp": 2.922,
+     "na": 3.329,
+     "na_without_both": 2.86,
+     "pull_CP042": 0.59,
+     "pull_CP122": 0.243
+    },
+    "BE 2019": {
+     "gap": 0.177,
+     "gap_without_both": 0.574,
+     "hicp": 1.25,
+     "na": 1.427,
+     "na_without_both": 1.823,
+     "pull_CP042": 0.109,
+     "pull_CP122": -0.218
+    },
+    "BE 2020": {
+     "gap": 0.513,
+     "gap_without_both": 0.304,
+     "hicp": 0.427,
+     "na": 0.939,
+     "na_without_both": 0.731,
+     "pull_CP042": 0.288,
+     "pull_CP122": 0.042
+    },
+    "BE 2021": {
+     "gap": -0.452,
+     "gap_without_both": -0.5,
+     "hicp": 3.215,
+     "na": 2.763,
+     "na_without_both": 2.716,
+     "pull_CP042": 0.252,
+     "pull_CP122": 0.245
+    },
+    "BE 2022": {
+     "gap": 0.511,
+     "gap_without_both": -0.844,
+     "hicp": 10.339,
+     "na": 10.85,
+     "na_without_both": 9.495,
+     "pull_CP042": 0.68,
+     "pull_CP122": 2.233
+    },
+    "BE 2023": {
+     "gap": 3.905,
+     "gap_without_both": 2.492,
+     "hicp": 2.28,
+     "na": 6.184,
+     "na_without_both": 4.771,
+     "pull_CP042": 0.584,
+     "pull_CP122": 1.679
+    },
+    "BE 2024": {
+     "gap": -2.719,
+     "gap_without_both": -2.071,
+     "hicp": 4.323,
+     "na": 1.604,
+     "na_without_both": 2.252,
+     "pull_CP042": 0.466,
+     "pull_CP122": -0.697
+    },
+    "BG 2019": {
+     "gap": -0.055,
+     "gap_without_both": -0.336,
+     "hicp": 2.449,
+     "na": 2.395,
+     "na_without_both": 2.113,
+     "pull_CP042": 0.425,
+     "pull_CP122": 0.114
+    },
+    "BG 2020": {
+     "gap": -1.524,
+     "gap_without_both": -1.759,
+     "hicp": 1.219,
+     "na": -0.305,
+     "na_without_both": -0.54,
+     "pull_CP042": -0.053,
+     "pull_CP122": 0.221
+    },
+    "BG 2021": {
+     "gap": 3.174,
+     "gap_without_both": 2.802,
+     "hicp": 2.851,
+     "na": 6.025,
+     "na_without_both": 5.653,
+     "pull_CP042": 0.779,
+     "pull_CP122": 0.232
+    },
+    "BG 2022": {
+     "gap": 3.45,
+     "gap_without_both": 3.88,
+     "hicp": 13.01,
+     "na": 16.46,
+     "na_without_both": 16.89,
+     "pull_CP042": 0.925,
+     "pull_CP122": 0.517
+    },
+    "BG 2023": {
+     "gap": -0.079,
+     "gap_without_both": -0.067,
+     "hicp": 8.606,
+     "na": 8.527,
+     "na_without_both": 8.539,
+     "pull_CP042": 0.67,
+     "pull_CP122": 0.242
+    },
+    "BG 2024": {
+     "gap": 2.576,
+     "gap_without_both": 2.599,
+     "hicp": 2.594,
+     "na": 5.17,
+     "na_without_both": 5.193,
+     "pull_CP042": 0.43,
+     "pull_CP122": 0.106
+    },
+    "CH 2019": {
+     "gap": 3.248,
+     "gap_without_both": null,
+     "hicp": 0.376,
+     "na": 3.624,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "CH 2020": {
+     "gap": 4.503,
+     "gap_without_both": null,
+     "hicp": -0.838,
+     "na": 3.665,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "CH 2021": {
+     "gap": -1.114,
+     "gap_without_both": null,
+     "hicp": 0.477,
+     "na": -0.637,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "CH 2022": {
+     "gap": 7.528,
+     "gap_without_both": null,
+     "hicp": 2.672,
+     "na": 10.2,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "CH 2023": {
+     "gap": 2.695,
+     "gap_without_both": null,
+     "hicp": 2.275,
+     "na": 4.97,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "CH 2024": {
+     "gap": 1.967,
+     "gap_without_both": null,
+     "hicp": 1.084,
+     "na": 3.05,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "CY 2019": {
+     "gap": 0.281,
+     "gap_without_both": -0.045,
+     "hicp": 0.549,
+     "na": 0.829,
+     "na_without_both": 0.504,
+     "pull_CP042": 0.365,
+     "pull_CP122": 0.026
+    },
+    "CY 2020": {
+     "gap": -0.071,
+     "gap_without_both": -0.386,
+     "hicp": -1.101,
+     "na": -1.172,
+     "na_without_both": -1.488,
+     "pull_CP042": 0.061,
+     "pull_CP122": 0.014
+    },
+    "CY 2021": {
+     "gap": -0.691,
+     "gap_without_both": -0.549,
+     "hicp": 2.257,
+     "na": 1.567,
+     "na_without_both": 1.708,
+     "pull_CP042": 0.296,
+     "pull_CP122": -0.172
+    },
+    "CY 2022": {
+     "gap": -0.491,
+     "gap_without_both": 0.148,
+     "hicp": 8.095,
+     "na": 7.604,
+     "na_without_both": 8.242,
+     "pull_CP042": 0.431,
+     "pull_CP122": 0.191
+    },
+    "CY 2023": {
+     "gap": 0.172,
+     "gap_without_both": -0.482,
+     "hicp": 3.93,
+     "na": 4.102,
+     "na_without_both": 3.448,
+     "pull_CP042": 0.492,
+     "pull_CP122": 0.694
+    },
+    "CY 2024": {
+     "gap": -0.174,
+     "gap_without_both": -0.794,
+     "hicp": 2.262,
+     "na": 2.088,
+     "na_without_both": 1.468,
+     "pull_CP042": 0.515,
+     "pull_CP122": 0.329
+    },
+    "CZ 2019": {
+     "gap": 0.278,
+     "gap_without_both": -0.681,
+     "hicp": 2.569,
+     "na": 2.847,
+     "na_without_both": 1.888,
+     "pull_CP042": 1.289,
+     "pull_CP122": 0.008
+    },
+    "CZ 2020": {
+     "gap": -3.463,
+     "gap_without_both": -4.719,
+     "hicp": 3.34,
+     "na": -0.124,
+     "na_without_both": -1.379,
+     "pull_CP042": 1.072,
+     "pull_CP122": -0.102
+    },
+    "CZ 2021": {
+     "gap": 4.281,
+     "gap_without_both": 2.968,
+     "hicp": 3.321,
+     "na": 7.602,
+     "na_without_both": 6.289,
+     "pull_CP042": 2.593,
+     "pull_CP122": 0.047
+    },
+    "CZ 2022": {
+     "gap": 5.024,
+     "gap_without_both": 6.668,
+     "hicp": 14.77,
+     "na": 19.793,
+     "na_without_both": 21.438,
+     "pull_CP042": 3.007,
+     "pull_CP122": 0.08
+    },
+    "CZ 2023": {
+     "gap": -0.674,
+     "gap_without_both": 0.487,
+     "hicp": 11.961,
+     "na": 11.286,
+     "na_without_both": 12.448,
+     "pull_CP042": 0.643,
+     "pull_CP122": 0.89
+    },
+    "CZ 2024": {
+     "gap": -4.131,
+     "gap_without_both": -4.673,
+     "hicp": 2.705,
+     "na": -1.427,
+     "na_without_both": -1.969,
+     "pull_CP042": -0.104,
+     "pull_CP122": 0.242
+    },
+    "CZ 2025": {
+     "gap": 2.63,
+     "gap_without_both": 1.885,
+     "hicp": 2.304,
+     "na": 4.934,
+     "na_without_both": 4.189,
+     "pull_CP042": 1.606,
+     "pull_CP122": 0.033
+    },
+    "DE 2019": {
+     "gap": 0.014,
+     "gap_without_both": 0.188,
+     "hicp": 1.442,
+     "na": 1.456,
+     "na_without_both": 1.63,
+     "pull_CP042": 0.118,
+     "pull_CP122": -0.111
+    },
+    "DE 2020": {
+     "gap": 0.168,
+     "gap_without_both": 0.176,
+     "hicp": 0.284,
+     "na": 0.453,
+     "na_without_both": 0.461,
+     "pull_CP042": 0.111,
+     "pull_CP122": -0.065
+    },
+    "DE 2021": {
+     "gap": 0.061,
+     "gap_without_both": 0.385,
+     "hicp": 3.214,
+     "na": 3.274,
+     "na_without_both": 3.599,
+     "pull_CP042": 0.11,
+     "pull_CP122": -0.01
+    },
+    "DE 2022": {
+     "gap": -1.895,
+     "gap_without_both": -1.506,
+     "hicp": 8.7,
+     "na": 6.804,
+     "na_without_both": 7.194,
+     "pull_CP042": 0.204,
+     "pull_CP122": 0.189
+    },
+    "DE 2023": {
+     "gap": 0.673,
+     "gap_without_both": 0.63,
+     "hicp": 6.066,
+     "na": 6.739,
+     "na_without_both": 6.696,
+     "pull_CP042": 0.186,
+     "pull_CP122": 0.576
+    },
+    "DE 2024": {
+     "gap": -0.143,
+     "gap_without_both": -0.095,
+     "hicp": 2.462,
+     "na": 2.319,
+     "na_without_both": 2.368,
+     "pull_CP042": 0.183,
+     "pull_CP122": 0.024
+    },
+    "DK 2019": {
+     "gap": -0.089,
+     "gap_without_both": -0.075,
+     "hicp": 0.688,
+     "na": 0.599,
+     "na_without_both": 0.613,
+     "pull_CP042": 0.123,
+     "pull_CP122": -0.039
+    },
+    "DK 2020": {
+     "gap": -0.092,
+     "gap_without_both": -0.156,
+     "hicp": 0.39,
+     "na": 0.299,
+     "na_without_both": 0.234,
+     "pull_CP042": 0.159,
+     "pull_CP122": -0.056
+    },
+    "DK 2021": {
+     "gap": 0.122,
+     "gap_without_both": 0.138,
+     "hicp": 1.944,
+     "na": 2.065,
+     "na_without_both": 2.082,
+     "pull_CP042": 0.19,
+     "pull_CP122": 0.128
+    },
+    "DK 2022": {
+     "gap": -0.61,
+     "gap_without_both": -0.108,
+     "hicp": 8.484,
+     "na": 7.874,
+     "na_without_both": 8.377,
+     "pull_CP042": 0.392,
+     "pull_CP122": 0.436
+    },
+    "DK 2023": {
+     "gap": -0.218,
+     "gap_without_both": -1.183,
+     "hicp": 3.339,
+     "na": 3.121,
+     "na_without_both": 2.156,
+     "pull_CP042": 0.271,
+     "pull_CP122": 1.046
+    },
+    "DK 2024": {
+     "gap": -0.019,
+     "gap_without_both": -0.038,
+     "hicp": 1.276,
+     "na": 1.257,
+     "na_without_both": 1.237,
+     "pull_CP042": 0.189,
+     "pull_CP122": 0.04
+    },
+    "DK 2025": {
+     "gap": 0.575,
+     "gap_without_both": 1.272,
+     "hicp": 1.847,
+     "na": 2.422,
+     "na_without_both": 3.119,
+     "pull_CP042": 0.345,
+     "pull_CP122": -0.514
+    },
+    "EA19 2019": {
+     "gap": -0.006,
+     "gap_without_both": 0.018,
+     "hicp": 1.197,
+     "na": 1.191,
+     "na_without_both": 1.215,
+     "pull_CP042": 0.171,
+     "pull_CP122": -0.02
+    },
+    "EA19 2020": {
+     "gap": 0.279,
+     "gap_without_both": 0.263,
+     "hicp": 0.248,
+     "na": 0.528,
+     "na_without_both": 0.511,
+     "pull_CP042": 0.162,
+     "pull_CP122": -0.064
+    },
+    "EA19 2021": {
+     "gap": -0.227,
+     "gap_without_both": -0.019,
+     "hicp": 2.589,
+     "na": 2.362,
+     "na_without_both": 2.57,
+     "pull_CP042": 0.156,
+     "pull_CP122": 0.03
+    },
+    "EA19 2022": {
+     "gap": -1.606,
+     "gap_without_both": -1.304,
+     "hicp": 8.387,
+     "na": 6.782,
+     "na_without_both": 7.084,
+     "pull_CP042": 0.315,
+     "pull_CP122": 0.407
+    },
+    "EA19 2023": {
+     "gap": 0.865,
+     "gap_without_both": -0.102,
+     "hicp": 5.41,
+     "na": 6.275,
+     "na_without_both": 5.308,
+     "pull_CP042": 0.35,
+     "pull_CP122": 1.375
+    },
+    "EA19 2024": {
+     "gap": -0.039,
+     "gap_without_both": -0.194,
+     "hicp": 2.347,
+     "na": 2.308,
+     "na_without_both": 2.153,
+     "pull_CP042": 0.341,
+     "pull_CP122": 0.136
+    },
+    "EA20 2019": {
+     "gap": -0.008,
+     "gap_without_both": 0.016,
+     "hicp": 1.197,
+     "na": 1.19,
+     "na_without_both": 1.213,
+     "pull_CP042": 0.171,
+     "pull_CP122": -0.019
+    },
+    "EA20 2020": {
+     "gap": 0.27,
+     "gap_without_both": 0.252,
+     "hicp": 0.248,
+     "na": 0.519,
+     "na_without_both": 0.5,
+     "pull_CP042": 0.161,
+     "pull_CP122": -0.063
+    },
+    "EA20 2021": {
+     "gap": -0.228,
+     "gap_without_both": -0.02,
+     "hicp": 2.589,
+     "na": 2.361,
+     "na_without_both": 2.569,
+     "pull_CP042": 0.155,
+     "pull_CP122": 0.031
+    },
+    "EA20 2022": {
+     "gap": -1.599,
+     "gap_without_both": -1.293,
+     "hicp": 8.407,
+     "na": 6.808,
+     "na_without_both": 7.114,
+     "pull_CP042": 0.314,
+     "pull_CP122": 0.406
+    },
+    "EA20 2023": {
+     "gap": 0.862,
+     "gap_without_both": -0.098,
+     "hicp": 5.427,
+     "na": 6.288,
+     "na_without_both": 5.329,
+     "pull_CP042": 0.351,
+     "pull_CP122": 1.368
+    },
+    "EA20 2024": {
+     "gap": -0.047,
+     "gap_without_both": -0.202,
+     "hicp": 2.363,
+     "na": 2.315,
+     "na_without_both": 2.16,
+     "pull_CP042": 0.341,
+     "pull_CP122": 0.137
+    },
+    "EE 2019": {
+     "gap": 0.566,
+     "gap_without_both": -0.082,
+     "hicp": 2.267,
+     "na": 2.833,
+     "na_without_both": 2.185,
+     "pull_CP042": 0.883,
+     "pull_CP122": 0.128
+    },
+    "EE 2020": {
+     "gap": -0.705,
+     "gap_without_both": -0.21,
+     "hicp": -0.633,
+     "na": -1.339,
+     "na_without_both": -0.844,
+     "pull_CP042": -0.634,
+     "pull_CP122": -0.013
+    },
+    "EE 2021": {
+     "gap": -0.062,
+     "gap_without_both": 0.529,
+     "hicp": 4.481,
+     "na": 4.418,
+     "na_without_both": 5.01,
+     "pull_CP042": 0.271,
+     "pull_CP122": -0.003
+    },
+    "EE 2022": {
+     "gap": -3.343,
+     "gap_without_both": -2.921,
+     "hicp": 19.447,
+     "na": 16.104,
+     "na_without_both": 16.526,
+     "pull_CP042": 1.959,
+     "pull_CP122": 0.292
+    },
+    "EE 2023": {
+     "gap": -0.348,
+     "gap_without_both": 0.186,
+     "hicp": 9.115,
+     "na": 8.767,
+     "na_without_both": 9.301,
+     "pull_CP042": 0.815,
+     "pull_CP122": 0.179
+    },
+    "EE 2024": {
+     "gap": -0.33,
+     "gap_without_both": 0.05,
+     "hicp": 3.732,
+     "na": 3.402,
+     "na_without_both": 3.782,
+     "pull_CP042": 0.644,
+     "pull_CP122": -0.397
+    },
+    "EE 2025": {
+     "gap": -1.497,
+     "gap_without_both": -1.35,
+     "hicp": 4.816,
+     "na": 3.319,
+     "na_without_both": 3.466,
+     "pull_CP042": 0.755,
+     "pull_CP122": -0.337
+    },
+    "EL 2019": {
+     "gap": -0.284,
+     "gap_without_both": -0.252,
+     "hicp": 0.51,
+     "na": 0.226,
+     "na_without_both": 0.258,
+     "pull_CP042": 0.0,
+     "pull_CP122": 0.006
+    },
+    "EL 2020": {
+     "gap": 0.027,
+     "gap_without_both": -0.196,
+     "hicp": -1.259,
+     "na": -1.232,
+     "na_without_both": -1.455,
+     "pull_CP042": 0.0,
+     "pull_CP122": -0.033
+    },
+    "EL 2021": {
+     "gap": 0.272,
+     "gap_without_both": 0.386,
+     "hicp": 0.573,
+     "na": 0.846,
+     "na_without_both": 0.959,
+     "pull_CP042": 0.017,
+     "pull_CP122": 0.028
+    },
+    "EL 2022": {
+     "gap": -2.544,
+     "gap_without_both": -1.753,
+     "hicp": 9.297,
+     "na": 6.753,
+     "na_without_both": 7.544,
+     "pull_CP042": 0.171,
+     "pull_CP122": 0.214
+    },
+    "EL 2023": {
+     "gap": -0.296,
+     "gap_without_both": -1.523,
+     "hicp": 4.163,
+     "na": 3.867,
+     "na_without_both": 2.64,
+     "pull_CP042": 0.589,
+     "pull_CP122": 1.037
+    },
+    "EL 2024": {
+     "gap": -0.447,
+     "gap_without_both": -0.71,
+     "hicp": 2.996,
+     "na": 2.548,
+     "na_without_both": 2.286,
+     "pull_CP042": 0.627,
+     "pull_CP122": 0.0
+    },
+    "ES 2019": {
+     "gap": 0.174,
+     "gap_without_both": -0.029,
+     "hicp": 0.773,
+     "na": 0.948,
+     "na_without_both": 0.744,
+     "pull_CP042": 0.19,
+     "pull_CP122": 0.134
+    },
+    "ES 2020": {
+     "gap": 0.364,
+     "gap_without_both": 0.238,
+     "hicp": -0.336,
+     "na": 0.028,
+     "na_without_both": -0.098,
+     "pull_CP042": 0.175,
+     "pull_CP122": -0.069
+    },
+    "ES 2021": {
+     "gap": -0.902,
+     "gap_without_both": -0.625,
+     "hicp": 3.012,
+     "na": 2.111,
+     "na_without_both": 2.387,
+     "pull_CP042": 0.087,
+     "pull_CP122": 0.071
+    },
+    "ES 2022": {
+     "gap": -1.756,
+     "gap_without_both": -1.411,
+     "hicp": 8.324,
+     "na": 6.568,
+     "na_without_both": 6.913,
+     "pull_CP042": 0.306,
+     "pull_CP122": 0.491
+    },
+    "ES 2023": {
+     "gap": 1.758,
+     "gap_without_both": -0.569,
+     "hicp": 3.398,
+     "na": 5.156,
+     "na_without_both": 2.829,
+     "pull_CP042": 0.312,
+     "pull_CP122": 2.465
+    },
+    "ES 2024": {
+     "gap": 0.365,
+     "gap_without_both": 0.063,
+     "hicp": 2.869,
+     "na": 3.234,
+     "na_without_both": 2.932,
+     "pull_CP042": 0.325,
+     "pull_CP122": 0.48
+    },
+    "EU27_2020 2019": {
+     "gap": -0.225,
+     "gap_without_both": -0.235,
+     "hicp": 1.419,
+     "na": 1.194,
+     "na_without_both": 1.184,
+     "pull_CP042": 0.198,
+     "pull_CP122": -0.019
+    },
+    "EU27_2020 2020": {
+     "gap": -0.22,
+     "gap_without_both": -0.286,
+     "hicp": 0.685,
+     "na": 0.466,
+     "na_without_both": 0.4,
+     "pull_CP042": 0.173,
+     "pull_CP122": -0.044
+    },
+    "EU27_2020 2021": {
+     "gap": -0.29,
+     "gap_without_both": -0.145,
+     "hicp": 2.893,
+     "na": 2.603,
+     "na_without_both": 2.748,
+     "pull_CP042": 0.226,
+     "pull_CP122": 0.046
+    },
+    "EU27_2020 2022": {
+     "gap": -1.949,
+     "gap_without_both": -1.621,
+     "hicp": 9.189,
+     "na": 7.241,
+     "na_without_both": 7.568,
+     "pull_CP042": 0.367,
+     "pull_CP122": 0.396
+    },
+    "EU27_2020 2023": {
+     "gap": 0.206,
+     "gap_without_both": -0.602,
+     "hicp": 6.363,
+     "na": 6.568,
+     "na_without_both": 5.761,
+     "pull_CP042": 0.367,
+     "pull_CP122": 1.265
+    },
+    "EU27_2020 2024": {
+     "gap": 0.084,
+     "gap_without_both": -0.098,
+     "hicp": 2.603,
+     "na": 2.687,
+     "na_without_both": 2.505,
+     "pull_CP042": 0.386,
+     "pull_CP122": 0.169
+    },
+    "FI 2019": {
+     "gap": -0.171,
+     "gap_without_both": -0.243,
+     "hicp": 1.133,
+     "na": 0.961,
+     "na_without_both": 0.89,
+     "pull_CP042": 0.216,
+     "pull_CP122": 0.032
+    },
+    "FI 2020": {
+     "gap": -0.01,
+     "gap_without_both": -0.227,
+     "hicp": 0.386,
+     "na": 0.376,
+     "na_without_both": 0.16,
+     "pull_CP042": 0.222,
+     "pull_CP122": 0.028
+    },
+    "FI 2021": {
+     "gap": 0.045,
+     "gap_without_both": 0.326,
+     "hicp": 2.058,
+     "na": 2.103,
+     "na_without_both": 2.384,
+     "pull_CP042": 0.167,
+     "pull_CP122": 0.056
+    },
+    "FI 2022": {
+     "gap": -1.032,
+     "gap_without_both": 0.239,
+     "hicp": 7.181,
+     "na": 6.149,
+     "na_without_both": 7.419,
+     "pull_CP042": 0.167,
+     "pull_CP122": 0.125
+    },
+    "FI 2023": {
+     "gap": -0.04,
+     "gap_without_both": -0.096,
+     "hicp": 4.334,
+     "na": 4.294,
+     "na_without_both": 4.239,
+     "pull_CP042": 0.309,
+     "pull_CP122": 0.626
+    },
+    "FI 2024": {
+     "gap": 0.242,
+     "gap_without_both": -0.218,
+     "hicp": 0.978,
+     "na": 1.219,
+     "na_without_both": 0.759,
+     "pull_CP042": 0.38,
+     "pull_CP122": 0.236
+    },
+    "FI 2025": {
+     "gap": -0.584,
+     "gap_without_both": -0.161,
+     "hicp": 1.819,
+     "na": 1.235,
+     "na_without_both": 1.659,
+     "pull_CP042": 0.178,
+     "pull_CP122": -0.252
+    },
+    "FR 2019": {
+     "gap": -0.51,
+     "gap_without_both": -0.465,
+     "hicp": 1.303,
+     "na": 0.793,
+     "na_without_both": 0.838,
+     "pull_CP042": 0.14,
+     "pull_CP122": -0.046
+    },
+    "FR 2020": {
+     "gap": 0.234,
+     "gap_without_both": 0.416,
+     "hicp": 0.524,
+     "na": 0.758,
+     "na_without_both": 0.94,
+     "pull_CP042": 0.101,
+     "pull_CP122": -0.114
+    },
+    "FR 2021": {
+     "gap": -0.705,
+     "gap_without_both": -0.517,
+     "hicp": 2.066,
+     "na": 1.361,
+     "na_without_both": 1.549,
+     "pull_CP042": 0.089,
+     "pull_CP122": -0.011
+    },
+    "FR 2022": {
+     "gap": -0.97,
+     "gap_without_both": -0.424,
+     "hicp": 5.906,
+     "na": 4.936,
+     "na_without_both": 5.482,
+     "pull_CP042": 0.137,
+     "pull_CP122": 0.227
+    },
+    "FR 2023": {
+     "gap": 1.383,
+     "gap_without_both": -0.133,
+     "hicp": 5.665,
+     "na": 7.048,
+     "na_without_both": 5.532,
+     "pull_CP042": 0.246,
+     "pull_CP122": 2.168
+    },
+    "FR 2024": {
+     "gap": -0.139,
+     "gap_without_both": -0.021,
+     "hicp": 2.315,
+     "na": 2.176,
+     "na_without_both": 2.294,
+     "pull_CP042": 0.274,
+     "pull_CP122": 0.008
+    },
+    "FR 2025": {
+     "gap": -0.088,
+     "gap_without_both": 0.275,
+     "hicp": 0.925,
+     "na": 0.836,
+     "na_without_both": 1.2,
+     "pull_CP042": 0.235,
+     "pull_CP122": -0.389
+    },
+    "HR 2019": {
+     "gap": 0.175,
+     "gap_without_both": 0.08,
+     "hicp": 0.792,
+     "na": 0.967,
+     "na_without_both": 0.873,
+     "pull_CP042": 0.115,
+     "pull_CP122": 0.07
+    },
+    "HR 2020": {
+     "gap": -1.079,
+     "gap_without_both": -1.286,
+     "hicp": 0.019,
+     "na": -1.06,
+     "na_without_both": -1.266,
+     "pull_CP042": -0.018,
+     "pull_CP122": 0.065
+    },
+    "HR 2021": {
+     "gap": -0.394,
+     "gap_without_both": -0.283,
+     "hicp": 2.678,
+     "na": 2.284,
+     "na_without_both": 2.395,
+     "pull_CP042": 0.028,
+     "pull_CP122": 0.111
+    },
+    "HR 2022": {
+     "gap": -0.051,
+     "gap_without_both": 0.523,
+     "hicp": 10.669,
+     "na": 10.618,
+     "na_without_both": 11.192,
+     "pull_CP042": 0.229,
+     "pull_CP122": 0.252
+    },
+    "HR 2023": {
+     "gap": -0.314,
+     "gap_without_both": -0.445,
+     "hicp": 8.394,
+     "na": 8.08,
+     "na_without_both": 7.948,
+     "pull_CP042": 0.513,
+     "pull_CP122": 0.335
+    },
+    "HR 2024": {
+     "gap": -0.756,
+     "gap_without_both": -1.022,
+     "hicp": 4.018,
+     "na": 3.261,
+     "na_without_both": 2.996,
+     "pull_CP042": 0.293,
+     "pull_CP122": 0.233
+    },
+    "HU 2019": {
+     "gap": -0.889,
+     "gap_without_both": -1.957,
+     "hicp": 3.42,
+     "na": 2.531,
+     "na_without_both": 1.464,
+     "pull_CP042": 1.306,
+     "pull_CP122": 0.001
+    },
+    "HU 2020": {
+     "gap": -7.995,
+     "gap_without_both": -7.962,
+     "hicp": 3.371,
+     "na": -4.623,
+     "na_without_both": -4.591,
+     "pull_CP042": -0.688,
+     "pull_CP122": -0.214
+    },
+    "HU 2021": {
+     "gap": -1.307,
+     "gap_without_both": -2.737,
+     "hicp": 5.205,
+     "na": 3.898,
+     "na_without_both": 2.468,
+     "pull_CP042": 1.879,
+     "pull_CP122": 0.003
+    },
+    "HU 2022": {
+     "gap": -9.602,
+     "gap_without_both": -10.6,
+     "hicp": 15.272,
+     "na": 5.67,
+     "na_without_both": 4.672,
+     "pull_CP042": 1.047,
+     "pull_CP122": 0.879
+    },
+    "HU 2023": {
+     "gap": -0.04,
+     "gap_without_both": 1.609,
+     "hicp": 17.031,
+     "na": 16.991,
+     "na_without_both": 18.64,
+     "pull_CP042": 0.771,
+     "pull_CP122": 1.554
+    },
+    "HU 2024": {
+     "gap": -1.326,
+     "gap_without_both": -3.149,
+     "hicp": 3.718,
+     "na": 2.392,
+     "na_without_both": 0.569,
+     "pull_CP042": 2.027,
+     "pull_CP122": -0.093
+    },
+    "IE 2019": {
+     "gap": 0.938,
+     "gap_without_both": 0.052,
+     "hicp": 0.893,
+     "na": 1.831,
+     "na_without_both": 0.945,
+     "pull_CP042": 0.823,
+     "pull_CP122": 0.228
+    },
+    "IE 2020": {
+     "gap": 0.136,
+     "gap_without_both": -0.01,
+     "hicp": -0.492,
+     "na": -0.356,
+     "na_without_both": -0.502,
+     "pull_CP042": -0.086,
+     "pull_CP122": 0.132
+    },
+    "IE 2021": {
+     "gap": 0.324,
+     "gap_without_both": -0.01,
+     "hicp": 2.372,
+     "na": 2.696,
+     "na_without_both": 2.362,
+     "pull_CP042": 0.522,
+     "pull_CP122": 0.246
+    },
+    "IE 2022": {
+     "gap": -0.324,
+     "gap_without_both": -0.857,
+     "hicp": 8.108,
+     "na": 7.784,
+     "na_without_both": 7.251,
+     "pull_CP042": 1.624,
+     "pull_CP122": 0.151
+    },
+    "IE 2023": {
+     "gap": 1.343,
+     "gap_without_both": -0.778,
+     "hicp": 5.179,
+     "na": 6.522,
+     "na_without_both": 4.401,
+     "pull_CP042": 1.213,
+     "pull_CP122": 1.67
+    },
+    "IE 2024": {
+     "gap": 1.27,
+     "gap_without_both": -0.31,
+     "hicp": 1.358,
+     "na": 2.628,
+     "na_without_both": 1.048,
+     "pull_CP042": 0.763,
+     "pull_CP122": 1.013
+    },
+    "IE 2025": {
+     "gap": -0.246,
+     "gap_without_both": -0.044,
+     "hicp": 2.094,
+     "na": 1.848,
+     "na_without_both": 2.049,
+     "pull_CP042": 0.668,
+     "pull_CP122": -0.464
+    },
+    "IT 2019": {
+     "gap": 0.152,
+     "gap_without_both": 0.064,
+     "hicp": 0.683,
+     "na": 0.835,
+     "na_without_both": 0.747,
+     "pull_CP042": 0.101,
+     "pull_CP122": 0.107
+    },
+    "IT 2020": {
+     "gap": 0.468,
+     "gap_without_both": 0.432,
+     "hicp": -0.194,
+     "na": 0.274,
+     "na_without_both": 0.238,
+     "pull_CP042": 0.147,
+     "pull_CP122": -0.067
+    },
+    "IT 2021": {
+     "gap": -0.43,
+     "gap_without_both": -0.349,
+     "hicp": 1.942,
+     "na": 1.512,
+     "na_without_both": 1.593,
+     "pull_CP042": 0.178,
+     "pull_CP122": 0.015
+    },
+    "IT 2022": {
+     "gap": -1.982,
+     "gap_without_both": -1.367,
+     "hicp": 8.762,
+     "na": 6.779,
+     "na_without_both": 7.395,
+     "pull_CP042": 0.374,
+     "pull_CP122": 0.212
+    },
+    "IT 2023": {
+     "gap": -0.822,
+     "gap_without_both": -1.952,
+     "hicp": 5.867,
+     "na": 5.045,
+     "na_without_both": 3.915,
+     "pull_CP042": 0.432,
+     "pull_CP122": 1.314
+    },
+    "IT 2024": {
+     "gap": 0.512,
+     "gap_without_both": 0.242,
+     "hicp": 1.158,
+     "na": 1.67,
+     "na_without_both": 1.4,
+     "pull_CP042": 0.246,
+     "pull_CP122": 0.256
+    },
+    "IT 2025": {
+     "gap": -0.06,
+     "gap_without_both": null,
+     "hicp": 1.635,
+     "na": 1.575,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LT 2020": {
+     "gap": 1.009,
+     "gap_without_both": 0.115,
+     "hicp": 1.06,
+     "na": 2.069,
+     "na_without_both": 1.175,
+     "pull_CP042": 0.97,
+     "pull_CP122": 0.037
+    },
+    "LT 2021": {
+     "gap": 0.701,
+     "gap_without_both": 0.003,
+     "hicp": 4.628,
+     "na": 5.329,
+     "na_without_both": 4.631,
+     "pull_CP042": 1.036,
+     "pull_CP122": 0.124
+    },
+    "LT 2022": {
+     "gap": -1.541,
+     "gap_without_both": -1.333,
+     "hicp": 18.851,
+     "na": 17.31,
+     "na_without_both": 17.518,
+     "pull_CP042": 1.337,
+     "pull_CP122": 0.374
+    },
+    "LT 2023": {
+     "gap": -0.075,
+     "gap_without_both": -0.331,
+     "hicp": 8.686,
+     "na": 8.612,
+     "na_without_both": 8.356,
+     "pull_CP042": 0.632,
+     "pull_CP122": 0.623
+    },
+    "LT 2024": {
+     "gap": 0.403,
+     "gap_without_both": -0.035,
+     "hicp": 0.849,
+     "na": 1.252,
+     "na_without_both": 0.815,
+     "pull_CP042": 0.403,
+     "pull_CP122": 0.137
+    },
+    "LU 2019": {
+     "gap": -0.537,
+     "gap_without_both": null,
+     "hicp": 1.651,
+     "na": 1.114,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LU 2020": {
+     "gap": -0.323,
+     "gap_without_both": null,
+     "hicp": 0.0,
+     "na": -0.323,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LU 2021": {
+     "gap": -0.256,
+     "gap_without_both": null,
+     "hicp": 3.474,
+     "na": 3.218,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LU 2022": {
+     "gap": -0.85,
+     "gap_without_both": null,
+     "hicp": 8.156,
+     "na": 7.306,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LU 2023": {
+     "gap": 0.621,
+     "gap_without_both": null,
+     "hicp": 2.927,
+     "na": 3.548,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LU 2024": {
+     "gap": 0.521,
+     "gap_without_both": null,
+     "hicp": 2.254,
+     "na": 2.775,
+     "na_without_both": null,
+     "pull_CP042": null,
+     "pull_CP122": null
+    },
+    "LV 2019": {
+     "gap": 0.451,
+     "gap_without_both": 0.471,
+     "hicp": 2.745,
+     "na": 3.197,
+     "na_without_both": 3.216,
+     "pull_CP042": 0.402,
+     "pull_CP122": -0.081
+    },
+    "LV 2020": {
+     "gap": -0.017,
+     "gap_without_both": -0.375,
+     "hicp": 0.083,
+     "na": 0.066,
+     "na_without_both": -0.293,
+     "pull_CP042": 0.334,
+     "pull_CP122": -0.008
+    },
+    "LV 2021": {
+     "gap": -0.724,
+     "gap_without_both": -0.846,
+     "hicp": 3.241,
+     "na": 2.517,
+     "na_without_both": 2.394,
+     "pull_CP042": 0.197,
+     "pull_CP122": 0.181
+    },
+    "LV 2022": {
+     "gap": -3.556,
+     "gap_without_both": -3.828,
+     "hicp": 17.237,
+     "na": 13.681,
+     "na_without_both": 13.409,
+     "pull_CP042": 1.098,
+     "pull_CP122": 0.527
+    },
+    "LV 2023": {
+     "gap": -1.0,
+     "gap_without_both": -1.699,
+     "hicp": 9.059,
+     "na": 8.059,
+     "na_without_both": 7.36,
+     "pull_CP042": 0.513,
+     "pull_CP122": 0.989
+    },
+    "LV 2024": {
+     "gap": 1.887,
+     "gap_without_both": 1.099,
+     "hicp": 1.353,
+     "na": 3.24,
+     "na_without_both": 2.452,
+     "pull_CP042": 0.623,
+     "pull_CP122": 0.449
+    },
+    "ME 2019": {
+     "gap": 0.142,
+     "gap_without_both": 0.182,
+     "hicp": 0.522,
+     "na": 0.664,
+     "na_without_both": 0.704,
+     "pull_CP042": 0.004,
+     "pull_CP122": 0.009
+    },
+    "ME 2020": {
+     "gap": 1.544,
+     "gap_without_both": 1.693,
+     "hicp": -0.519,
+     "na": 1.025,
+     "na_without_both": 1.174,
+     "pull_CP042": -0.018,
+     "pull_CP122": -0.009
+    },
+    "ME 2021": {
+     "gap": -0.373,
+     "gap_without_both": -0.238,
+     "hicp": 2.505,
+     "na": 2.132,
+     "na_without_both": 2.267,
+     "pull_CP042": 0.048,
+     "pull_CP122": 0.007
+    },
+    "ME 2022": {
+     "gap": 0.765,
+     "gap_without_both": 0.989,
+     "hicp": 11.932,
+     "na": 12.696,
+     "na_without_both": 12.921,
+     "pull_CP042": 0.611,
+     "pull_CP122": 0.096
+    },
+    "ME 2023": {
+     "gap": 1.509,
+     "gap_without_both": 1.584,
+     "hicp": 8.75,
+     "na": 10.258,
+     "na_without_both": 10.333,
+     "pull_CP042": 0.578,
+     "pull_CP122": 0.131
+    },
+    "ME 2024": {
+     "gap": 0.111,
+     "gap_without_both": 0.171,
+     "hicp": 3.605,
+     "na": 3.715,
+     "na_without_both": 3.775,
+     "pull_CP042": 0.165,
+     "pull_CP122": 0.064
+    },
+    "MT 2019": {
+     "gap": 0.373,
+     "gap_without_both": 0.215,
+     "hicp": 1.53,
+     "na": 1.903,
+     "na_without_both": 1.745,
+     "pull_CP042": 0.292,
+     "pull_CP122": 0.038
+    },
+    "MT 2020": {
+     "gap": 0.394,
+     "gap_without_both": 0.096,
+     "hicp": 0.786,
+     "na": 1.181,
+     "na_without_both": 0.883,
+     "pull_CP042": 0.383,
+     "pull_CP122": 0.025
+    },
+    "MT 2021": {
+     "gap": 0.551,
+     "gap_without_both": 0.903,
+     "hicp": 0.705,
+     "na": 1.256,
+     "na_without_both": 1.608,
+     "pull_CP042": -0.124,
+     "pull_CP122": -0.042
+    },
+    "MT 2022": {
+     "gap": -1.419,
+     "gap_without_both": -0.689,
+     "hicp": 6.133,
+     "na": 4.715,
+     "na_without_both": 5.444,
+     "pull_CP042": 0.38,
+     "pull_CP122": -0.597
+    },
+    "MT 2023": {
+     "gap": 5.171,
+     "gap_without_both": -0.177,
+     "hicp": 5.559,
+     "na": 10.73,
+     "na_without_both": 5.382,
+     "pull_CP042": 0.981,
+     "pull_CP122": 4.795
+    },
+    "MT 2024": {
+     "gap": 0.806,
+     "gap_without_both": 0.102,
+     "hicp": 2.441,
+     "na": 3.247,
+     "na_without_both": 2.544,
+     "pull_CP042": 0.569,
+     "pull_CP122": 0.436
+    },
+    "MT 2025": {
+     "gap": -2.04,
+     "gap_without_both": 0.226,
+     "hicp": 2.408,
+     "na": 0.368,
+     "na_without_both": 2.633,
+     "pull_CP042": 0.106,
+     "pull_CP122": -2.055
+    },
+    "NL 2019": {
+     "gap": -0.303,
+     "gap_without_both": -0.311,
+     "hicp": 2.679,
+     "na": 2.376,
+     "na_without_both": 2.368,
+     "pull_CP042": 0.428,
+     "pull_CP122": -0.094
+    },
+    "NL 2020": {
+     "gap": 0.923,
+     "gap_without_both": 0.813,
+     "hicp": 1.116,
+     "na": 2.038,
+     "na_without_both": 1.929,
+     "pull_CP042": 0.392,
+     "pull_CP122": -0.003
+    },
+    "NL 2021": {
+     "gap": 1.555,
+     "gap_without_both": 1.723,
+     "hicp": 2.823,
+     "na": 4.378,
+     "na_without_both": 4.546,
+     "pull_CP042": 0.305,
+     "pull_CP122": 0.16
+    },
+    "NL 2022": {
+     "gap": -4.457,
+     "gap_without_both": -5.65,
+     "hicp": 11.638,
+     "na": 7.182,
+     "na_without_both": 5.988,
+     "pull_CP042": 0.303,
+     "pull_CP122": 1.677
+    },
+    "NL 2023": {
+     "gap": 3.005,
+     "gap_without_both": 1.971,
+     "hicp": 4.097,
+     "na": 7.102,
+     "na_without_both": 6.068,
+     "pull_CP042": 0.39,
+     "pull_CP122": 1.495
+    },
+    "NL 2024": {
+     "gap": -0.432,
+     "gap_without_both": -0.117,
+     "hicp": 3.216,
+     "na": 2.784,
+     "na_without_both": 3.098,
+     "pull_CP042": 0.488,
+     "pull_CP122": -0.341
+    },
+    "NL 2025": {
+     "gap": -0.24,
+     "gap_without_both": -0.24,
+     "hicp": 2.987,
+     "na": 2.747,
+     "na_without_both": 2.747,
+     "pull_CP042": 0.552,
+     "pull_CP122": -0.149
+    },
+    "PL 2019": {
+     "gap": -0.831,
+     "gap_without_both": -0.841,
+     "hicp": 2.144,
+     "na": 1.313,
+     "na_without_both": 1.303,
+     "pull_CP042": 0.144,
+     "pull_CP122": -0.013
+    },
+    "PL 2020": {
+     "gap": -3.511,
+     "gap_without_both": -3.791,
+     "hicp": 3.626,
+     "na": 0.115,
+     "na_without_both": -0.165,
+     "pull_CP042": -0.016,
+     "pull_CP122": 0.281
+    },
+    "PL 2021": {
+     "gap": -2.454,
+     "gap_without_both": -2.642,
+     "hicp": 5.249,
+     "na": 2.795,
+     "na_without_both": 2.607,
+     "pull_CP042": 0.107,
+     "pull_CP122": 0.313
+    },
+    "PL 2022": {
+     "gap": -2.04,
+     "gap_without_both": -1.826,
+     "hicp": 13.211,
+     "na": 11.171,
+     "na_without_both": 11.385,
+     "pull_CP042": 0.471,
+     "pull_CP122": 0.431
+    },
+    "PL 2023": {
+     "gap": 2.076,
+     "gap_without_both": 2.27,
+     "hicp": 10.896,
+     "na": 12.972,
+     "na_without_both": 13.167,
+     "pull_CP042": 0.493,
+     "pull_CP122": 0.705
+    },
+    "PL 2024": {
+     "gap": 5.455,
+     "gap_without_both": 5.168,
+     "hicp": 3.624,
+     "na": 9.079,
+     "na_without_both": 8.792,
+     "pull_CP042": 0.338,
+     "pull_CP122": 0.857
+    },
+    "PT 2019": {
+     "gap": 0.663,
+     "gap_without_both": 0.483,
+     "hicp": 0.3,
+     "na": 0.963,
+     "na_without_both": 0.783,
+     "pull_CP042": 0.371,
+     "pull_CP122": -0.097
+    },
+    "PT 2020": {
+     "gap": 0.486,
+     "gap_without_both": 0.233,
+     "hicp": -0.125,
+     "na": 0.361,
+     "na_without_both": 0.108,
+     "pull_CP042": 0.344,
+     "pull_CP122": -0.076
+    },
+    "PT 2021": {
+     "gap": 1.347,
+     "gap_without_both": 1.506,
+     "hicp": 0.936,
+     "na": 2.283,
+     "na_without_both": 2.442,
+     "pull_CP042": 0.195,
+     "pull_CP122": -0.033
+    },
+    "PT 2022": {
+     "gap": -0.479,
+     "gap_without_both": -0.161,
+     "hicp": 8.111,
+     "na": 7.632,
+     "na_without_both": 7.95,
+     "pull_CP042": 0.263,
+     "pull_CP122": 0.354
+    },
+    "PT 2023": {
+     "gap": -0.36,
+     "gap_without_both": -0.608,
+     "hicp": 5.264,
+     "na": 4.904,
+     "na_without_both": 4.656,
+     "pull_CP042": 0.408,
+     "pull_CP122": 0.357
+    },
+    "PT 2024": {
+     "gap": 0.129,
+     "gap_without_both": 0.057,
+     "hicp": 2.664,
+     "na": 2.793,
+     "na_without_both": 2.721,
+     "pull_CP042": 0.652,
+     "pull_CP122": -0.271
+    },
+    "RO 2019": {
+     "gap": -0.586,
+     "gap_without_both": -0.811,
+     "hicp": 3.91,
+     "na": 3.324,
+     "na_without_both": 3.099,
+     "pull_CP042": 0.581,
+     "pull_CP122": -0.002
+    },
+    "RO 2020": {
+     "gap": -1.935,
+     "gap_without_both": -1.921,
+     "hicp": 2.33,
+     "na": 0.395,
+     "na_without_both": 0.409,
+     "pull_CP042": 0.036,
+     "pull_CP122": 0.001
+    },
+    "RO 2021": {
+     "gap": -1.182,
+     "gap_without_both": -0.989,
+     "hicp": 4.102,
+     "na": 2.92,
+     "na_without_both": 3.113,
+     "pull_CP042": 0.181,
+     "pull_CP122": 0.002
+    },
+    "RO 2022": {
+     "gap": 1.963,
+     "gap_without_both": 1.96,
+     "hicp": 12.022,
+     "na": 13.984,
+     "na_without_both": 13.981,
+     "pull_CP042": 1.518,
+     "pull_CP122": 0.005
+    },
+    "RO 2023": {
+     "gap": -0.916,
+     "gap_without_both": -0.818,
+     "hicp": 9.747,
+     "na": 8.831,
+     "na_without_both": 8.93,
+     "pull_CP042": 0.948,
+     "pull_CP122": 0.005
+    },
+    "RO 2024": {
+     "gap": -0.197,
+     "gap_without_both": -0.888,
+     "hicp": 5.839,
+     "na": 5.642,
+     "na_without_both": 4.951,
+     "pull_CP042": 1.228,
+     "pull_CP122": 0.014
+    },
+    "RS 2019": {
+     "gap": -0.202,
+     "gap_without_both": -0.502,
+     "hicp": 1.873,
+     "na": 1.67,
+     "na_without_both": 1.371,
+     "pull_CP042": 0.415,
+     "pull_CP122": 0.065
+    },
+    "RS 2020": {
+     "gap": -0.293,
+     "gap_without_both": -0.179,
+     "hicp": 1.746,
+     "na": 1.454,
+     "na_without_both": 1.567,
+     "pull_CP042": 0.308,
+     "pull_CP122": -0.201
+    },
+    "RS 2021": {
+     "gap": 0.775,
+     "gap_without_both": 0.801,
+     "hicp": 4.065,
+     "na": 4.84,
+     "na_without_both": 4.866,
+     "pull_CP042": 0.719,
+     "pull_CP122": -0.089
+    },
+    "RS 2022": {
+     "gap": 1.253,
+     "gap_without_both": 1.751,
+     "hicp": 11.719,
+     "na": 12.971,
+     "na_without_both": 13.469,
+     "pull_CP042": 0.8,
+     "pull_CP122": 0.458
+    },
+    "RS 2023": {
+     "gap": 0.554,
+     "gap_without_both": 0.201,
+     "hicp": 12.044,
+     "na": 12.598,
+     "na_without_both": 12.245,
+     "pull_CP042": 0.636,
+     "pull_CP122": 1.281
+    },
+    "RS 2024": {
+     "gap": -0.407,
+     "gap_without_both": -0.173,
+     "hicp": 4.785,
+     "na": 4.378,
+     "na_without_both": 4.612,
+     "pull_CP042": 0.193,
+     "pull_CP122": 0.222
+    },
+    "SE 2019": {
+     "gap": -2.982,
+     "gap_without_both": -3.103,
+     "hicp": 1.722,
+     "na": -1.26,
+     "na_without_both": -1.381,
+     "pull_CP042": -0.052,
+     "pull_CP122": -0.06
+    },
+    "SE 2020": {
+     "gap": 1.172,
+     "gap_without_both": 0.564,
+     "hicp": 0.655,
+     "na": 1.827,
+     "na_without_both": 1.219,
+     "pull_CP042": 0.764,
+     "pull_CP122": 0.062
+    },
+    "SE 2021": {
+     "gap": 3.146,
+     "gap_without_both": 3.55,
+     "hicp": 2.657,
+     "na": 5.803,
+     "na_without_both": 6.207,
+     "pull_CP042": 0.636,
+     "pull_CP122": 0.038
+    },
+    "SE 2022": {
+     "gap": -6.088,
+     "gap_without_both": -5.193,
+     "hicp": 8.055,
+     "na": 1.967,
+     "na_without_both": 2.862,
+     "pull_CP042": -0.658,
+     "pull_CP122": 0.245
+    },
+    "SE 2023": {
+     "gap": -7.211,
+     "gap_without_both": -7.838,
+     "hicp": 5.905,
+     "na": -1.306,
+     "na_without_both": -1.933,
+     "pull_CP042": -0.092,
+     "pull_CP122": 0.404
+    },
+    "SE 2024": {
+     "gap": 1.52,
+     "gap_without_both": 0.679,
+     "hicp": 2.009,
+     "na": 3.529,
+     "na_without_both": 2.687,
+     "pull_CP042": 1.084,
+     "pull_CP122": 0.216
+    },
+    "SE 2025": {
+     "gap": 3.724,
+     "gap_without_both": 3.356,
+     "hicp": 2.613,
+     "na": 6.337,
+     "na_without_both": 5.969,
+     "pull_CP042": 1.146,
+     "pull_CP122": 0.26
+    },
+    "SI 2019": {
+     "gap": -0.231,
+     "gap_without_both": -0.307,
+     "hicp": 1.693,
+     "na": 1.462,
+     "na_without_both": 1.386,
+     "pull_CP042": 0.14,
+     "pull_CP122": 0.105
+    },
+    "SI 2020": {
+     "gap": -0.051,
+     "gap_without_both": -0.318,
+     "hicp": -0.276,
+     "na": -0.327,
+     "na_without_both": -0.594,
+     "pull_CP042": 0.157,
+     "pull_CP122": 0.028
+    },
+    "SI 2021": {
+     "gap": 1.292,
+     "gap_without_both": 1.162,
+     "hicp": 2.051,
+     "na": 3.343,
+     "na_without_both": 3.213,
+     "pull_CP042": 0.432,
+     "pull_CP122": 0.105
+    },
+    "SI 2022": {
+     "gap": 0.354,
+     "gap_without_both": -0.0,
+     "hicp": 9.32,
+     "na": 9.674,
+     "na_without_both": 9.32,
+     "pull_CP042": 1.114,
+     "pull_CP122": 0.385
+    },
+    "SI 2023": {
+     "gap": 0.226,
+     "gap_without_both": -1.021,
+     "hicp": 7.217,
+     "na": 7.444,
+     "na_without_both": 6.197,
+     "pull_CP042": 0.358,
+     "pull_CP122": 1.67
+    },
+    "SI 2024": {
+     "gap": 0.058,
+     "gap_without_both": -0.174,
+     "hicp": 1.986,
+     "na": 2.044,
+     "na_without_both": 1.812,
+     "pull_CP042": 0.122,
+     "pull_CP122": 0.352
+    },
+    "SI 2025": {
+     "gap": -0.763,
+     "gap_without_both": -0.338,
+     "hicp": 2.479,
+     "na": 1.717,
+     "na_without_both": 2.141,
+     "pull_CP042": 0.199,
+     "pull_CP122": -0.337
+    },
+    "SK 2019": {
+     "gap": -0.37,
+     "gap_without_both": 0.081,
+     "hicp": 2.774,
+     "na": 2.404,
+     "na_without_both": 2.855,
+     "pull_CP042": -0.005,
+     "pull_CP122": 0.047
+    },
+    "SK 2020": {
+     "gap": 0.146,
+     "gap_without_both": -0.022,
+     "hicp": 2.013,
+     "na": 2.159,
+     "na_without_both": 1.991,
+     "pull_CP042": 0.433,
+     "pull_CP122": 0.09
+    },
+    "SK 2021": {
+     "gap": 0.35,
+     "gap_without_both": -0.367,
+     "hicp": 2.821,
+     "na": 3.171,
+     "na_without_both": 2.454,
+     "pull_CP042": 1.144,
+     "pull_CP122": 0.02
+    },
+    "SK 2022": {
+     "gap": -0.434,
+     "gap_without_both": -0.157,
+     "hicp": 12.122,
+     "na": 11.688,
+     "na_without_both": 11.966,
+     "pull_CP042": 1.777,
+     "pull_CP122": 0.154
+    },
+    "SK 2023": {
+     "gap": -0.803,
+     "gap_without_both": 0.491,
+     "hicp": 10.988,
+     "na": 10.185,
+     "na_without_both": 11.478,
+     "pull_CP042": 0.744,
+     "pull_CP122": 0.077
+    },
+    "SK 2024": {
+     "gap": -0.103,
+     "gap_without_both": -0.319,
+     "hicp": 3.156,
+     "na": 3.053,
+     "na_without_both": 2.837,
+     "pull_CP042": 0.414,
+     "pull_CP122": 0.295
+    }
+   }
+  },
+  "B132-4": {
+   "corr_with_dfr_change": 0.5618,
+   "member_years": 116,
+   "rows": {
+    "AT 2019": {
+     "hicp_CP126": 2.085,
+     "na_CP122": -2.894
+    },
+    "AT 2020": {
+     "hicp_CP126": 0.257,
+     "na_CP122": -18.949
+    },
+    "AT 2021": {
+     "hicp_CP126": 1.592,
+     "na_CP122": -11.465
+    },
+    "AT 2022": {
+     "hicp_CP126": 3.162,
+     "na_CP122": 19.85
+    },
+    "AT 2023": {
+     "hicp_CP126": 12.803,
+     "na_CP122": 121.836
+    },
+    "AT 2024": {
+     "hicp_CP126": 7.134,
+     "na_CP122": 11.434
+    },
+    "BE 2019": {
+     "hicp_CP126": 2.622,
+     "na_CP122": -5.815
+    },
+    "BE 2020": {
+     "hicp_CP126": 5.553,
+     "na_CP122": 1.144
+    },
+    "BE 2021": {
+     "hicp_CP126": 9.26,
+     "na_CP122": 6.462
+    },
+    "BE 2022": {
+     "hicp_CP126": 10.51,
+     "na_CP122": 57.226
+    },
+    "BE 2023": {
+     "hicp_CP126": 1.94,
+     "na_CP122": 28.869
+    },
+    "BE 2024": {
+     "hicp_CP126": 6.694,
+     "na_CP122": -10.473
+    },
+    "BG 2019": {
+     "hicp_CP126": 3.273,
+     "na_CP122": 7.619
+    },
+    "BG 2020": {
+     "hicp_CP126": 21.088,
+     "na_CP122": 15.3
+    },
+    "BG 2021": {
+     "hicp_CP126": 13.177,
+     "na_CP122": 15.76
+    },
+    "BG 2022": {
+     "hicp_CP126": 7.327,
+     "na_CP122": 36.492
+    },
+    "BG 2023": {
+     "hicp_CP126": 13.636,
+     "na_CP122": 16.767
+    },
+    "BG 2024": {
+     "hicp_CP126": 5.594,
+     "na_CP122": 5.799
+    },
+    "CY 2019": {
+     "hicp_CP126": 13.786,
+     "na_CP122": 0.905
+    },
+    "CY 2020": {
+     "hicp_CP126": 2.377,
+     "na_CP122": 0.431
+    },
+    "CY 2021": {
+     "hicp_CP126": 1.367,
+     "na_CP122": -5.882
+    },
+    "CY 2022": {
+     "hicp_CP126": 0.498,
+     "na_CP122": 5.926
+    },
+    "CY 2023": {
+     "hicp_CP126": 2.82,
+     "na_CP122": 15.895
+    },
+    "CY 2024": {
+     "hicp_CP126": 1.653,
+     "na_CP122": 7.91
+    },
+    "CZ 2019": {
+     "hicp_CP126": 4.93,
+     "na_CP122": 0.476
+    },
+    "CZ 2020": {
+     "hicp_CP126": 2.301,
+     "na_CP122": -5.487
+    },
+    "CZ 2021": {
+     "hicp_CP126": 7.873,
+     "na_CP122": 2.802
+    },
+    "CZ 2022": {
+     "hicp_CP126": 4.605,
+     "na_CP122": 5.658
+    },
+    "CZ 2023": {
+     "hicp_CP126": 0.997,
+     "na_CP122": 68.927
+    },
+    "CZ 2024": {
+     "hicp_CP126": 2.22,
+     "na_CP122": 12.014
+    },
+    "CZ 2025": {
+     "hicp_CP126": 3.62,
+     "na_CP122": 1.249
+    },
+    "DE 2019": {
+     "hicp_CP126": 3.142,
+     "na_CP122": -4.574
+    },
+    "DE 2020": {
+     "hicp_CP126": 4.122,
+     "na_CP122": -2.632
+    },
+    "DE 2021": {
+     "hicp_CP126": 5.077,
+     "na_CP122": -0.423
+    },
+    "DE 2022": {
+     "hicp_CP126": 3.112,
+     "na_CP122": 8.583
+    },
+    "DE 2023": {
+     "hicp_CP126": 1.986,
+     "na_CP122": 25.989
+    },
+    "DE 2024": {
+     "hicp_CP126": 2.259,
+     "na_CP122": 0.915
+    },
+    "DK 2019": {
+     "hicp_CP126": -0.536,
+     "na_CP122": -0.936
+    },
+    "DK 2020": {
+     "hicp_CP126": 4.219,
+     "na_CP122": -1.386
+    },
+    "DK 2021": {
+     "hicp_CP126": 1.12,
+     "na_CP122": 3.025
+    },
+    "DK 2022": {
+     "hicp_CP126": 2.044,
+     "na_CP122": 10.848
+    },
+    "DK 2023": {
+     "hicp_CP126": 7.262,
+     "na_CP122": 23.75
+    },
+    "DK 2024": {
+     "hicp_CP126": 0.156,
+     "na_CP122": 0.786
+    },
+    "DK 2025": {
+     "hicp_CP126": 1.01,
+     "na_CP122": -9.904
+    },
+    "EA19 2019": {
+     "hicp_CP126": 3.406,
+     "na_CP122": -0.952
+    },
+    "EA19 2020": {
+     "hicp_CP126": 3.752,
+     "na_CP122": -2.87
+    },
+    "EA19 2021": {
+     "hicp_CP126": 3.732,
+     "na_CP122": 1.448
+    },
+    "EA19 2022": {
+     "hicp_CP126": 4.041,
+     "na_CP122": 20.771
+    },
+    "EA19 2023": {
+     "hicp_CP126": 4.351,
+     "na_CP122": 61.888
+    },
+    "EA19 2024": {
+     "hicp_CP126": 2.12,
+     "na_CP122": 4.083
+    },
+    "EA20 2019": {
+     "hicp_CP126": 3.387,
+     "na_CP122": -0.926
+    },
+    "EA20 2020": {
+     "hicp_CP126": 3.753,
+     "na_CP122": -2.837
+    },
+    "EA20 2021": {
+     "hicp_CP126": 3.759,
+     "na_CP122": 1.475
+    },
+    "EA20 2022": {
+     "hicp_CP126": 4.058,
+     "na_CP122": 20.755
+    },
+    "EA20 2023": {
+     "hicp_CP126": 4.35,
+     "na_CP122": 61.621
+    },
+    "EA20 2024": {
+     "hicp_CP126": 2.135,
+     "na_CP122": 4.12
+    },
+    "EE 2019": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 3.988
+    },
+    "EE 2020": {
+     "hicp_CP126": 1.473,
+     "na_CP122": -0.389
+    },
+    "EE 2021": {
+     "hicp_CP126": 7.26,
+     "na_CP122": -0.107
+    },
+    "EE 2022": {
+     "hicp_CP126": 9.911,
+     "na_CP122": 11.22
+    },
+    "EE 2023": {
+     "hicp_CP126": 12.346,
+     "na_CP122": 8.027
+    },
+    "EE 2024": {
+     "hicp_CP126": 0.75,
+     "na_CP122": -14.947
+    },
+    "EE 2025": {
+     "hicp_CP126": -4.398,
+     "na_CP122": -13.317
+    },
+    "EL 2019": {
+     "hicp_CP126": -0.251,
+     "na_CP122": 0.24
+    },
+    "EL 2020": {
+     "hicp_CP126": 0.091,
+     "na_CP122": -1.183
+    },
+    "EL 2021": {
+     "hicp_CP126": -0.101,
+     "na_CP122": 1.171
+    },
+    "EL 2022": {
+     "hicp_CP126": -0.01,
+     "na_CP122": 9.236
+    },
+    "EL 2023": {
+     "hicp_CP126": 0.302,
+     "na_CP122": 37.168
+    },
+    "EL 2024": {
+     "hicp_CP126": -0.06,
+     "na_CP122": 0.0
+    },
+    "ES 2019": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 4.161
+    },
+    "ES 2020": {
+     "hicp_CP126": 0.0,
+     "na_CP122": -1.687
+    },
+    "ES 2021": {
+     "hicp_CP126": 1.77,
+     "na_CP122": 1.974
+    },
+    "ES 2022": {
+     "hicp_CP126": 8.706,
+     "na_CP122": 15.744
+    },
+    "ES 2023": {
+     "hicp_CP126": 0.94,
+     "na_CP122": 76.718
+    },
+    "ES 2024": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 9.299
+    },
+    "EU27_2020 2019": {
+     "hicp_CP126": 1.809,
+     "na_CP122": -0.867
+    },
+    "EU27_2020 2020": {
+     "hicp_CP126": 8.436,
+     "na_CP122": -1.896
+    },
+    "EU27_2020 2021": {
+     "hicp_CP126": 6.405,
+     "na_CP122": 2.092
+    },
+    "EU27_2020 2022": {
+     "hicp_CP126": 4.314,
+     "na_CP122": 18.572
+    },
+    "EU27_2020 2023": {
+     "hicp_CP126": 5.279,
+     "na_CP122": 53.14
+    },
+    "EU27_2020 2024": {
+     "hicp_CP126": 3.981,
+     "na_CP122": 4.98
+    },
+    "FI 2019": {
+     "hicp_CP126": 5.297,
+     "na_CP122": 1.38
+    },
+    "FI 2020": {
+     "hicp_CP126": 1.601,
+     "na_CP122": 1.21
+    },
+    "FI 2021": {
+     "hicp_CP126": 3.268,
+     "na_CP122": 2.074
+    },
+    "FI 2022": {
+     "hicp_CP126": 2.371,
+     "na_CP122": 4.598
+    },
+    "FI 2023": {
+     "hicp_CP126": 0.278,
+     "na_CP122": 19.707
+    },
+    "FI 2024": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 6.7
+    },
+    "FI 2025": {
+     "hicp_CP126": 0.949,
+     "na_CP122": -6.906
+    },
+    "FR 2019": {
+     "hicp_CP126": 0.17,
+     "na_CP122": -3.834
+    },
+    "FR 2020": {
+     "hicp_CP126": 0.998,
+     "na_CP122": -9.501
+    },
+    "FR 2021": {
+     "hicp_CP126": 1.165,
+     "na_CP122": -1.02
+    },
+    "FR 2022": {
+     "hicp_CP126": 2.386,
+     "na_CP122": 22.837
+    },
+    "FR 2023": {
+     "hicp_CP126": -0.081,
+     "na_CP122": 181.764
+    },
+    "FR 2024": {
+     "hicp_CP126": 2.927,
+     "na_CP122": 0.248
+    },
+    "FR 2025": {
+     "hicp_CP126": 1.759,
+     "na_CP122": -12.672
+    },
+    "HR 2019": {
+     "hicp_CP126": 1.024,
+     "na_CP122": 3.835
+    },
+    "HR 2020": {
+     "hicp_CP126": 4.732,
+     "na_CP122": 3.02
+    },
+    "HR 2021": {
+     "hicp_CP126": 8.452,
+     "na_CP122": 6.541
+    },
+    "HR 2022": {
+     "hicp_CP126": 6.211,
+     "na_CP122": 17.608
+    },
+    "HR 2023": {
+     "hicp_CP126": 3.883,
+     "na_CP122": 18.078
+    },
+    "HR 2024": {
+     "hicp_CP126": 7.04,
+     "na_CP122": 12.913
+    },
+    "HU 2019": {
+     "hicp_CP126": -1.192,
+     "na_CP122": 0.022
+    },
+    "HU 2020": {
+     "hicp_CP126": 2.121,
+     "na_CP122": -5.705
+    },
+    "HU 2021": {
+     "hicp_CP126": 3.306,
+     "na_CP122": 0.08
+    },
+    "HU 2022": {
+     "hicp_CP126": 5.912,
+     "na_CP122": 22.869
+    },
+    "HU 2023": {
+     "hicp_CP126": 11.634,
+     "na_CP122": 37.817
+    },
+    "HU 2024": {
+     "hicp_CP126": 10.577,
+     "na_CP122": -1.779
+    },
+    "IE 2019": {
+     "hicp_CP126": 0.595,
+     "na_CP122": 11.429
+    },
+    "IE 2020": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 6.812
+    },
+    "IE 2021": {
+     "hicp_CP126": -0.099,
+     "na_CP122": 13.126
+    },
+    "IE 2022": {
+     "hicp_CP126": 0.494,
+     "na_CP122": 7.258
+    },
+    "IE 2023": {
+     "hicp_CP126": -0.196,
+     "na_CP122": 81.827
+    },
+    "IE 2024": {
+     "hicp_CP126": 0.098,
+     "na_CP122": 29.981
+    },
+    "IE 2025": {
+     "hicp_CP126": -0.098,
+     "na_CP122": -11.216
+    },
+    "IT 2019": {
+     "hicp_CP126": 4.744,
+     "na_CP122": 6.259
+    },
+    "IT 2020": {
+     "hicp_CP126": 5.344,
+     "na_CP122": -3.451
+    },
+    "IT 2021": {
+     "hicp_CP126": 3.697,
+     "na_CP122": 0.852
+    },
+    "IT 2022": {
+     "hicp_CP126": 3.317,
+     "na_CP122": 12.197
+    },
+    "IT 2023": {
+     "hicp_CP126": 6.501,
+     "na_CP122": 73.644
+    },
+    "IT 2024": {
+     "hicp_CP126": 0.98,
+     "na_CP122": 8.845
+    },
+    "LT 2020": {
+     "hicp_CP126": 1.978,
+     "na_CP122": 1.973
+    },
+    "LT 2021": {
+     "hicp_CP126": 5.448,
+     "na_CP122": 5.442
+    },
+    "LT 2022": {
+     "hicp_CP126": 10.064,
+     "na_CP122": 14.318
+    },
+    "LT 2023": {
+     "hicp_CP126": 8.653,
+     "na_CP122": 18.318
+    },
+    "LT 2024": {
+     "hicp_CP126": 7.525,
+     "na_CP122": 3.317
+    },
+    "LV 2019": {
+     "hicp_CP126": 3.268,
+     "na_CP122": -4.315
+    },
+    "LV 2020": {
+     "hicp_CP126": 2.585,
+     "na_CP122": -0.43
+    },
+    "LV 2021": {
+     "hicp_CP126": 4.182,
+     "na_CP122": 11.696
+    },
+    "LV 2022": {
+     "hicp_CP126": 6.775,
+     "na_CP122": 31.542
+    },
+    "LV 2023": {
+     "hicp_CP126": 4.232,
+     "na_CP122": 48.658
+    },
+    "LV 2024": {
+     "hicp_CP126": 0.44,
+     "na_CP122": 15.306
+    },
+    "ME 2019": {
+     "hicp_CP126": 0.28,
+     "na_CP122": 0.549
+    },
+    "ME 2020": {
+     "hicp_CP126": 0.0,
+     "na_CP122": -0.429
+    },
+    "ME 2021": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 0.407
+    },
+    "ME 2022": {
+     "hicp_CP126": 2.971,
+     "na_CP122": 5.853
+    },
+    "ME 2023": {
+     "hicp_CP126": 5.78,
+     "na_CP122": 8.028
+    },
+    "ME 2024": {
+     "hicp_CP126": 0.0,
+     "na_CP122": 3.827
+    },
+    "MT 2019": {
+     "hicp_CP126": 2.965,
+     "na_CP122": 1.38
+    },
+    "MT 2020": {
+     "hicp_CP126": 0.68,
+     "na_CP122": 0.843
+    },
+    "MT 2021": {
+     "hicp_CP126": 0.929,
+     "na_CP122": -1.543
+    },
+    "MT 2022": {
+     "hicp_CP126": 2.918,
+     "na_CP122": -25.55
+    },
+    "MT 2023": {
+     "hicp_CP126": -2.662,
+     "na_CP122": 319.083
+    },
+    "MT 2024": {
+     "hicp_CP126": 1.649,
+     "na_CP122": 7.998
+    },
+    "MT 2025": {
+     "hicp_CP126": 6.902,
+     "na_CP122": -35.904
+    },
+    "NL 2019": {
+     "hicp_CP126": 3.456,
+     "na_CP122": -6.251
+    },
+    "NL 2020": {
+     "hicp_CP126": 3.768,
+     "na_CP122": -0.238
+    },
+    "NL 2021": {
+     "hicp_CP126": 7.792,
+     "na_CP122": 16.832
+    },
+    "NL 2022": {
+     "hicp_CP126": 9.386,
+     "na_CP122": 164.812
+    },
+    "NL 2023": {
+     "hicp_CP126": 14.465,
+     "na_CP122": 60.763
+    },
+    "NL 2024": {
+     "hicp_CP126": 7.329,
+     "na_CP122": -9.28
+    },
+    "NL 2025": {
+     "hicp_CP126": 6.497,
+     "na_CP122": -4.538
+    },
+    "PL 2019": {
+     "hicp_CP126": -1.615,
+     "na_CP122": -0.306
+    },
+    "PL 2020": {
+     "hicp_CP126": 27.462,
+     "na_CP122": 7.71
+    },
+    "PL 2021": {
+     "hicp_CP126": 14.764,
+     "na_CP122": 8.665
+    },
+    "PL 2022": {
+     "hicp_CP126": 3.964,
+     "na_CP122": 8.341
+    },
+    "PL 2023": {
+     "hicp_CP126": 6.763,
+     "na_CP122": 12.886
+    },
+    "PL 2024": {
+     "hicp_CP126": 9.501,
+     "na_CP122": 15.246
+    },
+    "PT 2019": {
+     "hicp_CP126": 4.062,
+     "na_CP122": -4.113
+    },
+    "PT 2020": {
+     "hicp_CP126": 4.289,
+     "na_CP122": -3.021
+    },
+    "PT 2021": {
+     "hicp_CP126": 3.626,
+     "na_CP122": -1.415
+    },
+    "PT 2022": {
+     "hicp_CP126": 2.503,
+     "na_CP122": 17.972
+    },
+    "PT 2023": {
+     "hicp_CP126": 0.308,
+     "na_CP122": 17.815
+    },
+    "PT 2024": {
+     "hicp_CP126": 0.276,
+     "na_CP122": -11.895
+    },
+    "RO 2019": {
+     "hicp_CP126": 0.0,
+     "na_CP122": -1.938
+    },
+    "RO 2020": {
+     "hicp_CP126": 2.692,
+     "na_CP122": 0.746
+    },
+    "RO 2021": {
+     "hicp_CP126": 3.411,
+     "na_CP122": 1.69
+    },
+    "RO 2022": {
+     "hicp_CP126": 4.64,
+     "na_CP122": 4.471
+    },
+    "RO 2023": {
+     "hicp_CP126": 4.733,
+     "na_CP122": 4.362
+    },
+    "RO 2024": {
+     "hicp_CP126": 15.452,
+     "na_CP122": 14.832
+    },
+    "RS 2019": {
+     "hicp_CP126": 2.432,
+     "na_CP122": 2.564
+    },
+    "RS 2020": {
+     "hicp_CP126": 0.639,
+     "na_CP122": -7.264
+    },
+    "RS 2021": {
+     "hicp_CP126": 0.726,
+     "na_CP122": -3.488
+    },
+    "RS 2022": {
+     "hicp_CP126": 3.333,
+     "na_CP122": 20.364
+    },
+    "RS 2023": {
+     "hicp_CP126": 4.446,
+     "na_CP122": 55.96
+    },
+    "RS 2024": {
+     "hicp_CP126": 0.417,
+     "na_CP122": 4.91
+    },
+    "SE 2019": {
+     "hicp_CP126": 0.539,
+     "na_CP122": -2.34
+    },
+    "SE 2020": {
+     "hicp_CP126": 0.236,
+     "na_CP122": 2.203
+    },
+    "SE 2021": {
+     "hicp_CP126": 1.505,
+     "na_CP122": 1.347
+    },
+    "SE 2022": {
+     "hicp_CP126": 7.511,
+     "na_CP122": 9.278
+    },
+    "SE 2023": {
+     "hicp_CP126": 4.428,
+     "na_CP122": 14.018
+    },
+    "SE 2024": {
+     "hicp_CP126": 1.034,
+     "na_CP122": 6.041
+    },
+    "SE 2025": {
+     "hicp_CP126": 2.661,
+     "na_CP122": 7.544
+    },
+    "SI 2019": {
+     "hicp_CP126": 0.936,
+     "na_CP122": 4.565
+    },
+    "SI 2020": {
+     "hicp_CP126": 2.406,
+     "na_CP122": 1.034
+    },
+    "SI 2021": {
+     "hicp_CP126": 3.438,
+     "na_CP122": 4.285
+    },
+    "SI 2022": {
+     "hicp_CP126": -1.759,
+     "na_CP122": 16.243
+    },
+    "SI 2023": {
+     "hicp_CP126": 3.5,
+     "na_CP122": 67.978
+    },
+    "SI 2024": {
+     "hicp_CP126": 3.99,
+     "na_CP122": 9.382
+    },
+    "SI 2025": {
+     "hicp_CP126": 2.198,
+     "na_CP122": -8.409
+    },
+    "SK 2019": {
+     "hicp_CP126": 2.209,
+     "na_CP122": 2.181
+    },
+    "SK 2020": {
+     "hicp_CP126": 4.394,
+     "na_CP122": 4.364
+    },
+    "SK 2021": {
+     "hicp_CP126": 0.925,
+     "na_CP122": 0.941
+    },
+    "SK 2022": {
+     "hicp_CP126": 7.231,
+     "na_CP122": 7.203
+    },
+    "SK 2023": {
+     "hicp_CP126": 3.936,
+     "na_CP122": 4.105
+    },
+    "SK 2024": {
+     "hicp_CP126": 2.655,
+     "na_CP122": 15.511
+    }
+   }
+  },
+  "B132-5": {
+   "median_abs": 0.703,
+   "n": 177,
+   "rows": {
+    "AT 2019": {
+     "diff": -0.228,
+     "hicp_CP041": 2.963,
+     "na_CP042": 2.735
+    },
+    "AT 2020": {
+     "diff": -0.784,
+     "hicp_CP041": 4.099,
+     "na_CP042": 3.316
+    },
+    "AT 2021": {
+     "diff": -0.734,
+     "hicp_CP041": 1.969,
+     "na_CP042": 1.235
+    },
+    "AT 2022": {
+     "diff": 2.538,
+     "hicp_CP041": 0.822,
+     "na_CP042": 3.36
+    },
+    "AT 2023": {
+     "diff": 0.28,
+     "hicp_CP041": 7.856,
+     "na_CP042": 8.136
+    },
+    "AT 2024": {
+     "diff": -1.089,
+     "hicp_CP041": 6.672,
+     "na_CP042": 5.583
+    },
+    "BE 2019": {
+     "diff": -0.141,
+     "hicp_CP041": 1.047,
+     "na_CP042": 0.907
+    },
+    "BE 2020": {
+     "diff": -0.444,
+     "hicp_CP041": 2.668,
+     "na_CP042": 2.225
+    },
+    "BE 2021": {
+     "diff": -0.043,
+     "hicp_CP041": 2.019,
+     "na_CP042": 1.976
+    },
+    "BE 2022": {
+     "diff": 1.928,
+     "hicp_CP041": 3.51,
+     "na_CP042": 5.438
+    },
+    "BE 2023": {
+     "diff": -1.075,
+     "hicp_CP041": 5.94,
+     "na_CP042": 4.865
+    },
+    "BE 2024": {
+     "diff": -1.014,
+     "hicp_CP041": 4.947,
+     "na_CP042": 3.933
+    },
+    "BG 2019": {
+     "diff": 0.705,
+     "hicp_CP041": 3.265,
+     "na_CP042": 3.97
+    },
+    "BG 2020": {
+     "diff": -3.014,
+     "hicp_CP041": 2.535,
+     "na_CP042": -0.478
+    },
+    "BG 2021": {
+     "diff": 6.273,
+     "hicp_CP041": 1.651,
+     "na_CP042": 7.924
+    },
+    "BG 2022": {
+     "diff": 3.235,
+     "hicp_CP041": 6.336,
+     "na_CP042": 9.572
+    },
+    "BG 2023": {
+     "diff": -1.243,
+     "hicp_CP041": 8.39,
+     "na_CP042": 7.147
+    },
+    "BG 2024": {
+     "diff": -0.74,
+     "hicp_CP041": 5.552,
+     "na_CP042": 4.812
+    },
+    "CY 2019": {
+     "diff": 0.227,
+     "hicp_CP041": 3.377,
+     "na_CP042": 3.604
+    },
+    "CY 2020": {
+     "diff": -2.0,
+     "hicp_CP041": 2.476,
+     "na_CP042": 0.476
+    },
+    "CY 2021": {
+     "diff": 0.454,
+     "hicp_CP041": 1.893,
+     "na_CP042": 2.346
+    },
+    "CY 2022": {
+     "diff": 0.521,
+     "hicp_CP041": 3.048,
+     "na_CP042": 3.568
+    },
+    "CY 2023": {
+     "diff": -0.028,
+     "hicp_CP041": 4.48,
+     "na_CP042": 4.452
+    },
+    "CY 2024": {
+     "diff": -0.001,
+     "hicp_CP041": 4.64,
+     "na_CP042": 4.639
+    },
+    "CZ 2019": {
+     "diff": 4.186,
+     "hicp_CP041": 3.759,
+     "na_CP042": 7.946
+    },
+    "CZ 2020": {
+     "diff": 2.615,
+     "hicp_CP041": 3.08,
+     "na_CP042": 5.695
+    },
+    "CZ 2021": {
+     "diff": 10.979,
+     "hicp_CP041": 2.373,
+     "na_CP042": 13.352
+    },
+    "CZ 2022": {
+     "diff": 9.575,
+     "hicp_CP041": 4.979,
+     "na_CP042": 14.554
+    },
+    "CZ 2023": {
+     "diff": -3.955,
+     "hicp_CP041": 7.114,
+     "na_CP042": 3.159
+    },
+    "CZ 2024": {
+     "diff": -7.356,
+     "hicp_CP041": 6.794,
+     "na_CP042": -0.562
+    },
+    "CZ 2025": {
+     "diff": 2.584,
+     "hicp_CP041": 6.004,
+     "na_CP042": 8.588
+    },
+    "DE 2019": {
+     "diff": -0.076,
+     "hicp_CP041": 1.434,
+     "na_CP042": 1.358
+    },
+    "DE 2020": {
+     "diff": -0.222,
+     "hicp_CP041": 1.414,
+     "na_CP042": 1.192
+    },
+    "DE 2021": {
+     "diff": -0.126,
+     "hicp_CP041": 1.301,
+     "na_CP042": 1.176
+    },
+    "DE 2022": {
+     "diff": 0.703,
+     "hicp_CP041": 1.651,
+     "na_CP042": 2.355
+    },
+    "DE 2023": {
+     "diff": 0.106,
+     "hicp_CP041": 2.076,
+     "na_CP042": 2.181
+    },
+    "DE 2024": {
+     "diff": 0.112,
+     "hicp_CP041": 2.122,
+     "na_CP042": 2.235
+    },
+    "DK 2019": {
+     "diff": 0.175,
+     "hicp_CP041": 0.864,
+     "na_CP042": 1.039
+    },
+    "DK 2020": {
+     "diff": 0.346,
+     "hicp_CP041": 0.951,
+     "na_CP042": 1.298
+    },
+    "DK 2021": {
+     "diff": 0.287,
+     "hicp_CP041": 1.32,
+     "na_CP042": 1.606
+    },
+    "DK 2022": {
+     "diff": 1.259,
+     "hicp_CP041": 2.047,
+     "na_CP042": 3.306
+    },
+    "DK 2023": {
+     "diff": -0.463,
+     "hicp_CP041": 2.735,
+     "na_CP042": 2.272
+    },
+    "DK 2024": {
+     "diff": -0.445,
+     "hicp_CP041": 2.041,
+     "na_CP042": 1.596
+    },
+    "DK 2025": {
+     "diff": 0.764,
+     "hicp_CP041": 2.174,
+     "na_CP042": 2.937
+    },
+    "EA19 2019": {
+     "diff": 0.044,
+     "hicp_CP041": 1.343,
+     "na_CP042": 1.387
+    },
+    "EA19 2020": {
+     "diff": -0.092,
+     "hicp_CP041": 1.277,
+     "na_CP042": 1.185
+    },
+    "EA19 2021": {
+     "diff": -0.02,
+     "hicp_CP041": 1.195,
+     "na_CP042": 1.175
+    },
+    "EA19 2022": {
+     "diff": 0.863,
+     "hicp_CP041": 1.656,
+     "na_CP042": 2.518
+    },
+    "EA19 2023": {
+     "diff": 0.237,
+     "hicp_CP041": 2.663,
+     "na_CP042": 2.899
+    },
+    "EA19 2024": {
+     "diff": 0.032,
+     "hicp_CP041": 2.897,
+     "na_CP042": 2.929
+    },
+    "EA20 2019": {
+     "diff": 0.044,
+     "hicp_CP041": 1.343,
+     "na_CP042": 1.387
+    },
+    "EA20 2020": {
+     "diff": -0.108,
+     "hicp_CP041": 1.287,
+     "na_CP042": 1.179
+    },
+    "EA20 2021": {
+     "diff": -0.015,
+     "hicp_CP041": 1.186,
+     "na_CP042": 1.171
+    },
+    "EA20 2022": {
+     "diff": 0.864,
+     "hicp_CP041": 1.656,
+     "na_CP042": 2.52
+    },
+    "EA20 2023": {
+     "diff": 0.255,
+     "hicp_CP041": 2.663,
+     "na_CP042": 2.918
+    },
+    "EA20 2024": {
+     "diff": 0.029,
+     "hicp_CP041": 2.906,
+     "na_CP042": 2.935
+    },
+    "EE 2019": {
+     "diff": -0.245,
+     "hicp_CP041": 6.826,
+     "na_CP042": 6.581
+    },
+    "EE 2020": {
+     "diff": -0.132,
+     "hicp_CP041": -4.178,
+     "na_CP042": -4.31
+    },
+    "EE 2021": {
+     "diff": -1.781,
+     "hicp_CP041": 3.721,
+     "na_CP042": 1.941
+    },
+    "EE 2022": {
+     "diff": -7.647,
+     "hicp_CP041": 22.082,
+     "na_CP042": 14.435
+    },
+    "EE 2023": {
+     "diff": 5.437,
+     "hicp_CP041": 0.303,
+     "na_CP042": 5.74
+    },
+    "EE 2024": {
+     "diff": 5.558,
+     "hicp_CP041": -0.937,
+     "na_CP042": 4.621
+    },
+    "EE 2025": {
+     "diff": 0.583,
+     "hicp_CP041": 4.9,
+     "na_CP042": 5.483
+    },
+    "EL 2019": {
+     "diff": 0.0,
+     "hicp_CP041": 0.0,
+     "na_CP042": 0.0
+    },
+    "EL 2020": {
+     "diff": 0.0,
+     "hicp_CP041": 0.0,
+     "na_CP042": 0.0
+    },
+    "EL 2021": {
+     "diff": 0.003,
+     "hicp_CP041": 0.119,
+     "na_CP042": 0.123
+    },
+    "EL 2022": {
+     "diff": -0.004,
+     "hicp_CP041": 1.29,
+     "na_CP042": 1.286
+    },
+    "EL 2023": {
+     "diff": 0.0,
+     "hicp_CP041": 4.783,
+     "na_CP042": 4.783
+    },
+    "EL 2024": {
+     "diff": 0.004,
+     "hicp_CP041": 5.095,
+     "na_CP042": 5.099
+    },
+    "ES 2019": {
+     "diff": -0.063,
+     "hicp_CP041": 1.536,
+     "na_CP042": 1.472
+    },
+    "ES 2020": {
+     "diff": -0.002,
+     "hicp_CP041": 1.144,
+     "na_CP042": 1.142
+    },
+    "ES 2021": {
+     "diff": 0.0,
+     "hicp_CP041": 0.594,
+     "na_CP042": 0.594
+    },
+    "ES 2022": {
+     "diff": 0.931,
+     "hicp_CP041": 1.353,
+     "na_CP042": 2.284
+    },
+    "ES 2023": {
+     "diff": 0.409,
+     "hicp_CP041": 2.049,
+     "na_CP042": 2.458
+    },
+    "ES 2024": {
+     "diff": 0.513,
+     "hicp_CP041": 2.193,
+     "na_CP042": 2.705
+    },
+    "EU27_2020 2019": {
+     "diff": 0.175,
+     "hicp_CP041": 1.467,
+     "na_CP042": 1.642
+    },
+    "EU27_2020 2020": {
+     "diff": -0.096,
+     "hicp_CP041": 1.388,
+     "na_CP042": 1.292
+    },
+    "EU27_2020 2021": {
+     "diff": 0.494,
+     "hicp_CP041": 1.247,
+     "na_CP042": 1.741
+    },
+    "EU27_2020 2022": {
+     "diff": 1.071,
+     "hicp_CP041": 1.918,
+     "na_CP042": 2.989
+    },
+    "EU27_2020 2023": {
+     "diff": 0.104,
+     "hicp_CP041": 2.972,
+     "na_CP042": 3.076
+    },
+    "EU27_2020 2024": {
+     "diff": 0.242,
+     "hicp_CP041": 3.125,
+     "na_CP042": 3.366
+    },
+    "FI 2019": {
+     "diff": -0.77,
+     "hicp_CP041": 2.003,
+     "na_CP042": 1.232
+    },
+    "FI 2020": {
+     "diff": -0.207,
+     "hicp_CP041": 1.392,
+     "na_CP042": 1.184
+    },
+    "FI 2021": {
+     "diff": 0.069,
+     "hicp_CP041": 0.836,
+     "na_CP042": 0.906
+    },
+    "FI 2022": {
+     "diff": -0.08,
+     "hicp_CP041": 0.992,
+     "na_CP042": 0.912
+    },
+    "FI 2023": {
+     "diff": -0.306,
+     "hicp_CP041": 2.062,
+     "na_CP042": 1.756
+    },
+    "FI 2024": {
+     "diff": -0.242,
+     "hicp_CP041": 2.467,
+     "na_CP042": 2.225
+    },
+    "FI 2025": {
+     "diff": -0.021,
+     "hicp_CP041": 1.041,
+     "na_CP042": 1.02
+    },
+    "FR 2019": {
+     "diff": 0.489,
+     "hicp_CP041": 0.419,
+     "na_CP042": 0.908
+    },
+    "FR 2020": {
+     "diff": 0.214,
+     "hicp_CP041": 0.387,
+     "na_CP042": 0.601
+    },
+    "FR 2021": {
+     "diff": -0.3,
+     "hicp_CP041": 0.851,
+     "na_CP042": 0.551
+    },
+    "FR 2022": {
+     "diff": 0.211,
+     "hicp_CP041": 0.667,
+     "na_CP042": 0.878
+    },
+    "FR 2023": {
+     "diff": -0.49,
+     "hicp_CP041": 2.125,
+     "na_CP042": 1.635
+    },
+    "FR 2024": {
+     "diff": -0.425,
+     "hicp_CP041": 2.338,
+     "na_CP042": 1.914
+    },
+    "FR 2025": {
+     "diff": -0.687,
+     "hicp_CP041": 2.322,
+     "na_CP042": 1.635
+    },
+    "HR 2019": {
+     "diff": -3.519,
+     "hicp_CP041": 4.863,
+     "na_CP042": 1.344
+    },
+    "HR 2020": {
+     "diff": -2.347,
+     "hicp_CP041": 2.177,
+     "na_CP042": -0.17
+    },
+    "HR 2021": {
+     "diff": -0.137,
+     "hicp_CP041": 0.461,
+     "na_CP042": 0.325
+    },
+    "HR 2022": {
+     "diff": -0.319,
+     "hicp_CP041": 3.177,
+     "na_CP042": 2.859
+    },
+    "HR 2023": {
+     "diff": 0.879,
+     "hicp_CP041": 6.283,
+     "na_CP042": 7.162
+    },
+    "HR 2024": {
+     "diff": -0.098,
+     "hicp_CP041": 4.354,
+     "na_CP042": 4.256
+    },
+    "HU 2019": {
+     "diff": 0.527,
+     "hicp_CP041": 9.394,
+     "na_CP042": 9.921
+    },
+    "HU 2020": {
+     "diff": -8.806,
+     "hicp_CP041": 4.278,
+     "na_CP042": -4.529
+    },
+    "HU 2021": {
+     "diff": 11.243,
+     "hicp_CP041": 1.878,
+     "na_CP042": 13.121
+    },
+    "HU 2022": {
+     "diff": -4.014,
+     "hicp_CP041": 10.546,
+     "na_CP042": 6.532
+    },
+    "HU 2023": {
+     "diff": -9.292,
+     "hicp_CP041": 13.77,
+     "na_CP042": 4.478
+    },
+    "HU 2024": {
+     "diff": 1.81,
+     "hicp_CP041": 12.386,
+     "na_CP042": 14.196
+    },
+    "IE 2019": {
+     "diff": 0.073,
+     "hicp_CP041": 5.267,
+     "na_CP042": 5.34
+    },
+    "IE 2020": {
+     "diff": -0.634,
+     "hicp_CP041": 0.154,
+     "na_CP042": -0.48
+    },
+    "IE 2021": {
+     "diff": 0.315,
+     "hicp_CP041": 2.844,
+     "na_CP042": 3.159
+    },
+    "IE 2022": {
+     "diff": 0.998,
+     "hicp_CP041": 9.791,
+     "na_CP042": 10.789
+    },
+    "IE 2023": {
+     "diff": 0.582,
+     "hicp_CP041": 7.352,
+     "na_CP042": 7.934
+    },
+    "IE 2024": {
+     "diff": -0.339,
+     "hicp_CP041": 5.327,
+     "na_CP042": 4.988
+    },
+    "IE 2025": {
+     "diff": -0.237,
+     "hicp_CP041": 4.515,
+     "na_CP042": 4.278
+    },
+    "IT 2019": {
+     "diff": 0.502,
+     "hicp_CP041": 0.198,
+     "na_CP042": 0.7
+    },
+    "IT 2020": {
+     "diff": 0.603,
+     "hicp_CP041": 0.297,
+     "na_CP042": 0.9
+    },
+    "IT 2021": {
+     "diff": 1.152,
+     "hicp_CP041": 0.0,
+     "na_CP042": 1.152
+    },
+    "IT 2022": {
+     "diff": 1.395,
+     "hicp_CP041": 1.183,
+     "na_CP042": 2.578
+    },
+    "IT 2023": {
+     "diff": 0.663,
+     "hicp_CP041": 2.437,
+     "na_CP042": 3.1
+    },
+    "IT 2024": {
+     "diff": -1.34,
+     "hicp_CP041": 3.14,
+     "na_CP042": 1.8
+    },
+    "LT 2020": {
+     "diff": 9.924,
+     "hicp_CP041": 2.649,
+     "na_CP042": 12.573
+    },
+    "LT 2021": {
+     "diff": 11.669,
+     "hicp_CP041": 1.8,
+     "na_CP042": 13.47
+    },
+    "LT 2022": {
+     "diff": -0.119,
+     "hicp_CP041": 16.144,
+     "na_CP042": 16.025
+    },
+    "LT 2023": {
+     "diff": -2.545,
+     "hicp_CP041": 9.933,
+     "na_CP042": 7.389
+    },
+    "LT 2024": {
+     "diff": 1.508,
+     "hicp_CP041": 3.275,
+     "na_CP042": 4.784
+    },
+    "LV 2019": {
+     "diff": -0.037,
+     "hicp_CP041": 4.64,
+     "na_CP042": 4.603
+    },
+    "LV 2020": {
+     "diff": 5.7,
+     "hicp_CP041": -2.156,
+     "na_CP042": 3.543
+    },
+    "LV 2021": {
+     "diff": 0.588,
+     "hicp_CP041": 1.574,
+     "na_CP042": 2.162
+    },
+    "LV 2022": {
+     "diff": 10.1,
+     "hicp_CP041": 2.94,
+     "na_CP042": 13.04
+    },
+    "LV 2023": {
+     "diff": 2.902,
+     "hicp_CP041": 2.874,
+     "na_CP042": 5.776
+    },
+    "LV 2024": {
+     "diff": -0.004,
+     "hicp_CP041": 7.211,
+     "na_CP042": 7.208
+    },
+    "ME 2019": {
+     "diff": -1.103,
+     "hicp_CP041": 1.177,
+     "na_CP042": 0.075
+    },
+    "ME 2020": {
+     "diff": 0.057,
+     "hicp_CP041": -0.269,
+     "na_CP042": -0.212
+    },
+    "ME 2021": {
+     "diff": 1.158,
+     "hicp_CP041": -0.439,
+     "na_CP042": 0.719
+    },
+    "ME 2022": {
+     "diff": 4.601,
+     "hicp_CP041": 6.371,
+     "na_CP042": 10.972
+    },
+    "ME 2023": {
+     "diff": -19.47,
+     "hicp_CP041": 29.174,
+     "na_CP042": 9.704
+    },
+    "ME 2024": {
+     "diff": -4.519,
+     "hicp_CP041": 7.276,
+     "na_CP042": 2.757
+    },
+    "MT 2019": {
+     "diff": -0.007,
+     "hicp_CP041": 4.125,
+     "na_CP042": 4.117
+    },
+    "MT 2020": {
+     "diff": 0.002,
+     "hicp_CP041": 4.042,
+     "na_CP042": 4.045
+    },
+    "MT 2021": {
+     "diff": -0.012,
+     "hicp_CP041": -1.385,
+     "na_CP042": -1.397
+    },
+    "MT 2022": {
+     "diff": 0.009,
+     "hicp_CP041": 5.353,
+     "na_CP042": 5.362
+    },
+    "MT 2023": {
+     "diff": 0.016,
+     "hicp_CP041": 15.192,
+     "na_CP042": 15.208
+    },
+    "MT 2024": {
+     "diff": 0.006,
+     "hicp_CP041": 8.886,
+     "na_CP042": 8.892
+    },
+    "MT 2025": {
+     "diff": 0.008,
+     "hicp_CP041": 1.673,
+     "na_CP042": 1.682
+    },
+    "NL 2019": {
+     "diff": 1.056,
+     "hicp_CP041": 2.444,
+     "na_CP042": 3.5
+    },
+    "NL 2020": {
+     "diff": 0.228,
+     "hicp_CP041": 2.727,
+     "na_CP042": 2.955
+    },
+    "NL 2021": {
+     "diff": 0.501,
+     "hicp_CP041": 1.847,
+     "na_CP042": 2.349
+    },
+    "NL 2022": {
+     "diff": 0.644,
+     "hicp_CP041": 1.858,
+     "na_CP042": 2.502
+    },
+    "NL 2023": {
+     "diff": 0.907,
+     "hicp_CP041": 2.464,
+     "na_CP042": 3.371
+    },
+    "NL 2024": {
+     "diff": 0.631,
+     "hicp_CP041": 3.721,
+     "na_CP042": 4.352
+    },
+    "NL 2025": {
+     "diff": -0.311,
+     "hicp_CP041": 5.149,
+     "na_CP042": 4.838
+    },
+    "PL 2019": {
+     "diff": -2.053,
+     "hicp_CP041": 4.894,
+     "na_CP042": 2.841
+    },
+    "PL 2020": {
+     "diff": -5.664,
+     "hicp_CP041": 5.37,
+     "na_CP042": -0.295
+    },
+    "PL 2021": {
+     "diff": -1.813,
+     "hicp_CP041": 3.843,
+     "na_CP042": 2.03
+    },
+    "PL 2022": {
+     "diff": -4.073,
+     "hicp_CP041": 14.24,
+     "na_CP042": 10.167
+    },
+    "PL 2023": {
+     "diff": -1.893,
+     "hicp_CP041": 11.549,
+     "na_CP042": 9.656
+    },
+    "PL 2024": {
+     "diff": 2.122,
+     "hicp_CP041": 5.051,
+     "na_CP042": 7.172
+    },
+    "PT 2019": {
+     "diff": 0.703,
+     "hicp_CP041": 3.163,
+     "na_CP042": 3.866
+    },
+    "PT 2020": {
+     "diff": 0.502,
+     "hicp_CP041": 2.584,
+     "na_CP042": 3.086
+    },
+    "PT 2021": {
+     "diff": -0.003,
+     "hicp_CP041": 1.806,
+     "na_CP042": 1.803
+    },
+    "PT 2022": {
+     "diff": -0.002,
+     "hicp_CP041": 2.687,
+     "na_CP042": 2.685
+    },
+    "PT 2023": {
+     "diff": -0.061,
+     "hicp_CP041": 4.543,
+     "na_CP042": 4.482
+    },
+    "PT 2024": {
+     "diff": 0.207,
+     "hicp_CP041": 6.981,
+     "na_CP042": 7.187
+    },
+    "RO 2019": {
+     "diff": 2.515,
+     "hicp_CP041": 2.63,
+     "na_CP042": 5.145
+    },
+    "RO 2020": {
+     "diff": -1.965,
+     "hicp_CP041": 2.256,
+     "na_CP042": 0.291
+    },
+    "RO 2021": {
+     "diff": -1.027,
+     "hicp_CP041": 2.542,
+     "na_CP042": 1.515
+    },
+    "RO 2022": {
+     "diff": 9.201,
+     "hicp_CP041": 4.915,
+     "na_CP042": 14.116
+    },
+    "RO 2023": {
+     "diff": -1.731,
+     "hicp_CP041": 9.858,
+     "na_CP042": 8.127
+    },
+    "RO 2024": {
+     "diff": 0.03,
+     "hicp_CP041": 11.086,
+     "na_CP042": 11.117
+    },
+    "RS 2019": {
+     "diff": -0.335,
+     "hicp_CP041": 4.245,
+     "na_CP042": 3.91
+    },
+    "RS 2020": {
+     "diff": 0.929,
+     "hicp_CP041": 1.799,
+     "na_CP042": 2.728
+    },
+    "RS 2021": {
+     "diff": 3.896,
+     "hicp_CP041": 2.698,
+     "na_CP042": 6.594
+    },
+    "RS 2022": {
+     "diff": -11.152,
+     "hicp_CP041": 18.569,
+     "na_CP042": 7.416
+    },
+    "RS 2023": {
+     "diff": -11.505,
+     "hicp_CP041": 17.571,
+     "na_CP042": 6.065
+    },
+    "RS 2024": {
+     "diff": -6.949,
+     "hicp_CP041": 8.967,
+     "na_CP042": 2.018
+    },
+    "SE 2019": {
+     "diff": -2.183,
+     "hicp_CP041": 1.819,
+     "na_CP042": -0.364
+    },
+    "SE 2020": {
+     "diff": 3.241,
+     "hicp_CP041": 1.834,
+     "na_CP042": 5.075
+    },
+    "SE 2021": {
+     "diff": 2.923,
+     "hicp_CP041": 1.454,
+     "na_CP042": 4.377
+    },
+    "SE 2022": {
+     "diff": -6.408,
+     "hicp_CP041": 1.775,
+     "na_CP042": -4.632
+    },
+    "SE 2023": {
+     "diff": -4.068,
+     "hicp_CP041": 3.379,
+     "na_CP042": -0.688
+    },
+    "SE 2024": {
+     "diff": 3.312,
+     "hicp_CP041": 4.728,
+     "na_CP042": 8.039
+    },
+    "SE 2025": {
+     "diff": 2.964,
+     "hicp_CP041": 5.253,
+     "na_CP042": 8.216
+    },
+    "SI 2019": {
+     "diff": -2.809,
+     "hicp_CP041": 4.222,
+     "na_CP042": 1.413
+    },
+    "SI 2020": {
+     "diff": 3.683,
+     "hicp_CP041": -2.278,
+     "na_CP042": 1.404
+    },
+    "SI 2021": {
+     "diff": 0.567,
+     "hicp_CP041": 3.653,
+     "na_CP042": 4.22
+    },
+    "SI 2022": {
+     "diff": -7.724,
+     "hicp_CP041": 18.962,
+     "na_CP042": 11.238
+    },
+    "SI 2023": {
+     "diff": -8.821,
+     "hicp_CP041": 12.347,
+     "na_CP042": 3.526
+    },
+    "SI 2024": {
+     "diff": -5.022,
+     "hicp_CP041": 6.29,
+     "na_CP042": 1.267
+    },
+    "SI 2025": {
+     "diff": 0.173,
+     "hicp_CP041": 1.947,
+     "na_CP042": 2.12
+    },
+    "SK 2019": {
+     "diff": -0.598,
+     "hicp_CP041": 0.565,
+     "na_CP042": -0.033
+    },
+    "SK 2020": {
+     "diff": 1.232,
+     "hicp_CP041": 1.518,
+     "na_CP042": 2.751
+    },
+    "SK 2021": {
+     "diff": 6.246,
+     "hicp_CP041": 0.874,
+     "na_CP042": 7.12
+    },
+    "SK 2022": {
+     "diff": 6.757,
+     "hicp_CP041": 4.131,
+     "na_CP042": 10.888
+    },
+    "SK 2023": {
+     "diff": -0.827,
+     "hicp_CP041": 5.326,
+     "na_CP042": 4.499
+    },
+    "SK 2024": {
+     "diff": -3.849,
+     "hicp_CP041": 6.523,
+     "na_CP042": 2.674
+    }
+   },
+   "within_0.01": 17
+  },
+  "B132-6": {
+   "AT": {
+    "hicp": 23.73,
+    "na": 23.4,
+    "na_without_both": 22.19
+   },
+   "BE": {
+    "hicp": 21.52,
+    "na": 22.9,
+    "na_without_both": 20.49
+   },
+   "BG": {
+    "hicp": 29.51,
+    "na": 40.93,
+    "na_without_both": 41.0
+   },
+   "CY": {
+    "hicp": 17.48,
+    "na": 16.15,
+    "na_without_both": 15.56
+   },
+   "CZ": {
+    "hicp": 36.36,
+    "na": 41.4,
+    "na_without_both": 42.28
+   },
+   "DE": {
+    "hicp": 21.93,
+    "na": 20.46,
+    "na_without_both": 21.29
+   },
+   "DK": {
+    "hicp": 15.74,
+    "na": 14.97,
+    "na_without_both": 14.42
+   },
+   "EA19": {
+    "hicp": 19.96,
+    "na": 18.84,
+    "na_without_both": 18.16
+   },
+   "EA20": {
+    "hicp": 20.02,
+    "na": 18.9,
+    "na_without_both": 18.22
+   },
+   "EE": {
+    "hicp": 41.26,
+    "na": 36.35,
+    "na_without_both": 38.8
+   },
+   "EL": {
+    "hicp": 17.93,
+    "na": 14.67,
+    "na_without_both": 13.99
+   },
+   "ES": {
+    "hicp": 18.69,
+    "na": 18.13,
+    "na_without_both": 15.86
+   },
+   "EU27_2020": {
+    "hicp": 22.61,
+    "na": 20.41,
+    "na_without_both": 19.82
+   },
+   "FI": {
+    "hicp": 15.24,
+    "na": 14.41,
+    "na_without_both": 15.51
+   },
+   "FR": {
+    "hicp": 16.86,
+    "na": 16.34,
+    "na_without_both": 15.64
+   },
+   "HR": {
+    "hicp": 28.12,
+    "na": 26.27,
+    "na_without_both": 26.59
+   },
+   "HU": {
+    "hicp": 47.2,
+    "na": 31.52,
+    "na_without_both": 27.97
+   },
+   "IE": {
+    "hicp": 17.98,
+    "na": 21.01,
+    "na_without_both": 15.82
+   },
+   "IT": {
+    "hicp": 18.74,
+    "na": 15.76,
+    "na_without_both": 14.96
+   },
+   "LT": {
+    "hicp": 36.3,
+    "na": 35.88,
+    "na_without_both": 34.32
+   },
+   "LV": {
+    "hicp": 33.79,
+    "na": 30.02,
+    "na_without_both": 27.73
+   },
+   "ME": {
+    "hicp": 29.27,
+    "na": 31.62,
+    "na_without_both": 32.22
+   },
+   "MT": {
+    "hicp": 15.58,
+    "na": 21.22,
+    "na_without_both": 15.78
+   },
+   "NL": {
+    "hicp": 23.34,
+    "na": 23.15,
+    "na_without_both": 21.17
+   },
+   "PL": {
+    "hicp": 36.92,
+    "na": 40.82,
+    "na_without_both": 40.71
+   },
+   "PT": {
+    "hicp": 17.93,
+    "na": 18.71,
+    "na_without_both": 18.88
+   },
+   "RO": {
+    "hicp": 35.46,
+    "na": 34.88,
+    "na_without_both": 34.36
+   },
+   "RS": {
+    "hicp": 36.5,
+    "na": 39.2,
+    "na_without_both": 39.72
+   },
+   "SE": {
+    "hicp": 19.84,
+    "na": 10.23,
+    "na_without_both": 10.01
+   },
+   "SI": {
+    "hicp": 21.99,
+    "na": 24.27,
+    "na_without_both": 22.0
+   },
+   "SK": {
+    "hicp": 31.99,
+    "na": 30.84,
+    "na_without_both": 31.51
+   }
+  }
+ },
+ "stage": "B132"
+}

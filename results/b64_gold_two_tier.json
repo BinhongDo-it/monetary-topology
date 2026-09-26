@@ -1,0 +1,1821 @@
+{
+ "config": {
+  "arrangement": "1969-12-30",
+  "bmn_country_columns": {
+   "belgium": "O",
+   "france": "Q",
+   "germany": "R",
+   "italy": "U",
+   "netherlands": "V",
+   "switzerland": "Z",
+   "uk_incl_pool": "AB"
+  },
+  "bmn_file": "ICPSR_111725-V1.1.zip",
+  "bmn_final_columns": {
+   "france": "CW",
+   "gp_members": "CT",
+   "non_members": "CU",
+   "uk_incl_pool": "CV"
+  },
+  "bmn_gp_members": [
+   "belgium",
+   "germany",
+   "italy",
+   "netherlands",
+   "switzerland"
+  ],
+  "bmn_missing_quarter": "1966 Q4",
+  "bmn_other_columns": {
+   "france": "CP",
+   "gp_members": "CM",
+   "non_members": "CN",
+   "uk_incl_pool": "CO"
+  },
+  "bmn_sha256": "e18cf09f898632da83d0b2727d03f0c031dc7ed290ef9e27961a94fa2d90af72",
+  "bmn_sheet": "Gold Window data",
+  "bmn_total_columns": {
+   "foreign_total": "CG",
+   "imf": "CF",
+   "industry": "CH",
+   "movement": "CI"
+  },
+  "events": [
+   {
+    "date": "1961-11",
+    "name": "Gold Pool founded",
+    "restriction": null,
+    "what": "the Pool sells in London to hold 35 and the United States supplies its share, so the private class reaches US gold through the Pool"
+   },
+   {
+    "date": "1967-03-30",
+    "name": "letter of the Bundesbank",
+    "restriction": "one member: the Bundesbank undertakes not to convert on a large scale",
+    "what": "restricts one official holder"
+   },
+   {
+    "date": "1968-03-17",
+    "name": "two-tier market",
+    "restriction": "the private class: official transactions stay at 35, the rest trade at a free price",
+    "what": "cuts the private class from the conversion"
+   },
+   {
+    "date": "1969-12-30",
+    "name": "South Africa and the IMF",
+    "restriction": null,
+    "what": "adds a priced edge under the free price: South Africa may sell new gold to the IMF at 35 when the free price is at or below 35"
+   },
+   {
+    "date": "1971-08-15",
+    "name": "window closed",
+    "restriction": "every class",
+    "what": "ends the conversion"
+   }
+  ],
+  "fixing_file": "lbma_gold_usd_am_pm_19680401_19711231.csv",
+  "fixing_hash": 849329907,
+  "floor": "35.00",
+  "items": [
+   {
+    "amount": 600,
+    "date": "1968 Q2 to Q4",
+    "item": "France sold gold to the United States",
+    "netted": false,
+    "source": "the France line of the gold-window table (220, 240 and 140 by quarter)",
+    "window": "split to arrangement"
+   },
+   {
+    "amount": 500,
+    "date": "1969-12-29",
+    "item": "the Bundesbank sold gold to the United States Treasury",
+    "netted": false,
+    "source": "Federal Reserve Bank of New York, Monthly Review, March 1970: 'Germany sold $500 million of gold to the United States Treasury on December 29'",
+    "window": "split to arrangement"
+   },
+   {
+    "amount": -570,
+    "date": "1970",
+    "item": "the United States Treasury sold gold to the Swiss National Bank (550) and the Netherlands Bank (20) to clear swap drawings",
+    "netted": false,
+    "source": "Federal Reserve Bank of New York, Monthly Review, September 1970",
+    "window": "arrangement to close"
+   }
+  ],
+  "stock_file": "fred_M1476CUSM144NNBR.csv",
+  "stock_hash": 2540559288,
+  "table4_file": "frb_table4_us_reserve_assets.csv",
+  "table4_hash": 1998692235,
+  "table6_file": "frb_table6_us_liquid_liabilities.csv",
+  "table6_hash": 489931139,
+  "tick": "0.01"
+ },
+ "criteria": [
+  {
+   "detail": "Total basis, outflow per month (positive is gold leaving the United States): 207.3 from the letter to the split (1967 Q2 to 1968 Q1, change -2488); -55.1 from the split to the arrangement (change 1158 over 21 months); 74.0 from the arrangement to July 1971 (change -1406 over 19 months; 82.5 through August). Net of the IMF's gold transactions (-22 and -475): -56.2 and 49.0. By class, before and after the split, per month: United Kingdom including the Pool -148.5 to 7.2, Pool members other than the United Kingdom and France -33.2 to -5.9, non-members -10.3 to -47.3, France 0.0 to 66.7; state slower",
+   "kind": "own_reading",
+   "mapping": {
+    "inseparable": "no verdict: the comparison turns on official operations that are not the conversion demand; they are printed item by item",
+    "not_slower": "FAIL: the reading is withdrawn",
+    "slower": "PASS: after the split the gold stock fell more slowly than in the year before it, on the total basis, with and without the official operations that are not the conversion demand"
+   },
+   "name": "B64-3",
+   "passed": true,
+   "state": "slower",
+   "statement": "after the split of 1968-03-17 the United States' gold stock falls more slowly than in the year before it; printed by class where the classes are on record"
+  },
+  {
+   "detail": "days with either fixing below 35 by more than the printed cent: before the arrangement 0, after 24; after it, morning 21 and afternoon 19 fixings, from 1970-01-08 to 1970-03-10, lowest 34.75 (-0.71 percent); lowest fixing before the arrangement 35 on 1969-12-09; fixings at exactly 35.00 sit on the resolution floor and are not judged; state floor_with_friction",
+   "kind": "own_reading",
+   "mapping": {
+    "floor": "PASS: no fixing below 35 by more than the printed cent after the arrangement, and some before",
+    "floor_with_friction": "PASS, read with friction: fixings below 35 after the arrangement, days and depth printed; whether to sell rested with South Africa",
+    "not_identified": "no verdict: no fixing below 35 before or after, the floor is not identified"
+   },
+   "name": "B64-4",
+   "passed": true,
+   "state": "floor_with_friction",
+   "statement": "the South African arrangement of 1969-12-30 puts a floor under the free price at 35"
+  },
+  {
+   "detail": "45 months, the afternoon fixing's monthly mean against 35: highest 43.49 in 1971-12 (log 0.2171), lowest 34.94 in 1970-01 (log -0.0016); printed only",
+   "kind": "own_reading",
+   "mapping": {
+    "printed": "no verdict: printed only"
+   },
+   "name": "B64-5",
+   "passed": null,
+   "state": "printed",
+   "statement": "the size of the square: the free price against 35, month by month"
+  },
+  {
+   "detail": "December 1971: 35 to 38 dollars an ounce, gold content of the dollar -7.89 percent; February 1973: 38 to 42.2222 dollars an ounce, gold content of the dollar -10.00 percent; state devaluation",
+   "kind": "own_reading",
+   "mapping": {
+    "devaluation": "PASS: the dollar lost gold content at both adjustments",
+    "mixed": "no verdict: the two adjustments point in different directions",
+    "revaluation": "FAIL: the reading is withdrawn"
+   },
+   "name": "B64-6",
+   "passed": true,
+   "state": "devaluation",
+   "statement": "the forced exit after the window closed runs toward devaluation of the dollar against gold"
+  },
+  {
+   "detail": "gold over liquid liabilities to foreign official institutions, first year end below one: end of 1965; over liabilities to all foreigners: end of 1960. End of 1961: 1.433 (first line), 1.433 (second line); end of 1968: 0.868 (first line), 0.873 (second line); end of July 1971: 0.317; printed",
+   "kind": "bookkeeping",
+   "mapping": {
+    "missing": "FAIL (bookkeeping): print it",
+    "printed": "PASS: printed"
+   },
+   "name": "B64-7",
+   "passed": true,
+   "state": "printed",
+   "statement": "the capacity side: the gold stock over the dollar claims of foreign official holders, year by year, and at the ends of 1961 and 1968"
+  },
+  {
+   "detail": "square against the scalar price field: B, already counted at earlier stages; not counted again; why convertibility lasted after Triffin's condition held: D2: the question sits inside Triffin's argument, which gives no time; the corollary gives the time as capacity over the flow of the classes that can still walk the edge; the floor under the free price in 1970: A: the historical accounts give the same answer",
+   "kind": "bookkeeping",
+   "mapping": {
+    "missing": "FAIL (bookkeeping): write it",
+    "written": "PASS: written"
+   },
+   "name": "B64-8",
+   "passed": true,
+   "state": "written",
+   "statement": "placement, the two readings written separately"
+  }
+ ],
+ "report": {
+  "B64-3": {
+   "by_class": {
+    "1965 Q1 to 1967 Q1 (1966 Q4 missing), 24 months": {
+     "foreign_total": {
+      "per_month": "-80.7",
+      "sum": -1936
+     },
+     "france": {
+      "per_month": "-61.9",
+      "sum": "-1486.3"
+     },
+     "gp_members": {
+      "per_month": "-12.3",
+      "sum": "-296.3"
+     },
+     "movement": {
+      "per_month": "-90.0",
+      "sum": -2160
+     },
+     "non_members": {
+      "per_month": "-18.8",
+      "sum": "-450.7"
+     },
+     "uk_incl_pool": {
+      "per_month": "12.4",
+      "sum": "297.3"
+     }
+    },
+    "after the split, 1968 Q2 to Q4, 9 months": {
+     "foreign_total": {
+      "per_month": "20.7",
+      "sum": 186
+     },
+     "france": {
+      "per_month": "66.7",
+      "sum": 600
+     },
+     "gp_members": {
+      "per_month": "-5.9",
+      "sum": -53
+     },
+     "movement": {
+      "per_month": "20.7",
+      "sum": 186
+     },
+     "non_members": {
+      "per_month": "-47.3",
+      "sum": -426
+     },
+     "uk_incl_pool": {
+      "per_month": "7.2",
+      "sum": 65
+     }
+    },
+    "letter to the split, 1967 Q2 to 1968 Q1, 12 months": {
+     "foreign_total": {
+      "per_month": "-192.0",
+      "sum": -2304
+     },
+     "france": {
+      "per_month": "0.0",
+      "sum": 0
+     },
+     "gp_members": {
+      "per_month": "-33.2",
+      "sum": -398
+     },
+     "movement": {
+      "per_month": "-207.3",
+      "sum": -2488
+     },
+     "non_members": {
+      "per_month": "-10.3",
+      "sum": -124
+     },
+     "uk_incl_pool": {
+      "per_month": "-148.5",
+      "sum": -1782
+     }
+    }
+   },
+   "class_steps": {
+    "france": {
+     "after_per_month": "66.7",
+     "before_per_month": "0.0",
+     "reading": "turned to an inflow"
+    },
+    "gp_members": {
+     "after_per_month": "-5.9",
+     "before_per_month": "-33.2",
+     "reading": "outflow fell"
+    },
+    "non_members": {
+     "after_per_month": "-47.3",
+     "before_per_month": "-10.3",
+     "reading": "outflow rose"
+    },
+    "uk_incl_pool": {
+     "after_per_month": "7.2",
+     "before_per_month": "-148.5",
+     "reading": "turned to an inflow"
+    }
+   },
+   "comparison": {
+    "outflow_per_month_after": {
+     "arrangement to July 1971": "74.0",
+     "split to arrangement": "-55.1"
+    },
+    "outflow_per_month_after_net_of_items": {
+     "arrangement to July 1971": "49.0",
+     "split to arrangement": "-56.2"
+    },
+    "outflow_per_month_before": "207.3",
+    "sign": "positive is an outflow of gold from the United States"
+   },
+   "final_table_differences": [
+    {
+     "classes": {
+      "non_members": {
+       "final": -249,
+       "formed_here": -99
+      }
+     },
+     "final_classes_sum": -1105,
+     "quarter": "1967 Q4",
+     "total": -955
+    }
+   ],
+   "items": [
+    {
+     "amount": -22,
+     "item": "IMF gold transactions: 1968 Q2 to Q4 from the IMF line of the gold-window table, 1969 from the change in liabilities to the IMF arising from gold transactions",
+     "window": "split to arrangement"
+    },
+    {
+     "amount": -475,
+     "item": "IMF gold transactions: change in liabilities to the IMF arising from gold transactions, end of 1969 to July 1971 (gold deposits returned and gold investment terminated)",
+     "window": "arrangement to close"
+    },
+    {
+     "amount": 600,
+     "date": "1968 Q2 to Q4",
+     "item": "France sold gold to the United States",
+     "netted": false,
+     "source": "the France line of the gold-window table (220, 240 and 140 by quarter)",
+     "window": "split to arrangement"
+    },
+    {
+     "amount": 500,
+     "date": "1969-12-29",
+     "item": "the Bundesbank sold gold to the United States Treasury",
+     "netted": false,
+     "source": "Federal Reserve Bank of New York, Monthly Review, March 1970: 'Germany sold $500 million of gold to the United States Treasury on December 29'",
+     "window": "split to arrangement"
+    },
+    {
+     "amount": -570,
+     "date": "1970",
+     "item": "the United States Treasury sold gold to the Swiss National Bank (550) and the Netherlands Bank (20) to clear swap drawings",
+     "netted": false,
+     "source": "Federal Reserve Bank of New York, Monthly Review, September 1970",
+     "window": "arrangement to close"
+    }
+   ],
+   "quarterly_by_class": [
+    {
+     "belgium": -40,
+     "final_as_delivered": {
+      "france": -483,
+      "gp_members": -113,
+      "non_members": -141,
+      "uk_incl_pool": -76
+     },
+     "foreign_total": -813,
+     "france": -483,
+     "germany": null,
+     "gp_members": -113,
+     "imf": null,
+     "industry": -21,
+     "italy": null,
+     "movement": -834,
+     "netherlands": -35,
+     "non_members": -141,
+     "other_as_delivered": {
+      "france": -483,
+      "gp_members": -113,
+      "non_members": -141,
+      "uk_incl_pool": -76
+     },
+     "quarter": "1965 Q1",
+     "switzerland": -38,
+     "uk_incl_pool": -76
+    },
+    {
+     "belgium": -22,
+     "final_as_delivered": {
+      "france": -148,
+      "gp_members": -115,
+      "non_members": -327,
+      "uk_incl_pool": 29
+     },
+     "foreign_total": -561,
+     "france": -148,
+     "germany": null,
+     "gp_members": -115,
+     "imf": -259,
+     "industry": -32,
+     "italy": -80,
+     "movement": -593,
+     "netherlands": null,
+     "non_members": -327,
+     "other_as_delivered": {
+      "france": -148,
+      "gp_members": -115,
+      "non_members": -327,
+      "uk_incl_pool": 29
+     },
+     "quarter": "1965 Q2",
+     "switzerland": -13,
+     "uk_incl_pool": 29
+    },
+    {
+     "belgium": -21,
+     "final_as_delivered": {
+      "france": -117,
+      "gp_members": -21,
+      "non_members": -90,
+      "uk_incl_pool": 132
+     },
+     "foreign_total": -96,
+     "france": -117,
+     "germany": null,
+     "gp_members": -21,
+     "imf": 8,
+     "industry": -28,
+     "italy": null,
+     "movement": -124,
+     "netherlands": null,
+     "non_members": -90,
+     "other_as_delivered": {
+      "france": -117,
+      "gp_members": -21,
+      "non_members": -90,
+      "uk_incl_pool": 132
+     },
+     "quarter": "1965 Q3",
+     "switzerland": null,
+     "uk_incl_pool": 132
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": -137,
+      "gp_members": 0,
+      "non_members": -10,
+      "uk_incl_pool": 64
+     },
+     "foreign_total": -83,
+     "france": -137,
+     "germany": null,
+     "gp_members": 0,
+     "imf": 26,
+     "industry": -37,
+     "italy": null,
+     "movement": -120,
+     "netherlands": null,
+     "non_members": -10,
+     "other_as_delivered": {
+      "france": -137,
+      "gp_members": 0,
+      "non_members": -10,
+      "uk_incl_pool": 64
+     },
+     "quarter": "1965 Q4",
+     "switzerland": null,
+     "uk_incl_pool": 64
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": -103,
+      "gp_members": 7,
+      "non_members": 81,
+      "uk_incl_pool": -19
+     },
+     "foreign_total": -34,
+     "france": -103,
+     "germany": null,
+     "gp_members": 7,
+     "imf": 131,
+     "industry": -34,
+     "italy": null,
+     "movement": -68,
+     "netherlands": null,
+     "non_members": 81,
+     "other_as_delivered": {
+      "france": -103,
+      "gp_members": 7,
+      "non_members": 81,
+      "uk_incl_pool": -19
+     },
+     "quarter": "1966 Q1",
+     "switzerland": 7,
+     "uk_incl_pool": -19
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": -221,
+      "gp_members": -23,
+      "non_members": 50,
+      "uk_incl_pool": 27
+     },
+     "foreign_total": -167,
+     "france": -221,
+     "germany": -34,
+     "gp_members": -23,
+     "imf": 18,
+     "industry": -42,
+     "italy": null,
+     "movement": -209,
+     "netherlands": null,
+     "non_members": 50,
+     "other_as_delivered": {
+      "france": -221,
+      "gp_members": -23,
+      "non_members": 50,
+      "uk_incl_pool": 27
+     },
+     "quarter": "1966 Q2",
+     "switzerland": 11,
+     "uk_incl_pool": 27
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": "-277.3",
+      "gp_members": "-31.3",
+      "non_members": "10.3",
+      "uk_incl_pool": "137.3"
+     },
+     "foreign_total": -161,
+     "france": "-277.3",
+     "germany": "-11.3",
+     "gp_members": "-31.3",
+     "imf": null,
+     "industry": null,
+     "italy": null,
+     "movement": -161,
+     "netherlands": null,
+     "non_members": "10.3",
+     "other_as_delivered": {
+      "france": "-277.3",
+      "gp_members": "-31.3",
+      "non_members": "10.3",
+      "uk_incl_pool": "137.3"
+     },
+     "quarter": "1966 Q3",
+     "switzerland": -20,
+     "uk_incl_pool": "137.3"
+    },
+    {
+     "missing": true,
+     "quarter": "1966 Q4"
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": 0,
+      "gp_members": 0,
+      "non_members": -24,
+      "uk_incl_pool": 3
+     },
+     "foreign_total": -21,
+     "france": 0,
+     "germany": null,
+     "gp_members": 0,
+     "imf": 16,
+     "industry": -30,
+     "italy": null,
+     "movement": -51,
+     "netherlands": null,
+     "non_members": -24,
+     "other_as_delivered": {
+      "france": 0,
+      "gp_members": 0,
+      "non_members": -24,
+      "uk_incl_pool": 3
+     },
+     "quarter": "1967 Q1",
+     "switzerland": null,
+     "uk_incl_pool": 3
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": 0,
+      "gp_members": -30,
+      "non_members": 80,
+      "uk_incl_pool": -34
+     },
+     "foreign_total": 16,
+     "france": 0,
+     "germany": null,
+     "gp_members": -30,
+     "imf": 5,
+     "industry": -33,
+     "italy": null,
+     "movement": -17,
+     "netherlands": null,
+     "non_members": 80,
+     "other_as_delivered": {
+      "france": 0,
+      "gp_members": -30,
+      "non_members": 80,
+      "uk_incl_pool": -34
+     },
+     "quarter": "1967 Q2",
+     "switzerland": -30,
+     "uk_incl_pool": -34
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": 0,
+      "gp_members": 0,
+      "non_members": 23,
+      "uk_incl_pool": -77
+     },
+     "foreign_total": -54,
+     "france": 0,
+     "germany": null,
+     "gp_members": 0,
+     "imf": null,
+     "industry": -39,
+     "italy": null,
+     "movement": -93,
+     "netherlands": null,
+     "non_members": 23,
+     "other_as_delivered": {
+      "france": 0,
+      "gp_members": 0,
+      "non_members": 23,
+      "uk_incl_pool": -77
+     },
+     "quarter": "1967 Q3",
+     "switzerland": null,
+     "uk_incl_pool": -77
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": 0,
+      "gp_members": -85,
+      "non_members": -249,
+      "uk_incl_pool": -771
+     },
+     "foreign_total": -955,
+     "france": 0,
+     "germany": null,
+     "gp_members": -85,
+     "imf": null,
+     "industry": -59,
+     "italy": -85,
+     "movement": -1014,
+     "netherlands": null,
+     "non_members": -99,
+     "other_as_delivered": {
+      "france": -150,
+      "gp_members": -85,
+      "non_members": -99,
+      "uk_incl_pool": -771
+     },
+     "quarter": "1967 Q4",
+     "switzerland": null,
+     "uk_incl_pool": -771
+    },
+    {
+     "belgium": -25,
+     "final_as_delivered": {
+      "france": 0,
+      "gp_members": -283,
+      "non_members": -128,
+      "uk_incl_pool": -900
+     },
+     "foreign_total": -1311,
+     "france": 0,
+     "germany": null,
+     "gp_members": -283,
+     "imf": 8,
+     "industry": -53,
+     "italy": -184,
+     "movement": -1364,
+     "netherlands": -49,
+     "non_members": -128,
+     "other_as_delivered": {
+      "france": 0,
+      "gp_members": -283,
+      "non_members": -128,
+      "uk_incl_pool": -900
+     },
+     "quarter": "1968 Q1",
+     "switzerland": -25,
+     "uk_incl_pool": -900
+    },
+    {
+     "belgium": -33,
+     "final_as_delivered": {
+      "france": 220,
+      "gp_members": -53,
+      "non_members": -241,
+      "uk_incl_pool": 50
+     },
+     "foreign_total": -24,
+     "france": 220,
+     "germany": null,
+     "gp_members": -53,
+     "imf": -11,
+     "industry": null,
+     "italy": -25,
+     "movement": -24,
+     "netherlands": 30,
+     "non_members": -241,
+     "other_as_delivered": {
+      "france": 220,
+      "gp_members": -53,
+      "non_members": -241,
+      "uk_incl_pool": 50
+     },
+     "quarter": "1968 Q2",
+     "switzerland": -25,
+     "uk_incl_pool": 50
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": 240,
+      "gp_members": 0,
+      "non_members": -167,
+      "uk_incl_pool": 0
+     },
+     "foreign_total": 73,
+     "france": 240,
+     "germany": null,
+     "gp_members": 0,
+     "imf": null,
+     "industry": null,
+     "italy": null,
+     "movement": 73,
+     "netherlands": null,
+     "non_members": -167,
+     "other_as_delivered": {
+      "france": 240,
+      "gp_members": 0,
+      "non_members": -167,
+      "uk_incl_pool": 0
+     },
+     "quarter": "1968 Q3",
+     "switzerland": null,
+     "uk_incl_pool": 0
+    },
+    {
+     "belgium": null,
+     "final_as_delivered": {
+      "france": 140,
+      "gp_members": 0,
+      "non_members": -18,
+      "uk_incl_pool": 15
+     },
+     "foreign_total": 137,
+     "france": 140,
+     "germany": null,
+     "gp_members": 0,
+     "imf": null,
+     "industry": null,
+     "italy": null,
+     "movement": 137,
+     "netherlands": null,
+     "non_members": -18,
+     "other_as_delivered": {
+      "france": 140,
+      "gp_members": 0,
+      "non_members": -18,
+      "uk_incl_pool": 15
+     },
+     "quarter": "1968 Q4",
+     "switzerland": null,
+     "uk_incl_pool": 15
+    }
+   ],
+   "steps_at_the_dated_restrictions": [
+    {
+     "date": "1961-11",
+     "event": "Gold Pool founded",
+     "treasury_per_month_after": "-64.9",
+     "treasury_per_month_before": "-95.1"
+    },
+    {
+     "date": "1967-03-30",
+     "event": "letter of the Bundesbank",
+     "restricted_line_germany": {
+      "after": 0,
+      "after_quarters": "1967 Q2 to 1968 Q4",
+      "before": "-45.3",
+      "before_quarters": "1965 Q1 to 1967 Q1, eight reported"
+     },
+     "treasury_per_month_after": "-167.7",
+     "treasury_per_month_before": "-64.9",
+     "uk_incl_pool_before_and_after": {
+      "1966 Q1 to 1967 Q1": [
+       -19,
+       27,
+       "137.3",
+       3
+      ],
+      "1967 Q2 to 1968 Q1": [
+       -34,
+       -77,
+       -771,
+       -900
+      ]
+     }
+    },
+    {
+     "date": "1968-03-17",
+     "event": "two-tier market",
+     "verdict": "slower"
+    }
+   ],
+   "total_basis": [
+    {
+     "basis": "quarterly movement of the total stock, 1967 Q2 to 1968 Q1",
+     "change": -2488,
+     "from": "end of 1967 Q1",
+     "months": 12,
+     "per_month": "-207.3",
+     "segment": "letter to the split",
+     "to": "end of 1968 Q1"
+    },
+    {
+     "basis": "end of 1967 (12065) plus the 1968 Q1 movement (-1364) to the end of 1969 (11859)",
+     "change": 1158,
+     "from": "end of March 1968",
+     "months": 21,
+     "per_month": "55.1",
+     "pieces": {
+      "1968 Q2 to Q4": 186,
+      "1969": 967
+     },
+     "segment": "split to the arrangement",
+     "to": "end of 1969"
+    },
+    {
+     "change": -1406,
+     "from": "end of 1969",
+     "months": 19,
+     "per_month": "-74.0",
+     "segment": "arrangement to the last month end with the window open",
+     "through_august": {
+      "change": -1650,
+      "months": 20,
+      "per_month": "-82.5"
+     },
+     "to": "end of July 1971"
+    }
+   ],
+   "treasury_basis": [
+    {
+     "change": -3235,
+     "from": "1958-12",
+     "months": 34,
+     "per_month": "-95.1",
+     "segment": "before the Gold Pool",
+     "to": "1961-10"
+    },
+    {
+     "change": -4220,
+     "from": "1961-10",
+     "months": 65,
+     "per_month": "-64.9",
+     "segment": "Gold Pool to the letter of the Bundesbank",
+     "to": "1967-03"
+    },
+    {
+     "change": -2012,
+     "from": "1967-03",
+     "months": 12,
+     "per_month": "-167.7",
+     "segment": "letter to the split",
+     "to": "1968-03"
+    },
+    {
+     "change": -729,
+     "from": "1968-03",
+     "months": 21,
+     "per_month": "-34.7",
+     "segment": "split to the arrangement (Treasury column only)",
+     "to": "1969-12"
+    },
+    {
+     "change": 738,
+     "from": "1969-12",
+     "months": 12,
+     "per_month": "61.5",
+     "segment": "arrangement to December 1970 (Treasury column only)",
+     "to": "1970-12"
+    }
+   ],
+   "treasury_column_january_1970": {
+    "months": [
+     "1969-12",
+     "1970-01",
+     "1970-02"
+    ],
+    "total_month_end": [
+     11859,
+     11882,
+     11906
+    ],
+    "treasury_month_end": [
+     10367,
+     11367,
+     11367
+    ]
+   }
+  },
+  "B64-4": {
+   "days_below_after": [
+    {
+     "am": "34.98",
+     "date": "1970-01-08",
+     "pm": "34.95"
+    },
+    {
+     "am": "34.85",
+     "date": "1970-01-09",
+     "pm": "34.9"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-01-12",
+     "pm": "34.98"
+    },
+    {
+     "am": "34.92",
+     "date": "1970-01-13",
+     "pm": "34.89"
+    },
+    {
+     "am": "34.89",
+     "date": "1970-01-14",
+     "pm": "34.85"
+    },
+    {
+     "am": "34.86",
+     "date": "1970-01-15",
+     "pm": "34.8"
+    },
+    {
+     "am": "34.78",
+     "date": "1970-01-16",
+     "pm": "34.75"
+    },
+    {
+     "am": "34.78",
+     "date": "1970-01-19",
+     "pm": "34.75"
+    },
+    {
+     "am": "34.8",
+     "date": "1970-01-20",
+     "pm": "34.8"
+    },
+    {
+     "am": "34.83",
+     "date": "1970-01-21",
+     "pm": "34.85"
+    },
+    {
+     "am": "34.93",
+     "date": "1970-01-22",
+     "pm": "35"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-01-26",
+     "pm": "34.98"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-01-30",
+     "pm": "34.99"
+    },
+    {
+     "am": "34.95",
+     "date": "1970-02-02",
+     "pm": "34.99"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-02-13",
+     "pm": "34.99"
+    },
+    {
+     "am": "35",
+     "date": "1970-02-17",
+     "pm": "34.98"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-02-18",
+     "pm": "34.95"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-02-19",
+     "pm": "34.98"
+    },
+    {
+     "am": "35",
+     "date": "1970-02-23",
+     "pm": "34.98"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-02-24",
+     "pm": "34.99"
+    },
+    {
+     "am": "35",
+     "date": "1970-03-04",
+     "pm": "34.98"
+    },
+    {
+     "am": "34.95",
+     "date": "1970-03-06",
+     "pm": "34.95"
+    },
+    {
+     "am": "34.97",
+     "date": "1970-03-09",
+     "pm": "34.95"
+    },
+    {
+     "am": "34.98",
+     "date": "1970-03-10",
+     "pm": "34.96"
+    }
+   ],
+   "windows": {
+    "after": {
+     "am": {
+      "at_35_00": 18,
+      "below_35_by_more_than_a_cent": 21,
+      "first_below": "1970-01-08",
+      "fixings": 510,
+      "last_below": "1970-03-10",
+      "lowest": "34.78",
+      "lowest_date": "1970-01-16",
+      "within_a_cent_below_35": 5
+     },
+     "days_either_fixing_below": 24,
+     "pm": {
+      "at_35_00": 12,
+      "below_35_by_more_than_a_cent": 19,
+      "first_below": "1970-01-08",
+      "fixings": 509,
+      "last_below": "1970-03-10",
+      "lowest": "34.75",
+      "lowest_date": "1970-01-16",
+      "within_a_cent_below_35": 11
+     },
+     "window": "1969-12-30 to 1971-12-31"
+    },
+    "before": {
+     "am": {
+      "at_35_00": 3,
+      "below_35_by_more_than_a_cent": 0,
+      "first_below": null,
+      "fixings": 443,
+      "last_below": null,
+      "lowest": "35",
+      "lowest_date": "1969-12-09",
+      "within_a_cent_below_35": 0
+     },
+     "days_either_fixing_below": 0,
+     "pm": {
+      "at_35_00": 2,
+      "below_35_by_more_than_a_cent": 0,
+      "first_below": null,
+      "fixings": 441,
+      "last_below": null,
+      "lowest": "35",
+      "lowest_date": "1969-12-09",
+      "within_a_cent_below_35": 0
+     },
+     "window": "1968-04-01 to 1969-12-29"
+    }
+   }
+  },
+  "B64-5": {
+   "monthly": [
+    {
+     "log_mean_over_35": "0.0786",
+     "max": "39.1",
+     "mean": "37.86",
+     "min": "36.95",
+     "month": "1968-04",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1508",
+     "max": "42.4",
+     "mean": "40.70",
+     "min": "39.1",
+     "month": "1968-05",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.1617",
+     "max": "41.9",
+     "mean": "41.14",
+     "min": "40.7",
+     "month": "1968-06",
+     "pm_fixings": 19
+    },
+    {
+     "log_mean_over_35": "0.1201",
+     "max": "41.15",
+     "mean": "39.47",
+     "min": "37.75",
+     "month": "1968-07",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.1131",
+     "max": "40",
+     "mean": "39.19",
+     "min": "38.45",
+     "month": "1968-08",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.1382",
+     "max": "40.5",
+     "mean": "40.19",
+     "min": "39.6",
+     "month": "1968-09",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1136",
+     "max": "39.78",
+     "mean": "39.21",
+     "min": "38.9",
+     "month": "1968-10",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.1280",
+     "max": "40.55",
+     "mean": "39.78",
+     "min": "39.18",
+     "month": "1968-11",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.1603",
+     "max": "41.9",
+     "mean": "41.09",
+     "min": "40.15",
+     "month": "1968-12",
+     "pm_fixings": 19
+    },
+    {
+     "log_mean_over_35": "0.1895",
+     "max": "42.7",
+     "mean": "42.30",
+     "min": "41.8",
+     "month": "1969-01",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.1966",
+     "max": "42.8",
+     "mean": "42.60",
+     "min": "42.43",
+     "month": "1969-02",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.2096",
+     "max": "43.83",
+     "mean": "43.16",
+     "min": "42.7",
+     "month": "1969-03",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.2132",
+     "max": "43.6",
+     "mean": "43.32",
+     "min": "42.98",
+     "month": "1969-04",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.2166",
+     "max": "43.63",
+     "mean": "43.47",
+     "min": "43.08",
+     "month": "1969-05",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.1688",
+     "max": "42.68",
+     "mean": "41.44",
+     "min": "40.63",
+     "month": "1969-06",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.1766",
+     "max": "42.1",
+     "mean": "41.76",
+     "min": "41.15",
+     "month": "1969-07",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.1604",
+     "max": "41.43",
+     "mean": "41.09",
+     "min": "40.86",
+     "month": "1969-08",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.1552",
+     "max": "41.05",
+     "mean": "40.88",
+     "min": "40.63",
+     "month": "1969-09",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.1445",
+     "max": "40.95",
+     "mean": "40.44",
+     "min": "39.75",
+     "month": "1969-10",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.0665",
+     "max": "39.55",
+     "mean": "37.40",
+     "min": "35.45",
+     "month": "1969-11",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.0049",
+     "max": "35.55",
+     "mean": "35.17",
+     "min": "35",
+     "month": "1969-12",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "-0.0016",
+     "max": "35.18",
+     "mean": "34.94",
+     "min": "34.75",
+     "month": "1970-01",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "-0.0001",
+     "max": "35.03",
+     "mean": "35.00",
+     "min": "34.95",
+     "month": "1970-02",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.0025",
+     "max": "35.31",
+     "mean": "35.09",
+     "min": "34.95",
+     "month": "1970-03",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.0176",
+     "max": "35.95",
+     "mean": "35.62",
+     "min": "35.28",
+     "month": "1970-04",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.0268",
+     "max": "36.23",
+     "mean": "35.95",
+     "min": "35.45",
+     "month": "1970-05",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.0121",
+     "max": "35.65",
+     "mean": "35.43",
+     "min": "35.13",
+     "month": "1970-06",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.0091",
+     "max": "35.49",
+     "mean": "35.32",
+     "min": "35.28",
+     "month": "1970-07",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.0108",
+     "max": "35.8",
+     "mean": "35.38",
+     "min": "35.23",
+     "month": "1970-08",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.0336",
+     "max": "36.4",
+     "mean": "36.20",
+     "min": "35.93",
+     "month": "1970-09",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.0695",
+     "max": "39.01",
+     "mean": "37.52",
+     "min": "36.33",
+     "month": "1970-10",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.0674",
+     "max": "37.68",
+     "mean": "37.44",
+     "min": "36.75",
+     "month": "1970-11",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.0673",
+     "max": "37.68",
+     "mean": "37.44",
+     "min": "37.1",
+     "month": "1970-12",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.0789",
+     "max": "38.15",
+     "mean": "37.87",
+     "min": "37.39",
+     "month": "1971-01",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1017",
+     "max": "38.95",
+     "mean": "38.74",
+     "min": "38.18",
+     "month": "1971-02",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1049",
+     "max": "39.04",
+     "mean": "38.87",
+     "min": "38.69",
+     "month": "1971-03",
+     "pm_fixings": 23
+    },
+    {
+     "log_mean_over_35": "0.1086",
+     "max": "39.7",
+     "mean": "39.02",
+     "min": "38.85",
+     "month": "1971-04",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1464",
+     "max": "41.2",
+     "mean": "40.52",
+     "min": "39.43",
+     "month": "1971-05",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1361",
+     "max": "40.84",
+     "mean": "40.10",
+     "min": "39.55",
+     "month": "1971-06",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.1571",
+     "max": "42.4",
+     "mean": "40.95",
+     "min": "40.24",
+     "month": "1971-07",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.1995",
+     "max": "43.94",
+     "mean": "42.73",
+     "min": "40.65",
+     "month": "1971-08",
+     "pm_fixings": 20
+    },
+    {
+     "log_mean_over_35": "0.1829",
+     "max": "43.15",
+     "mean": "42.02",
+     "min": "41.1",
+     "month": "1971-09",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.1943",
+     "max": "42.7",
+     "mean": "42.51",
+     "min": "42.34",
+     "month": "1971-10",
+     "pm_fixings": 21
+    },
+    {
+     "log_mean_over_35": "0.2026",
+     "max": "43.66",
+     "mean": "42.86",
+     "min": "42.15",
+     "month": "1971-11",
+     "pm_fixings": 22
+    },
+    {
+     "log_mean_over_35": "0.2171",
+     "max": "43.98",
+     "mean": "43.49",
+     "min": "42.72",
+     "month": "1971-12",
+     "pm_fixings": 21
+    }
+   ]
+  },
+  "B64-6": {
+   "steps": [
+    {
+     "from": "35",
+     "gold_content_of_the_dollar_change_percent": "-7.89",
+     "gold_price_change_percent": "8.57",
+     "step": "December 1971",
+     "to": "38"
+    },
+    {
+     "from": "38",
+     "gold_content_of_the_dollar_change_percent": "-10.00",
+     "gold_price_change_percent": "11.11",
+     "step": "February 1973",
+     "to": "42.2222"
+    }
+   ],
+   "texts": [
+    {
+     "decision": {
+      "date": "1971-12-17/18",
+      "quote": "Connally also said the administration would approach the Congress for authority to increase the gold price to $38 per ounce",
+      "source": "Foreign Relations of the United States, 1969-1976, Volume III, Document 221, Editorial Note"
+     },
+     "law": {
+      "date": "1972-03-31",
+      "quote": "The Secretary of the Treasury is hereby authorized and directed to take the steps necessary to establish a new par value of the dollar of $1 equals one thirty-eighth of a fine troy ounce of gold.",
+      "source": "Par Value Modification Act, Public Law 92-268, 86 Stat. 116, section 2"
+     },
+     "step": "December 1971",
+     "usd_per_oz": "38"
+    },
+    {
+     "decision": {
+      "date": "1973-02-12",
+      "quote": "a 10 percent devaluation of the dollar",
+      "source": "The American Presidency Project, Richard Nixon, Remarks Following Announcement of a Devaluation of the Dollar, 13 February 1973, note on the Secretary of the Treasury's announcement"
+     },
+     "law": {
+      "date": "1973-09-21",
+      "quote": "0.828948 Special Drawing Right or, the equivalent in terms of gold, of forty-two and two-ninths dollars per fine troy ounce of gold",
+      "source": "Public Law 93-110, 87 Stat. 352, amending section 2 of the Par Value Modification Act"
+     },
+     "step": "February 1973",
+     "usd_per_oz": "42.2222"
+    }
+   ]
+  },
+  "B64-7": {
+   "ratios": [
+    {
+     "date": "end of 1959",
+     "gold_over_all": "1.004",
+     "gold_over_official": "1.928",
+     "gold_total": 19507,
+     "liabilities_to_all_foreigners": 19428,
+     "liabilities_to_foreign_official": 10120,
+     "line": "single"
+    },
+    {
+     "date": "end of 1960",
+     "gold_over_all": "0.848",
+     "gold_over_official": "1.607",
+     "gold_total": 17804,
+     "liabilities_to_all_foreigners": 20994,
+     "liabilities_to_foreign_official": 11078,
+     "line": "first"
+    },
+    {
+     "date": "end of 1960",
+     "gold_over_all": "0.847",
+     "gold_over_official": "1.606",
+     "gold_total": 17804,
+     "liabilities_to_all_foreigners": 21027,
+     "liabilities_to_foreign_official": 11088,
+     "line": "second"
+    },
+    {
+     "date": "end of 1961",
+     "gold_over_all": "0.742",
+     "gold_over_official": "1.433",
+     "gold_total": 16947,
+     "liabilities_to_all_foreigners": 22853,
+     "liabilities_to_foreign_official": 11830,
+     "line": "first"
+    },
+    {
+     "date": "end of 1961",
+     "gold_over_all": "0.739",
+     "gold_over_official": "1.433",
+     "gold_total": 16947,
+     "liabilities_to_all_foreigners": 22936,
+     "liabilities_to_foreign_official": 11830,
+     "line": "second"
+    },
+    {
+     "date": "end of 1962",
+     "gold_over_all": "0.667",
+     "gold_over_official": "1.260",
+     "gold_total": 16057,
+     "liabilities_to_all_foreigners": 24068,
+     "liabilities_to_foreign_official": 12748,
+     "line": "first"
+    },
+    {
+     "date": "end of 1962",
+     "gold_over_all": "0.667",
+     "gold_over_official": "1.263",
+     "gold_total": 16057,
+     "liabilities_to_all_foreigners": 24068,
+     "liabilities_to_foreign_official": 12714,
+     "line": "second"
+    },
+    {
+     "date": "end of 1963",
+     "gold_over_all": "0.592",
+     "gold_over_official": "1.084",
+     "gold_total": 15596,
+     "liabilities_to_all_foreigners": 26361,
+     "liabilities_to_foreign_official": 14387,
+     "line": "first"
+    },
+    {
+     "date": "end of 1963",
+     "gold_over_all": "0.593",
+     "gold_over_official": "1.087",
+     "gold_total": 15596,
+     "liabilities_to_all_foreigners": 26322,
+     "liabilities_to_foreign_official": 14353,
+     "line": "second"
+    },
+    {
+     "date": "end of 1964",
+     "gold_over_all": "0.534",
+     "gold_over_official": "1.003",
+     "gold_total": 15471,
+     "liabilities_to_all_foreigners": 28951,
+     "liabilities_to_foreign_official": 15428,
+     "line": "first"
+    },
+    {
+     "date": "end of 1964",
+     "gold_over_all": "0.533",
+     "gold_over_official": "1.003",
+     "gold_total": 15471,
+     "liabilities_to_all_foreigners": 29002,
+     "liabilities_to_foreign_official": 15424,
+     "line": "second"
+    },
+    {
+     "date": "end of 1965",
+     "gold_over_all": "0.474",
+     "gold_over_official": "0.898",
+     "gold_total": 13806,
+     "liabilities_to_all_foreigners": 29115,
+     "liabilities_to_foreign_official": 15372,
+     "line": "single"
+    },
+    {
+     "date": "end of 1966",
+     "gold_over_all": "0.443",
+     "gold_over_official": "0.973",
+     "gold_total": 13235,
+     "liabilities_to_all_foreigners": 29904,
+     "liabilities_to_foreign_official": 13600,
+     "line": "first"
+    },
+    {
+     "date": "end of 1966",
+     "gold_over_all": "0.444",
+     "gold_over_official": "0.969",
+     "gold_total": 13235,
+     "liabilities_to_all_foreigners": 29779,
+     "liabilities_to_foreign_official": 13655,
+     "line": "second"
+    },
+    {
+     "date": "end of 1967",
+     "gold_over_all": "0.363",
+     "gold_over_official": "0.771",
+     "gold_total": 12065,
+     "liabilities_to_all_foreigners": 33271,
+     "liabilities_to_foreign_official": 15653,
+     "line": "first"
+    },
+    {
+     "date": "end of 1967",
+     "gold_over_all": "0.364",
+     "gold_over_official": "0.771",
+     "gold_total": 12065,
+     "liabilities_to_all_foreigners": 33119,
+     "liabilities_to_foreign_official": 15646,
+     "line": "second"
+    },
+    {
+     "date": "end of 1968",
+     "gold_over_all": "0.322",
+     "gold_over_official": "0.868",
+     "gold_total": 10892,
+     "liabilities_to_all_foreigners": 33828,
+     "liabilities_to_foreign_official": 12548,
+     "line": "first"
+    },
+    {
+     "date": "end of 1968",
+     "gold_over_all": "0.324",
+     "gold_over_official": "0.873",
+     "gold_total": 10892,
+     "liabilities_to_all_foreigners": 33614,
+     "liabilities_to_foreign_official": 12481,
+     "line": "second"
+    },
+    {
+     "date": "end of 1969",
+     "gold_over_all": "0.284",
+     "gold_over_official": "0.992",
+     "gold_total": 11859,
+     "liabilities_to_all_foreigners": 41735,
+     "liabilities_to_foreign_official": 11955,
+     "line": "first"
+    },
+    {
+     "date": "end of 1969",
+     "gold_over_all": "0.283",
+     "gold_over_official": "0.992",
+     "gold_total": 11859,
+     "liabilities_to_all_foreigners": 41859,
+     "liabilities_to_foreign_official": 11957,
+     "line": "second"
+    },
+    {
+     "date": "end of 1970-07",
+     "gold_over_all": "0.275",
+     "gold_over_official": "0.720",
+     "gold_total": 11934,
+     "liabilities_to_all_foreigners": 43471,
+     "liabilities_to_foreign_official": 16565,
+     "line": "single"
+    },
+    {
+     "date": "end of 1970-08",
+     "gold_over_all": "0.269",
+     "gold_over_official": "0.713",
+     "gold_total": 11817,
+     "liabilities_to_all_foreigners": 43971,
+     "liabilities_to_foreign_official": 16585,
+     "line": "single"
+    },
+    {
+     "date": "end of 1970-09",
+     "gold_over_all": "0.260",
+     "gold_over_official": "0.648",
+     "gold_total": 11494,
+     "liabilities_to_all_foreigners": 44178,
+     "liabilities_to_foreign_official": 17741,
+     "line": "single"
+    },
+    {
+     "date": "end of 1970-10",
+     "gold_over_all": "0.260",
+     "gold_over_official": "0.635",
+     "gold_total": 11495,
+     "liabilities_to_all_foreigners": 44228,
+     "liabilities_to_foreign_official": 18106,
+     "line": "single"
+    },
+    {
+     "date": "end of 1970-11",
+     "gold_over_all": "0.258",
+     "gold_over_official": "0.576",
+     "gold_total": 11478,
+     "liabilities_to_all_foreigners": 44467,
+     "liabilities_to_foreign_official": 19941,
+     "line": "single"
+    },
+    {
+     "date": "end of 1970-12",
+     "gold_over_all": "0.256",
+     "gold_over_official": "0.552",
+     "gold_total": 11072,
+     "liabilities_to_all_foreigners": 43264,
+     "liabilities_to_foreign_official": 20041,
+     "line": "first"
+    },
+    {
+     "date": "end of 1970-12",
+     "gold_over_all": "0.256",
+     "gold_over_official": "0.552",
+     "gold_total": 11072,
+     "liabilities_to_all_foreigners": 43258,
+     "liabilities_to_foreign_official": 20057,
+     "line": "second"
+    },
+    {
+     "date": "end of 1971-01",
+     "gold_over_all": "0.253",
+     "gold_over_official": "0.539",
+     "gold_total": 11040,
+     "liabilities_to_all_foreigners": 43672,
+     "liabilities_to_foreign_official": 20490,
+     "line": "single"
+    },
+    {
+     "date": "end of 1971-02",
+     "gold_over_all": "0.250",
+     "gold_over_official": "0.495",
+     "gold_total": 11039,
+     "liabilities_to_all_foreigners": 44076,
+     "liabilities_to_foreign_official": 22321,
+     "line": "single"
+    },
+    {
+     "date": "end of 1971-03",
+     "gold_over_all": "0.241",
+     "gold_over_official": "0.441",
+     "gold_total": 10963,
+     "liabilities_to_all_foreigners": 45491,
+     "liabilities_to_foreign_official": 24840,
+     "line": "single"
+    },
+    {
+     "date": "end of 1971-04",
+     "gold_over_all": "0.229",
+     "gold_over_official": "0.401",
+     "gold_total": 10925,
+     "liabilities_to_all_foreigners": 47663,
+     "liabilities_to_foreign_official": 27252,
+     "line": "single"
+    },
+    {
+     "date": "end of 1971-05",
+     "gold_over_all": "0.204",
+     "gold_over_official": "0.329",
+     "gold_total": 10568,
+     "liabilities_to_all_foreigners": 51809,
+     "liabilities_to_foreign_official": 32091,
+     "line": "single"
+    },
+    {
+     "date": "end of 1971-06",
+     "gold_over_all": "0.205",
+     "gold_over_official": "0.343",
+     "gold_total": 10507,
+     "liabilities_to_all_foreigners": 51377,
+     "liabilities_to_foreign_official": 30640,
+     "line": "single"
+    },
+    {
+     "date": "end of 1971-07",
+     "gold_over_all": "0.196",
+     "gold_over_official": "0.317",
+     "gold_total": 10453,
+     "liabilities_to_all_foreigners": 53264,
+     "liabilities_to_foreign_official": 32953,
+     "line": "single"
+    }
+   ]
+  },
+  "B64-8": {
+   "cells": {
+    "square against the scalar price field": "B, already counted at earlier stages; not counted again",
+    "the floor under the free price in 1970": "A: the historical accounts give the same answer",
+    "why convertibility lasted after Triffin's condition held": "D2: the question sits inside Triffin's argument, which gives no time; the corollary gives the time as capacity over the flow of the classes that can still walk the edge"
+   },
+   "framework_against_reality": "The conversion edge carried the flow of the classes that could still walk it. When the private class was cut from it on 1968-03-17, the United Kingdom's line, which had carried the Pool's sales in London, went from -148.5 to 7.2 a month; the total stock took in gold for the 21 months to the South African arrangement and then lost 74.0 a month to July 1971, against 207.3 a month in the year before the split, while it stood below the dollar claims of foreign official holders from the end of 1965. After the window closed the official price moved only up: 35 to 38, then 38 to 42.2222.",
+   "rival_against_reality": "A single price for gold puts the free price at 35 at all times. With the window open it reached 43.94 on 1971-08-09, 25.5 percent above 35, and after the arrangement it stood below 35 by more than a cent on 24 days between 1970-01-08 and 1970-03-10, lowest 34.75. Triffin's condition says the system cannot last once dollar claims exceed the gold stock and names no date; it held for claims of all foreigners from the end of 1960 and for official claims from the end of 1965, and the window closed on 1971-08-15."
+  }
+ },
+ "stage": "B64"
+}

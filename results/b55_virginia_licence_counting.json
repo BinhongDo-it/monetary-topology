@@ -32,7 +32,7 @@
     },
     {
       "criterion": "the residency line counted on its own, over pairs that share activity, age band and term",
-      "detail": "26 pairs, 1 of them carry the same value on both sides",
+      "detail": "41 pairs, 1 of them carry the same value on both sides",
       "name": "B55-3",
       "passed": true
     },
@@ -48,7 +48,7 @@
     "collisions": 59,
     "distinct_values": 45,
     "exempt_rows": 2,
-    "residency_pairs": 26,
+    "residency_pairs": 41,
     "residency_pairs_same_value": 1
   },
   "residency_pairs": [
@@ -93,6 +93,36 @@
       "ratio": 2.188679245283019,
       "resident_cents": 26500,
       "shared": "hunt, lifetime through 44"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 2.697674418604651,
+      "resident_cents": 21500,
+      "shared": "hunt, lifetime 45-50"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 3.515151515151515,
+      "resident_cents": 16500,
+      "shared": "hunt, lifetime 51-55"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 5.043478260869565,
+      "resident_cents": 11500,
+      "shared": "hunt, lifetime 56-60"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 8.923076923076923,
+      "resident_cents": 6500,
+      "shared": "hunt, lifetime 61-64"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 23.2,
+      "resident_cents": 2500,
+      "shared": "hunt, lifetime 65+"
     },
     {
       "nonresident_cents": 8500,
@@ -200,13 +230,73 @@
       "nonresident_cents": 58000,
       "ratio": 2.188679245283019,
       "resident_cents": 26500,
-      "shared": "fish, special lifetime freshwater"
+      "shared": "fish, special lifetime freshwater, through 44"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 2.697674418604651,
+      "resident_cents": 21500,
+      "shared": "fish, special lifetime freshwater, 45-50"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 3.515151515151515,
+      "resident_cents": 16500,
+      "shared": "fish, special lifetime freshwater, 51-55"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 5.043478260869565,
+      "resident_cents": 11500,
+      "shared": "fish, special lifetime freshwater, 56-60"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 8.923076923076923,
+      "resident_cents": 6500,
+      "shared": "fish, special lifetime freshwater, 61-64"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 23.2,
+      "resident_cents": 2500,
+      "shared": "fish, special lifetime freshwater, 65+"
     },
     {
       "nonresident_cents": 58000,
       "ratio": 2.188679245283019,
       "resident_cents": 26500,
-      "shared": "fish, special lifetime stocked trout"
+      "shared": "fish, special lifetime stocked trout, through 44"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 2.697674418604651,
+      "resident_cents": 21500,
+      "shared": "fish, special lifetime stocked trout, 45-50"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 3.515151515151515,
+      "resident_cents": 16500,
+      "shared": "fish, special lifetime stocked trout, 51-55"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 5.043478260869565,
+      "resident_cents": 11500,
+      "shared": "fish, special lifetime stocked trout, 56-60"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 8.923076923076923,
+      "resident_cents": 6500,
+      "shared": "fish, special lifetime stocked trout, 61-64"
+    },
+    {
+      "nonresident_cents": 58000,
+      "ratio": 23.2,
+      "resident_cents": 2500,
+      "shared": "fish, special lifetime stocked trout, 65+"
     }
   ],
   "rows": [

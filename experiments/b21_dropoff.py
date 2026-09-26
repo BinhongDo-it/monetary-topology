@@ -41,10 +41,11 @@ direction**, so the statute gives a band and not a sign, and the sign
 was the analyst's.
 
 **The reading is unaffected by the correction and is reported either way**: the
-implied rate reads 0.1799 before and 0.1289 after, and differencing within the 82
-companies that carry ex-days on both sides gives −0.0701 with a robust standard
-error of 0.0366, so it is not a change in which companies are in the sample. What
-changes is only what may be concluded from it.
+implied rate moves the same way pooled and within the companies that carry ex-days
+on both sides of the date, so it is not a change in which companies are in the
+sample. **Both numbers are computed by this file and printed in B21-20's detail**;
+they used to sit here as literals and they went stale the day the H leg started
+reading the rebuilt dividends. What changes is only what may be concluded from it.
 
 **A caveat that has to travel with it.** The drop-off ratio is noisy per event:
 the dividend is a few per cent and a day's move is of the same order. The centre
@@ -62,6 +63,9 @@ import csv
 import json
 import math
 import statistics
+import sys
+from fractions import Fraction
+from math import comb
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -112,10 +116,64 @@ def series(tk: str) -> list[tuple[str, float, float]]:
 
 
 def robust_se(v: list[float]) -> float:
-    """1.4826 x MAD over root n. **The tails are too heavy for a plain sd**,
-    which is failure mode 60, and the file prints the sd-to-iqr ratio that says so."""
+    """1.4826 x MAD over root n. **Printed as a scale, and it is not this file's
+    resolution.** It estimates sigma over root n, which is the standard error of a
+    MEAN, while every centre here is a median. Under a normal the median's error is
+    1.2533 times that, and under the heavy tails this file argues for it is smaller
+    instead, because a heavy-tailed sample puts more mass near its own middle. The
+    direction is not fixed by anything, so no constant repairs it. See
+    ``median_interval``, which is what the gate reads.
+    """
     m = statistics.median(v)
     return 1.4826 * statistics.median([abs(x - m) for x in v]) / math.sqrt(len(v))
+
+
+def median_interval(v: list[float], alpha: float = 0.10):
+    """The exact distribution-free interval for a median. No constant, no shape.
+
+    For n observations the interval ``[s[j], s[n-1-j]]`` covers the population
+    median with probability ``1 - 2*P(B <= j)`` for ``B ~ Bin(n, 1/2)``, and that
+    statement uses nothing about the distribution beyond a continuous median. The
+    widest j whose coverage still reaches ``1 - alpha`` is taken, so the interval
+    is the tightest one that keeps its promise, and the promise is exact rather
+    than asymptotic. **This is what gate two reads**: its object is the width of
+    the estimator's ninety per cent resolution against the statutory band, and
+    this is that width without borrowing a distribution to get it.
+
+    Returns ``(lo, hi, half_width, exact_coverage, j)``.
+    """
+    s = sorted(v)
+    n = len(s)
+    if n < 2:
+        return (float("nan"),) * 3 + (float("nan"), 0)
+    scale = Fraction(1, 2) ** n
+    want = Fraction(1 - alpha).limit_denominator(10 ** 6)
+    cum, best = Fraction(0), (0, 1.0)
+    for j in range(n // 2):
+        cum += comb(n, j) * scale                     # cum = P(B <= j)
+        cov = 1 - 2 * cum
+        if cov >= want:
+            best = (j, float(cov))
+        else:
+            break
+    j, cov = best
+    return s[j], s[n - 1 - j], (s[n - 1 - j] - s[j]) / 2.0, cov, j
+
+
+def rebuilt_h_amounts() -> dict:
+    """The stale pre-2014 H dividends, rebuilt by ``b21_div_align.py --write``.
+
+    The class index has substituted these since the alignment station was written
+    and this file did not, so the two halves of one station were reading two
+    different dividend columns. The substitution is the default here now, and
+    ``--raw`` reproduces the older reading exactly for comparison.
+    """
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "b21_class_index", Path(__file__).with_name("b21_class_index.py"))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.rebuilt_amounts()
 
 
 def main() -> int:
@@ -133,14 +191,35 @@ def main() -> int:
                 day.setdefault((k, s[i][0]), []).append(math.log(s[i][1] / s[i - 1][1]))
     mkt = {k: statistics.median(v) for k, v in day.items() if len(v) >= 20}
 
+    raw = "--raw" in sys.argv
+    sub = {} if raw else rebuilt_h_amounts()
+    swapped = 0
+    if raw:
+        print("  --raw: the H leg reads the shipped dividend column, which is the")
+        print("  reading this file gave before 2026-09-13. Not the default.\n")
+    else:
+        print("  the H leg reads the %d rebuilt pre-2014 amounts the alignment station"
+              % len(sub))
+        print("  wrote, the same substitution the class index has always made. --raw")
+        print("  reproduces the older reading.\n")
+
     per_leg: dict[str, list[float]] = {"a": [], "h": []}
     era: dict[str, dict[bool, list[float]]] = {"a": {}, "h": {}}
+    #: The H leg split by side of the Southbound date, per company. B21-20's
+    #: detail used to carry this comparison as three literals in a string, and
+    #: literals go stale: they were computed on the shipped dividend column and
+    #: the H leg no longer reads that column.
+    co_era: dict[str, dict[bool, list[float]]] = {}
     per_co: dict[str, dict[str, list[float]]] = {}
     for p in ps:
         for k in ("a", "h"):
             s = S[p[k]]
             for i in range(1, len(s)):
                 d = s[i][2]
+                if k == "h":
+                    r = sub.get((p["h"], s[i][0]))
+                    if r is not None and r != d:
+                        d, swapped = r, swapped + 1
                 if d <= 0:
                     continue
                 m = mkt.get((k, s[i][0]))
@@ -150,10 +229,13 @@ def main() -> int:
                 per_leg[k].append(ratio)
                 per_co.setdefault(p["name"], {}).setdefault(k, []).append(ratio)
                 era[k].setdefault(s[i][0] >= SOUTHBOUND, []).append(ratio)
+                if k == "h":
+                    co_era.setdefault(p["name"], {}).setdefault(
+                        s[i][0] >= SOUTHBOUND, []).append(ratio)
 
     print("the gate arithmetic, printed before the reading because this is the one")
     print("criterion shape on this station that gates two and three bind.\n")
-    cent, se = {}, {}
+    cent, se, half, cov = {}, {}, {}, {}
     for k in ("a", "h"):
         v = sorted(per_leg[k])
         n = len(v)
@@ -161,22 +243,36 @@ def main() -> int:
         iqr = v[3 * n // 4] - v[n // 4]
         cent[k] = statistics.median(v)
         se[k] = robust_se(v)
+        lo, hi, half[k], cov[k], _j = median_interval(v)
         print(f"  {k.upper()} leg  n {n:>5}   centre {cent[k]:+.4f}   "
-              f"robust se {se[k]:.4f}   sd {sd:.2f} against iqr {iqr:.2f} "
-              f"= {sd/iqr:.1f}x")
+              f"90% [{lo:+.4f}, {hi:+.4f}] half {half[k]:.4f} at exact "
+              f"coverage {cov[k]:.4f}")
+        print(f"           scale only, not the gate's object: 1.4826 MAD / root n "
+              f"= {se[k]:.4f}; sd {sd:.2f} against iqr {iqr:.2f} = {sd/iqr:.1f}x")
+    #: Gate two asks how wide this estimator's ninety per cent resolution is
+    #: against the band. The centre is a median, so the resolution has to be a
+    #: median's, and the exact order-statistic interval gives it with no constant
+    #: and no distribution. Until 2026-09-13 this line read Z90 * (1.4826 MAD /
+    #: root n), which is a mean's standard error wearing a robust scale, and it
+    #: happened to be the conservative direction here: the shipped ratio was
+    #: 0.380 and the resolution a median actually has gives 0.363.
     se_d = math.hypot(se["a"], se["h"])
-    gate2 = Z90 * se_d / (BAND_HI - BAND_LO)
+    half_d = math.hypot(half["a"], half["h"])
+    gate2 = half_d / (BAND_HI - BAND_LO)
     print(f"\n  **The sd is {statistics.pstdev(per_leg['a'])/((sorted(per_leg['a'])[3*len(per_leg['a'])//4])-(sorted(per_leg['a'])[len(per_leg['a'])//4])):.0f} times the iqr**, "
           f"so the centre and its error are taken robustly (failure mode 60).")
-    print(f"\n  gate two, first stage, borrowing nothing:")
-    print(f"    Z90 x se of the difference = {Z90:.3f} x {se_d:.4f} = {Z90*se_d:.4f}")
+    print(f"\n  gate two, first stage, borrowing nothing and assuming nothing:")
+    print(f"    90% half width of the difference of the two medians = {half_d:.4f}")
     print(f"    against the statutory band width {BAND_HI - BAND_LO:.2f}")
     print(f"    ratio {gate2:.3f}   {'PASSES' if gate2 < 1 else 'DOES NOT PASS'}")
+    print(f"    printed beside it and not read: Z90 x 1.4826 MAD / root n = "
+          f"{Z90*se_d:.4f}, ratio {Z90*se_d/(BAND_HI-BAND_LO):.3f}")
 
     diff = cent["a"] - cent["h"]
-    sigma = diff / se_d if se_d else float("inf")
-    print(f"\n  gate three, power: the difference sits at {sigma:.1f} standard errors,")
-    print(f"    so power against a null of zero is not the binding constraint here.")
+    sigma = diff / (half_d / Z90) if half_d else float("inf")
+    print(f"\n  gate three, power: the difference sits at {sigma:.1f} times the "
+          f"standard error\n    that half width implies, so power against a null of "
+          f"zero is not the binding\n    constraint here.")
 
     print(f"\nthe reading. **The band [{BAND_LO:.2f}, {BAND_HI:.2f}] was declared")
     print(f"from statute above and nothing in it is fitted.**")
@@ -219,6 +315,21 @@ def main() -> int:
         print(f"  {lab:>10} {len(va):>9} {ca:>+10.4f} {len(vh):>9} {ch:>+10.4f} "
               f"{1-ch:>9.4f}")
     drift = (imp.get("after", 0) - imp.get("before", 0)) if len(imp) == 2 else None
+    #: The same move within each company, which cancels whatever is the company's.
+    #: Implied withholding is 1 - the H centre, so the move is the earlier centre
+    #: minus the later one. Two ex-days a side is the threshold this comparison
+    #: has always used; it is stated here rather than left in a sentence.
+    SPLIT_MIN = 2
+    co_moves = sorted(
+        statistics.median(v[False]) - statistics.median(v[True])
+        for v in co_era.values()
+        if len(v.get(False, [])) >= SPLIT_MIN and len(v.get(True, [])) >= SPLIT_MIN)
+    if co_moves:
+        co_move = statistics.median(co_moves)
+        _lo, _hi, co_half, co_cov, _j = median_interval(co_moves)
+        co_se = robust_se(co_moves)
+    else:
+        co_move = co_half = co_cov = co_se = float("nan")
     if drift is not None:
         print(f"  **the implied rate moves {drift:+.4f}**, and the sign was declared")
         print(f"  before the split. It is a direction, and no line is drawn on it.")
@@ -242,8 +353,10 @@ def main() -> int:
          "passed": None, "void": True,
          "detail": (f"implied withholding before {imp.get('before', float('nan')):.4f}, "
                     f"after {imp.get('after', float('nan')):.4f}, "
-                    f"move {drift:+.4f}; within the 82 companies carrying ex-days "
-                    f"on both sides the move is -0.0701 with robust se 0.0366, "
+                    f"move {drift:+.4f}; within the {len(co_moves)} companies "
+                    f"carrying at least {SPLIT_MIN} H ex-days on each side the "
+                    f"move is {co_move:+.4f}, 90 per cent half width {co_half:.4f} "
+                    f"at exact coverage {co_cov:.4f}, robust scale {co_se:.4f}, "
                     f"**so it is not composition. The reading stands and the "
                     f"criterion that read it as a direction does not.**")
                    if drift is not None
@@ -271,10 +384,23 @@ def main() -> int:
         "band": [BAND_LO, BAND_HI],
         "a_leg": {"n": len(per_leg["a"]), "centre": cent["a"], "se": se["a"]},
         "h_leg": {"n": len(per_leg["h"]), "centre": cent["h"], "se": se["h"]},
-        "difference": diff, "se_difference": se_d, "sigma": sigma,
+        "difference": diff,
+        #: The gate reads half_width_difference. se_difference is the robust
+        #: SCALE, kept beside it because the file prints both, and it is a mean's
+        #: standard error rather than a median's.
+        "half_width_difference": half_d,
+        "se_difference": se_d, "sigma": sigma,
         "gate_two_ratio": gate2,
+        "median_interval_90": {k: {"half_width": half[k], "exact_coverage": cov[k]}
+                               for k in ("a", "h")},
         "southbound_split": {"before_implied": imp.get("before"),
-                             "after_implied": imp.get("after"), "drift": drift},
+                             "after_implied": imp.get("after"), "drift": drift,
+                             "within_company_move": co_move,
+                             "within_company_n": len(co_moves),
+                             "within_company_min_events_each_side": SPLIT_MIN,
+                             "within_company_half_width": co_half,
+                             "within_company_exact_coverage": co_cov,
+                             "within_company_robust_scale": co_se},
         "within_company": {"n": n, "centre": wc, "se": wse,
                            "p10": pv[n//10], "p90": pv[9*n//10],
                            "positive": sum(1 for x in pv if x > 0)},

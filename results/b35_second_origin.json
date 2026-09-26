@@ -1,0 +1,473 @@
+{
+  "config": {
+    "anchors": [
+      "CHINA",
+      "JAPAN",
+      "MEXICO"
+    ],
+    "atom_rule": "four digits, all numeric, not starting 00",
+    "pair": [
+      "CHINA",
+      "MEXICO"
+    ],
+    "source": "b35_census_raw_020649_bycountry_2021-2023.json",
+    "window": [
+      [
+        2021,
+        1
+      ],
+      [
+        2021,
+        2
+      ],
+      [
+        2021,
+        3
+      ],
+      [
+        2021,
+        4
+      ],
+      [
+        2021,
+        5
+      ],
+      [
+        2021,
+        6
+      ],
+      [
+        2021,
+        7
+      ],
+      [
+        2021,
+        8
+      ],
+      [
+        2021,
+        9
+      ],
+      [
+        2021,
+        10
+      ],
+      [
+        2021,
+        11
+      ],
+      [
+        2021,
+        12
+      ],
+      [
+        2022,
+        1
+      ],
+      [
+        2022,
+        2
+      ],
+      [
+        2022,
+        3
+      ],
+      [
+        2022,
+        4
+      ],
+      [
+        2022,
+        5
+      ],
+      [
+        2022,
+        6
+      ],
+      [
+        2022,
+        7
+      ],
+      [
+        2022,
+        8
+      ]
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "the tongue, heart, feet, head meat and skin split is a US ten-digit national extension, 6 lines under 0206.49; the other 3 origins checked European Union, Brazil, Canada each publish one line there, \"other\", so a second origin can ship the same good and cannot name it. This is a reading of three tariff schedules, not an inference from any trade volume",
+      "kind": "instrument",
+      "name": "B35-SO-1",
+      "passed": true
+    },
+    {
+      "detail": "at the level every origin shares, 0206.49 whole, the 6 US ten-digit lines inside it span $0.794 to $3.593 a kg on the CHINA leg over the window, a factor of 4.52; the basket is not one good and its members are not close",
+      "kind": "own_reading",
+      "name": "B35-SO-2",
+      "passed": true
+    },
+    {
+      "detail": "splitting the CHINA minus MEXICO unit value gap at the shared level into a price part and a composition part, month by month over 20 months: the composition part carries 0.188 to 0.513 of the total magnitude, mean 0.374, and it runs AGAINST the price part in 20 of 20 months, so the observed gap understates the price signal by an amount that itself moves. Coverage is 0.928 and 0.895 of each side's tonnage on 4-6 common lines",
+      "kind": "own_reading",
+      "name": "B35-SO-3",
+      "passed": true
+    },
+    {
+      "detail": "the reshape is closed on this commodity family with the three routes that could reopen it named, and the one route that looks open is priced rather than waved off",
+      "kind": "bookkeeping",
+      "name": "B35-SO-4",
+      "passed": true
+    }
+  ],
+  "report": {
+    "decomposition": {
+      "common_lines_range": [
+        4,
+        6
+      ],
+      "composition_share": {
+        "max": 0.5130941922747002,
+        "mean": 0.37367376229320787,
+        "min": 0.18834547278667163
+      },
+      "coverage_a_mean": 0.9276790533091888,
+      "coverage_b_mean": 0.8947885404604398,
+      "months": 20,
+      "opposite_sign_months": 20,
+      "pair": [
+        "CHINA",
+        "MEXICO"
+      ],
+      "rows": [
+        {
+          "common_lines": 4,
+          "composition_part": -0.3730562382382985,
+          "composition_share": 0.3636868943694021,
+          "coverage_a": 0.9765970936092464,
+          "coverage_b": 0.8513268737605242,
+          "month": "2021-01",
+          "observed_gap": 0.41727199170393736,
+          "opposite_sign": true,
+          "price_part": 0.6527058775100347,
+          "uv_a": 2.1155957010441715,
+          "uv_b": 1.6983237093402341
+        },
+        {
+          "common_lines": 4,
+          "composition_part": -0.5025873725065875,
+          "composition_share": 0.4224373545717923,
+          "coverage_a": 0.9770469073862709,
+          "coverage_b": 0.8333953976534321,
+          "month": "2021-02",
+          "observed_gap": 0.35610772494347387,
+          "opposite_sign": true,
+          "price_part": 0.687144944172746,
+          "uv_a": 2.059415145081718,
+          "uv_b": 1.7033074201382443
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.28691357949561713,
+          "composition_share": 0.2627339699349999,
+          "coverage_a": 0.7047270240930202,
+          "coverage_b": 1.0,
+          "month": "2021-03",
+          "observed_gap": 0.226498571213954,
+          "opposite_sign": true,
+          "price_part": 0.8051171905132981,
+          "uv_a": 2.024123084313493,
+          "uv_b": 1.797624513099539
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.19132695366851193,
+          "composition_share": 0.18834547278667163,
+          "coverage_a": 0.7088203204649517,
+          "coverage_b": 1.0,
+          "month": "2021-04",
+          "observed_gap": 0.36830406979546515,
+          "opposite_sign": true,
+          "price_part": 0.824502897921376,
+          "uv_a": 2.1844036877343935,
+          "uv_b": 1.8160996179389284
+        },
+        {
+          "common_lines": 4,
+          "composition_part": -0.2776844516457123,
+          "composition_share": 0.2637420451791763,
+          "coverage_a": 0.6882330467513141,
+          "coverage_b": 1.0,
+          "month": "2021-05",
+          "observed_gap": 0.23075963687141865,
+          "opposite_sign": true,
+          "price_part": 0.7751793473631413,
+          "uv_a": 2.2647627414263,
+          "uv_b": 2.0340031045548814
+        },
+        {
+          "common_lines": 6,
+          "composition_part": -0.3443267286495757,
+          "composition_share": 0.3319989362865388,
+          "coverage_a": 1.0,
+          "coverage_b": 1.0,
+          "month": "2021-06",
+          "observed_gap": 0.34847856637816865,
+          "opposite_sign": true,
+          "price_part": 0.6928052950277445,
+          "uv_a": 2.2924758472879248,
+          "uv_b": 1.943997280909756
+        },
+        {
+          "common_lines": 4,
+          "composition_part": -0.33983709186835365,
+          "composition_share": 0.2634356343833424,
+          "coverage_a": 0.6482395784811952,
+          "coverage_b": 0.8345188876186461,
+          "month": "2021-07",
+          "observed_gap": 0.3626468291535083,
+          "opposite_sign": true,
+          "price_part": 0.9501823569577476,
+          "uv_a": 2.180195463434805,
+          "uv_b": 1.8175486342812968
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.8264512901842844,
+          "composition_share": 0.49253174423636154,
+          "coverage_a": 1.0,
+          "coverage_b": 0.7677591298944384,
+          "month": "2021-08",
+          "observed_gap": 0.3037736526033641,
+          "opposite_sign": true,
+          "price_part": 0.8515142416935509,
+          "uv_a": 2.0891322369241796,
+          "uv_b": 1.7853585843208155
+        },
+        {
+          "common_lines": 6,
+          "composition_part": -0.4272823053367737,
+          "composition_share": 0.3373392517066449,
+          "coverage_a": 1.0,
+          "coverage_b": 1.0,
+          "month": "2021-09",
+          "observed_gap": 0.4120603171256776,
+          "opposite_sign": true,
+          "price_part": 0.8393426224624513,
+          "uv_a": 2.0191001211343464,
+          "uv_b": 1.6070398040086689
+        },
+        {
+          "common_lines": 4,
+          "composition_part": -0.8599010340589639,
+          "composition_share": 0.4104469160945613,
+          "coverage_a": 0.9984265841090088,
+          "coverage_b": 0.7490741858306158,
+          "month": "2021-10",
+          "observed_gap": 0.625856065651681,
+          "opposite_sign": true,
+          "price_part": 1.2351348898090926,
+          "uv_a": 2.288857733978402,
+          "uv_b": 1.6630016683267212
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.7460845955242094,
+          "composition_share": 0.37499757533553596,
+          "coverage_a": 1.0,
+          "coverage_b": 0.7679021090986721,
+          "month": "2021-11",
+          "observed_gap": 0.7639921375003467,
+          "opposite_sign": true,
+          "price_part": 1.2434871899910345,
+          "uv_a": 2.4816257574162157,
+          "uv_b": 1.717633619915869
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.8196143715965165,
+          "composition_share": 0.34883397215174344,
+          "coverage_a": 1.0,
+          "coverage_b": 0.9272467026151652,
+          "month": "2021-12",
+          "observed_gap": 0.7871977096833369,
+          "opposite_sign": true,
+          "price_part": 1.5299686307149176,
+          "uv_a": 2.7293095357668014,
+          "uv_b": 1.9421118260834644
+        },
+        {
+          "common_lines": 4,
+          "composition_part": -0.8443965123986932,
+          "composition_share": 0.33097467953649334,
+          "coverage_a": 0.9849680617635819,
+          "coverage_b": 0.8940655521378323,
+          "month": "2022-01",
+          "observed_gap": 0.9515054721258105,
+          "opposite_sign": true,
+          "price_part": 1.7068455148802846,
+          "uv_a": 2.6940332036972094,
+          "uv_b": 1.742527731571399
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.9134209626989339,
+          "composition_share": 0.3701469563156487,
+          "coverage_a": 1.0,
+          "coverage_b": 0.8370577331393763,
+          "month": "2022-02",
+          "observed_gap": 0.8397142267743081,
+          "opposite_sign": true,
+          "price_part": 1.5543042127041014,
+          "uv_a": 2.6374805573949023,
+          "uv_b": 1.7977663306205942
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -0.9885149273721185,
+          "composition_share": 0.40303040111432137,
+          "coverage_a": 1.0,
+          "coverage_b": 0.9170909750566894,
+          "month": "2022-03",
+          "observed_gap": 0.5699499072612826,
+          "opposite_sign": true,
+          "price_part": 1.4641906864947667,
+          "uv_a": 2.5223246918417814,
+          "uv_b": 1.9523747845804988
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -1.2436428398326675,
+          "composition_share": 0.4538687534976358,
+          "coverage_a": 1.0,
+          "coverage_b": 0.913584376442714,
+          "month": "2022-04",
+          "observed_gap": 0.38456644198406265,
+          "opposite_sign": true,
+          "price_part": 1.496450700973608,
+          "uv_a": 2.5797319893225006,
+          "uv_b": 2.195165547338438
+        },
+        {
+          "common_lines": 4,
+          "composition_part": -0.9538882630459176,
+          "composition_share": 0.38719185892200336,
+          "coverage_a": 0.8665224495251888,
+          "coverage_b": 0.9058943291011331,
+          "month": "2022-05",
+          "observed_gap": 0.48113624620483986,
+          "opposite_sign": true,
+          "price_part": 1.509717933896541,
+          "uv_a": 2.576575387663873,
+          "uv_b": 2.095439141459033
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -1.1966154564363065,
+          "composition_share": 0.47560980162365446,
+          "coverage_a": 1.0,
+          "coverage_b": 0.9574738474602016,
+          "month": "2022-06",
+          "observed_gap": 0.18045566824191273,
+          "opposite_sign": true,
+          "price_part": 1.3193450060084455,
+          "uv_a": 2.355904399601665,
+          "uv_b": 2.175448731359752
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -1.0746813620177087,
+          "composition_share": 0.4790288355429296,
+          "coverage_a": 1.0,
+          "coverage_b": 0.9478426238929754,
+          "month": "2022-07",
+          "observed_gap": 0.1579662394127337,
+          "opposite_sign": true,
+          "price_part": 1.1687772406354462,
+          "uv_a": 2.182728371285865,
+          "uv_b": 2.0247621318731315
+        },
+        {
+          "common_lines": 5,
+          "composition_part": -1.3019205445862005,
+          "composition_share": 0.5130941922747002,
+          "coverage_a": 1.0,
+          "coverage_b": 0.7915380855063818,
+          "month": "2022-08",
+          "observed_gap": 0.2212076853944771,
+          "opposite_sign": true,
+          "price_part": 1.2354703754208975,
+          "uv_a": 2.0902993227557656,
+          "uv_b": 1.8690916373612885
+        }
+      ]
+    },
+    "only_origin_that_splits": "United States",
+    "reopen": {
+      "closed_for": "this commodity family, on every origin checked",
+      "not_a_route": "building the loop on 0206.49 whole, which criteria 2 and 3 price: the composition term is a third of the magnitude and points the other way",
+      "routes": {
+        "importer_side_reporting": "the destination's own customs detail, which is a different channel and is where a second class inside one position would also have to come from",
+        "origin_with_its_own_extension": "an origin that publishes a comparable statistical subdivision; none of the three largest pork exporters outside the US does, and this file does not claim to have checked the rest",
+        "single_good_hs6": "a commodity whose six-digit line is effectively one good, so every origin names the same thing without a national extension; that is a search over the nomenclature and not over this carrier"
+      }
+    },
+    "schedules": {
+      "Brazil": {
+        "level": "NCM8",
+        "lines_under_020649": 1,
+        "source": "NCM 0206.49.00 Outras, one line under 0206.4",
+        "splits_the_good": false
+      },
+      "Canada": {
+        "level": "Canadian Export Classification, 8 digit",
+        "lines_under_020649": 1,
+        "source": "Canadian Export Classification 2022, catalogue 65-209-X: 0206.49 00 --Other KGM, no statistical subdivision",
+        "splits_the_good": false
+      },
+      "European Union": {
+        "level": "CN8",
+        "lines_under_020649": 1,
+        "source": "Combined Nomenclature: 0206 49 00, Other, one line",
+        "splits_the_good": false
+      },
+      "United States": {
+        "level": "HS10, national statistical extension",
+        "lines_under_020649": 6,
+        "source": "US Census Bureau intltrade HS10, this station's own pulls",
+        "splits_the_good": true
+      }
+    },
+    "shared_level_basket": {
+      "leg": "CHINA",
+      "lines": {
+        "feet": {
+          "t": 293190.89,
+          "usd_per_kg": 2.403353852502034
+        },
+        "head meat": {
+          "t": 104544.147,
+          "usd_per_kg": 1.3079261051314524
+        },
+        "hearts": {
+          "t": 5122.047,
+          "usd_per_kg": 1.4443225530730195
+        },
+        "offal nesoi": {
+          "t": 53647.356,
+          "usd_per_kg": 3.593070868208305
+        },
+        "skins": {
+          "t": 1260.878,
+          "usd_per_kg": 0.7940855499104592
+        },
+        "tongues": {
+          "t": 7412.729,
+          "usd_per_kg": 3.0375764445186113
+        }
+      },
+      "span": 4.524790645810716
+    }
+  },
+  "stage": "B35-SO"
+}

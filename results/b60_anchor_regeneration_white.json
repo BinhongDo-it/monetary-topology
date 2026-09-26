@@ -1,0 +1,477 @@
+{
+  "stage": "B60",
+  "config": {
+    "commodity": "White Peas",
+    "near_districts": 6,
+    "min_days": 150,
+    "shifts_days": [
+      180,
+      365,
+      545,
+      730,
+      1095
+    ],
+    "shifts_months": [
+      6,
+      12,
+      18,
+      24,
+      36
+    ],
+    "min_overlap": 100,
+    "floor_rows": "matched"
+  },
+  "input": {
+    "lines": 3337,
+    "malformed": 0,
+    "unreadable_date_or_price": 1,
+    "states_kept": [
+      "Gujarat",
+      "Madhya Pradesh",
+      "Uttar Pradesh"
+    ],
+    "districts_kept": 6
+  },
+  "autocorrelation_levels": {
+    "Madhya Pradesh": {
+      "1": 0.48111047544744295,
+      "5": 0.4460162500993791,
+      "20": 0.3744555877827015,
+      "60": 0.2961670818593548,
+      "180": 0.10509508185255635
+    },
+    "Uttar Pradesh": {
+      "1": 0.7862969355109275,
+      "5": 0.7624371868354304,
+      "20": 0.6887789582416726,
+      "60": 0.5168205164315043,
+      "180": -0.1797086810600232
+    },
+    "Gujarat": {
+      "1": 0.9228579685814379,
+      "5": 0.8987407343602133,
+      "20": 0.8210896936972452,
+      "60": 0.5990732941169936,
+      "180": 0.3078531931274313
+    }
+  },
+  "readings": {
+    "levels": {
+      "far": {
+        "arm": "far",
+        "readings": [
+          {
+            "a": "Gujarat",
+            "m": "Uttar Pradesh",
+            "b": "Madhya Pradesh",
+            "overlap": 303,
+            "r_ab": 0.2744919484602986,
+            "r_am": 0.2134359998935589,
+            "r_mb": 0.2829603671789364,
+            "partial": 0.22848567597723732,
+            "weaker_leg": 0.2134359998935589,
+            "removed": 0.1676051801924363
+          },
+          {
+            "a": "Gujarat",
+            "m": "Madhya Pradesh",
+            "b": "Uttar Pradesh",
+            "overlap": 303,
+            "r_ab": 0.2134359998935589,
+            "r_am": 0.2744919484602986,
+            "r_mb": 0.2829603671789364,
+            "partial": 0.14720482987359784,
+            "weaker_leg": 0.2744919484602986,
+            "removed": 0.3103092732856253
+          },
+          {
+            "a": "Madhya Pradesh",
+            "m": "Gujarat",
+            "b": "Uttar Pradesh",
+            "overlap": 303,
+            "r_ab": 0.2829603671789364,
+            "r_am": 0.2744919484602986,
+            "r_mb": 0.2134359998935589,
+            "partial": 0.23884007956077438,
+            "weaker_leg": 0.2134359998935589,
+            "removed": 0.15592391280105167
+          }
+        ],
+        "placebo_abs": [
+          0.001143514087567417,
+          0.012448917612542779,
+          0.18128425767355025,
+          0.3110472105715167,
+          0.4201115472243247,
+          0.4765050072939743,
+          0.47745618115594185
+        ],
+        "matched_partial_abs": [
+          0.1997096507041581,
+          0.20824144388163948,
+          0.24135632255033654,
+          0.24391682696221245,
+          0.47011383173518634
+        ],
+        "matched_placebo_abs": [
+          0.004840254721444483,
+          0.11720261013448847,
+          0.17340195037652006,
+          0.4226045447993711,
+          0.47169836722323966
+        ],
+        "summary_abs_partial": {
+          "n": 3,
+          "min": 0.14720482987359784,
+          "p25": 0.14720482987359784,
+          "median": 0.22848567597723732,
+          "p75": 0.23884007956077438,
+          "p90": 0.23884007956077438,
+          "max": 0.23884007956077438
+        },
+        "summary_floor_abs": {
+          "n": 7,
+          "min": 0.001143514087567417,
+          "p25": 0.012448917612542779,
+          "median": 0.3110472105715167,
+          "p75": 0.4765050072939743,
+          "p90": 0.47745618115594185,
+          "max": 0.47745618115594185
+        },
+        "summary_matched_abs_partial": {
+          "n": 5,
+          "min": 0.1997096507041581,
+          "p25": 0.20824144388163948,
+          "median": 0.24135632255033654,
+          "p75": 0.24391682696221245,
+          "p90": 0.47011383173518634,
+          "max": 0.47011383173518634
+        },
+        "summary_matched_floor_abs": {
+          "n": 5,
+          "min": 0.004840254721444483,
+          "p25": 0.11720261013448847,
+          "median": 0.17340195037652006,
+          "p75": 0.4226045447993711,
+          "p90": 0.47169836722323966,
+          "max": 0.47169836722323966
+        },
+        "ratio": 1.39188931858184,
+        "ratio_unmatched": 0.7345691207370701
+      },
+      "near": {
+        "arm": "near",
+        "readings": [
+          {
+            "a": "('Uttar Pradesh', 'Aligarh')",
+            "m": "('Uttar Pradesh', 'Deoria')",
+            "b": "('Uttar Pradesh', 'Gonda')",
+            "overlap": 124,
+            "r_ab": 0.6335431048052695,
+            "r_am": 0.11102133778951721,
+            "r_mb": -0.08423848118989517,
+            "partial": 0.6492019694236517,
+            "weaker_leg": 0.08423848118989517,
+            "removed": -0.02471633658327832
+          },
+          {
+            "a": "('Uttar Pradesh', 'Aligarh')",
+            "m": "('Uttar Pradesh', 'Gonda')",
+            "b": "('Uttar Pradesh', 'Deoria')",
+            "overlap": 124,
+            "r_ab": 0.11102133778951721,
+            "r_am": 0.6335431048052695,
+            "r_mb": -0.08423848118989519,
+            "partial": 0.21322845839700977,
+            "weaker_leg": 0.08423848118989519,
+            "removed": -0.9206078997288312
+          },
+          {
+            "a": "('Uttar Pradesh', 'Gonda')",
+            "m": "('Uttar Pradesh', 'Aligarh')",
+            "b": "('Uttar Pradesh', 'Deoria')",
+            "overlap": 124,
+            "r_ab": -0.08423848118989519,
+            "r_am": 0.6335431048052694,
+            "r_mb": 0.11102133778951721,
+            "partial": -0.20102794683317926,
+            "weaker_leg": 0.11102133778951721,
+            "removed": -1.3864146645760456
+          }
+        ],
+        "placebo_abs": [],
+        "matched_partial_abs": [],
+        "matched_placebo_abs": [],
+        "summary_abs_partial": {
+          "n": 3,
+          "min": 0.20102794683317926,
+          "p25": 0.20102794683317926,
+          "median": 0.21322845839700977,
+          "p75": 0.6492019694236517,
+          "p90": 0.6492019694236517,
+          "max": 0.6492019694236517
+        },
+        "summary_floor_abs": null,
+        "summary_matched_abs_partial": null,
+        "summary_matched_floor_abs": null,
+        "ratio": null,
+        "ratio_unmatched": null
+      }
+    },
+    "monthly_changes": {
+      "far": {
+        "arm": "far",
+        "readings": [],
+        "placebo_abs": [],
+        "matched_partial_abs": [],
+        "matched_placebo_abs": [],
+        "summary_abs_partial": null,
+        "summary_floor_abs": null,
+        "summary_matched_abs_partial": null,
+        "summary_matched_floor_abs": null,
+        "ratio": null,
+        "ratio_unmatched": null
+      },
+      "near": {
+        "arm": "near",
+        "readings": [],
+        "placebo_abs": [],
+        "matched_partial_abs": [],
+        "matched_placebo_abs": [],
+        "summary_abs_partial": null,
+        "summary_floor_abs": null,
+        "summary_matched_abs_partial": null,
+        "summary_matched_floor_abs": null,
+        "ratio": null,
+        "ratio_unmatched": null
+      }
+    }
+  },
+  "knob_grid": {
+    "grid": {
+      "min_days": [
+        150,
+        300,
+        500
+      ],
+      "near_districts": [
+        4,
+        6,
+        8
+      ]
+    },
+    "per_reading": {
+      "levels": {
+        "points": 9,
+        "readable": 0,
+        "yes": 0,
+        "unanimous": null
+      },
+      "monthly_changes": {
+        "points": 9,
+        "readable": 0,
+        "yes": 0,
+        "unanimous": null
+      }
+    },
+    "points": [
+      {
+        "min_days": 150,
+        "near_districts": 4,
+        "reading": "levels",
+        "near": null,
+        "far": 1.39188931858184,
+        "near_above_far": null
+      },
+      {
+        "min_days": 150,
+        "near_districts": 4,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 150,
+        "near_districts": 6,
+        "reading": "levels",
+        "near": null,
+        "far": 1.39188931858184,
+        "near_above_far": null
+      },
+      {
+        "min_days": 150,
+        "near_districts": 6,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 150,
+        "near_districts": 8,
+        "reading": "levels",
+        "near": null,
+        "far": 1.39188931858184,
+        "near_above_far": null
+      },
+      {
+        "min_days": 150,
+        "near_districts": 8,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 300,
+        "near_districts": 4,
+        "reading": "levels",
+        "near": null,
+        "far": 1.39188931858184,
+        "near_above_far": null
+      },
+      {
+        "min_days": 300,
+        "near_districts": 4,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 300,
+        "near_districts": 6,
+        "reading": "levels",
+        "near": null,
+        "far": 1.39188931858184,
+        "near_above_far": null
+      },
+      {
+        "min_days": 300,
+        "near_districts": 6,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 300,
+        "near_districts": 8,
+        "reading": "levels",
+        "near": null,
+        "far": 1.39188931858184,
+        "near_above_far": null
+      },
+      {
+        "min_days": 300,
+        "near_districts": 8,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 500,
+        "near_districts": 4,
+        "reading": "levels",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 500,
+        "near_districts": 4,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 500,
+        "near_districts": 6,
+        "reading": "levels",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 500,
+        "near_districts": 6,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 500,
+        "near_districts": 8,
+        "reading": "levels",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      },
+      {
+        "min_days": 500,
+        "near_districts": 8,
+        "reading": "monthly_changes",
+        "near": null,
+        "far": null,
+        "near_above_far": null
+      }
+    ]
+  },
+  "criteria": [
+    {
+      "name": "B60-1  the near arm clears its own measured floor",
+      "kind": "instrument",
+      "passed": null,
+      "detail": "no near cell has a measured floor, so the instrument is not shown to return a non-zero on this carrier and nothing else here is adjudicable"
+    },
+    {
+      "name": "B60-2  premise: no broadcast reaches the far end of this carrier",
+      "kind": "premise",
+      "passed": false,
+      "premise_source": "Agmarknet publishes every market's daily price nationally, and it is the source of this data; and lentil is among the five pulses under a centrally announced support price, set before the sowing season on the costs commission's recommendation.",
+      "withdrawn_form": {
+        "was": "strong form: the far arm sits at its floor",
+        "why": "scored the registration with its antecedent removed",
+        "reading_kept": false,
+        "cell": "every far cell above its floor"
+      },
+      "detail": "the premise does not hold on this carrier, so the registered conditional-independence prediction has no object here and the far arm's level is reported rather than scored. Far cells at levels 1.39x of their own floors (every far cell above its floor), which on a carrier with broadcast is the branch the registration names rather than a reading against it"
+    },
+    {
+      "name": "B60-3  graded form: the residual is smaller between distant regions",
+      "kind": "own_reading",
+      "passed": null,
+      "detail": "not adjudicable: the positive control B60-1 did not clear, so this arm's reading cannot be told from what a statistic with no resolution returns. Original reading kept: no reading has both a near and a far cell with a measured floor, so there is nothing to compare"
+    },
+    {
+      "name": "B60-4  WITHDRAWN: scored an account that is not the rival",
+      "kind": "bookkeeping",
+      "grid_note": {
+        "B": "cells where the far arm falls to its floor, so the framework reads the zero it registered and the rival does not",
+        "C": "cells where the far arm stays above its floor, so the rival's prediction holds and the framework's does not",
+        "why": "both sentences are what this criterion would have said while it was typed as a rival's prediction; it was withdrawn, so neither cell is claimed"
+      },
+      "rival_premise": "Spatial arbitrage in a connected trading network: two markets trading one good are held together by traders moving the good between them directly, so their prices differ by transport cost alone.",
+      "rival_entailment": "A direct bilateral link is not routed through any third market, so conditioning on a third market does not remove it and the partial correlation of two distant markets stays above what the same statistic returns on shifted series.",
+      "passed": null,
+      "withdrawn": "spatial arbitrage is this framework's own projection operator, not an opposing account of where a level comes from",
+      "detail": "withdrawn. Reading kept: the rival's prediction holds in every far cell. 1 of 1 far cells stay above the floor (levels 1.39x)"
+    },
+    {
+      "name": "B60-5  the triple count is reported as presentation, not as evidence",
+      "kind": "bookkeeping",
+      "passed": true,
+      "detail": "3 far triples come from 3 states and 12 near triples from 6 districts. Triples sharing a series are not independent, so no count in this record is an independent-observation count"
+    }
+  ],
+  "independent_units": {
+    "states_behind_far_triples": 3,
+    "districts_behind_near_triples": 6,
+    "far_triples": 3,
+    "near_triples": 12
+  }
+}

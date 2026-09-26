@@ -1,0 +1,494 @@
+{
+ "config": {
+  "archives": [
+   "2002Q1",
+   "2006Q1",
+   "2007Q1",
+   "2012Q1",
+   "2017Q1",
+   "2019Q1"
+  ],
+  "identity_sample": 20000,
+  "pad": 1,
+  "population": "measurable and ideal-path clean cures (B8-0b's N)",
+  "rule_far_corner": [
+   "linear_in_log_tenor",
+   "linear_in_log_tenor"
+  ],
+  "rule_registered": [
+   "linear_in_tenor",
+   "cap"
+  ],
+  "seed": 20260915
+ },
+ "criteria": [
+  {
+   "detail": "the loop cache is read as the current code would build it: 2002Q1 prose-only (commit e7486655c608, text differs in experiments/b8_omega.py, experiments/b8_loops.py); 2006Q1 prose-only (commit e7486655c608, text differs in experiments/b8_omega.py, experiments/b8_loops.py); 2007Q1 prose-only (commit e7486655c608, text differs in experiments/b8_omega.py, experiments/b8_loops.py); 2012Q1 prose-only (commit e7486655c608, text differs in experiments/b8_omega.py, experiments/b8_loops.py); 2017Q1 prose-only (commit e7486655c608, text differs in experiments/b8_omega.py, experiments/b8_loops.py); 2019Q1 prose-only (commit e7486655c608, text differs in experiments/b8_omega.py, experiments/b8_loops.py)",
+   "kind": "instrument",
+   "name": "B8-O35-1",
+   "passed": true
+  },
+  {
+   "detail": "r(t) - log(B/B_hat) equals the contract term on real rows to 1.87e-14 (largest gap 3.55e-15 over 120,005 rows), and the row-subset curve lookup and balance agree bit for bit with the production functions on every row of 2019Q1: yes",
+   "kind": "instrument",
+   "name": "B8-O35-2",
+   "passed": true
+  },
+  {
+   "detail": "the cache reproduces 126 of 126 published figures at their printed precision. Subsample cells, not part of this criterion: 360 of 360",
+   "kind": "known_answer",
+   "name": "B8-O35-3",
+   "passed": true
+  },
+  {
+   "detail": "the published max floor shift is read back from the named loops: 2002Q1 no term step in the population: analytic 6.94e-17 at rounding, printed 7.276e-12 under the prefix-sum bound 5.81e-10; 2006Q1 no term step in the population: analytic 0.00e+00 at rounding, printed 3.638e-12 under the prefix-sum bound 1.79e-10; 2007Q1 no term step in the population: analytic 0.00e+00 at rounding, printed 5.457e-12 under the prefix-sum bound 1.40e-10; 2012Q1 no term step in the population: analytic 0.00e+00 at rounding, printed 1.455e-11 under the prefix-sum bound 1.24e-09; 2017Q1 3.102e-06 reproduced as 3.102e-06; 2019Q1 no term step in the population: analytic 0.00e+00 at rounding, printed 1.819e-12 under the prefix-sum bound 1.91e-10",
+   "kind": "known_answer",
+   "name": "B8-O35-4",
+   "passed": true
+  },
+  {
+   "detail": "every one of the 3 named loops is back inside B8-0a's own rounding bound once its contract term is removed: 2002Q1 loan 525441061621 1.45e-08 against 1.75e-07; 2002Q1 loan 838502611571 1.52e-07 against 5.59e-07; 2017Q1 loan 573498944173 1.22e-08 against 5.53e-08",
+   "kind": "known_answer",
+   "name": "B8-O35-5",
+   "passed": true
+  },
+  {
+   "detail": "3 named loops printed with their window paths and steps, against 3 counted; step tables by reporting month for all 6 archives",
+   "kind": "bookkeeping",
+   "name": "B8-O35-6",
+   "passed": true
+  },
+  {
+   "detail": "no B8 verdict moves on the floor screened of the named loops: B8-0b floor range: quoted 2.68e-08 to 5.22e-08, screened 2.68e-08 to 5.22e-08, digits unchanged, condition holds; B8-1 MAD ratio range, modification arm: quoted 2,412,840 to 6,765,767, screened 2,412,840 to 6,765,767, digits unchanged, condition holds; B8-3 delta / floor per archive (b8_3_paths section 1): quoted six cells, screened all six unchanged, digits unchanged, condition holds",
+   "kind": "own_reading",
+   "name": "B8-O35-7",
+   "passed": true
+  }
+ ],
+ "report": {
+  "N_2var": {
+   "2002Q1": {
+    "corrected": 2.247366e-13,
+    "published_population": 3.133815e-07,
+    "screened": 2.247394e-13
+   },
+   "2006Q1": {
+    "corrected": 5.311814e-14,
+    "published_population": 5.311814e-14,
+    "screened": 5.311814e-14
+   },
+   "2007Q1": {
+    "corrected": 5.666469e-14,
+    "published_population": 5.666469e-14,
+    "screened": 5.666469e-14
+   },
+   "2012Q1": {
+    "corrected": 3.103852e-14,
+    "published_population": 3.103852e-14,
+    "screened": 3.103852e-14
+   },
+   "2017Q1": {
+    "corrected": 5.690002e-15,
+    "published_population": 5.25779e-11,
+    "screened": 5.690109e-15
+   },
+   "2019Q1": {
+    "corrected": 1.111152e-14,
+    "published_population": 1.111152e-14,
+    "screened": 1.111152e-14
+   }
+  },
+  "N_mad": {
+   "2002Q1": {
+    "corrected": 5.216115e-08,
+    "published_population": 5.216154e-08,
+    "screened": 5.216115e-08
+   },
+   "2006Q1": {
+    "corrected": 3.543645e-08,
+    "published_population": 3.543645e-08,
+    "screened": 3.543645e-08
+   },
+   "2007Q1": {
+    "corrected": 3.366261e-08,
+    "published_population": 3.366261e-08,
+    "screened": 3.366261e-08
+   },
+   "2012Q1": {
+    "corrected": 3.282193e-08,
+    "published_population": 3.282193e-08,
+    "screened": 3.282193e-08
+   },
+   "2017Q1": {
+    "corrected": 2.694966e-08,
+    "published_population": 2.695027e-08,
+    "screened": 2.694997e-08
+   },
+   "2019Q1": {
+    "corrected": 2.680282e-08,
+    "published_population": 2.680282e-08,
+    "screened": 2.680282e-08
+   }
+  },
+  "floor": {
+   "2002Q1": {
+    "C_A_max_unnamed": 0.0,
+    "C_A_nonfinite_in_P": 0,
+    "C_B_nonfinite_in_P": 0,
+    "P": 144941,
+    "ideal": 145002,
+    "loops": 307944,
+    "measurable": 304780,
+    "named": 2,
+    "shift_max_over_P": 6.938894e-17,
+    "shift_max_unnamed": 0.0,
+    "with_field19_move": {
+     "P": 0,
+     "all": 1,
+     "ideal": 0,
+     "measurable": 1
+    },
+    "with_rate_step": {
+     "P": 2,
+     "all": 34,
+     "ideal": 2,
+     "measurable": 24
+    },
+    "with_term_step": {
+     "P": 0,
+     "all": 26,
+     "ideal": 6,
+     "measurable": 1
+    }
+   },
+   "2006Q1": {
+    "C_A_max_unnamed": 0.0,
+    "C_A_nonfinite_in_P": 0,
+    "C_B_nonfinite_in_P": 0,
+    "P": 67530,
+    "ideal": 67637,
+    "loops": 148669,
+    "measurable": 147054,
+    "named": 0,
+    "shift_max_over_P": 0.0,
+    "shift_max_unnamed": 0.0,
+    "with_field19_move": {
+     "P": 0,
+     "all": 0,
+     "ideal": 0,
+     "measurable": 0
+    },
+    "with_rate_step": {
+     "P": 0,
+     "all": 21,
+     "ideal": 0,
+     "measurable": 20
+    },
+    "with_term_step": {
+     "P": 0,
+     "all": 40,
+     "ideal": 1,
+     "measurable": 0
+    }
+   },
+   "2007Q1": {
+    "C_A_max_unnamed": 0.0,
+    "C_A_nonfinite_in_P": 0,
+    "C_B_nonfinite_in_P": 0,
+    "P": 65219,
+    "ideal": 65345,
+    "loops": 144476,
+    "measurable": 142597,
+    "named": 0,
+    "shift_max_over_P": 0.0,
+    "shift_max_unnamed": 0.0,
+    "with_field19_move": {
+     "P": 0,
+     "all": 0,
+     "ideal": 0,
+     "measurable": 0
+    },
+    "with_rate_step": {
+     "P": 0,
+     "all": 15,
+     "ideal": 0,
+     "measurable": 9
+    },
+    "with_term_step": {
+     "P": 0,
+     "all": 26,
+     "ideal": 0,
+     "measurable": 0
+    }
+   },
+   "2012Q1": {
+    "C_A_max_unnamed": 0.0,
+    "C_A_nonfinite_in_P": 0,
+    "C_B_nonfinite_in_P": 0,
+    "P": 50792,
+    "ideal": 50868,
+    "loops": 106389,
+    "measurable": 103155,
+    "named": 0,
+    "shift_max_over_P": 0.0,
+    "shift_max_unnamed": 0.0,
+    "with_field19_move": {
+     "P": 0,
+     "all": 0,
+     "ideal": 0,
+     "measurable": 0
+    },
+    "with_rate_step": {
+     "P": 0,
+     "all": 0,
+     "ideal": 0,
+     "measurable": 0
+    },
+    "with_term_step": {
+     "P": 0,
+     "all": 16,
+     "ideal": 0,
+     "measurable": 0
+    }
+   },
+   "2017Q1": {
+    "C_A_max_unnamed": 0.0,
+    "C_A_nonfinite_in_P": 0,
+    "C_B_nonfinite_in_P": 0,
+    "P": 50575,
+    "ideal": 50706,
+    "loops": 104331,
+    "measurable": 98480,
+    "named": 1,
+    "shift_max_over_P": 3.102309e-06,
+    "shift_max_unnamed": 0.0,
+    "with_field19_move": {
+     "P": 1,
+     "all": 2,
+     "ideal": 1,
+     "measurable": 1
+    },
+    "with_rate_step": {
+     "P": 0,
+     "all": 4,
+     "ideal": 0,
+     "measurable": 1
+    },
+    "with_term_step": {
+     "P": 1,
+     "all": 2,
+     "ideal": 1,
+     "measurable": 1
+    }
+   },
+   "2019Q1": {
+    "C_A_max_unnamed": 0.0,
+    "C_A_nonfinite_in_P": 0,
+    "C_B_nonfinite_in_P": 0,
+    "P": 24033,
+    "ideal": 24147,
+    "loops": 52960,
+    "measurable": 47412,
+    "named": 0,
+    "shift_max_over_P": 0.0,
+    "shift_max_unnamed": 0.0,
+    "with_field19_move": {
+     "P": 0,
+     "all": 1,
+     "ideal": 0,
+     "measurable": 1
+    },
+    "with_rate_step": {
+     "P": 0,
+     "all": 0,
+     "ideal": 0,
+     "measurable": 0
+    },
+    "with_term_step": {
+     "P": 0,
+     "all": 1,
+     "ideal": 0,
+     "measurable": 1
+    }
+   }
+  },
+  "named": [
+   {
+    "archive": "2002Q1",
+    "bound": 1.75027e-07,
+    "contract_term": -0.1130139,
+    "k": 1,
+    "loan": "525441061621",
+    "remainder": -1.454752e-08,
+    "residual": -0.1130139,
+    "steps": [
+     {
+      "field17": [
+       343,
+       342
+      ],
+      "field19": [
+       "2032-02",
+       "2032-02"
+      ],
+      "field9": [
+       7.125,
+       6.0
+      ],
+      "month": "2003-08"
+     }
+    ],
+    "window": [
+     "2003-06",
+     "2003-08"
+    ]
+   },
+   {
+    "archive": "2002Q1",
+    "bound": 5.589811e-07,
+    "contract_term": 0.09969316,
+    "k": 1,
+    "loan": "838502611571",
+    "remainder": 1.518408e-07,
+    "residual": 0.09969332,
+    "steps": [
+     {
+      "field17": [
+       337,
+       336
+      ],
+      "field19": [
+       "2032-03",
+       "2032-03"
+      ],
+      "field9": [
+       6.0,
+       7.0
+      ],
+      "month": "2004-03"
+     }
+    ],
+    "window": [
+     "2004-01",
+     "2004-03"
+    ]
+   },
+   {
+    "archive": "2017Q1",
+    "bound": 5.532072e-08,
+    "contract_term": 0.001153004,
+    "k": 1,
+    "loan": "573498944173",
+    "remainder": 1.223976e-08,
+    "residual": 0.001153016,
+    "steps": [
+     {
+      "field17": [
+       322,
+       322
+      ],
+      "field19": [
+       "2047-01",
+       "2047-02"
+      ],
+      "field9": [
+       4.99,
+       4.99
+      ],
+      "month": "2020-04"
+     }
+    ],
+    "window": [
+     "2020-02",
+     "2020-04"
+    ]
+   }
+  ],
+  "unflagged_step_totals": {
+   "2002Q1": {
+    "eligible_unflagged": 40199861,
+    "mat_unflagged": 7,
+    "rate_flagged": 6155,
+    "rate_unflagged": 374,
+    "term_flagged": 7134,
+    "term_unflagged": 7,
+    "term_unflagged_at_maturity": 2656
+   },
+   "2006Q1": {
+    "eligible_unflagged": 16522231,
+    "mat_unflagged": 1,
+    "rate_flagged": 24737,
+    "rate_unflagged": 64,
+    "term_flagged": 15605,
+    "term_unflagged": 1,
+    "term_unflagged_at_maturity": 791
+   },
+   "2007Q1": {
+    "eligible_unflagged": 14767394,
+    "mat_unflagged": 5,
+    "rate_flagged": 33890,
+    "rate_unflagged": 40,
+    "term_flagged": 20104,
+    "term_unflagged": 5,
+    "term_unflagged_at_maturity": 316
+   },
+   "2012Q1": {
+    "eligible_unflagged": 48872105,
+    "mat_unflagged": 31,
+    "rate_flagged": 722,
+    "rate_unflagged": 13,
+    "term_flagged": 3646,
+    "term_unflagged": 31,
+    "term_unflagged_at_maturity": 54
+   },
+   "2017Q1": {
+    "eligible_unflagged": 28590642,
+    "mat_unflagged": 57,
+    "rate_flagged": 1748,
+    "rate_unflagged": 9,
+    "term_flagged": 6565,
+    "term_unflagged": 57,
+    "term_unflagged_at_maturity": 0
+   },
+   "2019Q1": {
+    "eligible_unflagged": 10532140,
+    "mat_unflagged": 41,
+    "rate_flagged": 2710,
+    "rate_unflagged": 4,
+    "term_flagged": 5510,
+    "term_unflagged": 41,
+    "term_unflagged_at_maturity": 0
+   }
+  },
+  "verdict_figures": [
+   {
+    "condition": "none beyond the figures",
+    "condition_holds": true,
+    "digits_hold": true,
+    "quoted": "2.68e-08 to 5.22e-08",
+    "screened": "2.68e-08 to 5.22e-08",
+    "verdict": "B8-0b",
+    "what": "floor range"
+   },
+   {
+    "condition": "sqrt(Z)/sqrt(N) above 3 on every arm and archive (map of section 18.5)",
+    "condition_holds": true,
+    "digits_hold": true,
+    "quoted": "2,412,840 to 6,765,767",
+    "screened": "2,412,840 to 6,765,767",
+    "verdict": "B8-1",
+    "what": "MAD ratio range, modification arm"
+   },
+   {
+    "condition": "the verdict rests on per-cell signs and permutation, which the floor does not enter",
+    "condition_holds": true,
+    "digits_hold": true,
+    "quoted": "six cells",
+    "screened": "all six unchanged",
+    "verdict": "B8-3",
+    "what": "delta / floor per archive (b8_3_paths section 1)"
+   }
+  ]
+ },
+ "stage": "B8-O35"
+}

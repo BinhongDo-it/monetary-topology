@@ -1,0 +1,160 @@
+{
+ "config": {
+  "sources": [
+   "d_bb9b7f963ef295b750c9925e9e026524",
+   "d_7cce20f5d2d8ae2582da809e66a1cdd7"
+  ]
+ },
+ "stage": "A50-side-cpf-housing",
+ "summary": {
+  "max": 0.505,
+  "min": 0.1307,
+  "sum_housing_over_sum_contributions": 0.2583,
+  "years": [
+   "2006",
+   "2025"
+  ]
+ },
+ "table": {
+  "2006": {
+   "contributions": 16547000000.0,
+   "hdb_over_contributions": 0.2996,
+   "housing_over_contributions": 0.505,
+   "net_withdrawn_hdb": 4957600000.0,
+   "net_withdrawn_private": 3398100000.0
+  },
+  "2007": {
+   "contributions": 18185000000.0,
+   "hdb_over_contributions": 0.2573,
+   "housing_over_contributions": 0.3227,
+   "net_withdrawn_hdb": 4679000000.0,
+   "net_withdrawn_private": 1188900000.0
+  },
+  "2008": {
+   "contributions": 20294000000.0,
+   "hdb_over_contributions": 0.2217,
+   "housing_over_contributions": 0.2881,
+   "net_withdrawn_hdb": 4500000000.0,
+   "net_withdrawn_private": 1347000000.0
+  },
+  "2009": {
+   "contributions": 20125000000.0,
+   "hdb_over_contributions": 0.2021,
+   "housing_over_contributions": 0.29,
+   "net_withdrawn_hdb": 4067900000.0,
+   "net_withdrawn_private": 1768600000.0
+  },
+  "2010": {
+   "contributions": 21993000000.0,
+   "hdb_over_contributions": 0.1822,
+   "housing_over_contributions": 0.2207,
+   "net_withdrawn_hdb": 4006900000.0,
+   "net_withdrawn_private": 845900000.0
+  },
+  "2011": {
+   "contributions": 24628000000.0,
+   "hdb_over_contributions": 0.2219,
+   "housing_over_contributions": 0.2766,
+   "net_withdrawn_hdb": 5464300000.0,
+   "net_withdrawn_private": 1346700000.0
+  },
+  "2012": {
+   "contributions": 26048000000.0,
+   "hdb_over_contributions": 0.2189,
+   "housing_over_contributions": 0.3069,
+   "net_withdrawn_hdb": 5703100000.0,
+   "net_withdrawn_private": 2290600000.0
+  },
+  "2013": {
+   "contributions": 28530000000.0,
+   "hdb_over_contributions": 0.2047,
+   "housing_over_contributions": 0.2924,
+   "net_withdrawn_hdb": 5841300000.0,
+   "net_withdrawn_private": 2500200000.0
+  },
+  "2014": {
+   "contributions": 29722000000.0,
+   "hdb_over_contributions": 0.2319,
+   "housing_over_contributions": 0.3229,
+   "net_withdrawn_hdb": 6892300000.0,
+   "net_withdrawn_private": 2706000000.0
+  },
+  "2015": {
+   "contributions": 32049000000.0,
+   "hdb_over_contributions": 0.2206,
+   "housing_over_contributions": 0.3239,
+   "net_withdrawn_hdb": 7069900000.0,
+   "net_withdrawn_private": 3310600000.0
+  },
+  "2016": {
+   "contributions": 35852000000.0,
+   "hdb_over_contributions": 0.1945,
+   "housing_over_contributions": 0.3034,
+   "net_withdrawn_hdb": 6971900000.0,
+   "net_withdrawn_private": 3905500000.0
+  },
+  "2017": {
+   "contributions": 37285000000.0,
+   "hdb_over_contributions": 0.1978,
+   "housing_over_contributions": 0.2975,
+   "net_withdrawn_hdb": 7375200000.0,
+   "net_withdrawn_private": 3716900000.0
+  },
+  "2018": {
+   "contributions": 38370000000.0,
+   "hdb_over_contributions": 0.1621,
+   "housing_over_contributions": 0.2361,
+   "net_withdrawn_hdb": 6218600000.0,
+   "net_withdrawn_private": 2841300000.0
+  },
+  "2019": {
+   "contributions": 39850000000.0,
+   "hdb_over_contributions": 0.1575,
+   "housing_over_contributions": 0.2531,
+   "net_withdrawn_hdb": 6276200000.0,
+   "net_withdrawn_private": 3808500000.0
+  },
+  "2020": {
+   "contributions": 40903000000.0,
+   "hdb_over_contributions": 0.1254,
+   "housing_over_contributions": 0.2053,
+   "net_withdrawn_hdb": 5129700000.0,
+   "net_withdrawn_private": 3268700000.0
+  },
+  "2021": {
+   "contributions": 44785000000.0,
+   "hdb_over_contributions": 0.0877,
+   "housing_over_contributions": 0.1307,
+   "net_withdrawn_hdb": 3926400000.0,
+   "net_withdrawn_private": 1926500000.0
+  },
+  "2022": {
+   "contributions": 47568000000.0,
+   "hdb_over_contributions": 0.1094,
+   "housing_over_contributions": 0.1732,
+   "net_withdrawn_hdb": 5205700000.0,
+   "net_withdrawn_private": 3032200000.0
+  },
+  "2023": {
+   "contributions": 49146000000.0,
+   "hdb_over_contributions": 0.1739,
+   "housing_over_contributions": 0.3019,
+   "net_withdrawn_hdb": 8546600000.0,
+   "net_withdrawn_private": 6290800000.0
+  },
+  "2024": {
+   "contributions": 55851000000.0,
+   "hdb_over_contributions": 0.1343,
+   "housing_over_contributions": 0.2434,
+   "net_withdrawn_hdb": 7500000000.0,
+   "net_withdrawn_private": 6093400000.0
+  },
+  "2025": {
+   "contributions": 57854000000.0,
+   "hdb_over_contributions": 0.1235,
+   "housing_over_contributions": 0.1926,
+   "net_withdrawn_hdb": 7143200000.0,
+   "net_withdrawn_private": 3996800000.0
+  }
+ }
+}

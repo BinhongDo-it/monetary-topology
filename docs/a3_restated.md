@@ -13,12 +13,13 @@ Written 2026-08-10.
 
 ## 1. Why a restatement was needed
 
-`a3_asset_channel.md` §9.9 records that no A3 criterion carries new content:
+`a3_asset_channel.md` §5.1, "Two former criteria demoted, and why", records that
+no A3 criterion carries new content:
 A3-1 is a regression check, A3-2 says of itself that it is "a floor, not a
 finding", A3-3 and A3-4 are two readings of the same construction identity
 `adjusted return ≡ −log γ`, and A3-7 is that identity's sign consistency.
 
-§9.9 diagnosed this correctly and stopped there. What it did not supply is the
+That section diagnosed this correctly and stopped there. What it did not supply is the
 **reason** the identity readings are uninformative and the **test** that would
 not be. Both are below.
 
@@ -189,7 +190,8 @@ Terms dispersion is now two knobs, `κ_pay` and `κ_gate`.
 
 The measure must be a **divergence**, not a level, and it must not have a
 treated quantity in a denominator — A3-5 was rescaled once for exactly that
-(§9.13). Registered:
+(`a3_asset_channel.md` §6.1, item 3: "a small denominator produces a large
+multiple"). Registered:
 
 > The paired growth-multiple spread: each node's terminal net worth divided by
 > **its own opening claims**, and the spread taken as the ratio of the 90th to

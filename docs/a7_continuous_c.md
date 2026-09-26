@@ -612,7 +612,7 @@ to G4 from §4.3.
 
 | # | claim | what is registered | scored |
 |---|---|---|---|
-| **A7-B-1** | connectivity amplifies capital returns | `|d(K, s)|` on `log(1/HHI)` decreases in `s` over the scoring region, with `sign(d)` stable, same direction at every seed | yes, direction only |
+| **A7-B-1** | connectivity amplifies capital returns | `\|d(K, s)\|` on `log(1/HHI)` decreases in `s` over the scoring region, with `sign(d)` stable, same direction at every seed | yes, direction only |
 | **A7-B-2** | the same for education | as A7-B-1 for `E`, scored only where `d(E, s)` clears the seed noise floor at the low-`s` end | yes, conditional |
 | **A7-B-3** | the two measures are read together | if the Gini and `log(1/HHI)` disagree in the sign of the slope, that is reported as the finding per §3 and neither is quoted alone | yes, reporting rule |
 | **A7-B-4** | the probes | P1 and P2 on every row, and the §5.3 trigger evaluated before any `d` is read | **no**, gates |

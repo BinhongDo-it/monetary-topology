@@ -1,0 +1,260 @@
+{
+ "config": {
+  "bisection_steps": 60,
+  "blocks": [
+   2,
+   6
+  ],
+  "closed_share": 0.1,
+  "edge_p": [
+   0.08,
+   0.5
+  ],
+  "entry_every": 4,
+  "generic_floor": 1e-06,
+  "image_tol": 1e-09,
+  "max_periods": 4,
+  "mu_span": 0.5,
+  "n_economies": 200,
+  "n_firms": [
+   2,
+   8
+  ],
+  "n_graphs": 300,
+  "n_partitions": 300,
+  "n_production": 400,
+  "nodes": [
+   4,
+   30
+  ],
+  "part_nodes": [
+   6,
+   30
+  ],
+  "pieces_share": 0.25,
+  "seed": 0,
+  "sim": {
+   "G": 20.0,
+   "H0": 0.0,
+   "W": 1.0,
+   "alpha1": 0.6,
+   "alpha2": 0.4,
+   "theta": 0.2
+  },
+  "sim_digits": 6,
+  "sim_periods": 100,
+  "sim_rank_at": [
+   1,
+   2,
+   3,
+   10,
+   100
+  ],
+  "sim_ratio_upto": 40,
+  "sim_show": [
+   1,
+   2,
+   3,
+   50,
+   100
+  ],
+  "sim_steady": {
+   "H": 80.0,
+   "Y": 100.0,
+   "YD": 80.0
+  },
+  "tol": 1e-12,
+  "tol_cycle": 1e-12,
+  "tol_path": 0.0001,
+  "tol_price": 1e-09,
+  "tol_steady": 1e-09,
+  "x_per_graph": 5
+ },
+ "criteria": [
+  {
+   "detail": "100 periods from zero stocks, G = 20, theta = 0.2, alpha1 = 0.6, alpha2 = 0.4, W = 1, each solved from the seven equations of the model and written as a flow on households, firms and the outside node, over money, hours and goods. Kirchhoff's law holds within 1e-12 at every node of every period. At the outside node, whose equation no step of the solution uses, it holds within 1e-12 on the run cut at each of the 100 dates, and H_h(t) - H_s(t), the two stocks carried by the two budget constraints separately, stays within 1e-12. The graph is connected and its incidence matrix has rank one short of its node count: 8 nodes and rank 7 at 1 period, 14 nodes and rank 13 at 2 periods, 20 nodes and rank 19 at 3 periods, 62 nodes and rank 61 at 10 periods, 602 nodes and rank 601 at 100 periods. The stationary equations have rank 6 in 7 and solve to Y = 100, YD = 80, H = 80 within 1e-09; the last period lies within 0.0001 of them. The firms' production cycle sums to zero",
+   "kind": "known_answer",
+   "name": "B65-6",
+   "passed": true,
+   "statement": "Model SIM written as a flow on Gamma: Kirchhoff's law every period, the redundant equation at the outside node, and the stationary state"
+  },
+  {
+   "detail": "300 random graphs of 4 to 30 nodes, 87 of them in two or three pieces. The incidence matrix has rank V - c in 300 of 300, and the fundamental cycles number E - V + c = E - rank in 300 of 300. On the 275 graphs with a cycle, 1375 random circulations: every fundamental cycle is a circulation; a random potential pairs to zero with every circulation; the distance of Theorem 5, once by least squares and once by projection on the cycle space, agrees; |<omega, x>| never exceeds the distance times ||x||, and the field's cycle component attains it; an exact field has every fundamental cycle sum and its distance at zero, and adding a circulation z moves the distance to ||z||; a generic field leaves some fundamental cycle sum and its distance above 1e-06 on every graph; one unit sent around each fundamental cycle, rate by rate, returns exp of the cycle's sum. Identities within 1e-12",
+   "kind": "instrument",
+   "name": "B65-7a",
+   "passed": true,
+   "statement": "Proposition 9.0 and Theorem 9 on random graphs"
+  },
+  {
+   "detail": "300 random connected graphs of 6 to 30 nodes, each partitioned twice into 2 to 6 blocks. The projection keeps only the edges between blocks and sends every circulation to a circulation of the quotient, within 1e-12, in all 600 partitions. Blocks grown connected: the projection is onto in 300 of 300, its kernel has the dimension of the circulations inside the blocks in 300 of 300, and b1(Gamma) = b1(quotient) + sum of b1(blocks) in 300 of 300. Blocks drawn with no condition, 231 of them with a block in pieces: the kernel is still the circulations inside the blocks in 300 of 300, and the image misses onto by exactly the sum over blocks of (components - 1) in 300 of 300",
+   "kind": "instrument",
+   "name": "B65-7b",
+   "passed": true,
+   "statement": "Lemma 9.1 on random partitions"
+  },
+  {
+   "detail": "400 production draws, 200 with labour hours as the input and 200 with a bundle of prime inputs at its unit cost, the first at mu = 0 exactly, the rest with mu uniform in [-0.5, 0.5]. The production cycle sums to log(1 + mu) within 1e-12. All producers unbounded: a directed cycle is positive exactly when mu > 0 in 400 of 400. All producers bounded: no directed cycle is positive in 400 of 400. Bounded producers and one unbounded entrant: positive exactly when mu > 0 in 400 of 400. An entrant paying c per unit of output, on 100 draws, the first with c = 0: the largest price with no positive cycle is unit cost + c within 1e-09 in 100 of 100. Profits of 2 to 8 producers with their own costs and markups equal the sum over their cycles of cost bill times (exp(sum) - 1), within 1e-12 relative, on every draw",
+   "kind": "instrument",
+   "name": "B65-7c",
+   "passed": true,
+   "statement": "Theorem 10 and Corollary 10.2 on production graphs"
+  },
+  {
+   "detail": "200 random economies, 20 of them closed with workers spending what they earn, 493 periods in all, with workers, capitalists, firms and the rest of the world holding money and bills and the government as the outside node. Kirchhoff's law holds at every private node by construction and, without being imposed, at the outside node on the run cut at every date. The quotient by block and date carries a circulation. Period by period, each block's net lending read from its stocks equals its surplus on the flows that cross into it: S_w for workers, M - X for the rest of the world, P - C_k - I for capitalists with their firms, with P read from the firms' income statement; with T - G for the government the four sum to zero; P = C_k + I + (G - T) + (X - M) - S_w; and in the closed economies P = C_k + I. All within 1e-12",
+   "kind": "instrument",
+   "name": "B65-7d",
+   "passed": true,
+   "statement": "Corollary 10.1 on random economies, period by period"
+  }
+ ],
+ "mapping": {
+  "B65-6": "read back -> PASS; not read back -> FAIL, and the code is fixed first",
+  "B65-7": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed"
+ },
+ "report": {
+  "B65-6": {
+   "balance_sheet_row_below": 1e-12,
+   "convergence_factor": 0.846153846154,
+   "kirchhoff_below": 1e-12,
+   "last_period_within": 0.0001,
+   "outside_node_below": 1e-12,
+   "path": {
+    "1": {
+     "C": 18.461538,
+     "Hh": 12.307692,
+     "Hs": 12.307692,
+     "T": 7.692308,
+     "Y": 38.461538,
+     "YD": 30.769231,
+     "dHh": 12.307692
+    },
+    "100": {
+     "C": 79.999996,
+     "Hh": 79.999996,
+     "Hs": 79.999996,
+     "T": 19.999999,
+     "Y": 99.999996,
+     "YD": 79.999997,
+     "dHh": 1e-06
+    },
+    "2": {
+     "C": 27.928994,
+     "Hh": 22.721893,
+     "Hs": 22.721893,
+     "T": 9.585799,
+     "Y": 47.928994,
+     "YD": 38.343195,
+     "dHh": 10.414201
+    },
+    "3": {
+     "C": 35.939918,
+     "Hh": 31.53391,
+     "Hs": 31.53391,
+     "T": 11.187984,
+     "Y": 55.939918,
+     "YD": 44.751934,
+     "dHh": 8.812016
+    },
+    "50": {
+     "C": 79.982854,
+     "Hh": 79.981139,
+     "Hs": 79.981139,
+     "T": 19.996571,
+     "Y": 99.982854,
+     "YD": 79.986283,
+     "dHh": 0.003429
+    }
+   },
+   "periods": 100,
+   "production_cycle_sum": 0.0,
+   "ranks": {
+    "1": {
+     "components": 1,
+     "nodes": 8,
+     "rank": 7
+    },
+    "10": {
+     "components": 1,
+     "nodes": 62,
+     "rank": 61
+    },
+    "100": {
+     "components": 1,
+     "nodes": 602,
+     "rank": 601
+    },
+    "2": {
+     "components": 1,
+     "nodes": 14,
+     "rank": 13
+    },
+    "3": {
+     "components": 1,
+     "nodes": 20,
+     "rank": 19
+    }
+   },
+   "ratio_matches_factor_below_1e-9": true,
+   "stationary": {
+    "C": 80.0,
+    "H": 80.0,
+    "N": 100.0,
+    "T": 20.0,
+    "Y": 100.0,
+    "YD": 80.0
+   },
+   "stationary_rank": 6,
+   "stationary_within": 1e-09
+  },
+  "B65-7a": {
+   "circulations": 1375,
+   "cycle_count_matches": 300,
+   "generic_above": 1e-06,
+   "graphs": 300,
+   "graphs_with_cycles": 275,
+   "identities_below": 1e-12,
+   "in_pieces": 87,
+   "rank_is_V_minus_c": 300
+  },
+  "B65-7b": {
+   "connected_blocks": {
+    "kernel": 300,
+    "n": 300,
+    "onto": 300,
+    "split": 300
+   },
+   "graphs": 300,
+   "into_below": 1e-12,
+   "rank_cut": 1e-09,
+   "unconditioned_blocks": {
+    "kernel": 300,
+    "n": 300,
+    "short_by_deficit": 300,
+    "with_deficit": 231
+   }
+  },
+  "B65-7c": {
+   "counts": {
+    "all_bounded": 400,
+    "bounded_plus_entrant": 400,
+    "bundle": 200,
+    "draws": 400,
+    "entry_cap": 100,
+    "entry_draws": 100,
+    "entry_zero_cost": 1,
+    "free_entry": 400,
+    "labour": 200
+   },
+   "cycle_sum_below": 1e-12,
+   "limit_price_below": 1e-09,
+   "profits_below": 1e-12
+  },
+  "B65-7d": {
+   "closed": 20,
+   "economies": 200,
+   "identities_below": 1e-12,
+   "periods": 493
+  }
+ },
+ "stage": "B65"
+}

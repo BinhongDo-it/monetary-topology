@@ -1,0 +1,165 @@
+{
+ "config": {
+  "countries": [
+   "CHN",
+   "IND",
+   "IDN"
+  ],
+  "rel_tol": 1e-06
+ },
+ "criteria": [
+  {
+   "detail": "release-to-release pairs unchanged to 1e-6: 57; rural or urban merged into national: 6; any other change: 0",
+   "kind": "instrument",
+   "name": "B134-1",
+   "passed": true
+  },
+  {
+   "detail": "chen_ravallion_wps4703.pdf: found; pip_handbook_convert.html: found; wb_india_poverty_methodology_2025.pdf: found; wb_indonesia_poverty_brief.pdf: found",
+   "kind": "known_answer",
+   "name": "B134-2",
+   "passed": true
+  },
+  {
+   "detail": "CHN 2011: [2]; CHN 2017: [2]; CHN 2021: [2]; IND 2011: [2]; IND 2017: [1, 2]; IND 2021: [1]; IDN 2011: [1, 2]; IDN 2017: [1, 2]; IDN 2021: [1]. Two to one: IND 2017: two class values to one in release 20250930; IDN 2011: two class values to one in release 20240627; IDN 2017: two class values to one in release 20240627",
+   "kind": "own_reading",
+   "name": "B134-3",
+   "passed": true
+  },
+  {
+   "detail": "2011: national 21.66 % above rural, urban 28.5 %, national at 0.76 of the way to urban; 2017: national 18.64 % above rural, urban 23.56 %, national at 0.7913 of the way to urban; 2021: national 17.17 % above rural, urban 22.61 %, national at 0.7593 of the way to urban",
+   "kind": "own_reading",
+   "name": "B134-4",
+   "passed": true
+  },
+  {
+   "detail": "wb_india_poverty_methodology_2025.pdf: 960 indices (32 states x 2 sectors x 15 commodity groups); wb_indonesia_poverty_brief.pdf: annual regency-level spatial deflator based on a Paasche-type index",
+   "kind": "own_reading",
+   "name": "B134-5",
+   "passed": true
+  }
+ ],
+ "objects": {
+  "B134-1": {
+   "merges": [
+    "IDN 2011 rural: 3498.88 -> 3892.22 (equal to national) in 20240627",
+    "IDN 2011 urban: 4140.3 -> 3892.22 (equal to national) in 20240627",
+    "IDN 2017 rural: 4746.85 -> 5089.69 (equal to national) in 20240627",
+    "IDN 2017 urban: 5098.2 -> 5089.69 (equal to national) in 20240627",
+    "IND 2017 rural: 17.092 -> 19.469 (equal to national) in 20250930",
+    "IND 2017 urban: 20.7873 -> 19.469 (equal to national) in 20250930"
+   ],
+   "other": [],
+   "unchanged": 57
+  },
+  "B134-2": {
+   "chen_ravallion_wps4703.pdf": {
+    "found": true,
+    "sentence": "We treat the ICP’s PPP as an urban PPP"
+   },
+   "pip_handbook_convert.html": {
+    "found": true,
+    "sentence": "separate rural and urban PPPs are computed for China, India, and Indonesia"
+   },
+   "wb_india_poverty_methodology_2025.pdf": {
+    "found": true,
+    "sentence": "a single national PPP factor is applied to the real welfare aggregate"
+   },
+   "wb_indonesia_poverty_brief.pdf": {
+    "found": true,
+    "sentence": "separate urban and rural PPP conversion factors was discontinued"
+   }
+  },
+  "B134-3": {
+   "counts": {
+    "CHN 2011": {
+     "20220909": 2,
+     "20230919": 2,
+     "20240627": 2
+    },
+    "CHN 2017": {
+     "20220909": 2,
+     "20230919": 2,
+     "20240627": 2,
+     "20250930": 2,
+     "20260922": 2
+    },
+    "CHN 2021": {
+     "20250930": 2,
+     "20260922": 2
+    },
+    "IDN 2011": {
+     "20220909": 2,
+     "20230919": 2,
+     "20240627": 1
+    },
+    "IDN 2017": {
+     "20220909": 2,
+     "20230919": 2,
+     "20240627": 1,
+     "20250930": 1,
+     "20260922": 1
+    },
+    "IDN 2021": {
+     "20250930": 1,
+     "20260922": 1
+    },
+    "IND 2011": {
+     "20220909": 2,
+     "20230919": 2,
+     "20240627": 2
+    },
+    "IND 2017": {
+     "20220909": 2,
+     "20230919": 2,
+     "20240627": 2,
+     "20250930": 1,
+     "20260922": 1
+    },
+    "IND 2021": {
+     "20250930": 1,
+     "20260922": 1
+    }
+   },
+   "two_to_one": [
+    "IND 2017: two class values to one in release 20250930",
+    "IDN 2011: two class values to one in release 20240627",
+    "IDN 2017: two class values to one in release 20240627"
+   ]
+  },
+  "B134-4": {
+   "2011": {
+    "national": 3.69751739501953,
+    "national_over_rural_pct": 21.66,
+    "national_position_rural0_urban1": 0.76,
+    "release": "20240627",
+    "rural": 3.039221925875,
+    "urban": 3.905400174749,
+    "urban_over_rural_pct": 28.5
+   },
+   "2017": {
+    "national": 4.14664220809937,
+    "national_over_rural_pct": 18.64,
+    "national_position_rural0_urban1": 0.7913,
+    "release": "20260922",
+    "rural": 3.4950105763909995,
+    "urban": 4.318484412962,
+    "urban_over_rural_pct": 23.56
+   },
+   "2021": {
+    "national": 4.01282787322998,
+    "national_over_rural_pct": 17.17,
+    "national_position_rural0_urban1": 0.7593,
+    "release": "20260922",
+    "rural": 3.4248677956241624,
+    "urban": 4.199237165399866,
+    "urban_over_rural_pct": 22.61
+   }
+  },
+  "B134-5": {
+   "wb_india_poverty_methodology_2025.pdf": "960 indices (32 states x 2 sectors x 15 commodity groups)",
+   "wb_indonesia_poverty_brief.pdf": "annual regency-level spatial deflator based on a Paasche-type index"
+  }
+ },
+ "stage": "B134"
+}

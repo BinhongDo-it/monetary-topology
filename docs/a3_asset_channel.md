@@ -1596,7 +1596,7 @@ rarely gets.
 57 points pooled from 6 records, every one of them written before this section
 existed. `results/a3k_zero_domain.json`.
 
-| | exact `0` | median `|·|` | p90 `|·|` | max `|·|` | sign-stable |
+| | exact `0` | median `\|·\|` | p90 `\|·\|` | max `\|·\|` | sign-stable |
 |---|---|---|---|---|---|
 | **gate channel, `H⁰`** | **5** | `0.1130` | `1.2264` | `2.9375` | **`0 / 57`** |
 | **terms channel, `H¹`** | 1 | `0.3810` | `18.3683` | `24.8347` | `9 / 57` |

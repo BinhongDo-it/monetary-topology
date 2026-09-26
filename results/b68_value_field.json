@@ -1,0 +1,119 @@
+{
+ "config": {
+  "column_sums": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "gap_floor": 1e-09,
+  "n_baskets": 4,
+  "n_systems": 200,
+  "r_fractions": [
+   0.0,
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   0.9,
+   0.99
+  ],
+  "seed": 0,
+  "sizes": [
+   3,
+   8
+  ],
+  "spread_floor": 1e-06,
+  "tol": 1e-12,
+  "tol_aggregate": 1e-10,
+  "tol_cycle": 1e-10,
+  "tol_eigen": 1e-09,
+  "value_of_basket": [
+   0.2,
+   0.5,
+   0.8,
+   1.0,
+   1.2,
+   1.5
+  ],
+  "wage_shares": [
+   0.2,
+   0.5,
+   0.8
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "200 random productive systems, 6 wage baskets each, drawn so that the labour value of the basket takes the values 0.2, 0.5, 0.8, 1, 1.2, 1.5. **The rate of profits is positive exactly when the basket is worth less than the labour it buys**, at all 1200 points, with `1 + r = 1 / lambda_PF(A + b l)`. This is the Fundamental Marxian Theorem of Okishio (1963, *Weltwirtschaftliches Archiv* 91(2)) and Morishima (1973, *Marx's Economics*, Cambridge, p. 53), read back here on drawn systems. The step the proof turns on, `v (A + b l) = v - (1 - v b) l`, holds within 1e-12: **the augmented matrix moves the value vector down by the surplus and by nothing else**, so the value vector is a positive left vector shrunk by the matrix exactly when the surplus is positive. The left Perron vector of the augmented matrix is positive and solves the price equation within 1e-09 relative on all 1200 points where it was drawn",
+   "kind": "known_answer",
+   "name": "B68-6",
+   "passed": true,
+   "statement": "Corollary 13.2, the Fundamental Marxian Theorem: the rate of profits is positive exactly when the rate of exploitation is"
+  },
+  {
+   "detail": "200 systems. **With labour as the unit of account the member of the family at r = 0 is the labour value vector itself**, within 1e-12 on every system: the two systems of equations `v = v A + l` and `p = (1 + r) p A + w l` are the same equations at `r = 0`, `w = 1`. On the value field every production cycle sums to zero and the distance of Theorem 5 is zero within 1e-10 at all 200 systems, so **the value field is exact and sits in the zero set of Corollary 5.4**. At the 6 positive rates the same drawing gives log(1 + r) on every cycle and a distance of sqrt(n / 3) times it, within 1e-10 at all 1200 points",
+   "kind": "instrument",
+   "name": "B68-7a",
+   "passed": true,
+   "statement": "Theorem 13(1) and (3): the labour values are the member of the family at r = 0, and that member is the only exact one"
+  },
+  {
+   "detail": "200 systems, 4 net products each, 3 wage shares, two baskets per share. The total value of the net product is the labour employed, within 1e-10. With the net product as the unit of account **the first aggregate equality is a choice of unit and the second one is not**: the gap between total profits and total surplus value is the labour employed times the gap between what the wage basket costs and what it is worth, `Pi - S = L (v b - p b)`, an identity that holds within 1e-10 at all 4800 points. **A basket in the proportions of the net product closes both at once**, within 1e-10 at all 2400 points, because pricing the net product at its value prices any multiple of it at its value. A basket drawn without that proportion leaves them apart at all 2400 points. **So whether the two aggregates survive the move along the family is a statement about which flow is paired with the field, not about the prices**",
+   "kind": "instrument",
+   "name": "B68-7b",
+   "passed": true,
+   "statement": "Corollary 13.1: which aggregates survive the move is a statement about the flow they are paired with"
+  },
+  {
+   "detail": "200 systems at 6 positive rates each, each drawn twice. With the advance in the bundle and the return left on the sale leg, every production cycle sums to log(1 + r) and the distance is positive. **With the return on the advance bought along with the inputs, the bundle costs exactly what the product sells for**: every cycle sums to zero and the distance vanishes, within 1e-10 at all 1200 points. The two drawings differ by log(1 + r) on every cycle, within 1e-10. **The prices, the wage and the rate are the same numbers in both drawings**, so whether the normal return on capital is read as a cost or as a profit is a choice of where to draw the edge, and `r` is what does not move when it is made. It follows that the distance is not a measure of the gap between values and prices: **the distance counts the drawing, and the family's parameter is the rate itself**",
+   "kind": "instrument",
+   "name": "B68-7c",
+   "passed": true,
+   "statement": "Corollary 13.3: the return read as a cost closes every cycle, and the rate does not move"
+  },
+  {
+   "detail": "200 systems at 6 positive rates each, with two labour vectors. **With the labour vector drawn at random, prices are not proportional to values at any positive rate**, at all 1200 points. **With the labour vector taken to be the left Perron vector of A, they are proportional at every rate**, within 1e-06 at all 1200 points, because then `v` is a multiple of `l` and the price equation reproduces that multiple at every rate. Equal composition in the classical sense is exactly `v` proportional to `l`, so **the condition for prices to stay proportional to values along the family is a condition on the technique, not on the rate**",
+   "kind": "instrument",
+   "name": "B68-7d",
+   "passed": true,
+   "statement": "Corollary 13.1(5): prices stay proportional to values exactly under equal composition"
+  }
+ ],
+ "mapping": {
+  "B68-6": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B68-7": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B68-6": {
+   "identity_within": 1e-12,
+   "points": 1200,
+   "sign_agrees": 1200,
+   "systems": 200
+  },
+  "B68-7a": {
+   "rate_points": 1200,
+   "systems": 200,
+   "within": 1e-10,
+   "zero_points": 200
+  },
+  "B68-7b": {
+   "drawn_points": 2400,
+   "gap_floor": 1e-09,
+   "standard_points": 2400,
+   "systems": 200,
+   "within": 1e-10
+  },
+  "B68-7c": {
+   "closed": 1200,
+   "points": 1200,
+   "systems": 200,
+   "within": 1e-10
+  },
+  "B68-7d": {
+   "drawn_points": 1200,
+   "equal_points": 1200,
+   "spread_floor": 1e-06,
+   "systems": 200
+  }
+ },
+ "stage": "B68"
+}

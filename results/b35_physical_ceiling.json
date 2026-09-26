@@ -1,0 +1,391 @@
+{
+ "config": {
+  "atom_rule": "four digits, all numeric, not starting 00",
+  "break": [
+   2022,
+   9
+  ],
+  "slaughter_head": {
+   "2021": 128985900,
+   "2022": 125321700,
+   "2023": 127971000
+  },
+  "slaughter_source": "USDA NASS, Livestock Slaughter Annual Summary, commercial slaughter, head; 2021 and 2022 from the 2022 summary (April 2023), 2023 from the 2023 summary (April 2024)",
+  "source": "b35_census_raw_020649_bycountry_2021-2023.json",
+  "yield_kg_per_animal": {
+   "feet": {
+    "kg": 1.86,
+    "note": "fore 0.85 plus hind 1.01, both as reported per animal",
+    "per_animal": 1,
+    "sd": 0.15
+   },
+   "hearts": {
+    "kg": 0.42,
+    "note": "unslashed",
+    "per_animal": 1,
+    "sd": 0.05
+   },
+   "tongues": {
+    "kg": 0.25,
+    "note": "tip on",
+    "per_animal": 1,
+    "sd": 0.04
+   }
+  },
+  "yield_source": "Pork Information Gateway, Determination of by-product yield values from market swine, 196 crossbred market barrows and gilts, mean live weight 111.4 +/- 13.3 kg"
+ },
+ "criteria": [
+  {
+   "detail": "three years of commercial slaughter and three yields, each with its source and its spread, and one line of arithmetic between them; no step below divides by a number that is not printed here",
+   "kind": "instrument",
+   "name": "B35-PH-1",
+   "passed": true
+  },
+  {
+   "detail": "the same arithmetic on two parts nobody is questioning asks how many times the dissected part a traded piece would have to be: feet run 0.728 to 1.013 and hearts 0.047 to 0.100, so the trade cut costs the controls at most 1.013 times the anatomy, while the tongue line asks for 2.549 times, a factor of 2.52 more allowance than any control needs",
+   "kind": "known_answer",
+   "name": "B35-PH-2",
+   "passed": true
+  },
+  {
+   "detail": "at the dissected weight the line runs 2021 0.660, 2022 0.997, 2023 2.549 of production, and a traded tongue of 0.6372 kg would make 2023 fit; but the weight cancels out of the ratio between years, and there the tonnage rises 3.833x while slaughter moves 0.992x, so the share of the country's tongues that leave it rose 3.864x whatever a tongue weighs. For 2023 to sit at or below every tongue in the country, 2021 must have been at or below 0.259 of them, meaning three quarters of US pork tongue went unexported in a year when it was already being shipped at $2.40/kg",
+   "kind": "own_reading",
+   "name": "B35-PH-3",
+   "passed": true
+  },
+  {
+   "detail": "against slaughter by month, the world tongue line runs 0.544 to 0.795 of the country's tongue production in January through August 2022 and 1.055 to 2.255 from September; it crosses its own physical ceiling in the break month named by the gate and does not come back under it",
+   "kind": "own_reading",
+   "name": "B35-PH-4",
+   "passed": true
+  },
+  {
+   "detail": "on the China leg the tongue line's quantity moves 12.765x while its unit value moves 0.451x ($2.864 to $1.292 a kg); a demand shift against a supply position fixed by slaughter moves both the same way, and these move opposite ways, so the quantity did not come from wanting more of this good",
+   "kind": "known_answer",
+   "name": "B35-PH-5",
+   "passed": true
+  },
+  {
+   "detail": "hearts do the opposite and the arithmetic says so: world exports rise 1.174x while China's fall 0.447x and every other destination rises 6.196x, China's share going 0.873 to 0.332, with the line sitting at 0.100 of production and no physical anomaly anywhere; that is a destination and demand shift, and it is what one looks like here",
+   "kind": "own_reading",
+   "name": "B35-PH-6",
+   "passed": true
+  },
+  {
+   "detail": "exports exceed domestic production only if nothing was imported and re-exported; that pull is named and all 3 of its outcomes carry distinct readings written before it runs, one of which voids this file",
+   "kind": "bookkeeping",
+   "name": "B35-PH-7",
+   "passed": true
+  },
+  {
+   "detail": "one code, one origin, two prices: in 2021 the China leg runs $2.30-3.62 a kg by month against $1.92-2.56 everywhere else and the two overlap, and in 2023 they are $1.07-1.58 against $2.07-2.41 and they do not; the rest of the world goes on paying a tongue price for this code while the China leg pays 0.574 of it, and no weight, yield or slaughter figure enters this reading",
+   "kind": "own_reading",
+   "name": "B35-PH-8",
+   "passed": true
+  }
+ ],
+ "report": {
+  "demand_signature": {
+   "china_price_factor": 0.4510424422525172,
+   "china_qty_factor": 12.765031819179285,
+   "prediction": "a demand shift along a supply curve fixed by slaughter moves quantity and price in the same direction",
+   "price_2021": 2.8642627983225193,
+   "price_2023": 1.2919040878084183,
+   "why_not_filed_as_rival": "this is an alternative explanation for one of this station's own readings, not a point prediction of a competing price theory, so it is a known-answer check and stays out of the four-cell table"
+  },
+  "export_rate_invariant": {
+   "export_rate_multiple": 3.863663158219013,
+   "max_first_year_rate_for_last_to_be_possible": 0.25882173446531975,
+   "slaughter_multiple": 0.9921316981158406,
+   "tonnage_multiple": 3.833262690111441,
+   "why_invariant": "a traded tongue weighs the same in both years, so it cancels out of the ratio; no choice of weight moves this number"
+  },
+  "exports_over_production": {
+   "feet": {
+    "2021": {
+     "exports_t": 174567.519,
+     "production_t": 239913.774,
+     "ratio": 0.7276260803600213
+    },
+    "2022": {
+     "exports_t": 236189.27,
+     "production_t": 233098.362,
+     "ratio": 1.013260101759102
+    },
+    "2023": {
+     "exports_t": 182210.17,
+     "production_t": 238026.06,
+     "ratio": 0.7655051299845067
+    }
+   },
+   "hearts": {
+    "2021": {
+     "exports_t": 4564.255,
+     "production_t": 54174.078,
+     "ratio": 0.08425164153232105
+    },
+    "2022": {
+     "exports_t": 2470.673,
+     "production_t": 52635.114,
+     "ratio": 0.04693963425252579
+    },
+    "2023": {
+     "exports_t": 5357.66,
+     "production_t": 53747.82,
+     "ratio": 0.09968143824251849
+    }
+   },
+   "tongues": {
+    "2021": {
+     "exports_t": 21271.208,
+     "production_t": 32246.475,
+     "ratio": 0.6596444417568121
+    },
+    "2022": {
+     "exports_t": 31241.727,
+     "production_t": 31330.425,
+     "ratio": 0.9971689499903049
+    },
+    "2023": {
+     "exports_t": 81538.128,
+     "production_t": 31992.75,
+     "ratio": 2.5486439271397425
+    }
+   }
+  },
+  "formula": "production_kg = slaughter_head * per_animal * kg; exports cannot exceed production, so the ratio exports / production is bounded by one",
+  "hearts": {
+   "china_factor": 0.4465031465786444,
+   "china_share": [
+    0.8734985227600123,
+    0.33226259225109467
+   ],
+   "china_t": [
+    3986.87,
+    1780.15
+   ],
+   "exports_over_production": [
+    0.08425164153232105,
+    0.09968143824251849
+   ],
+   "nonchina_factor": 6.1960563575430605,
+   "nonchina_t": [
+    577.385,
+    3577.51
+   ],
+   "world_factor": 1.1738301212355575,
+   "world_t": [
+    4564.255,
+    5357.66
+   ]
+  },
+  "monthly_2022": [
+   {
+    "ceiling_t": 2602.525,
+    "exports_t": 1612.193,
+    "month": 1,
+    "ratio": 0.619472627544404
+   },
+   {
+    "ceiling_t": 2485.85,
+    "exports_t": 1614.612,
+    "month": 2,
+    "ratio": 0.6495210893658104
+   },
+   {
+    "ceiling_t": 2812.55,
+    "exports_t": 1528.697,
+    "month": 3,
+    "ratio": 0.5435270484080283
+   },
+   {
+    "ceiling_t": 2519.675,
+    "exports_t": 1496.481,
+    "month": 4,
+    "ratio": 0.5939182632680802
+   },
+   {
+    "ceiling_t": 2508.625,
+    "exports_t": 1994.725,
+    "month": 5,
+    "ratio": 0.7951467437341173
+   },
+   {
+    "ceiling_t": 2626.35,
+    "exports_t": 1800.979,
+    "month": 6,
+    "ratio": 0.6857345745997296
+   },
+   {
+    "ceiling_t": 2329.575,
+    "exports_t": 1833.949,
+    "month": 7,
+    "ratio": 0.7872461715119711
+   },
+   {
+    "ceiling_t": 2747.4,
+    "exports_t": 2069.604,
+    "month": 8,
+    "ratio": 0.7532954793623062
+   },
+   {
+    "ceiling_t": 2664.75,
+    "exports_t": 2811.701,
+    "month": 9,
+    "ratio": 1.0551462613753635
+   },
+   {
+    "ceiling_t": 2729.85,
+    "exports_t": 5689.352,
+    "month": 10,
+    "ratio": 2.0841262340421634
+   },
+   {
+    "ceiling_t": 2728.5,
+    "exports_t": 2983.3,
+    "month": 11,
+    "ratio": 1.093384643577057
+   },
+   {
+    "ceiling_t": 2574.75,
+    "exports_t": 5806.134,
+    "month": 12,
+    "ratio": 2.255028255170405
+   }
+  ],
+  "re_export_check": {
+   "branches": {
+    "domestic": {
+     "pattern": "US imports of 0206490010 in 2023 are small next to the 50,000 tonne gap",
+     "reading": "the tongue line cannot be tongue and the code's contents are what changed, which is the gate's verdict standing on a physical bound"
+    },
+    "partial": {
+     "pattern": "imports cover part of the gap",
+     "reading": "the bound is weakened by the imported tonnage and the reading is restated against production plus imports, which is a subtraction, not a new argument"
+    },
+    "re_export": {
+     "pattern": "US imports of 0206490010 in 2023 are of the order of the gap",
+     "reading": "exports are not bounded by domestic production and this whole file is void; the gate's verdict would then rest on the unit value and the mass balance alone"
+    }
+   },
+   "how_the_three_branches_are_scored": "they collapse onto one quantity with no constant in it, exports / (production + general imports), and whether it is still above one. That is the partial branch's own registered reading applied to all three: above one the bound still binds and the distance above one is how much survives, printed rather than banded; at or below one that year's headline is void. General imports rather than imports for consumption, because goods that enter a zone and leave again are the flow this pull asks about and they never clear for consumption",
+   "needs": "US Census intltrade IMPORTS, HS10 0206490010, 2023, same endpoint and same fetcher as the exports side",
+   "note_not_a_reading": "an argument exists and is not used as one: imported tongue would have to be bought at a tongue price, and the line's unit value fell to head meat's, so re-export would have to be loss-making. That is reasoning, and the pull is a measurement, so the pull is registered rather than replaced",
+   "outcome": {
+    "2023": {
+     "all_frozen_offal_imports_t": 18533.865,
+     "gap_t": 49545.378,
+     "imports_over_gap": 0.374,
+     "ratio_against_production": 2.5486,
+     "ratio_against_production_plus_imports": 1.6138,
+     "reading": "even if every kilogram was tongue and every kilogram was re-exported it covers 0.374 of the gap, so the bound still binds and the re_export branch is excluded by arithmetic rather than by argument"
+    },
+    "branch_hit": "partial, with the imported tonnage subtracted at its ceiling",
+    "origins_2023_t": {
+     "CANADA": 10188.165,
+     "CHILE": 455.164,
+     "DENMARK": 2546.609,
+     "FINLAND": 153.068,
+     "MEXICO": 4418.893,
+     "SPAIN": 615.042
+    },
+    "the_argument_that_was_registered_and_not_used_is_now_a_number": "the imported basket's unit value is $2.34/kg in 2023 while the China leg of the tongue line exported at $1.29/kg, so re-export would run at a loss of that order. It is reported and not leaned on: the basket mixes tongues, hearts and skins, so its average is not a tongue price",
+    "the_tongue_line_is_not_readable_on_that_side": "the imports schedule carries one basket, 0206490000 OFFAL OF SWINE EDIBLE FROZEN NESOI, where the exports schedule splits 0206.49 into tongues, hearts and skins. So the quantity the pull originally named cannot be read on the imports side at any price, and its absence is recorded as not readable rather than as zero",
+    "what_the_bound_does_not_cover": "tongue entering under a different heading, above all 0206.30 fresh or chilled, and leaving frozen. That basket has not been pulled. The same script takes it with --hs6 020630, and until it is pulled the bound covers the frozen route only",
+    "what_was_read_instead": "every kilogram of frozen swine offal the country imported, which is a strict upper bound on the part of it that was tongue, so it goes in at its ceiling and no share is borrowed"
+   },
+   "status": "run 2026-09-13, results/b35_reexport_pull.json"
+  },
+  "required_tongue_weight": {
+   "2021": {
+    "ratio": 0.6596444417568121,
+    "required_kg": 0.16491111043920303,
+    "sd_above_measured": -2.127222239019924
+   },
+   "2022": {
+    "ratio": 0.9971689499903049,
+    "required_kg": 0.24929223749757623,
+    "sd_above_measured": -0.017694062560594248
+   },
+   "2023": {
+    "ratio": 2.5486439271397425,
+    "required_kg": 0.6371609817849356,
+    "sd_above_measured": 9.67902454462339
+   }
+  },
+  "slaughter_head": {
+   "2021": 128985900,
+   "2022": 125321700,
+   "2023": 127971000
+  },
+  "slaughter_source": "USDA NASS, Livestock Slaughter Annual Summary, commercial slaughter, head; 2021 and 2022 from the 2022 summary (April 2023), 2023 from the 2023 summary (April 2024)",
+  "trade_cut_multiple": {
+   "controls_max": 1.013260101759102,
+   "gap_x": 2.5152909136707238,
+   "tongues_max": 2.5486439271397425
+  },
+  "two_prices_one_code": {
+   "2021": {
+    "china_monthly_range": [
+     2.304838302511314,
+     3.617424133052291
+    ],
+    "china_uv": 2.8642627983225193,
+    "nonchina_monthly_range": [
+     1.9151940981827453,
+     2.56475517808268
+    ],
+    "nonchina_uv": 2.2604493056941775,
+    "ratio": 1.2671210060350866
+   },
+   "2022": {
+    "china_monthly_range": [
+     1.4191850845528693,
+     3.764312290117459
+    ],
+    "china_uv": 1.8654932550619128,
+    "nonchina_monthly_range": [
+     2.4199497214652217,
+     2.934108697665042
+    ],
+    "nonchina_uv": 2.7112292219746794,
+    "ratio": 0.688061798663859
+   },
+   "2023": {
+    "china_monthly_range": [
+     1.0659558027772027,
+     1.5823382734626716
+    ],
+    "china_uv": 1.2919040878084183,
+    "nonchina_monthly_range": [
+     2.074933486067909,
+     2.405746680747172
+    ],
+    "nonchina_uv": 2.2494061518668023,
+    "ratio": 0.5743311792475785
+   }
+  },
+  "yield_kg_per_animal": {
+   "feet": {
+    "kg": 1.86,
+    "note": "fore 0.85 plus hind 1.01, both as reported per animal",
+    "per_animal": 1,
+    "sd": 0.15
+   },
+   "hearts": {
+    "kg": 0.42,
+    "note": "unslashed",
+    "per_animal": 1,
+    "sd": 0.05
+   },
+   "tongues": {
+    "kg": 0.25,
+    "note": "tip on",
+    "per_animal": 1,
+    "sd": 0.04
+   }
+  },
+  "yield_source": "Pork Information Gateway, Determination of by-product yield values from market swine, 196 crossbred market barrows and gilts, mean live weight 111.4 +/- 13.3 kg"
+ },
+ "stage": "B35-PH"
+}

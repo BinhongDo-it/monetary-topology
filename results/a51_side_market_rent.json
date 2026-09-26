@@ -1,0 +1,294 @@
+{
+ "config": {
+  "R0": 1.16,
+  "core_share": 0.1,
+  "landlord": "public",
+  "lease": 1,
+  "s": 0.083,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "tau_o": 0.02
+ },
+ "rows": [
+  {
+   "core_tenant_rounds": 2418,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 9.672,
+   "pool_end": 453.0938,
+   "prod_share": 0.4189,
+   "public_rent_cost": true,
+   "seed": 0,
+   "top_decile": 0.5896
+  },
+  {
+   "core_tenant_rounds": 3293,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 13.172,
+   "pool_end": 438.4933,
+   "prod_share": 0.4142,
+   "public_rent_cost": true,
+   "seed": 1,
+   "top_decile": 0.6026
+  },
+  {
+   "core_tenant_rounds": 2919,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 11.6759,
+   "pool_end": 465.1558,
+   "prod_share": 0.4127,
+   "public_rent_cost": true,
+   "seed": 2,
+   "top_decile": 0.5949
+  },
+  {
+   "core_tenant_rounds": 3079,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 12.316,
+   "pool_end": 469.6478,
+   "prod_share": 0.414,
+   "public_rent_cost": true,
+   "seed": 3,
+   "top_decile": 0.6106
+  },
+  {
+   "core_tenant_rounds": 2754,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 11.016,
+   "pool_end": 426.1621,
+   "prod_share": 0.4193,
+   "public_rent_cost": true,
+   "seed": 4,
+   "top_decile": 0.5941
+  },
+  {
+   "core_tenant_rounds": 2418,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 9.672,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 462.7658,
+   "prod_share": 0.4186,
+   "public_rent_cost": false,
+   "seed": 0,
+   "top_decile": 0.5899
+  },
+  {
+   "core_tenant_rounds": 3293,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 13.172,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 451.6653,
+   "prod_share": 0.4138,
+   "public_rent_cost": false,
+   "seed": 1,
+   "top_decile": 0.603
+  },
+  {
+   "core_tenant_rounds": 2919,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 11.6759,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 476.8627,
+   "prod_share": 0.4123,
+   "public_rent_cost": false,
+   "seed": 2,
+   "top_decile": 0.5952
+  },
+  {
+   "core_tenant_rounds": 3079,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 12.316,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 481.9638,
+   "prod_share": 0.4136,
+   "public_rent_cost": false,
+   "seed": 3,
+   "top_decile": 0.6109
+  },
+  {
+   "core_tenant_rounds": 2754,
+   "g": 0.0,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 11.016,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 437.1781,
+   "prod_share": 0.419,
+   "public_rent_cost": false,
+   "seed": 4,
+   "top_decile": 0.5944
+  },
+  {
+   "core_tenant_rounds": 2644,
+   "g": 0.005,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 137.5486,
+   "pool_end": 447.2067,
+   "prod_share": 0.4188,
+   "public_rent_cost": true,
+   "seed": 0,
+   "top_decile": 0.5901
+  },
+  {
+   "core_tenant_rounds": 3355,
+   "g": 0.005,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 156.9259,
+   "pool_end": 429.6118,
+   "prod_share": 0.4159,
+   "public_rent_cost": true,
+   "seed": 1,
+   "top_decile": 0.602
+  },
+  {
+   "core_tenant_rounds": 3094,
+   "g": 0.005,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 152.3126,
+   "pool_end": 462.177,
+   "prod_share": 0.4132,
+   "public_rent_cost": true,
+   "seed": 2,
+   "top_decile": 0.5946
+  },
+  {
+   "core_tenant_rounds": 3116,
+   "g": 0.005,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 153.0879,
+   "pool_end": 466.84,
+   "prod_share": 0.414,
+   "public_rent_cost": true,
+   "seed": 3,
+   "top_decile": 0.61
+  },
+  {
+   "core_tenant_rounds": 2976,
+   "g": 0.005,
+   "last_occupied_round": 299,
+   "location_rent_collected_total": 0.0,
+   "location_rent_left_with_tenants_total": 150.0511,
+   "pool_end": 422.7462,
+   "prod_share": 0.4213,
+   "public_rent_cost": true,
+   "seed": 4,
+   "top_decile": 0.5919
+  },
+  {
+   "core_tenant_rounds": 316,
+   "g": 0.005,
+   "last_occupied_round": 80,
+   "location_rent_collected_total": 3.6905,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 450.8579,
+   "prod_share": 0.4188,
+   "public_rent_cost": false,
+   "seed": 0,
+   "top_decile": 0.5901
+  },
+  {
+   "core_tenant_rounds": 559,
+   "g": 0.005,
+   "last_occupied_round": 85,
+   "location_rent_collected_total": 6.6751,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 436.2174,
+   "prod_share": 0.4159,
+   "public_rent_cost": false,
+   "seed": 1,
+   "top_decile": 0.602
+  },
+  {
+   "core_tenant_rounds": 400,
+   "g": 0.005,
+   "last_occupied_round": 87,
+   "location_rent_collected_total": 5.2323,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 467.3937,
+   "prod_share": 0.4132,
+   "public_rent_cost": false,
+   "seed": 2,
+   "top_decile": 0.5946
+  },
+  {
+   "core_tenant_rounds": 418,
+   "g": 0.005,
+   "last_occupied_round": 87,
+   "location_rent_collected_total": 5.3764,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 472.1645,
+   "prod_share": 0.414,
+   "public_rent_cost": false,
+   "seed": 3,
+   "top_decile": 0.61
+  },
+  {
+   "core_tenant_rounds": 331,
+   "g": 0.005,
+   "last_occupied_round": 85,
+   "location_rent_collected_total": 4.2729,
+   "location_rent_left_with_tenants_total": 0.0,
+   "pool_end": 426.9779,
+   "prod_share": 0.4213,
+   "public_rent_cost": false,
+   "seed": 4,
+   "top_decile": 0.5919
+  }
+ ],
+ "stage": "A51-side-market-rent",
+ "summary": {
+  "g 0.0": {
+   "pool_end_market_minus_cost": [
+    9.672,
+    13.172,
+    11.7069,
+    12.316,
+    11.016
+   ],
+   "prod_share_market_minus_cost": [
+    -0.0003,
+    -0.0004,
+    -0.0004,
+    -0.0004,
+    -0.0003
+   ]
+  },
+  "g 0.005": {
+   "pool_end_market_minus_cost": [
+    3.6512,
+    6.6056,
+    5.2167,
+    5.3245,
+    4.2317
+   ],
+   "prod_share_market_minus_cost": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ }
+}

@@ -1,0 +1,7245 @@
+{
+  "borrowers": {
+    "1ST BK|EVANSTON|WY": {
+      "amount_mn": 240.0,
+      "city": "EVANSTON",
+      "filer": {
+        "city": "EVANSTON",
+        "name": "1ST BANK",
+        "state": "WY"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 9,
+      "name": "1ST BK",
+      "rssd": "888253",
+      "score": 1.1,
+      "state": "WY"
+    },
+    "1ST SCTY BK OF WA|MOUNTLAKE TERRACE|WA": {
+      "amount_mn": 70.0,
+      "best": [
+        {
+          "city": "MOUNTLAKE TERRACE",
+          "name": "1ST SECURITY BANK OF WASHINGTON",
+          "rssd": "1018927",
+          "score": 0.7,
+          "state": "WA"
+        },
+        {
+          "city": "SEATTLE",
+          "name": "WASHINGTON FIRST INTERNATIONAL BANK",
+          "rssd": "1450620",
+          "score": 0.6,
+          "state": "WA"
+        }
+      ],
+      "city": "MOUNTLAKE TERRACE",
+      "first": "2009-08-13",
+      "kind": "unresolved",
+      "last": "2010-02-11",
+      "loans": 4,
+      "name": "1ST SCTY BK OF WA",
+      "state": "WA"
+    },
+    "ABBEY NAT TREASURY SVC CT BR|STAMFORD|CT": {
+      "amount_mn": 18998.8,
+      "city": "STAMFORD",
+      "first": "2008-05-22",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-08-13",
+      "loans": 17,
+      "name": "ABBEY NAT TREASURY SVC CT BR",
+      "state": "CT"
+    },
+    "ABN-AMRO BK NV CHICAGO BR|CHICAGO|IL": {
+      "amount_mn": 1500.0,
+      "city": "CHICAGO",
+      "first": "2008-02-28",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-02-28",
+      "loans": 1,
+      "name": "ABN-AMRO BK NV CHICAGO BR",
+      "state": "IL"
+    },
+    "ADVANTA BK CORP|DRAPER|UT": {
+      "amount_mn": 30.0,
+      "city": "DRAPER",
+      "filer": {
+        "city": "DRAPER",
+        "name": "ADVANTA BANK CORP.",
+        "state": "UT"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2009-02-12",
+      "loans": 2,
+      "name": "ADVANTA BK CORP",
+      "rssd": "1916751",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "ALIANT BK|ALEXANDER CITY|AL": {
+      "amount_mn": 135.0,
+      "city": "ALEXANDER CITY",
+      "filer": {
+        "city": "ALEXANDER CITY",
+        "name": "ALIANT BANK",
+        "state": "AL"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-04-09",
+      "loans": 4,
+      "name": "ALIANT BK",
+      "rssd": "861434",
+      "score": 1.1,
+      "state": "AL"
+    },
+    "ALLEGIANCE CMNTY BK|TINLEY PARK|IL": {
+      "amount_mn": 18.0,
+      "city": "TINLEY PARK",
+      "filer": {
+        "city": "TINLEY PARK",
+        "name": "ALLEGIANCE COMMUNITY BANK",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 2,
+      "name": "ALLEGIANCE CMNTY BK",
+      "rssd": "2761930",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "ALLIED IRISH BKS NY BR|NEW YORK|NY": {
+      "amount_mn": 34700.0,
+      "city": "NEW YORK",
+      "first": "2009-02-26",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 18,
+      "name": "ALLIED IRISH BKS NY BR",
+      "state": "NY"
+    },
+    "ALLY BK|MIDVALE|UT": {
+      "amount_mn": 21600.0,
+      "best": [
+        {
+          "city": "MIDVALE",
+          "name": "ESCROW BANK USA",
+          "rssd": "3803789",
+          "score": 0.433,
+          "state": "UT"
+        },
+        {
+          "city": "MIDVALE",
+          "name": "GMAC BANK",
+          "rssd": "3284070",
+          "score": 0.433,
+          "state": "UT"
+        }
+      ],
+      "city": "MIDVALE",
+      "first": "2009-06-18",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 11,
+      "name": "ALLY BK",
+      "state": "UT"
+    },
+    "AMCORE BK NA|ROCKFORD|IL": {
+      "amount_mn": 530.0,
+      "city": "ROCKFORD",
+      "filer": {
+        "city": "ROCKFORD",
+        "name": "AMCORE BANK, NATIONAL ASSOCIATION",
+        "state": "IL"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2008-10-23",
+      "loans": 10,
+      "name": "AMCORE BK NA",
+      "rssd": "938840",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "AMEGY BK NA|HOUSTON|TX": {
+      "amount_mn": 1000.0,
+      "city": "HOUSTON",
+      "filer": {
+        "city": "HOUSTON",
+        "name": "AMEGY BANK, NATIONAL ASSOCIATION",
+        "state": "TX"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2009-01-29",
+      "loans": 4,
+      "name": "AMEGY BK NA",
+      "rssd": "676656",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "AMERICAN BK|BOZEMAN|MT": {
+      "amount_mn": 232.5,
+      "city": "BOZEMAN",
+      "filer": {
+        "city": "BOZEMAN",
+        "name": "AMERICAN BANK",
+        "state": "MT"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2009-05-21",
+      "loans": 26,
+      "name": "AMERICAN BK",
+      "rssd": "630555",
+      "score": 1.1,
+      "state": "MT"
+    },
+    "AMERICAN CHARTERED BK|SCHAUMBURG|IL": {
+      "amount_mn": 748.0,
+      "city": "SCHAUMBURG",
+      "filer": {
+        "city": "SCHAUMBURG",
+        "name": "AMERICAN CHARTERED BANK",
+        "state": "IL"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 16,
+      "name": "AMERICAN CHARTERED BK",
+      "rssd": "231242",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "AMERICAN EAGLE BK CHICAGO|CHICAGO|IL": {
+      "amount_mn": 72.5,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "AMERICAN EAGLE BANK OF CHICAGO",
+        "state": "IL"
+      },
+      "first": "2009-04-09",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 14,
+      "name": "AMERICAN EAGLE BK CHICAGO",
+      "rssd": "3559714",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "AMERICAN EAGLE BK|SOUTH ELGIN|IL": {
+      "amount_mn": 80.0,
+      "city": "SOUTH ELGIN",
+      "filer": {
+        "city": "SOUTH ELGIN",
+        "name": "AMERICAN EAGLE BANK",
+        "state": "IL"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 16,
+      "name": "AMERICAN EAGLE BK",
+      "rssd": "3116519",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "AMERICAN INVESTORS BK & MTG|EDEN PRAIRIE|MN": {
+      "amount_mn": 15.0,
+      "best": [
+        {
+          "city": "NASHWAUK",
+          "name": "AMERICAN BANK OF THE NORTH",
+          "rssd": "716655",
+          "score": 0.4,
+          "state": "MN"
+        },
+        {
+          "city": "LONG PRAIRIE",
+          "name": "AMERICAN HERITAGE NATIONAL BANK",
+          "rssd": "61757",
+          "score": 0.4,
+          "state": "MN"
+        }
+      ],
+      "city": "EDEN PRAIRIE",
+      "first": "2009-12-17",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 3,
+      "name": "AMERICAN INVESTORS BK & MTG",
+      "state": "MN"
+    },
+    "AMERICAN NB|OMAHA|NE": {
+      "amount_mn": 330.0,
+      "city": "OMAHA",
+      "filer": {
+        "city": "OMAHA",
+        "name": "AMERICAN NATIONAL BANK",
+        "state": "NE"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 11,
+      "name": "AMERICAN NB",
+      "rssd": "660655",
+      "score": 1.1,
+      "state": "NE"
+    },
+    "AMERICAN PRIDE BK|MACON|GA": {
+      "amount_mn": 25.0,
+      "city": "MACON",
+      "filer": {
+        "city": "MACON",
+        "name": "AMERICAN PRIDE BANK",
+        "state": "GA"
+      },
+      "first": "2009-09-10",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "AMERICAN PRIDE BK",
+      "rssd": "3671997",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "ANDREW JOHNSON BK|GREENEVILLE|TN": {
+      "amount_mn": 5.0,
+      "city": "GREENEVILLE",
+      "filer": {
+        "city": "GREENEVILLE",
+        "name": "ANDREW JOHNSON BANK",
+        "state": "TN"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 1,
+      "name": "ANDREW JOHNSON BK",
+      "rssd": "361439",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "APOLLO TC|APOLLO|PA": {
+      "amount_mn": 5.0,
+      "city": "APOLLO",
+      "filer": {
+        "city": "APOLLO",
+        "name": "APOLLO TRUST COMPANY",
+        "state": "PA"
+      },
+      "first": "2010-02-11",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 1,
+      "name": "APOLLO TC",
+      "rssd": "368522",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "ARAB BKG CORP NY BR|NEW YORK|NY": {
+      "amount_mn": 26350.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 46,
+      "name": "ARAB BKG CORP NY BR",
+      "state": "NY"
+    },
+    "ARCHER BK|CHICAGO|IL": {
+      "amount_mn": 191.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "ARCHER BANK",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 6,
+      "name": "ARCHER BK",
+      "rssd": "323035",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "ASSOCIATED BK NA|GREEN BAY|WI": {
+      "amount_mn": 16200.0,
+      "city": "GREEN BAY",
+      "filer": {
+        "city": "GREEN BAY",
+        "name": "ASSOCIATED BANK, NATIONAL ASSOCIATION",
+        "state": "WI"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 32,
+      "name": "ASSOCIATED BK NA",
+      "rssd": "917742",
+      "score": 1.1,
+      "state": "WI"
+    },
+    "BANCO BILBAO VIZCAYA ARG NY BR|NEW YORK|NY": {
+      "amount_mn": 2150.0,
+      "city": "NEW YORK",
+      "first": "2008-01-17",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-07-03",
+      "loans": 4,
+      "name": "BANCO BILBAO VIZCAYA ARG NY BR",
+      "state": "NY"
+    },
+    "BANCO BILBAO VIZCAYA ARGENTARI|SAN JUAN|PR": {
+      "amount_mn": 3305.3,
+      "best": [
+        {
+          "city": "SAN JUAN",
+          "name": "BANCO BILBAO VIZCAYA ARGENTARIA PUERTO RICO",
+          "rssd": "170716",
+          "score": 0.529,
+          "state": "PR"
+        },
+        {
+          "city": "SAN JUAN",
+          "name": "BANCO SANTANDER PUERTO RICO",
+          "rssd": "816210",
+          "score": 0.243,
+          "state": "PR"
+        }
+      ],
+      "city": "SAN JUAN",
+      "first": "2008-05-08",
+      "kind": "unresolved",
+      "last": "2010-01-14",
+      "loans": 18,
+      "name": "BANCO BILBAO VIZCAYA ARGENTARI",
+      "state": "PR"
+    },
+    "BANCO ITAU SA NY BR|NEW YORK|NY": {
+      "amount_mn": 540.0,
+      "city": "NEW YORK",
+      "first": "2008-11-06",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-04-23",
+      "loans": 5,
+      "name": "BANCO ITAU SA NY BR",
+      "state": "NY"
+    },
+    "BANCO POPULAR DE PR|SAN JUAN|PR": {
+      "amount_mn": 1200.0,
+      "city": "SAN JUAN",
+      "filer": {
+        "city": "SAN JUAN",
+        "name": "BANCO POPULAR DE PUERTO RICO",
+        "state": "PR"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2008-08-14",
+      "loans": 9,
+      "name": "BANCO POPULAR DE PR",
+      "rssd": "940311",
+      "score": 0.9,
+      "state": "PR"
+    },
+    "BANCO SANTANDER SA NY BR|NEW YORK|NY": {
+      "amount_mn": 191.4,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2007-12-20",
+      "loans": 1,
+      "name": "BANCO SANTANDER SA NY BR",
+      "state": "NY"
+    },
+    "BANCORPSOUTH BK|TUPELO|MS": {
+      "amount_mn": 1350.0,
+      "city": "TUPELO",
+      "filer": {
+        "city": "TUPELO",
+        "name": "BANCORPSOUTH BANK",
+        "state": "MS"
+      },
+      "first": "2008-12-18",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 8,
+      "name": "BANCORPSOUTH BK",
+      "rssd": "606046",
+      "score": 1.1,
+      "state": "MS"
+    },
+    "BANK HAPOALIM BM NY BR|NEW YORK|NY": {
+      "amount_mn": 2400.0,
+      "city": "NEW YORK",
+      "first": "2008-01-17",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-05-22",
+      "loans": 10,
+      "name": "BANK HAPOALIM BM NY BR",
+      "state": "NY"
+    },
+    "BANK OF AMER FORK|AMERICAN FORK|UT": {
+      "amount_mn": 619.0,
+      "best": [
+        {
+          "city": "AMERICAN FORK",
+          "name": "BANK OF AMERICAN FORK",
+          "rssd": "984379",
+          "score": 0.6,
+          "state": "UT"
+        },
+        {
+          "city": "SALT LAKE CITY",
+          "name": "BMW BANK OF NORTH AMERICA",
+          "rssd": "2850722",
+          "score": 0.4,
+          "state": "UT"
+        }
+      ],
+      "city": "AMERICAN FORK",
+      "first": "2008-03-13",
+      "kind": "unresolved",
+      "last": "2009-08-27",
+      "loans": 15,
+      "name": "BANK OF AMER FORK",
+      "state": "UT"
+    },
+    "BANK OF AMER NA|CHARLOTTE|NC": {
+      "amount_mn": 212167.0,
+      "city": "CHARLOTTE",
+      "filer": {
+        "city": "CHARLOTTE",
+        "name": "BANK OF AMERICA, NATIONAL ASSOCIATION",
+        "state": "NC"
+      },
+      "first": "2008-09-11",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 15,
+      "name": "BANK OF AMER NA",
+      "rssd": "480228",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "BANK OF FL SE|FORT LAUDERDALE|FL": {
+      "amount_mn": 22.5,
+      "best": [
+        {
+          "city": "TAMPA",
+          "name": "FLORIDA BANK",
+          "rssd": "704737",
+          "score": 0.667,
+          "state": "FL"
+        },
+        {
+          "city": "FORT LAUDERDALE",
+          "name": "BANK OF FLORIDA - SOUTHEAST",
+          "rssd": "3116274",
+          "score": 0.6,
+          "state": "FL"
+        }
+      ],
+      "city": "FORT LAUDERDALE",
+      "first": "2009-03-26",
+      "kind": "unresolved",
+      "last": "2009-06-18",
+      "loans": 2,
+      "name": "BANK OF FL SE",
+      "state": "FL"
+    },
+    "BANK OF FL SW|NAPLES|FL": {
+      "amount_mn": 7.5,
+      "best": [
+        {
+          "city": "TAMPA",
+          "name": "FLORIDA BANK",
+          "rssd": "704737",
+          "score": 0.667,
+          "state": "FL"
+        },
+        {
+          "city": "NAPLES",
+          "name": "SHAMROCK BANK OF FLORIDA",
+          "rssd": "3613652",
+          "score": 0.6,
+          "state": "FL"
+        }
+      ],
+      "city": "NAPLES",
+      "first": "2009-03-26",
+      "kind": "unresolved",
+      "last": "2009-03-26",
+      "loans": 1,
+      "name": "BANK OF FL SW",
+      "state": "FL"
+    },
+    "BANK OF FRANKLIN CTY|WASHINGTON|MO": {
+      "amount_mn": 5.0,
+      "city": "WASHINGTON",
+      "filer": {
+        "city": "WASHINGTON",
+        "name": "BANK OF FRANKLIN COUNTY",
+        "state": "MO"
+      },
+      "first": "2009-09-24",
+      "kind": "matched in state",
+      "last": "2009-09-24",
+      "loans": 1,
+      "name": "BANK OF FRANKLIN CTY",
+      "rssd": "2913702",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "BANK OF HEMET|RIVERSIDE|CA": {
+      "amount_mn": 15.0,
+      "city": "RIVERSIDE",
+      "filer": {
+        "city": "RIVERSIDE",
+        "name": "BANK OF HEMET, THE",
+        "state": "CA"
+      },
+      "first": "2008-03-27",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 3,
+      "name": "BANK OF HEMET",
+      "rssd": "183668",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "BANK OF INTERNET USA|SAN DIEGO|CA": {
+      "amount_mn": 305.0,
+      "best": [
+        {
+          "city": "SAN DIEGO",
+          "name": "EMBARCADERO BANK",
+          "rssd": "3545258",
+          "score": 0.433,
+          "state": "CA"
+        },
+        {
+          "city": "SAN DIEGO",
+          "name": "NEIGHBORHOOD NATIONAL BANK",
+          "rssd": "2333140",
+          "score": 0.433,
+          "state": "CA"
+        }
+      ],
+      "city": "SAN DIEGO",
+      "first": "2009-03-26",
+      "kind": "unresolved",
+      "last": "2009-10-08",
+      "loans": 6,
+      "name": "BANK OF INTERNET USA",
+      "state": "CA"
+    },
+    "BANK OF MONTREAL CHICAGO BR|CHICAGO|IL": {
+      "amount_mn": 6856.4,
+      "city": "CHICAGO",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-05-21",
+      "loans": 12,
+      "name": "BANK OF MONTREAL CHICAGO BR",
+      "state": "IL"
+    },
+    "BANK OF MO|PERRYVILLE|MO": {
+      "amount_mn": 60.0,
+      "city": "PERRYVILLE",
+      "filer": {
+        "city": "PERRYVILLE",
+        "name": "BANK OF MISSOURI, THE",
+        "state": "MO"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 7,
+      "name": "BANK OF MO",
+      "rssd": "330855",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "BANK OF N GA|ALPHARETTA|GA": {
+      "amount_mn": 1200.0,
+      "city": "ALPHARETTA",
+      "filer": {
+        "city": "ALPHARETTA",
+        "name": "BANK OF NORTH GEORGIA",
+        "state": "GA"
+      },
+      "first": "2008-04-24",
+      "kind": "matched in state",
+      "last": "2009-05-21",
+      "loans": 13,
+      "name": "BANK OF N GA",
+      "rssd": "832377",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "BANK OF NASHVILLE|NASHVILLE|TN": {
+      "amount_mn": 25.0,
+      "city": "NASHVILLE",
+      "filer": {
+        "city": "NASHVILLE",
+        "name": "BANK OF NASHVILLE, THE",
+        "state": "TN"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "BANK OF NASHVILLE",
+      "rssd": "1407521",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "BANK OF NOVA SCOTIA HOU BR|HOUSTON|TX": {
+      "amount_mn": 3800.0,
+      "city": "HOUSTON",
+      "first": "2008-10-23",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-04-23",
+      "loans": 9,
+      "name": "BANK OF NOVA SCOTIA HOU BR",
+      "state": "TX"
+    },
+    "BANK OF NOVA SCOTIA NY AGY|NEW YORK|NY": {
+      "amount_mn": 21514.7,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-04-23",
+      "loans": 25,
+      "name": "BANK OF NOVA SCOTIA NY AGY",
+      "state": "NY"
+    },
+    "BANK OF NOVA SCOTIA SF AGY|SAN FRANCISCO|CA": {
+      "amount_mn": 1150.0,
+      "city": "SAN FRANCISCO",
+      "first": "2008-10-23",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-02-26",
+      "loans": 6,
+      "name": "BANK OF NOVA SCOTIA SF AGY",
+      "state": "CA"
+    },
+    "BANK OF NV|LAS VEGAS|NV": {
+      "amount_mn": 1025.0,
+      "best": [
+        {
+          "city": "LAS VEGAS",
+          "name": "NEVADA NATIONAL BANK",
+          "rssd": "3589588",
+          "score": 1.1,
+          "state": "NV"
+        },
+        {
+          "city": "LAS VEGAS",
+          "name": "BANK OF NEVADA",
+          "rssd": "2197098",
+          "score": 1.1,
+          "state": "NV"
+        }
+      ],
+      "city": "LAS VEGAS",
+      "first": "2009-01-15",
+      "kind": "unresolved",
+      "last": "2009-07-16",
+      "loans": 8,
+      "name": "BANK OF NV",
+      "state": "NV"
+    },
+    "BANK OF OK NA|TULSA|OK": {
+      "amount_mn": 5300.0,
+      "city": "TULSA",
+      "filer": {
+        "city": "TULSA",
+        "name": "BANK OF OKLAHOMA, NATIONAL ASSOCIATION",
+        "state": "OK"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 16,
+      "name": "BANK OF OK NA",
+      "rssd": "339858",
+      "score": 1.1,
+      "state": "OK"
+    },
+    "BANK OF PENSACOLA|PENSACOLA|FL": {
+      "amount_mn": 290.0,
+      "best": [
+        {
+          "city": "PENSACOLA",
+          "name": "BANK OF THE SOUTH",
+          "rssd": "83236",
+          "score": 0.433,
+          "state": "FL"
+        },
+        {
+          "city": "PENSACOLA",
+          "name": "WARRINGTON BANK, THE",
+          "rssd": "199137",
+          "score": 0.433,
+          "state": "FL"
+        }
+      ],
+      "city": "PENSACOLA",
+      "first": "2008-05-22",
+      "kind": "unresolved",
+      "last": "2008-10-09",
+      "loans": 6,
+      "name": "BANK OF PENSACOLA",
+      "state": "FL"
+    },
+    "BANK OF SCOTLAND PLC NY BR|NEW YORK|NY": {
+      "amount_mn": 180920.0,
+      "city": "NEW YORK",
+      "first": "2008-04-10",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 40,
+      "name": "BANK OF SCOTLAND PLC NY BR",
+      "state": "NY"
+    },
+    "BANK OF SC|CHARLESTON|SC": {
+      "amount_mn": 45.0,
+      "best": [
+        {
+          "city": "CHARLESTON",
+          "name": "BANK OF SOUTH CAROLINA, THE",
+          "rssd": "246022",
+          "score": 0.767,
+          "state": "SC"
+        },
+        {
+          "city": "SUMTER",
+          "name": "NATIONAL BANK OF SOUTH CAROLINA, THE",
+          "rssd": "580623",
+          "score": 0.667,
+          "state": "SC"
+        }
+      ],
+      "city": "CHARLESTON",
+      "first": "2009-06-18",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 6,
+      "name": "BANK OF SC",
+      "state": "SC"
+    },
+    "BANK OF TAMPA|TAMPA|FL": {
+      "amount_mn": 66.0,
+      "city": "TAMPA",
+      "filer": {
+        "city": "TAMPA",
+        "name": "BANK OF TAMPA, THE",
+        "state": "FL"
+      },
+      "first": "2008-07-31",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 5,
+      "name": "BANK OF TAMPA",
+      "rssd": "273336",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "BANK OF THE CASCADES|BEND|OR": {
+      "amount_mn": 322.0,
+      "city": "BEND",
+      "filer": {
+        "city": "BEND",
+        "name": "BANK OF THE CASCADES",
+        "state": "OR"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2008-12-23",
+      "loans": 7,
+      "name": "BANK OF THE CASCADES",
+      "rssd": "17464",
+      "score": 1.1,
+      "state": "OR"
+    },
+    "BANK OF THE OZARKS|LITTLE ROCK|AR": {
+      "amount_mn": 95.0,
+      "city": "LITTLE ROCK",
+      "filer": {
+        "city": "LITTLE ROCK",
+        "name": "BANK OF THE OZARKS",
+        "state": "AR"
+      },
+      "first": "2008-03-13",
+      "kind": "matched in state",
+      "last": "2009-02-26",
+      "loans": 6,
+      "name": "BANK OF THE OZARKS",
+      "rssd": "107244",
+      "score": 1.1,
+      "state": "AR"
+    },
+    "BANK OF THE WEST|SAN FRANCISCO|CA": {
+      "amount_mn": 18940.0,
+      "city": "SAN FRANCISCO",
+      "filer": {
+        "city": "SAN FRANCISCO",
+        "name": "BANK OF THE WEST",
+        "state": "CA"
+      },
+      "first": "2008-06-19",
+      "kind": "matched in state",
+      "last": "2009-09-10",
+      "loans": 18,
+      "name": "BANK OF THE WEST",
+      "rssd": "804963",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "BANK OF TN|KINGSPORT|TN": {
+      "amount_mn": 295.0,
+      "city": "KINGSPORT",
+      "filer": {
+        "city": "KINGSPORT",
+        "name": "BANK OF TENNESSEE",
+        "state": "TN"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 12,
+      "name": "BANK OF TN",
+      "rssd": "340135",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "BANK TOK-MIT UFJ NY BR|NEW YORK|NY": {
+      "amount_mn": 35900.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-03",
+      "loans": 33,
+      "name": "BANK TOK-MIT UFJ NY BR",
+      "state": "NY"
+    },
+    "BANKATLANTIC|FORT LAUDERDALE|FL": {
+      "amount_mn": 656.0,
+      "best": [
+        {
+          "city": "FORT LAUDERDALE",
+          "name": "VALLEY BANK",
+          "rssd": "921833",
+          "score": 0.1,
+          "state": "FL"
+        },
+        {
+          "city": "FORT LAUDERDALE",
+          "name": "BROWARD BANK OF COMMERCE",
+          "rssd": "3820254",
+          "score": 0.1,
+          "state": "FL"
+        }
+      ],
+      "city": "FORT LAUDERDALE",
+      "first": "2008-06-19",
+      "kind": "unresolved",
+      "last": "2009-02-12",
+      "loans": 8,
+      "name": "BANKATLANTIC",
+      "state": "FL"
+    },
+    "BANKUNITED FSB|CORAL GABLES|FL": {
+      "amount_mn": 55.0,
+      "city": "CORAL GABLES",
+      "first": "2008-01-17",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2008-02-14",
+      "loans": 3,
+      "name": "BANKUNITED FSB",
+      "state": "FL"
+    },
+    "BANKWEST|PIERRE|SD": {
+      "amount_mn": 10.0,
+      "best": [
+        {
+          "city": "PIERRE",
+          "name": "BANKWEST, INCORPORATED",
+          "rssd": "540551",
+          "score": 0.6,
+          "state": "SD"
+        },
+        {
+          "city": "PIERRE",
+          "name": "AMERICAN STATE BANK OF PIERRE",
+          "rssd": "600651",
+          "score": 0.1,
+          "state": "SD"
+        }
+      ],
+      "city": "PIERRE",
+      "first": "2009-05-21",
+      "kind": "unresolved",
+      "last": "2009-05-21",
+      "loans": 1,
+      "name": "BANKWEST",
+      "state": "SD"
+    },
+    "BAR HARBOR BK & TR CO|BAR HARBOR|ME": {
+      "amount_mn": 115.0,
+      "city": "BAR HARBOR",
+      "filer": {
+        "city": "BAR HARBOR",
+        "name": "BAR HARBOR BANK AND TRUST COMPANY",
+        "state": "ME"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 8,
+      "name": "BAR HARBOR BK & TR CO",
+      "rssd": "522605",
+      "score": 0.9,
+      "state": "ME"
+    },
+    "BARCLAYS BK DE|WILMINGTON|DE": {
+      "amount_mn": 20050.0,
+      "city": "WILMINGTON",
+      "filer": {
+        "city": "WILMINGTON",
+        "name": "BARCLAYS BANK DELAWARE",
+        "state": "DE"
+      },
+      "first": "2009-06-04",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 7,
+      "name": "BARCLAYS BK DE",
+      "rssd": "2980209",
+      "score": 1.1,
+      "state": "DE"
+    },
+    "BARCLAYS BK PLC NY BR|NEW YORK|NY": {
+      "amount_mn": 188326.0,
+      "city": "NEW YORK",
+      "first": "2007-12-27",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-07-02",
+      "loans": 37,
+      "name": "BARCLAYS BK PLC NY BR",
+      "state": "NY"
+    },
+    "BARCLAYS BK PLC PARK AVE BR|NEW YORK|NY": {
+      "amount_mn": 23907.0,
+      "city": "NEW YORK",
+      "first": "2009-07-16",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-09-10",
+      "loans": 5,
+      "name": "BARCLAYS BK PLC PARK AVE BR",
+      "state": "NY"
+    },
+    "BAYERISCHE HYPO VEREINS NY BR|NEW YORK|NY": {
+      "amount_mn": 34490.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-03",
+      "loans": 43,
+      "name": "BAYERISCHE HYPO VEREINS NY BR",
+      "state": "NY"
+    },
+    "BAYERISCHE LANDESBANK NY BR|NEW YORK|NY": {
+      "amount_mn": 108190.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-10-22",
+      "loans": 37,
+      "name": "BAYERISCHE LANDESBANK NY BR",
+      "state": "NY"
+    },
+    "BEAL BK NV|LAS VEGAS|NV": {
+      "amount_mn": 2420.0,
+      "city": "LAS VEGAS",
+      "filer": {
+        "city": "LAS VEGAS",
+        "name": "BEAL BANK NEVADA",
+        "state": "NV"
+      },
+      "first": "2009-07-30",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 8,
+      "name": "BEAL BK NV",
+      "rssd": "3284397",
+      "score": 1.1,
+      "state": "NV"
+    },
+    "BEAL BK SSB|PLANO|TX": {
+      "amount_mn": 600.0,
+      "city": "PLANO",
+      "filer": {
+        "city": "PLANO",
+        "name": "BEAL BANK, SSB",
+        "state": "TX"
+      },
+      "first": "2010-02-11",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 1,
+      "name": "BEAL BK SSB",
+      "rssd": "1176881",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "BEAL BK|PLANO|TX": {
+      "amount_mn": 2201.0,
+      "city": "PLANO",
+      "filer": {
+        "city": "PLANO",
+        "name": "BEAL BANK, SSB",
+        "state": "TX"
+      },
+      "first": "2009-08-27",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 6,
+      "name": "BEAL BK",
+      "rssd": "1176881",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "BIG SKY WESTERN BK|BOZEMAN|MT": {
+      "amount_mn": 625.0,
+      "city": "BOZEMAN",
+      "filer": {
+        "city": "BOZEMAN",
+        "name": "BIG SKY WESTERN BANK",
+        "state": "MT"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 15,
+      "name": "BIG SKY WESTERN BK",
+      "rssd": "1441600",
+      "score": 1.1,
+      "state": "MT"
+    },
+    "BLUERIDGE BK|FREDERICK|MD": {
+      "amount_mn": 5.0,
+      "city": "FREDERICK",
+      "filer": {
+        "city": "FREDERICK",
+        "name": "BLUERIDGE BANK",
+        "state": "MD"
+      },
+      "first": "2009-07-16",
+      "kind": "matched in state",
+      "last": "2009-07-16",
+      "loans": 1,
+      "name": "BLUERIDGE BK",
+      "rssd": "3649633",
+      "score": 1.1,
+      "state": "MD"
+    },
+    "BMW BK OF N AMER|SALT LAKE CITY|UT": {
+      "amount_mn": 3350.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "BMW BANK OF NORTH AMERICA",
+        "state": "UT"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 26,
+      "name": "BMW BK OF N AMER",
+      "rssd": "2850722",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "BNP PARIBAS EQUITABLE TOWER BR|NEW YORK|NY": {
+      "amount_mn": 8000.0,
+      "city": "NEW YORK",
+      "first": "2008-12-04",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-08-13",
+      "loans": 4,
+      "name": "BNP PARIBAS EQUITABLE TOWER BR",
+      "state": "NY"
+    },
+    "BNP PARIBAS HOUSTON AGY|HOUSTON|TX": {
+      "amount_mn": 18300.0,
+      "city": "HOUSTON",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-06-18",
+      "loans": 12,
+      "name": "BNP PARIBAS HOUSTON AGY",
+      "state": "TX"
+    },
+    "BNP PARIBAS SF BR|SAN FRANCISCO|CA": {
+      "amount_mn": 4975.0,
+      "city": "SAN FRANCISCO",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-07-31",
+      "loans": 8,
+      "name": "BNP PARIBAS SF BR",
+      "state": "CA"
+    },
+    "BRANCH BKG&TC|WINSTON-SALEM|NC": {
+      "amount_mn": 22700.0,
+      "city": "WINSTON-SALEM",
+      "first": "2008-10-09",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-05-21",
+      "loans": 9,
+      "name": "BRANCH BKG&TC",
+      "state": "NC"
+    },
+    "BUSINESS BK|CLAYTON|MO": {
+      "amount_mn": 15.0,
+      "best": [
+        {
+          "city": "CLAYTON",
+          "name": "BUSINESS BANK OF ST. LOUIS, THE",
+          "rssd": "3076220",
+          "score": 0.6,
+          "state": "MO"
+        },
+        {
+          "city": "CLAYTON",
+          "name": "ENTERPRISE BANK & TRUST",
+          "rssd": "1190476",
+          "score": 0.35,
+          "state": "MO"
+        }
+      ],
+      "city": "CLAYTON",
+      "first": "2009-05-21",
+      "kind": "unresolved",
+      "last": "2009-07-16",
+      "loans": 3,
+      "name": "BUSINESS BK",
+      "state": "MO"
+    },
+    "CAJA DE AHORROS Y MONT MIA AGY|MIAMI|FL": {
+      "amount_mn": 1035.0,
+      "city": "MIAMI",
+      "first": "2009-07-16",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 6,
+      "name": "CAJA DE AHORROS Y MONT MIA AGY",
+      "state": "FL"
+    },
+    "CALIFORNIA B&TC|SAN DIEGO|CA": {
+      "amount_mn": 1150.0,
+      "city": "SAN DIEGO",
+      "filer": {
+        "city": "SAN DIEGO",
+        "name": "CALIFORNIA BANK & TRUST",
+        "state": "CA"
+      },
+      "first": "2008-07-31",
+      "kind": "matched in state",
+      "last": "2008-12-04",
+      "loans": 6,
+      "name": "CALIFORNIA B&TC",
+      "rssd": "837260",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "CALIFORNIA NB|LOS ANGELES|CA": {
+      "amount_mn": 107.5,
+      "best": [
+        {
+          "city": "LOS ANGELES",
+          "name": "NATIONAL BANK OF CALIFORNIA",
+          "rssd": "667869",
+          "score": 1.1,
+          "state": "CA"
+        },
+        {
+          "city": "LOS ANGELES",
+          "name": "CALIFORNIA NATIONAL BANK",
+          "rssd": "2643438",
+          "score": 1.1,
+          "state": "CA"
+        }
+      ],
+      "city": "LOS ANGELES",
+      "first": "2008-05-22",
+      "kind": "unresolved",
+      "last": "2008-05-22",
+      "loans": 1,
+      "name": "CALIFORNIA NB",
+      "state": "CA"
+    },
+    "CALYON NY BR|NEW YORK|NY": {
+      "amount_mn": 5500.0,
+      "city": "NEW YORK",
+      "first": "2009-03-12",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-03-26",
+      "loans": 2,
+      "name": "CALYON NY BR",
+      "state": "NY"
+    },
+    "CANADIAN IMPERIAL BK NY AGY|NEW YORK|NY": {
+      "amount_mn": 5280.0,
+      "city": "NEW YORK",
+      "first": "2008-01-31",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-06-18",
+      "loans": 10,
+      "name": "CANADIAN IMPERIAL BK NY AGY",
+      "state": "NY"
+    },
+    "CAPITAL B&TC|ALBANY|NY": {
+      "amount_mn": 5.0,
+      "city": "ALBANY",
+      "filer": {
+        "city": "ALBANY",
+        "name": "CAPITAL BANK & TRUST COMPANY",
+        "state": "NY"
+      },
+      "first": "2009-08-13",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 1,
+      "name": "CAPITAL B&TC",
+      "rssd": "2374901",
+      "score": 1.1,
+      "state": "NY"
+    },
+    "CAPITALBANK|GREENWOOD|SC": {
+      "amount_mn": 171.0,
+      "city": "GREENWOOD",
+      "filer": {
+        "city": "GREENWOOD",
+        "name": "CAPITALBANK",
+        "state": "SC"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-06-04",
+      "loans": 5,
+      "name": "CAPITALBANK",
+      "rssd": "1356535",
+      "score": 1.1,
+      "state": "SC"
+    },
+    "CAPMARK BK|MIDVALE|UT": {
+      "amount_mn": 7395.0,
+      "city": "MIDVALE",
+      "filer": {
+        "city": "MIDVALE",
+        "name": "CAPMARK BANK",
+        "state": "UT"
+      },
+      "first": "2007-12-27",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 20,
+      "name": "CAPMARK BK",
+      "rssd": "3181197",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "CAPSTONE BK|RALEIGH|NC": {
+      "amount_mn": 80.0,
+      "city": "RALEIGH",
+      "filer": {
+        "city": "RALEIGH",
+        "name": "CAPSTONE BANK",
+        "state": "NC"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 12,
+      "name": "CAPSTONE BK",
+      "rssd": "3452310",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "CAROLINA FIRST BK|GREENVILLE|SC": {
+      "amount_mn": 7700.0,
+      "city": "GREENVILLE",
+      "filer": {
+        "city": "GREENVILLE",
+        "name": "CAROLINA FIRST BANK",
+        "state": "SC"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 22,
+      "name": "CAROLINA FIRST BK",
+      "rssd": "310727",
+      "score": 1.1,
+      "state": "SC"
+    },
+    "CASCADE BK|EVERETT|WA": {
+      "amount_mn": 540.0,
+      "city": "EVERETT",
+      "filer": {
+        "city": "EVERETT",
+        "name": "CASCADE BANK",
+        "state": "WA"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 25,
+      "name": "CASCADE BK",
+      "rssd": "641476",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "CBC NB|FERNANDINA BEACH|FL": {
+      "amount_mn": 15.0,
+      "city": "FERNANDINA BEACH",
+      "filer": {
+        "city": "FERNANDINA BEACH",
+        "name": "CBC NATIONAL BANK",
+        "state": "FL"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "CBC NB",
+      "rssd": "2855914",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "CELTIC BK CORP|SALT LAKE CITY|UT": {
+      "amount_mn": 53.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "CELTIC BANK CORPORATION",
+        "state": "UT"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2009-08-27",
+      "loans": 5,
+      "name": "CELTIC BK CORP",
+      "rssd": "2998576",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "CENTRAL PACIFIC BK|HONOLULU|HI": {
+      "amount_mn": 80.0,
+      "city": "HONOLULU",
+      "filer": {
+        "city": "HONOLULU",
+        "name": "CENTRAL PACIFIC BANK",
+        "state": "HI"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 2,
+      "name": "CENTRAL PACIFIC BK",
+      "rssd": "701062",
+      "score": 1.1,
+      "state": "HI"
+    },
+    "CENTURY BK|SANTA FE|NM": {
+      "amount_mn": 70.0,
+      "city": "SANTA FE",
+      "filer": {
+        "city": "SANTA FE",
+        "name": "CENTURY BANK",
+        "state": "NM"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 5,
+      "name": "CENTURY BK",
+      "rssd": "83375",
+      "score": 1.1,
+      "state": "NM"
+    },
+    "CF BANCORP|PORT HURON|MI": {
+      "amount_mn": 275.0,
+      "city": "PORT HURON",
+      "filer": {
+        "city": "PORT HURON",
+        "name": "CF BANCORP",
+        "state": "MI"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 9,
+      "name": "CF BANCORP",
+      "rssd": "791474",
+      "score": 1.1,
+      "state": "MI"
+    },
+    "CHARTER BK|SANTA FE|NM": {
+      "amount_mn": 110.0,
+      "best": [
+        {
+          "city": "SANTA FE",
+          "name": "CENTURY BANK",
+          "rssd": "83375",
+          "score": 0.433,
+          "state": "NM"
+        },
+        {
+          "city": "SANTA FE",
+          "name": "COMMUNITY BANK",
+          "rssd": "440259",
+          "score": 0.433,
+          "state": "NM"
+        }
+      ],
+      "city": "SANTA FE",
+      "first": "2008-11-06",
+      "kind": "unresolved",
+      "last": "2009-02-12",
+      "loans": 7,
+      "name": "CHARTER BK",
+      "state": "NM"
+    },
+    "CHASE BK USA NA|NEWARK|DE": {
+      "amount_mn": 46782.0,
+      "city": "NEWARK",
+      "filer": {
+        "city": "NEWARK",
+        "name": "CHASE BANK USA, NATIONAL ASSOCIATION",
+        "state": "DE"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2009-03-12",
+      "loans": 13,
+      "name": "CHASE BK USA NA",
+      "rssd": "489913",
+      "score": 1.1,
+      "state": "DE"
+    },
+    "CHIBA BK NY BR|NEW YORK|NY": {
+      "amount_mn": 845.0,
+      "city": "NEW YORK",
+      "first": "2008-10-09",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 26,
+      "name": "CHIBA BK NY BR",
+      "state": "NY"
+    },
+    "CHICAGO CMNTY BK|CHICAGO|IL": {
+      "amount_mn": 35.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "CHICAGO COMMUNITY BANK",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 4,
+      "name": "CHICAGO CMNTY BK",
+      "rssd": "287539",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "CITIBANK NA|NEW YORK|NY": {
+      "amount_mn": 89030.6,
+      "city": "NEW YORK",
+      "filer": {
+        "city": "LAS VEGAS",
+        "name": "CITIBANK, N.A.",
+        "state": "NV"
+      },
+      "first": "2007-12-20",
+      "kind": "matched nationwide",
+      "last": "2009-06-04",
+      "loans": 18,
+      "name": "CITIBANK NA",
+      "rssd": "476810",
+      "score": 1.0,
+      "state": "NY"
+    },
+    "CITIBANK SD NA|SIOUX FALLS|SD": {
+      "amount_mn": 21319.1,
+      "city": "SIOUX FALLS",
+      "filer": {
+        "city": "SIOUX FALLS",
+        "name": "CITIBANK (SOUTH DAKOTA), NATIONAL ASSOCIATION",
+        "state": "SD"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-01-02",
+      "loans": 8,
+      "name": "CITIBANK SD NA",
+      "rssd": "486752",
+      "score": 0.767,
+      "state": "SD"
+    },
+    "CITIZENS & FARMERS BK|WEST POINT|VA": {
+      "amount_mn": 112.0,
+      "city": "WEST POINT",
+      "filer": {
+        "city": "WEST POINT",
+        "name": "CITIZENS AND FARMERS BANK",
+        "state": "VA"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 10,
+      "name": "CITIZENS & FARMERS BK",
+      "rssd": "928421",
+      "score": 1.1,
+      "state": "VA"
+    },
+    "CITIZENS BK OF PA|PHILADELPHIA|PA": {
+      "amount_mn": 39380.0,
+      "city": "PHILADELPHIA",
+      "filer": {
+        "city": "PHILADELPHIA",
+        "name": "CITIZENS BANK OF PENNSYLVANIA",
+        "state": "PA"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 22,
+      "name": "CITIZENS BK OF PA",
+      "rssd": "3041974",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "CITIZENS BK|ELIZABETHTON|TN": {
+      "amount_mn": 217.5,
+      "city": "ELIZABETHTON",
+      "filer": {
+        "city": "ELIZABETHTON",
+        "name": "CITIZENS BANK",
+        "state": "TN"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2009-07-30",
+      "loans": 19,
+      "name": "CITIZENS BK",
+      "rssd": "778738",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "CITIZENS CMNTY BK IL|BERWYN|IL": {
+      "amount_mn": 61.0,
+      "city": "BERWYN",
+      "filer": {
+        "city": "BERWYN",
+        "name": "CITIZENS COMMUNITY BANK OF ILLINOIS",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "CITIZENS CMNTY BK IL",
+      "rssd": "383534",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "CITIZENS CMNTY BK|POCATELLO|ID": {
+      "amount_mn": 160.0,
+      "city": "POCATELLO",
+      "filer": {
+        "city": "POCATELLO",
+        "name": "CITIZENS COMMUNITY BANK",
+        "state": "ID"
+      },
+      "first": "2009-07-02",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 8,
+      "name": "CITIZENS CMNTY BK",
+      "rssd": "2583721",
+      "score": 1.1,
+      "state": "ID"
+    },
+    "CITIZENS FIRST SVG BK|PORT HURON|MI": {
+      "amount_mn": 25.0,
+      "city": "PORT HURON",
+      "first": "2008-10-09",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2008-10-09",
+      "loans": 1,
+      "name": "CITIZENS FIRST SVG BK",
+      "state": "MI"
+    },
+    "CITIZENS SECURITY B&TC|BIXBY|OK": {
+      "amount_mn": 40.0,
+      "city": "BIXBY",
+      "filer": {
+        "city": "BIXBY",
+        "name": "CITIZENS SECURITY BANK & TRUST COMPANY",
+        "state": "OK"
+      },
+      "first": "2009-06-04",
+      "kind": "matched in state",
+      "last": "2009-11-05",
+      "loans": 6,
+      "name": "CITIZENS SECURITY B&TC",
+      "rssd": "139553",
+      "score": 1.1,
+      "state": "OK"
+    },
+    "CITY BK|LUBBOCK|TX": {
+      "amount_mn": 235.0,
+      "city": "LUBBOCK",
+      "filer": {
+        "city": "LUBBOCK",
+        "name": "CITY BANK",
+        "state": "TX"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 6,
+      "name": "CITY BK",
+      "rssd": "575254",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "CITY NB|TAYLOR|TX": {
+      "amount_mn": 36.1,
+      "best": [
+        {
+          "city": "CORSICANA",
+          "name": "CITY NATIONAL BANK",
+          "rssd": "697950",
+          "score": 1.0,
+          "state": "TX"
+        },
+        {
+          "city": "LUBBOCK",
+          "name": "CITY BANK",
+          "rssd": "575254",
+          "score": 1.0,
+          "state": "TX"
+        }
+      ],
+      "city": "TAYLOR",
+      "first": "2008-10-23",
+      "kind": "unresolved",
+      "last": "2009-07-16",
+      "loans": 5,
+      "name": "CITY NB",
+      "state": "TX"
+    },
+    "COASTAL B&TC OF FL|PENSACOLA|FL": {
+      "amount_mn": 190.0,
+      "city": "PENSACOLA",
+      "filer": {
+        "city": "PENSACOLA",
+        "name": "COASTAL BANK AND TRUST OF FLORIDA",
+        "state": "FL"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 4,
+      "name": "COASTAL B&TC OF FL",
+      "rssd": "391838",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "COBIZ BK|DENVER|CO": {
+      "amount_mn": 2133.0,
+      "city": "DENVER",
+      "filer": {
+        "city": "DENVER",
+        "name": "COBIZ BANK",
+        "state": "CO"
+      },
+      "first": "2008-10-09",
+      "kind": "matched in state",
+      "last": "2009-07-16",
+      "loans": 20,
+      "name": "COBIZ BK",
+      "rssd": "56557",
+      "score": 1.1,
+      "state": "CO"
+    },
+    "COLE TAYLOR BK|CHICAGO|IL": {
+      "amount_mn": 2060.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "COLE TAYLOR BANK",
+        "state": "IL"
+      },
+      "first": "2009-07-30",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 12,
+      "name": "COLE TAYLOR BK",
+      "rssd": "412135",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "COLONIAL BK|MONTGOMERY|AL": {
+      "amount_mn": 700.0,
+      "city": "MONTGOMERY",
+      "filer": {
+        "city": "MONTGOMERY",
+        "name": "COLONIAL BANK",
+        "state": "AL"
+      },
+      "first": "2008-10-09",
+      "kind": "matched in state",
+      "last": "2008-10-09",
+      "loans": 1,
+      "name": "COLONIAL BK",
+      "rssd": "570231",
+      "score": 1.1,
+      "state": "AL"
+    },
+    "COLONIAL SVG FA|FORT WORTH|TX": {
+      "amount_mn": 38.0,
+      "city": "FORT WORTH",
+      "first": "2009-04-09",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-04-09",
+      "loans": 1,
+      "name": "COLONIAL SVG FA",
+      "state": "TX"
+    },
+    "COLUMBIA ST BK|TACOMA|WA": {
+      "amount_mn": 455.0,
+      "city": "TACOMA",
+      "filer": {
+        "city": "TACOMA",
+        "name": "COLUMBIA STATE BANK",
+        "state": "WA"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2009-07-02",
+      "loans": 10,
+      "name": "COLUMBIA ST BK",
+      "rssd": "2078290",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "COLUMBUS B&TC|COLUMBUS|GA": {
+      "amount_mn": 1350.0,
+      "city": "COLUMBUS",
+      "filer": {
+        "city": "COLUMBUS",
+        "name": "COLUMBUS BANK AND TRUST COMPANY",
+        "state": "GA"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-09-10",
+      "loans": 11,
+      "name": "COLUMBUS B&TC",
+      "rssd": "395238",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "COMERICA BK|DALLAS|TX": {
+      "amount_mn": 12412.0,
+      "city": "DALLAS",
+      "filer": {
+        "city": "DALLAS",
+        "name": "COMERICA BANK",
+        "state": "TX"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2009-01-29",
+      "loans": 11,
+      "name": "COMERICA BK",
+      "rssd": "60143",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "COMMENCEMENT BK|TACOMA|WA": {
+      "amount_mn": 25.0,
+      "city": "TACOMA",
+      "filer": {
+        "city": "TACOMA",
+        "name": "COMMENCEMENT BANK",
+        "state": "WA"
+      },
+      "first": "2009-07-30",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 5,
+      "name": "COMMENCEMENT BK",
+      "rssd": "3537897",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "COMMERCE BK NA|KANSAS CITY|MO": {
+      "amount_mn": 2200.0,
+      "city": "KANSAS CITY",
+      "filer": {
+        "city": "KANSAS CITY",
+        "name": "COMMERCE BANK, NATIONAL ASSOCIATION",
+        "state": "MO"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2009-02-12",
+      "loans": 16,
+      "name": "COMMERCE BK NA",
+      "rssd": "601050",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "COMMERZBANK AG NY BR|NEW YORK|NY": {
+      "amount_mn": 28211.2,
+      "city": "NEW YORK",
+      "first": "2008-01-17",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 18,
+      "name": "COMMERZBANK AG NY BR",
+      "state": "NY"
+    },
+    "COMMERZBANK BK NY BR|NEW YORK|NY": {
+      "amount_mn": 22950.0,
+      "city": "NEW YORK",
+      "first": "2009-05-21",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-09-24",
+      "loans": 7,
+      "name": "COMMERZBANK BK NY BR",
+      "state": "NY"
+    },
+    "COMMUNITY B&TC|CORNELIA|GA": {
+      "amount_mn": 60.0,
+      "city": "CORNELIA",
+      "filer": {
+        "city": "CORNELIA",
+        "name": "COMMUNITY BANK & TRUST",
+        "state": "GA"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2008-12-04",
+      "loans": 1,
+      "name": "COMMUNITY B&TC",
+      "rssd": "184937",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "COMMUNITY BK DUPAGE|DOWNERS GROVE|IL": {
+      "amount_mn": 35.0,
+      "city": "DOWNERS GROVE",
+      "filer": {
+        "city": "DOWNERS GROVE",
+        "name": "COMMUNITY BANK OF DUPAGE",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 4,
+      "name": "COMMUNITY BK DUPAGE",
+      "rssd": "3407114",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "COMMUNITY BKR BK|MIDLOTHIAN|VA": {
+      "amount_mn": 254.0,
+      "city": "MIDLOTHIAN",
+      "filer": {
+        "city": "MIDLOTHIAN",
+        "name": "COMMUNITY BANKERS' BANK",
+        "state": "VA"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-07-30",
+      "loans": 24,
+      "name": "COMMUNITY BKR BK",
+      "rssd": "77422",
+      "score": 1.1,
+      "state": "VA"
+    },
+    "COMMUNITY BUS BK|WEST SACRAMENTO|CA": {
+      "amount_mn": 22.5,
+      "best": [
+        {
+          "city": "PASADENA",
+          "name": "COMMUNITY BANK",
+          "rssd": "770367",
+          "score": 0.667,
+          "state": "CA"
+        },
+        {
+          "city": "WEST SACRAMENTO",
+          "name": "COMMUNITY BUSINESS BANK",
+          "rssd": "3392292",
+          "score": 0.6,
+          "state": "CA"
+        }
+      ],
+      "city": "WEST SACRAMENTO",
+      "first": "2009-03-26",
+      "kind": "unresolved",
+      "last": "2009-09-10",
+      "loans": 3,
+      "name": "COMMUNITY BUS BK",
+      "state": "CA"
+    },
+    "COMMUNITY FIRST BK|FAIRVIEW HEIGHTS|IL": {
+      "amount_mn": 100.0,
+      "city": "FAIRVIEW HEIGHTS",
+      "filer": {
+        "city": "FAIRVIEW HEIGHTS",
+        "name": "COMMUNITY FIRST BANK",
+        "state": "IL"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 18,
+      "name": "COMMUNITY FIRST BK",
+      "rssd": "1225033",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "COMMUNITYONE BK NA|ASHEBORO|NC": {
+      "amount_mn": 375.0,
+      "city": "ASHEBORO",
+      "filer": {
+        "city": "ASHEBORO",
+        "name": "COMMUNITYONE BANK, NATIONAL ASSOCIATION",
+        "state": "NC"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 17,
+      "name": "COMMUNITYONE BK NA",
+      "rssd": "591825",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "COMPASS BK|BIRMINGHAM|AL": {
+      "amount_mn": 16750.0,
+      "city": "BIRMINGHAM",
+      "filer": {
+        "city": "BIRMINGHAM",
+        "name": "COMPASS BANK",
+        "state": "AL"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2009-07-30",
+      "loans": 24,
+      "name": "COMPASS BK",
+      "rssd": "697633",
+      "score": 1.1,
+      "state": "AL"
+    },
+    "CONTINENTAL BK|SALT LAKE CITY|UT": {
+      "amount_mn": 318.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "CONTINENTAL BANK",
+        "state": "UT"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 12,
+      "name": "CONTINENTAL BK",
+      "rssd": "3220863",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "COUNTRYWIDE BK FSB|ALEXANDRIA|VA": {
+      "amount_mn": 20750.0,
+      "city": "ALEXANDRIA",
+      "first": "2007-12-27",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-03-26",
+      "loans": 3,
+      "name": "COUNTRYWIDE BK FSB",
+      "state": "VA"
+    },
+    "CREDIT INDUS ET CMRL NY BR|NEW YORK|NY": {
+      "amount_mn": 23910.0,
+      "city": "NEW YORK",
+      "first": "2008-02-14",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 34,
+      "name": "CREDIT INDUS ET CMRL NY BR",
+      "state": "NY"
+    },
+    "CREDIT SUISSE NY BR|NEW YORK|NY": {
+      "amount_mn": 5.0,
+      "city": "NEW YORK",
+      "first": "2008-12-18",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-12-18",
+      "loans": 1,
+      "name": "CREDIT SUISSE NY BR",
+      "state": "NY"
+    },
+    "CRESCENT BK|MYRTLE BEACH|SC": {
+      "amount_mn": 15.0,
+      "city": "MYRTLE BEACH",
+      "filer": {
+        "city": "MYRTLE BEACH",
+        "name": "CRESCENT BANK",
+        "state": "SC"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "CRESCENT BK",
+      "rssd": "3013823",
+      "score": 1.1,
+      "state": "SC"
+    },
+    "CRESCENT ST BK|CARY|NC": {
+      "amount_mn": 258.0,
+      "city": "CARY",
+      "filer": {
+        "city": "CARY",
+        "name": "CRESCENT STATE BANK",
+        "state": "NC"
+      },
+      "first": "2009-09-10",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 9,
+      "name": "CRESCENT ST BK",
+      "rssd": "2756785",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "DANVERSBANK|DANVERS|MA": {
+      "amount_mn": 65.0,
+      "city": "DANVERS",
+      "filer": {
+        "city": "DANVERS",
+        "name": "DANVERSBANK",
+        "state": "MA"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2009-07-16",
+      "loans": 2,
+      "name": "DANVERSBANK",
+      "rssd": "750305",
+      "score": 1.1,
+      "state": "MA"
+    },
+    "DELAWARE CTY B&TC|LEWIS CENTER|OH": {
+      "amount_mn": 52.0,
+      "city": "LEWIS CENTER",
+      "filer": {
+        "city": "LEWIS CENTER",
+        "name": "DELAWARE COUNTY BANK AND TRUST COMPANY, THE",
+        "state": "OH"
+      },
+      "first": "2007-12-27",
+      "kind": "matched in state",
+      "last": "2008-07-17",
+      "loans": 5,
+      "name": "DELAWARE CTY B&TC",
+      "rssd": "616410",
+      "score": 1.1,
+      "state": "OH"
+    },
+    "DEPFA BK PLC NY BR|NEW YORK|NY": {
+      "amount_mn": 46798.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-09-25",
+      "loans": 18,
+      "name": "DEPFA BK PLC NY BR",
+      "state": "NY"
+    },
+    "DEUTSCHE BK AG NY BR|NEW YORK|NY": {
+      "amount_mn": 76882.0,
+      "city": "NEW YORK",
+      "first": "2008-01-31",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-03-12",
+      "loans": 20,
+      "name": "DEUTSCHE BK AG NY BR",
+      "state": "NY"
+    },
+    "DEXIA CREDIT LOCAL NY BR|NEW YORK|NY": {
+      "amount_mn": 105166.8,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-11-05",
+      "loans": 24,
+      "name": "DEXIA CREDIT LOCAL NY BR",
+      "state": "NY"
+    },
+    "DISCOVER BK|GREENWOOD|DE": {
+      "amount_mn": 5100.0,
+      "city": "GREENWOOD",
+      "filer": {
+        "city": "GREENWOOD",
+        "name": "DISCOVER BANK",
+        "state": "DE"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 8,
+      "name": "DISCOVER BK",
+      "rssd": "30810",
+      "score": 1.1,
+      "state": "DE"
+    },
+    "DNB FIRST NA|DOWNINGTOWN|PA": {
+      "amount_mn": 20.5,
+      "city": "DOWNINGTOWN",
+      "filer": {
+        "city": "DOWNINGTOWN",
+        "name": "DNB FIRST, NATIONAL ASSOCIATION",
+        "state": "PA"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2009-04-23",
+      "loans": 1,
+      "name": "DNB FIRST NA",
+      "rssd": "71318",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "DOLLAR BK FSB|PITTSBURGH|PA": {
+      "amount_mn": 1765.0,
+      "city": "PITTSBURGH",
+      "first": "2008-01-17",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-01-14",
+      "loans": 26,
+      "name": "DOLLAR BK FSB",
+      "state": "PA"
+    },
+    "DOOLIN SCTY SVG BK FSB|NEW MARTINSVILLE|WV": {
+      "amount_mn": 50.0,
+      "city": "NEW MARTINSVILLE",
+      "first": "2009-03-12",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-12-17",
+      "loans": 10,
+      "name": "DOOLIN SCTY SVG BK FSB",
+      "state": "WV"
+    },
+    "DORAL BK|SAN JUAN|PR": {
+      "amount_mn": 2549.6,
+      "city": "SAN JUAN",
+      "filer": {
+        "city": "SAN JUAN",
+        "name": "DORAL BANK",
+        "state": "PR"
+      },
+      "first": "2008-10-09",
+      "kind": "matched in state",
+      "last": "2009-12-03",
+      "loans": 23,
+      "name": "DORAL BK",
+      "rssd": "671576",
+      "score": 1.1,
+      "state": "PR"
+    },
+    "DRESDNER BK AG NY BR|NEW YORK|NY": {
+      "amount_mn": 123328.2,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-05-07",
+      "loans": 37,
+      "name": "DRESDNER BK AG NY BR",
+      "state": "NY"
+    },
+    "DZ BK AG DEUTSCHE ZENTRA NY BR|NEW YORK|NY": {
+      "amount_mn": 39476.6,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 38,
+      "name": "DZ BK AG DEUTSCHE ZENTRA NY BR",
+      "state": "NY"
+    },
+    "EDENS BK|WILMETTE|IL": {
+      "amount_mn": 40.0,
+      "city": "WILMETTE",
+      "filer": {
+        "city": "WILMETTE",
+        "name": "EDENS BANK",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "EDENS BK",
+      "rssd": "281144",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "ENERBANK USA|SALT LAKE CITY|UT": {
+      "amount_mn": 304.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "ENERBANK USA",
+        "state": "UT"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 21,
+      "name": "ENERBANK USA",
+      "rssd": "3121072",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "ENTERPRISE BK & TR|CLAYTON|MO": {
+      "amount_mn": 30.0,
+      "city": "CLAYTON",
+      "filer": {
+        "city": "CLAYTON",
+        "name": "ENTERPRISE BANK & TRUST",
+        "state": "MO"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-07-02",
+      "loans": 2,
+      "name": "ENTERPRISE BK & TR",
+      "rssd": "1190476",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "ERSTE BK OESTERREICHISCH NY BR|NEW YORK|NY": {
+      "amount_mn": 1500.0,
+      "city": "NEW YORK",
+      "first": "2008-03-27",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-03-27",
+      "loans": 1,
+      "name": "ERSTE BK OESTERREICHISCH NY BR",
+      "state": "NY"
+    },
+    "ERSTE GROUP BK NY BR|NEW YORK|NY": {
+      "amount_mn": 15500.0,
+      "city": "NEW YORK",
+      "first": "2008-12-23",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 14,
+      "name": "ERSTE GROUP BK NY BR",
+      "state": "NY"
+    },
+    "ESB BK|ELLWOOD CITY|PA": {
+      "amount_mn": 90.0,
+      "city": "ELLWOOD CITY",
+      "filer": {
+        "city": "ELLWOOD CITY",
+        "name": "ESB BANK",
+        "state": "PA"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 7,
+      "name": "ESB BK",
+      "rssd": "224178",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "ESSA BK & TR|STROUDSBURG|PA": {
+      "amount_mn": 253.0,
+      "best": [
+        {
+          "city": "CLEARFIELD",
+          "name": "CLEARFIELD BANK AND TRUST COMPANY, THE",
+          "rssd": "975911",
+          "score": 0.5,
+          "state": "PA"
+        },
+        {
+          "city": "POTTSVILLE",
+          "name": "UNION BANK AND TRUST COMPANY",
+          "rssd": "850616",
+          "score": 0.5,
+          "state": "PA"
+        }
+      ],
+      "city": "STROUDSBURG",
+      "first": "2009-03-12",
+      "kind": "unresolved",
+      "last": "2010-02-11",
+      "loans": 12,
+      "name": "ESSA BK & TR",
+      "state": "PA"
+    },
+    "EUROHYPO AG NY BR|NEW YORK|NY": {
+      "amount_mn": 13255.0,
+      "city": "NEW YORK",
+      "first": "2008-11-06",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 15,
+      "name": "EUROHYPO AG NY BR",
+      "state": "NY"
+    },
+    "EVERBANK|JACKSONVILLE|FL": {
+      "amount_mn": 400.0,
+      "best": [
+        {
+          "city": "JACKSONVILLE",
+          "name": "FIRST GUARANTY BANK AND TRUST COMPANY OF JACKSONVILLE",
+          "rssd": "895831",
+          "score": 0.1,
+          "state": "FL"
+        },
+        {
+          "city": "JACKSONVILLE",
+          "name": "CNLBANK, FIRST COAST",
+          "rssd": "3346295",
+          "score": 0.1,
+          "state": "FL"
+        }
+      ],
+      "city": "JACKSONVILLE",
+      "first": "2009-07-30",
+      "kind": "unresolved",
+      "last": "2010-02-11",
+      "loans": 2,
+      "name": "EVERBANK",
+      "state": "FL"
+    },
+    "FARMERS & MRCH SVG BK|MANCHESTER|IA": {
+      "amount_mn": 5.0,
+      "city": "MANCHESTER",
+      "first": "2009-02-26",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-02-26",
+      "loans": 1,
+      "name": "FARMERS & MRCH SVG BK",
+      "state": "IA"
+    },
+    "FARMERS AND MERCHANTS BK OF WE|KITTANNING|PA": {
+      "amount_mn": 98.0,
+      "best": [
+        {
+          "city": "KITTANNING",
+          "name": "FARMERS AND MERCHANTS BANK OF WESTERN PENNSYLVANIA, NATIONAL ASSOCIATION",
+          "rssd": "18827",
+          "score": 0.6,
+          "state": "PA"
+        },
+        {
+          "city": "KITTANNING",
+          "name": "FARMERS NATIONAL BANK OF KITTANNING, THE",
+          "rssd": "1000726",
+          "score": 0.5,
+          "state": "PA"
+        }
+      ],
+      "city": "KITTANNING",
+      "first": "2009-02-26",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 7,
+      "name": "FARMERS AND MERCHANTS BK OF WE",
+      "state": "PA"
+    },
+    "FARMERS BK WINDSOR VA|WINDSOR|VA": {
+      "amount_mn": 12.0,
+      "city": "WINDSOR",
+      "filer": {
+        "city": "WINDSOR",
+        "name": "FARMERS BANK, WINDSOR VA",
+        "state": "VA"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-09-10",
+      "loans": 2,
+      "name": "FARMERS BK WINDSOR VA",
+      "rssd": "619327",
+      "score": 1.1,
+      "state": "VA"
+    },
+    "FARMERS NB|EMLENTON|PA": {
+      "amount_mn": 92.0,
+      "best": [
+        {
+          "city": "EMLENTON",
+          "name": "FARMERS NATIONAL BANK OF EMLENTON, THE",
+          "rssd": "119528",
+          "score": 0.767,
+          "state": "PA"
+        },
+        {
+          "city": "KITTANNING",
+          "name": "FARMERS NATIONAL BANK OF KITTANNING, THE",
+          "rssd": "1000726",
+          "score": 0.667,
+          "state": "PA"
+        }
+      ],
+      "city": "EMLENTON",
+      "first": "2009-01-29",
+      "kind": "unresolved",
+      "last": "2009-07-30",
+      "loans": 5,
+      "name": "FARMERS NB",
+      "state": "PA"
+    },
+    "FARMERS ST BK|WATERLOO|IA": {
+      "amount_mn": 25.0,
+      "city": "WATERLOO",
+      "filer": {
+        "city": "WATERLOO",
+        "name": "FARMERS STATE BANK",
+        "state": "IA"
+      },
+      "first": "2009-05-21",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 5,
+      "name": "FARMERS ST BK",
+      "rssd": "840747",
+      "score": 1.1,
+      "state": "IA"
+    },
+    "FIA CARD SVC NA|WILMINGTON|DE": {
+      "amount_mn": 48000.0,
+      "city": "WILMINGTON",
+      "filer": {
+        "city": "WILMINGTON",
+        "name": "FIA CARD SERVICES, NATIONAL ASSOCIATION",
+        "state": "DE"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-04-23",
+      "loans": 5,
+      "name": "FIA CARD SVC NA",
+      "rssd": "1830035",
+      "score": 1.1,
+      "state": "DE"
+    },
+    "FIDELITY BK|WICHITA|KS": {
+      "amount_mn": 300.0,
+      "best": [
+        {
+          "city": "DODGE CITY",
+          "name": "FIDELITY STATE BANK AND TRUST COMPANY, THE",
+          "rssd": "638850",
+          "score": 0.5,
+          "state": "KS"
+        },
+        {
+          "city": "TOPEKA",
+          "name": "FIDELITY STATE BANK AND TRUST COMPANY",
+          "rssd": "55653",
+          "score": 0.5,
+          "state": "KS"
+        }
+      ],
+      "city": "WICHITA",
+      "first": "2008-01-17",
+      "kind": "unresolved",
+      "last": "2009-08-27",
+      "loans": 7,
+      "name": "FIDELITY BK",
+      "state": "KS"
+    },
+    "FIDELITY CO-OP BK|FITCHBURG|MA": {
+      "amount_mn": 130.0,
+      "best": [
+        {
+          "city": "FITCHBURG",
+          "name": "FIDELITY CO-OPERATIVE BANK",
+          "rssd": "933377",
+          "score": 0.7,
+          "state": "MA"
+        },
+        {
+          "city": "EVERETT",
+          "name": "EVERETT CO-OPERATIVE BANK",
+          "rssd": "952172",
+          "score": 0.333,
+          "state": "MA"
+        }
+      ],
+      "city": "FITCHBURG",
+      "first": "2009-04-09",
+      "kind": "unresolved",
+      "last": "2010-02-11",
+      "loans": 7,
+      "name": "FIDELITY CO-OP BK",
+      "state": "MA"
+    },
+    "FIDELITY ST B&TC|DODGE CITY|KS": {
+      "amount_mn": 53.0,
+      "city": "DODGE CITY",
+      "filer": {
+        "city": "DODGE CITY",
+        "name": "FIDELITY STATE BANK AND TRUST COMPANY, THE",
+        "state": "KS"
+      },
+      "first": "2008-12-18",
+      "kind": "matched in state",
+      "last": "2009-12-03",
+      "loans": 8,
+      "name": "FIDELITY ST B&TC",
+      "rssd": "638850",
+      "score": 1.1,
+      "state": "KS"
+    },
+    "FIFTH THIRD BK|CINCINNATI|OH": {
+      "amount_mn": 41478.2,
+      "city": "CINCINNATI",
+      "filer": {
+        "city": "CINCINNATI",
+        "name": "FIFTH THIRD BANK",
+        "state": "OH"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 27,
+      "name": "FIFTH THIRD BK",
+      "rssd": "723112",
+      "score": 1.1,
+      "state": "OH"
+    },
+    "FIFTH THIRD BK|GRAND RAPIDS|MI": {
+      "amount_mn": 2500.0,
+      "city": "GRAND RAPIDS",
+      "filer": {
+        "city": "GRAND RAPIDS",
+        "name": "FIFTH THIRD BANK",
+        "state": "MI"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2008-10-23",
+      "loans": 1,
+      "name": "FIFTH THIRD BK",
+      "rssd": "913940",
+      "score": 1.1,
+      "state": "MI"
+    },
+    "FIFTH THIRD BK|NASHVILLE|TN": {
+      "amount_mn": 500.0,
+      "city": "NASHVILLE",
+      "filer": {
+        "city": "NASHVILLE",
+        "name": "FIFTH THIRD BANK, N.A.",
+        "state": "TN"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2008-10-23",
+      "loans": 1,
+      "name": "FIFTH THIRD BK",
+      "rssd": "1408069",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "FIRST B&T|BROOKINGS|SD": {
+      "amount_mn": 5.8,
+      "city": "BROOKINGS",
+      "filer": {
+        "city": "BROOKINGS",
+        "name": "FIRST BANK & TRUST",
+        "state": "SD"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "FIRST B&T",
+      "rssd": "77851",
+      "score": 1.1,
+      "state": "SD"
+    },
+    "FIRST BK MT|LEWISTOWN|MT": {
+      "amount_mn": 37.0,
+      "best": [
+        {
+          "city": "SIDNEY",
+          "name": "1ST BANK",
+          "rssd": "564856",
+          "score": 0.667,
+          "state": "MT"
+        },
+        {
+          "city": "LEWISTOWN",
+          "name": "FIRST BANK OF MONTANA",
+          "rssd": "649650",
+          "score": 0.6,
+          "state": "MT"
+        }
+      ],
+      "city": "LEWISTOWN",
+      "first": "2008-11-20",
+      "kind": "unresolved",
+      "last": "2009-05-07",
+      "loans": 4,
+      "name": "FIRST BK MT",
+      "state": "MT"
+    },
+    "FIRST BK|CREVE COEUR|MO": {
+      "amount_mn": 100.0,
+      "city": "CREVE COEUR",
+      "filer": {
+        "city": "CREVE COEUR",
+        "name": "FIRST BANK",
+        "state": "MO"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2008-12-04",
+      "loans": 1,
+      "name": "FIRST BK",
+      "rssd": "169653",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "FIRST CHICAGO B&T|CHICAGO|IL": {
+      "amount_mn": 35.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "ITASCA",
+        "name": "FIRST CHICAGO BANK & TRUST",
+        "state": "IL"
+      },
+      "first": "2009-07-02",
+      "kind": "matched in state",
+      "last": "2009-07-02",
+      "loans": 1,
+      "name": "FIRST CHICAGO B&T",
+      "rssd": "686271",
+      "score": 1.0,
+      "state": "IL"
+    },
+    "FIRST CHICAGO B&T|ITASCA|IL": {
+      "amount_mn": 185.0,
+      "city": "ITASCA",
+      "filer": {
+        "city": "ITASCA",
+        "name": "FIRST CHICAGO BANK & TRUST",
+        "state": "IL"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2009-06-04",
+      "loans": 4,
+      "name": "FIRST CHICAGO B&T",
+      "rssd": "686271",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "FIRST CMNTY BK|HARBOR SPRINGS|MI": {
+      "amount_mn": 72.5,
+      "city": "HARBOR SPRINGS",
+      "filer": {
+        "city": "HARBOR SPRINGS",
+        "name": "FIRST COMMUNITY BANK",
+        "state": "MI"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 10,
+      "name": "FIRST CMNTY BK",
+      "rssd": "932745",
+      "score": 1.1,
+      "state": "MI"
+    },
+    "FIRST CMRL BK|BIRMINGHAM|AL": {
+      "amount_mn": 175.0,
+      "city": "BIRMINGHAM",
+      "filer": {
+        "city": "BIRMINGHAM",
+        "name": "FIRST COMMERCIAL BANK",
+        "state": "AL"
+      },
+      "first": "2009-05-21",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 2,
+      "name": "FIRST CMRL BK",
+      "rssd": "44134",
+      "score": 1.1,
+      "state": "AL"
+    },
+    "FIRST CMRL BK|CHICAGO|IL": {
+      "amount_mn": 40.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "FIRST COMMERCIAL BANK",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 2,
+      "name": "FIRST CMRL BK",
+      "rssd": "48730",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "FIRST COMMONWEALTH BK|INDIANA|PA": {
+      "amount_mn": 6440.0,
+      "city": "INDIANA",
+      "filer": {
+        "city": "INDIANA",
+        "name": "FIRST COMMONWEALTH BANK",
+        "state": "PA"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 21,
+      "name": "FIRST COMMONWEALTH BK",
+      "rssd": "42420",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "FIRST FARMERS B&T|CONVERSE|IN": {
+      "amount_mn": 7.0,
+      "city": "CONVERSE",
+      "filer": {
+        "city": "CONVERSE",
+        "name": "FIRST FARMERS BANK & TRUST",
+        "state": "IN"
+      },
+      "first": "2009-10-22",
+      "kind": "matched in state",
+      "last": "2009-10-22",
+      "loans": 1,
+      "name": "FIRST FARMERS B&T",
+      "rssd": "139843",
+      "score": 1.1,
+      "state": "IN"
+    },
+    "FIRST FED BK OF CA FSB|SANTA MONICA|CA": {
+      "amount_mn": 50.0,
+      "city": "SANTA MONICA",
+      "first": "2008-10-23",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2008-11-06",
+      "loans": 2,
+      "name": "FIRST FED BK OF CA FSB",
+      "state": "CA"
+    },
+    "FIRST FED BK OF FL|LAKE CITY|FL": {
+      "amount_mn": 5.0,
+      "best": [
+        {
+          "city": "NAPLES",
+          "name": "FIRST FLORIDA BANK",
+          "rssd": "2808358",
+          "score": 0.75,
+          "state": "FL"
+        },
+        {
+          "city": "MILTON",
+          "name": "FIRST NATIONAL BANK OF FLORIDA, THE",
+          "rssd": "252836",
+          "score": 0.75,
+          "state": "FL"
+        }
+      ],
+      "city": "LAKE CITY",
+      "first": "2008-12-18",
+      "kind": "unresolved",
+      "last": "2008-12-18",
+      "loans": 1,
+      "name": "FIRST FED BK OF FL",
+      "state": "FL"
+    },
+    "FIRST FS&LA|CHARLESTON|SC": {
+      "amount_mn": 1880.0,
+      "city": "CHARLESTON",
+      "first": "2008-12-18",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-02-11",
+      "loans": 25,
+      "name": "FIRST FS&LA",
+      "state": "SC"
+    },
+    "FIRST HAWAIIAN BK|HONOLULU|HI": {
+      "amount_mn": 10.0,
+      "city": "HONOLULU",
+      "filer": {
+        "city": "HONOLULU",
+        "name": "FIRST HAWAIIAN BANK",
+        "state": "HI"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 1,
+      "name": "FIRST HAWAIIAN BK",
+      "rssd": "980661",
+      "score": 1.1,
+      "state": "HI"
+    },
+    "FIRST MIDWEST BK|ITASCA|IL": {
+      "amount_mn": 3900.0,
+      "city": "ITASCA",
+      "filer": {
+        "city": "ITASCA",
+        "name": "FIRST MIDWEST BANK",
+        "state": "IL"
+      },
+      "first": "2008-03-13",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 33,
+      "name": "FIRST MIDWEST BK",
+      "rssd": "1007846",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "FIRST MRCH BK NA|MUNCIE|IN": {
+      "amount_mn": 1.4,
+      "city": "MUNCIE",
+      "filer": {
+        "city": "MUNCIE",
+        "name": "FIRST MERCHANTS BANK, NATIONAL ASSOCIATION",
+        "state": "IN"
+      },
+      "first": "2008-09-11",
+      "kind": "matched in state",
+      "last": "2008-09-11",
+      "loans": 1,
+      "name": "FIRST MRCH BK NA",
+      "rssd": "17147",
+      "score": 1.1,
+      "state": "IN"
+    },
+    "FIRST NB OF FORT SMITH|FORT SMITH|AR": {
+      "amount_mn": 8.0,
+      "city": "FORT SMITH",
+      "filer": {
+        "city": "FORT SMITH",
+        "name": "FIRST NATIONAL BANK OF FORT SMITH, THE",
+        "state": "AR"
+      },
+      "first": "2009-06-04",
+      "kind": "matched in state",
+      "last": "2009-06-04",
+      "loans": 1,
+      "name": "FIRST NB OF FORT SMITH",
+      "rssd": "397540",
+      "score": 1.1,
+      "state": "AR"
+    },
+    "FIRST NB OF NV|RENO|NV": {
+      "amount_mn": 135.0,
+      "city": "RENO",
+      "filer": {
+        "city": "RENO",
+        "name": "FIRST NATIONAL BANK OF NEVADA",
+        "state": "NV"
+      },
+      "first": "2007-12-20",
+      "kind": "matched in state",
+      "last": "2008-04-10",
+      "loans": 5,
+      "name": "FIRST NB OF NV",
+      "rssd": "411464",
+      "score": 1.1,
+      "state": "NV"
+    },
+    "FIRST NB&TC|COLUMBIA|MO": {
+      "amount_mn": 50.0,
+      "city": "COLUMBIA",
+      "filer": {
+        "city": "COLUMBIA",
+        "name": "FIRST NATIONAL BANK AND TRUST COMPANY",
+        "state": "MO"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-04-23",
+      "loans": 4,
+      "name": "FIRST NB&TC",
+      "rssd": "103255",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "FIRST NB|BELLEVUE|OH": {
+      "amount_mn": 10.0,
+      "best": [
+        {
+          "city": "LEBANON",
+          "name": "1ST NATIONAL BANK",
+          "rssd": "480723",
+          "score": 1.0,
+          "state": "OH"
+        },
+        {
+          "city": "ORRVILLE",
+          "name": "FIRST NATIONAL BANK",
+          "rssd": "217620",
+          "score": 1.0,
+          "state": "OH"
+        }
+      ],
+      "city": "BELLEVUE",
+      "first": "2010-02-11",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 2,
+      "name": "FIRST NB",
+      "state": "OH"
+    },
+    "FIRST NB|MOUNTAIN VIEW|MO": {
+      "amount_mn": 5.0,
+      "city": "MOUNTAIN VIEW",
+      "filer": {
+        "city": "MOUNTAIN VIEW",
+        "name": "FIRST NATIONAL BANK",
+        "state": "MO"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2009-01-29",
+      "loans": 1,
+      "name": "FIRST NB",
+      "rssd": "43155",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "FIRST NB|WICHITA FALLS|TX": {
+      "amount_mn": 6.0,
+      "city": "WICHITA FALLS",
+      "filer": {
+        "city": "WICHITA FALLS",
+        "name": "FIRST NATIONAL BANK",
+        "state": "TX"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "FIRST NB",
+      "rssd": "375566",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "FIRST NIAGARA BK|BUFFALO|NY": {
+      "amount_mn": 150.0,
+      "city": "BUFFALO",
+      "filer": {
+        "city": "LOCKPORT",
+        "name": "FIRST NIAGARA COMMERCIAL BANK",
+        "state": "NY"
+      },
+      "first": "2010-01-14",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 1,
+      "name": "FIRST NIAGARA BK",
+      "rssd": "2905163",
+      "score": 0.75,
+      "state": "NY"
+    },
+    "FIRST NIAGARA BK|LOCKPORT|NY": {
+      "amount_mn": 5334.0,
+      "city": "LOCKPORT",
+      "filer": {
+        "city": "LOCKPORT",
+        "name": "FIRST NIAGARA COMMERCIAL BANK",
+        "state": "NY"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2009-07-30",
+      "loans": 5,
+      "name": "FIRST NIAGARA BK",
+      "rssd": "2905163",
+      "score": 0.85,
+      "state": "NY"
+    },
+    "FIRST PALMETTO SVG BK FSB|CAMDEN|SC": {
+      "amount_mn": 451.5,
+      "city": "CAMDEN",
+      "first": "2008-12-04",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-02-11",
+      "loans": 14,
+      "name": "FIRST PALMETTO SVG BK FSB",
+      "state": "SC"
+    },
+    "FIRST PLACE BK|WARREN|OH": {
+      "amount_mn": 396.9,
+      "best": [
+        {
+          "city": "LEBANON",
+          "name": "1ST NATIONAL BANK",
+          "rssd": "480723",
+          "score": 0.667,
+          "state": "OH"
+        },
+        {
+          "city": "ORRVILLE",
+          "name": "FIRST NATIONAL BANK",
+          "rssd": "217620",
+          "score": 0.667,
+          "state": "OH"
+        }
+      ],
+      "city": "WARREN",
+      "first": "2009-07-30",
+      "kind": "unresolved",
+      "last": "2010-01-14",
+      "loans": 6,
+      "name": "FIRST PLACE BK",
+      "state": "OH"
+    },
+    "FIRST SECURITY BK MISSOULA|MISSOULA|MT": {
+      "amount_mn": 2238.0,
+      "city": "MISSOULA",
+      "filer": {
+        "city": "MISSOULA",
+        "name": "FIRST SECURITY BANK OF MISSOULA",
+        "state": "MT"
+      },
+      "first": "2008-02-28",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 19,
+      "name": "FIRST SECURITY BK MISSOULA",
+      "rssd": "652351",
+      "score": 1.1,
+      "state": "MT"
+    },
+    "FIRST ST B&TC|LARNED|KS": {
+      "amount_mn": 27.5,
+      "best": [
+        {
+          "city": "TONGANOXIE",
+          "name": "FIRST STATE BANK AND TRUST",
+          "rssd": "605656",
+          "score": 1.0,
+          "state": "KS"
+        },
+        {
+          "city": "LARNED",
+          "name": "FIRST STATE BANK AND TRUST COMPANY OF LARNED, THE",
+          "rssd": "9955",
+          "score": 0.9,
+          "state": "KS"
+        }
+      ],
+      "city": "LARNED",
+      "first": "2009-05-21",
+      "kind": "unresolved",
+      "last": "2010-02-11",
+      "loans": 5,
+      "name": "FIRST ST B&TC",
+      "state": "KS"
+    },
+    "FIRST ST BK|BUXTON|ND": {
+      "amount_mn": 13.0,
+      "city": "BUXTON",
+      "filer": {
+        "city": "BUXTON",
+        "name": "FIRST STATE BANK",
+        "state": "ND"
+      },
+      "first": "2009-05-21",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 2,
+      "name": "FIRST ST BK",
+      "rssd": "917050",
+      "score": 1.1,
+      "state": "ND"
+    },
+    "FIRST SVC BK|GREENBRIER|AR": {
+      "amount_mn": 5.0,
+      "best": [
+        {
+          "city": "PARAGOULD",
+          "name": "FIRST NATIONAL BANK",
+          "rssd": "42448",
+          "score": 0.667,
+          "state": "AR"
+        },
+        {
+          "city": "HOT SPRINGS",
+          "name": "FIRST NATIONAL BANK",
+          "rssd": "324649",
+          "score": 0.667,
+          "state": "AR"
+        }
+      ],
+      "city": "GREENBRIER",
+      "first": "2009-08-13",
+      "kind": "unresolved",
+      "last": "2009-08-13",
+      "loans": 1,
+      "name": "FIRST SVC BK",
+      "state": "AR"
+    },
+    "FIRST SVG BK OF PERKASIE|PERKASIE|PA": {
+      "amount_mn": 10.0,
+      "city": "PERKASIE",
+      "first": "2009-01-29",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-02-12",
+      "loans": 2,
+      "name": "FIRST SVG BK OF PERKASIE",
+      "state": "PA"
+    },
+    "FIRST TN BK NA|MEMPHIS|TN": {
+      "amount_mn": 45419.3,
+      "city": "MEMPHIS",
+      "filer": {
+        "city": "MEMPHIS",
+        "name": "FIRST TENNESSEE BANK NATIONAL ASSOCIATION",
+        "state": "TN"
+      },
+      "first": "2007-12-20",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 35,
+      "name": "FIRST TN BK NA",
+      "rssd": "485559",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "FIRST UT BK|SALT LAKE CITY|UT": {
+      "amount_mn": 55.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "FIRST UTAH BANK",
+        "state": "UT"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 8,
+      "name": "FIRST UT BK",
+      "rssd": "207872",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "FIRST WESTROADS BK|OMAHA|NE": {
+      "amount_mn": 5.0,
+      "city": "OMAHA",
+      "filer": {
+        "city": "OMAHA",
+        "name": "FIRST WESTROADS BANK, INC.",
+        "state": "NE"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-02-12",
+      "loans": 1,
+      "name": "FIRST WESTROADS BK",
+      "rssd": "222754",
+      "score": 1.1,
+      "state": "NE"
+    },
+    "FIRSTBANK PR|SAN JUAN|PR": {
+      "amount_mn": 4700.0,
+      "city": "SAN JUAN",
+      "filer": {
+        "city": "SAN JUAN",
+        "name": "FIRSTBANK PUERTO RICO",
+        "state": "PR"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 9,
+      "name": "FIRSTBANK PR",
+      "rssd": "510871",
+      "score": 0.767,
+      "state": "PR"
+    },
+    "FIRSTMERIT BK NA|AKRON|OH": {
+      "amount_mn": 1000.0,
+      "city": "AKRON",
+      "filer": {
+        "city": "AKRON",
+        "name": "FIRSTMERIT BANK, N.A.",
+        "state": "OH"
+      },
+      "first": "2008-09-11",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 8,
+      "name": "FIRSTMERIT BK NA",
+      "rssd": "67311",
+      "score": 1.1,
+      "state": "OH"
+    },
+    "FIVE STAR BK|WARSAW|NY": {
+      "amount_mn": 82.0,
+      "city": "WARSAW",
+      "filer": {
+        "city": "WARSAW",
+        "name": "FIVE STAR BANK",
+        "state": "NY"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 6,
+      "name": "FIVE STAR BK",
+      "rssd": "601416",
+      "score": 1.1,
+      "state": "NY"
+    },
+    "FLATIRONS BK|BOULDER|CO": {
+      "amount_mn": 161.3,
+      "city": "BOULDER",
+      "filer": {
+        "city": "BOULDER",
+        "name": "FLATIRONS BANK",
+        "state": "CO"
+      },
+      "first": "2009-02-26",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 20,
+      "name": "FLATIRONS BK",
+      "rssd": "3022610",
+      "score": 1.1,
+      "state": "CO"
+    },
+    "FORTIS BK SA/NV NY BR|NEW YORK|NY": {
+      "amount_mn": 58650.0,
+      "city": "NEW YORK",
+      "first": "2008-02-28",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 34,
+      "name": "FORTIS BK SA/NV NY BR",
+      "state": "NY"
+    },
+    "FOUNDERS B&TC|GRAND RAPIDS|MI": {
+      "amount_mn": 5.0,
+      "city": "GRAND RAPIDS",
+      "filer": {
+        "city": "GRAND RAPIDS",
+        "name": "FOUNDERS BANK & TRUST",
+        "state": "MI"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-01-15",
+      "loans": 1,
+      "name": "FOUNDERS B&TC",
+      "rssd": "1933927",
+      "score": 1.1,
+      "state": "MI"
+    },
+    "FULTON BK|LANCASTER|PA": {
+      "amount_mn": 200.0,
+      "city": "LANCASTER",
+      "filer": {
+        "city": "LANCASTER",
+        "name": "FULTON BANK",
+        "state": "PA"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2009-01-29",
+      "loans": 1,
+      "name": "FULTON BK",
+      "rssd": "474919",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "GATEWAY BK OF FL|DAYTONA BEACH|FL": {
+      "amount_mn": 5.0,
+      "city": "DAYTONA BEACH",
+      "filer": {
+        "city": "DAYTONA BEACH",
+        "name": "GATEWAY BANK OF FLORIDA",
+        "state": "FL"
+      },
+      "first": "2010-02-11",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 1,
+      "name": "GATEWAY BK OF FL",
+      "rssd": "3367085",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "GEORGIA CMRC BK|ATLANTA|GA": {
+      "amount_mn": 655.0,
+      "city": "ATLANTA",
+      "filer": {
+        "city": "ATLANTA",
+        "name": "GEORGIA COMMERCE BANK",
+        "state": "GA"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 15,
+      "name": "GEORGIA CMRC BK",
+      "rssd": "3165320",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "GEORGIA PRIMARY BK|ATLANTA|GA": {
+      "amount_mn": 10.0,
+      "city": "ATLANTA",
+      "filer": {
+        "city": "ATLANTA",
+        "name": "GEORGIA PRIMARY BANK",
+        "state": "GA"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "GEORGIA PRIMARY BK",
+      "rssd": "3646397",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "GLACIER BK|KALISPELL|MT": {
+      "amount_mn": 2678.0,
+      "city": "KALISPELL",
+      "filer": {
+        "city": "KALISPELL",
+        "name": "GLACIER BANK",
+        "state": "MT"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 22,
+      "name": "GLACIER BK",
+      "rssd": "2634191",
+      "score": 1.1,
+      "state": "MT"
+    },
+    "GLOBAL CMRC BK|DORAVILLE|GA": {
+      "amount_mn": 20.5,
+      "city": "DORAVILLE",
+      "filer": {
+        "city": "DORAVILLE",
+        "name": "GLOBAL COMMERCE BANK",
+        "state": "GA"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 4,
+      "name": "GLOBAL CMRC BK",
+      "rssd": "2328249",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "GMAC BK|MIDVALE|UT": {
+      "amount_mn": 10.0,
+      "city": "MIDVALE",
+      "filer": {
+        "city": "MIDVALE",
+        "name": "GMAC BANK",
+        "state": "UT"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2008-11-06",
+      "loans": 1,
+      "name": "GMAC BK",
+      "rssd": "3284070",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "GOLF SVG BK|MOUNTLAKE TERRACE|WA": {
+      "amount_mn": 100.0,
+      "city": "MOUNTLAKE TERRACE",
+      "first": "2009-04-23",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-05-07",
+      "loans": 2,
+      "name": "GOLF SVG BK",
+      "state": "WA"
+    },
+    "GOVERNOR & CO BK IR STAMFOR BR|STAMFORD|CT": {
+      "amount_mn": 6050.0,
+      "city": "STAMFORD",
+      "first": "2009-03-26",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-03",
+      "loans": 9,
+      "name": "GOVERNOR & CO BK IR STAMFOR BR",
+      "state": "CT"
+    },
+    "GREAT SOUTHERN BK|REEDS SPRING|MO": {
+      "amount_mn": 843.0,
+      "city": "REEDS SPRING",
+      "filer": {
+        "city": "REEDS SPRING",
+        "name": "GREAT SOUTHERN BANK",
+        "state": "MO"
+      },
+      "first": "2007-12-27",
+      "kind": "matched in state",
+      "last": "2009-02-26",
+      "loans": 20,
+      "name": "GREAT SOUTHERN BK",
+      "rssd": "572374",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "GREER ST BK|GREER|SC": {
+      "amount_mn": 83.0,
+      "city": "GREER",
+      "filer": {
+        "city": "GREER",
+        "name": "GREER STATE BANK",
+        "state": "SC"
+      },
+      "first": "2009-02-26",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 12,
+      "name": "GREER ST BK",
+      "rssd": "1356526",
+      "score": 1.1,
+      "state": "SC"
+    },
+    "GULF INTL BK NY BR|NEW YORK|NY": {
+      "amount_mn": 2963.0,
+      "city": "NEW YORK",
+      "first": "2009-06-18",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-03-11",
+      "loans": 9,
+      "name": "GULF INTL BK NY BR",
+      "state": "NY"
+    },
+    "GUNMA BANK NY BR|NEW YORK|NY": {
+      "amount_mn": 2192.0,
+      "city": "NEW YORK",
+      "first": "2008-09-25",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 31,
+      "name": "GUNMA BANK NY BR",
+      "state": "NY"
+    },
+    "HANA BK NY AGY|NEW YORK|NY": {
+      "amount_mn": 377.0,
+      "city": "NEW YORK",
+      "first": "2009-04-23",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 10,
+      "name": "HANA BK NY AGY",
+      "state": "NY"
+    },
+    "HEARTLAND BK|SOMERS|IA": {
+      "amount_mn": 5.0,
+      "city": "SOMERS",
+      "filer": {
+        "city": "SOMERS",
+        "name": "HEARTLAND BANK",
+        "state": "IA"
+      },
+      "first": "2010-02-11",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 1,
+      "name": "HEARTLAND BK",
+      "rssd": "604547",
+      "score": 1.1,
+      "state": "IA"
+    },
+    "HOME FED BK CORP|MIDDLESBORO|KY": {
+      "amount_mn": 40.0,
+      "best": [
+        {
+          "city": "MIDDLESBORO",
+          "name": "HOME FEDERAL BANK CORPORATION",
+          "rssd": "902672",
+          "score": 0.6,
+          "state": "KY"
+        },
+        {
+          "city": "BARDSTOWN",
+          "name": "KENTUCKY HOME BANK, INC.",
+          "rssd": "2528656",
+          "score": 0.5,
+          "state": "KY"
+        }
+      ],
+      "city": "MIDDLESBORO",
+      "first": "2009-07-02",
+      "kind": "unresolved",
+      "last": "2010-01-14",
+      "loans": 8,
+      "name": "HOME FED BK CORP",
+      "state": "KY"
+    },
+    "HOME SVG AMERICA|LITTLE FALLS|MN": {
+      "amount_mn": 110.7,
+      "city": "LITTLE FALLS",
+      "first": "2008-05-22",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2008-11-20",
+      "loans": 10,
+      "name": "HOME SVG AMERICA",
+      "state": "MN"
+    },
+    "HOMESTREET BK|SEATTLE|WA": {
+      "amount_mn": 186.0,
+      "city": "SEATTLE",
+      "filer": {
+        "city": "SEATTLE",
+        "name": "HOMESTREET BANK",
+        "state": "WA"
+      },
+      "first": "2008-03-13",
+      "kind": "matched in state",
+      "last": "2008-05-22",
+      "loans": 3,
+      "name": "HOMESTREET BK",
+      "rssd": "258771",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "HOMETRUST BK|CLYDE|NC": {
+      "amount_mn": 496.0,
+      "best": [
+        {
+          "city": "MOYOCK",
+          "name": "BANK OF CURRITUCK, THE",
+          "rssd": "684325",
+          "score": 0.333,
+          "state": "NC"
+        },
+        {
+          "city": "WILMINGTON",
+          "name": "COOPERATIVE BANK",
+          "rssd": "642370",
+          "score": 0.333,
+          "state": "NC"
+        }
+      ],
+      "city": "CLYDE",
+      "first": "2009-02-26",
+      "kind": "unresolved",
+      "last": "2009-11-05",
+      "loans": 13,
+      "name": "HOMETRUST BK",
+      "state": "NC"
+    },
+    "HORICON BK|HORICON|WI": {
+      "amount_mn": 30.0,
+      "city": "HORICON",
+      "filer": {
+        "city": "HORICON",
+        "name": "HORICON BANK",
+        "state": "WI"
+      },
+      "first": "2010-02-11",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 1,
+      "name": "HORICON BK",
+      "rssd": "528849",
+      "score": 1.1,
+      "state": "WI"
+    },
+    "HSBC BK USA NA|NEW YORK|NY": {
+      "amount_mn": 4000.0,
+      "city": "NEW YORK",
+      "filer": {
+        "city": "MCLEAN",
+        "name": "HSBC BANK USA, NATIONAL ASSOCIATION",
+        "state": "VA"
+      },
+      "first": "2008-10-23",
+      "kind": "matched nationwide",
+      "last": "2009-03-12",
+      "loans": 5,
+      "name": "HSBC BK USA NA",
+      "rssd": "413208",
+      "score": 1.0,
+      "state": "NY"
+    },
+    "HSH NORDBK AG NY BR|NEW YORK|NY": {
+      "amount_mn": 52550.0,
+      "city": "NEW YORK",
+      "first": "2008-07-17",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-03-11",
+      "loans": 34,
+      "name": "HSH NORDBK AG NY BR",
+      "state": "NY"
+    },
+    "HUDSON VALLEY BK NA|STAMFORD|CT": {
+      "amount_mn": 15.0,
+      "city": "STAMFORD",
+      "filer": {
+        "city": "STAMFORD",
+        "name": "HUDSON VALLEY BANK, N.A.",
+        "state": "CT"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 1,
+      "name": "HUDSON VALLEY BK NA",
+      "rssd": "436711",
+      "score": 1.1,
+      "state": "CT"
+    },
+    "HUNTINGTON NB|COLUMBUS|OH": {
+      "amount_mn": 3825.0,
+      "city": "COLUMBUS",
+      "filer": {
+        "city": "COLUMBUS",
+        "name": "HUNTINGTON NATIONAL BANK, THE",
+        "state": "OH"
+      },
+      "first": "2008-02-28",
+      "kind": "matched in state",
+      "last": "2008-10-23",
+      "loans": 11,
+      "name": "HUNTINGTON NB",
+      "rssd": "12311",
+      "score": 1.1,
+      "state": "OH"
+    },
+    "INDEPENDENT BK|IONIA|MI": {
+      "amount_mn": 760.0,
+      "city": "IONIA",
+      "filer": {
+        "city": "IONIA",
+        "name": "INDEPENDENT BANK",
+        "state": "MI"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2009-04-09",
+      "loans": 13,
+      "name": "INDEPENDENT BK",
+      "rssd": "636771",
+      "score": 1.1,
+      "state": "MI"
+    },
+    "INDEPENDENT BK|MEMPHIS|TN": {
+      "amount_mn": 353.5,
+      "city": "MEMPHIS",
+      "filer": {
+        "city": "MEMPHIS",
+        "name": "INDEPENDENT BANK",
+        "state": "TN"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 18,
+      "name": "INDEPENDENT BK",
+      "rssd": "2666400",
+      "score": 1.1,
+      "state": "TN"
+    },
+    "INDUSTRIAL BK OF KOREA NY BR|NEW YORK|NY": {
+      "amount_mn": 469.0,
+      "city": "NEW YORK",
+      "first": "2009-03-26",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-03-11",
+      "loans": 12,
+      "name": "INDUSTRIAL BK OF KOREA NY BR",
+      "state": "NY"
+    },
+    "ING BK FSB|WILMINGTON|DE": {
+      "amount_mn": 5.0,
+      "city": "WILMINGTON",
+      "first": "2009-05-07",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-05-07",
+      "loans": 1,
+      "name": "ING BK FSB",
+      "state": "DE"
+    },
+    "INTEGRA BK NA|EVANSVILLE|IN": {
+      "amount_mn": 545.0,
+      "city": "EVANSVILLE",
+      "filer": {
+        "city": "EVANSVILLE",
+        "name": "INTEGRA BANK NATIONAL ASSOCIATION",
+        "state": "IN"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2009-07-16",
+      "loans": 6,
+      "name": "INTEGRA BK NA",
+      "rssd": "23241",
+      "score": 1.1,
+      "state": "IN"
+    },
+    "INTEGRITY BK|CAMP HILL|PA": {
+      "amount_mn": 235.0,
+      "city": "CAMP HILL",
+      "filer": {
+        "city": "CAMP HILL",
+        "name": "INTEGRITY BANK",
+        "state": "PA"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 6,
+      "name": "INTEGRITY BK",
+      "rssd": "3188646",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "INTESA SANPAOLO SPA NY BR|NEW YORK|NY": {
+      "amount_mn": 5.9,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2007-12-20",
+      "loans": 1,
+      "name": "INTESA SANPAOLO SPA NY BR",
+      "state": "NY"
+    },
+    "IRELAND BK|MALAD CITY|ID": {
+      "amount_mn": 23.0,
+      "city": "MALAD CITY",
+      "filer": {
+        "city": "MALAD CITY",
+        "name": "IRELAND BANK",
+        "state": "ID"
+      },
+      "first": "2009-06-04",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 4,
+      "name": "IRELAND BK",
+      "rssd": "428462",
+      "score": 1.1,
+      "state": "ID"
+    },
+    "ISRAEL DISCOUNT BK OF NY|NEW YORK|NY": {
+      "amount_mn": 1350.0,
+      "city": "NEW YORK",
+      "filer": {
+        "city": "NEW YORK",
+        "name": "ISRAEL DISCOUNT BANK OF NEW YORK",
+        "state": "NY"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2009-09-10",
+      "loans": 9,
+      "name": "ISRAEL DISCOUNT BK OF NY",
+      "rssd": "320119",
+      "score": 0.9,
+      "state": "NY"
+    },
+    "ITAU UNIBANCO SA NY BR|NEW YORK|NY": {
+      "amount_mn": 6380.0,
+      "city": "NEW YORK",
+      "first": "2009-06-18",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-03-11",
+      "loans": 12,
+      "name": "ITAU UNIBANCO SA NY BR",
+      "state": "NY"
+    },
+    "JPMORGAN CHASE BK NA|NEW YORK|NY": {
+      "amount_mn": 52000.0,
+      "city": "NEW YORK",
+      "filer": {
+        "city": "COLUMBUS",
+        "name": "JPMORGAN CHASE BANK, NATIONAL ASSOCIATION",
+        "state": "OH"
+      },
+      "first": "2008-05-22",
+      "kind": "matched nationwide",
+      "last": "2009-03-12",
+      "loans": 7,
+      "name": "JPMORGAN CHASE BK NA",
+      "rssd": "852218",
+      "score": 1.0,
+      "state": "NY"
+    },
+    "KBC BANK NV NY BR|NEW YORK|NY": {
+      "amount_mn": 4787.7,
+      "city": "NEW YORK",
+      "first": "2007-12-27",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-05-07",
+      "loans": 8,
+      "name": "KBC BANK NV NY BR",
+      "state": "NY"
+    },
+    "KEYBANK NA|CLEVELAND|OH": {
+      "amount_mn": 40214.4,
+      "city": "CLEVELAND",
+      "filer": {
+        "city": "CLEVELAND",
+        "name": "KEYBANK NATIONAL ASSOCIATION",
+        "state": "OH"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-05-21",
+      "loans": 22,
+      "name": "KEYBANK NA",
+      "rssd": "280110",
+      "score": 1.1,
+      "state": "OH"
+    },
+    "KOOKMIN BK NY BR|NEW YORK|NY": {
+      "amount_mn": 123.7,
+      "city": "NEW YORK",
+      "first": "2009-02-12",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-03-11",
+      "loans": 10,
+      "name": "KOOKMIN BK NY BR",
+      "state": "NY"
+    },
+    "KOREA DEVELOPMENT BK NY BR|NEW YORK|NY": {
+      "amount_mn": 875.0,
+      "city": "NEW YORK",
+      "first": "2009-04-23",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-03-11",
+      "loans": 13,
+      "name": "KOREA DEVELOPMENT BK NY BR",
+      "state": "NY"
+    },
+    "LA JOLLA BK FSB|RANCHO SANTA FE|CA": {
+      "amount_mn": 610.0,
+      "city": "RANCHO SANTA FE",
+      "first": "2008-12-18",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-06-04",
+      "loans": 5,
+      "name": "LA JOLLA BK FSB",
+      "state": "CA"
+    },
+    "LAKE CITY BK|WARSAW|IN": {
+      "amount_mn": 955.0,
+      "city": "WARSAW",
+      "filer": {
+        "city": "WARSAW",
+        "name": "LAKE CITY BANK",
+        "state": "IN"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 11,
+      "name": "LAKE CITY BK",
+      "rssd": "874845",
+      "score": 1.1,
+      "state": "IN"
+    },
+    "LANDESBANK HESSEN-THURIN NY BR|NEW YORK|NY": {
+      "amount_mn": 4549.2,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-06-19",
+      "loans": 4,
+      "name": "LANDESBANK HESSEN-THURIN NY BR",
+      "state": "NY"
+    },
+    "LANDESBK BADEN WUERTTEMB NY BR|NEW YORK|NY": {
+      "amount_mn": 22580.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 16,
+      "name": "LANDESBK BADEN WUERTTEMB NY BR",
+      "state": "NY"
+    },
+    "LANDMARK BK NA|ADA|OK": {
+      "amount_mn": 5.0,
+      "city": "ADA",
+      "filer": {
+        "city": "ADA",
+        "name": "LANDMARK BANK, NATIONAL ASSOCIATION",
+        "state": "OK"
+      },
+      "first": "2009-02-26",
+      "kind": "matched in state",
+      "last": "2009-02-26",
+      "loans": 1,
+      "name": "LANDMARK BK NA",
+      "rssd": "864752",
+      "score": 1.1,
+      "state": "OK"
+    },
+    "LANDMARK CMNTY BK|PITTSTON|PA": {
+      "amount_mn": 52.0,
+      "city": "PITTSTON",
+      "filer": {
+        "city": "PITTSTON",
+        "name": "LANDMARK COMMUNITY BANK",
+        "state": "PA"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2009-08-27",
+      "loans": 5,
+      "name": "LANDMARK CMNTY BK",
+      "rssd": "2963547",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "LEGACYTEXAS BK|PLANO|TX": {
+      "amount_mn": 5.0,
+      "city": "PLANO",
+      "filer": {
+        "city": "PLANO",
+        "name": "LEGACYTEXAS BANK",
+        "state": "TX"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 1,
+      "name": "LEGACYTEXAS BK",
+      "rssd": "913267",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "LIBERTY BANK OF ARKANSAS|JONESBORO|AR": {
+      "amount_mn": 5.0,
+      "city": "JONESBORO",
+      "filer": {
+        "city": "JONESBORO",
+        "name": "LIBERTY BANK OF ARKANSAS",
+        "state": "AR"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2009-03-12",
+      "loans": 1,
+      "name": "LIBERTY BANK OF ARKANSAS",
+      "rssd": "2967349",
+      "score": 1.1,
+      "state": "AR"
+    },
+    "LIBERTY BK|SPRINGFIELD|MO": {
+      "amount_mn": 810.0,
+      "city": "SPRINGFIELD",
+      "filer": {
+        "city": "SPRINGFIELD",
+        "name": "LIBERTY BANK",
+        "state": "MO"
+      },
+      "first": "2008-12-18",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 23,
+      "name": "LIBERTY BK",
+      "rssd": "2352235",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "LINDELL B&TC|SAINT LOUIS|MO": {
+      "amount_mn": 443.2,
+      "city": "SAINT LOUIS",
+      "filer": {
+        "city": "SAINT LOUIS",
+        "name": "LINDELL BANK & TRUST COMPANY",
+        "state": "MO"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 14,
+      "name": "LINDELL B&TC",
+      "rssd": "185859",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "LLOYDS TSB BK PLC NY BR|NEW YORK|NY": {
+      "amount_mn": 10505.9,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 22,
+      "name": "LLOYDS TSB BK PLC NY BR",
+      "state": "NY"
+    },
+    "LUTHER BURBANK SVG|SANTA ROSA|CA": {
+      "amount_mn": 300.0,
+      "city": "SANTA ROSA",
+      "first": "2009-08-13",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-01-14",
+      "loans": 3,
+      "name": "LUTHER BURBANK SVG",
+      "state": "CA"
+    },
+    "LYDIAN PRIV BK|PALM BEACH|FL": {
+      "amount_mn": 965.0,
+      "best": [
+        {
+          "city": "DESTIN",
+          "name": "GULFSOUTH PRIVATE BANK",
+          "rssd": "3392872",
+          "score": 0.5,
+          "state": "FL"
+        },
+        {
+          "city": "MIAMI",
+          "name": "TRANSATLANTIC BANK",
+          "rssd": "972237",
+          "score": 0.25,
+          "state": "FL"
+        }
+      ],
+      "city": "PALM BEACH",
+      "first": "2008-02-28",
+      "kind": "unresolved",
+      "last": "2009-01-02",
+      "loans": 13,
+      "name": "LYDIAN PRIV BK",
+      "state": "FL"
+    },
+    "M&I MARSHALL & ILSLEY BK|MILWAUKEE|WI": {
+      "amount_mn": 21044.7,
+      "city": "MILWAUKEE",
+      "filer": {
+        "city": "MILWAUKEE",
+        "name": "M&I MARSHALL & ILSLEY BANK",
+        "state": "WI"
+      },
+      "first": "2008-02-28",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 25,
+      "name": "M&I MARSHALL & ILSLEY BK",
+      "rssd": "983448",
+      "score": 1.1,
+      "state": "WI"
+    },
+    "MALAYAN BKG BERHAD NY BR|NEW YORK|NY": {
+      "amount_mn": 1035.0,
+      "city": "NEW YORK",
+      "first": "2009-07-02",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 8,
+      "name": "MALAYAN BKG BERHAD NY BR",
+      "state": "NY"
+    },
+    "MANUFACTURERS & TRADERS TC|BUFFALO|NY": {
+      "amount_mn": 4611.2,
+      "city": "BUFFALO",
+      "filer": {
+        "city": "BUFFALO",
+        "name": "MANUFACTURERS AND TRADERS TRUST COMPANY",
+        "state": "NY"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-06-04",
+      "loans": 8,
+      "name": "MANUFACTURERS & TRADERS TC",
+      "rssd": "501105",
+      "score": 1.1,
+      "state": "NY"
+    },
+    "MARINE CU|FOND DU LAC|WI": {
+      "amount_mn": 123.2,
+      "city": "FOND DU LAC",
+      "first": "2009-10-22",
+      "kind": "credit union",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "MARINE CU",
+      "state": "WI"
+    },
+    "MASCOMA SVG BK|LEBANON|NH": {
+      "amount_mn": 5.0,
+      "city": "LEBANON",
+      "first": "2009-08-27",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-08-27",
+      "loans": 1,
+      "name": "MASCOMA SVG BK",
+      "state": "NH"
+    },
+    "MASSBANK|READING|MA": {
+      "amount_mn": 30.0,
+      "city": "READING",
+      "filer": {
+        "city": "READING",
+        "name": "MASSBANK",
+        "state": "MA"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2008-02-14",
+      "loans": 2,
+      "name": "MASSBANK",
+      "rssd": "685407",
+      "score": 1.1,
+      "state": "MA"
+    },
+    "MAUCH CHUNK TC|JIM THORPE|PA": {
+      "amount_mn": 20.0,
+      "city": "JIM THORPE",
+      "filer": {
+        "city": "JIM THORPE",
+        "name": "MAUCH CHUNK TRUST COMPANY",
+        "state": "PA"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-09-10",
+      "loans": 4,
+      "name": "MAUCH CHUNK TC",
+      "rssd": "857811",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "MB FNCL BK NA|CHICAGO|IL": {
+      "amount_mn": 1500.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "MB FINANCIAL BANK, NATIONAL ASSOCIATION",
+        "state": "IL"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 16,
+      "name": "MB FNCL BK NA",
+      "rssd": "656733",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "MCFARLAND ST BK|MCFARLAND|WI": {
+      "amount_mn": 17.0,
+      "city": "MCFARLAND",
+      "filer": {
+        "city": "MCFARLAND",
+        "name": "MCFARLAND STATE BANK",
+        "state": "WI"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2008-11-06",
+      "loans": 2,
+      "name": "MCFARLAND ST BK",
+      "rssd": "663647",
+      "score": 1.1,
+      "state": "WI"
+    },
+    "MERAMEC VALLEY BK|VALLEY PARK|MO": {
+      "amount_mn": 71.0,
+      "city": "VALLEY PARK",
+      "filer": {
+        "city": "VALLEY PARK",
+        "name": "MERAMEC VALLEY BANK",
+        "state": "MO"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-07-02",
+      "loans": 6,
+      "name": "MERAMEC VALLEY BK",
+      "rssd": "215354",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "MERCANTIL COMMERCEBANK NA|CORAL GABLES|FL": {
+      "amount_mn": 30.0,
+      "city": "CORAL GABLES",
+      "filer": {
+        "city": "CORAL GABLES",
+        "name": "MERCANTIL COMMERCEBANK NATIONAL ASSOCIATION",
+        "state": "FL"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2008-10-23",
+      "loans": 1,
+      "name": "MERCANTIL COMMERCEBANK NA",
+      "rssd": "83638",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "MERCHANTS BK OF CA NA|CARSON|CA": {
+      "amount_mn": 29.0,
+      "city": "CARSON",
+      "filer": {
+        "city": "CARSON",
+        "name": "MERCHANTS BANK OF CALIFORNIA, NATIONAL ASSOCIATION",
+        "state": "CA"
+      },
+      "first": "2009-09-24",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "MERCHANTS BK OF CA NA",
+      "rssd": "1377521",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "MERRILL LYNCH BK USA|SALT LAKE CITY|UT": {
+      "amount_mn": 5.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "MERRILL LYNCH BANK USA",
+        "state": "UT"
+      },
+      "first": "2008-04-24",
+      "kind": "matched in state",
+      "last": "2008-04-24",
+      "loans": 1,
+      "name": "MERRILL LYNCH BK USA",
+      "rssd": "1225800",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "METABANK|STORM LAKE|IA": {
+      "amount_mn": 100.0,
+      "best": [
+        {
+          "city": "STORM LAKE",
+          "name": "CENTRAL BANK",
+          "rssd": "546544",
+          "score": 0.1,
+          "state": "IA"
+        },
+        {
+          "city": "STORM LAKE",
+          "name": "CITIZENS FIRST NATIONAL BANK",
+          "rssd": "424240",
+          "score": 0.1,
+          "state": "IA"
+        }
+      ],
+      "city": "STORM LAKE",
+      "first": "2009-08-27",
+      "kind": "unresolved",
+      "last": "2009-10-22",
+      "loans": 3,
+      "name": "METABANK",
+      "state": "IA"
+    },
+    "METLIFE BK NA|BRIDGEWATER|NJ": {
+      "amount_mn": 18885.0,
+      "city": "BRIDGEWATER",
+      "filer": {
+        "city": "BRIDGEWATER",
+        "name": "METLIFE BANK, NATIONAL ASSOCIATION",
+        "state": "NJ"
+      },
+      "first": "2008-08-28",
+      "kind": "matched in state",
+      "last": "2009-10-22",
+      "loans": 19,
+      "name": "METLIFE BK NA",
+      "rssd": "2777650",
+      "score": 1.1,
+      "state": "NJ"
+    },
+    "METRO CITY BK|DORAVILLE|GA": {
+      "amount_mn": 67.0,
+      "city": "DORAVILLE",
+      "filer": {
+        "city": "DORAVILLE",
+        "name": "METRO CITY BANK",
+        "state": "GA"
+      },
+      "first": "2009-09-24",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 6,
+      "name": "METRO CITY BK",
+      "rssd": "3437456",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "METROPOLITAN B&TC|CHICAGO|IL": {
+      "amount_mn": 76.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "METROPOLITAN BANK AND TRUST COMPANY",
+        "state": "IL"
+      },
+      "first": "2009-11-19",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "METROPOLITAN B&TC",
+      "rssd": "718930",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "MIDFIRST BK|OKLAHOMA CITY|OK": {
+      "amount_mn": 3955.0,
+      "best": [
+        {
+          "city": "MCALESTER",
+          "name": "BANK, NATIONAL ASSOCIATION, THE",
+          "rssd": "829050",
+          "score": 0.5,
+          "state": "OK"
+        },
+        {
+          "city": "OKLAHOMA CITY",
+          "name": "BANKERS BANK, THE",
+          "rssd": "859655",
+          "score": 0.433,
+          "state": "OK"
+        }
+      ],
+      "city": "OKLAHOMA CITY",
+      "first": "2008-03-27",
+      "kind": "unresolved",
+      "last": "2009-08-13",
+      "loans": 23,
+      "name": "MIDFIRST BK",
+      "state": "OK"
+    },
+    "MIDLAND NB OF NEWTON|NEWTON|KS": {
+      "amount_mn": 5.0,
+      "city": "NEWTON",
+      "filer": {
+        "city": "NEWTON",
+        "name": "MIDLAND NATIONAL BANK OF NEWTON, THE",
+        "state": "KS"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2008-12-04",
+      "loans": 1,
+      "name": "MIDLAND NB OF NEWTON",
+      "rssd": "576653",
+      "score": 1.1,
+      "state": "KS"
+    },
+    "MIDWEST BANKCENTRE|LEMAY|MO": {
+      "amount_mn": 5.0,
+      "city": "LEMAY",
+      "filer": {
+        "city": "SAINT LOUIS",
+        "name": "MIDWEST BANKCENTRE",
+        "state": "MO"
+      },
+      "first": "2009-11-05",
+      "kind": "matched in state",
+      "last": "2009-11-05",
+      "loans": 1,
+      "name": "MIDWEST BANKCENTRE",
+      "rssd": "657459",
+      "score": 1.0,
+      "state": "MO"
+    },
+    "MITSUBISHI UFJ TR & BKG NY BR|NEW YORK|NY": {
+      "amount_mn": 24456.6,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 55,
+      "name": "MITSUBISHI UFJ TR & BKG NY BR",
+      "state": "NY"
+    },
+    "MIZUHO CORPORATE NY BR|NEW YORK|NY": {
+      "amount_mn": 51284.2,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 47,
+      "name": "MIZUHO CORPORATE NY BR",
+      "state": "NY"
+    },
+    "MOUNTAIN 1ST B&TC|HENDERSONVILLE|NC": {
+      "amount_mn": 250.0,
+      "city": "HENDERSONVILLE",
+      "filer": {
+        "city": "HENDERSONVILLE",
+        "name": "MOUNTAIN 1ST BANK & TRUST COMPANY",
+        "state": "NC"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 9,
+      "name": "MOUNTAIN 1ST B&TC",
+      "rssd": "3261549",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "MOUNTAIN W BK|COEUR D'ALENE|ID": {
+      "amount_mn": 2509.0,
+      "city": "COEUR D'ALENE",
+      "filer": {
+        "city": "COEUR D'ALENE",
+        "name": "MOUNTAIN WEST BANK",
+        "state": "ID"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-10-22",
+      "loans": 13,
+      "name": "MOUNTAIN W BK",
+      "rssd": "2114282",
+      "score": 1.1,
+      "state": "ID"
+    },
+    "NATIONAL AUSTRALIA BK NY BR|NEW YORK|NY": {
+      "amount_mn": 4500.0,
+      "city": "NEW YORK",
+      "first": "2008-11-06",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-04-23",
+      "loans": 3,
+      "name": "NATIONAL AUSTRALIA BK NY BR",
+      "state": "NY"
+    },
+    "NATIONAL BK OF SC|SUMTER|SC": {
+      "amount_mn": 1075.0,
+      "best": [
+        {
+          "city": "SUMTER",
+          "name": "NATIONAL BANK OF SOUTH CAROLINA, THE",
+          "rssd": "580623",
+          "score": 0.767,
+          "state": "SC"
+        },
+        {
+          "city": "MYRTLE BEACH",
+          "name": "COASTAL CAROLINA NATIONAL BANK",
+          "rssd": "3821822",
+          "score": 0.667,
+          "state": "SC"
+        }
+      ],
+      "city": "SUMTER",
+      "first": "2008-04-10",
+      "kind": "unresolved",
+      "last": "2009-10-08",
+      "loans": 14,
+      "name": "NATIONAL BK OF SC",
+      "state": "SC"
+    },
+    "NATIONAL CITY BK|CLEVELAND|OH": {
+      "amount_mn": 10250.0,
+      "city": "CLEVELAND",
+      "filer": {
+        "city": "CLEVELAND",
+        "name": "NATIONAL CITY BANK",
+        "state": "OH"
+      },
+      "first": "2008-03-13",
+      "kind": "matched in state",
+      "last": "2008-08-28",
+      "loans": 4,
+      "name": "NATIONAL CITY BK",
+      "rssd": "259518",
+      "score": 1.1,
+      "state": "OH"
+    },
+    "NATIXIS 1251 AVE OF AMERS BR|NEW YORK|NY": {
+      "amount_mn": 31450.0,
+      "city": "NEW YORK",
+      "first": "2008-02-14",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 26,
+      "name": "NATIXIS 1251 AVE OF AMERS BR",
+      "state": "NY"
+    },
+    "NATIXIS NY BR|NEW YORK|NY": {
+      "amount_mn": 1367.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-01-17",
+      "loans": 3,
+      "name": "NATIXIS NY BR",
+      "state": "NY"
+    },
+    "NCB FSB|HILLSBORO|OH": {
+      "amount_mn": 20.0,
+      "city": "HILLSBORO",
+      "first": "2009-10-22",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-10-22",
+      "loans": 1,
+      "name": "NCB FSB",
+      "state": "OH"
+    },
+    "NEW S FSB|IRONDALE|AL": {
+      "amount_mn": 235.0,
+      "city": "IRONDALE",
+      "first": "2008-04-10",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-01-02",
+      "loans": 10,
+      "name": "NEW S FSB",
+      "state": "AL"
+    },
+    "NEW TRADITIONS NB|ORLANDO|FL": {
+      "amount_mn": 247.5,
+      "city": "ORLANDO",
+      "filer": {
+        "city": "ORLANDO",
+        "name": "NEW TRADITIONS NATIONAL BANK",
+        "state": "FL"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 11,
+      "name": "NEW TRADITIONS NB",
+      "rssd": "3813256",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "NEW YORK CMNTY BK|FLUSHING|NY": {
+      "amount_mn": 1834.4,
+      "city": "FLUSHING",
+      "filer": {
+        "city": "FLUSHING",
+        "name": "NEW YORK COMMUNITY BANK",
+        "state": "NY"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 20,
+      "name": "NEW YORK CMNTY BK",
+      "rssd": "694904",
+      "score": 1.1,
+      "state": "NY"
+    },
+    "NEXITY BK|BIRMINGHAM|AL": {
+      "amount_mn": 100.0,
+      "city": "BIRMINGHAM",
+      "filer": {
+        "city": "BIRMINGHAM",
+        "name": "NEXITY BANK",
+        "state": "AL"
+      },
+      "first": "2008-12-18",
+      "kind": "matched in state",
+      "last": "2009-01-15",
+      "loans": 2,
+      "name": "NEXITY BK",
+      "rssd": "509231",
+      "score": 1.1,
+      "state": "AL"
+    },
+    "NEXTIER BK NA|BUTLER|PA": {
+      "amount_mn": 295.0,
+      "city": "BUTLER",
+      "filer": {
+        "city": "BUTLER",
+        "name": "NEXTIER BANK, N.A.",
+        "state": "PA"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 16,
+      "name": "NEXTIER BK NA",
+      "rssd": "315629",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "NORDDEUTSCHE LANDESBANK NY BR|NEW YORK|NY": {
+      "amount_mn": 8230.0,
+      "city": "NEW YORK",
+      "first": "2008-06-19",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 22,
+      "name": "NORDDEUTSCHE LANDESBANK NY BR",
+      "state": "NY"
+    },
+    "NORDEA BK FINLAND PLC NY BR|NEW YORK|NY": {
+      "amount_mn": 50.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2007-12-20",
+      "loans": 1,
+      "name": "NORDEA BK FINLAND PLC NY BR",
+      "state": "NY"
+    },
+    "NORINCHUKIN BK NY BR|NEW YORK|NY": {
+      "amount_mn": 105010.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 32,
+      "name": "NORINCHUKIN BK NY BR",
+      "state": "NY"
+    },
+    "NORTH CMNTY BK|CHICAGO|IL": {
+      "amount_mn": 151.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "NORTH COMMUNITY BANK",
+        "state": "IL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "NORTH CMNTY BK",
+      "rssd": "129732",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "NORTH SHORE BK FSB|BROOKFIELD|WI": {
+      "amount_mn": 1155.0,
+      "city": "BROOKFIELD",
+      "first": "2009-01-02",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-02-11",
+      "loans": 18,
+      "name": "NORTH SHORE BK FSB",
+      "state": "WI"
+    },
+    "NORTHERN CA NB|CHICO|CA": {
+      "amount_mn": 15.0,
+      "city": "CHICO",
+      "filer": {
+        "city": "CHICO",
+        "name": "NORTHERN CALIFORNIA NATIONAL BANK",
+        "state": "CA"
+      },
+      "first": "2009-08-13",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 3,
+      "name": "NORTHERN CA NB",
+      "rssd": "3435948",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "NORTHMARK BK|NORTH ANDOVER|MA": {
+      "amount_mn": 10.0,
+      "city": "NORTH ANDOVER",
+      "filer": {
+        "city": "NORTH ANDOVER",
+        "name": "NORTHMARK BANK",
+        "state": "MA"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2009-02-26",
+      "loans": 2,
+      "name": "NORTHMARK BK",
+      "rssd": "1161216",
+      "score": 1.1,
+      "state": "MA"
+    },
+    "NORTHWEST BK|SPENCER|IA": {
+      "amount_mn": 17.0,
+      "best": [
+        {
+          "city": "SPENCER",
+          "name": "STATE BANK",
+          "rssd": "651149",
+          "score": 0.433,
+          "state": "IA"
+        },
+        {
+          "city": "SPENCER",
+          "name": "COMMUNITY STATE BANK",
+          "rssd": "849348",
+          "score": 0.35,
+          "state": "IA"
+        }
+      ],
+      "city": "SPENCER",
+      "first": "2009-05-21",
+      "kind": "unresolved",
+      "last": "2009-11-05",
+      "loans": 3,
+      "name": "NORTHWEST BK",
+      "state": "IA"
+    },
+    "NORTHWEST CMNTY BK|ROLLING MEADOWS|IL": {
+      "amount_mn": 35.0,
+      "city": "ROLLING MEADOWS",
+      "filer": {
+        "city": "ROLLING MEADOWS",
+        "name": "NORTHWEST COMMUNITY BANK",
+        "state": "IL"
+      },
+      "first": "2009-11-19",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 4,
+      "name": "NORTHWEST CMNTY BK",
+      "rssd": "3622533",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "NORTHWEST SVG BK|WARREN|PA": {
+      "amount_mn": 137.0,
+      "city": "WARREN",
+      "first": "2009-01-29",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-02-12",
+      "loans": 2,
+      "name": "NORTHWEST SVG BK",
+      "state": "PA"
+    },
+    "OLD FT BKG CO|OLD FORT|OH": {
+      "amount_mn": 10.0,
+      "best": [
+        {
+          "city": "OLD FORT",
+          "name": "OLD FORT BANKING COMPANY, THE",
+          "rssd": "564324",
+          "score": 0.5,
+          "state": "OH"
+        },
+        {
+          "city": "SANDUSKY",
+          "name": "CITIZENS BANKING COMPANY, THE",
+          "rssd": "542528",
+          "score": 0.2,
+          "state": "OH"
+        }
+      ],
+      "city": "OLD FORT",
+      "first": "2009-03-26",
+      "kind": "unresolved",
+      "last": "2009-06-18",
+      "loans": 2,
+      "name": "OLD FT BKG CO",
+      "state": "OH"
+    },
+    "OLD NB|EVANSVILLE|IN": {
+      "amount_mn": 550.0,
+      "city": "EVANSVILLE",
+      "filer": {
+        "city": "EVANSVILLE",
+        "name": "OLD NATIONAL BANK",
+        "state": "IN"
+      },
+      "first": "2009-01-02",
+      "kind": "matched in state",
+      "last": "2009-06-04",
+      "loans": 8,
+      "name": "OLD NB",
+      "rssd": "208244",
+      "score": 1.1,
+      "state": "IN"
+    },
+    "OLDTOWN BK|WAYNESVILLE|NC": {
+      "amount_mn": 32.3,
+      "city": "WAYNESVILLE",
+      "filer": {
+        "city": "WAYNESVILLE",
+        "name": "OLDTOWN BANK",
+        "state": "NC"
+      },
+      "first": "2009-02-26",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 6,
+      "name": "OLDTOWN BK",
+      "rssd": "3620913",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "OMAHA ST BK|OMAHA|NE": {
+      "amount_mn": 70.0,
+      "city": "OMAHA",
+      "filer": {
+        "city": "OMAHA",
+        "name": "OMAHA STATE BANK",
+        "state": "NE"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2009-11-05",
+      "loans": 11,
+      "name": "OMAHA ST BK",
+      "rssd": "192156",
+      "score": 1.1,
+      "state": "NE"
+    },
+    "ONE GA BK|ATLANTA|GA": {
+      "amount_mn": 30.0,
+      "city": "ATLANTA",
+      "filer": {
+        "city": "ATLANTA",
+        "name": "ONE GEORGIA BANK",
+        "state": "GA"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2009-08-27",
+      "loans": 6,
+      "name": "ONE GA BK",
+      "rssd": "3442704",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "ORION BK|NAPLES|FL": {
+      "amount_mn": 65.0,
+      "city": "NAPLES",
+      "filer": {
+        "city": "NAPLES",
+        "name": "ORION BANK",
+        "state": "FL"
+      },
+      "first": "2007-12-27",
+      "kind": "matched in state",
+      "last": "2008-01-31",
+      "loans": 2,
+      "name": "ORION BK",
+      "rssd": "270036",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "ORRSTOWN BK|SHIPPENSBURG|PA": {
+      "amount_mn": 226.0,
+      "city": "SHIPPENSBURG",
+      "filer": {
+        "city": "SHIPPENSBURG",
+        "name": "ORRSTOWN BANK",
+        "state": "PA"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 8,
+      "name": "ORRSTOWN BK",
+      "rssd": "342410",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "OSWEGO CMNTY BK|OSWEGO|IL": {
+      "amount_mn": 23.0,
+      "city": "OSWEGO",
+      "filer": {
+        "city": "OSWEGO",
+        "name": "OSWEGO COMMUNITY BANK",
+        "state": "IL"
+      },
+      "first": "2010-01-14",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 3,
+      "name": "OSWEGO CMNTY BK",
+      "rssd": "23540",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "PACIFIC CONTINENTAL BK|EUGENE|OR": {
+      "amount_mn": 533.8,
+      "city": "EUGENE",
+      "filer": {
+        "city": "EUGENE",
+        "name": "PACIFIC CONTINENTAL BANK",
+        "state": "OR"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 32,
+      "name": "PACIFIC CONTINENTAL BK",
+      "rssd": "693662",
+      "score": 1.1,
+      "state": "OR"
+    },
+    "PARAGON CMRL BK|RALEIGH|NC": {
+      "amount_mn": 745.0,
+      "city": "RALEIGH",
+      "filer": {
+        "city": "RALEIGH",
+        "name": "PARAGON COMMERCIAL BANK",
+        "state": "NC"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 16,
+      "name": "PARAGON CMRL BK",
+      "rssd": "2806626",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "PARK BK|MADISON|WI": {
+      "amount_mn": 150.0,
+      "city": "MADISON",
+      "filer": {
+        "city": "MADISON",
+        "name": "PARK BANK, THE",
+        "state": "WI"
+      },
+      "first": "2009-05-21",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 11,
+      "name": "PARK BK",
+      "rssd": "403946",
+      "score": 1.1,
+      "state": "WI"
+    },
+    "PARK MIDWAY BK NA|SAINT PAUL|MN": {
+      "amount_mn": 30.0,
+      "city": "SAINT PAUL",
+      "filer": {
+        "city": "SAINT PAUL",
+        "name": "PARK MIDWAY BANK NATIONAL ASSOCIATION",
+        "state": "MN"
+      },
+      "first": "2009-07-02",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 6,
+      "name": "PARK MIDWAY BK NA",
+      "rssd": "798857",
+      "score": 1.1,
+      "state": "MN"
+    },
+    "PEOPLES BK OF CMRC|CAMBRIDGE|MN": {
+      "amount_mn": 140.0,
+      "city": "CAMBRIDGE",
+      "filer": {
+        "city": "CAMBRIDGE",
+        "name": "PEOPLES BANK OF COMMERCE",
+        "state": "MN"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 9,
+      "name": "PEOPLES BK OF CMRC",
+      "rssd": "151751",
+      "score": 1.1,
+      "state": "MN"
+    },
+    "PEOPLES BK|NEWTON|NC": {
+      "amount_mn": 42.5,
+      "city": "NEWTON",
+      "filer": {
+        "city": "NEWTON",
+        "name": "PEOPLES BANK",
+        "state": "NC"
+      },
+      "first": "2008-12-18",
+      "kind": "matched in state",
+      "last": "2009-09-24",
+      "loans": 7,
+      "name": "PEOPLES BK",
+      "rssd": "220527",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "PINNACLE BK OF SC|GREENVILLE|SC": {
+      "amount_mn": 35.0,
+      "city": "GREENVILLE",
+      "filer": {
+        "city": "GREENVILLE",
+        "name": "PINNACLE BANK OF SOUTH CAROLINA",
+        "state": "SC"
+      },
+      "first": "2009-08-27",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 7,
+      "name": "PINNACLE BK OF SC",
+      "rssd": "3384868",
+      "score": 0.85,
+      "state": "SC"
+    },
+    "PLAINS CMRC BK|HOVEN|SD": {
+      "amount_mn": 58.5,
+      "city": "HOVEN",
+      "filer": {
+        "city": "HOVEN",
+        "name": "PLAINS COMMERCE BANK",
+        "state": "SD"
+      },
+      "first": "2009-07-02",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 9,
+      "name": "PLAINS CMRC BK",
+      "rssd": "593052",
+      "score": 1.1,
+      "state": "SD"
+    },
+    "PLAINSCAPITAL BK|LUBBOCK|TX": {
+      "amount_mn": 450.0,
+      "city": "LUBBOCK",
+      "filer": {
+        "city": "LUBBOCK",
+        "name": "PLAINSCAPITAL BANK",
+        "state": "TX"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2009-04-23",
+      "loans": 3,
+      "name": "PLAINSCAPITAL BK",
+      "rssd": "637451",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "PLANTERS BK|HOPKINSVILLE|KY": {
+      "amount_mn": 90.0,
+      "city": "HOPKINSVILLE",
+      "filer": {
+        "city": "HOPKINSVILLE",
+        "name": "PLANTERS BANK, INC.",
+        "state": "KY"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2009-11-05",
+      "loans": 10,
+      "name": "PLANTERS BK",
+      "rssd": "2497181",
+      "score": 1.1,
+      "state": "KY"
+    },
+    "PLAZA BK|NORRIDGE|IL": {
+      "amount_mn": 95.0,
+      "city": "NORRIDGE",
+      "filer": {
+        "city": "NORRIDGE",
+        "name": "PLAZA BANK",
+        "state": "IL"
+      },
+      "first": "2009-11-19",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "PLAZA BK",
+      "rssd": "724847",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "PNA BK|CHICAGO|IL": {
+      "amount_mn": 5.0,
+      "best": [
+        {
+          "city": "HILLSBORO",
+          "name": "NATIONAL BANK",
+          "rssd": "659341",
+          "score": 0.5,
+          "state": "IL"
+        },
+        {
+          "city": "MOLINE",
+          "name": "NATIONAL BANK, THE",
+          "rssd": "2949710",
+          "score": 0.5,
+          "state": "IL"
+        }
+      ],
+      "city": "CHICAGO",
+      "first": "2009-09-10",
+      "kind": "unresolved",
+      "last": "2009-09-10",
+      "loans": 1,
+      "name": "PNA BK",
+      "state": "IL"
+    },
+    "PNC BK NA|PITTSBURGH|PA": {
+      "amount_mn": 6500.0,
+      "city": "PITTSBURGH",
+      "filer": {
+        "city": "PITTSBURGH",
+        "name": "PNC BANK, NATIONAL ASSOCIATION",
+        "state": "PA"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2008-10-09",
+      "loans": 7,
+      "name": "PNC BK NA",
+      "rssd": "817824",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "PREMIERWEST BK|MEDFORD|OR": {
+      "amount_mn": 25.0,
+      "city": "MEDFORD",
+      "filer": {
+        "city": "MEDFORD",
+        "name": "PREMIERWEST BANK",
+        "state": "OR"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-02-12",
+      "loans": 1,
+      "name": "PREMIERWEST BK",
+      "rssd": "1457003",
+      "score": 1.1,
+      "state": "OR"
+    },
+    "PRESIDENTIAL BK FSB|BETHESDA|MD": {
+      "amount_mn": 160.0,
+      "city": "BETHESDA",
+      "first": "2008-12-18",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-03-12",
+      "loans": 4,
+      "name": "PRESIDENTIAL BK FSB",
+      "state": "MD"
+    },
+    "PRIVATE BK OF CA|LOS ANGELES|CA": {
+      "amount_mn": 80.5,
+      "city": "LOS ANGELES",
+      "filer": {
+        "city": "LOS ANGELES",
+        "name": "PRIVATE BANK OF CALIFORNIA, THE",
+        "state": "CA"
+      },
+      "first": "2008-12-18",
+      "kind": "matched in state",
+      "last": "2009-08-27",
+      "loans": 9,
+      "name": "PRIVATE BK OF CA",
+      "rssd": "3388080",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "PRIVATEBANK & TC|CHICAGO|IL": {
+      "amount_mn": 1800.0,
+      "city": "CHICAGO",
+      "filer": {
+        "city": "CHICAGO",
+        "name": "PRIVATEBANK AND TRUST COMPANY, THE",
+        "state": "IL"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2009-09-24",
+      "loans": 6,
+      "name": "PRIVATEBANK & TC",
+      "rssd": "1842065",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "PROVIDENT BK OF MD|BALTIMORE|MD": {
+      "amount_mn": 638.0,
+      "city": "BALTIMORE",
+      "filer": {
+        "city": "BALTIMORE",
+        "name": "PROVIDENT BANK OF MARYLAND",
+        "state": "MD"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2008-06-05",
+      "loans": 7,
+      "name": "PROVIDENT BK OF MD",
+      "rssd": "437521",
+      "score": 1.1,
+      "state": "MD"
+    },
+    "PULASKI BK|CREVE COEUR|MO": {
+      "amount_mn": 440.0,
+      "best": [
+        {
+          "city": "SAINT ROBERT",
+          "name": "SECURITY BANK OF PULASKI COUNTY",
+          "rssd": "382854",
+          "score": 0.5,
+          "state": "MO"
+        },
+        {
+          "city": "CREVE COEUR",
+          "name": "FIRST BANK",
+          "rssd": "169653",
+          "score": 0.433,
+          "state": "MO"
+        }
+      ],
+      "city": "CREVE COEUR",
+      "first": "2009-03-12",
+      "kind": "unresolved",
+      "last": "2009-06-04",
+      "loans": 4,
+      "name": "PULASKI BK",
+      "state": "MO"
+    },
+    "RABOBANK NEDERLAND NY BR|NEW YORK|NY": {
+      "amount_mn": 23750.6,
+      "city": "NEW YORK",
+      "first": "2008-03-13",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 10,
+      "name": "RABOBANK NEDERLAND NY BR",
+      "state": "NY"
+    },
+    "RBC BK USA|RALEIGH|NC": {
+      "amount_mn": 8850.0,
+      "city": "RALEIGH",
+      "filer": {
+        "city": "RALEIGH",
+        "name": "RBC BANK (USA)",
+        "state": "NC"
+      },
+      "first": "2008-07-03",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 23,
+      "name": "RBC BK USA",
+      "rssd": "1494240",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "RBS CITIZENS NA|PROVIDENCE|RI": {
+      "amount_mn": 117150.0,
+      "city": "PROVIDENCE",
+      "filer": {
+        "city": "PROVIDENCE",
+        "name": "RBS CITIZENS, NATIONAL ASSOCIATION",
+        "state": "RI"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 29,
+      "name": "RBS CITIZENS NA",
+      "rssd": "3303298",
+      "score": 1.1,
+      "state": "RI"
+    },
+    "REDDING BK OF CMRC|REDDING|CA": {
+      "amount_mn": 40.0,
+      "city": "REDDING",
+      "filer": {
+        "city": "REDDING",
+        "name": "REDDING BANK OF COMMERCE",
+        "state": "CA"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 2,
+      "name": "REDDING BK OF CMRC",
+      "rssd": "933863",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "REGIONS BK|BIRMINGHAM|AL": {
+      "amount_mn": 72443.5,
+      "city": "BIRMINGHAM",
+      "filer": {
+        "city": "BIRMINGHAM",
+        "name": "REGIONS BANK",
+        "state": "AL"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 23,
+      "name": "REGIONS BK",
+      "rssd": "233031",
+      "score": 1.1,
+      "state": "AL"
+    },
+    "REPUBLIC BK OF CHICAGO|OAK BROOK|IL": {
+      "amount_mn": 128.0,
+      "city": "OAK BROOK",
+      "filer": {
+        "city": "OAK BROOK",
+        "name": "REPUBLIC BANK OF CHICAGO",
+        "state": "IL"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 8,
+      "name": "REPUBLIC BK OF CHICAGO",
+      "rssd": "671334",
+      "score": 1.1,
+      "state": "IL"
+    },
+    "RIVERVIEW CMNTY BK|CAMAS|WA": {
+      "amount_mn": 740.0,
+      "best": [
+        {
+          "city": "ISSAQUAH",
+          "name": "ISSAQUAH COMMUNITY BANK",
+          "rssd": "3601079",
+          "score": 0.5,
+          "state": "WA"
+        },
+        {
+          "city": "KENNEWICK",
+          "name": "COMMUNITY FIRST BANK",
+          "rssd": "2642598",
+          "score": 0.5,
+          "state": "WA"
+        }
+      ],
+      "city": "CAMAS",
+      "first": "2009-02-12",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 18,
+      "name": "RIVERVIEW CMNTY BK",
+      "state": "WA"
+    },
+    "ROCKLAND TC|ROCKLAND|MA": {
+      "amount_mn": 30.0,
+      "city": "ROCKLAND",
+      "filer": {
+        "city": "ROCKLAND",
+        "name": "ROCKLAND TRUST COMPANY",
+        "state": "MA"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2008-05-08",
+      "loans": 1,
+      "name": "ROCKLAND TC",
+      "rssd": "613008",
+      "score": 1.1,
+      "state": "MA"
+    },
+    "ROYAL BK OF CANADA NY BR|NEW YORK|NY": {
+      "amount_mn": 34734.0,
+      "city": "NEW YORK",
+      "first": "2008-05-22",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 32,
+      "name": "ROYAL BK OF CANADA NY BR",
+      "state": "NY"
+    },
+    "ROYAL BK OF SCOTLAND PLC NY BR|NEW YORK|NY": {
+      "amount_mn": 53500.0,
+      "city": "NEW YORK",
+      "first": "2008-10-09",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-08-27",
+      "loans": 6,
+      "name": "ROYAL BK OF SCOTLAND PLC NY BR",
+      "state": "NY"
+    },
+    "S&T BK|INDIANA|PA": {
+      "amount_mn": 95.0,
+      "city": "INDIANA",
+      "filer": {
+        "city": "INDIANA",
+        "name": "S & T BANK",
+        "state": "PA"
+      },
+      "first": "2009-04-09",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 5,
+      "name": "S&T BK",
+      "rssd": "936426",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "SAIGON NB|WESTMINSTER|CA": {
+      "amount_mn": 53.0,
+      "city": "WESTMINSTER",
+      "filer": {
+        "city": "WESTMINSTER",
+        "name": "SAIGON NATIONAL BANK",
+        "state": "CA"
+      },
+      "first": "2009-05-07",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 9,
+      "name": "SAIGON NB",
+      "rssd": "3394380",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "SALLIE MAE BK|MURRAY|UT": {
+      "amount_mn": 125.0,
+      "city": "MURRAY",
+      "filer": {
+        "city": "MURRAY",
+        "name": "SALLIE MAE BANK",
+        "state": "UT"
+      },
+      "first": "2008-08-28",
+      "kind": "matched in state",
+      "last": "2009-01-02",
+      "loans": 2,
+      "name": "SALLIE MAE BK",
+      "rssd": "3394278",
+      "score": 1.1,
+      "state": "UT"
+    },
+    "SCBT NA|ORANGEBURG|SC": {
+      "amount_mn": 35.0,
+      "city": "ORANGEBURG",
+      "filer": {
+        "city": "ORANGEBURG",
+        "name": "SCBT, NATIONAL ASSOCIATION",
+        "state": "SC"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2008-12-04",
+      "loans": 2,
+      "name": "SCBT NA",
+      "rssd": "540926",
+      "score": 1.1,
+      "state": "SC"
+    },
+    "SCOTIABANK DE PR|HATO REY|PR": {
+      "amount_mn": 1302.6,
+      "city": "HATO REY",
+      "filer": {
+        "city": "HATO REY",
+        "name": "SCOTIABANK DE PUERTO RICO",
+        "state": "PR"
+      },
+      "first": "2009-06-04",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 11,
+      "name": "SCOTIABANK DE PR",
+      "rssd": "716413",
+      "score": 0.85,
+      "state": "PR"
+    },
+    "SECURITY FED BK|AIKEN|SC": {
+      "amount_mn": 222.0,
+      "best": [
+        {
+          "city": "YORK",
+          "name": "BANK OF YORK",
+          "rssd": "922924",
+          "score": 0.25,
+          "state": "SC"
+        },
+        {
+          "city": "OLANTA",
+          "name": "CITIZENS BANK, THE",
+          "rssd": "898627",
+          "score": 0.25,
+          "state": "SC"
+        }
+      ],
+      "city": "AIKEN",
+      "first": "2009-03-12",
+      "kind": "unresolved",
+      "last": "2010-02-11",
+      "loans": 16,
+      "name": "SECURITY FED BK",
+      "state": "SC"
+    },
+    "SELECT BK & TR CO|GREENVILLE|NC": {
+      "amount_mn": 13.0,
+      "city": "GREENVILLE",
+      "filer": {
+        "city": "GREENVILLE",
+        "name": "SELECT BANK & TRUST COMPANY",
+        "state": "NC"
+      },
+      "first": "2009-02-26",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 2,
+      "name": "SELECT BK & TR CO",
+      "rssd": "3281293",
+      "score": 0.85,
+      "state": "NC"
+    },
+    "SERVICE CU|PORTSMOUTH|NH": {
+      "amount_mn": 72.0,
+      "city": "PORTSMOUTH",
+      "first": "2009-02-12",
+      "kind": "credit union",
+      "last": "2009-11-05",
+      "loans": 6,
+      "name": "SERVICE CU",
+      "state": "NH"
+    },
+    "SHARON SVG BK|DARBY|PA": {
+      "amount_mn": 5.0,
+      "city": "DARBY",
+      "first": "2010-03-11",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-03-11",
+      "loans": 1,
+      "name": "SHARON SVG BK",
+      "state": "PA"
+    },
+    "SHELTER FNCL BK|COLUMBIA|MO": {
+      "amount_mn": 179.0,
+      "best": [
+        {
+          "city": "LATHROP",
+          "name": "GOPPERT FINANCIAL BANK",
+          "rssd": "815053",
+          "score": 0.5,
+          "state": "MO"
+        },
+        {
+          "city": "CLAYTON",
+          "name": "PARKSIDE FINANCIAL BANK AND TRUST",
+          "rssd": "3688043",
+          "score": 0.4,
+          "state": "MO"
+        }
+      ],
+      "city": "COLUMBIA",
+      "first": "2009-04-23",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 11,
+      "name": "SHELTER FNCL BK",
+      "state": "MO"
+    },
+    "SHINHAN BK NY BR|NEW YORK|NY": {
+      "amount_mn": 935.0,
+      "city": "NEW YORK",
+      "first": "2009-01-02",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 19,
+      "name": "SHINHAN BK NY BR",
+      "state": "NY"
+    },
+    "SHINKIN CENTRAL BK NY BR|NEW YORK|NY": {
+      "amount_mn": 400.0,
+      "city": "NEW YORK",
+      "first": "2008-09-25",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-09-25",
+      "loans": 1,
+      "name": "SHINKIN CENTRAL BK NY BR",
+      "state": "NY"
+    },
+    "SHIZUOKA BK NY BR|NEW YORK|NY": {
+      "amount_mn": 2493.0,
+      "city": "NEW YORK",
+      "first": "2009-01-29",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-01-14",
+      "loans": 17,
+      "name": "SHIZUOKA BK NY BR",
+      "state": "NY"
+    },
+    "SHOKO CHUKIN BK NY BR|NEW YORK|NY": {
+      "amount_mn": 1218.0,
+      "city": "NEW YORK",
+      "first": "2008-05-22",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-09-24",
+      "loans": 23,
+      "name": "SHOKO CHUKIN BK NY BR",
+      "state": "NY"
+    },
+    "SHOREBANK PACIFIC|ILWACO|WA": {
+      "amount_mn": 52.5,
+      "city": "ILWACO",
+      "filer": {
+        "city": "ILWACO",
+        "name": "SHOREBANK, PACIFIC",
+        "state": "WA"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 10,
+      "name": "SHOREBANK PACIFIC",
+      "rssd": "2045694",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "SILVERTON BK NA|ATLANTA|GA": {
+      "amount_mn": 800.0,
+      "city": "ATLANTA",
+      "filer": {
+        "city": "ATLANTA",
+        "name": "SILVERTON BANK, N.A.",
+        "state": "GA"
+      },
+      "first": "2008-07-17",
+      "kind": "matched in state",
+      "last": "2009-01-15",
+      "loans": 7,
+      "name": "SILVERTON BK NA",
+      "rssd": "740931",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "SKANDINAVISKA ENSKILDA NY BR|NEW YORK|NY": {
+      "amount_mn": 8914.8,
+      "city": "NEW YORK",
+      "first": "2007-12-27",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-04-09",
+      "loans": 13,
+      "name": "SKANDINAVISKA ENSKILDA NY BR",
+      "state": "NY"
+    },
+    "SOCIETE GENERALE NY BR|NEW YORK|NY": {
+      "amount_mn": 124377.2,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-08-13",
+      "loans": 28,
+      "name": "SOCIETE GENERALE NY BR",
+      "state": "NY"
+    },
+    "SOUND BKG CO|MOREHEAD CITY|NC": {
+      "amount_mn": 43.0,
+      "city": "MOREHEAD CITY",
+      "filer": {
+        "city": "MOREHEAD CITY",
+        "name": "SOUND BANKING COMPANY",
+        "state": "NC"
+      },
+      "first": "2009-04-23",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 8,
+      "name": "SOUND BKG CO",
+      "rssd": "3047659",
+      "score": 0.767,
+      "state": "NC"
+    },
+    "SOUTH CAROLINA B&T NA|ORANGEBURG|SC": {
+      "amount_mn": 10.0,
+      "best": [
+        {
+          "city": "ROCK HILL",
+          "name": "SOUTH CAROLINA BANK AND TRUST OF THE PIEDMONT, NATIONAL ASSOCIATION",
+          "rssd": "2451482",
+          "score": 0.8,
+          "state": "SC"
+        },
+        {
+          "city": "SUMTER",
+          "name": "NATIONAL BANK OF SOUTH CAROLINA, THE",
+          "rssd": "580623",
+          "score": 0.75,
+          "state": "SC"
+        }
+      ],
+      "city": "ORANGEBURG",
+      "first": "2008-05-22",
+      "kind": "unresolved",
+      "last": "2008-05-22",
+      "loans": 1,
+      "name": "SOUTH CAROLINA B&T NA",
+      "state": "SC"
+    },
+    "SOUTHERN CMNTY B&TC|WINSTON-SALEM|NC": {
+      "amount_mn": 413.9,
+      "city": "WINSTON-SALEM",
+      "filer": {
+        "city": "WINSTON-SALEM",
+        "name": "SOUTHERN COMMUNITY BANK AND TRUST",
+        "state": "NC"
+      },
+      "first": "2008-05-08",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 19,
+      "name": "SOUTHERN CMNTY B&TC",
+      "rssd": "2514547",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "SOVEREIGN BK|WYOMISSING|PA": {
+      "amount_mn": 9000.0,
+      "best": [
+        {
+          "city": "WYOMISSING",
+          "name": "VIST BANK",
+          "rssd": "678717",
+          "score": 0.433,
+          "state": "PA"
+        },
+        {
+          "city": "WYOMISSING",
+          "name": "BERKSHIRE BANK",
+          "rssd": "3115277",
+          "score": 0.433,
+          "state": "PA"
+        }
+      ],
+      "city": "WYOMISSING",
+      "first": "2008-10-23",
+      "kind": "unresolved",
+      "last": "2009-12-17",
+      "loans": 7,
+      "name": "SOVEREIGN BK",
+      "state": "PA"
+    },
+    "SQUARE 1 BK|DURHAM|NC": {
+      "amount_mn": 5.0,
+      "city": "DURHAM",
+      "filer": {
+        "city": "DURHAM",
+        "name": "SQUARE 1 BANK",
+        "state": "NC"
+      },
+      "first": "2008-08-28",
+      "kind": "matched in state",
+      "last": "2008-08-28",
+      "loans": 1,
+      "name": "SQUARE 1 BK",
+      "rssd": "3345449",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "STANDARD CHARTERED BK NY BR|NEW YORK|NY": {
+      "amount_mn": 25100.0,
+      "city": "NEW YORK",
+      "first": "2008-02-28",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-05-07",
+      "loans": 28,
+      "name": "STANDARD CHARTERED BK NY BR",
+      "state": "NY"
+    },
+    "STATE BK OF NEW PRAGUE|NEW PRAGUE|MN": {
+      "amount_mn": 83.0,
+      "city": "NEW PRAGUE",
+      "filer": {
+        "city": "NEW PRAGUE",
+        "name": "STATE BANK OF NEW PRAGUE",
+        "state": "MN"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 9,
+      "name": "STATE BK OF NEW PRAGUE",
+      "rssd": "873950",
+      "score": 1.1,
+      "state": "MN"
+    },
+    "STATE BK OF NEW RICHLAND|NEW RICHLAND|MN": {
+      "amount_mn": 71.0,
+      "city": "NEW RICHLAND",
+      "filer": {
+        "city": "NEW RICHLAND",
+        "name": "STATE BANK OF NEW RICHLAND",
+        "state": "MN"
+      },
+      "first": "2009-09-24",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 6,
+      "name": "STATE BK OF NEW RICHLAND",
+      "rssd": "874452",
+      "score": 1.1,
+      "state": "MN"
+    },
+    "STATE STREET B&TC|BOSTON|MA": {
+      "amount_mn": 42000.0,
+      "city": "BOSTON",
+      "filer": {
+        "city": "BOSTON",
+        "name": "STATE STREET BANK AND TRUST COMPANY",
+        "state": "MA"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 20,
+      "name": "STATE STREET B&TC",
+      "rssd": "35301",
+      "score": 1.1,
+      "state": "MA"
+    },
+    "STERLING BK|HOUSTON|TX": {
+      "amount_mn": 290.0,
+      "city": "HOUSTON",
+      "filer": {
+        "city": "HOUSTON",
+        "name": "STERLING BANK",
+        "state": "TX"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2009-05-21",
+      "loans": 4,
+      "name": "STERLING BK",
+      "rssd": "978154",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "STERLING NB|NEW YORK|NY": {
+      "amount_mn": 990.0,
+      "city": "NEW YORK",
+      "filer": {
+        "city": "NEW YORK",
+        "name": "STERLING NATIONAL BANK",
+        "state": "NY"
+      },
+      "first": "2008-10-23",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 19,
+      "name": "STERLING NB",
+      "rssd": "64619",
+      "score": 1.1,
+      "state": "NY"
+    },
+    "STERLING SVG BK|SPOKANE|WA": {
+      "amount_mn": 566.0,
+      "city": "SPOKANE",
+      "first": "2007-12-27",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-04-09",
+      "loans": 7,
+      "name": "STERLING SVG BK",
+      "state": "WA"
+    },
+    "STILLWATER NB&TC|STILLWATER|OK": {
+      "amount_mn": 100.0,
+      "city": "STILLWATER",
+      "filer": {
+        "city": "STILLWATER",
+        "name": "STILLWATER NATIONAL BANK AND TRUST COMPANY, THE",
+        "state": "OK"
+      },
+      "first": "2008-05-22",
+      "kind": "matched in state",
+      "last": "2008-11-20",
+      "loans": 3,
+      "name": "STILLWATER NB&TC",
+      "rssd": "398350",
+      "score": 1.1,
+      "state": "OK"
+    },
+    "SUMITOMO MITSUI BKG NY BR|NEW YORK|NY": {
+      "amount_mn": 56400.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-11-05",
+      "loans": 49,
+      "name": "SUMITOMO MITSUI BKG NY BR",
+      "state": "NY"
+    },
+    "SUMITOMO TR BKG NY BR|NEW YORK|NY": {
+      "amount_mn": 10345.0,
+      "city": "NEW YORK",
+      "first": "2008-01-31",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-11-05",
+      "loans": 34,
+      "name": "SUMITOMO TR BKG NY BR",
+      "state": "NY"
+    },
+    "SUN NB|VINELAND|NJ": {
+      "amount_mn": 100.0,
+      "city": "VINELAND",
+      "filer": {
+        "city": "VINELAND",
+        "name": "SUN NATIONAL BANK",
+        "state": "NJ"
+      },
+      "first": "2009-07-02",
+      "kind": "matched in state",
+      "last": "2009-07-30",
+      "loans": 2,
+      "name": "SUN NB",
+      "rssd": "925710",
+      "score": 1.1,
+      "state": "NJ"
+    },
+    "SUNTRUST BK|ATLANTA|GA": {
+      "amount_mn": 7500.0,
+      "city": "ATLANTA",
+      "filer": {
+        "city": "ATLANTA",
+        "name": "SUNTRUST BANK",
+        "state": "GA"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 6,
+      "name": "SUNTRUST BK",
+      "rssd": "675332",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "SUSQUEHANNA BK|LITITZ|PA": {
+      "amount_mn": 3650.0,
+      "city": "LITITZ",
+      "filer": {
+        "city": "LITITZ",
+        "name": "SUSQUEHANNA BANK",
+        "state": "PA"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 28,
+      "name": "SUSQUEHANNA BK",
+      "rssd": "682611",
+      "score": 1.1,
+      "state": "PA"
+    },
+    "SYCAMORE BK|SENATOBIA|MS": {
+      "amount_mn": 5.0,
+      "city": "SENATOBIA",
+      "filer": {
+        "city": "SENATOBIA",
+        "name": "SYCAMORE BANK",
+        "state": "MS"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2008-11-20",
+      "loans": 1,
+      "name": "SYCAMORE BK",
+      "rssd": "924843",
+      "score": 1.1,
+      "state": "MS"
+    },
+    "SYNOVUS BK|SAINT PETERSBURG|FL": {
+      "amount_mn": 25.0,
+      "city": "SAINT PETERSBURG",
+      "filer": {
+        "city": "SAINT PETERSBURG",
+        "name": "SYNOVUS BANK",
+        "state": "FL"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2008-11-06",
+      "loans": 1,
+      "name": "SYNOVUS BK",
+      "rssd": "2458119",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "SYRINGA BK|BOISE|ID": {
+      "amount_mn": 30.0,
+      "city": "BOISE",
+      "filer": {
+        "city": "BOISE",
+        "name": "SYRINGA BANK",
+        "state": "ID"
+      },
+      "first": "2009-03-26",
+      "kind": "matched in state",
+      "last": "2009-06-18",
+      "loans": 2,
+      "name": "SYRINGA BK",
+      "rssd": "2540537",
+      "score": 1.1,
+      "state": "ID"
+    },
+    "TEXAS CAP BK NA|DALLAS|TX": {
+      "amount_mn": 2300.0,
+      "city": "DALLAS",
+      "filer": {
+        "city": "DALLAS",
+        "name": "TEXAS CAPITAL BANK, NATIONAL ASSOCIATION",
+        "state": "TX"
+      },
+      "first": "2009-01-29",
+      "kind": "matched in state",
+      "last": "2009-07-02",
+      "loans": 7,
+      "name": "TEXAS CAP BK NA",
+      "rssd": "2618780",
+      "score": 1.1,
+      "state": "TX"
+    },
+    "THIRD FED BK|NEWTOWN|PA": {
+      "amount_mn": 30.0,
+      "best": [
+        {
+          "city": "NEWTOWN",
+          "name": "FIRST NATIONAL BANK AND TRUST COMPANY,THE",
+          "rssd": "1007417",
+          "score": 0.3,
+          "state": "PA"
+        },
+        {
+          "city": "MARS",
+          "name": "MARS NATIONAL BANK, THE",
+          "rssd": "978622",
+          "score": 0.25,
+          "state": "PA"
+        }
+      ],
+      "city": "NEWTOWN",
+      "first": "2009-05-21",
+      "kind": "unresolved",
+      "last": "2009-08-13",
+      "loans": 5,
+      "name": "THIRD FED BK",
+      "state": "PA"
+    },
+    "THIRD FS&LA|CLEVELAND|OH": {
+      "amount_mn": 540.0,
+      "city": "CLEVELAND",
+      "first": "2009-01-02",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2009-05-21",
+      "loans": 7,
+      "name": "THIRD FS&LA",
+      "state": "OH"
+    },
+    "TIMBERWOOD BK|TOMAH|WI": {
+      "amount_mn": 10.0,
+      "city": "TOMAH",
+      "filer": {
+        "city": "TOMAH",
+        "name": "TIMBERWOOD BANK",
+        "state": "WI"
+      },
+      "first": "2009-03-12",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 2,
+      "name": "TIMBERWOOD BK",
+      "rssd": "962256",
+      "score": 1.1,
+      "state": "WI"
+    },
+    "TIOGA ST BK|SPENCER|NY": {
+      "amount_mn": 5.0,
+      "city": "SPENCER",
+      "filer": {
+        "city": "SPENCER",
+        "name": "TIOGA STATE BANK",
+        "state": "NY"
+      },
+      "first": "2009-05-21",
+      "kind": "matched in state",
+      "last": "2009-05-21",
+      "loans": 1,
+      "name": "TIOGA ST BK",
+      "rssd": "910118",
+      "score": 1.1,
+      "state": "NY"
+    },
+    "TORONTO-DOMINION BK NY BR|NEW YORK|NY": {
+      "amount_mn": 27465.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-08-13",
+      "loans": 19,
+      "name": "TORONTO-DOMINION BK NY BR",
+      "state": "NY"
+    },
+    "TOUCHMARK NB|ALPHARETTA|GA": {
+      "amount_mn": 45.0,
+      "city": "ALPHARETTA",
+      "filer": {
+        "city": "DULUTH",
+        "name": "TOUCHMARK NATIONAL BANK",
+        "state": "GA"
+      },
+      "first": "2009-10-22",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "TOUCHMARK NB",
+      "rssd": "3645840",
+      "score": 1.0,
+      "state": "GA"
+    },
+    "TOUCHMARK NB|DULUTH|GA": {
+      "amount_mn": 5.0,
+      "city": "DULUTH",
+      "filer": {
+        "city": "DULUTH",
+        "name": "TOUCHMARK NATIONAL BANK",
+        "state": "GA"
+      },
+      "first": "2009-08-13",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 1,
+      "name": "TOUCHMARK NB",
+      "rssd": "3645840",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "TOWN N BK NV NA|HENDERSON|NV": {
+      "amount_mn": 293.0,
+      "city": "HENDERSON",
+      "filer": {
+        "city": "HENDERSON",
+        "name": "TOWN NORTH BANK NEVADA, NATIONAL ASSOCIATION",
+        "state": "NV"
+      },
+      "first": "2008-03-27",
+      "kind": "matched in state",
+      "last": "2009-05-07",
+      "loans": 3,
+      "name": "TOWN N BK NV NA",
+      "rssd": "3385324",
+      "score": 1.1,
+      "state": "NV"
+    },
+    "TOWNEBANK|PORTSMOUTH|VA": {
+      "amount_mn": 5.0,
+      "city": "PORTSMOUTH",
+      "filer": {
+        "city": "PORTSMOUTH",
+        "name": "TOWNEBANK",
+        "state": "VA"
+      },
+      "first": "2008-08-28",
+      "kind": "matched in state",
+      "last": "2008-08-28",
+      "loans": 1,
+      "name": "TOWNEBANK",
+      "rssd": "2797724",
+      "score": 1.1,
+      "state": "VA"
+    },
+    "TRANS PACIFIC NB|SAN FRANCISCO|CA": {
+      "amount_mn": 45.0,
+      "city": "SAN FRANCISCO",
+      "filer": {
+        "city": "SAN FRANCISCO",
+        "name": "TRANS PACIFIC NATIONAL BANK",
+        "state": "CA"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 9,
+      "name": "TRANS PACIFIC NB",
+      "rssd": "403067",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "TRUSTATLANTIC BK|RALEIGH|NC": {
+      "amount_mn": 84.0,
+      "city": "RALEIGH",
+      "filer": {
+        "city": "RALEIGH",
+        "name": "TRUSTATLANTIC BANK",
+        "state": "NC"
+      },
+      "first": "2009-07-30",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 9,
+      "name": "TRUSTATLANTIC BK",
+      "rssd": "2913551",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "TRUSTMARK NB|JACKSON|MS": {
+      "amount_mn": 1325.0,
+      "city": "JACKSON",
+      "filer": {
+        "city": "JACKSON",
+        "name": "TRUSTMARK NATIONAL BANK",
+        "state": "MS"
+      },
+      "first": "2008-12-04",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 12,
+      "name": "TRUSTMARK NB",
+      "rssd": "342634",
+      "score": 1.1,
+      "state": "MS"
+    },
+    "UBS AG PARK AVE BR|NEW YORK|NY": {
+      "amount_mn": 55500.0,
+      "city": "NEW YORK",
+      "first": "2008-03-13",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-03-12",
+      "loans": 16,
+      "name": "UBS AG PARK AVE BR",
+      "state": "NY"
+    },
+    "UNIBANK|LYNNWOOD|WA": {
+      "amount_mn": 62.0,
+      "city": "LYNNWOOD",
+      "filer": {
+        "city": "LYNNWOOD",
+        "name": "UNIBANK",
+        "state": "WA"
+      },
+      "first": "2009-07-02",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 6,
+      "name": "UNIBANK",
+      "rssd": "3487947",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "UNICREDIT NY BR|NEW YORK|NY": {
+      "amount_mn": 62210.0,
+      "city": "NEW YORK",
+      "first": "2008-12-04",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2009-12-17",
+      "loans": 24,
+      "name": "UNICREDIT NY BR",
+      "state": "NY"
+    },
+    "UNION B&TC|LINCOLN|NE": {
+      "amount_mn": 145.0,
+      "city": "LINCOLN",
+      "filer": {
+        "city": "LINCOLN",
+        "name": "UNION BANK AND TRUST COMPANY",
+        "state": "NE"
+      },
+      "first": "2009-01-15",
+      "kind": "matched in state",
+      "last": "2009-07-02",
+      "loans": 5,
+      "name": "UNION B&TC",
+      "rssd": "450856",
+      "score": 1.1,
+      "state": "NE"
+    },
+    "UNION BK & TR CO|OXFORD|NC": {
+      "amount_mn": 25.0,
+      "city": "OXFORD",
+      "filer": {
+        "city": "OXFORD",
+        "name": "UNION BANK & TRUST COMPANY",
+        "state": "NC"
+      },
+      "first": "2009-06-18",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 5,
+      "name": "UNION BK & TR CO",
+      "rssd": "3429059",
+      "score": 0.85,
+      "state": "NC"
+    },
+    "UNION BK NA|SAN FRANCISCO|CA": {
+      "amount_mn": 4000.0,
+      "city": "SAN FRANCISCO",
+      "filer": {
+        "city": "SAN FRANCISCO",
+        "name": "UNION BANK, NATIONAL ASSOCIATION",
+        "state": "CA"
+      },
+      "first": "2009-01-02",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 4,
+      "name": "UNION BK NA",
+      "rssd": "212465",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "UNION BK OF CA NA|SAN FRANCISCO|CA": {
+      "amount_mn": 20100.0,
+      "best": [
+        {
+          "city": "SAN FRANCISCO",
+          "name": "UNION BANK, NATIONAL ASSOCIATION",
+          "rssd": "212465",
+          "score": 0.767,
+          "state": "CA"
+        },
+        {
+          "city": "LOS ANGELES",
+          "name": "NATIONAL BANK OF CALIFORNIA",
+          "rssd": "667869",
+          "score": 0.667,
+          "state": "CA"
+        }
+      ],
+      "city": "SAN FRANCISCO",
+      "first": "2008-04-24",
+      "kind": "unresolved",
+      "last": "2008-12-04",
+      "loans": 17,
+      "name": "UNION BK OF CA NA",
+      "state": "CA"
+    },
+    "UNITED AMER BK NA|ATLANTA|GA": {
+      "amount_mn": 15.0,
+      "best": [
+        {
+          "city": "ZEBULON",
+          "name": "UNITED BANK",
+          "rssd": "37435",
+          "score": 0.667,
+          "state": "GA"
+        },
+        {
+          "city": "CAIRO",
+          "name": "UNITED NATIONAL BANK",
+          "rssd": "2914727",
+          "score": 0.667,
+          "state": "GA"
+        }
+      ],
+      "city": "ATLANTA",
+      "first": "2009-02-12",
+      "kind": "unresolved",
+      "last": "2009-06-18",
+      "loans": 3,
+      "name": "UNITED AMER BK NA",
+      "state": "GA"
+    },
+    "UNITED CMNTY BK|BLAIRSVILLE|GA": {
+      "amount_mn": 641.0,
+      "city": "BLAIRSVILLE",
+      "filer": {
+        "city": "BLAIRSVILLE",
+        "name": "UNITED COMMUNITY BANK",
+        "state": "GA"
+      },
+      "first": "2008-01-31",
+      "kind": "matched in state",
+      "last": "2009-08-27",
+      "loans": 8,
+      "name": "UNITED CMNTY BK",
+      "rssd": "1017939",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "UNITED CMRL BK|SAN FRANCISCO|CA": {
+      "amount_mn": 50.0,
+      "city": "SAN FRANCISCO",
+      "filer": {
+        "city": "SAN FRANCISCO",
+        "name": "UNITED COMMERCIAL BANK",
+        "state": "CA"
+      },
+      "first": "2008-02-14",
+      "kind": "matched in state",
+      "last": "2008-02-14",
+      "loans": 1,
+      "name": "UNITED CMRL BK",
+      "rssd": "43173",
+      "score": 1.1,
+      "state": "CA"
+    },
+    "UNITED NB|CAIRO|GA": {
+      "amount_mn": 61.0,
+      "city": "CAIRO",
+      "filer": {
+        "city": "CAIRO",
+        "name": "UNITED NATIONAL BANK",
+        "state": "GA"
+      },
+      "first": "2009-08-27",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 5,
+      "name": "UNITED NB",
+      "rssd": "2914727",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "UNITED VALLEY BK|CAVALIER|ND": {
+      "amount_mn": 12.0,
+      "city": "CAVALIER",
+      "filer": {
+        "city": "CAVALIER",
+        "name": "UNITED VALLEY BANK",
+        "state": "ND"
+      },
+      "first": "2009-05-21",
+      "kind": "matched in state",
+      "last": "2009-08-13",
+      "loans": 2,
+      "name": "UNITED VALLEY BK",
+      "rssd": "922559",
+      "score": 1.1,
+      "state": "ND"
+    },
+    "US CENTRAL FCU|LENEXA|KS": {
+      "amount_mn": 11000.0,
+      "city": "LENEXA",
+      "first": "2008-07-17",
+      "kind": "credit union",
+      "last": "2008-09-11",
+      "loans": 5,
+      "name": "US CENTRAL FCU",
+      "state": "KS"
+    },
+    "VALLEY BK OF HELENA|HELENA|MT": {
+      "amount_mn": 595.0,
+      "city": "HELENA",
+      "filer": {
+        "city": "HELENA",
+        "name": "VALLEY BANK OF HELENA, THE",
+        "state": "MT"
+      },
+      "first": "2008-03-27",
+      "kind": "matched in state",
+      "last": "2010-02-11",
+      "loans": 15,
+      "name": "VALLEY BK OF HELENA",
+      "rssd": "648055",
+      "score": 1.1,
+      "state": "MT"
+    },
+    "VECTRA BK COLORADO NA|FARMINGTON|NM": {
+      "amount_mn": 100.0,
+      "city": "FARMINGTON",
+      "filer": {
+        "city": "FARMINGTON",
+        "name": "VECTRA BANK COLORADO, NATIONAL ASSOCIATION",
+        "state": "NM"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2008-11-06",
+      "loans": 1,
+      "name": "VECTRA BK COLORADO NA",
+      "rssd": "933957",
+      "score": 1.1,
+      "state": "NM"
+    },
+    "VIKING BK|SEATTLE|WA": {
+      "amount_mn": 259.1,
+      "city": "SEATTLE",
+      "filer": {
+        "city": "SEATTLE",
+        "name": "VIKING BANK",
+        "state": "WA"
+      },
+      "first": "2007-12-27",
+      "kind": "matched in state",
+      "last": "2008-07-03",
+      "loans": 10,
+      "name": "VIKING BK",
+      "rssd": "1973129",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "VININGS BK|SMYRNA|GA": {
+      "amount_mn": 23.0,
+      "city": "SMYRNA",
+      "filer": {
+        "city": "SMYRNA",
+        "name": "VININGS BANK",
+        "state": "GA"
+      },
+      "first": "2009-10-22",
+      "kind": "matched in state",
+      "last": "2010-01-14",
+      "loans": 3,
+      "name": "VININGS BK",
+      "rssd": "3613559",
+      "score": 1.1,
+      "state": "GA"
+    },
+    "VIRGINIA CMNTY BK|LOUISA|VA": {
+      "amount_mn": 37.5,
+      "city": "LOUISA",
+      "filer": {
+        "city": "LOUISA",
+        "name": "VIRGINIA COMMUNITY BANK",
+        "state": "VA"
+      },
+      "first": "2009-01-02",
+      "kind": "matched in state",
+      "last": "2009-12-03",
+      "loans": 5,
+      "name": "VIRGINIA CMNTY BK",
+      "rssd": "105222",
+      "score": 1.1,
+      "state": "VA"
+    },
+    "VIRGINIA HERITAGE BK|FAIRFAX|VA": {
+      "amount_mn": 134.0,
+      "city": "FAIRFAX",
+      "filer": {
+        "city": "FAIRFAX",
+        "name": "VIRGINIA HERITAGE BANK",
+        "state": "VA"
+      },
+      "first": "2009-01-02",
+      "kind": "matched in state",
+      "last": "2010-03-11",
+      "loans": 14,
+      "name": "VIRGINIA HERITAGE BK",
+      "rssd": "3374298",
+      "score": 1.1,
+      "state": "VA"
+    },
+    "VIRGINIA PTNR BK|FREDERICKSBURG|VA": {
+      "amount_mn": 10.0,
+      "best": [
+        {
+          "city": "NEWPORT NEWS",
+          "name": "VIRGINIA COMPANY BANK",
+          "rssd": "3383366",
+          "score": 0.667,
+          "state": "VA"
+        },
+        {
+          "city": "MIDLOTHIAN",
+          "name": "BANK OF VIRGINIA",
+          "rssd": "3198421",
+          "score": 0.667,
+          "state": "VA"
+        }
+      ],
+      "city": "FREDERICKSBURG",
+      "first": "2009-05-21",
+      "kind": "unresolved",
+      "last": "2009-08-13",
+      "loans": 2,
+      "name": "VIRGINIA PTNR BK",
+      "state": "VA"
+    },
+    "WACHOVIA BK NA|CHARLOTTE|NC": {
+      "amount_mn": 147025.0,
+      "city": "CHARLOTTE",
+      "filer": {
+        "city": "CHARLOTTE",
+        "name": "WACHOVIA BANK, NATIONAL ASSOCIATION",
+        "state": "NC"
+      },
+      "first": "2007-12-20",
+      "kind": "matched in state",
+      "last": "2009-02-26",
+      "loans": 23,
+      "name": "WACHOVIA BK NA",
+      "rssd": "484422",
+      "score": 1.1,
+      "state": "NC"
+    },
+    "WASHINGTON BUS BK|OLYMPIA|WA": {
+      "amount_mn": 35.0,
+      "best": [
+        {
+          "city": "LYNNWOOD",
+          "name": "BANK OF WASHINGTON, THE",
+          "rssd": "2485544",
+          "score": 0.667,
+          "state": "WA"
+        },
+        {
+          "city": "OLYMPIA",
+          "name": "WASHINGTON BUSINESS BANK",
+          "rssd": "3102893",
+          "score": 0.6,
+          "state": "WA"
+        }
+      ],
+      "city": "OLYMPIA",
+      "first": "2009-03-26",
+      "kind": "unresolved",
+      "last": "2010-03-11",
+      "loans": 7,
+      "name": "WASHINGTON BUS BK",
+      "state": "WA"
+    },
+    "WASHINGTON FIRST INTL BK|SEATTLE|WA": {
+      "amount_mn": 35.0,
+      "city": "SEATTLE",
+      "filer": {
+        "city": "SEATTLE",
+        "name": "WASHINGTON FIRST INTERNATIONAL BANK",
+        "state": "WA"
+      },
+      "first": "2008-11-20",
+      "kind": "matched in state",
+      "last": "2009-03-26",
+      "loans": 7,
+      "name": "WASHINGTON FIRST INTL BK",
+      "rssd": "1450620",
+      "score": 1.1,
+      "state": "WA"
+    },
+    "WASHINGTON MUT BK|HENDERSON|NV": {
+      "amount_mn": 7250.0,
+      "best": [
+        {
+          "city": "HENDERSON",
+          "name": "SECURITY SAVINGS BANK",
+          "rssd": "2901688",
+          "score": 0.3,
+          "state": "NV"
+        },
+        {
+          "city": "HENDERSON",
+          "name": "SILVER STATE BANK",
+          "rssd": "2479310",
+          "score": 0.3,
+          "state": "NV"
+        }
+      ],
+      "city": "HENDERSON",
+      "first": "2007-12-27",
+      "kind": "unresolved",
+      "last": "2008-09-11",
+      "loans": 8,
+      "name": "WASHINGTON MUT BK",
+      "state": "NV"
+    },
+    "WAUCHULA ST BK|WAUCHULA|FL": {
+      "amount_mn": 20.0,
+      "city": "WAUCHULA",
+      "filer": {
+        "city": "WAUCHULA",
+        "name": "WAUCHULA STATE BANK",
+        "state": "FL"
+      },
+      "first": "2009-10-08",
+      "kind": "matched in state",
+      "last": "2009-12-17",
+      "loans": 3,
+      "name": "WAUCHULA ST BK",
+      "rssd": "200435",
+      "score": 1.1,
+      "state": "FL"
+    },
+    "WEBSTER BK NA|WATERBURY|CT": {
+      "amount_mn": 550.0,
+      "city": "WATERBURY",
+      "filer": {
+        "city": "WATERBURY",
+        "name": "WEBSTER BANK, NATIONAL ASSOCIATION",
+        "state": "CT"
+      },
+      "first": "2008-11-06",
+      "kind": "matched in state",
+      "last": "2009-02-12",
+      "loans": 5,
+      "name": "WEBSTER BK NA",
+      "rssd": "761806",
+      "score": 1.1,
+      "state": "CT"
+    },
+    "WELLS FARGO BK NA|SAN FRANCISCO|CA": {
+      "amount_mn": 153953.2,
+      "city": "SAN FRANCISCO",
+      "filer": {
+        "city": "SIOUX FALLS",
+        "name": "WELLS FARGO BANK, NATIONAL ASSOCIATION",
+        "state": "SD"
+      },
+      "first": "2008-01-17",
+      "kind": "matched nationwide",
+      "last": "2009-05-21",
+      "loans": 19,
+      "name": "WELLS FARGO BK NA",
+      "rssd": "451965",
+      "score": 1.0,
+      "state": "CA"
+    },
+    "WEST VIEW SVG BK|PITTSBURGH|PA": {
+      "amount_mn": 1384.5,
+      "city": "PITTSBURGH",
+      "first": "2008-10-23",
+      "kind": "savings institution (files the OTS Thrift Financial Report)",
+      "last": "2010-03-11",
+      "loans": 29,
+      "name": "WEST VIEW SVG BK",
+      "state": "PA"
+    },
+    "WESTERN SECURITY BK|BILLINGS|MT": {
+      "amount_mn": 997.0,
+      "city": "BILLINGS",
+      "filer": {
+        "city": "BILLINGS",
+        "name": "WESTERN SECURITY BANK",
+        "state": "MT"
+      },
+      "first": "2008-02-14",
+      "kind": "matched in state",
+      "last": "2009-11-19",
+      "loans": 13,
+      "name": "WESTERN SECURITY BK",
+      "rssd": "2999845",
+      "score": 1.1,
+      "state": "MT"
+    },
+    "WESTLB AG NY BR|NEW YORK|NY": {
+      "amount_mn": 78406.3,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2010-02-11",
+      "loans": 36,
+      "name": "WESTLB AG NY BR",
+      "state": "NY"
+    },
+    "WESTPAC BKG CORP NY BR|NEW YORK|NY": {
+      "amount_mn": 1090.0,
+      "city": "NEW YORK",
+      "first": "2007-12-20",
+      "kind": "branch or agency of a foreign bank",
+      "last": "2008-10-09",
+      "loans": 2,
+      "name": "WESTPAC BKG CORP NY BR",
+      "state": "NY"
+    },
+    "WHITNEY NB|NEW ORLEANS|LA": {
+      "amount_mn": 800.0,
+      "city": "NEW ORLEANS",
+      "filer": {
+        "city": "NEW ORLEANS",
+        "name": "WHITNEY NATIONAL BANK",
+        "state": "LA"
+      },
+      "first": "2009-04-09",
+      "kind": "matched in state",
+      "last": "2009-06-04",
+      "loans": 3,
+      "name": "WHITNEY NB",
+      "rssd": "873138",
+      "score": 1.1,
+      "state": "LA"
+    },
+    "WILMINGTON TC|WILMINGTON|DE": {
+      "amount_mn": 3250.0,
+      "city": "WILMINGTON",
+      "filer": {
+        "city": "WILMINGTON",
+        "name": "WILMINGTON TRUST COMPANY",
+        "state": "DE"
+      },
+      "first": "2009-01-02",
+      "kind": "matched in state",
+      "last": "2009-10-08",
+      "loans": 11,
+      "name": "WILMINGTON TC",
+      "rssd": "272218",
+      "score": 1.1,
+      "state": "DE"
+    },
+    "WOOD & HUSTON BK|MARSHALL|MO": {
+      "amount_mn": 5.0,
+      "city": "MARSHALL",
+      "filer": {
+        "city": "MARSHALL",
+        "name": "WOOD & HUSTON BANK",
+        "state": "MO"
+      },
+      "first": "2009-02-12",
+      "kind": "matched in state",
+      "last": "2009-02-12",
+      "loans": 1,
+      "name": "WOOD & HUSTON BK",
+      "rssd": "671558",
+      "score": 1.1,
+      "state": "MO"
+    },
+    "ZIONS FIRST NB|SALT LAKE CITY|UT": {
+      "amount_mn": 5165.0,
+      "city": "SALT LAKE CITY",
+      "filer": {
+        "city": "SALT LAKE CITY",
+        "name": "ZIONS FIRST NATIONAL BANK",
+        "state": "UT"
+      },
+      "first": "2008-01-17",
+      "kind": "matched in state",
+      "last": "2008-12-04",
+      "loans": 17,
+      "name": "ZIONS FIRST NB",
+      "rssd": "276579",
+      "score": 1.1,
+      "state": "UT"
+    }
+  },
+  "class_rssd": [
+    "1007846",
+    "1017939",
+    "103255",
+    "105222",
+    "107244",
+    "1161216",
+    "1176881",
+    "1190476",
+    "1225033",
+    "1225800",
+    "12311",
+    "129732",
+    "1356526",
+    "1356535",
+    "1377521",
+    "139553",
+    "139843",
+    "1407521",
+    "1408069",
+    "1441600",
+    "1450620",
+    "1457003",
+    "1494240",
+    "151751",
+    "169653",
+    "17147",
+    "17464",
+    "1830035",
+    "183668",
+    "1842065",
+    "184937",
+    "185859",
+    "1916751",
+    "192156",
+    "1933927",
+    "1973129",
+    "200435",
+    "2045694",
+    "2078290",
+    "207872",
+    "208244",
+    "2114282",
+    "212465",
+    "215354",
+    "220527",
+    "222754",
+    "224178",
+    "231242",
+    "23241",
+    "2328249",
+    "233031",
+    "2352235",
+    "23540",
+    "2374901",
+    "2458119",
+    "2497181",
+    "2514547",
+    "2540537",
+    "2583721",
+    "258771",
+    "259518",
+    "2618780",
+    "2634191",
+    "2666400",
+    "270036",
+    "272218",
+    "273336",
+    "2756785",
+    "2761930",
+    "276579",
+    "2777650",
+    "2797724",
+    "280110",
+    "2806626",
+    "281144",
+    "2850722",
+    "2855914",
+    "287539",
+    "2905163",
+    "2913551",
+    "2913702",
+    "2914727",
+    "2963547",
+    "2967349",
+    "2980209",
+    "2998576",
+    "2999845",
+    "3013823",
+    "3022610",
+    "3041974",
+    "3047659",
+    "30810",
+    "310727",
+    "3116519",
+    "3121072",
+    "315629",
+    "3165320",
+    "3181197",
+    "3188646",
+    "320119",
+    "3220863",
+    "323035",
+    "3261549",
+    "3281293",
+    "3284070",
+    "3284397",
+    "3303298",
+    "330855",
+    "3345449",
+    "3367085",
+    "3374298",
+    "3384868",
+    "3385324",
+    "3388080",
+    "3394278",
+    "3394380",
+    "339858",
+    "340135",
+    "3407114",
+    "342410",
+    "342634",
+    "3429059",
+    "3435948",
+    "3437456",
+    "3442704",
+    "3452310",
+    "3487947",
+    "35301",
+    "3537897",
+    "3559714",
+    "3613559",
+    "361439",
+    "3620913",
+    "3622533",
+    "3645840",
+    "3646397",
+    "3649633",
+    "3671997",
+    "368522",
+    "375566",
+    "3813256",
+    "383534",
+    "391838",
+    "395238",
+    "397540",
+    "398350",
+    "403067",
+    "403946",
+    "411464",
+    "412135",
+    "413208",
+    "42420",
+    "428462",
+    "43155",
+    "43173",
+    "436711",
+    "437521",
+    "44134",
+    "450856",
+    "451965",
+    "474919",
+    "476810",
+    "480228",
+    "484422",
+    "485559",
+    "486752",
+    "48730",
+    "489913",
+    "501105",
+    "509231",
+    "510871",
+    "522605",
+    "528849",
+    "540926",
+    "56557",
+    "570231",
+    "572374",
+    "575254",
+    "576653",
+    "591825",
+    "593052",
+    "601050",
+    "601416",
+    "60143",
+    "604547",
+    "606046",
+    "613008",
+    "616410",
+    "619327",
+    "630555",
+    "636771",
+    "637451",
+    "638850",
+    "641476",
+    "64619",
+    "648055",
+    "652351",
+    "656733",
+    "657459",
+    "660655",
+    "663647",
+    "671334",
+    "671558",
+    "671576",
+    "67311",
+    "675332",
+    "676656",
+    "682611",
+    "685407",
+    "686271",
+    "693662",
+    "694904",
+    "697633",
+    "701062",
+    "71318",
+    "716413",
+    "718930",
+    "723112",
+    "724847",
+    "740931",
+    "750305",
+    "761806",
+    "77422",
+    "77851",
+    "778738",
+    "791474",
+    "798857",
+    "804963",
+    "817824",
+    "832377",
+    "83375",
+    "83638",
+    "837260",
+    "840747",
+    "852218",
+    "857811",
+    "861434",
+    "864752",
+    "873138",
+    "873950",
+    "874452",
+    "874845",
+    "888253",
+    "910118",
+    "913267",
+    "913940",
+    "917050",
+    "917742",
+    "922559",
+    "924843",
+    "925710",
+    "928421",
+    "932745",
+    "933863",
+    "933957",
+    "936426",
+    "938840",
+    "940311",
+    "962256",
+    "978154",
+    "980661",
+    "983448"
+  ],
+  "config": {
+    "clear_margin": [
+      0.15,
+      0.2
+    ],
+    "in_state_bar": 0.75,
+    "nationwide_bar": 0.99,
+    "por_archives": [
+      "FFIEC CDR Call Bulk All Schedules 03312008.zip",
+      "FFIEC CDR Call Bulk All Schedules 12312008.zip",
+      "FFIEC CDR Call Bulk All Schedules 03312010.zip"
+    ],
+    "year_archives": [
+      "FFIEC CDR Call Bulk Subset of Schedules 2009.zip"
+    ]
+  },
+  "counts": {
+    "branch or agency of a foreign bank": {
+      "amount_mn": 2222782.2,
+      "borrowers": 79
+    },
+    "credit union": {
+      "amount_mn": 11195.2,
+      "borrowers": 3
+    },
+    "matched in state": {
+      "amount_mn": 1180327.3,
+      "borrowers": 262
+    },
+    "matched nationwide": {
+      "amount_mn": 298983.8,
+      "borrowers": 4
+    },
+    "savings institution (files the OTS Thrift Financial Report)": {
+      "amount_mn": 30412.7,
+      "borrowers": 26
+    },
+    "unresolved": {
+      "amount_mn": 74709.8,
+      "borrowers": 51
+    }
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Arm E, part one: the class of Call Report filers that borrowed from the TAF, printed for reading before any price is read against it.",
+  "source": {
+    "borrowers": "Board of Governors, TAF transaction data, taf.csv",
+    "filers": "FFIEC CDR Call Report bulk files, panel of reporters"
+  },
+  "stage": "B121"
+}

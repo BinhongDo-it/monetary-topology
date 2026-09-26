@@ -163,8 +163,9 @@ reconstructs its earlier history from. Files include `buy.csv`, `sell.csv`,
 **`buy_oficial_monto.csv`**, collected by `update.py` and `update_oficial.py` on
 a scheduled workflow, over **25,627 commits**.
 
-**This is the strongest form of the auditability `b5_orphan_prereg.md` §7.4
-demands.** Every observation is fixed by a commit, so the series can be
+**This is the strongest form of the auditability `b5_orphan_prereg.md` §4.4
+demands**, the section that asks for one number carried through two parsers.
+Every observation is fixed by a commit, so the series can be
 reconstructed as of any past date and any silent revision is visible in the
 history. B6-B had to build a manifest with two sha256 digests per day to get a
 weaker version of this property. **Here it comes free.**

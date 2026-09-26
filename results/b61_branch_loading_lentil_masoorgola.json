@@ -1,0 +1,357 @@
+{
+  "config": {
+    "cluster": "state",
+    "commodity": "Lentil (Masur)",
+    "min_state_markets": 3,
+    "month_window_days": [
+      25,
+      35
+    ],
+    "shifts_days": [
+      180,
+      365,
+      730
+    ],
+    "source": "csv",
+    "variety": "Masoor Gola"
+  },
+  "criteria": [
+    {
+      "detail": "monthly changes: 3 of 3 shifts reach enough of the 7616 rows to be fitted, 0 of them over at least as many clusters as the fit has coefficients (180d, 365d, 730d do not and are dropped); levels: 3 of 3 shifts reach enough of the 8557 rows to be fitted, 1 of them over at least as many clusters as the fit has coefficients (180d, 730d do not and are dropped). Each fitted shift runs the real branch series and the shifted one on exactly the rows that shift reaches, so the two standard errors share a sample and a cluster count. A cluster-robust meat matrix is a sum of one outer product per cluster, so with fewer clusters than coefficients it is singular and its standard errors carry nothing; that is arithmetic and not a threshold. An arm with no surviving shift has no floor, and its reading below is not adjudicable rather than failed",
+      "kind": "premise",
+      "name": "B61-0  every comparison is a real fit and a placebo on the same rows, over enough clusters to have a covariance",
+      "passed": true
+    },
+    {
+      "detail": "115905 lines, 0 malformed, 105745 of another variety, 1 with an unreadable date or a non-positive price or arrival. 8557 rows kept across 3 states, 55 markets and 866 days; 1602 rows dropped because their state had fewer than 3 markets reporting that day, so no leave-one-out branch exists for them",
+      "kind": "instrument",
+      "name": "B61-1  the carrier parses and the branch has something to be read from",
+      "passed": true
+    },
+    {
+      "detail": "dev and dev_state both subtract nat(t), so they correlate through var(nat) even under independence. corr(dev, dev_state) is 0.8509 raw, 0.8219 under a day fixed effect which absorbs nat(t) exactly, and 0.7234 with a market effect added. The regressions use the absorbed form. corr(dev, log arrivals) is 0.0491 raw and 0.0005 absorbed",
+      "kind": "instrument",
+      "name": "B61-2  the shared subtraction is removed rather than left in",
+      "passed": true
+    },
+    {
+      "cell": "no_floor",
+      "cell_map": {
+        "above": "clears its own shifted floor on every shift: read on this carrier",
+        "below": "sits below its own floor on every shift by more than the combined error: the opposite of what was registered, and that is a verdict",
+        "indistinguishable": "within one combined standard error of its own floor on at least one shift: not read on this carrier, and no verdict",
+        "no_floor": "no shift produced a readable placebo: no verdict"
+      },
+      "detail": "180d not built; 365d not built; 730d not built. Cell: no shift produced a readable placebo: no verdict",
+      "kind": "own_reading",
+      "name": "B61-3  monthly changes: the branch loading against its own shifted floor",
+      "passed": null
+    },
+    {
+      "cell": "no_floor",
+      "cell_map": {
+        "above": "the rival's regressor clears its own floor on every shift: the rival's prediction holds on this carrier",
+        "below": "it sits below its own floor on every shift by more than the combined error: the rival's prediction is refuted here",
+        "indistinguishable": "it is within one combined standard error of its own floor: the rival's prediction is not supported here, and that is not the same state as refuted, so no verdict",
+        "no_floor": "no shift produced a readable placebo: no verdict"
+      },
+      "detail": "180d not built; 365d not built; 730d not built. Cell: no shift produced a readable placebo: no verdict",
+      "grid": "unread",
+      "grid_note": {
+        "ours": "no shift produced a readable placebo: no verdict",
+        "rival": "no shift produced a readable placebo: no verdict",
+        "why": "a cell needs a reading on both sides and at least one side produced none here, so this criterion places nothing on the table and names no cell"
+      },
+      "kind": "rival",
+      "name": "B61-4  the rival's regressor: does the deviation load on the region's own conditions",
+      "passed": null,
+      "rival_entailment": "If the field is generated that way then, once the day's national level and the market's fixed position are held out, a market's deviation is explained by its own supply conditions, and the identity of the intermediary carries no further information. So the coefficient on the market's own arrivals has to clear a floor built by shifting the intermediary series, and the coefficient on the intermediary must not.",
+      "rival_premise": "A distance-weighted equilibrium: the value at a position is set by that position's own conditions and its distance from the anchor. This is the branch B30-5 names in as many words, 'loads on local conditions -> the field is an equilibrium'.",
+      "rival_shape": "direction"
+    },
+    {
+      "cell": "above",
+      "cell_map": {
+        "above": "clears its own shifted floor on every shift: read on this carrier",
+        "below": "sits below its own floor on every shift by more than the combined error: the opposite of what was registered, and that is a verdict",
+        "indistinguishable": "within one combined standard error of its own floor on at least one shift: not read on this carrier, and no verdict",
+        "no_floor": "no shift produced a readable placebo: no verdict"
+      },
+      "detail": "180d not built; 365d real +0.8501 (se 0.0523) vs placebo +0.6378 (se 0.0266) on n 3528 over 3 clusters, +3.62 combined se; 730d not built. Cell: clears its own shifted floor on every shift: read on this carrier. A state's level relative to the country is persistent, so a shifted placebo keeps most of the real loading here; the monthly-change arm is the one that differences that term away",
+      "kind": "own_reading",
+      "name": "B61-5  levels: the same pair read again, with its own floor",
+      "passed": true
+    },
+    {
+      "detail": "8557 rows come from 55 markets in 3 states over 866 days, and no count in this record is an independent-observation count. Standard errors are clustered on the state, which is the level the branch varies at; the iid figure is in every fit beside the clustered one. The three commodities are downstream of one market system, so a replication across them is not three independent samples",
+      "kind": "bookkeeping",
+      "name": "B61-6  what the counts are not",
+      "passed": true
+    },
+    {
+      "detail": "monthly changes, full sample b_state +0.7519 over 3 clusters on n 7616: 180d 3292 of 7616 (43.2 percent) over 2 clusters, subsample b_state +0.6678; 365d 2245 of 7616 (29.5 percent) over 2 clusters, subsample b_state +0.6759; 730d 824 of 7616 (10.8 percent) over 2 clusters, subsample b_state +0.2122. Levels, full sample b_state +0.8744 over 3 clusters on n 8557: 180d 4624 of 8557 (54.0 percent) over 2 clusters, subsample b_state +0.8761; 365d 3528 of 8557 (41.2 percent) over 3 clusters, subsample b_state +0.8501; 730d 1225 of 8557 (14.3 percent) over 2 clusters, subsample b_state +0.1086. A shift reaches only the rows where the same state reported that many days later, so a low coverage or a subsample coefficient far from the full-sample one says the comparison above is running on a selected slice. This criterion reports those numbers and judges nothing",
+      "kind": "instrument",
+      "name": "B61-7  how much of the sample each shift reaches, and whether it stands in for it",
+      "passed": true
+    },
+    {
+      "detail": "180d base z n/a; dropping Madhya Pradesh not readable without it, Uttar Pradesh not readable without it; 365d base z n/a; dropping Madhya Pradesh not readable without it, Uttar Pradesh not readable without it; 730d base z n/a; dropping Madhya Pradesh not readable without it, Uttar Pradesh not readable without it. A cluster count says how many states there are and cannot say how many of them carry the reading, so each is dropped in turn and the figure reprinted. A state holding most of the pairs takes the reading with it when dropped and that says nothing; a state holding few of them and still moving the figure is the one to read. This criterion prints and judges nothing",
+      "kind": "instrument",
+      "name": "B61-8  how many states carry the monthly reading, one left out at a time",
+      "passed": true
+    }
+  ],
+  "input": {
+    "days": 866,
+    "lines": 115905,
+    "malformed": 0,
+    "markets": 55,
+    "other_variety": 105745,
+    "rows_dropped_no_branch": 1602,
+    "rows_of_variety": 10159,
+    "rows_with_branch": 8557,
+    "states": [
+      "Chattisgarh",
+      "Madhya Pradesh",
+      "Uttar Pradesh"
+    ],
+    "unreadable_or_nonpositive": 1,
+    "varieties_present": {
+      "Kala Masoor New": 2343,
+      "Masoor Gola": 10160,
+      "Masur Dal": 11339,
+      "Other": 92063
+    }
+  },
+  "readings": {
+    "levels": {
+      "per_shift": {
+        "180": {
+          "n": 4624,
+          "placebo": {
+            "b_arr": 0.004014,
+            "b_state": 0.634742,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 4624,
+            "r2": 0.441092,
+            "se_arr": 0.003206,
+            "se_arr_iid": 0.000981,
+            "se_state": 0.014199,
+            "se_state_iid": 0.010512
+          },
+          "real": {
+            "b_arr": 0.002641,
+            "b_state": 0.876052,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 4624,
+            "r2": 0.512512,
+            "se_arr": 0.004598,
+            "se_arr_iid": 0.000915,
+            "se_state": 0.054127,
+            "se_state_iid": 0.01257
+          }
+        },
+        "365": {
+          "n": 3528,
+          "placebo": {
+            "b_arr": 0.005509,
+            "b_state": 0.637757,
+            "cluster_rank_ok": true,
+            "clusters": 3,
+            "k": 3,
+            "n": 3528,
+            "r2": 0.490281,
+            "se_arr": 0.000396,
+            "se_arr_iid": 0.000976,
+            "se_state": 0.026596,
+            "se_state_iid": 0.010957
+          },
+          "real": {
+            "b_arr": 0.002708,
+            "b_state": 0.850107,
+            "cluster_rank_ok": true,
+            "clusters": 3,
+            "k": 3,
+            "n": 3528,
+            "r2": 0.482336,
+            "se_arr": 0.003397,
+            "se_arr_iid": 0.000982,
+            "se_state": 0.052336,
+            "se_state_iid": 0.01484
+          }
+        },
+        "730": {
+          "n": 1225,
+          "placebo": {
+            "b_arr": -0.003696,
+            "b_state": 0.249307,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 1225,
+            "r2": 0.135731,
+            "se_arr": 0.002823,
+            "se_arr_iid": 0.002089,
+            "se_state": 0.01336,
+            "se_state_iid": 0.019487
+          },
+          "real": {
+            "b_arr": -0.009663,
+            "b_state": 0.108624,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 1225,
+            "r2": 0.024959,
+            "se_arr": 0.002194,
+            "se_arr_iid": 0.002181,
+            "se_state": 0.448313,
+            "se_state_iid": 0.04344
+          }
+        }
+      },
+      "real_full_sample": {
+        "b_arr": 0.001083,
+        "b_state": 0.874359,
+        "cluster_rank_ok": true,
+        "clusters": 3,
+        "k": 3,
+        "n": 8557,
+        "r2": 0.523434,
+        "se_arr": 0.003153,
+        "se_arr_iid": 0.00074,
+        "se_state": 0.043602,
+        "se_state_iid": 0.009021
+      }
+    },
+    "monthly_changes": {
+      "pairs": 7616,
+      "per_shift": {
+        "180": {
+          "leave_one_state_out": {
+            "Madhya Pradesh": null,
+            "Uttar Pradesh": null
+          },
+          "n": 3292,
+          "placebo": {
+            "b_arr": 0.00207,
+            "b_state": 0.089075,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 3292,
+            "r2": 0.008782,
+            "se_arr": 0.001686,
+            "se_arr_iid": 0.001379,
+            "se_state": 0.04429,
+            "se_state_iid": 0.017271
+          },
+          "real": {
+            "b_arr": 0.000132,
+            "b_state": 0.667773,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 3292,
+            "r2": 0.287234,
+            "se_arr": 0.001276,
+            "se_arr_iid": 0.001171,
+            "se_state": 0.104365,
+            "se_state_iid": 0.018367
+          }
+        },
+        "365": {
+          "leave_one_state_out": {
+            "Madhya Pradesh": null,
+            "Uttar Pradesh": null
+          },
+          "n": 2245,
+          "placebo": {
+            "b_arr": 0.00384,
+            "b_state": 0.013569,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 2245,
+            "r2": 0.003057,
+            "se_arr": 0.004144,
+            "se_arr_iid": 0.001544,
+            "se_state": 0.024775,
+            "se_state_iid": 0.019426
+          },
+          "real": {
+            "b_arr": 0.003564,
+            "b_state": 0.675929,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 2245,
+            "r2": 0.266906,
+            "se_arr": 0.004621,
+            "se_arr_iid": 0.001322,
+            "se_state": 0.072879,
+            "se_state_iid": 0.023785
+          }
+        },
+        "730": {
+          "leave_one_state_out": {
+            "Madhya Pradesh": null,
+            "Uttar Pradesh": null
+          },
+          "n": 824,
+          "placebo": {
+            "b_arr": 0.001135,
+            "b_state": -0.017413,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 824,
+            "r2": 0.000696,
+            "se_arr": 0.005572,
+            "se_arr_iid": 0.002316,
+            "se_state": 0.007644,
+            "se_state_iid": 0.026686
+          },
+          "real": {
+            "b_arr": 0.00079,
+            "b_state": 0.212166,
+            "cluster_rank_ok": false,
+            "clusters": 2,
+            "k": 3,
+            "n": 824,
+            "r2": 0.033704,
+            "se_arr": 0.005238,
+            "se_arr_iid": 0.002242,
+            "se_state": 0.20924,
+            "se_state_iid": 0.039752
+          }
+        }
+      },
+      "real_full_sample": {
+        "b_arr": 0.002066,
+        "b_state": 0.751881,
+        "cluster_rank_ok": true,
+        "clusters": 3,
+        "k": 3,
+        "n": 7616,
+        "r2": 0.41298,
+        "se_arr": 0.000724,
+        "se_arr_iid": 0.000781,
+        "se_state": 0.057036,
+        "se_state_iid": 0.010281
+      }
+    },
+    "shared_term_diagnostic": {
+      "day_and_market_fe": 0.723405,
+      "day_and_market_fe_dev_vs_local": 0.000499,
+      "day_fe": 0.821902,
+      "raw": 0.850898,
+      "raw_dev_vs_local": 0.049142
+    }
+  },
+  "stage": "B61"
+}

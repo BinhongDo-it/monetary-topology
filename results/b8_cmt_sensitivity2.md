@@ -49,7 +49,7 @@ Judged against `4 * |log V| * eps` = **1.243e-14**, taking `|log V|` at 14. **Th
 Summed over the triangle window, **which is not a registered loop definition** and must not be cited as one. It is first delinquent row through the first cure after the modification, inclusive.
 
 | archive | loops | spread p50 | p90 | max | **p50 / floor** | loops with a balloon | their p50 | their max |
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|
 | 2002Q1 | 6,249 | 6.651e-05 | 2.831e-02 | 1.019e-01 | **10.282** | 205 | 2.316e-02 | 5.349e-02 |
 | 2006Q1 | 13,035 | 1.219e-03 | 2.345e-02 | 6.533e-02 | **154.146** | 1,935 | 1.881e-02 | 6.533e-02 |
 | 2007Q1 | 16,927 | 1.490e-03 | 2.155e-02 | 7.322e-02 | **194.079** | 3,084 | 1.771e-02 | 7.322e-02 |

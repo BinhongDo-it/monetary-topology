@@ -1,0 +1,165 @@
+{
+  "config": {
+    "components": {
+      "age": 2,
+      "age x gender": 2,
+      "all three": 4,
+      "education": 2,
+      "education x age": 4,
+      "education x gender": 2,
+      "gender": 1
+    },
+    "grid": "3 education x 3 age x 2 gender",
+    "reps": 5,
+    "seed": 0,
+    "sources": [
+      "labour accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "the seven components sum to the interaction, and a planted one comes back whole",
+      "detail": "the seven components sum back to the interaction, worst relative gap 3.58e-16 over 40 tables. A leftover planted to vary only with gender comes back entirely in the gender component, worst gap 2.22e-16 over 5 draws. Degrees of freedom: education 2, age 2, gender 1, education x age 4, education x gender 2, age x gender 2, all three 4, summing to 17 = K - 1.",
+      "kind": "known_answer",
+      "name": "B106-11",
+      "passed": true,
+      "payload": {
+        "degrees_of_freedom": {
+          "age": 2,
+          "age x gender": 2,
+          "all three": 4,
+          "education": 2,
+          "education x age": 4,
+          "education x gender": 2,
+          "gender": 1
+        },
+        "worst_planted_gap": 2.220446049250313e-16,
+        "worst_sum_gap": 3.584456395431919e-16
+      }
+    },
+    {
+      "criterion": "whether the module's finer codes can answer the coarsening question",
+      "detail": "the module also ships finer education and age codes. They cover 26 positions, on 1 industry code(s) (TOT) in 1 country (US). A table needs two positions carrying the same classes, so no table can be built from them and the finer granularity cannot be read here at all. Registered rather than attempted: D37's shape, a name in the listing with no record behind it.",
+      "kind": "instrument",
+      "name": "B106-14",
+      "passed": true,
+      "payload": {
+        "countries": [
+          "US"
+        ],
+        "industries": [
+          "TOT"
+        ],
+        "positions": 26
+      }
+    },
+    {
+      "criterion": "which part of the class grid carries the position-specific pay",
+      "detail": "share of the interaction by class component, against the share each would take from a leftover with no structure, which is its own degrees of freedom over 17: education 21.0% vs 11.8% (1.78x); age 14.9% vs 11.8% (1.27x); gender 6.7% vs 5.9% (1.13x); education x gender 10.2% vs 11.8% (0.87x); education x age 20.3% vs 23.5% (0.86x); age x gender 9.3% vs 11.8% (0.79x); all three 17.7% vs 23.5% (0.75x). Both the shares and the floors sum to one, so a component above its floor forces another below it: what is read here is the ORDER, not seven independent readings. The order is that the single attributes are above and their interactions below, so the position-specific part of the ladder moves along one attribute at a time. Gender is the one part of the grid that is not coarsened, so its component cannot be composition inside a class shifting by position.",
+      "kind": "own_reading",
+      "name": "B106-12",
+      "passed": true,
+      "payload": {
+        "by_component": [
+          {
+            "component": "education",
+            "df": 2,
+            "floor": 0.11764705882352941,
+            "over_floor": 1.7815809692693718,
+            "share": 0.20959776109051434
+          },
+          {
+            "component": "age",
+            "df": 2,
+            "floor": 0.11764705882352941,
+            "over_floor": 1.2656067234501838,
+            "share": 0.1488949086411981
+          },
+          {
+            "component": "gender",
+            "df": 1,
+            "floor": 0.058823529411764705,
+            "over_floor": 1.1336448882437673,
+            "share": 0.06668499342610396
+          },
+          {
+            "component": "education x gender",
+            "df": 2,
+            "floor": 0.11764705882352941,
+            "over_floor": 0.8651196413831764,
+            "share": 0.10177878133919722
+          },
+          {
+            "component": "education x age",
+            "df": 4,
+            "floor": 0.23529411764705882,
+            "over_floor": 0.8623519152238093,
+            "share": 0.20290633299383748
+          },
+          {
+            "component": "age x gender",
+            "df": 2,
+            "floor": 0.11764705882352941,
+            "over_floor": 0.7923610689944451,
+            "share": 0.09321894929346414
+          },
+          {
+            "component": "all three",
+            "df": 4,
+            "floor": 0.23529411764705882,
+            "over_floor": 0.751902661166663,
+            "share": 0.17691827321568543
+          }
+        ]
+      }
+    },
+    {
+      "criterion": "whether each component repeats on its own",
+      "detail": "adjacent-year correlation of each component on its own: education +0.9694 over 10,979; age +0.9598 over 10,979; gender +0.9578 over 10,979; education x gender +0.9512 over 10,979; education x age +0.9475 over 10,979; age x gender +0.9465 over 10,979; all three +0.9445 over 10,979. The competing reading puts every one of these at zero, since it puts the whole interaction at zero.",
+      "kind": "own_reading",
+      "name": "B106-13",
+      "passed": true,
+      "payload": {
+        "by_component": [
+          {
+            "component": "education",
+            "corr_next_year": 0.9694323827586157,
+            "pairs": 10979
+          },
+          {
+            "component": "age",
+            "corr_next_year": 0.9598446919585106,
+            "pairs": 10979
+          },
+          {
+            "component": "gender",
+            "corr_next_year": 0.9578451115627129,
+            "pairs": 10979
+          },
+          {
+            "component": "education x age",
+            "corr_next_year": 0.9474619941584178,
+            "pairs": 10979
+          },
+          {
+            "component": "education x gender",
+            "corr_next_year": 0.9512351420138044,
+            "pairs": 10979
+          },
+          {
+            "component": "age x gender",
+            "corr_next_year": 0.9464565443491232,
+            "pairs": 10979
+          },
+          {
+            "component": "all three",
+            "corr_next_year": 0.9444659854193245,
+            "pairs": 10979
+          }
+        ],
+        "worst": 0.9444659854193245
+      }
+    }
+  ],
+  "stage": "B106"
+}

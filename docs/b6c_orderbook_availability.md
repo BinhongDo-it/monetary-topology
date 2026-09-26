@@ -133,7 +133,7 @@ published figure with a distribution.
 **4. Validate the TRMI's construction.** Recompute the twenty-four hour median
 with the two-standard-deviation filter from the raw orders and compare against
 the published value. This is what §14.6 registered the source for, and it is also
-the only available check on the failure mode `b5_orphan_prereg.md` §7.4 was
+the only available check on the failure mode `b5_orphan_prereg.md` §4.4 was
 written against: a series quietly frozen is visible in the order flow.
 
 ## 5. What it cannot do

@@ -1,0 +1,228 @@
+{
+ "arm": "A",
+ "config": {
+  "cut": [
+   "2024-05",
+   "2025-09"
+  ],
+  "dose_free": [
+   [
+    "2016-04",
+    "2019-08"
+   ],
+   [
+    "2019-10",
+    "2022-06"
+   ]
+  ],
+  "hike": [
+   "2022-06",
+   "2023-12"
+  ],
+  "span": [
+   "2016-01",
+   "2025-12"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "all: hike [3.655, 3.663, 3.755, 3.503, 2.415, 3.336, 3.068, 3.495, 0.257, 0.675] vs dose-free max [0.438, 0.219, 0.375, 0.238, 0.848, 0.628, 0.246, 0.134, 0.031, 0.047]; loans: hike [3.485, 3.616, 3.773, 3.402, 2.941, 3.172] vs dose-free max [0.415, 0.228, 0.31, 0.24, 0.834, 0.537]; deposits: hike [2.853, 3.281, 0.287, 0.628] vs dose-free max [0.271, 0.188, 0.052, 0.051]",
+   "kind": "known_answer",
+   "name": "B128-4",
+   "passed": true,
+   "statement": "across the hike window every loan product's euro-area mean level moves more than it does in any dose-free window of the same length"
+  },
+  {
+   "detail": "all: R hike 0.604 (floor max 0.7978), R cut 0.4088 (floor max 0.7649), rho -0.4385, slope -0.2968 vs rival -0.4444, dose-free rho 5-95% [-0.7767, 0.3104]; loans: R hike 1.0391 (floor max 0.902), R cut 0.8217 (floor max 0.887), rho 0.5025, slope 0.3973 vs rival -0.4444, dose-free rho 5-95% [-0.7337, 0.3223]; deposits: R hike 0.4242 (floor max 0.204), R cut 0.2095 (floor max 0.2021), rho -0.7961, slope -0.3932 vs rival -0.4444, dose-free rho 5-95% [-0.3804, 0.3435]",
+   "kind": "own_reading",
+   "name": "B128-5",
+   "passed": true,
+   "statement": "print, per product set, the interaction's change across the hike and cut windows against the dose-free floor, and the cut-on-hike slope against the rival's -0.44 and the dose-free pairs"
+  }
+ ],
+ "instrument": "long difference against dose-free windows",
+ "rows": [
+  {
+   "R_cut": 0.4088,
+   "R_hike": 0.604,
+   "cells": 110,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI"
+   ],
+   "floor_cut_max": 0.7649,
+   "floor_hike_max": 0.7978,
+   "floor_hike_p90": 0.7087,
+   "level_free_max": [
+    0.438,
+    0.219,
+    0.375,
+    0.238,
+    0.848,
+    0.628,
+    0.246,
+    0.134,
+    0.031,
+    0.047
+   ],
+   "level_hike": [
+    3.655,
+    3.663,
+    3.755,
+    3.503,
+    2.415,
+    3.336,
+    3.068,
+    3.495,
+    0.257,
+    0.675
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250",
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "null_pairs": 822,
+   "null_rho_p05": -0.7767,
+   "null_rho_p95": 0.3104,
+   "null_rho_share_at_or_below": 0.5255,
+   "products": "all",
+   "rho": -0.4385,
+   "rival_slope": -0.4444,
+   "slope": -0.2968,
+   "windows_cut": 42,
+   "windows_hike": 38
+  },
+  {
+   "R_cut": 0.8217,
+   "R_hike": 1.0391,
+   "cells": 78,
+   "countries": [
+    "AT",
+    "BE",
+    "DE",
+    "EE",
+    "ES",
+    "FI",
+    "FR",
+    "IT",
+    "LT",
+    "LV",
+    "PT",
+    "SI",
+    "SK"
+   ],
+   "floor_cut_max": 0.887,
+   "floor_hike_max": 0.902,
+   "floor_hike_p90": 0.8166,
+   "level_free_max": [
+    0.415,
+    0.228,
+    0.31,
+    0.24,
+    0.834,
+    0.537
+   ],
+   "level_hike": [
+    3.485,
+    3.616,
+    3.773,
+    3.402,
+    2.941,
+    3.172
+   ],
+   "level_products": [
+    "A2A_F_R_2_2240",
+    "A2A_F_R_3_2240",
+    "A2A_F_R_1_2240",
+    "A2C_F_R_A_2250",
+    "A2B_F_R_A_2250",
+    "A2D_F_R_A_2250"
+   ],
+   "null_pairs": 822,
+   "null_rho_p05": -0.7337,
+   "null_rho_p95": 0.3223,
+   "null_rho_share_at_or_below": 0.983,
+   "products": "loans",
+   "rho": 0.5025,
+   "rival_slope": -0.4444,
+   "slope": 0.3973,
+   "windows_cut": 42,
+   "windows_hike": 38
+  },
+  {
+   "R_cut": 0.2095,
+   "R_hike": 0.4242,
+   "cells": 64,
+   "countries": [
+    "AT",
+    "BE",
+    "CY",
+    "DE",
+    "EE",
+    "ES",
+    "FR",
+    "GR",
+    "IT",
+    "LT",
+    "LU",
+    "LV",
+    "MT",
+    "NL",
+    "PT",
+    "SI"
+   ],
+   "floor_cut_max": 0.2021,
+   "floor_hike_max": 0.204,
+   "floor_hike_p90": 0.1598,
+   "level_free_max": [
+    0.271,
+    0.188,
+    0.052,
+    0.051
+   ],
+   "level_hike": [
+    2.853,
+    3.281,
+    0.287,
+    0.628
+   ],
+   "level_products": [
+    "L22_F_R_A_2250",
+    "L22_F_R_A_2240",
+    "L21_A_R_A_2250",
+    "L21_A_R_A_2240"
+   ],
+   "null_pairs": 822,
+   "null_rho_p05": -0.3804,
+   "null_rho_p95": 0.3435,
+   "null_rho_share_at_or_below": 0.0,
+   "products": "deposits",
+   "rho": -0.7961,
+   "rival_slope": -0.4444,
+   "slope": -0.3932,
+   "windows_cut": 42,
+   "windows_hike": 38
+  }
+ ],
+ "source": {
+  "rates": "data/raw/b128/mir_B_*.csv"
+ },
+ "stage": "B128"
+}

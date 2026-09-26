@@ -1,0 +1,158 @@
+{
+ "config": {
+  "ends": [
+   2007,
+   2024
+  ],
+  "epi_tolerance": 0.05,
+  "main_windows": [
+   [
+    1973,
+    2014
+   ],
+   [
+    1979,
+    2019
+   ],
+   [
+    1973,
+    2024
+   ]
+  ],
+  "starts": [
+   1970,
+   1985
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "96 years: the index's yearly change matches BEA's printed change to rounding in 96; BEA's contributions against previous-year share x item price change differ by a median 0.003 points (max 0.022)",
+   "kind": "instrument",
+   "name": "B133-1",
+   "passed": true
+  },
+  {
+   "detail": "1973-2014 divergence 13.68 log points, 0.334 a year, against EPI's 0.33 (net) and 0.43 (gross)",
+   "kind": "known_answer",
+   "name": "B133-2",
+   "passed": true
+  },
+  {
+   "detail": "main windows: 1973-2014 divergence 13.68, without borrowed 11.46, share 0.1623; 1979-2019 divergence 14.36, without borrowed 9.62, share 0.3298; 1973-2024 divergence 13.14, without borrowed 7.64, share 0.4182. Knob sweep over 288 windows: divergence not positive in 0; share ranges 0.086 to 0.477, median 0.229, above 1 (borrowed prices more than the whole divergence) in 0",
+   "kind": "own_reading",
+   "name": "B133-3",
+   "passed": true
+  },
+  {
+   "detail": "1970-1980: rent pull 6.0, FISIM pull 1.26, rent price 59.98 against PCE 67.78; 1980-1990: rent pull 6.25, FISIM pull 0.21, rent price 58.11 against PCE 42.89; 1990-2000: rent pull 3.3, FISIM pull 0.14, rent price 29.0 against PCE 21.11; 2000-2010: rent pull 3.05, FISIM pull 0.58, rent price 25.57 against PCE 20.38; 2010-2020: rent pull 3.13, FISIM pull 1.16, rent price 26.62 against PCE 14.53; 2020-2025: rent pull 2.93, FISIM pull 1.06, rent price 24.57 against PCE 19.28",
+   "kind": "own_reading",
+   "name": "B133-4",
+   "passed": true
+  },
+  {
+   "detail": "EPI puts price divergence at 29.6 % of the net gap and 32.4 % of the gross gap, 1973-2014; with a borrowed share of 0.162 on the PCE measure, borrowed prices are 4.8 % and 5.3 % of the whole gap (EPI uses the CPI-U-RS, whose owner's-equivalent-rent weight is larger than the PCE's)",
+   "kind": "own_reading",
+   "name": "B133-5",
+   "passed": true
+  }
+ ],
+ "objects": {
+  "B133-1": {
+   "contribution_dev_max": 0.0222,
+   "contribution_dev_median": 0.0033,
+   "off": [],
+   "years": 96
+  },
+  "B133-2": {
+   "epi_gross": 0.43,
+   "epi_net": 0.33,
+   "rate": 0.3337
+  },
+  "B133-3": {
+   "main": {
+    "1973-2014": {
+     "borrowed_share": 0.1623,
+     "divergence": 13.68,
+     "divergence_without_borrowed": 11.46,
+     "nfb": 132.76,
+     "pce": 146.44,
+     "pce_without_borrowed": 144.22
+    },
+    "1973-2024": {
+     "borrowed_share": 0.4182,
+     "divergence": 13.14,
+     "divergence_without_borrowed": 7.64,
+     "nfb": 157.47,
+     "pce": 170.61,
+     "pce_without_borrowed": 165.11
+    },
+    "1979-2019": {
+     "borrowed_share": 0.3298,
+     "divergence": 14.36,
+     "divergence_without_borrowed": 9.62,
+     "nfb": 93.67,
+     "pce": 108.02,
+     "pce_without_borrowed": 103.29
+    }
+   },
+   "sweep": {
+    "divergence_not_positive": [],
+    "max": 0.4775,
+    "median": 0.2286,
+    "min": 0.0863,
+    "n": 288,
+    "share_above_1": []
+   }
+  },
+  "B133-4": {
+   "1970-1980": {
+    "fisim_price_lp": 63.8,
+    "fisim_pull": 1.26,
+    "imputed_rent_price_lp": 59.98,
+    "imputed_rent_pull": 6.0,
+    "pce_lp": 67.78
+   },
+   "1980-1990": {
+    "fisim_price_lp": 7.78,
+    "fisim_pull": 0.21,
+    "imputed_rent_price_lp": 58.11,
+    "imputed_rent_pull": 6.25,
+    "pce_lp": 42.89
+   },
+   "1990-2000": {
+    "fisim_price_lp": 5.7,
+    "fisim_pull": 0.14,
+    "imputed_rent_price_lp": 29.0,
+    "imputed_rent_pull": 3.3,
+    "pce_lp": 21.11
+   },
+   "2000-2010": {
+    "fisim_price_lp": 25.33,
+    "fisim_pull": 0.58,
+    "imputed_rent_price_lp": 25.57,
+    "imputed_rent_pull": 3.05,
+    "pce_lp": 20.38
+   },
+   "2010-2020": {
+    "fisim_price_lp": 48.44,
+    "fisim_pull": 1.16,
+    "imputed_rent_price_lp": 26.62,
+    "imputed_rent_pull": 3.13,
+    "pce_lp": 14.53
+   },
+   "2020-2025": {
+    "fisim_price_lp": 40.59,
+    "fisim_pull": 1.06,
+    "imputed_rent_price_lp": 24.57,
+    "imputed_rent_pull": 2.93,
+    "pce_lp": 19.28
+   }
+  },
+  "B133-5": {
+   "borrowed_share": 0.1623,
+   "of_gross_gap_pct": 5.26,
+   "of_net_gap_pct": 4.8
+  }
+ },
+ "stage": "B133"
+}

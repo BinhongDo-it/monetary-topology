@@ -2,6 +2,7 @@
 
 Two stages, so the run is auditable in halves.
 
+    python experiments/b17_rank.py selftest
     python experiments/b17_rank.py struct
     python experiments/b17_rank.py read
 
@@ -182,16 +183,40 @@ def structural(d_logs, classes):
     w = w[order]
     V = V[:, order]
 
-    # b1. the all-ones direction carries exactly no variance
+    # b1. the all-ones direction carries exactly no variance.
+    #
+    # The claim is about the projector, so it has to be testable at any rank of
+    # the data. Asserting that the SMALLEST eigenvector is the ones direction is
+    # not: when the data has rank below n-1 the null space is more than one
+    # dimensional, the ones direction lies inside it along with others, and which
+    # one eigh returns is arbitrary. A single-factor panel, which this stage's own
+    # design registers as a reachable outcome, reads an alignment near 0.74 with
+    # the projector working perfectly. The residual of cov against the ones vector
+    # says the same thing and says it at every rank: it is 1e-16 on rank 1, on
+    # rank 2 and on rank 3 alike, and 4e-4 when the projector is wrong.
     zero_ratio = float(abs(w[-1]) / w[0]) if w[0] > 0 else float("inf")
     ones = np.ones(n) / np.sqrt(n)
     ones_align = float(abs(np.dot(V[:, -1], ones)))
+    cov_norm = float(np.linalg.norm(cov))
+    ones_residual = (float(np.linalg.norm(np.atleast_2d(cov) @ np.ones(n))
+                           / (cov_norm * np.sqrt(n))) if cov_norm > 0 else 0.0)
 
     # b2. permuting the track order permutes the loadings and leaves eigenvalues alone
     perm = list(range(1, n)) + [0]
     wp = np.sort(np.linalg.eigvalsh(np.atleast_2d(
         np.cov(centered(d_logs[:, perm])[0], rowvar=False))))[::-1]
     err_perm = float(np.max(np.abs(np.sort(w)[::-1] - wp)))
+
+    # The rank of the centred panel. It is a reading of the world and not of the
+    # code, and the two checks below compare against it rather than against b1,
+    # which is a property of the graph. They used to compare against b1, which
+    # makes them assert that the data is full rank: a genuine single-factor panel
+    # reads 1 here and would have been reported as a code fault, and the design's
+    # own three-way grid registers r = 1 as a reachable cell where both accounts
+    # are right. The corrected form still bites, because a construction that
+    # spanned anything the centred panel does not would raise the stacked rank.
+    sv_Y = np.linalg.svd(np.atleast_2d(Y), compute_uv=False)
+    rank_centred = int(np.sum(sv_Y > sv_Y[0] * max(Y.shape) * np.finfo(float).eps))
 
     # b3. every one-reference construction spans the same subspace as the centered one
     span_ranks = []
@@ -221,13 +246,15 @@ def structural(d_logs, classes):
         "a_passed": bool(err_a < TOL),
         "b1_zero_eigenvalue_ratio": zero_ratio,
         "b1_ones_alignment": ones_align,
-        "b1_passed": bool(zero_ratio < 1e-12 and abs(ones_align - 1.0) < 1e-8),
+        "b1_ones_residual": ones_residual,
+        "b1_passed": bool(zero_ratio < 1e-12 and ones_residual < 1e-12),
         "b2_permutation_eigenvalue_max_abs_diff": err_perm,
         "b2_passed": bool(err_perm < TOL),
+        "rank_of_centred_panel": rank_centred,
         "b3_span_rank_per_reference": span_ranks,
-        "b3_passed": bool(all(r == b1 for r in span_ranks)),
+        "b3_passed": bool(all(r == rank_centred for r in span_ranks)),
         "c_numerical_rank_of_all_pairs": rank_pairs,
-        "c_passed": bool(rank_pairs == b1),
+        "c_passed": bool(rank_pairs <= b1 and rank_pairs == rank_centred),
         "superseded_two_reference_eigenvalue_gap": err_superseded,
         "superseded_note": (
             "This was the stage's first structural check b and it fails by "
@@ -458,6 +485,74 @@ def stage_null():
     return out
 
 
+def selftest() -> int:
+    """No data. Seeds the panels the structural checks have to survive.
+
+    This stage exists because the three checks below were comparing a rank of the
+    DATA against b1, a property of the graph, and nothing would have reported it:
+    on the real panel the two agree, so every check passed and went on passing.
+    It was found by feeding the checks a panel the design registers as reachable.
+    A checker that has never been shown a failing input is not a checker.
+    """
+    bad = 0
+
+    def chk(name, ok):
+        nonlocal bad
+        print("  %s  %s" % ("PASS" if ok else "FAIL", name))
+        if not ok:
+            bad += 1
+
+    rng = np.random.default_rng(0)
+    T, classes = 400, ["a", "b", "c", "d"]
+    factor = rng.normal(size=T)
+
+    # 1. A single-factor panel. The design's three-way grid registers r = 1 as a
+    #    reachable cell in which both accounts are right, so the structural half
+    #    must not call it a code fault.
+    one = np.outer(factor, np.array([1.0, 0.7, -0.4, 0.25]))
+    r1 = structural(one, classes)
+    chk("rank-1 panel: the centred rank is read as 1, not assumed to be b1",
+        r1["rank_of_centred_panel"] == 1 and r1["b1"] == 3)
+    for key in ("a_passed", "b1_passed", "b2_passed", "b3_passed", "c_passed"):
+        chk("rank-1 panel: %s, a registered outcome is not a code fault" % key,
+            r1[key] is True)
+
+    # 2. A full-rank panel still passes, so the fix did not empty the checks.
+    gen = structural(rng.normal(size=(T, 4)), classes)
+    chk("full-rank panel: the centred rank is b1", gen["rank_of_centred_panel"] == 3)
+    for key in ("a_passed", "b1_passed", "b2_passed", "b3_passed", "c_passed"):
+        chk("full-rank panel: %s" % key, gen[key] is True)
+
+    # 3. The checks can still fail. A wrong projector has to break b1, and a
+    #    relatives construction that adds a direction has to break b3.
+    saved = globals()["centered"]
+    try:
+        def broken(d_logs):
+            k = d_logs.shape[1]
+            P = np.eye(k) - np.ones((k, k)) / k + 0.01 * np.eye(k)
+            return d_logs @ P, P
+        globals()["centered"] = broken
+        chk("a wrong projector fails b1", structural(rng.normal(size=(T, 4)),
+                                                     classes)["b1_passed"] is False)
+    finally:
+        globals()["centered"] = saved
+
+    saved_rel = globals()["relatives"]
+    try:
+        def leaky(d_logs, ref):
+            rel, cols = saved_rel(d_logs, ref)
+            extra = rng.normal(size=(d_logs.shape[0], 1))
+            return np.column_stack([rel, extra]), cols + [-1]
+        globals()["relatives"] = leaky
+        chk("a relatives construction that adds a direction fails b3",
+            structural(rng.normal(size=(T, 4)), classes)["b3_passed"] is False)
+    finally:
+        globals()["relatives"] = saved_rel
+
+    print("\n  %s" % ("all passed" if bad == 0 else "FAILED, %d problem(s)" % bad))
+    return 1 if bad else 0
+
+
 def main():
     stage = sys.argv[1] if len(sys.argv) > 1 else "struct"
     if stage == "struct":
@@ -476,14 +571,42 @@ def main():
     elif stage == "read":
         out = stage_read()
         out["stage"] = "B17-read"
+        # The design draws no line on the collinearity that decides r, on purpose
+        # (discipline 11: print the object, do not draw a line on the estimator),
+        # so r is read by hand from the loadings and this string is a hand reading
+        # rather than a computed verdict. It is labelled as one. Every NUMBER in
+        # it is now formatted from this run, so a rerun that moves a number moves
+        # the sentence with it instead of leaving a stale one behind.
+        def _ratio(setname, win):
+            ev = [m["eigenvalue"] for m in out["sets"][setname][win]["modes"]]
+            return ev[1] / ev[0] if ev and ev[0] else float("nan")
+
+        def _first_gap(setname, win):
+            g = out["sets"][setname][win]["adjacent_gaps"][0]
+            return g["gap"] / g["joint_z90_resolution"], g["separated"]
+
+        unsep = [(s, w, g["pair"])
+                 for s in sorted(out["sets"]) for w in sorted(out["sets"][s])
+                 for g in out["sets"][s][w]["adjacent_gaps"] if not g["separated"]]
         out["verdict"] = "2 <= r <= b1"
+        out["verdict_source"] = (
+            "a hand reading of the loadings against the single-track contrasts, "
+            "per sections 3 and 4 of the design, which registers no threshold on "
+            "that collinearity. The numbers quoted below are computed from this "
+            "run; the reading of r from them is not."
+        )
         out["verdict_reading"] = (
             "The single-factor reading of the rate zoo is rejected. lambda2 over "
-            "lambda1 is 0.798 on four tracks and 0.495 on five, and the first gap "
-            "exceeds its joint 90 percent resolution by 1.84 and 5.54 times. The "
-            "reading does not flip between the two class sets. One cell is "
-            "undecidable rather than failed: four tracks in the pre-window, where "
-            "the first two eigenvalues are not separated at that sample size."
+            "lambda1 is %.3f on four tracks and %.3f on five, and the first gap "
+            "exceeds its joint 90 percent resolution by %.2f and %.2f times. The "
+            "reading does not flip between the two class sets. %s"
+            % (_ratio("C4", "full"), _ratio("C5", "full"),
+               _first_gap("C4", "full")[0], _first_gap("C5", "full")[0],
+               ("Every adjacent pair is separated in every cell."
+                if not unsep else
+                "Undecidable rather than failed, %d cell(s): %s, where that "
+                "adjacent pair is not separated at that sample size."
+                % (len(unsep), "; ".join("%s %s pair %s" % u for u in unsep))))
         )
         OUT2.parent.mkdir(exist_ok=True)
         OUT2.write_text(json.dumps(out, indent=2, sort_keys=True, default=str),
@@ -503,6 +626,8 @@ def main():
                         encoding="utf-8", newline="\n")
         print()
         print("wrote %s" % OUT3.relative_to(ROOT))
+    elif stage == "selftest":
+        raise SystemExit(selftest())
     else:
         raise SystemExit("unknown stage %r" % stage)
 

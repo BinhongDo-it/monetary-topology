@@ -1,0 +1,818 @@
+{
+  "arguments_histogram": {
+    "more_than_quantity": 7,
+    "quantity_only": 39,
+    "unresolved": 7
+  },
+  "arm": "second degree",
+  "config": {
+    "schedules": 53,
+    "second_argument_keys": [
+      "tou",
+      "voltage"
+    ],
+    "source_record": "tariff_blocks_count.json",
+    "unresolved_keys": [
+      "multiple"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "the second-degree premises carry their source, and profit maximisation is listed separately because it is not among them",
+      "detail": "4 premises, each carrying its source: quasilinear utility, v(q, theta) - T [MIT 14.271 (Ellison) lec3]; v depends on q and theta and on nothing else [MIT 14.271 (Ellison) lec3]; single crossing, v_qtheta > 0 [MIT 14.271 (Ellison) lec3]; path-independent local incentive compatibility [MIT 14.271 (Ellison) lec3]. Held out separately: profit maximisation (not among Stole ch.34's three feasibility conditions). Profit maximisation is the fifth and is not in Stole ch.34's own three feasibility conditions, which is the same separation this station made for the third degree.",
+      "kind": "premise",
+      "name": "B58-6",
+      "passed": true
+    },
+    {
+      "criterion": "every cell maps to a named outcome and the unresolved cell maps to no verdict",
+      "detail": "cell to verdict, printed rather than left in the head: more_than_quantity -> the rival's point prediction fails on this cell; quantity_only -> the rival's point prediction holds on this cell; unresolved -> no verdict. Observed cells ['more_than_quantity', 'quantity_only', 'unresolved'], all named. 46 schedules enter B58-10 and 7 do not. 'Multiple' is read as unresolved because the survey does not say what it multiplies over, and it is neither scored for nor against the rival.",
+      "kind": "instrument",
+      "name": "B58-7",
+      "passed": true
+    },
+    {
+      "criterion": "print the object: every schedule with its country, the survey's own type label, its blocks, its charges, and the direction computed from those charges",
+      "detail": "53 schedules printed in full, none summarised away. Label and charges disagree on 1 schedule(s), each printed.",
+      "kind": "own_reading",
+      "name": "B58-8",
+      "passed": true
+    },
+    {
+      "criterion": "print the direction distribution, and do not score it against the rival without the seller's objective",
+      "detail": "every one of 53 schedules carries a direction, 53 accounted for. Directions from the printed charges: flat 2, increasing 39, non_monotone 1, single_block 11. The rival's quantity-discount prediction follows from the four premises plus profit maximisation and a monotone hazard rate. This station separated profit maximisation out for the third degree and the same separation applies here, so scoring this direction against the rival needs the objective established per schedule. That partition is not run in this arm and is registered as not done.",
+      "kind": "own_reading",
+      "name": "B58-9",
+      "passed": true
+    },
+    {
+      "cite": "MIT 14.271 (Ellison) lec3; Rochet-Chone 1998, Econometrica 66(4)",
+      "criterion": "the rival's point prediction that a published residential tariff prices quantity and nothing else does not hold on these schedules",
+      "detail": "7 of 53 schedules price a second argument by the survey's own type label: China 6 Based on a (IBT/voltage- dependent sing data.); Guatemala (Linear/TOU); Iran, Islamic Rep. (IBT/TOU); Mongolia (IBT/TOU); Nigeria (Linear/voltage dependent); Pakistan (IBT/TOU); Turkey (Linear/TOU). quantity_only 39, unresolved 7. Both outcomes were reachable: the survey's own vocabulary carries pure IBT and pure Linear labels, which are quantity-only. Our own reading on the same corpus is the counting law, which indexes values by whatever the programme writes down and therefore permits a non-quantity argument; it is scored separately in the TB- family. Grid B: our reading holds and the rival's point prediction does not. Scope, per 11e third clause: the located premises are the one-dimensional model, and these schedules were measured to lie outside it, so the premise is false on the ground measured rather than silent about it.",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B58-10",
+      "passed": true,
+      "rival_entailment": "With utility outside the transfer taking only quantity and type, the seller's problem has quantity as its only instrument and the tariff it solves for is a schedule over quantity. A published schedule that also prices a time band or a voltage level takes an argument the model does not carry, so on that schedule T is not T(q). This step uses no assumption about what the seller maximises.",
+      "rival_premise": "v depends on (q, theta) and on nothing else, so the optimal tariff is a function of quantity alone: T = T(q). MIT 14.271 lec3.",
+      "rival_shape": "point"
+    },
+    {
+      "criterion": "the coverage line B58-5 wrote is restated against this arm",
+      "detail": "B58-5 recorded the second degree as premises located to source with zero quantities scored. After this arm the second degree carries one scored rival quantity (B58-10) and two printed objects (B58-8, B58-9). The first degree still carries zero readings and that half of B58-5 stands unchanged. Counted against this arm's own table rather than restated: 1 scored rival quantity and 2 printed objects.",
+      "kind": "bookkeeping",
+      "name": "B58-11",
+      "passed": true
+    }
+  ],
+  "direction_histogram": {
+    "flat": 2,
+    "increasing": 39,
+    "non_monotone": 1,
+    "single_block": 11
+  },
+  "label_disagrees_with_charges": [
+    {
+      "charges": [
+        "0.26",
+        "0.26",
+        "0.26"
+      ],
+      "country": "Australia",
+      "direction_from_charges": "flat",
+      "survey_type_label": "DBT"
+    }
+  ],
+  "registered_not_done": "the seller's objective per schedule, which B58-9 needs before the quantity-discount direction can be scored against the rival",
+  "schedules": [
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.26",
+        "0.26",
+        "0.26"
+      ],
+      "country": "Australia",
+      "direction_from_charges": "flat",
+      "survey_type_label": "DBT"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.10"
+      ],
+      "country": "Austria",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear/Multiple"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 6,
+      "charges": [
+        "0.04",
+        "0.06",
+        "0.06",
+        "0.06",
+        "0.1",
+        "0.12"
+      ],
+      "country": "Bangladesh",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.16",
+        "0.22",
+        "0.23"
+      ],
+      "country": "Benin",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 5,
+      "charges": [
+        "0",
+        "0.07",
+        "0.08",
+        "0.08",
+        "0.09"
+      ],
+      "country": "Bolivia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/Multiple"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.15",
+        "0.16",
+        "0.26"
+      ],
+      "country": "Burkina Faso",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.04",
+        "0.08",
+        "0.16"
+      ],
+      "country": "Burundi",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.15",
+        "0.18"
+      ],
+      "country": "Cambodia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 4,
+      "charges": [
+        "0.1",
+        "0.15",
+        "0.18",
+        "0.19"
+      ],
+      "country": "Cameroon",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.34"
+      ],
+      "country": "Chile",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.08",
+        "0.09",
+        "0.13"
+      ],
+      "country": "China 6 Based on a",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/voltage- dependent sing data."
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 7,
+      "charges": [
+        "0.01",
+        "0.02",
+        "0.02",
+        "0.03",
+        "0.05",
+        "0.08",
+        "0.1"
+      ],
+      "country": "Egypt, Arab Rep.",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 7,
+      "charges": [
+        "0.01",
+        "0.01",
+        "0.02",
+        "0.02",
+        "0.02",
+        "0.02",
+        "0.03"
+      ],
+      "country": "Ethiopia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.43"
+      ],
+      "country": "Germany",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.08",
+        "0.17",
+        "0.24"
+      ],
+      "country": "Ghana",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.14",
+        "0.14"
+      ],
+      "country": "Greece",
+      "direction_from_charges": "flat",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.16"
+      ],
+      "country": "Guatemala",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear/TOU"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.01",
+        "0.01",
+        "0.03"
+      ],
+      "country": "Guinea",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.11",
+        "0.16",
+        "0.28"
+      ],
+      "country": "Haiti",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 5,
+      "charges": [
+        "0.07",
+        "0.12",
+        "0.12",
+        "0.15",
+        "0.16"
+      ],
+      "country": "Honduras",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 4,
+      "charges": [
+        "0.04",
+        "0.06",
+        "0.09",
+        "0.12"
+      ],
+      "country": "India",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.02",
+        "0.03",
+        "0.04"
+      ],
+      "country": "Indonesia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/Multiple"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 7,
+      "charges": [
+        "0.02",
+        "0.02",
+        "0.05",
+        "0.08",
+        "0.1",
+        "0.12",
+        "0.13"
+      ],
+      "country": "Iran, Islamic Rep.",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/TOU"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.21",
+        "0.27",
+        "0.32"
+      ],
+      "country": "Japan",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 7,
+      "charges": [
+        "0.06",
+        "0.1",
+        "0.12",
+        "0.15",
+        "0.21",
+        "0.25",
+        "0.36"
+      ],
+      "country": "Jordan",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.03",
+        "0.14",
+        "0.22"
+      ],
+      "country": "Kenya",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 6,
+      "charges": [
+        "0.06",
+        "0.11",
+        "0.17",
+        "0.26",
+        "0.38",
+        "0.65"
+      ],
+      "country": "Korea, Rep.",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.01",
+        "0.03"
+      ],
+      "country": "Kyrgyz Republic",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/Multiple"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 6,
+      "charges": [
+        "0.02",
+        "0.04",
+        "0.04",
+        "0.05",
+        "0.08",
+        "0.13"
+      ],
+      "country": "Lebanon",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.06",
+        "0.29"
+      ],
+      "country": "Madagascar",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.08"
+      ],
+      "country": "Malawi",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear/Multiple"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 5,
+      "charges": [
+        "0.07",
+        "0.1",
+        "0.16",
+        "0.17",
+        "0.18"
+      ],
+      "country": "Malaysia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.21",
+        "0.24"
+      ],
+      "country": "Mali",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.05",
+        "0.06"
+      ],
+      "country": "Mongolia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/TOU"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 6,
+      "charges": [
+        "0.11",
+        "0.12",
+        "0.12",
+        "0.13",
+        "0.15",
+        "0.18"
+      ],
+      "country": "Morocco",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 4,
+      "charges": [
+        "0.03",
+        "0.08",
+        "0.12",
+        "0.12"
+      ],
+      "country": "Mozambique",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.04",
+        "0.04",
+        "0.06"
+      ],
+      "country": "Myanmar",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 7,
+      "charges": [
+        "0.09",
+        "0.19",
+        "0.2",
+        "0.27",
+        "0.25",
+        "0.39",
+        "0.44"
+      ],
+      "country": "Nicaragua",
+      "direction_from_charges": "non_monotone",
+      "survey_type_label": "Non-linear block tariff"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.15"
+      ],
+      "country": "Niger",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.16"
+      ],
+      "country": "Nigeria",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear/voltage dependent"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 5,
+      "charges": [
+        "0.02",
+        "0.06",
+        "0.08",
+        "0.15",
+        "0.17"
+      ],
+      "country": "Pakistan",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/TOU"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 8,
+      "charges": [
+        "0.18",
+        "0.18",
+        "0.18",
+        "0.18",
+        "0.18",
+        "0.19",
+        "0.2",
+        "0.21"
+      ],
+      "country": "Philippines",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.20"
+      ],
+      "country": "Rwanda",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.21",
+        "0.23",
+        "0.23"
+      ],
+      "country": "Senegal",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.13",
+        "0.18",
+        "0.24"
+      ],
+      "country": "Sierra Leone",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.78"
+      ],
+      "country": "Solomon Islands",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.06",
+        "0.21"
+      ],
+      "country": "Tanzania",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 4,
+      "charges": [
+        "0.13",
+        "0.17",
+        "0.23",
+        "0.24"
+      ],
+      "country": "Togo",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/Multiple"
+    },
+    {
+      "arguments_of_T": "more_than_quantity",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.15"
+      ],
+      "country": "Turkey",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear/TOU"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 1,
+      "charges": [
+        "0.21"
+      ],
+      "country": "Uganda",
+      "direction_from_charges": "single_block",
+      "survey_type_label": "Linear"
+    },
+    {
+      "arguments_of_T": "unresolved",
+      "blocks_drawn": 4,
+      "charges": [
+        "0.03",
+        "0.04",
+        "0.06",
+        "0.09"
+      ],
+      "country": "Yemen, Rep.",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT/Multiple"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 2,
+      "charges": [
+        "0.03",
+        "0.09"
+      ],
+      "country": "Zambia",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    },
+    {
+      "arguments_of_T": "quantity_only",
+      "blocks_drawn": 3,
+      "charges": [
+        "0.02",
+        "0.11",
+        "0.15"
+      ],
+      "country": "Zimbabwe 9 Refers to 10 Refers to",
+      "direction_from_charges": "increasing",
+      "survey_type_label": "IBT"
+    }
+  ],
+  "second_argument_schedules": [
+    [
+      "China 6 Based on a",
+      "IBT/voltage- dependent sing data."
+    ],
+    [
+      "Guatemala",
+      "Linear/TOU"
+    ],
+    [
+      "Iran, Islamic Rep.",
+      "IBT/TOU"
+    ],
+    [
+      "Mongolia",
+      "IBT/TOU"
+    ],
+    [
+      "Nigeria",
+      "Linear/voltage dependent"
+    ],
+    [
+      "Pakistan",
+      "IBT/TOU"
+    ],
+    [
+      "Turkey",
+      "Linear/TOU"
+    ]
+  ],
+  "stage": "B58",
+  "survey_type_labels": {
+    "DBT": 1,
+    "IBT": 31,
+    "IBT/Multiple": 5,
+    "IBT/TOU": 3,
+    "IBT/voltage- dependent sing data.": 1,
+    "Linear": 6,
+    "Linear/Multiple": 2,
+    "Linear/TOU": 2,
+    "Linear/voltage dependent": 1,
+    "Non-linear block tariff": 1
+  },
+  "unresolved_schedules": [
+    [
+      "Austria",
+      "Linear/Multiple"
+    ],
+    [
+      "Bolivia",
+      "IBT/Multiple"
+    ],
+    [
+      "Indonesia",
+      "IBT/Multiple"
+    ],
+    [
+      "Kyrgyz Republic",
+      "IBT/Multiple"
+    ],
+    [
+      "Malawi",
+      "Linear/Multiple"
+    ],
+    [
+      "Togo",
+      "IBT/Multiple"
+    ],
+    [
+      "Yemen, Rep.",
+      "IBT/Multiple"
+    ]
+  ]
+}

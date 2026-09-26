@@ -1,0 +1,343 @@
+{
+ "config": {
+  "back": [
+   "2024-06",
+   "2026-05"
+  ],
+  "cut_at": 2.5,
+  "lines": [
+   0.05,
+   0.1
+  ],
+  "out_of_test": [
+   "BG",
+   "HR"
+  ],
+  "product": "L21_A_R_A_2250",
+  "up": [
+   "2022-06",
+   "2023-12"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "line 0.05: neither branch (L_up >= 2.50 returned 2/7, L_up < 2.50 returned 0/8); line 0.1: neither branch (L_up >= 2.50 returned 2/9, L_up < 2.50 returned 0/3)",
+   "kind": "own_reading",
+   "name": "B128-10",
+   "passed": null,
+   "state": "neither branch",
+   "state_map": {
+    "anything else": "neither branch, printed, no mapping",
+    "every L_up >= 2.50 country returns and every L_up <= 2.00 country stays": "lag only",
+    "no country returns": "hysteresis"
+   },
+   "statement": "which of the two registered readings of the R5 gap the 2024-26 levels give, at both zero lines"
+  }
+ ],
+ "reading": "return to the floor in the 2024-25 cuts",
+ "reads": [
+  {
+   "high_return": "2/7",
+   "line": 0.05,
+   "low_return": "0/8",
+   "rows": [
+    {
+     "L_up": -0.5,
+     "country": "AT",
+     "left_zero": "2022-06",
+     "lowest_after": 0.39,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.0,
+     "country": "BE",
+     "left_zero": "2023-03",
+     "lowest_after": 0.05,
+     "returned": "2025-09",
+     "returns": true
+    },
+    {
+     "L_up": null,
+     "country": "CY",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 2.0,
+     "country": "DE",
+     "left_zero": "2022-12",
+     "lowest_after": 0.43,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": -0.5,
+     "country": "EE",
+     "left_zero": "2022-06",
+     "lowest_after": 0.23,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 2.0,
+     "country": "ES",
+     "left_zero": "2023-01",
+     "lowest_after": 0.14,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 1.5,
+     "country": "FI",
+     "left_zero": "2022-11",
+     "lowest_after": 0.36,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.75,
+     "country": "FR",
+     "left_zero": "2023-08",
+     "lowest_after": 0.04,
+     "returned": "2025-03",
+     "returns": true
+    },
+    {
+     "L_up": null,
+     "country": "GR",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 3.5,
+     "country": "IE",
+     "left_zero": "2023-06",
+     "lowest_after": 0.13,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 0.75,
+     "country": "IT",
+     "left_zero": "2022-10",
+     "lowest_after": 0.17,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.25,
+     "country": "LT",
+     "left_zero": "2023-05",
+     "lowest_after": 0.19,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 0.75,
+     "country": "LU",
+     "left_zero": "2022-09",
+     "lowest_after": 0.51,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.0,
+     "country": "LV",
+     "left_zero": "2023-04",
+     "lowest_after": 0.31,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 4.0,
+     "country": "MT",
+     "left_zero": "2023-09",
+     "lowest_after": 0.06,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.0,
+     "country": "NL",
+     "left_zero": "2023-04",
+     "lowest_after": 0.09,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": null,
+     "country": "PT",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 2.0,
+     "country": "SI",
+     "left_zero": "2023-01",
+     "lowest_after": 0.07,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": null,
+     "country": "SK",
+     "left_zero": null,
+     "returns": null
+    }
+   ],
+   "state": "neither branch"
+  },
+  {
+   "high_return": "2/9",
+   "line": 0.1,
+   "low_return": "0/3",
+   "rows": [
+    {
+     "L_up": 0.75,
+     "country": "AT",
+     "left_zero": "2022-10",
+     "lowest_after": 0.39,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": null,
+     "country": "BE",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": null,
+     "country": "CY",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 2.5,
+     "country": "DE",
+     "left_zero": "2023-02",
+     "lowest_after": 0.43,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.25,
+     "country": "EE",
+     "left_zero": "2023-05",
+     "lowest_after": 0.23,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.5,
+     "country": "ES",
+     "left_zero": "2023-06",
+     "lowest_after": 0.14,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 2.5,
+     "country": "FI",
+     "left_zero": "2023-02",
+     "lowest_after": 0.36,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": null,
+     "country": "FR",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": null,
+     "country": "GR",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 4.0,
+     "country": "IE",
+     "left_zero": "2023-09",
+     "lowest_after": 0.13,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 2.0,
+     "country": "IT",
+     "left_zero": "2022-12",
+     "lowest_after": 0.17,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 4.0,
+     "country": "LT",
+     "left_zero": "2023-09",
+     "lowest_after": 0.19,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 0.75,
+     "country": "LU",
+     "left_zero": "2022-09",
+     "lowest_after": 0.51,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": 3.25,
+     "country": "LV",
+     "left_zero": "2023-05",
+     "lowest_after": 0.31,
+     "returned": null,
+     "returns": false
+    },
+    {
+     "L_up": null,
+     "country": "MT",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 3.75,
+     "country": "NL",
+     "left_zero": "2023-08",
+     "lowest_after": 0.09,
+     "returned": "2025-07",
+     "returns": true
+    },
+    {
+     "L_up": null,
+     "country": "PT",
+     "left_zero": null,
+     "returns": null
+    },
+    {
+     "L_up": 3.5,
+     "country": "SI",
+     "left_zero": "2023-07",
+     "lowest_after": 0.07,
+     "returned": "2025-01",
+     "returns": true
+    },
+    {
+     "L_up": null,
+     "country": "SK",
+     "left_zero": null,
+     "returns": null
+    }
+   ],
+   "state": "neither branch"
+  }
+ ],
+ "source": {
+  "dfr": "data/raw/b128/fm_keyrates.csv",
+  "rates": "data/raw/b128/mir_B_L21_A_R_A_2250_EUR_N.csv"
+ },
+ "stage": "B128"
+}

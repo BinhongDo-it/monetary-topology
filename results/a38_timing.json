@@ -1,0 +1,7 @@
+{
+  "floor_off_seconds": 0.3038,
+  "floor_on_seconds": 0.332,
+  "cells_total": 150,
+  "note": "measured, not assumed (D38). A run reads this file; without it no hour figure may be quoted.",
+  "estimate_seconds": 47.7
+}

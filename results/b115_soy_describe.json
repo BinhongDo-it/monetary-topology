@@ -1,0 +1,1279 @@
+{
+ "config": {
+  "manifest": "b115_soy_manifest.json",
+  "raw": "data/b115/raw",
+  "window": [
+   "2016-01-01",
+   "2020-12-31"
+  ]
+ },
+ "objects": {
+  "agtransport": {
+   "markets": {
+    "Atlantic Coast": {
+     "basis_max": 0.324,
+     "basis_min": -0.374,
+     "bid_minus_futures_minus_basis_max": 1.5e-15,
+     "contract_months": {
+      "Jan": 5,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 16
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-09-25",
+     "longest_gap_days": 14,
+     "market_type": [
+      "30-Day to Arrive"
+     ],
+     "rows": 48,
+     "sources": [
+      "USDA AMS Market News Report JO_GR850"
+     ],
+     "weeks": 48,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 39
+     }
+    },
+    "Great Lakes - Toledo": {
+     "basis_max": 0.144,
+     "basis_min": -0.682,
+     "bid_minus_futures_minus_basis_max": 1.72e-15,
+     "contract_months": {
+      "Aug": 12,
+      "Jan": 41,
+      "Jul": 44,
+      "Mar": 39,
+      "May": 37,
+      "Nov": 74
+     },
+     "duplicate_rows": 0,
+     "first_week": "2016-01-08",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 35,
+     "market_type": [
+      "30-Day to Arrive"
+     ],
+     "rows": 247,
+     "sources": [
+      "USDA AMS Market News Report JO_GR850"
+     ],
+     "weeks": 247,
+     "weeks_by_year": {
+      "2016": 46,
+      "2017": 50,
+      "2018": 50,
+      "2019": 49,
+      "2020": 52
+     }
+    },
+    "Gulf - Louisiana": {
+     "basis_max": 1.218,
+     "basis_min": -0.0725,
+     "bid_minus_futures_minus_basis_max": 1.67e-15,
+     "contract_months": {
+      "Aug": 15,
+      "Jan": 43,
+      "Jul": 45,
+      "Mar": 39,
+      "May": 37,
+      "Nov": 76
+     },
+     "duplicate_rows": 0,
+     "first_week": "2016-01-08",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "30-Day to Arrive"
+     ],
+     "rows": 255,
+     "sources": [
+      "USDA AMS Market News Report JO_GR850 and U.S. Wheat Associates Price Reports"
+     ],
+     "weeks": 255,
+     "weeks_by_year": {
+      "2016": 52,
+      "2017": 51,
+      "2018": 51,
+      "2019": 49,
+      "2020": 52
+     }
+    },
+    "Illinois": {
+     "basis_max": 0.165,
+     "basis_min": -0.785,
+     "bid_minus_futures_minus_basis_max": 1.64e-15,
+     "contract_months": {
+      "Aug": 15,
+      "Jan": 44,
+      "Jul": 45,
+      "Mar": 39,
+      "May": 38,
+      "Nov": 76
+     },
+     "duplicate_rows": 0,
+     "first_week": "2016-01-08",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 257,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 257,
+     "weeks_by_year": {
+      "2016": 52,
+      "2017": 51,
+      "2018": 51,
+      "2019": 51,
+      "2020": 52
+     }
+    },
+    "Indiana": {
+     "basis_max": 0.134,
+     "basis_min": -0.414,
+     "bid_minus_futures_minus_basis_max": 1.56e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    },
+    "Iowa": {
+     "basis_max": -0.282,
+     "basis_min": -1.105,
+     "bid_minus_futures_minus_basis_max": 1.67e-15,
+     "contract_months": {
+      "Aug": 15,
+      "Jan": 44,
+      "Jul": 45,
+      "Mar": 39,
+      "May": 38,
+      "Nov": 76
+     },
+     "duplicate_rows": 0,
+     "first_week": "2016-01-08",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 257,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 257,
+     "weeks_by_year": {
+      "2016": 52,
+      "2017": 51,
+      "2018": 51,
+      "2019": 51,
+      "2020": 52
+     }
+    },
+    "Kansas": {
+     "basis_max": -0.572,
+     "basis_min": -1.356,
+     "bid_minus_futures_minus_basis_max": 1.55e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 17
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 60,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 60,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 51
+     }
+    },
+    "Minnesota": {
+     "basis_max": -0.452,
+     "basis_min": -1.166,
+     "bid_minus_futures_minus_basis_max": 1.55e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    },
+    "Nebraska": {
+     "basis_max": -0.516,
+     "basis_min": -1.162,
+     "bid_minus_futures_minus_basis_max": 1.67e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    },
+    "North Carolina": {
+     "basis_max": 0.288,
+     "basis_min": -0.596,
+     "bid_minus_futures_minus_basis_max": 1.55e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 5,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 15
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 42,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 54,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 54,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 45
+     }
+    },
+    "North Dakota": {
+     "basis_max": -0.392,
+     "basis_min": -1.226,
+     "bid_minus_futures_minus_basis_max": 1.55e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    },
+    "Ohio": {
+     "basis_max": 0.134,
+     "basis_min": -0.414,
+     "bid_minus_futures_minus_basis_max": 1.72e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    },
+    "Portland": {
+     "basis_max": 1.748,
+     "basis_min": 0.896,
+     "bid_minus_futures_minus_basis_max": 1.11e-15,
+     "contract_months": {
+      "Jan": 6,
+      "Nov": 8
+     },
+     "duplicate_rows": 0,
+     "first_week": "2020-08-21",
+     "last_week": "2020-11-20",
+     "longest_gap_days": 7,
+     "market_type": [
+      "30-Day to Arrive"
+     ],
+     "rows": 14,
+     "sources": [
+      "USDA AMS Market News Report JO_GR110 and U.S. Wheat Associates Price Reports"
+     ],
+     "weeks": 14,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 0,
+      "2020": 14
+     }
+    },
+    "South Dakota": {
+     "basis_max": -0.336,
+     "basis_min": -0.94,
+     "bid_minus_futures_minus_basis_max": 1.44e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "USDA AMS Market News Report SF_GR110"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    },
+    "Southeast": {
+     "basis_max": -0.392,
+     "basis_min": -1.226,
+     "bid_minus_futures_minus_basis_max": 1.55e-15,
+     "contract_months": {
+      "Jan": 16,
+      "Jul": 9,
+      "Mar": 9,
+      "May": 9,
+      "Nov": 18
+     },
+     "duplicate_rows": 0,
+     "first_week": "2019-10-25",
+     "last_week": "2020-12-31",
+     "longest_gap_days": 14,
+     "market_type": [
+      "Elevator Bid"
+     ],
+     "rows": 61,
+     "sources": [
+      "GeoGrain Subscription"
+     ],
+     "weeks": 61,
+     "weeks_by_year": {
+      "2016": 0,
+      "2017": 0,
+      "2018": 0,
+      "2019": 9,
+      "2020": 52
+     }
+    }
+   },
+   "rows": 1619,
+   "rows_at_fetch": 1619
+  },
+  "cepea": {
+   "brl_max": 170.97,
+   "brl_min": 64.25,
+   "brl_per_usd_max": 5.9143,
+   "brl_per_usd_min": 3.0605,
+   "days_in_window": 1246,
+   "first_day": "2006-03-13",
+   "header": [
+    "Data",
+    "À vista R$",
+    "À vista US$"
+   ],
+   "last_day": "2026-09-16",
+   "rows": 5115,
+   "strictly_increasing": true,
+   "title": "INDICADOR DA SOJA CEPEA/ESALQ - PARANAGUÁ",
+   "unparsed_rows": 0,
+   "usd_max": 31.58,
+   "usd_min": 18.11
+  },
+  "dce": {
+   "dce/2016_corn.zip c.csv[csv]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 244,
+    "first_day": "20160104",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20161230",
+    "most_traded_contract": "c1701",
+    "most_traded_contract_days": 234,
+    "prefixes": [
+     "c"
+    ],
+    "product": "corn",
+    "rows": 1464,
+    "rows_with_volume": 1425,
+    "trading_days": 244,
+    "volume_total": 244725928.0,
+    "year": "2016"
+   },
+   "dce/2016_no1_soybeans.zip a.csv[csv]": {
+    "blank_rows_skipped": 0,
+    "contracts": 15,
+    "days_with_volume": 244,
+    "first_day": "20160104",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20161230",
+    "most_traded_contract": "a1701",
+    "most_traded_contract_days": 244,
+    "prefixes": [
+     "a"
+    ],
+    "product": "no1_soybeans",
+    "rows": 2196,
+    "rows_with_volume": 1624,
+    "trading_days": 244,
+    "volume_total": 65140316.0,
+    "year": "2016"
+   },
+   "dce/2016_no2_soybeans.zip b.csv[csv]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 165,
+    "first_day": "20160104",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20161230",
+    "most_traded_contract": "b1701",
+    "most_traded_contract_days": 82,
+    "prefixes": [
+     "b"
+    ],
+    "product": "no2_soybeans",
+    "rows": 1464,
+    "rows_with_volume": 318,
+    "trading_days": 244,
+    "volume_total": 3668.0,
+    "year": "2016"
+   },
+   "dce/2016_soybean_meal.zip m.csv[csv]": {
+    "blank_rows_skipped": 0,
+    "contracts": 16,
+    "days_with_volume": 244,
+    "first_day": "20160104",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20161230",
+    "most_traded_contract": "m1701",
+    "most_traded_contract_days": 234,
+    "prefixes": [
+     "m"
+    ],
+    "product": "soybean_meal",
+    "rows": 1952,
+    "rows_with_volume": 1778,
+    "trading_days": 244,
+    "volume_total": 777899940.0,
+    "year": "2016"
+   },
+   "dce/2017_corn.zip 2018011113545470783.csv[c]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 244,
+    "first_day": "20170103",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20171229",
+    "most_traded_contract": "c1801",
+    "most_traded_contract_days": 234,
+    "prefixes": [
+     "c"
+    ],
+    "product": "corn",
+    "rows": 1464,
+    "rows_with_volume": 1423,
+    "trading_days": 244,
+    "volume_total": 254647898.0,
+    "year": "2017"
+   },
+   "dce/2017_no1_soybeans.xlsx 2017_no1_soybeans.xlsx[a]": {
+    "blank_rows_skipped": 0,
+    "contracts": 15,
+    "days_with_volume": 244,
+    "first_day": "20170103",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20171229",
+    "most_traded_contract": "a1801",
+    "most_traded_contract_days": 244,
+    "prefixes": [
+     "a"
+    ],
+    "product": "no1_soybeans",
+    "rows": 2196,
+    "rows_with_volume": 1369,
+    "trading_days": 244,
+    "volume_total": 52648116.0,
+    "year": "2017"
+   },
+   "dce/2017_no2_soybeans.xlsx 2017_no2_soybeans.xlsx[b]": {
+    "blank_rows_skipped": 0,
+    "contracts": 16,
+    "days_with_volume": 205,
+    "first_day": "20170103",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20171229",
+    "most_traded_contract": "b1805",
+    "most_traded_contract_days": 145,
+    "prefixes": [
+     "b"
+    ],
+    "product": "no2_soybeans",
+    "rows": 1747,
+    "rows_with_volume": 268,
+    "trading_days": 244,
+    "volume_total": 85102.0,
+    "year": "2017"
+   },
+   "dce/2017_soybean_meal.xlsx 2017_soybean_meal.xlsx[m]": {
+    "blank_rows_skipped": 0,
+    "contracts": 16,
+    "days_with_volume": 244,
+    "first_day": "20170103",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交金额",
+     "持仓量"
+    ],
+    "last_day": "20171229",
+    "most_traded_contract": "m1801",
+    "most_traded_contract_days": 234,
+    "prefixes": [
+     "m"
+    ],
+    "product": "soybean_meal",
+    "rows": 1952,
+    "rows_with_volume": 1763,
+    "trading_days": 244,
+    "volume_total": 325755728.0,
+    "year": "2017"
+   },
+   "dce/2018_corn.xlsx 2018_corn.xlsx[Sheet1]": {
+    "blank_rows_skipped": 26035,
+    "contracts": 12,
+    "days_with_volume": 243,
+    "first_day": "20180102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20181228",
+    "most_traded_contract": "c1901",
+    "most_traded_contract_days": 233,
+    "prefixes": [
+     "c"
+    ],
+    "product": "corn",
+    "rows": 1458,
+    "rows_with_volume": 1443,
+    "trading_days": 243,
+    "volume_total": 133625464.0,
+    "year": "2018"
+   },
+   "dce/2018_no1_soybeans.xlsx 2018_no1_soybeans.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 13,
+    "days_with_volume": 243,
+    "first_day": "20180102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20181228",
+    "most_traded_contract": "a1901",
+    "most_traded_contract_days": 243,
+    "prefixes": [
+     "a"
+    ],
+    "product": "no1_soybeans",
+    "rows": 2086,
+    "rows_with_volume": 1417,
+    "trading_days": 243,
+    "volume_total": 44223454.0,
+    "year": "2018"
+   },
+   "dce/2018_no2_soybeans.xlsx 2018_no2_soybeans.xlsx[Sheet1]": {
+    "blank_rows_skipped": 24577,
+    "contracts": 10,
+    "days_with_volume": 197,
+    "first_day": "20180102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20181214",
+    "most_traded_contract": "b1809",
+    "most_traded_contract_days": 165,
+    "prefixes": [
+     "b"
+    ],
+    "product": "no2_soybeans",
+    "rows": 1344,
+    "rows_with_volume": 558,
+    "trading_days": 233,
+    "volume_total": 17002394.0,
+    "year": "2018"
+   },
+   "dce/2018_soybean_meal.xlsx 2018_soybean_meal.xlsx[Sheet1]": {
+    "blank_rows_skipped": 25549,
+    "contracts": 16,
+    "days_with_volume": 243,
+    "first_day": "20180102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20181228",
+    "most_traded_contract": "m1901",
+    "most_traded_contract_days": 233,
+    "prefixes": [
+     "m"
+    ],
+    "product": "soybean_meal",
+    "rows": 1944,
+    "rows_with_volume": 1831,
+    "trading_days": 243,
+    "volume_total": 476324826.0,
+    "year": "2018"
+   },
+   "dce/2019_corn.xlsx 2019_corn.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 244,
+    "first_day": "20190102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20191231",
+    "most_traded_contract": "c2001",
+    "most_traded_contract_days": 234,
+    "prefixes": [
+     "c"
+    ],
+    "product": "corn",
+    "rows": 1464,
+    "rows_with_volume": 1437,
+    "trading_days": 244,
+    "volume_total": 198238108.0,
+    "year": "2019"
+   },
+   "dce/2019_no1_soybeans.xlsx 2019_no1_soybeans.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 244,
+    "first_day": "20190102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20191231",
+    "most_traded_contract": "a2001",
+    "most_traded_contract_days": 244,
+    "prefixes": [
+     "a"
+    ],
+    "product": "no1_soybeans",
+    "rows": 1474,
+    "rows_with_volume": 1165,
+    "trading_days": 244,
+    "volume_total": 36900924.0,
+    "year": "2019"
+   },
+   "dce/2019_no2_soybeans.xlsx 2019_no2_soybeans.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 24,
+    "days_with_volume": 244,
+    "first_day": "20190102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20191231",
+    "most_traded_contract": "b2001",
+    "most_traded_contract_days": 226,
+    "prefixes": [
+     "b"
+    ],
+    "product": "no2_soybeans",
+    "rows": 2928,
+    "rows_with_volume": 1488,
+    "trading_days": 244,
+    "volume_total": 35583858.0,
+    "year": "2019"
+   },
+   "dce/2019_soybean_meal.xlsx 2019_soybean_meal.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 16,
+    "days_with_volume": 244,
+    "first_day": "20190102",
+    "header": [
+     "",
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20191231",
+    "most_traded_contract": "m2001",
+    "most_traded_contract_days": 234,
+    "prefixes": [
+     "m"
+    ],
+    "product": "soybean_meal",
+    "rows": 1952,
+    "rows_with_volume": 1853,
+    "trading_days": 244,
+    "volume_total": 545739382.0,
+    "year": "2019"
+   },
+   "dce/2020_corn.xlsx 2020_corn.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 243,
+    "first_day": "20200102",
+    "header": [
+     "ROWNUM",
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20201231",
+    "most_traded_contract": "c2101",
+    "most_traded_contract_days": 233,
+    "prefixes": [
+     "c"
+    ],
+    "product": "corn",
+    "rows": 1458,
+    "rows_with_volume": 1432,
+    "trading_days": 243,
+    "volume_total": 355431146.0,
+    "year": "2020"
+   },
+   "dce/2020_no1_soybeans.xlsx 2020_no1_soybeans.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 12,
+    "days_with_volume": 243,
+    "first_day": "20200102",
+    "header": [
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20201231",
+    "most_traded_contract": "a2101",
+    "most_traded_contract_days": 233,
+    "prefixes": [
+     "a"
+    ],
+    "product": "no1_soybeans",
+    "rows": 1458,
+    "rows_with_volume": 1413,
+    "trading_days": 243,
+    "volume_total": 118890334.0,
+    "year": "2020"
+   },
+   "dce/2020_no2_soybeans.xlsx 2020_no2_soybeans.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 24,
+    "days_with_volume": 243,
+    "first_day": "20200102",
+    "header": [
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20201231",
+    "most_traded_contract": "b2101",
+    "most_traded_contract_days": 222,
+    "prefixes": [
+     "b"
+    ],
+    "product": "no2_soybeans",
+    "rows": 2916,
+    "rows_with_volume": 2036,
+    "trading_days": 243,
+    "volume_total": 36719270.0,
+    "year": "2020"
+   },
+   "dce/2020_soybean_meal.xlsx 2020_soybean_meal.xlsx[Sheet1]": {
+    "blank_rows_skipped": 0,
+    "contracts": 16,
+    "days_with_volume": 243,
+    "first_day": "20200102",
+    "header": [
+     "合约",
+     "日期",
+     "前收盘价",
+     "前结算价",
+     "开盘价",
+     "最高价",
+     "最低价",
+     "收盘价",
+     "结算价",
+     "涨跌1",
+     "涨跌2",
+     "成交量",
+     "成交额",
+     "持仓量"
+    ],
+    "last_day": "20201231",
+    "most_traded_contract": "m2101",
+    "most_traded_contract_days": 233,
+    "prefixes": [
+     "m"
+    ],
+    "product": "soybean_meal",
+    "rows": 1944,
+    "rows_with_volume": 1911,
+    "trading_days": 243,
+    "volume_total": 718929358.0,
+    "year": "2020"
+   }
+  },
+  "export_basis_weeks_by_year": {
+   "Gulf - Louisiana": {
+    "2016": 52,
+    "2017": 51,
+    "2018": 51,
+    "2019": 49,
+    "2020": 52
+   },
+   "Portland": {
+    "2016": 0,
+    "2017": 0,
+    "2018": 0,
+    "2019": 0,
+    "2020": 14
+   }
+  },
+  "fred": {
+   "days_in_window": 1305,
+   "first_day": "1981-01-02",
+   "header": [
+    "observation_date",
+    "DEXCHUS"
+   ],
+   "last_day": "2026-09-11",
+   "max_in_window": 7.1786,
+   "min_in_window": 6.2649,
+   "missing": 515,
+   "missing_in_window": 57,
+   "rows": 11921
+  },
+  "joint_days_by_year": {
+   "2016": {
+    "all": 154,
+    "cepea": 250,
+    "dce_b_traded": 165,
+    "dce_m_traded": 244,
+    "fred": 251
+   },
+   "2017": {
+    "all": 188,
+    "cepea": 248,
+    "dce_b_traded": 205,
+    "dce_m_traded": 244,
+    "fred": 249
+   },
+   "2018": {
+    "all": 186,
+    "cepea": 248,
+    "dce_b_traded": 197,
+    "dce_m_traded": 243,
+    "fred": 249
+   },
+   "2019": {
+    "all": 226,
+    "cepea": 251,
+    "dce_b_traded": 244,
+    "dce_m_traded": 244,
+    "fred": 249
+   },
+   "2020": {
+    "all": 225,
+    "cepea": 249,
+    "dce_b_traded": 243,
+    "dce_m_traded": 243,
+    "fred": 250
+   }
+  }
+ },
+ "stage": "B115"
+}

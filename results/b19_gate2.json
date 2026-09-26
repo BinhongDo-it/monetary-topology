@@ -1,0 +1,549 @@
+{
+  "arm": "gate two restated in one unit",
+  "config": {
+    "dispersion_source": "b19_dispersion.json",
+    "iqr_to_sd": 1.3489795003921634,
+    "levels_points": [
+      50.0,
+      60.0,
+      70.0,
+      80.0
+    ],
+    "money_figures": {
+      "original_5.98T_x_5pct_halved_x_0.3": 44850000000.0,
+      "recheck_incl_funds_and_sma": 12000000000.0,
+      "recheck_us_equity": 3700000000.0
+    },
+    "prose_interval_points": [
+      6.5,
+      9.0
+    ],
+    "z90": 1.6448536269514722
+  },
+  "conversions": [
+    {
+      "ownership_level_points": 50.0,
+      "robust_lands_in_prose_interval": false,
+      "se_points_from_raw_sd": 56.2669,
+      "se_points_from_robust": 6.493
+    },
+    {
+      "ownership_level_points": 60.0,
+      "robust_lands_in_prose_interval": true,
+      "se_points_from_raw_sd": 67.5202,
+      "se_points_from_robust": 7.7916
+    },
+    {
+      "ownership_level_points": 70.0,
+      "robust_lands_in_prose_interval": false,
+      "se_points_from_raw_sd": 78.7736,
+      "se_points_from_robust": 9.0902
+    },
+    {
+      "ownership_level_points": 80.0,
+      "robust_lands_in_prose_interval": false,
+      "se_points_from_raw_sd": 90.027,
+      "se_points_from_robust": 10.3888
+    }
+  ],
+  "criteria": [
+    {
+      "criterion": "the measured relative dispersion, converted at an ownership level, reproduces the dispersion interval a later recheck recorded in prose",
+      "detail": "robust relative dispersion 0.1299 from an iqr of 0.1752. Converted: L=50 -> 6.49 pts, L=60 -> 7.79 pts, L=70 -> 9.09 pts, L=80 -> 10.39 pts. The prose interval is 6.5 to 9.0 points, and it is reproduced at ownership levels 50.1 to 69.3 points, which is the range US equity institutional ownership is quoted across. So the two readings that have been recorded separately are one object in two units.",
+      "kind": "known_answer",
+      "name": "B19-G-1",
+      "passed": true
+    },
+    {
+      "criterion": "the two forms of the dispersion are separated by the ownership level each implies, not by a preference between them",
+      "detail": "to reproduce the recorded interval of 6.5 to 9.0 points, the robust form implies an ownership level of 50.1 to 69.3 points and the raw sd implies 5.8 to 8.0. The quoted range held against is 50 to 80 points. The robust form's implied level sits inside it and the raw sd's is an order of magnitude below. Converted at those quoted levels the raw sd gives 56.3, 67.5, 78.8, 90.0 points, which is a security's institutional ownership moving by most of itself every quarter. Holdings changes are heavy-tailed and the raw sd carries that tail. Both forms stay in the record.",
+      "kind": "instrument",
+      "name": "B19-G-2",
+      "passed": true
+    },
+    {
+      "criterion": "the ratio that closed the stage can be recomputed from what the repository holds",
+      "detail": "It cannot. The stage record carries the string 'not passed, ratio 6.1, stage not opened' and no arithmetic; the constrained money and the denominator were never written into a script or a record, and the recheck's ratio of 16.6 appears in neither. This is 18d's shape, the reading on disk and its configuration not. The verdict is untouched and the stage stays closed. What changes is that the gap is now named rather than invisible, and the two inputs that would close it are listed.",
+      "kind": "bookkeeping",
+      "name": "B19-G-3",
+      "passed": false
+    },
+    {
+      "criterion": "print what the one recorded number implies about the ones that were not recorded",
+      "detail": "at z 1.6449 and the five points written down, a ratio of 6.1 implies a band of 1.3482 points, which for each money figure the prose names implies a denominator of original_5.98T_x_5pct_halved_x_0.3 -> 3.33T, recheck_incl_funds_and_sma -> 0.89T, recheck_us_equity -> 0.27T. Back-outs from one recorded number, not readings.",
+      "kind": "own_reading",
+      "name": "B19-G-4",
+      "passed": true
+    },
+    {
+      "criterion": "print the ratio as a function of the missing inputs, over a grid, with no threshold on it",
+      "detail": "48 cells over three money figures, four denominators and four ownership levels, all at the robust dispersion. Nothing is selected from the grid; supplying the money and the denominator gives the ratio immediately.",
+      "kind": "own_reading",
+      "name": "B19-G-5",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "B19 is closed at gate two and this does not reopen it. It restates the gate in one unit, reconciles the two dispersion readings, and records that the ratio which closed the stage is not reproducible from the repository.",
+  "dispersion": {
+    "median_iqr_dlog": 0.17517844,
+    "median_sd_dlog": 1.12533726,
+    "robust_sd_from_iqr": 0.12985997188917522
+  },
+  "implied_band_points": 1.3482406778290756,
+  "implied_denominator_usd": {
+    "original_5.98T_x_5pct_halved_x_0.3": 3326557397171.627,
+    "recheck_incl_funds_and_sma": 890048801918.83,
+    "recheck_us_equity": 274431713924.97256
+  },
+  "level_reproducing_prose_high": 69.30542082421485,
+  "level_reproducing_prose_low": 50.05391503971073,
+  "not_reproducible": [
+    "constrained money attributable to the compliant universe",
+    "the denominator, whether whole market or compliant subset",
+    "the recheck's ratio of 16.6"
+  ],
+  "quoted_level_range_points": [
+    50.0,
+    80.0
+  ],
+  "ratio_grid": [
+    {
+      "band_points": 1.495,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 7.144,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 1.495,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 8.573,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 1.495,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 10.001,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 1.495,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 11.43,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.4485,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 23.813,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.4485,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 28.575,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.4485,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 33.338,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.4485,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 38.1,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.1794,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 59.532,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.1794,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 71.438,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.1794,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 83.345,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.1794,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 95.251,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.0897,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 119.064,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.0897,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 142.877,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.0897,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 166.689,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.0897,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "original_5.98T_x_5pct_halved_x_0.3",
+      "money_usd": 44850000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 190.502,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.4,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 26.7,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.4,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 32.04,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.4,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 37.38,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.4,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 42.72,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.12,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 89.0,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.12,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 106.8,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.12,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 124.6,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.12,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 142.4,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.048,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 222.501,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.048,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 267.001,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.048,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 311.501,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.048,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 356.001,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.024,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 445.001,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.024,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 534.002,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.024,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 623.002,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.024,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_incl_funds_and_sma",
+      "money_usd": 12000000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 712.002,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.12333333,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 86.595,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.12333333,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 103.914,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.12333333,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 121.233,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.12333333,
+      "denominator_usd": 3000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 138.552,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.037,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 288.65,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.037,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 346.379,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.037,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 404.109,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.037,
+      "denominator_usd": 10000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 461.839,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.0148,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 721.624,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.0148,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 865.949,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.0148,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 1010.273,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.0148,
+      "denominator_usd": 25000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 1154.598,
+      "se_points_robust": 10.3888
+    },
+    {
+      "band_points": 0.0074,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 50.0,
+      "ratio": 1443.248,
+      "se_points_robust": 6.493
+    },
+    {
+      "band_points": 0.0074,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 60.0,
+      "ratio": 1731.897,
+      "se_points_robust": 7.7916
+    },
+    {
+      "band_points": 0.0074,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 70.0,
+      "ratio": 2020.547,
+      "se_points_robust": 9.0902
+    },
+    {
+      "band_points": 0.0074,
+      "denominator_usd": 50000000000000.0,
+      "money_key": "recheck_us_equity",
+      "money_usd": 3700000000.0,
+      "ownership_level_points": 80.0,
+      "ratio": 2309.196,
+      "se_points_robust": 10.3888
+    }
+  ],
+  "raw_sd_implied_level_high": 7.997602425427556,
+  "raw_sd_implied_level_low": 5.776046196142124,
+  "recorded_ratio": 6.1,
+  "se_points_written_down": 5.0,
+  "stage": "B19"
+}

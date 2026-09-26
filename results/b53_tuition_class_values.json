@@ -377,7 +377,7 @@
   "B53-3": {
    "detail": "0 non-integer figures over 5605 schedules",
    "kind": "premise",
-   "name": "the premise that makes these collisions exact rather than an upper bound: every figure is a whole dollar amount",
+   "name": "the premise that makes the COMPARISON exact: every figure is a whole dollar amount, so two of them are equal or they are not, with no tolerance and no float. This says nothing about what the institution summed before it published a number, and it cannot fail on a corpus reported in whole dollars, which is what it is here",
    "passed": true
   },
   "B53-4": {

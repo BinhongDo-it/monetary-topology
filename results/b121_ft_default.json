@@ -1,0 +1,248 @@
+{
+ "calibration": {
+  "pt_per_bp": 0.39116196632385253,
+  "tick_steps": [
+   39.091,
+   38.988,
+   39.19,
+   39.195
+  ],
+  "x0": 103.4780044555664,
+  "x1": 267.2320251464844,
+  "y0": 228.16537475585938
+ },
+ "criteria": [
+  {
+   "detail": "tick steps [39.091, 38.988, 39.19, 39.195] pt; 19 auction days; largest gap between the paper's fitted spread and this station's LIBOR-OIS: 16.6 bp",
+   "kind": "instrument",
+   "name": "B121-29",
+   "passed": true,
+   "statement": "the figure's y ticks are evenly spaced to within one point and both outlines are read on every auction day in the window"
+  },
+  {
+   "detail": "room: 2007-12-17 22.7, 2007-12-20 15.2, 2008-01-14 1.7, 2008-01-28 0.0, 2008-02-11 0.0, 2008-02-25 0.0, 2008-03-10 0.0, 2008-03-24 0.0, 2008-04-07 0.0, 2008-04-21 0.0, 2008-05-05 46.9, 2008-05-19 49.1, 2008-06-02 31.3, 2008-06-16 31.4, 2008-06-30 29.0, 2008-07-14 34.8, 2008-07-28 35.3, 2008-08-11 0.0, 2008-08-12 26.1",
+   "kind": "own_reading",
+   "name": "B121-30",
+   "passed": true,
+   "statement": "print, per auction, the room the closed form leaves for LIBOR-OIS to narrow once the published default component is taken out of the gap between LIBOR-OIS and the auction price"
+  }
+ ],
+ "floor_bp": 16.6,
+ "rows": [
+  {
+   "auction": "2007-12-17",
+   "cds_bp": 42.8,
+   "ft_default_bp": 6.4,
+   "ft_total_bp": 86.7,
+   "implied_k": 0.15,
+   "left_over_bp": 29.1,
+   "room_bp": 22.7,
+   "source_gap_bp": 4.6,
+   "wedge_bp": 82.1
+  },
+  {
+   "auction": "2007-12-20",
+   "cds_bp": 45.0,
+   "ft_default_bp": 6.2,
+   "ft_total_bp": 82.7,
+   "implied_k": 0.138,
+   "left_over_bp": 21.4,
+   "room_bp": 15.2,
+   "source_gap_bp": 1.4,
+   "wedge_bp": 81.3
+  },
+  {
+   "auction": "2008-01-14",
+   "cds_bp": 55.9,
+   "ft_default_bp": 8.8,
+   "ft_total_bp": 53.7,
+   "implied_k": 0.157,
+   "left_over_bp": 10.5,
+   "room_bp": 1.7,
+   "source_gap_bp": 8.9,
+   "wedge_bp": 44.8
+  },
+  {
+   "auction": "2008-01-28",
+   "cds_bp": 62.9,
+   "ft_default_bp": 13.0,
+   "ft_total_bp": 44.0,
+   "implied_k": 0.207,
+   "left_over_bp": 12.8,
+   "room_bp": 0.0,
+   "source_gap_bp": 6.6,
+   "wedge_bp": 37.4
+  },
+  {
+   "auction": "2008-02-11",
+   "cds_bp": 84.9,
+   "ft_default_bp": 19.2,
+   "ft_total_bp": 50.8,
+   "implied_k": 0.226,
+   "left_over_bp": 6.0,
+   "room_bp": 0.0,
+   "source_gap_bp": 2.3,
+   "wedge_bp": 48.5
+  },
+  {
+   "auction": "2008-02-25",
+   "cds_bp": 111.7,
+   "ft_default_bp": 25.6,
+   "ft_total_bp": 53.9,
+   "implied_k": 0.229,
+   "left_over_bp": 1.0,
+   "room_bp": 0.0,
+   "source_gap_bp": 0.7,
+   "wedge_bp": 53.2
+  },
+  {
+   "auction": "2008-03-10",
+   "cds_bp": 149.2,
+   "ft_default_bp": 41.1,
+   "ft_total_bp": 62.0,
+   "implied_k": 0.275,
+   "left_over_bp": 10.2,
+   "room_bp": 0.0,
+   "source_gap_bp": -15.2,
+   "wedge_bp": 77.2
+  },
+  {
+   "auction": "2008-03-24",
+   "cds_bp": 150.5,
+   "ft_default_bp": 37.4,
+   "ft_total_bp": 45.6,
+   "implied_k": 0.249,
+   "left_over_bp": -0.9,
+   "room_bp": 0.0,
+   "source_gap_bp": -15.5,
+   "wedge_bp": 61.1
+  },
+  {
+   "auction": "2008-04-07",
+   "cds_bp": 76.7,
+   "ft_default_bp": 15.2,
+   "ft_total_bp": 72.2,
+   "implied_k": 0.198,
+   "left_over_bp": -11.0,
+   "room_bp": 0.0,
+   "source_gap_bp": -1.5,
+   "wedge_bp": 73.7
+  },
+  {
+   "auction": "2008-04-21",
+   "cds_bp": 76.0,
+   "ft_default_bp": 11.5,
+   "ft_total_bp": 97.7,
+   "implied_k": 0.151,
+   "left_over_bp": 5.0,
+   "room_bp": 0.0,
+   "source_gap_bp": 7.7,
+   "wedge_bp": 90.0
+  },
+  {
+   "auction": "2008-05-05",
+   "cds_bp": 57.6,
+   "ft_default_bp": 8.0,
+   "ft_total_bp": 90.7,
+   "implied_k": 0.139,
+   "left_over_bp": 54.9,
+   "room_bp": 46.9,
+   "source_gap_bp": 12.5,
+   "wedge_bp": 78.2
+  },
+  {
+   "auction": "2008-05-19",
+   "cds_bp": 61.4,
+   "ft_default_bp": 8.6,
+   "ft_total_bp": 79.6,
+   "implied_k": 0.14,
+   "left_over_bp": 57.7,
+   "room_bp": 49.1,
+   "source_gap_bp": 9.6,
+   "wedge_bp": 70.0
+  },
+  {
+   "auction": "2008-06-02",
+   "cds_bp": 74.2,
+   "ft_default_bp": 10.4,
+   "ft_total_bp": 78.6,
+   "implied_k": 0.14,
+   "left_over_bp": 41.7,
+   "room_bp": 31.3,
+   "source_gap_bp": 11.2,
+   "wedge_bp": 67.4
+  },
+  {
+   "auction": "2008-06-16",
+   "cds_bp": 75.0,
+   "ft_default_bp": 13.9,
+   "ft_total_bp": 81.9,
+   "implied_k": 0.185,
+   "left_over_bp": 45.3,
+   "room_bp": 31.4,
+   "source_gap_bp": 16.6,
+   "wedge_bp": 65.3
+  },
+  {
+   "auction": "2008-06-30",
+   "cds_bp": 110.8,
+   "ft_default_bp": 15.4,
+   "ft_total_bp": 76.1,
+   "implied_k": 0.139,
+   "left_over_bp": 44.4,
+   "room_bp": 29.0,
+   "source_gap_bp": 5.3,
+   "wedge_bp": 70.8
+  },
+  {
+   "auction": "2008-07-14",
+   "cds_bp": 113.8,
+   "ft_default_bp": 14.3,
+   "ft_total_bp": 86.9,
+   "implied_k": 0.126,
+   "left_over_bp": 49.1,
+   "room_bp": 34.8,
+   "source_gap_bp": 12.4,
+   "wedge_bp": 74.5
+  },
+  {
+   "auction": "2008-07-28",
+   "cds_bp": 98.3,
+   "ft_default_bp": 9.3,
+   "ft_total_bp": 90.6,
+   "implied_k": 0.095,
+   "left_over_bp": 44.6,
+   "room_bp": 35.3,
+   "source_gap_bp": 16.2,
+   "wedge_bp": 74.4
+  },
+  {
+   "auction": "2008-08-11",
+   "cds_bp": 100.0,
+   "ft_default_bp": 9.3,
+   "ft_total_bp": 91.7,
+   "implied_k": 0.093,
+   "left_over_bp": 5.0,
+   "room_bp": 0.0,
+   "source_gap_bp": 15.2,
+   "wedge_bp": 76.5
+  },
+  {
+   "auction": "2008-08-12",
+   "cds_bp": 100.0,
+   "ft_default_bp": 9.3,
+   "ft_total_bp": 91.7,
+   "implied_k": 0.093,
+   "left_over_bp": 35.4,
+   "room_bp": 26.1,
+   "source_gap_bp": 15.2,
+   "wedge_bp": 76.5
+  }
+ ],
+ "source": {
+  "cover": "results/b121_taf_cover.json",
+  "file": "data/raw/b121/lit/ssrn-1923696.pdf",
+  "paper": "Filipovic and Trolle (2013), JFE 109(3), Figure 4 Panel A"
+ },
+ "stage": "B121"
+}

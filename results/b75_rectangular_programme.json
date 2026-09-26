@@ -1,0 +1,154 @@
+{
+ "config": {
+  "active_tol": 1e-07,
+  "bisect_floor": 1e-06,
+  "bisect_iters": 60,
+  "extra_processes": [
+   1,
+   6
+  ],
+  "goods": [
+   2,
+   6
+  ],
+  "n_systems": 60,
+  "seed": 0,
+  "solver": "scipy.optimize.linprog, method=highs",
+  "sweep_points": 151,
+  "sweep_range": [
+   1.4,
+   0.5
+  ],
+  "tie_tol": 1e-08
+ },
+ "criteria": [
+  {
+   "detail": "The two rectangular examples of the QuantEcon lecture, read back. **Example one, irreducible, 3 processes and 4 goods: `alpha = beta`, and the exact value is the cube root of two**, matched within 1e-12, while the lecture's own printed figures agree within 1e-08, which is its bisection tolerance and not a disagreement. Its intensity and price vectors match the printed ones within 0.005, the price on the fourth good being zero in both. **Example two, reducible, 5 processes and 6 goods: `alpha` is again the cube root of two while `beta` is one**, so the two factors come apart exactly where the lecture says they do. **And the counting identity of Theorem 20(2) fails on the same example**: the irreducible one has 3 processes running and 3 goods priced, equal, and the reducible one has 3 and 4, not equal. **One instance breaks both halves at once, which is why connectivity is the condition rather than the accounting**",
+   "kind": "known_answer",
+   "name": "B75-5",
+   "passed": true,
+   "statement": "the two published rectangular examples, and the one instance that breaks both halves at once"
+  },
+  {
+   "detail": "60 drawn square systems, each process making one unit of its own good. **The programme's expansion factor equals `1 / lambda_PF(A)` on all 60**, within the bisection's floor of 1e-06. The two numbers share no code: one is a bisection on the value of a matrix game solved by linear programming, the other is an eigen-decomposition, **which is the route B71 used on the square case**. So this is a second path to B71's number rather than a second reading of it",
+   "kind": "instrument",
+   "name": "B75-6a",
+   "passed": true,
+   "statement": "Theorem 20(2), the control: on a square system the programme returns B71's number by a route that shares no code with it"
+  },
+  {
+   "detail": "60 drawn rectangular systems with more processes than goods. **Two statements here, and they are not the same kind of statement.** The combinatorial one is exact: **the processes that run and the goods that carry a positive price are equal in number on all 60**, and that number is at most `min(n, m)` on all 60, both read off counts with no tolerance anywhere. The numerical one carries the instrument's floor: **the square block they cut out has the same expansion factor as the whole system**, on all 60, within 1e-06, with the block's own factor read off `det(B_block - a A_block) = 0` as an eigenproblem rather than off the programme. **The disagreements that remain are the bisection's, not the block's**: the worst of them sit on one-by-one blocks whose condition number is exactly one, where the block's root is a ratio of two entries and cannot be wrong. **So a rectangular system does not need a theory of its own: choice of technique picks a square block and that block is the accurate route to the factor.** **What does not transfer with it is B71's hypothesis.** B71's square theorem asks for `B^-1 A` to be non-negative and irreducible, and on the active block that holds on 27 of 60, the most negative entry seen being -30.99. **The block's factor is read off `det(B - a A) = 0`, which needs neither**, so the reading above stands on the eigenproblem and not on B71 being applicable. The bound is not tight: the active count runs 1 of min(3,2) on 3, 1 of min(4,3) on 1, 1 of min(5,3) on 1, 1 of min(7,2) on 1, 2 of min(3,2) on 2, 2 of min(4,2) on 1, 2 of min(4,3) on 1, 2 of min(5,2) on 3, 2 of min(5,3) on 2, 2 of min(6,2) on 3, 2 of min(6,4) on 2, 2 of min(7,2) on 5, 2 of min(7,3) on 1, 2 of min(8,5) on 1, 3 of min(4,3) on 2, 3 of min(5,4) on 1, 3 of min(6,3) on 2, 3 of min(6,5) on 1, 3 of min(7,3) on 1, 3 of min(7,4) on 1, 3 of min(8,3) on 3, 3 of min(8,4) on 2, 3 of min(9,4) on 2, 4 of min(10,5) on 1, 4 of min(5,4) on 2, 4 of min(6,4) on 3, 4 of min(6,5) on 1, 4 of min(7,5) on 1, 4 of min(8,4) on 1, 4 of min(8,5) on 3, 4 of min(9,4) on 1, 5 of min(10,5) on 3, 5 of min(7,5) on 2",
+   "kind": "instrument",
+   "name": "B75-6b",
+   "passed": true,
+   "statement": "Theorem 20(2): the solution sits on a square block whose own root is alpha"
+  },
+  {
+   "detail": "151 points along a swept parameter, on a system where two processes make the first good from different input mixes and the scale on one of them is what moves. **A process attains equality in the price condition when and only when it runs on this sweep**, the forward half being the theorem and the reverse half a reading, since an idle process can attain equality at a degenerate vertex. On all 151 points, with equality read at 1e-08. Nothing in the programme says this: it is complementary slackness, and read on the graph it says **a cycle carries the common sum exactly when it is being traversed, and an idle cycle falls short**. **So choice of technique is not a second operation performed on the field. It is the condition the field already carries, read cycle by cycle**",
+   "kind": "instrument",
+   "name": "B75-6c",
+   "passed": true,
+   "statement": "Theorem 20(1): a running process is tied at equality, and on this sweep only those"
+  },
+  {
+   "detail": "The same sweep. **The system's expansion factor is the larger of the two single-technique economies' factors at every one of the 151 points**, and **while the second process is idle the factor does not move at all**, matching the first technique's own factor on all 101 such points within 1e-06: an idle cycle contributes nothing, not a little. **The active set changes exactly once** along the sweep, and bisecting to that change puts it at `s = 0.797508`, where **both competing processes attain equality at the same time**. That tie is what a switch point is in B74, and the envelope is B72's lower envelope of wage curves turned the other way up. **So the kink in the growth factor, the switch point in the cost comparison, and the degenerate vertex of the programme are one object seen three ways**",
+   "kind": "instrument",
+   "name": "B75-6d",
+   "passed": true,
+   "statement": "Theorem 20(3): alpha is the upper envelope, an idle process does not move it, and the kink is a tie"
+  }
+ ],
+ "mapping": {
+  "B75-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B75-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B75-5": {
+   "example_1": {
+    "active": 3,
+    "alpha": 1.2599210499,
+    "beta": 1.2599210499,
+    "goods": 4,
+    "priced": 3,
+    "processes": 3
+   },
+   "example_2": {
+    "active": 3,
+    "alpha": 1.2599210499,
+    "beta": 1.0,
+    "goods": 6,
+    "priced": 4,
+    "processes": 5
+   },
+   "matches_cube_root_of_two_within": 1e-12,
+   "matches_published_within": 1e-08,
+   "vectors_match_within": 0.005
+  },
+  "B75-6a": {
+   "agreeing": 60,
+   "floor_bound": 1e-06,
+   "systems": 60,
+   "worst_gap_order": -13
+  },
+  "B75-6b": {
+   "active_counts": {
+    "1 of min(3,2)": 3,
+    "1 of min(4,3)": 1,
+    "1 of min(5,3)": 1,
+    "1 of min(7,2)": 1,
+    "2 of min(3,2)": 2,
+    "2 of min(4,2)": 1,
+    "2 of min(4,3)": 1,
+    "2 of min(5,2)": 3,
+    "2 of min(5,3)": 2,
+    "2 of min(6,2)": 3,
+    "2 of min(6,4)": 2,
+    "2 of min(7,2)": 5,
+    "2 of min(7,3)": 1,
+    "2 of min(8,5)": 1,
+    "3 of min(4,3)": 2,
+    "3 of min(5,4)": 1,
+    "3 of min(6,3)": 2,
+    "3 of min(6,5)": 1,
+    "3 of min(7,3)": 1,
+    "3 of min(7,4)": 1,
+    "3 of min(8,3)": 3,
+    "3 of min(8,4)": 2,
+    "3 of min(9,4)": 2,
+    "4 of min(10,5)": 1,
+    "4 of min(5,4)": 2,
+    "4 of min(6,4)": 3,
+    "4 of min(6,5)": 1,
+    "4 of min(7,5)": 1,
+    "4 of min(8,4)": 1,
+    "4 of min(8,5)": 3,
+    "4 of min(9,4)": 1,
+    "5 of min(10,5)": 3,
+    "5 of min(7,5)": 2
+   },
+   "active_equals_priced": 60,
+   "block_inverse_non_negative": 27,
+   "block_root_agrees": 60,
+   "floor_bound": 1e-06,
+   "most_negative_entry": -30.994445881637187,
+   "square_blocks": 60,
+   "systems": 60,
+   "within_bound": 60,
+   "worst_gap_order": -8
+  },
+  "B75-6c": {
+   "points": 151,
+   "tie_tolerance": 1e-08,
+   "tied_equals_active": 151
+  },
+  "B75-6d": {
+   "active_set_changes": 1,
+   "both_tied_there": true,
+   "flat_while_idle": 101,
+   "on_envelope": 151,
+   "points": 151,
+   "switch_point": 0.797508
+  }
+ },
+ "stage": "B75"
+}

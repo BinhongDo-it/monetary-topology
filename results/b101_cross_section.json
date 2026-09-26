@@ -1,0 +1,1256 @@
+{
+  "config": {
+    "mix": "ln(LAB / K_GFCF)",
+    "output": "VA_CP",
+    "seed": 0,
+    "seeds": 5,
+    "share": "LAB / (LAB + CAP)",
+    "sources": [
+      "growth accounts basic.csv",
+      "capital accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "the two modules join, and the joined panel carries cross-sections wide enough for a comparison graph",
+      "detail": "25,886 cells carry VA_CP, LAB, CAP and K_GFCF all finite and positive; 1,485 (industry, year) cross-sections with three or more countries, 55 industries, 1995..2021; countries per cross-section min 6, median 19, max 32",
+      "kind": "instrument",
+      "name": "B101-19",
+      "passed": true,
+      "payload": {
+        "cells": 25886,
+        "cross_sections": 1485,
+        "industries": 55,
+        "size_max": 32,
+        "size_median": 19,
+        "size_min": 6,
+        "year_max": 2021,
+        "year_min": 1995
+      }
+    },
+    {
+      "criterion": "rho reads zero on an exact coboundary and sqrt(1 - 2/n) on a field with no structure",
+      "detail": "exact coboundary: worst rho 9.144e-16 over 20 draws, tolerance 1e-10. no structure: mean of rho squared against the exact 1 - 2/n, n=4 0.3634 vs 0.5000 (z 1.22), n=8 0.7648 vs 0.7500 (z 0.30), n=16 0.8948 vs 0.8750 (z 1.05), n=24 0.9088 vs 0.9167 (z 0.75); worst z 1.22 against four standard errors of the exact Beta over 5 draws",
+      "kind": "known_answer",
+      "name": "B101-20",
+      "passed": true,
+      "payload": {
+        "exact": [
+          {
+            "n": 4,
+            "rho": 7.251686220813928e-16
+          },
+          {
+            "n": 4,
+            "rho": 4.387763835689632e-16
+          },
+          {
+            "n": 4,
+            "rho": 5.468294102101418e-16
+          },
+          {
+            "n": 4,
+            "rho": 2.411472213612062e-16
+          },
+          {
+            "n": 4,
+            "rho": 3.3898740365130156e-16
+          },
+          {
+            "n": 8,
+            "rho": 5.313322967188433e-16
+          },
+          {
+            "n": 8,
+            "rho": 4.2725033985418486e-16
+          },
+          {
+            "n": 8,
+            "rho": 5.826405956215686e-16
+          },
+          {
+            "n": 8,
+            "rho": 5.956608198602798e-16
+          },
+          {
+            "n": 8,
+            "rho": 6.570570353211609e-16
+          },
+          {
+            "n": 16,
+            "rho": 5.644354837574601e-16
+          },
+          {
+            "n": 16,
+            "rho": 6.912844874002689e-16
+          },
+          {
+            "n": 16,
+            "rho": 5.271110234223443e-16
+          },
+          {
+            "n": 16,
+            "rho": 5.647351680600655e-16
+          },
+          {
+            "n": 16,
+            "rho": 4.815480582982554e-16
+          },
+          {
+            "n": 24,
+            "rho": 6.908315960148485e-16
+          },
+          {
+            "n": 24,
+            "rho": 7.383261200328148e-16
+          },
+          {
+            "n": 24,
+            "rho": 7.209072339629951e-16
+          },
+          {
+            "n": 24,
+            "rho": 9.14431205673978e-16
+          },
+          {
+            "n": 24,
+            "rho": 7.742553237344312e-16
+          }
+        ],
+        "noise": [
+          {
+            "closed_form": 0.5,
+            "draws": 5,
+            "mean_rho2": 0.36344548222863426,
+            "n": 4,
+            "se": 0.11180339887498948,
+            "z": 1.2213807374859076
+          },
+          {
+            "closed_form": 0.75,
+            "draws": 5,
+            "mean_rho2": 0.764807707593717,
+            "n": 8,
+            "se": 0.05,
+            "z": 0.29615415187433936
+          },
+          {
+            "closed_form": 0.875,
+            "draws": 5,
+            "mean_rho2": 0.8948423105738295,
+            "n": 16,
+            "se": 0.01893690992155397,
+            "z": 1.0478114252022164
+          },
+          {
+            "closed_form": 0.9166666666666666,
+            "draws": 5,
+            "mean_rho2": 0.9087788160953589,
+            "n": 24,
+            "se": 0.01048389576177315,
+            "z": 0.7523778136051993
+          }
+        ],
+        "worst_exact": 9.14431205673978e-16,
+        "worst_z": 1.2213807374859076
+      }
+    },
+    {
+      "criterion": "a share linear in the mix gives rho exactly zero, so curvature and class structure are the only two sources",
+      "detail": "share replaced by its own least squares line on the mix, everything else untouched, 400 cross-sections: worst rho 2.288e-15. The trapezoid rule is exact on a line, so this is zero by construction and reads it back.",
+      "kind": "known_answer",
+      "name": "B101-21",
+      "passed": true,
+      "payload": {
+        "sample": [
+          {
+            "cell": "A/1995",
+            "rho_linear": 7.0486071268788305e-16
+          },
+          {
+            "cell": "A/1996",
+            "rho_linear": 5.435168285136261e-16
+          },
+          {
+            "cell": "A/1997",
+            "rho_linear": 6.762864368335679e-16
+          },
+          {
+            "cell": "A/1998",
+            "rho_linear": 6.335116186560691e-16
+          },
+          {
+            "cell": "A/1999",
+            "rho_linear": 6.13262326191082e-16
+          },
+          {
+            "cell": "A/2000",
+            "rho_linear": 8.767041856936584e-16
+          },
+          {
+            "cell": "A/2001",
+            "rho_linear": 6.174826711859864e-16
+          },
+          {
+            "cell": "A/2002",
+            "rho_linear": 5.864963637118722e-16
+          },
+          {
+            "cell": "A/2003",
+            "rho_linear": 5.943978060794268e-16
+          },
+          {
+            "cell": "A/2004",
+            "rho_linear": 6.460059664722155e-16
+          },
+          {
+            "cell": "A/2005",
+            "rho_linear": 7.833212393650775e-16
+          },
+          {
+            "cell": "A/2006",
+            "rho_linear": 6.695178637069669e-16
+          },
+          {
+            "cell": "A/2007",
+            "rho_linear": 6.908541183351171e-16
+          },
+          {
+            "cell": "A/2008",
+            "rho_linear": 5.915770895949109e-16
+          },
+          {
+            "cell": "A/2009",
+            "rho_linear": 6.75987815638605e-16
+          },
+          {
+            "cell": "A/2010",
+            "rho_linear": 6.933473502907893e-16
+          },
+          {
+            "cell": "A/2011",
+            "rho_linear": 8.418748518034304e-16
+          },
+          {
+            "cell": "A/2012",
+            "rho_linear": 7.455136557119802e-16
+          },
+          {
+            "cell": "A/2013",
+            "rho_linear": 6.309568175519482e-16
+          },
+          {
+            "cell": "A/2014",
+            "rho_linear": 8.862229204332704e-16
+          }
+        ],
+        "worst_rho_linear": 2.2882507858663053e-15
+      }
+    },
+    {
+      "criterion": "rho is invariant to the currency and is moved by the mix's units",
+      "detail": "12 cross-sections. One factor on Y, LAB, CAP and K together, which is a change of currency: worst move in rho 3.608e-16, so the reading needs no PPP and no exchange rate. The same factor on the capital stock alone, which the share does not read: smallest move 0.0230, so the mix's units are load bearing and a quantity arm is a different definition under D11, not a refinement of this one.",
+      "kind": "instrument",
+      "name": "B101-22",
+      "passed": true,
+      "payload": {
+        "capital_only": [
+          {
+            "cell": "A/1995",
+            "rho": 0.1453818519451339,
+            "rho_capital_only": 0.24059399341183638
+          },
+          {
+            "cell": "A/1996",
+            "rho": 0.14680985778544228,
+            "rho_capital_only": 0.16980013666502544
+          },
+          {
+            "cell": "A/1997",
+            "rho": 0.1615858016597213,
+            "rho_capital_only": 0.22979009758560912
+          },
+          {
+            "cell": "A/1998",
+            "rho": 0.16279285147497718,
+            "rho_capital_only": 0.2950656393461854
+          },
+          {
+            "cell": "A/1999",
+            "rho": 0.15093420400008878,
+            "rho_capital_only": 0.24432019381666012
+          },
+          {
+            "cell": "A/2000",
+            "rho": 0.14022216566160822,
+            "rho_capital_only": 0.19379951772758772
+          },
+          {
+            "cell": "A/2001",
+            "rho": 0.13937636996164068,
+            "rho_capital_only": 0.2477689060518989
+          },
+          {
+            "cell": "A/2002",
+            "rho": 0.12845598518918275,
+            "rho_capital_only": 0.1913931450125334
+          },
+          {
+            "cell": "A/2003",
+            "rho": 0.1230010686193061,
+            "rho_capital_only": 0.16555288863216816
+          },
+          {
+            "cell": "A/2004",
+            "rho": 0.11533678002345267,
+            "rho_capital_only": 0.17926264095667155
+          },
+          {
+            "cell": "A/2005",
+            "rho": 0.11575930661979901,
+            "rho_capital_only": 0.1980680493076873
+          },
+          {
+            "cell": "A/2006",
+            "rho": 0.1178409480525901,
+            "rho_capital_only": 0.23873903347065473
+          }
+        ],
+        "currency_invariant": [
+          {
+            "cell": "A/1995",
+            "rho": 0.1453818519451339,
+            "rho_rescaled": 0.14538185194513412
+          },
+          {
+            "cell": "A/1996",
+            "rho": 0.14680985778544228,
+            "rho_rescaled": 0.1468098577854425
+          },
+          {
+            "cell": "A/1997",
+            "rho": 0.1615858016597213,
+            "rho_rescaled": 0.16158580165972095
+          },
+          {
+            "cell": "A/1998",
+            "rho": 0.16279285147497718,
+            "rho_rescaled": 0.16279285147497707
+          },
+          {
+            "cell": "A/1999",
+            "rho": 0.15093420400008878,
+            "rho_rescaled": 0.15093420400008895
+          },
+          {
+            "cell": "A/2000",
+            "rho": 0.14022216566160822,
+            "rho_rescaled": 0.1402221656616082
+          },
+          {
+            "cell": "A/2001",
+            "rho": 0.13937636996164068,
+            "rho_rescaled": 0.13937636996164082
+          },
+          {
+            "cell": "A/2002",
+            "rho": 0.12845598518918275,
+            "rho_rescaled": 0.12845598518918275
+          },
+          {
+            "cell": "A/2003",
+            "rho": 0.1230010686193061,
+            "rho_rescaled": 0.12300106861930607
+          },
+          {
+            "cell": "A/2004",
+            "rho": 0.11533678002345267,
+            "rho_rescaled": 0.11533678002345242
+          },
+          {
+            "cell": "A/2005",
+            "rho": 0.11575930661979901,
+            "rho_rescaled": 0.11575930661979891
+          },
+          {
+            "cell": "A/2006",
+            "rho": 0.1178409480525901,
+            "rho_rescaled": 0.11784094805259004
+          }
+        ],
+        "smallest_capital_move": 0.02299027887958316,
+        "worst_currency_move": 3.608224830031759e-16
+      }
+    },
+    {
+      "criterion": "how far the cross-country comparison field is from being one level per position, against the curvature floor",
+      "detail": "1,485 cross-sections. rho median 0.1045, p10 0.0623, p90 0.1690. curvature floor (share replaced by its own quadratic on the mix) median 0.0209. rho over the floor: median 4.838, p10 2.008, p90 24.266; the floor accounts for a median 4.3% of rho squared. cross-sections with rho above twice the floor: 1,338 of 1,485.",
+      "kind": "own_reading",
+      "name": "B101-23",
+      "passed": true,
+      "payload": {
+        "above_twice_floor": 1338,
+        "bottom20": [
+          {
+            "cell": "L/2007",
+            "industry": "L",
+            "n": 22,
+            "norm": 6.658479196303125,
+            "resid": 0.1448286722556451,
+            "rho": 0.02175101370536021,
+            "rho_linear": 1.0774367695269434e-15,
+            "rho_linear_r2": 0.5165772309283021,
+            "rho_quadratic": 0.004430318432911586,
+            "rho_quadratic_r2": 0.536095268072476,
+            "share_max": 0.21307179228055514,
+            "share_min": 0.029198783394419142,
+            "x_spread": 2.0652248195806537,
+            "year": 2007
+          },
+          {
+            "cell": "L/2014",
+            "industry": "L",
+            "n": 21,
+            "norm": 5.856637578409716,
+            "resid": 0.12706433582244583,
+            "rho": 0.02169578262634245,
+            "rho_linear": 1.0828867911869837e-15,
+            "rho_linear_r2": 0.5381311148966553,
+            "rho_quadratic": 0.009818650992759654,
+            "rho_quadratic_r2": 0.632637389454431,
+            "share_max": 0.22187385192777206,
+            "share_min": 0.030433109164016984,
+            "x_spread": 2.020910009074897,
+            "year": 2014
+          },
+          {
+            "cell": "L/2016",
+            "industry": "L",
+            "n": 21,
+            "norm": 5.8754214328169585,
+            "resid": 0.12518713356511882,
+            "rho": 0.0213069198518919,
+            "rho_linear": 7.969293526662796e-16,
+            "rho_linear_r2": 0.5499180580182146,
+            "rho_quadratic": 0.009157886119521322,
+            "rho_quadratic_r2": 0.6328648542312731,
+            "share_max": 0.22341470206613032,
+            "share_min": 0.0320405500978601,
+            "x_spread": 2.0321388906423383,
+            "year": 2016
+          },
+          {
+            "cell": "L/2004",
+            "industry": "L",
+            "n": 21,
+            "norm": 6.255074643776367,
+            "resid": 0.13216715492237074,
+            "rho": 0.02112958876579891,
+            "rho_linear": 8.941406833768505e-16,
+            "rho_linear_r2": 0.5776115563075471,
+            "rho_quadratic": 0.005647227297314762,
+            "rho_quadratic_r2": 0.6069857964970005,
+            "share_max": 0.20429285926631588,
+            "share_min": 0.031106817260937773,
+            "x_spread": 1.9326243673691152,
+            "year": 2004
+          },
+          {
+            "cell": "L/2002",
+            "industry": "L",
+            "n": 22,
+            "norm": 8.30078789938235,
+            "resid": 0.17120396545821218,
+            "rho": 0.020625025905185605,
+            "rho_linear": 9.920023898407512e-16,
+            "rho_linear_r2": 0.3897046506944287,
+            "rho_quadratic": 0.0015514594466532429,
+            "rho_quadratic_r2": 0.3930603631358701,
+            "share_max": 0.24117303889370098,
+            "share_min": 0.02561567592774189,
+            "x_spread": 1.7076219226671228,
+            "year": 2002
+          },
+          {
+            "cell": "L/2005",
+            "industry": "L",
+            "n": 21,
+            "norm": 6.073107009373785,
+            "resid": 0.12500255339157457,
+            "rho": 0.020582965720616197,
+            "rho_linear": 1.1848177260647327e-15,
+            "rho_linear_r2": 0.5689795756497567,
+            "rho_quadratic": 0.005666010019542447,
+            "rho_quadratic_r2": 0.6009554611217434,
+            "share_max": 0.19814811716193168,
+            "share_min": 0.029038360511171115,
+            "x_spread": 1.9529318270956795,
+            "year": 2005
+          },
+          {
+            "cell": "L/2012",
+            "industry": "L",
+            "n": 21,
+            "norm": 6.106844253584995,
+            "resid": 0.12528987547254003,
+            "rho": 0.020516304374225552,
+            "rho_linear": 8.049113079252082e-16,
+            "rho_linear_r2": 0.5660245845796633,
+            "rho_quadratic": 0.009020905629055616,
+            "rho_quadratic_r2": 0.6498707117124292,
+            "share_max": 0.21622314185006866,
+            "share_min": 0.030586959195098334,
+            "x_spread": 2.176336117551422,
+            "year": 2012
+          },
+          {
+            "cell": "L/2003",
+            "industry": "L",
+            "n": 22,
+            "norm": 8.018609287124015,
+            "resid": 0.16425032074774482,
+            "rho": 0.020483641846908776,
+            "rho_linear": 8.715486781911619e-16,
+            "rho_linear_r2": 0.4323038070777572,
+            "rho_quadratic": 0.0032025022411409326,
+            "rho_quadratic_r2": 0.445839190797809,
+            "share_max": 0.23311381125381855,
+            "share_min": 0.02750293119091104,
+            "x_spread": 1.9433802763089938,
+            "year": 2003
+          },
+          {
+            "cell": "L/2001",
+            "industry": "L",
+            "n": 22,
+            "norm": 7.922524241953438,
+            "resid": 0.1603778515881294,
+            "rho": 0.020243276850937776,
+            "rho_linear": 1.0381508739246841e-15,
+            "rho_linear_r2": 0.4953359882102055,
+            "rho_quadratic": 0.006891808236644007,
+            "rho_quadratic_r2": 0.55221610010756,
+            "share_max": 0.23008614928955318,
+            "share_min": 0.025489180181721683,
+            "x_spread": 1.9388131651009113,
+            "year": 2001
+          },
+          {
+            "cell": "L/2013",
+            "industry": "L",
+            "n": 21,
+            "norm": 6.137856630538229,
+            "resid": 0.1238122801537398,
+            "rho": 0.020171908144241336,
+            "rho_linear": 9.846966291712567e-16,
+            "rho_linear_r2": 0.5756927410697159,
+            "rho_quadratic": 0.008903466251089289,
+            "rho_quadratic_r2": 0.6582412382288656,
+            "share_max": 0.21265862505671232,
+            "share_min": 0.030987708912957858,
+            "x_spread": 2.131976450139229,
+            "year": 2013
+          },
+          {
+            "cell": "L/1999",
+            "industry": "L",
+            "n": 19,
+            "norm": 7.479522089846423,
+            "resid": 0.14972330724957628,
+            "rho": 0.020017763896015252,
+            "rho_linear": 7.458723211111876e-16,
+            "rho_linear_r2": 0.3732759986746932,
+            "rho_quadratic": 0.00194271748997501,
+            "rho_quadratic_r2": 0.37901428922019276,
+            "share_max": 0.21973608165844727,
+            "share_min": 0.021942208499073024,
+            "x_spread": 1.8285224814264698,
+            "year": 1999
+          },
+          {
+            "cell": "L/1996",
+            "industry": "L",
+            "n": 19,
+            "norm": 8.571182538757872,
+            "resid": 0.16644787879837203,
+            "rho": 0.019419476606140917,
+            "rho_linear": 6.611320710283637e-16,
+            "rho_linear_r2": 0.29302060046802947,
+            "rho_quadratic": 0.005811154328949345,
+            "rho_quadratic_r2": 0.3560096320902393,
+            "share_max": 0.1771438164255585,
+            "share_min": 0.019075985469941513,
+            "x_spread": 2.278982334016285,
+            "year": 1996
+          },
+          {
+            "cell": "L/1997",
+            "industry": "L",
+            "n": 19,
+            "norm": 8.117456622191426,
+            "resid": 0.15285182402360892,
+            "rho": 0.01883001426896992,
+            "rho_linear": 8.781795527534614e-16,
+            "rho_linear_r2": 0.310770909582766,
+            "rho_quadratic": 0.005038457442042642,
+            "rho_quadratic_r2": 0.3596204310194373,
+            "share_max": 0.18492136905723888,
+            "share_min": 0.02036432468295134,
+            "x_spread": 2.012434586477996,
+            "year": 1997
+          },
+          {
+            "cell": "L/1998",
+            "industry": "L",
+            "n": 19,
+            "norm": 7.7322200246379715,
+            "resid": 0.1445535843843281,
+            "rho": 0.018694965213576706,
+            "rho_linear": 8.697736085843459e-16,
+            "rho_linear_r2": 0.3451266467769092,
+            "rho_quadratic": 0.0023664434467377386,
+            "rho_quadratic_r2": 0.3554278599967644,
+            "share_max": 0.19398134699891123,
+            "share_min": 0.021801952305389824,
+            "x_spread": 1.992370773771845,
+            "year": 1998
+          },
+          {
+            "cell": "L/2021",
+            "industry": "L",
+            "n": 21,
+            "norm": 6.099302842291798,
+            "resid": 0.10606295022141216,
+            "rho": 0.017389356286096343,
+            "rho_linear": 7.315923120700972e-16,
+            "rho_linear_r2": 0.5415377495673716,
+            "rho_quadratic": 0.004287173580660817,
+            "rho_quadratic_r2": 0.5687846496056677,
+            "share_max": 0.1717538232780695,
+            "share_min": 0.01326744278970784,
+            "x_spread": 1.8183496000657309,
+            "year": 2021
+          },
+          {
+            "cell": "L/1995",
+            "industry": "L",
+            "n": 19,
+            "norm": 8.421159129574502,
+            "resid": 0.14444608111220175,
+            "rho": 0.01715275520740578,
+            "rho_linear": 8.307163922488573e-16,
+            "rho_linear_r2": 0.4281476906039503,
+            "rho_quadratic": 0.0062177671372859004,
+            "rho_quadratic_r2": 0.5032467157066604,
+            "share_max": 0.14031253240804772,
+            "share_min": 0.012518099186742461,
+            "x_spread": 2.3971824655110936,
+            "year": 1995
+          },
+          {
+            "cell": "L/2011",
+            "industry": "L",
+            "n": 21,
+            "norm": 5.702209001445762,
+            "resid": 0.09598444121272834,
+            "rho": 0.016832852178584132,
+            "rho_linear": 9.624745881958794e-16,
+            "rho_linear_r2": 0.6093885499728653,
+            "rho_quadratic": 0.006759146757831511,
+            "rho_quadratic_r2": 0.6723175164108901,
+            "share_max": 0.18923795886981476,
+            "share_min": 0.03067921859021389,
+            "x_spread": 2.1217490268883186,
+            "year": 2011
+          },
+          {
+            "cell": "L/2008",
+            "industry": "L",
+            "n": 21,
+            "norm": 5.700326405742997,
+            "resid": 0.0850009618411507,
+            "rho": 0.014911595545741636,
+            "rho_linear": 9.216346561566053e-16,
+            "rho_linear_r2": 0.6480693455480104,
+            "rho_quadratic": 0.004678204074082637,
+            "rho_quadratic_r2": 0.6825503371456771,
+            "share_max": 0.1647035267955345,
+            "share_min": 0.03024792119594409,
+            "x_spread": 2.092961987507489,
+            "year": 2008
+          },
+          {
+            "cell": "L/2009",
+            "industry": "L",
+            "n": 21,
+            "norm": 5.735498765317444,
+            "resid": 0.0851097673489846,
+            "rho": 0.014839122250996423,
+            "rho_linear": 8.673775003445008e-16,
+            "rho_linear_r2": 0.6431359631764435,
+            "rho_quadratic": 0.003219550456587373,
+            "rho_quadratic_r2": 0.6598894584796476,
+            "share_max": 0.15900378954764777,
+            "share_min": 0.03198384118616426,
+            "x_spread": 2.100011649883216,
+            "year": 2009
+          },
+          {
+            "cell": "L/2010",
+            "industry": "L",
+            "n": 21,
+            "norm": 5.89800969925967,
+            "resid": 0.0851209722894775,
+            "rho": 0.014432151968173613,
+            "rho_linear": 8.663876879947626e-16,
+            "rho_linear_r2": 0.619864908029204,
+            "rho_quadratic": 0.003417669475240278,
+            "rho_quadratic_r2": 0.6411628260519036,
+            "share_max": 0.16204310559147023,
+            "share_min": 0.031422862428733614,
+            "x_spread": 2.1553565867921707,
+            "year": 2010
+          }
+        ],
+        "floor_median": 0.020873090993581863,
+        "floor_share_of_rho2_median": 0.04271890676551422,
+        "n_cells": 1485,
+        "ratio_median": 4.838268155944307,
+        "ratio_p10": 2.0080238251692775,
+        "ratio_p90": 24.2659458522387,
+        "rho_median": 0.10445230919811345,
+        "rho_p10": 0.062258273985548306,
+        "rho_p90": 0.16903267387819723,
+        "top20": [
+          {
+            "cell": "Q87-Q88/1997",
+            "industry": "Q87-Q88",
+            "n": 13,
+            "norm": 1.665886475633677,
+            "resid": 0.5036835865542153,
+            "rho": 0.30235168717761635,
+            "rho_linear": 1.030636141567283e-15,
+            "rho_linear_r2": 0.2968775198616701,
+            "rho_quadratic": 0.1971671776020819,
+            "rho_quadratic_r2": 0.5521396060686463,
+            "share_max": 0.9785481590952092,
+            "share_min": 0.6509841942721443,
+            "x_spread": 3.6925245740868764,
+            "year": 1997
+          },
+          {
+            "cell": "Q87-Q88/2000",
+            "industry": "Q87-Q88",
+            "n": 13,
+            "norm": 2.0748165443835354,
+            "resid": 0.6262508770288626,
+            "rho": 0.3018343374618371,
+            "rho_linear": 1.1136045165975015e-15,
+            "rho_linear_r2": 0.2509214046498053,
+            "rho_quadratic": 0.1131594343388848,
+            "rho_quadratic_r2": 0.343149201250355,
+            "share_max": 0.961336625223462,
+            "share_min": 0.6293076264953317,
+            "x_spread": 3.6550727611050284,
+            "year": 2000
+          },
+          {
+            "cell": "Q87-Q88/1998",
+            "industry": "Q87-Q88",
+            "n": 13,
+            "norm": 2.0118875749189904,
+            "resid": 0.5912374925087834,
+            "rho": 0.2938720333478822,
+            "rho_linear": 1.1353521740247536e-15,
+            "rho_linear_r2": 0.2681356774600602,
+            "rho_quadratic": 0.19593203463692793,
+            "rho_quadratic_r2": 0.5434411070249038,
+            "share_max": 0.9703599824680118,
+            "share_min": 0.6074105170700359,
+            "x_spread": 3.7194774550879703,
+            "year": 1998
+          },
+          {
+            "cell": "Q87-Q88/2005",
+            "industry": "Q87-Q88",
+            "n": 12,
+            "norm": 1.2968604338307101,
+            "resid": 0.37520758744123645,
+            "rho": 0.28931994349841916,
+            "rho_linear": 1.0677225975889305e-15,
+            "rho_linear_r2": 0.33626377324414325,
+            "rho_quadratic": 0.21098672472310048,
+            "rho_quadratic_r2": 0.6387832460925336,
+            "share_max": 0.9751760526777794,
+            "share_min": 0.6121267996982572,
+            "x_spread": 2.43170688442837,
+            "year": 2005
+          },
+          {
+            "cell": "Q87-Q88/1999",
+            "industry": "Q87-Q88",
+            "n": 13,
+            "norm": 2.003483995808329,
+            "resid": 0.5743774212682675,
+            "rho": 0.2866892984770404,
+            "rho_linear": 1.1589901521857818e-15,
+            "rho_linear_r2": 0.27154552033363033,
+            "rho_quadratic": 0.1392469647003607,
+            "rho_quadratic_r2": 0.41523777060302247,
+            "share_max": 0.9591189619662371,
+            "share_min": 0.6329309108439786,
+            "x_spread": 3.6319350330566476,
+            "year": 1999
+          },
+          {
+            "cell": "Q87-Q88/2007",
+            "industry": "Q87-Q88",
+            "n": 12,
+            "norm": 1.214059845396213,
+            "resid": 0.3443714104242142,
+            "rho": 0.28365274721018985,
+            "rho_linear": 1.3755611638674835e-15,
+            "rho_linear_r2": 0.2873335151865324,
+            "rho_quadratic": 0.19972227355314642,
+            "rho_quadratic_r2": 0.6166584431727169,
+            "share_max": 0.9855156656317252,
+            "share_min": 0.6679520941378423,
+            "x_spread": 2.3891003705607137,
+            "year": 2007
+          },
+          {
+            "cell": "P/1997",
+            "industry": "P",
+            "n": 20,
+            "norm": 2.017228884197041,
+            "resid": 0.5695779974491006,
+            "rho": 0.28235665368028945,
+            "rho_linear": 1.3317790154025389e-15,
+            "rho_linear_r2": 0.26623325652191865,
+            "rho_quadratic": 0.008584942142296456,
+            "rho_quadratic_r2": 0.2670025727947929,
+            "share_max": 0.9811054300719817,
+            "share_min": 0.6235518308644905,
+            "x_spread": 3.457232389129979,
+            "year": 1997
+          },
+          {
+            "cell": "Q87-Q88/1995",
+            "industry": "Q87-Q88",
+            "n": 13,
+            "norm": 3.3815259308644885,
+            "resid": 0.9216476864906711,
+            "rho": 0.2725537835089295,
+            "rho_linear": 6.554843012694736e-16,
+            "rho_linear_r2": 0.054870133382526665,
+            "rho_quadratic": 0.11529576581667937,
+            "rho_quadratic_r2": 0.19245955126473602,
+            "share_max": 0.9559371273156703,
+            "share_min": 0.49522613920789166,
+            "x_spread": 3.949356579953001,
+            "year": 1995
+          },
+          {
+            "cell": "P/1996",
+            "industry": "P",
+            "n": 20,
+            "norm": 2.134647736976861,
+            "resid": 0.5800609745185664,
+            "rho": 0.271736157901192,
+            "rho_linear": 1.1069046698635464e-15,
+            "rho_linear_r2": 0.1953084364351333,
+            "rho_quadratic": 0.00306060312483418,
+            "rho_quadratic_r2": 0.19542380499454304,
+            "share_max": 0.9759618295369701,
+            "share_min": 0.6237164130838196,
+            "x_spread": 3.445264754960842,
+            "year": 1996
+          },
+          {
+            "cell": "Q87-Q88/2006",
+            "industry": "Q87-Q88",
+            "n": 12,
+            "norm": 1.2936275632909826,
+            "resid": 0.3475681555411695,
+            "rho": 0.2686771412453192,
+            "rho_linear": 1.202722187237978e-15,
+            "rho_linear_r2": 0.274998670179017,
+            "rho_quadratic": 0.20312212098287655,
+            "rho_quadratic_r2": 0.645711658497196,
+            "share_max": 0.985033537212171,
+            "share_min": 0.6466229200309029,
+            "x_spread": 2.3377582266084334,
+            "year": 2006
+          },
+          {
+            "cell": "P/1998",
+            "industry": "P",
+            "n": 20,
+            "norm": 2.1943460160007304,
+            "resid": 0.5876921984375749,
+            "rho": 0.26782111579132983,
+            "rho_linear": 1.107686090125364e-15,
+            "rho_linear_r2": 0.21141899778447593,
+            "rho_quadratic": 0.0309434890101255,
+            "rho_quadratic_r2": 0.22254454529553525,
+            "share_max": 0.9819877424836786,
+            "share_min": 0.6142756365062003,
+            "x_spread": 3.3899705365902157,
+            "year": 1998
+          },
+          {
+            "cell": "P/1999",
+            "industry": "P",
+            "n": 20,
+            "norm": 2.1231037852165073,
+            "resid": 0.5637791737716299,
+            "rho": 0.2655448017649017,
+            "rho_linear": 1.4139559557137146e-15,
+            "rho_linear_r2": 0.20396747210157573,
+            "rho_quadratic": 0.021599555537803836,
+            "rho_quadratic_r2": 0.2096588602622006,
+            "share_max": 0.9514549577638691,
+            "share_min": 0.6201133690497213,
+            "x_spread": 3.3529377042944866,
+            "year": 1999
+          },
+          {
+            "cell": "P/1995",
+            "industry": "P",
+            "n": 20,
+            "norm": 2.23975201517646,
+            "resid": 0.5839360629659599,
+            "rho": 0.2607146054604417,
+            "rho_linear": 1.355223789606373e-15,
+            "rho_linear_r2": 0.196372387327449,
+            "rho_quadratic": 0.010089911503383498,
+            "rho_quadratic_r2": 0.19769753423321068,
+            "share_max": 0.9744761040481491,
+            "share_min": 0.6278634609191106,
+            "x_spread": 3.6285221497879974,
+            "year": 1995
+          },
+          {
+            "cell": "P/2000",
+            "industry": "P",
+            "n": 23,
+            "norm": 2.3300541771305463,
+            "resid": 0.6053409579809965,
+            "rho": 0.25979694546264664,
+            "rho_linear": 1.6223278015454735e-15,
+            "rho_linear_r2": 0.11668500523175795,
+            "rho_quadratic": 0.014085578557686308,
+            "rho_quadratic_r2": 0.11960673239228181,
+            "share_max": 0.9600455962486097,
+            "share_min": 0.6292491354908369,
+            "x_spread": 3.238016982141181,
+            "year": 2000
+          },
+          {
+            "cell": "Q87-Q88/1996",
+            "industry": "Q87-Q88",
+            "n": 13,
+            "norm": 3.2699111411130244,
+            "resid": 0.8428335170448761,
+            "rho": 0.25775425712577293,
+            "rho_linear": 7.384561455524267e-16,
+            "rho_linear_r2": 0.04832227867002159,
+            "rho_quadratic": 0.07604229516333441,
+            "rho_quadratic_r2": 0.11472684479126838,
+            "share_max": 0.9574596333654765,
+            "share_min": 0.49175732421875,
+            "x_spread": 3.7662959549502126,
+            "year": 1996
+          },
+          {
+            "cell": "Q87-Q88/2004",
+            "industry": "Q87-Q88",
+            "n": 12,
+            "norm": 1.254612792032795,
+            "resid": 0.3163994512843499,
+            "rho": 0.2521889249763678,
+            "rho_linear": 1.3504324008890219e-15,
+            "rho_linear_r2": 0.1711378559713702,
+            "rho_quadratic": 0.14783151974387113,
+            "rho_quadratic_r2": 0.4142108497711129,
+            "share_max": 0.976273962455029,
+            "share_min": 0.7499902335710631,
+            "x_spread": 2.5326900453471497,
+            "year": 2004
+          },
+          {
+            "cell": "Q87-Q88/2015",
+            "industry": "Q87-Q88",
+            "n": 14,
+            "norm": 1.270715948439387,
+            "resid": 0.31424065461146095,
+            "rho": 0.2472941769538593,
+            "rho_linear": 1.4616476350938581e-15,
+            "rho_linear_r2": 0.19219467751265984,
+            "rho_quadratic": 0.13183879232546047,
+            "rho_quadratic_r2": 0.40915742955633994,
+            "share_max": 0.9821864134276893,
+            "share_min": 0.7640861160173129,
+            "x_spread": 2.386326186250681,
+            "year": 2015
+          },
+          {
+            "cell": "Q87-Q88/2001",
+            "industry": "Q87-Q88",
+            "n": 12,
+            "norm": 1.5240913864372923,
+            "resid": 0.37641212204284674,
+            "rho": 0.24697477158685718,
+            "rho_linear": 9.25015776424788e-16,
+            "rho_linear_r2": 0.024827822823122125,
+            "rho_quadratic": 0.025115392118757685,
+            "rho_quadratic_r2": 0.03429534249142363,
+            "share_max": 0.961657574967095,
+            "share_min": 0.6840061966927619,
+            "x_spread": 2.1609111771815095,
+            "year": 2001
+          },
+          {
+            "cell": "Q87-Q88/2014",
+            "industry": "Q87-Q88",
+            "n": 14,
+            "norm": 1.1628706236683246,
+            "resid": 0.2826147487189957,
+            "rho": 0.24303197876602603,
+            "rho_linear": 1.556805015796281e-15,
+            "rho_linear_r2": 0.28456740889009113,
+            "rho_quadratic": 0.16899924758655874,
+            "rho_quadratic_r2": 0.5965726818828136,
+            "share_max": 0.9855837953310589,
+            "share_min": 0.7615579692308394,
+            "x_spread": 2.4008054255323277,
+            "year": 2014
+          },
+          {
+            "cell": "P/2001",
+            "industry": "P",
+            "n": 23,
+            "norm": 2.1650822278130994,
+            "resid": 0.5195194160399345,
+            "rho": 0.23995366520775946,
+            "rho_linear": 1.539002975836434e-15,
+            "rho_linear_r2": 0.19152222458716106,
+            "rho_quadratic": 0.024166423744736282,
+            "rho_quadratic_r2": 0.20018227268156974,
+            "share_max": 0.9585669800552903,
+            "share_min": 0.6404084219896244,
+            "x_spread": 3.157359672469152,
+            "year": 2001
+          }
+        ]
+      }
+    },
+    {
+      "cite": "Griffith, Redding and Van Reenen (2004), equations 9 to 11 and footnote 20",
+      "criterion": "the position-scalar reading of productivity predicts rho at the curvature floor",
+      "detail": "the rival's point prediction is rho at the curvature floor, which is where it sits when one scalar per position reproduces every pairwise comparison. 0 of 1,485 cross-sections (0.00%) sit at or below the floor. Largest rho 0.3024. PASS means the prediction does not hold.",
+      "grid": "B",
+      "grid_note": {
+        "ours": "this framework reads the same cross-sections and says the comparison field is not a gradient whenever two classes sit at one position on different terms, so it predicts a reading above the curvature floor, and larger where the share is less a function of the mix",
+        "reality": "median rho 0.1045 against a median floor of 0.0209, and no cross-section of 1,485 sits at or below the floor",
+        "rival": "the position-scalar reading says the field is the difference of one level per position, so it predicts a reading at the floor"
+      },
+      "kind": "rival",
+      "name": "B101-24",
+      "passed": true,
+      "payload": {
+        "at_floor": 0,
+        "fraction": 0.0,
+        "sample": [
+          {
+            "at_floor": false,
+            "cell": "A/1995",
+            "floor": 0.007798340278336848,
+            "rho": 0.1453818519451339
+          },
+          {
+            "at_floor": false,
+            "cell": "A/1996",
+            "floor": 0.005688385898381025,
+            "rho": 0.14680985778544228
+          },
+          {
+            "at_floor": false,
+            "cell": "A/1997",
+            "floor": 0.031257382494802456,
+            "rho": 0.1615858016597213
+          },
+          {
+            "at_floor": false,
+            "cell": "A/1998",
+            "floor": 0.0587295852895012,
+            "rho": 0.16279285147497718
+          },
+          {
+            "at_floor": false,
+            "cell": "A/1999",
+            "floor": 0.049307143904754304,
+            "rho": 0.15093420400008878
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2000",
+            "floor": 0.01821299799393014,
+            "rho": 0.14022216566160822
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2001",
+            "floor": 0.01465102130851845,
+            "rho": 0.13937636996164068
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2002",
+            "floor": 0.01034723918387995,
+            "rho": 0.12845598518918275
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2003",
+            "floor": 0.012783126583171656,
+            "rho": 0.1230010686193061
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2004",
+            "floor": 0.02092159472876755,
+            "rho": 0.11533678002345267
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2005",
+            "floor": 0.0300002691934767,
+            "rho": 0.11575930661979901
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2006",
+            "floor": 0.020838757049101143,
+            "rho": 0.1178409480525901
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2007",
+            "floor": 0.043814323777109775,
+            "rho": 0.10941943501135831
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2008",
+            "floor": 0.03654473386153085,
+            "rho": 0.11197142466924644
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2009",
+            "floor": 0.02062808136184599,
+            "rho": 0.10685580446393189
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2010",
+            "floor": 0.03593074295788646,
+            "rho": 0.09746609952876291
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2011",
+            "floor": 0.04260414670849934,
+            "rho": 0.10210538646803853
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2012",
+            "floor": 0.01886769740859742,
+            "rho": 0.10615502289851624
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2013",
+            "floor": 0.026923885632800668,
+            "rho": 0.09500732440696076
+          },
+          {
+            "at_floor": false,
+            "cell": "A/2014",
+            "floor": 0.014251788953598231,
+            "rho": 0.1022815654400675
+          }
+        ],
+        "total": 1485,
+        "worst_rho": 0.30235168717761635
+      },
+      "rival_entailment": "omega_ab = A_b - A_a for some node field A puts omega in im d0, so the residual of the least squares projection onto im d0 is zero and rho = 0. The discrete index adds a curvature term even under one field, and the quadratic floor measures it, so the prediction is read as rho at the floor rather than rho at zero.",
+      "rival_premise": "productivity is a scalar attached to a position, one level A per country-industry-year, so any pairwise comparison is the difference of two node values",
+      "rival_shape": "point prediction"
+    },
+    {
+      "criterion": "which mix definitions the disk can carry, and which of them are degenerate before anything is measured",
+      "detail": "six candidate mixes on disk. The two growth accounts quantity indices read exactly 100 in 1,079 and 1,156 rows over 1,118 series, one base year each (most common base year 2015, 1,053 series), so a cross-section of ln(LAB_QI/CAP_QI) is exactly zero for every country and carries nothing. ln(LAB/CAP) is the logit of the share by definition, so it is an identity and not a mix; on the 25,881 cells with positive capital compensation the two agree to 2.8e-09, which is the cancellation in 1 - L/(L+C) at a share of 1.000000000 and not a reading. It is undefined on the other 5 cells, where the industry lost money (0 shares outside [0, 1]). The three capital stock series read 100 in zero rows: they are levels, and K_GFCF is the one this station uses.",
+      "kind": "instrument",
+      "name": "B101-25",
+      "passed": true,
+      "payload": {
+        "base_year_counts": {
+          "1995": 1,
+          "1996": 1,
+          "2015": 1053
+        },
+        "census": [
+          {
+            "at_100": 1079,
+            "distinct_series": 1118,
+            "n": 22678,
+            "series": "LAB_QI",
+            "verdict": "index, one base year per series"
+          },
+          {
+            "at_100": 1156,
+            "distinct_series": 1121,
+            "n": 26102,
+            "series": "CAP_QI",
+            "verdict": "index, one base year per series"
+          },
+          {
+            "at_100": 0,
+            "distinct_series": 0,
+            "n": 25881,
+            "negative_CAP": 5,
+            "series": "ln(LAB/CAP)",
+            "share_outside_unit": 0,
+            "verdict": "identically the logit of the share, worst gap 2.758e-09"
+          },
+          {
+            "at_100": 0,
+            "distinct_series": 0,
+            "n": 35709,
+            "series": "K_GFCF",
+            "verdict": "level, national currency, no index base"
+          },
+          {
+            "at_100": 0,
+            "distinct_series": 0,
+            "n": 33141,
+            "series": "Kq_GFCF",
+            "verdict": "level, national currency, no index base"
+          },
+          {
+            "at_100": 0,
+            "distinct_series": 0,
+            "n": 32453,
+            "series": "Kpyp_GFCF",
+            "verdict": "level, national currency, no index base"
+          }
+        ],
+        "logit_gap": 2.7575843830618396e-09
+      }
+    }
+  ],
+  "stage": "B101"
+}

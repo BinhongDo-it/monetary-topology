@@ -1,0 +1,88 @@
+{
+  "config": {
+    "arm": "one, the observed side of the partition claim",
+    "estimates": "none, no number was pulled; this reads how the agencies say their own classifications are built",
+    "middle_layer_source": "b33_filing_status.json",
+    "not_done": "no amounts were read, so this says nothing about whether the two classes pay the same effective rate at the same income; that is the next cut and it needs one table",
+    "question": "is the fold a property of the price list alone, or does the whole administrative system carry it",
+    "read_on": "2026-09-11"
+  },
+  "criteria": [
+    {
+      "detail": "collection separates: True; price list separates: False; publication separates: True; fold at: price_list",
+      "kind": "own_reading",
+      "name": "B33-18 the two classes are distinguished at collection and at publication and folded in between, so the fold is a property of the price list and not of the administrative system that surrounds it",
+      "passed": true,
+      "state_map": {
+        "everywhere": "every layer folds them, so the distinction is not carried anywhere and the reading is about the system rather than the price list",
+        "middle_only": "the fold sits in the price list alone",
+        "nowhere": "no layer folds them, which would contradict arm one",
+        "other": "some other pattern, name it rather than forcing it"
+      }
+    },
+    {
+      "detail": "read from b33_filing_status.json: 4 classes over the number-bearing provisions against 5 written, folded cells [['MFJ', 'QSS']]",
+      "kind": "instrument",
+      "name": "B33-19 the price list's count is read out of arm one's record rather than typed here, so editing arm one's dimensions moves this number with it",
+      "passed": true
+    },
+    {
+      "detail": "3 of 3 layers quoted; read in full 2 of 3; not read in full and saying so: publication",
+      "kind": "bookkeeping",
+      "name": "B33-20 every layer names its document and carries a phrase quoted from it, and the layer that was not read in full says so rather than being reported as read",
+      "passed": true
+    }
+  ],
+  "report": {
+    "fold_at": [
+      "price_list"
+    ],
+    "layers": [
+      {
+        "classes": 5,
+        "document": "Instructions for Form 1040, Filing Status",
+        "layer": "collection",
+        "quote": "Qualifying surviving spouse",
+        "read_in_full": true,
+        "reads": "five checkboxes on the return, and the surviving spouse has one of its own, so the taxpayer states which of the two they are at the moment of filing",
+        "separates": true
+      },
+      {
+        "classes": 4,
+        "document": "the provisions of the code that print numbers, as read by arm one: the rate table, the basic standard deduction and the alternative minimum tax exemption",
+        "folded_cells": [
+          [
+            "MFJ",
+            "QSS"
+          ]
+        ],
+        "layer": "price_list",
+        "quote": "Married individuals filing joint returns and surviving spouses",
+        "read_in_full": true,
+        "reads": "the two take the same cell in every one of these, so the price list writes one class where the other two layers write two",
+        "separates": false,
+        "source_record": "b33_filing_status.json",
+        "written_classes": 5
+      },
+      {
+        "classes": null,
+        "document": "SOI Tax Stats, historical data tables, and the basic tables of the complete report, which classify by marital status through tax year 2023",
+        "layer": "publication",
+        "not_read": "the stub of the current basic table classified by size of adjusted gross income and marital status was not opened, so the exact category names now in use are not read here. That would settle the class count of this layer; it does not affect whether this layer separates the two, which the published series already answers",
+        "quote": "Individual Income Tax Filing: Returns of Surviving Spouses",
+        "read_in_full": false,
+        "reads": "the revenue service publishes a count of returns of surviving spouses as a series of its own, annual, with values through 2016 in the mirror consulted here, so the two are distinguished on the way out as well as on the way in",
+        "separates": true
+      }
+    ],
+    "layers_named": 3,
+    "layers_read_in_full": 2,
+    "middle_read_from_record": true,
+    "separates": [
+      true,
+      false,
+      true
+    ]
+  },
+  "stage": "B33"
+}

@@ -1,0 +1,225 @@
+{
+  "config": {
+    "arithmetic": "fractions.Fraction, exact",
+    "cases": 5,
+    "rules": [
+      "first come first served",
+      "non-preemptive priority to class a"
+    ],
+    "service": "exponential, E[S^2] = 2 x^2",
+    "swaps": 4
+  },
+  "criteria": [
+    {
+      "detail": "Kleinrock's conservation law read back from Cobham's formulas: the work-weighted wait sum_p rho_p W_p is the same under first come first served and under non-preemptive priority, exactly, on 5 parameter sets. Cases where it moves: none.",
+      "kind": "known_answer",
+      "name": "B124-K1",
+      "passed": true
+    },
+    {
+      "detail": "on the two-place square, a pure reallocation has a zero symmetric part, its index part is 2 (w_b - w_a)(T_l - T_e), and in time units (w = 1) the square is zero. On a two-place swap the last holds by construction (the swap moves equal time), and what carries the conservation on a real queue is B124-K1. So Kleinrock's invariant is the zero time-unit square, not the symmetric half of the money square. Index mismatches: 0; non-zero symmetric parts on pure swaps: 0; time-unit squares not zero: 0. Pure swaps with a positive directed cycle (the classes gain by trading places, which a standing allocation needs a friction to prevent): 2 of 4.",
+      "kind": "own_reading",
+      "name": "B124-K2",
+      "passed": true
+    },
+    {
+      "detail": "the money dissipation rate moves by dC = rho_a dW_a (w_a/x_a - w_b/x_b) between the two rules. Since the rule moves waiting in every case (dW_a non-zero), dC is zero exactly where the two classes' value per unit of service is equal. Cases where the formula misses: 0; cases where the rule moves no waiting: 0, of 5; cases with dC zero: 1, each with equal value per unit of service: True.",
+      "kind": "own_reading",
+      "name": "B124-K3",
+      "passed": true
+    }
+  ],
+  "report": {
+    "queues": [
+      {
+        "conserved": true,
+        "dC": "-3/4",
+        "dC_formula": "-3/4",
+        "dC_matches": true,
+        "dC_zero": false,
+        "dW_a": "-1/3",
+        "dW_b": "1/3",
+        "money_rate_fcfs": "2.750000",
+        "money_rate_priority": "2.000000",
+        "params": [
+          "1/4",
+          "1",
+          "1/4",
+          "1",
+          "10",
+          "1"
+        ],
+        "value_per_service_equal": false,
+        "work_weighted_wait_fcfs": "1/2",
+        "work_weighted_wait_priority": "1/2"
+      },
+      {
+        "conserved": true,
+        "dC": "33/50",
+        "dC_formula": "33/50",
+        "dC_matches": true,
+        "dC_zero": false,
+        "dW_a": "-3/10",
+        "dW_b": "6/5",
+        "money_rate_fcfs": "2.340000",
+        "money_rate_priority": "3.000000",
+        "params": [
+          "1/5",
+          "2",
+          "1/10",
+          "1",
+          "3",
+          "7"
+        ],
+        "value_per_service_equal": false,
+        "work_weighted_wait_fcfs": "9/10",
+        "work_weighted_wait_priority": "9/10"
+      },
+      {
+        "conserved": true,
+        "dC": "-69/476",
+        "dC_formula": "-69/476",
+        "dC_matches": true,
+        "dC_zero": false,
+        "dW_a": "-115/119",
+        "dW_b": "69/238",
+        "money_rate_fcfs": "1.314286",
+        "money_rate_priority": "1.169328",
+        "params": [
+          "3/10",
+          "1/2",
+          "1/2",
+          "1",
+          "1",
+          "1"
+        ],
+        "value_per_service_equal": false,
+        "work_weighted_wait_fcfs": "299/280",
+        "work_weighted_wait_priority": "299/280"
+      },
+      {
+        "conserved": true,
+        "dC": "0",
+        "dC_formula": "0",
+        "dC_matches": true,
+        "dC_zero": true,
+        "dW_a": "-295/672",
+        "dW_b": "177/224",
+        "money_rate_fcfs": "3.441667",
+        "money_rate_priority": "3.441667",
+        "params": [
+          "1/10",
+          "3",
+          "1/3",
+          "1/2",
+          "12",
+          "2"
+        ],
+        "value_per_service_equal": true,
+        "work_weighted_wait_fcfs": "413/480",
+        "work_weighted_wait_priority": "413/480"
+      },
+      {
+        "conserved": true,
+        "dC": "-17/18",
+        "dC_formula": "-17/18",
+        "dC_matches": true,
+        "dC_zero": false,
+        "dW_a": "-17/12",
+        "dW_b": "17/9",
+        "money_rate_fcfs": "8.500000",
+        "money_rate_priority": "7.555556",
+        "params": [
+          "2/5",
+          "1",
+          "1/5",
+          "3/2",
+          "5",
+          "5"
+        ],
+        "value_per_service_equal": false,
+        "work_weighted_wait_fcfs": "119/60",
+        "work_weighted_wait_priority": "119/60"
+      }
+    ],
+    "swaps": [
+      {
+        "S": "-18",
+        "S_prime": "18",
+        "T": [
+          "1",
+          "3"
+        ],
+        "friction": "0",
+        "index": "-36",
+        "index_formula": "-36",
+        "index_matches": true,
+        "positive_cycle": true,
+        "sym": "0",
+        "time_unit_square_zero": true,
+        "w": [
+          "10",
+          "1"
+        ]
+      },
+      {
+        "S": "0",
+        "S_prime": "0",
+        "T": [
+          "2",
+          "2"
+        ],
+        "friction": "0",
+        "index": "0",
+        "index_formula": "0",
+        "index_matches": true,
+        "positive_cycle": false,
+        "sym": "0",
+        "time_unit_square_zero": true,
+        "w": [
+          "10",
+          "1"
+        ]
+      },
+      {
+        "S": "0",
+        "S_prime": "0",
+        "T": [
+          "0",
+          "5"
+        ],
+        "friction": "0",
+        "index": "0",
+        "index_formula": "0",
+        "index_matches": true,
+        "positive_cycle": false,
+        "sym": "0",
+        "time_unit_square_zero": true,
+        "w": [
+          "4",
+          "4"
+        ]
+      },
+      {
+        "S": "21",
+        "S_prime": "-21",
+        "T": [
+          "1",
+          "4"
+        ],
+        "friction": "0",
+        "index": "42",
+        "index_formula": "42",
+        "index_matches": true,
+        "positive_cycle": true,
+        "sym": "0",
+        "time_unit_square_zero": true,
+        "w": [
+          "2",
+          "9"
+        ]
+      }
+    ]
+  },
+  "stage": "B124"
+}

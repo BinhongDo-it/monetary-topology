@@ -126,10 +126,43 @@ Rule text can.
 
 **Neither of these belongs to any verdict above.**
 
-1. **The swine tongue candidate.** Its gate is the rule text for US swine
-   product access in the second half of 2022, which decides between an access
-   change and two goods under one code. Reading, no fetching.
-2. **B35-4**, registered and never run.
+1. **The swine tongue candidate. Gate answered 2026-09-10, and the arm is
+   narrowed rather than closed.** The gate was the rule text for US swine
+   product access in the second half of 2022, deciding between an access change
+   and two goods under one code. The rule text was chased through five source
+   classes and not reached; the arithmetic answered instead, and more sharply.
+   **Two goods under one code, in its sharpest form: not a code that always held
+   two, but contents moving between codes on the China leg from September.**
+   The union of the tongue and head-meat codes is continuous across the break in
+   both tonnage and unit value while each member separately is not, which a
+   demand episode inside one good cannot produce. A mixture with both endpoints
+   measured on the same leg before the break puts **0.662 to 0.907 of the
+   post-break tongue line at head meat's price**, with the eight pre-break
+   months run through the same arithmetic as a control returning -0.176 to
+   +0.079, and the **implied real tongue flow, 386 to 609 tonnes a month, inside
+   its own observed pre-break range of 79 to 699**. Sweeping the second endpoint
+   over 0.90 to 1.60 dollars a kilo holds the majority reading. **The leg itself
+   has no break**: August to September is rank 1 of 11 month-on-month steps in
+   the tongue unit value and rank 9 of 11 in the leg's total tonnage. The arm may
+   use January through August, and the independent count and the resolution
+   floor still come before it opens. `b35_tongue_anatomy.py`,
+   `b35_d23_tongue_break.py`.
+2. **Step against spike, run 2026-09-10. It is a step, and three years make the
+   move larger than one year showed.** All three outcomes carried readings
+   written before the pull; the branch that fires is the one requiring 2021 to
+   sit on the pre-break side and 2023 on the post-break side. **China-leg tongue
+   unit value: 2021 2.305-3.617, 2022 Jan-Aug 3.212-3.764, 2022 Sep-Dec
+   1.419-1.950, 2023 1.066-1.582** — 2021 overlaps the first, 2023 the second,
+   and the two do not overlap each other. **Head meat to China goes 81,424 to
+   26,023 to 713 tonnes a year, monotone, with four months of 2023 at exactly
+   zero; 2021's thinnest month is 8.7 times 2023's thickest.** The move is not
+   a two-code swap on this horizon: skins to China move x15.277 over the same
+   two years while hearts move x0.447. **Slaughter is excluded without any
+   weight assumption**: one tongue and four feet come off every hog, so both
+   lines meter the same animal count, and the foot line moves x1.058 while the
+   tongue line moves x12.765. Over all 36 months the tongue unit value spans
+   3.53x while the two codes together span 1.75x. `b35_step_or_spike.py`.
+3. **B35-4**, registered and never run.
 
 ## 7. Two things worth carrying elsewhere
 

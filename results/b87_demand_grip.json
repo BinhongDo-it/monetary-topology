@@ -1,0 +1,399 @@
+{
+ "config": {
+  "corn_input": [
+   0.1,
+   0.6
+  ],
+  "eps": 1e-06,
+  "imports": "b72_land_and_rent",
+  "labour_input": [
+   0.2,
+   1.5
+  ],
+  "lands": [
+   2,
+   3,
+   4,
+   5,
+   6
+  ],
+  "other_goods": 2,
+  "rate": 0.05,
+  "seed": 87,
+  "systems": 200
+ },
+ "criteria": [
+  {
+   "detail": "on all 200 systems the last step, with every land in use, returns B72's wage and B72's marginal land, worst wage gap 0.00e+00. B72's solver is imported rather than a second copy, so the two stations can disagree",
+   "kind": "known_answer",
+   "name": "B87-1",
+   "passed": true,
+   "statement": "with every land in use this is B72's Theorem 17(3)"
+  },
+  {
+   "detail": "sweeping demand over 200 systems, the cultivated set is nested at every step and takes exactly `k` distinct values, `k` running 2 to 6. **Counted rather than argued from the way the sweep is built**: the order is taken from the envelope, and a different order would break nesting rather than produce a different nesting",
+   "kind": "own_reading",
+   "name": "B87-2",
+   "passed": true,
+   "statement": "the cultivated set is nested in demand and takes at most k values"
+  },
+  {
+   "detail": "over 985 steps the first Betti number of the drawn graph equals the closed form `|S| + n`, the number of operated methods, on 985 of them, computed from B72's incidence matrix rather than from the formula. **A land is a pendant vertex**, so attaching it raises the vertex and edge counts together and leaves `b1` where it was; what moves `b1` is the process that works it. **The control is one land worked by two processes, which is intensive rent**: B72's Corollary 17.1 says that closes a cycle, and the builder returns 4 on three processes against 3 for the extensive case, so the measurement is live rather than a closed form handed back to itself",
+   "kind": "own_reading",
+   "name": "B87-3",
+   "passed": true,
+   "statement": "b1 read off the drawn graph against the closed form"
+  },
+  {
+   "detail": "inside a step, 1570 demand pairs that need the same lands move the wage by at most 0.00e+00. **Across a step, 585 adjacent pairs move it by at least 2.16e-04.** Both halves are required: a field that never moved is also what a demand that never reached the solve would look like, and the second half is what says the steps are steps. **The intensive step is left out of this comparison**: two methods on one land need the extra equation of B72's Corollary 17.1, which this station does not carry, so at that step it claims the graph and not the field",
+   "kind": "own_reading",
+   "name": "B87-4",
+   "passed": true,
+   "statement": "the field is constant within a step and moves across one"
+  },
+  {
+   "detail": "the first Betti number by step, printed as ladders rather than counted: [3, 4, 5, 6, 7, 9]; [3, 4, 5, 6, 8]; [3, 4, 5, 6, 8]; [3, 4, 5, 7]; [3, 4, 6]; [3, 4, 5, 6, 7, 8, 10] and 194 more. It rises by exactly one at every step on 200 of 200 systems. **B86's Theorem 30(4) says demand can neither create nor destroy an obstruction with one primary factor. With a scarce second factor it moves the dimension. **It moves it by one at each extensive step and by two at the intensive margin**, where a land taking a second method stops being pendant and closes a cycle, which is B72's Corollary 17.1 arriving as a step of the demand sweep.** What is claimed here is the dimension only: whether any particular cycle sum is non-zero is a reading and not this",
+   "kind": "own_reading",
+   "name": "B87-5",
+   "passed": true,
+   "statement": "b1 rises with demand one at a time, which is B86's Theorem 30(4) reversed"
+  },
+  {
+   "detail": "each of 585 thresholds is probed at plus and minus 1e-06 in demand: the cultivated set has m lands below it and one more above, on 585 of them. **The thresholds are checked rather than declared**, which is the same requirement gate six puts on a floor",
+   "kind": "instrument",
+   "name": "B87-6",
+   "passed": true,
+   "statement": "the thresholds are checked either side rather than declared"
+  },
+  {
+   "detail": "B86's file names this station against the registration it opened, including that its guess of a second potential is not the shape the answer took. `D20`",
+   "kind": "bookkeeping",
+   "name": "B87-7",
+   "passed": true,
+   "statement": "B86's registration is discharged and written back"
+  }
+ ],
+ "report": {
+  "B87-1": {
+   "systems": 200,
+   "worst_wage_gap": 0.0
+  },
+  "B87-2": {
+   "breaks": [],
+   "systems": 200
+  },
+  "B87-3": {
+   "control_ok": true,
+   "disagreements": [],
+   "intensive_control_b1": 4,
+   "steps": 985
+  },
+  "B87-4": {
+   "least_across": 0.00021644268778742148,
+   "pairs_across": 585,
+   "pairs_inside": 1570,
+   "worst_inside": 0.0
+  },
+  "B87-5": {
+   "irregular": [],
+   "ladders": [
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     6
+    ],
+    [
+     3,
+     4,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     8
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    [
+     3,
+     4,
+     5,
+     7
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ],
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     9
+    ]
+   ]
+  },
+  "B87-6": {
+   "misplaced": [],
+   "thresholds": 585
+  },
+  "B87-7": {
+   "b86_names_b87": true
+  }
+ },
+ "stage": "B87"
+}

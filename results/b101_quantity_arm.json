@@ -1,0 +1,445 @@
+{
+  "config": {
+    "mixes": {
+      "quantity": "ln(H_EMP / K_GFCF)",
+      "value": "ln(LAB / K_GFCF)",
+      "wage": "ln(LAB / H_EMP)"
+    },
+    "output": "VA_CP",
+    "seed": 0,
+    "share": "LAB / (LAB + CAP)",
+    "sources": [
+      "growth accounts basic.csv",
+      "capital accounts.csv",
+      "national accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "three mixes, which of them carries a currency, and the identity that ties two of them together",
+      "detail": "three mixes on the joined panel. A per country factor on the capital stock alone moves the reading in every one of them: quantity worst 0.0415, value worst 0.1385, wage worst 0.0339. The value mix and the quantity mix differ by exactly the log hourly labour cost, ln(LAB/H), to 8.9e-16, so they are one definition apart and that difference is itself a measured quantity rather than an unknown.",
+      "kind": "instrument",
+      "name": "B101-30",
+      "passed": true,
+      "payload": {
+        "by_mix": [
+          {
+            "median_move": 0.019745293089434193,
+            "mix": "quantity",
+            "worst_move": 0.041483838792046146
+          },
+          {
+            "median_move": 0.0599162851986719,
+            "mix": "value",
+            "worst_move": 0.13854554026033045
+          },
+          {
+            "median_move": 0.019919932613615757,
+            "mix": "wage",
+            "worst_move": 0.033934598552059145
+          }
+        ],
+        "identity_gap": 8.881784197001252e-16
+      }
+    },
+    {
+      "criterion": "the reading on the mix the source paper uses",
+      "detail": "1,485 cross-sections on the mix GRV uses, hours over the capital stock. rho median 0.0745, p10 0.0431, p90 0.1451; curvature floor median 0.0173; ratio median 4.321. At or below the floor in 0 of 1,485.",
+      "kind": "own_reading",
+      "name": "B101-31",
+      "passed": true,
+      "payload": {
+        "at_floor": 0,
+        "floor_median": 0.017328934039095564,
+        "n_cells": 1485,
+        "ratio_median": 4.321199313663687,
+        "rho_median": 0.07454776063382683,
+        "rho_p10": 0.043120766478033416,
+        "rho_p90": 0.14505263676609204,
+        "top20": [
+          {
+            "cell": "H52/2000",
+            "floor": 0.07410104520123821,
+            "n": 7,
+            "rho": 0.46103460745606467,
+            "rho_any_conversion": 6.033712019043497e-16,
+            "x_spread": 9.089598735807641
+          },
+          {
+            "cell": "H52/2001",
+            "floor": 0.05027374049258511,
+            "n": 7,
+            "rho": 0.4591565245542929,
+            "rho_any_conversion": 7.091128757968617e-16,
+            "x_spread": 9.033239415937928
+          },
+          {
+            "cell": "H52/2004",
+            "floor": 0.014539352424336786,
+            "n": 7,
+            "rho": 0.42483671165486536,
+            "rho_any_conversion": 6.116039479658106e-16,
+            "x_spread": 8.717132126370657
+          },
+          {
+            "cell": "H52/1999",
+            "floor": 0.20913954193715065,
+            "n": 7,
+            "rho": 0.4186916108281675,
+            "rho_any_conversion": 3.983973256709705e-16,
+            "x_spread": 9.105111481142178
+          },
+          {
+            "cell": "H52/1998",
+            "floor": 0.21933528338413422,
+            "n": 7,
+            "rho": 0.41681225210752304,
+            "rho_any_conversion": 4.091985893233159e-16,
+            "x_spread": 9.196523675948134
+          },
+          {
+            "cell": "H52/1997",
+            "floor": 0.2212923328871254,
+            "n": 7,
+            "rho": 0.40989250049267095,
+            "rho_any_conversion": 4.853014999668349e-16,
+            "x_spread": 9.157852270097308
+          },
+          {
+            "cell": "H52/1995",
+            "floor": 0.22688830035935162,
+            "n": 7,
+            "rho": 0.40574494751785917,
+            "rho_any_conversion": 4.750273450475034e-16,
+            "x_spread": 9.167724051729785
+          },
+          {
+            "cell": "H52/1996",
+            "floor": 0.23077850257920302,
+            "n": 7,
+            "rho": 0.3965983801166858,
+            "rho_any_conversion": 5.342879810115611e-16,
+            "x_spread": 9.102791772231653
+          },
+          {
+            "cell": "H52/2003",
+            "floor": 0.003518534112977415,
+            "n": 7,
+            "rho": 0.3639499596976457,
+            "rho_any_conversion": 3.9306253315846364e-16,
+            "x_spread": 8.971077619443822
+          },
+          {
+            "cell": "H52/2007",
+            "floor": 0.0052374148599322115,
+            "n": 7,
+            "rho": 0.3161337254432762,
+            "rho_any_conversion": 5.339361709323819e-16,
+            "x_spread": 8.407419463898936
+          },
+          {
+            "cell": "H52/2006",
+            "floor": 0.05987118842855822,
+            "n": 7,
+            "rho": 0.30113512787413477,
+            "rho_any_conversion": 5.459936071569246e-16,
+            "x_spread": 8.539304663100642
+          },
+          {
+            "cell": "H52/2002",
+            "floor": 0.04708602831536185,
+            "n": 7,
+            "rho": 0.2947942800938979,
+            "rho_any_conversion": 7.238471180534553e-16,
+            "x_spread": 9.180574073369057
+          },
+          {
+            "cell": "H52/2005",
+            "floor": 0.05594574562346921,
+            "n": 7,
+            "rho": 0.27819760484160777,
+            "rho_any_conversion": 4.976836784227875e-16,
+            "x_spread": 8.770224696763933
+          },
+          {
+            "cell": "J61/2003",
+            "floor": 0.0037987640525906485,
+            "n": 17,
+            "rho": 0.2700975442707501,
+            "rho_any_conversion": 6.993340051362293e-16,
+            "x_spread": 8.171064677021548
+          },
+          {
+            "cell": "J61/2004",
+            "floor": 0.011939172291901884,
+            "n": 17,
+            "rho": 0.2700585045927459,
+            "rho_any_conversion": 6.615366286034726e-16,
+            "x_spread": 8.138528060165438
+          },
+          {
+            "cell": "C19/2003",
+            "floor": 0.016252329015514575,
+            "n": 14,
+            "rho": 0.2509921035966359,
+            "rho_any_conversion": 5.177359510000191e-16,
+            "x_spread": 9.487369584177863
+          },
+          {
+            "cell": "B/2001",
+            "floor": 0.05706366236376939,
+            "n": 20,
+            "rho": 0.24263763374558156,
+            "rho_any_conversion": 8.249804506221617e-16,
+            "x_spread": 7.841043827250759
+          },
+          {
+            "cell": "B/2003",
+            "floor": 0.051289484624149714,
+            "n": 21,
+            "rho": 0.24145601105059802,
+            "rho_any_conversion": 4.649523525049062e-16,
+            "x_spread": 7.595891922535323
+          },
+          {
+            "cell": "J61/2002",
+            "floor": 0.0023510828435694274,
+            "n": 17,
+            "rho": 0.24065242730820496,
+            "rho_any_conversion": 6.83639816930337e-16,
+            "x_spread": 8.218677807149355
+          },
+          {
+            "cell": "B/2004",
+            "floor": 0.03406806842060899,
+            "n": 21,
+            "rho": 0.23939823873902155,
+            "rho_any_conversion": 5.986215607926792e-16,
+            "x_spread": 7.7315961670777025
+          }
+        ]
+      }
+    },
+    {
+      "criterion": "whether the two definitions give the same verdict",
+      "detail": "1,485 cross-sections read under both definitions. Above the curvature floor under both: 1,485; under neither: 0; disagreeing: 0. Quantity rho median 0.0745 against value 0.1045, rank correlation +0.006. D11 says report both rather than merge them; what they report is the same verdict.",
+      "kind": "own_reading",
+      "name": "B101-32",
+      "passed": true,
+      "payload": {
+        "both_above": 1485,
+        "n": 1485,
+        "neither": 0,
+        "quantity_median": 0.07454776063382683,
+        "value_median": 0.10445230919811392
+      }
+    },
+    {
+      "criterion": "an unconstrained conversion flattens the mix and reads zero, so the question has content only once a parity is tied to the country",
+      "detail": "300 cross-sections. A conversion free per cross-section drives the reading below 1e-10 in 300 of them. Substituting the mechanism directly, a conversion equal to minus the mix, gives a worst reading of 1.16e-15 and is below 1e-10 in 300. So an unconstrained conversion answers nothing: it flattens the mix rather than converting it. The bound with content holds a parity to one number per country across every industry, which is B101-35.",
+      "kind": "known_answer",
+      "name": "B101-33",
+      "passed": true,
+      "payload": {
+        "n": 300,
+        "reached_zero": 300,
+        "sample": [
+          {
+            "cell": "A/1995",
+            "rho_at_e_is_x": 7.528707829929676e-16,
+            "rho_fitted": 4.420038248595133e-16
+          },
+          {
+            "cell": "A/1996",
+            "rho_at_e_is_x": 9.000914987616455e-16,
+            "rho_fitted": 6.8519090403355e-16
+          },
+          {
+            "cell": "A/1997",
+            "rho_at_e_is_x": 7.22174605768526e-16,
+            "rho_fitted": 6.915181421233726e-16
+          },
+          {
+            "cell": "A/1998",
+            "rho_at_e_is_x": 6.62632412068684e-16,
+            "rho_fitted": 5.923652637067097e-16
+          },
+          {
+            "cell": "A/1999",
+            "rho_at_e_is_x": 5.398704273766541e-16,
+            "rho_fitted": 6.770254357916094e-16
+          },
+          {
+            "cell": "A/2000",
+            "rho_at_e_is_x": 6.631114515192567e-16,
+            "rho_fitted": 6.857806595252754e-16
+          },
+          {
+            "cell": "A/2001",
+            "rho_at_e_is_x": 7.024927146877748e-16,
+            "rho_fitted": 8.217111548644476e-16
+          },
+          {
+            "cell": "A/2002",
+            "rho_at_e_is_x": 6.812296720898657e-16,
+            "rho_fitted": 7.596232131831889e-16
+          },
+          {
+            "cell": "A/2003",
+            "rho_at_e_is_x": 7.44979370167255e-16,
+            "rho_fitted": 5.96441890187694e-16
+          },
+          {
+            "cell": "A/2004",
+            "rho_at_e_is_x": 8.31932732938208e-16,
+            "rho_fitted": 7.285101817192948e-16
+          },
+          {
+            "cell": "A/2005",
+            "rho_at_e_is_x": 6.736103595847217e-16,
+            "rho_fitted": 7.611817845244164e-16
+          },
+          {
+            "cell": "A/2006",
+            "rho_at_e_is_x": 7.515280060975035e-16,
+            "rho_fitted": 6.836798187234534e-16
+          },
+          {
+            "cell": "A/2007",
+            "rho_at_e_is_x": 7.956648465514305e-16,
+            "rho_fitted": 7.734010945376162e-16
+          },
+          {
+            "cell": "A/2008",
+            "rho_at_e_is_x": 5.842906926822812e-16,
+            "rho_fitted": 6.557206321775492e-16
+          },
+          {
+            "cell": "A/2009",
+            "rho_at_e_is_x": 5.903985107504481e-16,
+            "rho_fitted": 5.645005522069869e-16
+          },
+          {
+            "cell": "A/2010",
+            "rho_at_e_is_x": 6.232952492894726e-16,
+            "rho_fitted": 6.781134767511323e-16
+          },
+          {
+            "cell": "A/2011",
+            "rho_at_e_is_x": 6.070037973253171e-16,
+            "rho_fitted": 6.683838196496175e-16
+          },
+          {
+            "cell": "A/2012",
+            "rho_at_e_is_x": 6.62986916975269e-16,
+            "rho_fitted": 6.029129151324992e-16
+          },
+          {
+            "cell": "A/2013",
+            "rho_at_e_is_x": 5.963348425598628e-16,
+            "rho_fitted": 6.646951893431285e-16
+          },
+          {
+            "cell": "A/2014",
+            "rho_at_e_is_x": 5.752493485985923e-16,
+            "rho_fitted": 6.082826377914538e-16
+          }
+        ],
+        "worst_at_e_is_x": 1.1624561378625525e-15,
+        "zero_at_e_is_x": 300
+      }
+    },
+    {
+      "cite": "Griffith, Redding and Van Reenen (2004), equations 9 to 11",
+      "criterion": "whether one parity per country, shared across industries, could put the field back on one scalar per position",
+      "detail": "one conversion per country, solved once over every cross-section at the same time so it cannot differ by industry, which is what a parity is: 32 numbers globally, 864 per year, against 210,324 dimensions of non-gradient field. quantity_global: 0.0569 from 0.0745, a cut of 26.4%, floor 0.0173, 161/1485 reach it (10.8%), and those that do carry a median 15 countries against 19 for those that do not; quantity_per_year: 0.0555 from 0.0745, a cut of 26.5%, floor 0.0173, 169/1485 reach it (11.4%), and those that do carry a median 16 countries against 19 for those that do not; value_global: 0.0584 from 0.1045, a cut of 40.0%, floor 0.0209, 157/1485 reach it (10.6%), and those that do carry a median 15 countries against 19 for those that do not; value_per_year: 0.0569 from 0.1045, a cut of 44.3%, floor 0.0209, 197/1485 reach it (13.3%), and those that do carry a median 15 countries against 19 for those that do not. The rival's claim is that ONE parity puts EVERY cross-section back on one level per position, so the reading against it is the share left above the floor: at worst 86.7% remain. A parity cuts the reading and does not close it, and the cells it does close are the narrow ones, where there are fewer countries than parameters to spend on them.",
+      "grid": "B",
+      "grid_note": {
+        "ours": "the comparison field is not a gradient because two classes at one position are on different terms, and a per country change of units cannot remove that, since it adds a term with the same pair-varying weight rather than cancelling one",
+        "reality": "solved once over every cross-section at the same time with one number per country, the minimum reaches the floor in none of the readings, under either definition and either scope",
+        "rival": "with the right parity the field becomes one level per position, so the minimum sits at the floor"
+      },
+      "kind": "rival",
+      "name": "B101-35",
+      "passed": true,
+      "payload": {
+        "by_scope": {
+          "quantity_global": {
+            "best_median": 0.056930287780732544,
+            "cut_median_pct": 26.441653313307157,
+            "floor_median": 0.017328934039095564,
+            "fraction_reached": 0.10841750841750841,
+            "median_n_above": 19.0,
+            "median_n_at_floor": 15.0,
+            "n": 1485,
+            "params": 32,
+            "reached_floor": 161,
+            "residual_dims": 210324,
+            "rho_median": 0.07454776063382683
+          },
+          "quantity_per_year": {
+            "best_median": 0.05547082095917874,
+            "cut_median_pct": 26.460607883874587,
+            "floor_median": 0.017328934039095564,
+            "fraction_reached": 0.11380471380471381,
+            "median_n_above": 19.0,
+            "median_n_at_floor": 16.0,
+            "n": 1485,
+            "params": 864,
+            "reached_floor": 169,
+            "residual_dims": 210324,
+            "rho_median": 0.07454776063382683
+          },
+          "value_global": {
+            "best_median": 0.05844289231825155,
+            "cut_median_pct": 40.045821901721844,
+            "floor_median": 0.020873090993580482,
+            "fraction_reached": 0.10572390572390572,
+            "median_n_above": 19.0,
+            "median_n_at_floor": 15.0,
+            "n": 1485,
+            "params": 32,
+            "reached_floor": 157,
+            "residual_dims": 210324,
+            "rho_median": 0.10445230919811392
+          },
+          "value_per_year": {
+            "best_median": 0.05685306854690472,
+            "cut_median_pct": 44.349239870302505,
+            "floor_median": 0.020873090993580482,
+            "fraction_reached": 0.13265993265993267,
+            "median_n_above": 19.0,
+            "median_n_at_floor": 15.0,
+            "n": 1485,
+            "params": 864,
+            "reached_floor": 197,
+            "residual_dims": 210324,
+            "rho_median": 0.10445230919811392
+          }
+        },
+        "reached_floor_total": 684,
+        "worst_fraction_reached": 0.13265993265993267
+      },
+      "rival_entailment": "under that premise there is a conversion e making omega(e) the difference of node values, so the minimum over e of the distance from im d0 is zero, and up to the discrete index's curvature it is the curvature floor. omega(e) is linear in e, so that minimum is a least squares value rather than a search: it is the smallest reading ANY conversion can give, of any size, on both factors at once.",
+      "rival_premise": "productivity is a scalar attached to a position, one level per country-industry-year, and the cross-country comparison is read in common units, so a purchasing power parity is a per country factor on each factor's units",
+      "rival_shape": "point prediction"
+    },
+    {
+      "criterion": "whether the employee and self employed split in this panel is an object or a compiler convention",
+      "detail": "24,828 cells carry both labour classes with positive self employed hours, a median 9.7% of hours. The implied self employed hourly wage over the employee wage is exactly one in 17,732 (71.42%), and negative in 1,015 (4.09%). Of 32 countries, 9 impute at the employee wage in every cell and 2 in none. So the split is a compiler convention on this panel and carries no class reading: PASS here records that this carrier was checked and set aside, not that a reading was taken from it.",
+      "kind": "instrument",
+      "name": "B101-34",
+      "passed": true,
+      "payload": {
+        "countries": 32,
+        "countries_always_one": 9,
+        "countries_never_one": 2,
+        "exactly_one": 17732,
+        "fraction_one": 0.7141936523280168,
+        "n": 24828,
+        "negative": 1015
+      }
+    }
+  ],
+  "stage": "B101"
+}

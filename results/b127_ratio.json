@@ -1,0 +1,1095 @@
+{
+ "arm": "ratio",
+ "birkin_togo_share": 0.23809523809523808,
+ "config": {
+  "boot": 500,
+  "fx": "data/b127/fx/eurofxref-hist.zip (ECB)",
+  "list": "data/b127/list_prices.csv",
+  "scan": {
+   "basis": [
+    "local",
+    "usd"
+   ],
+   "list_year": [
+    "same",
+    "previous"
+   ]
+  },
+  "sizes": [
+   25,
+   30,
+   35
+  ],
+  "source": "data/b127/raw via experiments/b127_parse.py"
+ },
+ "criteria": [
+  {
+   "detail": "Birkin 25 bands by year: 2021: 1.79-2.78; 2022: 2.12-2.70; 2022: 2.17-2.77; 2023: 1.99-2.44; 2023: 2.05-2.51; 2023: 2.40-3.16; 2023: 2.51-3.42; 2024: 1.99-2.19; 2024: 2.06-2.53; 2024: 2.19-2.40; 2024: 2.25-2.77; 2025: 1.41-1.80; 2025: 1.58-2.01; 2025: 1.85-1.90; 2025: 2.06-2.12; 2026: 1.41-1.80; 2026: 1.50-1.92; 2026: 1.99-2.07; 2026: 2.15-2.20",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B127-2",
+   "passed": true,
+   "rival_entailment": "the price a buyer pays at resale equals the list price the allocated buyer paid, so the ratio is 1",
+   "rival_premise": "a position (model, size, leather, year) carries one price, paid alike by every buyer",
+   "rival_shape": "point",
+   "state": "above 1 in every year at every scan point",
+   "state_map": {
+    "above 1 in every year at every scan point": true,
+    "holds 1 or under it everywhere": false,
+    "moves": null,
+    "no object": null
+   },
+   "statement": "one price per position: Birkin 25 Togo resells at its list price (ratio 1)"
+  },
+  {
+   "detail": "Birkin 35 bands by year: 2025: 0.59-0.80; 2025: 0.80-0.84; 2026: 0.71-0.94; 2026: 0.75-0.95; 2026: 0.76-1.03; 2026: 0.81-1.02",
+   "kind": "own_reading",
+   "name": "B127-2b",
+   "passed": true,
+   "state": "holds 1 or under it everywhere",
+   "state_map": {
+    "above 1 in every year at every scan point": false,
+    "holds 1 or under it everywhere": true,
+    "moves": null,
+    "no object": null
+   },
+   "statement": "Birkin 35 Togo, where allocation does not bind, resells at or under its list price"
+  },
+  {
+   "detail": "pooled years above 1: [2021, 2022, 2023, 2024, 2025, 2026]; holding 1: [2025]. Birkin 30 bands: 2021: 1.49-2.06; 2021: 1.49-2.41; 2022: 1.21-2.27; 2022: 1.24-2.33; 2022: 2.47-2.79; 2022: 2.60-2.86; 2023: 1.46-1.76; 2023: 1.50-1.81; 2023: 1.64-2.14; 2023: 1.69-2.34; 2024: 0.96-1.68; 2024: 1.03-1.81; 2024: 1.10-1.63; 2024: 1.19-1.75; 2025: 0.82-1.28; 2025: 0.91-1.42; 2025: 1.19-1.64; 2025: 1.32-1.83; 2026: 0.92-1.10; 2026: 0.94-1.52; 2026: 0.99-1.28; 2026: 1.06-1.37",
+   "kind": "bookkeeping",
+   "name": "B127-2p",
+   "passed": true,
+   "state": "pooled: moves; Birkin 30: moves",
+   "statement": "the pooled reading and Birkin 30 printed, not judged"
+  },
+  {
+   "detail": "2025 minus 2022 median over the scan: -1.286, -0.707, -1.187, -0.751",
+   "kind": "own_reading",
+   "name": "B127-5",
+   "passed": true,
+   "state": "narrowed at every scan point",
+   "statement": "the ratio narrowed from 2022 to 2025 (the brokers' direction), read as the sign of the change in yearly medians"
+  },
+  {
+   "detail": "medians per group and year printed in tiers",
+   "kind": "own_reading",
+   "name": "B127-3",
+   "passed": false,
+   "state": "quota at or under non-quota in every year",
+   "statement": "where allocation binds the ratio is higher: quota bags above non-quota bags, 2025 and 2026"
+  },
+  {
+   "detail": "2021: 0.064; 2022: 0.085; 2023: 0.045; 2024: 0.035; 2025: 0.029; 2026: 0.037",
+   "kind": "own_reading",
+   "name": "B127-6",
+   "passed": true,
+   "state": "entry share fell 2022 to 2025",
+   "state_map": {
+    "entry share did not fall 2022 to 2025": null,
+    "entry share fell 2022 to 2025": true,
+    "no object": null
+   },
+   "statement": "the entry tier's share of sold Hermès bags fell from 2022 to 2025 (asymmetric: not falling is no verdict)"
+  }
+ ],
+ "entry_share": {
+  "per_year": {
+   "2021": {
+    "hermes_bags": 344,
+    "non_quota": 22,
+    "share": 0.06395348837209303
+   },
+   "2022": {
+    "hermes_bags": 577,
+    "non_quota": 49,
+    "share": 0.08492201039861352
+   },
+   "2023": {
+    "hermes_bags": 824,
+    "non_quota": 37,
+    "share": 0.044902912621359224
+   },
+   "2024": {
+    "hermes_bags": 1017,
+    "non_quota": 36,
+    "share": 0.035398230088495575
+   },
+   "2025": {
+    "hermes_bags": 817,
+    "non_quota": 24,
+    "share": 0.02937576499388005
+   },
+   "2026": {
+    "hermes_bags": 747,
+    "non_quota": 28,
+    "share": 0.03748326639892905
+   }
+  },
+  "state": "entry share fell 2022 to 2025"
+ },
+ "lots_used": 395,
+ "per_sale": {
+  "2021/handbags-accessories": {
+   "gaps": 54,
+   "rows_used": 12
+  },
+  "2021/handbags-accessories-4": {
+   "gaps": 24,
+   "rows_used": 6
+  },
+  "2021/handbags-accessories-5": {
+   "gaps": 24,
+   "rows_used": 2
+  },
+  "2021/handbags-accessories-7": {
+   "gaps": 22,
+   "rows_used": 5
+  },
+  "2021/handbags-and-accessories-2": {
+   "gaps": 12,
+   "rows_used": 2
+  },
+  "2021/handbags-and-accessories-3": {
+   "gaps": 18,
+   "rows_used": 7
+  },
+  "2021/handbags-and-accessories-4": {
+   "gaps": 105,
+   "rows_used": 2
+  },
+  "2022/handbags-accessories": {
+   "gaps": 14,
+   "rows_used": 6
+  },
+  "2022/handbags-accessories-2": {
+   "gaps": 22,
+   "rows_used": 3
+  },
+  "2022/handbags-accessories-3": {
+   "gaps": 35,
+   "rows_used": 10
+  },
+  "2022/handbags-accessories-4": {
+   "gaps": 51,
+   "rows_used": 7
+  },
+  "2022/handbags-accessories-7": {
+   "gaps": 21,
+   "rows_used": 4
+  },
+  "2022/handbags-accessories-8": {
+   "gaps": 24,
+   "rows_used": 5
+  },
+  "2022/handbags-accessories-9": {
+   "gaps": 14,
+   "rows_used": 2
+  },
+  "2022/new-york-handbags-accessories-december-2022-2": {
+   "gaps": 40,
+   "rows_used": 11
+  },
+  "2023/handbags-accessories-2": {
+   "gaps": 24,
+   "rows_used": 13
+  },
+  "2023/handbags-accessories-3": {
+   "gaps": 54,
+   "rows_used": 4
+  },
+  "2023/handbags-accessories-4": {
+   "gaps": 23,
+   "rows_used": 10
+  },
+  "2023/handbags-accessories-5": {
+   "gaps": 2,
+   "rows_used": 15
+  },
+  "2023/handbags-accessories-7": {
+   "gaps": 41,
+   "rows_used": 15
+  },
+  "2023/handbags-and-accessories": {
+   "gaps": 0,
+   "rows_used": 8
+  },
+  "2023/handbags-and-accessories-3": {
+   "gaps": 29,
+   "rows_used": 6
+  },
+  "2023/handbags-and-accessories-4": {
+   "gaps": 0,
+   "rows_used": 9
+  },
+  "2024/handbags-accessories": {
+   "gaps": 1,
+   "rows_used": 6
+  },
+  "2024/handbags-accessories-11": {
+   "gaps": 0,
+   "rows_used": 5
+  },
+  "2024/handbags-accessories-2": {
+   "gaps": 41,
+   "rows_used": 4
+  },
+  "2024/handbags-accessories-3": {
+   "gaps": 1,
+   "rows_used": 7
+  },
+  "2024/handbags-accessories-4": {
+   "gaps": 1,
+   "rows_used": 11
+  },
+  "2024/handbags-accessories-5": {
+   "gaps": 36,
+   "rows_used": 15
+  },
+  "2024/handbags-accessories-6": {
+   "gaps": 24,
+   "rows_used": 9
+  },
+  "2024/handbags-accessories-7": {
+   "gaps": 39,
+   "rows_used": 8
+  },
+  "2024/handbags-accessories-8": {
+   "gaps": 43,
+   "rows_used": 11
+  },
+  "2024/handbags-accessories-9": {
+   "gaps": 12,
+   "rows_used": 8
+  },
+  "2025/handbags-accessories": {
+   "gaps": 31,
+   "rows_used": 8
+  },
+  "2025/handbags-accessories-2": {
+   "gaps": 24,
+   "rows_used": 11
+  },
+  "2025/handbags-accessories-3": {
+   "gaps": 46,
+   "rows_used": 15
+  },
+  "2025/handbags-and-accessories": {
+   "gaps": 32,
+   "rows_used": 13
+  },
+  "2025/handbags-and-accessories-2": {
+   "gaps": 53,
+   "rows_used": 11
+  },
+  "2025/handbags-and-accessories-3": {
+   "gaps": 23,
+   "rows_used": 11
+  },
+  "2026/handbags-accessories": {
+   "gaps": 19,
+   "rows_used": 9
+  },
+  "2026/handbags-accessories-l26052": {
+   "gaps": 0,
+   "rows_used": 17
+  },
+  "2026/handbags-accessories-pf2625": {
+   "gaps": 1,
+   "rows_used": 6
+  },
+  "2026/handbags-accessories-zh2630": {
+   "gaps": 18,
+   "rows_used": 16
+  },
+  "2026/handbags-and-accessories": {
+   "gaps": 24,
+   "rows_used": 16
+  },
+  "2026/handbags-and-accessories-3": {
+   "gaps": 7,
+   "rows_used": 14
+  }
+ },
+ "scan": [
+  {
+   "cfg": {
+    "basis": "local",
+    "list_year": "same"
+   },
+   "years": {
+    "2021": {
+     "band": [
+      1.489090909090909,
+      2.1746192893401015
+     ],
+     "converted_share": 0.0,
+     "floor": 0.053265403774424236,
+     "lots": 4,
+     "median": 2.1182187355791418,
+     "per_size": {
+      "25": 2.1746192893401015,
+      "30": 2.061818181818182
+     },
+     "sales": 2,
+     "size_band": {
+      "25": null,
+      "30": [
+       1.489090909090909,
+       2.4054545454545453
+      ]
+     }
+    },
+    "2022": {
+     "band": [
+      2.4736196319018404,
+      2.523201612196618
+     ],
+     "converted_share": 0.0,
+     "floor": 0.15498925418971476,
+     "lots": 9,
+     "median": 2.4736196319018404,
+     "per_size": {
+      "25": 2.2455445544554458,
+      "30": 2.6761061946902656
+     },
+     "sales": 2,
+     "size_band": {
+      "25": null,
+      "30": [
+       2.4736196319018404,
+       2.7876106194690267
+      ]
+     }
+    },
+    "2023": {
+     "band": [
+      1.8064655172413793,
+      2.403684834950101
+     ],
+     "converted_share": 0.0,
+     "floor": 0.15511308810548122,
+     "lots": 24,
+     "median": 2.0389626113909336,
+     "per_size": {
+      "25": 2.839751552795031,
+      "30": 1.861206896551724
+     },
+     "sales": 4,
+     "size_band": {
+      "25": [
+       2.3967988533205924,
+       3.1552795031055902
+      ],
+      "30": [
+       1.6422413793103448,
+       2.140449438202247
+      ]
+     }
+    },
+    "2024": {
+     "band": [
+      1.5789473684210527,
+      2.3627906976744186
+     ],
+     "converted_share": 0.0,
+     "floor": 0.23722898979755794,
+     "lots": 36,
+     "median": 1.8214468085106383,
+     "per_size": {
+      "25": 2.372093023255814,
+      "30": 1.344
+     },
+     "sales": 6,
+     "size_band": {
+      "25": [
+       2.0552631578947365,
+       2.526315789473684
+      ],
+      "30": [
+       0.96,
+       1.6768
+      ]
+     }
+    },
+    "2025": {
+     "band": [
+      1.0092715231788079,
+      1.4
+     ],
+     "converted_share": 0.0,
+     "floor": 0.2441355058961985,
+     "lots": 34,
+     "median": 1.1877697841726618,
+     "per_size": {
+      "25": 1.85,
+      "30": 1.279136690647482,
+      "35": 0.7990066225165563
+     },
+     "sales": 3,
+     "size_band": {
+      "25": [
+       1.85,
+       1.9
+      ],
+      "30": [
+       1.1877697841726618,
+       1.6446043165467625
+      ],
+      "35": [
+       0.7990066225165563,
+       0.8410596026490065
+      ]
+     }
+    },
+    "2026": {
+     "band": [
+      1.0462449756716734,
+      1.526814510131093
+     ],
+     "converted_share": 0.0,
+     "floor": 0.2608808555629861,
+     "lots": 41,
+     "median": 1.3837837837837839,
+     "per_size": {
+      "25": 2.0348148148148146,
+      "30": 1.278523489932886,
+      "35": 0.9103448275862069
+     },
+     "sales": 4,
+     "size_band": {
+      "25": [
+       1.991111111111111,
+       2.0696296296296297
+      ],
+      "30": [
+       0.9449664429530202,
+       1.5221621621621622
+      ],
+      "35": [
+       0.7067484662576687,
+       0.9379310344827585
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cfg": {
+    "basis": "local",
+    "list_year": "previous"
+   },
+   "years": {
+    "2021": {
+     "band": [
+      1.489090909090909,
+      2.1746192893401015
+     ],
+     "converted_share": 0.0,
+     "floor": 0.053265403774424236,
+     "lots": 4,
+     "median": 2.1182187355791418,
+     "per_size": {
+      "25": 2.1746192893401015,
+      "30": 2.061818181818182
+     },
+     "sales": 2,
+     "size_band": {
+      "25": null,
+      "30": [
+       1.489090909090909,
+       2.4054545454545453
+      ]
+     }
+    },
+    "2022": {
+     "band": [
+      2.5897738809413937,
+      2.601290322580645
+     ],
+     "converted_share": 0.0,
+     "floor": 0.15493297391257588,
+     "lots": 9,
+     "median": 2.601290322580645,
+     "per_size": {
+      "25": 2.3025380710659897,
+      "30": 2.749090909090909
+     },
+     "sales": 2,
+     "size_band": {
+      "25": null,
+      "30": [
+       2.601290322580645,
+       2.8636363636363633
+      ]
+     }
+    },
+    "2023": {
+     "band": [
+      1.8544247787610622,
+      2.6195987398441387
+     ],
+     "converted_share": 0.0,
+     "floor": 0.15575901526628205,
+     "lots": 24,
+     "median": 2.1815950920245397,
+     "per_size": {
+      "25": 3.0891891891891894,
+      "30": 2.025766871165644
+     },
+     "sales": 4,
+     "size_band": {
+      "25": [
+       2.5148514851485144,
+       3.4242761573454636
+      ],
+      "30": [
+       1.6858407079646018,
+       2.3374233128834354
+      ]
+     }
+    },
+    "2024": {
+     "band": [
+      1.730769230769231,
+      2.524223602484472
+     ],
+     "converted_share": 0.0,
+     "floor": 0.2391483779511408,
+     "lots": 36,
+     "median": 1.9422704378148006,
+     "per_size": {
+      "25": 2.5341614906832297,
+      "30": 1.4482758620689655
+     },
+     "sales": 6,
+     "size_band": {
+      "25": [
+       2.252884615384615,
+       2.769230769230769
+      ],
+      "30": [
+       1.0344827586206897,
+       1.806896551724138
+      ]
+     }
+    },
+    "2025": {
+     "band": [
+      1.778,
+      1.9495614035087718
+     ],
+     "converted_share": 0.0,
+     "floor": 0.14915864851022165,
+     "lots": 19,
+     "median": 1.893859649122807,
+     "per_size": {
+      "25": 2.060964912280702,
+      "30": 1.4224
+     },
+     "sales": 3,
+     "size_band": {
+      "25": [
+       2.060964912280702,
+       2.1166666666666663
+      ],
+      "30": [
+       1.3208000000000002,
+       1.8288
+      ]
+     }
+    },
+    "2026": {
+     "band": [
+      1.136773709858803,
+      1.2791366906474821
+     ],
+     "converted_share": 0.0,
+     "floor": 0.34207729028103334,
+     "lots": 29,
+     "median": 1.1867549668874173,
+     "per_size": {
+      "25": 2.1726256983240226,
+      "30": 1.0964028776978416,
+      "35": 0.9916281394477071
+     },
+     "sales": 3,
+     "size_band": {
+      "25": [
+       2.1452513966480447,
+       2.2
+      ],
+      "30": [
+       0.9208633093525181,
+       1.0964028776978416
+      ],
+      "35": [
+       0.7629139072847682,
+       1.0264150943396226
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cfg": {
+    "basis": "usd",
+    "list_year": "same"
+   },
+   "years": {
+    "2021": {
+     "band": [
+      1.5518964584592867,
+      2.1219072836429085
+     ],
+     "converted_share": 0.7777777777777778,
+     "floor": 0.14740529168772676,
+     "lots": 18,
+     "median": 1.6341586923308271,
+     "per_size": {
+      "25": 2.3233466019062923,
+      "30": 1.6059783918447619
+     },
+     "sales": 6,
+     "size_band": {
+      "25": [
+       1.7864100975099824,
+       2.776156118887757
+      ],
+      "30": [
+       1.489090909090909,
+       2.061818181818182
+      ]
+     }
+    },
+    "2022": {
+     "band": [
+      1.7316191150442477,
+      2.3848429121837977
+     ],
+     "converted_share": 0.7142857142857143,
+     "floor": 0.15498925418971476,
+     "lots": 28,
+     "median": 2.196748994382591,
+     "per_size": {
+      "25": 2.5025031557795847,
+      "30": 1.6775629561973764
+     },
+     "sales": 7,
+     "size_band": {
+      "25": [
+       2.120792079207921,
+       2.702821967141637
+      ],
+      "30": [
+       1.2078983127491387,
+       2.2727059095572613
+      ]
+     }
+    },
+    "2023": {
+     "band": [
+      1.7174166780892963,
+      1.8612068965517239
+     ],
+     "converted_share": 0.8,
+     "floor": 0.1950988179886879,
+     "lots": 60,
+     "median": 1.8247313663607352,
+     "per_size": {
+      "25": 2.1766708090640865,
+      "30": 1.6149144827586208
+     },
+     "sales": 8,
+     "size_band": {
+      "25": [
+       1.988066650268129,
+       2.4423076923076925
+      ],
+      "30": [
+       1.4574828337621164,
+       1.7599900862068967
+      ]
+     }
+    },
+    "2024": {
+     "band": [
+      1.5744896842105263,
+      1.9851623999999997
+     ],
+     "converted_share": 0.5,
+     "floor": 0.20528451001317014,
+     "lots": 56,
+     "median": 1.7292585905241795,
+     "per_size": {
+      "25": 2.1052631578947367,
+      "30": 1.2557281918645664
+     },
+     "sales": 10,
+     "size_band": {
+      "25": [
+       1.9936829830698688,
+       2.189406527885059
+      ],
+      "30": [
+       1.1025976957441808,
+       1.6256
+      ]
+     }
+    },
+    "2025": {
+     "band": [
+      0.8806020107011567,
+      1.2791366906474821
+     ],
+     "converted_share": 0.43333333333333335,
+     "floor": 0.2746203198656255,
+     "lots": 60,
+     "median": 1.0092715231788079,
+     "per_size": {
+      "25": 1.7,
+      "30": 0.9136690647482014,
+      "35": 0.7783583629012296
+     },
+     "sales": 6,
+     "size_band": {
+      "25": [
+       1.4147072936660268,
+       1.8
+      ],
+      "30": [
+       0.8225472753885532,
+       1.2791366906474821
+      ],
+      "35": [
+       0.5949265771377,
+       0.7990066225165563
+      ]
+     }
+    },
+    "2026": {
+     "band": [
+      1.0962694618370212,
+      1.392515740313856
+     ],
+     "converted_share": 0.735632183908046,
+     "floor": 0.23640736905317855,
+     "lots": 87,
+     "median": 1.2099566652867866,
+     "per_size": {
+      "25": 1.6670486280703887,
+      "30": 1.197986577181208,
+      "35": 0.8201815950920246
+     },
+     "sales": 7,
+     "size_band": {
+      "25": [
+       1.4123407712583496,
+       1.80386610776988
+      ],
+      "30": [
+       0.9868121603764124,
+       1.2764727619543677
+      ],
+      "35": [
+       0.7470580944455003,
+       0.9461997068363482
+      ]
+     }
+    }
+   }
+  },
+  {
+   "cfg": {
+    "basis": "usd",
+    "list_year": "previous"
+   },
+   "years": {
+    "2021": {
+     "band": [
+      1.5518964584592867,
+      2.1219072836429085
+     ],
+     "converted_share": 0.7777777777777778,
+     "floor": 0.14740529168772676,
+     "lots": 18,
+     "median": 1.6341586923308271,
+     "per_size": {
+      "25": 2.3233466019062923,
+      "30": 1.6059783918447619
+     },
+     "sales": 6,
+     "size_band": {
+      "25": [
+       1.7864100975099824,
+       2.776156118887757
+      ],
+      "30": [
+       1.489090909090909,
+       2.061818181818182
+      ]
+     }
+    },
+    "2022": {
+     "band": [
+      1.7788450909090912,
+      2.4453719201072444
+     ],
+     "converted_share": 0.7142857142857143,
+     "floor": 0.15493297391257588,
+     "lots": 28,
+     "median": 2.254654043669917,
+     "per_size": {
+      "25": 2.566018464301909,
+      "30": 1.7233146731845777
+     },
+     "sales": 7,
+     "size_band": {
+      "25": [
+       2.1746192893401015,
+       2.771421509454877
+      ],
+      "30": [
+       1.2408409940059335,
+       2.334688797999732
+      ]
+     }
+    },
+    "2023": {
+     "band": [
+      1.7684290546662065,
+      1.911840986412312
+     ],
+     "converted_share": 0.8,
+     "floor": 0.1950988179886879,
+     "lots": 60,
+     "median": 1.8731755619278343,
+     "per_size": {
+      "25": 2.2413243974521286,
+      "30": 1.657788318584071
+     },
+     "sales": 8,
+     "size_band": {
+      "25": [
+       2.0471181349295584,
+       2.5148514851485144
+      ],
+      "30": [
+       1.4961770682867743,
+       1.806715486725664
+      ]
+     }
+    },
+    "2024": {
+     "band": [
+      1.711307029177719,
+      2.1391836206896553
+     ],
+     "converted_share": 0.5,
+     "floor": 0.21201356298411195,
+     "lots": 56,
+     "median": 1.863425205306228,
+     "per_size": {
+      "25": 2.3076923076923075,
+      "30": 1.3531553791644033
+     },
+     "sales": 10,
+     "size_band": {
+      "25": [
+       2.1853832699035105,
+       2.399926386335545
+      ],
+      "30": [
+       1.1881440686898501,
+       1.7517241379310344
+      ]
+     }
+    },
+    "2025": {
+     "band": [
+      1.1462062283609913,
+      1.8931104302240047
+     ],
+     "converted_share": 0.525,
+     "floor": 0.20198019445713894,
+     "lots": 40,
+     "median": 1.5039473684210525,
+     "per_size": {
+      "25": 1.893859649122807,
+      "30": 1.016
+     },
+     "sales": 6,
+     "size_band": {
+      "25": [
+       1.5760335639963632,
+       2.0052631578947366
+      ],
+      "30": [
+       0.9146725702320712,
+       1.4224
+      ]
+     }
+    },
+    "2026": {
+     "band": [
+      1.1751377684440012,
+      1.4926967288256443
+     ],
+     "converted_share": 0.735632183908046,
+     "floor": 0.229409377876108,
+     "lots": 87,
+     "median": 1.289208633093525,
+     "per_size": {
+      "25": 1.772059565271673,
+      "30": 1.2841726618705036,
+      "35": 0.8853615894039736
+     },
+     "sales": 7,
+     "size_band": {
+      "25": [
+       1.5,
+       1.9174954688892427
+      ],
+      "30": [
+       1.057623991599601,
+       1.3683053347568406
+      ],
+      "35": [
+       0.8064269496332221,
+       1.0213943855253296
+      ]
+     }
+    }
+   }
+  }
+ ],
+ "stage": "B127",
+ "tiers": {
+  "groups": {
+   "Birkin 25 Togo": {
+    "tier": "quota",
+    "years": {
+     "2025": {
+      "band": [
+       1.4135857998551902,
+       1.8
+      ],
+      "lots": 19,
+      "median": 1.7,
+      "sales": 6
+     },
+     "2026": {
+      "band": [
+       1.5659440580448014,
+       1.80386610776988
+      ],
+      "lots": 27,
+      "median": 1.6836083672518882,
+      "sales": 7
+     }
+    }
+   },
+   "Birkin 35 Togo": {
+    "tier": "quota",
+    "years": {
+     "2025": {
+      "band": [
+       0.7025376747624681,
+       0.8200331125827814
+      ],
+      "lots": 17,
+      "median": 0.7990066225165563,
+      "sales": 6
+     },
+     "2026": {
+      "band": [
+       0.7067484662576687,
+       0.9461997068363482
+      ],
+      "lots": 20,
+      "median": 0.8582906586790193,
+      "sales": 7
+     }
+    }
+   },
+   "Evelyne TPM": {
+    "tier": "non-quota",
+    "years": {
+     "2025": {
+      "band": null,
+      "lots": 1,
+      "median": 1.5704863973619125,
+      "sales": 1
+     }
+    }
+   },
+   "Kelly 28": {
+    "tier": "quota",
+    "years": {
+     "2025": {
+      "band": [
+       0.8903566238161273,
+       1.1259549035260696
+      ],
+      "lots": 35,
+      "median": 0.9824624814522783,
+      "sales": 6
+     },
+     "2026": {
+      "band": [
+       0.9777777777777776,
+       1.1555555555555554
+      ],
+      "lots": 66,
+      "median": 1.1359216017394023,
+      "sales": 7
+     }
+    }
+   },
+   "Lindy 26": {
+    "tier": "semi",
+    "years": {
+     "2025": {
+      "band": [
+       0.3592282048691787,
+       0.7006978992109754
+      ],
+      "lots": 3,
+      "median": 0.5770453287619797,
+      "sales": 2
+     },
+     "2026": {
+      "band": null,
+      "lots": 1,
+      "median": 0.9049254746282921,
+      "sales": 1
+     }
+    }
+   },
+   "Picotin 18": {
+    "tier": "non-quota",
+    "years": {
+     "2025": {
+      "band": [
+       0.9933567693466019,
+       1.6706040268456377
+      ],
+      "lots": 11,
+      "median": 1.3163669291985194,
+      "sales": 6
+     },
+     "2026": {
+      "band": [
+       0.9802140359202369,
+       1.5974842767295598
+      ],
+      "lots": 19,
+      "median": 1.2236477987421384,
+      "sales": 6
+     }
+    }
+   }
+  },
+  "state": "quota at or under non-quota in every year"
+ }
+}

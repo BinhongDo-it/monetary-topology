@@ -1,0 +1,204 @@
+{
+  "config": {
+    "authority": "endogenous",
+    "block": 50,
+    "carrier": "A30's: A18's config_for in drawdown, no write-off, no rescue, the shock at round 150",
+    "floor_multiple": 2.0,
+    "grid": {
+      "elasticities": [
+        0.0,
+        0.5
+      ],
+      "need_multiples": [
+        0.05,
+        0.1,
+        0.15,
+        0.2,
+        0.5
+      ],
+      "rules": [
+        [
+          "none",
+          null
+        ],
+        [
+          "financial",
+          1.0
+        ],
+        [
+          "financial",
+          0.5
+        ],
+        [
+          "proportional",
+          1.0
+        ],
+        [
+          "proportional",
+          0.5
+        ],
+        [
+          "production",
+          1.0
+        ],
+        [
+          "production",
+          0.5
+        ]
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "shocks": [
+        [
+          "none",
+          0.0
+        ],
+        [
+          "freeze",
+          0.3
+        ],
+        [
+          "destroy",
+          0.1
+        ]
+      ],
+      "shocks_on_leak_as_well": [
+        [
+          "release",
+          0.1
+        ],
+        [
+          "release",
+          0.3
+        ]
+      ],
+      "stresses": {
+        "healthy": {
+          "bond_share": null,
+          "landing": null,
+          "park": 0.0,
+          "pass_rate": 0.0
+        },
+        "leak": {
+          "bond_share": null,
+          "landing": null,
+          "park": 0.02,
+          "pass_rate": 0.0
+        },
+        "leak_recycled": {
+          "bond_share": 1.0,
+          "landing": "production",
+          "park": 0.02,
+          "pass_rate": 1.0
+        }
+      }
+    },
+    "horizons_after_shock": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      25,
+      50,
+      149
+    ],
+    "ledger_tolerance": 1e-09,
+    "non_default_fields": {
+      "spec": {
+        "financial_to_intermediate_edges": 30,
+        "intermediate_size": 30,
+        "layer2_size": 150
+      },
+      "subsistence": {
+        "mode": "drawdown"
+      }
+    },
+    "park_target": "financial",
+    "ring_windows": [
+      [
+        100,
+        150
+      ],
+      [
+        250,
+        300
+      ]
+    ],
+    "rounds": 300,
+    "rule": "the endogenous rule issues the Layer 2 inflow's shortfall below its round 0 level; the switch adds the other side, taking back gain times the overshoot from the position named, pro rata to what each account holds, capped at each account and never carried",
+    "tail": 50,
+    "window": 10
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "a side probe of A31-3, one cell: the closing distribution under each position",
+  "sections": {
+    "probe": {
+      "against_financial": {
+        "none": {
+          "node_share_correlation": 0.999992,
+          "node_share_max_absolute_difference": 0.000795,
+          "node_share_mean_absolute_difference": 5.2e-05,
+          "stock_ratio": 1.06205
+        },
+        "production": {
+          "node_share_correlation": 0.999999,
+          "node_share_max_absolute_difference": 0.000126,
+          "node_share_mean_absolute_difference": 6e-06,
+          "stock_ratio": 1.002232
+        },
+        "proportional": {
+          "node_share_correlation": 1.0,
+          "node_share_max_absolute_difference": 2.2e-05,
+          "node_share_mean_absolute_difference": 1e-06,
+          "stock_ratio": 1.000486
+        }
+      },
+      "cell": {
+        "elasticity": 0.5,
+        "need": 0.2,
+        "seed": 1,
+        "stress": "leak_recycled"
+      },
+      "runs": {
+        "financial": {
+          "below_close": 151,
+          "layer2_share_of_stock": 0.255287,
+          "total": 92.783842,
+          "withdrawn_total": 17.545237
+        },
+        "none": {
+          "below_close": 76,
+          "layer2_share_of_stock": 0.259791,
+          "total": 98.5411,
+          "withdrawn_total": 0.0
+        },
+        "production": {
+          "below_close": 151,
+          "layer2_share_of_stock": 0.254768,
+          "total": 92.990907,
+          "withdrawn_total": 17.770989
+        },
+        "proportional": {
+          "below_close": 151,
+          "layer2_share_of_stock": 0.255177,
+          "total": 92.828915,
+          "withdrawn_total": 17.43779
+        }
+      },
+      "tail": 50
+    }
+  },
+  "stage": "A31"
+}

@@ -1,0 +1,253 @@
+{
+ "IOER_era": {
+  "above_floor": 2714,
+  "below_floor": 152,
+  "by_year": {
+   "2008": {
+    "max": 89,
+    "min": -65,
+    "n": 56
+   },
+   "2009": {
+    "max": 20,
+    "min": 0,
+    "n": 252
+   },
+   "2010": {
+    "max": 16,
+    "min": 3,
+    "n": 252
+   },
+   "2011": {
+    "max": 21,
+    "min": 6,
+    "n": 251
+   },
+   "2012": {
+    "max": 18,
+    "min": 6,
+    "n": 251
+   },
+   "2013": {
+    "max": 19,
+    "min": 8,
+    "n": 251
+   },
+   "2014": {
+    "max": 19,
+    "min": 12,
+    "n": 251
+   },
+   "2015": {
+    "max": 30,
+    "min": 10,
+    "n": 252
+   },
+   "2016": {
+    "max": 25,
+    "min": 9,
+    "n": 251
+   },
+   "2017": {
+    "max": 19,
+    "min": 8,
+    "n": 251
+   },
+   "2018": {
+    "max": 16,
+    "min": 0,
+    "n": 251
+   },
+   "2019": {
+    "max": 0,
+    "min": -20,
+    "n": 251
+   },
+   "2020": {
+    "max": 6,
+    "min": -15,
+    "n": 253
+   },
+   "2021": {
+    "max": 7,
+    "min": 1,
+    "n": 144
+   }
+  },
+  "distinct": 65,
+  "max": 89,
+  "median": 9,
+  "min": -65,
+  "n": 3217,
+  "q1": 5,
+  "q3": 13,
+  "within_floor": 351,
+  "within_floor_by_year": {
+   "2009": 10,
+   "2018": 51,
+   "2019": 112,
+   "2020": 166,
+   "2021": 12
+  }
+ },
+ "IORB_era": {
+  "above_floor": 1171,
+  "below_floor": 0,
+  "by_year": {
+   "2021": {
+    "max": 9,
+    "min": 5,
+    "n": 108
+   },
+   "2022": {
+    "max": 8,
+    "min": 7,
+    "n": 250
+   },
+   "2023": {
+    "max": 8,
+    "min": 7,
+    "n": 250
+   },
+   "2024": {
+    "max": 7,
+    "min": 7,
+    "n": 251
+   },
+   "2025": {
+    "max": 7,
+    "min": 1,
+    "n": 250
+   },
+   "2026": {
+    "max": 3,
+    "min": 1,
+    "n": 172
+   }
+  },
+  "distinct": 9,
+  "max": 9,
+  "median": 7,
+  "min": 1,
+  "n": 1281,
+  "q1": 7,
+  "q3": 7,
+  "within_floor": 110,
+  "within_floor_by_year": {
+   "2025": 23,
+   "2026": 87
+  }
+ },
+ "config": {
+  "break": "2021-07-29",
+  "floor_bp": 1,
+  "series": [
+   "IORB",
+   "IOER",
+   "EFFR"
+  ],
+  "source": "https://fred.stlouisfed.org/graph/fredgraph.csv?id={sid}"
+ },
+ "criteria": {
+  "B59-1": {
+   "detail": "IORB era 1281 paired days, IOER era 3217; blanks skipped IORB 0, IOER 0, EFFR 257",
+   "kind": "instrument",
+   "name": "both administered series parse, align to EFFR by date, and a blank cell is skipped rather than read as a zero",
+   "passed": true
+  },
+  "B59-2": {
+   "detail": "eligible institution IORB, Federal Home Loan Bank zero. 12 CFR 204.2(y) is a closed list of four and an FHLB is not on it; 204.2(m)(1)(iv) names FHLB members, not the Banks. The Board names the ineligible: 'money market funds (MMFs) and government-sponsored enterprises (GSEs)'. The New York Fed states the consequence: funds left 'unremunerated in their Federal Reserve accounts'. Same obligor, same instrument, same continuous availability, no collateral either way, no maturity either way",
+   "grid": "D2",
+   "kind": "own_reading",
+   "name": "on one position, a balance at a Federal Reserve Bank, two holder classes carry two weights, and the rule says which",
+   "passed": true,
+   "sources": [
+    "12 CFR 204.2(y) and (m)(1)",
+    "FEDS Notes 2018-03-01",
+    "Liberty Street Economics 2013-12"
+   ]
+  },
+  "B59-3-IOER": {
+   "detail": "{'n': 3217, 'min': -65, 'q1': 5, 'median': 9, 'q3': 13, 'max': 89, 'distinct': 65, 'above_floor': 2714, 'below_floor': 152, 'within_floor': 351, 'within_floor_by_year': {'2009': 10, '2018': 51, '2019': 112, '2020': 166, '2021': 12}, 'by_year': {'2008': {'n': 56, 'min': -65, 'max': 89}, '2009': {'n': 252, 'min': 0, 'max': 20}, '2010': {'n': 252, 'min': 3, 'max': 16}, '2011': {'n': 251, 'min': 6, 'max': 21}, '2012': {'n': 251, 'min': 6, 'max': 18}, '2013': {'n': 251, 'min': 8, 'max': 19}, '2014': {'n': 251, 'min': 12, 'max': 19}, '2015': {'n': 252, 'min': 10, 'max': 30}, '2016': {'n': 251, 'min': 9, 'max': 25}, '2017': {'n': 251, 'min': 8, 'max': 19}, '2018': {'n': 251, 'min': 0, 'max': 16}, '2019': {'n': 251, 'min': -20, 'max': 0}, '2020': {'n': 253, 'min': -15, 'max': 6}, '2021': {'n': 144, 'min': 1, 'max': 7}}}",
+   "kind": "own_reading",
+   "name": "the net gap printed, no line drawn on it",
+   "passed": true
+  },
+  "B59-3-IORB": {
+   "detail": "{'n': 1281, 'min': 1, 'q1': 7, 'median': 7, 'q3': 7, 'max': 9, 'distinct': 9, 'above_floor': 1171, 'below_floor': 0, 'within_floor': 110, 'within_floor_by_year': {'2025': 23, '2026': 87}, 'by_year': {'2021': {'n': 108, 'min': 5, 'max': 9}, '2022': {'n': 250, 'min': 7, 'max': 8}, '2023': {'n': 250, 'min': 7, 'max': 8}, '2024': {'n': 251, 'min': 7, 'max': 7}, '2025': {'n': 250, 'min': 1, 'max': 7}, '2026': {'n': 172, 'min': 1, 'max': 3}}}",
+   "kind": "own_reading",
+   "name": "the net gap printed, no line drawn on it",
+   "passed": true
+  },
+  "B59-4-IOER": {
+   "cell_to_verdict": {
+    "both_signs": null,
+    "floor_broken": true,
+    "floor_holds": false,
+    "undetermined": null
+   },
+   "cells": {
+    "above_floor": 2714,
+    "below_floor": 152,
+    "within_floor_no_verdict": 351
+   },
+   "cite": "Board of Governors, FEDS Notes 2018-03-01: the ineligible participants are willing to make loans below the IOR rate, eroding the lower bound on money market rates that interest on reserves was expected to create",
+   "detail": "both_signs: the floor is broken on some readable days and holds on others. above floor 2714, below floor 152, inside the 1 bp floor and therefore mapped to no verdict 351",
+   "grid": "B",
+   "grid_note": "the rival predicts a floor, this framework predicts a positive gap while the barrier binds, so the two differ and one of them is wrong on each readable day. Against the hedged 2008 wording the cell is weaker than B, because that sentence stakes less than a per-day inequality",
+   "kind": "rival",
+   "name": "the Board's stated expectation that interest on reserves would floor money market rates, read per day on this definitional basis",
+   "passed": null,
+   "readable_days": 2866,
+   "rival_entailment": "read against the firmer wording: if interest on reserves creates a lower bound then EFFR sits at or above the administered rate, so a day with EFFR below it is a day the bound is not there. Read against the 2008 wording this is stricter than what was staked: 'should help to establish' does not commit to the bound holding on any given day, so the per-day count below describes the data and does not refute that sentence. Both readings are printed and neither is folded into the other",
+   "rival_held_days": 152,
+   "rival_held_share": 0.053,
+   "rival_hit_is_worth": "little: the gap has to fall on one side of zero, so holding is not an achievement. A crossing is what carries weight",
+   "rival_premise": "interest on excess reserve balances puts a lower bound under the federal funds rate. Two original wordings, reported separately because they are not the same commitment (D31). The 2008 announcement hedges: 'Paying interest on excess balances should help to establish a lower bound on the federal funds rate.' The 2018 retrospective is firmer, calling it 'the lower bound on money market rates that interest on reserves was expected to create'. The only qualification attached in 2008 is that 'the formula for the interest rate on excess balances may be adjusted subsequently in light of experience and evolving market conditions'",
+   "rival_shape": "one_sided_inequality",
+   "verdict_cell": "both_signs"
+  },
+  "B59-4-IORB": {
+   "cell_to_verdict": {
+    "both_signs": null,
+    "floor_broken": true,
+    "floor_holds": false,
+    "undetermined": null
+   },
+   "cells": {
+    "above_floor": 1171,
+    "below_floor": 0,
+    "within_floor_no_verdict": 110
+   },
+   "cite": "Board of Governors, FEDS Notes 2018-03-01: the ineligible participants are willing to make loans below the IOR rate, eroding the lower bound on money market rates that interest on reserves was expected to create",
+   "detail": "floor_broken: EFFR is below the administered rate on every readable day. above floor 1171, below floor 0, inside the 1 bp floor and therefore mapped to no verdict 110",
+   "grid": "B",
+   "grid_note": "the rival predicts a floor, this framework predicts a positive gap while the barrier binds, so the two differ and one of them is wrong on each readable day. Against the hedged 2008 wording the cell is weaker than B, because that sentence stakes less than a per-day inequality",
+   "kind": "rival",
+   "name": "the Board's stated expectation that interest on reserves would floor money market rates, read per day on this definitional basis",
+   "passed": true,
+   "readable_days": 1171,
+   "rival_entailment": "read against the firmer wording: if interest on reserves creates a lower bound then EFFR sits at or above the administered rate, so a day with EFFR below it is a day the bound is not there. Read against the 2008 wording this is stricter than what was staked: 'should help to establish' does not commit to the bound holding on any given day, so the per-day count below describes the data and does not refute that sentence. Both readings are printed and neither is folded into the other",
+   "rival_held_days": 0,
+   "rival_held_share": 0.0,
+   "rival_hit_is_worth": "little: the gap has to fall on one side of zero, so holding is not an achievement. A crossing is what carries weight",
+   "rival_premise": "interest on excess reserve balances puts a lower bound under the federal funds rate. Two original wordings, reported separately because they are not the same commitment (D31). The 2008 announcement hedges: 'Paying interest on excess balances should help to establish a lower bound on the federal funds rate.' The 2018 retrospective is firmer, calling it 'the lower bound on money market rates that interest on reserves was expected to create'. The only qualification attached in 2008 is that 'the formula for the interest rate on excess balances may be adjusted subsequently in light of experience and evolving market conditions'",
+   "rival_shape": "one_sided_inequality",
+   "verdict_cell": "floor_broken"
+  },
+  "B59-5": {
+   "detail": "IOER 2021-07-28 = 15 bp, IORB 2021-07-29 = 15 bp",
+   "kind": "known_answer",
+   "name": "the 2021 redefinition was a rename and not a rate change, so the two bases meet at one value across the break",
+   "passed": true
+  },
+  "B59-6": {
+   "detail": "reproduced",
+   "kind": "known_answer",
+   "name": "the run reproduces the counts read in a browser on 2026-09-08, before this script could reach the endpoint",
+   "passed": true
+  }
+ },
+ "note": "gross gap is a rule reading, not in this record: 12 CFR 204.2(y) is a closed list of four and an FHLB is not on it, so its Federal Reserve balance is unremunerated",
+ "stage": "B59"
+}

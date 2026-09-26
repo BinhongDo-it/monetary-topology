@@ -1,0 +1,142 @@
+{
+ "config": {
+  "bisection_steps": 60,
+  "column_sums": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "n_systems": 200,
+  "r_fractions": [
+   0.0,
+   0.1,
+   0.25,
+   0.5,
+   0.75,
+   0.9,
+   0.99
+  ],
+  "samuelson": {
+   "costs": [
+    15.75,
+    28.0
+   ],
+   "switches": [
+    0.5,
+    1.0
+   ],
+   "technique_a": {
+    "2": 7.0
+   },
+   "technique_b": {
+    "1": 6.0,
+    "3": 2.0
+   }
+  },
+  "scale_draws": 3,
+  "seed": 0,
+  "sizes": [
+   3,
+   8
+  ],
+  "tol": 1e-12,
+  "tol_cycle": 1e-12,
+  "tol_switch": 1e-09
+ },
+ "criteria": [
+  {
+   "detail": "200 random productive systems of 3 to 8 industries from stage A19's generator, irreducible so that every commodity is basic, at 7 rates of profits each. With the standard system scaled to one unit of labour and its net product as the unit of account, **the wage is 1 - r / R at every one of the 1400 points**, within 1e-12, and R is 1 / lambda_PF(A) - 1. This is Sraffa's own result and it is the known answer here",
+   "kind": "known_answer",
+   "name": "B67-6a",
+   "passed": true,
+   "statement": "Sraffa's linear frontier: with the standard commodity as the unit of account the wage is 1 - r / R"
+  },
+  {
+   "detail": "Samuelson's example of 1966: one technique spends 7 units of labour two periods before the output, the other 2 units three periods before and 6 units one period before. Their costs are equal at exactly two rates of profits, 0.5 and 1, found here by bisection within 1e-09, at 15.75 and 28 per unit; the second technique is the cheaper strictly between them and the first outside, at every probe. **The same technique is chosen at a low rate and at a high one and the other in between**, which is the reswitching the capital controversy turned on",
+   "kind": "known_answer",
+   "name": "B67-6b",
+   "passed": true,
+   "statement": "Samuelson's 1966 example: two switch points, at 50 and 100 per cent"
+  },
+  {
+   "detail": "200 systems at 7 rates of profits each. **Every industry's production cycle sums to log(1 + r), and they are all equal**, within 1e-12, at all 1400 points; the same holds with wages advanced instead of paid out of the product, where the bundle carries the wage and the sale leg carries the price; and the wage falls in the rate of profits on every system, reaching zero at R = 1 / lambda_PF(A) - 1",
+   "kind": "instrument",
+   "name": "B67-7a",
+   "passed": true,
+   "statement": "Theorem 12(1) and (2): equal cycle sums are the price equations, and the maximum rate is the Perron-Frobenius one"
+  },
+  {
+   "detail": "200 systems at 7 rates each. The exchange edges carry a single price vector, so **the whole of the field's departure from a potential sits on the production edges**, and the distance of Theorem 5 is that departure projected on the cycle space: `rho = c \u00b7 log(1 + r)` within 1e-12 at all 1400 points, with `c` a number that belongs to the graph and not to the rate. Against the potential the prices themselves give, the departure is log(1 + r) on every production edge and zero on every other, within 1e-12. For the graph drawn here, one cycle of three edges per industry and money at par between them, `c` is the square root of the industry count over three, matched within 1e-12 on every system. **The invariant is the sum on one cycle; the distance aggregates it and therefore counts how the graph was drawn**",
+   "kind": "instrument",
+   "name": "B67-7b",
+   "passed": true,
+   "statement": "Theorem 12(4): the obstruction sits on the production edges and the distance is proportional to log(1 + r)"
+  },
+  {
+   "detail": "60 systems, each probed at rates of profits from -0.3 to +0.9. **With the production edges walkable without a bound, a directed cycle is positive at every positive rate and at none below zero**, in 60 of 60, and the switching rate found by bisection is zero within 1e-09 in 60 of 60. **With every producer bounded, no directed cycle is positive at any rate**, in 60 of 60. So (NA) leaves `r = 0` and cannot leave a uniform positive rate: equalisation at a positive rate needs a bound and a flow that responds, neither of which is a no-arbitrage statement",
+   "kind": "instrument",
+   "name": "B67-7c",
+   "passed": true,
+   "statement": "Corollary 12.2: (NA) gives a zero rate and cannot give a uniform positive one"
+  },
+  {
+   "detail": "200 systems, three rates each, the standard proportions and 3 random scales of the economy: **the profits of the whole economy are the rate of profits times the value of what is advanced**, within 1e-12 relative, in 2400 of 2400. This is Corollary 10.2 of the post-Keynesian file read on this system, with the value sent round each production cycle being what that industry advances",
+   "kind": "instrument",
+   "name": "B67-7d",
+   "passed": true,
+   "statement": "Corollary 10.2 on this system: profits are the rate times what is advanced"
+  }
+ ],
+ "mapping": {
+  "B67-6": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B67-7": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed"
+ },
+ "report": {
+  "B67-6a": {
+   "linear_within": 1e-12,
+   "points": 1400,
+   "systems": 200
+  },
+  "B67-6b": {
+   "costs": [
+    15.75,
+    28.0
+   ],
+   "switches": [
+    0.5,
+    1.0
+   ],
+   "within": 1e-09
+  },
+  "B67-7a": {
+   "points": 1400,
+   "sums_within": 1e-12,
+   "systems": 200
+  },
+  "B67-7b": {
+   "points": 1400,
+   "systems": 200,
+   "within": 1e-12
+  },
+  "B67-7c": {
+   "probes": [
+    -0.3,
+    -0.1,
+    -0.01,
+    0.0,
+    0.01,
+    0.1,
+    0.3,
+    0.9
+   ],
+   "systems": 60,
+   "within": 1e-09
+  },
+  "B67-7d": {
+   "draws": 2400,
+   "systems": 200,
+   "within": 1e-12
+  }
+ },
+ "stage": "B67"
+}

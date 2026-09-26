@@ -18,7 +18,7 @@ counted.
 |---|---|---|
 | **B53-1** every private institution writes one value across the three classes | 3,439 private schedules, **15 write more than one**, each named | **FAIL** · `known_answer` |
 | **B53-2** how many schedules write `3 -> 1`, `3 -> 2` and `3 -> 3` | `3 -> 1` 3,617; `3 -> 2` 1,738; `3 -> 3` 250 | PASS · `own_reading` |
-| **B53-3** every figure a whole dollar amount | 0 non-integer figures over 5,605 schedules | PASS · `premise` |
+| **B53-3** every figure a whole dollar amount, so two figures are equal or they are not | 0 non-integer figures over 5,605 schedules. **Reports the corpus's format, not the institutions' arithmetic**, and cannot fail on a corpus reported in whole dollars | PASS · `premise` |
 | **B53-4** coverage state by state | 56 requested, 56 returned, none empty; 124 rows dropped for a negative code, counted per state | PASS · `bookkeeping` |
 
 **8,972 collisions**, and every one of them is exact: `3,617 x 2 + 1,738 x 1`.

@@ -338,9 +338,12 @@ and are labelled so. **B8-1 and B8-3 are not affected**: Corollary 1 needs one
 realisable loop with a non-zero sum, and selection cannot make a realised loop
 unrealisable.
 
-**It does not settle per-agent integrability.** `b2_measurement.md` §3.3 makes
-that assumption the necessary and sufficient condition for the mortgage carrier's
-square half collapsing into econometrics. B8 does not test it and does not need it.
+**It does not settle per-agent integrability.** `b1_theorem.md` §7 records that
+assumption and its §13.2 makes it the condition for the mortgage carrier's square
+half collapsing into econometrics: the dictionary there needs `P(a, ·)` to exist,
+which is "exactly `w_a` is exact on `G`", and §13.4's table then puts the square
+summand inside reach of a saturated two-way model. B8 does not test it and
+does not need it.
 
 ---
 

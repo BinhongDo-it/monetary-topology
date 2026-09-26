@@ -1,0 +1,44 @@
+{
+  "config": {
+    "band": 1.5000000000000002e-05,
+    "no_package": [
+      "000",
+      "XXX",
+      "MMM",
+      "YYY",
+      "ZZZ"
+    ],
+    "rows": 19226,
+    "rows_with_package": 4248,
+    "rows_without_package": 14978,
+    "source_name": "PPRRVU2026_Jan_nonQPP.csv",
+    "tick": 1e-05
+  },
+  "criteria": [
+    {
+      "detail": "19226 rows read by column name, header begins HCPCS, MOD, DESCRIPTION, STATUS CODE; every share lies in [0, 1]",
+      "kind": "instrument",
+      "name": "B100-0  the three shares are found by name and read as shares",
+      "passed": true
+    },
+    {
+      "detail": "4236 of 4248 rows with a package sum to one inside the band their own format allows (1.5e-05), a share of 0.9972. Worst gap 1.000e+00, 66666.67 times the band. **This line prints the count and draws no threshold on it; the reading is B100-2.**",
+      "kind": "known_answer",
+      "name": "B100-1  the band is the published one and the partition is whole",
+      "passed": true
+    },
+    {
+      "detail": "branch two: 12 of 4248 rows fall outside the band, by global period [('090', 12)]. Named, worst first: 77750 global 090 0.00000+0.00000+0.00000=0.00000; 77750 global 090 0.00000+0.00000+0.00000=0.00000; 77750 global 090 0.00000+0.00000+0.00000=0.00000; 77761 global 090 0.00000+0.00000+0.00000=0.00000; 77761 global 090 0.00000+0.00000+0.00000=0.00000; 77761 global 090 0.00000+0.00000+0.00000=0.00000; 77762 global 090 0.00000+0.00000+0.00000=0.00000; 77762 global 090 0.00000+0.00000+0.00000=0.00000; 77762 global 090 0.00000+0.00000+0.00000=0.00000; 77763 global 090 0.00000+0.00000+0.00000=0.00000; 77763 global 090 0.00000+0.00000+0.00000=0.00000; 77763 global 090 0.00000+0.00000+0.00000=0.00000",
+      "kind": "own_reading",
+      "name": "B100-2  the rows the layout's word usually points at, named",
+      "passed": true
+    },
+    {
+      "detail": "14978 rows carry a global period with no package (000, XXX, MMM, YYY, ZZZ) and are held out of B100-1 and B100-2. Every one of them carries zero in all three fields.",
+      "kind": "known_answer",
+      "name": "B100-3  a code with no global package carries no share",
+      "passed": true
+    }
+  ],
+  "stage": "B100"
+}

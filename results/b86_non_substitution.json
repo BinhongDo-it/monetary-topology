@@ -1,0 +1,230 @@
+{
+ "config": {
+  "demands_per_system": 6,
+  "goods": [
+   2,
+   3,
+   4
+  ],
+  "methods_per_good": [
+   2,
+   3
+  ],
+  "rates": [
+   0.0,
+   0.05,
+   0.1,
+   0.2
+  ],
+  "seed": 86,
+  "systems": 60,
+  "tol": 1e-10
+ },
+ "criteria": [
+  {
+   "detail": "one good by hand: `l / (1 - (1+r)a)` = 1.2820512821, the solver returns 1.2820512821. Two goods with two methods each, built so the cheaper method for the first good carries more labour and less input and so cannot be read off either column alone: the componentwise minimum is attained by one of the four techniques, at prices [0.470271 0.337112]",
+   "kind": "known_answer",
+   "name": "B86-1",
+   "passed": true,
+   "statement": "a hand-checked case anchors the machinery"
+  },
+  {
+   "detail": "over 240 systems, each with every technique enumerated, the componentwise minimum of the price vectors is attained by a single technique on 240 of them. **This is the half that makes 'the cheapest technique' definable without a demand vector**: without it one would have to say cheapest for whom. It is the same Perron monotonicity B85 uses with the basket fixed, read here with the rate fixed instead",
+   "kind": "own_reading",
+   "name": "B86-2",
+   "passed": true,
+   "statement": "the componentwise minimum is attained by a single technique, which is what makes the cheapest technique definable without a demand vector"
+  },
+  {
+   "detail": "over 1200 demand pairs: the price field moves by at most 0.00e+00 **while the quantity vector moves by at least 0.1576**. Both halves are required. A field that did not move is also what a demand vector that never reached the solve would look like, and the quantity side moving is what says the demand was real. Everything cohomological rides on the field, so no square, no `rho` and no first Betti number responds to demand either",
+   "kind": "own_reading",
+   "name": "B86-3",
+   "passed": true,
+   "statement": "demand moves the quantities and leaves the field alone"
+  },
+  {
+   "detail": "with a second primary factor priced at three different ratios, the cost-minimising technique changes on 53 of 60 drawn method sets, for instance [(1, 0, 2), (1, 2, 2)]. **The same search with one primary factor changes on 0 of 60**, which is the control: a search that switched under one factor too would be finding its own noise rather than the failure of the hypothesis. The second factor is what a demand shift reaches, since it moves the factor price ratio, and the theorem's first hypothesis is exactly that there is nothing there to move",
+   "kind": "own_reading",
+   "name": "B86-4",
+   "passed": true,
+   "statement": "with a second primary factor the technique moves with demand"
+  },
+  {
+   "detail": "under joint production, where a method makes more than one good, the componentwise minimum is attained by no single technique on 180 of 199 viable systems, the first at [0.51766 0.14978]. **B70 already showed that joint production parts the cycles from the commodities**, so this failure is derived rather than newly assumed: without one good per method there is no lattice of columns for the monotonicity to run on",
+   "kind": "own_reading",
+   "name": "B86-5",
+   "passed": true,
+   "statement": "under joint production the componentwise minimum can be attained by nobody"
+  },
+  {
+   "detail": "every technique is enumerated on 240 of 240 systems: the count equals the product of the per-good method counts. **Everything above is a statement about a minimum over a set**, so a set that is short by one member would make all of it a statement about a different set, and nothing else here would notice",
+   "kind": "instrument",
+   "name": "B86-6",
+   "passed": true,
+   "statement": "the enumeration over techniques is complete"
+  },
+  {
+   "detail": "B85's file names this station as the same monotonicity with the rate held fixed instead of the basket. `D20`: the pair is written where a reader of either one finds it",
+   "kind": "bookkeeping",
+   "name": "B86-7",
+   "passed": true,
+   "statement": "the pair with B85 is written where either one is found from"
+  }
+ ],
+ "report": {
+  "B86-1": {
+   "one_good_hand": 1.282051282051282,
+   "one_good_solver": 1.282051282051282,
+   "two_good_min_attained": true
+  },
+  "B86-2": {
+   "counterexamples": [],
+   "systems": 240
+  },
+  "B86-3": {
+   "least_quantity_move": 0.15755916277432025,
+   "pairs": 1200,
+   "worst_price_move": 0.0
+  },
+  "B86-4": {
+   "examples": [
+    {
+     "n": 3,
+     "per_good": 3,
+     "r": 0.05,
+     "winners": [
+      [
+       1,
+       0,
+       2
+      ],
+      [
+       1,
+       2,
+       2
+      ]
+     ]
+    },
+    {
+     "n": 3,
+     "per_good": 3,
+     "r": 0.05,
+     "winners": [
+      [
+       1,
+       0,
+       0
+      ],
+      [
+       1,
+       1,
+       2
+      ],
+      [
+       1,
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "n": 3,
+     "per_good": 3,
+     "r": 0.05,
+     "winners": [
+      [
+       2,
+       1,
+       0
+      ],
+      [
+       2,
+       2,
+       0
+      ]
+     ]
+    },
+    {
+     "n": 3,
+     "per_good": 3,
+     "r": 0.05,
+     "winners": [
+      [
+       0,
+       2,
+       0
+      ],
+      [
+       2,
+       2,
+       0
+      ]
+     ]
+    }
+   ],
+   "switches_with_one_factor": 0,
+   "switches_with_two_factors": 53
+  },
+  "B86-5": {
+   "examples": [
+    {
+     "componentwise_min": [
+      0.5176606045412168,
+      0.1497786889598767
+     ],
+     "prices": [
+      [
+       1.1885713640811324,
+       2.0113389010319445
+      ],
+      [
+       1.2614625418874141,
+       0.1497786889598767
+      ],
+      [
+       0.6536835532301207,
+       1.9697708475350926
+      ],
+      [
+       0.5176606045412168,
+       0.670109344600412
+      ]
+     ]
+    },
+    {
+     "componentwise_min": [
+      0.0634498164667888,
+      0.832111877326873
+     ],
+     "prices": [
+      [
+       0.22802966131336477,
+       0.8530830575632014
+      ],
+      [
+       0.0634498164667888,
+       1.272191236988271
+      ],
+      [
+       0.2885980864754909,
+       0.832111877326873
+      ],
+      [
+       0.1444916336592703,
+       1.2586428469877855
+      ]
+     ]
+    }
+   ],
+   "found": 180,
+   "viable_systems": 199
+  },
+  "B86-6": {
+   "short": []
+  },
+  "B86-7": {
+   "b85_names_b86": true
+  }
+ },
+ "stage": "B86"
+}

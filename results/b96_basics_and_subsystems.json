@@ -1,0 +1,144 @@
+{
+  "config": {
+    "imports": "b69_okishio",
+    "nb_own_use": [
+      0.0,
+      0.1
+    ],
+    "nb_uses_core": [
+      0.02,
+      0.15
+    ],
+    "non_basics": [
+      1,
+      3
+    ],
+    "seed": 96,
+    "systems": 200,
+    "tax": 1.5,
+    "tol": 1e-09
+  },
+  "criteria": [
+    {
+      "detail": "on 15 of 15 systems from B69's own generator every good is basic, which is what an irreducible input matrix means and is the case Sraffa's chapter six has nothing to say about. **And a vertically integrated subsystem's labour content is the labour value**: `l [I - A]^{-1}` agrees with B69's own `labour_values` to 8.88e-16 over 200 systems. Both anchors are imported, so this station and B69 can disagree",
+      "kind": "known_answer",
+      "name": "B96-1",
+      "passed": true
+    },
+    {
+      "detail": "the maximum rate of profit of the whole economy equals that of its basic part on 200 of 200 systems, worst gap 0.00e+00. **On the graph this is block triangularity**: the non-basics use the core and the core uses none of them, so the whole system's spectral radius is the larger of the core's and the non-basic block's. **That makes the reading conditional and the condition is that the non-basic block's is the smaller**, which holds here on 200 of 200: core radius at least 0.300, non-basic block at most 0.099. **This generator cannot violate it**, so the count above is worth nothing by itself and `B96-8` sweeps across the boundary instead. Sraffa states the same condition in Appendix B for a non-basic that reproduces itself",
+      "kind": "own_reading",
+      "name": "B96-2",
+      "passed": true
+    },
+    {
+      "detail": "raising a non-basic's own coefficient by half again leaves the maximum rate on 200 of 200 systems and leaves every basic price on 200 of 200, by less than 1e-09. **Doing the same to a basic moves the rate on 200 and the basic prices on 200**, the latter by a median of 0.1024. **Both halves are counted on the same systems**, so the contrast is not between two samples, and the null half alone would be a check that cannot fail. **The null half is also conditional, and on a tighter condition than `B96-2`'s**: what has to stay under the core's radius is the non-basic block's radius after the tax, not before it, so the boundary sits at the core's radius divided by the tax. It holds here on 200 of 200: core radius at least 0.300, taxed non-basic block at most 0.149. **This generator cannot violate it either**, so the null half's count is worth nothing by itself and `B96-9` sweeps across that boundary instead",
+      "kind": "own_reading",
+      "name": "B96-3",
+      "passed": true
+    },
+    {
+      "detail": "the intersection of the vertically integrated subsystems equals the set of basics on 200 of 200 systems. **A subsystem is what one net unit of a good calls up, and a good is basic when every good calls it up**, so the two definitions are one reachability relation read along its two arguments. **Sraffa's chapter six and Pasinetti's construction meet on the graph**, not in the algebra. Subsystem sizes run from 3 to 9 goods, so they are not all the whole economy and the intersection is not trivially everything",
+      "kind": "own_reading",
+      "name": "B96-4",
+      "passed": true
+    },
+    {
+      "detail": "every one of 200 systems carries at least one non-basic and has a basic set strictly smaller than its good set, 200 of 200, with the number of non-basics distributed 1 on 107, 2 on 93. **Without a non-basic every statement above is vacuous**: on an irreducible system the basics are everything, the intersection is everything, and there is no non-basic to tax",
+      "kind": "own_reading",
+      "name": "B96-5",
+      "passed": true
+    },
+    {
+      "detail": "the reachability relation reaches a fixed point on 200 of 200 systems, checked rather than assumed by running one more step and requiring no change. **And it is the indirect relation and not the direct one**: on a chain of 6 goods where each enters only the next, the first is reported as entering the last, which one step of `A > 0` would not report. **Sraffa's definition says directly or indirectly**, and a direct-only reading would call almost nothing basic",
+      "kind": "instrument",
+      "name": "B96-6",
+      "passed": true
+    },
+    {
+      "detail": "one non-basic's own use swept from 0.02 to 0.95 over 40 cores. **Below the core's own spectral radius the whole system's maximum rate is the core's**, on 853 of 853 cells; **above it the non-basic sets the rate and the two part**, on 747 of 747. The last agreeing value sits within one grid step (0.024) of the core's radius on every sweep, worst 0.018, **so the boundary is at the radius rather than anywhere else**. This is what `B96-2` and `B96-3` are conditional on and what their own generator cannot reach: a good no one else uses still caps the system when it eats enough of itself, which is Sraffa's Appendix B case",
+      "kind": "own_reading",
+      "name": "B96-8",
+      "passed": true
+    },
+    {
+      "detail": "the same sweep read for the tax. **Where the taxed non-basic block's radius stays under the core's, a tax on it leaves the maximum rate exactly where it was**, on 564 of 564 cells; **where the tax carries it over, the taxed non-basic sets the rate and `B96-3`'s null half is false**, on 1036 of 1036. The last harmless own use sits within one grid step (0.024) of the core's radius over the tax, worst 0.017, **so this boundary is at 0.6667 of `B96-8`'s and not somewhere else**. That factor is the tax, and it was written down before the sweep was read. **A good no one else uses can still be the one that caps the system, and a tax is enough to put it there**, which is Sraffa's Appendix B case reached by taxation rather than by technique",
+      "kind": "own_reading",
+      "name": "B96-9",
+      "passed": true
+    },
+    {
+      "detail": "the stations this one builds on each name it: B80 for the reducible decomposition the basic part is a case of, and B68 for the labour values a subsystem's content turns out to be. `D20`",
+      "kind": "bookkeeping",
+      "name": "B96-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B96-1": {
+      "all_basic": 15,
+      "irreducible_tried": 15,
+      "worst_value_gap": 8.881784197001252e-16
+    },
+    "B96-2": {
+      "agree": 200,
+      "max_nonbasic_radius": 0.09942783500947977,
+      "min_core_radius": 0.2999999999999993,
+      "nonbasic_radius_under_core": 200,
+      "systems": 200,
+      "worst_gap": 0.0
+    },
+    "B96-3": {
+      "basic_prices_move": 200,
+      "basic_rate_moves": 200,
+      "median_basic_price_gap": 0.10241338822102497,
+      "nonbasic_prices_same": 200,
+      "nonbasic_rate_same": 200,
+      "systems": 200
+    },
+    "B96-4": {
+      "agree": 200,
+      "largest_subsystem": 9,
+      "smallest_subsystem": 3,
+      "systems": 200
+    },
+    "B96-5": {
+      "counts": {
+        "1": 107,
+        "2": 93
+      },
+      "proper_subsets": 200,
+      "systems": 200,
+      "with_nonbasics": 200
+    },
+    "B96-6": {
+      "chain_indirect": true,
+      "closure_settled": 200,
+      "systems": 200
+    },
+    "B96-7": {
+      "missing_writebacks": []
+    },
+    "B96-8": {
+      "above": 747,
+      "above_parting": 747,
+      "below": 853,
+      "below_agreeing": 853,
+      "cells": 1600,
+      "cores": 40,
+      "grid_step": 0.02384615384615384,
+      "worst_edge_offset": 0.01769230769230823
+    },
+    "B96-9": {
+      "above": 1036,
+      "above_moving": 1036,
+      "below": 564,
+      "below_unchanged": 564,
+      "cells": 1600,
+      "grid_step": 0.02384615384615384,
+      "predicted_ratio_to_b96_8": 0.6666666666666666,
+      "worst_edge": 0.01743589743589874
+    }
+  },
+  "stage": "B96"
+}

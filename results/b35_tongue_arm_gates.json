@@ -1,0 +1,372 @@
+{
+  "config": {
+    "anchors": [
+      "CHINA",
+      "JAPAN",
+      "MEXICO"
+    ],
+    "atom_rule": "four digits, all numeric, not starting 00",
+    "share_floor": 0.1,
+    "source": "b35_census_raw_020649_bycountry_2021-2023.json",
+    "window": [
+      [
+        2021,
+        1
+      ],
+      [
+        2021,
+        2
+      ],
+      [
+        2021,
+        3
+      ],
+      [
+        2021,
+        4
+      ],
+      [
+        2021,
+        5
+      ],
+      [
+        2021,
+        6
+      ],
+      [
+        2021,
+        7
+      ],
+      [
+        2021,
+        8
+      ],
+      [
+        2021,
+        9
+      ],
+      [
+        2021,
+        10
+      ],
+      [
+        2021,
+        11
+      ],
+      [
+        2021,
+        12
+      ],
+      [
+        2022,
+        1
+      ],
+      [
+        2022,
+        2
+      ],
+      [
+        2022,
+        3
+      ],
+      [
+        2022,
+        4
+      ],
+      [
+        2022,
+        5
+      ],
+      [
+        2022,
+        6
+      ],
+      [
+        2022,
+        7
+      ],
+      [
+        2022,
+        8
+      ]
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "20 consecutive months, 2021-01 through 2022-08, the span this code carries one good on every leg; CHINA 21.0%, JAPAN 28.3%, MEXICO 42.4%, each present in all 20 months, and the next destination is PHILIPPINES at 2.5%; the read-out's cell one wanted twelve months and two anchors, and this is twenty months and three",
+      "kind": "instrument",
+      "name": "B35-TG-1",
+      "passed": true
+    },
+    {
+      "detail": "the carrier as configured is a star, 4 vertices and 3 edges, so b1 = E - V + 1 = 0; there is no independent loop on it and therefore no H1 obstruction to read, whatever the prices do. A second origin on the same three destinations would give V=5, E=6, b1=2. This costs nothing and it is decisive, which is why it runs before the floor and the count",
+      "kind": "known_answer",
+      "name": "B35-TG-2",
+      "passed": true
+    },
+    {
+      "detail": "a square needs two classes at each of two positions and this feed gives one buyer class per destination, so the square sum has no second term; the reading this carrier supports is dispersion across positions, and a scalar field with one potential per position accounts for that, which places it in the common-answer cell rather than the distinguishing one",
+      "kind": "known_answer",
+      "name": "B35-TG-3",
+      "passed": true
+    },
+    {
+      "detail": "one good, one origin, three destinations, 20 months: the most expensive anchor is between 1.247 and 1.610 times the cheapest, mean 1.450, and the gap never closes; the ordering is stable, with CHINA dearest in 16 of 20, JAPAN dearest in 4 of 20, and MEXICO cheapest in 18, JAPAN cheapest in 2",
+      "kind": "own_reading",
+      "name": "B35-TG-4",
+      "passed": true
+    },
+    {
+      "detail": "the floor is measured, not asserted: 18 of 116 destination months land within 1e-4 of a whole cent per pound against a uniform expectation of 0.02 per cent, so the grid is one cent a pound, $0.0220 a kg; the thinnest monthly gap between the dearest and cheapest anchor is $0.537 a kg, 24.3 times that floor, and the mean gap is 45.6 times it",
+      "kind": "instrument",
+      "name": "B35-TG-5",
+      "passed": true
+    },
+    {
+      "detail": "the two routes that would give this carrier a loop or a square are named with what each buys and where the data sits; neither is fetched here, and the arm stays shut on the counting gate rather than on any number",
+      "kind": "bookkeeping",
+      "name": "B35-TG-6",
+      "passed": true
+    }
+  ],
+  "report": {
+    "anchor_months_present": {
+      "CHINA": 20,
+      "JAPAN": 20,
+      "MEXICO": 20
+    },
+    "anchor_share": {
+      "CHINA": 0.21045467935675566,
+      "JAPAN": 0.28262601168436674,
+      "MEXICO": 0.4237883749590602
+    },
+    "cheapest_anchor_count": {
+      "JAPAN": 2,
+      "MEXICO": 18
+    },
+    "classes_per_position": {
+      "CHINA": 1,
+      "JAPAN": 1,
+      "MEXICO": 1
+    },
+    "d22": {
+      "b1": 0,
+      "edges": 3,
+      "meaning": "b1 is the number of independent closed loops, and an obstruction of the H1 kind lives on a loop; a star has none, so no amount of price dispersion here can form one",
+      "shape": "star: one origin, one edge to each destination",
+      "vertices": 4,
+      "what_would_change_it": "a second origin shipping the same good to the same three destinations gives V=5, E=6, b1=2"
+    },
+    "d24": {
+      "floor_usd_per_kg": 0.0220462262185,
+      "gap_over_floor_mean": 45.614493278199525,
+      "gap_over_floor_min": 24.34205964506608,
+      "on_a_whole_cent_per_lb": 18,
+      "rate": 0.15517241379310345,
+      "rows": 116,
+      "smallest_monthly_gap": 0.5366505535593467,
+      "uniform_expectation": 0.0002
+    },
+    "max_over_min": {
+      "max": 1.6099763551956587,
+      "mean": 1.449979381298211,
+      "min": 1.2474389395737175
+    },
+    "most_expensive_anchor_count": {
+      "CHINA": 16,
+      "JAPAN": 4
+    },
+    "next_destination": {
+      "name": "PHILIPPINES",
+      "share": 0.024716198033708503
+    },
+    "reading_available": "H0 and dispersion: which class reaches which position and at what price, with the price difference between positions explainable by a potential on the positions",
+    "reshape": {
+      "second_class_at_one_position": {
+        "what_it_would_be": "two buyer classes inside one destination paying different prices for the same code, which this feed cannot see because it stops at the border",
+        "where_it_would_come_from": "the importing country's own customs or wholesale reporting, which is a different channel from this one"
+      },
+      "second_origin": {
+        "b1_after": 2,
+        "candidates": [
+          "EU exports by partner, Eurostat Comext",
+          "Brazil exports by partner, Comex Stat",
+          "Canada exports by partner, Statistics Canada"
+        ],
+        "what_it_buys": "two independent loops, so a loop sum exists and the scalar-field prediction of exactly zero becomes readable on this carrier"
+      },
+      "status": "registered, not fetched",
+      "why": "gate two is what closes this arm, and it closes it on shape rather than on data quality: twenty clean months on a star still have b1 = 0"
+    },
+    "sd_log": {
+      "max": 0.20942365380963282,
+      "mean": 0.1561001485682539,
+      "min": 0.09297958115916988
+    },
+    "series": [
+      {
+        "CHINA": 2.8154,
+        "JAPAN": 2.4726,
+        "MEXICO": 1.9349,
+        "max_over_min": 1.4550791838670238,
+        "month": "2021-01",
+        "sd_log": 0.15551231061143575
+      },
+      {
+        "CHINA": 2.8443,
+        "JAPAN": 2.2827,
+        "MEXICO": 2.1215,
+        "max_over_min": 1.3407311054144704,
+        "month": "2021-02",
+        "sd_log": 0.12460023653409458
+      },
+      {
+        "CHINA": 2.9656,
+        "JAPAN": 2.1529,
+        "MEXICO": 1.9779,
+        "max_over_min": 1.4993698108624642,
+        "month": "2021-03",
+        "sd_log": 0.17442145435345247
+      },
+      {
+        "CHINA": 2.9187,
+        "JAPAN": 2.5104,
+        "MEXICO": 2.1325,
+        "max_over_min": 1.3686966559380378,
+        "month": "2021-04",
+        "sd_log": 0.12816602775081368
+      },
+      {
+        "CHINA": 2.7132,
+        "JAPAN": 2.1654,
+        "MEXICO": 2.2112,
+        "max_over_min": 1.2529783472367226,
+        "month": "2021-05",
+        "sd_log": 0.10173984439054691
+      },
+      {
+        "CHINA": 2.7055,
+        "JAPAN": 2.1688,
+        "MEXICO": 2.3103,
+        "max_over_min": 1.2474389395737175,
+        "month": "2021-06",
+        "sd_log": 0.09297958115916988
+      },
+      {
+        "CHINA": 2.3048,
+        "JAPAN": 2.8309,
+        "MEXICO": 2.1245,
+        "max_over_min": 1.332510660818636,
+        "month": "2021-07",
+        "sd_log": 0.1207893494788459
+      },
+      {
+        "CHINA": 3.2963,
+        "JAPAN": 2.5626,
+        "MEXICO": 2.2933,
+        "max_over_min": 1.4373406826330954,
+        "month": "2021-08",
+        "sd_log": 0.15178155377044292
+      },
+      {
+        "CHINA": 3.2396,
+        "JAPAN": 2.8773,
+        "MEXICO": 2.031,
+        "max_over_min": 1.5950470062620856,
+        "month": "2021-09",
+        "sd_log": 0.19815231166510797
+      },
+      {
+        "CHINA": 3.4476,
+        "JAPAN": 2.8892,
+        "MEXICO": 2.1414,
+        "max_over_min": 1.6099763551956587,
+        "month": "2021-10",
+        "sd_log": 0.19655810706214114
+      },
+      {
+        "CHINA": 3.6174,
+        "JAPAN": 2.9913,
+        "MEXICO": 2.352,
+        "max_over_min": 1.5380100709924132,
+        "month": "2021-11",
+        "sd_log": 0.1761472266827172
+      },
+      {
+        "CHINA": 3.4941,
+        "JAPAN": 3.2003,
+        "MEXICO": 2.3112,
+        "max_over_min": 1.511833786017345,
+        "month": "2021-12",
+        "sd_log": 0.17779277080015393
+      },
+      {
+        "CHINA": 3.7643,
+        "JAPAN": 3.0917,
+        "MEXICO": 2.3967,
+        "max_over_min": 1.5706165213023724,
+        "month": "2022-01",
+        "sd_log": 0.18481328310496867
+      },
+      {
+        "CHINA": 3.5348,
+        "JAPAN": 2.9211,
+        "MEXICO": 2.5084,
+        "max_over_min": 1.4091798734176395,
+        "month": "2022-02",
+        "sd_log": 0.14032440819967634
+      },
+      {
+        "CHINA": 3.3354,
+        "JAPAN": 2.9246,
+        "MEXICO": 2.3536,
+        "max_over_min": 1.4171542077287103,
+        "month": "2022-03",
+        "sd_log": 0.14376553078196402
+      },
+      {
+        "CHINA": 3.6248,
+        "JAPAN": 3.0931,
+        "MEXICO": 2.3706,
+        "max_over_min": 1.5290386720660176,
+        "month": "2022-04",
+        "sd_log": 0.17519604965111868
+      },
+      {
+        "CHINA": 3.3068,
+        "JAPAN": 3.0632,
+        "MEXICO": 2.4847,
+        "max_over_min": 1.3308633672226446,
+        "month": "2022-05",
+        "sd_log": 0.12081318029939007
+      },
+      {
+        "CHINA": 3.377,
+        "JAPAN": 3.4063,
+        "MEXICO": 2.3742,
+        "max_over_min": 1.4346961991170497,
+        "month": "2022-06",
+        "sd_log": 0.16815791929158388
+      },
+      {
+        "CHINA": 3.2124,
+        "JAPAN": 3.4251,
+        "MEXICO": 2.1347,
+        "max_over_min": 1.6045234566355318,
+        "month": "2022-07",
+        "sd_log": 0.20942365380963282
+      },
+      {
+        "CHINA": 3.2923,
+        "JAPAN": 3.5432,
+        "MEXICO": 2.3395,
+        "max_over_min": 1.514502723662579,
+        "month": "2022-08",
+        "sd_log": 0.18086817196782148
+      }
+    ],
+    "square_available": false,
+    "window_months": 20
+  },
+  "stage": "B35-TG"
+}

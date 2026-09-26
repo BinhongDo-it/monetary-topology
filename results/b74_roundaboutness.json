@@ -1,0 +1,116 @@
+{
+ "config": {
+  "labour": [
+   0.0,
+   3.0
+  ],
+  "max_lag": [
+   2,
+   6
+  ],
+  "n_pairs": 600,
+  "samuelson": {
+   "costs": [
+    15.75,
+    28.0
+   ],
+   "sign_changes": 2,
+   "switches": [
+    0.5,
+    1.0
+   ],
+   "technique_a": {
+    "2": 7.0
+   },
+   "technique_b": {
+    "1": 6.0,
+    "3": 2.0
+   }
+  },
+  "seed": 0,
+  "sparsity": 0.45,
+  "tol": 1e-12,
+  "tol_root": 1e-09,
+  "x_grid": 600,
+  "x_max": 4.0
+ },
+ "criteria": [
+  {
+   "detail": "Samuelson's example of 1966: one technique spends `7` units of labour two periods before the output, the other `2` three periods before and `6` one period before. **The difference of their dated labour profiles is `-6x + 7x\u00b2 - 2x\u00b3`, which factors as `-x(2x - 3)(x - 2)`**, so the switch points are exactly `x = 3/2` and `x = 2`, that is **50 and 100 per cent, matched to 0.0e+00**, with costs `15.75` and `28.00` matched to 0.0e+00 and the two techniques equally costly there to 0.0e+00. **Descartes' bound is attained**: the coefficient sequence changes sign 2 times and there are 2 switch points. B67-6b read the same pair by bisection on the cost functions; **here the polynomial factors and the roots are rational**, which is a different route to the same published numbers",
+   "kind": "known_answer",
+   "name": "B74-5",
+   "passed": true,
+   "statement": "Samuelson's two switch points, read back by factoring the difference polynomial"
+  },
+  {
+   "detail": "600 drawn pairs of techniques, each with a longest lag between 2 and 6 and some dates carrying no labour. **The number of positive roots of the difference never exceeds the number of sign changes in its coefficients**, on all 600, and **the two always have the same parity**, on all 600, which is Descartes' rule read on the dated labour profiles. The bound is attained on 288 of them. The joint distribution of (sign changes, switch points at a positive rate) is (0, 0) on 54, (1, 0) on 95, (1, 1) on 70, (2, 0) on 172, (2, 1) on 36, (2, 2) on 5, (3, 0) on 80, (3, 1) on 52, (4, 0) on 18, (4, 1) on 9, (4, 2) on 1, (5, 0) on 5, (5, 1) on 2, (5, 2) on 1. **So how many times the ordering of two techniques can reverse is bounded by a property of their profiles that does not mention the rate of profit at all**",
+   "kind": "instrument",
+   "name": "B74-6a",
+   "passed": true,
+   "statement": "Theorem 19(3): the number of switch points is bounded by the sign changes, with the same parity"
+  },
+  {
+   "detail": "600 drawn pairs. **Where the difference of the profiles changes sign once there is at most one switch point**, on all 169 such pairs, **and the cost ordering reverses at most once over the whole range of rates probed**, on all 169: a single number does order those two techniques, with one reversal. **Where it changes sign two or more times, pairs with two switch points occur**, 7 of the 374 such pairs. So the Austrian intuition is not wrong: **it has a domain, and the domain is that the two dated labour profiles cross once**",
+   "kind": "instrument",
+   "name": "B74-6b",
+   "passed": true,
+   "statement": "Theorem 19(4): where the profiles cross once, one number does order the techniques"
+  },
+  {
+   "detail": "600 drawn pairs, each read at 601 rates from zero up to 3. **The average period of production moves with the rate on 598 of the pairs**, the largest movement 4.6240 periods, so it is not a property of a technique alone. **Its ordering between two techniques reverses somewhere on 133 of the pairs**, and on 133 of those **the rate where it reverses is not a switch point at all**: the measure does not even track the cost ordering it was introduced to stand for. So the objection to it is not only that it moves, but that **where it moves is not where the thing it measures moves**",
+   "kind": "instrument",
+   "name": "B74-6c",
+   "passed": true,
+   "statement": "Theorem 19(5): the average period moves, and where it moves is not where the cost ordering moves"
+  }
+ ],
+ "mapping": {
+  "B74-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B74-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B74-5": {
+   "sign_changes": 2,
+   "switch_points": 2,
+   "within": 1e-09
+  },
+  "B74-6a": {
+   "bound_attained": 288,
+   "pairs": 600,
+   "parity_holds": 600,
+   "table": {
+    "0,0": 54,
+    "1,0": 95,
+    "1,1": 70,
+    "2,0": 172,
+    "2,1": 36,
+    "2,2": 5,
+    "3,0": 80,
+    "3,1": 52,
+    "4,0": 18,
+    "4,1": 9,
+    "4,2": 1,
+    "5,0": 5,
+    "5,1": 2,
+    "5,2": 1
+   },
+   "within_bound": 600
+  },
+  "B74-6b": {
+   "at_most_one_switch": 169,
+   "monotone": 169,
+   "one_sign_change": 169,
+   "pairs": 600,
+   "two_or_more_changes": 374,
+   "two_switches": 7
+  },
+  "B74-6c": {
+   "away_from_switch": 133,
+   "moving": 598,
+   "pairs": 600,
+   "probes": 601,
+   "reversing": 133
+  }
+ },
+ "stage": "B74"
+}

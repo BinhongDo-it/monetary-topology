@@ -26,8 +26,17 @@ tuition figures.
 |---|---|---|---|
 | **B53-1** | every private institution writes one value across the three classes | `known_answer` | one or more write more, in which case each is named |
 | **B53-2** | how many schedules write `3 -> 1`, `3 -> 2` and `3 -> 3`, by control and level | `own_reading` | the census is empty |
-| **B53-3** | the premise that makes these collisions exact: every figure is a whole dollar amount | `premise` | any non-integer figure, which would put the corpus back on the tariff corpus's footing |
+| **B53-3** | the premise that makes the comparison exact: every figure is a whole dollar amount, so two are equal or they are not | `premise` | any non-integer figure, which would put the corpus back on the tariff corpus's footing |
 | **B53-4** | coverage state by state, a state returning nothing named rather than absent | `bookkeeping` | a state is silently missing |
+
+> **B53-3 restated 2026-09-13.** That row used to read "the premise that makes
+> these collisions exact", and integrality cannot carry that: the counting law
+> counts the values a schedule writes, and a whole-dollar figure is the written
+> value whatever the institution summed before publishing it. What integrality
+> buys is that two written figures are equal or they are not. It also cannot fail
+> on a corpus reported in whole dollars, so what its passing reports is that the
+> corpus arrived in the format the comparison needs. **No count moves**: the 8,972
+> same-value merges are merges of written values, which is the object.
 
 `B53-1` is a known-answer check, and known-answer checks earn their keep when
 they do not pass: what they return is a named and checkable list. **A failure
@@ -37,7 +46,10 @@ here is a list of institutions to go and read, not a result about the world.**
 
 **No estimator, no band, no power.** Every quantity is a count of distinct
 values, so there is nothing to place a line on. What the station needs instead
-is `B53-3`: a resolution premise, checked rather than assumed.
+is `B53-3`, a resolution premise read off the corpus rather than assumed. What it
+reports is the format the comparison needs, and it cannot fail on a corpus
+published in whole dollars, which is why it is registered as a premise and not as
+a reading.
 
 **Reachability.** All three shapes are reachable before the run: a schedule can
 write one, two or three distinct values, and both the private and the public

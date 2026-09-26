@@ -1,0 +1,483 @@
+{
+  "config": {
+    "b84_record": "results/b84_weighted_cpd.json",
+    "bridge_ladder": [
+      1.0,
+      0.1,
+      0.01,
+      0.001,
+      0.0001
+    ],
+    "dense_ladder": [
+      1.0,
+      10.0,
+      100.0,
+      10000.0
+    ],
+    "graphs_per_size": 200,
+    "imports": [
+      "b81_cpd",
+      "b84_weighted_cpd"
+    ],
+    "max_enum_n": 5,
+    "seed": 103,
+    "sizes": [
+      8,
+      16,
+      32
+    ],
+    "tol": "1e-09",
+    "tol_abs_ladder": "1e-12"
+  },
+  "criteria": [
+    {
+      "detail": "every labelled simple graph on 2 to 5 vertices, every missing edge added once: 1606 additions join two components and 3719 do not. On all 1606 of the first kind the difference phi(j) - phi(i) is not fixed by any nearest potential before the action, is fixed after it at exactly the new edge's term, rho^2 does not move, b1 holds and the component count falls by one. On all 3719 of the second kind the difference was already fixed before, b1 rises by one and the component count holds. Compared below 1e-09",
+      "kind": "own_reading",
+      "name": "B103-1",
+      "passed": true,
+      "statement": "joining two positions that could not reach each other: before, their relative level is a free constant; after, the new edge fixes it"
+    },
+    {
+      "detail": "600 random weighted connected graphs on 8, 16, 32 vertices, a missing edge with a random weight and term added to each. The three closed forms and the new edge's residual D / (1 + w_e R) agree with the numerical projection on every graph, below 1e-09, and the same action with D set to zero moves nothing, also below 1e-09. The fraction of the discrepancy absorbed into the ends' relative level runs from 0.018 to 0.958 across these graphs",
+      "kind": "own_reading",
+      "name": "B103-2",
+      "passed": true,
+      "statement": "joining two positions that could reach each other: rho^2 rises by w_e D^2 / (1 + w_e R), every potential moves by w_e D L^+ b / (1 + w_e R), and the ends' relative level moves by the fraction w_e R / (1 + w_e R) of D"
+    },
+    {
+      "detail": "two six-vertex blocks joined by one edge whose conductance walks down 1e+00, 1e-01, 1e-02, 1e-03, 1e-04, and an action joining the far ends. R rises from 2.703 to 10001.7; the fraction of D absorbed into the ends' relative level, measured from the two fits, rises from 0.7299 to 0.999900; the rise in rho^2 and the new edge's residual fall toward zero; D itself does not move; and with the joining edge removed the level is pinned exactly. At the other end, a complete graph on eight vertices less the joined pair, weights walked up 1e+00, 1e+01, 1e+02, 1e+04: the measured fraction falls from 0.2500 to 3.33e-05 and the ends' relative level moves less at every step. On every rung of both walks the measured fraction is w_e R / (1 + w_e R), compared below 1e-09. Checks: the same action with D set to zero moves nothing at any rung: yes; D does not depend on the bridge's conductance: yes; R rises as the bridge weakens: yes; the measured fraction of D absorbed rises toward one: yes; the measured fraction is w_e R / (1 + w_e R) on every rung of both walks: yes; rho^2's increase falls toward zero: yes; the new edge's residual falls toward zero: yes; with the bridge removed the level is pinned exactly: yes; the measured fraction falls toward zero as the ends are tied tighter: yes; the ends' relative level moves less and less: yes",
+      "kind": "own_reading",
+      "name": "B103-3",
+      "passed": true,
+      "statement": "the two cases are one formula: R growing without bound gives B103-1, R going to zero moves nothing"
+    },
+    {
+      "detail": "B84-4's 10 tableaux redrawn from B81's generator with seed 84 + 3; the same edges come back (yes). With R computed from each tableau, not fitted, the closed form matches the recorded distance on every rung below 1e-12. The printed low end 0.848983 is the rate on step 1 of 4, informative, and equals (1 + w_b R)/(1 + w_a R) there to its noise; the printed high end 1.002530 is the rate on step 4, where the closed form bends by less than the float noise of the distances it divides, so the rate carries nothing. So B84's reading that the approach is linear holds as the weight goes to zero, and the spread it printed is the curvature (1 + w_b R)/(1 + w_a R) at the top of the ladder and noise at the bottom",
+      "kind": "known_answer",
+      "name": "B103-4",
+      "passed": true,
+      "statement": "B84-4's ladder is the closed form: its distances on every rung, and the range of the rate it printed"
+    }
+  ],
+  "report": {
+    "B103-1": {
+      "compared_below": "1e-09",
+      "failures": 0,
+      "per_vertex_count": {
+        "2": {
+          "reachable_ends": 0,
+          "unreachable_ends": 1
+        },
+        "3": {
+          "reachable_ends": 3,
+          "unreachable_ends": 9
+        },
+        "4": {
+          "reachable_ends": 96,
+          "unreachable_ends": 96
+        },
+        "5": {
+          "reachable_ends": 3620,
+          "unreachable_ends": 1500
+        }
+      }
+    },
+    "B103-2": {
+      "by_size": {
+        "16": {
+          "effective_resistance_min_median_max": [
+            0.1563,
+            0.575,
+            10.55
+          ],
+          "graphs": 200,
+          "rewriting_fraction_min_median_max": [
+            0.01751,
+            0.4097,
+            0.9365
+          ]
+        },
+        "32": {
+          "effective_resistance_min_median_max": [
+            0.1582,
+            0.5713,
+            5.846
+          ],
+          "graphs": 200,
+          "rewriting_fraction_min_median_max": [
+            0.02385,
+            0.3541,
+            0.9371
+          ]
+        },
+        "8": {
+          "effective_resistance_min_median_max": [
+            0.1682,
+            0.7144,
+            12.68
+          ],
+          "graphs": 200,
+          "rewriting_fraction_min_median_max": [
+            0.04426,
+            0.412,
+            0.9579
+          ]
+        }
+      },
+      "compared_below": "1e-09"
+    },
+    "B103-3": {
+      "bridge_ladder": [
+        {
+          "D": 1.42668,
+          "R": 2.70261,
+          "conductance": 1.0,
+          "fraction_measured": 0.729920005,
+          "new_edge_residual": 0.3853,
+          "rho2_rise": 0.5497
+        },
+        {
+          "D": 1.42668,
+          "R": 11.7026,
+          "conductance": 0.1,
+          "fraction_measured": 0.921276001,
+          "new_edge_residual": 0.1123,
+          "rho2_rise": 0.1602
+        },
+        {
+          "D": 1.42668,
+          "R": 101.703,
+          "conductance": 0.01,
+          "fraction_measured": 0.990263149,
+          "new_edge_residual": 0.01389,
+          "rho2_rise": 0.01982
+        },
+        {
+          "D": 1.42668,
+          "R": 1001.7,
+          "conductance": 0.001,
+          "fraction_measured": 0.999002695,
+          "new_edge_residual": 0.001423,
+          "rho2_rise": 0.00203
+        },
+        {
+          "D": 1.42668,
+          "R": 10001.7,
+          "conductance": 0.0001,
+          "fraction_measured": 0.999900027,
+          "new_edge_residual": 0.0001426,
+          "rho2_rise": 0.0002035
+        }
+      ],
+      "checks": {
+        "D does not depend on the bridge's conductance": true,
+        "R rises as the bridge weakens": true,
+        "rho^2's increase falls toward zero": true,
+        "the ends' relative level moves less and less": true,
+        "the measured fraction falls toward zero as the ends are tied tighter": true,
+        "the measured fraction is w_e R / (1 + w_e R) on every rung of both walks": true,
+        "the measured fraction of D absorbed rises toward one": true,
+        "the new edge's residual falls toward zero": true,
+        "the same action with D set to zero moves nothing at any rung": true,
+        "with the bridge removed the level is pinned exactly": true
+      },
+      "compared_below": "1e-09",
+      "dense_ladder": [
+        {
+          "R": 0.333333,
+          "fraction_measured": 0.25,
+          "level_move": 0.5159,
+          "weight": 1.0
+        },
+        {
+          "R": 0.0333333,
+          "fraction_measured": 0.0322581,
+          "level_move": 0.06657,
+          "weight": 10.0
+        },
+        {
+          "R": 0.00333333,
+          "fraction_measured": 0.00332226,
+          "level_move": 0.006856,
+          "weight": 100.0
+        },
+        {
+          "R": 3.33333e-05,
+          "fraction_measured": 3.33322e-05,
+          "level_move": 6.878e-05,
+          "weight": 10000.0
+        }
+      ]
+    },
+    "B103-4": {
+      "compared_below": "1e-12",
+      "edges": [
+        {
+          "D": -0.804827,
+          "R": 0.603062,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.9436925,
+            0.9993979,
+            0.9999994,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9436925,
+            0.9993979,
+            0.9999959,
+            0.9973066
+          ]
+        },
+        {
+          "D": -1.68298,
+          "R": 1.07786,
+          "edge": [
+            0,
+            1
+          ],
+          "rate_closed_form": [
+            0.9036747,
+            0.9989244,
+            0.9999989,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9036747,
+            0.9989244,
+            1.000001,
+            1.000026
+          ]
+        },
+        {
+          "D": -0.74273,
+          "R": 1.02662,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.9078275,
+            0.9989755,
+            0.999999,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9078275,
+            0.9989755,
+            1.000001,
+            1.001828
+          ]
+        },
+        {
+          "D": -0.696481,
+          "R": 0.706459,
+          "edge": [
+            0,
+            1
+          ],
+          "rate_closed_form": [
+            0.9346754,
+            0.9992947,
+            0.9999993,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9346754,
+            0.9992947,
+            0.9999957,
+            0.9924873
+          ]
+        },
+        {
+          "D": 0.21774,
+          "R": 0.951225,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.9140084,
+            0.9990506,
+            0.999999,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9140084,
+            0.9990506,
+            1.000019,
+            1.00253
+          ]
+        },
+        {
+          "D": -0.919765,
+          "R": 1.8,
+          "edge": [
+            0,
+            1
+          ],
+          "rate_closed_form": [
+            0.8489831,
+            0.998205,
+            0.9999982,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.8489831,
+            0.998205,
+            1.000003,
+            1.001548
+          ]
+        },
+        {
+          "D": -0.426559,
+          "R": 1.09966,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.901919,
+            0.9989026,
+            0.9999989,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.901919,
+            0.9989026,
+            1.000002,
+            1.002222
+          ]
+        },
+        {
+          "D": -0.814574,
+          "R": 1.02663,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.9078264,
+            0.9989754,
+            0.999999,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9078264,
+            0.9989754,
+            0.9999985,
+            1.001882
+          ]
+        },
+        {
+          "D": -1.60091,
+          "R": 0.68716,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.9363453,
+            0.999314,
+            0.9999993,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9363453,
+            0.999314,
+            1.0,
+            1.002296
+          ]
+        },
+        {
+          "D": 1.14194,
+          "R": 0.839997,
+          "edge": [
+            0,
+            0
+          ],
+          "rate_closed_form": [
+            0.9232844,
+            0.9991615,
+            0.9999992,
+            1.0
+          ],
+          "rate_informative": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "rate_recorded": [
+            0.9232844,
+            0.9991615,
+            0.9999997,
+            1.000017
+          ]
+        }
+      ],
+      "printed_range": [
+        0.848983051,
+        1.00253023
+      ]
+    }
+  },
+  "stage": "B103"
+}

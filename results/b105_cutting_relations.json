@@ -1,0 +1,193 @@
+{
+  "config": {
+    "delta": 0.7,
+    "extra_scale": 1.5,
+    "graphs_per_size": 200,
+    "imports": [
+      "b103_time_reachability"
+    ],
+    "kappas": [
+      0.3,
+      0.8
+    ],
+    "max_enum_n": 6,
+    "max_triple_n": 5,
+    "package_sizes": [
+      2,
+      3,
+      4
+    ],
+    "packages_per_graph": 5,
+    "seed": 105,
+    "share_edge": 0.1,
+    "sizes": [
+      16,
+      32,
+      64
+    ],
+    "tol": "1e-09",
+    "tol_edge": "1e-09",
+    "weak_sizes": [
+      16,
+      32
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "every connected labelled graph on 2 to 6 vertices with random weights and terms, every edge cut once (218494 cuts, 28907 of them bridges), and 37354 cuts on sparse random connected graphs of 16, 32, 64 vertices (2863 bridges). A leverage within 1e-09 of one calls a bridge, mismatches 0 and 0. On every other cut the three closed forms match a second fit on the graph after the cut to within 1e-09 times the amplification 1/(1 - h_e). 115148 of 189587 and 19971 of 34491 non-bridges have leverage above one half, where the rewrite exceeds the residual seen before the cut; the amplification has median 2.41 and 2.27 and reaches 661 and 459",
+      "kind": "own_reading",
+      "name": "B105-1",
+      "passed": true,
+      "statement": "a relation's leverage h_e = w_e R is one exactly when it is a bridge, and otherwise cutting it leaves its two ends at the relative level omega_e - r_e / (1 - h_e), moves every potential by -(w_e r_e / (1 - h_e)) u and lowers rho^2 by w_e r_e^2 / (1 - h_e), all read on the graph before the cut"
+    },
+    {
+      "detail": "every pair of edges of every connected labelled graph on 2 to 6 vertices and every triple on 2 to 5 (798279 pairs and 14657 triples), and 3000 packages on the random graphs (1021 of 2 edges, 981 of 3 edges, 998 of 4 edges). det(I - H_F) within 1e-09 of zero calls a disconnecting package, mismatches 0 and 0; 208517 and 785 packages disconnect, and 72428 and 82 of them do so with every member's leverage below one. On the 604419 and 2215 packages that leave the graph connected the three closed forms match a second fit to within 1e-09 times the norm of (I - H_F)^{-1}; 590780 and 2209 of them have members that interact through H_F's off-diagonal",
+      "kind": "own_reading",
+      "name": "B105-2",
+      "passed": true,
+      "statement": "cutting a package F disconnects the graph exactly when det(I - H_F) = 0, and otherwise the gaps it leaves on F are W_F^{-1/2} (I - H_F)^{-1} W_F^{1/2} r_F, every potential moves by -L^+ B_F' W_F times those gaps and rho^2 falls by r_F' W_F times them"
+    },
+    {
+      "detail": "every edge of every connected labelled graph on 2 to 6 vertices, and every edge of the random graphs of 16, 32 vertices, weakened at kappa = 0.3, 0.8 (436988 and 30938 weakenings, 57814 and 2664 of them of bridges, which carry no residual and move nothing). The three closed forms match a second fit on the weakened graph to within 1e-09 times the amplification 1/(1 - kappa h_e); 113979 and 7358 of them have kappa h_e above one half. Off the bridges the amplification reaches 4.97 and 4.85, below 1/(1 - kappa), which only bridges reach (5 at kappa = 0.8) and where it multiplies a residual of zero",
+      "kind": "own_reading",
+      "name": "B105-3",
+      "passed": true,
+      "statement": "weakening a relation to the weight (1 - kappa) w_e, 0 < kappa < 1, leaves its two ends at the relative level omega_e - r_e / (1 - kappa h_e), moves every potential by -(kappa w_e r_e / (1 - kappa h_e)) u and lowers rho^2 by kappa w_e r_e^2 / (1 - kappa h_e), all read on the graph before the weakening; kappa = 1 is the cut of B105-1"
+    },
+    {
+      "detail": "every edge of every connected labelled graph on 2 to 6 vertices and of the sparse random graphs of 16, 32, 64 vertices, its term moved by 0.7 (218494 and 37354 moves, 28907 and 2863 of them of bridges). The level, the residual, the potentials and rho^2 match a second fit to within 1e-09, and no pair of positions moves further than h_e |Delta|; 3681 and 662 moves have a share below 0.1, and 14883 and 2023 non-bridges a share above 0.9. On every non-bridge the share read from the two fits and the level B105-1's cut leaves return the residual the fit leaves on the edge to within 1e-09 times the larger of 1/h_e and 1/(1 - h_e) (189587 and 34491 recoveries)",
+      "kind": "own_reading",
+      "name": "B105-4",
+      "passed": true,
+      "statement": "moving a relation's term by Delta, with every weight and every other term where it was, moves its two ends' relative level by h_e Delta, its residual by (1 - h_e) Delta, every potential by w_e Delta u and rho^2 by w_e Delta (2 r_e + (1 - h_e) Delta), and no pair of positions by more than h_e |Delta|; the share read from two fits, with the move m of a later cut of the same relation, returns its residual as -m (1 - h_e) / h_e"
+    },
+    {
+      "detail": "every package B105-2 cuts, its terms moved by 0.7 with alternating signs (812936 and 3000 packages; 798279 of 2, 14657 of 3 edges in the enumeration and 1021 of 2, 981 of 3, 998 of 4 on the random graphs): the members' levels match a second fit to within 1e-09, and 666004 and 2793 of the packages have members that interact through H_F's off-diagonal. Every edge B105-3 weakens, at kappa = 0.3, 0.8, has the share (1 - kappa) h_e / (1 - kappa h_e) on the weakened graph to within 1e-09 (436988 and 30938 shares)",
+      "kind": "own_reading",
+      "name": "B105-5",
+      "passed": true,
+      "statement": "moving the terms of a package F by Delta_F moves its members' levels by W_F^{-1/2} H_F W_F^{1/2} Delta_F, and after a relation is weakened to (1 - kappa) w_e its share is (1 - kappa) h_e / (1 - kappa h_e)"
+    }
+  ],
+  "report": {
+    "compared_below": {
+      "bridge_and_disconnection_calls": "1e-09",
+      "closed_forms": "1e-09 times the amplification"
+    },
+    "enumeration": {
+      "one_cut": {
+        "bridges": 28907,
+        "cuts": 218494,
+        "largest_amplification": 661.0,
+        "median_amplification": 2.41,
+        "non_bridges": 189587,
+        "non_bridges_with_leverage_above_0_99": 124,
+        "non_bridges_with_leverage_above_half": 115148,
+        "share_of_non_bridges_with_leverage_above_half": 0.6074
+      },
+      "package_terms_and_weakened_shares": {
+        "package_term_moves": 812936,
+        "package_term_moves_by_size": {
+          "2": 798279,
+          "3": 14657
+        },
+        "weakened_shares": 436988,
+        "weakened_shares_by_kappa": {
+          "0.3": 218494,
+          "0.8": 218494
+        },
+        "with_interacting_members": 666004
+      },
+      "packages": {
+        "connected_after": 604419,
+        "connected_after_with_interacting_members": 590780,
+        "disconnecting": 208517,
+        "disconnecting_with_every_member_replaceable": 72428,
+        "largest_norm_of_the_inverse": 821.0,
+        "packages": 812936,
+        "packages_by_size": {
+          "2": 798279,
+          "3": 14657
+        },
+        "smallest_det_among_connected_after": 3.13e-05
+      },
+      "term_move": {
+        "non_bridges_with_share_above_0_9": 14883,
+        "of_bridges": 28907,
+        "residuals_recovered_from_a_share_and_a_cut": 189587,
+        "term_moves": 218494,
+        "with_share_below_0_1": 3681
+      },
+      "weakening": {
+        "bridges_weakened": 57814,
+        "largest_amplification": 5.0,
+        "largest_amplification_on_non_bridges": 4.97,
+        "weakenings": 436988,
+        "weakenings_by_kappa": {
+          "0.3": 218494,
+          "0.8": 218494
+        },
+        "weakenings_with_kappa_times_leverage_above_half": 113979
+      }
+    },
+    "random_sparse": {
+      "one_cut": {
+        "bridges": 2863,
+        "cuts": 37354,
+        "largest_amplification": 459.0,
+        "median_amplification": 2.27,
+        "non_bridges": 34491,
+        "non_bridges_with_leverage_above_0_99": 12,
+        "non_bridges_with_leverage_above_half": 19971,
+        "share_of_non_bridges_with_leverage_above_half": 0.579
+      },
+      "package_terms_and_weakened_shares": {
+        "package_term_moves": 3000,
+        "package_term_moves_by_size": {
+          "2": 1021,
+          "3": 981,
+          "4": 998
+        },
+        "weakened_shares": 30938,
+        "weakened_shares_by_kappa": {
+          "0.3": 15469,
+          "0.8": 15469
+        },
+        "with_interacting_members": 2793
+      },
+      "packages": {
+        "connected_after": 2215,
+        "connected_after_with_interacting_members": 2209,
+        "disconnecting": 785,
+        "disconnecting_with_every_member_replaceable": 82,
+        "largest_norm_of_the_inverse": 153.0,
+        "packages": 3000,
+        "packages_by_size": {
+          "2": 1021,
+          "3": 981,
+          "4": 998
+        },
+        "smallest_det_among_connected_after": 4.36e-05
+      },
+      "term_move": {
+        "non_bridges_with_share_above_0_9": 2023,
+        "of_bridges": 2863,
+        "residuals_recovered_from_a_share_and_a_cut": 34491,
+        "term_moves": 37354,
+        "with_share_below_0_1": 662
+      },
+      "weakening": {
+        "bridges_weakened": 2664,
+        "largest_amplification": 5.0,
+        "largest_amplification_on_non_bridges": 4.85,
+        "weakenings": 30938,
+        "weakenings_by_kappa": {
+          "0.3": 15469,
+          "0.8": 15469
+        },
+        "weakenings_with_kappa_times_leverage_above_half": 7358
+      }
+    }
+  },
+  "stage": "B105"
+}

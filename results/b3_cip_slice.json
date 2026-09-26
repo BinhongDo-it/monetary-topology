@@ -1,7 +1,7 @@
 {
   "stage": "B3",
   "source": "Du, Keerati and Schreger (2025), cip_dataset_v4",
-  "caveat": "Derived series, not our retrieval. A CIP deviation is the shadow price of balance-sheet capacity, not a profit.",
+  "caveat": "Derived series, not my retrieval. A CIP deviation is the shadow price of balance-sheet capacity, not a profit.",
   "rows": 1513471,
   "dropped_missing_cip_govt": {
     "eme": 227944,
@@ -17,8 +17,8 @@
   "leg_decomposition": {
     "g10": {
       "var_x": 0.0795522067932432,
-      "share_bond_leg": -2.1288290611996232,
-      "share_forward_leg": 3.1288290611996237,
+      "share_bond_leg": -2.1288290611996237,
+      "share_forward_leg": 3.128829061199624,
       "leg_variance_over_var_x": [
         20.18867817960227,
         25.446336302001516
@@ -26,12 +26,12 @@
       "cells": 58219
     },
     "eme": {
-      "var_x": 3.433020442818514,
-      "share_bond_leg": -0.22857357972873504,
-      "share_forward_leg": 1.2285735797287347,
+      "var_x": 3.433020442818513,
+      "share_bond_leg": -0.22857357972873515,
+      "share_forward_leg": 1.2285735797287354,
       "leg_variance_over_var_x": [
-        3.4915420033937714,
-        4.948689162851242
+        3.4915420033937727,
+        4.948689162851243
       ],
       "cells": 52342
     }
@@ -135,8 +135,39 @@
           "20y": 3302.7990788752772,
           "30y": 1819.6338665674598
         }
-      }
+      },
+      "worst_rank_identity": 0.0
     }
+  },
+  "b3_4_quarters": {
+    "above": 90,
+    "n": 102,
+    "at_or_below": [
+      "2001Q2 24.3",
+      "2001Q4 23.2",
+      "2002Q1 24.0",
+      "2002Q2 22.1",
+      "2002Q3 22.1",
+      "2002Q4 21.8",
+      "2003Q1 20.2",
+      "2003Q2 18.7",
+      "2003Q3 20.5",
+      "2003Q4 21.9",
+      "2004Q1 24.4",
+      "2004Q2 23.9"
+    ],
+    "by_tenor_quarters_above": {
+      "3m": "55/102",
+      "1y": "63/102",
+      "2y": "71/102",
+      "3y": "76/102",
+      "5y": "84/102",
+      "7y": "93/102",
+      "10y": "101/102",
+      "20y": "86/102",
+      "30y": "85/95"
+    },
+    "full_sample_tenors_above": "9/9"
   },
   "verdicts": {
     "B3-1": true,

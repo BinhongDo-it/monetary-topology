@@ -1,0 +1,567 @@
+{
+ "config": {
+  "factor_tol": 1e-05,
+  "independence": "b80_reducible, imported not rewritten",
+  "max_index_size": 6,
+  "reps": 8,
+  "seed": 82,
+  "solver": "b75_rectangular_programme, imported not rewritten"
+ },
+ "criteria": [
+  {
+   "detail": "example 1 [3, 4]: alpha 1.259921050, beta 1.259921050; example 2 [5, 6]: alpha 1.259921050, beta 1.000000000, both inside 1e-8 of the published pair",
+   "kind": "known_answer",
+   "name": "B82-1",
+   "passed": true,
+   "statement": "both published example economies return their published factors through the same solver B80 used"
+  },
+  {
+   "detail": "8 simple economies: the image of the process family under `T -> produced(T)` is B80's family of independent good sets in 8 of 8. **B = I is what identifies the two index sets**, and that is why B80 could state both families over goods",
+   "kind": "instrument",
+   "name": "B82-2",
+   "passed": true,
+   "statement": "on a simple economy the process family's image under T -> produced(T) is B80's family of independent good sets"
+  },
+  {
+   "detail": "9 rectangular economies. **alpha_0 is the max over process sets with `consumed(T) subset produced(T)`** in 9 of 9, worst departure 1.29e-14; **beta_0 is the min over good sets every process producing into which also consumes from**, in 9 of 9, worst 3.77e-15, both against 1e-05",
+   "kind": "own_reading",
+   "name": "B82-3",
+   "passed": true,
+   "statement": "alpha_0 is the max over process sets with consumed(T) contained in produced(T), and beta_0 is the min over good sets every process producing into which also consumes from"
+  },
+  {
+   "detail": "16 rectangular economies: the image of the process family and the good family are different families in 15 of 16. **The two factors are carried by two index sets, processes and goods**, and B80 could state both over goods only because `B = I` identifies them",
+   "kind": "own_reading",
+   "name": "B82-5",
+   "passed": true,
+   "statement": "the two families are carried by two different index sets, processes and goods, and coincide only when B = I identifies them"
+  },
+  {
+   "detail": "9 economies: the intensity vector's support satisfies the process condition and the price vector's support satisfies the good condition in 9 of 9. **The two conditions are not imposed anywhere in the solver; they are read off the solution it returns**",
+   "kind": "own_reading",
+   "name": "B82-6",
+   "passed": true,
+   "statement": "the solution's own supports satisfy the two conditions, which are not imposed anywhere in the solver"
+  },
+  {
+   "detail": "B80 registered: the two-family statement for a general rectangular B, where the same support argument holds but the parts are no longer principal blocks of one matrix so the Perron route is unavailable. Answered by B82-3, which carries both halves in one sweep, and the answer is sharper than the registration expected: the two families are not two families over one index set, they are one family of process sets and one family of good sets, and B = I is what collapses that distinction",
+   "kind": "bookkeeping",
+   "name": "B82-7",
+   "passed": true,
+   "statement": "B80's registration, named, with the way the answer is sharper than it"
+  }
+ ],
+ "mapping": {
+  "B82-1": "both factors inside 1e-8 of the published pair -> PASS",
+  "B82-2": "the image of the process family equals B80's good family on every simple economy drawn -> PASS; any disagreement -> FAIL, and it would mean one of the two stations has the condition wrong",
+  "B82-3": "both maxima match their programme's factor everywhere -> PASS; else FAIL",
+  "B82-5": "the two families differ somewhere -> PASS; never differing would mean the distinction this station draws is empty, which is a finding and not a broken check",
+  "B82-6": "both supports admissible everywhere -> PASS; else FAIL",
+  "B82-7": "the registration named with what answers it -> PASS"
+ },
+ "report": {
+  "B82-1": {
+   "published": [
+    {
+     "alpha": 1.2599210498949045,
+     "beta": 1.2599210498948419,
+     "example": "example 1",
+     "published": [
+      1.2599210478365421,
+      1.2599210478365421
+     ],
+     "shape": [
+      3,
+      4
+     ]
+    },
+    {
+     "alpha": 1.2599210498949138,
+     "beta": 0.99999999999997,
+     "example": "example 2",
+     "published": [
+      1.259921052493155,
+      1.0000000009313226
+     ],
+     "shape": [
+      5,
+      6
+     ]
+    }
+   ]
+  },
+  "B82-2": {
+   "specialisation": [
+    {
+     "agree": true,
+     "as_goods": 3,
+     "b80_independent": 3,
+     "n": 6,
+     "process_sets": 3
+    },
+    {
+     "agree": true,
+     "as_goods": 2,
+     "b80_independent": 2,
+     "n": 5,
+     "process_sets": 2
+    },
+    {
+     "agree": true,
+     "as_goods": 3,
+     "b80_independent": 3,
+     "n": 5,
+     "process_sets": 3
+    },
+    {
+     "agree": true,
+     "as_goods": 3,
+     "b80_independent": 3,
+     "n": 4,
+     "process_sets": 3
+    },
+    {
+     "agree": true,
+     "as_goods": 3,
+     "b80_independent": 3,
+     "n": 5,
+     "process_sets": 3
+    },
+    {
+     "agree": true,
+     "as_goods": 5,
+     "b80_independent": 5,
+     "n": 4,
+     "process_sets": 5
+    },
+    {
+     "agree": true,
+     "as_goods": 2,
+     "b80_independent": 2,
+     "n": 6,
+     "process_sets": 2
+    },
+    {
+     "agree": true,
+     "as_goods": 3,
+     "b80_independent": 3,
+     "n": 5,
+     "process_sets": 3
+    }
+   ]
+  },
+  "B82-3": {
+   "two_families": [
+    {
+     "alpha0": 1.2599210498949138,
+     "beta0": 0.99999999999997,
+     "case": "example 2",
+     "gap": 0.2599210498949438,
+     "good_family": 8,
+     "max_over_process_sets": 1.2599210498949138,
+     "min_over_good_sets": 0.99999999999997,
+     "process_family": 3,
+     "shape": [
+      5,
+      6
+     ]
+    },
+    {
+     "alpha0": 0.8974648101096951,
+     "beta0": 0.8974648101096745,
+     "case": "draw 0",
+     "gap": 2.0650148258027912e-14,
+     "good_family": 49,
+     "max_over_process_sets": 0.8974648101097025,
+     "min_over_good_sets": 0.8974648101096743,
+     "process_family": 10,
+     "shape": [
+      5,
+      6
+     ]
+    },
+    {
+     "alpha0": 0.618957650888124,
+     "beta0": 0.6189576508881085,
+     "case": "draw 1",
+     "gap": 1.554312234475219e-14,
+     "good_family": 16,
+     "max_over_process_sets": 0.6189576508881369,
+     "min_over_good_sets": 0.6189576508881047,
+     "process_family": 14,
+     "shape": [
+      6,
+      6
+     ]
+    },
+    {
+     "alpha0": 1.5251229848969472,
+     "beta0": 1.5251229822114327,
+     "case": "draw 2",
+     "gap": 2.6855144774629025e-09,
+     "good_family": 4,
+     "max_over_process_sets": 1.5251229848969472,
+     "min_over_good_sets": 1.5251229822114327,
+     "process_family": 9,
+     "shape": [
+      4,
+      3
+     ]
+    },
+    {
+     "alpha0": 0.5676963963799178,
+     "beta0": 0.5676963952445249,
+     "case": "draw 3",
+     "gap": 1.1353928908164335e-09,
+     "good_family": 11,
+     "max_over_process_sets": 0.5676963963799178,
+     "min_over_good_sets": 0.5676963952445249,
+     "process_family": 6,
+     "shape": [
+      5,
+      4
+     ]
+    },
+    {
+     "alpha0": 0.3550971429204922,
+     "beta0": 0.35509714292046946,
+     "case": "draw 4",
+     "gap": 2.275957200481571e-14,
+     "good_family": 51,
+     "max_over_process_sets": 0.3550971429204925,
+     "min_over_good_sets": 0.35509714292046946,
+     "process_family": 4,
+     "shape": [
+      5,
+      6
+     ]
+    },
+    {
+     "alpha0": 0.8273962766609584,
+     "beta0": 0.6516641223374198,
+     "case": "draw 5",
+     "gap": 0.17573215432353861,
+     "good_family": 40,
+     "max_over_process_sets": 0.8273962766609584,
+     "min_over_good_sets": 0.6516641223374198,
+     "process_family": 3,
+     "shape": [
+      3,
+      6
+     ]
+    },
+    {
+     "alpha0": 1.5280926980086518,
+     "beta0": 0.7896787172146555,
+     "case": "draw 6",
+     "gap": 0.7384139807939962,
+     "good_family": 5,
+     "max_over_process_sets": 1.5280926980086518,
+     "min_over_good_sets": 0.7896787172146555,
+     "process_family": 23,
+     "shape": [
+      6,
+      3
+     ]
+    },
+    {
+     "alpha0": 1.966203171930442,
+     "beta0": 1.9662031699304423,
+     "case": "draw 7",
+     "gap": 1.999999721391532e-09,
+     "good_family": 8,
+     "max_over_process_sets": 1.966203171930442,
+     "min_over_good_sets": 1.9662031699304423,
+     "process_family": 4,
+     "shape": [
+      3,
+      4
+     ]
+    }
+   ]
+  },
+  "B82-5": {
+   "index_sets": [
+    {
+     "good_family": 53,
+     "images_coincide": false,
+     "process_family": 2,
+     "shape": [
+      3,
+      6
+     ]
+    },
+    {
+     "good_family": 3,
+     "images_coincide": false,
+     "process_family": 4,
+     "shape": [
+      3,
+      3
+     ]
+    },
+    {
+     "good_family": 7,
+     "images_coincide": false,
+     "process_family": 5,
+     "shape": [
+      3,
+      4
+     ]
+    },
+    {
+     "good_family": 3,
+     "images_coincide": false,
+     "process_family": 29,
+     "shape": [
+      6,
+      4
+     ]
+    },
+    {
+     "good_family": 3,
+     "images_coincide": false,
+     "process_family": 6,
+     "shape": [
+      3,
+      3
+     ]
+    },
+    {
+     "good_family": 4,
+     "images_coincide": false,
+     "process_family": 16,
+     "shape": [
+      5,
+      3
+     ]
+    },
+    {
+     "good_family": 6,
+     "images_coincide": false,
+     "process_family": 4,
+     "shape": [
+      3,
+      3
+     ]
+    },
+    {
+     "good_family": 4,
+     "images_coincide": false,
+     "process_family": 25,
+     "shape": [
+      5,
+      3
+     ]
+    },
+    {
+     "good_family": 5,
+     "images_coincide": false,
+     "process_family": 9,
+     "shape": [
+      5,
+      3
+     ]
+    },
+    {
+     "good_family": 9,
+     "images_coincide": false,
+     "process_family": 22,
+     "shape": [
+      6,
+      5
+     ]
+    },
+    {
+     "good_family": 2,
+     "images_coincide": true,
+     "process_family": 10,
+     "shape": [
+      4,
+      3
+     ]
+    },
+    {
+     "good_family": 14,
+     "images_coincide": false,
+     "process_family": 55,
+     "shape": [
+      6,
+      5
+     ]
+    },
+    {
+     "good_family": 3,
+     "images_coincide": false,
+     "process_family": 23,
+     "shape": [
+      5,
+      5
+     ]
+    },
+    {
+     "good_family": 10,
+     "images_coincide": false,
+     "process_family": 3,
+     "shape": [
+      3,
+      4
+     ]
+    },
+    {
+     "good_family": 4,
+     "images_coincide": false,
+     "process_family": 28,
+     "shape": [
+      6,
+      3
+     ]
+    },
+    {
+     "good_family": 22,
+     "images_coincide": false,
+     "process_family": 3,
+     "shape": [
+      3,
+      6
+     ]
+    }
+   ]
+  },
+  "B82-6": {
+   "supports": [
+    {
+     "case": "example 2",
+     "p_admissible": true,
+     "support_p": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "support_x": [
+      2,
+      3,
+      4
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 0",
+     "p_admissible": true,
+     "support_p": [
+      0,
+      1
+     ],
+     "support_x": [
+      1,
+      3
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 1",
+     "p_admissible": true,
+     "support_p": [
+      0
+     ],
+     "support_x": [
+      3,
+      4
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 2",
+     "p_admissible": true,
+     "support_p": [
+      0,
+      2
+     ],
+     "support_x": [
+      3
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 3",
+     "p_admissible": true,
+     "support_p": [
+      0,
+      1,
+      2,
+      5
+     ],
+     "support_x": [
+      1,
+      3,
+      4
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 4",
+     "p_admissible": true,
+     "support_p": [
+      0
+     ],
+     "support_x": [
+      2
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 5",
+     "p_admissible": true,
+     "support_p": [
+      3
+     ],
+     "support_x": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 6",
+     "p_admissible": true,
+     "support_p": [
+      0,
+      1,
+      2
+     ],
+     "support_x": [
+      0,
+      1,
+      4
+     ],
+     "x_admissible": true
+    },
+    {
+     "case": "draw 7",
+     "p_admissible": true,
+     "support_p": [
+      0
+     ],
+     "support_x": [
+      1
+     ],
+     "x_admissible": true
+    }
+   ]
+  },
+  "B82-7": {
+   "registration": {
+    "answered_by": "Answered by B82-3, which carries both halves in one sweep, and the answer is sharper than the registration expected: the two families are not two families over one index set, they are one family of process sets and one family of good sets, and B = I is what collapses that distinction",
+    "text": "B80 registered: the two-family statement for a general rectangular B, where the same support argument holds but the parts are no longer principal blocks of one matrix so the Perron route is unavailable"
+   }
+  }
+ },
+ "sources": {
+  "examples": "QuantEcon, Von Neumann Growth Model (and a Generalization)",
+  "original": "Kemeny, Morgenstern and Thompson (1956), Econometrica 24, 115-135"
+ },
+ "stage": "B82"
+}

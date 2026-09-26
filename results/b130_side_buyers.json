@@ -1,0 +1,45 @@
+{
+ "rows": {
+  "2018": {
+   "everyone_else": 17061,
+   "first_timer_families": 4500,
+   "first_timer_family_share": 0.2087,
+   "first_timer_median_income": 6200,
+   "resale_transactions": 21561
+  },
+  "2019": {
+   "everyone_else": 17186,
+   "first_timer_families": 5000,
+   "first_timer_family_share": 0.2254,
+   "first_timer_median_income": 6500,
+   "resale_transactions": 22186
+  },
+  "2020": {
+   "everyone_else": 17633,
+   "first_timer_families": 5700,
+   "first_timer_family_share": 0.2443,
+   "first_timer_median_income": 6400,
+   "resale_transactions": 23333
+  },
+  "2021": {
+   "everyone_else": 23287,
+   "first_timer_families": 5800,
+   "first_timer_family_share": 0.1994,
+   "first_timer_median_income": 7000,
+   "resale_transactions": 29087
+  },
+  "2022 Q1-Q3": {
+   "everyone_else": 16298,
+   "first_timer_families": 4100,
+   "first_timer_family_share": 0.201,
+   "first_timer_median_income": 7500,
+   "resale_transactions": 20398
+  }
+ },
+ "sources": {
+  "denominator": "data.gov.sg d_8b84c4ee58e3cfc0ece0d773c8ca6abc, monthly totals by registration month",
+  "numerator": "MND written answer, PQ 2568, 9 Jan 2023, Table 1A",
+  "private_owner_rule": "MND written answer, 13 Jul 2015"
+ },
+ "stage": "B130-side-buyers"
+}

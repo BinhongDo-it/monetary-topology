@@ -1,0 +1,299 @@
+{
+  "config": {
+    "classes": 18,
+    "covariates": [
+      "ln_capital_per_hour",
+      "ln_value_added_per_hour",
+      "labour_share",
+      "ln_hours"
+    ],
+    "field": "ln(Share_W / Share_E)",
+    "reps": 5,
+    "sections": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T"
+    ],
+    "seed": 0,
+    "sources": [
+      "labour accounts.csv",
+      "growth accounts basic.csv",
+      "capital accounts.csv",
+      "national accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "the join, and whether the competing reading is being given a test or a saturation",
+      "detail": "11,124 positions carry all four modules at section level. 410 country-year tables with six or more sections, rows min 7 median 19 max 19. The interaction of the median table has 306 dimensions and the competing reading spends 68 of them per table, 4 characteristics times 17 free class loadings, so it is a test and not a saturation.",
+      "kind": "instrument",
+      "name": "B106-6",
+      "passed": true,
+      "payload": {
+        "covariates": [
+          "ln_capital_per_hour",
+          "ln_value_added_per_hour",
+          "labour_share",
+          "ln_hours"
+        ],
+        "interaction_dims_median": 306,
+        "params_per_table": 68,
+        "positions": 11124,
+        "rows_median": 19,
+        "tables": 410
+      }
+    },
+    {
+      "criterion": "a leftover of the competing reading's own shape is fully absorbed, one unrelated to it only at the counting figure",
+      "detail": "40 tables. A leftover of exactly the competing reading's shape, one characteristic times a class loading: absorbed 100.0000% at worst. A leftover with nothing to do with the characteristics: absorbed a median 22.6% against the 22.2% the design spends by counting alone, worst gap 0.077. So anything above that counting figure is the characteristics doing work rather than the parameters.",
+      "kind": "known_answer",
+      "name": "B106-7",
+      "passed": true,
+      "payload": {
+        "counting_median": 0.2222222222222222,
+        "orthogonal_median": 0.22581378001028007,
+        "worst_gap": 0.0770649443737037,
+        "worst_planted": 1.0
+      }
+    },
+    {
+      "criterion": "how much of the leftover four position characteristics with their own class loadings can produce",
+      "detail": "410 country-year tables. Letting every table have its own class loadings on the four characteristics, the generous scope, absorbs a median 33.4% of the interaction, against 22.2% that the same number of parameters absorbs from a leftover with no relation to them, so the characteristics themselves account for about 10.8 points. One set of loadings for the whole panel, the strict scope, absorbs 2.3% with 68 parameters against 135,558 observations. B106-4 puts the standing share of the interaction near 95%, so that is what a reading built on position characteristics would have to reach.",
+      "kind": "own_reading",
+      "name": "B106-8",
+      "passed": true,
+      "payload": {
+        "bottom20": [
+          {
+            "absorbed": 0.20909467982139518,
+            "cell": "SI/2015",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.2035143893336705,
+            "cell": "AT/2010",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.20307489683145463,
+            "cell": "EL/2014",
+            "rows": 18
+          },
+          {
+            "absorbed": 0.20116999521411605,
+            "cell": "AT/2011",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.20060237348219245,
+            "cell": "EL/2015",
+            "rows": 18
+          },
+          {
+            "absorbed": 0.20059254343969135,
+            "cell": "LT/2013",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.1997215206501306,
+            "cell": "LT/2020",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.19923060061909015,
+            "cell": "LT/2011",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.1955984694190972,
+            "cell": "LT/2015",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.19522897427404917,
+            "cell": "EL/2020",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.19503407685664353,
+            "cell": "SI/2017",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.194026669630741,
+            "cell": "EL/2021",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.1878606517556245,
+            "cell": "SK/2012",
+            "rows": 16
+          },
+          {
+            "absorbed": 0.1878084707253631,
+            "cell": "LT/2012",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.17925338669966862,
+            "cell": "LT/2021",
+            "rows": 19
+          },
+          {
+            "absorbed": 0.1773222288245495,
+            "cell": "SK/2008",
+            "rows": 16
+          },
+          {
+            "absorbed": 0.17144498556048382,
+            "cell": "SK/2009",
+            "rows": 16
+          },
+          {
+            "absorbed": 0.16752278268626175,
+            "cell": "SK/2011",
+            "rows": 16
+          },
+          {
+            "absorbed": 0.16663296315362963,
+            "cell": "SK/2010",
+            "rows": 16
+          },
+          {
+            "absorbed": 0.1642155789555294,
+            "cell": "SK/2013",
+            "rows": 16
+          }
+        ],
+        "counting_median": 0.2222222222222222,
+        "global": 0.022852233154580293,
+        "global_observations": 135558,
+        "global_params": 68,
+        "net_of_counting_median": 0.10776270945694946,
+        "per_table_median": 0.3340332474948964,
+        "per_table_p90": 0.44460347442585596,
+        "tables": 410,
+        "top20": [
+          {
+            "absorbed": 0.7931610650647554,
+            "cell": "LU/2020",
+            "rows": 12
+          },
+          {
+            "absorbed": 0.7613827511713089,
+            "cell": "LU/2021",
+            "rows": 12
+          },
+          {
+            "absorbed": 0.7348288319981824,
+            "cell": "LU/2015",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.7206475250132023,
+            "cell": "LU/2014",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.7197814669582687,
+            "cell": "LU/2008",
+            "rows": 7
+          },
+          {
+            "absorbed": 0.7019876280391735,
+            "cell": "LU/2013",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.6951159353844983,
+            "cell": "LU/2010",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.6946454461398075,
+            "cell": "LU/2011",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.682174736285693,
+            "cell": "LU/2012",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.6817087131394662,
+            "cell": "LU/2019",
+            "rows": 14
+          },
+          {
+            "absorbed": 0.6710229504186838,
+            "cell": "LU/2016",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.6553797116504563,
+            "cell": "LU/2018",
+            "rows": 14
+          },
+          {
+            "absorbed": 0.643967620159818,
+            "cell": "LU/2009",
+            "rows": 8
+          },
+          {
+            "absorbed": 0.6387825020655657,
+            "cell": "LU/2017",
+            "rows": 9
+          },
+          {
+            "absorbed": 0.607948042305533,
+            "cell": "JP/2008",
+            "rows": 17
+          },
+          {
+            "absorbed": 0.6010563858560818,
+            "cell": "JP/2011",
+            "rows": 17
+          },
+          {
+            "absorbed": 0.5961455251251706,
+            "cell": "JP/2010",
+            "rows": 17
+          },
+          {
+            "absorbed": 0.5598508418536882,
+            "cell": "JP/2009",
+            "rows": 17
+          },
+          {
+            "absorbed": 0.5492435920797574,
+            "cell": "JP/2014",
+            "rows": 17
+          },
+          {
+            "absorbed": 0.5341306917224993,
+            "cell": "JP/2012",
+            "rows": 17
+          }
+        ]
+      }
+    }
+  ],
+  "stage": "B106"
+}

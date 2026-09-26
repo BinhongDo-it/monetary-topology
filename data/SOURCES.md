@@ -1862,6 +1862,8 @@ own precision, **which is a separate collection and has not been made**.
 | Landing | `data/agmark/<commodity>/<year>.csv` (not committed) |
 | Downloaded | 2026-09-03, three commodities only: White Peas, Cowpea (Lobia-Karamani), Lentil (Masur) |
 | Why only three | they span the thickness range the design has to live on; the measurement they were bought for is in `experiments/agmark_support_floor.py` |
+| Columns | state, district, market, variety, group, arrivals, min, max, modal, date. **This copy carries the three administrative levels; the JSON API rows above do not**, which is failure mode 153 |
+| Also read by | `experiments/b60_anchor_regeneration.py` and `experiments/b61_branch_loading.py`. B61 reads the `variety` column as a stratifier and uses only the `Other` stratum, since a price gap between varieties is not a price gap between markets |
 
 **Four readings that belong with the data, not in a footnote:**
 
@@ -2454,3 +2456,1099 @@ carrier are exact rather than bounded above by a rounding step.
 
 The cached files stay on the machine that fetched them, as everything under `data/`
 does. They total about 23 MB and the endpoint serves them, so re-fetching costs one run.
+
+## B45 广州小客车指标，两条腿（2026-09-10）
+
+**取数手段**：手工，在一个浏览器里打开页面读出来。**两个取数器都拿不到这份内容**，而两者的病因不同，
+**分清楚它们有操作后果**：
+
+```
+jtzl.jtj.gz.gov.cn   403，而它是地理封锁不是机器人封锁：
+                     页面自己印着 Node information: PS-MIA-04d6m172（迈阿密边缘节点）
+                     与 IP: 132.147.46.121。换出口地址才有用，换 UA 没用
+jt.gz.bendibao.com   证书主机名不匹配，取数器读不到 robots.txt，于是不取
+```
+
+**级别（`D32`）：两份都是聚合站，属「其他」一级，不是官方。**
+**任何判据在它们上面打分之前要与官方逐期通告对过。**
+
+| 文件 | 内容 | 口径 |
+|---|---|---|
+| `data/b45/gz_auction_rows_raw.txt` | **竞价腿**，`169` 行，2012-08 到 2026-08 | 竞价时间 ｜ 个人最低成交价 ｜ 个人平均成交价 ｜ 单位最低成交价 ｜ 单位平均成交价。单位：元／个指标 |
+| `data/b45/gz_lottery_individual_rows_raw.txt` | **摇号腿，个人普通车**，`160` 行，2013-05 到 2026-08 | 摇号时间 ｜ 摇号基数 ｜ 指标数量 ｜ 中签比例 ｜ 中签率 |
+| `data/b45/gz_auction_bendibao_raw.txt` | 两次抓取的抬头、出处、级别、已知缺陷 | — |
+
+**两条腿的重叠是 2013-05 到 2026-08**：竞价腿 2012-08 就开始，
+**而摇号腿在 2013-04 之前逐行写着「暂无」**，即那几期没有摇号。**这是源头自己的缺，不是抄漏。**
+
+**已知缺陷，逐条留在原文里不改（第 25 条：抄录带来源，缺陷原样留）：**
+
+```
+竞价腿   "2205年7月25日"   2025 年的笔误
+         "2025月1月26日"   年月分隔符写成「月」
+         2020 年 1 月整期缺，而 2020 年 2 月有两行（2月3日 与 2月25日）
+摇号腿   "2026年4月7日"    其余各期都落在 26 日或之后，竞价腿同期写 4月27日
+         2020 年 2 月同样两行（2月3日 与 2月26日），与竞价腿对得上
+```
+
+**抄录自检（已知答案，跑过）**：拿 `指标数量 / 摇号基数` 自己算中签率，
+对上源头印出来的那一列，**160 行里只有 4 行差过 2%，四行全部是 `0.2%` 附近两位小数的舍入**
+（`0.206 → 0.20`、`0.209 → 0.20`、`0.214 → 0.21`、`0.216 → 0.21`）。**抄录过关。**
+
+**第二个独立编纂源已对过一次，13 期逐位相同（2026-09-10）：**
+
+`yaochepai.cn/guangzhou` 的个人竞价表，窗口只有 `2025-08` 到 `2026-08` 十三期，
+**而那十三期的最低价与平均价与上面那份逐位相同，零处不同。**
+它另有一列上面那份没有的：**竞价参与人数**（其页脚自述「已剔除资格审核不通过的人员，
+但部分人可能弃权不报价」），同样只覆盖那十三期。
+
+**两个长跨度的商业库查了，都取不到**：迈博汇金 EDB 的「客车总量调控数据」分类下确有
+「广州市中小客车增量指标(月)」共 184 条序列，**而表体由异步加载，页面停在「数据加载中」**，
+导出多半要账号。前瞻同族，未逐条试。
+
+**官方那一级的处置，写下来免得下一个人再花一次：**
+
+> **本站的判据是两条序列一百六十期的关系，不是某一个数扛全部重量。**
+> **所以要杀的是编纂错误，而杀它的是第二个独立编纂源，不是官方身份。**
+> **`D32` 明文允许「没有官方口径时其他也用，但要在件里标明是哪一级」。**
+
+**官方逐期通告留到读数出来之后再取，而且只取读数真正依赖的那一段。**
+那时是几条公告，不是一百六十九条。**这是第 13 条第 4 步（先算成本）与 `D34`
+（取不到给主张封顶）合起来的做法：不为全序列预先买对账，为承重的那一段买。**
+
+**官方入口的实况，一并记下**：`jtzl.jtj.gz.gov.cn/index/gbl/index.html` 是逐期公告的归档页
+（自称共 28 页 557 条，翻页 `index_N.html`），**而它对境外地址一律 403，病因是地理不是机器人**。
+逐期公告的标题格式是
+`关于{年}年{月}月份广州市普通车增量指标竞价的通告` 与
+`关于{年}年{月}月份广州市普通车增量指标配置数量的通告`，
+省级搜索 `search.gd.gov.cn/search/all?keyword=...&siteCode=440100` 可按标题检索。
+**这三样都还没有被本项目实际打开过，属登记不属已验。**
+
+**还没做的**：长跨度的第二源对账、官方逐期抽样对账、天津杭州深圳三个同族城市、
+闸六的分辨率底、闸二闸三。**设计件仍未写。**
+
+
+## B33 observed side: basic table by size of adjusted gross income and marital status
+
+**Files** `data/b33/{23,22,21}in12ms.xls`, tax years 2023, 2022 and 2021.
+**Source** the revenue service's Statistics of Income basic tables, Table 1.2,
+`All Returns: Adjusted Gross Income, Exemptions, Deductions, and Tax Items`,
+classified by size of adjusted gross income and marital status.
+**URL pattern** `https://www.irs.gov/pub/irs-soi/{yy}in12ms.xls`.
+**Level** official.
+**Downloaded** by hand on the machine that runs the project, because the gateway
+in front of both sandboxes denies this host by policy; the denial is recorded as a
+connect rejection at the gateway rather than a transient failure, and no attempt
+was made to route around it.
+**Fetcher** `experiments/b33_step0_fetch_soi.py`: resumes a partial file, refuses
+to re-download a complete one, and checks the first bytes are an OLE2 compound
+file or a zip so that an error page or a truncation is reported rather than
+parsed.
+
+**What it is for.** Arm one of this station read a tax code against itself and
+found two filing statuses sharing every printed number. This table is the observed
+side of that: whether the two also pay the same at the same income. The reading
+registered before the file was obtained is an ordering, not a line: the pair that
+shares every printed number should show a far smaller gap in effective rate than
+pairs that differ on printed numbers.
+
+**Known limitation, stated before parsing, and resolved the same day.** The stub
+had not been read when the file was obtained, so whether it reports surviving
+spouses as a category of its own was unknown, and the registered reading said that
+if it folded them the comparison would be recorded as the published aggregate
+being unable to reach it rather than as the quantity being absent. **It folds
+them.** All three years carry five column blocks of twelve columns each, headed
+`All returns`, `Returns of married persons filing jointly and returns of surviving
+spouses`, `Returns of married persons filing separately`, `Returns of heads of
+households`, `Returns of single persons`. So this source gives four statuses in
+four blocks, the merged one being the pair, and the within-pair comparison is
+recorded as out of reach.
+
+**Layout, for anyone parsing it next.** One sheet, `TBL12`, 49 rows by 63 columns
+in each of the three years. Block headings on row 2, first columns at 1, 13, 25,
+37 and 49. Inside a block the offsets are 0 number of returns, 1 adjusted gross
+income less deficit, then number-and-amount pairs for total itemized deductions,
+standard deduction, taxable income, income tax after credits and total income tax,
+the last amount at offset 11. Rows 10 to 27 are the income bands of the
+all-returns panel; row 8 is its total, row 28 begins a taxable-returns panel and
+row 44 a nontaxable one.
+
+## B64 two-tier gold market: the London fixing and the US monetary gold stock
+
+**Files**
+`data/b64/lbma_gold_usd_am_pm_19680401_19711231.csv`: 954 London trading dates from
+1968-04-01 to 1971-12-31, US dollars per troy ounce, morning and afternoon fixing,
+columns `date,usd_am,usd_pm`. An empty cell is a fixing that did not take place that
+day (four dates carry only the morning price and one only the afternoon), never a zero.
+`data/b64/fred_M1476CUSM144NNBR.csv`: monetary gold stock of the United States,
+millions of dollars, monthly averages of daily figures, 1947-01 to 1970-12, 288 months,
+as published.
+**Source** the London fixing from its publisher's price files,
+`https://prices.lbma.org.uk/json/gold_am.json` and `gold_pm.json`, each entry a date
+and the fixing in US dollars, sterling and euros, of which the dollar element is kept.
+The gold stock from FRED series `M1476CUSM144NNBR` (NBER Macrohistory, Federal Reserve
+Board figures), `https://fred.stlouisfed.org/graph/fredgraph.csv?id=M1476CUSM144NNBR`.
+**Level** official, both.
+**Retrieved** 2026-09-11 in a browser on the machine that runs the project, because
+the gateway in front of both sandboxes denies both hosts by policy. The files were
+carried to disk in chunks. A 32-bit rolling hash of every chunk and of the whole
+reconstructed file was computed in the browser on the source text and matched on
+disk: 849329907 over 21,021 bytes for the fixing, 2540559288 over 4,930 bytes for the
+gold stock. The fixing file keeps the source's own numbers in the source's own decimal
+rendering; nothing was rounded.
+**Loader** `experiments/b64_gold_two_tier.py` recomputes both hashes and refuses a
+file that does not match, so a truncated or edited copy is reported rather than read.
+**Not in these files** the gold stock for January to August 1971; the FRED series ends
+in December 1970, and the months before the window closed are taken from the Federal
+Reserve Bulletin before the stage's main reading.
+
+**Added the same day: `data/b64/frb_table4_us_reserve_assets.csv`.** US reserve assets,
+millions of dollars: total, gold stock in total (which includes the Exchange
+Stabilization Fund's gold), the Treasury's gold stock, convertible currencies, the IMF
+reserve position and SDRs. Year ends 1958 to 1970 and month ends September 1969 to
+September 1971, 38 rows. **Source** Federal Reserve Bulletin, Table 4 "U.S. Reserve
+Assets": the October 1971 issue, page A77, and the October 1970 issue, page A75, read
+from the full text FRASER extracts from each issue's scan
+(`https://fraser.stlouisfed.org/title/federal-reserve-bulletin-62/october-1971-21441/fulltext`
+and `.../october-1970-21430/fulltext`). **Level** official. **Transcribed by hand** from
+that text, which prints the table column by column, so every row carries its issue and
+page, and each row is checked against the table's own sum: total equals gold plus
+currencies plus reserve position plus SDRs. The sum holds on all 30 rows that print every
+component. The eight month ends January to August 1970 have no SDR figure in the extracted
+text, so their sum is not checked and the implied SDR figure is printed instead. The
+overlapping month in the two issues, September 1970, agrees in every column, and the
+December month ends agree with the year ends. **Why this file is needed**: the FRED gold
+stock is the Treasury's alone and stands at exactly 10,367 from July 1968 to December 1969,
+while gold in total, the Exchange Stabilization Fund included, moves from 10,892 at the
+end of 1968 to 11,859 at the end of 1969. Flows through the conversion are read on the total.
+
+**Added the same day: `data/raw/ICPSR_111725-V1.1.zip`.** The replication package of
+Bordo, Monnet and Naef (2019), "The Gold Pool (1961-1968) and the Fall of the Bretton
+Woods System: Lessons for Central Bank Cooperation", *Journal of Economic History* 79(4),
+openICPSR project 111725, version V1.1
+(`https://www.icpsr.umich.edu/sites/icpsr/view/studies/111725`). 751,327 bytes, SHA-256
+`e18cf09f898632da83d0b2727d03f0c031dc7ed290ef9e27961a94fa2d90af72`. It holds the workbook
+`data-file---The-Gold-Pool-Bordo--Monnet-and-Naef-2019.xlsx` and a zip of EViews programs,
+which are not used. **Retrieved by hand** 2026-09-11, since the repository asks for a
+login, and kept as downloaded: the zip is not unpacked, and the loader reads the workbook
+from inside it after checking the digest. **Level** research data. The gold-window sheet
+is the authors' digitization of a document in the archives of the Bank for International
+Settlements (reference BISA 7.18(12)), with 1966 Q3 taken from a Bank of France document.
+
+What is read, sheet by sheet:
+
+- `Gold Window data`: US monetary gold transactions by customer government, quarterly,
+  1965 Q1 to 1968 Q4, millions of dollars; positive is a US purchase of gold against
+  dollars, negative a US sale. During the Gold Pool the United Kingdom's line is the
+  Pool's. The authors' final classification (Gold Pool members other than the United
+  Kingdom and France; non-members, the IMF included; the United Kingdom including the
+  Pool; France) is followed for membership, and the four classes are formed from the
+  country columns: in 1967 Q4 the final table enters Algeria's purchase of 150 in the
+  non-member class twice, so its four classes sum to -1,105 against a quarterly total of
+  -955. Formed from the country columns, that quarter reads -85, -99, -771 and 0.
+  **1966 Q4 is missing and printed as zeros** in every
+  column, the total included, and the row is highlighted together with 1966 Q3; the
+  loader reads that row as missing. 1966 Q3 has no figure for net sales to industry.
+- `Daily data set`: the London fixing and the Bank of England's gold intervention, on
+  the Pool's behalf from 1961, daily from 1960-01-04 to 1968-03-14. The workbook does not
+  state the unit of the intervention column, so that column is not read until a document
+  states it.
+- `Daily gold 1961-2016`: the afternoon fixing, from the Bank of England dealers' reports
+  before March 1968 and from FRED `GOLDPMGBD228NLBM` after; `#N/A` marks days with no
+  fixing. Used as a check only.
+- `Monthly data set`: not read; its US gold stock is the FRED series already in
+  `data/b64/`.
+
+**Checked against files already on disk.** The quarterly movement of the gold stock sums
+to the change in the Federal Reserve Bulletin's total gold stock, the Exchange
+Stabilization Fund's gold included, within 6 in every complete year: 1965 -1,671 against
+-1,665, 1967 -1,175 against -1,170, 1968 -1,178 against -1,173. In 1968 the Treasury's own
+stock fell 1,615, so the movement column is on the total basis. On the 949 dates it shares
+with the LBMA afternoon file, the afternoon fixing agrees on 742; 206 differ only because
+the LBMA file rounds a third decimal half up to the cent (40.025 against 40.03); one differs
+by exactly a dollar, 1968-05-16, 42.25 here and 41.25 in the LBMA file, and the LBMA figure
+sits between that day's morning fixing, 40.85, and the next morning's, 41.60. Inside the
+workbook the two daily fixing columns agree on 1,702 of 1,703 common days; 1962-12-31 reads
+35.075 in one and 35.675 in the other.
+
+**Not in this file**: transactions by customer after 1968 Q4.
+
+**Added the same day: `data/b64/frb_table6_us_liquid_liabilities.csv`.** US liquid
+liabilities to foreigners, millions of dollars, by holder: the IMF's gold transactions
+(total, gold deposit, gold investment); foreign official institutions (total, short-term
+liabilities reported by banks in the United States, marketable and nonmarketable Treasury
+bonds and notes); banks and other foreigners; and nonmonetary international and regional
+organizations. Year ends 1957 to 1969 and month ends July 1970 to July 1971, 36 rows. Where
+reporting coverage changed, the table prints two lines for one date, the first comparable
+with the preceding date and the second with the following one; both are kept, with a
+`line` column. **Source** Federal Reserve Bulletin, October 1971, Table 6 "U.S. Liquid
+Liabilities to Foreigners", page A78, read from the full text FRASER extracts from the
+issue's scan
+(`https://fraser.stlouisfed.org/title/federal-reserve-bulletin-62/october-1971-21441/fulltext`).
+**Level** official. **Transcribed by hand** 2026-09-11 from that text, which prints the
+table column by column; each row is checked against the table's own sums: the total equals
+its four holders, and each holder's total equals its components. The sums hold on all 34
+rows that print every component. The rows for 1957 and 1958 print no total for three of
+the holders, because foreign holdings of bonds and notes were not broken down by holder
+before 1959 (the table's footnote 7), so they are not checked. **Why this file is needed**:
+the capacity side of the conversion is the gold stock against the dollar claims of the
+official holders who could present them.
+
+## B98 arm E: California net metering, the two vintages
+
+`PGE-EEC-Price-Sheets.zip`, 717,253 bytes, fetched 2026-09-15 from
+`https://www.pge.com/energyexportcredit`, which is the URL Schedule NBT names for
+the values themselves ("The Export Compensation Rate values are posted at ...").
+That URL is the file, not a page pointing at one. It holds one price sheet per
+interconnection application year, 2023 through 2026, and a How-To.
+
+Caliber: each sheet is 48 rows by 12 months by two components. The 48 rows are 24
+hours of weekday values then 24 hours of weekend values. The two components are
+`Energy Produced` and `Energy Delivered`, and the published How-To's own worked
+example adds them: $0.33 + $0.05 = $0.38 total credit. So the export price is
+their sum, read from the publisher rather than assumed.
+
+`Res_Inclu_TOU_Current.xlsx`, 40,469 bytes, fetched 2026-09-15 from
+`https://www.pge.com/assets/rates/tariffs/Res_Inclu_TOU_Current.xlsx`, effective
+2024-09-01 to present. One workbook carrying both the rates and the period
+definitions, which is why it was taken whole rather than one schedule at a time.
+
+Caliber: `E-TOU-C` is sheet `Res Inclu TOU_240901-Present` rows 11-14, two periods
+by two seasons. `EV2` is sheet `ElecVehicle&Tech_240901-Present` rows 14-19, three
+periods by two seasons. Period definitions are in the sheets named `..._TOU
+Periods`. The `Total Usage` column is used; `E-TOU-C` also publishes a baseline
+credit of -0.09837 that applies only to baseline quantities, so it makes the unit
+price depend on cumulative consumption rather than on the hour, and it is not
+part of a price indexed by time of use. `EV2` publishes no such credit.
+
+Not deducted: non-bypassable charges. Schedule NEM2 sheet 13 says they "may not
+be reduced by any credits for exports to the grid" and "shall be assessed only on
+the kilowatt hours consumed". Sheet 11 values exports at "the same price per kWh
+at the same TOU period". So the NEM-2 export price is the retail price of that
+period, unadjusted.
+
+
+## B102 — Chinese residential electricity tariffs
+
+Nothing was downloaded for this station. Every number is a constant read off a
+published document and entered in `experiments/b102_cn_power_tariff.py`, where
+each schedule carries its own `source` string. This section is the caliber note
+for those strings, and it names the documents that read zero as well as the ones
+that read non-zero.
+
+**National.** `关于居民生活用电试行阶梯电价的指导意见` (NDRC, 发改价格〔2011〕2617号).
+Sets the second tier's increment at "not less than five fen per kilowatt hour"
+and the third at "about 0.3 yuan", then hands two structural questions to the
+provinces in two separate sentences: household-size differences are for each
+locality to work out, and time-of-day pricing may be set locally with enrolment
+left to the household. So the increments in every provincial row below are the
+national numbers and the block structure is not.
+
+**Beijing, arm B.** Three documents from the municipal DRC: the notice on
+multi-person households, its policy explainer, and the retail price schedule
+(`W020240625381732703691.pdf`, table 1). Ordinary blocks `1-240`, `241-400`,
+`400+` at `0.4883`, `0.5383`, `0.7883` yuan below 1 kV; registered blocks
+`1-340`, `341-500`, `500+` at the same three prices; threshold six people.
+
+Caliber, recorded rather than flattened: the explainer says the added kilowatt
+hours go on the first tier, and the block table moves both finite edges by 100.
+Both sentences are official and they do not say the same thing. The block table
+is the one used, because it is the one that can be put straight into the price
+schedule. The implementing rules are delegated to the Beijing electric power
+company and have not been read.
+
+**Guangdong, arm B.** 粤发改价格函〔2021〕826号 for the policy ("households of five
+or more may apply to add 100 kilowatt hours to the first, second and third tier
+bases respectively"; seven or more may instead elect the pooled-meter rate) and
+粤发改价格函〔2023〕553号 for the resulting blocks (summer `0-360`, `361-700`,
+`701+`; non-summer `0-300`, `301-500`, `501+`). Ordinary blocks and the `+0.05`
+and `+0.30` increments are from the Guangzhou DRC price explainer: summer `0-260`,
+`261-600`, `601+`; non-summer `0-200`, `201-400`, `401+`.
+
+Caliber: increments published without a base price, which is enough, because the
+class difference depends on the increments and the shift and not on the base.
+The two seasons are one notice and one shift and therefore one reading, not two.
+
+**Shenzhen, arm A.** Shenzhen DRC residential price schedule, PDF, in fen per
+kilowatt hour including tax: tier one peak `111.21`, flat `65.42`, valley `24.86`;
+tier two and three at `+5.00` and `+30.00` in every period. Registered as an
+additive schedule and read back at zero.
+
+**Shandong, arm A.** Provincial notice as reprinted by Tai'an municipality, PDF.
+Tier one peak `0.5769` valley `0.3769`; tier two `0.6269` / `0.4269`; tier three
+`0.8769` / `0.6769`. Registered as additive, read back at zero.
+
+**Zhejiang, arm A.** Provincial compilation. Level: other. The provincial original
+has not been checked. Tier one peak `0.5680` valley `0.2880`; tier two `0.6180` /
+`0.3380`; tier three `0.8680` / `0.5880`. Registered as additive, read back at zero.
+
+**Shanghai, arm A.** Municipal DRC tiered-tariff implementation notice, read in
+the browser and checked twice against the original sentences. Second tier: `0.05`
+per kilowatt hour undifferentiated, `0.06` peak, `0.03` valley. Third tier: `0.30`
+undifferentiated, `0.36` peak, `0.18` valley. Printed to fen, so the tick is
+`0.01` yuan.
+
+**Read and found to carry no two-dimensional table.** Beijing's table 1 has no
+residential time-of-day column at all, only a voltage column whose spread is
+`0.0100` on all three tiers. Jiangsu publishes the two dimensions separately,
+peak `0.5583`, valley `0.3583`, undifferentiated `0.5283`. Guangdong publishes a
+peak/flat/valley ratio of `1.7 : 1 : 0.38` and states that the time-of-day split
+is applied before the tier, so the tier increment adds on top and the square is
+zero by construction. Jilin's notice says the amounts are to be worked out
+separately. These rows are part of the coverage table and not omissions.
+
+**Hunan, arm B and arm C.** `湘发改价调规〔2024〕14号`, full text, republished by
+Huarong county government with the document number. Blocks are monthly and
+seasonal: first tier to `200` in both seasons, second to `350` in March, April,
+May, September, October and November and to `450` in January, February, June,
+July, August and December. Increments `+0.05` and `+0.30`, printed to fen, so the
+tick is `0.01` yuan. Five people and up raise "the first tier's monthly base by
+100 kilowatt hours", the first edge alone. The same notice gives households on
+minimum living support and rural or urban extreme-poverty support ten free
+kilowatt hours a month.
+
+Caliber: the notice carries no time-of-day clause at all, so Hunan contributes a
+row to the arm-A coverage table and no arm-A reading. Whether the free quota is
+taken off the metered quantity before the blocks are applied is not stated, which
+is why arm C scores nothing.
+
+**Sichuan, arms A and B.** `川发改价格〔2024〕668号` for the policy: a household
+of five or more may add `100` kilowatt hours a month to the block base, rising
+`30` per person per month above five, with the implementing rules delegated to
+the grid companies. The blocks and the increments come from the implementing
+guide issued by Xuzhou district, Yibin, republished with the provincial notice
+attached. Ordinary blocks `0-180`, `181-280`, `281+`; a five-person household
+`0-280`, `281-380`, `381+`; a six-person household `0-310`, `311-410`, `411+`,
+worked out in the guide as `280 + (6-5) * 30`.
+
+Caliber: Sichuan's second-tier increment is `0.10`, not `0.05`. The guide states
+it in words and again in a worked example where the first tier's `0.5224` becomes
+`0.6224` on the second and `0.8224` on the third. The national guidance sets five
+fen as a floor, not as the number, so this is within it, and it means the earlier
+reading that every province took the national figures was wrong — four did, this
+one did not.
+
+The same worked example is the source for Sichuan's arm-A row. A month of `400`
+kilowatt hours split `100` peak, `150` flat and `150` valley is charged the tier
+surcharge on quantity alone — ten yuan for a hundred kilowatt hours on the second
+tier and thirty-six for a hundred and twenty on the third, with no reference to
+which period they fell in. So the increment is period-independent and the arm-A
+square is zero. That is read off the example's arithmetic rather than from a
+printed two-dimensional table, and the record says so.
+
+**Sichuan, the 2026 seasonal adjustment.** From 2026-07-01 the summer months,
+July to September, take blocks of `260` and `460` while the other months keep
+`180` and `280`. The prices are unchanged at `0.5224`, `0.6224` and `0.8224`,
+which confirms the `0.10` increment from a second and later source. The
+multi-person bases adjust in step, 阶梯电量基数同步调整.
+
+Caliber: the registered summer blocks, `360` and `560`, are derived and the
+record flags them as such. They follow from the implementing guide moving both
+edges by a hundred plus that sentence, and no text found states them outright. A
+second news restatement of the same adjustment garbles it — it reports the first
+block as unchanged at `0-260` while also giving the old `181-280` — and is not
+used.
+
+**Guangdong, arm D.** `粤价〔2012〕146号`, quoted in full by the provincial DRC's
+own price desk: the pooled-meter residential rate is the residential rate "raised
+uniformly by `0.037` yuan per kilowatt hour", with no blocks. `粤发改价格函〔2021〕
+826号` adds that a household of seven or more may elect it. Printed to three
+decimals, so the tick is `0.001`.
+
+**Shanghai, arms B and D.** `沪发改价管〔2012〕020号`, the tiered-tariff scheme, PDF
+on the municipal DRC site. Annual blocks `0-3120`, `3120-4800`, above `4800`.
+Undifferentiated increments `0.05` and `0.30`; time-differentiated ones `0.06`
+peak against `0.03` valley on the second tier and `0.36` against `0.18` on the
+third. Five people and up add `100` kilowatt hours a month to the block base, and
+the clause names no tier, which is why arm B keeps Shanghai in the third cell
+while recording the numbers a settled structure would need. Seven and up may
+elect `0.024` yuan on every kilowatt hour instead, which is arm D.
+
+Which edges move is not in either notice. The resulting blocks come from Xinmin
+Evening News on 2020-09-02, the day after the policy took effect: first block
+`0-4320` (`360 × 12`), second `4320-6000`, against the ordinary `0-3120`
+(`260 × 12`) and `3120-4800`. Its worked example bills a six-thousand kilowatt
+hour year as `4320 × 0.617` plus `(6000 - 4320) × (0.617 + 0.05)`, which fixes
+both the edges and the first two levels. Level: a newspaper, not the price
+authority, and it is a restatement rather than the rule itself. The station uses
+it because the rule delegates and the delegated text has not been found; if the
+implementing rule turns up and says otherwise, this row changes. The 2020 notice
+on water, electricity and gas carries the same policy and calls that option
+`居民阶梯平均价格`; an earlier note here described it as an undifferentiated
+average rate, which the 2012 text corrects — it is a flat surcharge on every
+kilowatt hour, not a price. Corrected 2026-09-15. Households on
+minimum living support get `15` free kilowatt hours a month, deducted peak
+quantity first and then valley, capped at actual use.
+
+Caliber: the flat surcharge is printed to three decimals and the block increments
+to two, so arm D's tick is `0.001` and arm A's is `0.01`. The free allowance is
+stated as a deduction of quantity rather than of bill, which narrows arm C's open
+question without closing it: what is still unstated is whether the deducted
+quantity is also taken out of the block count.
+
+**Anhui, arm B, nothing read.** The province runs the policy. No notice, no
+blocks, no threshold has been taken. It is carried as a row so the coverage table
+names it rather than omitting it, and it carries no threshold so that nothing in
+it reads as a finding. The national increments sit in its row as a placeholder,
+which after Sichuan is a distinction worth keeping visible: the national figures
+are a floor, not a fact about any province.
+
+**Jiangsu, arms A and C.** Yixing municipal government's explainer of the
+provincial tiered tariff, 2014. Blocks `230` and `400` a month, increments `+0.05`
+and `+0.30`; peak `0.5583`, valley `0.3583`, undifferentiated `0.5283`. The
+low-income clause reads 对城乡「低保户」和农村「五保户」家庭每户每月给予15度免费
+用电基数, and the mechanism 由供电企业从其抄表月份第一档电量中扣除对应的免费电量后
+计算当月应收电费.
+
+Caliber: the increments and the two period prices are printed in the same document
+and neither is ever qualified by the other, which is the same shape as Guangdong
+and Shandong and is why Jiangsu's arm-A square is registered at zero. The quota
+comes out of the first block's quantity, so the edges do not move — that is arm C's
+mechanism and it is a third case, not either of the two the arm was written to
+choose between. Level: a municipal explainer of a provincial rule.
+
+**Hunan, the provincial original.** `湘发改价调规〔2024〕14号` on the Hunan DRC site,
+read in full in the browser. It carries three things the county reprint did not.
+The first-tier base price below 1 kV is `0.588` yuan, which fixes Hunan's levels
+against its increments. The low-income clause states the mechanism outright:
+对全省「最低生活保障户」和「城乡特困人员救助户」家庭每户每月免费10千瓦时 …
+免费用电量纳入第一档分档电量 — the free quantity is counted into the first block,
+which is Jiangsu's mechanism in a wholly independent wording. And it prints two
+flat rates with no blocks: `+0.016` for pooled-meter dwellings and `+0.046` for
+non-residential users on the residential rate.
+
+Caliber: those two flat rates are kept out of arm D and the reason is in the record.
+The pooled rate is for dwellings with no household meter rather than an option a
+metered household may elect, and without a household meter the position index is
+not defined on that side, so the two classes are not at the same position. The
+elective pooled rates in Shanghai, Guangdong and Anhui are a different object:
+those households keep their own meter.
+
+**Anhui, arm B.** The provincial DRC's multi-person notice, republished in full with
+the issuing body named. Five people and up add `100` kilowatt hours a month, and the
+notice prints the result: 第一档电量为0-280千瓦时，第二档电量为281-450千瓦时，
+第三档电量为451千瓦时及以上. The ordinary edges, `180` and `350`, are that arithmetic
+run backwards and are recorded as derived rather than quoted. Seven and up may also
+elect the pooled rate at `0.5853`, which against a first tier of `0.5653` is a
+flat `0.02` and is Anhui's arm-D row.
+
+**Jiangsu, arms B, C and D.** The provincial DRC's own reply to proposal 1164 of
+the 2021 provincial congress restates `苏发改价格发〔2021〕106号` and settles three
+things at once. The blocks are monthly: 第一档在230度以内的，执行基本电价（每度电
+0.5283元）；第二档在231至400度之间的，每度加价0.05元（每度电0.5783元）；第三档高于
+400度的部分，每度加价0.3元（每度电0.8283元）. The multi-person amount is 人数满5人
+及以上的，可申请每户每月增加100度阶梯电量基数, with no tier named, so arm B keeps
+Jiangsu in the third cell with its numbers ready. And 人数满7人及以上的，也可选择
+申请执行居民合表电价（高于居民生活用电基本电价每度电2分钱），不执行阶梯式电价, which
+is an arm-D row at a flat `0.02`.
+
+Correction: an earlier note here said Jiangsu had moved to annual blocks in 2021
+and that the Yixing explainer's `230` and `400` were stale, so they must not be
+carried into a current reading. That warning had no source. It was inferred from
+a headline that was never opened, and this provincial text, dated after the 2021
+notice it describes, gives the blocks as monthly and unchanged. The warning is
+withdrawn. The `0.5283` in arm C is the same figure in the 2014 explainer and in
+this 2021 reply.
+
+**Anhui, the levels, the pooled rate and the voltage rows.** The provincial
+residential price table as published by Lu'an DRC, and Xuancheng's explainer,
+which print the same numbers. Below 1 kV: tiers `0.5653`, `0.6153`, `0.8653` and
+a pooled rate of `0.5853`; at 1–10 kV: `0.5503`, `0.6003`, `0.8503` and `0.5703`.
+Blocks `180` and `350` a month, increments `+0.05` and `+0.30`, which the
+explainer states in words as well. Low-income households get ten free kilowatt
+hours a month and the explainer says 具体办法另行规定, so Anhui contributes no
+arm-C row.
+
+Caliber: the pooled rate is the first tier plus `0.02`, stated as 每度提高2分钱但
+不执行阶梯分档, and the multi-person notice says a household of seven or more may
+elect it, which is what makes it an arm-D row rather than a category. The voltage
+gap is `0.0150` on all four rows including the pooled one, which is what makes
+Anhui the cleanest instance of the additive control: one table, two class
+dimensions, one of them a level shift and one of them not.
+
+**Beijing, the voltage rows.** Table 1 of the municipal schedule, already cited
+above for arm B. The gap is `0.0100` on all three tiers.
+
+**Anhui, arm C.** The provincial implementing rules as reported in 2012 give the
+mechanism: 采取先征后返方式，由民政部门统一将退电费款发放到低保户、五保户的存折上.
+That is Jilin's mechanism in different words and through the same department, so
+Anhui is the second transfer rather than the fourth price. Xuancheng's explainer
+grants the ten kilowatt hours and says 具体办法另行规定, which is why this row sat
+in the third cell until the 2012 rules turned up.
+
+**Arm C elsewhere.** Jilin ten kilowatt hours a month, and its mechanism is
+published and is the other one: 先收后返, the household pays the ordinary bill and
+the provincial finance department pays the money to civil affairs, which hands it
+back with the 低保 payment. Nothing leaves any block, so the marginal price is
+untouched and this is a transfer rather than a price. Source: Jilin City's
+published answers on current water, heat, gas and electricity policy, which also
+give its blocks — `2040` and `3120` a year, `170` and `260` a month — at `0.525`,
+`0.575` and `0.825`, and a pooled rate of `0.5424`. Shanghai fifteen, deducted peak quantity
+first and then valley, capped at actual use — the same shape as Jiangsu's and
+Hunan's on a different axis, a time of day rather than a place in the month's
+running total. Lianyungang's municipal Q&A restates the Jiangsu mechanism in the
+same words as Yixing and adds that the free quantity is settled annually.
+
+## B111: Black Sea two-sided cut, Ukrainian side
+
+Nothing was downloaded. Every cell in `data/b111_black_sea_prices.json` was read
+by hand from a public web page and carries its own `source` URL and `date`.
+
+**Port, border and futures, 2026.** The broker Spike Brokers publishes a weekly
+grain report (part II of its weekly market review, dated in the post text) and,
+until 2026-07-14, a daily index, on its public channel `t.me/s/spike_brokers`.
+Series read: corn, food wheat 11.5% protein and feed wheat at CPT Odesa (USD/t);
+corn at FCA Chop (USD/t, first published 2026-07-17); new-crop corn forwards at
+FCA Chop (EUR/t) and toward the ports (USD/t) with the delivery period as
+written; wheat at FCA Chop (EUR/t, one week); milling wheat on Euronext (EUR/t),
+with the contract month recorded per cell because the report rolls from
+September to December after expiry. The 2026-06-05 Euronext cell is written as
+a zone in the report and is flagged `zone`.
+
+Caliber, recorded rather than flattened: where the report itself calls a port
+price nominal, the cell carries `nominal: true` (corn 2026-07-17, 2026-07-24,
+2026-07-31; wheat 2026-07-24 and 2026-08-07). New-crop quotes described as
+nominal are flagged the same way. Every value was re-read against the page text
+after transcription, post by post, with no mismatch. Four weeks were also
+compared with independent republications of the same report (Interfax-Ukraine,
+USM, Ukraine Open for Business, Latifundist) and agree.
+
+**Interior.** UkrAgroConsult, "Prices for agri commodities, Ukraine, EXW, UAH/t",
+retrieved 2026-09-16. The page shows only its latest eight dates, which leaves
+July 2026 empty.
+
+**Minimum allowable export prices.** Exports are prohibited when the contract
+price is below the approved minimum (Cabinet of Ministers, 2024-08-21). Monthly
+values for May to September 2026 per delivery term, each with the report that
+printed it; the August values carry the 0.714 coefficient. September corn is
+printed at CPT 195 above FOB 187 and is kept as printed.
+
+**2025 reference.** The same channel, weekly reports from 2025-06-06 to
+2025-08-29 quoting DAP Odesa ranges (USD/t) and FCA border ranges (EUR/t), and
+the daily index from 2025-09-02. DAP ranges and the 2026 CPT index are different
+bases and sit in different series.
+
+**Exchange purchase prices, 2025 and 2026.** GrainTrade, the Ukrainian
+electronic grain exchange, publishes one page a day titled "Purchase prices for
+grains in Ukraine on <date>", with the weighted average purchase price of the day
+per delivery term. The Friday page of every week from 2026-05-29 to 2026-09-11
+and from 2025-05-30 to 2025-09-12 was opened in the browser on 2026-09-16, 32
+pages. Rows read: corn and wheat grades II, III and IV. Columns read by their
+headers: EXW elevators (UAH/t), CPT terminal (UAH/t), CPT terminal (USD/t) and
+DAF (USD/t). A column the page leaves empty for a row gives no cell, so a page
+yields 10 to 13 cells, and each page's count is on its coverage row. The page
+calls no value nominal, and no cell carries a flag. After transcription every
+page was opened again and each cell compared on the page by a script: 32 of 32
+pages equal. The column alignment was checked once more on the 2025-09-05 page by
+printing the four rows cell by cell with their headers.
+
+**Futures, 2025.** Investing.com, Milling Wheat N2 Futures historical data: the
+daily table for 2025-05-26 to 2025-09-19, set in the page's date control and read
+on 2026-09-16, Friday closes kept. The series is continuous. It holds the
+September 2025 contract until that contract's expiry on 2025-09-10 and the
+December contract after it; the roll shows in the table as 170.50 on 2025-09-10
+and 189.50 on 2025-09-11, and each cell records its contract. Two days were
+checked against the Euronext closes printed by La Dépêche-Le Petit Meunier (14
+July, September 197.25; 8 August 2025, September 196.50), and the table was read
+again after transcription, 16 of 16 Fridays equal.
+
+## B111: Black Sea two-sided cut, Russian side
+
+Nothing was downloaded. The Russian cells sit in `data/b111_black_sea_prices.json`
+with `side: "RU"`; each carries its `source` URL, the price `date`, and the
+article date as `published`.
+
+**Port and interior, 2026.** The Reuters Russian-service weekly grain report,
+reposted on ru.themoscowtimes.com each Monday. It quotes IKAR for new-crop wheat
+with 12.5% protein FOB Novorossiysk, with the delivery period; SovEcon for the
+same class FOB deep water, a range in most weeks; SovEcon's average third- and
+fourth-class wheat EXW for European Russia (RUB/t) with the weekly change; and
+the Ministry of Agriculture's wheat export duty for the coming week (RUB/t).
+Prices are dated to the Friday the report calls the end of last week, which
+puts the Russian and Ukrainian weekly dates on the same days. From 2026-08-24
+the report also quotes IKAR's Baltic FOB (Vysotsk, Ust-Luga).
+
+Weeks without a repost: 2026-06-08 (Business Recorder), 2026-06-29 (CropGPT) and
+2026-07-27 (Investing.com) are English rewrites of the same report, fetched twice
+with a verbatim-quote prompt and marked `via: "fetch"`. For 2026-06-15,
+2026-07-13 and 2026-09-07 no report was found; those Fridays carry the next
+report's level less its stated change (`kind: "implied"`) or the next report's
+stated previous value (`kind: "stated_prev"`). The coverage list names every
+page opened and the number of cells read from it, including weeks with none.
+
+Rusagrotrans' weekly note via Interfax (2026-08-19) gives FOB Novorossiysk and
+FOB Baltic for the same delivery on the same day, fourth-class wheat delivered
+by truck to deep-water ports, and regional EXW ranges.
+
+Caliber, recorded rather than flattened: on 2026-08-24 the report calls the
+week's decline rather notional and SovEcon calls its own prices mostly notional;
+on 2026-08-31 IKAR's Novorossiysk price is given as nominal. Those cells carry
+`nominal: true` with the quote. The 2026-06-22 repost has a dateline reading
+8 June; its duty period, its export figure for 1-15 June and its sugar index
+date place it in the week of 22 June. IKAR's new-crop quote reads "about 242,
+unchanged" on 2026-06-01 and "down 2 to 242" on 2026-06-08; both are kept as
+printed.
+
+**2025 reference.** The same weekly report from 2025-06-02 to 2025-09-01. No
+repost was found for 2025-08-04; that Friday's levels are implied from
+2025-08-11. The fourth-class level of 2025-08-25 misses the reports on either
+side by 25 roubles and is kept as printed, with a note.
+
+**Checks.** After transcription each article read in the browser was re-read by
+a script that pulls the IKAR, SovEcon, Baltic, domestic-price and duty sentences
+from the page and lists their numbers; every transcribed value matched. The
+Interfax note was checked phrase by phrase. The six articles of 2025-06-02 to 2025-07-07, added
+later, were re-read the same way, every value equal. Two of them date IKAR's
+price to Friday 20 June, a date carried over from an earlier week; the change
+and the duty period place them on 27 June and 4 July, and the cells say so.
+
+**The open route before the cut.** No quote of Russian wheat FOB Baltic dated
+before 2026-08-11 was found. Searched on 2026-09-16: Rusagrotrans with FOB Baltic
+in June and July 2026 and in 2025, FOB Baltic and Ust-Luga wheat prices in July
+2025, and Russian wheat FOB Baltic in June 2026 in English. Every hit was an
+August 2026 article: Interfax of 2026-08-19 and its reposts, Vedomosti of the
+same day, and the Moscow Times reposts of 2026-08-24 and 2026-08-31. A second
+round the same day went by kind of source. Price agencies: IKAR and SovEcon in
+the weekly report, Rusagrotrans via Interfax, and the Sizov Report blog of
+2026-09-02, which gives volumes and no prices. Exchange indices: the NAMEX
+over-the-counter grain indices quote wheat FOB at the Black Sea ports only
+(Novorossiysk, Tuapse, Taman, Kavkaz), and barley and corn add the Caspian; no
+Baltic basis. Aggregators: zerno.ru shows its port purchase prices for the
+latest day only, and zol.ru could not be fetched and was not retrieved another
+way. Trade media in English: UkrAgroConsult of 2026-08-28, Fastmarkets of
+2026-08-19 and the Reuters story reposted by Euronext on 2026-08-31 give no
+price; Agbull of 2026-08-31 puts Russian 12.5% protein wheat from the Baltic at
+about 262 dollars, after the cut and without a date or source. No Baltic quote
+dated before the cut, or in the same weeks of 2025, was found.
+
+## B59: the rates the size arm reads against, the primary credit rate, and the Call Report archives
+
+### B59, overnight rate and interest on reserves
+
+| | |
+|---|---|
+| Files | `data/b59/EFFR.csv`, `data/b59/IOER.csv`, `data/b59/IORB.csv` |
+| Source | FRED, `https://fred.stlouisfed.org/graph/fredgraph.csv?id=EFFR`, `id=IOER` and `id=IORB` |
+| Retrieved | 2026-09-08 |
+| Origin | EFFR is administered and published by the Federal Reserve Bank of New York, and the attribution given under B30-18 applies to it here as well; the interest rates on excess reserves and on reserve balances are set by the Board of Governors; FRED redistributes all three |
+| Caliber | daily, percent a year. IOER runs 2008-10-09 to 2021-07-28 and IORB from 2021-07-29, so a spread against interest on reserves joins the two at that date |
+| Gaps | EFFR carries empty cells on non-business days, and an empty cell is not a zero |
+
+### B59, the primary credit rate
+
+| | |
+|---|---|
+| Files | `data/b59/DPCREDIT.csv`, `data/b59/primarysecondary.xlsx` |
+| Source | FRED, `https://fred.stlouisfed.org/graph/fredgraph.csv?id=DPCREDIT`; the Federal Reserve's Discount Window site, `https://www.frbdiscountwindow.org/-/media/documents/primarysecondary.xlsx`, linked from its Discount Rates page |
+| Retrieved | 2026-09-16, both supplied by hand |
+| Origin | each Reserve Bank sets the rate subject to review by the Board of Governors; the workbook is the Discount Window site's own table of changes; FRED redistributes the daily series |
+| Caliber | DPCREDIT: business days, percent a year, 2003-01-09 to 2026-09-14, no empty cells. The workbook: one row per change, newest first, the primary and secondary rates as fractions (0.0375 is 3.75 percent) and each of the twelve Reserve Banks' effective date; on 30 of its 62 rows the twelve dates differ by a day or two, and the New York date is the one matched here. The change of 17 August 2007 appears as a footnote and not as a row |
+| Check | every one of the 62 workbook rates is in DPCREDIT from its New York effective date on. After its first day DPCREDIT changes on 62 business days: 61 are workbook dates, and the other is 17 August 2007, the footnoted change |
+
+### B59, Call Report bulk archives
+
+| | |
+|---|---|
+| Files | `data/raw/CallReport/` |
+| Source | FFIEC Central Data Repository, Public Data Distribution, Bulk Data Download: `Call Reports -- Single Period` in the tab-delimited format, and `Subset of Schedules` for 2009 |
+| Retrieved | placed on disk 2026-09-16; `data/raw/CallReport/MANIFEST.json` records each archive's digest and the period its name claims, and an archive whose digest moves is reported |
+| Caliber | one archive per quarter from 2010Q1 to 2026Q2, one archive holding the four quarters of 2009, which carries no Schedule RC-K, and a few earlier quarters outside the window read. Every column is read from the schedule its code belongs to and only under the archive's own description of it |
+
+## B112: where euro area reserves sit, where they come in, and how much of each banking system's payments cross a border
+
+Everything under `data/b112/raw/` was fetched on 2026-09-16 from the ECB Data Portal
+API, `https://data-api.ecb.europa.eu/service/data/<flow>/<key>`, by
+`experiments/b112_fetch.py`: 77 requests, each saved as a data file
+(`detail=dataonly`) and a metadata file (`detail=nodata`, which carries `TITLE`,
+`UNIT` and `UNIT_MULT`). `manifest.json` records, per request, the key, the start
+period, the series count, the first and last period and the SHA-256 of the data and
+metadata files. Every key was chosen from the series keys the flow returned the same
+day, and every request came back with the series count that enumeration found.
+
+**TGB.** TARGET balance of each national central bank, monthly, end of period (`E`)
+and period average (`A`), 23 reference areas including the ECB (`4F`); most areas
+from 2008-05. Million euro.
+
+**ILM.** Balance sheet of each national central bank, monthly, end of month, 55 items
+(54 for the ECB), from 2016-06; Croatia from 2023-01 and Bulgaria from 2025-12.
+Reserves in this station are `L020000`, liabilities to euro area credit institutions
+related to monetary policy operations. Refinancing is `A050200` (longer-term
+refinancing operations), purchases are `A070100` (securities held for monetary
+policy purposes). For the euro area as a whole: the weekly consolidated statement in
+four groups by counterpart area and currency from 2008, the daily liquidity series
+from 2008, and maintenance period averages from 1999-03.
+
+**BSI.** MFI balance sheet items by country, monthly outstanding amounts: loans
+(`A20`) and deposit liabilities (`L20`) against MFIs (`1000`), the central bank
+(`1100`) and other MFIs (`1200`), each against counterparts in the euro area (`U2`),
+in other euro area countries (`U5`) and at home (`U6`); and total assets (`T00`).
+Start dates follow each country's reporting, 1997-09 for the earliest.
+
+**PSS.** TARGET payments (`P101`), annual, 2000 to 2021, value (`VT`) and number
+(`NT`). Counterpart sector `31` is payments to participants in the same national
+component, `32` to participants in another component. The series end in 2021.
+
+**FM.** Key ECB rates (`DFR`, `MLFR`, `MRR_FR`, `MRR_MBR`, `MRR_RT`), daily levels
+from 2007-01-01.
+
+Caliber: TGB and ILM are end of month, so a refinancing dose that settles late in a
+month is seen a few days after it lands, and everything that moves within a month is
+netted. Month-to-month noise in reserves is printed per country by block 6 of
+`experiments/b112_object.py`.
+
+### B113, discount window loans
+
+| | |
+|---|---|
+| Files | `data/b59/dw/dw_data_<year>_q<quarter>.xls` for 2010Q3 to 2017Q4 and `.xlsx` for 2018Q1 to 2024Q2, 56 workbooks, with `data/b59/dw/MANIFEST.json` |
+| Source | Board of Governors of the Federal Reserve System, discount window lending data, `https://www.federalreserve.gov/regreform/discount-window.htm`; the 2010 workbooks under `/newsevents/files/`, the rest under `/regreform/files/` |
+| Retrieved | 2026-09-16 by `scripts/fetch_dw_lending.py`, run on a machine that reaches the site; the manifest records each workbook's URL, bytes and digest |
+| Origin | published by the Board with a lag of about two years, one workbook per quarter, loans made from 22 July 2010 |
+| Caliber | one row per loan, or per group of loans of the same type, term and rate made to one borrower on one day, which the workbook marks with a trailing `*` on the type of credit and reports as their total; loan amount and collateral in dollars, the rate in percent on the loan date; the borrower's ABA number as nine-character text with its leading zeros. The loan sheet is named `discount window loan data`, except in 2012Q3 where it is `discount window borrowing data`; its header is on the fourth row in every workbook, and the first twelve columns (loan date through loan amount) carry the same names throughout, while the outstanding-credit and collateral columns are named four ways over the years. Dates are Excel serial numbers in the `.xls` workbooks and date cells in the `.xlsx` ones. A separate `interest rates` sheet gives the primary, secondary and seasonal rate for every calendar day of the quarter |
+| Coverage | borrowers include credit unions, which file no Call Report, so a loan whose ABA number is not in the Call Report panel of reporters is not an error of the join |
+
+## B114: Sarafu, a community currency in Kenya, every transfer from 2020-01-25 to 2021-06-15
+
+| | |
+|---|---|
+| Files | `data/b114/raw/Sarafu2021_UKdb_submission_complete_d.zip`, 39,745,209 bytes, read in place without unpacking; `data/b114/raw/manifest.json` beside it records its SHA-256, and `experiments/b114_sarafu.py` refuses an archive that differs from it |
+| Source | UK Data Service ReShare, record 855142: Mattsson, Criscione and Ruddick, Sarafu Community Inclusion Currency, 2020-2021. The data descriptor is Scientific Data 9, 426 (2022) |
+| Retrieved | 2026-09-16, downloaded by hand after registration. The archive is safeguarded data under the UK Data Service End User Licence, which prohibits research that aims to de-anonymize or re-identify Sarafu users; everything this station prints is a sum over areas, months or wallet classes |
+| Origin | exported by Grassroots Economics from the xDAI chain the currency ran on; the archive carries the transaction table, the users table, a README, the descriptor's preprocessing notebook and documentation pages |
+| Caliber | `sarafu_xDAI/sarafu_txns_20200125-20210615.csv` (173,316,885 bytes): one row per transfer, 930,161 rows; `source` and `target` are wallet addresses, which the users table carries as `xDAI_blockchain_address`; `weight` is in Sarafu; `transfer_subtype` is in capitals (`STANDARD`, `DISBURSEMENT`, `RECLAMATION`, `AGENT_OUT`) although the descriptor writes the codes in lower case. One row is in Kenyan Shilling (a disbursement of 1,000 on 2020-04-30) and is left out of every sum. `sarafu_xDAI/sarafu_users_20210615.csv` (9,477,705 bytes): one row per account with its area, area type, business type, held role and final balance; its `id` is a database index, not the key transfers use. Two staff wallets carry 3 and 20 staff rows, three accounts created in error share the address `None`, and one row repeats another exactly. Disbursements before 2020-01-28 convert the precursor community tokens one to one and are not new money |
+| Checks | the descriptor's totals recomputed from the transfers: demurrage reclaimed 2021-02-01 to 2021-02-03, 352,834.00 against 352,834; `agent_out`, 6,172,074.95 against 6,172,075; the balance of all accounts except admin accounts, 19,414,222.25 from the flows against 19,419,736, and 19,416,434.84 from the users table's final balances. Balances rebuilt from the flows match `final_bal` to 0.01 for 54,883 wallets and differ for 83, by at most 1,000 |
+
+## B110: A-share placements from 2017-02-15, their unlock batches and holders, and the stocks' daily bars
+
+| | |
+|---|---|
+| Files | `data/raw/b110/rpt_seo_detail/count_5884_ps500/` (12 pages) and `data/raw/b110/rpt_lift_stage/count_31520_ps500/`: one table snapshot per directory, named by the server's row count when that run began, one JSON file per page of 500 rows; the stage table's earlier snapshots `count_31514_ps500` and `count_31515_ps500` sit beside it. `data/raw/b110/rpt_lift_gd/`: one JSON file per unlock batch with its holder rows, named by stock and unlock date. `data/raw/b110/daily_baostock/stock/`: one JSON file per stock with its rows and the date ranges asked for; `stock_basic_2026-09-15.json` beside it is the security list the windows are cut to. `data/raw/b110/fetch_manifest.json`: scope, table snapshots, counts and every named gap. `request_log.tsv` and `bars_log.tsv`: one line per request with its seconds and bytes. `data/cache/b110_bars.npz` is built from the stock files and rebuilt when any of them changes. The ranges B120's plans need are added to the same store by `experiments/b120_bars.py` with this script's fetch function and checks; after that run the store holds 2,225 stocks |
+| Source | Eastmoney data center, `https://datacenter-web.eastmoney.com/api/data/v1/get` with `reportName` `RPT_SEO_DETAIL` (one row per offering), `RPT_LIFT_STAGE` (one row per unlock batch) and `RPT_LIFT_GD` (one row per holder in a batch). Daily bars from baostock: `query_history_k_data_plus` in the Python package `baostock` 0.9.30, `adjustflag` 3 (unadjusted) |
+| Retrieved | 2026-09-16, two runs of `experiments/b110_fetch.py` |
+| Caliber | `RPT_SEO_DETAIL`: `ISSUE_DATE` is the bid day T, the offering period opening two trading days earlier; `ISSUE_PRICE` in yuan; `ISSUE_NUM` and `ISSUE_SHARE_BEFORE` in shares; `ISSUE_WAY` `网下询价配售` is an offering priced by bids and `网下定价发行` one priced in advance, issues to buy assets included; `TOTAL_RAISE_FUNDS` and `NET_RAISE_FUNDS` are gross and net proceeds in yuan, net below gross in 1,769 of the 1,771 bid offerings and equal to gross in 565 of the 587 offerings priced in advance whose pricing text reads as an issue paying for assets; `PRICE_PRINCIPLE` and `LOCKIN_PERIOD` are free text, and the table carries no bids and no allocation by investor. `RPT_LIFT_GD`: `LOCK_MONTH` is the lock the rules gave the holder's class, and `ADD_LISTING_SHARES` the shares freed, counted on the unlock day. Bars: `volume` in shares and `amount` in yuan; prices printed to four decimals, with a tick of 0.01 yuan; a suspended day comes back as a row with `tradestatus` 0; `preclose` is the exchange's reference price after a split or dividend. Shanghai and Shenzhen only, so the 7 offerings on the Beijing Stock Exchange (codes starting 920) have no bars |
+| Checks | 2,925 offerings of `SEO_TYPE` 1 with T on or after 2017-02-15. 6,195 unlock batches of placement shares from 2017-02-15, 308 of them unlocking after the fetch: holder rows for 6,194, and for one (300114, unlock 2017-12-12, 10 holders in the batch table) the holder table answers empty. Bars for 1,959 stocks over 1,780 date ranges, each answer checked before it is written (no row outside the range asked for, no answer ending more than 15 days short of either end for a stock listed through the range), 0 row conflicts. Against a calendar of every date on which any stock has a row, 1,750,658 stock-days are due and 0 are missing, 39,334 of them suspended. For one offering (301321, T 2017-07-12) the window falls before the stock's listing in the security list. The stage table grew from 31,514 to 31,520 rows during the day with the batches in scope unchanged |
+
+## B115: 2018 US–China soybeans, the US basis, the Dalian futures, the Paranaguá indicator and the yuan
+
+| | |
+|---|---|
+| Files | `data/b115/raw/`: `agtransport/grain_basis_soybeans_2016_2020_p000.json` (one page of rows); `dce/<year>_<product>.<zip or xlsx>` for corn, No. 1 soybeans, No. 2 soybeans and soybean meal, 2016 to 2020, twenty files; `fred/DEXCHUS.csv`; `cepea/soja_paranagua_series.xls`. `data/b115/raw/b115_soy_manifest.json` records per file the URL, bytes, SHA-256, retrieval time and the check the file passed, and `experiments/b115_soy_describe.py` refuses a file that differs from it. Fetched by `experiments/b115_soy_fetch.py` |
+| Sources | USDA Agricultural Marketing Service, "Grain Basis" on the AgTransport open data platform, dataset `v85y-3hep` (`https://agtransport.usda.gov/resource/v85y-3hep.json`), the rows with `commodity='Soybeans'` and a week ending date in 2016-01-01 to 2020-12-31. Dalian Commodity Exchange, historical data page (`http://www.dce.com.cn/dalianshangpin/xqsj/lssj/index.html`), one file per product and year as linked there. Federal Reserve Board H.10 through FRED, series DEXCHUS (`https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXCHUS`). CEPEA/ESALQ, soybean indicator page (`https://cepea.org.br/br/indicador/soja.aspx`), series file `https://cepea.org.br/br/indicador/series/soja.aspx?id=92` |
+| Retrieved | 2026-09-16, by script on a Windows build; the three 2017 Dalian workbooks served under `.csv` links in a second run the same day |
+| Caliber, AgTransport | one row per market and week ending date. The platform's column descriptions, read from its metadata on 2026-09-16: `date` is the week ending date, `bid` the price in dollars per bushel, `futures_price` the CBOT price for soybeans in the contract month named in `contract_month`, `basis` the difference between bid and futures price, and `market_type` "Elevator Bid" for origins and "30-Day to Arrive" for destinations. Basis equals bid minus futures price on every row to `1.7e-15`. 1,619 rows over 15 markets. Destinations: Gulf - Louisiana 255 weeks across the five years, Great Lakes - Toledo 247, Atlantic Coast 48 from 2019-10-25, Portland (the Pacific Northwest) 14 weeks from 2020-08-21 to 2020-11-20. Origins: Illinois and Iowa 257 weeks each across the five years; nine others 54 to 61 weeks from 2019-10-25. The source is named per row: AMS Market News report JO_GR850 for Toledo and the Atlantic Coast, and with U.S. Wheat Associates price reports for the Gulf; JO_GR110 with U.S. Wheat Associates for Portland; SF_GR110 for South Dakota; a GeoGrain subscription for the other ten origins, Illinois and Iowa among them |
+| Caliber, Dalian | one row per contract and trading day: contract, date (YYYYMMDD), previous close, previous settlement, open, high, low, close, settlement, two changes, volume, turnover and open interest; prices in yuan per tonne, the contracts' quotation unit. Four layouts: 2016 files are zip archives of a gb18030 csv with `ROWNUM` and `成交金额`; 2017 files are workbooks (corn inside a zip under a `.csv` name, the other three served under `.csv` links); 2018 and 2019 workbooks carry an empty first column and `成交额`, and the 2018 sheets run on for about 26,000 empty rows; the 2020 soybean and meal workbooks drop `ROWNUM`. Every file's contract prefix (c, a, b, m) matches its product and its dates its year. No. 2 soybeans traded on 165, 205 and 197 trading days in 2016, 2017 and 2018, and its 2018 file ends on 2018-12-14; it traded on every trading day of 2019 and 2020. The other three products traded on every trading day |
+| Caliber, FRED | yuan per US dollar, noon buying rates in New York for cable transfers, business days from 1981-01-02; `.` where no rate was set, 515 of 11,921 rows, 57 of 1,305 in 2016 to 2020 |
+| Caliber, CEPEA | the Paranaguá soybean indicator, daily from 2006-03-13 to 2026-09-16, 5,115 rows in strictly increasing order: `Data` (dd/mm/yyyy), `À vista R$` and `À vista US$`, in reais and in US dollars per 60 kg bag. 1,246 days in 2016 to 2020. The workbook's compound file shares sectors between the root storage and the workbook stream; xlrd calls that corruption and reads the whole sheet when told to ignore it. The file is the length the server announced |
+| Checks | the AgTransport rows equal the platform's count for the same query, 1,619; every Dalian file's contract prefixes and dates match its product and year; the CEPEA file's last two days match the indicator page on 2026-09-16, 160.59 and 31.16 on 15/09 and 161.88 and 31.37 on 16/09 |
+
+## B115: 2018 US sorghum and corn FOB prices, the US Grains Council's weekly tables
+
+| | |
+|---|---|
+| File | `data/b115_sorghum_fob.json`: 1,270 cells from 123 weekly issues, each cell with its issue date, table (corn or sorghum), port, delivery month, basis as printed and as read, futures month and flat price; each issue with the URL of its PDF, the PDF's page count and the pages of the two tables, and for 2018-02-22 to 08-02 also the issue's page 5 and the two table images; the dated documents with their URLs; a coverage block |
+| Source | US Grains Council, Market Perspectives, the Yellow Corn FOB and Sorghum FOB tables. PDFs of the issues from 2016-01-07 to 2018-08-02 under `https://grains.org/lta/wp-content/uploads/sites/6/`, named `MP-MMDDYYYY.pdf`, a few with `_0` before the extension; images of the 2018-02-22 to 08-02 tables under `https://grains.org/wp-content/uploads/` |
+| Retrieved | 2026-09-17, read in a browser: the text layer of each PDF, and the 2018 images at magnification. The page text was carried over in blocks, each checked by hash against the browser's copy |
+| Caliber | flat prices in US$/t FOB vessel, #2 YC for corn (Gulf and PNW) and #2 YGS for sorghum (NOLA and Texas); basis in US$/bu over the CBOT corn futures month named by its letter (H March, K May, N July, U September, Z December); corn and sorghum bushels both 56 lb, so a flat price is the futures price plus the basis, times 39.37. Delivery months as printed, FH and LH marking the halves of a month, and a few 2016 and 2017 labels carry a day (March 5, March 25, February 25). Three Gulf corn bases of 2017-08-24 are printed without a decimal point (`50+U`, `52+Z`, `61+Z`) and are read as 0.50, 0.52 and 0.61. Lines printed under a table to say another table is left out that week are not price rows and are not transcribed |
+| Coverage | 47 issues in 2016, 46 in 2017, 30 in 2018 to 08-02. No PDF found for 2016-02-18, 06-09, 07-21 and 11-10, or for 2017-01-05, 03-16, 05-18 and 09-21; no issue on 2016-11-24, 2017-11-23, 2017-12-28 and 2018-01-25. The images linked from the 2017 issue pages no longer open |
+| Checks | each PDF's Week Ending date equals its issue date, 123 of 123; the 231 cells of 2018-02-22 to 08-02 read from the images equal those read from the text layer in every cell; `experiments/b115_sorghum_step.py` flags 19 cells whose flat price and basis put the futures price more than a cent a bushel from the median over their issue and futures month, and 3 cells hung on a futures month that ends before their delivery month |
+
+## B30-4, the itch.io tag directory
+
+| | |
+|---|---|
+| Source | `https://itch.io/tags`, sixteen pages, retrieved 2026-09-16 |
+| Cache | `data/raw/itch_tags/page_NN.html`, one file per page, fetched once and not refetched |
+| Fetcher | `data/fetch_b30_4_itch_tags.py`; record `results/b30_4_itch_tag_census.json` |
+| What a row is | one directory cell: a display name, a slug, a scope, a kind (`tag`, `genre` or `feature`) and a count of projects |
+| **Definitional basis of the count** | **every project type at once.** `tag-horror` reads `114k` here while `/games/tag-horror` reads `92,386`, and `genre-sports` reads `14.5k` here while `/games/genre-sports` reads `13,769`. **A count from this file must not be placed in the same column as a count read off a single-scope browse page** |
+| Resolution | printed to three significant figures with a `k` or `m` suffix above ten thousand, exactly below it. `500` of `616` rows are exact, and they are the small ones |
+| Coverage | `616` cells, none skipped: `605` tags, `10` genres, `1` feature |
+| Checks | ten counts read directly off the directory before the fetcher existed are reproduced exactly, `no-ai` `505k`, `2d` `430k`, `horror` `114k`, `pixel-art` `243k`, `singleplayer` `321k`, `3d` `177k`, `retro` `102k`, `dating-sim` `7,246`, and the genres `adventure` `213k` and `visual-novel` `65k`. An earlier parse failed eight of those ten while every aggregate on the run looked correct |
+| Prices | **none retrieved.** This file carries no price field by design; the split of the vocabulary is applied to the names alone and recorded before any price band is pulled |
+
+## B120: A-share placement announcements on cninfo from 2020-02-14, their titles, and the PDFs of subscription agreements, review notices, adjustments and plan documents
+
+| | |
+|---|---|
+| Files | `data/raw/b120/cninfo/<keyword>/<setting>/`: one JSON file per answer page, named by month window and page. `szse_all_any` holds the census keywords asked with no category (终止, 认购协议, 定价基准日 from 2020-02-14, 调整 from 2026-05-01 to 2026-08-31, and 失效, 撤回, 不予, 否决 from 2020-02-14), `szse_all_zf` the placement category (预案, and the probe's other keywords), `sse_*` the probe's second setting. `data/raw/b120/pdf/<announcementId>.pdf`. `data/raw/b120/request_log.tsv`: one line per request with its seconds and bytes. `data/raw/b120/printout_<time>.txt` and `plans_printout_<time>.txt`: what each run of `b120_fetch.py` and `b120_plans.py` printed. `data/raw/b120/plan_documents_wanted.txt`: the plan documents `b120_plans.py` still needs read, rewritten on every run, which `b120_fetch.py --plan-pdfs` fetches. `data/raw/b120/bars_manifest.json`: what `b120_bars.py` asked of baostock for the plans' windows, what came back and what is still missing; `bars_printout_<time>.txt` its printout. The bars themselves go into the B110 store, `data/raw/b110/daily_baostock/stock/`. `data/raw/b120/readings_printout_<time>.txt`: what `experiments/b120_readings.py` printed; `data/cache/b120_bars.npz` is the compact copy of the bars the plans need, rebuilt when one of those store files changes. `data/cache/b120_pdf_text.jsonl.gz`: the text of each PDF, read again for a PDF whose size or modification time changed |
+| Source | cninfo announcement search, `http://www.cninfo.com.cn/new/hisAnnouncement/query` (POST: `column` szse, `tabName` fulltext, `plate` empty, `searchkey` one keyword, `seDate` one month, `category` empty or `category_zf_szsh`, 30 rows a page). PDFs from `http://static.cninfo.com.cn/` followed by the row's `adjunctUrl` |
+| Retrieved | 2026-09-16 and 2026-09-17, `experiments/b120_probe.py` and `experiments/b120_fetch.py` |
+| Caliber | `announcementTime` is milliseconds, read as a day in China time (UTC+8); `adjunctSize` is kilobytes. Titles carry `<em>` search marks, stripped before reading. A keyword matches words, not strings: `认购协议` returns titles with 认购 and 协议 apart. The probe's two settings, `szse` and `sse` columns, return the same rows. The placement category holds the plans and few of the announcements that end them, so the census is asked with no category and the titles are sorted locally. A month that ended within seven days of a run is asked again, and a page that fails its check is kept under an `.expired` name. A PDF is kept only with its header and end mark |
+| Checks | Census from the first run, the four keywords of 2026-09-16: 23,659 announcements over 244 month windows, none missing; 2,255 PDFs, one (announcement 1214636830) not retrieved after three tries. The placement category: 10,879 rows, 2,532 first versions of a plan document. Two answers known before the run are printed against the census: the companies the press named among the plans moved to first-day pricing in June and July 2026, and the completed placements priced in advance in the B110 offering table, each linked to its plan or named. Second run, 2026-09-17: the keywords 失效, 撤回, 不予 and 否决 over 80 month windows (446, 909, 203 and 6 rows, each under the cap of 9,000, every page fetched), 24,717 census announcements; 1,603 more PDFs with announcement 1214636830 among them, 3,858 on disk, the 1,461 plan documents to read included (the 1,401 with no agreement announcement near them and a spread of 60 with one); 5 failed attempts, each retrieved on a retry. Third run, 2026-09-17: the 56 plan documents on the wanted list, all 58 on it read. Daily bars for the windows of 949 plans over 752 stocks, from 60 days before a plan's first date to 10 days after its end: 595 ranges asked, 594 fetched with 0 row conflicts, one (002011, 2021-09-18, a Saturday) answered with no rows; 7 codes on the Beijing Stock Exchange have no bars. Fourth run, 2026-09-17, the readings and the criteria: `results/b120_readings.json`, 647,476 bytes, sha256 5f597ed3, carrying the configuration it ran under and a coverage row for each of the 949 plans with the source of every field. Two of its seven criteria fail and both ask the instrument: 34 plans whose locked price cannot be sourced, named, and one completed placement (600029) whose plan is not found |
+
+## B30-4, the itch.io price enumeration and the pages behind it
+
+**Source.** `https://itch.io/games/store/tag-<slug>` and its pagination, plus
+`https://itch.io/games/<four price filters>/tag-<slug>` for the counts, plus a sample
+of project pages at `https://<seller>.itch.io/<project>`.
+
+**Retrieved** 2026-09-16 and 2026-09-17, from a US locale with no account signed in.
+
+**Records.** `results/b30_4_itch_tag_census.json` (the tag vocabulary and its counts),
+`results/b30_4_itch_counts.json` (five published counts per market tag),
+`results/b30_4_itch_prices.json` (`26,353` projects with their posted price),
+`results/b30_4_price_spotcheck.json` (the listing against the project's own page).
+
+**Definitional basis, and it is the site's own wording.** Each price is the project's
+**posted minimum**, which the site prints in the title attribute beside it as
+`Pay $X or more for this game`. **It is not a transaction price**: a buyer may pay
+above it, and a project on sale is recorded at its sale price with the discount
+percentage kept alongside. `1,144` projects were on sale and `293` of those were
+discounted to nothing, which leaves them with no recoverable posted price.
+
+**Currency is the seller's, not a display conversion**, and that was checked rather
+than assumed: `83%` of the euro prices land on a round euro point, `81%` of the
+pound prices on a round pound point, against a `90%` baseline in dollars, and a
+search over every exchange rate between `0.70` and `1.10` finds none that explains
+them better than one. `USD 24,423`, `EUR 1,177`, `GBP 507`, `BRL 81`, and twelve
+projects priced in `¥`, **which is left unconverted because the symbol is shared by
+two currencies about twenty times apart in value**.
+
+**Counts on the same tag are not all equally sound.** The `paid` count matched a full
+walk of the pages on every one of the `151` market tags, to zero on the nine tags
+where `free + paid` does not equal `total`. **So the fault on those nine sits in
+`free` or in `total`**, and the treatment variable is drawn from `total`, which is
+recorded as located rather than resolved.
+
+**What is not in the repository and why.** The fetched HTML stays on the machine that
+fetched it, `222 MB` of it, excluded by the `data/**` rule. **It carries project
+descriptions, which are text their sellers wrote.** The records carry titles, prices,
+currencies, genres, sale states and seller handles, **which are facts about a public
+listing rather than anyone's writing.**
+
+**Why the snapshot is published at all.** The listings change daily, so a later run
+reads a different column. **Without the snapshot the reading taken from it could not
+be checked by anyone**, including by a later session of this project.
+
+## B121: 2007-09 US crisis facilities, the rates around them, and the banks that borrowed
+
+| | |
+|---|---|
+| Files | `data/raw/114040-V1.zip`: replication package of Taylor and Williams, *A Black Swan in the Money Market* (openICPSR 114040), placed by hand; its workbook `TaylorWilliamsData.xls` carries daily 3-month LIBOR (`US0003M`), 3-month OIS (`USSOC`), TAF balances and the authors' own TAF event dummies, 1995-11-16 to 2008-08-08, with a Notes sheet naming every column. `data/raw/b121/*.csv` and `*.done`: FRED series (`TEDRATE`, `DTB3`, `DFF`, `DFEDTAR`, `DFEDTARU`, `DED3`, `SWPT`, `TERMAUC`, `WTERAUC`, `WABCMMF`, `H0RESPPALDDNWW`, `WLCFLPCL`, `TERAUC1690`, `WCPFF`, `COMPOUT`, `ABCOMP`, `DCPF3M`, `DCPN3M`, and the probes that answered), each with a completion marker holding its size, sha256 and date range; `manifest.json`, `timings.json`. `data/raw/b121/taf.csv`, `amlf.csv`, `cpff.csv`, `cbls.csv` and their `_definitions.csv`: the Board's transaction-level disclosures. `data/raw/b121/press/*.html`: Board press releases listed on the Board's TAF and swap-line pages (five first saved as 369-byte redirect stubs, kept under `.expired_redirect_stub`). `data/raw/b121/nyfed_Crisis_Timeline.pdf` and `nyfed_IRCTimelinePublic.pdf`, with `pdftotext` copies. `data/raw/b121/callreport/`: nine single-period Call Report bulk archives (2007Q2 to 2007Q4, 2008Q2, 2008Q3, 2009Q1 to 2009Q4) and the 2007 and 2008 annual subset archives. `data/cache/b121_call_report.json`: the panel 2007Q1 to 2010Q2 built from those and from the archives in `data/raw/CallReport/` |
+| Source | FRED `https://fred.stlouisfed.org/graph/fredgraph.csv?id=<series>`. Board `https://www.federalreserve.gov/newsevents/files/<facility>.csv`, linked from `/newsevents/reform_<facility>.htm`. Press releases `https://www.federalreserve.gov/newsevents/press/monetary/<date><letter>.htm` (redirecting to `/newsevents/pressreleases/monetary<date><letter>.htm`). New York Fed `https://www.newyorkfed.org/research/global_economy/policyresponses.html`. FFIEC CDR Bulk Data Download, products Call Reports -- Single Period and Call Reports -- Balance Sheet, Income Statement, Past Due -- Four Periods, Tab Delimited |
+| Retrieved | 2026-09-17 to 2026-09-22; FRED and the Board by `scripts/fetch_b121.py`, the FFIEC archives through the browser on 2026-09-22, the replication package by hand |
+| Caliber | FRED rates in percent. `TEDRATE + DTB3` returns the workbook's `US0003M` within 0.50 bp on 397 overlapping days; `DED3` does not (largest gap 38.8 bp). Board facility files: amounts in millions of dollars, one row per loan or swap transaction; every winner of one TAF auction borrows on the same day at the same rate. Call Report archives read with `experiments/b59_call_report.py`'s reader. The single-period archives for 2007Q2 to 2008Q3 and for 2009 in `data/raw/CallReport/` are zero bytes; the ones here were fetched again and are whole. They are kept apart from `data/raw/CallReport/` so that folder never holds two archives for one quarter |
+| Checks | Every FRED and Board file parses whole and ends in a newline; a body that does not is kept under `.bad_<n>` with a note. Each FFIEC archive passes `zipfile.testzip`. The panel reads all 14 quarters 2007Q1 to 2010Q2, each carrying the RC-K average (3353) |
+
+## B123: two networks' US interchange schedules, the Board's average fees under Regulation II, and Visa's Australian domestic page before the October 2026 caps
+
+| | |
+|---|---|
+| Files | United States, read by the station: `data/raw/b123/visa/visa-usa-interchange-reimbursement-fees_2026-04-18.pdf` (877,295 bytes, 28 pages); `data/raw/b123/mastercard/merchant-rates-2026-2027-april2026.pdf` (285,560 bytes, 11 pages) and `merchant-rates-2025-2026.pdf` (240,198 bytes, 11 pages) beside it; `data/raw/b123/fed/Avg_IF_by_PCN.csv` (42,576 bytes). Australia, saved on 2026-09-22 and not yet read by any station: `data/raw/b123/visa_au/visa-au-domestic-interchange_2026-09-22.html` (605,210 bytes), `visa-ap-intra-regional-interchange_2026-09-22.html` (47,459 bytes) and `visa-inter-regional-interchange_2026-09-22.html` (45,296 bytes); `data/raw/b123/mastercard_au/` with the credit (73,810 bytes, 3 pages), debit (85,796 bytes, 3 pages) and prepaid (49,613 bytes, 2 pages) schedules, each effective 2026-04-17; `data/raw/b123/eftpos/auspayplus-eftpos-interchange-fees_2026-09-22.html` (244,503 bytes); `data/raw/b123/rba/rba-conclusions-paper_2026-03-31_upd-2026-06-19.pdf` (3,253,222 bytes, 202 pages). `data/raw/b123/b123_manifest.json`: URL, bytes, SHA-256, the check passed and the retrieval time for all twelve |
+| Source | Every URL is in `experiments/b123_fetch.py`'s plan. Visa `https://usa.visa.com/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf`. Mastercard `https://www.mastercard.com/content/dam/mccom/us/business/documents/merchant-rates-2026-2027-april2026.pdf` and `https://www.mastercard.us/content/dam/public/mastercardcom/na/us/en/smb/documents/merchant-rates-2025-2026.pdf`. Board `https://www.federalreserve.gov/paymentsystems/files/Avg_IF_by_PCN.csv`. Visa Australia `https://www.visa.com.au/about-visa/interchange.html`, `/ap-intra-regional-interchange.html` and `/inter-regional-interchange.html`. Mastercard Australia three PDFs under `https://www.mastercard.com/content/dam/mccom/aus/data-source/merchant-interchange-rates/`, linked from `https://www.mastercard.com/au/en/business/support/merchant-interchange-rates.html`. Australian Payments Plus `https://www.auspayplus.com.au/solutions/eftpos-interchange-fees`. Reserve Bank of Australia `https://www.rba.gov.au/payments-and-infrastructure/review-of-retail-payments-regulation/2026-03/conclusions-paper/pdf/conclusions-paper.pdf` |
+| Retrieved | 2026-09-22. Visa's US schedule and the Board's table by `experiments/b123_fetch.py`; everything else saved from a browser and brought in with `--import`, which applies the same check as a fetch and records the file as a browser-saved copy of its URL. Mastercard's servers refuse a scripted request; the Australian pages were saved by hand in the same sitting |
+| Caliber | Interchange as each network prints it: a percentage of the sale plus a fixed amount in dollars, with any printed cap or minimum. Visa stars the regulated cap for the fraud-prevention cent; Mastercard prints the fraud adjustment as a separate row and calls exempt issuers "Unregulated". The Board's table: average interchange fee per transaction and average transaction amount, by network, for covered and exempt issuers, by year. The Australian files are the schedules in force before the caps of 2026-10-01, and every one of those URLs is undated, so each is served over on the day the new rates take effect. Visa Australia domestic: credit effective 2026-06-01, debit for multi-network cards effective 2025-07-12 and for single-network cards effective 2025-12-01, prepaid effective 2023-06-01, account funding effective 2026-03-01, each exclusive and inclusive of GST; the two foreign-card pages print one table each, three fee programs by four card tiers. Mastercard Australia: all three effective 2026-04-17, exclusive and inclusive of GST. eftpos: cents or a percentage per transaction, by card type, interchange category and channel, with a Legacy tab beside the current one. The conclusions paper carries the varied standards as its Appendix D |
+| Checks | Each PDF starts with `%PDF-`, has `%%EOF` in its last 2,048 bytes and opens in pymupdf with text on its first pages; the CSV parses whole and ends in a newline. `b123_fetch.py --verify` compares every file with its manifest hash, and the station's bookkeeping criterion repeats that on every run. Each saved page decodes as UTF-8, closes its html element and carries its rate tables, and each measured the same byte count the live URL reported the same evening. The conclusions paper opens at 202 pages and its metadata carries the 2026-06-19 update. `b123_fetch.py --verify` reports all twelve OK |
+
+## B124: US liver transplants, donors, waitlist candidates and organ dispositions from SRTR, as released under FOIA to The Markup
+
+| | |
+|---|---|
+| Files | `data/raw/investigation-organs-main.zip` (135,935,682 bytes, SHA-256 `389787bc1311cebfb4b060777f5b01e846c45657f39fa7a721de2307a2dfa164`): the repository `the-markup/investigation-organs` as a zip of its main branch (last pushed 2024-02-08, BSD 3-Clause licence), placed by hand. Under `01_data/raw/` inside it: liver transplants `04_transplant/TX_LI_22F218Records(2of2)-redacted.csv.gz` (192,982 rows, 309 columns), donors `03_donor/22F123_Records_Redacted.csv.gz` (250,941 rows, 257 columns), waitlist candidates `02_candidate/Updated_CAN_LIIN_22F218Records(1of2)-redacted.csv.gz` (341,208 rows, 173 columns), organ dispositions `06_don_disp/DONDISPOSITION_22F167Records-redacted.csv.gz` (1,048,575 rows, 18 columns), the institution table `01_hospitals/22F138_Institution.csv` (712 rows) and the donor-hospital crosswalk with facility coordinates. `data/raw/b124/nhsbt/nlos-48-month-monitoring-report.pdf` (1,194,241 bytes, 61 pages, SHA-256 `0544aa3fecfba36455498c9717925f68dbcf4e55727fde108d81162e065cd3ff`): NHS Blood and Transplant's 48-month monitoring report on the National Liver Offering Scheme introduced 2018-03-20, placed by hand |
+| Source | `https://github.com/the-markup/investigation-organs`. The records are SRTR's, released by HRSA under FOIA to The Markup and The Washington Post in 2023. NHSBT `https://nhsbtdbe.blob.core.windows.net/umbraco-assets-corp/28577/3-national-liver-offering-scheme-48-month-monitoring-report.pdf` |
+| Retrieved | 2026-09-22, the zip of the main branch saved from a browser |
+| Caliber | One row per transplant, donor, candidate or organ disposition. The transplant file carries the donor's OPO (`DON_OPO_CTR_ID`), the recipient's centre (`REC_CTR_ID`), the recipient's permanent state and the share type (`REC_PB_SHARE_TY`); the institution table maps each centre to its state and OPTN region. The disposition file writes dates as month/day/two-digit year |
+| Checks | `zipfile.testzip` passes on all 197 members, and no member is a Git LFS pointer. Each `.gz` decompresses whole with its gzip CRC and length intact. The transplant, donor, candidate and institution row counts match the counts in The Markup's methodology. The disposition file holds 1,048,575 data rows plus a header, which is Excel's row limit of 1,048,576, and its dates cover 1987-10 to 1997-05 and 2013-01 to 2022-03 with nothing in between, so it was most likely cut at that limit before release; its 2013 to 2022 rows are to be checked against the transplant file's yearly liver counts before any use |
+
+## B125: GSA City Pair Program contract fares, fiscal years 2026 and 2027
+
+| | |
+|---|---|
+| Files | `data/raw/b125/gsa/awards_2026.csv` (2,658,635 bytes, 16,270 non-blank rows, 23 columns) and `data/raw/b125/gsa/awards_2027.csv` (2,880,153 bytes, 17,386 non-blank rows, 24 columns). `data/raw/b125/b125_manifest.json`: URL, bytes, SHA-256, the check passed and the retrieval time |
+| Source | `https://www.gsa.gov/system/files/awards_2026.csv` and `awards_2027.csv` beside it, linked from GSA's City Pair Program page |
+| Retrieved | Fiscal 2026 on 2026-09-22 by `experiments/b125_fetch.py`; fiscal 2027 on 2026-09-23 saved from a browser and brought in with `experiments/b125_fetch.py --import`, which applies the same check as a fetch |
+| Caliber | One row per city pair and awarded carrier: `YCA_FARE` (the unrestricted government fare), `_CA_FARE` (the capacity-controlled one), `BUSINESS_FARE` and `_CP_FARE`, in dollars, `0` where no such fare is awarded, with `PAX_COUNT` and the award's `EFFECTIVE_DATE` and `EXPIRATION_DATE`: 2025-10-01 to 2026-09-30 for fiscal 2026, 2026-10-01 to 2027-09-30 for fiscal 2027. The fiscal 2027 file carries one more fare column, `_CN_FARE`; the other 23 columns are the same |
+| Checks | Each file parses whole with every row at the header's width and ends in a newline; fiscal 2026 also matches the server's Content-Length |
+
+- `data/raw/b125/aena/guia-tarifas-aena_2026-08.pdf`: Aena, Guía de Tarifas, August 2026 edition, 128 pages, 1,714,506 bytes, SHA-256 in `data/raw/b125/b125_manifest.json`. Taken 2026-09-23 with `curl.exe` from https://www.aena.es/doc/detalleprensa/260801-guia-tarifas-aena-agosto-2026.pdf and entered with `experiments/b125_fetch.py --import` (the Satellite link on Aena's prices page serves a cookie page to a script). Caliber: public charges per departing passenger in euros; section 2.2 gives the passenger, PMR and security charges by airport group, separately for EEE and international flights (2.2.1), flights between the Canary and Balearic Islands, Ceuta or Melilla and the Peninsula (2.2.2), and inter-island flights (2.2.3); page 18 also prints the 40% reduction for connecting passengers and the 20% November-to-March reduction at Palma, Menorca, Ibiza and Son Bonet.
+
+- `data/raw/b121/tafres/`: Board of Governors TAF yearly archive pages (`taf_2007.htm`, `taf_2008.htm`,
+  `taf_2009.htm`), every auction announcement and results release linked from them, the four 2010 pages, and the
+  TAF terms and conditions (`tafterms.htm`). Fetched 2026-09-23 from https://www.federalreserve.gov/monetarypolicy/.
+  Results releases print offering, total bids, accepted bids, bid/cover, bidders and stop-out; announcements print
+  the per-institution maximum award and the minimum bid rate. One release (2008-08-25) prints the accepted amount
+  without its unit and one (2008-09-22) with a space after the dollar sign; both are read as billions.
+
+- `data/raw/b121/lit/ssrn-1923696.pdf`: Filipovic, D. and Trolle, A. B., "The term structure of interbank risk",
+  SSRN 1923696 (published in Journal of Financial Economics 109(3), 2013, 707-733), 98 pages, downloaded
+  2026-09-23 from https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1923696 without a login. Figure 4 Panel A
+  (page 56) is read from its vector drawing paths; see `experiments/b121_ft_default.py`. Used as literature for the
+  default component of the three-month spread, not as a measurement of this station.
+
+## B128: euro area bank rates by country, key rates, Eurosystem borrowing by country
+
+Fetched 2026-09-23 by `scripts/fetch_b128.py` from the ECB Data Portal SDMX API
+(https://data-api.ecb.europa.eu/service/data), start period 2003-01, into `data/raw/b128/`; checksums and per-series
+first and last periods are in `data/raw/b128/manifest.json`, request times in `timings.json`.
+
+- `mir_B_*.csv`: MFI interest rate statistics (MIR), new business, monthly, every reference area in one request per
+  shape. Ten shapes, all variable or fixed for up to one year: loans to corporations up to EUR 0.25M, EUR 0.25M to
+  1M and over EUR 1M; loans to households for house purchase, for consumption and for other purposes (no Irish
+  key); deposits with agreed maturity up to one year from households and from corporations; overnight deposits
+  from households and from corporations. Unit: percent per annum. All 53,407 values are whole multiples of 0.01.
+  The two small corporate-loan buckets start in 2010-06.
+- `bsi_eurosystem_borrowing.csv`: BSI, deposit liabilities of MFIs excluding the ESCB vis-a-vis the euro area
+  central bank sector (S.121), end of period stocks, EUR millions, from 1999 per the source (fetched from 2003).
+- `ilm_ltro.csv`, `ilm_mro.csv`: internal liquidity management, longer-term and main refinancing operations by
+  national central bank, EUR millions, from 2016-06.
+- `fm_keyrates.csv`: ECB key interest rates (FM dataset), dates of change and levels; the dates are effective dates.
+- `mir_keys.csv`, `ilm_keys.csv`, `mir_u2_titles.csv`: the key lists and euro area series titles read before choosing.
+
+## B129: the Berlin rent cap law, its statute text, the Berlin rent index and the 2019 Mietspiegel
+
+Fetched 2026-09-23 by `experiments/b129_fetch.py` into `data/b129/raw/`; URLs, sizes and SHA-256 are in
+`data/b129/raw/manifest.json`. Every file is a published document at a fixed address.
+
+- `gvbl_2020_nr6_mietenwog.pdf`: Gesetz- und Verordnungsblatt fuer Berlin 76. Jg. Nr. 6, 22.02.2020, S. 49-56,
+  from berlin.de. Article 1 is the MietenWoG Bln; the §6 table is read from it (B129-1). The first three requests
+  were answered 429 and the file was fetched later in the same session with an ordinary request.
+- `abgh_d18_2347.pdf`, `abgh_d18_2437.pdf`: Abgeordnetenhaus Berlin, Drucksache 18/2347 (the Senate's bill,
+  28.11.2019) and 18/2437 (the committee's recommendation, 23.01.2020), from parlament-berlin.de. 18/2437 amends
+  §6 only in Abs. 4 and 5, so the table in 18/2347 is the enacted table; both are kept as a second route to it.
+- `vpi_berlin_2020m12.xlsx`, `vpi_berlin_2022m09.xlsx`, `vpi_berlin_2022m09.pdf`: Amt fuer Statistik
+  Berlin-Brandenburg, Statistischer Bericht M I 2 - m, "Verbraucherpreisindex im Land Berlin", December 2020 and
+  September 2022 issues, from statistischebibliothek.de. Sheet 4, "Preisindex fuer Wohnungsmieten Land Berlin
+  (2015 = 100)": Nettokaltmieten overall and split into "Wohnung, gebaut bis 1948" and "gebaut ab 1949 und
+  Einfamilienhaus", monthly, printed to one decimal. The two workbooks agree on every month they share
+  (2019-01 to 2020-12), which the reader asserts.
+- `mietspiegeltabelle2019.pdf`: Berliner Mietspiegeltabelle 2019 (Stichtag 01.09.2018), from berlin.de. Net cold
+  rent in EUR per m2 per month, median and 3/4 range per cell; 12 rows (size x location) by 8 age bands. Empty
+  cells mean fewer than 10 rents. Cells are assigned to row and column by their position on the page.
+- `mietspiegel2019_ergebnisbericht.pdf`: the 2019 Mietspiegel's methods and results report. Not read yet.
+- `bgb_556f.html`: BGB §556f from gesetze-im-internet.de (the Mietpreisbremse's exemption for dwellings first used
+  and let after 1 October 2014).
+- `hahn_2023_rent_freeze.pdf`: Hahn, A. M., Kholodilin, K. A., Waltl, S. R. and Fongoni, M., "Forward to the Past:
+  Short-Term Effects of the Rent Freeze in Berlin", Management Science, 2023, doi:10.1287/mnsc.2023.4775, CC BY-NC
+  4.0, open copy from the University of Cambridge repository. Tables 1, 5 and 6 are transcribed into
+  `experiments/b129_readings.py`. Used as literature (a published difference-in-differences on commercial ad data),
+  not as a measurement of this station.
+
+- `eba_pgs_volumes.csv`: EBA Risk Dashboard statistical annex, "Newly originated loans and advances subject to public
+  guarantee schemes, volumes bn EUR", parsed from the text tables of the Q2 2021 dashboard (page 40, 2020-09 to
+  2021-06) and the Q4 2021 dashboard (page 49, 2021-03 to 2021-12), both saved in `data/raw/b128/lit/`; each row
+  keeps its file and page. Where the two vintages overlap the earlier one is used; they differ in three cells
+  (DE 2021-06, DK 2021-03, HU 2021-06). The sample is about 160 large banks, not the whole banking system.
+- `lit/`: ECB speech of 2016-07-28, ECB Decision 2014/34, the ECB TLTRO page, ECB Occasional Paper 257 (guarantee
+  envelopes, tables A.3 and A.4), the EBA thematic note on moratoria and public guarantees (2020), and the two EBA
+  dashboards, all fetched 2026-09-23 from the issuers' own sites.
+
+## B131: interest before and after FISIM allocation by sector, deposit and loan stocks, ESA 2010 chapter 14
+
+Fetched 2026-09-24 by `experiments/b131_fetch.py` into `data/raw/b131/`; URLs, sizes and SHA-256 are in
+`data/raw/b131/manifest.json`.
+
+- `nasa_10_nf_tr_d41.json`: Eurostat non-financial sector accounts, annual, items D41 (interest, after FISIM
+  allocation) and D41G (total interest before FISIM allocation), sectors S14_S15 and S11, paid and received,
+  current prices, million euro, every country and year published. FISIM on deposits is D41 received less D41G
+  received; FISIM on loans is D41G paid less D41 paid (ESA 2010 14.11; the ECB box below uses the same
+  definitions). These are derived by the statistical offices; the reference rate each office uses is not in the file.
+- `nasa_10_f_bs_dep_loans.json`: Eurostat financial balance sheets, annual, items F22 (transferable deposits),
+  F29 (other deposits) and F4 (loans), sectors S14_S15 and S11, assets and liabilities, non-consolidated,
+  million euro. Stocks at end of year; ESA 14.07 averages stocks over four quarters, so a ratio of FISIM to these
+  stocks is not the margin the office used.
+- `nasa_10_nf_tr_b6g_p3.json`: household disposable income (B6G) and final consumption expenditure (P3),
+  S14_S15, current prices, million euro.
+- `esa2010_ch14.html`: ESA 2010 chapter 14 as Eurostat publishes it (Regulation (EU) No 549/2013, Annex A).
+- `ecb_eb_2023_8_box5.html`: ECB Economic Bulletin 8/2023, box "A primer on measuring household income",
+  read as literature, not as a measurement.
+
+## B130: Singapore resident households by tenancy and dwelling type, income by dwelling type, HDB key statistics and rules
+
+Fetched 2026-09-24 by `experiments/b130_fetch.py` into `data/b130/raw/`; URLs, sizes and SHA-256 are in
+`data/b130/raw/manifest.json`. Every file is a published table, report or rule page at a fixed address.
+
+- `singstat_m810401.json`: Singapore Department of Statistics, table M810401 "Resident Households By Tenancy,
+  Annual", from the SingStat Table Builder API. Counts of resident households, owner-occupied and rented, and the
+  owner-occupied share (per cent, printed to 0.1) by type of dwelling: HDB total and by flat size, condominiums and
+  other apartments, landed properties, other. 1980, 1990, 1995 and every year 2000-2025. Resident households are
+  those whose reference person is a citizen or permanent resident; the total also counts households occupying a
+  dwelling free of charge, so owner-occupied and rented do not sum to it.
+- `dgs_households_by_dwelling.json`: Resident households by type of dwelling, annual (counts), from data.gov.sg
+  (resource `d_edf8bb4773c25dd16b8b6875fd0b52da`, adapted from SingStat).
+- `dgs_income_per_member_by_dwelling.json`: Average monthly household employment income per household member,
+  excluding employer CPF contributions, among resident employed households, by type of dwelling, 2000-2023, in
+  dollars, from data.gov.sg (resource `d_c49b6cc84ccab3a0523ad15a907e57be`).
+- `hdb_key_statistics_2024_2025.pdf`: Housing & Development Board, Annual Report 2024/2025, Key Statistics
+  (27 pages). Read: p. 7 share of the resident population living in HDB flats; p. 10 active cases for renting out
+  of flat as at 31 March 2025; p. 15 dwelling units under management, sold and rental, by flat type.
+- `hdb_renting_out_flat_eligibility.html`: HDB, "Eligibility for Renting Out a Flat" (owner must be a citizen and
+  have met the minimum occupation period; non-citizen quota for whole-flat rental, 8 % by neighbourhood and 11 %
+  by block).
+- `hdb_buying_couples_and_families.html`: HDB, "Couples and Families" (flat purchase by citizen or permanent
+  resident households).
+
+Added 2026-09-25 for a side question (what the resale price of a bound flat follows), same fetcher and manifest:
+
+- `dgs_hdb_resale_price_index.json`: HDB Resale Price Index (1Q2009 = 100), quarterly, 1990-Q1 to 2026-Q2, from data.gov.sg
+  (resource `d_14f63e595975691e7c24a27ae4c07c79`). Stratification method to 3Q2014, stratified hedonic regression from 4Q2014.
+- `dgs_ura_private_price_index.json`: URA Private Residential Property Price Index (2009-Q1 = 100), quarterly, 1975-Q1 to
+  2026-Q2, by property type (All Residential, Landed, Non-Landed), from data.gov.sg (resource `d_97f8a2e995022d311c6c68cfda6d034c`).
+- `dgs_median_income_fulltime.json`: MOM, median gross monthly income from employment of full-time employed residents,
+  including and excluding employer CPF, annual (June), 2001-2025 with 2005 absent, from data.gov.sg
+  (resource `d_9cd9c40f22a4e45cac8f8b9d895fd5ce`).
+
+- `dgs_resale_monthly_totals.json`: resale transactions registered per month, 2018-01 to 2022-09, each the `total` of one
+  filtered query (`filters={"month": ...}`) on data.gov.sg "Resale flat prices based on registration date from Jan-2017
+  onwards" (resource `d_8b84c4ee58e3cfc0ece0d773c8ca6abc`), written by `experiments/b130_side_buyers.py`. First-timer
+  families who bought resale flats are transcribed in that script from MND's written answer to PQ 2568, 9 Jan 2023, Table 1A.
+
+- `dgs_cpf_contributions_annual.json`, `dgs_cpf_housing_withdrawn_annual.json`: CPF Board, contributions received per
+  calendar year (includes government grants, dividends from Special Discounted Shares and interest paid; data.gov.sg
+  `d_bb9b7f963ef295b750c9925e9e026524`) and net amount withdrawn under the housing schemes, public and private, per
+  calendar year (net of money returned on sale; `d_7cce20f5d2d8ae2582da809e66a1cdd7`), 2006-2025. Added 2026-09-25 for
+  a side question to A50, read by `experiments/a50_side_cpf_housing.py`.
+
+Tried and not kept: HDB's general conditions for purchase (the address answered with a body that is not a PDF);
+the Ministry of Social and Family Development's lower-income households trends reports for 2024 and 2025 (404).
+
+## B132: household consumption by purpose and the HICP
+
+Fetched 2026-09-24 by `experiments/b132_fetch.py` into `data/raw/b132/`; URLs, sizes and SHA-256 are in
+`data/raw/b132/manifest.json`.
+
+- `nama_10_cp18.json`: Eurostat household final consumption expenditure by purpose, COICOP 2018, annual: total,
+  actual rentals (CP041), imputed rentals (CP042), financial services (CP122, household FISIM included), current
+  prices and previous-year prices, million euro. Current over previous-year price gives each year's deflator
+  change, and the item differences add up exactly to the total's.
+- `nama_10_co3_p3.json`: the same account by COICOP 1999 (CP041, CP042, CP126), current prices and chain-linked
+  volumes (2020); most countries stop in 2022. Kept as a cross-check of the 2018 version on the overlapping years.
+- `prc_hicp_aind.json`: HICP annual average index, 2015 = 100, all items (CP00), actual rentals (CP041), financial
+  services n.e.c. (CP126). The HICP has no imputed rentals, and its CP126 holds explicitly charged fees only.
+- `prc_hicp_inw.json`: HICP item weights, per mille, same items.
+- `insee_premiere_2002.html`: INSEE Première no 2002, "La consommation des ménages en 2023", read as literature:
+  it prints the French 2023 consumption deflator with and without FISIM (7.1 % and 4.8 %) and the financial
+  services price change (+193.5 %).
+
+## B133: the BEA NIPA annual flat file, and one EPI table
+
+Fetched 2026-09-25 by `experiments/b133_fetch.py` into `data/raw/b133/`; URLs, sizes and SHA-256 are in
+`data/raw/b133/manifest.json`. No key or registration is needed for these files.
+
+- `NipaDataA.txt`: every published annual NIPA series (SeriesCode, Period, Value). Series read: DPCERG and DPCERV
+  (PCE price index and its percent change), CE001228 and CE001209 (contributions to the PCE price change of imputed
+  rental of owner-occupied nonfarm housing and of financial services furnished without payment, Table 2.4.8),
+  DOWNRG, DIMPRG, DOWNRC, DIMPRC, DPCERC (those two items' price indexes and current-dollar values, and PCE's),
+  B358RG, B195RG, A191RG (price indexes for gross value added of the nonfarm business sector, the business sector,
+  and GDP, Table 1.3.4 and 1.1.4).
+- `SeriesRegister.txt`, `TablesRegister.txt`: BEA's registers of series and tables.
+- `epi_2015_table1.txt`: Table 1 of Bivens and Mishel (2015), EPI Briefing Paper #406, copied 2026-09-25 from the page
+  text in a browser because the site answers scripted requests with HTTP 403. Read as literature; the column used is
+  1973-2014 and the rows are "Average hourly compensation-consumer" and "-producer" and "Divergence of consumer and
+  output prices".
+
+## B134: PIP PPPs by release and round, the PIP handbook page on urban and rural PPPs, Chen and Ravallion (2008)
+
+Fetched 2026-09-25 by `experiments/b134_fetch.py` into `data/raw/b134/`; URLs, sizes and SHA-256 are in
+`data/raw/b134/manifest.json`.
+
+- `pip_ppp_<release>_<round>_<...>_PROD.csv`: World Bank Poverty and Inequality Platform auxiliary PPP table
+  (`aux?table=ppp&version=...`), one file per release and PPP round (2011, 2017, 2021; releases 2022-09-09 to
+  2026-09-22). Columns: country code, data level (national, rural, urban), round year, PPP in local currency per
+  international dollar. The same round in two releases is the same reading published twice.
+- `pip_versions.csv`: PIP's list of releases.
+- `pip_handbook_convert.html`: PIP Methodology Handbook, "Converting to PPP dollars"; it states that separate rural and
+  urban PPPs are computed for China, India and Indonesia from the national PPP, the ratio of urban to rural poverty
+  lines and the urban share of ICP price collection.
+- `chen_ravallion_wps4703.pdf`: Chen, S. and Ravallion, M. (2008), "The Developing World is Poorer than We Thought, But
+  No Less Successful in the Fight against Poverty", World Bank Policy Research Working Paper 4703; read as
+  literature for the 2005 round (China's ICP prices collected in 11 cities, treated as an urban PPP).

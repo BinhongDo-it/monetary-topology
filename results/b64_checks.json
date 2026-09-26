@@ -1,0 +1,88 @@
+{
+ "config": {
+  "fixing_file": "lbma_gold_usd_am_pm_19680401_19711231.csv",
+  "fixing_hash": 849329907,
+  "fixing_len": 21021,
+  "stock_file": "fred_M1476CUSM144NNBR.csv",
+  "stock_hash": 2540559288,
+  "stock_len": 4930,
+  "tick": "0.01"
+ },
+ "criteria": [
+  {
+   "detail": "fixing: 954 dates 1968-04-01 to 1971-12-31, strictly increasing True, all weekdays True; morning only 4, afternoon only 1, neither 0; zero values 0; morning 34.78 to 43.9, afternoon 34.75 to 43.98. gold stock: 288 months 1947-01 to 1970-12, consecutive True, integer millions 10367 to 24637. Both files match the hashes recorded at retrieval",
+   "kind": "instrument",
+   "name": "B64-1",
+   "passed": true,
+   "statement": "both series load, parse and carry the units the stage reads; an empty cell is not read as a zero"
+  },
+  {
+   "detail": "April 1968 low published 36.70: morning 36.7 on 1968-04-04, afternoon 36.95 on 1968-04-04; state exact; March 1969 high published 43.82: morning 43.75 on 1969-03-10, afternoon 43.83 on 1969-03-10; state one_tick; 40 touched on 1968-05-17: that day am 41.6 pm 41.5; first fixing at or above 40 is 1968-05-15 (am 40.1, pm 40.25); printed, no verdict",
+   "kind": "known_answer",
+   "mapping": {
+    "exact": "PASS: the anchor is one of the fixings",
+    "off": "FAIL (instrument): the source quotes another price; find which before any reading",
+    "one_tick": "PASS: within one printed cent of a fixing",
+    "printed_only": "no verdict: the anchor may be intraday"
+   },
+   "name": "B64-2",
+   "passed": true,
+   "statement": "the price file reproduces the published anchors for April 1968 and March 1969; the May 1968 anchor is printed"
+  }
+ ],
+ "report": {
+  "anchors": [
+   {
+    "anchor": "April 1968 low",
+    "closest_gap": "0.00",
+    "maps_to": "PASS: the anchor is one of the fixings",
+    "month_extreme": {
+     "am": {
+      "date": "1968-04-04",
+      "value": "36.7"
+     },
+     "pm": {
+      "date": "1968-04-04",
+      "value": "36.95"
+     }
+    },
+    "published": "36.70",
+    "source": "Joint Economic Committee hearing, November 1969: 'low of $36.70 an ounce, in April 1968'",
+    "state": "exact"
+   },
+   {
+    "anchor": "March 1969 high",
+    "closest_gap": "0.01",
+    "maps_to": "PASS: within one printed cent of a fixing",
+    "month_extreme": {
+     "am": {
+      "date": "1969-03-10",
+      "value": "43.75"
+     },
+     "pm": {
+      "date": "1969-03-10",
+      "value": "43.83"
+     }
+    },
+    "published": "43.82",
+    "source": "same hearing: 'high of $43.82 an ounce in March 1969'",
+    "state": "one_tick"
+   },
+   {
+    "anchor": "40 touched on 1968-05-17",
+    "first_fixing_at_or_above": {
+     "am": "40.1",
+     "date": "1968-05-15",
+     "pm": "40.25"
+    },
+    "on_the_day": {
+     "am": "41.6",
+     "pm": "41.5"
+    },
+    "source": "Coin World, the two-tier system: 'On May 17, 1968, it touched $40 an ounce on the London market'",
+    "state": "printed_only"
+   }
+  ]
+ },
+ "stage": "B64-checks"
+}

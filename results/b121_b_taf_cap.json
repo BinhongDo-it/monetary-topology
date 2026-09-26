@@ -1,0 +1,2649 @@
+{
+  "config": {
+    "bid_offset_days": 3,
+    "expected_rise": "max(0, USSOC - FFT) on the bid day, rival's workbook, to 2008-08-08",
+    "knobs": [
+      "settle",
+      "bid",
+      "highest",
+      "expected",
+      "realised"
+    ],
+    "tick_percent": 0.001
+  },
+  "criteria": [
+    {
+      "detail": "60 auctions, one rate each: True; posted rate found under every knob: True",
+      "kind": "instrument",
+      "name": "B121-24",
+      "passed": true,
+      "statement": "the loan file groups into auctions with one rate each, and every auction has a posted rate under every knob"
+    },
+    {
+      "detail": "auctions above the posted rate: settle 15, bid 15, highest 15, expected 9, realised 19; under the settle knob: 2008-03-27 (28d) 2.615 vs 2.50, +11.5 bp, 2008-04-10 (28d) 2.820 vs 2.50, +32.0 bp, 2008-04-24 (28d) 2.870 vs 2.50, +37.0 bp, 2008-06-05 (28d) 2.260 vs 2.25, +1.0 bp, 2008-06-19 (28d) 2.360 vs 2.25, +11.0 bp, 2008-07-03 (28d) 2.340 vs 2.25, +9.0 bp, 2008-07-17 (28d) 2.300 vs 2.25, +5.0 bp, 2008-07-31 (28d) 2.350 vs 2.25, +10.0 bp, 2008-08-14 (28d) 2.450 vs 2.25, +20.0 bp, 2008-08-14 (84d) 2.754 vs 2.25, +50.4 bp, 2008-08-28 (28d) 2.380 vs 2.25, +13.0 bp, 2008-09-11 (28d) 2.530 vs 2.25, +28.0 bp, 2008-09-11 (84d) 2.670 vs 2.25, +42.0 bp, 2008-09-25 (28d) 3.750 vs 2.25, +150.0 bp, 2008-12-22 (17d) 0.528 vs 0.50, +2.8 bp",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B121-25",
+      "passed": true,
+      "rival_entailment": "no eligible bank bids above the rate it can borrow at, so every stop-out rate is at or below the primary credit rate",
+      "rival_premise": "one price at the position: an institution eligible for primary credit borrows at the posted rate on demand against its discount window collateral",
+      "rival_shape": "one-sided bound",
+      "state": "above the posted rate under every knob",
+      "state_map": {
+        "a knob decides": "no verdict, grid unread",
+        "above the posted rate under every knob": "pass, grid B",
+        "at or below the posted rate under every knob": "fail, grid C"
+      },
+      "statement": "at least one auction cleared above the discount window's posted rate for the same institutions against the same collateral"
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "Arm B of B121; the station has other arms open.",
+  "readings": {
+    "bid": [
+      {
+        "amount_mn": 20000.1,
+        "loans": 31,
+        "margin_bp": -10.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-17",
+        "settle": "2007-12-20",
+        "stop_out": 4.65,
+        "term": 28
+      },
+      {
+        "amount_mn": 20000.0,
+        "loans": 24,
+        "margin_bp": -8.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-24",
+        "settle": "2007-12-27",
+        "stop_out": 4.67,
+        "term": 35
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 42,
+        "margin_bp": -80.0,
+        "posted": 4.75,
+        "posted_day": "2008-01-14",
+        "settle": "2008-01-17",
+        "stop_out": 3.95,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 39,
+        "margin_bp": -87.7,
+        "posted": 4.0,
+        "posted_day": "2008-01-28",
+        "settle": "2008-01-31",
+        "stop_out": 3.123,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 37,
+        "margin_bp": -49.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-11",
+        "settle": "2008-02-14",
+        "stop_out": 3.01,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 38,
+        "margin_bp": -42.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-25",
+        "settle": "2008-02-28",
+        "stop_out": 3.08,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.1,
+        "loans": 47,
+        "margin_bp": -70.0,
+        "posted": 3.5,
+        "posted_day": "2008-03-10",
+        "settle": "2008-03-13",
+        "stop_out": 2.8,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.2,
+        "loans": 39,
+        "margin_bp": 11.5,
+        "posted": 2.5,
+        "posted_day": "2008-03-24",
+        "settle": "2008-03-27",
+        "stop_out": 2.615,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 32,
+        "margin_bp": 32.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-07",
+        "settle": "2008-04-10",
+        "stop_out": 2.82,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 44,
+        "margin_bp": 37.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-21",
+        "settle": "2008-04-24",
+        "stop_out": 2.87,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 60,
+        "margin_bp": -3.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-05",
+        "settle": "2008-05-08",
+        "stop_out": 2.22,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.7,
+        "loans": 72,
+        "margin_bp": -15.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-19",
+        "settle": "2008-05-22",
+        "stop_out": 2.1,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.1,
+        "loans": 49,
+        "margin_bp": 1.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-02",
+        "settle": "2008-06-05",
+        "stop_out": 2.26,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 58,
+        "margin_bp": 11.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-16",
+        "settle": "2008-06-19",
+        "stop_out": 2.36,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.8,
+        "loans": 58,
+        "margin_bp": 9.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-30",
+        "settle": "2008-07-03",
+        "stop_out": 2.34,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 65,
+        "margin_bp": 5.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-14",
+        "settle": "2008-07-17",
+        "stop_out": 2.3,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 61,
+        "margin_bp": 10.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-28",
+        "settle": "2008-07-31",
+        "stop_out": 2.35,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 43,
+        "margin_bp": 20.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-11",
+        "settle": "2008-08-14",
+        "stop_out": 2.45,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 25,
+        "margin_bp": 50.4,
+        "posted": 2.25,
+        "posted_day": "2008-08-11",
+        "settle": "2008-08-14",
+        "stop_out": 2.754,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 60,
+        "margin_bp": 13.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-25",
+        "settle": "2008-08-28",
+        "stop_out": 2.38,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 29,
+        "margin_bp": 28.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-08",
+        "settle": "2008-09-11",
+        "stop_out": 2.53,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 26,
+        "margin_bp": 42.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-08",
+        "settle": "2008-09-11",
+        "stop_out": 2.67,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.3,
+        "loans": 31,
+        "margin_bp": 150.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-22",
+        "settle": "2008-09-25",
+        "stop_out": 3.75,
+        "term": 28
+      },
+      {
+        "amount_mn": 138091.5,
+        "loans": 71,
+        "margin_bp": -86.0,
+        "posted": 2.25,
+        "posted_day": "2008-10-06",
+        "settle": "2008-10-09",
+        "stop_out": 1.39,
+        "term": 85
+      },
+      {
+        "amount_mn": 113271.0,
+        "loans": 76,
+        "margin_bp": -64.0,
+        "posted": 1.75,
+        "posted_day": "2008-10-20",
+        "settle": "2008-10-23",
+        "stop_out": 1.11,
+        "term": 28
+      },
+      {
+        "amount_mn": 138939.1,
+        "loans": 91,
+        "margin_bp": -65.0,
+        "posted": 1.25,
+        "posted_day": "2008-11-03",
+        "settle": "2008-11-06",
+        "stop_out": 0.6,
+        "term": 84
+      },
+      {
+        "amount_mn": 104477.6,
+        "loans": 82,
+        "margin_bp": -74.0,
+        "posted": 1.25,
+        "posted_day": "2008-11-17",
+        "settle": "2008-11-20",
+        "stop_out": 0.51,
+        "term": 28
+      },
+      {
+        "amount_mn": 66470.5,
+        "loans": 82,
+        "margin_bp": -83.0,
+        "posted": 1.25,
+        "posted_day": "2008-12-01",
+        "settle": "2008-12-04",
+        "stop_out": 0.42,
+        "term": 84
+      },
+      {
+        "amount_mn": 63013.8,
+        "loans": 71,
+        "margin_bp": -97.0,
+        "posted": 1.25,
+        "posted_day": "2008-12-15",
+        "settle": "2008-12-18",
+        "stop_out": 0.28,
+        "term": 28
+      },
+      {
+        "amount_mn": 12629.0,
+        "loans": 16,
+        "margin_bp": 2.8,
+        "posted": 0.5,
+        "posted_day": "2008-12-19",
+        "settle": "2008-12-22",
+        "stop_out": 0.528,
+        "term": 17
+      },
+      {
+        "amount_mn": 31075.0,
+        "loans": 16,
+        "margin_bp": -12.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-19",
+        "settle": "2008-12-23",
+        "stop_out": 0.38,
+        "term": 13
+      },
+      {
+        "amount_mn": 102979.0,
+        "loans": 74,
+        "margin_bp": -30.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-30",
+        "settle": "2009-01-02",
+        "stop_out": 0.2,
+        "term": 83
+      },
+      {
+        "amount_mn": 107747.0,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-12",
+        "settle": "2009-01-15",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 136051.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-26",
+        "settle": "2009-01-29",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 142327.7,
+        "loans": 117,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-09",
+        "settle": "2009-02-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 111812.7,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-23",
+        "settle": "2009-02-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 117772.0,
+        "loans": 116,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-09",
+        "settle": "2009-03-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 101642.3,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-23",
+        "settle": "2009-03-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 106299.1,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-06",
+        "settle": "2009-04-09",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 83829.8,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-20",
+        "settle": "2009-04-23",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 131561.5,
+        "loans": 124,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-04",
+        "settle": "2009-05-07",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 55517.3,
+        "loans": 96,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-18",
+        "settle": "2009-05-21",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 95587.7,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-01",
+        "settle": "2009-06-04",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 48022.8,
+        "loans": 98,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-15",
+        "settle": "2009-06-18",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 86336.5,
+        "loans": 106,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-29",
+        "settle": "2009-07-02",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 47767.5,
+        "loans": 88,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-13",
+        "settle": "2009-07-16",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 82375.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-27",
+        "settle": "2009-07-30",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 42940.8,
+        "loans": 91,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-10",
+        "settle": "2009-08-13",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 73404.1,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-24",
+        "settle": "2009-08-27",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 31908.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-07",
+        "settle": "2009-09-10",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 55763.0,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-21",
+        "settle": "2009-09-24",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 24830.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-05",
+        "settle": "2009-10-08",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 39565.9,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-19",
+        "settle": "2009-10-22",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 13152.2,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-02",
+        "settle": "2009-11-05",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 31119.1,
+        "loans": 82,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-16",
+        "settle": "2009-11-19",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 16730.2,
+        "loans": 49,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-30",
+        "settle": "2009-12-03",
+        "stop_out": 0.25,
+        "term": 42
+      },
+      {
+        "amount_mn": 46035.1,
+        "loans": 102,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-12-14",
+        "settle": "2009-12-17",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 38530.8,
+        "loans": 121,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-01-11",
+        "settle": "2010-01-14",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 15425.6,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-02-08",
+        "settle": "2010-02-11",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 3409.7,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.75,
+        "posted_day": "2010-03-08",
+        "settle": "2010-03-11",
+        "stop_out": 0.5,
+        "term": 28
+      }
+    ],
+    "expected": [
+      {
+        "amount_mn": 20000.1,
+        "loans": 31,
+        "margin_bp": -10.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-17 (+0.0 bp expected)",
+        "settle": "2007-12-20",
+        "stop_out": 4.65,
+        "term": 28
+      },
+      {
+        "amount_mn": 20000.0,
+        "loans": 24,
+        "margin_bp": -8.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-24 (+0.0 bp expected)",
+        "settle": "2007-12-27",
+        "stop_out": 4.67,
+        "term": 35
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 42,
+        "margin_bp": -80.0,
+        "posted": 4.75,
+        "posted_day": "2008-01-14 (+0.0 bp expected)",
+        "settle": "2008-01-17",
+        "stop_out": 3.95,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 39,
+        "margin_bp": -87.7,
+        "posted": 4.0,
+        "posted_day": "2008-01-28 (+0.0 bp expected)",
+        "settle": "2008-01-31",
+        "stop_out": 3.123,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 37,
+        "margin_bp": -49.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-11 (+0.0 bp expected)",
+        "settle": "2008-02-14",
+        "stop_out": 3.01,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 38,
+        "margin_bp": -42.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-25 (+0.0 bp expected)",
+        "settle": "2008-02-28",
+        "stop_out": 3.08,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.1,
+        "loans": 47,
+        "margin_bp": -70.0,
+        "posted": 3.5,
+        "posted_day": "2008-03-10 (+0.0 bp expected)",
+        "settle": "2008-03-13",
+        "stop_out": 2.8,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.2,
+        "loans": 39,
+        "margin_bp": 11.5,
+        "posted": 2.5,
+        "posted_day": "2008-03-24 (+0.0 bp expected)",
+        "settle": "2008-03-27",
+        "stop_out": 2.615,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 32,
+        "margin_bp": 32.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-07 (+0.0 bp expected)",
+        "settle": "2008-04-10",
+        "stop_out": 2.82,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 44,
+        "margin_bp": 37.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-21 (+0.0 bp expected)",
+        "settle": "2008-04-24",
+        "stop_out": 2.87,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 60,
+        "margin_bp": -3.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-05 (+0.0 bp expected)",
+        "settle": "2008-05-08",
+        "stop_out": 2.22,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.7,
+        "loans": 72,
+        "margin_bp": -15.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-19 (+0.0 bp expected)",
+        "settle": "2008-05-22",
+        "stop_out": 2.1,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.1,
+        "loans": 49,
+        "margin_bp": 0.7,
+        "posted": 2.2525,
+        "posted_day": "2008-06-02 (+0.2 bp expected)",
+        "settle": "2008-06-05",
+        "stop_out": 2.26,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 58,
+        "margin_bp": -5.0,
+        "posted": 2.4095,
+        "posted_day": "2008-06-16 (+15.9 bp expected)",
+        "settle": "2008-06-19",
+        "stop_out": 2.36,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.8,
+        "loans": 58,
+        "margin_bp": 1.4,
+        "posted": 2.3255,
+        "posted_day": "2008-06-30 (+7.5 bp expected)",
+        "settle": "2008-07-03",
+        "stop_out": 2.34,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 65,
+        "margin_bp": 0.4,
+        "posted": 2.296,
+        "posted_day": "2008-07-14 (+4.6 bp expected)",
+        "settle": "2008-07-17",
+        "stop_out": 2.3,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 61,
+        "margin_bp": 4.8,
+        "posted": 2.302,
+        "posted_day": "2008-07-28 (+5.2 bp expected)",
+        "settle": "2008-07-31",
+        "stop_out": 2.35,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 43,
+        "margin_bp": 16.1,
+        "posted": 2.289,
+        "posted_day": "2008-08-11 (+3.9 bp expected)",
+        "settle": "2008-08-14",
+        "stop_out": 2.45,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 25,
+        "margin_bp": 46.5,
+        "posted": 2.289,
+        "posted_day": "2008-08-11 (+3.9 bp expected)",
+        "settle": "2008-08-14",
+        "stop_out": 2.754,
+        "term": 84
+      }
+    ],
+    "highest": [
+      {
+        "amount_mn": 20000.1,
+        "loans": 31,
+        "margin_bp": -10.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-17..2007-12-20",
+        "settle": "2007-12-20",
+        "stop_out": 4.65,
+        "term": 28
+      },
+      {
+        "amount_mn": 20000.0,
+        "loans": 24,
+        "margin_bp": -8.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-24..2007-12-27",
+        "settle": "2007-12-27",
+        "stop_out": 4.67,
+        "term": 35
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 42,
+        "margin_bp": -80.0,
+        "posted": 4.75,
+        "posted_day": "2008-01-14..2008-01-17",
+        "settle": "2008-01-17",
+        "stop_out": 3.95,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 39,
+        "margin_bp": -87.7,
+        "posted": 4.0,
+        "posted_day": "2008-01-28..2008-01-31",
+        "settle": "2008-01-31",
+        "stop_out": 3.123,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 37,
+        "margin_bp": -49.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-11..2008-02-14",
+        "settle": "2008-02-14",
+        "stop_out": 3.01,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 38,
+        "margin_bp": -42.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-25..2008-02-28",
+        "settle": "2008-02-28",
+        "stop_out": 3.08,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.1,
+        "loans": 47,
+        "margin_bp": -70.0,
+        "posted": 3.5,
+        "posted_day": "2008-03-10..2008-03-13",
+        "settle": "2008-03-13",
+        "stop_out": 2.8,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.2,
+        "loans": 39,
+        "margin_bp": 11.5,
+        "posted": 2.5,
+        "posted_day": "2008-03-24..2008-03-27",
+        "settle": "2008-03-27",
+        "stop_out": 2.615,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 32,
+        "margin_bp": 32.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-07..2008-04-10",
+        "settle": "2008-04-10",
+        "stop_out": 2.82,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 44,
+        "margin_bp": 37.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-21..2008-04-24",
+        "settle": "2008-04-24",
+        "stop_out": 2.87,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 60,
+        "margin_bp": -3.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-05..2008-05-08",
+        "settle": "2008-05-08",
+        "stop_out": 2.22,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.7,
+        "loans": 72,
+        "margin_bp": -15.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-19..2008-05-22",
+        "settle": "2008-05-22",
+        "stop_out": 2.1,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.1,
+        "loans": 49,
+        "margin_bp": 1.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-02..2008-06-05",
+        "settle": "2008-06-05",
+        "stop_out": 2.26,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 58,
+        "margin_bp": 11.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-16..2008-06-19",
+        "settle": "2008-06-19",
+        "stop_out": 2.36,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.8,
+        "loans": 58,
+        "margin_bp": 9.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-30..2008-07-03",
+        "settle": "2008-07-03",
+        "stop_out": 2.34,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 65,
+        "margin_bp": 5.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-14..2008-07-17",
+        "settle": "2008-07-17",
+        "stop_out": 2.3,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 61,
+        "margin_bp": 10.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-28..2008-07-31",
+        "settle": "2008-07-31",
+        "stop_out": 2.35,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 43,
+        "margin_bp": 20.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-11..2008-08-14",
+        "settle": "2008-08-14",
+        "stop_out": 2.45,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 25,
+        "margin_bp": 50.4,
+        "posted": 2.25,
+        "posted_day": "2008-08-11..2008-08-14",
+        "settle": "2008-08-14",
+        "stop_out": 2.754,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 60,
+        "margin_bp": 13.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-25..2008-08-28",
+        "settle": "2008-08-28",
+        "stop_out": 2.38,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 29,
+        "margin_bp": 28.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-08..2008-09-11",
+        "settle": "2008-09-11",
+        "stop_out": 2.53,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 26,
+        "margin_bp": 42.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-08..2008-09-11",
+        "settle": "2008-09-11",
+        "stop_out": 2.67,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.3,
+        "loans": 31,
+        "margin_bp": 150.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-22..2008-09-25",
+        "settle": "2008-09-25",
+        "stop_out": 3.75,
+        "term": 28
+      },
+      {
+        "amount_mn": 138091.5,
+        "loans": 71,
+        "margin_bp": -86.0,
+        "posted": 2.25,
+        "posted_day": "2008-10-06..2008-10-09",
+        "settle": "2008-10-09",
+        "stop_out": 1.39,
+        "term": 85
+      },
+      {
+        "amount_mn": 113271.0,
+        "loans": 76,
+        "margin_bp": -64.0,
+        "posted": 1.75,
+        "posted_day": "2008-10-20..2008-10-23",
+        "settle": "2008-10-23",
+        "stop_out": 1.11,
+        "term": 28
+      },
+      {
+        "amount_mn": 138939.1,
+        "loans": 91,
+        "margin_bp": -65.0,
+        "posted": 1.25,
+        "posted_day": "2008-11-03..2008-11-06",
+        "settle": "2008-11-06",
+        "stop_out": 0.6,
+        "term": 84
+      },
+      {
+        "amount_mn": 104477.6,
+        "loans": 82,
+        "margin_bp": -74.0,
+        "posted": 1.25,
+        "posted_day": "2008-11-17..2008-11-20",
+        "settle": "2008-11-20",
+        "stop_out": 0.51,
+        "term": 28
+      },
+      {
+        "amount_mn": 66470.5,
+        "loans": 82,
+        "margin_bp": -83.0,
+        "posted": 1.25,
+        "posted_day": "2008-12-01..2008-12-04",
+        "settle": "2008-12-04",
+        "stop_out": 0.42,
+        "term": 84
+      },
+      {
+        "amount_mn": 63013.8,
+        "loans": 71,
+        "margin_bp": -97.0,
+        "posted": 1.25,
+        "posted_day": "2008-12-15..2008-12-18",
+        "settle": "2008-12-18",
+        "stop_out": 0.28,
+        "term": 28
+      },
+      {
+        "amount_mn": 12629.0,
+        "loans": 16,
+        "margin_bp": 2.8,
+        "posted": 0.5,
+        "posted_day": "2008-12-19..2008-12-22",
+        "settle": "2008-12-22",
+        "stop_out": 0.528,
+        "term": 17
+      },
+      {
+        "amount_mn": 31075.0,
+        "loans": 16,
+        "margin_bp": -12.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-19..2008-12-23",
+        "settle": "2008-12-23",
+        "stop_out": 0.38,
+        "term": 13
+      },
+      {
+        "amount_mn": 102979.0,
+        "loans": 74,
+        "margin_bp": -30.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-30..2009-01-02",
+        "settle": "2009-01-02",
+        "stop_out": 0.2,
+        "term": 83
+      },
+      {
+        "amount_mn": 107747.0,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-12..2009-01-15",
+        "settle": "2009-01-15",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 136051.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-26..2009-01-29",
+        "settle": "2009-01-29",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 142327.7,
+        "loans": 117,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-09..2009-02-12",
+        "settle": "2009-02-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 111812.7,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-23..2009-02-26",
+        "settle": "2009-02-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 117772.0,
+        "loans": 116,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-09..2009-03-12",
+        "settle": "2009-03-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 101642.3,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-23..2009-03-26",
+        "settle": "2009-03-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 106299.1,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-06..2009-04-09",
+        "settle": "2009-04-09",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 83829.8,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-20..2009-04-23",
+        "settle": "2009-04-23",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 131561.5,
+        "loans": 124,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-04..2009-05-07",
+        "settle": "2009-05-07",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 55517.3,
+        "loans": 96,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-18..2009-05-21",
+        "settle": "2009-05-21",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 95587.7,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-01..2009-06-04",
+        "settle": "2009-06-04",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 48022.8,
+        "loans": 98,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-15..2009-06-18",
+        "settle": "2009-06-18",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 86336.5,
+        "loans": 106,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-29..2009-07-02",
+        "settle": "2009-07-02",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 47767.5,
+        "loans": 88,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-13..2009-07-16",
+        "settle": "2009-07-16",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 82375.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-27..2009-07-30",
+        "settle": "2009-07-30",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 42940.8,
+        "loans": 91,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-10..2009-08-13",
+        "settle": "2009-08-13",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 73404.1,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-24..2009-08-27",
+        "settle": "2009-08-27",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 31908.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-07..2009-09-10",
+        "settle": "2009-09-10",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 55763.0,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-21..2009-09-24",
+        "settle": "2009-09-24",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 24830.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-05..2009-10-08",
+        "settle": "2009-10-08",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 39565.9,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-19..2009-10-22",
+        "settle": "2009-10-22",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 13152.2,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-02..2009-11-05",
+        "settle": "2009-11-05",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 31119.1,
+        "loans": 82,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-16..2009-11-19",
+        "settle": "2009-11-19",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 16730.2,
+        "loans": 49,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-30..2009-12-03",
+        "settle": "2009-12-03",
+        "stop_out": 0.25,
+        "term": 42
+      },
+      {
+        "amount_mn": 46035.1,
+        "loans": 102,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-12-14..2009-12-17",
+        "settle": "2009-12-17",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 38530.8,
+        "loans": 121,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-01-11..2010-01-14",
+        "settle": "2010-01-14",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 15425.6,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-02-08..2010-02-11",
+        "settle": "2010-02-11",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 3409.7,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.75,
+        "posted_day": "2010-03-08..2010-03-11",
+        "settle": "2010-03-11",
+        "stop_out": 0.5,
+        "term": 28
+      }
+    ],
+    "realised": [
+      {
+        "amount_mn": 20000.1,
+        "loans": 31,
+        "margin_bp": -10.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-20+28d",
+        "settle": "2007-12-20",
+        "stop_out": 4.65,
+        "term": 28
+      },
+      {
+        "amount_mn": 20000.0,
+        "loans": 24,
+        "margin_bp": 12.7,
+        "posted": 4.542857142857143,
+        "posted_day": "2007-12-27+35d",
+        "settle": "2007-12-27",
+        "stop_out": 4.67,
+        "term": 35
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 42,
+        "margin_bp": 8.4,
+        "posted": 3.8660714285714284,
+        "posted_day": "2008-01-17+28d",
+        "settle": "2008-01-17",
+        "stop_out": 3.95,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 39,
+        "margin_bp": -37.7,
+        "posted": 3.5,
+        "posted_day": "2008-01-31+28d",
+        "settle": "2008-01-31",
+        "stop_out": 3.123,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 37,
+        "margin_bp": -49.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-14+28d",
+        "settle": "2008-02-14",
+        "stop_out": 3.01,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 38,
+        "margin_bp": -9.0,
+        "posted": 3.169642857142857,
+        "posted_day": "2008-02-28+28d",
+        "settle": "2008-02-28",
+        "stop_out": 3.08,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.1,
+        "loans": 47,
+        "margin_bp": 13.0,
+        "posted": 2.669642857142857,
+        "posted_day": "2008-03-13+28d",
+        "settle": "2008-03-13",
+        "stop_out": 2.8,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.2,
+        "loans": 39,
+        "margin_bp": 11.5,
+        "posted": 2.5,
+        "posted_day": "2008-03-27+28d",
+        "settle": "2008-03-27",
+        "stop_out": 2.615,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 32,
+        "margin_bp": 39.1,
+        "posted": 2.4285714285714284,
+        "posted_day": "2008-04-10+28d",
+        "settle": "2008-04-10",
+        "stop_out": 2.82,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 44,
+        "margin_bp": 56.6,
+        "posted": 2.3035714285714284,
+        "posted_day": "2008-04-24+28d",
+        "settle": "2008-04-24",
+        "stop_out": 2.87,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 60,
+        "margin_bp": -3.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-08+28d",
+        "settle": "2008-05-08",
+        "stop_out": 2.22,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.7,
+        "loans": 72,
+        "margin_bp": -15.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-22+28d",
+        "settle": "2008-05-22",
+        "stop_out": 2.1,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.1,
+        "loans": 49,
+        "margin_bp": 1.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-05+28d",
+        "settle": "2008-06-05",
+        "stop_out": 2.26,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 58,
+        "margin_bp": 11.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-19+28d",
+        "settle": "2008-06-19",
+        "stop_out": 2.36,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.8,
+        "loans": 58,
+        "margin_bp": 9.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-03+28d",
+        "settle": "2008-07-03",
+        "stop_out": 2.34,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 65,
+        "margin_bp": 5.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-17+28d",
+        "settle": "2008-07-17",
+        "stop_out": 2.3,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 61,
+        "margin_bp": 10.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-31+28d",
+        "settle": "2008-07-31",
+        "stop_out": 2.35,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 43,
+        "margin_bp": 20.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-14+28d",
+        "settle": "2008-08-14",
+        "stop_out": 2.45,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 25,
+        "margin_bp": 72.4,
+        "posted": 2.0297619047619047,
+        "posted_day": "2008-08-14+84d",
+        "settle": "2008-08-14",
+        "stop_out": 2.754,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 60,
+        "margin_bp": 13.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-28+28d",
+        "settle": "2008-08-28",
+        "stop_out": 2.38,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 29,
+        "margin_bp": 29.8,
+        "posted": 2.232142857142857,
+        "posted_day": "2008-09-11+28d",
+        "settle": "2008-09-11",
+        "stop_out": 2.53,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 26,
+        "margin_bp": 97.4,
+        "posted": 1.6964285714285714,
+        "posted_day": "2008-09-11+84d",
+        "settle": "2008-09-11",
+        "stop_out": 2.67,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.3,
+        "loans": 31,
+        "margin_bp": 176.8,
+        "posted": 1.9821428571428572,
+        "posted_day": "2008-09-25+28d",
+        "settle": "2008-09-25",
+        "stop_out": 3.75,
+        "term": 28
+      },
+      {
+        "amount_mn": 138091.5,
+        "loans": 71,
+        "margin_bp": 17.2,
+        "posted": 1.2176470588235293,
+        "posted_day": "2008-10-09+85d",
+        "settle": "2008-10-09",
+        "stop_out": 1.39,
+        "term": 85
+      },
+      {
+        "amount_mn": 113271.0,
+        "loans": 76,
+        "margin_bp": -24.7,
+        "posted": 1.3571428571428572,
+        "posted_day": "2008-10-23+28d",
+        "settle": "2008-10-23",
+        "stop_out": 1.11,
+        "term": 28
+      },
+      {
+        "amount_mn": 138939.1,
+        "loans": 91,
+        "margin_bp": -25.7,
+        "posted": 0.8571428571428571,
+        "posted_day": "2008-11-06+84d",
+        "settle": "2008-11-06",
+        "stop_out": 0.6,
+        "term": 84
+      },
+      {
+        "amount_mn": 104477.6,
+        "loans": 82,
+        "margin_bp": -68.6,
+        "posted": 1.1964285714285714,
+        "posted_day": "2008-11-20+28d",
+        "settle": "2008-11-20",
+        "stop_out": 0.51,
+        "term": 28
+      },
+      {
+        "amount_mn": 66470.5,
+        "loans": 82,
+        "margin_bp": -18.7,
+        "posted": 0.6071428571428571,
+        "posted_day": "2008-12-04+84d",
+        "settle": "2008-12-04",
+        "stop_out": 0.42,
+        "term": 84
+      },
+      {
+        "amount_mn": 63013.8,
+        "loans": 71,
+        "margin_bp": -22.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-18+28d",
+        "settle": "2008-12-18",
+        "stop_out": 0.28,
+        "term": 28
+      },
+      {
+        "amount_mn": 12629.0,
+        "loans": 16,
+        "margin_bp": 2.8,
+        "posted": 0.5,
+        "posted_day": "2008-12-22+17d",
+        "settle": "2008-12-22",
+        "stop_out": 0.528,
+        "term": 17
+      },
+      {
+        "amount_mn": 31075.0,
+        "loans": 16,
+        "margin_bp": -12.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-23+13d",
+        "settle": "2008-12-23",
+        "stop_out": 0.38,
+        "term": 13
+      },
+      {
+        "amount_mn": 102979.0,
+        "loans": 74,
+        "margin_bp": -30.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-02+83d",
+        "settle": "2009-01-02",
+        "stop_out": 0.2,
+        "term": 83
+      },
+      {
+        "amount_mn": 107747.0,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-15+28d",
+        "settle": "2009-01-15",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 136051.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-29+84d",
+        "settle": "2009-01-29",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 142327.7,
+        "loans": 117,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-12+28d",
+        "settle": "2009-02-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 111812.7,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-26+84d",
+        "settle": "2009-02-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 117772.0,
+        "loans": 116,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-12+28d",
+        "settle": "2009-03-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 101642.3,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-26+84d",
+        "settle": "2009-03-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 106299.1,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-09+28d",
+        "settle": "2009-04-09",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 83829.8,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-23+84d",
+        "settle": "2009-04-23",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 131561.5,
+        "loans": 124,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-07+28d",
+        "settle": "2009-05-07",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 55517.3,
+        "loans": 96,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-21+84d",
+        "settle": "2009-05-21",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 95587.7,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-04+28d",
+        "settle": "2009-06-04",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 48022.8,
+        "loans": 98,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-18+84d",
+        "settle": "2009-06-18",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 86336.5,
+        "loans": 106,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-02+28d",
+        "settle": "2009-07-02",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 47767.5,
+        "loans": 88,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-16+84d",
+        "settle": "2009-07-16",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 82375.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-30+28d",
+        "settle": "2009-07-30",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 42940.8,
+        "loans": 91,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-13+84d",
+        "settle": "2009-08-13",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 73404.1,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-27+28d",
+        "settle": "2009-08-27",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 31908.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-10+84d",
+        "settle": "2009-09-10",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 55763.0,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-24+28d",
+        "settle": "2009-09-24",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 24830.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-08+70d",
+        "settle": "2009-10-08",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 39565.9,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-22+28d",
+        "settle": "2009-10-22",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 13152.2,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-05+70d",
+        "settle": "2009-11-05",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 31119.1,
+        "loans": 82,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-19+28d",
+        "settle": "2009-11-19",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 16730.2,
+        "loans": 49,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-12-03+42d",
+        "settle": "2009-12-03",
+        "stop_out": 0.25,
+        "term": 42
+      },
+      {
+        "amount_mn": 46035.1,
+        "loans": 102,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-12-17+28d",
+        "settle": "2009-12-17",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 38530.8,
+        "loans": 121,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-01-14+28d",
+        "settle": "2010-01-14",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 15425.6,
+        "loans": 103,
+        "margin_bp": -42.9,
+        "posted": 0.6785714285714286,
+        "posted_day": "2010-02-11+28d",
+        "settle": "2010-02-11",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 3409.7,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.75,
+        "posted_day": "2010-03-11+28d",
+        "settle": "2010-03-11",
+        "stop_out": 0.5,
+        "term": 28
+      }
+    ],
+    "settle": [
+      {
+        "amount_mn": 20000.1,
+        "loans": 31,
+        "margin_bp": -10.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-20",
+        "settle": "2007-12-20",
+        "stop_out": 4.65,
+        "term": 28
+      },
+      {
+        "amount_mn": 20000.0,
+        "loans": 24,
+        "margin_bp": -8.0,
+        "posted": 4.75,
+        "posted_day": "2007-12-27",
+        "settle": "2007-12-27",
+        "stop_out": 4.67,
+        "term": 35
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 42,
+        "margin_bp": -80.0,
+        "posted": 4.75,
+        "posted_day": "2008-01-17",
+        "settle": "2008-01-17",
+        "stop_out": 3.95,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 39,
+        "margin_bp": -37.7,
+        "posted": 3.5,
+        "posted_day": "2008-01-31",
+        "settle": "2008-01-31",
+        "stop_out": 3.123,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 37,
+        "margin_bp": -49.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-14",
+        "settle": "2008-02-14",
+        "stop_out": 3.01,
+        "term": 28
+      },
+      {
+        "amount_mn": 30000.0,
+        "loans": 38,
+        "margin_bp": -42.0,
+        "posted": 3.5,
+        "posted_day": "2008-02-28",
+        "settle": "2008-02-28",
+        "stop_out": 3.08,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.1,
+        "loans": 47,
+        "margin_bp": -70.0,
+        "posted": 3.5,
+        "posted_day": "2008-03-13",
+        "settle": "2008-03-13",
+        "stop_out": 2.8,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.2,
+        "loans": 39,
+        "margin_bp": 11.5,
+        "posted": 2.5,
+        "posted_day": "2008-03-27",
+        "settle": "2008-03-27",
+        "stop_out": 2.615,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 32,
+        "margin_bp": 32.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-10",
+        "settle": "2008-04-10",
+        "stop_out": 2.82,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 44,
+        "margin_bp": 37.0,
+        "posted": 2.5,
+        "posted_day": "2008-04-24",
+        "settle": "2008-04-24",
+        "stop_out": 2.87,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 60,
+        "margin_bp": -3.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-08",
+        "settle": "2008-05-08",
+        "stop_out": 2.22,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.7,
+        "loans": 72,
+        "margin_bp": -15.0,
+        "posted": 2.25,
+        "posted_day": "2008-05-22",
+        "settle": "2008-05-22",
+        "stop_out": 2.1,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.1,
+        "loans": 49,
+        "margin_bp": 1.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-05",
+        "settle": "2008-06-05",
+        "stop_out": 2.26,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.9,
+        "loans": 58,
+        "margin_bp": 11.0,
+        "posted": 2.25,
+        "posted_day": "2008-06-19",
+        "settle": "2008-06-19",
+        "stop_out": 2.36,
+        "term": 28
+      },
+      {
+        "amount_mn": 74999.8,
+        "loans": 58,
+        "margin_bp": 9.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-03",
+        "settle": "2008-07-03",
+        "stop_out": 2.34,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 65,
+        "margin_bp": 5.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-17",
+        "settle": "2008-07-17",
+        "stop_out": 2.3,
+        "term": 28
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 61,
+        "margin_bp": 10.0,
+        "posted": 2.25,
+        "posted_day": "2008-07-31",
+        "settle": "2008-07-31",
+        "stop_out": 2.35,
+        "term": 28
+      },
+      {
+        "amount_mn": 50000.0,
+        "loans": 43,
+        "margin_bp": 20.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-14",
+        "settle": "2008-08-14",
+        "stop_out": 2.45,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 25,
+        "margin_bp": 50.4,
+        "posted": 2.25,
+        "posted_day": "2008-08-14",
+        "settle": "2008-08-14",
+        "stop_out": 2.754,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.0,
+        "loans": 60,
+        "margin_bp": 13.0,
+        "posted": 2.25,
+        "posted_day": "2008-08-28",
+        "settle": "2008-08-28",
+        "stop_out": 2.38,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 29,
+        "margin_bp": 28.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-11",
+        "settle": "2008-09-11",
+        "stop_out": 2.53,
+        "term": 28
+      },
+      {
+        "amount_mn": 25000.0,
+        "loans": 26,
+        "margin_bp": 42.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-11",
+        "settle": "2008-09-11",
+        "stop_out": 2.67,
+        "term": 84
+      },
+      {
+        "amount_mn": 75000.3,
+        "loans": 31,
+        "margin_bp": 150.0,
+        "posted": 2.25,
+        "posted_day": "2008-09-25",
+        "settle": "2008-09-25",
+        "stop_out": 3.75,
+        "term": 28
+      },
+      {
+        "amount_mn": 138091.5,
+        "loans": 71,
+        "margin_bp": -36.0,
+        "posted": 1.75,
+        "posted_day": "2008-10-09",
+        "settle": "2008-10-09",
+        "stop_out": 1.39,
+        "term": 85
+      },
+      {
+        "amount_mn": 113271.0,
+        "loans": 76,
+        "margin_bp": -64.0,
+        "posted": 1.75,
+        "posted_day": "2008-10-23",
+        "settle": "2008-10-23",
+        "stop_out": 1.11,
+        "term": 28
+      },
+      {
+        "amount_mn": 138939.1,
+        "loans": 91,
+        "margin_bp": -65.0,
+        "posted": 1.25,
+        "posted_day": "2008-11-06",
+        "settle": "2008-11-06",
+        "stop_out": 0.6,
+        "term": 84
+      },
+      {
+        "amount_mn": 104477.6,
+        "loans": 82,
+        "margin_bp": -74.0,
+        "posted": 1.25,
+        "posted_day": "2008-11-20",
+        "settle": "2008-11-20",
+        "stop_out": 0.51,
+        "term": 28
+      },
+      {
+        "amount_mn": 66470.5,
+        "loans": 82,
+        "margin_bp": -83.0,
+        "posted": 1.25,
+        "posted_day": "2008-12-04",
+        "settle": "2008-12-04",
+        "stop_out": 0.42,
+        "term": 84
+      },
+      {
+        "amount_mn": 63013.8,
+        "loans": 71,
+        "margin_bp": -22.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-18",
+        "settle": "2008-12-18",
+        "stop_out": 0.28,
+        "term": 28
+      },
+      {
+        "amount_mn": 12629.0,
+        "loans": 16,
+        "margin_bp": 2.8,
+        "posted": 0.5,
+        "posted_day": "2008-12-22",
+        "settle": "2008-12-22",
+        "stop_out": 0.528,
+        "term": 17
+      },
+      {
+        "amount_mn": 31075.0,
+        "loans": 16,
+        "margin_bp": -12.0,
+        "posted": 0.5,
+        "posted_day": "2008-12-23",
+        "settle": "2008-12-23",
+        "stop_out": 0.38,
+        "term": 13
+      },
+      {
+        "amount_mn": 102979.0,
+        "loans": 74,
+        "margin_bp": -30.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-02",
+        "settle": "2009-01-02",
+        "stop_out": 0.2,
+        "term": 83
+      },
+      {
+        "amount_mn": 107747.0,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-15",
+        "settle": "2009-01-15",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 136051.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-01-29",
+        "settle": "2009-01-29",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 142327.7,
+        "loans": 117,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-12",
+        "settle": "2009-02-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 111812.7,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-02-26",
+        "settle": "2009-02-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 117772.0,
+        "loans": 116,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-12",
+        "settle": "2009-03-12",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 101642.3,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-03-26",
+        "settle": "2009-03-26",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 106299.1,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-09",
+        "settle": "2009-04-09",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 83829.8,
+        "loans": 99,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-04-23",
+        "settle": "2009-04-23",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 131561.5,
+        "loans": 124,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-07",
+        "settle": "2009-05-07",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 55517.3,
+        "loans": 96,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-05-21",
+        "settle": "2009-05-21",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 95587.7,
+        "loans": 104,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-04",
+        "settle": "2009-06-04",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 48022.8,
+        "loans": 98,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-06-18",
+        "settle": "2009-06-18",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 86336.5,
+        "loans": 106,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-02",
+        "settle": "2009-07-02",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 47767.5,
+        "loans": 88,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-16",
+        "settle": "2009-07-16",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 82375.0,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-07-30",
+        "settle": "2009-07-30",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 42940.8,
+        "loans": 91,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-13",
+        "settle": "2009-08-13",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 73404.1,
+        "loans": 97,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-08-27",
+        "settle": "2009-08-27",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 31908.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-10",
+        "settle": "2009-09-10",
+        "stop_out": 0.25,
+        "term": 84
+      },
+      {
+        "amount_mn": 55763.0,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-09-24",
+        "settle": "2009-09-24",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 24830.0,
+        "loans": 75,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-08",
+        "settle": "2009-10-08",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 39565.9,
+        "loans": 83,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-10-22",
+        "settle": "2009-10-22",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 13152.2,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-05",
+        "settle": "2009-11-05",
+        "stop_out": 0.25,
+        "term": 70
+      },
+      {
+        "amount_mn": 31119.1,
+        "loans": 82,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-11-19",
+        "settle": "2009-11-19",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 16730.2,
+        "loans": 49,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-12-03",
+        "settle": "2009-12-03",
+        "stop_out": 0.25,
+        "term": 42
+      },
+      {
+        "amount_mn": 46035.1,
+        "loans": 102,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2009-12-17",
+        "settle": "2009-12-17",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 38530.8,
+        "loans": 121,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-01-14",
+        "settle": "2010-01-14",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 15425.6,
+        "loans": 103,
+        "margin_bp": -25.0,
+        "posted": 0.5,
+        "posted_day": "2010-02-11",
+        "settle": "2010-02-11",
+        "stop_out": 0.25,
+        "term": 28
+      },
+      {
+        "amount_mn": 3409.7,
+        "loans": 53,
+        "margin_bp": -25.0,
+        "posted": 0.75,
+        "posted_day": "2010-03-11",
+        "settle": "2010-03-11",
+        "stop_out": 0.5,
+        "term": 28
+      }
+    ]
+  },
+  "source": {
+    "auctions": "Board of Governors, TAF transaction data, taf.csv",
+    "posted": "FRED DPCREDIT (data/b59/DPCREDIT.csv)"
+  },
+  "stage": "B121"
+}

@@ -1,0 +1,200 @@
+{
+ "config": {
+  "annual": "mean of four quarters; years with fewer are dropped",
+  "base_year": "2001",
+  "income": "median_income_incl_emp_cpf",
+  "ura_series": "All Residential"
+ },
+ "missing_years": [
+  "2005"
+ ],
+ "n_pairs": 22,
+ "ratio_range": {
+  "hdb_over_income": {
+   "end": 1.174,
+   "max": 1.366,
+   "min": 0.96
+  },
+  "ura_over_income": {
+   "end": 1.003,
+   "max": 1.212,
+   "min": 0.879
+  }
+ },
+ "stage": "B130-side-resale",
+ "table": {
+  "2001": {
+   "hdb": 100.0,
+   "hdb_over_income": 1.0,
+   "income": 100.0,
+   "ura": 100.0,
+   "ura_over_income": 1.0
+  },
+  "2002": {
+   "hdb": 97.4,
+   "hdb_over_income": 0.977,
+   "income": 99.7,
+   "ura": 93.5,
+   "ura_over_income": 0.938
+  },
+  "2003": {
+   "hdb": 102.6,
+   "hdb_over_income": 1.016,
+   "income": 101.0,
+   "ura": 91.8,
+   "ura_over_income": 0.91
+  },
+  "2004": {
+   "hdb": 106.8,
+   "hdb_over_income": 1.096,
+   "income": 97.4,
+   "ura": 91.5,
+   "ura_over_income": 0.939
+  },
+  "2006": {
+   "hdb": 104.0,
+   "hdb_over_income": 1.014,
+   "income": 102.6,
+   "ura": 100.9,
+   "ura_over_income": 0.983
+  },
+  "2007": {
+   "hdb": 113.9,
+   "hdb_over_income": 1.069,
+   "income": 106.5,
+   "ura": 124.6,
+   "ura_over_income": 1.17
+  },
+  "2008": {
+   "hdb": 135.5,
+   "hdb_over_income": 1.117,
+   "income": 121.4,
+   "ura": 140.0,
+   "ura_over_income": 1.153
+  },
+  "2009": {
+   "hdb": 145.5,
+   "hdb_over_income": 1.187,
+   "income": 122.6,
+   "ura": 120.2,
+   "ura_over_income": 0.98
+  },
+  "2010": {
+   "hdb": 166.2,
+   "hdb_over_income": 1.322,
+   "income": 125.7,
+   "ura": 150.7,
+   "ura_over_income": 1.199
+  },
+  "2011": {
+   "hdb": 185.6,
+   "hdb_over_income": 1.364,
+   "income": 136.1,
+   "ura": 164.9,
+   "ura_over_income": 1.212
+  },
+  "2012": {
+   "hdb": 199.2,
+   "hdb_over_income": 1.366,
+   "income": 145.8,
+   "ura": 168.8,
+   "ura_over_income": 1.158
+  },
+  "2013": {
+   "hdb": 207.3,
+   "hdb_over_income": 1.336,
+   "income": 155.2,
+   "ura": 174.1,
+   "ura_over_income": 1.122
+  },
+  "2014": {
+   "hdb": 196.5,
+   "hdb_over_income": 1.244,
+   "income": 157.9,
+   "ura": 169.1,
+   "ura_over_income": 1.071
+  },
+  "2015": {
+   "hdb": 189.1,
+   "hdb_over_income": 1.143,
+   "income": 165.4,
+   "ura": 162.6,
+   "ura_over_income": 0.983
+  },
+  "2016": {
+   "hdb": 188.7,
+   "hdb_over_income": 1.11,
+   "income": 169.9,
+   "ura": 157.5,
+   "ura_over_income": 0.927
+  },
+  "2017": {
+   "hdb": 186.7,
+   "hdb_over_income": 1.053,
+   "income": 177.3,
+   "ura": 155.8,
+   "ura_over_income": 0.879
+  },
+  "2018": {
+   "hdb": 184.3,
+   "hdb_over_income": 0.992,
+   "income": 185.9,
+   "ura": 167.9,
+   "ura_over_income": 0.903
+  },
+  "2019": {
+   "hdb": 183.6,
+   "hdb_over_income": 0.96,
+   "income": 191.2,
+   "ura": 171.7,
+   "ura_over_income": 0.898
+  },
+  "2020": {
+   "hdb": 187.5,
+   "hdb_over_income": 0.987,
+   "income": 189.9,
+   "ura": 174.5,
+   "ura_over_income": 0.918
+  },
+  "2021": {
+   "hdb": 208.4,
+   "hdb_over_income": 1.063,
+   "income": 196.1,
+   "ura": 188.4,
+   "ura_over_income": 0.961
+  },
+  "2022": {
+   "hdb": 232.4,
+   "hdb_over_income": 1.094,
+   "income": 212.4,
+   "ura": 207.5,
+   "ura_over_income": 0.977
+  },
+  "2023": {
+   "hdb": 248.2,
+   "hdb_over_income": 1.14,
+   "income": 217.7,
+   "ura": 223.0,
+   "ura_over_income": 1.024
+  },
+  "2024": {
+   "hdb": 267.0,
+   "hdb_over_income": 1.159,
+   "income": 230.4,
+   "ura": 233.7,
+   "ura_over_income": 1.014
+  },
+  "2025": {
+   "hdb": 284.1,
+   "hdb_over_income": 1.174,
+   "income": 241.9,
+   "ura": 242.6,
+   "ura_over_income": 1.003
+  }
+ },
+ "yoy_log_change_correlation": {
+  "hdb vs income": 0.5,
+  "hdb vs ura": 0.613,
+  "ura vs income": 0.399
+ }
+}

@@ -1,0 +1,286 @@
+{
+ "arm": "dry",
+ "config": {
+  "house_levels": "fitted on every wine read here, the dry white included",
+  "lag": 3,
+  "perms": 2000,
+  "reference": "chateau-dyquem-premier-cru-superieur-sauternes",
+  "scan": {
+   "clean": [
+    0.0,
+    3.0
+   ],
+   "formats": [
+    "750",
+    "all"
+   ],
+   "min_pairs": [
+    3,
+    5
+   ]
+  },
+  "source": "data/b126/parsed/ via experiments/b126_parse.py",
+  "wine": "chateau-dyquem-y-bordeaux"
+ },
+ "criteria": [
+  {
+   "detail": "750/k3/c0 -0.337 (n=18, p 0.098); 750/k3/c3 -0.398 (n=18, p 0.060); 750/k5/c0 -0.409 (n=11, p 0.106); 750/k5/c3 -0.164 (n=11, p 0.320); all/k3/c0 -0.263 (n=19, p 0.128); all/k3/c3 -0.287 (n=19, p 0.111); all/k5/c0 -0.363 (n=14, p 0.103); all/k5/c3 -0.323 (n=14, p 0.144)",
+   "kind": "own_reading",
+   "name": "B126-15",
+   "passed": true,
+   "state": "thinner units jump further at every scan point",
+   "state_map": {
+    "no object": null,
+    "sign moves across the scan": null,
+    "thinner units jump further at every scan point": true,
+    "thinner units jump less at every scan point": false
+   },
+   "statement": "Y d'Yquem (dry white), cross-house pairs net of house level: thinner vintages jump further"
+  }
+ ],
+ "dry": [
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    0.728751,
+    11.6457
+   ],
+   "p": 0.0984508,
+   "rho": -0.336603,
+   "units": 18
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    0.728751,
+    11.6457
+   ],
+   "p": 0.0604698,
+   "rho": -0.397522,
+   "units": 18
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    0.852989,
+    11.6457
+   ],
+   "p": 0.105947,
+   "rho": -0.409091,
+   "units": 11
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    0.852989,
+    11.6457
+   ],
+   "p": 0.31984,
+   "rho": -0.163636,
+   "units": 11
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    0.728751,
+    11.6457
+   ],
+   "p": 0.128436,
+   "rho": -0.263273,
+   "units": 19
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    0.728751,
+    11.6457
+   ],
+   "p": 0.111444,
+   "rho": -0.286968,
+   "units": 19
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    0.801719,
+    11.6457
+   ],
+   "p": 0.103448,
+   "rho": -0.362637,
+   "units": 14
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    0.801719,
+    11.6457
+   ],
+   "p": 0.144428,
+   "rho": -0.323077,
+   "units": 14
+  }
+ ],
+ "stage": "B126",
+ "sweet_reference": [
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.744628,
+   "rho": 0.115726,
+   "units": 31
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.728636,
+   "rho": 0.108468,
+   "units": 31
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.605197,
+   "rho": 0.0543346,
+   "units": 27
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "750",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.653673,
+   "rho": 0.0763126,
+   "units": 27
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.1999,
+   "rho": -0.153247,
+   "units": 34
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 3
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.271364,
+   "rho": -0.111688,
+   "units": 34
+  },
+  {
+   "cfg": {
+    "clean": 0.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.095952,
+   "rho": -0.235704,
+   "units": 32
+  },
+  {
+   "cfg": {
+    "clean": 3.0,
+    "formats": "all",
+    "lag": 3,
+    "min_pairs": 5
+   },
+   "density_range": [
+    1.46982,
+    36.545
+   ],
+   "p": 0.134433,
+   "rho": -0.203812,
+   "units": 32
+  }
+ ]
+}

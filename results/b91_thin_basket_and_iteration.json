@@ -1,0 +1,125 @@
+{
+  "config": {
+    "imports": "b69_okishio, b85_simultaneous",
+    "iteration_systems": 30,
+    "knockout": 0.6,
+    "max_iter": 60,
+    "seed": 91,
+    "thin_draws": 1200
+  },
+  "criteria": [
+    {
+      "detail": "the vector this station calls prices is a left eigenvector of `M` to 3.81e-15 relative, checked because the right one is what `perron(m)` returns and the two are not interchangeable. B85's own generator, run here, gives a strictly positive basket on every draw, a substitution that leaves the zero pattern of `A` exactly where it was, and an irreducible `M'` on all 384 draws, with all three cells occupied: above 95, below 84, straddle 205. **Those three facts are what this station removes one at a time**, so they are read from B85's generator rather than asserted about it",
+      "kind": "known_answer",
+      "name": "B91-1",
+      "passed": true
+    },
+    {
+      "detail": "with a subsistence bundle that does not contain every intermediate good and a substitution allowed to set entries of `A` to zero, `M'` is reducible on 466 of 1200 draws. **Before the substitution it is irreducible on 1200 of 1200**, so what breaks the hypothesis is the substitution and what stops the basket from repairing it is the zeros in the bundle. A median of 2 entries of `A` are newly zero. **B85's hypothesis was supplied by its generator**: a strictly positive basket against a strictly positive labour vector makes `b l'` positive and `M'` positive whatever the substitution did",
+      "kind": "own_reading",
+      "name": "B91-2",
+      "passed": true
+    },
+    {
+      "detail": "on the 466 reducible draws the forward implication holds without exception: every changed column cheaper at the prices in force on 398 of them, and the Perron root falls on 398 of those 398. **The price vector is what does not survive**: the left Perron vector is strictly positive on 386 of 466 reducible draws against 734 of 734 irreducible ones. **So the hypothesis buys the prices and not the direction of the rate**: irreducibility guarantees a strictly positive price vector and reducibility does not, which 80 of the reducible draws show. **It does not follow that everything outside a dominant block prices at zero**, and 386 of these draws are reducible with every price positive: a block the dominant one feeds still prices off it, and a zero appears where the dominant block is not reached from. **A comparison of Perron roots needs none of this.** Both halves are counted on the same draws, so the contrast is not between two samples",
+      "kind": "own_reading",
+      "name": "B91-3",
+      "passed": true
+    },
+    {
+      "detail": "of 678 draws the prices in force leave undecided, **one power iteration decides 173 (25.5%)**, and all 678 are decided within 46 iterations. Cumulative: by 1: 173 (25.5%); by 2: 333 (49.1%); by 3: 457 (67.4%); by 5: 588 (86.7%); by 10: 661 (97.5%). **So the registration's guess is half right**: one iteration is not enough on its own, and a handful is. **The reason the old prices decide nothing at all is structural rather than numerical**: an unchanged column returns exactly `lambda`, so the bracket contains it until iteration moves those columns off it. **No threshold is placed on the curve**, which is the reading itself",
+      "kind": "own_reading",
+      "name": "B91-4",
+      "passed": true
+    },
+    {
+      "detail": "the bracket's verdict agrees with the recomputed Perron root on 1368 of 1368 decided draws, and it decides 0 of 678 straddling draws at zero iterations. **Both are implementation checks and not readings** (`D35` second clause). The second is a theorem about the cell's own definition: an unchanged column returns exactly `lambda`, so the full bracket contains `lambda` at the prices in force, and where every column changed the full bracket is the changed one, which straddles by definition. **This is an implementation check and not a reading** (`D35` second clause): `min_j (pM')_j / p_j <= lambda' <= max_j (pM')_j / p_j` holds at every strictly positive `p`, so a bracket entirely below `lambda` puts `lambda'` below it and a bracket entirely above puts it above, at any iteration. **What that makes the iteration is a safe early exit rather than an approximation**: stopping early costs a verdict, never a wrong one",
+      "kind": "instrument",
+      "name": "B91-5",
+      "passed": true
+    },
+    {
+      "detail": "over 678 decided straddling draws the iterations needed fall with the size of the move in the Perron root, Spearman -0.566, and rise with the ratio of the second modulus to the first, Spearman +0.421, median 3 iterations, on **average ranks**: 661 of 678 values share a count with another, so a double `argsort` would be ordering ties by position in the array. **Both signs are the ones the mechanism predicts and both are read off the draws**: a bracket has further to travel when the two roots are close, and it travels more slowly when the second eigenvalue is near the first. **Rank correlations rather than a fit**, since neither relation is claimed to be linear",
+      "kind": "own_reading",
+      "name": "B91-6",
+      "passed": true
+    },
+    {
+      "detail": "B85's file names this station against both registrations it opened, so a reader of it finds what its hypothesis was buying and what the undecided cell costs. `D20`",
+      "kind": "bookkeeping",
+      "name": "B91-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B91-1": {
+      "all_irreducible": true,
+      "cells": {
+        "above": 95,
+        "below": 84,
+        "straddle": 205
+      },
+      "left_eigenvector_gap": 3.812634178971571e-15,
+      "positive_basket": true,
+      "reference_draws": 384,
+      "zero_pattern_kept": true
+    },
+    "B91-2": {
+      "draws": 1200,
+      "irreducible_after": 734,
+      "irreducible_before": 1200,
+      "median_zeros_added": 2
+    },
+    "B91-3": {
+      "forward_held_irreducible": 531,
+      "forward_held_reducible": 398,
+      "forward_met_irreducible": 531,
+      "forward_met_reducible": 398,
+      "irreducible": 734,
+      "positive_prices_irreducible": 734,
+      "positive_prices_reducible": 386,
+      "reducible": 466
+    },
+    "B91-4": {
+      "cumulative": {
+        "1": 173,
+        "10": 661,
+        "11": 663,
+        "12": 669,
+        "13": 672,
+        "16": 673,
+        "17": 675,
+        "2": 333,
+        "21": 677,
+        "3": 457,
+        "4": 539,
+        "46": 678,
+        "5": 588,
+        "6": 614,
+        "7": 633,
+        "8": 649,
+        "9": 657
+      },
+      "max_iter": 60,
+      "solved": 678,
+      "straddling": 678,
+      "worst_case_iterations": 46
+    },
+    "B91-5": {
+      "decided": 1368,
+      "decided_at_zero": 0,
+      "straddling": 678,
+      "wrong": 0
+    },
+    "B91-6": {
+      "median_iterations": 3.0,
+      "rows": 678,
+      "spearman_gap": 0.4208334947472246,
+      "spearman_move": -0.5656579860606924
+    },
+    "B91-7": {
+      "b85_names_b91": true
+    }
+  },
+  "stage": "B91"
+}

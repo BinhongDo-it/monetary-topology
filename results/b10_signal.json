@@ -4,8 +4,44 @@
     "narrower than Fannie's by construction (\u00a78\u00b722\u00b72)",
     "both sides of every ratio use one payment scheme"
   ],
-  "diagnostic_only": true,
-  "diagnostic_reason": "Registered before the code. B8-1's shape on the second carrier: MAD(signal)/MAD(floor), then the same with leg 1's closed form removed. \u00a78\u00b712 is not re-asked here.",
+  "criteria": [
+    {
+      "detail": "schemes ['orig', 'sub']; ratios {'sub': 6388936.9, 'orig': 6391860.1}; widest over narrowest 1.000458",
+      "kind": "instrument",
+      "name": "B10-10",
+      "passed": true,
+      "text": "The two payment schemes put the modification arm's loop sum on the same side of the readable line. The scheme is this stage's choice, so a verdict that moved with it would be a property of the choice rather than of the carrier."
+    },
+    {
+      "detail": "readable line 1.0; registered scheme sub reads 6388936.9; all schemes {'sub': 6388936.9, 'orig': 6391860.1}",
+      "kind": "own_reading",
+      "name": "B10-11",
+      "passed": true,
+      "text": "On the second carrier the modification arm's loop sum stands above the instrument's own resolution floor, the line being \u00a721.2's, transcribed, and the floor being measured on this carrier rather than carried over from the first. Read on the registered payment scheme; the other one is the robustness check and B10-10 is where it is scored."
+    },
+    {
+      "detail": "registered scheme sub reads 6388936.9 against a readable line of 1.0; all schemes {'sub': 6388936.9, 'orig': 6391860.1}",
+      "grid": "B",
+      "kind": "rival",
+      "name": "B10-12",
+      "opposite_prediction": "this frame predicts the loop sum is non-zero on a carrier whose positions carry a class index, so the cell admits both outcomes (discipline 11e, sixth clause). The first carrier is where the same prediction was scored as B8-1.",
+      "passed": true,
+      "polarity": "registered as the rival's prediction failing, so passing means the rival is wrong (discipline 11e, first clause, second part)",
+      "rival_entailment": "a loop sum that is zero exactly leaves a residual carrying nothing but the instrument's own quantisation, so the ratio of the residual's scale to the measured resolution floor would sit at the floor. A ratio standing above the readable line refutes it, and the floor here is measured on this carrier, not asserted.",
+      "rival_premise": "a scalar on positions exists and every term is its gradient, so every closed loop sums to zero exactly, however much the contract changed along the way",
+      "rival_shape": "point prediction of zero",
+      "text": "The rival's scalar puts every closed loop at exactly zero, so the modification arm's residual would sit at the measured floor. The criterion passes when it does not, read on the registered payment scheme."
+    },
+    {
+      "detail": "6 archives carried, first carrier's raw ratios span 2412840 to 6765767",
+      "kind": "bookkeeping",
+      "name": "B10-13",
+      "passed": true,
+      "text": "The first carrier's six archives travel with the record so that the two carriers can be read beside each other. **No line is drawn on them**: a threshold anchored on what another carrier happened to produce is the shape discipline 11 forbids, so the band is printed and not scored."
+    }
+  ],
+  "diagnostic_only": false,
+  "diagnostic_reason": "Not diagnostic. B8-1's shape on the second carrier: MAD(signal)/MAD(floor), then the same with leg 1's closed form removed, scored as four criteria. What it still does not deliver is in `scope_not_delivered`.",
   "estimator": "b8_0b_floor.mad_scale, imported",
   "fannie_beside": [
     [
@@ -274,6 +310,7 @@
       }
     }
   },
+  "scope_not_delivered": "\u00a78\u00b712 is not re-asked here; that is \u00a78\u00b725, and nothing in this record says \u00a71.1 has an answer on this carrier.",
   "stage": "B10",
   "step": "signal"
 }

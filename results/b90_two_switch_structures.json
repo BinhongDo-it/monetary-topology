@@ -1,0 +1,186 @@
+{
+  "config": {
+    "bisection_steps": 50,
+    "corn_factor": [
+      1.0,
+      3.0
+    ],
+    "imports": "b72_land_and_rent, b73_two_extensions, b89_degrees_of_freedom",
+    "labour_factor": [
+      1.0,
+      3.0
+    ],
+    "lands": [
+      3,
+      6
+    ],
+    "r_grid": 601,
+    "r_max": 3.0,
+    "seed": 90,
+    "systems": 500,
+    "yield": [
+      1.05,
+      2.0
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "at `r = 0.05`, the rate B88 and B89 ran at, the envelope wage and the marginal land agree with B72's own solver on all 500 systems, worst wage gap 0.00e+00. **The state function here is written from the wage curves and the pair, and the solvers are imported**, so the two can disagree",
+      "kind": "known_answer",
+      "name": "B90-1",
+      "passed": true
+    },
+    {
+      "detail": "on 357 of 362 systems where both margins open at some rate, the intensive margin closes strictly below the rate at which the extensive one does, by a median of 0.295 in the rate, and on 5 the two ends fall within one grid step. **In that band every land is workable and no acre can take a second method**, so demand above capacity is not met, and by B89's identity the configuration there is `(j, f) = (0, 0)`, whose wage is not determined by cost. **Both ends are read off the same rate grid**, so the comparison is not between two resolutions. **The band is checked rate by rate and not inferred from two endpoints**: 0 of the 357 bands contain a rate at which some acre is viable after all",
+      "kind": "own_reading",
+      "name": "B90-2",
+      "passed": true
+    },
+    {
+      "detail": "the rates at which some acre can take a second method form 138 systems with 0 block(s), 326 systems with 1 block(s), 28 systems with 2 block(s), 5 systems with 3 block(s), 3 systems with 4 block(s). **More than one block is the margin closing as the rate rises and opening again above it**, which is reswitching of the margin rather than of a technique. **Printed as intervals rather than counted**: [[0.0, 0.365], [0.4, 0.535]]; [[0.0, 0.135], [0.31, 0.64], [0.875, 0.905]]; [[0.0, 0.175], [0.625, 0.705]]; [[0.285, 0.365], [0.4, 0.605]]",
+      "kind": "own_reading",
+      "name": "B90-3",
+      "passed": true
+    },
+    {
+      "detail": "which land sits on the extensive envelope and which acre takes the second method are two orders on one system. Both switch on 100 systems and **they share a grid interval on 1 of those**; only the envelope owner switches on 164, only the intensified acre on 79, neither on 157. **The acre switching with no envelope switch anywhere is the load-bearing count**: it cannot be the envelope's switch seen through another variable, because there is none",
+      "kind": "own_reading",
+      "name": "B90-4",
+      "passed": true
+    },
+    {
+      "detail": "every switch this station reports is narrowed by bisection from the grid interval it was spotted in: 557 switches located, the widest remaining bracket 4.44e-16 against a grid step of 0.0050, a factor of 1.1e+13. **The grid finds candidates and does not decide them**, which is what gate six asks: a switch read off a grid is a statement about the grid",
+      "kind": "instrument",
+      "name": "B90-5",
+      "passed": true
+    },
+    {
+      "detail": "taking a rate inside the band on each of 357 systems and building the rows with B89's own builder, the configuration is its indeterminate cell on 357 of them: the rows are consistent and leave a one-dimensional family. **So the band is not an artefact of how this station looks for the margin**, it is the cell B89 already named, reached from a different direction",
+      "kind": "own_reading",
+      "name": "B90-6",
+      "passed": true
+    },
+    {
+      "detail": "the stations this one continues each name it, so a reader of either finds what the rate does to their fixed-rate readings. `D20`",
+      "kind": "bookkeeping",
+      "name": "B90-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B90-1": {
+      "marginal_mismatch": 0.0,
+      "systems": 500,
+      "worst_envelope_gap": 0.0
+    },
+    "B90-2": {
+      "leaky_bands": 0,
+      "median_band_width": 0.29500000000000004,
+      "strictly_below": 357,
+      "within_one_step": 5
+    },
+    "B90-3": {
+      "block_counts": {
+        "0": 138,
+        "1": 326,
+        "2": 28,
+        "3": 5,
+        "4": 3
+      },
+      "examples": [
+        [
+          [
+            0.0,
+            0.365
+          ],
+          [
+            0.4,
+            0.535
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.135
+          ],
+          [
+            0.31,
+            0.64
+          ],
+          [
+            0.875,
+            0.905
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.175
+          ],
+          [
+            0.625,
+            0.705
+          ]
+        ],
+        [
+          [
+            0.285,
+            0.365
+          ],
+          [
+            0.4,
+            0.605
+          ]
+        ],
+        [
+          [
+            0.48,
+            0.54
+          ],
+          [
+            0.735,
+            0.825
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.335
+          ],
+          [
+            0.61,
+            0.655
+          ],
+          [
+            0.685,
+            0.79
+          ],
+          [
+            0.825,
+            0.92
+          ]
+        ]
+      ]
+    },
+    "B90-4": {
+      "both": 100,
+      "neither": 157,
+      "only_owner": 164,
+      "only_pick": 79,
+      "share_an_interval": 1
+    },
+    "B90-5": {
+      "grid_step": 0.005,
+      "switches_located": 557,
+      "widest_bracket": 4.440892098500626e-16
+    },
+    "B90-6": {
+      "checked": 357,
+      "indeterminate": 357
+    },
+    "B90-7": {
+      "missing_writebacks": []
+    }
+  },
+  "stage": "B90"
+}

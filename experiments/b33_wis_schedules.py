@@ -174,6 +174,49 @@ COVERAGE = [
 ]
 PAGES_IN_INSTRUMENT = 33
 
+# --------------------------------------------------------------------------
+# The rule that separates a Group A worker from a Group B worker.  Fetched
+# 2026-09-16, two hops down an authorising chain: this instrument's regulation
+# 3(b) sends both definitions to paragraph 1(1) of the Fourth Schedule to the
+# Central Provident Fund Act 1953, and that paragraph sends them on to
+# paragraphs 5 and 8 of the same Schedule.  Nothing in the instrument itself
+# states it, which is why arm one could not say at first whether 8AB and 8AC
+# stand at one position or two.
+# --------------------------------------------------------------------------
+GROUP_PARTITION = {
+    "chain": [
+        "S 156/2025 reg 3(b): the two terms have the meanings given by "
+        "paragraph 1(1) of the Fourth Schedule to the Act",
+        "Fourth Schedule para 1(1): Group A is a platform worker to whom "
+        "Part 3 applies as set out in para 5; Group B, Part 4 as set out in "
+        "para 8",
+    ],
+    "group_a": "para 5: born on or after 1 January 1995; or born before and "
+               "opting to be a Group A worker under para 4(1)",
+    "group_b": "para 8: born before 1 January 2026, subject to paras 5, 6 "
+               "and 7",
+    "option_one_way": "para 4(3): an option under sub-paragraph (1) cannot be "
+                      "withdrawn.  The option runs from B to A only, and a "
+                      "worker born on or after 1 January 1995 has no route to "
+                      "Group B at all.",
+    "same_position": "the eligibility sentences of 8AB and 8AC are the same "
+                     "word for word but for the group name: being a Group X "
+                     "worker, worked as a platform worker (and not also as an "
+                     "employee) in the relevant month.  What the member did is "
+                     "identical; the terms are not.",
+    "not_reducible_to_age": "both schedules are banded by age, so a reading "
+                            "that the terms are a function of age has to be "
+                            "answered.  The one-way option answers it: a "
+                            "worker born before 1995 who has exercised it is "
+                            "Group A while a worker of the same age in the "
+                            "same month who has not is Group B.  The class "
+                            "index is a label the Board records, not a "
+                            "function of any position variable.",
+}
+
+#: The pair the rival's entailment bites on: one position, two classes.
+RIVAL_PAIR = ("8AB eligible Group A worker", "8AC eligible Group B worker")
+
 
 def compare_ratio(a: dict, b: dict) -> tuple[set[F], list[dict]]:
     """Ratios b/a over every coefficient where at least one side is non-zero."""
@@ -207,24 +250,40 @@ def compare_identity(a: dict, b: dict) -> list[dict]:
     return out
 
 
-def main() -> None:
-    ratios, anomalies = compare_ratio(TWELFTH, THIRTEENTH)
+def pair_differences(classes: dict, pair: tuple) -> list[dict]:
+    """Every (period, period) pairing of the two classes, and the dimensions
+    on which their clause vectors differ.  The rival says this list is empty."""
+    a, b = pair
+    out = []
+    for pa, va in sorted(classes[a].items()):
+        for pb, vb in sorted(classes[b].items()):
+            out.append({
+                "a": "%s | %s" % (a, pa),
+                "b": "%s | %s" % (b, pb),
+                "dimensions_differing": sorted(k for k in va if va[k] != vb[k]),
+            })
+    return out
+
+
+def build(classes: dict, coverage: list, twelfth: dict, thirteenth: dict,
+          fourteenth: dict) -> dict:
+    ratios, anomalies = compare_ratio(twelfth, thirteenth)
     n_coeff = sum(
         1
-        for band in TWELFTH
+        for band in twelfth
         for j in range(4)
         for k in (0, 1)
-        if not (TWELFTH[band][j][k] == 0 and THIRTEENTH[band][j][k] == 0)
+        if not (twelfth[band][j][k] == 0 and thirteenth[band][j][k] == 0)
     )
     c1 = (len(ratios) == 1 and ratios == {F(2, 3)} and not anomalies)
 
-    diffs = compare_identity(TWELFTH, FOURTEENTH)
-    n_cells = len(TWELFTH) * 4 * 2
+    diffs = compare_identity(twelfth, fourteenth)
+    n_cells = len(twelfth) * 4 * 2
     c2 = not diffs
 
     vectors = {
         "%s | %s" % (cls, period): tuple(sorted(vec.items()))
-        for cls, periods in CLASSES.items()
+        for cls, periods in classes.items()
         for period, vec in periods.items()
     }
     keys = list(vectors)
@@ -236,16 +295,22 @@ def main() -> None:
     ]
     c3 = not collisions
 
-    split_classes = {k: v for k, v in CLASSES.items() if len(v) > 1}
+    split_classes = {k: v for k, v in classes.items() if len(v) > 1}
     c5 = set(split_classes) == set(INTERNAL_LINES) and all(
         INTERNAL_LINES.get(k) for k in split_classes
     )
 
     pages_read = 0
-    for batch in COVERAGE:
+    for batch in coverage:
         lo, hi = batch["pages"].split("-")
         pages_read += int(hi) - int(lo) + 1
     c4 = pages_read == PAGES_IN_INSTRUMENT
+
+    #: The rival's point prediction on the one pair that stands at one
+    #: position.  It says the list of differing dimensions is empty in every
+    #: period pairing; the criterion passes when it is not.
+    pair = pair_differences(classes, RIVAL_PAIR)
+    c26 = bool(pair) and all(p["dimensions_differing"] for p in pair)
 
     distinct_functions = 1 + (0 if c2 else 1) + (1 if c1 else 0)
 
@@ -256,14 +321,16 @@ def main() -> None:
         "config": {
             "arithmetic": "exact rationals, no floating point",
             "schedules_compared": ["Twelfth", "Thirteenth", "Fourteenth"],
-            "classes_written": len(CLASSES),
-            "clause_vectors": sum(len(v) for v in CLASSES.values()),
+            "classes_written": len(classes),
+            "clause_vectors": sum(len(v) for v in classes.values()),
             "clause_dimensions": 5,
             "pages_in_instrument": PAGES_IN_INSTRUMENT,
+            "rival_pair": list(RIVAL_PAIR),
         },
         "criteria": [
             {
                 "name": "B33-1",
+                "kind": "own_reading",
                 "text": "Every coefficient of the Thirteenth Schedule is "
                         "exactly two-thirds of the corresponding coefficient "
                         "of the Twelfth, over all seven bands and four age "
@@ -276,6 +343,7 @@ def main() -> None:
             },
             {
                 "name": "B33-2",
+                "kind": "own_reading",
                 "text": "The Fourteenth Schedule is cell for cell identical to "
                         "the Twelfth; only the variable it is read against "
                         "differs (total monthly sum against average monthly "
@@ -285,6 +353,7 @@ def main() -> None:
             },
             {
                 "name": "B33-3",
+                "kind": "own_reading",
                 "text": "No two of the classes the instrument writes receive an "
                         "identical clause vector on all five dimensions. A "
                         "collision would put the read partition strictly "
@@ -292,10 +361,11 @@ def main() -> None:
                 "passed": c3,
                 "detail": "%d written classes carrying %d clause vectors, "
                           "%d colliding pairs"
-                          % (len(CLASSES), len(vectors), len(collisions)),
+                          % (len(classes), len(vectors), len(collisions)),
             },
             {
                 "name": "B33-4",
+                "kind": "bookkeeping",
                 "text": "Every page of the instrument was opened, and the "
                         "coverage table names what each batch carried, "
                         "including batches that carried nothing bearing on the "
@@ -305,6 +375,7 @@ def main() -> None:
             },
             {
                 "name": "B33-5",
+                "kind": "own_reading",
                 "text": "Where the read partition is strictly finer than the "
                         "written one, the extra line is drawn by the instrument "
                         "itself and can be named. Every class carrying more "
@@ -315,8 +386,49 @@ def main() -> None:
                 "passed": c5,
                 "detail": "%d of %d written classes carry more than one vector: "
                           "%s"
-                          % (len(split_classes), len(CLASSES),
+                          % (len(split_classes), len(classes),
                              ", ".join(sorted(split_classes)) or "none"),
+            },
+            {
+                "name": "B33-26",
+                "kind": "rival",
+                "grid": "B",
+                "rival_shape": "point prediction",
+                "rival_premise":
+                    "a position carries a scalar and every term at that "
+                    "position is generated by it, so the object has one index "
+                    "and no class index",
+                "rival_entailment":
+                    "8AB and 8AC stand at one position: their eligibility "
+                    "sentences are the same word for word but for the group "
+                    "name, and what separates the groups is the member's date "
+                    "of birth plus an option that runs one way and cannot be "
+                    "withdrawn, neither of which is a position variable. "
+                    "Terms generated by one scalar at one position must "
+                    "therefore coincide across the two classes, on every "
+                    "dimension and in every period. One differing dimension "
+                    "refutes it.",
+                "polarity":
+                    "registered as the rival's prediction failing, so passing "
+                    "means the rival is wrong (discipline 11e, first clause, "
+                    "second part)",
+                "opposite_prediction":
+                    "the counting law puts the number of distinct clause "
+                    "values at the number of classes the programme writes, so "
+                    "this frame predicts the two differ where the rival "
+                    "predicts they coincide. The cell admits both outcomes "
+                    "(discipline 11e, sixth clause).",
+                "text": "On the one pair that stands at one position, 8AB and "
+                        "8AC, the rival's scalar generates one set of terms, "
+                        "so the two classes must receive identical clause "
+                        "vectors in every period pairing. The criterion counts "
+                        "the dimensions on which they differ and passes when "
+                        "every pairing differs on at least one.",
+                "passed": c26,
+                "detail": "%d period pairing(s); dimensions differing per "
+                          "pairing %s"
+                          % (len(pair),
+                             [len(p["dimensions_differing"]) for p in pair]),
             },
         ],
         "readings": {
@@ -326,7 +438,7 @@ def main() -> None:
             "cells_differing_12_vs_14": len(diffs),
             "written_benefit_tables": 3,
             "distinct_benefit_functions": distinct_functions,
-            "classes_written": len(CLASSES),
+            "classes_written": len(classes),
             "clause_vectors": len(vectors),
             "colliding_vector_pairs": len(collisions),
             "group_a_merges_with_employee": {
@@ -342,10 +454,18 @@ def main() -> None:
                 ],
             },
         },
-        "coverage": COVERAGE,
-        "classes": CLASSES,
+        "coverage": coverage,
+        "classes": classes,
         "internal_lines": INTERNAL_LINES,
+        "group_partition": GROUP_PARTITION,
+        "rival_pair_differences": pair,
     }
+
+    return record
+
+
+def main() -> None:
+    record = build(CLASSES, COVERAGE, TWELFTH, THIRTEENTH, FOURTEENTH)
 
     out = Path(__file__).resolve().parents[1] / "results" / "b33_wis_schedules.json"
     out.write_text(
@@ -355,12 +475,103 @@ def main() -> None:
     )
 
     for c in record["criteria"]:
-        print("%-7s %-4s %s" % (c["name"], "PASS" if c["passed"] else "FAIL",
-                                c["detail"]))
+        print("%-8s %-12s %-4s %s"
+              % (c["name"], c["kind"], "PASS" if c["passed"] else "FAIL",
+                 c["detail"]))
     print("written benefit tables 3, distinct benefit functions %d"
-          % distinct_functions)
+          % record["readings"]["distinct_benefit_functions"])
     print("wrote %s" % out.name)
 
 
+def selftest() -> int:
+    """Plant, for each criterion, an input that should make it fail.
+
+    Discipline 11f: do not ask whether a criterion can fail, grow the failure.
+    A criterion nobody has seen fail is not a criterion, and the one that
+    matters here is B33-26, whose whole content is that two classes at one
+    position do not receive the same terms.
+    """
+    import copy
+
+    fails = []
+
+    def check(label, record, expect_false):
+        got = {c["name"]: c["passed"] for c in record["criteria"]}
+        for name in expect_false:
+            if got[name]:
+                fails.append("%s: %s still passed" % (label, name))
+        others = [n for n in got if n not in expect_false]
+        for name in others:
+            if not got[name]:
+                fails.append("%s: %s failed and should not have" % (label, name))
+        if not fails:
+            print("  ok  %-34s %s"
+                  % (label,
+                     ("%s now fails" % ", ".join(expect_false))
+                     if expect_false else "every criterion passes"))
+
+    live = build(CLASSES, COVERAGE, TWELFTH, THIRTEENTH, FOURTEENTH)
+    check("untouched inputs", live, [])
+
+    # B33-26 and B33-3: give the two groups one clause vector.  This is the
+    # world the rival describes, and both the counting law and the rival
+    # criterion have to notice it.
+    planted = copy.deepcopy(CLASSES)
+    planted["8AC eligible Group B worker"]["2025 onward"] = copy.deepcopy(
+        CLASSES["8AB eligible Group A worker"]["applicable year 2025-2028"])
+    check("groups given one vector",
+          build(planted, COVERAGE, TWELFTH, THIRTEENTH, FOURTEENTH),
+          ["B33-26", "B33-3"])
+
+    # There is no plant that fails B33-26 while B33-3 holds, and the reason is
+    # worth stating rather than engineering around: any pairing that coincides
+    # is a colliding vector, so on this carrier the two criteria fail together
+    # by construction.  What separates them is not their arithmetic, it is what
+    # they are asked about.  B33-3 is this frame's own reading over every pair
+    # of written classes; B33-26 is a named rival's point prediction on the one
+    # pair the fetched partition rule puts at a single position, and it carries
+    # the premise and the entailment that make a failure mean something about
+    # that rival rather than about this instrument.
+
+    # B33-1: break the two-thirds ratio in one cell.
+    bad13 = {k: list(v) for k, v in THIRTEENTH.items()}
+    bad13[6] = list(bad13[6])
+    bad13[6][0] = (bad13[6][0][0], bad13[6][0][1] + F(1))
+    check("one coefficient moved",
+          build(CLASSES, COVERAGE, TWELFTH, bad13, FOURTEENTH), ["B33-1"])
+
+    # B33-2: break the Twelfth-Fourteenth identity in one cell.
+    bad14 = {k: list(v) for k, v in FOURTEENTH.items()}
+    bad14[1] = list(bad14[1])
+    bad14[1][0] = (bad14[1][0][0], bad14[1][0][1] + F(1))
+    check("one Fourteenth cell moved",
+          build(CLASSES, COVERAGE, TWELFTH, THIRTEENTH, bad14), ["B33-2"])
+
+    # B33-4: drop a page from the coverage table.
+    short = copy.deepcopy(COVERAGE)
+    lo, hi = short[-1]["pages"].split("-")
+    short[-1]["pages"] = "%s-%d" % (lo, int(hi) - 1)
+    check("one page dropped from coverage",
+          build(CLASSES, short, TWELFTH, THIRTEENTH, FOURTEENTH), ["B33-4"])
+
+    # B33-5: split a class without naming the provision that splits it.
+    unnamed = copy.deepcopy(CLASSES)
+    unnamed["8AA eligible employee"]["a second period"] = copy.deepcopy(
+        CLASSES["8AA eligible employee"]["2025 onward"])
+    unnamed["8AA eligible employee"]["a second period"][
+        "cash_proportion_month"] = "one-fifth (no provision)"
+    check("a class split with no provision named",
+          build(unnamed, COVERAGE, TWELFTH, THIRTEENTH, FOURTEENTH), ["B33-5"])
+
+    if fails:
+        print("\nselftest FAILED")
+        for x in fails:
+            print("   " + x)
+        return 1
+    print("\nselftest passed")
+    return 0
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    sys.exit(selftest() if "--selftest" in sys.argv else (main() or 0))

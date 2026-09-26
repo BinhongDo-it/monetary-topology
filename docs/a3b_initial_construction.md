@@ -192,7 +192,8 @@ generalisation — the same discipline as `elasticity = 0`.
   The holonomy is `log(γ_b/γ_a)`, which contains no initial condition at all. If
   A3-4's agreement moves when the construction changes, something is wrong that
   the current runs cannot see.
-- **A3-5** stays failed and stays diagnosed in `a3_asset_channel.md` §9.14. The
+- **A3-5** stays void, and stays diagnosed in `a3_asset_channel.md` §6.3, "A3-5
+  cannot be evaluated as registered, and the reason is a finding". The
   construction does not repair it; `open_tiers` not reaching resale is separate.
 - **A3-6** expected to move a lot, because it asks whether a stock survives and
   under `occupancy` most nodes have one.

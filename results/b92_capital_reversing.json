@@ -1,0 +1,165 @@
+{
+  "config": {
+    "bisection_steps": 60,
+    "families": 4000,
+    "family_sizes": [
+      3,
+      6
+    ],
+    "imports": "b74_roundaboutness",
+    "pairs": 4000,
+    "seed": 92,
+    "side": 0.0001,
+    "x_grid": 4000,
+    "x_range": [
+      1.000001,
+      4.0
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "Samuelson's 1966 pair, taken from B74's own constants: the two crossings are at `r = [0.5, 1.0]` against the published `[0.5, 1.0]`, the wage is equal at each to 0.00e+00, and capital reverses at [1] of the two, **the second and not the first**. `L_A = 7.0` against `L_B = 8.0`, so at the first crossing the technique taken at the higher rate carries more labour and at the second it carries less. **Reswitching implies reversing at one of the two switches and not at both**, which is the textbook reading and is what comes back",
+      "kind": "known_answer",
+      "name": "B92-1",
+      "passed": true
+    },
+    {
+      "detail": "over 1145 two-technique draws that cross at all, **0 of the 1102 with a single crossing reverse** and **43 of the 43 with two or more do**. Both ends are counted on the same draws. The second half is the textbook statement that reswitching brings reversing with it; **the first half is the one this station is here for**",
+      "kind": "own_reading",
+      "name": "B92-2",
+      "passed": true
+    },
+    {
+      "detail": "`c_i(1) = L_i`, so at a zero rate cheaper means less total labour. With one crossing above `x = 1` the technique cheaper just below it is cheaper all the way down to `x = 1`, hence carries the smaller `L`; and at a crossing the wage is shared, so `k` is ordered the opposite way to `L`. **Reversing would need the technique taken at the higher rate to carry the smaller `L`, and it carries the larger on 1102 of 1102 single-crossing draws, without exception.** So the first half of B92-2 is one line of arithmetic rather than a property of this family, and the count is a check on the arithmetic",
+      "kind": "own_reading",
+      "name": "B92-3",
+      "passed": true
+    },
+    {
+      "detail": "over 1878 families of three to five techniques whose envelope has a switch, **12 show reversing with no owner returning anywhere**, at family sizes [3, 4, 5], against 52 families that do reswitch. **The two-technique argument fails here for the reason it names**: the pair meeting on the envelope need not include the technique that owns `x = 1`, and on 12 of the reversing switches neither side of the switch is that owner. **So reversing without reswitching is a fact about three techniques and not about two**, which is what the two-technique half could not have shown",
+      "kind": "own_reading",
+      "name": "B92-4",
+      "passed": true
+    },
+    {
+      "detail": "at a switch both techniques are in use at one wage and one rate, and their capital per worker differs on all 3399 switches drawn, by a median of 0.562 of the smaller value, a tenth percentile of 0.2216 and a smallest of 9.81e-04. **So `k` takes two values at one price system**, which is B67's Corollary 12.3 in its sharpest form: a quantity read off the field is not a coordinate on the field. **The reason reversing looks like an anomaly is that it is read as a property of a technique**, and there is no such property to have a direction. **The two values need the two techniques to carry different total labour, and that is one line**: at a switch `c_a(x) = c_b(x)`, so the wage is shared, and `k = (1/L - 1/c) / (x - 1)` then differs exactly when `L` does. Every switch drawn here has `L_above != L_below`, 3399 of 3399, **so the sample cannot show the other side and it is constructed instead**: `C_A = 3 + x + 2x^2` and `C_B = 1 + 4x + x^2` change places at `x = 2` by this station's own root finder, both carry `L = 6`, and their `k` differs by 0.0e+00, both being `7/78`. **Equal labour is the only way to have a switch and one capital value**",
+      "kind": "own_reading",
+      "name": "B92-5",
+      "passed": true
+    },
+    {
+      "detail": "every envelope switch is narrowed by bisection from the grid interval it was spotted in: the widest remaining bracket is 4.44e-16 against a grid step of 7.50e-04, a factor of 1.7e+12. **And a root is only counted when the cheaper technique actually changes across it**: a technique put against itself yields 0 crossings, where counting roots rather than changes would report a switch at every point. A tangency is a root at which no one would change technique. **And the envelope is checked to run the right way up**: the technique owning the lowest rate is the one with the least total labour on every family, 0 exceptions, which follows from `c_i(1) = L_i` and fails at once if the owner is taken as the dearest",
+      "kind": "instrument",
+      "name": "B92-6",
+      "passed": true
+    },
+    {
+      "detail": "the stations this one draws on each name it: B67 for the corollary this measures and B74 for the technique object and the Samuelson pair. `D20`",
+      "kind": "bookkeeping",
+      "name": "B92-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B92-1": {
+      "L_a": 7.0,
+      "L_b": 8.0,
+      "published": [
+        0.5,
+        1.0
+      ],
+      "reverses": [
+        false,
+        true
+      ],
+      "switches": [
+        0.5,
+        1.0
+      ],
+      "worst_wage_gap": 0.0
+    },
+    "B92-2": {
+      "multi_crossing": 43,
+      "reversing_multi": 43,
+      "reversing_single": 0,
+      "single_crossing": 1102
+    },
+    "B92-3": {
+      "labour_ordered_as_predicted": 1102,
+      "single_crossing": 1102
+    },
+    "B92-4": {
+      "examples": [
+        [
+          {
+            "0": 2.451489402063877,
+            "1": 0.9888989221143106,
+            "2": 0.8557057309414756,
+            "4": 0.6249407950522768
+          },
+          {
+            "2": 1.1097943534972057,
+            "3": 2.0364486406372375
+          },
+          {
+            "2": 1.5096649190624754,
+            "5": 0.344281907311409
+          }
+        ],
+        [
+          {
+            "0": 0.9555431547449562,
+            "2": 1.7426472371157489,
+            "4": 1.871833973676819,
+            "5": 2.082812429100145,
+            "6": 0.06298946864272019
+          },
+          {
+            "3": 0.24527177404007167,
+            "4": 0.7255552670970706,
+            "6": 2.7840365297986986
+          },
+          {
+            "1": 2.9382177299057726,
+            "3": 1.282958434233628,
+            "6": 1.9974021057384514
+          },
+          {
+            "0": 2.4714955539180634,
+            "1": 2.4938745895449532,
+            "3": 1.3494728463968995,
+            "6": 1.157999062049461
+          }
+        ]
+      ],
+      "families": 1878,
+      "reswitching": 52,
+      "reversing_without_reswitching": 12,
+      "sizes": [
+        3,
+        4,
+        5
+      ],
+      "switch_detached_from_zero_rate_owner": 12
+    },
+    "B92-5": {
+      "constructed_tie_crossings": 1,
+      "constructed_tie_gap": 0.0,
+      "median_relative_gap": 0.5621086664965159,
+      "smallest": 0.0009810351240945735,
+      "switches": 3399,
+      "switches_with_equal_labour": 0,
+      "tenth_percentile": 0.2216327917640155
+    },
+    "B92-6": {
+      "grid_step": 0.000750187296824206,
+      "owner_at_zero_rate_mismatches": 0,
+      "self_pair_crossings": 0,
+      "widest_bracket": 4.440892098500626e-16
+    },
+    "B92-7": {
+      "missing_writebacks": []
+    }
+  },
+  "stage": "B92"
+}

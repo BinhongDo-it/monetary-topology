@@ -1,0 +1,65 @@
+{
+ "config": {
+  "country_filter": "CTY_CODE all digits and not starting with 00; the TOTAL row is CTY_CODE '-' and is taken separately",
+  "cty": "*",
+  "endpoint": "https://api.census.gov/data/timeseries/intltrade/imports/hs",
+  "exports_and_production_taken_from": "b35_physical_ceiling.json",
+  "flow": "general imports",
+  "hs6": "020630",
+  "level": "HS10",
+  "quantity_column": "GEN_QY1_MO",
+  "tongue_line_asked_for": "0206490010",
+  "unit_expected": "KG"
+ },
+ "criteria": [
+  {
+   "detail": "the imports table returns one line, ['0206300000'], described as OFFAL OF SWINE EDIBLE FROZEN NESOI, where the exports side splits 0206.49 into tongues, hearts and skins. Units ['KG'], 12 of 12 months cached for 2023, and the per-country rows add up to the TOTAL row in every year. **kind is premise and not instrument**: nothing here is broken code to go and fix, the external fact this reading was to rest on does not hold, so the criterion that depended on it has no object. **It is a fact about the schedules**: the granularity of a class value is capped by the granularity of the registration point, and the two schedules do not register the same classes. Reading the tongue line's absence as a zero would be reading an instrument's silence as a fact about the world",
+   "kind": "premise",
+   "name": "B35-PH-9 premise: the imports schedule does not split this heading, so the tongue quantity is not readable on that side",
+   "passed": false
+  },
+  {
+   "detail": "the tongue quantity is not readable on the imports side, so the whole basket goes in, which is a strict upper bound on any part of it that was tongue. In 2023 exports are 81,538.128 t against production 31,992.750 t, a gap of 49,545.378 t, and the country imported 15,172.199 t of frozen swine offal of every kind, which is 0.306 of the gap. **Even if every kilogram of it was tongue and every kilogram was re-exported it does not reach**, so the ratio moves from 2.5486 to 1.7288 and stays above one. No share is borrowed from anywhere: the substitution is at its ceiling. Registered branch: partial, with the imported tonnage subtracted at its ceiling. The tongue-line figure the pull originally asked for is recorded as not readable on this side rather than as zero",
+   "kind": "own_reading",
+   "name": "B35-PH-10 the physical bound restated against production plus every kilogram of frozen swine offal imported",
+   "passed": true
+  },
+  {
+   "detail": "the feed returns the TOTAL row, named groupings (EU, OECD, NATO, APEC, USMCA, LAFTA), continent rollups and the countries in one response, and they overlap by construction. The first version of this script summed all of them and read 131,271 t for 2023 where the true figure is 18,534, a factor of seven, and no row was invalid so nothing reported it. The identity that catches it is now asserted in every year: the per-country rows have to add up to the TOTAL row",
+   "kind": "bookkeeping",
+   "name": "B35-PH-11 bookkeeping: the grouping rows are not counted as countries",
+   "passed": true
+  }
+ ],
+ "hs10_lines_tonnes": {
+  "2023": {
+   "0206300000": 15172.199
+  }
+ },
+ "imports_side_splits_the_heading": false,
+ "origins_tonnes": {
+  "2023": {
+   "CANADA": 14691.31,
+   "MEXICO": 310.878,
+   "UNITED KINGDOM": 170.011
+  }
+ },
+ "stage": "B35-PH-7 re-export pull",
+ "ten_digit_lines_on_the_imports_side": [
+  "0206300000"
+ ],
+ "years": {
+  "2023": {
+   "all_offal_imports_t": 15172.199,
+   "bound_still_binds": true,
+   "bound_was_binding_before_this_pull": true,
+   "exports_t": 81538.128,
+   "import_unit_value_usd_per_kg": 1.0956856023309476,
+   "months_cached": 12,
+   "production_t": 31992.75,
+   "ratio_against_production": 2.5486439271397425,
+   "ratio_against_production_plus_all_offal_imports": 1.728786518988921,
+   "registered_branch": "partial, with the imported tonnage subtracted at its ceiling"
+  }
+ }
+}

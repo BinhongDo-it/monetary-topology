@@ -7741,8 +7741,7 @@ STATUS:     候选二按预注册判死。必要条件那一半再次得到支�
 
 | 项 | 状态 |
 |---|---|
-| 朝鲜 2009 的一级文件 | **没有。全部读数来自 Daily NK、朝鲜日报、法新社、彭博等转述，
-经 nkeconwatch 汇编。这是本块最弱的一环，而它承载着杀死候选二的那一击** |
+| 朝鲜 2009 的一级文件 | **没有。全部读数来自 Daily NK、朝鲜日报、法新社、彭博等转述，经 nkeconwatch 汇编。这是本块最弱的一环，而它承载着杀死候选二的那一击** |
 | 俄罗斯令 № 822 全文 | 未取（legalacts 404、garant 只有摘要），条款来自教育站转述 |
 | 乌克兰 1996 令 № 762/96 | robots.txt，未取 |
 | 白俄罗斯三次重整、土库曼 2009、格鲁吉亚 1995 | 未开 |
@@ -7992,13 +7991,14 @@ tinggal **10%**»，即老虎券由 500 变 50，大象券由 1000 变 100。
 | 印度废钞的 RBI 通告原文 | 未取，本块靠一个汇编站；**不可洗手印那一条本轮完全没取到，而它是预测的形式** |
 | 巴西 Medida Provisória 168／Lei 8.024 原文 | 未取，本块靠一篇 SciELO 论文的引文 |
 | 印尼 1959 的存款冻结条款 | 未判 |
+| 越南 1975、加纳 1982、尼日利亚 1984、阿根廷 2001 | 未开 |
+| 改写后的必要条件强度 | **待评，不许在评完之前当作已确立** |
 
-> **⚠ 2026-08-31，第四十三块推进但未结**：钞面那一半由印尼央行自己的
+> **⚠ 2026-08-31，第四十三块推进但未结**，关于上表「印尼 1959 的存款冻结条款」那一行：
+> 钞面那一半由印尼央行自己的
 > 1960 至 1965 年报确认（Rp 1000 与 Rp 500 降为 Rp 100 与 Rp 50，即面值的 10%）；
 > 存款冻结确认存在，被冻结余额合计 Rp 8,264 百万。
 > **门槛与比例仍未判**，卡在 PERPU 3/1959 的扫描件上，**下一步成本是一次 OCR。**
-| 越南 1975、加纳 1982、尼日利亚 1984、阿根廷 2001 | 未开 |
-| 改写后的必要条件强度 | **待评，不许在评完之前当作已确立** |
 
 ---
 
@@ -8336,13 +8336,11 @@ STATUS:     不新立判据。本块把已判的读数重排成一张两侧齐�
 |---|---|---|---|---|
 | 德国 1990 | 3 | **3** | **1** | 价。标对 |
 | 捷克斯洛伐克 1993 | 2×2 | **2** | **2** | 两个分量各一个 2，旧标没说哪个是哪个 |
-<!-- 下一行是 2026-09-05 对上一行第二个数的更正，上一行原文未动 -->
-| 捷克斯洛伐克 1993 ⚠ | 同上 | **2** | **四问向量 2；按「拿到的东西」至少 9** | 见 7.13b |
+| 捷克斯洛伐克 1993 ⚠ | 同上 | **2** | **四问向量 2；按「拿到的东西」至少 9** | 见 7.13b <!-- 本行是 2026-09-05 对上一行第二个数的更正，上一行原文未动 --> |
 | 爱沙尼亚 1992 | 2 | **2** | **1** | 价。标对 |
 | **俄罗斯 1993** | **3** | **1** | **4** ⚠ | **身份**。既不是价也不是可达性 |
 | 哈萨克 1993 | 3 | **2 ＋ 1 裁量** | **2** | 价与可达性混标 |
-<!-- 下一行是 2026-09-05 对上一行价值数的改判，上一行原文未动 -->
-| 哈萨克 1993 ⚠ | 同上 | **1 ＋ 1 裁量** | **2** | **档内档外同一个率 `500:1`，两档差在冻不冻。见 7.16** |
+| 哈萨克 1993 ⚠ | 同上 | **1 ＋ 1 裁量** | **2** | **档内档外同一个率 `500:1`，两档差在冻不冻。见 7.16** <!-- 本行是 2026-09-05 对上一行价值数的改判，上一行原文未动 --> |
 | 土库曼 1993 | 2 | **2** | **2** | 价。标对 |
 | 朝鲜 2009 | 2 | **2** | **≥ 2**（条文未及，见 7.6）| 价。挂着「档界在动」那条限定 |
 | ~~印度 2016~~ | 2 加一道筛 | **1** | **≥ 2** | 限量，已剔出对象 |
@@ -10241,6 +10239,9 @@ STATUS:     第十九块「结构相同不等于是同一件事，这一步没�
 **本项目自己的读数早就在说这件事**：B27 的删除机制（十州立法禁止删除，证明删除是选择）
 量的正是「谁决定哪条边可以存在」；定理一的环结构完全由边集决定，
 **而边集不是自然给的。**
+
+> **【2026-09-11 改判，上文不动，留作当时的推理记录】** 政府与主权部门改画在图外。理由用的是上面同一个事实：它设定边集，所以它是画这张图的一方。税因此按离开这张图记，在 A 轨上就是停泊；发行、财政、债三件都从图外直接接到 agent 上。**本块的承重结论不受影响**：计数定律那一读后来由 B43 证成，它的前提只要一个集合加一个划分，税表照样是价目表，档数照样是价数。
+
 
 ---
 
@@ -12863,11 +12864,11 @@ STATUS:     这是对本线已有材料的重读，不是样本外检验，说�
 
 | 债权 | 换算 |
 |---|---|
-> **⚠ 2026-09-04 改判，正本到手，见第十六节**：下面这两行**不是同一部法的两行**，
-> **而在 `Gesetz Nr. 63` 这一部里，这两条写的是同一个比率。** 本表留档不删。
-
 | 对一般债务人（UmstG §16(1)） | **10%** |
 | 对银行的存款（§2(1) ＋ Festkontogesetz §1） | **6.5%** |
+
+> **⚠ 2026-09-04 改判，正本到手，见第十六节**：上面这两行**不是同一部法的两行**，
+> **而在 `Gesetz Nr. 63` 这一部里，这两条写的是同一个比率。** 本表留档不删。
 
 **倒置。**其余案例的债务折算条款本线未取，**不可判，不凑。**
 
@@ -14282,8 +14283,7 @@ STATUS:     第五十一块的追溯主张作废，理由是它指错了对象�
 | 爱沙尼亚 1992 | **限率** | 10:1 与 50:1 |
 | 俄罗斯 1993 | **限率** | 公民／外国人／法人各一个待遇 **← 2026-09-04 改判为限量，见第八节** |
 | **哈萨克 1993** | **限率两档 ＋ 第三档裁量** | **超限额那一档由委员会定，没有数** |
-<!-- 下一行是 2026-09-05 的改判，上一行原文未动 -->
-| **哈萨克 1993** ⚠ | **限量 ＋ 一档裁量** | **2026-09-05：档内 `500:1`、档外同率进冻结账户，面值一分没动。与俄罗斯 1993 同理由改判，见 7.16** |
+| **哈萨克 1993** ⚠ | **限量 ＋ 一档裁量** | **2026-09-05：档内 `500:1`、档外同率进冻结账户，面值一分没动。与俄罗斯 1993 同理由改判，见 7.16** <!-- 本行是 2026-09-05 的改判，上一行原文未动 --> |
 | 土库曼 1993 | 限率 | 30,000 内外 |
 | 朝鲜 2009 | **限率** | 100:1 与 1000:1 |
 | **印度 2016** | **限量** | **每人每次柜面 Rs 2000 是取现的界，钱本身不贬值** |
@@ -18205,6 +18205,1969 @@ both chunks: zero.**
 this session, and that is an instrument limit rather than a finding. **If it
 becomes reachable it should be checked**, because it is the one class-1 source that
 was never actually read.
+
+**[2026-09-16 pointer, `D20`. The text above is left as written.]** It never became
+reachable, and the question it was to answer is closed anyway, out of Patreon's own
+help centre and API documentation: the classification is the platform's own, and the
+per-category count is published at no resolution (`D45`). Chunk five.
+
+
+---
+
+---
+
+# B30-4, chunk three: a seventh source class varies, and one word in the registration sorts it
+
+**Read 2026-09-16. Six third-party aggregate directories were read at their published
+pages. Nothing was collected, no file was written, and the cost of this chunk is
+reading.**
+
+## Why this chunk exists
+
+Chunk two enumerated six source classes and wrote down what would open the gate:
+**one published number, how many creators sit in a category**, supplied either by a
+platform publishing its own category sizes, by a per-category census rather than a
+ranking, or by a filing disclosing the distribution rather than the total.
+
+**A seventh class was not among the six: third-party aggregate directories that
+publish a creator count per category on their own index.** Six of them exist and
+they do publish that number.
+
+## What the seventh class publishes
+
+Read 2026-09-16 at each site's own category listing.
+
+| site | stated index | categories | count range | price statistic |
+|---|---|---|---|---|
+| OnlySpotlight | `Creators 1.8K` | 12 | 33 to 248 | median subscription per category |
+| USACreators | `68,409` on the category page, `70,680 Profiles` on the about page, same day | 37 | 155 to 25,418 | average price per tag |
+| OnlyFinds | `192,986` | 78, of which 73 populated | 4,084 to 54,712 over the 30 shown | average paid price per category |
+| SearchOnly | 13 content types `covering 162.6K active creators`, against a claimed 2.3M indexed | 13 | 160 to 95,200 | average price, top 8 only |
+| onlyfindr | `more than 4 million public creator profiles` | not stated | 59,825 to 309,643 over the 12 shown | none |
+| OnlySeek | `201,447`, collected 2026-07-04 | not published per category | not published | percentiles, platform-wide |
+
+**So the treatment variable is not a constant on this unit.** Chunk two's reading
+stands where it was taken, on a leaderboard whose depth the platform fixes at 25.
+It does not carry to here, and gate zero (`D18`) answers more than one.
+
+**One structural fact is visible for free.** OnlySpotlight's twelve counts sum to
+`1,332`, and the page's own header reads `12 options · 1,332 listings`. The twelve
+numbers are a partition of that site's listings, and its whole index is 1.8K.
+
+## The counts disagree across sites, and the disagreement needs no denominator
+
+If each site held a fixed fraction of every category, a ratio taken **inside one
+site** would cancel that fraction and all sites would print the same number.
+
+| ratio, taken inside each site | OnlySpotlight | USACreators | OnlyFinds | onlyfindr | SearchOnly |
+|---|---|---|---|---|---|
+| **blonde : brunette** | | **1.89** | **1.01** | | |
+| cosplay : fitness | 1.93 | 1.10 | 1.03 | | |
+| couple : fitness | 2.73 | 1.23 | 1.88 | | |
+| curvy : petite | | 1.69 | 2.02 | | |
+| **solo, as a share of the site's classified creators** | | | **6.4%** | **3.7%** | **58.5%** |
+
+Blonde against brunette is one number in the world. One site reads `1.89` and
+another reads `1.01`.
+
+With denominators, on the seven categories USACreators and OnlyFinds both carry,
+the ratio of index shares runs from `0.16` to `3.17`, a spread of **`20.4`**.
+
+**And the counts move under the reader.** Figures quoted from these same pages a few
+days earlier read `24,982` where this reading returns `25,418`, and a directory total
+of `67,163` against `68,409`.
+
+## What that disagreement does and does not establish
+
+**It does not close the single-directory route, and saying it did would be the wrong
+inference.** Inside one site the rule is fixed, and a count can still be a monotone
+function of true category size even when two sites' counts are not comparable.
+
+**What it does establish is that the disagreement has two components and neither has
+been separated from the other**: the sites crawl different populations, and they
+label with different rules. Reading the published rules settles that the second
+component is real rather than assumed.
+
+| site | the labelling rule, in its own words | kind |
+|---|---|---|
+| OnlyFinds | `assigned by OnlyFinds from whole words in each profile's name, username, bio and listed location, and most profiles match more than one` | third-party keyword match, multi-label, rule fully published |
+| OnlySeek | profiles carry `self-described tags` | declared by the creator |
+| SearchOnly | collects `any categories or location the creator has set` | set by the creator |
+| USACreators | `a curated tag system inside USACreators. A creator appears on a tag page when that tag is attached to the published profile in our database` | the site's own curation, rule not published |
+| onlyfindr | `use automation and human review to keep listings accurate` | automation plus review, rule not published |
+| OnlySpotlight | nothing published beyond an inclusion threshold, quoted below | not published |
+
+**At least three kinds of rule are in play, so the `20.4` cannot be read as a
+statement about sampling.**
+
+## The registered sentence sorts the six, and it costs nothing to apply
+
+**[2026-09-16 pointer, `D20`. This section is withdrawn and the text below it is
+left exactly as written.]** The sorting performed here runs on who applies the
+label. **Chunk one's requirement is about who counts**, and the two are independent
+axes. The full account is in chunk four's `作废栏`; the discriminant is failure
+mode 176 in its current form.
+
+The arm as registered reads the density of **asserted** comparables at the
+destination.
+
+```
+a tag the creator declares      an assertion by the seller           matches the registration
+a keyword matched from a bio    an inference by the indexer          nobody asserted anything
+a curated tag                   an assertion by the indexer          the wrong party asserts it
+```
+
+**Two of the six claim creator-declared tags and four do not.** That sorting was
+available in the registration before any page was read.
+
+**And it leaves one question that decides whether the arm has an object at all,
+which neither of the two answers: where the declaration lives.** OnlyFans' public
+profile page carries no category field. If a self-described tag is parsed out of bio
+text, it is the keyword rule under a more generous name and no seller has asserted
+membership in anything; if it is a listing the creator filled in at the directory,
+it is an assertion. **That is one reading of two sites' submission flow, and it is
+the next step of this gate.**
+
+## Two things that hold whichever site is chosen
+
+**The outcome variable is not in the published layer.** All six publish a mean or a
+median per category and **none publishes a within-category spread**. OnlySpotlight's
+own pricing report, sample `1,816`, median `$10.00`, states that it does not break
+down by niche. The per-creator price exists inside each index and the published
+aggregate does not carry its dispersion, which is `D45`. Reading the dispersion means
+enumerating profiles category by category, and the number enumerated then moves with
+the category count, **which is chunk one's second closure reason arriving again**.
+
+**One site truncates the treatment variable at exactly the end the arm reads.**
+OnlySpotlight: `a listing only appears here once it has enough creators behind it to
+be worth browsing`. The live branch of this arm is that dispersion rises as
+comparables thin out. **This is the same family as chunk two's finding, a display
+rule acting on the treatment variable, fixing its value there and truncating its
+support here.**
+
+## A question prior to all of the above
+
+OnlySeek states `there is no public API, no directory, and no registry to enumerate`,
+and adds that its own index `skews toward creators who want to be found`.
+
+**If no seller can count their own category either, then comparables a seller could
+price against have no channel on this carrier**, and the arm would be reading a
+structure nobody in the market observes. The registered sentence admits a perceptual
+reading and a structural one, they imply different carriers, and `D23` puts settling
+that before any collection rather than after.
+
+## State
+
+**Gate not passed. The treatment variable varies on this new observation unit and
+fails a different requirement from the one that stopped it on the old unit.** Total
+collection cost across three chunks: zero.
+
+**What this chunk bought, stated because it is reusable elsewhere.** A seventh source
+class is enumerated under `D32` with a measured negative rather than an assumed one,
+and the `20.4` is a direct bound on how far a third-party tag count sits from a market
+count, available to any station tempted to use one as a measure of market structure.
+
+**[2026-09-16 pointer, `D20`.** This paragraph is superseded by chunk five: the
+site stayed shut and the question was answered from Patreon's own documentation.**]**
+
+**The instrument limit from chunk two is unchanged and its reason has moved.**
+Patreon's own directory is still the one class-1 source never read. This session's
+browser refused the site under its own policy, which is again a statement about the
+instrument and not about the world.
+
+
+---
+
+---
+
+
+# B30-4, chunk four: the count and the assertion are held by different parties, and that is a property of the class
+
+**Read 2026-09-16, closing the step chunk three registered. Two sites' submission
+flows and category pages were read. Nothing was collected.**
+
+## The step this closes
+
+Chunk three sorted the seventh source class on one word already in the registration,
+**asserted**, and left one question: the two sites claiming creator-declared tags do
+not say where the declaration lives. **Both are now settled, and they settle in
+opposite directions.**
+
+## SearchOnly: the creator declares nothing
+
+Its data page lists `any categories or location the creator has set`, which reads as
+a creator declaration. **Its own submission form does not carry one.** The form takes
+a stage name, an email address, an OnlyFans username, and an optional free-text box.
+**There is no category, niche or content-type selector anywhere in it**, and the page
+states that after review a profile appears `in relevant search results based on your
+content and profile information`.
+
+**So the label is produced by the site from the profile, and the phrase on the data
+page does not describe a creator input to this directory.** SearchOnly leaves the
+asserted class.
+
+## OnlySeek: the creator does declare, and the site publishes no count
+
+Its FAQ is explicit, and it is the only statement of its kind found in the class:
+
+> `A category page is a saved filter, not an editorial pick. Categories are built
+> from the tags creators wrote on their own profiles. Nobody pays to be listed,
+> nobody is promoted, and ordering inside a category is driven by like count.`
+
+**The creator's only interface to this site is removal**, by email or a messaging
+handle, so nothing here is a listing the creator negotiated. The tags are what the
+creator wrote on the platform page itself. **That is an assertion by the seller, and
+it is what the registration asks for.**
+
+**And this site publishes no per-category count.** The category index prints none.
+Two individual category pages were read and neither prints one; both print the
+site-wide figure instead, `201,447+` and `Searching 201,447+ profiles`. The only
+counts the site publishes per page are `67,000+ profiles` for the free filter and
+`100,000+ located` for the proximity filter, **neither of which is a content
+category**.
+
+**Two further observations, each recorded with its limit.** The category vocabulary
+is a closed set of about forty structured buckets, named by attribute family such as
+an age range, a hair colour, a body type, **so a normalisation step stands between
+what a creator wrote and which bucket they land in, and that step belongs to the
+site**. And one category page rendered twenty-five profiles in this session's
+reading; whether that is a page size or a cap was not established here, and it is
+recorded as a reading of this instrument rather than a finding.
+
+## The structural result, which is larger than either site
+
+| site | who assigns the label | publishes a per-category count |
+|---|---|---|
+| OnlySeek | **the creator**, tags written on the platform page | **no** |
+| OnlyFinds | the site, whole-word match on name, username, bio, location | yes |
+| USACreators | the site, curation, rule not published | yes |
+| onlyfindr | the site, automation plus review, rule not published | yes |
+| OnlySpotlight | the site, rule not published | yes |
+| SearchOnly | the site, from the profile, no creator selector in its form | yes |
+
+> **Across the whole class, the count and the assertion are disjoint. Every directory
+> that publishes the number assigns the label itself, and the one directory where the
+> seller asserts the label publishes no number.**
+
+**This is not six coincidences, it is what the class is made of.** A count per
+category requires the directory to own a closed taxonomy, because a number can only
+be printed against a fixed set of buckets. **Owning the taxonomy is exactly what
+removes the seller's assertion.** Creator-written tags are an open vocabulary, an
+open vocabulary has no fixed set of buckets to count against, and the moment a site
+closes the vocabulary so that it can count, the bucket is the site's choice and not
+the seller's.
+
+**So this class does not need a seventh site read, and `D27` is what says so**: the
+assumption the whole family shares is that one directory can supply both halves, and
+the table above is the direct measurement that it cannot.
+
+## What the gate now asks for, tightened
+
+Chunk two's three forms stand. **The first of them gains a clause:**
+
+- a platform that publishes category sizes in its own directory, **over categories
+  the sellers themselves chose**;
+- a dataset, public or purchasable, with a per-category census rather than a ranking;
+- a filing or report that discloses the distribution rather than the total.
+
+**The second and third forms are untouched by this chunk**, because a census or a
+filing can carry both halves at once where a directory cannot.
+
+## State
+
+**Gate not passed. The seventh source class is now closed on a structural reason
+rather than on a shortage**, and closing it cost two page reads. **Total collection
+cost across four chunks: zero.**
+
+**One route out of this class is named and not tried.** A creator-written tag is an
+assertion over an open vocabulary, and an open vocabulary can be counted by whoever
+holds it. **A platform that both exposes seller-chosen tags and reports how many
+sellers chose each one satisfies both halves at once**, and no such platform has been
+looked for. That is a different search from the one chunk two ran, which looked for
+counts and took whatever taxonomy came with them.
+
+## 作废栏
+
+**Superseded 2026-09-16, the same day, on two readings and on this chunk's own
+structural claim. Nothing below was overturned by new data; all of it was overturned
+by pages that were readable the whole time.**
+
+**One. OnlySpotlight's labelling rule is published, and the table above says it is
+not.** It is on that site's own report page, verbatim: `Attributes are self-declared
+and unverified`, and `Creators can list multiple niches, so shares are of all
+creators`, with a CSV under CC BY 4.0. What this chunk actually checked was `/about`,
+`/data` and the `/research` index, and never the report page itself.
+
+**Two. The SearchOnly row was an inference written in the shape of a reading.** This
+chunk read the submission form, found no category selector, and concluded the label
+is the site's. **A form without that field says something about the form, not about
+where the data comes from**, and the site's own data page states it collects
+`any categories or location the creator has set`. Both errors are failure mode 177.
+
+**Three. The structural claim is withdrawn as stated.** It read: across the class the
+count and the assertion are disjoint, because a directory must own a closed taxonomy
+in order to count. **Two cases break it in opposite directions on the same day.** A
+platform can own the tag list, let the seller pick from it, and publish the count
+(itch.io, chunk five). A directory can harvest seller-declared attributes and still
+count over its own crawl (the two above).
+
+**Four. What replaces it is the sentence chunk one already carried**, and this file
+went two chunks without going back to read it: `the count of a category is the count
+of the market, not the count of what anyone collected`. **That sentence is about the
+count, not about the label**, and every sorting in chunks three and four ran on the
+label. Failure mode 176 now carries this form.
+
+**Five. So the sorting chunk three performed on the word `asserted` is withdrawn,
+and Patreon returns.** Patreon's own help centre states: `You can't manually change
+the category in which you're featured. Patreon automatically categorizes creators
+based on their content, descriptions, and taglines.` **That is the platform's own
+operative taxonomy, which is what chunk one asked for**, and it is also the surface
+on which a creator is actually found, so it is the set they are priced against.
+Whether Patreon publishes a per-category count is unread and is now the open
+question.
+
+**Six. One reading survives both chunks and is stronger stated this way.** Five
+directories crawl one platform. **If each were a uniform sample their category shares
+would agree.** On the seven categories two of them share, the ratio of shares runs
+from `0.16` to `3.17`. **So at most one of the five is a uniform sample, and nothing
+available identifies which one.** That is arithmetic, and no site has to concede a
+bias for it to hold.
+
+**Six, qualified 2026-09-16, and the paragraph above stands unchanged because the
+qualification narrows what the number measures rather than the number itself.**
+
+**The share comparison rests on an assumption it does not state: that the shares are
+comparable.** They are comparable only if each site assigns the same number of
+categories to a creator. **A site that files each creator under one category and a
+site that files a creator under every category they assert will disagree in share
+even if both sample uniformly**, because the two are dividing by different totals:
+one divides by the creators, the other by the assertions.
+
+**That part is checkable from figures chunk three already carries.** A site whose
+category shares sum to about one is filing one category per creator; a site whose
+shares sum to several is filing many. Chunk three reports solo at `58.5%` of one
+site's classified creators and at `6.4%` and `3.7%` at two others, **and a single
+category taking three fifths of a site is the signature of one category per
+creator.**
+
+**So some part of the `20.4` measures the filing rule and not the sampling, and the
+sentence "at most one of the five is a uniform sample" does not follow from it with
+the force it was written with.**
+
+**The qualification also does something the original could not: it identifies a
+subset.** A creator who does one thing and a creator who does that thing among
+others are genuinely in different positions, so a site permitting several categories
+is closer in structure to what is there. **"Nothing available identifies which one"
+was the strongest form of the objection, and it is now weaker.**
+
+**What closes the class is the other reason, and it is untouched.** The largest of
+these indexes holds `68,409` creators against a platform population in the millions.
+**A count taken over a few per cent of a population, by a rule nobody publishes, is a
+count of the crawl**, which is failure mode 176 and the requirement chunk one set.
+**Coverage closes it, and coverage does not depend on how anyone files a category.**
+
+**Recorded because a closing reason that has been weakened should say so rather than
+stand.** The verdict on this class is unchanged and rests on one reason instead of
+two.
+
+**Seven. The two sites are not rejected carriers, and that is the operative change.**
+SearchOnly publishes a per-category creator count together with a price-band
+breakdown (`Free 107.5K`, `$1-9 134.2K`, `$10-19 92.2K`, `$20+ 44.7K` across
+`378.7K` creators in thirteen service categories, the smallest of which is `281`).
+**That is the same published shape itch.io carries**, which makes it a second carrier
+on which the sampling objection can be measured rather than argued: read both, and
+either the shape agrees, which answers the objection, or it does not, which locates
+the movement in the sampling. `D49`'s second clause is the rule for that move.
+
+
+# B30-4, chunk five: Patreon answered out of its own documentation, with the site never opened
+
+**Read 2026-09-16, closing the class-1 source chunk two registered and chunk four's
+`作废栏` reopened. Five source classes were tried under `D32`. Nothing was
+collected, and `patreon.com` was never loaded.**
+
+## Why it was reopened
+
+Chunk two recorded Patreon's own directory as the one class-1 source never read and
+named that an instrument limit rather than a finding. Chunks three and four then
+sorted carriers on who applies the label, and on that sorting Patreon left the field.
+**That sorting is withdrawn.** The requirement chunk one carried is about who counts,
+and on it Patreon's categorisation qualifies, which leaves exactly one question.
+
+## The classification qualifies, and it is the API that settles it rather than a page
+
+Two statements, both Patreon's own:
+
+> `Creators are grouped into hundreds of different genres and niches based on their
+> content type and descriptions.`
+
+> The Campaign v2 resource carries a `categories` relationship.
+
+**A category here is a field in Patreon's own data model rather than an ornament on a
+page**, and Patreon has to resolve it for every creator in order to build the Explore
+surface at all. Under chunk one's requirement that is the market's own register.
+
+## The count is published nowhere, across five classes
+
+| class | what was read | returned |
+|---|---|---|
+| 1. the product surface | Explore, as the help centre describes it | **`personalized` and `curated` from past activity, memberships and browsing behaviour.** Per viewer it is not even a fixed set, so there is no listing to count |
+| 2. help documentation | the two support articles quoted above | hundreds of genres named, **no number anywhere** |
+| 3. **the API** | the developer documentation | **`No endpoints exist for listing or counting campaigns across the platform or within categories`**, and `You may only fetch your own list of pledges or public pledges`. Every campaign endpoint needs that campaign's own authorization |
+| 4. the platform's own publishing | blog and newsroom | no statistics broken down by category |
+| 5. third-party trackers | Graphtreon | category links and platform totals (`344,097` paid creators, `18,424,335` paid memberships), **no per-category count and no per-creator tier price**. A second tracker is disallowed by robots |
+
+## The reading, and it is a different object from an instrument limit
+
+```
+no document states it                                        D26, it does not exist
+a name list exists with no series behind it                  D37
+the per-unit record exists and no aggregate is published
+at that resolution                                           D45
+```
+
+**Patreon is the third.** The per-genre count exists inside Patreon by construction,
+and it is published at no resolution outside it. **So the class-1 source is no longer
+unread: it was read, through its own documentation, and the object it was going to
+supply is not exposed.**
+
+**The price half is closed to this session for a separate reason, and that one is an
+instrument limit.** Entry tiers sit on creator pages under a domain both of this
+session's browsers refuse by policy, and the API route needs each creator's own
+authorization.
+
+## What would open it
+
+**One published number at genre resolution, from Patreon**: a transparency or
+year-in-review report that breaks creators down by genre, or an endpoint that counts
+campaigns. Neither exists today. **A third-party count does not open it**, because a
+tracker counts its own crawl, which is failure mode 176.
+
+## State
+
+**Classification qualifies, count unpublished, not a carrier.** The registered class-1
+item from chunk two is closed. **Total collection cost across five chunks: zero.**
+
+
+---
+
+---
+
+# B30-4, chunk six: the carrier moves to a platform's own register, and the split that decides what counts as a market is written before any price is read
+
+**Written 2026-09-16. Nothing was collected beyond counts already published on the
+pages quoted. This chunk records a carrier change, the features the reading depends
+on, and the rule that splits the vocabulary, in that order and before the price side
+is pulled.**
+
+## The carrier change, stated as a change rather than as the old one passing
+
+Chunk one settled the carrier as the subscription-platform class and tied it to the
+first arm's finding that the grid binds where it is not enforced. **itch.io is not
+that class.** Prices there are one-off rather than a subscription floor, so the link
+back to the first arm does not carry, and the grid on this carrier is a different
+object: a platform minimum, with focal points at zero and at round dollars. **The
+registered sentence for B30-4 names no subscription**, so the arm can move, and it
+moves as a new carrier.
+
+## Why this carrier and not the seven-class directory family
+
+The requirement is chunk one's, about who counts. itch.io publishes the count off its
+own register:
+
+| | |
+|---|---|
+| tags, with counts | `505k` down to `127`, on a sixteen-page directory |
+| who puts a tag on a project | the creator, on their own dashboard, from a suggested list plus custom terms |
+| the price side | published as counts per band, per tag: `tag-horror` reads `92,386` total, `88,095` free, `4,318` paid |
+| the thin end | `tag-mahjong` reads `127` total and `13` paid, **with the band links present** |
+
+## Two axes, and this platform draws the line between them itself
+
+A closed genre list sits beside the open tag vocabulary, and both are published with
+counts on the same pages.
+
+| axis | vocabulary | span measured | thin end |
+|---|---|---|---|
+| **genre** | closed, eleven values | Sports `13,769` to Action `242,113`, **`17.6` times** | **none** |
+| **tag** | open, hundreds | `127` to `505k`, **near four orders of magnitude** | present |
+
+**The live branch of this arm reads the thin end**, and the genre axis is all one end,
+so genre cannot carry the treatment. That is `D36`'s shape seen from the other side:
+thickness is one end of an axis, and here the axis has only that end.
+
+**So tags carry the treatment and genre becomes a stratifier.** The stratifier earns
+its place and costs nothing: both axes are published on the same pages, and stratifying
+removes "different kinds of game are priced differently" from the reading.
+
+## What the reading depends on, and therefore what a market tag is (`D49`)
+
+The reading is dispersion of the entry price against the density of comparables. **It
+depends on three features of a label and on nothing else:**
+
+1. the label names a kind of thing a buyer would substitute within;
+2. a seller can see the label's other members, which on this carrier holds for every
+   tag, since every tag has a browse page with a count on it;
+3. the label's size is set by how many people make that kind of thing, rather than by
+   the price level.
+
+**Differences outside that list get recorded and do not enter the judgement**: whether
+a tag is fashionable, whether it came out of a game jam, how it reads aesthetically.
+
+**The split rule, and it is deliberately coarse, because a workable line beats an
+exhaustive one here:**
+
+```
+market tag      answers "what is this"                       subject, form, play pattern
+attribute tag   answers "what is it made of, how does it
+                look, what policy does it carry, how big"    technique, aesthetic, policy, scope
+```
+
+**Feature 3 is the one the attribute tags fail.** `2D` at `430k` and `No AI` at `505k`
+are not sets a seller prices against: their size is set by how people build and by what
+they declare, not by how many things of a kind exist.
+
+## The order of work, which is the reason for writing this chunk now
+
+1. pull the tag directory, **names and counts only**;
+2. apply the split to the **names alone**, and record the result;
+3. **only then** pull the price bands and join.
+
+**Step two standing before step three is the whole of it.** A split drawn with the
+prices in view is a split drawn to fit them, and nothing downstream could tell the
+difference afterwards.
+
+## What is not settled here
+
+**The resolution of a dispersion read off four or five published bands has not been
+computed** (`D24`), and the paid count is the real `n` on this carrier: `4,318` of
+`92,386` on the thickest tag read so far, `13` of `127` on the thinnest. **Whether the
+thin end is read tag by tag or in bins of tags is a design question this chunk leaves
+open**, and it is downstream of step one.
+
+## Step one ran, and one wrong parse bought three shapes
+
+**Run 2026-09-16, sixteen pages, cached. Fetcher `data/fetch_b30_4_itch_tags.py`,
+record `results/b30_4_itch_tag_census.json`.**
+
+**The first parse was wrong and every aggregate looked right.** It searched forward
+from the first tag link inside a card for the next `N projects`. A card opens with a
+header link wrapping five preview images, so on image-heavy cards the window ran past
+the card boundary and took the next card's count. **That run reported 605 tags over
+sixteen pages, no partial files, a span of four and a half orders of magnitude and a
+smooth distribution by decade.** What caught it was printing the objects against
+counts already read directly: `pixel-art` stood at `430,000` where the directory
+prints `243k`, and `430,000` appeared four times. **That is the twelfth entry in the
+category-error family**, identifiers out of step with the objects they index while
+every diagnostic quantity holds.
+
+**The data then confirmed the diagnosis.** In the broken parse `atmospheric`,
+`first-person` and `low-poly` all read `213,000`, which is the count on the Adventure
+genre card sitting beside them.
+
+**Re-parsing cost nothing because the pages were cached**, which is what a cache-first
+fetcher is for: three re-parses, zero requests.
+
+**Three shapes came out of it, and each is a real feature of the page:**
+
+1. **two attribute orders**, `class="tag_title" href=…` and `href=… class="tag_title"`,
+   both emitted by the same directory;
+2. **genre cells sit in the same listing as tag cells**, each carrying its own count,
+   so the stratifier this chunk asked for arrives without a second pass;
+3. a third cell shape carries neither prefix, `/games/local-multiplayer`, a feature
+   axis, kept under its own kind so that a skipped cell stays a real anomaly.
+
+**After the fix: `616` cells, none skipped, `605` tags, `10` genres, `1` feature, and
+ten of ten checks against counts read directly.**
+
+## What step one bought beyond the counts
+
+| | |
+|---|---|
+| the genre axis | in the same listing: Action `250,000` down to Sports `14,500`, ten of them |
+| display names | what step two classifies; slugs alone would have been thinner |
+| scope | tags run across seven content types: games `516`, game assets `39`, physical games `31`, game mods `10`, tools `4`, comics `3`, books `2` |
+
+**The treatment axis, restricted to the games scope**: `516` tags spanning `20` to
+`505,000`, with `7` in the tens, `140` in the hundreds, `270` in the thousands, `89`
+in the ten-thousands and `10` above. **`417` of the `516` are printed exactly, and
+they are the small ones**, which is the end this arm reads.
+
+## A scope mismatch, caught here, and it changes step three
+
+| | the directory prints | the page a price band is read on prints |
+|---|---|---|
+| `tag-horror` | `114,000` | `/games/tag-horror`, `92,386` |
+| `genre-sports` | `14,500` | `/games/genre-sports`, `13,769` |
+
+**The directory counts every project type and the browse page counts one.** The
+treatment value and the price population would then come from two different
+populations, which is `D54`'s shape. **So step three reads the total and the bands off
+the same scope page, and the directory count is used only to stratify the sample.**
+
+## Step two ran: the split, applied to names alone
+
+**Read 2026-09-16.** Script `experiments/b30_4_tag_split.py`, record
+`results/b30_4_tag_split.json`, input `results/b30_4_itch_tag_census.json`. The
+record carries `prices_seen_when_classifying: false`, and that field is true of the
+run: no page under a scope has been fetched, so no price exists on the disk for this
+carrier yet.
+
+**`516` games-scope tags, and the split is `151` market, `292` not a market, `73`
+left in the third state.** The non-market side by sub-kind: aesthetic `83`, jam
+`44`, scope `42`, hardware `31`, engine `25`, ip `24`, process `22`, policy `11`,
+input `10`.
+
+**The market side spans `161` to `114,000`, a factor of `708`.** That span is the
+treatment variable the criterion registered, and it now exists on one carrier, in
+one vocabulary, with the labels applied by whoever uploaded the project and the
+counts computed by the register the projects live in.
+
+| | market | not a market | third state |
+|---|---|---|---|
+| all `516` | `151` | `292` | `73` |
+| below `1,000` | `26` | `98` | `23` |
+
+**The thin end of the market side is `26` tags**, and it is the population step
+three's thin arm reads.
+
+## Three of the split's own lists were wrong, and every total stayed right
+
+The file classifies by membership in hand-written sets, and a set entry that matches
+nothing in the vocabulary is not coverage. It is a flag that cannot fire. **Three
+were found the first time the check ran, and each of them had drifted from what the
+register prints:**
+
+| the entry as typed | what the register prints | what it did |
+|---|---|---|
+| `game maker's toolkit` | `Game Maker's Toolkit Jam` | the tag, at `25,500`, fell through to the market side |
+| `nes (nintendo entertainmen` | `NES (Nintendo Entertainment System)` | the console, at `2,825`, fell through |
+| `five nights at freddy&#039` | `Five Nights at Freddy's` | left over from before names were unescaped |
+
+**All three were silent.** The totals were right, the class counts were plausible,
+and the one guard the file already had, which reports a name sitting in two sets at
+once, stayed quiet because each of these sat in exactly one. **What found them was a
+set difference against the vocabulary the classification is applied to**, printed
+entry by entry. That guard now runs in both the self-test and the real run, and the
+self-test seeds an entry that matches nothing and asserts the guard reports it.
+
+**The overlap guard did earn its keep in the same run:** `moddable` sat in both
+`process` and `scope`. It now sits in `process` only, beside `open source` and
+`drm free`, because what it names is what the project exposes rather than how large
+it is.
+
+## One sub-rule inside the third state, and it moved twenty-one names
+
+The first classification put `94` names in the third state, and reading them back
+showed the bucket holding two different things: **forms of play** (card game,
+nonogram, pinball, solitaire) and **subjects a work is about** (cats, Christmas,
+Norse, mental health). The registered rule settles the first kind and does not
+settle the second, so one bucket for both was an error in the classifier, not a
+property of the vocabulary.
+
+**The discriminant is one line and reads no count:**
+
+> does the tag name a form of play, or a subject the work is about?
+
+A form of play is a market tag, because a buyer shopping for a nonogram substitutes
+within nonograms and how many exist is set by how many people make them. A subject
+stays in the third state, because whether a buyer substitutes within `cats` is not
+something the rule answers. **A purpose claim is neither**, and `educational` at
+`37,300` and `experimental` at `18,400` stay in the third state for that reason.
+
+**Twenty-one names moved, nineteen to the market side and two mechanics to `scope`,
+and they land at both ends of the range:** `Card Game` at `24,400`, `Board Game` at
+`8,773`, `Dice` at `7,614`, `Chess` at `2,662`, `Pinball` at `1,355`, `Picross` at
+`164`, `Nonogram` at `161`. **A sub-rule that only fattened one end would be a
+different object, and this one does not.** The moves are listed slug by slug in the
+record, with the class before and after.
+
+## Nested pairs are the design, and identical markets under two names are the threat
+
+Scanning the market side for names that nest inside each other returns `15` pairs,
+and they are three different things:
+
+| shape | examples | what it means for step three |
+|---|---|---|
+| **nested**, the thin one is a subset | `Horror` `114,000` over `Lovecraftian Horror` `1,877`; `Survival` `85,600` over `Survival Horror` `16,100`; `Fantasy` over `Dark Fantasy`; `War` over `World War I` | **this is the design.** Subject held by construction, density varied |
+| **siblings**, caught by a substring accident | `Female Protagonist` and `Male protagonist`; `World War II` and `World War I` | neither nested nor identical, read as ordinary separate tags |
+| **one market under two names** | `LGBT` `13,000`, `LGBTQIA` `6,061`, `Queer` `5,983`; `Runner` `10,900`, `Endless Runner` `6,908`, `infinite-runner` `7,622`; `Picross` `164` and `Nonogram` `161` | **the threat**, and it is not detectable from names |
+
+**The third shape is the one to say out loud, and its bias has a direction.** When
+one market carries `k` near-identical labels, the count on any one label is a
+fraction of the comparables that actually exist, while the price distribution under
+that label is the whole market's. **The treatment value is understated and the
+outcome is not, so the relationship is flattened, which is the direction of branch
+B.** A flat reading obtained under this error would be indistinguishable from a flat
+reading obtained because anchoring is not what sets the entry price.
+
+**Naming it does not settle it, and it is not detectable by name:** `queer` is not a
+substring of `lgbt`, and `picross` and `nonogram` share no letters at all. Settling
+it by overlap would mean pulling project lists, which is the expensive thing this
+whole sequence is arranged to avoid.
+
+**So step three reads nested pairs, not arbitrary pairs.** A nested pair holds the
+subject constant and varies the density by construction, and nesting is checkable
+from the names plus the register's own related-tag list on each page. A pair of
+identical markets under two names would appear on that axis as two points at
+similar density, so an axis built from nested pairs never puts one on it. **The
+across-tag reading remains available and remains subject to this bias, and if it is
+reported it is reported with the bias named and its direction stated.**
+
+## State
+
+**Carrier changed and recorded. Split rule registered, then amended once inside the
+third state with the discriminant written down and what moved printed. Step one run:
+`616` cells parsed, none skipped, ten of ten verified against direct reads. Step two
+run: `516` games-scope tags split `151` / `292` / `73`, market side spanning `161` to
+`114,000`. Not one price pulled on this carrier, and none entered either step.**
+
+**Open, and each of these is named rather than settled:** the resolution of a
+dispersion read off four or five published bands; the paid count as the real `n`,
+which is `4,318` of `92,386` on the thickest tag and `13` of `127` on the thinnest;
+whether the thin end is read tag by tag or in bins; and whether the genre axis is
+used at all, since tag by genre is about `15,000` requests and needs a design of its
+own rather than a multiplication.
+
+
+---
+
+---
+
+
+# B30-4, chunk seven: the published bins are three, the prices themselves are reachable, and the unit of the axis is settled
+
+**Read 2026-09-16** against the design file's section 6. Scripts
+`data/fetch_b30_4_itch_pages.py` (the probe), `data/fetch_b30_4_itch_counts.py`
+(the counts) and `data/fetch_b30_4_itch_prices.py` (the walk); records
+`results/b30_4_itch_page_probe.json`, `results/b30_4_itch_counts.json` and
+`results/b30_4_itch_prices.json`. **No dispersion is computed in this chunk and no
+criterion is scored.**
+
+## What the page publishes, and why the bins are not the reading
+
+The probe went out as a probe rather than a parser, on the reasoning that a parser
+written against a guess fails in the one way that teaches nothing: its pattern
+misses and the page looks empty. It printed every link on a tag page whose address
+carried a price word, with context. **The site's own price controls are four, they
+are cumulative, and they live in the path:**
+
+| what the page calls it | the path |
+|---|---|
+| Free | `/games/free/tag-<slug>` |
+| Paid | `/games/store/tag-<slug>`, and the path says store |
+| $5 or less | `/games/5-dollars-or-less/tag-<slug>` |
+| $15 or less | `/games/15-dollars-or-less/tag-<slug>` |
+
+Subtracting gives three disjoint bins above zero, `(0,5]`, `(5,15]` and an open
+`(15,inf)`. **That is the whole published resolution, and it is coarser than the
+four or five the previous chunk left open.** On Sale is a fifth control and it is
+not a band; it is a discount state.
+
+**The probe's own net missed two of the four**, because the paths it was keyed on
+carried a price word and `/games/5-dollars-or-less/` carries none. They were found
+by searching the cached page for a currency symbol and printing what sat around it.
+**A word list written by the reader is not the vocabulary of the source**, which is
+the same shape as the classifier's set entries in step two.
+
+**Whether the cumulative filters count from zero was not assumed.** "$5 or less"
+reads as though it should include the free ones, and if it did then on a tag whose
+free share is large the derived top bin would come out negative. The check ran on
+every tag rather than on a probe, and **the top bin is non-negative on all one
+hundred and fifty-one and the filters are monotone on all one hundred and fifty-one**,
+so they count from the first cent. The check was the answer.
+
+**And the bins are not the reading anyway, because the prices themselves are on the
+page.** Each listing cell carries the project's own posted price in a `price_value`
+element with a title reading `Pay $X or more for this game`, 36 cells to a page,
+paginated with a query parameter. **A distribution with no binning at all costs
+about what the bins cost**, so the bins stay as a cross-check and the walk is the
+reading.
+
+## The counts, and the instrument failure they turned up
+
+Five requests per market tag, seven hundred and fifty-five in all, every tag
+returning a full set. **The identity `free + paid = total` holds exactly on one
+hundred and thirty-five tags, misses by one on seven, and misses by more on nine.**
+
+| tag | gap | as a share of the tag |
+|---|---|---|
+| Furry | **`+1,591`** | `47.1%` |
+| Gay | `-1,109` | `34.5%` |
+| LGBT | `-1,494` | `17.7%` |
+| Interactive Fiction | `-1,987` | `4.4%` |
+| Zombies, JRPG, Dungeon Crawler, Beat 'em up, Working Simulator | `-186` to `-26` | under `2%` |
+
+**The first row is the one that settles what kind of failure this is.** Furry's free
+page alone reports `4,760` results while its unfiltered page reports `3,377`, and a
+subset cannot be larger than the set it sits in. So either the populations differ or
+the counters do. **The populations do not differ**: the two pages carry the same
+games in the same order, thirty-four of thirty-six shared on Furry and thirty-three
+of thirty-six on Gay, with identical top rows.
+
+> **A result count on this site is a claim about a population. A walk of the pages is
+> a count of it.**
+
+**The nine are all market tags, so the walk covers every one of them and settles
+which side is short.** That is the known-answer check of `11d`, and it is the reason
+the walk is worth what it costs rather than a tidiness exercise.
+
+**The seven that miss by one are a different animal and need no adjudication.** They
+are consistent with uploads landing between two requests a second and a half apart,
+and the walk shows the same signature: the mismatches it reports are `+1`, never
+negative, which is what growth alone can produce. **A difference of one on a base of
+four hundred does not move any reading, and either side may be used.** A difference
+of `1,987` on a base of `44,967` is not that, and is not treated as that.
+
+## The same attribute order cost five matchers in one file, and each failure was silent
+
+This site emits tag attributes in more than one order, and this station has now paid
+for it three separate times: the tag directory's second page, the heading format of
+a ledger address, and here.
+
+**Here it hit five matchers at once**, all of them keyed on a class or data
+attribute being first: the cell splitter, the price tag, the byline, the game
+link and the sale percentage. The result was not an error:
+
+```
+a third of the paid listing pages parsed to zero cells
+on those pages no price was recovered at all
+26% of a paid listing therefore carried no price
+nothing complained
+```
+
+**Rewritten with lookaheads, which do not consume and cannot cross a tag, the same
+cached pages give `5,137` cells with zero parse misses and five cells without a
+price, which is `0.10%`.** One thousand three hundred and nineteen prices were
+recovered by changing no request and fetching nothing.
+
+**The guard that now runs is the one the shape asks for**: this is the paid listing,
+so a cell with no price at all is not a plausible object, and that is asserted on
+every page rather than sampled. **A cell count taken independently of the parser is
+asserted against the parse for the same reason**, because a parser that returns
+nothing and a page with nothing on it are identical from the outside.
+
+## The site does not price only in dollars
+
+Keeping the strings that would not parse, rather than dropping them, turned up the
+second unit question. **Of the paid cells on every market tag's first page, about one
+in thirty-five posts in euros, pounds or reais**, the symbol sits before the number
+for some currencies and after it for others, and dollar amounts above a thousand
+carry a separator that a naive number pattern rejects.
+
+| currency | cells |
+|---|---|
+| USD | `4,941` |
+| EUR | `133` |
+| GBP | `55` |
+| BRL | `3` |
+
+**A currency read as a number is a unit error**, so the symbol is captured and
+carried with the value and the decision about conversion or exclusion is left to the
+reading, where it can be made against a measured share rather than a guess.
+
+## The boundary between free and paid is a commitment threshold, not a price
+
+A project on this site may name a fixed price, or invite the buyer to name their own
+with a floor. **The site's own filters split at whether that floor is above zero**,
+and the split was measured rather than read off the labels:
+
+```
+free listing    5,436 cells, 14 price tags, every one of them reading a zero floor
+paid listing    5,137 cells, 5,132 price tags, of which 116 read a zero floor
+                and all 116 are on sale, 115 of them at a hundred per cent off
+```
+
+**So a paid project has a positive regular floor and a free one does not, and the
+zero-floor rows in the paid listing are temporary discounts rather than exceptions.**
+Name your own price with a floor of a cent is paid; name your own price with a floor
+of nothing is free and posts no price at all.
+
+**That is the right boundary for this criterion**, which reads the dispersion of a
+posted price: a project with no floor has posted no number, so it is correctly
+outside the sample rather than inside it at zero.
+
+**And it is worth naming for anyone else who uses this carrier**, because the
+boundary is a commitment threshold and not a point on a price scale. Asking a buyer
+for a cent and asking for nothing differ by a cent in price and by a decision in
+kind, so any reading of purchase rates against price on this carrier meets a break
+at the boundary that is not a price effect. **This criterion does not read purchase
+rates and does not meet it.** The seventy-four projects discounted to nothing have no
+recoverable posted price on the listing and are counted rather than imputed.
+
+## The unit of the axis: a project competes in as many markets as it carries tags
+
+A project carries several tags, so a count taken per tag counts some projects more
+than once. **That is the fact rather than an error, and the alternative is worse.**
+Counting per project would need a rule assigning each project to one of its tags, and
+that rule is a degree of freedom this design does not otherwise have to spend.
+
+**The reason it is the fact**: a project tagged survival and strategy is a
+substitute for a buyer who came for survival and for a buyer who came for strategy,
+and those are different buyers who overlap only partly with the ones who came for
+survival and horror. **The site makes this literal.** A buyer browses one tag page at
+a time, and the page is the destination whose comparables the criterion counts.
+
+**The finer partition is real and it is not a rabbit hole to be waved away, because
+it is countable.** With `k` tags there are `2^k - 1` subsets a buyer could have come
+for, and the two-tag ones among them have their own addresses on this site:
+`/games/tag-horror/tag-lovecraft` returns `725` and
+`/games/tag-picross/tag-nonogram` returns `92`. **So the combination markets are
+destinations with measurable densities of their own, thinner than either parent.**
+The axis is built on the single-tag destinations; anyone who wants a combination
+market can have its density for one request. That turns the objection into a menu.
+
+**How much the multiple counting amounts to was measured rather than argued.** One
+genre per project and never two, across `9,218` listing cells, so the genre counts
+sum to a project count:
+
+```
+ten genre counts            1,314,500        a floor, see below
+516 games-scope tags        5,473,909        4.16 tag slots per project
+   market tags              1,470,922        1.12 slots per project
+   non-market tags          3,698,816        2.81
+   third state                304,171        0.23
+```
+
+> **The split done in step two, for a different reason, is what makes this small.**
+> **The raw vocabulary carries four slots a project; the market axis carries one and
+> a tenth.**
+
+**The one-point-one-two is an upper bound rather than a point**, for two reasons
+both found in the cells: `5.6%` of projects set no genre, and the ten genres the
+directory lists are ten of the seventeen the upload form offers, with the missing
+seven, among them Card Game, Educational, Fighting, Interactive Fiction, Racing,
+Rhythm and Survival, appearing in cells as a project's genre. **So the project count
+is larger than the sum and the slots per project smaller than the ratio.** The walk
+asks the unfiltered games page for the count directly rather than summing anything,
+and it carries each project's own tag memberships, so the multiple counting becomes
+an exact per-project number instead of an aggregate.
+
+**Seven of those seventeen genres share a name with a market tag**, so `genre-survival`
+and `tag-survival` are different populations. Every count in this chunk used the tag
+form throughout.
+
+## State
+
+**Step three is under way and no price has entered a reading.** The page's published
+resolution is three bins above zero, the per-project prices are reachable at 36 to a
+page, the counts are in for every market tag, and the walk is running. **The counter
+failed its own identity on nine tags and the walk settles them by construction.**
+**The unit of the axis is the tag, and the multiple counting it implies is `1.12`
+slots a project at most on the market side.**
+
+**Open:** the nine tags, once the walk reports; whether non-dollar prices are
+converted or set aside, which is now a decision against a measured `3.7%` rather
+than a guess; the seventy-four projects discounted to nothing; and the dispersion
+statistic itself, which has not been chosen and will be chosen against the walked
+prices rather than against the three published bins.
+
+## The walk returned, and it settles the counter, the denominator and the unit
+
+`1,660` requests, median `0.65` seconds, `26,353` distinct paid projects across the
+`151` market tags. **`223` notes, every one of them the same kind: a cell with no
+price. No page repeated, no page cap was reached, and the parse missed no cell.**
+
+**The counter, settled.** The walk matched the count the page printed on `146` of
+`151` tags. The five that differ, differ by one:
+
+| tag | printed | walked |
+|---|---|---|
+| Arcade, Boss battle, Management, Survival | | `+1` each |
+| **Horror** | | **`-1`** |
+
+**Four up and one down is the signature of live churn rather than of a broken
+count**: an upload adds, and a project delisted or a tag removed by its own author
+subtracts. **It is recorded rather than smoothed over, because a difference with a
+direction is a different object from a difference without one**, and a reader who
+meets `+1` and `-1` side by side should be told which mechanism each is consistent
+with instead of inferring one.
+
+**And the nine tags whose counts failed their own identity are settled, in the way
+that matters most:**
+
+```
+furry   gay   lgbt   interactive-fiction   zombies
+jrpg    dungeon-crawler   beat-em-up   working-simulator
+```
+
+**On all nine the walk matched the printed `paid` count exactly, to zero.** So the
+paid counter is sound on every tag in the axis, and **whatever is wrong on those
+nine is wrong in `free` or in `total`, not in the side the outcome variable is drawn
+from.** The treatment variable is drawn from `total`, so this is not closed: it
+locates the fault rather than removing it. **A single tag settles the direction for
+about ninety pages**, since walking `/games/tag-furry` either returns `3,377`, which
+would make `free` the wrong one, or about `4,968`, which would make `total` the
+wrong one.
+
+## The denominator, asked for rather than summed, and the ratios it corrects
+
+**The unfiltered games page prints `1,546,536`.** The ten genre counts summed to
+`1,314,500`, which chunk seven above called a floor for two named reasons, and the
+floor was `15%` low.
+
+| | slots | per project on the summed floor | per project on the printed count |
+|---|---|---|---|
+| all games-scope tags | `5,473,909` | `4.16` | **`3.54`** |
+| market tags | `1,470,922` | `1.12` | **`0.95`** |
+
+**The market axis carries less than one tag slot per project**, so the multiple
+counting the unit question was about is smaller across the whole population than the
+bound allowed.
+
+**On the paid population it is larger, and that difference is itself a finding.**
+
+```
+paid projects carrying at least one market tag   26,353
+their market-tag memberships                     57,070      2.17 each
+                                                             2.3x the population rate
+
+in one market   10,297   39.1%
+in two           7,658   29.1%     cumulative 68.1%
+in three         4,510   17.1%     cumulative 85.2%
+in four or more  3,888   14.8%
+```
+
+> **A paid project is tagged more than twice as heavily as the average project, so the
+> treatment variable is counted over one population and the outcome over another, and
+> the two do not tag alike.** That is named here and carried into the reading rather
+> than left for it to discover.
+
+**The distribution is the object the unit question asked for.** A typical paid
+project competes in two markets and three fifths of them compete in more than one,
+which is the shape the argument for counting per tag predicts and the shape counting
+per project would have to flatten with a rule.
+
+## The overlap between markets, measured, and the earlier reading of it corrected
+
+**The pairs named earlier as one market under two names overlap less than that
+description implies, and the pairs named as nested overlap more.** Shares are of the
+smaller side, over the paid population:
+
+| kind | pair | shared |
+|---|---|---|
+| called nested | Horror and Survival Horror | **`0.87`** |
+| called nested | Horror and Lovecraftian Horror | `0.65` |
+| called nested | War and World War II | `0.55` |
+| called nested | Fantasy and Dark Fantasy | `0.39` |
+| called synonymous | Picross and Nonogram | `0.77` |
+| called synonymous | LGBT and LGBTQIA, LGBT and Queer | `0.49` each |
+| called synonymous | Runner and Endless Runner | **`0.29`** |
+| called synonymous | Runner and infinite-runner | `0.33` |
+
+**So the flattening bias attributed to one market carrying several names is smaller
+than it was written to be**, and the subset relation the nested design rests on
+mostly holds. **Both directions are recorded at the size the data gives them.** The
+heaviest overlaps on the whole axis are not the named pairs at all but a romance
+cluster (Otome and Romance at `0.80`, Boys' Love and Yaoi at `0.73`) and an idle
+cluster (Idle and Incremental at `0.71`).
+
+**How much the clustering costs the axis is a number that moves on a knob, so the
+ladder is printed instead of a point** (`11f`). Tags joined when their overlap
+reaches a threshold, and the groups counted:
+
+```
+Jaccard >= 0.02    14 groups        >= 0.20   139
+           0.05    60                  0.25   142
+           0.08    94                  0.30   145
+           0.10   109                  0.40   148
+           0.15   128                  0.50   149
+                                       0.60   151, no pair survives
+```
+
+**At any edge test of `0.15` or above the axis keeps at least `128` of its `151`
+points**, and the groups that survive at `0.25` are seven, small and nameable: Boys'
+Love with Gay and Yaoi, Dating Sim with Otome and Romance, Football with Soccer,
+Horror with Psychological Horror, Idle with Incremental, Lesbian with Yuri, Nonogram
+with Picross. **The multiple counting does not collapse the axis**, and the number
+that would say by how much is not a reading.
+
+## What has no usable posted price, counted rather than imputed
+
+| | projects | share of `26,353` |
+|---|---|---|
+| carry a parseable posted price | `26,188` | `99.37%` |
+| carry no price element at all | `153` | `0.58%` |
+| carry a price the parser cannot read | `12` | `0.05%` |
+| of the priced, discounted to nothing | `293` | `1.11%` |
+| of the priced, on sale at all | `1,144` | `4.34%` |
+
+**The `153` are not a parse failure.** Their cells carry title, byline, genre and
+platform, and simply hold no price element, so a paid project may post no single
+number. **They leave the sample for the same reason a project with no floor does**,
+which is that a dispersion of posted prices is over projects that posted one.
+
+**The `12` are a fifth currency and it is the one that cannot be converted.** Every
+one reads `Pay ¥N or more`, and the titles behind them are both Japanese and Chinese.
+**The symbol is shared by two currencies about twenty times apart in value**, so a
+conversion would have to guess which, and guessing is what carrying the raw symbol
+was for. They are held with their symbol and excluded from any dollar figure.
+
+**The currency split over the whole walk is wider than the first pages suggested:**
+
+| USD | EUR | GBP | BRL |
+|---|---|---|---|
+| `24,423` | `1,177` | `507` | `81` |
+
+**Non-dollar is `6.7%` of the priced projects, not the `3.7%` the first pages
+showed.** Whether those are converted or set aside is still open, and it is now a
+decision against a measured share and a known ambiguity rather than against a guess.
+
+## State after the walk
+
+**Every quantity the criterion needs is on the disk except the criterion.** The
+treatment is the tag's project count, the outcome population is `26,188` posted
+prices over `151` markets, the unit is settled and its multiple counting measured,
+the counter is sound on the paid side of every tag, and nothing has been computed
+from any of it.
+
+**Open, and the first is now the only one that could move a reading:** the dispersion
+statistic, which has not been chosen; whether it is chosen at all before its
+behaviour on a declared knob is checked, since a three-bin statistic and a
+distribution statistic can disagree and `11f` is the rule for that; the nine tags'
+`total`, which one tag's walk would locate; the `6.7%` non-dollar and the `¥`
+ambiguity inside it; and the `293` projects discounted to nothing.
+
+
+---
+
+---
+
+
+# B30-4, chunk eight: the sweep ran before the statistic was chosen, and it took three tries to get a number that stayed put
+
+**Read 2026-09-17.** Script `experiments/b30_4_knob_sweep.py`, record
+`results/b30_4_knob_sweep.json`, input the three records of chunk seven. **Zero
+requests: every figure here comes off the disk.**
+
+## Why a sweep came before a statistic
+
+The criterion asks whether the dispersion of a posted price rises as the comparables
+at a destination thin out. **Five things in that sentence are not fixed by it**, and
+each is a setting this station had already been forced to declare: which dispersion,
+which prices, which currencies, which density, and how thin a tag may be and still
+enter. `11f` says a cell whose verdict turns over on such a setting is not a cell to
+read, **and the only way to find out is to turn them**, which is cheaper than
+choosing one and defending it afterwards.
+
+`360` settings, every one returning a value. **The sign was the same in all of them,
+positive, running `+0.058` to `+0.631`.** Positive means dispersion rises as a
+market thickens, which is neither branch the criterion registered.
+
+## The first answer was the sample size, and the shuffle is what said so
+
+**A tag's dispersion was being read off however many prices the tag happened to
+carry, and that number runs from six to nearly four thousand.** More draws from the
+same distribution reach further into its tails, and a thicker tag has more paid
+projects, so density and sample size move together.
+
+**The shuffle separates them.** Prices are dealt out across tags at random with every
+tag's size held, which destroys any relation between a tag's density and its
+dispersion and leaves the sample sizes exactly as they were:
+
+| setting | observed | null mean | null sd | z |
+|---|---|---|---|---|
+| `iqr_over_median`, floor 20 | `+0.058` | `-0.033` | `0.085` | `+1.1` |
+| `sd_log`, floor 10 | `+0.250` | `+0.218` | `0.084` | `+0.4` |
+| `cv`, no sale, floor 10 | `+0.631` | `+0.659` | `0.043` | `-0.7` |
+
+**The null is where the observed is.** A shuffle that knows nothing about density
+reproduces almost the whole correlation, so almost the whole correlation was the
+sizes. Run across the five measures, the nulls sit at `+0.501` for Gini, `+0.649`
+for the coefficient of variation, `+0.215` for the standard deviation of log price,
+`+0.011` for the interquartile range over the median, and `-0.199` for the median
+absolute deviation over the median. **The same data, read five ways, gives a
+size-artefact anywhere from minus a fifth to plus two thirds.**
+
+## The fix is a design, not a choice of statistic
+
+**Picking the measure whose artefact happens to be smallest would be picking the
+answer.** Holding the sample size removes the question: every tag contributes
+exactly twelve prices, drawn without replacement, and the dispersion is the median
+over repeated draws. Twelve keeps `148` of `151` tags.
+
+**It works, and the check is in the record**: after it the nulls sit at `-0.022`,
+`-0.003`, `-0.018`, `-0.018` and `-0.021`, which is zero five times over. **The
+self-test plants the confound on purpose and requires the machinery to remove it**,
+using the real collected prices with synthetic sizes, and it plants it that way
+because **a synthetic price distribution does not reproduce it**: draws whose log is
+exactly Gaussian give a sample standard deviation that barely moves with `n`, so a
+lognormal plant reads near nothing and a probe built on one passes while testing
+nothing. The bias lives in the shape of the real prices, which pile on a few round
+points, a dollar, five dollars, `$4.99`, two dollars, across `590` distinct values
+reaching to five figures.
+
+## A thicker tag is also a broader one, and that is a second confound with its own control
+
+**Horror holds a one-dollar jam entry and a thirty-dollar commercial release.
+Nonogram holds one kind of thing.** So even with the sample size held, a relation
+across the whole axis cannot separate how dense a market is from how coarse the
+label is.
+
+**The control is a pair whose smaller side sits inside the bigger one**, which holds
+the subject about fixed and varies the density. **Containment is measured from the
+collected memberships rather than read off the names**, because chunk seven found the
+names wrong about it in both directions.
+
+| containment of the smaller side | pairs | distinct bigger sides |
+|---|---|---|
+| `0.30` | `101` | `37` |
+| `0.40` | `58` | `25` |
+| `0.50` | `37` | `17` |
+| `0.60` | `23` | `9` |
+| `0.70` | `16` | `7` |
+
+**The pair count is not the number of independent comparisons**: seventeen bigger
+sides carry thirty-seven pairs at `0.50`, and Romance and LGBT each appear six times.
+
+## The third try: the count itself was not a measurement until the draws were raised
+
+**The first pair test was reported to five seeds and moved between `7` and `16` of
+`37`.** Half is `18.5`, so the swing was wider than the distance from either end to
+the mark: **the count was a different number every time it was asked, which is
+`D51`, and it was caught by asking twice.**
+
+**How many draws it takes to settle was measured, not guessed:**
+
+```
+draws      sd_log          iqr_over_median      gini
+   25      7-16  sd 3.4    11-22  sd 4.4        12-16  sd 2.0
+  100      8-10  sd 0.8    18-21  sd 1.1        11-12  sd 0.5
+  400      8-12  sd 1.6    17-19  sd 0.9        11-15  sd 1.5
+ 1200      8-11  sd 1.3    18-20  sd 0.8        11-13  sd 0.8
+```
+
+It settles by a hundred and does not tighten much past four hundred, **so the pair
+tests run at four hundred draws and every count below is printed with its spread
+over five seeds rather than as a value.**
+
+> **Three passes, three different reasons the first number was not one: the sample
+> size, the breadth of the label, and the draws. None of them announced itself.**
+
+## What the controlled comparison says
+
+**Branch A predicts the thinner side is the wider one.** Counts are out of the pairs
+scored, over five seeds, and the p printed is the worst of the five:
+
+| containment | pairs | `sd_log` | `iqr/median` | `gini` | `mad/median` | `cv` |
+|---|---|---|---|---|---|---|
+| `0.30` | `101` | `27-31` p `0.00` | `39-42` p `0.11` | `30-37` p `0.01` | `37-50` p `1.00` | `33-36` p `0.01` |
+| `0.40` | `58` | `14-19` p `0.01` | `24-26` p `0.51` | `17-21` p `0.05` | `25-31` p `0.69` | `18-20` p `0.02` |
+| `0.50` | `37` | `8-12` p `0.05` | `17-19` p `1.00` | `11-15` p `0.32` | `14-21` p `0.51` | `12-14` p `0.19` |
+| `0.60` | `23` | `6-8` p `0.21` | `12-14` p `1.00` | `8-11` p `1.00` | `9-15` p `1.00` | `8-10` p `0.68` |
+| `0.70` | `16` | `6-7` p `0.80` | `10-11` p `0.45` | `6-8` p `1.00` | `8-11` p `1.00` | `6-8` p `1.00` |
+
+**Not one cell in the table has the thinner side wider.** Every count is at or below
+half.
+
+**And the five measures split along what they measure, not along noise.** The three
+that read the tails, `sd_log`, `gini` and `cv`, put the thicker side wider at `0.30`,
+`0.40` and weakly at `0.50`. The two that read the middle, `iqr/median` and
+`mad/median`, read a coin flip at every level. **A thick market has a fatter upper
+tail and the same central spread**, which is a statement about a few premium releases
+rather than about where the mass of prices sits.
+
+## What the design could have seen
+
+The thinner side is widened by a known factor and the same test rerun, so the floor
+is measured rather than declared (`D24`). At containment `0.50`, `37` pairs:
+
+| thin side widened by | `sd_log` | `iqr/median` | `mad/median` |
+|---|---|---|---|
+| `1.10x` | p `0.02` | p `0.00` | p `0.00` |
+| `1.15x` | p `0.00` | p `0.00` | p `0.00` |
+
+**A ten per cent widening of the thinner side would have been seen by three of the
+five measures, and none is there.** At containment `0.40`, with `58` pairs, the same
+holds at `1.10x` for four of the five.
+
+## The reading, and it is a third thing as much as it is a branch
+
+**On the middle of the distribution the comparison is flat, at every containment
+level and on both robust measures, against a design that resolves a ten per cent
+difference.** That is the branch the criterion registered as anchoring not being what
+sets the entry price.
+
+**Branch A is not supported at any level by any measure**, and where the design has
+power the direction is the other one.
+
+**And the tails are a third outcome that neither branch enumerated.** A thicker
+market carries a wider upper tail of prices with an unchanged centre. **That is
+recorded as a finding rather than pressed into a branch**, which is what `11c` asks
+of a criterion whose states turn out to be more than the two written down, and it
+sits in the space `D15` is about: a結局 map written before the reading did not have a
+cell for it.
+
+## 作废栏, 2026-09-17, same day
+
+**The containment pair is not the breadth control, and the reason is mechanical.**
+
+A containment pair sets a tag against a subset of itself: eighty-seven per cent of
+Survival Horror's paid projects carry Horror as well. **So the bigger side's price
+pool contains the smaller side's pool plus everything else, which makes it a mixture
+of that component and the rest.** A mixture is at least as spread as its own
+component under almost any width measure, and it carries at least as many distinct
+price points. **The finding that the bigger side is wider is therefore set theory
+rather than a market**, and the direction of the bias is toward exactly what the
+table above reports.
+
+**What is withdrawn**: the containment ladder as a control for breadth, and with it
+the sentence that the comparison is flat on the middle of the distribution. **What
+stands**: the sweep, the size-confound diagnosis, the equal-n design and its flat
+nulls, the `D51` finding on the draws, and the resolution ladder, none of which use
+containment. **The containment numbers themselves are left in place** because they
+are real and their bias has a stated direction, which is more useful than deleting
+them.
+
+**What replaces it** is a breadth measure taken directly rather than proxied, and it
+was on the disk the whole time: **the listing prints one genre per project and never
+two**, so the genre entropy of a tag's paid projects says how broad the tag is, on
+tags that need not be nested at all. It ranges from `0.10` on Sokoban to `2.39` on
+Sci-fi, which is the right ordering by inspection. Chunk nine carries the reading.
+
+**The second thing withdrawn is narrower and it is about which family of measure was
+read at all.** Chunk eight swept five measures of width and treated them as the
+choice. **Width is a proxy for what the criterion is testing and not the thing**,
+which chunk nine takes up.
+
+## State
+
+**The dispersion statistic is still not registered, and that is now a question about
+the framework rather than about the data.** The two families disagree, and they
+disagree about something real: whether anchoring to comparables is a claim about
+where the mass of prices sits or about how far the top of the distribution reaches.
+**The centre reading and the tail reading are both on the disk, printed side by side
+at every setting, so whichever is registered the other stays visible.**
+
+**Open:** which family the criterion means, which is the one decision left; the nine
+tags' `total`, which one tag's walk would locate; the `6.7%` non-dollar; and the
+`293` projects discounted to nothing.
+
+
+---
+
+---
+
+
+# B30-4, chunk nine: the criterion says dispersion and the mechanism says pile, and once breadth is measured rather than proxied the reading is branch A
+
+**Read 2026-09-17**, ruled the same day. Script
+`experiments/b30_4_knob_sweep.py`, record `results/b30_4_knob_sweep.json`. **Zero
+requests. The containment control of chunk eight is withdrawn in that chunk's void
+note and is not used here.**
+
+## The word and the mechanism are not the same quantity
+
+The registered text reads **"dispersion of a good's export price against the density
+of asserted comparables at the destination"**, with branch A as dispersion rising
+where comparables thin out, meaning **no anchor to attach to**, and branch B as flat,
+meaning anchoring is not what sets the entry price.
+
+**Anchoring is a claim about copying a price, not about the width of a range.** A
+seller who looks at the comparables and puts the price near them lands on the same
+point as they did. That predicts the mass piling onto a few numbers; it does not
+predict a narrower range, which is set by what the product cost to make and how
+ambitious it is.
+
+**On this carrier the pile is the larger fact.** Across `24,159` dollar-priced
+projects there are `590` distinct price points, and a dollar carries `4,774` of them,
+five dollars `1,944`, `$4.99` `1,831`, two dollars `1,687`. **Width and pile can move
+independently, and here they do.**
+
+## Four families, and the choice among them is measured rather than argued
+
+| family | what it reads | members |
+|---|---|---|
+| one | the width of the whole distribution | `sd_log`, `cv`, `gini` |
+| two | the width of the middle | `iqr/median`, `mad/median` |
+| three | how far the mass piles onto a few points | `top1_share`, `top3_share`, `distinct_per_n`, `price_point_entropy` |
+| four | the distance to the tag's own modal price | `log_dist_to_mode` |
+
+**The shuffle picks among them without any appeal to taste.** Prices are dealt across
+tags with every tag's size held, which destroys any relation to density; **a measure
+whose null then sits away from zero is reading the instrument rather than the
+market.** At equal `n`, on the same data:
+
+| measure | null |
+|---|---|
+| `cv` | `+0.649` |
+| `gini` | `+0.501` |
+| `sd_log` | `+0.215` |
+| `top1_share` | `+0.150` |
+| **`iqr/median`** | **`+0.011`** |
+| **`price_point_entropy`** | **`-0.031`** |
+| `mad/median` | `-0.199` |
+
+**Two of the nine candidates have a null at zero, and they sit in different
+families.** That is the whole choice, and it is a fact about the instrument.
+
+## What the pile says, with breadth held by a measure and not by a pair
+
+`price_point_entropy`, every tag drawing twelve prices, the median over repeated
+draws, observed across five seeds:
+
+```
+observed          -0.291 to -0.260
+null              -0.031 +- 0.090
+z                 -2.7
+```
+
+**Negative means the price points scatter as the comparables thin out**, which is
+branch A in the registered words: **where there are few comparables there is no
+anchor to attach to.**
+
+**Breadth is held directly.** Genre entropy over a tag's paid projects runs from
+`0.10` on Sokoban and `0.19` on Picross to `2.39` on Sci-fi and `2.35` on Cyberpunk,
+which is the right ordering by inspection, and **it is nearly unrelated to the pile
+itself** (`-0.064`), while it is related to density (`+0.366`), which is why it had
+to be held at all.
+
+| third of breadth | tags | density as the project count | density as the paid count |
+|---|---|---|---|
+| narrowest | `50` | `-0.19` to `-0.17` | `-0.06` to `-0.04` |
+| middle | `49` | `-0.42` to `-0.38` | `-0.23` to `-0.19` |
+| broadest | `48` | `-0.23` to `-0.22` | `-0.10` to `-0.08` |
+
+**The sign is the same in every third, on both density definitions, across three
+seeds.** The magnitude is not: reading density as the tag's whole project count gives
+two to four times what reading it as the paid count gives, **and both are defensible,
+since a seller browsing a tag page sees every project on it while only the paid ones
+carry a number to copy.** That is a declared setting and it moves the size without
+moving the sign.
+
+**Within the same family, `top1_share` is not read**, because its null sits at
+`+0.150` and the observed clears it by only `1.1` standard deviations. **It is the
+measure that first suggested this reading and it is not the one that carries it**,
+which is recorded because the two are easy to confuse.
+
+## The two clean measures disagree, and they disagree about something real
+
+| measure | null | reading |
+|---|---|---|
+| `iqr/median` | `+0.011` | flat, at every level, which is branch B |
+| `price_point_entropy` | `-0.031` | scatter rises as comparables thin, which is branch A |
+
+**They are not in contradiction. They measure two different things and both are
+true:** a thick market and a thin one have about the same spread between their
+quartiles, and the thick one has more of its mass sitting on the same few numbers.
+
+> **The range is set by what the thing cost to make. The points inside it are set by
+> looking at what everyone else charged.**
+
+**Ruled 2026-09-17: the criterion registers `price_point_entropy`**, on the ground
+that the mechanism under the word is anchoring and anchoring is copying a number
+rather than narrowing a range. **The width reading stays printed beside it at every
+setting**, so the other branch remains visible to anyone who reads the word rather
+than the mechanism.
+
+## 作废栏, 2026-09-17, same day, and it replaces the argument without moving the reading
+
+**Two things above are wrong and the record shows it.**
+
+**One. The table of nulls mixes two stages.** The values `cv +0.649`, `gini +0.501`,
+`sd_log +0.215`, `iqr/median +0.011` and `mad/median -0.199` are the nulls **before**
+the sample size is held, which is the size-bias measurement of chunk eight. **At
+equal `n`, which is what the heading claims, the record reads `-0.022`, `-0.003`,
+`-0.018`, `-0.018` and `-0.021` for those same five**, and across all nine candidates
+only `top1_share` at `+0.150` sits away from zero.
+
+> **So the sentence "two of the nine candidates have a null at zero" is false. Eight
+> of nine are at zero, because holding the sample size is what fixed them.**
+
+**The shuffle does not pick the measure. It eliminates exactly one.**
+
+**Two. The section reading `iqr/median` as flat rests on the containment control**,
+which chunk eight's void note withdrew the same day. **Put through the breadth
+measure instead, every width measure turns over between one third and the next:**
+
+| measure | against breadth | narrow third | middle third | broad third |
+|---|---|---|---|---|
+| `sd_log` | `+0.167` | `+0.20` to `+0.29` | `-0.09` to `-0.02` | `-0.00` to `+0.00` |
+| `iqr/median` | `+0.172` | `+0.23` to `+0.25` | `-0.08` to `-0.02` | `-0.04` to `+0.07` |
+| `gini` | `+0.178` | `+0.25` to `+0.31` | `+0.03` to `+0.09` | `+0.09` to `+0.13` |
+| `mad/median` | `+0.178` | `+0.19` to `+0.29` | `-0.11` to `-0.08` | `-0.21` to `-0.12` |
+| `cv` | `+0.168` | `+0.25` to `+0.30` | `+0.08` to `+0.13` | `+0.14` to `+0.17` |
+
+**A sign that is not the same in all three thirds is turning over on a declared
+setting, which `11f` says is not a cell to read.** And all five carry a breadth
+correlation near `+0.17`, against `-0.08` to `+0.10` for the pile measures that
+survive. **So the width family is not flat on this carrier. It is unreadable**, which
+is a different statement and a stronger one.
+
+**What is withdrawn**: the null table as printed, the claim that two measures are
+clean, and the section in which the two clean measures disagree. **There is no
+disagreement, because only one family can be read.**
+
+## The argument that replaces it, and it is the record's
+
+**Holding the sample size fixes the size bias for eight of nine measures, so what
+separates them afterwards is not the null. It is two things, and both are in the
+record.**
+
+**First, which family answers the mechanism.** Anchoring is copying a number.
+
+**Second, within each family, which measures can be read at all:**
+
+| measure | null at equal `n` | sign across breadth thirds | read |
+|---|---|---|---|
+| the five width measures | at zero | **turns over** | no |
+| `top1_share` | `+0.150` | holds | **no**, the null is displaced |
+| `log_dist_to_mode` | `-0.006` | **turns over** (`+0.30`, `0.00`, `-0.08`) | no |
+| `top3_share` | `+0.064` | holds | yes |
+| `distinct_per_n` | `-0.022` | holds | yes |
+| `price_point_entropy` | `-0.025` | holds | yes |
+
+**Three measures survive both tests and all three read the same direction**, which is
+the anchoring one:
+
+| measure | observed over five seeds | z against its null | narrow / middle / broad third |
+|---|---|---|---|
+| `top3_share` | `+0.216` to `+0.295` | `+2.0` | `+0.09`–`+0.13`, `+0.33`–`+0.41`, `+0.22`–`+0.33` |
+| `distinct_per_n` | `-0.285` to `-0.216` | `-2.5` | `-0.18`–`-0.16`, `-0.42`–`-0.35`, `-0.29`–`-0.25` |
+| `price_point_entropy` | `-0.303` to `-0.257` | `-2.8` | `-0.17`–`-0.14`, `-0.42`–`-0.40`, `-0.23`–`-0.19` |
+
+**The registration stands: `price_point_entropy`, and it is now the representative of
+three concordant measures rather than one of two clean ones.** The reading is
+unchanged: **branch A, the price points scatter where the comparables thin out, so
+there is no anchor to attach to.**
+
+**And the width family's unreadability is itself worth carrying.** The criterion's
+literal word is dispersion, which reads as width; **the quantity behind the word
+cannot be measured on this carrier once breadth is held, while the quantity the
+mechanism predicts can be.** That is a fact about the word rather than about the
+market, and it is the reason the registration is what it is.
+
+## What this chunk cost, and the shape is worth keeping
+
+**Five passes, and each one found a different thing standing between the data and a
+number:**
+
+```
+one    the sample size                  a shuffle reproduced the whole correlation
+two    the breadth of the label         a thick tag is also a coarse one
+three  the draws                        the count moved 7 to 16 of 37 across seeds
+four   the control itself               a containment pair is a mixture, by construction
+five   the family of measure            width is a proxy, the pile is the thing
+six    the source of the figures        this chunk was written from the runs rather
+                                        than from the record, and quoted one stage's
+                                        nulls under another stage's heading
+```
+
+**The sixth is the cheapest to avoid and it was found the same way as the rest**, by
+reading the record after it existed. **A figure that lives only in the run that
+produced it has no stage attached to it**, and the two stages here differ by exactly
+the step that was the point: before the sample size is held and after. **Write the
+block from the record, and where the record does not exist yet, say which run the
+figure came from.**
+
+**Not one of the five announced itself.** Each was found by asking a question the
+previous pass had not thought to ask, and three of the five were found by asking the
+same thing twice with a different setting. **The fourth is the one worth carrying
+furthest**: a control can be mechanically biased in the direction of its own finding,
+and nothing about running it says so.
+
+## The registered measure across its own settings, which it had not been run on
+
+**The sweep at the top of chunk eight ran the width family across five settings.
+The pile family had only ever been run at one**, and a measure run at one setting has
+not been checked at all, which is the rule this station spent a chunk on.
+
+**Six settings, three seeds, the whole axis and each third of breadth.** `restore`
+puts a discounted project back to the level it was discounted from, which is the
+number its seller set, and it is a third option rather than a second because it is
+neither keeping the sale price nor dropping the project:
+
+| sale | currency | restore | whole axis | narrow | middle | broad |
+|---|---|---|---|---|---|---|
+| all | dollars | no | `-0.278` to `-0.260` | `-0.20`/`-0.17` | `-0.42`/`-0.40` | `-0.21`/`-0.19` |
+| all | dollars | **yes** | `-0.310` to `-0.286` | `-0.23`/`-0.19` | `-0.43`/`-0.39` | `-0.23`/`-0.21` |
+| all | every | no | `-0.266` to `-0.265` | `-0.19`/`-0.17` | `-0.36`/`-0.34` | `-0.28`/`-0.27` |
+| all | every | **yes** | `-0.287` to `-0.277` | `-0.19`/`-0.16` | `-0.37`/`-0.36` | `-0.30`/`-0.26` |
+| **no sale** | dollars | no | `-0.316` to `-0.292` | `-0.26`/`-0.21` | `-0.40`/`-0.37` | `-0.28`/`-0.26` |
+| **no sale** | every | no | `-0.309` to `-0.280` | `-0.22`/`-0.16` | `-0.40`/`-0.36` | `-0.34`/`-0.21` |
+
+**Every value in the table is negative**, and the two settings that come closest to
+the number a seller actually set, dropping the sales or restoring them, are the two
+where it reads strongest. **The reading is more robust than it was when it was
+registered**, and the hole was in the registration rather than in the data.
+
+## The price the listing prints, checked against the seller's own page
+
+**Three questions about the number, and two of them needed no request.**
+
+**Is the currency a display conversion?** No. `83%` of the euro prices land on a
+round euro point and `81%` of the pound prices on a round pound point, against a
+`90%` baseline in dollars, and **a search over every rate between `0.70` and `1.10`
+finds none that explains them better than one.** The seller sets the currency.
+A first look at three values (`2.51€`, `3.35€`, `4.19€`, each `0.8395` of a round
+dollar point) suggested otherwise and did not survive the rest: the non-round
+remainder is mostly `€0.50`, `€1.20`, `€1.25`, **and the roundness test had been
+written to accept only `.00`, `.99` and `.95`.**
+
+**Is it stable?** `16,057` projects appear on more than one tag page and **two print a
+different price**, both of them a sale starting during the walk.
+
+**Is it the project's own price?** A sample of `24`, stratified across four price
+bands, fetched each project's page and compared. **Twenty-two carry the listing price
+on the page and none carries a lower one**, so the listing is not showing the cheapest
+of several paid options. **The remaining two carry no purchase control at all**, a day
+after the walk, and both are still corroborated at band resolution by the page's own
+breadcrumb (`$1.00` under "$5 or less", `$15.00` under "$15 or less").
+
+**And the sample answered a second question for free.** The browse grid carries no tag
+list, so the number of markets a project competes in had only been counted from the
+tag side. The project pages declare their own: **`2` to `10` tags each, median `7`,
+and in all `24` the count of those that are market tags equals the count derived from
+the tag pages, exactly.** Of `158` declared tags across the sample, `48` are market,
+`83` are not, `4` are in the third state and `23` sit outside the census vocabulary
+altogether. **A project declares about seven tags and about two of them are markets**,
+which is the `2.17` of chunk seven arriving from the other direction.
+
+## State
+
+**B30-4 has a registered reading.** `price_point_entropy` against the destination's
+project count, with breadth held by genre entropy, reads branch A: **the price points
+scatter where the comparables thin out, which is no anchor to attach to.** Sign
+stable across three seeds, three thirds of breadth and both density definitions; `z`
+of `-2.7` against a null at zero.
+
+**Still open, and none of it touches the sign:** the nine tags whose `total` failed
+its own identity, which one tag's walk would locate; the `6.7%` of projects priced in
+another currency and the `¥` ambiguity inside it; the `293` discounted to nothing;
+and whether the combination markets, whose densities are one request each, read the
+same way as the single-tag ones.
+
+**Two of those four closed in chunk ten**, which walked three tags and fetched the
+twelve pages: the counter identity has no single faulty counter, and the shared symbol
+is `JPY`. **Neither moved the sign**, and the counter fault was measured against the
+rank it enters rather than argued away.
+
+**And one thing that is settled rather than open, which the void note above
+established:** the width family cannot be read on this carrier with breadth held, so
+the criterion's literal word has no measurement here while the mechanism behind it
+does. **That is a finding about the registered wording**, and it belongs to whoever
+next writes a criterion that says dispersion when it means something a seller copies.
+
+
+---
+
+# B30-4, chunk ten: the three published counters disagree in both directions, so the walk vindicates a different one on each tag
+
+**Nine tags fail their own identity**, which is `free + paid = total` read off the
+three pages the site prints for each tag. **Chunk seven left them open and chunk nine
+listed them as the one thing a single walk would locate.** A walk settled them, and it
+settled them the opposite way to the one expected: **there is no single faulty
+counter.**
+
+## The threshold, stated before the readings
+
+Sixteen of the 151 tags fail the identity. **Six fail it by exactly one project**, in
+both directions, and those six are churn: the five filter pages are fetched in
+sequence and a project published or delisted between two of them moves one number by
+one. **The nine are the tags failing by two or more**, and that is the whole of the
+threshold.
+
+| tag | total | free | paid | free+paid minus total |
+|---|---|---|---|---|
+| interactive-fiction | 44,967 | 41,795 | 1,185 | -1,987 |
+| lgbt | 8,431 | 6,422 | 515 | -1,494 |
+| gay | 3,217 | 1,959 | 149 | -1,109 |
+| zombies | 10,409 | 9,676 | 547 | -186 |
+| jrpg | 3,145 | 2,646 | 363 | -136 |
+| dungeon-crawler | 9,999 | 9,332 | 549 | -118 |
+| beat-em-up | 3,139 | 2,957 | 143 | -39 |
+| working-simulator | 1,465 | 1,387 | 52 | -26 |
+| **furry** | **3,377** | **4,760** | **208** | **+1,591** |
+
+**Eight of the nine fall short and one overshoots**, and the overshoot is the largest
+gap on the list by a factor of ten over the next one.
+
+## The walk, and it sides with a different counter on each tag
+
+**A printed count is a claim and a walk is a count.** Three tags were walked
+unfiltered: the smallest short-fall, the overshoot, and the largest short-fall.
+
+| tag | walked | total | free+paid | which claim the walk matches |
+|---|---|---|---|---|
+| working-simulator | 1,439 | 1,465 | 1,439 | `free` and `paid`, jointly |
+| furry | 3,379 | 3,377 | 4,968 | `total` |
+| interactive-fiction | 7,200 | 44,967 | 42,980 | neither, and the reason is the next section |
+
+**On `working-simulator` the two bins partition what the listing serves, and `total`
+overstates by 26.** The walked figure equals `free + paid` exactly, so **there is no
+third category of project sitting outside both bins**; the printed total is larger
+than the listing it heads.
+
+**On `furry` it is the other way round.** The walk matches `total` to within two
+projects, which is the churn quantified above, and `free` overstates by about 1,591,
+which is 47 per cent of the tag.
+
+> **A counter is wrong on each of the two readable tags, and it is not the same
+> counter.** No single number can be named as the faulty one.
+
+## The listing stops at two hundred pages, which is a bound on the instrument
+
+`interactive-fiction` served 36 rows a page for 200 pages and returned **HTTP 404 on
+page 201**. 200 times 36 is 7,200, and the walk halted there against a printed 44,967.
+**That is a ceiling on the check rather than a fault in the count**, and it was found
+by asking for one more page.
+
+**The ceiling has to be carried forward, because it says which tags this check can
+reach at all.** 45 of the 151 unfiltered listings print a total above 7,200, so
+**the walk is structurally unavailable on 30 per cent of the tags**, with
+`interactive-fiction` among them.
+
+**It never touched the paid walk.** The largest paid listing on the carrier is
+`horror` at 4,318 projects, which is 120 pages of the 200 allowed, **so the full walk
+of every tag's paid listing ran with 40 per cent of the ceiling to spare.** The
+agreement between the walked paid set and the printed `paid` counter on all 151 tags
+therefore stands untruncated, and that is the counter the reading uses.
+
+## The account from dual listing, refuted by arithmetic in both directions
+
+**A project carrying both a free download and a paid option could plausibly be counted
+in both bins**, which would make `free + paid` exceed `total`. It is the obvious
+account, and it costs nothing to test, because **an overlap cannot exceed the smaller
+of the two sets that overlap.**
+
+**In the eight short-fall tags the sign is wrong.** Double counting can only push
+`free + paid` above `total`; it can never leave it short. **Eight of the nine are out
+of reach of this account before any quantity is considered.**
+
+**In the ninth the quantity refuses it.** `furry` needs an overlap of 1,591 and its
+paid bin holds 208, so **the overlap is at most 208 against a gap of 1,591**, short by
+a factor of 7.6.
+
+> **The bound is the whole argument and it needed no request.** The smaller bin was
+> already printed on the page that stated the gap.
+
+**What is left is the reading the disagreement itself gives**: three numbers published
+for the same population, disagreeing in both directions, each vindicated on one tag
+and refuted on another. **That is a property of how the site computes its counters,
+and this arm has no instrument that reaches inside it.**
+
+## What the shared symbol is
+
+The twelve projects priced in a shared symbol were fetched project by project.
+**All twelve pages name `JPY`**, and none of the twelve carries a second currency
+code, so the symbol is settled and is not shared between two denominations here.
+
+**They were never in the pile.** The twelve are twelve of the 26 price strings the
+parser declined, which is 0.10 per cent of 26,353 projects, and **a price the parser
+declines carries no currency and no amount, so it enters no setting.** The settings
+that read dollars only exclude them by construction; the settings that take face value
+would gain twelve entries against 26,353.
+
+**And they hold no tag membership in the record**, because membership was assembled
+from priced projects. **Re-entering them is a new walk rather than a re-read**, and
+twelve projects against 26,353 do not buy one.
+
+**One naming point falls out and is worth the line.** The setting named
+`all_face_value` holds four currencies and not five: it is face value across
+everything the parser reads, which is `USD`, `EUR`, `GBP` and `BRL`. **The name claims
+a scope one currency wider than the thing it names.**
+
+## What the broken counter does to the reading, measured rather than argued
+
+**One of the two density definitions uses `total`**, the counter shown above to be
+wrong on `working-simulator`. Pointing at the other definition does not dispose of
+that. **The quantity that enters the statistic is a rank**, so the question is how far
+the fault moves one, and that is a measurement.
+
+Replacing `total` by `free + paid` across all 151 tags:
+
+- **43 ranks move, and 39 of them move by exactly one**, which is the two real movers
+  displacing their neighbours as they pass
+- **two move materially**: `furry` by 17 places and `gay` by 16
+- **the two orderings correlate at `+0.9989`**
+
+**So the fault relocates two tags and leaves the other 149 where they were.** The
+registered reading was already taken on both density definitions and reads the same
+sign on each, the second of them built on the counter the walk vindicated on all 151
+tags. **The sign is not carried by the broken counter.**
+
+## State
+
+**Both items chunk nine left for a walk are closed, and neither moved the reading.**
+
+1. **The counter identity**: no single faulty counter exists. `total` is wrong on one
+   walked tag, `free` on another, and the check cannot be run at all on 45 of 151
+   tags because the listing stops at 7,200 rows.
+2. **The shared symbol**: `JPY` on all twelve pages, and the twelve were outside every
+   setting already because the parser declined their price strings.
+
+## The 293 discounted to nothing were already read, four ways, and the open line was stale
+
+**They were never in any pool.** The price filter's first test is that the amount is
+positive, so a project discounted to zero is dropped before any setting is consulted,
+and **the sale knob has three positions on top of that**:
+
+| setting | what it does with them |
+|---|---|
+| `all` | dropped by the positivity test |
+| `no_full_discount` | dropped by name, and this position exists for them |
+| `no_sale` | dropped along with the other 1,144 on sale at all |
+| restore on | **re-enter at the level they were discounted from**, which is the number the seller set |
+
+**Two of the six registered settings have restore on, and all six read negative**,
+`-0.316` to `-0.260`. So this was a reading in the record rather than an item of work,
+and it had been one since the settings sweep.
+
+**The count, printed because it corrects a figure carried above.** 294 projects hold an
+amount of zero and 293 of those are discounted a hundred per cent, so one is at zero
+without being a full discount. All four positions treat it the same way as the others.
+
+**Carrying it as open was a write-back miss of the kind this project already has a
+discipline for**: a part was finished and the line pointing at it was not revisited.
+**The finished part was the settings sweep and the stale line is this one.**
+
+## State
+
+**Nothing on this arm is open that does not have a gate in front of it.**
+
+**Closed here**: the 293, read four ways with every reading already in the record.
+
+**Gated rather than open**: whether the combination markets read the same way as the
+single tags. That is worth an axis for one reason, which is that **the single-tag axis
+cannot separate a thin market from an obscure one**, and one account of branch A lives in
+that gap: the prices may scatter at the thin end because the sellers there are less
+practised. **A destination made by intersecting two established tags is thin without
+being obscure.** The gate for it is `experiments/b30_4_combo_gate.py` and it is written,
+self-tested and run, and chunk eleven carries what it returned.
+
+---
+
+# B30-4, chunk eleven: the combination axis is gated and does not clear, and the move that would open it removes the reason to build it
+
+**The gate returned not adjudicable**, and it returned it in the form that costs least:
+no price relation was read, and the reason it cannot be read is a count rather than a
+judgement.
+
+## What the axis is, before what it says
+
+| | |
+|---|---|
+| destinations passing the rule | **719** of the two-tag intersections |
+| able to supply the draw in dollars | 683 |
+| **packed to share no project at all** | **49**, and `0` of `1,176` pairs touch |
+| their density | `12` to `1,233`, a factor of `103` |
+
+**The packed axis is independent as a fact about its sets rather than as an estimate**,
+which is the whole reason it was built that way: an earlier control on this arm was
+withdrawn for leaning on a containment structure, and nothing here is estimated from one.
+
+## What it returned
+
+| | |
+|---|---|
+| planting no effect at all is detected | **`0.050`**, which is alpha exactly |
+| **planting an effect of the registered size is detected** | **`0.400`**, against a floor of `0.50` |
+
+**The first line is the one that makes the second readable.** A test that finds nothing
+where nothing was planted, at exactly its nominal rate, is calibrated; **so the shortfall
+is the axis and not the instrument**. The first version of this gate put both of those in
+one criterion, which would have filed a shortage of power as a known-answer failure, and
+a known-answer failure in these records means something was caught and can be named.
+**They are two criteria now**: `B30-4-3` carries the calibration and passes, `B30-4-4`
+carries the power and fails.
+
+**The observed values are printed and scored nowhere**: the packed axis reads `-0.164628`
+over 49 and the full 683 reads `-0.011528`. **A design that sees an effect of this size
+two times in five cannot be handed either number to interpret.**
+
+## Why it cannot be opened, which is the part worth keeping
+
+**A gate that fails should say whether a knob opens it, and what turning that knob costs.**
+
+| | packed | reference power |
+|---|---|---|
+| both parents established, dollars only | 49 | `0.562` |
+| both parents established, face value | 53 | `0.591` |
+| **parents not required to be established**, dollars only | **66** | `0.674` |
+| parents not required to be established, face value | 67 | `0.680` |
+
+Reading the shortfall across, the axis needs somewhere near **66** points to catch this
+effect half the time. **And 66 is reachable only by dropping the requirement that both
+parents are established.**
+
+> **That requirement is the axis.** A destination is worth having here because it is thin
+> without being obscure, and it is thin without being obscure because both its parents
+> are well known. **Opening the gate that way removes the reason to walk through it.**
+
+**So this is not a shortage of sample.** It is a statement about the carrier: **it does
+not hold enough thin-but-not-obscure destinations that share no projects.** The currency
+knob is free and adds four, which is not the gap.
+
+**What stays open is therefore named rather than closed.** The account that says the
+prices scatter at the thin end because the sellers there are less practised is **not
+eliminated**, and this carrier cannot eliminate it. **The registered reading is unchanged
+and so is its standing**; what changed is that one alternative account now has a measured
+reason for remaining, instead of an unexamined one.
+
+## Two ways the same numbers failed to reproduce, both found by comparing runs rather than by any check
+
+**Neither was caught by a self-test, a guard, or a review of the code.** Both were caught
+by putting two runs side by side and noticing one number differed.
+
+**First, a seed does not fix a sample when the sequence sampled from came out of a set.**
+This gate turns tag memberships into sets to intersect them, so a destination carries a
+set; `sample` picks by index; **iterating a set of strings gives an order the process's
+hash seed decides**. Three runs at one seed returned `-0.1269`, `-0.1268` and `-0.0919`,
+and two full runs wrote two different numbers into the record. **Sorting before the draw
+fixes it**, and the same file then returns one value in every process.
+
+**Second, sorting buys only half, because a rank is decided by equality and equality is
+decided by the last bit.** After the sort the two machines still disagreed, `-0.172614`
+against `-0.1646`, **with the packed axis byte-identical, all 49 entries**. On this
+measure most values are equal: 49 entropies hold **22 distinct levels**, so 27 sit in
+ties, and **four pairs differ by `4.44e-16`, two ulp**, being one level reached by two
+summation orders. `math.log` is the platform's, so a tie on one build is not a tie on the
+other, **and the correlation moves without a single draw changing**.
+
+**Rounding to ten decimals before ranking closes it**, six orders above the spurious gap
+and seven below the smallest real one. **The check is that two builds agree**: the same
+file now returns `-0.164627683558` and `-0.011528190045` on both, to twelve decimals.
+
+**The probe has to be written in two halves** or it passes trivially: a two-ulp
+difference must collapse to one level **and** a real difference must survive.
+
+**The derived-file rule already asks for a fixed iteration order and a fixed float format
+in anything written to disk.** Both of these are that rule one step earlier, on what a
+seeded draw reads and on what a rank compares. **The exposure is not limited to this
+gate**: anything that computes a float and then ranks by it is in it, and the registered
+reading's pipeline has the same shape. The displacement measured here is about `0.008` on
+49 points, against a registered margin of `-0.26` to `-0.32` over a null of
+`-0.025 ± 0.092`, **so it does not threaten that reading**; whether to put the same
+rounding into it is a bookkeeping decision.
+
+## State
+
+**B30-4 is closed.**
+
+- **The registered reading stands**, unchanged and untouched by anything in this chunk.
+- **The combination axis is registered not adjudicable on this carrier**, with the count
+  that would be needed and the reason that count is unreachable both printed.
+- **Two reproducibility defects are fixed and recorded**, and the record now returns the
+  same twelve decimals on two different builds.
+
+**Nothing on this arm is open.** The obscurity account is named as surviving, which is a
+statement about what this carrier can do rather than an item of work.
+
+**The registered reading is unchanged**: `price_point_entropy` against the
+destination's project count with breadth held by genre entropy reads branch A, the
+price points scattering where the comparables thin out, with the sign stable across
+seeds, across thirds of breadth, across both density definitions and across all six of
+the settings the station declares.
+
+
+---
+
+---
+
+
+---
+
+---
 
 
 ---

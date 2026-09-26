@@ -1,0 +1,523 @@
+{
+  "config": {
+    "arm": "three, the order claim",
+    "cells": 7,
+    "date_floor": "year",
+    "estimates": "none",
+    "frame": "six families named in the design's gate zero plus one kill candidate slot, fixed before any date was read",
+    "read_on": "2026-09-10",
+    "register_definition": "binds a liability to a living person at the moment of assessment; a maintained list, not a record of past events; pre-dates the tax; not built for it",
+    "rival_criterion": "none, deliberately: a scalar field on positions makes no claim about when a fiscal instrument appears, so this is a cell where nobody on that side had a reason to answer"
+  },
+  "criteria": [
+    {
+      "detail": "7 cells in the frame, 7 reported, 1 with a date that cannot be pinned and reported anyway (England); 0 cells where the hand-written sign disagrees with the computed one",
+      "kind": "instrument",
+      "name": "B33-12 the polity frame was fixed before any date was read, and every cell in it is reported including the ones whose dates cannot be pinned",
+      "passed": true
+    },
+    {
+      "detail": "after 6, same_act 0, before 0, undated 1; gaps in years for the signed cells: Roman Republic 128 to 172, Qin and Han 19 to 172, France 256 to 256, Uganda Protectorate 45 to 54, Great Britain 103 to 107, Athens 7 to 80",
+      "kind": "own_reading",
+      "name": "B33-13 the sign: no polity's graduated per-person tax arrives before a qualifying register",
+      "passed": true,
+      "state_map": {
+        "after": {
+          "reads": "the tax arrives after the register",
+          "verdict": "supports"
+        },
+        "before": {
+          "reads": "the tax arrives before any qualifying register",
+          "verdict": "FAIL"
+        },
+        "same_act": {
+          "reads": "one reform creates the list and the classes together, so there is no order to read; this is the tightest form of the dependence and the weakest reading of the sequence",
+          "verdict": "consistent, carries no order"
+        },
+        "undated": {
+          "reads": "one of the two dates cannot be pinned, so no verdict",
+          "verdict": null
+        }
+      }
+    },
+    {
+      "detail": "matched 3, extended 1, overrun_then_extended 1, overrun 1, counterexample 0, unknown 1; cells not in the fitting state: England 7 classes, overrun, ran: no; France 22 classes, extended, ran: yes; Uganda Protectorate 2 classes, unknown, ran: yes; Athens 3 classes, overrun_then_extended, ran: yes",
+      "kind": "own_reading",
+      "name": "B33-14 where the class count exceeds what the prior list can tell apart, either the list was extended or the tax did not run; no cell has both an overrun and a tax that ran",
+      "passed": true,
+      "state_map": {
+        "counterexample": {
+          "reads": "the class count exceeds it, no roll was built, and the tax ran anyway",
+          "verdict": "FAIL"
+        },
+        "extended": {
+          "reads": "the class count exceeds it and the state built the missing roll, and the tax ran",
+          "verdict": "supports"
+        },
+        "matched": {
+          "reads": "the class count fits what the prior list can tell apart",
+          "verdict": "supports"
+        },
+        "overrun": {
+          "reads": "the class count exceeds it, no roll was built, and the tax did not run",
+          "verdict": "supports"
+        },
+        "overrun_then_extended": {
+          "reads": "the class count exceeds it, the tax leaked for a while, and the state then built the missing roll; added when a cell landed between overrun and extended rather than on either",
+          "verdict": "supports"
+        },
+        "unknown": {
+          "reads": "the list's resolution cannot be pinned, so no verdict",
+          "verdict": null
+        }
+      }
+    },
+    {
+      "detail": "axis carried: no 2, partial 1, unknown 1, yes 3; misaligned cells, meaning the axis is carried and the count still did not fit or the axis is not carried and it did: none; cells left out because one side is unknown: Uganda Protectorate",
+      "kind": "own_reading",
+      "name": "B33-17 the sign test asks whether the register can find the person, not whether it can tell the classes apart; those are two questions and this one names the cells where the answer differs",
+      "passed": true
+    },
+    {
+      "detail": "2 controls, 0 miscounted; the hut tax, levied per hut keyed to object; the fifteenth and tenth, two rates by kind of place keyed to place",
+      "kind": "known_answer",
+      "name": "B33-15 control: a levy keyed to an object or to a place is not a per-person graduated tax and must not be counted as one",
+      "passed": true
+    },
+    {
+      "detail": "7 of 7 cells carry at least one quote, 30 quotes in all; per cell: Roman Republic 3, Qin and Han 6, England 3, France 6, Uganda Protectorate 3, Great Britain 2, Athens 7",
+      "kind": "bookkeeping",
+      "name": "B33-16 every cell carries quoted evidence, and the coverage table names the cells that read nothing as well as the ones that read something",
+      "passed": true
+    }
+  ],
+  "report": {
+    "axis_tally": {
+      "no": 2,
+      "partial": 1,
+      "unknown": 1,
+      "yes": 3
+    },
+    "cells": [
+      {
+        "classes": 5,
+        "dates_pinned": [
+          true,
+          true
+        ],
+        "family": "Rome",
+        "gap_years": [
+          128,
+          172
+        ],
+        "polity": "Roman Republic",
+        "quotes": [
+          {
+            "for": "the census as a register of persons and property",
+            "text": "citizens assembled by tribe in the Campus Martius, to register their social rank, household, property and income"
+          },
+          {
+            "for": "the levy is assessed off that register",
+            "text": "tributum ex censu (amount proportional to citizen's census financial rating)"
+          },
+          {
+            "for": "first levy traditionally at the siege of Veii",
+            "text": "the soldiers should receive pay out of the public treasury"
+          }
+        ],
+        "ran": "yes",
+        "register": "the census, taken by tribe in the Campus Martius, recording social rank, household, property and income, and retaken periodically",
+        "register_carries_axis": "yes",
+        "register_note": "traditional dating of the Servian reform; the same reform creates the five property classes, so on the reading that takes those classes themselves as the graduated levy this cell is same_act rather than after",
+        "register_year": [
+          -578,
+          -534
+        ],
+        "resolution": "matched",
+        "resolution_note": "the register carries property, which is the axis the classes are cut on, so the list can tell the five apart",
+        "sign_agrees": true,
+        "sign_computed": "after",
+        "sign_declared": "after",
+        "tax": "tributum ex censu, the levy proportional to a citizen's census rating",
+        "tax_year": [
+          -406,
+          -406
+        ]
+      },
+      {
+        "classes": 5,
+        "dates_pinned": [
+          true,
+          true
+        ],
+        "family": "imperial China",
+        "gap_years": [
+          19,
+          172
+        ],
+        "polity": "Qin and Han",
+        "quotes": [
+          {
+            "for": "the register and its year",
+            "text": "in 375 BCE, Duke Xian of the regional state of Qin ordered to compile household registers, in which every five households made out one administrative group"
+          },
+          {
+            "for": "what the register carried per person",
+            "text": "the registers included the number of household members, each individual's name and age, information on the origin of the family"
+          },
+          {
+            "for": "it was maintained, not a one-off",
+            "text": "The registration process took place annually in the eight lunar month"
+          },
+          {
+            "for": "the tax and its bands",
+            "text": "each male person between the age of 15 and 50 sui was liable for the payment of 120 qian"
+          },
+          {
+            "for": "a second band by age",
+            "text": "Children between 7 and 14 sui paid 20 qian of poll tax"
+          },
+          {
+            "for": "bands by status",
+            "text": "merchants (guren) and private slaves (nubi) paid twice the normal amount"
+          }
+        ],
+        "ran": "yes",
+        "register": "household registers compiled annually after the harvest, carrying each individual's name and age",
+        "register_carries_axis": "yes",
+        "register_note": "ordered by Duke Xian of Qin, households grouped in fives for mutual surety, which is not a fiscal purpose; the annual re-registration and the per-person name and age are attested for the following reigns",
+        "register_year": [
+          -375,
+          -375
+        ],
+        "resolution": "matched",
+        "resolution_note": "the bands are cut on age and status, and the register carries age and status, so it can tell them apart",
+        "sign_agrees": true,
+        "sign_computed": "after",
+        "sign_declared": "after",
+        "tax": "suanfu and koufu, the poll taxes, banded by age and by status",
+        "tax_year": [
+          -356,
+          -203
+        ]
+      },
+      {
+        "classes": 7,
+        "dates_pinned": [
+          false,
+          true
+        ],
+        "family": "medieval Europe",
+        "gap_years": null,
+        "polity": "England",
+        "quotes": [
+          {
+            "for": "who was on the list",
+            "text": "All men over 12 years of age were organised in the system for mutual surety"
+          },
+          {
+            "for": "the written classes before 1379 were cut on place, not on person",
+            "text": "one tenth of the value of moveable, personal goods of lay persons for cities, boroughs and royal ancient demesne lands and one fifteenth for rural inhabitants"
+          },
+          {
+            "for": "and after 1334 the place quota was frozen, so nobody was assessed",
+            "text": "to spare the cost of new assessments the quota remained fixed or fossilized at this amount for nearly two centuries"
+          }
+        ],
+        "ran": "no",
+        "register": "tithing membership, viewed by the sheriff twice a year",
+        "register_carries_axis": "no",
+        "register_note": "the system has no establishment year to read: it is older than the records that describe it. The poll tax rolls of 1377 would be datable but were built for this family of taxes, which the strict reading excludes",
+        "register_year": null,
+        "resolution": "overrun",
+        "resolution_note": "the tithing list carries one bit, in a tithing or not, and no property at all, while the tax writes seven ranks cut on wealth; no roll was built and the yield came to 37 per cent of expectation, with the next attempt met by refusal to register",
+        "sign_agrees": true,
+        "sign_computed": "undated",
+        "sign_declared": "undated",
+        "tax": "the graduated poll tax of 1379, assessed by social rank",
+        "tax_year": [
+          1379,
+          1379
+        ]
+      },
+      {
+        "classes": 22,
+        "dates_pinned": [
+          true,
+          true
+        ],
+        "family": "early modern Europe",
+        "gap_years": [
+          256,
+          256
+        ],
+        "polity": "France",
+        "quotes": [
+          {
+            "for": "the register's year",
+            "text": "the right to collect taxes in support of a standing army was granted to Charles VII of France"
+          },
+          {
+            "for": "who was not on it",
+            "text": "clergy and nobles (except for non-noble lands they held in 'pays d'état'), officers of the crown"
+          },
+          {
+            "for": "the tax and its class count",
+            "text": "divided taxpayers into twenty-two classes"
+          },
+          {
+            "for": "the top and bottom of the tariff",
+            "text": "Taxpayers of the first class were to pay 2,000 livres per year, those of the second class 1,500, those of the third 1,000 and so on down to the last class whose members were assessed for one livre"
+          },
+          {
+            "for": "it ran on the older machinery",
+            "text": "receivers of the Taille in the rural parishes"
+          },
+          {
+            "for": "and the missing roll was built",
+            "text": "Nobles were, however, taxed on a separate roll"
+          }
+        ],
+        "ran": "yes",
+        "register": "the parish rolls of the taille, and the provincial intendants who drew them",
+        "register_carries_axis": "partial",
+        "register_note": "the year the taille became permanent; nobles and clergy were exempt from it and therefore absent from its rolls",
+        "register_year": [
+          1439,
+          1439
+        ],
+        "resolution": "extended",
+        "resolution_note": "the taille rolls could not see the exempt orders, and the class most conspicuously outside them was put on a roll of its own rather than dropped",
+        "sign_agrees": true,
+        "sign_computed": "after",
+        "sign_declared": "after",
+        "tax": "the capitation of 18 January 1695, a tariff of twenty-two classes running from 2,000 livres to 1 livre",
+        "tax_year": [
+          1695,
+          1695
+        ]
+      },
+      {
+        "classes": 2,
+        "dates_pinned": [
+          true,
+          true
+        ],
+        "family": "colonial",
+        "gap_years": [
+          45,
+          54
+        ],
+        "polity": "Uganda Protectorate",
+        "quotes": [
+          {
+            "for": "the first tax is levied on an object, not a person",
+            "text": "on a 'per hut' (or other forms of household) basis"
+          },
+          {
+            "for": "then a flat per-person tax, which is what builds the roll",
+            "text": "The Poll Tax, introduced in 1905, marked a turning point in colonial taxation"
+          },
+          {
+            "for": "and the graduated one comes last",
+            "text": "In the 1950s it was replaced by the Graduated Personal Tax (GPT), modestly graduated according to assessed income of the individual taxpayers"
+          }
+        ],
+        "ran": "yes",
+        "register": "the per-person rolls of adult males kept for the poll tax of 1905",
+        "register_carries_axis": "unknown",
+        "register_note": "built for the flat poll tax, half a century before the graduated tax that is the levy in this cell, so it is not built for that tax",
+        "register_year": [
+          1905,
+          1905
+        ],
+        "resolution": "unknown",
+        "resolution_note": "class count taken as the minimum the source states, a graduation with an exempt floor; the source gives no band table, so the count here is a lower bound and the resolution reading rests on the sequence rather than on the count",
+        "sign_agrees": true,
+        "sign_computed": "after",
+        "sign_declared": "after",
+        "tax": "the Graduated Personal Tax, graduated on assessed income",
+        "tax_year": [
+          1950,
+          1959
+        ]
+      },
+      {
+        "classes": 3,
+        "dates_pinned": [
+          true,
+          true
+        ],
+        "family": "modern state",
+        "gap_years": [
+          103,
+          107
+        ],
+        "polity": "Great Britain",
+        "quotes": [
+          {
+            "for": "who assessed it",
+            "text": "The local Land Tax Commissioners were to appoint General Commissioners (often themselves) to assess income tax."
+          },
+          {
+            "for": "the old list used as the classifier",
+            "text": "The use of the preceding year's return saved administration"
+          }
+        ],
+        "ran": "yes",
+        "register": "the parish assessment books of the land tax and the assessed taxes, maintained yearly, naming occupiers, used to raise demands",
+        "register_carries_axis": "yes",
+        "register_note": "land tax from 1692, window tax from 1696; this cell's register was read and tightened in this station's first round and is not re-derived here",
+        "register_year": [
+          1692,
+          1696
+        ],
+        "resolution": "matched",
+        "resolution_note": "the 1798 predecessor computed each liability as a multiple of the previous year's assessed-tax bill, which is the old list used directly as the classifier",
+        "sign_agrees": true,
+        "sign_computed": "after",
+        "sign_declared": "after",
+        "tax": "the income tax of 1799, exempt below 60 pounds, a sliding scale from 60 to 200, a flat top rate above 200",
+        "tax_year": [
+          1799,
+          1799
+        ]
+      },
+      {
+        "classes": 3,
+        "dates_pinned": [
+          true,
+          true
+        ],
+        "family": "kill candidate",
+        "gap_years": [
+          7,
+          80
+        ],
+        "polity": "Athens",
+        "quotes": [
+          {
+            "for": "the class was asked, not looked up",
+            "text": "when the presiding official asks a man who is about to draw lots for some office what rate he pays"
+          },
+          {
+            "for": "the classes and their thresholds",
+            "text": "at least 500 medimni of wet or dry goods (or their equivalent), per year"
+          },
+          {
+            "for": "the register and what it was for",
+            "text": "Enrollment in the citizen-lists of a deme became the requirement for citizenship"
+          },
+          {
+            "for": "when the levy starts",
+            "text": "At the start of the fifth century B.C., Athens had recourse to the imposition of direct taxation, the so-called eisphora, in an emergency, mainly in wartime"
+          },
+          {
+            "for": "its bands, and that they sat on Solon's classes",
+            "text": "With the establishment of the Second Athenian Confederacy, the tax system founded on Solon's property classes was abolished, in 378/7 B.C."
+          },
+          {
+            "for": "the missing roll, built",
+            "text": "scales of value for all taxed persons"
+          },
+          {
+            "for": "what the gap was filled with in the meantime",
+            "text": "concealing part of their estate"
+          }
+        ],
+        "ran": "yes",
+        "register": "the deme citizen-lists; enrolment in one becomes the requirement for citizenship",
+        "register_carries_axis": "no",
+        "register_note": "this cell was left unresolved on the first run and is resolved here by one narrow question: was Solon's wealth census a maintained list. It was not. Centuries later the class was still established by asking the man at the moment he needed it, and the answer was not checked against anything, which is what the tightened definition excludes. So the register for this cell is not Solon's census of 594 but the deme lists of Cleisthenes. The tightened definition was fixed before this cell was looked at, and it costs the reading that would have been most convenient here",
+        "register_year": [
+          -508,
+          -507
+        ],
+        "resolution": "overrun_then_extended",
+        "resolution_note": "the deme list carries citizenship and deme, not property, while the eisphora's bands are cut on property; the gap was filled by declaration and the wealthy concealed part of their estates, and in 378/7 the basis founded on the Solonian classes was abolished and scales of value for all taxed persons were introduced, which is the missing roll being built",
+        "sign_agrees": true,
+        "sign_computed": "after",
+        "sign_declared": "after",
+        "tax": "the eisphora, the direct levy on citizens, whose bands were founded on the Solonian classes; the three wealthiest classes paid one talent, half a talent and one sixth of a talent",
+        "tax_year": [
+          -500,
+          -428
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "graduated_by_person": false,
+        "keyed_to": "object",
+        "name": "the hut tax, levied per hut",
+        "why": "a hut can be counted without naming anyone, so no person register is needed to run it"
+      },
+      {
+        "graduated_by_person": false,
+        "keyed_to": "place",
+        "name": "the fifteenth and tenth, two rates by kind of place",
+        "why": "two written classes, but cut on borough against countryside, so a list of vills suffices and no list of people is needed"
+      }
+    ],
+    "frame_size": 7,
+    "resolution_map": {
+      "counterexample": {
+        "reads": "the class count exceeds it, no roll was built, and the tax ran anyway",
+        "verdict": "FAIL"
+      },
+      "extended": {
+        "reads": "the class count exceeds it and the state built the missing roll, and the tax ran",
+        "verdict": "supports"
+      },
+      "matched": {
+        "reads": "the class count fits what the prior list can tell apart",
+        "verdict": "supports"
+      },
+      "overrun": {
+        "reads": "the class count exceeds it, no roll was built, and the tax did not run",
+        "verdict": "supports"
+      },
+      "overrun_then_extended": {
+        "reads": "the class count exceeds it, the tax leaked for a while, and the state then built the missing roll; added when a cell landed between overrun and extended rather than on either",
+        "verdict": "supports"
+      },
+      "unknown": {
+        "reads": "the list's resolution cannot be pinned, so no verdict",
+        "verdict": null
+      }
+    },
+    "resolution_tally": {
+      "counterexample": 0,
+      "extended": 1,
+      "matched": 3,
+      "overrun": 1,
+      "overrun_then_extended": 1,
+      "unknown": 1
+    },
+    "sign_map": {
+      "after": {
+        "reads": "the tax arrives after the register",
+        "verdict": "supports"
+      },
+      "before": {
+        "reads": "the tax arrives before any qualifying register",
+        "verdict": "FAIL"
+      },
+      "same_act": {
+        "reads": "one reform creates the list and the classes together, so there is no order to read; this is the tightest form of the dependence and the weakest reading of the sequence",
+        "verdict": "consistent, carries no order"
+      },
+      "undated": {
+        "reads": "one of the two dates cannot be pinned, so no verdict",
+        "verdict": null
+      }
+    },
+    "sign_tally": {
+      "after": 6,
+      "before": 0,
+      "same_act": 0,
+      "undated": 1
+    }
+  },
+  "stage": "B33"
+}

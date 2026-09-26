@@ -238,6 +238,14 @@ data/b34/
 # other station keeps a raw/ subdirectory, so it widens the rule without
 # changing what any other station does.
 data/*/raw/
+# B115 keeps its retrieval under data/b115/raw/, a raw/ subdirectory the line
+# above excludes, and git does not descend into an excluded directory, so the
+# manifest exception never reached b115_soy_manifest.json. These two lines
+# re-admit the two directories. Every file under them is still caught by data/**
+# except the manifest, and the retrieved files sit in subdirectories that stay
+# excluded.
+!data/b115/
+!data/b115/raw/
 
 # data/raw as a bare line was tried on 2026-09-06 and withdrawn the same day.
 # It excludes the directory itself, and git does not descend into an excluded

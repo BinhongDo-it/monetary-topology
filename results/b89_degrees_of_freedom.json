@@ -1,0 +1,415 @@
+{
+  "config": {
+    "consistent_below": 1e-09,
+    "corn_factor": [
+      1.0,
+      3.0
+    ],
+    "imports": "b72_land_and_rent, b73_two_extensions",
+    "labour_factor": [
+      1.0,
+      3.0
+    ],
+    "lands": [
+      3,
+      7
+    ],
+    "rate": 0.05,
+    "seed": 89,
+    "systems": 300,
+    "yield": [
+      1.05,
+      2.0
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "the rows this station builds know nothing about either solver, and the two square cells come out as those solvers' own answers: `(j, f) = (0, 1)` matches B72's envelope wage to 2.22e-15 over 1046 cases and `(1, 0)` matches B73's pair to 4.45e-11 over 1046. **Both are imported**, so the three stations can disagree about the rows",
+      "kind": "known_answer",
+      "name": "B89-1",
+      "passed": true
+    },
+    {
+      "detail": "`equations - unknowns = j + f - 1` on all 30 distinct shapes drawn, with `c` running 2 to 6. **Shapes printed rather than counted**: c=2 j=0 f=0: 2 by 3; c=2 j=0 f=1: 3 by 3; c=2 j=1 f=0: 3 by 3; c=2 j=1 f=1: 4 by 3; c=2 j=2 f=0: 4 by 3; c=2 j=2 f=1: 5 by 3; c=3 j=0 f=0: 3 by 4; c=3 j=0 f=1: 4 by 4; c=3 j=1 f=0: 4 by 4 and 21 more. **The identity is what makes `j + f = 1` the square condition**, and both of its solutions are already stations: `(0, 1)` is extensive rent with a free margin and `(1, 0)` is a second method with none",
+      "kind": "own_reading",
+      "name": "B89-2",
+      "passed": true
+    },
+    {
+      "detail": "every drawn case falls in one of three states and each `(j, f)` gives one of them without exception: (j=0, f=0) a family of solutions on 1046; (j=0, f=1) one solution on 1046; (j=1, f=0) one solution on 1046; (j=1, f=1) no solution on 1046; (j=2, f=0) no solution on 1046; (j=2, f=1) no solution on 1046. **The two classical facts follow from the identity in general position**: intensive cultivation does not coexist with spare capacity, since `(1, 1)` has no solution, and at most one acre is worked by two methods, since `(2, 0)` has none either. **The middle state exists** and is `(0, 0)`, where the rows are consistent and leave a family. **General position is not a hedge and it is not free**: more equations than unknowns leaves the extra rows to be satisfied by the rest, which takes an exact coincidence among the technical coefficients. A random draw misses those with probability one, **so this sweep cannot meet them however large it is**, and `B89-8` builds them instead",
+      "kind": "own_reading",
+      "name": "B89-3",
+      "passed": true
+    },
+    {
+      "detail": "in the cell where the rows leave a family, the family is one-dimensional and its direction is `(1, -lambda_1, ..., -lambda_c)` to 1.33e-15 over 1046 cases. **Raise the wage by one and every rent falls by that land's labour input**, so the single missing equation is the one that says where on the wage-rent frontier the economy sits. **A cycle closure is what puts a point on it**, which is why the intensive step both adds a dimension to the graph and removes one from the price system",
+      "kind": "own_reading",
+      "name": "B89-4",
+      "passed": true
+    },
+    {
+      "detail": "a separate second method drawn for each acre, so the acres differ in their intensification as well as in their fertility. On 234 systems with at least one viable acre, a mean of 1.72 acres are viable, the acre taken is the most fertile on 38, and **the two choosing rules run over the same candidates part on 61**. B88 read the same thing with one technology per system; **giving each acre its own does not make fertility the rule**, it only adds a second source of difference between them",
+      "kind": "own_reading",
+      "name": "B89-5",
+      "passed": true
+    },
+    {
+      "detail": "the largest residual among the cases that have a solution is 4.36e-13 and the smallest among those that do not is 3.04e-04, a ratio of 6.98e+08. **The line is measured on this run rather than declared**, which is what gate six asks of a floor: a tolerance chosen in advance would be a number this station made up, and the separation here is wide enough that no choice between the two orders of magnitude changes any verdict",
+      "kind": "instrument",
+      "name": "B89-6",
+      "passed": true
+    },
+    {
+      "detail": "the two excluded cells, built rather than drawn: (1, 1): 36 of 36 built are over-determined and consistent, worst residual 5.6e-15, 36 of them with non-negative rents; (2, 0): 35 of 35 built are over-determined and consistent, worst residual 2.2e-15, 34 of them with non-negative rents. **The recipe is one line in each case.** For `(2, 0)`, each acre's own pair of methods fixes the wage at `[q - 1 - (1+r) a_i (c - 1)] / [l_i (d - 1)]`, so putting every acre's on one target by choice of `l_i` makes four rows in three unknowns agree: one instance returns a wage of 0.5693 with rents [0.5611, 0.5668] at residual 1.2e-15. For `(1, 1)`, the single choice `d = [q - (1+r) a c] / [1 - (1+r) a]` on the boundary acre puts its two methods on the same wage and the zero rent costs nothing. **So `equations - unknowns = j + f - 1` is untouched and the exclusion it is usually read as is a general-position statement**: counting tells you a solution needs a coincidence, not that none exists. **These sit on a set of measure zero**, which is why `B89-3` sees none of them and why it could not have",
+      "kind": "own_reading",
+      "name": "B89-8",
+      "passed": true
+    },
+    {
+      "detail": "the stations this one generalises each name it, so a reader of either finds the identity their two cases are cases of. `D20`",
+      "kind": "bookkeeping",
+      "name": "B89-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B89-1": {
+      "extensive_cases": 1046,
+      "intensive_cases": 1046,
+      "worst_extensive": 2.220446049250313e-15,
+      "worst_intensive": 4.4508396968012676e-11
+    },
+    "B89-2": {
+      "breaks": [],
+      "distinct_shapes": 30,
+      "shapes": [
+        [
+          2,
+          0,
+          0,
+          2,
+          3
+        ],
+        [
+          2,
+          0,
+          1,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          0,
+          3,
+          3
+        ],
+        [
+          2,
+          1,
+          1,
+          4,
+          3
+        ],
+        [
+          2,
+          2,
+          0,
+          4,
+          3
+        ],
+        [
+          2,
+          2,
+          1,
+          5,
+          3
+        ],
+        [
+          3,
+          0,
+          0,
+          3,
+          4
+        ],
+        [
+          3,
+          0,
+          1,
+          4,
+          4
+        ],
+        [
+          3,
+          1,
+          0,
+          4,
+          4
+        ],
+        [
+          3,
+          1,
+          1,
+          5,
+          4
+        ],
+        [
+          3,
+          2,
+          0,
+          5,
+          4
+        ],
+        [
+          3,
+          2,
+          1,
+          6,
+          4
+        ],
+        [
+          4,
+          0,
+          0,
+          4,
+          5
+        ],
+        [
+          4,
+          0,
+          1,
+          5,
+          5
+        ],
+        [
+          4,
+          1,
+          0,
+          5,
+          5
+        ],
+        [
+          4,
+          1,
+          1,
+          6,
+          5
+        ],
+        [
+          4,
+          2,
+          0,
+          6,
+          5
+        ],
+        [
+          4,
+          2,
+          1,
+          7,
+          5
+        ],
+        [
+          5,
+          0,
+          0,
+          5,
+          6
+        ],
+        [
+          5,
+          0,
+          1,
+          6,
+          6
+        ],
+        [
+          5,
+          1,
+          0,
+          6,
+          6
+        ],
+        [
+          5,
+          1,
+          1,
+          7,
+          6
+        ],
+        [
+          5,
+          2,
+          0,
+          7,
+          6
+        ],
+        [
+          5,
+          2,
+          1,
+          8,
+          6
+        ],
+        [
+          6,
+          0,
+          0,
+          6,
+          7
+        ],
+        [
+          6,
+          0,
+          1,
+          7,
+          7
+        ],
+        [
+          6,
+          1,
+          0,
+          7,
+          7
+        ],
+        [
+          6,
+          1,
+          1,
+          8,
+          7
+        ],
+        [
+          6,
+          2,
+          0,
+          8,
+          7
+        ],
+        [
+          6,
+          2,
+          1,
+          9,
+          7
+        ]
+      ]
+    },
+    "B89-3": {
+      "states": {
+        "j0f0": {
+          "a family of solutions": 1046
+        },
+        "j0f1": {
+          "one solution": 1046
+        },
+        "j1f0": {
+          "one solution": 1046
+        },
+        "j1f1": {
+          "no solution": 1046
+        },
+        "j2f0": {
+          "no solution": 1046
+        },
+        "j2f1": {
+          "no solution": 1046
+        }
+      },
+      "wrong": {}
+    },
+    "B89-4": {
+      "cases": 1046,
+      "worst_direction_gap": 1.3322676295501878e-15
+    },
+    "B89-5": {
+      "mean_viable_acres": 1.7222222222222223,
+      "picked_best": 38,
+      "rules_part": 61,
+      "systems": 234
+    },
+    "B89-6": {
+      "largest_solved_residual": 4.3566560462146544e-13,
+      "ratio": 698424750.6319138,
+      "smallest_unsolved_residual": 0.00030427964126664896
+    },
+    "B89-7": {
+      "missing_writebacks": []
+    },
+    "B89-8": {
+      "(1, 1)": {
+        "built": 36,
+        "consistent": 36,
+        "example": {
+          "alphas": [
+            0.16702815682795458,
+            0.24185114442680894
+          ],
+          "cell": [
+            1,
+            1
+          ],
+          "dose": [
+            1.6754707282429553,
+            2.034039553564802,
+            1.5534205625932378
+          ],
+          "equations": 4,
+          "lams": [
+            0.6567938678515919,
+            0.7625152093763699
+          ],
+          "rents": [
+            0.18200348054189225,
+            -2.5436025635010025e-16
+          ],
+          "rents_non_negative": true,
+          "residual": 4.190855578604368e-16,
+          "target_wage": 0.9784149734692108,
+          "unknowns": 3,
+          "wage": 0.978414973469211
+        },
+        "over_determined": 36,
+        "rents_non_negative": 36,
+        "worst_residual": 5.5942606349231076e-15
+      },
+      "(2, 0)": {
+        "built": 35,
+        "consistent": 35,
+        "example": {
+          "alphas": [
+            0.34580433039436026,
+            0.16636326226813644
+          ],
+          "cell": [
+            2,
+            0
+          ],
+          "dose": [
+            1.437062744920032,
+            1.99058597264911,
+            2.0214960974487246
+          ],
+          "equations": 4,
+          "lams": [
+            0.13307563163624303,
+            0.45402558963944156
+          ],
+          "rents": [
+            0.5611475718812445,
+            0.5668488889151531
+          ],
+          "rents_non_negative": true,
+          "residual": 1.211110335867595e-15,
+          "target_wage": 0.5692844007064972,
+          "unknowns": 3,
+          "wage": 0.5692844007064983
+        },
+        "over_determined": 35,
+        "rents_non_negative": 34,
+        "worst_residual": 2.1585202619993173e-15
+      }
+    }
+  },
+  "stage": "B89"
+}

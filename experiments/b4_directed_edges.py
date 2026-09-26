@@ -44,6 +44,7 @@ from monetary_topology.directed import (  # noqa: E402
     potential_interval,
     ray_is_valid,
     shift_breaks,
+    simple_directed_cycles,
     sink_component,
     split,
     strongly_connected_components,
@@ -74,6 +75,9 @@ class Criterion:
     name: str
     passed: bool
     detail: str
+    #: Discipline 11d. Written only where it is set, so the criteria that predate
+    #: the field keep the bytes they had.
+    kind: str | None = None
 
     def line(self) -> str:
         mark = "PASS" if self.passed else "FAIL"
@@ -516,13 +520,203 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
         ),
     ], {
         "cases": cases,
-        "worst_sum": float(worst_sum),
-        "worst_diff": float(worst_diff),
-        "worst_invariance": float(worst_invariance),
+        # Dropped from the record 2026-09-08. The line printed above already
+        # said they were not written, and they were, at full precision. Each is
+        # a deviation from an identity sitting at machine epsilon, so its last
+        # digits belong to the BLAS build, which is the case the derived-file
+        # rules exist to stop: a phantom diff between two machines buries a real
+        # one. The bound they were compared against is the part that is stable.
+        "identity_residuals_below": TOL,
         "squares_both_cycles_nonpositive": int(both_nonpos),
         "squares_satisfying_the_index_bound": int(bound_holds),
         "equivalence_breaks": int(equiv_breaks),
         "worst_friction_move": float(worst_friction_move),
+    }
+
+
+def _hat(hat: dict, u: int, v: int) -> float:
+    """``split`` keys on ``u < v``. Traversed the other way the antisymmetric
+    part changes sign and the symmetric part does not, which is the whole content
+    of the split and therefore the one place a cycle walk can go wrong."""
+    return hat[(u, v)] if u < v else -hat[(v, u)]
+
+
+def _bar(bar: dict, u: int, v: int) -> float:
+    return bar[(u, v)] if u < v else bar[(v, u)]
+
+
+def two_way_complete(n: int, rng: np.random.Generator, exact: bool,
+                     per_direction: bool = False,
+                     spread: float = 0.4) -> DirectedField:
+    """A complete two-way field, with the antisymmetric part exact or not.
+
+    ``per_direction`` draws the friction independently for each leg of an edge.
+    That is **not** a symmetric friction: the difference between the two legs
+    lands in the antisymmetric part, which is Theorem 6(5)'s mechanism one level
+    down. It is here as the case the criterion has to be able to see.
+    """
+    weights: dict[tuple[int, int], float] = {}
+    phi = rng.normal(0.0, 1.0, size=n)
+    raw = {(u, v): float(rng.normal(0.0, 1.0))
+           for u in range(n) for v in range(u + 1, n)}
+    ceiling = max(abs(x) for x in raw.values())
+    for u in range(n):
+        for v in range(u + 1, n):
+            hat = float(phi[v] - phi[u]) if exact else raw[(u, v)]
+            if per_direction:
+                weights[(u, v)] = hat - abs(float(rng.normal(0.0, spread)))
+                weights[(v, u)] = -hat - abs(float(rng.normal(0.0, spread)))
+            else:
+                # A ceiling on the friction when the antisymmetric part is not
+                # exact, so that a sub-potential still exists and Theorem 6 has
+                # its hypothesis. |sum of hat over a cycle| <= ceiling * length.
+                bar = -abs(float(rng.normal(0.0, spread))) - (0.0 if exact else ceiling)
+                weights[(u, v)] = hat + bar
+                weights[(v, u)] = -hat + bar
+    return DirectedField(weights, n)
+
+
+def cycle_ratio_max(field: DirectedField) -> tuple[float, int]:
+    """The largest value of Theorem 6(4)'s ratio over every simple cycle.
+
+    Returns the maximum and the number of cycles whose friction part vanished.
+    Corollary 6.1 reads the ratio as zero on those, and that reading is forced:
+    a frictionless cycle has both directed sums non-positive and opposite, so
+    the numerator is zero there as well.
+    """
+    hat, bar = split(field)
+    worst, degenerate = 0.0, 0
+    for cyc in simple_directed_cycles(field):
+        legs = list(zip(cyc, cyc[1:]))
+        s_hat = sum(_hat(hat, u, v) for u, v in legs)
+        s_bar = sum(_bar(bar, u, v) for u, v in legs)
+        if abs(s_bar) < 1e-12:
+            degenerate += 1
+            continue
+        worst = max(worst, abs(s_hat) / -s_bar)
+    return worst, degenerate
+
+
+def corollary_6_1(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
+    """B4-10 to B4-12: Corollary 6.1, on cycles rather than on the square.
+
+    Section 5.1's square is one cycle of length four, walked in a fixed vertex
+    order, with the agent legs set to zero in both directions. Corollary 6.1
+    quantifies over every cycle and drops that setting, so what needs checking is
+    that ``split`` and ``simple_directed_cycles`` agree about orientation when
+    the walk is longer than four and the vertex order is whatever the enumerator
+    produced. B4-7 cannot see that: its shape is fixed.
+    """
+    # B4-10. The identity, on cycles of every length the enumerator produces.
+    worst_id, lengths = 0.0, {}
+    for _ in range(6):
+        field = two_way_complete(5, rng, exact=False)
+        hat, bar = split(field)
+        for cyc in simple_directed_cycles(field):
+            legs = list(zip(cyc, cyc[1:]))
+            fwd = sum(field.value(u, v) for u, v in legs)
+            rev = sum(field.value(v, u) for u, v in legs)
+            s_hat = sum(_hat(hat, u, v) for u, v in legs)
+            s_bar = sum(_bar(bar, u, v) for u, v in legs)
+            worst_id = max(worst_id, abs((fwd - rev) - 2 * s_hat),
+                           abs((fwd + rev) - 2 * s_bar))
+            lengths[len(legs)] = lengths.get(len(legs), 0) + 1
+
+    # B4-11. The degenerate cell is forced. Build the case Corollary 6.1 says
+    # cannot happen -- a cycle with no friction carrying a non-zero index part --
+    # and ask whether a sub-potential exists. It must not, in every draw.
+    drawn = admitted = 0
+    for _ in range(200):
+        n = 4
+        raw = {(u, v): float(rng.normal(0.0, 1.0))
+               for u in range(n) for v in range(u + 1, n)}
+        weights: dict[tuple[int, int], float] = {}
+        for (u, v), h in raw.items():
+            weights[(u, v)] = h
+            weights[(v, u)] = -h          # friction identically zero
+        field = DirectedField(weights, n)
+        hat, _ = split(field)
+        loud = any(
+            abs(sum(_hat(hat, u, v) for u, v in zip(c, c[1:]))) > TOL
+            for c in simple_directed_cycles(field)
+        )
+        if not loud:
+            continue
+        drawn += 1
+        admitted += sub_potential(field)[0] is not None
+
+    # B4-12. The equivalence, both ways, with the two cases that must come back
+    # non-zero. If ``split`` mixed the two parts the first two rows would move;
+    # if the cycle walk lost orientation the last two could collapse to zero.
+    rows = {
+        "exact, one friction per edge": two_way_complete(5, rng, exact=True),
+        "exact, friction an order of magnitude wider":
+            two_way_complete(5, rng, exact=True, spread=4.0),
+        "not exact": two_way_complete(5, rng, exact=False),
+        "friction drawn per direction, so not symmetric":
+            two_way_complete(5, rng, exact=True, per_direction=True),
+    }
+    ratios, degen, potentials = {}, {}, {}
+    for label, field in rows.items():
+        ratios[label], degen[label] = cycle_ratio_max(field)
+        potentials[label] = sub_potential(field)[0] is not None
+    zero_rows = [k for k in rows if k.startswith("exact,")]
+    loud_rows = [k for k in rows if k not in zero_rows]
+    quiet_ok = all(ratios[k] <= TOL for k in zero_rows)
+    loud_ok = all(ratios[k] > TOL for k in loud_rows)
+
+    for label in zero_rows:
+        print(f"  B4-12 {label}: max ratio {ratios[label]:.3e} against {TOL:.0e} "
+              f"(not written to the record: machine-dependent rounding)")
+    print(f"  B4-10 identity on arbitrary cycles: {worst_id:.3e} against "
+          f"{TOL:.0e} (not written to the record: same reason)")
+    print(f"  B4-10 cycle lengths walked: "
+          f"{', '.join(f'{k}:{v}' for k, v in sorted(lengths.items()))}")
+
+    return [
+        Criterion(
+            "B4-10 Corollary 6.1: the square identity holds on a cycle of any length",
+            worst_id <= TOL and max(lengths) > 4,
+            f"`S-S' = 2*sum(w_hat)` and `S+S' = 2*sum(w_bar)` at machine "
+            f"precision, below `1e-9`, over {sum(lengths.values())} cycles of "
+            f"lengths {sorted(lengths)}; the square is the length-4 row",
+            kind="instrument",
+        ),
+        Criterion(
+            "B4-11 Corollary 6.1: a frictionless cycle cannot carry an index part",
+            drawn > 0 and admitted == 0,
+            f"{drawn} fields drawn with the friction identically zero and some "
+            f"cycle carrying a non-zero index part; {admitted} of them admitted "
+            f"a sub-potential, so the case the ratio would read as `0/0` is "
+            f"unreachable under Theorem 6's hypothesis rather than handled by a "
+            f"convention",
+            kind="instrument",
+        ),
+        Criterion(
+            "B4-12 Corollary 6.1: the ratio vanishes exactly on the exact fields",
+            quiet_ok and loud_ok,
+            "an exact antisymmetric part with a symmetric friction returns a "
+            "ratio at machine precision on every cycle, and widening that "
+            "friction does not move it; a non-exact part returns "
+            f"{ratios['not exact']:.4f} and a friction drawn separately for each "
+            f"leg returns "
+            f"{ratios['friction drawn per direction, so not symmetric']:.4f}, so "
+            "the check can see both sides",
+            kind="instrument",
+        ),
+    ], {
+        "identity_residuals_below": TOL,
+        "cycles_walked": sum(lengths.values()),
+        "cycle_lengths": {str(k): v for k, v in sorted(lengths.items())},
+        "frictionless_fields_with_a_loud_cycle": drawn,
+        "of_those_admitting_a_sub_potential": admitted,
+        # The two the criterion needs to be large stay, as `worst_friction_move`
+        # does above. The two it needs to be at machine epsilon do not.
+        "ratio_not_exact": float(f"{ratios['not exact']:.6f}"),
+        "ratio_friction_per_direction": float(
+            f"{ratios['friction drawn per direction, so not symmetric']:.6f}"),
+        "sub_potential_exists": potentials,
+        "degenerate_cycles_seen": degen,
     }
 
 
@@ -566,6 +760,7 @@ def main() -> int:
         ("theorem_6", lambda: theorem_6(rng, args.shapes)),
         ("reduction", lambda: reduction(rng)),
         ("squares", lambda: directed_squares(rng)),
+        ("corollary_6_1", lambda: corollary_6_1(rng)),
     ):
         got, detail = fn()
         crits.extend(got)
@@ -581,7 +776,9 @@ def main() -> int:
     # name->bool mapping loses the detail string, which is the part that says
     # what the criterion actually measured.
     record["criteria"] = [
-        {"name": c.name, "passed": bool(c.passed), "detail": c.detail} for c in crits
+        {"name": c.name, "passed": bool(c.passed), "detail": c.detail}
+        | ({"kind": c.kind} if c.kind else {})
+        for c in crits
     ]
     n_pass = sum(c.passed for c in crits)
     print(f"  {n_pass}/{len(crits)} criteria passed")

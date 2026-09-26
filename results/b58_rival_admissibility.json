@@ -1,0 +1,421 @@
+{
+  "carriers": {
+    "amtrak_everyday_discounts": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, which names age and student status among the characteristics third degree prices on"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "a ticket is issued to a named passenger and inspected on board"
+        },
+        "profit_maximisation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "49 U.S.C. 24301(a)(2): the carrier shall be operated and managed as a for-profit corporation. (a)(3): it is not a department, agency, or instrumentality of the United States Government. this section imposes no route or service obligation and (g) preempts state law on rates, routes and service. a statutory command to operate for profit is a harder document than an exchange listing. what was NOT looked at: whether any appropriations legislation attaches fare conditions to these particular classes"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the page prices six named classes under one heading with three different figures"
+        }
+      },
+      "seller": "a national rail carrier a statute directs to operate for profit",
+      "verdict": "admissible",
+      "why": "all four hold",
+      "zero_pairs": 6
+    },
+    "cinema_arts_evening": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, as for the other cinema"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "same as the other cinema"
+        },
+        "profit_maximisation": {
+          "answer": "not_established",
+          "checked": false,
+          "reason": "not read"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the same page prices College Tuesdays with valid ID, so the classes are credentialed"
+        }
+      },
+      "seller": "an independent cinema",
+      "verdict": "admissible_objective_open",
+      "why": "the three feasibility conditions hold; the seller's objective is not established either way and no document speaks against it",
+      "zero_pairs": 3
+    },
+    "cinema_village_categories": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the rival's own definition of third degree is pricing based on limited observed characteristics, e.g. age, student status, gender, health status. a seller posting senior, student and child prices is an instance of that definition, so the rival classifies this carrier as one of its own. a defender who denies the condition here is denying that this is price discrimination at all, which removes the carrier from the rival's domain and removes the rival's claim to explain why the classes exist"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "a ticket admits to one showing and the discount categories are checked at entry, so a discounted ticket cannot be resold to someone outside the class"
+        },
+        "profit_maximisation": {
+          "answer": "not_established",
+          "checked": false,
+          "reason": "not read. no filing, no tax status, and no statement of objective was located"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the published page requires an age ID, a student ID and a federal disability ID, so the segmentation is direct and paid for"
+        }
+      },
+      "seller": "an independent cinema",
+      "verdict": "admissible_objective_open",
+      "why": "the three feasibility conditions hold; the seller's objective is not established either way and no document speaks against it",
+      "zero_pairs": 6
+    },
+    "income_vs_senior": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, as above"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "as above"
+        },
+        "profit_maximisation": {
+          "answer": "contested",
+          "checked": true,
+          "reason": "same grant condition; the income line is not named by it"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "each side has its own eligibility test and credential on the operators' own pages"
+        }
+      },
+      "seller": "three public transit operators",
+      "verdict": "admissible_objective_contested",
+      "why": "the three feasibility conditions hold; a named document constrains the seller's objective, and both scored predictions need it",
+      "zero_pairs": 1
+    },
+    "jp_health_insurance_art74": {
+      "conditions": {
+        "market_power": {
+          "answer": "fails",
+          "checked": true,
+          "reason": "there is no firm. the article sets the patient share of a fee computed under another article, for every insurer in the country"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the share follows the patient, not the treatment"
+        },
+        "profit_maximisation": {
+          "answer": "fails",
+          "checked": true,
+          "reason": "a statute does not maximise profit"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the article partitions by age and by a cabinet-order income threshold"
+        }
+      },
+      "seller": "a statute",
+      "verdict": "inadmissible",
+      "why": "a feasibility condition the rival itself states fails",
+      "zero_pairs": 1
+    },
+    "king_county_types": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, as above"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "as above"
+        },
+        "profit_maximisation": {
+          "answer": "contested",
+          "checked": true,
+          "reason": "same grant condition"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the operator's own fare page lists the types separately with separate eligibility"
+        }
+      },
+      "seller": "one public transit operator",
+      "verdict": "admissible_objective_contested",
+      "why": "the three feasibility conditions hold; a named document constrains the seller's objective, and both scored predictions need it",
+      "zero_pairs": 3
+    },
+    "marcus_matinee": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, which names age among the limited observed characteristics third degree prices on"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "a ticket admits to one showing"
+        },
+        "profit_maximisation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "The Marcus Corporation, NYSE: MCS, identifies itself that way in a release filed with the SEC and reports total revenues, Adjusted EBITDA and net earnings per diluted common share as its measures, management stating it is focused on driving performance at every level. what was looked for and NOT found: no filing states an objective of maximising profit, and the Business and Strategy sections of the 10-K read carry no objective sentence at all. this is the weakest of the four answers here and is marked as the closest readable thing to the rival's own assumption rather than as that assumption itself"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the announcement prices by two stated age bands, which is the rival's own example of direct segmentation; the same chain names a valid school ID and a valid military ID on its other rates"
+        }
+      },
+      "seller": "a cinema chain listed on the New York Stock Exchange",
+      "verdict": "admissible",
+      "why": "all four hold",
+      "zero_pairs": 1
+    },
+    "mbta_reduced_list": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, as above"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "as above"
+        },
+        "profit_maximisation": {
+          "answer": "contested",
+          "checked": true,
+          "reason": "same grant condition, and this list also holds a student line and an income line the condition does not name"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the reduced-fare list is credentialed per entry"
+        }
+      },
+      "seller": "one public transit operator",
+      "verdict": "admissible_objective_contested",
+      "why": "the three feasibility conditions hold; a named document constrains the seller's objective, and both scored predictions need it",
+      "zero_pairs": 6
+    },
+    "rtd_discount_four": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, as above"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "as above"
+        },
+        "profit_maximisation": {
+          "answer": "contested",
+          "checked": true,
+          "reason": "same grant condition, and the income programme is not named by it"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "four separately branded programmes, each with its own eligibility test"
+        }
+      },
+      "seller": "one public transit operator",
+      "verdict": "admissible_objective_contested",
+      "why": "the three feasibility conditions hold; a named document constrains the seller's objective, and both scored predictions need it",
+      "zero_pairs": 6
+    },
+    "sg_emergency_rule": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "a national hospital system"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "treatment is delivered to a named patient"
+        },
+        "profit_maximisation": {
+          "answer": "fails",
+          "checked": true,
+          "reason": "a health ministry setting subsidy rates does not maximise profit, and in this context it is not setting a price at all: the announcement says emergency department fees will not discriminate between nationality or citizenship. a prediction about how a profit-maximising firm prices has no referent here, and this zero is the clearest case on the board of one that belongs to neither account: the seller did not choose it and its credentials did not force it, a published rule bans the line"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the same announcement prints the three statuses with different subsidies in five other rows"
+        }
+      },
+      "seller": "a national health ministry, in the one context its own rule bans the distinction",
+      "verdict": "inadmissible",
+      "why": "feasibility holds, but both scored predictions need profit maximisation and it does not apply",
+      "zero_pairs": 3
+    },
+    "transit_federal_three": {
+      "conditions": {
+        "market_power": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "granted on the rival's own definition, which names age and student status; and a scheduled network in one metropolitan area"
+        },
+        "no_arbitrage": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "the reduced-fare credential is issued to a named person and inspected at the farebox"
+        },
+        "profit_maximisation": {
+          "answer": "contested",
+          "checked": true,
+          "reason": "49 U.S.C. 5307(c)(1)(D) conditions a federal grant on a reduced fare not exceeding half the peak fare for the three named classes. the condition caps the level and names the three together; it does not require them to carry one number. the objective is contested rather than absent"
+        },
+        "segmentation": {
+          "answer": "holds",
+          "checked": true,
+          "reason": "each operator issues a distinct credential per class and inspects it at the farebox"
+        }
+      },
+      "seller": "three public transit operators",
+      "verdict": "admissible_objective_contested",
+      "why": "the three feasibility conditions hold; a named document constrains the seller's objective, and both scored predictions need it",
+      "zero_pairs": 3
+    }
+  },
+  "config": {
+    "carriers": 11,
+    "fourth_requirement": "the inverse elasticity rule is a first-order condition of profit maximisation, and the cost argument B57 scores is a profit argument. neither is on Stole's feasibility list",
+    "source_of_zero_pairs": "B57-11",
+    "zero_pairs_screened": 39
+  },
+  "coverage": {
+    "feasibility_i_market_power": "screened here, per carrier",
+    "feasibility_ii_segmentation": "screened here, per carrier, and every carrier stands on its own published page",
+    "feasibility_iii_no_arbitrage": "screened here, per carrier",
+    "first_degree": "no reading. this project has scored nothing against it",
+    "multidimensional": "introduction read, body not read. the map from that integrability condition to this framework's D has not been written, and is registered as not done",
+    "second_degree": "no reading. the premises are located (the utility form, single crossing, the IC argmax, and the local IC line integral) but no quantity has been scored",
+    "second_degree_local_ic": "located, not scored. the line integral is path independent for free when the type is one dimensional, which is where the standard model avoids the question rather than answering it",
+    "third_degree": "three readings: B56-5 on the inverse elasticity point prediction, B57-6 with B57-11 on the cost argument, and B57-12 on the cost defence, read against the credentials the sellers issue rather than argued",
+    "third_degree_foc": "B56-5. 3 operators read, 0 hit it"
+  },
+  "criteria": [
+    {
+      "criterion": "every element of the rival's construction carries the source it was read from, so nothing in it is this project's paraphrase",
+      "detail": "13 elements, 0 without a source",
+      "kind": "premise",
+      "name": "B58-1",
+      "passed": true
+    },
+    {
+      "criterion": "the cell to verdict map is written out, and a carrier with an unestablished feasibility condition never lands on a verdict",
+      "detail": "7 cells printed; 0 carriers leaked an unestablished or unchecked feasibility answer into an admitting verdict; 2 carriers carry at least one unchecked answer: cinema_arts_evening, cinema_village_categories",
+      "kind": "instrument",
+      "name": "B58-2",
+      "passed": true
+    },
+    {
+      "criterion": "print the object: every carrier, its four answers, whether each stands on a document, and its verdict",
+      "detail": "amtrak_everyday_discounts admissible (6 zero pairs); cinema_arts_evening admissible_objective_open (3 zero pairs); cinema_village_categories admissible_objective_open (6 zero pairs); income_vs_senior admissible_objective_contested (1 zero pairs); jp_health_insurance_art74 inadmissible (1 zero pairs); king_county_types admissible_objective_contested (3 zero pairs); marcus_matinee admissible (1 zero pairs); mbta_reduced_list admissible_objective_contested (6 zero pairs); rtd_discount_four admissible_objective_contested (6 zero pairs); sg_emergency_rule inadmissible (3 zero pairs); transit_federal_three admissible_objective_contested (3 zero pairs)",
+      "kind": "own_reading",
+      "name": "B58-3",
+      "passed": true
+    },
+    {
+      "criterion": "B57-11's zero pairs partitioned by whether the rival's own conditions admit the carrier they sit on",
+      "detail": "39 zero pairs; admissible 7 (amtrak_everyday_discounts, marcus_matinee); admissible_objective_contested 19 (income_vs_senior, king_county_types, mbta_reduced_list, rtd_discount_four, transit_federal_three); admissible_objective_open 9 (cinema_arts_evening, cinema_village_categories); inadmissible 4 (jp_health_insurance_art74, sg_emergency_rule)",
+      "kind": "own_reading",
+      "name": "B58-4",
+      "passed": true
+    },
+    {
+      "criterion": "coverage: which parts of the rival carry a reading and which carry none, named rather than left to be inferred",
+      "detail": "13 elements of the rival, 9 mapped here, 2 with no reading at all: first_degree, second_degree",
+      "kind": "bookkeeping",
+      "name": "B58-5",
+      "passed": true
+    }
+  ],
+  "rival": {
+    "feasibility_i_market_power": {
+      "source": "Stole, Price Discrimination and Competition, Handbook of Industrial Organization vol. 3, ch. 34, read 2026-09-08",
+      "text": "firm(s) have short-run market power"
+    },
+    "feasibility_ii_segmentation": {
+      "source": "Stole, Price Discrimination and Competition, Handbook of Industrial Organization vol. 3, ch. 34, read 2026-09-08",
+      "text": "consumers can be segmented either directly or indirectly"
+    },
+    "feasibility_iii_no_arbitrage": {
+      "source": "Stole, Price Discrimination and Competition, Handbook of Industrial Organization vol. 3, ch. 34, read 2026-09-08",
+      "text": "arbitrage across differently priced goods is infeasible"
+    },
+    "first_degree": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "Perfect price discrimination. The firm knows consumer preferences completely and can price separately to each consumer"
+    },
+    "multidimensional": {
+      "source": "Rochet and Chone, Ironing, Sweeping, and Multidimensional Screening, Econometrica 66(4), 783-826, introduction read 2026-09-08",
+      "text": "one does not know the direction of the (local) incentive compatibility constraints that will be binding"
+    },
+    "second_degree": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "Pricing based on self-selection, consumers with different preferences choose to buy different goods at different prices"
+    },
+    "second_degree_ic": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "theta in argmax_thetahat v(x(thetahat), theta) - T(thetahat)"
+    },
+    "second_degree_ir": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "U(theta) >= 0 for all theta"
+    },
+    "second_degree_local_ic": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "U(theta) = U(theta_low) + integral from theta_low to theta of v_theta(x(s), s) ds"
+    },
+    "second_degree_utility": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "v(q, theta) - T, with v_q > 0, v_theta > 0, v_qtheta > 0, v_qq < 0"
+    },
+    "taxonomy": {
+      "source": "Stole, Price Discrimination and Competition, Handbook of Industrial Organization vol. 3, ch. 34, read 2026-09-08",
+      "text": "Pigou (1920) introduced the terminology of first-, second- and third-degree price discrimination"
+    },
+    "third_degree": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "Pricing based on limited observed characteristics, e.g. age, student status, gender, health status"
+    },
+    "third_degree_foc": {
+      "source": "MIT 14.271 Industrial Organization I, Fall 2022, lecture 3 slides (Ellison), read 2026-09-08",
+      "text": "(p_i* - c) / p_i* = - 1 / eps_i(p_i*), per market i"
+    }
+  },
+  "stage": "B58"
+}

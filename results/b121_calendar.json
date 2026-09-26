@@ -1,0 +1,3696 @@
+{
+  "audit": {
+    "A1 supply (swap lines)": {
+      "2007-12-12": {
+        "other_within_3_days": [
+          {
+            "date": "2007-12-11",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 25 bp to 4.25%"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2007-12-12",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Term Auction Facility (TAF) is announced and swap lines are established with the ECB and SNB for $20 bn and $4 bn respectively"
+          }
+        ]
+      },
+      "2008-05-02": {
+        "other_within_3_days": [
+          {
+            "date": "2008-04-30",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Target fed funds rate is lowered 25 bp to 2%"
+          },
+          {
+            "date": "2008-05-02",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TSLF eligible collateral expands to include AAA rated ABS"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-05-02",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TAF and swap lines increase"
+          }
+        ]
+      },
+      "2008-07-30": {
+        "other_within_3_days": [],
+        "same_action": [
+          {
+            "date": "2008-07-30",
+            "page": 4,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "84-day TAF auctions are introduced and the ECB swap line is increased"
+          }
+        ]
+      },
+      "2008-09-18": {
+        "other_within_3_days": [
+          {
+            "date": "2008-09-15",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Bank of America purchases Merrill Lynch"
+          },
+          {
+            "date": "2008-09-15",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Lehman files for bankruptcy"
+          },
+          {
+            "date": "2008-09-15",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "AIG debt downgraded by all three major ratings agencies"
+          },
+          {
+            "date": "2008-09-16",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed loans $85 bn to AIG"
+          },
+          {
+            "date": "2008-09-16",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed funds rate maintained at 2%"
+          },
+          {
+            "date": "2008-09-16",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "RMC money market fund “breaks the buck”"
+          },
+          {
+            "date": "2008-09-17",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "More money market funds come under pressure"
+          },
+          {
+            "date": "2008-09-18",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Ireland Short sales of financial stocks prohibited indefinitely"
+          },
+          {
+            "date": "2008-09-18",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Sweden Government will issue large amounts of T-bills, to counter- act market shortage"
+          },
+          {
+            "date": "2008-09-18",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "United Kingdom Short sales of financial stocks prohibited, disclosure of short positions required"
+          },
+          {
+            "date": "2008-09-19",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "France Short sales of financial stocks prohibited, plus disclosure requirements"
+          },
+          {
+            "date": "2008-09-19",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Canada Short sales of financial stocks prohibited temporarily"
+          },
+          {
+            "date": "2008-09-19",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "AMLF established"
+          },
+          {
+            "date": "2008-09-19",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Treasury establishes the money market guarantee program"
+          },
+          {
+            "date": "2008-09-19",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "SEC bans short-selling on 799 financial stocks"
+          },
+          {
+            "date": "2008-09-19",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Paulson calls for government plan to purchase troubled assets from financial institutions"
+          },
+          {
+            "date": "2008-09-20",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Ireland Deposit insurance increased to EUR 100,000"
+          },
+          {
+            "date": "2008-09-21",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "GS and MS approved as bank holding companies"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-09-18",
+            "page": 5,
+            "row": "",
+            "source": "US",
+            "text": "Swap lines increased by $180 bn"
+          }
+        ]
+      },
+      "2008-09-24": {
+        "other_within_3_days": [
+          {
+            "date": "2008-09-21",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "GS and MS approved as bank holding companies"
+          },
+          {
+            "date": "2008-09-25",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "OTS and FDIC acquire WaMu"
+          },
+          {
+            "date": "2008-09-25",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "WaMu closed by OTS"
+          },
+          {
+            "date": "2008-09-26",
+            "page": 5,
+            "row": "",
+            "source": "US",
+            "text": "ECB and SNB swap lines are increased by $10 bn and $3 bn"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-09-24",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "New swap lines opened with Bank of Australia, Sveriges Riksbank, Danmarks National- bank, and Norges Bank"
+          }
+        ]
+      },
+      "2008-10-13": {
+        "other_within_3_days": [
+          {
+            "date": "2008-10-10",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Sweden Central bank announces it will discontinue repo ops for monetary policy, and will instead issue debt to absorb liquidity"
+          },
+          {
+            "date": "2008-10-10",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Canada Government will purchase 25 billion in government- insured mortgage pools"
+          },
+          {
+            "date": "2008-10-12",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Wells Fargo’s purchase of Wachovia is approved"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Interventions Liquidity and Rescue",
+            "source": "International",
+            "text": "United Kingdom Capital injections of GBP 37 billion to HBOS/Lloyds, RBS"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "",
+            "source": "International",
+            "text": "France EUR 320 billion fund to provide loans to banks and other financial firms announced"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "France EUR 40 billion to be made available to recapitalize financial firms"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Italy Government passes bank financing guarantee, will provide unspecified amount"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Germany EUR 400 billion plan to guarantee bank financing announced"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Germany EUR 70 billion recapitalization fund announced"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Japan Disclosure of short positions now required daily by sector"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "BOJ swap line is uncapped"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Treasury announces $250 bn capital injection plan"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FDIC insures all senior debt of regulated institutions"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "9 Large banks agree to capital injection from the Treasury"
+          },
+          {
+            "date": "2008-10-15",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Switzerland Central bank will begin issuing its own debt to absorb excess liquidity"
+          },
+          {
+            "date": "2008-10-16",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Switzerland Government injects CHF 6 billion into UBS and creates an SPV to buy illiquid assets, funded by UBS capital and a central bank loan"
+          },
+          {
+            "date": "2008-10-16",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Tier I capital definition changed to include stock purchased by Treasury"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-10-13",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed uncaps ECB, BoE, and SNB swap lines"
+          }
+        ]
+      },
+      "2008-10-14": {
+        "other_within_3_days": [
+          {
+            "date": "2008-10-12",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Wells Fargo’s purchase of Wachovia is approved"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Interventions Liquidity and Rescue",
+            "source": "International",
+            "text": "United Kingdom Capital injections of GBP 37 billion to HBOS/Lloyds, RBS"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "",
+            "source": "International",
+            "text": "France EUR 320 billion fund to provide loans to banks and other financial firms announced"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "France EUR 40 billion to be made available to recapitalize financial firms"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Italy Government passes bank financing guarantee, will provide unspecified amount"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Germany EUR 400 billion plan to guarantee bank financing announced"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Germany EUR 70 billion recapitalization fund announced"
+          },
+          {
+            "date": "2008-10-13",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed uncaps ECB, BoE, and SNB swap lines"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Japan Disclosure of short positions now required daily by sector"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Treasury announces $250 bn capital injection plan"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FDIC insures all senior debt of regulated institutions"
+          },
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "9 Large banks agree to capital injection from the Treasury"
+          },
+          {
+            "date": "2008-10-15",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Switzerland Central bank will begin issuing its own debt to absorb excess liquidity"
+          },
+          {
+            "date": "2008-10-16",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Switzerland Government injects CHF 6 billion into UBS and creates an SPV to buy illiquid assets, funded by UBS capital and a central bank loan"
+          },
+          {
+            "date": "2008-10-16",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Tier I capital definition changed to include stock purchased by Treasury"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-10-14",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "BOJ swap line is uncapped"
+          }
+        ]
+      }
+    },
+    "A2 capacity (TAF)": {
+      "2007-12-12": {
+        "other_within_3_days": [
+          {
+            "date": "2007-12-11",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 25 bp to 4.25%"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2007-12-12",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Term Auction Facility (TAF) is announced and swap lines are established with the ECB and SNB for $20 bn and $4 bn respectively"
+          }
+        ]
+      },
+      "2008-01-04": {
+        "other_within_3_days": [],
+        "same_action": []
+      },
+      "2008-03-07": {
+        "other_within_3_days": [
+          {
+            "date": "2008-03-07",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "SEC proposes a ban on naked short selling"
+          }
+        ],
+        "same_action": []
+      },
+      "2008-05-02": {
+        "other_within_3_days": [
+          {
+            "date": "2008-04-30",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Target fed funds rate is lowered 25 bp to 2%"
+          },
+          {
+            "date": "2008-05-02",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TSLF eligible collateral expands to include AAA rated ABS"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-05-02",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TAF and swap lines increase"
+          }
+        ]
+      },
+      "2008-07-30": {
+        "other_within_3_days": [],
+        "same_action": [
+          {
+            "date": "2008-07-30",
+            "page": 4,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "84-day TAF auctions are introduced and the ECB swap line is increased"
+          }
+        ]
+      }
+    },
+    "rate changes": {
+      "2007-09-18": {
+        "other_within_3_days": [],
+        "same_action": [
+          {
+            "date": "2007-09-18",
+            "page": 1,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 50 bp to 4.75%"
+          }
+        ]
+      },
+      "2007-10-31": {
+        "other_within_3_days": [
+          {
+            "date": "2007-11-02",
+            "page": 1,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed approves Basel II"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2007-10-31",
+            "page": 1,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 25 bp to 4.5%"
+          }
+        ]
+      },
+      "2007-12-11": {
+        "other_within_3_days": [
+          {
+            "date": "2007-12-12",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Term Auction Facility (TAF) is announced and swap lines are established with the ECB and SNB for $20 bn and $4 bn respectively"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2007-12-11",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 25 bp to 4.25%"
+          }
+        ]
+      },
+      "2008-01-22": {
+        "other_within_3_days": [],
+        "same_action": [
+          {
+            "date": "2008-01-22",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 75 bp to 3.5%"
+          }
+        ]
+      },
+      "2008-01-30": {
+        "other_within_3_days": [
+          {
+            "date": "2008-01-28",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Economic Stimulus Act of 2008 proposed"
+          },
+          {
+            "date": "2008-01-29",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Rating agencies threaten to downgrade Ambac Financial and MBIA, two major bond insurers"
+          },
+          {
+            "date": "2008-02-01",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TAF auction size increased to $30 bn every two weeks"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-01-30",
+            "page": 2,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "FOMC lowers target fed funds rate 50 bp to 3%"
+          }
+        ]
+      },
+      "2008-03-18": {
+        "other_within_3_days": [
+          {
+            "date": "2008-03-16",
+            "page": 3,
+            "row": "",
+            "source": "US",
+            "text": "The spread between the primary credit rate and target fed funds rate is cut to 25 bp"
+          },
+          {
+            "date": "2008-03-16",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Primary Dealer Credit Facility (PDCF) is created"
+          },
+          {
+            "date": "2008-03-16",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "JPMorgan announces it will purchase Bear Stearns for $2/share"
+          },
+          {
+            "date": "2008-03-19",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fannie Mae and Freddie Mac capital requirements are eased to allow for increases in lending"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-03-18",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Target fed funds rate is lowered 75 bp to 2.25%"
+          }
+        ]
+      },
+      "2008-04-30": {
+        "other_within_3_days": [
+          {
+            "date": "2008-05-02",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TSLF eligible collateral expands to include AAA rated ABS"
+          },
+          {
+            "date": "2008-05-02",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TAF and swap lines increase"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-04-30",
+            "page": 3,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Target fed funds rate is lowered 25 bp to 2%"
+          }
+        ]
+      },
+      "2008-10-08": {
+        "other_within_3_days": [
+          {
+            "date": "2008-10-05",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Germany Government guarantees all private bank accounts"
+          },
+          {
+            "date": "2008-10-06",
+            "page": 1,
+            "row": "",
+            "source": "International",
+            "text": "Sweden Deposit insurance extended to all types of deposits, up to SEK 500,000"
+          },
+          {
+            "date": "2008-10-06",
+            "page": 1,
+            "row": "",
+            "source": "International",
+            "text": "Germany Hypo Real Estate financing guarantee increased to EUR 50 billion"
+          },
+          {
+            "date": "2008-10-06",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "TAF increased to provide $900 bn of funding over year-end"
+          },
+          {
+            "date": "2008-10-07",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Commercial Paper Funding Facility (CPFF) established"
+          },
+          {
+            "date": "2008-10-08",
+            "page": 1,
+            "row": "Interventions Liquidity and Rescue",
+            "source": "International",
+            "text": "United Kingdom Major financial institutions must raise Tier I capital by GBP 25 billion combined, funds will be available"
+          },
+          {
+            "date": "2008-10-08",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "United Kingdom Credit Guarantee Scheme announced to guarantee debt of short maturity"
+          },
+          {
+            "date": "2008-10-08",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Sweden SEK 5 billion liquidity facility created for Kaupthing Bank"
+          },
+          {
+            "date": "2008-10-09",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "France Government guarantees 36.5% of EUR 150 billion Dexia refinancing"
+          },
+          {
+            "date": "2008-10-09",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Italy Government states no banks will fail, no depositors will suffer losses"
+          },
+          {
+            "date": "2008-10-09",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Payment of inter- est on reserves begins"
+          },
+          {
+            "date": "2008-10-10",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Sweden Central bank announces it will discontinue repo ops for monetary policy, and will instead issue debt to absorb liquidity"
+          },
+          {
+            "date": "2008-10-10",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Canada Government will purchase 25 billion in government- insured mortgage pools"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-10-08",
+            "page": 5,
+            "row": "",
+            "source": "US",
+            "text": "In conjunction with cuts by other central banks, target rate lowered to 1.5 %"
+          },
+          {
+            "date": "2008-10-08",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Central banks in England, China, Can- ada, Sweden, Switzerland, and the ECB join the Fed in cutting interest rates"
+          }
+        ]
+      },
+      "2008-10-29": {
+        "other_within_3_days": [
+          {
+            "date": "2008-10-27",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Sweden SEK 1 billion liquidity facility created for Carnegie"
+          },
+          {
+            "date": "2008-10-27",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Japan Naked short selling banned, exchanges must disclose holders of 0.25% short position, until end of April"
+          },
+          {
+            "date": "2008-10-27",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Germany Financial rescue fund Soﬃn begins operation, with power to guarantee financing, buy assets, and recapitalize firms"
+          },
+          {
+            "date": "2008-10-28",
+            "page": 1,
+            "row": "Interventions Liquidity and Rescue",
+            "source": "International",
+            "text": "Sweden Carnegie liquidity facility increased to SEK 5 billion"
+          },
+          {
+            "date": "2008-10-28",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Consumer confidence hits lowest point on record"
+          },
+          {
+            "date": "2008-10-29",
+            "page": 1,
+            "row": "Interventions",
+            "source": "International",
+            "text": "Italy Prohibition on short sales extended until year end"
+          },
+          {
+            "date": "2008-10-29",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "USD Swap lines established with Brazil, Mexico, Korea, and Singapore for $30 bn each"
+          },
+          {
+            "date": "2008-10-30",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Government data shows a 0.3% decline in real US GDP for Q3 2008"
+          },
+          {
+            "date": "2008-10-31",
+            "page": 1,
+            "row": "Bank Liability Guarantees Other Market",
+            "source": "International",
+            "text": "Germany Soﬃn provides Hypo Real Estate with an additional EUR 15 billion in guarantees"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-10-29",
+            "page": 5,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed Funds rate cut 50 bp to 1 %"
+          }
+        ]
+      },
+      "2008-12-16": {
+        "other_within_3_days": [
+          {
+            "date": "2008-12-14",
+            "page": 2,
+            "row": "Interventions Liquidity and Rescue",
+            "source": "International",
+            "text": "Ireland Finance Ministry announces EUR 10 billion will be made available for recapitalization"
+          },
+          {
+            "date": "2008-12-15",
+            "page": 2,
+            "row": "",
+            "source": "International",
+            "text": "United Kingdom Credit Guarantee Scheme guarantee lengthened to five years"
+          },
+          {
+            "date": "2008-12-17",
+            "page": 2,
+            "row": "Monetary Policy",
+            "source": "International",
+            "text": "Sweden Government announces it will purchase SEK 15 billion against EUR, in foreign exchange, given a historically weak krona"
+          },
+          {
+            "date": "2008-12-17",
+            "page": 6,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "November data show a decline in US consumer prices of 1.7%"
+          },
+          {
+            "date": "2008-12-19",
+            "page": 2,
+            "row": "Monetary Policy",
+            "source": "International",
+            "text": "Japan Purchases of Japanese government bonds increased to JPY 1.4 trillion per month"
+          },
+          {
+            "date": "2008-12-19",
+            "page": 2,
+            "row": "Monetary Policy",
+            "source": "International",
+            "text": "Japan Bank of Japan will conduct temporary purchases of commercial paper to ease year-end financing"
+          },
+          {
+            "date": "2008-12-19",
+            "page": 2,
+            "row": "Monetary Policy",
+            "source": "International",
+            "text": "France Short sale ban maintained, to be revisited in February"
+          },
+          {
+            "date": "2008-12-19",
+            "page": 6,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Operational details of the TALF released"
+          }
+        ],
+        "same_action": [
+          {
+            "date": "2008-12-16",
+            "page": 6,
+            "row": "Fed Policy Actions Other Policy Actions Market Events",
+            "source": "US",
+            "text": "Fed Funds rate lowered to a range of 0-0.25%"
+          }
+        ]
+      }
+    }
+  },
+  "calendar": [
+    {
+      "date": "2007-06-23",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bear Stearns pledges $3.2 bn to aid one of its ailing hedge funds"
+    },
+    {
+      "date": "2007-06-26",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC begins investigation of 12 CDO issuers"
+    },
+    {
+      "date": "2007-06-28",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC main- tains the target fed funds rate at 5.25%"
+    },
+    {
+      "date": "2007-07-17",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed, OTS, FTC, and state agencies launch new program to supervise subprime mortgage lenders"
+    },
+    {
+      "date": "2007-08-07",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC main- tains the target fed funds rate at 5.25%"
+    },
+    {
+      "date": "2007-08-09",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "BNP Paribas freezes three funds after being unable to value sub- prime mortgage based assets"
+    },
+    {
+      "date": "2007-08-10",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed issues statement that it stands ready to pro- vide liquidity via the discount window"
+    },
+    {
+      "date": "2007-08-17",
+      "page": 1,
+      "row": "",
+      "source": "US",
+      "text": "Spread between the primary credit rate and the target fed funds rate is reduced to 50 bp"
+    },
+    {
+      "date": "2007-09-13",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Northern Rock receives emerg- ency loan from the Bank of England"
+    },
+    {
+      "date": "2007-09-18",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC lowers target fed funds rate 50 bp to 4.75%"
+    },
+    {
+      "date": "2007-10-10",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Paulson makes statement on “private sector alliance” to prevent mort- gage default"
+    },
+    {
+      "date": "2007-10-16",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Citigroup begins a string of major bank writedowns based on subprime mortgage losses"
+    },
+    {
+      "date": "2007-10-31",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC lowers target fed funds rate 25 bp to 4.5%"
+    },
+    {
+      "date": "2007-11-02",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed approves Basel II"
+    },
+    {
+      "date": "2007-11-27",
+      "page": 1,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Citigroup raises $7.5 bn from the Abu Dhabi Investment Authority"
+    },
+    {
+      "date": "2007-12-11",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC lowers target fed funds rate 25 bp to 4.25%"
+    },
+    {
+      "date": "2007-12-12",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Term Auction Facility (TAF) is announced and swap lines are established with the ECB and SNB for $20 bn and $4 bn respectively"
+    },
+    {
+      "date": "2007-12-17",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The first TAF auction takes place for $20 bn of 28-day credit"
+    },
+    {
+      "date": "2007-12-21",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed extends TAF auctions “for as long as necessary to address elev- ated pressures in short-term funding markets”"
+    },
+    {
+      "date": "2008-01-11",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank of America announces purchase of Countrywide Financial for $4 bn"
+    },
+    {
+      "date": "2008-01-22",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC lowers target fed funds rate 75 bp to 3.5%"
+    },
+    {
+      "date": "2008-01-28",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Economic Stimulus Act of 2008 proposed"
+    },
+    {
+      "date": "2008-01-29",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Rating agencies threaten to downgrade Ambac Financial and MBIA, two major bond insurers"
+    },
+    {
+      "date": "2008-01-30",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC lowers target fed funds rate 50 bp to 3%"
+    },
+    {
+      "date": "2008-02-01",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TAF auction size increased to $30 bn every two weeks"
+    },
+    {
+      "date": "2008-02-13",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Economic Stimulus Act of 2008 signed into law"
+    },
+    {
+      "date": "2008-02-17",
+      "page": 2,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Britain nation- alizes Northern Rock"
+    },
+    {
+      "date": "2008-03-07",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC proposes a ban on naked short selling"
+    },
+    {
+      "date": "2008-03-11",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Term Securities Lending Facility (TSLF) is introduced and swap lines with the ECB and SNB are increased"
+    },
+    {
+      "date": "2008-03-13",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bear Stearns reports a $15 bn (88%) drop in liquid assets"
+    },
+    {
+      "date": "2008-03-14",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed approv- es purchase of Bear Stearns by JPMorgan"
+    },
+    {
+      "date": "2008-03-14",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bear Stearns receives emergency lending from the Fed via JPMorgan"
+    },
+    {
+      "date": "2008-03-16",
+      "page": 3,
+      "row": "",
+      "source": "US",
+      "text": "The spread between the primary credit rate and target fed funds rate is cut to 25 bp"
+    },
+    {
+      "date": "2008-03-16",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Primary Dealer Credit Facility (PDCF) is created"
+    },
+    {
+      "date": "2008-03-16",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "JPMorgan announces it will purchase Bear Stearns for $2/share"
+    },
+    {
+      "date": "2008-03-18",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Target fed funds rate is lowered 75 bp to 2.25%"
+    },
+    {
+      "date": "2008-03-19",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fannie Mae and Freddie Mac capital requirements are eased to allow for increases in lending"
+    },
+    {
+      "date": "2008-03-24",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "JPMorgan’s purchase price for Bear Stearns increases to $10/share"
+    },
+    {
+      "date": "2008-04-30",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Target fed funds rate is lowered 25 bp to 2%"
+    },
+    {
+      "date": "2008-05-02",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TSLF eligible collateral expands to include AAA rated ABS"
+    },
+    {
+      "date": "2008-05-02",
+      "page": 3,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TAF and swap lines increase"
+    },
+    {
+      "date": "2008-06-05",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank of America’s purchase of Countrywide is approved"
+    },
+    {
+      "date": "2008-06-06",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "S&P down- grades the two largest monoline bond insurers from AAA to AA"
+    },
+    {
+      "date": "2008-06-16",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Lehman reports a loss of $2.8 bn in the second quarter"
+    },
+    {
+      "date": "2008-07-11",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The FDIC takes over IndyMac"
+    },
+    {
+      "date": "2008-07-11",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "After FDIC take-over, IndyMac experiences a run on deposits"
+    },
+    {
+      "date": "2008-07-13",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Lending to Fannie Mae and Freddie Mac at the primary credit rate is authorized"
+    },
+    {
+      "date": "2008-07-15",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury Secretary Paulson requests government funds to potentially support Fannie Mae and Freddie Mac"
+    },
+    {
+      "date": "2008-07-30",
+      "page": 4,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "84-day TAF auctions are introduced and the ECB swap line is increased"
+    },
+    {
+      "date": "2008-09-07",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fannie Mae and Freddie Mac are placed in Federal conserv- atorship"
+    },
+    {
+      "date": "2008-09-10",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Lehman announces $3.9 bn loss in Q3"
+    },
+    {
+      "date": "2008-09-12",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Moody’s and S&P threaten to down- grade Lehman"
+    },
+    {
+      "date": "2008-09-14",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Eligible collateral for TSLF and PDCF expanded"
+    },
+    {
+      "date": "2008-09-14",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "10 banks create $70 bn liquidity fund"
+    },
+    {
+      "date": "2008-09-15",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank of America purchases Merrill Lynch"
+    },
+    {
+      "date": "2008-09-15",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Lehman files for bankruptcy"
+    },
+    {
+      "date": "2008-09-15",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "AIG debt downgraded by all three major ratings agencies"
+    },
+    {
+      "date": "2008-09-16",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed loans $85 bn to AIG"
+    },
+    {
+      "date": "2008-09-16",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed funds rate maintained at 2%"
+    },
+    {
+      "date": "2008-09-16",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "RMC money market fund “breaks the buck”"
+    },
+    {
+      "date": "2008-09-17",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "More money market funds come under pressure"
+    },
+    {
+      "date": "2008-09-18",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Ireland Short sales of financial stocks prohibited indefinitely"
+    },
+    {
+      "date": "2008-09-18",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Sweden Government will issue large amounts of T-bills, to counter- act market shortage"
+    },
+    {
+      "date": "2008-09-18",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "United Kingdom Short sales of financial stocks prohibited, disclosure of short positions required"
+    },
+    {
+      "date": "2008-09-18",
+      "page": 5,
+      "row": "",
+      "source": "US",
+      "text": "Swap lines increased by $180 bn"
+    },
+    {
+      "date": "2008-09-19",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "France Short sales of financial stocks prohibited, plus disclosure requirements"
+    },
+    {
+      "date": "2008-09-19",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Canada Short sales of financial stocks prohibited temporarily"
+    },
+    {
+      "date": "2008-09-19",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "AMLF established"
+    },
+    {
+      "date": "2008-09-19",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury establishes the money market guarantee program"
+    },
+    {
+      "date": "2008-09-19",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC bans short-selling on 799 financial stocks"
+    },
+    {
+      "date": "2008-09-19",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Paulson calls for government plan to purchase troubled assets from financial institutions"
+    },
+    {
+      "date": "2008-09-20",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Ireland Deposit insurance increased to EUR 100,000"
+    },
+    {
+      "date": "2008-09-21",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "GS and MS approved as bank holding companies"
+    },
+    {
+      "date": "2008-09-24",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "New swap lines opened with Bank of Australia, Sveriges Riksbank, Danmarks National- bank, and Norges Bank"
+    },
+    {
+      "date": "2008-09-25",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "OTS and FDIC acquire WaMu"
+    },
+    {
+      "date": "2008-09-25",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "WaMu closed by OTS"
+    },
+    {
+      "date": "2008-09-26",
+      "page": 5,
+      "row": "",
+      "source": "US",
+      "text": "ECB and SNB swap lines are increased by $10 bn and $3 bn"
+    },
+    {
+      "date": "2008-09-29",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "United Kingdom Bradford & Bingley bank nationalized, branch system and deposits sold to Banco Santander"
+    },
+    {
+      "date": "2008-09-29",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Hypo Real Estate receives EUR 35 billion guaranteed financing"
+    },
+    {
+      "date": "2008-09-29",
+      "page": 5,
+      "row": "",
+      "source": "US",
+      "text": "84-day TAF allotments increased to $75 bn, two forward TAF auctions totalling $150 bn intro- duced, and total swap line doubled to $620 bn"
+    },
+    {
+      "date": "2008-09-29",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury bailout plan is voted down in the House"
+    },
+    {
+      "date": "2008-09-29",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Systemic risk exception allows open bank assistance to Wachovia"
+    },
+    {
+      "date": "2008-09-29",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed agrees to provide Citigroup with liq- uidity to aid in Wachovia purchase"
+    },
+    {
+      "date": "2008-09-30",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Ireland Six banks receive guarantees on all deposits and some debt instruments"
+    },
+    {
+      "date": "2008-09-30",
+      "page": 1,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "France Government and state-owned bank contribute EUR 3 billion to Dexia recapitalization"
+    },
+    {
+      "date": "2008-09-30",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Ireland guarantees the deposits of the 6 largest Irish banks"
+    },
+    {
+      "date": "2008-10-01",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Italy Short sales of financial stocks prohibited temporarily"
+    },
+    {
+      "date": "2008-10-03",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "United Kingdom Deposit insurance increased to GBP 50,000"
+    },
+    {
+      "date": "2008-10-03",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Canada Prohibition on short sales extended until end of SEC’s ban"
+    },
+    {
+      "date": "2008-10-03",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Revised Treasury plan passes the House along with new clauses raising FDIC insurance limits to $250,000"
+    },
+    {
+      "date": "2008-10-03",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Wells Fargo makes counter- offer for Wachovia"
+    },
+    {
+      "date": "2008-10-05",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Government guarantees all private bank accounts"
+    },
+    {
+      "date": "2008-10-06",
+      "page": 1,
+      "row": "",
+      "source": "International",
+      "text": "Sweden Deposit insurance extended to all types of deposits, up to SEK 500,000"
+    },
+    {
+      "date": "2008-10-06",
+      "page": 1,
+      "row": "",
+      "source": "International",
+      "text": "Germany Hypo Real Estate financing guarantee increased to EUR 50 billion"
+    },
+    {
+      "date": "2008-10-06",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TAF increased to provide $900 bn of funding over year-end"
+    },
+    {
+      "date": "2008-10-07",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Commercial Paper Funding Facility (CPFF) established"
+    },
+    {
+      "date": "2008-10-08",
+      "page": 1,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "United Kingdom Major financial institutions must raise Tier I capital by GBP 25 billion combined, funds will be available"
+    },
+    {
+      "date": "2008-10-08",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "United Kingdom Credit Guarantee Scheme announced to guarantee debt of short maturity"
+    },
+    {
+      "date": "2008-10-08",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Sweden SEK 5 billion liquidity facility created for Kaupthing Bank"
+    },
+    {
+      "date": "2008-10-08",
+      "page": 5,
+      "row": "",
+      "source": "US",
+      "text": "In conjunction with cuts by other central banks, target rate lowered to 1.5 %"
+    },
+    {
+      "date": "2008-10-08",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Central banks in England, China, Can- ada, Sweden, Switzerland, and the ECB join the Fed in cutting interest rates"
+    },
+    {
+      "date": "2008-10-09",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "France Government guarantees 36.5% of EUR 150 billion Dexia refinancing"
+    },
+    {
+      "date": "2008-10-09",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Italy Government states no banks will fail, no depositors will suffer losses"
+    },
+    {
+      "date": "2008-10-09",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Payment of inter- est on reserves begins"
+    },
+    {
+      "date": "2008-10-10",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Sweden Central bank announces it will discontinue repo ops for monetary policy, and will instead issue debt to absorb liquidity"
+    },
+    {
+      "date": "2008-10-10",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Canada Government will purchase 25 billion in government- insured mortgage pools"
+    },
+    {
+      "date": "2008-10-12",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Wells Fargo’s purchase of Wachovia is approved"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 1,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "United Kingdom Capital injections of GBP 37 billion to HBOS/Lloyds, RBS"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 1,
+      "row": "",
+      "source": "International",
+      "text": "France EUR 320 billion fund to provide loans to banks and other financial firms announced"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "France EUR 40 billion to be made available to recapitalize financial firms"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Italy Government passes bank financing guarantee, will provide unspecified amount"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Germany EUR 400 billion plan to guarantee bank financing announced"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Germany EUR 70 billion recapitalization fund announced"
+    },
+    {
+      "date": "2008-10-13",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed uncaps ECB, BoE, and SNB swap lines"
+    },
+    {
+      "date": "2008-10-14",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Japan Disclosure of short positions now required daily by sector"
+    },
+    {
+      "date": "2008-10-14",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "BOJ swap line is uncapped"
+    },
+    {
+      "date": "2008-10-14",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury announces $250 bn capital injection plan"
+    },
+    {
+      "date": "2008-10-14",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FDIC insures all senior debt of regulated institutions"
+    },
+    {
+      "date": "2008-10-14",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "9 Large banks agree to capital injection from the Treasury"
+    },
+    {
+      "date": "2008-10-15",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Switzerland Central bank will begin issuing its own debt to absorb excess liquidity"
+    },
+    {
+      "date": "2008-10-16",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Switzerland Government injects CHF 6 billion into UBS and creates an SPV to buy illiquid assets, funded by UBS capital and a central bank loan"
+    },
+    {
+      "date": "2008-10-16",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Tier I capital definition changed to include stock purchased by Treasury"
+    },
+    {
+      "date": "2008-10-20",
+      "page": 1,
+      "row": "",
+      "source": "International",
+      "text": "Sweden Government will guarantee up to SEK 1.5 trillion in new debt issues"
+    },
+    {
+      "date": "2008-10-20",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Sweden Stabilization fund announced, with SEK 15 billion initially; government will be given the right to buy out shareholders in systemically important institutions at market price"
+    },
+    {
+      "date": "2008-10-20",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "France Government subscribes to EUR 10.5 billion in subordinated debt issue by six largest banks"
+    },
+    {
+      "date": "2008-10-21",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Money Market Investor Fund- ing Facility (MMIFF) is established"
+    },
+    {
+      "date": "2008-10-22",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Rate paid on excess reserves increases by 40 bp"
+    },
+    {
+      "date": "2008-10-23",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Canada Canadian Lenders Assurance Facility announced to guarantee debt up to three years"
+    },
+    {
+      "date": "2008-10-23",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Alan Greenspan testifies before the House Committee of Government Oversight and Reform"
+    },
+    {
+      "date": "2008-10-27",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Sweden SEK 1 billion liquidity facility created for Carnegie"
+    },
+    {
+      "date": "2008-10-27",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Japan Naked short selling banned, exchanges must disclose holders of 0.25% short position, until end of April"
+    },
+    {
+      "date": "2008-10-27",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Germany Financial rescue fund Soﬃn begins operation, with power to guarantee financing, buy assets, and recapitalize firms"
+    },
+    {
+      "date": "2008-10-28",
+      "page": 1,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "Sweden Carnegie liquidity facility increased to SEK 5 billion"
+    },
+    {
+      "date": "2008-10-28",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Consumer confidence hits lowest point on record"
+    },
+    {
+      "date": "2008-10-29",
+      "page": 1,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Italy Prohibition on short sales extended until year end"
+    },
+    {
+      "date": "2008-10-29",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed Funds rate cut 50 bp to 1 %"
+    },
+    {
+      "date": "2008-10-29",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "USD Swap lines established with Brazil, Mexico, Korea, and Singapore for $30 bn each"
+    },
+    {
+      "date": "2008-10-30",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Government data shows a 0.3% decline in real US GDP for Q3 2008"
+    },
+    {
+      "date": "2008-10-31",
+      "page": 1,
+      "row": "Bank Liability Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Soﬃn provides Hypo Real Estate with an additional EUR 15 billion in guarantees"
+    },
+    {
+      "date": "2008-11-02",
+      "page": 2,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "Germany Soﬃn gives EUR 8.2 billion of loans to Commerzbank AG"
+    },
+    {
+      "date": "2008-11-05",
+      "page": 2,
+      "row": "",
+      "source": "International",
+      "text": "Switzerland Deposit insurance increased to CHF 100,000"
+    },
+    {
+      "date": "2008-11-05",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Interest on reserve rate increases"
+    },
+    {
+      "date": "2008-11-06",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "European central banks make coordinated rate cuts"
+    },
+    {
+      "date": "2008-11-10",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Sweden Carnegie seized by the government, as collateral on the liquidity facility that cannot be repaid"
+    },
+    {
+      "date": "2008-11-10",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "AIG loan is restructured in coordination with US Treasury"
+    },
+    {
+      "date": "2008-11-10",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Chinese government announces a Y4 tn ($586 bn) fiscal stimulus package"
+    },
+    {
+      "date": "2008-11-12",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Canada Canadian Lenders Assurance Facility lowers its guarantee fee to be in line with other programs"
+    },
+    {
+      "date": "2008-11-12",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Canada Government announces an additional 50 billion in insured mortgage pool purchases"
+    },
+    {
+      "date": "2008-11-12",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury statement on assistance to consumer ABS"
+    },
+    {
+      "date": "2008-11-23",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed, FDIC, and Treasury agree to non-recourse loan to Citigroup if necessary"
+    },
+    {
+      "date": "2008-11-25",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed purchase of GSE direct obligations begins"
+    },
+    {
+      "date": "2008-11-25",
+      "page": 5,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TALF established to provide loans collateralized by ABS"
+    },
+    {
+      "date": "2008-11-28",
+      "page": 2,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "Germany BayernLB receives EUR 7 billion of capital from Bavaria, requests 3 billion more from Soﬃn"
+    },
+    {
+      "date": "2008-12-01",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "NBER declares that a recession began in December 2007"
+    },
+    {
+      "date": "2008-12-02",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "PDCF, AMLF, and TSLF are all extended through April 30th"
+    },
+    {
+      "date": "2008-12-03",
+      "page": 2,
+      "row": "",
+      "source": "International",
+      "text": "Germany Soﬃn provides BayernLB with EUR 15 billion in guarantees"
+    },
+    {
+      "date": "2008-12-14",
+      "page": 2,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "Ireland Finance Ministry announces EUR 10 billion will be made available for recapitalization"
+    },
+    {
+      "date": "2008-12-15",
+      "page": 2,
+      "row": "",
+      "source": "International",
+      "text": "United Kingdom Credit Guarantee Scheme guarantee lengthened to five years"
+    },
+    {
+      "date": "2008-12-16",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed Funds rate lowered to a range of 0-0.25%"
+    },
+    {
+      "date": "2008-12-17",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Sweden Government announces it will purchase SEK 15 billion against EUR, in foreign exchange, given a historically weak krona"
+    },
+    {
+      "date": "2008-12-17",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "November data show a decline in US consumer prices of 1.7%"
+    },
+    {
+      "date": "2008-12-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Purchases of Japanese government bonds increased to JPY 1.4 trillion per month"
+    },
+    {
+      "date": "2008-12-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Bank of Japan will conduct temporary purchases of commercial paper to ease year-end financing"
+    },
+    {
+      "date": "2008-12-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "France Short sale ban maintained, to be revisited in February"
+    },
+    {
+      "date": "2008-12-19",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Operational details of the TALF released"
+    },
+    {
+      "date": "2008-12-20",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Eleven of the world’s largest banks are down- graded by S&P"
+    },
+    {
+      "date": "2008-12-21",
+      "page": 2,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "Ireland Subject to shareholder vote, three banks will receive EUR 5.5 billion in preference shares"
+    },
+    {
+      "date": "2008-12-22",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Soﬃn provides IKB with EUR 5 billion in guarantees"
+    },
+    {
+      "date": "2008-12-29",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury injects $5 bn in GMAC"
+    },
+    {
+      "date": "2008-12-30",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Italy Short sale prohibition extended for financial stocks, rules for non- financial stocks relaxed"
+    },
+    {
+      "date": "2009-01-05",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "United Kingdom Short sale disclosure requirements extended, additional disclosures required"
+    },
+    {
+      "date": "2009-01-08",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Germany Soﬃn gives another EUR 8.2 billion of loans to Commerzbank, and buys 1.8 billion worth of equity"
+    },
+    {
+      "date": "2009-01-10",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "US unemploy- ment rises to 7.2%"
+    },
+    {
+      "date": "2009-01-15",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Ireland Anglo Irish bank nationalized due to weak funding position and “unacceptable practices”"
+    },
+    {
+      "date": "2009-01-15",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "ECB cuts policy rate by 50 bp"
+    },
+    {
+      "date": "2009-01-16",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Citigroup announces plan to split into two units after Q4 loss"
+    },
+    {
+      "date": "2009-01-16",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed, Treasury, and FDIC jointly aid Bank of America. Fed agrees to provide non-recourse loan"
+    },
+    {
+      "date": "2009-01-16",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Remaining TARP funds released by Senate"
+    },
+    {
+      "date": "2009-01-16",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed, Treasury, and FDIC jointly aid Bank of America"
+    },
+    {
+      "date": "2009-01-19",
+      "page": 2,
+      "row": "Bank Liability",
+      "source": "International",
+      "text": "United Kingdom Credit Guarantee Scheme extended to guarantee debt issues until year-end 2008"
+    },
+    {
+      "date": "2009-01-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "United Kingdom Bank of England announces GBP 50 billion in purchases of high-quality private sector assets"
+    },
+    {
+      "date": "2009-01-19",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "United Kingdom Asset Protection Scheme announced, for a fee Treasury will assume 90% of losses after initial provision"
+    },
+    {
+      "date": "2009-01-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "United Kingdom CGS-eligible firms can get a full or partial guarantee on AAA-rated ABS"
+    },
+    {
+      "date": "2009-01-19",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Treasury converts preference shares in RBS into common equity"
+    },
+    {
+      "date": "2009-01-19",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "UK announces a comprehensive bank rescue plan"
+    },
+    {
+      "date": "2009-01-21",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "France Second round of recapitalization for another EUR 10.5 billion of debt"
+    },
+    {
+      "date": "2009-01-21",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Soﬃn provides Hypo Real Estate with an additional EUR 12 billion in guarantees"
+    },
+    {
+      "date": "2009-01-22",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Bank of Japan will purchase JPY 3 trillion of CP and asset-backed CP"
+    },
+    {
+      "date": "2009-01-24",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Citigroup sells $12 bn of government guaranteed bonds"
+    },
+    {
+      "date": "2009-01-26",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fannie and Freddie say they need $51 bn to continue operations"
+    },
+    {
+      "date": "2009-01-28",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC announces willingness to begin purchase of long- term Treasury securities"
+    },
+    {
+      "date": "2009-01-28",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed Funds rate maintained at 0-25 bp"
+    },
+    {
+      "date": "2009-01-29",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Italy Short sale prohibition extended for financial stocks"
+    },
+    {
+      "date": "2009-02-02",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Switzerland Central bank will now also issue debt denominated in USD"
+    },
+    {
+      "date": "2009-02-03",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Bank of Japan will purchase JPY 1 trillion of bank stock"
+    },
+    {
+      "date": "2009-02-03",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Sweden SEK 50 billion recapitalization program announced"
+    },
+    {
+      "date": "2009-02-03",
+      "page": 6,
+      "row": "",
+      "source": "US",
+      "text": "All Fed facilities set to expire in April are extended through October"
+    },
+    {
+      "date": "2009-02-04",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury announces restrictions on executive pay for banks getting assistance from the government"
+    },
+    {
+      "date": "2009-02-10",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Markets decline after Geithner’s speech due to a lack of specifics"
+    },
+    {
+      "date": "2009-02-10",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed states willingness to expand TALF to $1 trillion and to accept a wider set of acceptable collateral"
+    },
+    {
+      "date": "2009-02-10",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Geithner launches Financial Stability Plan"
+    },
+    {
+      "date": "2009-02-11",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Ireland New terms for recapitalization for two banks announced"
+    },
+    {
+      "date": "2009-02-18",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Obama announces plan to aid homeowners with mort- gage payment"
+    },
+    {
+      "date": "2009-02-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Bank of Japan will purchase JPY 1 trillion of corporate bonds"
+    },
+    {
+      "date": "2009-02-19",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Bank of Japan will continue purchasing commercial paper until September"
+    },
+    {
+      "date": "2009-02-23",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Joint statement with other US government organizations discusses stress- test related capital injections"
+    },
+    {
+      "date": "2009-02-23",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank reg- ulators issue statement on new round of capital injections"
+    },
+    {
+      "date": "2009-02-24",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Germany Two German states recapitalize the state-owned HSH Nordbank"
+    },
+    {
+      "date": "2009-02-25",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Italy EUR 12 billion recapitalization plan approved"
+    },
+    {
+      "date": "2009-02-25",
+      "page": 6,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury announces terms of the Capital Assistance Program"
+    },
+    {
+      "date": "2009-02-26",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Italy Short sale prohibition extended for financial stocks"
+    },
+    {
+      "date": "2009-02-26",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "United Kingdom RBS agrees to participate in APS, receives capital injection of GBP 13 billion, giving 84% ownership to gov’t"
+    },
+    {
+      "date": "2009-02-26",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "France Government provides EUR 5 billion in debt and preference shares to two merging banks"
+    },
+    {
+      "date": "2009-03-01",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "AIG receives $30 bn in cap- ital in exchange for government control of two divisions of the company"
+    },
+    {
+      "date": "2009-03-02",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed and Treasury announce joint restructuring plan for AIG"
+    },
+    {
+      "date": "2009-03-02",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "AIG announces $61.7 bn Q4 loss, the largest in US corporate history"
+    },
+    {
+      "date": "2009-03-02",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed and Treasury announce joint restructuring plan for AIG"
+    },
+    {
+      "date": "2009-03-03",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TALF launch"
+    },
+    {
+      "date": "2009-03-03",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury releases TALF details"
+    },
+    {
+      "date": "2009-03-05",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "United Kingdom Asset Purchase Plan increased to GBP 75 billion, will include purchases of gilts"
+    },
+    {
+      "date": "2009-03-07",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Lloyds agrees to participate in APS, Treasury converts preference shares into common equity"
+    },
+    {
+      "date": "2009-03-07",
+      "page": 2,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Soﬃn provides HSH Nordbank with EUR 30 billion in guarantees"
+    },
+    {
+      "date": "2009-03-12",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Switzerland Central bank will purchase foreign currency against the Franc to halt its appreciation"
+    },
+    {
+      "date": "2009-03-12",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Switzerland Central bank will purchase CHF- denominated bonds"
+    },
+    {
+      "date": "2009-03-15",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "In his 60 Minutes interview, Bernanke makes first public use of the term “green shoots” by a Fed oﬃcial during the crisis"
+    },
+    {
+      "date": "2009-03-17",
+      "page": 2,
+      "row": "Interventions Liquidity and Rescue",
+      "source": "International",
+      "text": "Japan Bank of Japan announces a subordinated loan program of JPY 1 trillion"
+    },
+    {
+      "date": "2009-03-18",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Purchases of Japanese government bonds increased to JPY 1.8 trillion per month"
+    },
+    {
+      "date": "2009-03-18",
+      "page": 7,
+      "row": "",
+      "source": "US",
+      "text": "Announcement of program to buy $300 bn worth of Treasuries and to increase the purchase of agency debt"
+    },
+    {
+      "date": "2009-03-18",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed funds rate maintained at 0-25bp"
+    },
+    {
+      "date": "2009-03-19",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TALF eligible securities expanded"
+    },
+    {
+      "date": "2009-03-23",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed and Treasury release joint statement clarifying the roles of the two organizations"
+    },
+    {
+      "date": "2009-03-23",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury releases details of the Public- Private Investment Program"
+    },
+    {
+      "date": "2009-03-27",
+      "page": 2,
+      "row": "Monetary Policy",
+      "source": "International",
+      "text": "Japan Short sale restrictions extended to July"
+    },
+    {
+      "date": "2009-03-30",
+      "page": 2,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Germany Soﬃn purchases 8.7% of Hypo Real Estate for EUR 60 million"
+    },
+    {
+      "date": "2009-04-02",
+      "page": 3,
+      "row": "",
+      "source": "International",
+      "text": "Sweden Guarantee scheme extended until end of October"
+    },
+    {
+      "date": "2009-04-02",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Financial Accounting Standards Board (FASB) relaxes mark- to-market accounting rules"
+    },
+    {
+      "date": "2009-04-02",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "G20 meets in London"
+    },
+    {
+      "date": "2009-04-02",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "ECB cuts policy rate to 1.25%"
+    },
+    {
+      "date": "2009-04-06",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "ECB, UK, Japan Switzerland Foreign central banks agree to provide the Federal Reserve with foreign currency liquidity"
+    },
+    {
+      "date": "2009-04-06",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed creates foreign currency swap ag- reements with the ECB, BoJ, BoE, and SNB"
+    },
+    {
+      "date": "2009-04-07",
+      "page": 3,
+      "row": "Liquidity and Rescue",
+      "source": "International",
+      "text": "Ireland Government announces it will swap government bonds for EUR 90 billion face value of toxic assets"
+    },
+    {
+      "date": "2009-04-09",
+      "page": 3,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Soﬃn makes a bid for Hypo Real Estate, will nationalize if investors do not accept by May"
+    },
+    {
+      "date": "2009-04-09",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Wells Fargo reports record profit in Q1 2009"
+    },
+    {
+      "date": "2009-04-11",
+      "page": 3,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Germany Finance Minister proposes “bad bank” plan that keeps toxic assets on the books, but will take illiquid assets"
+    },
+    {
+      "date": "2009-04-13",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Goldman Sachs moves to raise $5 bn to pay back TARP funding"
+    },
+    {
+      "date": "2009-04-14",
+      "page": 3,
+      "row": "",
+      "source": "International",
+      "text": "Germany Soﬃn extends EUR 52 billion in guarantees to Hypo Real Estate until mid-August"
+    },
+    {
+      "date": "2009-04-29",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC keeps target rate at 0-25 bp"
+    },
+    {
+      "date": "2009-04-29",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "$3.4 trillion budget is approved by Congress"
+    },
+    {
+      "date": "2009-05-01",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TALF eligible collateral expanded"
+    },
+    {
+      "date": "2009-05-05",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Evidence of easing term funding conditions comes as Libor falls below 1%"
+    },
+    {
+      "date": "2009-05-07",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Asset purchase plan increased to GBP 125 billion in assets"
+    },
+    {
+      "date": "2009-05-07",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "ECB Central bank announces EUR 60 billion in purchases of covered bonds"
+    },
+    {
+      "date": "2009-05-07",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Stress test results released"
+    },
+    {
+      "date": "2009-05-07",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Joint statement released ahead of Capital Assess- ment Program results"
+    },
+    {
+      "date": "2009-05-07",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "ECB cuts policy rate by 25bp to 1%"
+    },
+    {
+      "date": "2009-05-08",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fannie Mae requests $19 bn from the Treasury after a $23.2 bn quarterly loss"
+    },
+    {
+      "date": "2009-05-11",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Following stress test results, banks raise $7.5 bn in new capital"
+    },
+    {
+      "date": "2009-05-12",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank of America sells its stake in China Construction Bank for $7.3 billion"
+    },
+    {
+      "date": "2009-05-13",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "US Treasury releases proposal to regulate OTC derivatives"
+    },
+    {
+      "date": "2009-05-19",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TALF announces acceptance of legacy CMBS"
+    },
+    {
+      "date": "2009-05-28",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Sweden Government announces it is expanding its SEK purchases against the EUR by SEK 35 billion to 50 billion"
+    },
+    {
+      "date": "2009-05-28",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Italy Short sale ban is relaxed except on firms receiving capital injections"
+    },
+    {
+      "date": "2009-05-29",
+      "page": 7,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Government statistics show an annualized drop in GDP of 5.7% for Q1 2009"
+    },
+    {
+      "date": "2009-06-01",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed outlines guidelines for SCAP participants to return Treasury capital"
+    },
+    {
+      "date": "2009-06-01",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "General Motors declares bankruptcy"
+    },
+    {
+      "date": "2009-06-03",
+      "page": 3,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Germany Hypo Real Estate shareholders, led by Soﬃn at 47% ownership, vote for a EUR 3 billion capital injection giving government full control"
+    },
+    {
+      "date": "2009-06-08",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Asset purchases to be expanded to include secured commercial paper"
+    },
+    {
+      "date": "2009-06-08",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "Ireland’s credit rating is cut for the second time in three months"
+    },
+    {
+      "date": "2009-06-10",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "First issue of new monthly report on the credit and liquidity facilities is released"
+    },
+    {
+      "date": "2009-06-17",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "Obama proposes a compre- hensive regulatory reform plan"
+    },
+    {
+      "date": "2009-06-24",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC keeps target rate at 0-25 bp and calls for further securities purchases"
+    },
+    {
+      "date": "2009-06-25",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "ECB, UK, Sweden Switzerland Swap lines with the Federal Reserve extended until February 1st"
+    },
+    {
+      "date": "2009-06-25",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TAF offeri- ng amount reduced for first time"
+    },
+    {
+      "date": "2009-06-26",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Short sale disclosure requirements extended until new, permanent regulations can be introduced"
+    },
+    {
+      "date": "2009-06-26",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "Treasury releases CPP warrant repurchase rules"
+    },
+    {
+      "date": "2009-07-02",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Sweden Riksbank lowers monetary policy rates; deposit rate now negative 0.25%"
+    },
+    {
+      "date": "2009-07-02",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Reg D amend- ment prevents FHLBs from earning IOER"
+    },
+    {
+      "date": "2009-07-03",
+      "page": 3,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany IKB receives an additional EUR 7 billion in guarantees"
+    },
+    {
+      "date": "2009-07-08",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Joint statement issued, establish- ing the Legacy Securities Public- Private Investment Program"
+    },
+    {
+      "date": "2009-07-08",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "Joint statement between Fed, Treasury, and FDIC issued, establishing the Legacy Securities Public-Private Investment Program"
+    },
+    {
+      "date": "2009-07-10",
+      "page": 3,
+      "row": "Liquidity and Rescue",
+      "source": "International",
+      "text": "Germany Bad bank plan passed by legislature: trades toxic assets for guaranteed debt, but firms must repay any losses over 20 year period"
+    },
+    {
+      "date": "2009-07-15",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Japan Swap line with the Federal Reserve extended until February 1st"
+    },
+    {
+      "date": "2009-07-16",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "Talks between CIT and govern- ment agencies fail to yield a support package"
+    },
+    {
+      "date": "2009-07-20",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "CIT announces $3 bn bond deal and restructuring"
+    },
+    {
+      "date": "2009-07-24",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "France Short sale ban on financial firms extended until January 2010"
+    },
+    {
+      "date": "2009-07-27",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bernanke appears on PBS News- Hour"
+    },
+    {
+      "date": "2009-07-28",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Japan Short sale restrictions extended until October 31st"
+    },
+    {
+      "date": "2009-07-30",
+      "page": 3,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Ireland Bad bank draft proposal released, legislative debate to begin mid-September"
+    },
+    {
+      "date": "2009-07-31",
+      "page": 3,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Italy Banco Popolare becomes the first bank to use the Italian bank liability guarantee program"
+    },
+    {
+      "date": "2009-08-06",
+      "page": 3,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Asset purchase plan increased to GBP 175 billion in assets"
+    },
+    {
+      "date": "2009-08-07",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "Two exchanges agree to end"
+    },
+    {
+      "date": "2009-08-12",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC maintains target fed funds rate at 0-25 bp"
+    },
+    {
+      "date": "2009-08-17",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TALF extended but elligible collateral list does not change"
+    },
+    {
+      "date": "2009-08-19",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "New margins for TAF and DW collateral ann- ounced, to be"
+    },
+    {
+      "date": "2009-08-20",
+      "page": 3,
+      "row": "Interventions",
+      "source": "International",
+      "text": "Switzerland Government converts its stake in UBS to shares and sells them, in addition to a cash payment from UBS in lieu of coupon payments"
+    },
+    {
+      "date": "2009-08-25",
+      "page": 8,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Obama nominates Bernanke to second term"
+    },
+    {
+      "date": "2009-08-26",
+      "page": 8,
+      "row": "Jun",
+      "source": "US",
+      "text": "FDIC releases"
+    },
+    {
+      "date": "2009-09-09",
+      "page": 4,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Commerzbank announces it will return all of its unused debt guarantees"
+    },
+    {
+      "date": "2009-09-09",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FDIC board approves expiration of Temporary Liquidity Gua- rantee Program on 31 Oct"
+    },
+    {
+      "date": "2009-09-17",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC proposes ﬂash order ban"
+    },
+    {
+      "date": "2009-09-17",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC approves new rules to govern rating agencies"
+    },
+    {
+      "date": "2009-09-18",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury Guarantee Program for Money Markets expires"
+    },
+    {
+      "date": "2009-09-23",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Target rate kept at 0- 25 bp, age- ncy purch- ases set to expire after Q1 2010"
+    },
+    {
+      "date": "2009-09-24",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TSLF and TAF offer amount reductions announced"
+    },
+    {
+      "date": "2009-09-25",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Trade volumes for July rose at fastest rate in over 5 years"
+    },
+    {
+      "date": "2009-09-29",
+      "page": 4,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Italy Unicredit announces it will raise capital through selling stocks in lieu of planned government capital injection"
+    },
+    {
+      "date": "2009-09-29",
+      "page": 4,
+      "row": "Interventions",
+      "source": "International",
+      "text": "France BNP Paribus announces a rights offer to raise capital in order to repay government aid"
+    },
+    {
+      "date": "2009-09-29",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FDIC requires insured insti- tutions to prepay qua- rterly risk- based ass- essments to strengthen its cash pos- ition"
+    },
+    {
+      "date": "2009-10-05",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Changes to process for evaluating ABS pledged to TALF ann- ounced"
+    },
+    {
+      "date": "2009-10-06",
+      "page": 4,
+      "row": "Interventions",
+      "source": "International",
+      "text": "France Societe Generale follows BNP Paribus, announcing a rights offer to repay government aid"
+    },
+    {
+      "date": "2009-10-08",
+      "page": 4,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Sweden Guarantee scheme extended an additional six months to April 30th"
+    },
+    {
+      "date": "2009-10-22",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Proposed guidance on bank incentive compensa- tion released"
+    },
+    {
+      "date": "2009-10-22",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury issues first rulings on executive compensa- tion for 7 firms that recieved TARP ass- istance"
+    },
+    {
+      "date": "2009-10-23",
+      "page": 4,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Japan Short sale restrictions extended until January 31st"
+    },
+    {
+      "date": "2009-11-01",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "CIT Group files for bankruptcy with support of debt holders"
+    },
+    {
+      "date": "2009-11-03",
+      "page": 4,
+      "row": "Interventions",
+      "source": "International",
+      "text": "United Kingdom Lloyds exits the Asset Protection Scheme for a fee; RBS will continue participating under new conditions"
+    },
+    {
+      "date": "2009-11-04",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC main- tains target rate at 0-25 bp, citing subdued inﬂation"
+    },
+    {
+      "date": "2009-11-05",
+      "page": 4,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "United Kingdom Asset purchase plan increased to GBP 200 billion in assets"
+    },
+    {
+      "date": "2009-11-09",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury Capital Assistance Prog- ram will close without making any investments"
+    },
+    {
+      "date": "2009-11-13",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Federal Housing Finance Agency capital reserves fall to 0.53%"
+    },
+    {
+      "date": "2009-11-17",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "President Obama est- ablishes Fin- ancial Fraud Enforcement Task Force"
+    },
+    {
+      "date": "2009-11-26",
+      "page": 9,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Dubai World requests 6- month debt standstill"
+    },
+    {
+      "date": "2009-12-09",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury exte- nds TARP until October 2010"
+    },
+    {
+      "date": "2009-12-09",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank of Am- erica repays TARP funds"
+    },
+    {
+      "date": "2009-12-16",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Target rate kept at 0-25 bp, agency purchases on track to be completed by Q1 2010"
+    },
+    {
+      "date": "2009-12-21",
+      "page": 4,
+      "row": "Guarantees Other Market",
+      "source": "International",
+      "text": "Germany Hypo Real Estate receives an extension of EUR 43 bn liquidity facility until Dec 2010, EUR 52 bn in guarantees to expire in Jun 2010"
+    },
+    {
+      "date": "2009-12-23",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Citibank and Wells Fargo repay TARP funds"
+    },
+    {
+      "date": "2009-12-24",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury unc- aps the avail- able capital for PSPAs with Fannie Mae and Freddie Mac"
+    },
+    {
+      "date": "2009-12-28",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Board prop- oses amen- ding Reg. D to establish a term dep- osit facility"
+    },
+    {
+      "date": "2010-01-14",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "President Obama pro- poses a fina- cial crisis res- ponsibility fee"
+    },
+    {
+      "date": "2010-01-22",
+      "page": 4,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Japan Short sale restrictions extended until April 30th"
+    },
+    {
+      "date": "2010-01-27",
+      "page": 4,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "EU, UK, Japan, Sweden, Switzerland Swap lines with the Federal Reserve are allowed to expire on February 1st"
+    },
+    {
+      "date": "2010-01-27",
+      "page": 4,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "France Short sale ban on financial firms extended indefinitely until EU-wide permanent regime in place"
+    },
+    {
+      "date": "2010-01-27",
+      "page": 10,
+      "row": "",
+      "source": "US",
+      "text": "FOMC keeps targe rate at 0-25 bp and notes that in- ﬂation is likely to remain low for some time"
+    },
+    {
+      "date": "2010-01-27",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Secretary Geithner test- ifies to cong- ress on AIG deal"
+    },
+    {
+      "date": "2010-01-27",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC issues a new rule to increase the resilience of money market funds to econ- omic stress"
+    },
+    {
+      "date": "2010-01-28",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The Senate con- firms Chairman Bernanke for a second four year term"
+    },
+    {
+      "date": "2010-02-01",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The AMLF, the CPFF, the PDCF and the TSLF are closed"
+    },
+    {
+      "date": "2010-02-03",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Ben Bernanke is sworn in to his second term as Chairman of the Federal Reserve"
+    },
+    {
+      "date": "2010-02-10",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "PNC Bank repays TARP funds"
+    },
+    {
+      "date": "2010-02-18",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The Primary Cre- dit Rate is incre- ased from 1/2 to 3/4 of a percent"
+    },
+    {
+      "date": "2010-02-24",
+      "page": 10,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC approves restrictions on short selling"
+    },
+    {
+      "date": "2010-03-04",
+      "page": 5,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Germany Short positions in selected financial stocks must now be disclosed"
+    },
+    {
+      "date": "2010-03-12",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Examiner’s Report on the Lehman Bros. Bankruptcy filing released"
+    },
+    {
+      "date": "2010-03-15",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC maint- ains the 0-25 bp target"
+    },
+    {
+      "date": "2010-03-15",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Senator Dodd introduces financial regu- lation bill in the Senate"
+    },
+    {
+      "date": "2010-03-17",
+      "page": 5,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Japan Bank of Japan expands fixed rate loans to JPY 20 trillion from JPY 10 trillion"
+    },
+    {
+      "date": "2010-03-22",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The Senate Ban- king committee passes financial regulation bill"
+    },
+    {
+      "date": "2010-03-29",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Treasury ann- ounces that it plans to sell $7.7 bn in Citi- group stock over the cou- rse of 2010"
+    },
+    {
+      "date": "2010-03-31",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "TSLF closed for all loans except those backed by new issue CP"
+    },
+    {
+      "date": "2010-03-31",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Agency MBS and Agency Debt purchases completed"
+    },
+    {
+      "date": "2010-04-16",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC charges Goldman Sachs with fraud"
+    },
+    {
+      "date": "2010-04-19",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Citigroup pots $4.4 bn in 2010 Q1 earnings"
+    },
+    {
+      "date": "2010-04-21",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "GM repays remaining TARP funds"
+    },
+    {
+      "date": "2010-04-22",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "President Oba- ma gives speech urging financial industry excutives to support efforts for financial reform"
+    },
+    {
+      "date": "2010-04-23",
+      "page": 5,
+      "row": "Interventions Unconventional",
+      "source": "International",
+      "text": "Japan Short sale restrictions extended until July 30th"
+    },
+    {
+      "date": "2010-04-28",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC maint- ains the 0-25 bp target and notes that eco- nomic activity has strength- ened"
+    },
+    {
+      "date": "2010-04-29",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "President Oba- ma announces three nominees to serve on the Federal Reserve Board"
+    },
+    {
+      "date": "2010-04-30",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Federal Reserve Board approves amendments to Reg D allowing for term deposits for eligible instit- utions"
+    },
+    {
+      "date": "2010-05-06",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "The Dow plum- mets 998.5 points, its largest intra- day point drop ever"
+    },
+    {
+      "date": "2010-05-09",
+      "page": 11,
+      "row": "",
+      "source": "US",
+      "text": "Reestablishment of temporary U.S. dollar liquidity swap facilities"
+    },
+    {
+      "date": "2010-05-10",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Temporary U.S. dollar liquidity swap facilities expanded"
+    },
+    {
+      "date": "2010-05-10",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Federal Reserve Board authorizes small-value offeri- ngs under the TDF"
+    },
+    {
+      "date": "2010-05-28",
+      "page": 11,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Federal Reserve Board announc- es TDF auction schedule"
+    },
+    {
+      "date": "2010-06-21",
+      "page": 12,
+      "row": "Jun",
+      "source": "US",
+      "text": "Issuance of final guidance on incentive compensation"
+    },
+    {
+      "date": "2010-06-23",
+      "page": 12,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC keeps target rate at 0-25 bp in response to continuingly weak econo- mic conditions"
+    },
+    {
+      "date": "2010-06-29",
+      "page": 12,
+      "row": "Jun",
+      "source": "US",
+      "text": "Dodd-Frank Wall Street Reform and Consumer Pr- otection Act Passed"
+    },
+    {
+      "date": "2010-06-30",
+      "page": 12,
+      "row": "Jun",
+      "source": "US",
+      "text": "SEC adopts measures to curtail pay- to-play pra- ctices"
+    },
+    {
+      "date": "2010-07-20",
+      "page": 12,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed announces a reduction in the cedit protection provided by TALF"
+    },
+    {
+      "date": "2010-08-10",
+      "page": 12,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC maintains target fed funds rate at 0-25 bp"
+    },
+    {
+      "date": "2010-08-25",
+      "page": 12,
+      "row": "Jun",
+      "source": "US",
+      "text": "New home sales hit low- est levels on record"
+    },
+    {
+      "date": "2010-08-27",
+      "page": 12,
+      "row": "Jun",
+      "source": "US",
+      "text": "Stocks rally following Chairman Bernanke’s speech"
+    },
+    {
+      "date": "2010-09-08",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Board author- izes the conin- uation of small value offerings of term deposits under the TDF"
+    },
+    {
+      "date": "2010-09-10",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "SEC approves rules expand- ing stock-by- stock cicuit breakers and trade brakes"
+    },
+    {
+      "date": "2010-09-17",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Elizabeth Warren is appointed to lead the Consu- mer Financial P- rotection Bureau"
+    },
+    {
+      "date": "2010-09-21",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Target rate kept at 0-25 bp and FOMC anticipates exceptionally low levels for an ext- ended period"
+    },
+    {
+      "date": "2010-09-29",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "JPM and GMAC freeze foreclos- ures proceedings"
+    },
+    {
+      "date": "2010-09-30",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "AIG announces government ass- istance exit plan"
+    },
+    {
+      "date": "2010-10-01",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Bank of America freezes foreclos- ures proceedings"
+    },
+    {
+      "date": "2010-10-25",
+      "page": 13,
+      "row": "",
+      "source": "US",
+      "text": "Review of the fore- closure procedures at the largest mort- gage servicers is to be completed in Nov."
+    },
+    {
+      "date": "2010-11-03",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "FOMC maintains target and anno- unces its intent to purchase $600 bn of Treasuries by 2011 Q2"
+    },
+    {
+      "date": "2010-11-17",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed proposes imp- lementation of the Volker Rule confor- mance period"
+    },
+    {
+      "date": "2010-11-17",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "Fed issues guidel- ines for evaluating large BHC’s capital action proposals"
+    },
+    {
+      "date": "2010-11-17",
+      "page": 13,
+      "row": "Fed Policy Actions Other Policy Actions Market Events",
+      "source": "US",
+      "text": "GM has a $20.1 bn IPO, the larg- est in US history"
+    }
+  ],
+  "config": {
+    "window_calendar_days": 3
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "A calendar for judging each event window; it scores nothing.",
+  "source": {
+    "International": "data/raw/b121/nyfed_IRCTimelinePublic.pdf",
+    "US": "data/raw/b121/nyfed_Crisis_Timeline.pdf"
+  },
+  "stage": "B121"
+}

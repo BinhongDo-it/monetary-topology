@@ -16,9 +16,15 @@ already does, and says how this differs from it. Each ends with where to read
 those stations. **Read your own section, then go to the stations it names.**
 Nobody needs to read all of it.
 
+**Each section names the stations it discusses, and it does not claim to name
+every station in that field.** [INDEX.md](../INDEX.md) does: it files every block
+in the ledger under one subfield, and it is generated from the ledger's own
+headings, so a station cannot be in the record and missing from that list.
+[CARRIERS.md](../CARRIERS.md) cuts the same work the other way, by what was read.
+
 **Two places hold the record itself.** [RESULTS.md](../RESULTS.md) carries every
-criterion with its number beside it, passing and failing on the same terms, one
-section per station. `docs/` carries the station documents for the stations that
+criterion with its number beside it, passing and failing on the same terms, under
+the station that produced it. `docs/` carries the station documents for the stations that
 have one; the stations built later do not, and their readings live in
 [RESULTS.md](../RESULTS.md) alone. **Cite by criterion identifier**, such as
 `B8-3` or `A5-6`, never by section number.
@@ -53,30 +59,44 @@ and it is not in dispute; the contribution here is noticing that it converts a
 foundational assumption into something you can go and measure on administrative
 data, and then going and measuring it.
 
-**On seven independent carriers the reading is not zero. On one of them it is
-also exactly zero, in the place the framework named before anyone looked.**
+**On carrier after carrier the reading is not zero. On one of them it is also
+exactly zero, in the place the framework named before anyone looked.**
 
 Mortgage origination terms on 20 million reported spreads. Mortgage servicing on
-170 million monthly rows, and the same design again on a second GSE. Cross-currency
-funding on 1.5 million rows. ETF creation and redemption on 6,201 fund-days.
-Argentina's legally distinct conversion tracks over 1,457 dates. Cuba's
-central-bank table over 207 publication days, with Bolivia measured under the same
-sealed register as its zero calibration. CME calendar spreads on 81,968
+170 million monthly rows, and the same design again on a second guarantor.
+Cross-currency funding on 1.5 million rows. ETF creation and redemption on 6,201
+fund-days. Argentina's legally distinct conversion tracks over 1,457 dates.
+Cuba's central-bank table over 207 publication days, with Bolivia measured under
+the same sealed register as its zero calibration. CME calendar spreads on 81,968
 end-of-event states, where the exchange's derived book reads zero in every one of
-them and its directly quoted book reads non-zero in 65 to 96 per cent.
+them and its directly quoted book reads non-zero in 65 to 96 per cent. China's
+domestic price against its own border price on 106 writable squares. European
+household energy against industrial on 1,076 cells of a published panel. And a
+declared conversion between physical quantities, where nothing is traded at all
+and the loop product is still not 1.
 
 These are different institutions, different regulators, different data vendors,
-different decades, and different failure modes. **They are seven regulatory
-environments and not seven samples of one**, which is the whole reason for
+different decades, and different failure modes. **They are separate regulatory
+environments and not repeated samples of one**, which is the whole reason for
 choosing them: shared structure across unrelated settings is the only evidence
 that separates one object from a pile of coincidences. **Each is a carrier of the
 same object**, and the object is the same because the cycle sum is defined by the
-graph and not by the setting.
+graph and not by the setting. [CARRIERS.md](../CARRIERS.md) is the list of what
+was read, grouped by what kind of object it is and by what the readings off it
+ask.
 
-**Six of them read an undirected cycle sum. The seventh asks the directed
-question**, whether a *sub*-potential exists rather than a potential, which is the
-weaker object a one-way market admits and a different question with its own
-answer.
+**The readings divide into three shapes and they are kept apart, because
+collapsing them into one word makes the strongest of them uncheckable.** Some
+report the cycle sum or the square sum itself. Some read the same point
+prediction of zero on a different object, a dispersion at fixed position, a
+one-sided bound, the rank of the departure. And some read a **counting law**: a
+programme that names classes and writes a figure against each produces exactly as
+many distinct prices as it writes distinct class values, which is an identity with
+no resolution limit in it and needs no price data at all.
+
+**Most of them read an undirected cycle sum. Some ask the directed question**,
+whether a *sub*-potential exists rather than a potential, which is the weaker
+object a one-way market admits and a different question with its own answer.
 
 **What follows is narrow, and the narrowness is the point.** If the loop sum
 carries a non-trivial class, then no global scalar potential exists for those
@@ -153,7 +173,7 @@ welfare function, and no statement about whether the non-zero is large.
 
 ## Market microstructure and asset pricing
 
-**Stations: B9, B14, B3, B21, B24, B41, B42.**
+**Stations discussed here: B9, B14, B3, B21, B24, B41, B42.**
 
 **B9** measures the loop on ETF creation and redemption, where all three
 positions (shares, the creation basket, cash) are institutional objects with
@@ -238,7 +258,7 @@ publishes only its current issue and no rerun rebuilds the archive.
 
 ## Household finance and consumer credit
 
-**Stations: B8, B10, B2, B7.**
+**Stations discussed here: B8, B10, B2, B7.**
 
 **B8 is the strongest single reading in the programme.** One mortgage at a fixed
 position, with servicing states `current`, `delinquent`, `modified` and
@@ -306,7 +326,7 @@ document. **The pitfalls this carrier produced are catalogued separately**, in
 
 ## International finance and exchange rate regimes
 
-**Stations: B5, B6, B15, B3, B23, B31, B38, B39, B44, B48.**
+**Stations discussed here: B5, B6, B15, B3, B23, B31, B38, B39, B44, B48.**
 
 These are the carriers where **the eligibility rule is written in regulation
 rather than inferred**, which is unusual and is the reason they were chosen. When
@@ -365,7 +385,7 @@ directory whose names end in `_availability`.
 
 **B23 asks whether one wedge is Chinese or whether the treaty network carries
 it**, and answers it with no price data at all. Sixteen of twenty countries carry
-a binding wedge and the treatment takes eleven distinct values, 11.7 to 73.2
+a binding wedge and the treatment takes ten distinct values, 11.7 to 58.7
 basis points at a three per cent yield. The class difference is written into
 bilateral treaty text, so it is read off the instrument rather than estimated
 from quotes.
@@ -428,7 +448,7 @@ channel is whole throughout and what changes is the object it carries.
 
 ## Corporate finance and credit
 
-**Stations: B11, B40.**
+**Stations discussed here: B11, B40.**
 
 The design asks whether the mortgage ring replicates in a second domain:
 `investment grade → downgrade → distressed exchange → re-rating`, where the
@@ -439,10 +459,11 @@ where the contract is re-signed.
 before the mortgage results were known, which is what stops the second domain
 from being selected to match the first.
 
-**Status: gated and not closed.** Availability is established and the markers are
-measured; the domain's own gate is not yet computed. The ceiling is arithmetic:
-227 issuers carry the required marker in the available window, and whether that
-is enough is the gate.
+**Status: the gate is counted and not closed.** Availability is established, the
+markers are measured, and C11-0 is counted on Fitch: **distressed exchanges on this
+scale are an event of speculative-grade issuers.** Of the 259 issuers carrying the
+marker on the long-term issuer default rating, 15 were investment grade before it
+and 6 close the ring, against a gate of 200. The registered next step reads S&P.
 
 **Nearest existing practice.** The distressed exchange and rating migration
 literatures.
@@ -470,7 +491,7 @@ it identifying here.
 
 ## Macroeconomics, inequality, and monetary policy
 
-**Stations: the whole A track, plus the empirical fingerprints arm, plus B34, B46 and B47.**
+**Stations discussed here: the whole A track, plus the empirical fingerprints arm, plus B34, B46 and B47.**
 
 The A track asks one question: if claims keep accumulating at the top of a
 stratified payment network, **does the bottom get cut off from real resources
@@ -664,7 +685,7 @@ for programmes that partition holders.
 
 ## Econometrics, identification, and measurement
 
-**Stations: B1, B4, B12, B13, B7, B30, B43.**
+**Stations discussed here: B1, B4, B12, B13, B7, B30, B43.**
 
 This is the section for readers who want to attack the design rather than the
 subject. **Two of these stations produce results that bound the framework**, and
@@ -741,8 +762,8 @@ yields returns the nine integers already on disk, digit for digit.
 
 ## Networks, complex systems, and agent-based modelling
 
-**Stations: A0, A0b, A2, A2c, A2d, A3, A3h, A3i, A3j, A5, A7, A13, A14, A15, A16,
-A17, A18.**
+**Stations discussed here: A0, A0b, A2, A2c, A2d, A3, A3h, A3i, A3j, A5, A7,
+A13, A14, A15, A16, A17, A18.**
 
 **A3h, A3i and A3j are where this model is told to produce a zero.** A
 simulation that only ever explains things cannot be wrong, so the useful question
@@ -1008,7 +1029,7 @@ and every run record is a committed `results/*.json`.
 
 ## Climate policy, education policy, and administrative conversion factors
 
-**Stations: C1, C2, C3, B33, B36, B49, B50, B51, B52, B53.** Most of these are not financial carriers and
+**Stations discussed here: C1, C2, C3, B33, B36, B49, B50, B51, B52, B53.** Most of these are not financial carriers and
 nothing on them is traded. The one exception is priced in a market, and it belongs
 here because the same thing holds of it for a different reason: both prices exist,
 and no one is in a position to hold them both. They exist because every reading
@@ -1214,6 +1235,370 @@ times the floor and at the 22nd percentile of the series' own steps.
 [`b52_results.md`](../docs/b52_results.md),
 [`b53_prereg.md`](../docs/b53_prereg.md) and
 [`b53_results.md`](../docs/b53_results.md).
+
+## Classical and Sraffian price theory
+
+**Stations discussed here: B67, B68, B69, B70, B71, B72, B73, B74, B75, B76,
+B77, B78, B80, B85, B86, B87, B88, B89, B90, B91, B92, B93, B94, B95, B96.**
+
+**These stations read no data.** Each takes a published result of this tradition
+and locates it inside the graph object the rest of the programme measures, so the
+question they answer is not whether the result holds but what it is a statement
+about.
+
+**The classical price system is one equation added to a cycle condition.** Put
+the markup on a production cycle and every class keeps its own; the classical
+theory adds that all of those cycle sums are equal, and written out, that
+equation is Sraffa's price system. The convention about whether wages are paid
+out of the product or advanced is then **which edges lie on the cycle**, rather
+than two different theories.
+
+**The labour values are one member of that family, at a zero rate.** The price
+equations at `r = 0` with labour as the unit of account are the value equations
+term for term. On that member every production cycle sums to zero, so the field
+is exact and the obstruction vanishes; at every positive rate it does not. **So
+the transformation problem is a move along a one-parameter family**, and what
+holds still on the way is a question with an answer rather than a paradox.
+Okishio's theorem is the same two-sided bound evaluated at a second member of the
+same family, and it becomes an implication rather than an equivalence once more
+than one column changes at a time.
+
+**Joint production is where the cycles and the commodities stop being the same
+index set**, and every difficulty the literature reports follows from that. When
+processes outnumber commodities the price equations are overdetermined, the
+inequality formulation is von Neumann's, and **the coefficient of expansion and
+the interest factor are the same number** because both are the Perron root of one
+pencil read from its two sides. Choice of technique is complementary slackness
+read cycle by cycle: a process runs only where its cycle sum reaches the maximum,
+which is why **choosing the cheapest technique and choosing the highest-paying one
+are one instruction and not two that agree**.
+
+**Rent is a term on an edge into a position no cycle produces.** A land vertex is
+bought by the bundle that uses it and produced by nothing, so it is a pendant
+vertex, and that fixes the first Betti number at the number of operated methods.
+A machine of declining efficiency and the arithmetic of intensive rent are done
+together because their costs in the graph are opposite: one changes weights and no
+edge, the other adds a cycle. A machine's economic life is not a parameter but the
+owner of an envelope, so the scrapping criterion was already in the framework.
+**Capital reversing needs reswitching** when only two techniques are available,
+and how often the order can reverse is a sign count on a polynomial rather than a
+statement about roundaboutness, which is a degree.
+
+**Basics are where the vertically integrated subsystems intersect**, and the
+non-substitution theorem says demand cannot move the field at all; demand's grip
+on it is combinatorial, one dimension per land. **The two margins cannot both be
+open**, because they supply the same missing equation, and one identity covers
+every configuration of them with four cells.
+
+**Nearest existing practice.** Sraffa's *Production of Commodities*, the
+transformation debate, the Cambridge capital controversy, the von
+Neumann-Leontief literature, and the linear-programming treatment of joint
+production and rent.
+
+**How this differs.** These results are usually proved one at a time, each with
+its own apparatus, and the relations between them are argued rather than derived.
+Here they are corollaries of two objects: a cycle sum on a graph, and a Perron
+root read from both sides of a pencil. **That buys the relations** — why the
+labour values sit at one end of the price family, why the expansion rate and the
+interest factor coincide, why rent and fixed capital behave oppositely — **and it
+gives up nothing, because the theorems come out term for term.**
+
+**Where to read them.** Every station in this family carries a prose document
+under `docs/` with the statement and the proof, and its checks are in
+[RESULTS.md](../RESULTS.md).
+
+---
+
+## Index numbers and price comparison
+
+**Stations discussed here: B79, B81, B83, B84, B101, B38, B39.**
+
+**Fisher's circular test is exactness, and chain drift is its failure.** Put the
+log index on the graph of comparisons actually computed. The index is
+antisymmetric exactly when the bilateral formula passes the time reversal test,
+and **a system of indexes is transitive if and only if that field is a
+coboundary**, which is Theorem 1 read on that graph, with the log price level as
+the potential. The standard repair, taking a geometric mean over all bridge
+countries, is then **the orthogonal projection onto the exact part**, and the
+residual it discards is the obstruction.
+
+**The country-product-dummy method is the same projection on a second graph.**
+The regression onto product and country dummies is a projection, the loss is the
+same sum of squares, and what differs is which graph the comparisons live on.
+Weighting it changes the metric and not the topology, so the two multilateral
+methods in general use are one construction seen from two vertices.
+
+**One published number is where the projection is done by hand.** An
+international price comparison programme publishes benchmark rounds at intervals
+and a national price index between them, and the space-and-time square those two
+make has to close if a single price level exists. It is read on published rounds
+with nothing estimated.
+
+**A published productivity index is an edge function.** Growth accounts across 34
+countries and 60 industries carry a share-weighted aggregation whose smoothing is
+itself a choice, and the station reads what that smoothing does to the square
+rather than to the level.
+
+**The rank of the departure from one price level per city is measurable**, and no
+competing account has a reason to compute it, because only this framework says
+the rank is what survives. The counting law and the two-way decomposition turn
+out to be one object on the complete bipartite graph.
+
+**Nearest existing practice.** The index number literature from Fisher onward,
+the GEKS and CPD multilateral methods, purchasing-power-parity construction, and
+the scanner-data work that measures chain drift directly.
+
+**How this differs.** That literature treats transitivity as a desirable property
+of a formula and repairs its absence with an averaging convention. Here
+transitivity **is** exactness, its failure is a cohomology class, and the repair
+is a named projection with a named residual. **The residual is then something to
+measure rather than something to remove**, and its rank bounds how many
+correction factors any repair would need.
+
+**Where to read them.** `docs/b79_index_numbers.md`,
+`docs/b81_cpd.md`, `docs/b83_icp_square.md`, `docs/b84_weighted_cpd.md` and
+`docs/b101_index_holonomy.md`, with the readings in
+[RESULTS.md](../RESULTS.md).
+
+---
+
+## Public finance, regulated prices and published schedules
+
+**Stations discussed here: B33, B45, B49, B50, B51, B52, B53, B54, B55, B56,
+B57, B58, B98, B100, B102.**
+
+**A published schedule states the whole object before anything is transacted**,
+which is why this family needs no price data and carries no estimation. A
+programme names classes and writes a figure against each, and **the counting law
+says it produces exactly as many distinct prices as it writes distinct class
+values**. That is an identity, so what can fail is one level down and is per line
+rather than per table: whether drawing a given class line separates anything at
+all.
+
+**The collisions are exact where the figures are whole units.** A tuition corpus
+writes three classes in whole dollars, and across 5,605 schedules the three
+collapse to one figure in 3,617 of them, to two in 1,738 and stay at three in
+250. A state licence fee schedule carries 104 priced cells and 45 distinct
+figures, so 59 collisions, every figure an exact cent amount. Monument admission
+priced by nationality collapses three named lines to two, and a reduced transit
+fare required as a condition of federal assistance collapses three to one, with
+the step at which each collapse happens recorded separately.
+
+**One station asks the rival's own precondition rather than the prediction.**
+Third-degree price discrimination states three things that have to be true before
+it applies, and where a class table has been scored those three are checked
+against documents rather than assumed, with every element carrying the source it
+was read from.
+
+**Energy is where the class difference cannot be resold.** Electricity and piped
+gas arrive over a fixed network and the connection point is the class definition,
+so nothing moves past the meter, which is the condition a class square needs. The
+square is read across a European panel over 38 semesters and three tax bases, and
+against a statute that caps one leg and leaves the other alone — where **a ceiling
+is not an equality**, which is the reason the registered reading and the statute's
+own words are reported apart.
+
+**Two stations read a zero the publisher printed.** A wholesale nodal tariff
+writes the price as a reference plus two components, so removing the components
+has to leave the same number at every node, and a national fee schedule publishes
+three shares of a surgical package that its own layout says will usually sum to
+one: 4,236 of 4,248 rows sum to one inside `1.5e-5`, and the twelve that do not
+are named.
+
+**Nearest existing practice.** The price discrimination literature, optimal
+commodity taxation, regulated utility tariff design, and the empirical work on
+tuition and fee setting.
+
+**How this differs.** Those literatures ask whether a class line is efficient or
+who bears it. This asks a prior and much cheaper question: **how many distinct
+prices the written rule can carry at all**, which is settled by counting the
+figures it prints. The answer needs no demand system, no elasticity and no
+transaction, and it is exact where the figures are whole units.
+
+**Where to read them.** [RESULTS.md](../RESULTS.md) carries each station, and
+B49, B50, B51, B52 and B53 each have a pair of documents under `docs/`.
+
+---
+
+## Trade policy and commodity markets
+
+**Stations discussed here: B31, B36, B41, B42, B60, B61, B111, B115.**
+
+**A domestic price against its own border price is a square.** With four
+commodities over 79 commodity-years the exchange rate cancels to `3.6e-16`, the
+square sum clears the printed-precision floor on 106 of 106 writable squares at a
+median of 51.7 times it, and 54 of those squares are independent. The published
+trade taxes are near zero throughout, so the branch in which they explain the
+reading was never reachable.
+
+**A dated tariff step is an edge cut with a date on it.** China's 2018 additional
+tariff on one origin's soybeans, and the deposit imposed and then refunded on that
+origin's sorghum, each touch one relation and leave the others alone, so the share
+of the step that reaches the destination market is readable against a third market
+that the step does not touch.
+
+**A corridor loss is the same object on both sides.** The 2026 Black Sea cuts are
+printed week by week from 909 hand-transcribed cells, each carrying its own source
+URL, price date, published date, basis and grade, so the reading stands on a
+record a reader can walk.
+
+**A quota that does not bind and an expiry date that does.** One export flow
+collapsed to 32.0 per cent of its base with the quota not yet in force, while the
+plant registrations behind it expired and were not renewed, and the same customs
+system renewed three other categories within days. **A registration point in the
+sense this framework uses**: the point expires, the edge is gone, and no price
+mechanism intervenes anywhere in between.
+
+**How far a level travels before a market sets its own** is read on Indian pulse
+markets, where the near arm clears its own measured placebo floor and the graded
+form holds with the near residual above the far one, unanimous across the knob
+grid where it is read at all.
+
+**Nearest existing practice.** Tariff pass-through, the law of one price and
+spatial arbitrage, price transmission in agricultural markets, and the event-study
+treatment of trade policy shocks.
+
+**How this differs.** Pass-through estimates a coefficient against a counterfactual
+price path. A square sum does not: it is arithmetic on observed quantities whose
+null is exactly zero, and the exchange rate leaves it by subtraction rather than by
+being modelled. **Where the processing is a sequence of dated steps rather than one
+switch, the reading is registered against the severity sequence rather than a
+date**, because a step statistic on a ramp reads the window length instead of the
+treatment.
+
+**Where to read them.** [RESULTS.md](../RESULTS.md), with station documents for
+B111 and both B115 arms under `docs/`.
+
+---
+
+## Payment systems and monetary operations
+
+**Stations discussed here: B59, B112, B113, B114, B117, A25.**
+
+**A class line on central bank balances is the cleanest two-class square in the
+programme.** Two holders have a balance at the same central bank: same obligor,
+same instrument, same continuous availability, no collateral either way and no
+maturity either way. One class earns the administered rate and the other earns
+nothing, because a closed list of four kinds of eligible institution does not
+include it. **The gross difference is read off the rule and needs no data.** The
+net difference, the administered rate against what the money market actually pays,
+is read daily and printed with no line drawn on it, and a hypothesis about a rate
+change whose data did not yet exist was registered with its window, its statistic
+and each cell's verdict fixed in advance.
+
+**Where new claims stay is a residence time.** Newly created reserves in a
+monetary union sit in national components, and the rule that keeps them where they
+enter is written in the same instrument that creates them. A community currency's
+complete transfer archive answers the same question at the other end of the scale:
+every transfer over seventeen months with a timestamp, so each month's new money
+can be followed into the area it entered and read week by week. **And how coarse
+the classes of that payment chain can be and still support the reading is itself a
+measurement**, because a chain run wallet by wallet is a different object from a
+chain run area by area.
+
+**An edge that one class has and another does not** is the discount window, read
+over 56 quarterly loan workbooks against what banks with and without it pay
+overnight relative to the posted rate.
+
+**Nearest existing practice.** The literature on the floor system and the
+transmission of administered rates, reserve demand estimation, payment system
+topology, and the money-multiplier and endogenous-money debates.
+
+**How this differs.** That literature asks what the level of a rate does. This
+asks whether two holders of the same instrument at the same obligor face the same
+terms, which is a question about the **index set** of the price rather than its
+level, and it has a published answer in the rule itself. **The rate's level is not
+the object**, which is why a change in it is a test of the reading rather than the
+reading.
+
+**Where to read them.** [RESULTS.md](../RESULTS.md), and `data/SOURCES.md` for
+what each series is and when it was retrieved.
+
+---
+
+## Labour economics
+
+**Stations discussed here: B34, B106, A27.**
+
+**A statutory age boundary moved four times, and the break in the wage
+distribution moved with it.** The question that carries the weight is the second
+one: any account in which age itself raises the wage predicts the old break
+survives a boundary move, because nobody becomes less skilled at twenty-five when
+the statute is rewritten. The old position vanishes on both post-move years. A
+second difference across three ages the statute puts on one rate reads `+7.97`
+percentage points against a measured floor of `4.79` pooled over four rate years,
+while no single year reaches it, and **the two bends that are not statutory are
+pinned to ages and do not travel with people**.
+
+**A labelled two-index price field is what a labour account already publishes.**
+Classes of worker and industries are both published indices, so the square their
+labels make possible can be read directly, and whether the class shares count
+hours or persons is settled against the published labour services index rather
+than assumed.
+
+**Tenure is built slowly and lost on a move**, which is a property of the position
+rather than of the person, and the simulation track carries it as a switch of its
+own.
+
+**Nearest existing practice.** The minimum wage literature and its bunching
+designs, the returns-to-experience literature, and labour share decompositions.
+
+**How this differs.** A bunching design reads a mass point against a smooth
+counterfactual. This reads whether a break is **where the statute puts it** and
+whether it **moves when the statute moves**, which needs no counterfactual density
+and has an exact prediction on the second question. **The statistic is registered
+on the interval between two ages rather than on an age**, because a second
+difference spends two points and a boundary lives between them.
+
+**Where to read them.** [RESULTS.md](../RESULTS.md), with `docs/b106_labour_ladder.md`
+for the labour account station.
+
+---
+
+## Economic history
+
+**Stations discussed here: B40, B44, B46, B47, B64.**
+
+**A four-century toll register records a flag class on both sides of two
+treaties.** One treaty exempted one nation's ships and goods in 1645 and another
+ended the exemption in 1720, putting that nation on the same tariff as two others.
+The charge decomposes as an identity, the conversion base is recovered by two
+independent internal routes, and **this is the first carrier in the programme
+whose friction term is an observed field** rather than an inferred one, because
+the toll is levied and recorded in each direction.
+
+**A privatisation agency's disposal record, released under freedom of
+information**, carries 13,378 firms in seven disposal classes, of which 6,929 were
+sold and 1,946 returned to their pre-expropriation owners. A published paper uses
+the same file and sets the returned class aside; the station asks what the class
+the paper sets aside does, and whether each entity ever reached the commercial
+register at all.
+
+**A corpus of national currency reforms is where the counting law was first read
+on written rules.** Each reform names classes and writes a conversion against
+each, and re-coding the corpus by **what each class receives** rather than by who
+the class is changes several of the counts, because a tier written into a text
+that no position falls into produces no value at all.
+
+**The two-tier gold market is a conversion open to one class and closed to
+another**, with the rate at which such an edge can hold given by its capacity over
+the flow across it, read against the published fixing and the official stock.
+
+**Nearest existing practice.** Quantitative economic history on toll and customs
+registers, the currency reform and monetary stabilisation literature, and the
+transition-economy privatisation literature.
+
+**How this differs.** These sources are usually read for levels and flows. Here
+they are read for **how many distinct terms the written rule carried and who
+stood at which position**, which is a question an archive answers precisely
+because the rule was written down before anything happened. **A historical carrier
+is not a weaker version of a modern one on this question**: the toll register's
+friction term is better observed than any modern carrier's.
+
+**Where to read them.** [RESULTS.md](../RESULTS.md), and `data/SOURCES.md` for the
+packaging of each archive and what it does and does not carry.
+
+---
 
 ## What is not here
 

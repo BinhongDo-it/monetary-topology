@@ -30,19 +30,43 @@
   },
   "squares": {
     "cases": 226,
-    "worst_sum": 1.1102230246251565e-15,
-    "worst_diff": 8.881784197001252e-16,
-    "worst_invariance": 8.881784197001252e-16,
+    "identity_residuals_below": 1e-09,
     "squares_both_cycles_nonpositive": 52,
     "squares_satisfying_the_index_bound": 52,
     "equivalence_breaks": 0,
     "worst_friction_move": 0.22229612155648804
   },
+  "corollary_6_1": {
+    "identity_residuals_below": 1e-09,
+    "cycles_walked": 504,
+    "cycle_lengths": {
+      "2": 60,
+      "3": 120,
+      "4": 180,
+      "5": 144
+    },
+    "frictionless_fields_with_a_loud_cycle": 200,
+    "of_those_admitting_a_sub_potential": 0,
+    "ratio_not_exact": 0.303927,
+    "ratio_friction_per_direction": 0.651787,
+    "sub_potential_exists": {
+      "exact, one friction per edge": true,
+      "exact, friction an order of magnitude wider": true,
+      "not exact": true,
+      "friction drawn per direction, so not symmetric": true
+    },
+    "degenerate_cycles_seen": {
+      "exact, one friction per edge": 0,
+      "exact, friction an order of magnitude wider": 0,
+      "not exact": 0,
+      "friction drawn per direction, so not symmetric": 0
+    }
+  },
   "one_way": {
-    "edges": 12,
-    "two_way_pairs": 2,
-    "one_way_edges": 8,
-    "split_entries": 2,
+    "edges": 7,
+    "two_way_pairs": 0,
+    "one_way_edges": 7,
+    "split_entries": 0,
     "split_covers_only_two_way": true
   },
   "criteria": [
@@ -90,6 +114,24 @@
       "name": "B4-9  Theorem 6(4): the index part is bounded by the friction part",
       "passed": true,
       "detail": "`S <= 0 and S' <= 0` and `|S-S'| <= -(S+S')` agree on all 226 squares, 52 of which have both cycles non-positive; the bound is what Theorem 4 buys once it is applied to each cycle rather than to their sum"
+    },
+    {
+      "name": "B4-10 Corollary 6.1: the square identity holds on a cycle of any length",
+      "passed": true,
+      "detail": "`S-S' = 2*sum(w_hat)` and `S+S' = 2*sum(w_bar)` at machine precision, below `1e-9`, over 504 cycles of lengths [2, 3, 4, 5]; the square is the length-4 row",
+      "kind": "instrument"
+    },
+    {
+      "name": "B4-11 Corollary 6.1: a frictionless cycle cannot carry an index part",
+      "passed": true,
+      "detail": "200 fields drawn with the friction identically zero and some cycle carrying a non-zero index part; 0 of them admitted a sub-potential, so the case the ratio would read as `0/0` is unreachable under Theorem 6's hypothesis rather than handled by a convention",
+      "kind": "instrument"
+    },
+    {
+      "name": "B4-12 Corollary 6.1: the ratio vanishes exactly on the exact fields",
+      "passed": true,
+      "detail": "an exact antisymmetric part with a symmetric friction returns a ratio at machine precision on every cycle, and widening that friction does not move it; a non-exact part returns 0.3039 and a friction drawn separately for each leg returns 0.6518, so the check can see both sides",
+      "kind": "instrument"
     }
   ]
 }

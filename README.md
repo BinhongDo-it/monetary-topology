@@ -14,40 +14,71 @@ They are built for checkability rather than scale: every structural claim is
 packaged so that someone who did not write the code can test it and see what
 would have counted as the other answer.
 
-**Status, 2026-08-27.** All three tracks have run. **Seven carriers have produced
-measured non-zero readings on real transaction data**, and each stands against two
-different zeros. One is a floor that is measured rather than asserted, which says
-the reading can be seen. The other is **a point prediction of exactly zero, made by
-the account this repository tests**: if a single scalar price vector on positions
-exists, every closed loop sums to zero **however much the contract changes along the
-way**. **Seven carriers return non-zero against that prediction**, the largest at
-`4.18e+06` times its own floor with a within-cell permutation null of 0 of 999 in
-every cohort. The carriers are mortgage origination terms; **mortgage
-modification, the strongest of them**, on one design and two GSE datasets;
-cross-currency funding; the ETF creation triangle; Argentina's legally distinct
-conversion tracks; Cuba's central-bank table; and CME calendar spreads. Each is a
-separate regulatory environment, which is what makes them separate carriers
-rather than one carrier sampled seven times.
+**Status. All three tracks have run, and the measurement work stands on carriers
+in separate regulatory environments**, each of which returns a non-zero reading
+against two different zeros. One is a floor that is measured rather than
+asserted, which says the reading can be seen. The other is **a point prediction
+of exactly zero, made by the account this repository tests**: if a single scalar
+price vector on positions exists, every closed loop sums to zero **however much
+the contract changes along the way**. [CARRIERS.md](CARRIERS.md) is the list of
+what was read and [RESULTS.md](RESULTS.md) is the record of every reading taken
+off it.
+
+**The readings against that prediction come in three shapes, and they are kept
+apart because collapsing them into one word makes the strongest of them
+uncheckable.**
+
+**One, the loop sum or the square sum itself.** Mortgage modification is the
+strongest, at `1.07e+05` to `4.18e+06` times its own floor across six vintages in
+the same direction, with a within-cell permutation null of 0 of 999 in every
+cohort. Cross-currency funding cycles that never touch one issuer run 30.9 to
+45.6 basis points. The ETF creation triangle stands at 1.05 to 5.08 times the
+measurement floor, on 11 of 11. China's domestic price against its own border
+price clears the printed-precision floor on 106 of 106 squares, at a median of
+51.7 times it, with 54 of the 106 independent. European household energy against
+industrial clears it on 1,069 of 1,076 cells at a median of 103 times. The two
+non-resaleable energy carriers clear it on 39 of 39, the smallest at 7.4 times.
+And a declared conversion between physical quantities is multivalued: across the
+published standards that quote them, 88 species can be judged, and **the number
+whose loop product is exactly 1 is zero**, at a median of 1.4150 and a largest of
+60.640.
+
+**Two, the same point prediction read on a different object.** Hold census tract,
+year, lien position, loan purpose, occupancy and dwelling type fixed, and the
+dispersion that remains inside those cells is `0.7831` where a single price vector
+predicts zero. One central bank's own table carries a one-sided bound that its law
+grants, that is posted, and that nobody walks, on 207 of 207 publication days.
+Fifteen independent orderings of the same universities admit no common refinement
+on **any of 105 province pairs**, in either of two disjoint cohorts. The rank of
+the obstruction to a scalar price potential, on city prices and again on cash
+grain, clears a conservative floor in both.
+
+**Three, the counting law on a published table.** A programme that names classes
+and writes a figure against each produces exactly as many distinct prices as it
+writes distinct class values, and that is an identity with no resolution limit in
+it. A published benefit scheme's five classes produce six clause vectors that
+coincide on no dimension. A tax code writes five filing statuses and prints four
+cells. A tuition corpus writes three classes in whole dollars. A licence fee
+schedule carries 45 distinct figures in 104 cells.
+
+**One carrier returns both a zero and a non-zero from the same apparatus on the
+same feed on the same day**, which is the only place in the record where the
+framework named which side would be which before anyone looked: implied spread
+quotes are never worse than their own two-leg derivation over 81,968 states, exact
+on six of nine products, while the directly quoted member of the same family is
+non-zero in 65 to 96 per cent of states.
+
+**One track reads a directed cycle rather than an undirected one**, where the
+question is not whether a potential exists but whether a *sub*-potential does, and
+it arrives with its own zero calibration measured on a second country under the
+same register.
 
 **Three further carriers put the same question where friction cannot be the
-answer, because nothing on them is traded.** An institution that declares one
-unit of `a` to be `R(a,b)` units of `b` asserts the same scalar, and the loop
-product must still be 1. A declared conversion between physical quantities is
-multivalued, with **zero of 88 species reading the same value under all six
-standards in force**. A comparable institution of the same scale and age, asked
-the same question, agrees with itself, so that reading is not about
-bureaucracies. And with the declared number removed altogether, fifteen
-independent orderings of the same universities admit no common refinement on
-**any of 105 province pairs**, in either of two disjoint cohorts.
-
-**Six of the seven read an undirected cycle sum. The seventh reads a directed
-one**,
-where the question is not whether a potential exists but whether a *sub*-potential
-does, and it arrives with its own zero calibration measured on a second country
-under the same register. **One of the seven returns both a zero and a non-zero
-from the same apparatus on the same feed on the same day**, which is the only
-place in the record where the framework named which side would be which before
-anyone looked.
+answer, because nothing on them is traded.** An institution that declares one unit
+of `a` to be `R(a,b)` units of `b` asserts the same scalar, and the loop product
+must still be 1. A comparable institution of the same scale and age, asked the
+same question, agrees with itself, so the multivalued reading above is not about
+bureaucracies.
 
 **Three results are about the instruments rather than about the world, and each
 bounds what may be claimed anywhere in the record.** One built a counterexample
@@ -57,13 +88,13 @@ pre-window turns inside itself, and **removed a threshold that had no theoretica
 source**, so no arbitrary calibration grounds a negative anywhere here. One
 answers the sharpest objection in the programme by **measuring the instrument's
 own resolution and reporting the number**, which settles what that objection can
-and cannot be tested with. See [RESULTS.md](RESULTS.md) for the full
-record, and the index by field below for which stations sit in your field.
+and cannot be tested with. See [RESULTS.md](RESULTS.md) for the full record, and
+the index by field below for which stations sit in your field.
 
-This repository gives an exact criterion for when a single scalar price
-vector on positions exists, proves it with no economic assumptions in it,
-and measures it on seven financial carriers and three where nothing is traded. Which standard constructs presuppose that
-object, and what each of their setups states, is in
+This repository gives an exact criterion for when a single scalar price vector on
+positions exists, proves it with no economic assumptions in it, and measures it on
+financial carriers and on carriers where nothing is traded. Which standard
+constructs presuppose that object, and what each of their setups states, is in
 [`b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md).
 
 The headline empirical number: hold census tract, year, lien position, loan
@@ -177,8 +208,9 @@ before anyone reads the rest.
 ## Where the conclusions live
 
 **This README gives the headline results. Every criterion, with its measured
-value and whichever way it came out, is in [RESULTS.md](RESULTS.md), one section
-per stage. `docs/` holds a prose document for the stages that have one, and the
+value and whichever way it came out, is in [RESULTS.md](RESULTS.md), under the stage
+that produced it, and a stage that ran in more than one round carries more than
+one block there. `docs/` holds a prose document for the stages that have one, and the
 section below says which those are.** The division is
 deliberate: a README that carried every reading would have to be rewritten every
 time one moved, and the ones that moved most are the ones worth reading in full.
@@ -194,23 +226,44 @@ README is an entry point and the record leads it.
 it by construction.** Where this file disagrees with [RESULTS.md](RESULTS.md), or
 with a `docs/` file for a stage that has one, the record is right.
 
+**[CARRIERS.md](CARRIERS.md) is the map by what was read**: one row per object
+in the world this programme took a reading off, grouped by what kind of object it
+is and by what the readings off it ask, with the stations that stand on each. It
+carries two counts and both are computed from the table rather than typed into
+it: how many distinct objects, and how many economies, jurisdictions and separate
+published schedules sit inside the ones that are themselves cross-sections.
+
+**[INDEX.md](INDEX.md) is the map of the ledger**: one row for every block in it,
+sorted by station, each linked to the section it names, with a few routes through
+it at the top for a reader who wants one subject rather than all of them. The
+table is generated from the ledger's own headings by `scripts/make_index.py`, so
+a block cannot be in the ledger and missing from the map. `--check` says whether
+the map is current and `--selftest` plants faults in it and checks they are
+caught.
+
 ### Which stages have a prose document, and which do not
 
-**The Roadmap tables below carry the link for every stage that has one.** This
-section says only what a link cannot, which is why the others do not, since that
-is a convention rather than an omission.
+**[INDEX.md](INDEX.md) carries the link for every stage that has one**, in its
+third column, generated from what is on disk. This section says only what a link
+cannot, which is why the others do not, since that is a convention rather than an
+omission.
 
 **The four earliest A-track stages never had one.** A0, A0b, A2 and A2c each
 isolate one mechanism in a few dozen lines, and the design is legible in the
 experiment file itself. Their readings are in [RESULTS.md](RESULTS.md).
 
-**From B10 onward the convention changed, and it is the one still in force.** The
-criteria are written in the experiment script, the record each run writes carries
-them verbatim, and the reading goes into [RESULTS.md](RESULTS.md). The design and
-result documents for those stages are held outside this repository. **What is
-published is the evidence**: `experiments/<stage>_*.py` and the committed
-`results/*.json` beside them, which is what someone re-running a stage actually
-needs. The A-track stages built after A7 follow the same convention.
+**From B10 onward the criteria are written in the experiment script, the record
+each run writes carries them verbatim, and the reading goes into
+[RESULTS.md](RESULTS.md).** **What is published is the evidence**:
+`experiments/<stage>_*.py` and the committed `results/*.json` beside them, which
+is what someone re-running a stage actually needs. The A-track stages built after
+A7 are scored the same way.
+
+**A stage gets a file under `docs/` when it holds something a record cannot**: a
+proof, a derivation, a carrier specification, or an account of how several arms
+fit together. That is why every station from B63 to B96, which is where standard
+price theories are recovered as special cases, carries one, and why several
+measurement stations whose whole content is a table of criteria do not.
 
 **Two stations answer a requirement stated inside another station's document**,
 which is worth knowing before looking for a file that does not exist. B13's
@@ -268,7 +321,19 @@ rules say about the positions, the less the remaining choices can decide.
 **This model is a phenomenon simulation and not a fit.** It is derived from the
 framework and does not try to reproduce the economy. It asks a narrower
 question: which observed phenomena a mechanism set carrying only the framework's
-own commitments turns out to produce. The credit in reproducing something is
+own commitments turns out to produce.
+
+**Say exactly where the world enters, because "no empirical input" would be too
+strong and an easy thing to catch.** Building the mechanisms used none: the
+positions, the rules and the accounting in the earliest stages come from the
+framework and from nothing that was measured. Checking them used plenty, because
+checking is comparing an output to something observed, and the later stages are
+inferences of the form *if this object is put into these mechanisms, what comes
+out*, read against what the world shows. **What is absent throughout is fitting.**
+No parameter is chosen to move an output toward a target, no series is regressed
+on, and the sweeps are declared ranges rather than searched ones. A reading that
+lands near an observed magnitude is therefore worth what the chance of missing it
+was, and a reading that lands far away is reported as it came out. The credit in reproducing something is
 exactly the chance it could have failed to. A model with a few million
 parameters reproducing the stylised facts is worth nothing, because failing to
 reproduce them is the only outcome that would have been news. A model whose
@@ -346,8 +411,10 @@ happens across the full range. That comparison is the deliverable of this stage.
   growth.
 
 **Absent from A0, and where each was taken up afterwards.** Credit creation is
-absent throughout the track: the authority issues, and no matching liability is
-created anywhere. The other four were scope restrictions on A0 rather than on
+absent from A0 and stays absent through most of the track: the authority issues,
+and no matching liability is created anywhere. A41's second block is where it
+opens, behind a switch of its own, and a line of credit there makes a negative
+holding a debt owed to the house. The other four were scope restrictions on A0 rather than on
 the framework, and each has since been opened behind a switch of its own.
 
 | absent from A0 | opened at |
@@ -461,6 +528,98 @@ tuning, so the count has an exact null and needs no threshold on any coefficient
 The registered level for the locally produced class is not what the countries
 return, and RESULTS.md reports the ordering and the level apart.
 
+## What the standard account needs in order to have one price
+
+This framework's condition for a single price to exist is one sentence and it is
+read off numbers that are already posted: **every loop sums to zero**. Theorem 1
+says a potential exists exactly when that holds, so the condition is a property of
+the measured object rather than of the model built around it.
+
+The standard account needs the same thing and states it as a conjunction. Its
+sources are precise about this and the wording is theirs.
+
+**Completeness buys uniqueness of the discount factor.** In Cochrane's Asset
+Pricing: *"If markets are complete, there is nowhere to go orthogonal to the
+payoff space X, so m\* is the only possible discount factor."* That settles
+uniqueness inside the payoff space, and it settles nothing about whether any
+particular participant's valuation equals it.
+
+**What settles that is a separate assumption, and the same text names it and names
+what it excludes.** The pricing equation for a given investor is that investor's
+first-order condition, reached because *"the consumer buys more or less of the
+asset until this first order condition holds"*. The condition for that step is
+free portfolio formation, and Cochrane calls it out: *"Free portfolio formation is
+in fact an important and restrictive simplifying assumption. It rules out short
+sales constraints, bid/ask spreads, leverage limitations and so on."*
+
+**The general-equilibrium form of the same requirement is longer still.** Shell's
+own account of the Cass-Shell sunspot immunity theorem, the result that says
+variables with no bearing on fundamentals leave equilibrium alone, has it hold
+under a full range of perfectly competitive markets together with strictly convex
+preferences, convex production, a finite horizon, agents sharing beliefs about the
+extrinsic variable, and full participation. It fails under restricted
+participation, under incomplete markets, and under an unbounded horizon.
+
+    the standard account   complete ∧ strictly convex preferences ∧ convex
+                           production ∧ finite horizon ∧ shared beliefs ∧
+                           full participation
+    this framework         every loop sums to zero
+
+**Two of the conjuncts have to be supplied by whoever is doing the modelling
+rather than read from anything.** Which state space counts decides completeness,
+and who counts as a participant decides the rest. Both are choices, and the second
+one is the sharper problem: **a person who does not trade because doing nothing is
+optimal and a person who does not trade because a rule stops them leave the same
+record.** They are not two cases that resemble each other. Where there is a
+bid-ask spread there is a band inside which no trade is strictly best and the
+marginal condition holds only as a pair of inequalities, so one person is
+simultaneously trading voluntarily and unpinned. Watching for longer does not
+separate them: a participant who is always constrained and one who is free and
+happens to be stationary generate the same series unless something perturbs them
+across the band. **So free portfolio formation is not identified from behaviour.**
+
+This framework does not have to identify it, for a reason that is arithmetic. The
+number of independent loops on a graph is `b1 = |E| - |V| + c` with `c` the number
+of components. An isolated vertex adds one to `|V|` and one to `c`. A vertex
+attached by a single edge adds one to `|V|` and one to `|E|`. Either way the count
+does not move:
+
+    base graph, two independent loops       b1 = 2    V=4    E=5
+    plus 100 isolated onlookers             b1 = 2    V=104  E=5
+    plus 100 onlookers on one edge each     b1 = 2    V=104  E=105
+    plus 1 participant who opens a
+      second route between two positions    b1 = 3    V=5    E=7
+
+**Who counts as a participant is therefore not a question this framework has to
+answer.** Nobody has to be excluded from the count, because onlookers do not
+change it. What changes it is whether a second route exists between two positions,
+and that is something to count rather than to judge.
+
+The same substitution runs through the empirical stations. Where the standard
+account infers the constraint set from what people did, the stations here read the
+rule that draws it: which credential an operator issues and how many of them,
+which article of a statute names which classes, which clause of a filed tariff
+prices which case. Stage B57's reading that seventeen pairs of merged classes sit
+at sellers issuing a separately applied-for credential per class stands on the
+operators' own pages, not on an inference from the merge itself.
+
+Two further notes on where this sits. **The exclusion list quoted above names
+bid-ask spreads**, and a bid-ask spread is exactly a two-sided edge whose terms
+differ by direction. That case has a theorem here rather than an exclusion.
+Theorem 4 says a sub-potential exists, meaning a consistent price vector no
+available move beats, exactly when every directed cycle sums to at most zero; and
+Theorem 6(2) says that sub-potential has every slack zero, which is the equality
+case, **only when the symmetric part of the field vanishes and the antisymmetric
+part is exact**. So absence of arbitrage buys the weaker object and buys nothing
+about exactness, the two parts are separately non-zero and separately measurable,
+and Theorem 6(4) bounds one by the other so that the registered quantity is a
+ratio in the unit interval rather than a raw difference. And Shell's account adds
+that
+imperfect and monopolistic competition are highly prone to sunspot effects, while
+market power is the first of the three conditions the price-discrimination account
+needs before it applies. **Those two strands speak about the same domain from
+opposite directions**, and the readings collected here sit in that domain.
+
 ## How to read a result the rival account also gets right
 
 A reading in this repository sits somewhere on two axes: whether this framework gets
@@ -478,9 +637,12 @@ report**, because failures differ in kind and in size and the difference is the 
 worth having.
 
 - **C.** The framework is wrong where the rival is right. This is the only cell of the
-  bottom row that has been in play here, and it is empty: seven falsification
-  conditions, each fixed before the data it applies to, none hit. **That is a count and
-  not a claim about what is possible.**
+  bottom row that has been in play here, and it is empty. Every falsification
+  condition on this track is fixed before the data it applies to, and none has been
+  hit: across every committed record, the number of `rival` criteria that did not pass
+  is zero. **That is a count and not a claim about what is possible**, and it is read
+  off the records by `scripts/fail_census.py` rather than kept in this file, because it
+  moves every time a station is added.
 - **Both wrong.** Two accounts failing on the same reading are not failing the same
   way. A mechanism that has the order of its steps wrong is a different object from a
   result with no mechanism that produces it, and they cost different amounts to repair.
@@ -534,8 +696,11 @@ exactly that with seven carriers before correcting it.
   is a different carrier, not a missing mechanism**, and treating the carrier's
   boundary as a hole in the theory is the confusion this paragraph exists to
   prevent.
-- **The object is structure, not timing.** Every quantity here is a property of a
-  configuration; none of them is a forecast, and nothing is dated forward.
+- **The object is structure, not timing.** Almost every quantity here is a property
+  of a configuration rather than a forecast. Where a station does reach past the data
+  it holds, it is named: B59 registers a hypothesis about a rate change whose data did
+  not exist when the hypothesis was written, with the window, the statistic and the
+  verdict each cell maps to all fixed in advance.
 - **Levels are entered as published, not estimated from a target.** Nothing is
   fitted, so a match to a series is evidence rather than construction. Stage A1 is
   the first place the model is asked to meet one.
@@ -570,51 +735,22 @@ pip install -e ".[dev]"
 python experiments/a0_retention.py       # one stage, and this is the way in
 python experiments/b52_europe_class_square.py
 
-python scripts/run_all.py               # tests, then a batch of stages, one digest
-python scripts/run_all.py --quick       # tests only
-python scripts/run_all.py --slow        # adds A6's ratchet, about twenty-five minutes
-python scripts/run_all.py --b2          # adds the stages that read fetched data
-python scripts/run_all.py --skip-done   # read a stage's existing record instead of re-running it
-python scripts/run_all.py --only B10 B14   # restrict to the named stages
+python -m pytest -q                      # the invariants, and they are assertions
 ```
 
 **A single stage is the way in.** Each is one file under `experiments/`, takes
 `--rounds N` and `--seeds N`, writes its record to `results/`, and exits non-zero
 if a live criterion fails. Nothing else has to be working for that to run.
 
-**`run_all.py` is legacy, and its scope is fixed.** It was the middle link of a
-chain that ran every stage, regenerated `RESULTS.md` from the records, and had
-continuous integration compare the two. All three ends of that chain were retired
-on 2026-08-21: the generator, the CI trigger, and the ratchet that had required
-every record to have a job here. **The batch runner outlived what it was
-batching for**, and it is kept because a good deal of the A track is wired into
-it and it is a convenient way to run that batch on a machine that already holds
-`data/`. It is not a reproduction script: `data/` is described rather than
-shipped, in [`data/SOURCES.md`](data/SOURCES.md).
-
-**What it covers, counted on 2026-09-07.** 52 of the 365 scripts under
-`experiments/`, which is 25 stations in full, 10 in part and 50 not at all.
-
-| | stations |
-|---|---|
-| **in full** | A0, A8 to A21, A24, A25, B6, B12, B15, B49 to B53 |
-| **in part** | A1, A2, A4, A5, A6, A26, B1, B2, B5, and the tariff-corpus arms |
-| **not at all** | **A3 and A7**, A22, A23, **the whole C track**, L2, and every B-track station from B3 onward apart from those named above, including B7, B8, B9, B10, B13, B14, B16, B21, B30, B34 to B44 and B54 to B56 |
-
-**A station outside that table is run by its own file and nothing else**, which
-is how every station is run in the first place. The job table is a list somebody
-maintained by hand while something forced them to, and since 2026-08-21 nothing
-has. **Read it as a convenience, not as an index of the work**: `RESULTS.md` is
-the index, and it is kept by hand for the same reason.
-
-The digest prints one line per stage with the pass count, the exit code and the
-wall time, plus a named line for every criterion that did not pass.
-
-**A failure line carries the kind of criterion it was**, because the six kinds
-mean six different things when they do not pass and only one of them speaks to
-the theory. Criteria adjudicated not to be repaired carry their reason inline,
-so a reader can tell a standing negative from a regression without opening
-anything.
+**`scripts/run_all.py` is superseded and is not the way to run anything here.**
+It was the middle link of a chain that ran a batch of stages, regenerated
+`RESULTS.md` from the records, and had continuous integration compare the two.
+All three ends of that chain were retired on 2026-08-21: the generator, the CI
+trigger, and the ratchet that had required every record to have a job in it. Its
+job table covers a minority of the scripts under `experiments/` and has not
+tracked the ones added since, so whether a station appears in it says nothing
+about that station. It is left in place rather than removed, and
+[RESULTS.md](RESULTS.md) is the index.
 
 Every experiment script exits non-zero if a live criterion fails, so a
 regression shows up the moment its stage is run. `.github/workflows/ci.yml` is
@@ -652,7 +788,13 @@ experiments/     one script per stage or diagnostic. A stage script
                  writes results/<name>.json; a diagnostic writes nothing and
                  says so in its first line
 scripts/
-  run_all.py           lints, tests, runs every stage, prints one digest
+  make_index.py        writes INDEX.md from the ledger's own headings
+  make_carriers.py     writes CARRIERS.md from the carrier table it holds
+  check_dead_links.py  every document reference, resolved against the disk
+  fail_census.py       every criterion that did not pass, counted by what it asks
+  run_all.py           superseded; see the section above
+docs/            one file per stage that holds something a record cannot:
+                 a proof, a derivation, or a carrier specification
 tests/           naming follows the stage, so `test_a4_*.py` are
                  A4's guards and each asserts one claim its docstring states
 figures/         committed; they are the artefact
@@ -662,6 +804,10 @@ speedrun/        README.md is the index by field: which stations sit in
                  and where to read them
 data/            not committed. SOURCES.md records provenance
 ```
+
+`INDEX.md` and `CARRIERS.md` sit beside `RESULTS.md` at the top level and are
+generated. Each takes `--check`, which says whether it is current, and
+`--selftest`, which plants faults in the generator and checks they are caught.
 
 No notebooks. Every result is produced by a script that runs start to finish
 with no hidden state, and every parameter that affects a published figure is
@@ -683,240 +829,114 @@ performed afterwards. If it fails, the run stops and no figure is produced.
 
 ---
 
-## Roadmap
+## The three tracks
 
-Three tracks, run in parallel. They share no code because they answer different
-kinds of question.
+Three tracks, run in parallel, answering different kinds of question. They were
+built apart, and where a later station needs an object an earlier one already
+constructs, it imports it rather than rebuilding it: the classical price stations
+draw their productive systems from stage A19's industry generator.
 
-**Track A — distribution dynamics.** Computational claims: whether a support set
+**Where each station is.** [INDEX.md](INDEX.md) lists every block in the ledger,
+sorted by station and linked to it, with a few routes through it for a reader who
+wants one subject rather than all of them. [CARRIERS.md](CARRIERS.md) lists the
+same work by what was read rather than by station number.
+[RESULTS.md](RESULTS.md) is the record itself and is the authority on any of it.
+This section says what the three tracks are for; it does not carry a station list,
+because a list kept here by hand falls behind the ledger and then misleads.
+
+**Track A, distribution dynamics.** Computational claims: whether a support set
 contracts is **parameter-dependent rather than structurally guaranteed**, and the
-sweep maps where it does and does not.
+sweep maps where it does and does not. The track starts at A0's construction,
+which the section above states in full, and every mechanism added after it sits
+behind its own switch, is off by default, and reproduces the earlier results bit
+for bit when it is off. Two published figures are its calibration targets, and
+they are entered rather than fitted: the bottom half of the distribution holds
+51.8% of all consumer credit against 2.5% of net worth.
 
-| stage | subject | status |
-|---|---|---|
-| A0 | retention and allocation | **complete, 9/9**; no separate document, see [RESULTS.md](RESULTS.md) |
-| A0b | derived demand on the downward edge | **complete, 6/6 under both presets**; no separate document |
-| A2 | support-set contraction, and the intermediate layer | **complete, 8/8 over 12 graph seeds**; no separate document |
-| A2c | cycle structure of the realized graph | **complete, 7/7**; no separate document |
-| A3 | **the asset price channel** | closed, **3/4 live, 1 void, 2 diagnostic**, [`docs/a3_asset_channel.md`](docs/a3_asset_channel.md) |
-| A3b | the construction the channel opens from | complete, [`docs/a3b_initial_construction.md`](docs/a3b_initial_construction.md) |
-| A3c | which parts of A3 are load-bearing | complete, A3-8 **void**, [`docs/a3_restated.md`](docs/a3_restated.md) |
-| A3g | the criterion registered forward in A3, read on a swept population | ran, **3/5, one undecidable, one fail**. Widening the measured set with the one knob that widens it also removes the effect being read, by a factor of 277, so the criterion cannot be read on this carrier that way. See [RESULTS.md](RESULTS.md) |
-| A3h | **a channel that moves the mechanism and carries no holonomy** | **4/4.** `tier_positions` is a star, so `b_1(G) = 0`, so every obstruction is a square and the gate cannot enter the holonomy at all. The objection that a zero from an inert treatment proves nothing is answered by measurement: between the two cells that differ only in the gate it moves 19.4 nodes' cycle counts against the other channel's 16.8, **86 per cent of it**. Scored on seeds drawn after the criterion was written |
-| A3i | the two clauses of that criterion, counted apart | **4/4, no model run.** It reads every record on disk where both cells were computed and counts the clauses separately: the ordering the theorem licenses holds at **54 of 57 points**, the sign-stability it never promised at 9, and **the gate-only cell is sign-stable at none of them** |
-| A3j | where the gate is inert, and it is the opposite end of the knob | **4/4.** The mechanical effect along A3g's declared grid: 0.748 at the narrowest population and **exactly zero at the two widest**, so the inertness is at the wide end, where an admission rule has nothing left to ration |
-| A3k | **the A track's zero domain** | **7/7, no model run.** `b_1(G) = 0` on a star makes every obstruction a square, so an admission threshold is outside the cochain and its holonomy share is required to be zero, with no constant chosen by anyone. Read off 57 pooled points: the gate channel is same-sign across seeds at **0** against the terms channel's 9. On the eight grid values where A3j measures the gate as mechanically active, at 49% to 107% of the terms channel's work, **terms is positive at 8 of 8 with no sign change and the gate at 4 of 8 with two**. The programme's third zero domain and the only one on the A track |
-| A5 | reachability against participation | **4 of 5 live criteria pass, 3 void, 1 diagnostic**, [`docs/a5_reachability.md`](docs/a5_reachability.md). The region closes through the denominator rather than the price: freeze the price and the threshold is still crossed in 12 of 12 seeds |
-| A6 | the cost of the siphon | complete, [`docs/a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
-| A4 | four competitors on the causal primitive | ran, **3/4 live, 2 void**; the discriminant is one of the voids, see below, [`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
-| A7 | continuous connectivity | **ran**, eleven verdicts, [`docs/a7_continuous_c.md`](docs/a7_continuous_c.md). The per-run records are `diagnostic_only` because section 4.2's scored estimator (`D_fixed`) is not what those runs computed; every gap in them is `D_reach`, which the same section registers as reported and never scored. The verdict sheet is the record that reaches [RESULTS.md](RESULTS.md) |
-| A1 | default waterfall, calibrated to delinquency cross-sections | A1 superseded by A1b; A1b, A1c and A1d have run, see [RESULTS.md](RESULTS.md). Registers: [`a1_prereg.md`](docs/a1_prereg.md), [`a1b_prereg.md`](docs/a1b_prereg.md), [`a1c_prereg.md`](docs/a1c_prereg.md), [`a1d_prereg.md`](docs/a1d_prereg.md); what was checked before retrieval, [`a1_availability.md`](docs/a1_availability.md) and [`a1_inputs_availability.md`](docs/a1_inputs_availability.md) |
-| A2d | what selects the terminal distribution | **complete, 4/4.** Structure moves terminal top1% wealth by 0.156, the savings rate by 0.0066 and where issuance enters by less still |
-| A8 | the coverage test | **complete, 4/4.** Four surfaces are in play at once on a grid fixed before the run, and the two ends of the edge-width curve each drop a different one, which is what a conjunction of positive predictions has to do to carry any information |
-| A9 | the New Deal switch | **complete, 4/4.** One structure, two parameter settings, and the rate at which both readings hold |
-| A10 | the write-off chain | **complete, 4/4 live, 1 void.** One switch, and the aggregate stops showing what the distribution still shows |
-| A11 | the subsistence floor | **complete, 4/4.** On a stratified graph position decides who starves; erasing the topology removes the question |
-| A12 | the coverage result under the two later mechanisms | **complete, 7/7.** The floor and the write-off are added to A8's carrier and the four surfaces are read again |
-| A13 | whether position can be bought and sold | **complete, 9/9.** Every earlier stage ran on a graph fixed at construction; opening that channel moves terminal top1% wealth by 0.0033, half what the savings rate moves it and a forty-seventh of what the structural parameters move it. A promoted node could acquire three things and not one: the core's edges, its spending propensity, and its role in paying wages. They are added one rung at a time so each step's difference has a single owner, and the propensity and the payroll rungs move terminal share in opposite directions |
-| A14 | which readings are scale free | **complete, 7/7.** With node count and core share in the grid the structural span is 0.383, two and a half times what A2d reports with both held fixed |
-| A15 | which of these phenomena are transcribed, and which fall out | **complete, 10/10.** The main grid needed no runs: A12's two records are it. A switch taken from the manuscript moves the closing Gini by under 0.0005 in forty-four cells of forty-five and by 0.271975 in the forty-fifth, where the amplifier is the issuance rule and the claim stock ends 22.7 times its opening. Whether a return catches is bistable, four cells against sixteen with an empty band of 12.6 times in the money stock. On the complete graph both exit rules put all two hundred below the line and only one lets them back, so the wall makes the cascade permanent rather than making it happen. The wage bill closes 26.2 to 29.5 per cent down and does not return; a return that catches recovers 66.1 per cent of that |
-| A16 | a bilateral obligation on the highest-degree nodes | **complete, 6/6 and 1/1 on the floor scan.** The one liability in the flow layer, three orientations, selected by in-degree off the same expression that picks the injection node. It moves the closing count below the line by single digits on a base of 76 to 154. The share of the stock held by departed nodes is bimodal across 160 runs, 105 cells at or under 0.0086 against 55 at or over 0.9339 with nothing between, and the crossing sits between floor multiples of 0.125 and 0.150 |
-| A17 | edges cut out of the graph, rather than a node ceasing to trade | **complete, 6/6.** Cutting seven tenths of the edges produces no cascade, at random or aimed at the hubs: flow ends at 0.99 and 0.94 of the control's. Removing nodes does produce one, and that is the subsistence floor, so the graph's phase transition is not what does it. Who does the cutting is the mechanism by three orders of magnitude: a stressed node cutting its own out-edges leaves flow at 0.0199 of the control's, and its counterparties cutting the edges into it leaves it at 32.9 times |
-| A18 | what the policy switches do to the time path | **complete, 6/6, and no mechanism added.** The first station here to read a trajectory rather than a closing value. Forbearance does not defer the problem, it prevents it: the arm that lets nodes go ends with a claim stock 17.45 times its opening and the arm that keeps them in the market ends at 1.0005. The accumulation belongs to the issuance rule and not to loss recognition, since with the authority off all twelve policy combinations end at exactly 1.0000 |
-| A18_B | who pays for forbearance, and what changes when they stop passing it on | **complete, 8/8.** A node below the line is kept going by whoever already lends to it, along the edges already there. The rescue is a loop: the lenders end holding 0.0016% to 0.44% of what they paid less than they would have. The lenders cover 87% of what the rescue asks at the shallow floor and 27% at the deepest, so where the money comes from is a measurement: over 45 cells, new claims credited to the lenders hold the fewest below the line in 23 and end with a claim stock up to 7.53 times its opening, while the two conservative routes end within 2%. When the recapitalised nodes retain instead of passing it on, the count below the line is flat up to 0.95 retention while the claim stock climbs from about 5 to about 32, and at full retention the stage produces claims created that do not circulate: stock 30.9 times, flow 0.893 of the control's, and the only growing flow is lending to the nodes below the line |
-| A18_C | where the created claims land, and whether that is what decides anything | **complete, 5/5.** The control for the arm above: the same claims created for the same reason, arriving either on the lenders or spread over everyone still trading. Over 135 paired cells the count below the line is identical in 105 and differs by a single node in 23, so what decides whether created claims circulate is whether the recipient passes them on and not where they arrived. The landing point is not inert everywhere and where it is not is the informative part: its influence falls monotonically as the wage channel strengthens, from 14 of 45 pairs differing with a largest gap of 11 nodes at zero elasticity to 6 of 45 and a gap of 1 at full elasticity |
-| A18_D | the rescue as a loan rather than a gift | **complete, 6/6.** Every earlier arm's rescue was never repaid, which put a debt overhang, a rescue that leaves its recipient worse off, and the difference between a bridge and a trap all out of reach at once. Here the rescued node owes what it received to the nodes that funded it and services that before it spends anything of its own. The book closes to the last bit in all 330 rows. A repayable rescue does more with the same balance sheet: the amount delivered exceeds the gift arm's in 97 of 180 comparisons, median ratio 1.34. And the best repayment rate is almost never the largest one on the grid, sitting strictly inside it in 24 of 45 cells and at the largest in 2, so repaying faster is worse than repaying slowly past a point that is interior. At the deepest floor a fifth of everything lent is still outstanding at close, at every rate |
-| A18_E | a claim that exists, is owned, and is not in the money that circulates | **complete, 5/5.** Two separate correspondences on this station had ended on the same limit: the graph had no boundary, so holding claims back and holding something outside the trading system were one state, and a repayment could not leave the economy because the creditor is a node in it. A share of a node's holdings now moves out of the accounts the flow routes through, without being destroyed. It is not the earlier switch renamed: under that one the parked stock is zero in 90 of 90 cells and under this one it is above zero in 245 of 245, and in every cell the two move the circulating half in opposite directions. Across the grid the stock rises 22 times while the money that circulates falls to 0.15 of its opening. And output per unit repaid turns sign with the parking rate, from +1.08 to +1.50 with none of it to −0.58 to −0.37 at a fifth |
-| A18_F | who carries a forbearance programme | **complete, 3/3.** The same forbearance and the same parking behaviour, funded either from the lenders' own book or from claims an authority creates and hands them, with nothing else different. The grid sits three orders below the arm above it, because that one's lowest parking rate already leaves ninety-two per cent of the stock parked and can only report saturation. The deeper the distress the more the funding route decides: an authority creating the claims buys about thirty per cent more circulation at the shallower floor and four to five times as much at the deeper one, and the count below the line differs in 48 of 60 pairs. The two routes are non-monotone in the parking rate in different shapes, a drift on one and a flip between two values on the other |
-
-**A3 returned two non-positive outcomes, and they are different states, which is
-why both are reported with their reason.** A3-5 comes back **void rather than
-negative**, and the reason is itself a finding about the mechanism: opening the
-high tier is a bitwise no-op in this calibration, because the tier allocates
-fully at the opening and no production-layer node can reach it even at a soft
-gate. At that tier the exclusion is a **price wall and not a hole**, so there is
-nothing there for a gate criterion to measure. A3-6 is a **negative with a number
-on it**: the stock exists, and the holding population is 15.8 nodes of 200 with
-none of them in the production layer, which is a measured bound on the domain any
-wealth-based account can speak about here.
-
-**A3-6 was also why A4 was blocked, and A4 has since run and answered it a
-different way.** A4 sets four competing accounts against each other on wealth,
-and A3-6 says the wealth is upstairs: sixteen nodes of two hundred, all in the
-financial layer. The plan had been for A4 to inherit that stock. It does not.
-[`docs/a4_causal_primitive.md`](docs/a4_causal_primitive.md) §10.4 rules that A4
-keeps the plain network and takes its stock from issuance instead, because the
-population A3's channel could hand it is that sixteen and no more.
-
-**A4 ran, and its discriminant could not be computed.** Not "failed": three of
-four live criteria pass and the two voids are voids on grounds registered before
-the run. The amplification ratio `A(X)` compares a competitor's effect with
-connectivity on against its effect with connectivity off, and no competitor is
-readable in both arms. Inheritance and assortative mating transmit dispersion
-without creating any, and the complete graph is an attractor at a Gini of
-`0.0071` reached in five rounds from any opening, so on that arm they have
-nothing to transmit. Education and capital returns create their own dispersion
-and are invisible on the stratified arm, where twenty nodes hold `99.7%` of the
-stock and any agent-level mechanism moves about `0.3%` of it. One of the two
-terms of every ratio is therefore a reading of the graph draw.
-
-Two repairs were registered in §11 before either was run, and both of the
-falsification conditions written down with them fired. Measuring on the
-production layer alone relieves the Gini ceiling by a factor of six and a half
-and still leaves education inside the noise floor. Measuring a transmitting
-mechanism on top of a generating one lifts the complete-graph denominator six to
-eight fold and still yields no sign-stable cell once the household pooling rule
-is set to settle at generations rather than every round. That last control
-matters on its own: at the registered rule, ninety-nine point six percent of what
-inheritance and assortative mating do on the stratified arm is a household
-straddling the layer boundary and acting as a zero-cost conduit across it, not
-the channel being measured.
-
-**What A4 does establish is A4-2 and A4-6.** With every competitor off and every
-agent identical, switching on nothing but the access structure takes the Gini
-from `0.00711` to `0.93673`. And the matching rule, which reads holdings and is
-guarded in code against seeing the layer label at all, pairs across the layer
-boundary `16.1%` of the time with connectivity on against `17.8%` with it off,
-where uniform random gives `18.1%`, at five of five seeds. Connectivity does not
-prevent anyone from marrying anyone. It arranges the holdings so that a rule
-which never mentions layers ends up respecting them.
-
-**A7 is where A4's ratio stops being readable.** The two arms of a binary `C` are not two
-settings of one economy, they are two economies with different state, and a ratio
-between them measures the state difference as much as the mechanism difference. A
-continuous `C` replaces that ratio with a slope along a path, which does not need
-both endpoints live at once. The availability check is done and the continuum is
-constructible: interpolating by edge addition takes the centrality dispersion from
-`0.161` to `0.000` monotonically with no cliff, the layer gap closes with it
-rather than surviving it, and both endpoints are exact rather than limits. It also
-lets `C` move one thing at a time, which the binary switch does not: `uniform_access`
-collapses the adjacency, the payroll incidence, the routing, the propensities and
-the opening holdings together, and the design notes say so.
-
-**A7 is pre-registered and has run: 3 of 7 live criteria pass and 4 are void, and
-what it returns runs against this track's own headline.** A7-A-2 finds the registered
-shape wrong, a step at the first grid point rather than a gradient; A7-A-4 finds A3-8'
-holding nowhere, including where it was derived. Adding 350 edges to 1,039 removes 98
-per cent of the compounding divergence and the placebo falls by the same 98 per cent,
-while holonomy rises 4.9 and 7.0 per cent. **The reading is that position rent here is
-lock-in and not a spread, and one alternative path ends it.**
-[`docs/a7_continuous_c.md`](docs/a7_continuous_c.md)
-files one registration with two legs, because the holonomy is not computable on
-A4's carrier: the loop sum is defined on the `terms` matrix, which lives on
-`A3Model`, while `A4Model` subclasses `Network` and has no edge field. Leg A7-A
-runs on the A3 carrier and measures `s -> H1 -> D`, where the content is that
-A3-8 already removed the same holonomy once with a parameter (`kappa_pay = 0`,
-graph fixed) and this removes it with the topology instead, with every kappa left
-alone. Leg A7-B runs on the A4 carrier and replaces `A(X)`'s cross-arm ratio with
-a slope, scoring `E` and `K` on `log(1/HHI)` and reporting `I` and `M` without
-scoring them: the stock those two transmit runs from `28.06%` to `0.00%` of a
-generation along the same axis, in the same direction as the amplification the
-leg would be claiming, while `E` and `K` are compressed the other way by the Gini
-ceiling that section 11.3 already measured. No criterion reads the whole grid,
-because A4-1 measured the complete graph to be an attractor and its zero is
-overdetermined. The construction parameter is `s`, it runs against `C`, and the
-`s = 1` endpoint is not A4's `C = 0` arm.
-
-**A3 has been redefined and it is no longer a merge.** The original plan made it
-an integrated simulator that combined the earlier stages. That is now the wrong
-target. Stages A0 through A2c measure claim circulation and report levels: a layer
+**The asset channel is where compounding enters, and that is why it is a stage of
+its own.** Stages A0 to A2c measure claim circulation and report levels: a layer
 drains, a support set contracts, loops stop being traversed. None of them can
-produce a *widening gap* between agents who began level, because none of them has
-an asset whose value responds to where claims accumulate.
+produce a widening gap between agents who began level, because none of them has an
+asset whose value responds to where claims accumulate. Claims pile up in the
+financial layer, that layer bids on assets, holders gain and non-holders are
+priced out of entry, and the agents who could not enter at the start cannot enter
+later either. [`docs/b1_setup.md`](docs/b1_setup.md) shows why that is
+load-bearing rather than decorative: with an asset, a per-period loop sum `δ`
+opens a gap of `exp(Tδ)`, and the framework's settlement ratchet turns out to be
+its non-integrability read at a different horizon.
 
-That channel is where compounding comes from. Claims pile up in the financial
-layer, the financial layer bids on assets, holders gain and non-holders are priced
-out of entry, and the agents who could not enter at the start cannot enter later
-either. The source framework describes this directly, and
-[`docs/b1_setup.md`](docs/b1_setup.md) shows why it is load-bearing rather than
-decorative: with an asset, a per-period loop sum `δ` opens a gap of `exp(Tδ)`, and
-the framework's settlement ratchet turns out to be its non-integrability read at a
-different horizon.
+**Track B, non-integrability.** Structural claims: the assertion is that a global
+object does not exist, which is universal and cannot be established by simulating
+instances. The approach is discrete rather than smooth. On a finite graph, curl is
+a sum around a cycle, the cycle space has dimension `E − V + C`, and the first
+cohomology is a rank computation on the incidence matrix. The discrete Hodge
+decomposition splits any flow into gradient, curl and harmonic parts, which is
+the three-way split the argument needs, and it is computable on real data.
 
-So A3 is one mechanism, not four glued together, and the same discipline applies as
-before: with the asset channel switched off it must reproduce A0 through A2c
-exactly, and those stages remain the control that the channel is measured against.
+**Fixing the object is the first task, and it is not a proof.** On a
+single-currency price vector, integrability holds by identity: writing
+`R_ij = p_j / p_i` makes every loop sum zero as a matter of notation, so a theorem
+about that field would be a theorem about the empty set.
+[`docs/b1_setup.md`](docs/b1_setup.md) fixes the object instead. The field is the
+**two-index** effective cost `P(a, j)`, the terms on which agent class `a` can
+obtain `j`, and a single price vector is the special case where terms do not
+depend on who is transacting, which is an assumption about an economy rather than
+a description of one.
 
-A0b changes what A1 needs. With a fixed wage bill the production layer settles,
-and a default model bolted onto a settled layer can match a level but not a
-dynamic. With derived demand the layer has a genuine downward trajectory whose
-speed is governed by one parameter, which is the driver a default cascade
-requires. Two DFA figures are already recorded in `calibration.py` as A1's
-targets: the bottom half of the distribution holds 51.8% of all consumer credit
-(`WFRBSB50211`) against 2.5% of net worth.
+**The first two measurements divide the work, and the division is the design.**
+Loop A holds the date fixed: same quarter, same census tract, same lien, same
+purpose, same occupancy, and applicants receive different rates while a cash buyer
+carries no financing term at all. Position identical, date identical, market
+identical, terms different by who is transacting, and there is no finer position
+space to retreat to because the position was already held fixed. **It is done and
+it passed**, 7/7 with the placebo at 4/4, on 28,137,985 loans across three
+programmes. Loop B holds the dwelling fixed and varies the entry date. **It is
+done and it passed**, 4/4 over 53 quarters, with a vintage bound of 0.8479 in
+2026 Q1 against loop A's 0.3363, above loop A in 46 of the 53. Its registered
+prediction most likely to fail was that the wedge predates the 2022 repricing, and
+the mean over the 36 quarters before 2022 is 0.4043, so the repricing raised it by
+64% rather than creating it.
 
-A3 is gated deliberately. A model with four layers, exhaust valves, quasi-money
-creation and a default cascade has enough freedom to produce nearly any output.
-Stages A0 through A2 exist so each mechanism carries two or three parameters and
-a reader can verify by hand that a result is not an artefact of tuning.
+**The larger number is the weaker evidence**, and
+[`docs/b1_theorem.md`](docs/b1_theorem.md) is why: loop A's figure is a holonomy
+and loop B's is a component separation, because a below-market mortgage cannot be
+transferred and so no cycle closes. Loop B alone would not have carried it, and
+the design says so. A critic can answer it by saying the two owners hold different
+assets, a dwelling plus a 3% contract against a dwelling plus a 7% one, which is
+correct as stated: entry date is a coordinate rather than an attribute of the
+holder. Loop B survives through the hole, since the 3% contract cannot be
+purchased and integrability on a space you cannot move around in is vacuous. That
+argument is second-order, so the paper leads with A.
 
-**Track B — non-integrability.** Structural claims: the assertion is that a
-global object does not exist, which is universal and cannot be established by
-simulating instances.
+**The theorem changed what those numbers are.** The question it settled was
+whether stage B2 had exercised the framework's machinery at all: loop A's
+decomposition runs over a partition rather than a graph, so until Theorem 3 the
+honest description was an analysis of variance believed to be related to a
+topological claim, and that is worth little, because conditional dispersion in
+mortgage pricing is already documented and a framework that re-derives it has
+contributed a vocabulary. Theorem 3 shows the within share **is** the `L²` norm of
+the square component, halved, and on this carrier the square component is the
+whole non-exact part because the harmonic one is identically zero
+([`docs/b1_theorem.md`](docs/b1_theorem.md) §12). Same number, different object,
+and only the second is something the framework can be judged on. Theorem 2 then
+fixes what any one carrier can reach: mortgage data reaches squares only, and no
+sample size changes that, so the other summand needs a different carrier
+altogether.
 
-| stage | subject | status |
-|---|---|---|
-| B0 | what the non-integrability claim licenses, and what it does not | **complete**, scope-fixing, no measurement. One inequality on one cycle carries it, with no interpersonal comparison, no utility function and no welfare criterion. The four readings it does not license were written down before the stage ran, and the single attack surface is logged as assumption A1: whether the cycles measured are the relevant cycles of the economy or an artefact of how the position space was carved, [`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) |
-| B0b | which standard constructs need the object Theorem 1 characterises | **complete**, and it runs no measurement of its own: every empirical assertion in it is a pointer to a criterion already in [RESULTS.md](RESULTS.md). Domar-weighted aggregation is the load-bearing one, because it needs a frontier whose gradient is the price vector, [`docs/b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md) |
-| B0c | the constructions in the literature that read as closest to this one, and the structural difference in each case | **complete**, a literature survey: every entry reduces to a single-index object before its theorems, on which Corollary 5.4 forces the residual to vanish identically, [`docs/b0c_related_literature.md`](docs/b0c_related_literature.md) |
-| B0d | the New Keynesian family, the one line on which it and this framework disagree, and the sense in which it is a special case | **complete**, and the disagreement is an index-set argument rather than a dispute about frictions: that family's price field carries no agent index, so it lives in the zero set of the quantity measured here. Two direct engagements are on file, one of them a control arm that forced the field exact and reported what survived, [`docs/b0d_new_keynesian.md`](docs/b0d_new_keynesian.md) |
-| B1 setup | fixing the field so the claim is not vacuous | **complete**, [`docs/b1_setup.md`](docs/b1_setup.md) |
-| B2 design | pre-registration, filters, falsifications | **complete**, [`docs/b2_measurement.md`](docs/b2_measurement.md) |
-| B2 loop A | dispersion at fixed position and date, where a single scalar price on positions predicts zero | **complete, 7/7** on 20,071,900 loans |
-| B2 placebo | conventional against FHA and VA | **complete, 4/4** on a further 8,066,085 |
-| B1 theorem | is the partition result a case of the cohomological claim? | **complete, 7/7**, [`docs/b1_theorem.md`](docs/b1_theorem.md) |
-| B2 loop B | same dwelling, different entry vintages | **complete, 4/4**, [`docs/b2_loop_b.md`](docs/b2_loop_b.md) |
-| B2 placebo validation | is the VA pool actually wide? | **6/9**, the premise survives, [`docs/b2_placebo_pool_width.md`](docs/b2_placebo_pool_width.md) |
-| B3 | CIP deviations: cycles that never touch the US Treasury, which vanish if one common convenience yield explains them | complete, [`docs/b3_cip_slice.md`](docs/b3_cip_slice.md); what was checked before retrieval, [`b3_slice_availability.md`](docs/b3_slice_availability.md) |
-| B4 | the directed theorem: what survives one-way edges | **complete, 8/8**, [`docs/b4_directed_edges.md`](docs/b4_directed_edges.md) |
-| B5 | Argentina, and what the April 2025 intervention did to the agent index | squares **5/5**, zero calibration **2/2**, pre-window guards **1/1 live, 1 void**; two source audits returned REJECT. **B5-14 is void rather than negative**: its pre-window series turns inside the window so no slope can be extrapolated across the edge, and the band it was first judged against was withdrawn for having no theoretical source, [`docs/b5_orphan_prereg.md`](docs/b5_orphan_prereg.md) §6A; what was checked before retrieval, [`b5_orphan_availability.md`](docs/b5_orphan_availability.md) |
-| B6-A | reachability typing inside one central bank's own table (Cuba) | ran, the `H1` arm is not in this half, [`docs/b6_cuba_prereg.md`](docs/b6_cuba_prereg.md); what was checked before retrieval, [`b6_cuba_availability.md`](docs/b6_cuba_availability.md) |
-| B7 | matrix rank of the cell-by-class interaction on 16m loans | **the class index carries 0.3036 of stage B2's within-term dispersion** over 16,035,398 loans in 326,872 cells, and **there is no single ladder in it**: the 19-class and 6-class cuts read alike. **The stage then measured what its own carrier can support, and withdrew its rank-2 headline on that measurement.** With two classes at 1.18 and 1.37 loans per entry, a constructed field carrying **no interaction at all** reads back exactly 2 in 20 of 20 repetitions, and the second-moment matrix is near-diagonal (off-diagonal correlations max `0.1417`), so per-class noise lands on the diagonal and there is nothing off it for a rank to count. **That bound governs any future rank claim on this data**, which is why no number is quoted, [`docs/b7_interaction_rank.md`](docs/b7_interaction_rank.md) §11 |
-| B8 | the slice summand on a household carrier: two realisable routes to one state, which a scalar on states requires to carry equal terms | **closed, 8/8 live criteria, 1 void (B8-4b)**. The residual sum runs on 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans, and this is the strongest of the seven carriers. B8-4b waits on C9, and section 15.3 puts that outside the stage's scope, [`docs/b8_fannie_slice.md`](docs/b8_fannie_slice.md). Instrument conclusions the published criteria lean on: [`b8_instrument_notes.md`](docs/b8_instrument_notes.md) |
-| B9 | the measured zero, and the path share | ran; the ETF creation triangle carries a non-zero holonomy of 1.2 to 1.7 bp and its quantization explanation is falsified. The stage is under re-audit, [`docs/b9_zero_holonomy.md`](docs/b9_zero_holonomy.md) |
-| B10 | Freddie as a carrier, and the shape of the state graph | **closed.** The holonomy machinery was rebuilt on a second GSE: 1,362,490 loans, 74,937,616 monthly rows, 28 vintages. The structural reading is the cheap one and it bounds every path design on this data: **of 10,816 possible ordered state pairs only 1,496 ever occur, 13.83 per cent**. The stage also names what its carrier stops recording in mid-2019 |
-| B11 | corporate credit as the second domain | **open, and the readings taken before the gate are now in [RESULTS.md](RESULTS.md).** The branch table in B8 section 15.6 sends the second domain here; the domain was not chosen. The ceiling is counted rather than assumed: the distressed-exchange marker appears on **422 rows over 227 issuers**, 2012-06-15 to 2025-07-01, against a gate of 200, so the investment-grade filter has to retain 88 per cent to clear it. **Registered and sequenced: C11-0 is the next run** |
-| B12 | grid invariance | **closed, and it binds rather than clears.** Every three-bin threshold cut of the delinquency ladder is enumerated whole, so nothing is ranked and no null is needed. The between-class spread of median holonomy moves **4 to 17 times across cuts**, over the registered line on all six vintages on one arm and on three of six on the other. **Per-loop holonomy is untouched and that half is structural**: coarsening changes which loops are the same loop, not what any one of them sums to. So what this binds is every quantity aggregated over cycle classes, and **the 30/60-day convention is not neutral** |
-| B13 | the zero domain | **closed, 7/7 criteria, in a day, on the vendor's free public sample.** The framework names where its own quantity must be zero and then measures it on CME implied quotes: never worse than the two-leg derivation in **81,968 states** over nine products and three channels, exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states. **The explanation first given for the six-versus-nine split is withdrawn** and B13-2 carries the withdrawal. It also produced the first measurement of both halves of B4 section 5.1's split |
-| B14 | a dated, exogenous, symmetric friction change | **the gate passes in both directions.** The SEC tick size pilot is the carrier B4 section 9 asked for. Imposing the 5-cent grid in 2016 widens the treated spread against the control, six inequalities of six, and it holds under every weighting and adversarial convention tried, thirty of thirty. **Lifting it in 2018 narrows them again, six of six**, once both rounds are read on the securities they share: the venue's Appendix B coverage runs 618 distinct symbols in March 2018 and 2,110 in April, between the two rounds. Four of the six cells then sit outside every gap measured on window pairs where nothing happened, taken both inside the pilot and after it. **Closed rather than paused**: the index half was bought and cannot be adjudicated on this carrier, and the reason is structural. `S - S'` is a difference of price levels and a tick-size change works by moving those levels onto a lattice, so projecting the post-release quotes back onto the nickel grid reproduces **88.7 per cent** of the whole move and the residual sits inside a placebo band. What the stage produced instead is a carrier specification |
-| B15 | Bolivia, as the control carrier for B6 | **closed, and it is B6's zero calibration.** B6 found an edge the law grants, that is posted, and that nobody walks, on 207 of 207 Cuban publication days, and the one thing that reading could not establish about itself is whether the instrument says as much of any economy with an official rate and a parallel market beside it. **It does not.** The register was sealed before a single Bolivian number was downloaded and four of its thresholds are B6's own values carried over unchanged, so one ruler measures both carriers: Bolivia reads **21 of 52** against the same 95 per cent. **B6-15 is therefore a fact about Cuba rather than a reflex of the method.** What the instrument tracks is sharper than the contrast. Measured against Bolivia's own frozen peg the same window reads 100 per cent, and against what the banks were actually selling at, 65 per cent; after the peg went and the official rate began to follow the market, 40 per cent. **A posted price nobody transacts at is what produces the Cuban reading**, and the reading falls when the official rate becomes one somebody trades at **Register and readings are both published here**: [`b15_bolivia_prereg.md`](docs/b15_bolivia_prereg.md), [`b15_bolivia_results.md`](docs/b15_bolivia_results.md) |
-| B16 | a purchased-quote carrier, pre-purchase checks only | **open, nothing judged, nothing bought.** Every check run so far was free. The second gate needs the observed dispersion of the statistic, which needs quotes, so the registered order is to buy the smallest arm first, compute the gate from it, and let that decide whether the other five are bought at all. **The screening rule is frozen; the symbol list is not** |
-| B17 | how many independent directions the parallel-rate deviations occupy | **closed**, on Argentina's simultaneously quoted legal conversion tracks, from files already on disk. **Nothing was bought.** Two carriers were screened out on paper before this one, before any data was bought: a GSE monthly panel whose cycle count ran from 1275 to 1 as the state definition changed with no cut having a source, and a depositary-receipt design |
-| B18 | the directional remnant in the direct book | **closed on the instrument's resolution, nothing bought.** One trading day, 295 spread contracts, 3,895,656 snapshots. Absence happens in runs, so counting runs rather than snapshots puts every contract's `A_s` inside two standard errors of zero. See [RESULTS.md](RESULTS.md) |
-| L2 | what is left of B14's move after the arithmetic is taken out | **opened on B14's carrier and free.** B14 closed with its index half unadjudicated because the lattice projection reproduces 88.7 per cent of the move. L2 asks whether the residue is arithmetic or behaviour, and **imports B14's sample, windows, pure-slack definition and group assignment character for character rather than restating them**. The residue has the wrong sign to be arithmetic |
-| B19 | compliance screens as a dated boundary | **closed at gate two before opening.** Gate zero passed with room, 268 treated against 895 control in the thinnest cell over 20,335 firm-quarters; gate two came back at 6.1 with the lower bound on the larger side. **Three numbers went into that ratio and none came from a document**, and moving the two checkable ones takes it to about 1.0. See [RESULTS.md](RESULTS.md) |
-| B21 | **a class index whose target is set by statute** | **19/26 pass, 2 fail, 4 open, 1 void.** One company, two share lines, one declared dividend, and withholding that differs by holder by an amount the state publishes. The index is 14.8 and 30.5 basis points a year on the two legs over 4,226 leg-years and **reaches zero on none of them**; a second arm reproduces the closed form's second, third and fourth order shape with nothing fitted. A census of its own criteria is beside it |
-| B23 | is that wedge Chinese, or does the treaty network carry it | **2/2, no price data.** Sixteen of twenty countries carry a binding wedge and the treatment takes eleven distinct values, 11.7 to 73.2 basis points at a three per cent yield, **which brackets B21's own measured edges** |
-| B24 | **the square where a path between the two positions exists** | **6/6.** A receipt can be cancelled into its home line and A and H cannot be exchanged at any price. On the freely transferable side the dispersion between two listings of one claim is **16.4 basis points**, median over 465 pairings of thirty-one companies at one bell with the exchange rate removed by subtraction; on the other it is **196 times that** |
-| B30 | the propagation chain, arm by arm, and what each one returned | **An index of every arm's state, including the arms that returned nothing.** On one carrier the quotation graph has maximum hop distance one, so there is no hop gradient and the arm cannot run; on the other the public record does not yield dated initiator-and-follower pairs, and that negative was recorded on the spot. What the record supplied instead is an adjacency authored by both parties into a court file, plus a court-ordered, dated, staggered deletion of edges lying in `G_I` alone with `G_T` untouched. The readings live in [`docs/b30_results.md`](docs/b30_results.md) and govern. |
-| B31 | China's domestic price against its border price, 1981-2005 | **4 pass, and one criterion that turned out not to be load-bearing.** A scalar potential over positions predicts `S = 0` on every square. The exchange rate cancels to `3.608e-16` across the official, parallel and equilibrium rates over 106 squares; `|S|` sits at a median **51.7 times** the printed-precision floor, **106 of 106** above it and 91 above ten times it. 54 of the 106 writable squares are independent, and on independent subsets the median runs `0.2170` to `0.4579`. The published trade taxes are near zero throughout, so the branch where they explain `S` was never reachable. |
-| B33 | **the five classes a benefit scheme writes, and the clause vectors they receive** | **5/5.** A published scheme names five classes for a relevant month, writes the mutual exclusion into each definition, and writes the rule joining its monthly grain to its annual one. None of the six clause vectors it produces coincide on all five dimensions. **Three written benefit tables carry two functions**: one schedule is `(2/3)` times another on every one of 48 coefficients, and a third is identical to the first over 56 cells. The collision is exact and carries no resolution limit, unlike the one on national electricity schedules, which was bounded by its source's rounding. |
-| B34 | where the wage floor breaks, against where the statute puts the boundary | **Closed, and every criterion carries a verdict**: six pass, three fail, two are undecidable at this power, and the first round's table is superseded row by row and kept. A statutory age boundary moved and the break moved with it: the old position vanishes on both post-move years. The second difference across three ages the statute puts on one rate reads `+7.97` pp against a measured floor of `4.79`, pooled over four rate years, while no single year reaches it. Two registered predictions were scored, and the one that did not land gives the harder result: the two non-statutory bends are pinned to ages and do not travel with people. |
-| B36 | a quota that does not bind, and an expiry date that does | **The station opened on a quota and closed on a registration date.** US beef to China ran at quota scale for four years and collapsed in 2025 to 32.0 per cent of that base, with the first half of 2026 at 2.3 per cent, while the quota takes effect on 2026-01-01, so the quota did not cause it. The plant registrations expired in March 2025 and were not renewed, while the same customs system renewed dairy, pork and poultry within days. **A registration point in the sense the framework uses: the point expires, the edge is gone, and no price mechanism intervenes anywhere in between.** |
-| B38 | the rank of the obstruction to a scalar price potential | One price level per city makes `log P(i,c) = a_i + m_c`, which is rank one in logs and sets every square to exactly zero. **What is measured here is the rank of the obstruction, not its existence**: that relative prices differ across cities is a common explanation, and nobody computes the rank, because only this framework says the rank is the surviving information. Currency does not enter, since converting one city's prices adds a constant that the city effect absorbs exactly. |
-| B38b | is that residual an obstruction, or one name meaning different things | The confound this reading has to survive is item non-comparability rather than agent error: the same menu item in two cities may not be one object, and a residual made of that is a mis-specified edge rather than a field that fails to close. The station separates the two. |
-| B38c | how much of that residual survives into the next vintage | **This one needs no noise level at all.** The archive exists in two vintages of the same source a short interval apart: 67% of shared cells differ, by a median of `+1.30%` in logs and systematically positive, which is a stretch of time rather than a re-clean. |
-| B38d | the rank split on the carrier's own quality flag | Both floors B38 read against assume one noise level for the whole matrix and argue only about how high it is. Splitting the matrix on the carrier's own quality flag reaches past both, and **the two halves agree**. Criteria are objects printed, with no threshold and no permutation. |
-| B39 | an independently collected posted price, as a referee | B38c closed by naming what it could not reach: a bias that is persistent, structured, and unrelated to how tightly an item is specified. Two vintages of one source cannot reach it, because a rolling window means they share entries. This station brings a posted menu price for one brand, collected by a different organisation since 2000, with no contact with the first source. **The reading it returns runs against B38's, and is reported as it came.** |
-| B40 | Treuhand disposals, and whether the entity ever reached the commercial register | One public file, no fetch and no join: a freedom-of-information release carrying the firm-level disposal record of 13,378 East German firms in seven classes, 6,929 sold and 1,946 returned to their pre-expropriation owners. **The returned class is the one disposal that hands over the right to hold and sell without handing over an operating lineage**, and the exclusion that makes it uninteresting in the published literature is what makes it identifying here. |
-| B41 | the same obstruction on cash grain, where a published rule fixes part of the answer | B38 read the rank on retail price levels across cities; here the two indices are a named delivery position and a grain, and a third party publishes part of the answer in advance. The record carries, for every block, its degrees of freedom, its days, its residual scale, its autocorrelation, its reading, its measured floor, and the ratio between the last two. The opponent is the same scalar potential on positions. |
-| B42 | a published quantity carrying a commodity index on a position | B41 read a second difference in cash grain basis that a scalar term on positions forbids, and found it nonzero in every state that could carry the measurement. This station asks the next question: if the position term carries a commodity index, a published quantity on the position should carry it too. **Three attempts to read a price against that quantity are reported with what each one returned.** |
-| B43 | the counting law's proposition (i), proved | The law says a published procedure draws a partition on positions, and that the number of values it produces equals the number of classes it wrote. **It rested on twenty-three cases and had never been proved.** The enumeration was run first and drew the boundary; the proof then closed it, and separated two statements the corpus had been carrying as one. Exhaustive rather than sampled: every configuration in the space is walked, and the closed form the proof yields returns the nine integers already on disk, digit for digit. |
-| B44 | a flag class the Sound Toll ledger recorded on both sides of two treaties | **12 named criteria pass.** One treaty exempted Swedish ships and Swedish goods from the toll in 1645, and another ended the exemption in 1720, putting Sweden on the same tariff as the English and the Dutch. The Danish crown recorded every passage either way, so the class index is read on a carrier where the class difference is created by one dated public instrument and removed by another, and where both halves of the ratio sit in one ledger. |
-| B46 | what "a tier" is, asked of the corpus before asking who was in it | **No data was fetched: this reads tables already on disk and the published texts of the reforms themselves.** A tier written into a text that no position falls into produces no value, and the corpus had been coded by how many tiers each text writes. Two of the nine multi-tier carriers turn out to be quantity limits rather than rate schedules, and a quantity limit changes whether an edge is passable rather than the weight on it. |
-| B47 | the corpus re-coded by what each class receives | **No data was fetched.** B43 proved the law needs only that class values be distinguishable, not that they be numbers, and the corpus had been coded before that, by identity or by amount band. Re-coding each case by what its blocks receive moves cases in both directions, and which direction is set by whether the threshold varies with identity. It also brought out a restriction the zero-counterexample statement had always carried without stating it: it holds for programmes that partition holders. |
-| B48 | **a reference number whose input is removed in three steps** | **4/4.** A third party posted the ratio of one share's price in two cities on every trading day. Cutting the transfer edge left the number computed, posted, and moving `+24%` in a week. Ending production of one leg left it **frozen**, one value reprinted on 17 consecutive posts, and that value is by construction the last close before the halt. Removing the leg permanently left it **empty**, `0.00` on 146 posts to the end of the series. The publisher never stopped, so this reads the cell where the transfer graph is cut and the information graph is whole, at three depths rather than two. **Two of the three states had no name before this.** |
-| B49 | **a class square on the two energy carriers that cannot be resold** | **5/5.** A difference between two classes is only readable where the holder of the cheaper price cannot resell to the holder of the dearer one, and of the eight products this source carries only two qualify: electricity and piped gas arrive over a fixed network and the connection point is the class definition, while the other six travel in drums and wagons. Gasoline and diesel have one class rather than two, their paired-cell counts being `0` rather than small. Reading residential against industrial across electricity and gas, in 13 countries and 3 years, **39 of 39 square sums are nonzero and every one stands above a floor measured rather than declared**, the smallest at `7.4x` the floor and the median at `56x`. A scalar price field over positions predicts every one of them is exactly zero. B52 reads the same square on 27 times as many cells with the same answer, [`docs/b49_results.md`](docs/b49_results.md) |
-| B50 | a programme change on one leg, and what the class square should do | **3 pass, 1 not judged, 1 premise fails, 1 pass.** Hungary cut regulated household energy in dated rounds, each naming a percentage. Read as equal cuts the square should not move; the statute in fact sets a **ceiling**, and the two household carriers moved by `0.0318` against a floor of `0.00074`, so the window carries no point prediction and the reading is recorded as not judged rather than as a failure. The residue is the general limit: **a one-leg change tests anything only when the other leg is quiet at the same moment**, and the design cannot arrange that, [`docs/b50_results.md`](docs/b50_results.md) |
-| B51 | which carriers can show a class difference at all | **4/4, no data fetched.** Four questions, applied to 17 candidates and checked against every carrier whose class difference has been measured. Writing down the implicit first question, *is it one commodity*, removes cable television and fixed broadband, whose household-against-business difference is a product difference. The screen also splits the qualifying family in two: the commodity cannot be handed on, close to enumerated, or **the entitlement cannot be handed on**, which needs no network and had never been used until B53, [`docs/b51_results.md`](docs/b51_results.md) |
-| B52 | the same class square across the European reporting area | **4 pass, 3 fail, and the three failures are this station's own reading.** 33 countries, 38 semesters, **1,069 readable cells, none of them at the rival's point prediction of exactly zero**, median 103 times the measured floor; seven cells below the floor are named and carry no verdict. That is B49 at 27 times the width on an independent panel. The three failing lines withdraw B49's apparent one-directional sign drift: both directions are populated in all three windows, including one stopping before the 2021 wholesale move, [`docs/b52_results.md`](docs/b52_results.md) |
-| B53 | the counting law where the collisions are exact | **3 pass, 1 known-answer check fails and returns its list.** 5,605 published tuition schedules write three classes in whole dollars, so **8,972 collisions are exact rather than bounded above by a rounding step**, the first corpus reading here that takes no resolution caveat. The control group is the finding: of 3,439 private schedules 3,424 write one value, of 2,166 public ones 1,973 write two or three, which is the counting law's own prediction about a split imposed from outside the transaction, [`docs/b53_results.md`](docs/b53_results.md) |
-| square complex | curl against harmonic on `Γ` | **withdrawn**, see B1 §12 |
+**Two corrections are recorded rather than quietly fixed.** The loan-level public
+file carries rate spread but redacts credit score, so it establishes that
+dispersion exists at fixed position and date without attributing it, and
+attribution is a separate and weaker claim made with credit-score-banded
+aggregates and labelled as such. And **asset tier is not agent class**: a landlord
+buying down-market units to rent and hold is a high-class agent holding a low-tier
+asset, and pooling by price tier averages that landlord together with the
+household that could reach no higher tier. Occupancy type separates them, and
+every cell in the panel is crossed by it.
 
-**Track C — the same claim where no market exists.** A price field that does not
+**Track C, the same claim where no market exists.** A price field that does not
 compose can be argued back to friction: thin books, stale quotes, transaction
-costs. The argument is weak and it is available, and closing it costs work.
-**Track C moves the question to carriers friction does not reach.** Wherever an
+costs. The argument is weak and it is available, and closing it costs work. **Track
+C moves the question to carriers friction does not reach.** Wherever an
 institution declares that one unit of `a` counts as `R(a,b)` units of `b`, it
 asserts a scalar `v` with `R(a,b) = v(a)/v(b)`, and that assertion has an exact
 consequence: around any closed loop of declarations the product is 1. Nothing is
@@ -924,158 +944,16 @@ traded to produce these numbers, so friction is not among the things that could
 explain a product away from 1. Full account in
 [`docs/c_track.md`](docs/c_track.md).
 
-| stage | subject | status |
-|---|---|---|
-| C1 | **a greenhouse gas against CO2-equivalent** | **closed, 5/5.** Cycle rank over the 100-year family is **339**, computed two ways, and **0 of 88 species read the same value under all six standards**. Holding the report fixed as well as the gas and the horizon, AR5's two authoritative 100-year values agree exactly once in 86 species. Four methane values are in force at once. New York moved its statutory basis on 26 May 2026 and its own reported reduction for 1990 to 2023 went from 14.8 to 24 per cent, **with nothing emitted or abated to produce those 9.2 points**. [`docs/c1_gwp_holonomy.md`](docs/c1_gwp_holonomy.md) |
-| C2 | **the control: a comparable system that agrees with itself** | **closed, 4/4.** C1's cheap objection is that any administrative system of that scale accumulates inconsistency. Answering it takes a second system rather than an argument. California's course articulation system, 115 colleges and six list types, gives **84,018 comparable placements with 28 mutually non-containing**, all 28 between the same two documents, and the arm that could have read either way reads nested at 113 colleges of 115. **So the multivaluedness C1 measures does not follow from institutional scale.** [`docs/c2_transfer_areas.md`](docs/c2_transfer_areas.md) |
-| C3 | **the same claim with the declared number taken away** | **closed, 9/9.** Fifteen provinces ordering the same universities by 2015 filing line. No conversion between provincial scales is ever formed, so the objection that a point costs different effort in each province is answered by construction, and the reversing set is checked identical under five per-province recodings. **105 of 105 province pairs contain a reversal, in both tracks**, and 16,341 of 17,351 majority edges lie on a three-cycle. The defence that a national scalar is read with cohort error predicts a direction match near one half across the two disjoint applicant pools; **it is 0.9024** against a calibration of 0.9611. [`docs/c3_admission_reversals.md`](docs/c3_admission_reversals.md) |
-
-
-**One station here is not part of any of the three tracks, and is marked so it
-is not read as one.** E1 counts first-degree places allocated to each province
-against the number of candidates there, from a public compilation of Chinese
-enrolment plans. **The framework says nothing about how a quota should be
-allocated or to whom**, and E1 draws no conclusion from its own numbers. It
-sits in this repository because it shares C3's carrier, its parser and its
-measurement discipline, and because **half of it is a list of nine ways that
-source misleads a reader who does not check**. Every one of them produced a
-number that looked like a finding, and none of them was caught by a criterion.
-Anyone using that compilation by any method will meet the same nine.
-
-| stage | subject | status |
-|---|---|---|
-| E1 | **seats and candidates, and the traps in one public compilation** | **measured, not concluded.** Eleven provinces pass both coverage gates in 2022; the pool is unestablishable before it because no score-to-rank table carries a batch label. Reported: 985 places per ten thousand candidates, the share of its seats each elite unit sends to the province administering it, and the count of units each province administers. **The three have to be read together and any one alone reads backwards.** [`docs/e1_seat_allocation.md`](docs/e1_seat_allocation.md) |
-
-
-**Three rows of the B table above are newer than the narrative that follows
-them**, which was written when loop B was the next thing. B3 has since reached the slice summand
-that Corollary 2 says no volume of mortgage data can touch; B4 removes the
-standing prohibition on directed agent edges and replaces it with a narrower one,
-that a carrier with a bid-ask spread may report `S − S'` and never a single
-orientation; and the square complex is not merely unbuilt but **withdrawn**,
-because filling the squares of `Γ` leaves the harmonic component identically zero
-on every field this project runs, so the refinement it would deliver is an
-identity dressed as a measurement.
-
-**The placebo validation row exists because a premise was doing work unmeasured.**
-The graded placebo's load-bearing comparison is conventional against VA, and it
-rests on VA's borrower pool being as wide as conventional's. That was argued from
-programme rule and never looked at. It now has been, on the borrower-capacity
-fields the retrieval kept: at fixed position the VA pool is 97.7% as wide as the
-conventional pool on the tail-insensitive measure, and wider than FHA's on every
-measure tried. Three criteria fail and none of them touches that comparison.
-
-**The B1 theorem was taken before any further retrieval, and it changed the
-ordering that follows it.** The question it settled was whether stage B2 had
-exercised the framework's machinery at all: loop A's decomposition runs over a
-partition rather than a graph, so until Theorem 3 the honest description of the
-result was "an analysis of variance we believe is related to a topological claim."
-That description is worth little, because conditional dispersion in mortgage
-pricing is already documented and a framework that re-derives it has contributed a
-vocabulary rather than a result.
-
-Theorem 3 shows the within share **is** the `L²` norm of the square component,
-halved, and on this carrier the square component is the whole non-exact part
-because the harmonic one is identically zero
-([`docs/b1_theorem.md`](docs/b1_theorem.md) §12). Same number, different object,
-and only the second is something the
-framework can be judged on. Getting FX data first would have risked measuring the
-wrong thing entirely — a mistake this project already made once on paper,
-conflating carry returns, which are compensation for bearing risk, with
-covered-parity deviations, which are the loop sums that actually fail to close.
-
-Theorem 2 then reorders what remains. Mortgage data reaches squares only, and no
-sample size changes that, so **FX stops being a robustness check and becomes the
-only available carrier for the other summand**. Loop B goes first regardless: it
-needs no retrieval, FHFA publishes the vintage shares as aggregates, and Theorem 1
-has just shown its disconnection argument to be a structurally different claim
-rather than a weaker version of the same one.
-
-The working approach is discrete rather than smooth. On a finite graph, curl is
-a sum around a cycle, the cycle space has dimension `E − V + C`, and the first
-cohomology is a rank computation on the incidence matrix. The discrete Hodge
-decomposition splits any flow into gradient, curl, and harmonic parts — which is
-exactly the three-way split the argument needs, and it is computable on real
-input-output data. The headline quantity is one scalar: what fraction of an
-observed price field is integrable.
-
-The first task in Track B is not a proof. On a single-currency price vector,
-integrability holds **by identity**: writing `R_ij = p_j / p_i` makes every loop
-sum zero as a matter of notation, so a theorem about that field would be a theorem
-about the empty set. [`docs/b1_setup.md`](docs/b1_setup.md) fixes the object
-instead: the field is the *two-index* effective cost `P(a, j)`, the terms on which
-agent class `a` can obtain `j`. A single price vector is the special case where
-terms do not depend on who is transacting, which is an assumption about an economy
-rather than a description of one. That document also records a correction: the
-obvious rent-versus-own example is currently false in the direction usually
-assumed, and why the dispersion of the loop sum is better evidence than its sign.
-
-What to measure is fixed in
-[`docs/b2_measurement.md`](docs/b2_measurement.md), written as a pre-registration
-before any data is retrieved. Two loops, and the division between them is the
-substance of the design.
-
-**Loop A holds the date fixed.** Same quarter, same census tract, same lien, same
-purpose, same occupancy: applicants receive different rates, and a cash buyer
-carries no financing term at all. Position identical, date identical, market
-identical, terms different by who is transacting. There is no finer position space
-to retreat to, because the position was already held fixed. This is the loop that
-establishes the field carries an agent index at all.
-
-**Loop A is done and it passed**, 7/7 with the placebo at 4/4, on 28,137,985 loans
-across three programmes. The result, and the artifact it had to be corrected for,
-are in [`docs/b2_measurement.md`](docs/b2_measurement.md).
-
-**Loop B holds the dwelling fixed and varies the entry date.** This is where the
-magnitude is: FHFA's National Mortgage Database reports the share of outstanding
-fixed-rate mortgages below 4% peaked at 65.1% in Q1 2022 and stood at 49.9% in
-Q1 2026, against new originations at market. Roughly half the holders of the same
-position face materially different terms from the other half.
-
-**Loop B is done and it passed**, 4/4 over 53 quarters of FHFA's National
-Mortgage Database. The bound on vintage dispersion is 0.8479 in 2026 Q1 against
-loop A's 0.3363, and it exceeds loop A in 46 of 53 quarters. The registered
-prediction most likely to fail was that the wedge predates the 2022 repricing;
-the mean over the 36 quarters before 2022 is 0.4043, so the repricing raised it by
-64% rather than creating it. **The larger number is the weaker evidence**, and
-[`docs/b1_theorem.md`](docs/b1_theorem.md) is why:
-loop A's figure is a holonomy and loop B's is a component separation, because a
-below-market mortgage cannot be transferred and so no cycle closes.
-
-Loop B alone would not have been enough, and the document says so. A critic can
-answer it by saying the two owners hold different assets, a dwelling plus a 3%
-contract against a dwelling plus a 7% one, and that is correct as stated: entry
-date is a coordinate rather than an attribute of the holder. Loop B survives, but
-only via the hole, since the 3% contract cannot be purchased and integrability on
-a space you cannot move around in is vacuous. That argument is worth making and it
-is second-order, so the paper leads with A.
-
-The document also records what the public data cannot do. HMDA's loan-level file
-carries rate spread but **redacts credit score**, so it establishes that dispersion
-exists at fixed position and date without attributing it. Non-integrability needs
-a non-zero loop sum; it does not need the loop sum to be explained. Attribution is
-a separate and weaker claim, made with FHFA's credit-score-banded aggregates and
-labelled as such.
-
-A third correction is recorded rather than quietly fixed: **asset tier is not agent
-class.** A landlord buying down-market units to rent and hold is a high-class agent
-holding a low-tier asset, and pooling by price tier averages that landlord together
-with the household that could reach no higher tier. HMDA's occupancy type separates
-them, and every cell in the panel is crossed by it.
-
-Finally the document fixes, in advance, the test separating a structural
-per-period wedge from one episode of repricing, and eight observations that would
-falsify the claim.
-
-Track B needs no simulation output and does not wait on Track A. Stage A2c is
-*not* part of it: measuring cycle structure on the graph built here is description, and
-only the same computation on real data would be a finding. A2c can motivate the
-theorem's introduction; it cannot support it.
-
-That separation held until B1. It no longer describes the whole repository: by
-Theorem 3, stage B2's within share is a cycle-sum norm on a graph built from real
-loans, so the cohomology is now exercised on data and not only on a simulation.
-The A2c caveat stands as written, because it is about A2c.
+**One station is not part of any of the three tracks, and is marked so it is not
+read as one.** E1 counts first-degree places allocated to each province against
+the number of candidates there, from a public compilation of enrolment plans.
+**The framework says nothing about how a quota should be allocated or to whom**,
+and E1 draws no conclusion from its own numbers. It sits in this repository
+because it shares C3's carrier, its parser and its measurement discipline, and
+because **half of it is a list of nine ways that source misleads a reader who does
+not check**. Every one of them produced a number that looked like a finding, and
+none of them was caught by a criterion. Anyone using that compilation by any
+method will meet the same nine.
 
 ---
 
@@ -1106,8 +984,8 @@ a document is reorganised. Section numbers do move. RESULTS.md is indexed by
 stage and criterion for this reason.
 
 **A criterion that failed is citable on the same terms as one that passed.** The
-record keeps both, including three withdrawals and the criteria that were void
-on their own registered estimator. Citing a passing criterion without its
+record keeps both, including the withdrawals and the criteria that were void on
+their own registered estimator. Citing a passing criterion without its
 attached scope limits is a misreading of the record rather than a shortening of
 it; each stage's limits sit in its own document under `docs/`.
 

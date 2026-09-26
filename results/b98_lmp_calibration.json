@@ -1,0 +1,331 @@
+{
+ "config": {
+  "archives": [
+   "probe_damlbmp_zone_zip.zip",
+   "probe_damlbmp_gen_zip.zip",
+   "probe_rtlbmp_zone_zip.zip"
+  ],
+  "gen_nodes": 30,
+  "residual_grid": 0.015,
+  "seed": 98,
+  "shapes": [
+   "complete",
+   "ring"
+  ],
+  "spread_grid": 0.03,
+  "tick": 0.01,
+  "zone_nodes": 15
+ },
+ "criteria": [
+  {
+   "detail": "1,521,000 values over 3 archives, 0 off the grid, tick [0.01]. Checked rather than counted from the printed digits, since trailing zeros are dropped.",
+   "kind": "instrument",
+   "name": "B98-1",
+   "passed": true,
+   "statement": "Every published value sits on an integer number of one tick, which is what makes the printed grid usable as a floor rather than an artefact of the serializer."
+  },
+  {
+   "detail": "day-ahead, zones: 720/720 intervals within 0.030, max spread 0.0200; day-ahead, generators: 720/720 intervals within 0.030, max spread 0.0200; real time, zones: 8696/8696 intervals within 0.030, max spread 0.0200. The bound is a spread between two residuals, each a sum of three published values, so it is 0.030 and not 0.015: judging a max-minus-min against one residual's resolution reads as 574 of 720 rather than 720 of 720. **This is the zero calibration, and the answer comes from the publisher's own pricing rule rather than from an argument here about what must cancel.**",
+   "kind": "known_answer",
+   "name": "B98-2",
+   "passed": true,
+   "statement": "The tariff writes the price at a bus as a reference price plus two components, with the reference the same everywhere in an interval, so the residual after removing the components has to be constant across nodes. It is, to the grid the values are published on."
+  },
+  {
+   "detail": "day-ahead, zones: ['LBMP - losses + congestion']; day-ahead, generators: ['LBMP - losses + congestion']; real time, zones: ['LBMP - losses + congestion']. The tariff adds both components; the published congestion column carries the opposite sign, and nothing but the constancy was needed to find that. Two conventions holding at once would leave the sign undetermined and this criterion would not pass.",
+   "kind": "instrument",
+   "name": "B98-3",
+   "passed": true,
+   "statement": "Exactly one of the four ways the two component columns can enter makes the residual constant, so the sign the published columns carry is identified by the requirement itself rather than looked up."
+  },
+  {
+   "detail": "worst |cycle sum| of the residual field 0.00e+00, of the published price 3.20e-13, over up to 406 independent cycles and a longest cycle of 16 edges. **A field built from node values has vanishing cycle sums by construction, so this is a check on the pipeline and not a claim about the world**: orientation, a repeated edge counted rather than cancelled, and arithmetic over hundreds of nodes. A complete graph's spanning-tree basis is all triangles, which is why the ring is here.",
+   "kind": "instrument",
+   "name": "B98-4",
+   "passed": true,
+   "statement": "Fed that field, the cycle machinery every other stage uses returns zero, on a complete graph and on a ring with chords so that long cycles are exercised and not only triangles."
+  },
+  {
+   "detail": "74,144 of 75,600 node pairs stand above the published floor of 0.02, median 1.139, largest 312.747 which is 15,637 times the floor, over 15 zones and a month of delivery hours. **Neither leg is priced off a bank and there is no money in this carrier at all.**",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B98-5",
+   "passed": true,
+   "rival_entailment": "Under it the wedge between two positions is the same for every contract, so the difference of the day-ahead wedge and the real time wedge, a four-cycle over two positions and two contracts for the same megawatt hour in the same delivery hour, is exactly zero. Both legs are published per node, and the floor is the grid they are printed on, so nothing is estimated.",
+   "rival_premise": "Each position carries one scalar and every price at that position is that scalar plus a term belonging to the contract alone.",
+   "rival_shape": "point prediction",
+   "statement": "The rival's point prediction of zero does not hold on the day-ahead against real time squares. Passing means the rival is wrong here."
+  },
+  {
+   "detail": "75,600 of 75,600 pairs lie within 0.06, which is twelve published values at half a tick each; median residual 0.003, largest 0.027. **So the non-zero cycle is not only measured, it is attributed**: the largest square in the month, 312.747 at 04/07/2015 11:00 between O H and WEST, is congestion -312.705 against losses 0.042.",
+   "kind": "known_answer",
+   "name": "B98-6",
+   "passed": true,
+   "statement": "That square is exactly its loss channel less its congestion channel, both of which the publisher prints separately, to the grid they are printed on."
+  },
+  {
+   "detail": "congestion stands above the floor on 69.6% of pairs and losses on 96.8%. Split by whether a constraint is in play: open 20,776 pairs at median 0.348, light 9,534 at 0.472, binding 45,290 at 2.926. **The open bucket does not fall to the floor**, it sits at 17 times it, because moving power always costs power. A design that assumed an edge could be switched fully off and back would not find that state here, which is the same thing the Cyprus carrier turned out to lack in a different way.",
+   "kind": "own_reading",
+   "name": "B98-7",
+   "passed": true,
+   "statement": "The two channels do not behave alike: congestion switches on and off while losses do not, so this network has no interval in which the edge between two nodes is fully open."
+  }
+ ],
+ "mapping": {
+  "B98-2": "constant to the spread grid on every interval -> PASS; any interval outside it -> FAIL, and the sign convention is re-read first",
+  "B98-3": "exactly one convention constant -> PASS; none -> FAIL and the identity does not hold here; more than one -> FAIL, undetermined"
+ },
+ "report": {
+  "carriers": {
+   "day-ahead, generators": {
+    "archive": "probe_damlbmp_gen_zip.zip",
+    "identified": [
+     "LBMP - losses + congestion"
+    ],
+    "nodes": 508,
+    "off_grid": 0,
+    "spreads": {
+     "LBMP + losses + congestion": {
+      "max": 24.319999999999993,
+      "median": 13.100000000000001,
+      "n": 720,
+      "p90": 18.520000000000003,
+      "within_grid": 0
+     },
+     "LBMP + losses - congestion": {
+      "max": 176.22000000000003,
+      "median": 26.900000000000002,
+      "n": 720,
+      "p90": 61.14999999999999,
+      "within_grid": 0
+     },
+     "LBMP - losses + congestion": {
+      "max": 0.020000000000017337,
+      "median": 0.020000000000003126,
+      "n": 720,
+      "p90": 0.02000000000000668,
+      "within_grid": 720
+     },
+     "LBMP - losses - congestion": {
+      "max": 162.73999999999998,
+      "median": 17.400000000000002,
+      "n": 720,
+      "p90": 51.83999999999999,
+      "within_grid": 38
+     }
+    },
+    "tick": 0.01,
+    "timestamps": 720,
+    "values": 1097280
+   },
+   "day-ahead, zones": {
+    "archive": "probe_damlbmp_zone_zip.zip",
+    "identified": [
+     "LBMP - losses + congestion"
+    ],
+    "nodes": 15,
+    "off_grid": 0,
+    "spreads": {
+     "LBMP + losses + congestion": {
+      "max": 17.639999999999993,
+      "median": 9.399999999999999,
+      "n": 720,
+      "p90": 13.030000000000005,
+      "within_grid": 0
+     },
+     "LBMP + losses - congestion": {
+      "max": 131.56000000000003,
+      "median": 19.000000000000004,
+      "n": 720,
+      "p90": 35.889999999999986,
+      "within_grid": 0
+     },
+     "LBMP - losses + congestion": {
+      "max": 0.020000000000013785,
+      "median": 0.010000000000005116,
+      "n": 720,
+      "p90": 0.020000000000003126,
+      "within_grid": 720
+     },
+     "LBMP - losses - congestion": {
+      "max": 121.28000000000002,
+      "median": 11.480000000000004,
+      "n": 720,
+      "p90": 29.62,
+      "within_grid": 64
+     }
+    },
+    "tick": 0.01,
+    "timestamps": 720,
+    "values": 32400
+   },
+   "real time, zones": {
+    "archive": "probe_rtlbmp_zone_zip.zip",
+    "identified": [
+     "LBMP - losses + congestion"
+    ],
+    "nodes": 15,
+    "off_grid": 0,
+    "spreads": {
+     "LBMP + losses + congestion": {
+      "max": 86.88000000000002,
+      "median": 7.059999999999999,
+      "n": 8696,
+      "p90": 11.580000000000009,
+      "within_grid": 14
+     },
+     "LBMP + losses - congestion": {
+      "max": 2442.97,
+      "median": 9.739999999999998,
+      "n": 8696,
+      "p90": 64.03,
+      "within_grid": 8
+     },
+     "LBMP - losses + congestion": {
+      "max": 0.02000000000015234,
+      "median": 0.010000000000001563,
+      "n": 8696,
+      "p90": 0.010000000000012221,
+      "within_grid": 8696
+     },
+     "LBMP - losses - congestion": {
+      "max": 2433.0499999999997,
+      "median": 0.010000000000005116,
+      "n": 8696,
+      "p90": 58.2,
+      "within_grid": 4795
+     }
+    },
+    "tick": 0.01,
+    "timestamps": 8696,
+    "values": 391320
+   }
+  },
+  "cycles": {
+   "day-ahead, generators": {
+    "complete": {
+     "b1": 406,
+     "bound": 0.09,
+     "cycles": 406,
+     "edges": 435,
+     "longest_cycle": 3,
+     "nodes": 30,
+     "shape": "complete",
+     "timestamps": 720,
+     "worst_energy_cycle": 0.0,
+     "worst_price_cycle": 1.4210854715202004e-14,
+     "worst_price_minus_components": 1.9539925233402755e-14
+    },
+    "ring": {
+     "b1": 11,
+     "bound": 0.48,
+     "cycles": 11,
+     "edges": 40,
+     "longest_cycle": 16,
+     "nodes": 30,
+     "shape": "ring",
+     "timestamps": 720,
+     "worst_energy_cycle": 0.0,
+     "worst_price_cycle": 1.4210854715202004e-14,
+     "worst_price_minus_components": 1.354472090042691e-14
+    }
+   },
+   "day-ahead, zones": {
+    "complete": {
+     "b1": 91,
+     "bound": 0.09,
+     "cycles": 91,
+     "edges": 105,
+     "longest_cycle": 3,
+     "nodes": 15,
+     "shape": "complete",
+     "timestamps": 720,
+     "worst_energy_cycle": 0.0,
+     "worst_price_cycle": 7.105427357601002e-15,
+     "worst_price_minus_components": 1.4210854715202004e-14
+    },
+    "ring": {
+     "b1": 11,
+     "bound": 0.27,
+     "cycles": 11,
+     "edges": 25,
+     "longest_cycle": 9,
+     "nodes": 15,
+     "shape": "ring",
+     "timestamps": 720,
+     "worst_energy_cycle": 0.0,
+     "worst_price_cycle": 7.105427357601002e-15,
+     "worst_price_minus_components": 6.217248937900877e-15
+    }
+   },
+   "real time, zones": {
+    "complete": {
+     "b1": 91,
+     "bound": 0.09,
+     "cycles": 91,
+     "edges": 105,
+     "longest_cycle": 3,
+     "nodes": 15,
+     "shape": "complete",
+     "timestamps": 8696,
+     "worst_energy_cycle": 0.0,
+     "worst_price_cycle": 2.2737367544323206e-13,
+     "worst_price_minus_components": 2.362554596402333e-13
+    },
+    "ring": {
+     "b1": 11,
+     "bound": 0.27,
+     "cycles": 11,
+     "edges": 25,
+     "longest_cycle": 9,
+     "nodes": 15,
+     "shape": "ring",
+     "timestamps": 8696,
+     "worst_energy_cycle": 0.0,
+     "worst_price_cycle": 3.197442310920451e-13,
+     "worst_price_minus_components": 2.291500322826323e-13
+    }
+   }
+  },
+  "note": "m = 1: every participant at a node faces one price, so this station has no agent layer and reaches no reading about two classes at one position. The rival criterion it does carry is over two goods rather than two classes of holder, which that limit does not exclude. It buys instrument credibility rather than breadth, and the two are not substitutes.",
+  "squares": {
+   "by_constraint": {
+    "binding": {
+     "median": 2.925833333333335,
+     "pairs": 45290
+    },
+    "light": {
+     "median": 0.4724999999999966,
+     "pairs": 9534
+    },
+    "open": {
+     "median": 0.3483333333333327,
+     "pairs": 20776
+    }
+   },
+   "largest": {
+    "a": "O H",
+    "b": "WEST",
+    "congestion_channel": -312.705,
+    "hour": "04/07/2015 11:00",
+    "loss_channel": 0.04166666666666663,
+    "square": 312.7466666666667
+   },
+   "median": {
+    "cong": 0.7983333333333333,
+    "full": 1.1391666666666627,
+    "loss": 0.40583333333333327,
+    "residual": 0.002500000000001279
+   },
+   "over_floor": {
+    "cong": 52634,
+    "full": 74144,
+    "loss": 73180
+   },
+   "pairs": 75600,
+   "residual_outside": 0,
+   "zones": 15
+  }
+ },
+ "stage": "B98"
+}

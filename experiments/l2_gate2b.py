@@ -12,11 +12,25 @@ increment; G3 adds trade-at on top. So:
 so G1 is the discriminant, and it is free: B14_A11 already computed these margins,
 nobody had read them from this angle.
 
-Supplement note 1: this test needs no mechanical netting. Candidate zero works
-through the quoting increment, which is identical for G1, G2 and G3, so the
-mechanical term is the same number in all three and differences out of any
-comparison among them. Netting it would only import the error in the estimate of
-delta while cancelling nothing.
+Supplement note 1, as corrected 2026-09-12: this test does not net the mechanical
+term, and the reason given when it was registered was wrong. The rule being
+identical for G1, G2 and G3 does not make the mechanical term identical for them.
+A lattice projection acts on quote LEVELS, so what it does to a spread depends on
+where that spread's two ends sit relative to the nickel grid and not on the rule:
+[10.23, 10.35] projects to a spread of 0.15 from 0.12 while [10.25, 10.35] does
+not move at all, and both are pure slack under the definition this script uses,
+since slack is a property of the spread and the constraint binds on the levels.
+
+What is true is narrower and it is what the ruling now rests on. The rule is the
+same for all three arms, so any difference between their mechanical terms comes
+from their samples differing and not from their treatments differing, and the
+pilot assigns the eligible universe across the three test groups and a control at
+about 400 / 398 / 398 / 1199. The observable half of that sample difference is
+measured below and it is small. The unobservable half, where the quote levels sit
+relative to the grid, is not in this panel at all: the cache carries a
+share-weighted spread per venue-symbol-day and no quote level, so the mechanical
+term itself cannot be computed here at any price. It is registered rather than
+assumed away.
 
 Sample, windows, pure-slack definition and the six inequalities are b14_recheck's
 own objects, imported not restated.
@@ -86,6 +100,47 @@ def run():
                     "gaps": {x["ctr"] + "/" + x["grp"]: x["raw_gap"] for x in ineq}}
         print("")
 
+    # Supplement note 1 as corrected: the mechanical term is not observable here,
+    # so what is reported is the observable half of the sample difference that
+    # would produce any gap between the arms' mechanical terms. A matching
+    # pre-window spread distribution is necessary for the arms' mechanical terms
+    # to be comparable and it is not sufficient, because the term also turns on
+    # the quote levels and this panel has none.
+    import statistics as _st
+    pre_spd: dict = {}
+    for (ctr, sym), r in rec16.items():
+        g = R.group_of(r, "post")
+        if g is None or pure.get((ctr, sym)) is not True:
+            continue
+        if len(r["pre"]["lbbo"]) < R.G.MIN_DAYS or len(r["post"]["lbbo"]) < R.G.MIN_DAYS:
+            continue
+        pre_spd.setdefault((ctr, g), []).append(_st.median(r["pre"]["bbo"]))
+
+    import math as _math
+    print("pre-window spread balance across arms, on the same pure-slack sample")
+    print("  venue  arm   n      median    p25       p75")
+    for k in sorted(pre_spd):
+        v = sorted(pre_spd[k])
+        q = lambda p: v[min(len(v) - 1, int(p * len(v)))]
+        print("  %-6s %-4s  %-5d  %-9.4f %-9.4f %-9.4f"
+              % (k[0], k[1], len(v), _st.median(v), q(0.25), q(0.75)))
+    balance = {}
+    for ctr in sorted({k[0] for k in pre_spd}):
+        a = pre_spd.get((ctr, "G1"))
+        b = [x for arm in ("G2", "G3") for x in pre_spd.get((ctr, arm), [])]
+        if not a or not b:
+            continue
+        ma, mb = _st.median(a), _st.median(b)
+        xs = sorted(set(a) | set(b))
+        ks = max(abs(sum(1 for y in a if y <= x) / len(a)
+                     - sum(1 for y in b if y <= x) / len(b)) for x in xs)
+        balance[ctr] = {"g1_median": ma, "g23_median": mb,
+                        "log_ratio": _math.log(ma / mb), "ks": ks,
+                        "n_g1": len(a), "n_g23": len(b)}
+        print("  %s  G1 median %.4f against G2/G3 %.4f, log ratio %+.4f, KS %.4f"
+              % (ctr, ma, mb, _math.log(ma / mb), ks))
+    print("")
+
     print("supplement note 2, the reading fixed before this run\n")
     real, plac = res["real"]["gaps"], res["placebo"]["gaps"]
     by_arm = {}
@@ -111,6 +166,17 @@ def run():
     print("  G1 mean %+.4f      G2/G3 mean %+.4f      G1 - G2/G3 = %+.4f"
           % (g1, m23, g1 - m23))
     print("  largest placebo gap in absolute value: %.4f" % (max(allp) if allp else 0))
+    # The same statistic between two untreated windows. No rule changed there, so
+    # it carries no mechanical term, and it says what this difference reads when
+    # there is nothing in it.
+    pl = {a: (sum(by_arm[a]["placebo"]) / len(by_arm[a]["placebo"]))
+          for a in ARMS if by_arm[a]["placebo"]}
+    placebo_gap = None
+    if "G1" in pl and ("G2" in pl or "G3" in pl):
+        p23 = [pl[a] for a in ("G2", "G3") if a in pl]
+        placebo_gap = pl["G1"] - sum(p23) / len(p23)
+        print("  the same difference between two UNTREATED windows: %+.4f, where no "
+              "rule\n  changed and so no mechanical term exists" % placebo_gap)
     inside = all(abs(by_arm[a]["real_mean"]) <= max(allp) for a in ARMS
                  if by_arm[a]["real_mean"] is not None) if allp else False
     print("")
@@ -128,7 +194,15 @@ def run():
         print("  -> G1 is clearly LARGER than G2/G3. Candidate two is refuted with")
         print("     the sign reversed, and why the lightest treatment reacts most")
         print("     now needs its own explanation.")
-    json.dump({"n_pure_slack": n_pure, "by_arm": by_arm, "segments": res},
+    json.dump({"n_pure_slack": n_pure, "by_arm": by_arm, "segments": res,
+               "pre_window_spread_balance": balance,
+               "real_g1_minus_g23": g1 - m23,
+               "placebo_g1_minus_g23": placebo_gap,
+               "mechanical_term": (
+                   "not computed and not computable from this panel: the cache "
+                   "carries a share-weighted spread per venue-symbol-day and no "
+                   "quote level, while a lattice projection acts on levels. "
+                   "Supplement note 1 as corrected 2026-09-12.")},
               open(OUT, "w"), indent=2)
     print("\n  written %s" % os.path.relpath(OUT, ROOT))
     return 0
@@ -166,8 +240,11 @@ def selftest():
                    if isinstance(n, ast.FunctionDef) and n.name == "run")
     consts = {n.value for n in ast.walk(_run_fn)
               if isinstance(n, ast.Constant) and isinstance(n.value, float)}
-    chk("run() applies no mechanical netting, per supplement note 1: the quoting "
-        "increment is identical for G1, G2 and G3 so the term differences out. "
+    chk("run() applies no mechanical netting, per supplement note 1 as corrected "
+        "2026-09-12: the rule being identical for the three arms does NOT make "
+        "their mechanical terms identical, and the term is not computable from "
+        "this panel, which carries spreads and no quote levels, so there is "
+        "nothing here to net. "
         "float constants inside run(): " + (", ".join("%g" % c for c in sorted(consts))
                                        or "none"),
         not any(abs(c - 0.0228) < 1e-9 or abs(c - 0.05) < 1e-9 for c in consts))

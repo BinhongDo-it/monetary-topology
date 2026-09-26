@@ -1,0 +1,686 @@
+{
+  "config": {
+    "auction": "gz_auction_rows_raw.txt",
+    "bid_grid_yuan": 100.0,
+    "leg": "individual ordinary car",
+    "lottery": "gz_lottery_individual_rows_raw.txt",
+    "reserve_yuan": 10000.0,
+    "source_level": "D32 other, a compiler; 13 periods checked against a second compiler, exact"
+  },
+  "criteria": [
+    {
+      "detail": "160 periods joined on month, 2013-05 to 2026-08, from two separately transcribed tables; 111 adjacent pairs survive the censoring screen below. February 2020 carries two rows in BOTH tables and January none, so the early-February round is January's, postponed; the two tables agreeing on that is what makes it an event rather than a transcription slip",
+      "kind": "instrument",
+      "name": "B45-1",
+      "passed": true
+    },
+    {
+      "detail": "the floor is measured rather than asserted: all 160 of 160 minimum prices are exact multiples of 100 yuan, so the bid grid is 100, while only 2 of 160 average prices are, which is what a computed mean looks like. The average runs 10338 to 57283 yuan, a factor of 5.54, three orders above the grid, so resolution is not what limits anything here",
+      "kind": "instrument",
+      "name": "B45-2",
+      "passed": true
+    },
+    {
+      "detail": "the auction has a published reserve of 10000 yuan and the minimum price sits exactly on it in 40 of 160 periods; a price pinned at its floor cannot fall, so those periods cannot refute a prediction that it should. The largest policy move in the whole panel is 2025-07, indicators 3000 to 12000 (4.00x, win rate 0.2028% to 0.8300%), and it falls inside the censored region. The biggest lever this carrier has is the one it cannot read",
+      "kind": "known_answer",
+      "name": "B45-3",
+      "passed": true
+    },
+    {
+      "detail": "Void: the registered comparison is not identified on this panel, so the criteria resting on it have no object to judge. The regressor is the win rate and the win rate is indicators over applicants, so it splits: the whole thing reads slope -0.4888 (t -2.77), the exogenous half, indicators, reads -0.3829 (t -1.68) and the endogenous half, applicants, reads +0.5924 (t +2.15). The half that is not exogenous is the one carrying the significant coefficient, and it is 42.2 per cent of the regressor's variance against the exogenous half's 62.3 (the two do not sum to one because the halves covary, the cross term being -4.5 per cent). More applicants and a higher price are the same demand seen twice, and that alone produces the standard account's sign",
+      "kind": "premise",
+      "name": "B45-4",
+      "passed": false
+    },
+    {
+      "detail": "3 policy moves in the panel are both large (over 0.2 log points) and uncensored, and they all fall in month [7] of their years, which makes them one annual pattern rather than that many shocks: anything else moving with the calendar rides along. So the uncensored exogenous variation is one seasonal cut plus the two regime changes, of which the larger is censored. The two routes to an identified design are named with what each buys, and neither is more periods of this leg, because the panel is already the whole carrier",
+      "kind": "bookkeeping",
+      "name": "B45-5",
+      "passed": true
+    }
+  ],
+  "report": {
+    "adjacent_uncensored_pairs": 111,
+    "censoring": {
+      "at_reserve": 40,
+      "largest_policy_move": {
+        "censored": true,
+        "ind_from": 3000.0,
+        "ind_to": 12000.0,
+        "p_from": 10396.0,
+        "p_to": 10412.0,
+        "period": "2025-07",
+        "rate_from": 0.0020280780647808695,
+        "rate_to": 0.008299822798783246,
+        "x": 4.0
+      },
+      "of": 160,
+      "reserve_yuan": 10000.0,
+      "share": 0.25
+    },
+    "clean_exogenous_moves": [
+      {
+        "censored": false,
+        "ind_from": 6412.0,
+        "ind_to": 4400.0,
+        "p_from": 15743.0,
+        "p_to": 20631.0,
+        "period": "2013-07",
+        "rate_from": 0.044313595400011056,
+        "rate_to": 0.030706100743925078,
+        "x": 0.6862133499688085
+      },
+      {
+        "censored": false,
+        "ind_from": 5789.0,
+        "ind_to": 4400.0,
+        "p_from": 17024.0,
+        "p_to": 18310.0,
+        "period": "2014-07",
+        "rate_from": 0.024905994820034933,
+        "rate_to": 0.018636723663979872,
+        "x": 0.7600621869062014
+      },
+      {
+        "censored": false,
+        "ind_from": 5724.0,
+        "ind_to": 4400.0,
+        "p_from": 27672.0,
+        "p_to": 37805.0,
+        "period": "2015-07",
+        "rate_from": 0.016769744147142492,
+        "rate_to": 0.011891474083343017,
+        "x": 0.7686932215234102
+      }
+    ],
+    "clean_moves_are_seasonal": {
+      "all_same_month": true,
+      "months": [
+        7
+      ],
+      "note": "indicators are cut to a floor every July in the early years, so these are one annual pattern seen repeatedly rather than independent shocks; anything else moving with the calendar rides along with them"
+    },
+    "floor": {
+      "avg_price_on_grid": [
+        2,
+        160
+      ],
+      "avg_range": [
+        10338.0,
+        57283.0
+      ],
+      "avg_spread_x": 5.54101373573225,
+      "bid_grid_yuan": 100.0,
+      "min_price_on_grid": [
+        160,
+        160
+      ]
+    },
+    "identification": {
+      "covariance_term_share": -0.045474882417657826,
+      "endogenous_half": {
+        "n": 111,
+        "se": 0.2750097797430097,
+        "slope": 0.5923901761479696,
+        "t": 2.1540694905524616
+      },
+      "exogenous_half": {
+        "n": 111,
+        "se": 0.22817145724078908,
+        "slope": -0.3829195722468302,
+        "t": -1.6782097852087416
+      },
+      "identity": "d_rate = d_ind - d_base, so var(rate) = var(ind) + var(base) - 2 cov(ind, base) and the two shares do not sum to one",
+      "registered_regressor": {
+        "n": 111,
+        "se": 0.17634342618041512,
+        "slope": -0.4887666617695551,
+        "t": -2.7716749773791
+      },
+      "variance_share_endogenous": 0.4221779350056995,
+      "variance_share_exogenous": 0.6232969474119583
+    },
+    "next": {
+      "organisation_leg": "the same city runs an organisation lottery and an organisation auction alongside these two, with its own indicator policy; that doubles the object and gives a cross-leg comparison inside one city-month. It is cleaner than two halves of one win rate and it is not clean: a company car and a personally bought plate are substitutes, so the two pools' demands are linked, and the data separates who bid where without separating why anyone was absent from the other pool",
+      "other_two_pool_cities": "Tianjin, Hangzhou and Shenzhen run the same two-pool structure, so policy moves in one city are a control for the others; their sources are not yet reached",
+      "population_is_not_a_margin": "the indifference condition presumes someone trading off paying now against waiting, and purchase timing on this carrier is set by when a car is wanted; entering a free lottery costs almost nothing, so the denominator counts people who took a free option rather than people who want a plate this period, and the same person is a waiter in one period and a buyer in the next. An exogenous denominator would still not be the wait the condition needs",
+      "why_not_more_periods": "the panel already has every period the carrier has ever had. The limit is not length, it is that within one leg the win rate's denominator is the demand that sets the price"
+    },
+    "periods": 160,
+    "policy_moves": [
+      {
+        "censored": false,
+        "ind_from": 6467.0,
+        "ind_to": 6412.0,
+        "p_from": 12627.0,
+        "p_to": 15743.0,
+        "period": "2013-06",
+        "rate_from": 0.04484090389055685,
+        "rate_to": 0.044313595400011056,
+        "x": 0.9914952837482603
+      },
+      {
+        "censored": false,
+        "ind_from": 6412.0,
+        "ind_to": 4400.0,
+        "p_from": 15743.0,
+        "p_to": 20631.0,
+        "period": "2013-07",
+        "rate_from": 0.044313595400011056,
+        "rate_to": 0.030706100743925078,
+        "x": 0.6862133499688085
+      },
+      {
+        "censored": false,
+        "ind_from": 4400.0,
+        "ind_to": 5072.0,
+        "p_from": 20631.0,
+        "p_to": 26599.0,
+        "period": "2013-08",
+        "rate_from": 0.030706100743925078,
+        "rate_to": 0.03189636197842971,
+        "x": 1.1527272727272728
+      },
+      {
+        "censored": true,
+        "ind_from": 5072.0,
+        "ind_to": 4982.0,
+        "p_from": 26599.0,
+        "p_to": 30802.0,
+        "period": "2013-09",
+        "rate_from": 0.03189636197842971,
+        "rate_to": 0.02807852066437094,
+        "x": 0.9822555205047319
+      },
+      {
+        "censored": true,
+        "ind_from": 4982.0,
+        "ind_to": 5049.0,
+        "p_from": 30802.0,
+        "p_to": 16384.0,
+        "period": "2013-10",
+        "rate_from": 0.02807852066437094,
+        "rate_to": 0.026245750465239585,
+        "x": 1.0134484142914493
+      },
+      {
+        "censored": true,
+        "ind_from": 5049.0,
+        "ind_to": 5091.0,
+        "p_from": 16384.0,
+        "p_to": 11813.0,
+        "period": "2013-11",
+        "rate_from": 0.026245750465239585,
+        "rate_to": 0.02554209855607622,
+        "x": 1.008318478906714
+      },
+      {
+        "censored": true,
+        "ind_from": 5091.0,
+        "ind_to": 5152.0,
+        "p_from": 11813.0,
+        "p_to": 11959.0,
+        "period": "2013-12",
+        "rate_from": 0.02554209855607622,
+        "rate_to": 0.02597782405469865,
+        "x": 1.011981928894127
+      },
+      {
+        "censored": false,
+        "ind_from": 5152.0,
+        "ind_to": 5079.0,
+        "p_from": 11959.0,
+        "p_to": 12541.0,
+        "period": "2014-01",
+        "rate_from": 0.02597782405469865,
+        "rate_to": 0.025007016144517807,
+        "x": 0.9858307453416149
+      },
+      {
+        "censored": false,
+        "ind_from": 5079.0,
+        "ind_to": 5140.0,
+        "p_from": 12541.0,
+        "p_to": 12777.0,
+        "period": "2014-02",
+        "rate_from": 0.025007016144517807,
+        "rate_to": 0.025685616055009197,
+        "x": 1.012010238235873
+      },
+      {
+        "censored": false,
+        "ind_from": 5140.0,
+        "ind_to": 5732.0,
+        "p_from": 12777.0,
+        "p_to": 13085.0,
+        "period": "2014-03",
+        "rate_from": 0.025685616055009197,
+        "rate_to": 0.02672846730985344,
+        "x": 1.1151750972762646
+      },
+      {
+        "censored": false,
+        "ind_from": 5732.0,
+        "ind_to": 5849.0,
+        "p_from": 13085.0,
+        "p_to": 14074.0,
+        "period": "2014-04",
+        "rate_from": 0.02672846730985344,
+        "rate_to": 0.026183612076066325,
+        "x": 1.0204117236566643
+      },
+      {
+        "censored": false,
+        "ind_from": 5849.0,
+        "ind_to": 5751.0,
+        "p_from": 14074.0,
+        "p_to": 15391.0,
+        "period": "2014-05",
+        "rate_from": 0.026183612076066325,
+        "rate_to": 0.025002608514190318,
+        "x": 0.9832449991451531
+      },
+      {
+        "censored": false,
+        "ind_from": 5751.0,
+        "ind_to": 5789.0,
+        "p_from": 15391.0,
+        "p_to": 17024.0,
+        "period": "2014-06",
+        "rate_from": 0.025002608514190318,
+        "rate_to": 0.024905994820034933,
+        "x": 1.0066075465136497
+      },
+      {
+        "censored": false,
+        "ind_from": 5789.0,
+        "ind_to": 4400.0,
+        "p_from": 17024.0,
+        "p_to": 18310.0,
+        "period": "2014-07",
+        "rate_from": 0.024905994820034933,
+        "rate_to": 0.018636723663979872,
+        "x": 0.7600621869062014
+      },
+      {
+        "censored": true,
+        "ind_from": 4400.0,
+        "ind_to": 5140.0,
+        "p_from": 18310.0,
+        "p_to": 16654.0,
+        "period": "2014-08",
+        "rate_from": 0.018636723663979872,
+        "rate_to": 0.02126603227141084,
+        "x": 1.1681818181818182
+      },
+      {
+        "censored": true,
+        "ind_from": 5140.0,
+        "ind_to": 5137.0,
+        "p_from": 16654.0,
+        "p_to": 12382.0,
+        "period": "2014-09",
+        "rate_from": 0.02126603227141084,
+        "rate_to": 0.021242282770056527,
+        "x": 0.9994163424124514
+      },
+      {
+        "censored": true,
+        "ind_from": 5137.0,
+        "ind_to": 5115.0,
+        "p_from": 12382.0,
+        "p_to": 11442.0,
+        "period": "2014-10",
+        "rate_from": 0.021242282770056527,
+        "rate_to": 0.02118661618881148,
+        "x": 0.9957173447537473
+      },
+      {
+        "censored": true,
+        "ind_from": 5115.0,
+        "ind_to": 5177.0,
+        "p_from": 11442.0,
+        "p_to": 11207.0,
+        "period": "2014-11",
+        "rate_from": 0.02118661618881148,
+        "rate_to": 0.021016949152542375,
+        "x": 1.0121212121212122
+      },
+      {
+        "censored": true,
+        "ind_from": 5177.0,
+        "ind_to": 5166.0,
+        "p_from": 11207.0,
+        "p_to": 11421.0,
+        "period": "2014-12",
+        "rate_from": 0.021016949152542375,
+        "rate_to": 0.021214734507823088,
+        "x": 0.9978752173073209
+      },
+      {
+        "censored": false,
+        "ind_from": 5166.0,
+        "ind_to": 5193.0,
+        "p_from": 11421.0,
+        "p_to": 13137.0,
+        "period": "2015-01",
+        "rate_from": 0.021214734507823088,
+        "rate_to": 0.020551848597820152,
+        "x": 1.005226480836237
+      },
+      {
+        "censored": false,
+        "ind_from": 5193.0,
+        "ind_to": 5212.0,
+        "p_from": 13137.0,
+        "p_to": 14331.0,
+        "period": "2015-02",
+        "rate_from": 0.020551848597820152,
+        "rate_to": 0.019751851262344907,
+        "x": 1.0036587714230696
+      },
+      {
+        "censored": false,
+        "ind_from": 5212.0,
+        "ind_to": 5747.0,
+        "p_from": 14331.0,
+        "p_to": 15436.0,
+        "period": "2015-03",
+        "rate_from": 0.019751851262344907,
+        "rate_to": 0.02100335132646013,
+        "x": 1.1026477359938602
+      },
+      {
+        "censored": false,
+        "ind_from": 5747.0,
+        "ind_to": 5899.0,
+        "p_from": 15436.0,
+        "p_to": 17798.0,
+        "period": "2015-04",
+        "rate_from": 0.02100335132646013,
+        "rate_to": 0.019867973459971034,
+        "x": 1.0264485818688012
+      },
+      {
+        "censored": false,
+        "ind_from": 5899.0,
+        "ind_to": 5917.0,
+        "p_from": 17798.0,
+        "p_to": 21506.0,
+        "period": "2015-05",
+        "rate_from": 0.019867973459971034,
+        "rate_to": 0.01875465538281114,
+        "x": 1.0030513646380743
+      },
+      {
+        "censored": false,
+        "ind_from": 5917.0,
+        "ind_to": 5724.0,
+        "p_from": 21506.0,
+        "p_to": 27672.0,
+        "period": "2015-06",
+        "rate_from": 0.01875465538281114,
+        "rate_to": 0.016769744147142492,
+        "x": 0.9673821193172215
+      },
+      {
+        "censored": false,
+        "ind_from": 5724.0,
+        "ind_to": 4400.0,
+        "p_from": 27672.0,
+        "p_to": 37805.0,
+        "period": "2015-07",
+        "rate_from": 0.016769744147142492,
+        "rate_to": 0.011891474083343017,
+        "x": 0.7686932215234102
+      },
+      {
+        "censored": true,
+        "ind_from": 4400.0,
+        "ind_to": 4898.0,
+        "p_from": 37805.0,
+        "p_to": 36231.0,
+        "period": "2015-08",
+        "rate_from": 0.011891474083343017,
+        "rate_to": 0.012247235120409474,
+        "x": 1.1131818181818183
+      },
+      {
+        "censored": true,
+        "ind_from": 4898.0,
+        "ind_to": 4775.0,
+        "p_from": 36231.0,
+        "p_to": 16886.0,
+        "period": "2015-09",
+        "rate_from": 0.012247235120409474,
+        "rate_to": 0.011286148173534868,
+        "x": 0.9748877092690894
+      },
+      {
+        "censored": false,
+        "ind_from": 4775.0,
+        "ind_to": 4933.0,
+        "p_from": 16886.0,
+        "p_to": 17487.0,
+        "period": "2015-10",
+        "rate_from": 0.011286148173534868,
+        "rate_to": 0.01187898986444996,
+        "x": 1.033089005235602
+      },
+      {
+        "censored": false,
+        "ind_from": 4933.0,
+        "ind_to": 5051.0,
+        "p_from": 17487.0,
+        "p_to": 20609.0,
+        "period": "2015-11",
+        "rate_from": 0.01187898986444996,
+        "rate_to": 0.012011233630502969,
+        "x": 1.0239205351712954
+      },
+      {
+        "censored": false,
+        "ind_from": 5051.0,
+        "ind_to": 4840.0,
+        "p_from": 20609.0,
+        "p_to": 27077.0,
+        "period": "2015-12",
+        "rate_from": 0.012011233630502969,
+        "rate_to": 0.011644580458276795,
+        "x": 0.9582260938428034
+      },
+      {
+        "censored": false,
+        "ind_from": 4840.0,
+        "ind_to": 4400.0,
+        "p_from": 27077.0,
+        "p_to": 25727.0,
+        "period": "2016-01",
+        "rate_from": 0.011644580458276795,
+        "rate_to": 0.010229203912205533,
+        "x": 0.9090909090909091
+      },
+      {
+        "censored": false,
+        "ind_from": 4400.0,
+        "ind_to": 4654.0,
+        "p_from": 21884.0,
+        "p_to": 23315.0,
+        "period": "2016-03",
+        "rate_from": 0.01026718002566795,
+        "rate_to": 0.010166744217036177,
+        "x": 1.0577272727272726
+      },
+      {
+        "censored": false,
+        "ind_from": 4654.0,
+        "ind_to": 4569.0,
+        "p_from": 23315.0,
+        "p_to": 25701.0,
+        "period": "2016-04",
+        "rate_from": 0.010166744217036177,
+        "rate_to": 0.009613139008641094,
+        "x": 0.9817361409540181
+      },
+      {
+        "censored": false,
+        "ind_from": 4569.0,
+        "ind_to": 4554.0,
+        "p_from": 25701.0,
+        "p_to": 27127.0,
+        "period": "2016-05",
+        "rate_from": 0.009613139008641094,
+        "rate_to": 0.009345008095313337,
+        "x": 0.9967170059093894
+      },
+      {
+        "censored": false,
+        "ind_from": 4554.0,
+        "ind_to": 4522.0,
+        "p_from": 27127.0,
+        "p_to": 28541.0,
+        "period": "2016-06",
+        "rate_from": 0.009345008095313337,
+        "rate_to": 0.0092146178643768,
+        "x": 0.9929732103645147
+      },
+      {
+        "censored": false,
+        "ind_from": 4522.0,
+        "ind_to": 4400.0,
+        "p_from": 28541.0,
+        "p_to": 24324.0,
+        "period": "2016-07",
+        "rate_from": 0.0092146178643768,
+        "rate_to": 0.008862373383875717,
+        "x": 0.9730207872622734
+      },
+      {
+        "censored": false,
+        "ind_from": 4400.0,
+        "ind_to": 4630.0,
+        "p_from": 17419.0,
+        "p_to": 18358.0,
+        "period": "2017-03",
+        "rate_from": 0.008823877412277623,
+        "rate_to": 0.008908865957164325,
+        "x": 1.0522727272727272
+      },
+      {
+        "censored": false,
+        "ind_from": 4630.0,
+        "ind_to": 4617.0,
+        "p_from": 20127.0,
+        "p_to": 22996.0,
+        "period": "2017-05",
+        "rate_from": 0.008698020871492847,
+        "rate_to": 0.00857709727398039,
+        "x": 0.9971922246220303
+      },
+      {
+        "censored": false,
+        "ind_from": 4617.0,
+        "ind_to": 4636.0,
+        "p_from": 22996.0,
+        "p_to": 25498.0,
+        "period": "2017-06",
+        "rate_from": 0.00857709727398039,
+        "rate_to": 0.008593890477947105,
+        "x": 1.0041152263374487
+      },
+      {
+        "censored": false,
+        "ind_from": 4636.0,
+        "ind_to": 4400.0,
+        "p_from": 25498.0,
+        "p_to": 26668.0,
+        "period": "2017-07",
+        "rate_from": 0.008593890477947105,
+        "rate_to": 0.008086971704788774,
+        "x": 0.9490940465918896
+      },
+      {
+        "censored": false,
+        "ind_from": 4400.0,
+        "ind_to": 4550.0,
+        "p_from": 24560.0,
+        "p_to": 26939.0,
+        "period": "2018-03",
+        "rate_from": 0.0076015147745805344,
+        "rate_to": 0.007581008490729509,
+        "x": 1.0340909090909092
+      },
+      {
+        "censored": false,
+        "ind_from": 4550.0,
+        "ind_to": 4575.0,
+        "p_from": 26939.0,
+        "p_to": 34455.0,
+        "period": "2018-04",
+        "rate_from": 0.007581008490729509,
+        "rate_to": 0.007365631560644505,
+        "x": 1.0054945054945055
+      },
+      {
+        "censored": false,
+        "ind_from": 4575.0,
+        "ind_to": 4565.0,
+        "p_from": 34455.0,
+        "p_to": 44225.0,
+        "period": "2018-05",
+        "rate_from": 0.007365631560644505,
+        "rate_to": 0.006666715346588876,
+        "x": 0.9978142076502732
+      },
+      {
+        "censored": false,
+        "ind_from": 4565.0,
+        "ind_to": 4550.0,
+        "p_from": 44225.0,
+        "p_to": 57283.0,
+        "period": "2018-06",
+        "rate_from": 0.006666715346588876,
+        "rate_to": 0.006291256121876149,
+        "x": 0.9967141292442497
+      },
+      {
+        "censored": false,
+        "ind_from": 4550.0,
+        "ind_to": 4500.0,
+        "p_from": 57283.0,
+        "p_to": 56152.0,
+        "period": "2018-07",
+        "rate_from": 0.006291256121876149,
+        "rate_to": 0.00590882292308157,
+        "x": 0.989010989010989
+      },
+      {
+        "censored": true,
+        "ind_from": 4500.0,
+        "ind_to": 3000.0,
+        "p_from": 12029.0,
+        "p_to": 11317.0,
+        "period": "2024-07",
+        "rate_from": 0.005053760784163985,
+        "rate_to": 0.0022109024019243695,
+        "x": 0.6666666666666666
+      },
+      {
+        "censored": true,
+        "ind_from": 3000.0,
+        "ind_to": 12000.0,
+        "p_from": 10396.0,
+        "p_to": 10412.0,
+        "period": "2025-07",
+        "rate_from": 0.0020280780647808695,
+        "rate_to": 0.008299822798783246,
+        "x": 4.0
+      }
+    ],
+    "span": [
+      "2013-05",
+      "2026-08"
+    ]
+  },
+  "stage": "B45"
+}

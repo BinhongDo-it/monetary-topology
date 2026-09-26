@@ -1,0 +1,247 @@
+{
+ "config": {
+  "basket_values": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "column_sums": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "imports": "b69_okishio",
+  "seed": 85,
+  "set_sizes": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "sets_per_system": 4,
+  "sizes": [
+   3,
+   8
+  ],
+  "sub_spread": [
+   0.6,
+   1.4
+  ],
+  "systems": 120,
+  "tol": 1e-10
+ },
+ "criteria": [
+  {
+   "detail": "1440 single-column substitutions drawn on B69's own systems and baskets, using B69's solver: the sign of the change in the rate is the sign of the saving on 1440 of 1440. The equivalence of Theorem 14(1) is read back here rather than assumed, so this station and B69 can disagree.",
+   "kind": "known_answer",
+   "name": "B85-1",
+   "passed": true,
+   "statement": "at one column this reduces to B69's Theorem 14"
+  },
+  {
+   "detail": "of the several-column substitutions drawn, 601 have every changed column cheaper at the prices in force, and the rate rises on 601 of them. **The count of draws satisfying the premise is in the verdict**: zero counterexamples holds vacuously on zero cases, so the number that reached the premise is what says the forward half was tested. The Collatz-Wielandt step B69 uses for one column is unchanged: `pM' <= lambda p` with strict inequality somewhere and `M'` irreducible gives `lambda' < lambda`",
+   "kind": "own_reading",
+   "name": "B85-2",
+   "passed": true,
+   "statement": "every changed column cheaper implies the rate rises"
+  },
+  {
+   "detail": "**1461 of 4092 several-column substitutions raise the rate while at least one changed column got dearer at the prices in force.** The largest lifts the rate from 0.257002 to 0.622947 on columns [0, 1, 2, 3], whose cost changes are -1.1428e-01, -1.2938e-01, +4.7060e-02, -6.5356e-02. So the equivalence of Theorem 14(1) does not extend: **the one column case is not the |S| = 1 case of a several-column equivalence, it is a property of |S| = 1**, and what makes it one is that with a single column the prices in force see everything that moved",
+   "kind": "own_reading",
+   "name": "B85-3",
+   "passed": true,
+   "statement": "the converse does not extend to several columns"
+  },
+  {
+   "detail": "the bracket over every column contains the new Perron root on 5532 of 5532 draws, **and on the 4980 draws that leave at least one column alone it contains the old root 4980 times out of 4980, which is why it decides nothing there**: an unchanged column sits at lambda exactly and pins the bracket around it. Over the changed columns only: below lambda, 1306 draws and the rate rises on 1306; above lambda, 1360 draws and the rate rises on 0; **straddling, 2866 draws, the rate rises on 1461 and falls on 1405** -- both outcomes inside that cell, which is what makes it undecided rather than decorative. **None of the 1440 single-column draws straddles**, since there the two ends of the discriminant are the same number: that is Theorem 14(1), and it is the clause that tells this bracket from the all-column one, which puts every one of them in the undecided cell",
+   "kind": "own_reading",
+   "name": "B85-4",
+   "passed": true,
+   "statement": "the Collatz-Wielandt bracket and the three cells it maps to, one of which is undecided at the old prices"
+  },
+  {
+   "detail": "how often the prices in force decide the sign, by the number of columns replaced at once: 1 column -> decided 1440 of 1440; 2 columns -> decided 705 of 1440; 3 columns -> decided 375 of 1440; 4 columns -> decided 146 of 1212. No line is drawn on any of these. **At one column the prices always decide, which is Theorem 14(1); the share falls as more columns move, and that fall is the content of this station**",
+   "kind": "own_reading",
+   "name": "B85-5",
+   "passed": true,
+   "statement": "how often the old prices decide, by how many columns moved"
+  },
+  {
+   "detail": "`M'` is irreducible on 5532 of 5532 draws, and the reason is the basket rather than the substitution: a generator that produced a zero in the basket would break the theorem's hypothesis rather than its conclusion. **The middle clause cannot fail while the first holds**, so it is a check on the irreducibility test and not a third reading (`D35` second clause). The matrix is rebuilt from the draw's own inputs rather than read off a flag the draw stored. **The mechanism is the basket, not the substitution**: the basket is strictly positive and the new labour vector is strictly positive on 5532 of 5532 draws, so `b l'` is strictly positive and `M'` is a positive matrix whatever the substitution did to `A`. That is B69's own sufficient condition, read back. A matrix that is reducible by hand is put through the same test and comes back reducible, so the test is live",
+   "kind": "instrument",
+   "name": "B85-6",
+   "passed": true,
+   "statement": "M' is irreducible, which Theorem 14 requires"
+  },
+  {
+   "detail": "B69's registration of the several-column case is named against this station in its own file. `D20`: the source of a registration is written back in the round that discharges it",
+   "kind": "bookkeeping",
+   "name": "B85-7",
+   "passed": true,
+   "statement": "B69's registration is discharged and written back"
+  }
+ ],
+ "report": {
+  "B85-1": {
+   "disagreements": [],
+   "single_column_draws": 1440
+  },
+  "B85-2": {
+   "counterexample_sets": [],
+   "counterexamples": 0,
+   "premise_reached": 601
+  },
+  "B85-3": {
+   "examples": [
+    {
+     "cost_change": [
+      0.000557941977449683,
+      -0.02265413331081756
+     ],
+     "ks": [
+      3,
+      6
+     ],
+     "r": 0.9568938261881927,
+     "r2": 1.0038785542344724
+    },
+    {
+     "cost_change": [
+      -0.0038638023856191195,
+      -0.033987104613217134,
+      -0.036943871271621465,
+      0.0032765287238243623
+     ],
+     "ks": [
+      0,
+      4,
+      5,
+      6
+     ],
+     "r": 0.9568938261881927,
+     "r2": 1.1070376934822037
+    },
+    {
+     "cost_change": [
+      0.029881304437203493,
+      -0.09456589580783326,
+      -0.0197578072161336
+     ],
+     "ks": [
+      1,
+      3,
+      6
+     ],
+     "r": 0.5360802753974596,
+     "r2": 0.6694454984593854
+    },
+    {
+     "cost_change": [
+      0.02064697616887229,
+      -0.05700479695886629,
+      0.03420139154292845,
+      -0.020198701366860777
+     ],
+     "ks": [
+      0,
+      1,
+      2,
+      6
+     ],
+     "r": 0.5360802753974596,
+     "r2": 0.5662861553300191
+    },
+    {
+     "cost_change": [
+      -0.05033692475687537,
+      0.008369584965037646,
+      -0.012199614839940642,
+      -0.0034185141789661866
+     ],
+     "ks": [
+      1,
+      3,
+      4,
+      6
+     ],
+     "r": 0.5360802753974596,
+     "r2": 0.5719929124598335
+    },
+    {
+     "cost_change": [
+      -0.053924111670579145,
+      -0.06226671230273495,
+      0.007226113872550843
+     ],
+     "ks": [
+      2,
+      3,
+      5
+     ],
+     "r": 0.2659861611903287,
+     "r2": 0.3590117326576492
+    }
+   ],
+   "found": 1461,
+   "multi_column_draws": 4092
+  },
+  "B85-4": {
+   "above": {
+    "n": 1360,
+    "rose": 0
+   },
+   "below": {
+    "n": 1306,
+    "rose": 1306
+   },
+   "bracket_all_holds": 5532,
+   "bracket_all_pinned_at_lambda": 4980,
+   "cell_verdict": {
+    "every changed column at or above lambda": "the rate falls, decided at the old prices",
+    "every changed column at or below lambda": "the rate rises, decided at the old prices",
+    "some changed columns each side of lambda": "not decided at the old prices"
+   },
+   "draws": 5532,
+   "partial_sets": 4980,
+   "single_column_draws": 1440,
+   "single_column_straddling": 0,
+   "straddle": {
+    "n": 2866,
+    "rose": 1461
+   }
+  },
+  "B85-5": {
+   "by_set_size": {
+    "1": {
+     "above": 735,
+     "below": 705,
+     "straddle": 0
+    },
+    "2": {
+     "above": 376,
+     "below": 329,
+     "straddle": 735
+    },
+    "3": {
+     "above": 182,
+     "below": 193,
+     "straddle": 1065
+    },
+    "4": {
+     "above": 67,
+     "below": 79,
+     "straddle": 1066
+    }
+   }
+  },
+  "B85-6": {
+   "control_reports_reducible": true,
+   "reducible_sets": [],
+   "thin_basket_sets": []
+  },
+  "B85-7": {
+   "b69_names_b85": true
+  }
+ },
+ "stage": "B85"
+}

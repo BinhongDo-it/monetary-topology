@@ -151,6 +151,53 @@ use.
 
 ---
 
+## 2b. Ilinski's gauge theory of arbitrage: the same language, a different object
+
+Ilinski, K., *Physics of Finance* (arXiv:hep-th/9710148, 1997; in book form as
+*Physics of Finance: Gauge Modelling in Non-Equilibrium Pricing*, Wiley), and
+*Black-Scholes equation from Gauge Theory of Arbitrage* (arXiv:hep-th/9712034).
+Malaney and Weinstein's *Economics as Gauge Theory* is listed alongside, with
+Nguyen's reply (arXiv:2112.03460).
+
+**What the two share is writing prices in the language of gauge fields. The
+objects differ at every other point.**
+
+| | This framework | Ilinski | Malaney and Weinstein |
+| --- | --- | --- | --- |
+| Base space | positions × classes | assets × time | pairs of a utility function and a basket |
+| Gauge group | dilations on `ℝ₊`, additive in logs | dilations on `ℝ₊` | `Diff⁺(ℝ₊)` |
+| Edges | position edges and class edges | deposit operations (time edges), exchanges (asset edges) | moves along an indifference curve |
+| Curvature | the cycle sum, a representative of `H¹` | excess return from arbitrage | no economic reading given |
+| Counts the dimension of the obstruction | yes: `b₁` and the rank of the residual | no | no |
+| Asks whether a scalar potential exists | this is the claim | no | no |
+| Main result | a negative existence statement, with its size | a rederivation of log-normal pricing and Black-Scholes | a family of representations of cost-of-living indices |
+
+Three differences, each checkable:
+
+1. **The cycle is a different object.** A cycle on Ilinski's lattice is a
+   triangular arbitrage: three assets at one moment. A cycle here is the square
+   two classes and two positions enclose, on the two-index field `P(a, j)`.
+2. **The direction of use is opposite.** Ilinski uses gauge theory to rederive
+   standard finance. Here it is used to test an existence statement, the scalar
+   price field, against posted prices, and that statement reads false.
+3. **The reading of a nonzero is opposite.** In Ilinski's framework a nonzero
+   curvature is an arbitrage opportunity and should be traded away. Here the
+   nonzero is structural: with `L·r < n` exactly one codimension survives
+   arbitrage ([b29_locality_theorem.md](b29_locality_theorem.md), Theorem 7), and
+   B9 reads a nonzero loop on the ETF creation triangle, where the arbitrageurs
+   are authorised participants.
+
+Nguyen's reply observes that Malaney and Weinstein's Corollary 1, that the most
+general cost-of-living index is any chosen adjusted price divided by a base price,
+needs no gauge theory. A statement of that form cannot read false on any data, and
+the criteria in this repository are built so that each one can.
+
+**Citation status.** Abstracts and the structural sections of the three arXiv
+papers read. Page-level checks come before any specific proposition of theirs is
+cited.
+
+---
+
 ## 3. The lineage, in one sentence
 
 Debreu, G. (1970), *Economies with a Finite Set of Equilibria*, Econometrica

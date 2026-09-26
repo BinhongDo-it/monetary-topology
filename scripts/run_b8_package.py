@@ -157,6 +157,16 @@ STEPS: list[tuple[str, list[str], str]] = [
     ("verdicts", ["experiments/b8_verdicts.py"],
      "results/b8_verdicts.json. **Refuses to write** if a number in a verdict "
      "is printed by none of that verdict's own products"),
+
+    # --- after the sheet, because O35 reads the sheet's quoted figures and
+    # feeds nothing back into it ---
+    ("o35_scan", ["experiments/b8_o35_floor_steps.py", "scan"],
+     "data/processed/b8_o35, one reusable file per vintage. Reads the loop cache "
+     "and the core table, and refuses a cache built by code that differs from "
+     "today's in anything but comments"),
+    ("o35_render", ["experiments/b8_o35_floor_steps.py", "render"],
+     "b8_o35_floor_steps.md and .json: the floor-arm loops that carry a contract "
+     "move with no flag, named, and whether the published figures above them move"),
 ]
 
 #: What the 2026-08-19 edits actually make necessary. Everything outside this
@@ -261,8 +271,6 @@ def main() -> int:
     print("\nnot done by this package, and why:")
     print("  - the 46.65 per cent of underpaid months that are still unnamed: "
           "an investigation, not a run")
-    print("  - O35, the 2017Q1 cure whose offset fails on 115 floors: unread")
-    print("  - the 1,065 unattributed loop displacement in section 5.1: unread")
     print("  - the full-year download: needs gate five (D21) first")
     print("  - pit 50's uncovered path: **not a leftover.** The pit table's own "
           "last sentence registers it as a known untested path and refuses to "

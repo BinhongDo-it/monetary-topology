@@ -1,0 +1,7 @@
+{
+  "equal_seconds": 0.6422,
+  "threshold_seconds": 0.3193,
+  "cells_total": 70,
+  "note": "measured, not assumed (D38). A run reads this file; without it no hour figure may be quoted.",
+  "estimate_seconds": 33.7
+}

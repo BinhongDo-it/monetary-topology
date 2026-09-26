@@ -1,0 +1,1234 @@
+{
+  "config": {
+    "closes": "B101-18",
+    "mix": "ln(LAB / K_GFCF)",
+    "seed": 0,
+    "seeds": 5,
+    "share": "LAB / (LAB + CAP)",
+    "smoothing": "sigma = alpha_ij + beta_j * ln(K/L)",
+    "sources": [
+      "growth accounts basic.csv",
+      "capital accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "GRV footnote 20 fitted on a mix with no index base, so the intercept is the country term itself",
+      "detail": "55 industries carry three or more country series with a moving mix. One slope per industry on the level of ln(LAB/K_GFCF), intercepts per country-industry: beta median +0.0991, p10 +0.0141, p90 +0.2069; within R squared median 0.096. The mix has no index base, so the intercept is alpha_ij itself and not alpha - beta*e.",
+      "kind": "instrument",
+      "name": "B101-26",
+      "passed": true,
+      "payload": {
+        "beta_median": 0.09907789989726484,
+        "by_industry": [
+          {
+            "alpha_max": 1.1500620750710817,
+            "alpha_min": 0.5362949165847445,
+            "alpha_sd": 0.15144787528676826,
+            "beta": 0.09907789989726484,
+            "industry": "A",
+            "r2_within": 0.05713710372323799,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.0092217609742107,
+            "alpha_min": 0.5155418304784664,
+            "alpha_sd": 0.12592976057337216,
+            "beta": 0.11948190824110733,
+            "industry": "B",
+            "r2_within": 0.1030998508207388,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.8378790342484994,
+            "alpha_min": 0.6370957352077176,
+            "alpha_sd": 0.04931325652491035,
+            "beta": 0.12996276702279916,
+            "industry": "C",
+            "r2_within": 0.11149391038451961,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.891071486292806,
+            "alpha_min": 0.616475038135593,
+            "alpha_sd": 0.07311893576617585,
+            "beta": 0.13047921673265384,
+            "industry": "C10-C12",
+            "r2_within": 0.12111890362112454,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.9123157559679823,
+            "alpha_min": 0.48114098772412955,
+            "alpha_sd": 0.10510938899572848,
+            "beta": 0.04476484104024268,
+            "industry": "C13-C15",
+            "r2_within": 0.012889856777471675,
+            "series": 20
+          },
+          {
+            "alpha_max": 0.8074800574869556,
+            "alpha_min": 0.45039231206377606,
+            "alpha_sd": 0.09273112360678924,
+            "beta": -0.031229491716613635,
+            "industry": "C16-C18",
+            "r2_within": 0.005024712772561113,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.46020026427798677,
+            "alpha_min": 0.04919169186336336,
+            "alpha_sd": 0.10248859979954622,
+            "beta": -0.05220084114510175,
+            "industry": "C19",
+            "r2_within": 0.01167015136578431,
+            "series": 18
+          },
+          {
+            "alpha_max": 0.6603537456868762,
+            "alpha_min": 0.4488690008579611,
+            "alpha_sd": 0.06177628243692529,
+            "beta": 0.05475542390170433,
+            "industry": "C20",
+            "r2_within": 0.019206331451359193,
+            "series": 15
+          },
+          {
+            "alpha_max": 0.7123721921750458,
+            "alpha_min": 0.4796981257788353,
+            "alpha_sd": 0.0633434269801812,
+            "beta": 0.10536939165978819,
+            "industry": "C20-C21",
+            "r2_within": 0.06666495410511897,
+            "series": 13
+          },
+          {
+            "alpha_max": 0.6649478593468917,
+            "alpha_min": 0.34360551919128557,
+            "alpha_sd": 0.08206156107391517,
+            "beta": 0.06433639300921824,
+            "industry": "C21",
+            "r2_within": 0.040610894912958106,
+            "series": 13
+          },
+          {
+            "alpha_max": 0.7391806948200174,
+            "alpha_min": 0.5493931990792102,
+            "alpha_sd": 0.04759446075801785,
+            "beta": 0.025677659062181824,
+            "industry": "C22-C23",
+            "r2_within": 0.009945836683699305,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.8287785534223822,
+            "alpha_min": 0.6186378024413763,
+            "alpha_sd": 0.05730000440372986,
+            "beta": 0.06090035710478268,
+            "industry": "C24-C25",
+            "r2_within": 0.01380863374417396,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.7459011781600153,
+            "alpha_min": 0.3684127304730281,
+            "alpha_sd": 0.11015639781183863,
+            "beta": 0.03910508630018116,
+            "industry": "C26",
+            "r2_within": 0.01398497790542852,
+            "series": 16
+          },
+          {
+            "alpha_max": 0.7483274742100561,
+            "alpha_min": 0.45018714998632814,
+            "alpha_sd": 0.08400908331949426,
+            "beta": 0.04779528697669078,
+            "industry": "C26-C27",
+            "r2_within": 0.017631016305232228,
+            "series": 17
+          },
+          {
+            "alpha_max": 0.7773072081040974,
+            "alpha_min": 0.582169217009542,
+            "alpha_sd": 0.051478110833361464,
+            "beta": 0.07901074636556048,
+            "industry": "C27",
+            "r2_within": 0.03105814092455428,
+            "series": 16
+          },
+          {
+            "alpha_max": 0.9741263141236818,
+            "alpha_min": 0.6783568472135288,
+            "alpha_sd": 0.07879500976178837,
+            "beta": 0.2168488548934177,
+            "industry": "C28",
+            "r2_within": 0.19190545112606794,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.8367675063815099,
+            "alpha_min": 0.5501885495281379,
+            "alpha_sd": 0.083831524208704,
+            "beta": 0.08010429460072434,
+            "industry": "C29-C30",
+            "r2_within": 0.04665136110809909,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.9361537849449518,
+            "alpha_min": 0.6723408173473312,
+            "alpha_sd": 0.05897783957768614,
+            "beta": 0.14152950164422323,
+            "industry": "C31-C33",
+            "r2_within": 0.12799675373275754,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.7684272688761333,
+            "alpha_min": 0.5314766962889148,
+            "alpha_sd": 0.05850990202814424,
+            "beta": 0.1132534862687183,
+            "industry": "D",
+            "r2_within": 0.164787452658535,
+            "series": 22
+          },
+          {
+            "alpha_max": 0.7397097104429724,
+            "alpha_min": 0.5294754964525273,
+            "alpha_sd": 0.06101101494249546,
+            "beta": 0.0899243768474745,
+            "industry": "D-E",
+            "r2_within": 0.07609738141118982,
+            "series": 22
+          },
+          {
+            "alpha_max": 1.0075552433862223,
+            "alpha_min": 0.6290957420072427,
+            "alpha_sd": 0.0948536685987661,
+            "beta": 0.10626062413520539,
+            "industry": "E",
+            "r2_within": 0.08616220912448669,
+            "series": 22
+          },
+          {
+            "alpha_max": 0.9310824666532244,
+            "alpha_min": 0.5702195911719239,
+            "alpha_sd": 0.0837695243021084,
+            "beta": 0.07764354573530344,
+            "industry": "F",
+            "r2_within": 0.03126497426636565,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.8685408156387445,
+            "alpha_min": 0.5895249794458022,
+            "alpha_sd": 0.0649515709678453,
+            "beta": 0.10762174341566447,
+            "industry": "G",
+            "r2_within": 0.06101689954974321,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.8594731465788833,
+            "alpha_min": 0.6143040290449934,
+            "alpha_sd": 0.07227107240674684,
+            "beta": -0.027618435705847575,
+            "industry": "G45",
+            "r2_within": 0.006838995601345377,
+            "series": 10
+          },
+          {
+            "alpha_max": 0.8144743721041913,
+            "alpha_min": 0.5128337246031026,
+            "alpha_sd": 0.07997329503769762,
+            "beta": -0.0245267687137664,
+            "industry": "G46",
+            "r2_within": 0.0028851930572155737,
+            "series": 10
+          },
+          {
+            "alpha_max": 1.0791695168907562,
+            "alpha_min": 0.77360886187288,
+            "alpha_sd": 0.07954222155559171,
+            "beta": 0.258116455519094,
+            "industry": "G47",
+            "r2_within": 0.14592916089902053,
+            "series": 10
+          },
+          {
+            "alpha_max": 1.1532766152819836,
+            "alpha_min": 0.7422656468700446,
+            "alpha_sd": 0.08174383066611372,
+            "beta": 0.1921014868065926,
+            "industry": "H",
+            "r2_within": 0.21220608127093887,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.9708083921699965,
+            "alpha_min": 0.5746822850023914,
+            "alpha_sd": 0.10250331720483134,
+            "beta": 0.04595282376947632,
+            "industry": "H49",
+            "r2_within": 0.018579917675604407,
+            "series": 11
+          },
+          {
+            "alpha_max": 1.2992266671800135,
+            "alpha_min": 0.9579127473278506,
+            "alpha_sd": 0.12175039704243264,
+            "beta": 0.21813686389125964,
+            "industry": "H50",
+            "r2_within": 0.13343172341378473,
+            "series": 9
+          },
+          {
+            "alpha_max": 0.7818549241061209,
+            "alpha_min": 0.2579846526941759,
+            "alpha_sd": 0.16022573844755753,
+            "beta": -0.0415648494601194,
+            "industry": "H51",
+            "r2_within": 0.029957915665620782,
+            "series": 8
+          },
+          {
+            "alpha_max": 1.1772443677991398,
+            "alpha_min": 0.6426439755437917,
+            "alpha_sd": 0.15982575361724283,
+            "beta": 0.21721514804071185,
+            "industry": "H52",
+            "r2_within": 0.2192108914426949,
+            "series": 9
+          },
+          {
+            "alpha_max": 0.9279146710800187,
+            "alpha_min": 0.7894841086515113,
+            "alpha_sd": 0.050214243030182716,
+            "beta": 0.09350364726666549,
+            "industry": "H53",
+            "r2_within": 0.08420845441333469,
+            "series": 8
+          },
+          {
+            "alpha_max": 1.0402965767568735,
+            "alpha_min": 0.6308890991725166,
+            "alpha_sd": 0.09870729061385441,
+            "beta": 0.13891562644863492,
+            "industry": "I",
+            "r2_within": 0.09862207778705068,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.9626444949791162,
+            "alpha_min": 0.6791302827843352,
+            "alpha_sd": 0.07056920993250468,
+            "beta": 0.17261728034137794,
+            "industry": "J",
+            "r2_within": 0.375788021550682,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.8446284480716376,
+            "alpha_min": 0.43971382153195654,
+            "alpha_sd": 0.09331251172505116,
+            "beta": 0.00638027530650926,
+            "industry": "J58-J60",
+            "r2_within": 0.0007261412698527092,
+            "series": 20
+          },
+          {
+            "alpha_max": 0.8847736309487026,
+            "alpha_min": 0.5387935531060069,
+            "alpha_sd": 0.08201827559430648,
+            "beta": 0.14386457716023984,
+            "industry": "J61",
+            "r2_within": 0.15600583545010827,
+            "series": 18
+          },
+          {
+            "alpha_max": 0.8790970347249281,
+            "alpha_min": 0.5658678635632494,
+            "alpha_sd": 0.07111809715405437,
+            "beta": 0.11244706714201236,
+            "industry": "J62-J63",
+            "r2_within": 0.1700298833349474,
+            "series": 19
+          },
+          {
+            "alpha_max": 0.8099697587058627,
+            "alpha_min": 0.396743243016712,
+            "alpha_sd": 0.10325408380780912,
+            "beta": 0.02568941577167172,
+            "industry": "K",
+            "r2_within": 0.005941460105058138,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.414000481156379,
+            "alpha_min": 0.2654229741680628,
+            "alpha_sd": 0.030209091820675115,
+            "beta": 0.0429867147041704,
+            "industry": "L",
+            "r2_within": 0.15911037887168622,
+            "series": 22
+          },
+          {
+            "alpha_max": 1.055088935407851,
+            "alpha_min": 0.6086753448644837,
+            "alpha_sd": 0.10572853328558426,
+            "beta": 0.2720927457250146,
+            "industry": "M",
+            "r2_within": 0.22433100794268634,
+            "series": 22
+          },
+          {
+            "alpha_max": 0.9411786348749311,
+            "alpha_min": 0.642965424235958,
+            "alpha_sd": 0.06481508632609785,
+            "beta": 0.17196277580627425,
+            "industry": "M-N",
+            "r2_within": 0.11920469280350277,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.8488648633324107,
+            "alpha_min": 0.6311460144029895,
+            "alpha_sd": 0.05370122774149901,
+            "beta": 0.06588408360961949,
+            "industry": "MARKT",
+            "r2_within": 0.0526331130588743,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.8131413470314471,
+            "alpha_min": 0.6327973743685413,
+            "alpha_sd": 0.044819498942508494,
+            "beta": 0.09565461632779394,
+            "industry": "MARKTxAG",
+            "r2_within": 0.1021168299114058,
+            "series": 21
+          },
+          {
+            "alpha_max": 0.8987649260212821,
+            "alpha_min": 0.5139181542455971,
+            "alpha_sd": 0.07708634997974075,
+            "beta": 0.08859824780659677,
+            "industry": "N",
+            "r2_within": 0.08848891538101644,
+            "series": 22
+          },
+          {
+            "alpha_max": 1.1614193223058749,
+            "alpha_min": 1.0365944389098503,
+            "alpha_sd": 0.03243968383444342,
+            "beta": 0.18317531496999484,
+            "industry": "O",
+            "r2_within": 0.58413545428993,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.037709934448183,
+            "alpha_min": 0.8818925107746939,
+            "alpha_sd": 0.036619424448773454,
+            "beta": 0.12885685426028845,
+            "industry": "O-Q",
+            "r2_within": 0.44836462297649604,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.0231630689830247,
+            "alpha_min": 0.7678401994571709,
+            "alpha_sd": 0.05535333574352687,
+            "beta": 0.05400912576675814,
+            "industry": "P",
+            "r2_within": 0.1820727154664722,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.0391347178754908,
+            "alpha_min": 0.7012656857774946,
+            "alpha_sd": 0.07466034682838966,
+            "beta": 0.13162138868835893,
+            "industry": "Q",
+            "r2_within": 0.22444339442605576,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.0050674291480541,
+            "alpha_min": 0.6790112349406087,
+            "alpha_sd": 0.08678606274800169,
+            "beta": 0.11567206976473862,
+            "industry": "Q86",
+            "r2_within": 0.18677921501631134,
+            "series": 15
+          },
+          {
+            "alpha_max": 1.0431535259696652,
+            "alpha_min": 0.699993352888835,
+            "alpha_sd": 0.08811000721894445,
+            "beta": 0.125826444848506,
+            "industry": "Q87-Q88",
+            "r2_within": 0.28305416535108996,
+            "series": 15
+          },
+          {
+            "alpha_max": 0.9765895398352008,
+            "alpha_min": 0.4364414683340354,
+            "alpha_sd": 0.1342723373960887,
+            "beta": 0.07662318233672133,
+            "industry": "R",
+            "r2_within": 0.03538626243255105,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.039069104840513,
+            "alpha_min": 0.6266554731429096,
+            "alpha_sd": 0.10557174912991808,
+            "beta": 0.13741131893152422,
+            "industry": "R-S",
+            "r2_within": 0.0964416507434579,
+            "series": 23
+          },
+          {
+            "alpha_max": 1.1420587853595034,
+            "alpha_min": 0.5791136799616519,
+            "alpha_sd": 0.15284410960831113,
+            "beta": 0.24399560229092496,
+            "industry": "S",
+            "r2_within": 0.3325731769590222,
+            "series": 23
+          },
+          {
+            "alpha_max": 0.9817993875578208,
+            "alpha_min": 0.7454795742206012,
+            "alpha_sd": 0.05480238358708875,
+            "beta": 0.1548222440318558,
+            "industry": "TOT",
+            "r2_within": 0.29708525852718215,
+            "series": 32
+          },
+          {
+            "alpha_max": 0.8632008885137771,
+            "alpha_min": 0.683092346775892,
+            "alpha_sd": 0.045399855388264986,
+            "beta": 0.08081444858103931,
+            "industry": "TOT_IND",
+            "r2_within": 0.10168554784109529,
+            "series": 23
+          }
+        ],
+        "r2_within_median": 0.0964416507434579
+      }
+    },
+    {
+      "criterion": "the area the recovered country term sweeps against the mix, which is the closed form for the smoothed index's cross-country holonomy",
+      "detail": "1,485 cross-sections. The closed form evaluated directly, on the loop that visits the countries in the mix's own order so no ordering is chosen: |area the intercept sweeps| median 0.0587, p90 0.2078; the same loop with the raw share in place of the fitted intercept median 0.0712. Smoothed over raw, median 0.824: GRV's own smoothing keeps the country term, so it does not remove the area, and the multilateral form removes it by projection rather than by the smoothing.",
+      "kind": "own_reading",
+      "name": "B101-27",
+      "passed": true,
+      "payload": {
+        "bottom20": [
+          {
+            "alpha_spread": 0.23695057258721852,
+            "cell": "D/2017",
+            "holonomy_raw": 0.15340897236471462,
+            "holonomy_smoothed": 0.0014704897403901018,
+            "n": 21,
+            "x_spread": 2.226393778224164
+          },
+          {
+            "alpha_spread": 0.21771884892942128,
+            "cell": "MARKT/2013",
+            "holonomy_raw": 0.00821054527127607,
+            "holonomy_smoothed": -0.0014468099308999616,
+            "n": 23,
+            "x_spread": 1.3953117094691307
+          },
+          {
+            "alpha_spread": 0.2982132106389731,
+            "cell": "M-N/2001",
+            "holonomy_raw": -0.037153215179687615,
+            "holonomy_smoothed": -0.0014127259675524861,
+            "n": 23,
+            "x_spread": 1.8529259984285944
+          },
+          {
+            "alpha_spread": 0.15581742367348916,
+            "cell": "O-Q/2005",
+            "holonomy_raw": -0.0011876900429361736,
+            "holonomy_smoothed": 0.001391498843285932,
+            "n": 23,
+            "x_spread": 1.8392771932372227
+          },
+          {
+            "alpha_spread": 0.21771884892942128,
+            "cell": "MARKT/2017",
+            "holonomy_raw": 0.02575238107225497,
+            "holonomy_smoothed": -0.0013419744968267144,
+            "n": 23,
+            "x_spread": 1.3204524399553257
+          },
+          {
+            "alpha_spread": 0.18010854173788504,
+            "cell": "TOT_IND/2013",
+            "holonomy_raw": -0.005716514128933592,
+            "holonomy_smoothed": 0.001327665675327383,
+            "n": 23,
+            "x_spread": 1.0374091643276913
+          },
+          {
+            "alpha_spread": 0.21023421399044506,
+            "cell": "D-E/2014",
+            "holonomy_raw": -0.1027088071560115,
+            "holonomy_smoothed": -0.0013170549324443837,
+            "n": 22,
+            "x_spread": 2.054945477484912
+          },
+          {
+            "alpha_spread": 0.32770662642939474,
+            "cell": "C26/2003",
+            "holonomy_raw": 0.02981791979834847,
+            "holonomy_smoothed": -0.0012443472950808276,
+            "n": 13,
+            "x_spread": 1.5519706695620423
+          },
+          {
+            "alpha_spread": 0.21771884892942128,
+            "cell": "MARKT/2014",
+            "holonomy_raw": -0.0051156749132144075,
+            "holonomy_smoothed": 0.0011763959627826281,
+            "n": 23,
+            "x_spread": 1.398709295984236
+          },
+          {
+            "alpha_spread": 0.18010854173788504,
+            "cell": "TOT_IND/2014",
+            "holonomy_raw": -0.0072209790495254556,
+            "holonomy_smoothed": -0.0011474800617408132,
+            "n": 23,
+            "x_spread": 1.0018707102240862
+          },
+          {
+            "alpha_spread": 0.32605619420744547,
+            "cell": "Q86/2001",
+            "holonomy_raw": 0.05808827021942853,
+            "holonomy_smoothed": 0.0009396576074172103,
+            "n": 14,
+            "x_spread": 2.2238170149449585
+          },
+          {
+            "alpha_spread": 0.41101096841193896,
+            "cell": "H/2000",
+            "holonomy_raw": 0.021788315783694223,
+            "holonomy_smoothed": 0.0009142942031115098,
+            "n": 21,
+            "x_spread": 1.4058416009686272
+          },
+          {
+            "alpha_spread": 0.21023421399044506,
+            "cell": "D-E/2016",
+            "holonomy_raw": -0.09653476301508257,
+            "holonomy_smoothed": 0.0004923805055423447,
+            "n": 22,
+            "x_spread": 2.027198924803897
+          },
+          {
+            "alpha_spread": 0.19745529373419113,
+            "cell": "TOT/1996",
+            "holonomy_raw": -0.01138554040136397,
+            "holonomy_smoothed": -0.0004904713792526216,
+            "n": 23,
+            "x_spread": 1.4850598099932122
+          },
+          {
+            "alpha_spread": 0.3551854429320835,
+            "cell": "C16-C18/2007",
+            "holonomy_raw": 0.039093150887896444,
+            "holonomy_smoothed": 0.0004832946222064205,
+            "n": 16,
+            "x_spread": 1.5741576906733181
+          },
+          {
+            "alpha_spread": 0.2982132106389731,
+            "cell": "M-N/2003",
+            "holonomy_raw": -0.028490944664017803,
+            "holonomy_smoothed": 0.00034143012142018314,
+            "n": 23,
+            "x_spread": 1.6721147446566484
+          },
+          {
+            "alpha_spread": 0.41101096841193896,
+            "cell": "H/2003",
+            "holonomy_raw": -0.005489747258152877,
+            "holonomy_smoothed": 0.00028417680877934615,
+            "n": 21,
+            "x_spread": 1.1829568096819532
+          },
+          {
+            "alpha_spread": 0.1897874957408071,
+            "cell": "C22-C23/2021",
+            "holonomy_raw": 0.014680184671696628,
+            "holonomy_smoothed": 0.0002380603501376255,
+            "n": 14,
+            "x_spread": 1.3866363587210282
+          },
+          {
+            "alpha_spread": 0.41101096841193896,
+            "cell": "H/2006",
+            "holonomy_raw": 0.004447091977887285,
+            "holonomy_smoothed": -0.00014390094135130482,
+            "n": 22,
+            "x_spread": 1.3003118772086375
+          },
+          {
+            "alpha_spread": 0.29576946691015293,
+            "cell": "C28/2010",
+            "holonomy_raw": -0.029830781441498422,
+            "holonomy_smoothed": -9.019822943878708e-05,
+            "n": 16,
+            "x_spread": 1.6350243760753345
+          }
+        ],
+        "n_cells": 1485,
+        "ratio_median": 0.8244615123443417,
+        "raw_median": 0.07116031978632464,
+        "smoothed_median": 0.05869137994113138,
+        "smoothed_p90": 0.20779251160326237,
+        "top20": [
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/1995",
+            "holonomy_raw": -0.9008419103717695,
+            "holonomy_smoothed": -0.6021578474156417,
+            "n": 7,
+            "x_spread": 4.261390006200128
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/1996",
+            "holonomy_raw": -0.9284402570830632,
+            "holonomy_smoothed": -0.577738036972522,
+            "n": 7,
+            "x_spread": 4.195800411148944
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/1997",
+            "holonomy_raw": -0.9403744344105527,
+            "holonomy_smoothed": -0.536500971780737,
+            "n": 7,
+            "x_spread": 4.141627490711038
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/1998",
+            "holonomy_raw": -0.9544972777711718,
+            "holonomy_smoothed": -0.5254172443410141,
+            "n": 7,
+            "x_spread": 4.151228098136404
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/1999",
+            "holonomy_raw": -0.9837733689321797,
+            "holonomy_smoothed": -0.5231782585236804,
+            "n": 7,
+            "x_spread": 4.115751798404188
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/2001",
+            "holonomy_raw": -0.5703200601582263,
+            "holonomy_smoothed": -0.5157608022350799,
+            "n": 7,
+            "x_spread": 3.724943728128356
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/2000",
+            "holonomy_raw": -0.664030537869343,
+            "holonomy_smoothed": -0.49887682496670127,
+            "n": 7,
+            "x_spread": 3.9391058845202576
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/2004",
+            "holonomy_raw": -0.5100036637704697,
+            "holonomy_smoothed": -0.4606588101162927,
+            "n": 7,
+            "x_spread": 3.552493331380036
+          },
+          {
+            "alpha_spread": 0.5227966969489105,
+            "cell": "H52/2007",
+            "holonomy_raw": -0.5612023815374956,
+            "holonomy_smoothed": -0.4455670056294836,
+            "n": 7,
+            "x_spread": 3.421069129362783
+          },
+          {
+            "alpha_spread": 0.34316017308083013,
+            "cell": "Q87-Q88/1995",
+            "holonomy_raw": -0.5597303341133895,
+            "holonomy_smoothed": -0.44161535800481433,
+            "n": 13,
+            "x_spread": 3.9493565799530006
+          },
+          {
+            "alpha_spread": 0.34316017308083013,
+            "cell": "Q87-Q88/1998",
+            "holonomy_raw": -0.5940764526331219,
+            "holonomy_smoothed": -0.4383761984426222,
+            "n": 13,
+            "x_spread": 3.71947745508797
+          },
+          {
+            "alpha_spread": 0.5401480715011654,
+            "cell": "R/2014",
+            "holonomy_raw": -0.5304939649376297,
+            "holonomy_smoothed": -0.4322513828605632,
+            "n": 22,
+            "x_spread": 2.404663588728741
+          },
+          {
+            "alpha_spread": 0.5401480715011654,
+            "cell": "R/2009",
+            "holonomy_raw": -0.4994910754332158,
+            "holonomy_smoothed": -0.430963202952215,
+            "n": 22,
+            "x_spread": 2.341683610157596
+          },
+          {
+            "alpha_spread": 0.5401480715011654,
+            "cell": "R/2008",
+            "holonomy_raw": -0.39580920028203126,
+            "holonomy_smoothed": -0.4289900372156952,
+            "n": 22,
+            "x_spread": 2.442768887460461
+          },
+          {
+            "alpha_spread": 0.5401480715011654,
+            "cell": "R/2011",
+            "holonomy_raw": -0.4929515984337842,
+            "holonomy_smoothed": -0.42703299030089026,
+            "n": 22,
+            "x_spread": 2.4388564322950295
+          },
+          {
+            "alpha_spread": 0.5401480715011654,
+            "cell": "R/2013",
+            "holonomy_raw": -0.5392761927817895,
+            "holonomy_smoothed": -0.42273331829581573,
+            "n": 22,
+            "x_spread": 2.4734365023684393
+          },
+          {
+            "alpha_spread": 0.34316017308083013,
+            "cell": "Q87-Q88/1999",
+            "holonomy_raw": -0.5623312904725846,
+            "holonomy_smoothed": -0.4187397475989676,
+            "n": 13,
+            "x_spread": 3.6319350330566467
+          },
+          {
+            "alpha_spread": 0.34316017308083013,
+            "cell": "Q87-Q88/1996",
+            "holonomy_raw": -0.434068569881624,
+            "holonomy_smoothed": -0.417863852989417,
+            "n": 13,
+            "x_spread": 3.7662959549502117
+          },
+          {
+            "alpha_spread": 0.5401480715011654,
+            "cell": "R/2010",
+            "holonomy_raw": -0.510044738858598,
+            "holonomy_smoothed": -0.4163702022523894,
+            "n": 22,
+            "x_spread": 2.3742036922850835
+          },
+          {
+            "alpha_spread": 0.34316017308083013,
+            "cell": "Q87-Q88/1997",
+            "holonomy_raw": -0.49760826171167283,
+            "holonomy_smoothed": -0.4161818410805864,
+            "n": 13,
+            "x_spread": 3.6925245740868764
+          }
+        ]
+      }
+    },
+    {
+      "criterion": "a country term shared by every country sweeps zero area, one that moves does not",
+      "detail": "200 planted cross-sections over 5 draws. One country term shared by every country: worst |area| 4.441e-16, which is zero because a constant sweeps nothing. A country term that moves across countries, same mix, same loop: smallest of the worst |area| 0.1711. So the reading is carried by the spread of the country term and by nothing else.",
+      "kind": "known_answer",
+      "name": "B101-28",
+      "passed": true,
+      "payload": {
+        "sample": [
+          {
+            "cell": "A/1995",
+            "common": 0.0,
+            "moving": 0.033923397621625107
+          },
+          {
+            "cell": "A/2000",
+            "common": 0.0,
+            "moving": 0.008533491467836107
+          },
+          {
+            "cell": "A/2005",
+            "common": 0.0,
+            "moving": 0.0359664381642163
+          },
+          {
+            "cell": "A/2010",
+            "common": 0.0,
+            "moving": 0.010758463684890196
+          },
+          {
+            "cell": "A/2015",
+            "common": 0.0,
+            "moving": 0.028621967219799815
+          },
+          {
+            "cell": "A/2020",
+            "common": 2.220446049250313e-16,
+            "moving": 0.0018687248960995717
+          },
+          {
+            "cell": "B/1998",
+            "common": 0.0,
+            "moving": 0.06461286034396974
+          },
+          {
+            "cell": "B/2003",
+            "common": 0.0,
+            "moving": 0.06884308261322047
+          },
+          {
+            "cell": "B/2008",
+            "common": 4.440892098500626e-16,
+            "moving": 0.0063614438864321166
+          },
+          {
+            "cell": "B/2013",
+            "common": 0.0,
+            "moving": 0.011460741391670748
+          },
+          {
+            "cell": "B/2018",
+            "common": 2.220446049250313e-16,
+            "moving": 0.006028929245685877
+          },
+          {
+            "cell": "C/1996",
+            "common": 1.1102230246251565e-16,
+            "moving": 0.009349133563368084
+          },
+          {
+            "cell": "C/2001",
+            "common": 0.0,
+            "moving": 0.014727583886679385
+          },
+          {
+            "cell": "C/2006",
+            "common": 0.0,
+            "moving": 0.0013753548738926202
+          },
+          {
+            "cell": "C/2011",
+            "common": 1.1102230246251565e-16,
+            "moving": 0.04972243594442671
+          },
+          {
+            "cell": "C/2016",
+            "common": 2.220446049250313e-16,
+            "moving": 0.04471451255242498
+          },
+          {
+            "cell": "C/2021",
+            "common": 1.1102230246251565e-16,
+            "moving": 0.042050173832048565
+          },
+          {
+            "cell": "C10-C12/1999",
+            "common": 1.1102230246251565e-16,
+            "moving": 0.008592429401708568
+          },
+          {
+            "cell": "C10-C12/2004",
+            "common": 2.220446049250313e-16,
+            "moving": 0.022337861405135273
+          },
+          {
+            "cell": "C10-C12/2009",
+            "common": 2.220446049250313e-16,
+            "moving": 0.013523215044838777
+          }
+        ],
+        "worst_common": 4.440892098500626e-16,
+        "worst_moving": 0.1710667889968508
+      }
+    },
+    {
+      "criterion": "the same question with no loop chosen: what the smoothing does to the distance from a gradient",
+      "detail": "1,485 cross-sections, no loop chosen. rho with the raw share median 0.1044; rho with GRV's smoothed share in its place median 0.0857, ratio median 0.839. Cross-sections where the smoothing lowers rho by more than half: 66 of 1,485. The smoothing keeps a country term, so it keeps the obstruction; what removes it is the multilateral form's projection, which is B79's reading.",
+      "kind": "own_reading",
+      "name": "B101-29",
+      "passed": true,
+      "payload": {
+        "bottom20": [
+          {
+            "cell": "H53/1998",
+            "n": 6,
+            "rho_raw": 0.04110111549440729,
+            "rho_smoothed": 0.02175213933070872
+          },
+          {
+            "cell": "L/1996",
+            "n": 19,
+            "rho_raw": 0.019419476606140917,
+            "rho_smoothed": 0.021244892915645335
+          },
+          {
+            "cell": "L/1997",
+            "n": 19,
+            "rho_raw": 0.01883001426896992,
+            "rho_smoothed": 0.02034851499032555
+          },
+          {
+            "cell": "L/1998",
+            "n": 19,
+            "rho_raw": 0.018694965213576706,
+            "rho_smoothed": 0.019197493064792105
+          },
+          {
+            "cell": "L/2000",
+            "n": 22,
+            "rho_raw": 0.02436693317293855,
+            "rho_smoothed": 0.018409104138381
+          },
+          {
+            "cell": "L/1999",
+            "n": 19,
+            "rho_raw": 0.020017763896015252,
+            "rho_smoothed": 0.0183696150699505
+          },
+          {
+            "cell": "L/2001",
+            "n": 22,
+            "rho_raw": 0.020243276850937776,
+            "rho_smoothed": 0.018198049661369977
+          },
+          {
+            "cell": "G47/1995",
+            "n": 7,
+            "rho_raw": 0.047442569187729135,
+            "rho_smoothed": 0.017817678529925555
+          },
+          {
+            "cell": "L/2003",
+            "n": 22,
+            "rho_raw": 0.020483641846908776,
+            "rho_smoothed": 0.017320095686652208
+          },
+          {
+            "cell": "L/2009",
+            "n": 21,
+            "rho_raw": 0.014839122250996423,
+            "rho_smoothed": 0.016800045387560348
+          },
+          {
+            "cell": "L/2008",
+            "n": 21,
+            "rho_raw": 0.014911595545741636,
+            "rho_smoothed": 0.01673415247392382
+          },
+          {
+            "cell": "L/2015",
+            "n": 21,
+            "rho_raw": 0.02269305804492354,
+            "rho_smoothed": 0.01672872444810682
+          },
+          {
+            "cell": "L/2002",
+            "n": 22,
+            "rho_raw": 0.020625025905185605,
+            "rho_smoothed": 0.016559642380365606
+          },
+          {
+            "cell": "L/2014",
+            "n": 21,
+            "rho_raw": 0.02169578262634245,
+            "rho_smoothed": 0.016435758483331005
+          },
+          {
+            "cell": "L/2016",
+            "n": 21,
+            "rho_raw": 0.0213069198518919,
+            "rho_smoothed": 0.016349518497600555
+          },
+          {
+            "cell": "L/2011",
+            "n": 21,
+            "rho_raw": 0.016832852178584132,
+            "rho_smoothed": 0.01631029720186051
+          },
+          {
+            "cell": "L/2013",
+            "n": 21,
+            "rho_raw": 0.020171908144241336,
+            "rho_smoothed": 0.015940085418549826
+          },
+          {
+            "cell": "L/2012",
+            "n": 21,
+            "rho_raw": 0.020516304374225552,
+            "rho_smoothed": 0.0158004011500312
+          },
+          {
+            "cell": "L/2010",
+            "n": 21,
+            "rho_raw": 0.014432151968173613,
+            "rho_smoothed": 0.015552304001663322
+          },
+          {
+            "cell": "G47/1996",
+            "n": 7,
+            "rho_raw": 0.04737167194248536,
+            "rho_smoothed": 0.014418250688843571
+          }
+        ],
+        "halved": 66,
+        "n_cells": 1485,
+        "ratio_median": 0.8389232099455128,
+        "rho_raw_median": 0.10444675348433213,
+        "rho_smoothed_median": 0.08573040759498561,
+        "top20": [
+          {
+            "cell": "Q87-Q88/1997",
+            "n": 13,
+            "rho_raw": 0.30235168717761635,
+            "rho_smoothed": 0.2463171967456766
+          },
+          {
+            "cell": "Q87-Q88/2012",
+            "n": 14,
+            "rho_raw": 0.2275934085108554,
+            "rho_smoothed": 0.24100357965226005
+          },
+          {
+            "cell": "H49/2018",
+            "n": 10,
+            "rho_raw": 0.17850632581208073,
+            "rho_smoothed": 0.24076123431372087
+          },
+          {
+            "cell": "Q87-Q88/2014",
+            "n": 14,
+            "rho_raw": 0.24303197876602603,
+            "rho_smoothed": 0.24042933996362162
+          },
+          {
+            "cell": "Q87-Q88/2004",
+            "n": 12,
+            "rho_raw": 0.2521889249763678,
+            "rho_smoothed": 0.23668579201943207
+          },
+          {
+            "cell": "Q87-Q88/2013",
+            "n": 14,
+            "rho_raw": 0.22974170903008453,
+            "rho_smoothed": 0.2332233659166001
+          },
+          {
+            "cell": "Q87-Q88/1998",
+            "n": 13,
+            "rho_raw": 0.2938720333478822,
+            "rho_smoothed": 0.23143081285188394
+          },
+          {
+            "cell": "H50/2019",
+            "n": 9,
+            "rho_raw": 0.1465726907037633,
+            "rho_smoothed": 0.2261572431785463
+          },
+          {
+            "cell": "P/1997",
+            "n": 20,
+            "rho_raw": 0.28235665368028945,
+            "rho_smoothed": 0.22539811711052993
+          },
+          {
+            "cell": "I/2011",
+            "n": 23,
+            "rho_raw": 0.19175715416260122,
+            "rho_smoothed": 0.22257443287191125
+          },
+          {
+            "cell": "Q87-Q88/1999",
+            "n": 13,
+            "rho_raw": 0.2866892984770404,
+            "rho_smoothed": 0.22004424085276889
+          },
+          {
+            "cell": "Q87-Q88/2011",
+            "n": 13,
+            "rho_raw": 0.2101195576495558,
+            "rho_smoothed": 0.2191502020579783
+          },
+          {
+            "cell": "Q87-Q88/2007",
+            "n": 12,
+            "rho_raw": 0.28365274721018985,
+            "rho_smoothed": 0.21910822807989316
+          },
+          {
+            "cell": "Q87-Q88/2005",
+            "n": 12,
+            "rho_raw": 0.28931994349841916,
+            "rho_smoothed": 0.2186023659080014
+          },
+          {
+            "cell": "Q87-Q88/2016",
+            "n": 14,
+            "rho_raw": 0.237734271962599,
+            "rho_smoothed": 0.21641883276994897
+          },
+          {
+            "cell": "I/2012",
+            "n": 23,
+            "rho_raw": 0.17945669134870973,
+            "rho_smoothed": 0.21585504472435227
+          },
+          {
+            "cell": "Q87-Q88/2015",
+            "n": 14,
+            "rho_raw": 0.2472941769538593,
+            "rho_smoothed": 0.21582635076176715
+          },
+          {
+            "cell": "Q87-Q88/2017",
+            "n": 14,
+            "rho_raw": 0.21176680844936654,
+            "rho_smoothed": 0.21581085185074747
+          },
+          {
+            "cell": "P/1999",
+            "n": 20,
+            "rho_raw": 0.2655448017649017,
+            "rho_smoothed": 0.21264431667417263
+          },
+          {
+            "cell": "Q87-Q88/2018",
+            "n": 15,
+            "rho_raw": 0.23079495913137477,
+            "rho_smoothed": 0.21211429635333015
+          }
+        ]
+      }
+    }
+  ],
+  "stage": "B101"
+}

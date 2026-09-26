@@ -1,0 +1,1127 @@
+{
+ "config": {
+  "big_million_eur": 100.0,
+  "ecb_box": {
+   "2022": 1.7,
+   "2023": 2.1
+  },
+  "euro_from": {
+   "AT": 1999,
+   "BE": 1999,
+   "CY": 2008,
+   "DE": 1999,
+   "EE": 2011,
+   "EL": 2001,
+   "ES": 1999,
+   "FI": 1999,
+   "FR": 1999,
+   "HR": 2023,
+   "IE": 1999,
+   "IT": 1999,
+   "LT": 2015,
+   "LU": 1999,
+   "LV": 2014,
+   "MT": 2008,
+   "NL": 1999,
+   "PT": 1999,
+   "SI": 2007,
+   "SK": 2009
+  },
+  "floor_million_eur": 1.0,
+  "rival_cells": "euro members; deposit side DFR annual mean < 0; loan side 2023 and later"
+ },
+ "criteria": [
+  {
+   "detail": "3988 cells derived, 54 with an item missing (not derived); margins over year-end stocks outside +-10 points: 46",
+   "kind": "instrument",
+   "name": "B131-1",
+   "passed": true
+  },
+  {
+   "detail": "2022: annual 1.71 % against the box's 1.7 % (first half); 2023: annual 2.03 % against the box's 2.1 % (first half)",
+   "kind": "known_answer",
+   "name": "B131-2",
+   "passed": true
+  },
+  {
+   "cite": "ESA 2010 14.01: 'the rate at which both lender and borrower would be happy to strike a deal' ... 'the sum of the two implicit fees paid'",
+   "detail": "rival premise: the gap to the single reference rate is an implicit fee paid, so FISIM >= 0 in every cell. In the 392 framework cells, 73 are negative beyond the 1 million floor. S14_S15 dep: 38/151; S14_S15 loan: 12/45; S11 dep: 18/151; S11 loan: 5/45",
+   "grid": "B",
+   "grid_note": "cells where FISIM is not negative are unread on the framework side: without the office's reference rate the framework's sign is not computed there",
+   "kind": "rival",
+   "name": "B131-3",
+   "passed": true,
+   "rival_entailment": "a fee paid for a service is not negative, so FISIM >= 0 in every sector, side and year",
+   "rival_holds_share": 0.8138,
+   "rival_premise": "ESA 2010 14.01 and 14.09: one reference rate for every user sector, the gap to it is an implicit fee paid for a service",
+   "rival_shape": "one-sided inequality"
+  },
+  {
+   "detail": "negative country-years by era: S14_S15 dep | DFR below zero 45/256; S14_S15 dep | tightening from 2023 4/68; S14_S15 dep | other 49/673; S14_S15 loan | DFR below zero 5/256; S14_S15 loan | tightening from 2023 16/68; S14_S15 loan | other 22/673; S11 dep | DFR below zero 26/256; S11 dep | tightening from 2023 5/68; S11 dep | other 49/673; S11 loan | DFR below zero 10/256; S11 loan | tightening from 2023 7/68; S11 loan | other 27/673",
+   "kind": "own_reading",
+   "name": "B131-4",
+   "passed": true
+  },
+  {
+   "detail": "32 areas. Euro area households: deposit FISIM 16,525 -> 171,800, loan FISIM 125,203 -> 11,294 million; the sum moved 0.1537 of what the two parts moved",
+   "kind": "own_reading",
+   "name": "B131-5",
+   "passed": true
+  },
+  {
+   "detail": "euro area: household deposit FISIM 0.253 % of P3 in 2021, 2.185 % in 2023; the change is 1.056 % of 2023 GDP",
+   "kind": "own_reading",
+   "name": "B131-6",
+   "passed": true
+  },
+  {
+   "detail": "1380 euro-area member cells with every input: the sign of the DFR-based margin agrees with the sign of FISIM in 879, not in 501; 295 cells lack an input",
+   "kind": "instrument",
+   "name": "B131-7",
+   "passed": true
+  },
+  {
+   "detail": "188 member years with every input; band closed in 0; the office's four implied rates differ by a median 0.58 points (quartiles 0.37 to 1.17); the office's scalar lies outside the band in 96; of the 49 years with a negative cell: band closed 0, office scalar outside the band 49, office scalar inside the band 0",
+   "kind": "own_reading",
+   "name": "B131-8",
+   "passed": true
+  }
+ ],
+ "dfr_annual_mean": {
+  "1999": 1.7493,
+  "2000": 3.0184,
+  "2001": 3.2884,
+  "2002": 2.2144,
+  "2003": 1.2582,
+  "2004": 1.0,
+  "2005": 1.0178,
+  "2006": 1.7603,
+  "2007": 2.839,
+  "2008": 3.0055,
+  "2009": 0.4658,
+  "2010": 0.25,
+  "2011": 0.4993,
+  "2012": 0.1311,
+  "2013": 0.0,
+  "2014": -0.0868,
+  "2015": -0.2063,
+  "2016": -0.3795,
+  "2017": -0.4,
+  "2018": -0.4,
+  "2019": -0.4288,
+  "2020": -0.5,
+  "2021": -0.5,
+  "2022": 0.0788,
+  "2023": 3.3075,
+  "2024": 3.7322,
+  "2025": 2.2589
+ },
+ "objects": {
+  "B131-1": {
+   "derived": 3988,
+   "margin_outliers": [
+    "BG S11 loan 1996: -80.1 points",
+    "BG S11 loan 1997: -16.4 points",
+    "BG S11 loan 1998: -12.6 points",
+    "BG S11 loan 2000: -13.7 points",
+    "BG S11 loan 2001: -12.5 points",
+    "BG S14_S15 dep 1996: 102.8 points",
+    "BG S14_S15 loan 1996: -9090.9 points",
+    "BG S14_S15 loan 1998: -81.3 points",
+    "BG S14_S15 loan 1999: -47.2 points",
+    "BG S14_S15 loan 2000: -50.5 points",
+    "BG S14_S15 loan 2001: -35.7 points",
+    "EL S14_S15 loan 1995: 13.8 points",
+    "EL S14_S15 loan 1996: 12.5 points",
+    "EL S14_S15 loan 1997: 10.6 points",
+    "HR S14_S15 loan 1995: 16.0 points",
+    "HR S14_S15 loan 1996: 14.5 points",
+    "HU S11 dep 1995: 10.4 points",
+    "LV S11 dep 1996: 12.6 points",
+    "LV S11 loan 1995: 13.0 points",
+    "LV S14_S15 loan 1995: 18.2 points",
+    "PL S14_S15 loan 1996: 14.4 points",
+    "PL S14_S15 loan 1997: 10.5 points",
+    "RO S11 dep 1995: 152.6 points",
+    "RO S11 dep 1996: 80.2 points",
+    "RO S11 dep 1997: 35.3 points",
+    "RO S11 dep 1998: 26.3 points",
+    "RO S11 dep 1999: 24.2 points",
+    "RO S11 dep 2000: 16.5 points",
+    "RO S11 dep 2001: 24.2 points",
+    "RO S11 dep 2002: 13.2 points",
+    "RO S14_S15 dep 1995: 67.9 points",
+    "RO S14_S15 dep 1996: 35.7 points",
+    "RO S14_S15 dep 1997: 15.9 points",
+    "RO S14_S15 dep 1998: 19.3 points",
+    "RO S14_S15 dep 1999: 18.1 points",
+    "RO S14_S15 dep 2000: 15.1 points",
+    "RO S14_S15 loan 1995: -111.4 points",
+    "RO S14_S15 loan 1996: -81.7 points",
+    "RO S14_S15 loan 1997: -61.2 points",
+    "RO S14_S15 loan 1998: -95.6 points",
+    "RO S14_S15 loan 1999: -137.6 points",
+    "RO S14_S15 loan 2000: -89.7 points",
+    "RO S14_S15 loan 2001: -75.2 points",
+    "RO S14_S15 loan 2002: -21.1 points",
+    "SK S14_S15 loan 1996: 11.1 points",
+    "TR S14_S15 loan 2010: 10.3 points"
+   ],
+   "missing_items": 54
+  },
+  "B131-2": {
+   "2022": 1.7093,
+   "2023": 2.0256
+  },
+  "B131-3": {
+   "cells": 392,
+   "negative": 73,
+   "per_cell": {
+    "S11 dep": {
+     "below_minus_100m": 17,
+     "cells": 151,
+     "list": [
+      "BE 2014: -290",
+      "BE 2015: -278",
+      "BE 2016: -268",
+      "BE 2017: -218",
+      "BE 2018: -124",
+      "BE 2019: -389",
+      "BE 2020: -522",
+      "BE 2021: -654",
+      "CY 2014: -43",
+      "IE 2014: -290",
+      "IE 2015: -109",
+      "NL 2015: -586",
+      "NL 2016: -1,181",
+      "NL 2017: -650",
+      "NL 2018: -140",
+      "NL 2019: -1,058",
+      "NL 2020: -1,351",
+      "NL 2021: -1,362"
+     ],
+     "negative_above_floor": 18
+    },
+    "S11 loan": {
+     "below_minus_100m": 5,
+     "cells": 45,
+     "list": [
+      "BE 2023: -171",
+      "CY 2023: -401",
+      "CY 2024: -419",
+      "FR 2023: -13,720",
+      "FR 2024: -9,051"
+     ],
+     "negative_above_floor": 5
+    },
+    "S14_S15 dep": {
+     "below_minus_100m": 25,
+     "cells": 151,
+     "list": [
+      "BE 2014: -1,288",
+      "BE 2015: -1,037",
+      "BE 2016: -931",
+      "BE 2017: -702",
+      "BE 2018: -359",
+      "BE 2019: -1,277",
+      "BE 2020: -1,609",
+      "BE 2021: -1,923",
+      "CY 2014: -206",
+      "CY 2015: -5",
+      "EE 2014: -10",
+      "EE 2015: -7",
+      "EE 2019: -5",
+      "EE 2020: -7",
+      "EE 2021: -14",
+      "FR 2017: -524",
+      "FR 2018: -10",
+      "FR 2019: -20",
+      "FR 2020: -1,107",
+      "FR 2021: -2,217",
+      "IT 2018: -909",
+      "IT 2019: -237",
+      "IT 2020: -1,677",
+      "IT 2021: -2,154",
+      "MT 2014: -4",
+      "MT 2016: -20",
+      "MT 2017: -49",
+      "NL 2014: -1,719",
+      "NL 2015: -2,435",
+      "NL 2016: -2,060",
+      "NL 2017: -357",
+      "NL 2019: -1,043",
+      "NL 2020: -2,075",
+      "NL 2021: -2,124",
+      "PT 2014: -344",
+      "PT 2015: -104",
+      "PT 2020: -67",
+      "PT 2021: -76"
+     ],
+     "negative_above_floor": 38
+    },
+    "S14_S15 loan": {
+     "below_minus_100m": 10,
+     "cells": 45,
+     "list": [
+      "BE 2023: -1,275",
+      "CY 2024: -50",
+      "FR 2023: -28,811",
+      "FR 2024: -28,952",
+      "IE 2023: -228",
+      "IE 2024: -1,955",
+      "MT 2023: -74",
+      "MT 2024: -102",
+      "NL 2023: -2,814",
+      "NL 2024: -1,659",
+      "SK 2023: -557",
+      "SK 2024: -642"
+     ],
+     "negative_above_floor": 12
+    }
+   }
+  },
+  "B131-4": {
+   "S11 dep | DFR below zero": "26/256",
+   "S11 dep | other": "49/673",
+   "S11 dep | tightening from 2023": "5/68",
+   "S11 loan | DFR below zero": "10/256",
+   "S11 loan | other": "27/673",
+   "S11 loan | tightening from 2023": "7/68",
+   "S14_S15 dep | DFR below zero": "45/256",
+   "S14_S15 dep | other": "49/673",
+   "S14_S15 dep | tightening from 2023": "4/68",
+   "S14_S15 loan | DFR below zero": "5/256",
+   "S14_S15 loan | other": "22/673",
+   "S14_S15 loan | tightening from 2023": "16/68"
+  },
+  "B131-5": {
+   "AT": {
+    "d_sum": 3567.0,
+    "d_sum_over_moved": 0.801,
+    "dep_2021": 129.0,
+    "dep_2023": 4139.0,
+    "loan_2021": 3214.0,
+    "loan_2023": 2771.0
+   },
+   "BE": {
+    "d_sum": 3894.0,
+    "d_sum_over_moved": 0.1988,
+    "dep_2021": -1923.0,
+    "dep_2023": 9818.0,
+    "loan_2021": 6572.0,
+    "loan_2023": -1275.0
+   },
+   "CH": {
+    "d_sum": 745.0,
+    "d_sum_over_moved": 1.0,
+    "dep_2021": 4569.0,
+    "dep_2023": 4946.0,
+    "loan_2021": 4612.0,
+    "loan_2023": 4980.0
+   },
+   "CY": {
+    "d_sum": 497.0,
+    "d_sum_over_moved": 0.827,
+    "dep_2021": 44.0,
+    "dep_2023": 593.0,
+    "loan_2021": 215.0,
+    "loan_2023": 163.0
+   },
+   "CZ": {
+    "d_sum": 430.0,
+    "d_sum_over_moved": 0.1761,
+    "dep_2021": 795.0,
+    "dep_2023": 2231.0,
+    "loan_2021": 1650.0,
+    "loan_2023": 644.0
+   },
+   "DE": {
+    "d_sum": 140.0,
+    "d_sum_over_moved": 0.0045,
+    "dep_2021": 14239.0,
+    "dep_2023": 30027.0,
+    "loan_2021": 31242.0,
+    "loan_2023": 15594.0
+   },
+   "DK": {
+    "d_sum": 2027.0,
+    "d_sum_over_moved": 0.716,
+    "dep_2021": 178.0,
+    "dep_2023": 2607.0,
+    "loan_2021": 2179.0,
+    "loan_2023": 1777.0
+   },
+   "EA21": {
+    "d_sum": 41366.0,
+    "d_sum_over_moved": 0.1537,
+    "dep_2021": 16525.0,
+    "dep_2023": 171800.0,
+    "loan_2021": 125203.0,
+    "loan_2023": 11294.0
+   },
+   "EE": {
+    "d_sum": 333.0,
+    "d_sum_over_moved": 0.745,
+    "dep_2021": -14.0,
+    "dep_2023": -71.0,
+    "loan_2021": 456.0,
+    "loan_2023": 846.0
+   },
+   "EL": {
+    "d_sum": 3289.0,
+    "d_sum_over_moved": 0.7423,
+    "dep_2021": 2439.0,
+    "dep_2023": 6299.0,
+    "loan_2021": 1178.0,
+    "loan_2023": 607.0
+   },
+   "ES": {
+    "d_sum": 19023.0,
+    "d_sum_over_moved": 0.4978,
+    "dep_2021": 4370.0,
+    "dep_2023": 32989.0,
+    "loan_2021": 11580.0,
+    "loan_2023": 1984.0
+   },
+   "EU27_2020": {
+    "d_sum": 51380.0,
+    "d_sum_over_moved": 0.1719,
+    "dep_2021": 21062.0,
+    "dep_2023": 196238.0,
+    "loan_2021": 137007.0,
+    "loan_2023": 13211.0
+   },
+   "FI": {
+    "d_sum": 1981.0,
+    "d_sum_over_moved": 0.6409,
+    "dep_2021": 0.0,
+    "dep_2023": 2536.0,
+    "loan_2021": 1843.0,
+    "loan_2023": 1288.0
+   },
+   "FR": {
+    "d_sum": -6084.0,
+    "d_sum_over_moved": -0.0667,
+    "dep_2021": -2217.0,
+    "dep_2023": 40317.0,
+    "loan_2021": 19807.0,
+    "loan_2023": -28811.0
+   },
+   "HR": {
+    "d_sum": 296.0,
+    "d_sum_over_moved": 0.2937,
+    "dep_2021": 110.0,
+    "dep_2023": 762.0,
+    "loan_2021": 794.0,
+    "loan_2023": 438.0
+   },
+   "HU": {
+    "d_sum": 366.0,
+    "d_sum_over_moved": 0.0736,
+    "dep_2021": 444.0,
+    "dep_2023": 3115.0,
+    "loan_2021": 1336.0,
+    "loan_2023": -969.0
+   },
+   "IE": {
+    "d_sum": 1195.0,
+    "d_sum_over_moved": 0.1723,
+    "dep_2021": 1339.0,
+    "dep_2023": 5405.0,
+    "loan_2021": 2643.0,
+    "loan_2023": -228.0
+   },
+   "IS": {
+    "d_sum": 19.0,
+    "d_sum_over_moved": 0.5429,
+    "dep_2021": 157.0,
+    "dep_2023": 184.0,
+    "loan_2021": 146.0,
+    "loan_2023": 138.0
+   },
+   "IT": {
+    "d_sum": 15257.0,
+    "d_sum_over_moved": 0.646,
+    "dep_2021": -2154.0,
+    "dep_2023": 17284.0,
+    "loan_2021": 15664.0,
+    "loan_2023": 11483.0
+   },
+   "LT": {
+    "d_sum": 584.0,
+    "d_sum_over_moved": 1.0,
+    "dep_2021": 115.0,
+    "dep_2023": 589.0,
+    "loan_2021": 256.0,
+    "loan_2023": 366.0
+   },
+   "LU": {
+    "d_sum": -214.0,
+    "d_sum_over_moved": -0.4756,
+    "dep_2021": 199.0,
+    "dep_2023": 317.0,
+    "loan_2021": 485.0,
+    "loan_2023": 153.0
+   },
+   "LV": {
+    "d_sum": 320.0,
+    "d_sum_over_moved": 1.0,
+    "dep_2021": 96.0,
+    "dep_2023": 374.0,
+    "loan_2021": 224.0,
+    "loan_2023": 266.0
+   },
+   "MT": {
+    "d_sum": 248.0,
+    "d_sum_over_moved": 0.3875,
+    "dep_2021": 112.0,
+    "dep_2023": 556.0,
+    "loan_2021": 122.0,
+    "loan_2023": -74.0
+   },
+   "NL": {
+    "d_sum": -7724.0,
+    "d_sum_over_moved": -0.2018,
+    "dep_2021": -2124.0,
+    "dep_2023": 13155.0,
+    "loan_2021": 20189.0,
+    "loan_2023": -2814.0
+   },
+   "PL": {
+    "d_sum": 9269.0,
+    "d_sum_over_moved": 0.7468,
+    "dep_2021": 1446.0,
+    "dep_2023": 12286.0,
+    "loan_2021": 5097.0,
+    "loan_2023": 3526.0
+   },
+   "PT": {
+    "d_sum": 3524.0,
+    "d_sum_over_moved": 1.0,
+    "dep_2021": -76.0,
+    "dep_2023": 700.0,
+    "loan_2021": 2520.0,
+    "loan_2023": 5268.0
+   },
+   "RO": {
+    "d_sum": -1289.0,
+    "d_sum_over_moved": -1.0,
+    "dep_2021": 2433.0,
+    "dep_2023": 1946.0,
+    "loan_2021": 239.0,
+    "loan_2023": -563.0
+   },
+   "RS": {
+    "d_sum": 605.0,
+    "d_sum_over_moved": 1.0,
+    "dep_2021": 114.0,
+    "dep_2023": 659.0,
+    "loan_2021": 577.0,
+    "loan_2023": 637.0
+   },
+   "SE": {
+    "d_sum": -989.0,
+    "d_sum_over_moved": -0.113,
+    "dep_2021": 601.0,
+    "dep_2023": 4482.0,
+    "loan_2021": 6109.0,
+    "loan_2023": 1239.0
+   },
+   "SI": {
+    "d_sum": 551.0,
+    "d_sum_over_moved": 0.6647,
+    "dep_2021": 203.0,
+    "dep_2023": 893.0,
+    "loan_2021": 311.0,
+    "loan_2023": 172.0
+   },
+   "SK": {
+    "d_sum": -3.0,
+    "d_sum_over_moved": -0.0012,
+    "dep_2021": 237.0,
+    "dep_2023": 1473.0,
+    "loan_2021": 682.0,
+    "loan_2023": -557.0
+   },
+   "TR": {
+    "d_sum": 939.0,
+    "d_sum_over_moved": 1.0,
+    "dep_2021": -138.0,
+    "dep_2023": -31.0,
+    "loan_2021": 4050.0,
+    "loan_2023": 4882.0
+   }
+  },
+  "B131-6": {
+   "AT": {
+    "2019": {
+     "dep_over_GDP_pct": 0.31,
+     "dep_over_P3_pct": 0.608
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.032,
+     "dep_over_P3_pct": 0.064
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.866,
+     "dep_over_P3_pct": 1.676
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.839
+   },
+   "BE": {
+    "2019": {
+     "dep_over_GDP_pct": -0.266,
+     "dep_over_P3_pct": -0.513
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.38,
+     "dep_over_P3_pct": -0.761
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.63,
+     "dep_over_P3_pct": 3.155
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.949
+   },
+   "BG": {
+    "2019": {
+     "dep_over_GDP_pct": 0.855,
+     "dep_over_P3_pct": 1.444
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.052,
+     "dep_over_P3_pct": -0.089
+    }
+   },
+   "CH": {
+    "2019": {
+     "dep_over_GDP_pct": 0.729,
+     "dep_over_P3_pct": 1.391
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.663,
+     "dep_over_P3_pct": 1.334
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.598,
+     "dep_over_P3_pct": 1.172
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.046
+   },
+   "CY": {
+    "2019": {
+     "dep_over_GDP_pct": 0.936,
+     "dep_over_P3_pct": 1.475
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.171,
+     "dep_over_P3_pct": 0.301
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.828,
+     "dep_over_P3_pct": 3.149
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.692
+   },
+   "CZ": {
+    "2019": {
+     "dep_over_GDP_pct": 0.35,
+     "dep_over_P3_pct": 0.723
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.323,
+     "dep_over_P3_pct": 0.684
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.699,
+     "dep_over_P3_pct": 1.479
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.45
+   },
+   "DE": {
+    "2019": {
+     "dep_over_GDP_pct": 0.445,
+     "dep_over_P3_pct": 0.844
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.387,
+     "dep_over_P3_pct": 0.773
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.712,
+     "dep_over_P3_pct": 1.353
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.374
+   },
+   "DK": {
+    "2019": {
+     "dep_over_GDP_pct": 0.003,
+     "dep_over_P3_pct": 0.005
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.052,
+     "dep_over_P3_pct": 0.113
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.698,
+     "dep_over_P3_pct": 1.554
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.651
+   },
+   "EA21": {
+    "2019": {
+     "dep_over_GDP_pct": 0.21,
+     "dep_over_P3_pct": 0.391
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.131,
+     "dep_over_P3_pct": 0.253
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.168,
+     "dep_over_P3_pct": 2.185
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.056
+   },
+   "EE": {
+    "2019": {
+     "dep_over_GDP_pct": -0.018,
+     "dep_over_P3_pct": -0.035
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.045,
+     "dep_over_P3_pct": -0.088
+    },
+    "2023": {
+     "dep_over_GDP_pct": -0.185,
+     "dep_over_P3_pct": -0.345
+    },
+    "change_2021_2023_over_GDP2023_pct": -0.149
+   },
+   "EL": {
+    "2019": {
+     "dep_over_GDP_pct": 1.096,
+     "dep_over_P3_pct": 1.58
+    },
+    "2021": {
+     "dep_over_GDP_pct": 1.321,
+     "dep_over_P3_pct": 1.931
+    },
+    "2023": {
+     "dep_over_GDP_pct": 2.803,
+     "dep_over_P3_pct": 4.052
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.718
+   },
+   "ES": {
+    "2019": {
+     "dep_over_GDP_pct": 0.462,
+     "dep_over_P3_pct": 0.805
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.354,
+     "dep_over_P3_pct": 0.63
+    },
+    "2023": {
+     "dep_over_GDP_pct": 2.203,
+     "dep_over_P3_pct": 3.974
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.911
+   },
+   "EU27_2020": {
+    "2019": {
+     "dep_over_GDP_pct": 0.219,
+     "dep_over_P3_pct": 0.408
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.143,
+     "dep_over_P3_pct": 0.276
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.141,
+     "dep_over_P3_pct": 2.14
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.018
+   },
+   "FI": {
+    "2019": {
+     "dep_over_GDP_pct": 0.039,
+     "dep_over_P3_pct": 0.077
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.0,
+     "dep_over_P3_pct": 0.0
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.929,
+     "dep_over_P3_pct": 1.812
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.929
+   },
+   "FR": {
+    "2019": {
+     "dep_over_GDP_pct": -0.001,
+     "dep_over_P3_pct": -0.002
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.088,
+     "dep_over_P3_pct": -0.167
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.426,
+     "dep_over_P3_pct": 2.61
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.505
+   },
+   "HR": {
+    "2019": {
+     "dep_over_GDP_pct": 0.169,
+     "dep_over_P3_pct": 0.297
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.188,
+     "dep_over_P3_pct": 0.325
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.962,
+     "dep_over_P3_pct": 1.701
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.823
+   },
+   "HU": {
+    "2019": {
+     "dep_over_GDP_pct": 0.235,
+     "dep_over_P3_pct": 0.478
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.287,
+     "dep_over_P3_pct": 0.589
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.581,
+     "dep_over_P3_pct": 3.216
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.356
+   },
+   "IE": {
+    "2019": {
+     "dep_over_GDP_pct": 0.14,
+     "dep_over_P3_pct": 0.481
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.299,
+     "dep_over_P3_pct": 1.26
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.03,
+     "dep_over_P3_pct": 3.761
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.775
+   },
+   "IS": {
+    "2019": {
+     "dep_over_GDP_pct": 0.721,
+     "dep_over_P3_pct": 1.462
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.708,
+     "dep_over_P3_pct": 1.381
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.627,
+     "dep_over_P3_pct": 1.289
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.092
+   },
+   "IT": {
+    "2019": {
+     "dep_over_GDP_pct": -0.013,
+     "dep_over_P3_pct": -0.022
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.117,
+     "dep_over_P3_pct": -0.208
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.807,
+     "dep_over_P3_pct": 1.404
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.907
+   },
+   "LT": {
+    "2019": {
+     "dep_over_GDP_pct": 0.173,
+     "dep_over_P3_pct": 0.296
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.203,
+     "dep_over_P3_pct": 0.361
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.793,
+     "dep_over_P3_pct": 1.415
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.638
+   },
+   "LU": {
+    "2019": {
+     "dep_over_GDP_pct": 0.359,
+     "dep_over_P3_pct": 1.067
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.272,
+     "dep_over_P3_pct": 0.898
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.386,
+     "dep_over_P3_pct": 1.171
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.144
+   },
+   "LV": {
+    "2019": {
+     "dep_over_GDP_pct": 0.186,
+     "dep_over_P3_pct": 0.324
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.297,
+     "dep_over_P3_pct": 0.534
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.945,
+     "dep_over_P3_pct": 1.631
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.703
+   },
+   "MT": {
+    "2019": {
+     "dep_over_GDP_pct": 0.863,
+     "dep_over_P3_pct": 1.87
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.671,
+     "dep_over_P3_pct": 1.626
+    },
+    "2023": {
+     "dep_over_GDP_pct": 2.659,
+     "dep_over_P3_pct": 5.822
+    },
+    "change_2021_2023_over_GDP2023_pct": 2.123
+   },
+   "NL": {
+    "2019": {
+     "dep_over_GDP_pct": -0.126,
+     "dep_over_P3_pct": -0.286
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.238,
+     "dep_over_P3_pct": -0.558
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.253,
+     "dep_over_P3_pct": 2.793
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.455
+   },
+   "NO": {
+    "2019": {
+     "dep_over_GDP_pct": 0.25,
+     "dep_over_P3_pct": 0.57
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.04,
+     "dep_over_P3_pct": 0.105
+    }
+   },
+   "PL": {
+    "2019": {
+     "dep_over_GDP_pct": 0.5,
+     "dep_over_P3_pct": 0.865
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.248,
+     "dep_over_P3_pct": 0.439
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.634,
+     "dep_over_P3_pct": 2.834
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.442
+   },
+   "PT": {
+    "2019": {
+     "dep_over_GDP_pct": 0.064,
+     "dep_over_P3_pct": 0.1
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.035,
+     "dep_over_P3_pct": -0.055
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.259,
+     "dep_over_P3_pct": 0.42
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.287
+   },
+   "RO": {
+    "2019": {
+     "dep_over_GDP_pct": 0.808,
+     "dep_over_P3_pct": 1.297
+    },
+    "2021": {
+     "dep_over_GDP_pct": 1.01,
+     "dep_over_P3_pct": 1.643
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.605,
+     "dep_over_P3_pct": 0.984
+    },
+    "change_2021_2023_over_GDP2023_pct": -0.151
+   },
+   "RS": {
+    "2019": {
+     "dep_over_GDP_pct": 0.249,
+     "dep_over_P3_pct": 0.376
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.204,
+     "dep_over_P3_pct": 0.319
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.876,
+     "dep_over_P3_pct": 1.4
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.725
+   },
+   "SE": {
+    "2019": {
+     "dep_over_GDP_pct": 0.244,
+     "dep_over_P3_pct": 0.532
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.113,
+     "dep_over_P3_pct": 0.251
+    },
+    "2023": {
+     "dep_over_GDP_pct": 0.837,
+     "dep_over_P3_pct": 1.839
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.725
+   },
+   "SI": {
+    "2019": {
+     "dep_over_GDP_pct": 0.363,
+     "dep_over_P3_pct": 0.699
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.39,
+     "dep_over_P3_pct": 0.754
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.394,
+     "dep_over_P3_pct": 2.704
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.077
+   },
+   "SK": {
+    "2019": {
+     "dep_over_GDP_pct": 0.194,
+     "dep_over_P3_pct": 0.346
+    },
+    "2021": {
+     "dep_over_GDP_pct": 0.233,
+     "dep_over_P3_pct": 0.411
+    },
+    "2023": {
+     "dep_over_GDP_pct": 1.192,
+     "dep_over_P3_pct": 2.043
+    },
+    "change_2021_2023_over_GDP2023_pct": 1.0
+   },
+   "TR": {
+    "2019": {
+     "dep_over_GDP_pct": -0.0,
+     "dep_over_P3_pct": -0.0
+    },
+    "2021": {
+     "dep_over_GDP_pct": -0.02,
+     "dep_over_P3_pct": -0.037
+    },
+    "2023": {
+     "dep_over_GDP_pct": -0.003,
+     "dep_over_P3_pct": -0.005
+    },
+    "change_2021_2023_over_GDP2023_pct": 0.01
+   }
+  },
+  "B131-7": {
+   "agree": 879,
+   "disagree": 501,
+   "dropped": 295,
+   "evaluated": 1380
+  },
+  "B131-8": {
+   "closed": 0,
+   "list": [
+    "BE 2012: band [0.97, 3.29], office -0.05 (below), DFR 0.13; S14_S15 dep -1,137, S11 dep -215",
+    "BE 2013: band [0.74, 3.02], office -0.27 (below), DFR 0.00; S14_S15 dep -1,398, S11 dep -314",
+    "BE 2014: band [0.55, 2.90], office -0.41 (below), DFR -0.09; S14_S15 dep -1,288, S11 dep -290",
+    "BE 2015: band [0.29, 2.60], office -0.55 (below), DFR -0.21; S14_S15 dep -1,037, S11 dep -278",
+    "BE 2016: band [0.17, 2.33], office -0.72 (below), DFR -0.38; S14_S15 dep -931, S11 dep -268",
+    "BE 2023: band [0.69, 2.14], office 3.05 (above), DFR 3.31; S14_S15 loan -1,275, S11 loan -171",
+    "CY 2009: band [4.22, 6.24], office 2.24 (below), DFR 0.47; S14_S15 dep -445, S11 dep -72",
+    "CY 2010: band [3.44, 5.96], office 1.34 (below), DFR 0.25; S14_S15 dep -618, S11 dep -89",
+    "CY 2012: band [3.75, 6.13], office 1.93 (below), DFR 0.13; S14_S15 dep -580, S11 dep -79",
+    "CY 2013: band [3.11, 6.17], office 1.66 (below), DFR 0.00; S14_S15 dep -411, S11 dep -70",
+    "CY 2014: band [2.30, 5.67], office 1.54 (below), DFR -0.09; S14_S15 dep -206, S11 dep -43",
+    "CY 2015: band [1.78, 4.58], office 1.80 (inside), DFR -0.21; S14_S15 dep -5",
+    "CY 2022: band [0.03, 2.69], office 0.46 (inside), DFR 0.08; S11 dep -5",
+    "CY 2023: band [0.12, 4.14], office 4.25 (above), DFR 3.31; S11 loan -401",
+    "CY 2024: band [0.40, 4.81], office 4.89 (above), DFR 3.73; S14_S15 loan -50, S11 loan -419",
+    "EE 2012: band [0.83, 3.11], office 0.23 (below), DFR 0.13; S14_S15 dep -6",
+    "EE 2013: band [0.42, 2.68], office -0.12 (below), DFR 0.00; S14_S15 dep -5",
+    "EE 2014: band [0.33, 2.69], office -0.33 (below), DFR -0.09; S14_S15 dep -10",
+    "EE 2015: band [0.26, 2.43], office -0.36 (below), DFR -0.21; S14_S15 dep -7",
+    "EE 2022: band [0.28, 2.88], office -0.47 (below), DFR 0.08; S14_S15 dep -12",
+    "EE 2023: band [1.16, 5.90], office -0.41 (below), DFR 3.31; S14_S15 dep -71, S11 dep -84",
+    "EE 2024: band [1.95, 6.38], office -0.23 (below), DFR 3.73; S14_S15 dep -148, S11 dep -154",
+    "ES 2009: band [2.11, 4.00], office 1.89 (below), DFR 0.47; S14_S15 dep -2,282, S11 dep -923",
+    "FR 2008: band [2.77, 5.17], office 4.61 (inside), DFR 3.01; S14_S15 loan -1,888",
+    "FR 2023: band [1.61, 1.95], office 3.67 (above), DFR 3.31; S14_S15 loan -28,811, S11 loan -13,720",
+    "FR 2024: band [1.98, 2.22], office 3.95 (above), DFR 3.73; S14_S15 loan -28,952, S11 loan -9,051",
+    "IE 2009: band [1.93, 3.61], office 0.97 (below), DFR 0.47; S14_S15 dep -1,043, S11 dep -255",
+    "IE 2015: band [0.57, 3.13], office -0.09 (below), DFR -0.21; S11 dep -109",
+    "IE 2023: band [0.46, 4.04], office 3.30 (inside), DFR 3.31; S14_S15 loan -228",
+    "IE 2024: band [0.59, 4.28], office 5.25 (above), DFR 3.73; S14_S15 loan -1,955",
+    "IT 2022: band [0.42, 2.01], office 0.37 (below), DFR 0.08; S14_S15 dep -267",
+    "MT 2009: band [2.01, 4.18], office 0.75 (below), DFR 0.47; S14_S15 dep -103, S11 dep -17",
+    "MT 2010: band [1.51, 4.10], office 0.91 (below), DFR 0.25; S14_S15 dep -52, S11 dep -8",
+    "MT 2011: band [1.51, 4.03], office 1.37 (below), DFR 0.50; S14_S15 dep -14",
+    "MT 2012: band [1.55, 3.97], office 1.23 (below), DFR 0.13; S14_S15 dep -25, S11 dep -2",
+    "NL 2012: band [2.16, 3.27], office 0.42 (below), DFR 0.13; S14_S15 dep -3,233",
+    "NL 2013: band [1.68, 3.03], office 0.38 (below), DFR 0.00; S14_S15 dep -1,716",
+    "NL 2014: band [1.43, 2.99], office 0.11 (below), DFR -0.09; S14_S15 dep -1,719",
+    "NL 2015: band [1.17, 2.66], office -0.26 (below), DFR -0.21; S14_S15 dep -2,435, S11 dep -586",
+    "NL 2016: band [0.80, 2.45], office -0.47 (below), DFR -0.38; S14_S15 dep -2,060, S11 dep -1,181",
+    "NL 2023: band [1.27, 2.53], office 3.00 (above), DFR 3.31; S14_S15 loan -2,814",
+    "NL 2024: band [1.64, 2.69], office 3.00 (above), DFR 3.73; S14_S15 loan -1,659",
+    "PT 2011: band [2.39, 3.60], office 2.04 (below), DFR 0.50; S14_S15 dep -124, S11 dep -101",
+    "PT 2012: band [2.55, 3.30], office 2.19 (below), DFR 0.13; S14_S15 dep -408",
+    "PT 2013: band [2.14, 2.69], office 1.87 (below), DFR 0.00; S14_S15 dep -282",
+    "PT 2014: band [1.81, 2.69], office 1.55 (below), DFR -0.09; S14_S15 dep -344",
+    "PT 2015: band [1.15, 2.46], office 1.00 (below), DFR -0.21; S14_S15 dep -104",
+    "SK 2023: band [0.85, 2.66], office 3.54 (above), DFR 3.31; S14_S15 loan -557",
+    "SK 2024: band [1.38, 3.31], office 4.29 (above), DFR 3.73; S14_S15 loan -642"
+   ],
+   "negative_years": {
+    "band closed": 0,
+    "office scalar inside the band": 0,
+    "office scalar outside the band": 49
+   },
+   "outside": 96,
+   "spread_median": 0.5829,
+   "years": 188
+  }
+ },
+ "stage": "B131"
+}

@@ -1,0 +1,214 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "Closes two located items. Neither enters the registered reading, which is taken in dollars.",
+  "notes": [
+    "interactive-fiction: page 201 returned HTTP 404"
+  ],
+  "shared_symbol_pages_naming_a_currency": 12,
+  "shared_symbol_projects": [
+    {
+      "buy_controls": [
+        "A downloadable game for Android Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "1596182",
+      "listing_raw": "Pay ¥100 or more for this game",
+      "title": "Black Forest(ブラックフォレスト)",
+      "url": "https://liberty444.itch.io/black-forest"
+    },
+    {
+      "buy_controls": [
+        "A downloadable 噩梦之馆 for Windows Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "1655302",
+      "listing_raw": "Pay ¥100 or more for this 噩梦之馆",
+      "title": "Nighmare House 噩梦之馆",
+      "url": "https://umikaze.itch.io/nighmare-house"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows and macOS Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "2353",
+      "listing_raw": "Pay ¥399 or more for this game",
+      "title": "Super Space Surge",
+      "url": "https://ikizami.itch.io/super-space-surge"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows Get this game and 1 more for",
+        "Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "3191439",
+      "listing_raw": "Pay ¥1188 or more for this game",
+      "title": "Kemotaku",
+      "url": "https://kojikagames.itch.io/kemotaku"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "3650663",
+      "listing_raw": "Pay ¥300 or more for this game",
+      "title": "GhosTrick-The Sacred War of Light vs Shadow",
+      "url": "https://peavegame.itch.io/ghostrick2"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game Buy Now",
+        "Buy Now",
+        "if you pay ¥1450 JPY or more"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "3937659",
+      "listing_raw": "Pay ¥1400 or more for this game",
+      "title": "Qullusrent3 Refine Ver. 2.65a",
+      "url": "https://office-oohara.itch.io/qullusrent3"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "3988902",
+      "listing_raw": "Pay ¥500 or more for this game",
+      "title": "Breaking Blocks ～The Wizard's Annihilation Expedition～",
+      "url": "https://ehuramu.itch.io/breaking-blocks"
+    },
+    {
+      "buy_controls": [
+        "A downloadable omukoro for Windows Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "4012149",
+      "listing_raw": "Pay ¥300 or more for this omukoro",
+      "title": "Omusubikororin KURENAI",
+      "url": "https://myorugi.itch.io/omusubikororin-kurenai"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "4301052",
+      "listing_raw": "Pay ¥100 or more for this game",
+      "title": "ChronicleOfTrials",
+      "url": "https://snowmanwith.itch.io/chronicleoftrials"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows Buy Now",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "4374217",
+      "listing_raw": "Pay ¥200 or more for this game",
+      "title": "Hourglass Fantasy -Spring and Winter Garden-",
+      "url": "https://arborlune.itch.io/05hourglass"
+    },
+    {
+      "buy_controls": [
+        "A downloadable painter for Windows, macOS, Linux, and Androi",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "4959882",
+      "listing_raw": "Pay ¥300 or more for this painter",
+      "title": "Vaparowave Easy Painter",
+      "url": "https://akirasomiya.itch.io/vaparowaveartist"
+    },
+    {
+      "buy_controls": [
+        "A downloadable game for Windows, macOS, Linux, and Android B",
+        "Buy Now"
+      ],
+      "currency_codes_on_page": [
+        "JPY"
+      ],
+      "game_id": "4984177",
+      "listing_raw": "Pay ¥300 or more for this game",
+      "title": "Daimon battle RPG",
+      "url": "https://akirasomiya.itch.io/daimon-battle-rpg"
+    }
+  ],
+  "station": "B30-4",
+  "walked_tags": [
+    {
+      "free_plus_paid": 1439,
+      "pages": 40,
+      "published": {
+        "free": 1387,
+        "le15": 51,
+        "le5": 39,
+        "paid": 52,
+        "total": 1465
+      },
+      "reading": "the free counter is right, so the total counter is wrong",
+      "slug": "working-simulator",
+      "walked": 1439
+    },
+    {
+      "free_plus_paid": 42980,
+      "pages": 200,
+      "published": {
+        "free": 41795,
+        "le15": 1114,
+        "le5": 828,
+        "paid": 1185,
+        "total": 44967
+      },
+      "reading": "neither, and the walk agrees with neither figure",
+      "slug": "interactive-fiction",
+      "walked": 7200
+    },
+    {
+      "free_plus_paid": 4968,
+      "pages": 94,
+      "published": {
+        "free": 4760,
+        "le15": 192,
+        "le5": 112,
+        "paid": 208,
+        "total": 3377
+      },
+      "reading": "the total counter is right, so the free counter is wrong",
+      "slug": "furry",
+      "walked": 3379
+    }
+  ],
+  "what": "step three piece six: a walk of the unfiltered listing on three of the nine tags whose counts fail their own identity, and the project pages of the twelve projects priced in a shared symbol"
+}

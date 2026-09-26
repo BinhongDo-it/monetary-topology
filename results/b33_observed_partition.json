@@ -1,0 +1,879 @@
+{
+  "config": {
+    "arm": "one, observed side",
+    "band_rows": [
+      10,
+      27
+    ],
+    "block_first_columns": [
+      1,
+      13,
+      25,
+      37,
+      49
+    ],
+    "effective_rate": "total income tax amount divided by adjusted gross income less deficit, both taken from the same cell block so no two definitions are divided",
+    "price_list_source": "b33_filing_status.json",
+    "read_on": "2026-09-11",
+    "sheet": "TBL12",
+    "source": "Statistics of Income basic table 1.2, classified by size of adjusted gross income and marital status",
+    "years": [
+      "21in12ms.xls",
+      "22in12ms.xls",
+      "23in12ms.xls"
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "3 of 3 years match the price list partition [['HOH'], ['MFJ', 'QSS'], ['MFS'], ['SINGLE']]; merged block(s) across years: MFJ+QSS; blocks per year: 21in12ms.xls 4, 22in12ms.xls 4, 23in12ms.xls 4",
+      "kind": "own_reading",
+      "name": "B33-21 the published table with money in it carries the price list's partition, not the code's list of statuses, and the block it merges is the pair that shares every printed number",
+      "passed": true
+    },
+    {
+      "detail": "Not adjudicable: the published aggregate cannot reach it. 0 of 3 years report the pair apart. The returns exist and each was assessed knowing which of the two it was; a count of surviving-spouse returns is published elsewhere. What is absent is money broken out that way, so this is recorded as out of reach and not as absent",
+      "kind": "own_reading",
+      "name": "B33-22 the within-pair gap in effective rate, which is what the observed side of arm one was registered to read",
+      "passed": false,
+      "state": "not_reachable",
+      "state_map": {
+        "not_reachable": {
+          "reads": "the table folds the pair into one block, so this source cannot reach the comparison. The quantity exists and is assessed per return; what is absent is a published breakout",
+          "verdict": null
+        },
+        "reachable": {
+          "reads": "the table reports the pair apart, so the gap in effective rate can be read",
+          "verdict": "scored"
+        }
+      }
+    },
+    {
+      "detail": "each year has exactly one merged block and four in total; across-status spread in effective rate over 54 band-years runs 0.09 to 6.98 percentage points, median 2.83",
+      "kind": "known_answer",
+      "name": "B33-23 control: the fold is not indiscriminate. Every status that differs from the others on a printed number is reported in a block of its own, and the benchmark half of the registered ordering is computed so the size of the missing comparison is on the record",
+      "passed": true
+    },
+    {
+      "detail": "read from b33_filing_status.json: [['HOH'], ['MFJ', 'QSS'], ['MFS'], ['SINGLE']]",
+      "kind": "instrument",
+      "name": "B33-24 the price list's partition is read out of arm one's record rather than typed here",
+      "passed": true
+    },
+    {
+      "detail": "3 years, 21in12ms.xls, 22in12ms.xls, 23in12ms.xls; identical block headings across years: True; bands read: 21in12ms.xls 18, 22in12ms.xls 18, 23in12ms.xls 18",
+      "kind": "bookkeeping",
+      "name": "B33-25 every year read is named with its shape, its block headings and how many bands came back, including any year whose layout differs",
+      "passed": true
+    }
+  ],
+  "report": {
+    "price_list_partition": [
+      [
+        "HOH"
+      ],
+      [
+        "MFJ",
+        "QSS"
+      ],
+      [
+        "MFS"
+      ],
+      [
+        "SINGLE"
+      ]
+    ],
+    "state_map": {
+      "not_reachable": {
+        "reads": "the table folds the pair into one block, so this source cannot reach the comparison. The quantity exists and is assessed per return; what is absent is a published breakout",
+        "verdict": null
+      },
+      "reachable": {
+        "reads": "the table reports the pair apart, so the gap in effective rate can be read",
+        "verdict": "scored"
+      }
+    },
+    "years": [
+      {
+        "bands_read": 18,
+        "blocks": 4,
+        "file": "21in12ms.xls",
+        "headings": [
+          "All returns",
+          "Returns of married persons filing jointly and returns of surviving spouses",
+          "Returns of married persons filing separately",
+          "Returns of heads of households",
+          "Returns of single persons"
+        ],
+        "matches_price_list": true,
+        "merged": [
+          [
+            "MFJ",
+            "QSS"
+          ]
+        ],
+        "pair_reported_apart": false,
+        "partition": [
+          [
+            "HOH"
+          ],
+          [
+            "MFJ",
+            "QSS"
+          ],
+          [
+            "MFS"
+          ],
+          [
+            "SINGLE"
+          ]
+        ],
+        "shape": [
+          49,
+          63
+        ],
+        "spread_max_pp": 6.975225491927739,
+        "spread_min_pp": 0.14099109076932143,
+        "spreads": [
+          {
+            "band": "$1 under $5,000",
+            "highest": "MFJ+QSS",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.033861372792382195,
+              "MFS": 0.0014987074016712502,
+              "SINGLE": 0.0011653511743379235
+            },
+            "spread_pp": 3.3861372792382194
+          },
+          {
+            "band": "$5,000 under $10,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.0010462308606745481,
+              "SINGLE": 0.0014099109076932143
+            },
+            "spread_pp": 0.14099109076932143
+          },
+          {
+            "band": "$10,000 under $15,000",
+            "highest": "MFS",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.003780858626986415,
+              "SINGLE": 0.0022176384096463577
+            },
+            "spread_pp": 0.3780858626986415
+          },
+          {
+            "band": "$15,000 under $20,000",
+            "highest": "MFS",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.01825970840905772,
+              "SINGLE": 0.010261097772949106
+            },
+            "spread_pp": 1.8259708409057722
+          },
+          {
+            "band": "$20,000 under $25,000",
+            "highest": "MFS",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.00033592582552757224,
+              "MFJ+QSS": 9.399374592469973e-05,
+              "MFS": 0.03156030917778016,
+              "SINGLE": 0.031140542959573816
+            },
+            "spread_pp": 3.1466315431855465
+          },
+          {
+            "band": "$25,000 under $30,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.0010363773436772126,
+              "MFJ+QSS": 0.004091310153017178,
+              "MFS": 0.03878480630114122,
+              "SINGLE": 0.044174628059354445
+            },
+            "spread_pp": 4.313825071567724
+          },
+          {
+            "band": "$30,000 under $40,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.003860866363884734,
+              "MFJ+QSS": 0.009449529195094971,
+              "MFS": 0.05655313506038151,
+              "SINGLE": 0.05938621822679523
+            },
+            "spread_pp": 5.55253518629105
+          },
+          {
+            "band": "$40,000 under $50,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.016323335191394013,
+              "MFJ+QSS": 0.01894030699220599,
+              "MFS": 0.06342802328508608,
+              "SINGLE": 0.07266970688960188
+            },
+            "spread_pp": 5.634637169820786
+          },
+          {
+            "band": "$50,000 under $75,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.03762746226351773,
+              "MFJ+QSS": 0.037275952108623736,
+              "MFS": 0.08313108315920034,
+              "SINGLE": 0.09415909387653691
+            },
+            "spread_pp": 5.688314176791318
+          },
+          {
+            "band": "$75,000 under $100,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.07104118894954504,
+              "MFJ+QSS": 0.05569295213416587,
+              "MFS": 0.12308780588964775,
+              "SINGLE": 0.12544520705344325
+            },
+            "spread_pp": 6.975225491927739
+          },
+          {
+            "band": "$100,000 under $200,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.12382879067026552,
+              "MFJ+QSS": 0.09696385696837717,
+              "MFS": 0.1508554314190811,
+              "SINGLE": 0.15367762724390685
+            },
+            "spread_pp": 5.671377027552968
+          },
+          {
+            "band": "$200,000 under $500,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.2014333147497412,
+              "MFJ+QSS": 0.16129712064818935,
+              "MFS": 0.2039806332035179,
+              "SINGLE": 0.20436557422328153
+            },
+            "spread_pp": 4.306845357509218
+          },
+          {
+            "band": "$500,000 under $1,000,000",
+            "highest": "HOH",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.25846969853503166,
+              "MFJ+QSS": 0.22722867292137486,
+              "MFS": 0.24861652100244785,
+              "SINGLE": 0.24910619646877646
+            },
+            "spread_pp": 3.12410256136568
+          },
+          {
+            "band": "$1,000,000 under $1,500,000",
+            "highest": "MFS",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.2672900335414276,
+              "MFJ+QSS": 0.2616614814278255,
+              "MFS": 0.2707484831707705,
+              "SINGLE": 0.2629113307725511
+            },
+            "spread_pp": 0.9087001742944967
+          },
+          {
+            "band": "$1,500,000 under $2,000,000",
+            "highest": "MFS",
+            "lowest": "SINGLE",
+            "rates": {
+              "HOH": 0.2747989569172348,
+              "MFJ+QSS": 0.27099545935874203,
+              "MFS": 0.2754984096650635,
+              "SINGLE": 0.2701708358690147
+            },
+            "spread_pp": 0.5327573796048812
+          },
+          {
+            "band": "$2,000,000 under $5,000,000",
+            "highest": "HOH",
+            "lowest": "SINGLE",
+            "rates": {
+              "HOH": 0.27681567946346763,
+              "MFJ+QSS": 0.2760698515078756,
+              "MFS": 0.274550043100569,
+              "SINGLE": 0.27190495271292076
+            },
+            "spread_pp": 0.4910726750546879
+          },
+          {
+            "band": "$5,000,000 under $10,000,000",
+            "highest": "HOH",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.27688285695595616,
+              "MFJ+QSS": 0.27376664581980964,
+              "MFS": 0.2649987522642833,
+              "SINGLE": 0.2674507487162772
+            },
+            "spread_pp": 1.1884104691672837
+          },
+          {
+            "band": "$10,000,000 or more",
+            "highest": "MFJ+QSS",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.2445880368425305,
+              "MFJ+QSS": 0.25129148502872883,
+              "MFS": 0.24101064932701444,
+              "SINGLE": 0.2507997843543401
+            },
+            "spread_pp": 1.0280835701714397
+          }
+        ],
+        "state": "not_reachable"
+      },
+      {
+        "bands_read": 18,
+        "blocks": 4,
+        "file": "22in12ms.xls",
+        "headings": [
+          "All returns",
+          "Returns of married persons filing jointly and returns of surviving spouses",
+          "Returns of married persons filing separately",
+          "Returns of heads of households",
+          "Returns of single persons"
+        ],
+        "matches_price_list": true,
+        "merged": [
+          [
+            "MFJ",
+            "QSS"
+          ]
+        ],
+        "pair_reported_apart": false,
+        "partition": [
+          [
+            "HOH"
+          ],
+          [
+            "MFJ",
+            "QSS"
+          ],
+          [
+            "MFS"
+          ],
+          [
+            "SINGLE"
+          ]
+        ],
+        "shape": [
+          49,
+          63
+        ],
+        "spread_max_pp": 6.921219009875704,
+        "spread_min_pp": 0.16392618204628928,
+        "spreads": [
+          {
+            "band": "$1 under $5,000",
+            "highest": "MFJ+QSS",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0034030488677083857,
+              "MFS": 0.0012139014192156098,
+              "SINGLE": 0.0007904221484465087
+            },
+            "spread_pp": 0.3403048867708386
+          },
+          {
+            "band": "$5,000 under $10,000",
+            "highest": "MFS",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.0016392618204628929,
+              "SINGLE": 0.000744428235891188
+            },
+            "spread_pp": 0.16392618204628928
+          },
+          {
+            "band": "$10,000 under $15,000",
+            "highest": "MFS",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0005311926314662239,
+              "MFS": 0.0038243257788850623,
+              "SINGLE": 0.0020372527828741425
+            },
+            "spread_pp": 0.3824325778885062
+          },
+          {
+            "band": "$15,000 under $20,000",
+            "highest": "SINGLE",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 6.908069670428268e-05,
+              "MFS": 0.0,
+              "SINGLE": 0.016768764673595296
+            },
+            "spread_pp": 1.6768764673595296
+          },
+          {
+            "band": "$20,000 under $25,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.00026486297353384424,
+              "MFJ+QSS": 0.0005069901806157382,
+              "MFS": 0.031898612239983144,
+              "SINGLE": 0.03226803498349287
+            },
+            "spread_pp": 3.200317200995903
+          },
+          {
+            "band": "$25,000 under $30,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.001079485663520214,
+              "MFJ+QSS": 0.0009469315718099878,
+              "MFS": 0.04018477571299727,
+              "SINGLE": 0.04588205593029921
+            },
+            "spread_pp": 4.493512435848922
+          },
+          {
+            "band": "$30,000 under $40,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.0038163844722560445,
+              "MFJ+QSS": 0.008479655977444725,
+              "MFS": 0.05241230358638078,
+              "SINGLE": 0.059744545612987275
+            },
+            "spread_pp": 5.5928161140731225
+          },
+          {
+            "band": "$40,000 under $50,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.014629514246501173,
+              "MFJ+QSS": 0.019082635929381513,
+              "MFS": 0.06591246078691122,
+              "SINGLE": 0.07331926466045283
+            },
+            "spread_pp": 5.868975041395165
+          },
+          {
+            "band": "$50,000 under $75,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.038166523673501124,
+              "MFJ+QSS": 0.03678739679238368,
+              "MFS": 0.08718765265738991,
+              "SINGLE": 0.09404491191305545
+            },
+            "spread_pp": 5.725751512067177
+          },
+          {
+            "band": "$75,000 under $100,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.07182704007878578,
+              "MFJ+QSS": 0.05603108660792435,
+              "MFS": 0.12294090250051275,
+              "SINGLE": 0.1252432767066814
+            },
+            "spread_pp": 6.921219009875704
+          },
+          {
+            "band": "$100,000 under $200,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.12200390448366319,
+              "MFJ+QSS": 0.09689863248778727,
+              "MFS": 0.14918464785969254,
+              "SINGLE": 0.1540668622294081
+            },
+            "spread_pp": 5.716822974162083
+          },
+          {
+            "band": "$200,000 under $500,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.2035332670742631,
+              "MFJ+QSS": 0.15870653486395875,
+              "MFS": 0.20168390939195724,
+              "SINGLE": 0.20672462083387744
+            },
+            "spread_pp": 4.801808596991869
+          },
+          {
+            "band": "$500,000 under $1,000,000",
+            "highest": "HOH",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.2543286495874923,
+              "MFJ+QSS": 0.2280448907273459,
+              "MFS": 0.2524711931252758,
+              "SINGLE": 0.2484365011118081
+            },
+            "spread_pp": 2.6283758860146387
+          },
+          {
+            "band": "$1,000,000 under $1,500,000",
+            "highest": "HOH",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.2766691626686637,
+              "MFJ+QSS": 0.26123661288984174,
+              "MFS": 0.2724498048735929,
+              "SINGLE": 0.262523709778615
+            },
+            "spread_pp": 1.543254977882197
+          },
+          {
+            "band": "$1,500,000 under $2,000,000",
+            "highest": "MFS",
+            "lowest": "SINGLE",
+            "rates": {
+              "HOH": 0.2732698057788929,
+              "MFJ+QSS": 0.27339629055329046,
+              "MFS": 0.2834513975951984,
+              "SINGLE": 0.2642131356502309
+            },
+            "spread_pp": 1.9238261944967472
+          },
+          {
+            "band": "$2,000,000 under $5,000,000",
+            "highest": "HOH",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.27867771681393844,
+              "MFJ+QSS": 0.2774103043620039,
+              "MFS": 0.2668329180295597,
+              "SINGLE": 0.2735589060633521
+            },
+            "spread_pp": 1.1844798784378718
+          },
+          {
+            "band": "$5,000,000 under $10,000,000",
+            "highest": "MFJ+QSS",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.26792995914162887,
+              "MFJ+QSS": 0.277711269844663,
+              "MFS": 0.2692170796772858,
+              "SINGLE": 0.27112324923537123
+            },
+            "spread_pp": 0.9781310703034118
+          },
+          {
+            "band": "$10,000,000 or more",
+            "highest": "MFJ+QSS",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.23720203230294773,
+              "MFJ+QSS": 0.25703040901799556,
+              "MFS": 0.24245483418227373,
+              "SINGLE": 0.24335999466179223
+            },
+            "spread_pp": 1.9828376715047835
+          }
+        ],
+        "state": "not_reachable"
+      },
+      {
+        "bands_read": 18,
+        "blocks": 4,
+        "file": "23in12ms.xls",
+        "headings": [
+          "All returns",
+          "Returns of married persons filing jointly and returns of surviving spouses",
+          "Returns of married persons filing separately",
+          "Returns of heads of households",
+          "Returns of single persons"
+        ],
+        "matches_price_list": true,
+        "merged": [
+          [
+            "MFJ",
+            "QSS"
+          ]
+        ],
+        "pair_reported_apart": false,
+        "partition": [
+          [
+            "HOH"
+          ],
+          [
+            "MFJ",
+            "QSS"
+          ],
+          [
+            "MFS"
+          ],
+          [
+            "SINGLE"
+          ]
+        ],
+        "shape": [
+          49,
+          63
+        ],
+        "spread_max_pp": 6.552146178503032,
+        "spread_min_pp": 0.0916694097424665,
+        "spreads": [
+          {
+            "band": "$1 under $5,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.0,
+              "SINGLE": 0.000916694097424665
+            },
+            "spread_pp": 0.0916694097424665
+          },
+          {
+            "band": "$5,000 under $10,000",
+            "highest": "MFS",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 8.360711567155929e-05,
+              "MFS": 0.005938146825408082,
+              "SINGLE": 0.0007951653360654138
+            },
+            "spread_pp": 0.5938146825408083
+          },
+          {
+            "band": "$10,000 under $15,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.0,
+              "SINGLE": 0.0010686055982620942
+            },
+            "spread_pp": 0.10686055982620941
+          },
+          {
+            "band": "$15,000 under $20,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0,
+              "MFJ+QSS": 0.0,
+              "MFS": 0.012739013032797593,
+              "SINGLE": 0.013152826493322308
+            },
+            "spread_pp": 1.3152826493322307
+          },
+          {
+            "band": "$20,000 under $25,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.00010129704133683457,
+              "MFJ+QSS": 0.00012634049699333314,
+              "MFS": 0.027618321452543074,
+              "SINGLE": 0.0284099280693616
+            },
+            "spread_pp": 2.8308631028024767
+          },
+          {
+            "band": "$25,000 under $30,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.0006977887002455964,
+              "MFJ+QSS": 0.00033215568948727396,
+              "MFS": 0.0361678668991178,
+              "SINGLE": 0.04170301055917772
+            },
+            "spread_pp": 4.1370854869690445
+          },
+          {
+            "band": "$30,000 under $40,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.002769422574588721,
+              "MFJ+QSS": 0.0066812691281434074,
+              "MFS": 0.04785013864908431,
+              "SINGLE": 0.056531414073028134
+            },
+            "spread_pp": 5.376199149843941
+          },
+          {
+            "band": "$40,000 under $50,000",
+            "highest": "SINGLE",
+            "lowest": "HOH",
+            "rates": {
+              "HOH": 0.011422094643911812,
+              "MFJ+QSS": 0.01569269382525221,
+              "MFS": 0.06324717115706083,
+              "SINGLE": 0.07089978711392861
+            },
+            "spread_pp": 5.94776924700168
+          },
+          {
+            "band": "$50,000 under $75,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.03553893462357055,
+              "MFJ+QSS": 0.0334674862129055,
+              "MFS": 0.08361694069792044,
+              "SINGLE": 0.08907281865861269
+            },
+            "spread_pp": 5.560533244570719
+          },
+          {
+            "band": "$75,000 under $100,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.06442770162485838,
+              "MFJ+QSS": 0.053401714727326195,
+              "MFS": 0.11855489653169034,
+              "SINGLE": 0.11892317651235652
+            },
+            "spread_pp": 6.552146178503032
+          },
+          {
+            "band": "$100,000 under $200,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.11442668542838609,
+              "MFJ+QSS": 0.09170415048188851,
+              "MFS": 0.1495225059229635,
+              "SINGLE": 0.1498189367915584
+            },
+            "spread_pp": 5.811478630966987
+          },
+          {
+            "band": "$200,000 under $500,000",
+            "highest": "SINGLE",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.19453223945912204,
+              "MFJ+QSS": 0.1542650661180198,
+              "MFS": 0.1986292811545797,
+              "SINGLE": 0.2036727656027059
+            },
+            "spread_pp": 4.94076994846861
+          },
+          {
+            "band": "$500,000 under $1,000,000",
+            "highest": "HOH",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.25474549455208556,
+              "MFJ+QSS": 0.22522619078672496,
+              "MFS": 0.24834247395089235,
+              "SINGLE": 0.25048478137334956
+            },
+            "spread_pp": 2.9519303765360605
+          },
+          {
+            "band": "$1,000,000 under $1,500,000",
+            "highest": "MFS",
+            "lowest": "MFJ+QSS",
+            "rates": {
+              "HOH": 0.2695925735536701,
+              "MFJ+QSS": 0.26001054729455053,
+              "MFS": 0.2729828723765192,
+              "SINGLE": 0.2640110102740146
+            },
+            "spread_pp": 1.297232508196866
+          },
+          {
+            "band": "$1,500,000 under $2,000,000",
+            "highest": "HOH",
+            "lowest": "SINGLE",
+            "rates": {
+              "HOH": 0.2847474340725037,
+              "MFJ+QSS": 0.27386593643235857,
+              "MFS": 0.2659736095489113,
+              "SINGLE": 0.2652503733806207
+            },
+            "spread_pp": 1.9497060691883006
+          },
+          {
+            "band": "$2,000,000 under $5,000,000",
+            "highest": "HOH",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.28163850283176933,
+              "MFJ+QSS": 0.2804108987488754,
+              "MFS": 0.2714835544828008,
+              "SINGLE": 0.2750684917469997
+            },
+            "spread_pp": 1.0154948348968518
+          },
+          {
+            "band": "$5,000,000 under $10,000,000",
+            "highest": "MFJ+QSS",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.27641285009893046,
+              "MFJ+QSS": 0.28031180098976816,
+              "MFS": 0.27212810394011044,
+              "SINGLE": 0.2775640845973647
+            },
+            "spread_pp": 0.8183697049657712
+          },
+          {
+            "band": "$10,000,000 or more",
+            "highest": "SINGLE",
+            "lowest": "MFS",
+            "rates": {
+              "HOH": 0.26075560696565125,
+              "MFJ+QSS": 0.2574861466312595,
+              "MFS": 0.23983905831745816,
+              "SINGLE": 0.26243864172821796
+            },
+            "spread_pp": 2.259958341075979
+          }
+        ],
+        "state": "not_reachable"
+      }
+    ]
+  },
+  "stage": "B33"
+}

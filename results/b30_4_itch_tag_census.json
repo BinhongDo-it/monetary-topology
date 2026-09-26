@@ -1,0 +1,4980 @@
+{
+  "by_kind": {
+    "feature": 1,
+    "genre": 10,
+    "tag": 605
+  },
+  "cells_skipped": 0,
+  "config": {
+    "base": "https://itch.io/tags",
+    "delay_s": 1.5,
+    "pages": 16
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "Step one of three. The split of these names into market tags and attribute tags is not applied here, and no price band has been pulled, so nothing in this file is a reading of B30-4.",
+  "printed_abbreviated": 116,
+  "printed_exactly": 500,
+  "resolution": "counts above ten thousand are printed to three significant figures with a k or m suffix; below that they are printed exactly",
+  "scopes": [
+    "books",
+    "comics",
+    "game-assets",
+    "game-mods",
+    "games",
+    "physical-games",
+    "tools"
+  ],
+  "source": {
+    "collected": [
+      "2026-09-16"
+    ],
+    "directory": "https://itch.io/tags"
+  },
+  "span": {
+    "feature": {
+      "largest": 15000,
+      "smallest": 15000
+    },
+    "genre": {
+      "largest": 250000,
+      "smallest": 14500
+    },
+    "tag": {
+      "largest": 505000,
+      "smallest": 20
+    }
+  },
+  "station": "B30-4",
+  "tags": [
+    {
+      "count": 15000,
+      "kind": "feature",
+      "name": "Local multiplayer",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "local-multiplayer"
+    },
+    {
+      "count": 250000,
+      "kind": "genre",
+      "name": "Action",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "action"
+    },
+    {
+      "count": 216000,
+      "kind": "genre",
+      "name": "Platformer",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "platformer"
+    },
+    {
+      "count": 213000,
+      "kind": "genre",
+      "name": "Adventure",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "adventure"
+    },
+    {
+      "count": 180000,
+      "kind": "genre",
+      "name": "Puzzle",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "puzzle"
+    },
+    {
+      "count": 111000,
+      "kind": "genre",
+      "name": "Shooter",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "shooter"
+    },
+    {
+      "count": 107000,
+      "kind": "genre",
+      "name": "Role Playing",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "rpg"
+    },
+    {
+      "count": 89700,
+      "kind": "genre",
+      "name": "Simulation",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "simulation"
+    },
+    {
+      "count": 68300,
+      "kind": "genre",
+      "name": "Strategy",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "strategy"
+    },
+    {
+      "count": 65000,
+      "kind": "genre",
+      "name": "Visual Novel",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "visual-novel"
+    },
+    {
+      "count": 14500,
+      "kind": "genre",
+      "name": "Sports",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "sports"
+    },
+    {
+      "count": 505000,
+      "kind": "tag",
+      "name": "No AI",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "no-ai"
+    },
+    {
+      "count": 430000,
+      "kind": "tag",
+      "name": "2D",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "2d"
+    },
+    {
+      "count": 321000,
+      "kind": "tag",
+      "name": "Singleplayer",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "singleplayer"
+    },
+    {
+      "count": 243000,
+      "kind": "tag",
+      "name": "Pixel Art",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "pixel-art"
+    },
+    {
+      "count": 177000,
+      "kind": "tag",
+      "name": "3D",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "3d"
+    },
+    {
+      "count": 151000,
+      "kind": "tag",
+      "name": "Short",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "short"
+    },
+    {
+      "count": 136000,
+      "kind": "tag",
+      "name": "Unity",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "unity"
+    },
+    {
+      "count": 114000,
+      "kind": "tag",
+      "name": "Horror",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "horror"
+    },
+    {
+      "count": 111000,
+      "kind": "tag",
+      "name": "AI Generated",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "ai-generated"
+    },
+    {
+      "count": 102000,
+      "kind": "tag",
+      "name": "Retro",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "retro"
+    },
+    {
+      "count": 89400,
+      "kind": "tag",
+      "name": "Arcade",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "arcade"
+    },
+    {
+      "count": 86300,
+      "kind": "tag",
+      "name": "Indie",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "indie"
+    },
+    {
+      "count": 85600,
+      "kind": "tag",
+      "name": "Survival",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "survival"
+    },
+    {
+      "count": 76100,
+      "kind": "tag",
+      "name": "Fantasy",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "fantasy"
+    },
+    {
+      "count": 73300,
+      "kind": "tag",
+      "name": "Casual",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "casual"
+    },
+    {
+      "count": 58400,
+      "kind": "tag",
+      "name": "Atmospheric",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "atmospheric"
+    },
+    {
+      "count": 56500,
+      "kind": "tag",
+      "name": "Cute",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "cute"
+    },
+    {
+      "count": 55800,
+      "kind": "tag",
+      "name": "Top-Down",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "top-down"
+    },
+    {
+      "count": 54100,
+      "kind": "tag",
+      "name": "First-Person",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "first-person"
+    },
+    {
+      "count": 50900,
+      "kind": "tag",
+      "name": "Godot",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "godot"
+    },
+    {
+      "count": 46400,
+      "kind": "tag",
+      "name": "Interactive Fiction",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "interactive-fiction"
+    },
+    {
+      "count": 45900,
+      "kind": "tag",
+      "name": "Tabletop role-playing game",
+      "printed_as": "abbreviated",
+      "scope": "physical-games",
+      "slug": "ttrpg"
+    },
+    {
+      "count": 43000,
+      "kind": "tag",
+      "name": "Space",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "space"
+    },
+    {
+      "count": 39900,
+      "kind": "tag",
+      "name": "Sci-fi",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "science-fiction"
+    },
+    {
+      "count": 38200,
+      "kind": "tag",
+      "name": "Funny",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "funny"
+    },
+    {
+      "count": 37300,
+      "kind": "tag",
+      "name": "Educational",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "educational"
+    },
+    {
+      "count": 36100,
+      "kind": "tag",
+      "name": "Low-poly",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "low-poly"
+    },
+    {
+      "count": 31800,
+      "kind": "tag",
+      "name": "Multiplayer",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "multiplayer"
+    },
+    {
+      "count": 30400,
+      "kind": "tag",
+      "name": "Music",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "music"
+    },
+    {
+      "count": 28200,
+      "kind": "tag",
+      "name": "Narrative",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "narrative"
+    },
+    {
+      "count": 27900,
+      "kind": "tag",
+      "name": "Roguelike",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "roguelike"
+    },
+    {
+      "count": 26100,
+      "kind": "tag",
+      "name": "Story Rich",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "story-rich"
+    },
+    {
+      "count": 25900,
+      "kind": "tag",
+      "name": "Asset Pack",
+      "printed_as": "abbreviated",
+      "scope": "game-assets",
+      "slug": "asset-pack"
+    },
+    {
+      "count": 25500,
+      "kind": "tag",
+      "name": "Game Maker's Toolkit Jam",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "gmtkjam"
+    },
+    {
+      "count": 25500,
+      "kind": "tag",
+      "name": "RPG Maker",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "rpgmaker"
+    },
+    {
+      "count": 25000,
+      "kind": "tag",
+      "name": "Fighting",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "fighting"
+    },
+    {
+      "count": 24800,
+      "kind": "tag",
+      "name": "Exploration",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "exploration"
+    },
+    {
+      "count": 24700,
+      "kind": "tag",
+      "name": "Creepy",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "creepy"
+    },
+    {
+      "count": 24400,
+      "kind": "tag",
+      "name": "Card Game",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "card-game"
+    },
+    {
+      "count": 24300,
+      "kind": "tag",
+      "name": "Racing",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "racing"
+    },
+    {
+      "count": 24200,
+      "kind": "tag",
+      "name": "Sprites",
+      "printed_as": "abbreviated",
+      "scope": "game-assets",
+      "slug": "sprites"
+    },
+    {
+      "count": 23300,
+      "kind": "tag",
+      "name": "Dark",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "dark"
+    },
+    {
+      "count": 22300,
+      "kind": "tag",
+      "name": "Minimalist",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "minimalist"
+    },
+    {
+      "count": 22100,
+      "kind": "tag",
+      "name": "Unreal Engine",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "unreal-engine"
+    },
+    {
+      "count": 21500,
+      "kind": "tag",
+      "name": "Psychological Horror",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "psychological-horror"
+    },
+    {
+      "count": 21400,
+      "kind": "tag",
+      "name": "8-Bit",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "8-bit"
+    },
+    {
+      "count": 21200,
+      "kind": "tag",
+      "name": "Comedy",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "comedy"
+    },
+    {
+      "count": 20400,
+      "kind": "tag",
+      "name": "Point & Click",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "point-and-click"
+    },
+    {
+      "count": 20400,
+      "kind": "tag",
+      "name": "Relaxing",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "relaxing"
+    },
+    {
+      "count": 20400,
+      "kind": "tag",
+      "name": "Top down shooter",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "top-down-shooter"
+    },
+    {
+      "count": 19400,
+      "kind": "tag",
+      "name": "Mystery",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "mystery"
+    },
+    {
+      "count": 19400,
+      "kind": "tag",
+      "name": "Rhythm",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "rhythm"
+    },
+    {
+      "count": 19300,
+      "kind": "tag",
+      "name": "Fast-Paced",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "fast-paced"
+    },
+    {
+      "count": 18400,
+      "kind": "tag",
+      "name": "Experimental",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "experimental"
+    },
+    {
+      "count": 18400,
+      "kind": "tag",
+      "name": "Tabletop",
+      "printed_as": "abbreviated",
+      "scope": "physical-games",
+      "slug": "tabletop"
+    },
+    {
+      "count": 17700,
+      "kind": "tag",
+      "name": "Endless",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "endless"
+    },
+    {
+      "count": 17600,
+      "kind": "tag",
+      "name": "Difficult",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "difficult"
+    },
+    {
+      "count": 17300,
+      "kind": "tag",
+      "name": "Physics",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "physics"
+    },
+    {
+      "count": 17100,
+      "kind": "tag",
+      "name": "Monsters",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "monsters"
+    },
+    {
+      "count": 16600,
+      "kind": "tag",
+      "name": "Text based",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "text-based"
+    },
+    {
+      "count": 16400,
+      "kind": "tag",
+      "name": "Side Scroller",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "side-scroller"
+    },
+    {
+      "count": 16100,
+      "kind": "tag",
+      "name": "Survival Horror",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "survival-horror"
+    },
+    {
+      "count": 16000,
+      "kind": "tag",
+      "name": "Colorful",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "colorful"
+    },
+    {
+      "count": 16000,
+      "kind": "tag",
+      "name": "Puzzle-Platformer",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "puzzle-platformer"
+    },
+    {
+      "count": 15900,
+      "kind": "tag",
+      "name": "Female Protagonist",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "female-protagonist"
+    },
+    {
+      "count": 15900,
+      "kind": "tag",
+      "name": "Romance",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "romance"
+    },
+    {
+      "count": 15700,
+      "kind": "tag",
+      "name": "Cozy",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "cozy"
+    },
+    {
+      "count": 15700,
+      "kind": "tag",
+      "name": "Simple",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "simple"
+    },
+    {
+      "count": 15600,
+      "kind": "tag",
+      "name": "Shoot 'Em Up",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "shoot-em-up"
+    },
+    {
+      "count": 15500,
+      "kind": "tag",
+      "name": "Anime",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "anime"
+    },
+    {
+      "count": 15400,
+      "kind": "tag",
+      "name": "FPS",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "fps"
+    },
+    {
+      "count": 15400,
+      "kind": "tag",
+      "name": "GameMaker",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "gamemaker"
+    },
+    {
+      "count": 14800,
+      "kind": "tag",
+      "name": "Bullet Hell",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "bullet-hell"
+    },
+    {
+      "count": 14700,
+      "kind": "tag",
+      "name": "High Score",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "high-score"
+    },
+    {
+      "count": 14600,
+      "kind": "tag",
+      "name": "Action-Adventure",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "action-adventure"
+    },
+    {
+      "count": 14600,
+      "kind": "tag",
+      "name": "Tower Defense",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "tower-defense"
+    },
+    {
+      "count": 14400,
+      "kind": "tag",
+      "name": "Clicker",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "clicker"
+    },
+    {
+      "count": 14100,
+      "kind": "tag",
+      "name": "Dungeon Crawler",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "dungeon-crawler"
+    },
+    {
+      "count": 13600,
+      "kind": "tag",
+      "name": "Characters",
+      "printed_as": "abbreviated",
+      "scope": "game-assets",
+      "slug": "characters"
+    },
+    {
+      "count": 13000,
+      "kind": "tag",
+      "name": "LGBT",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "lgbt"
+    },
+    {
+      "count": 12700,
+      "kind": "tag",
+      "name": "Magic",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "magic"
+    },
+    {
+      "count": 12500,
+      "kind": "tag",
+      "name": "zine",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "zine"
+    },
+    {
+      "count": 12300,
+      "kind": "tag",
+      "name": "3D Platformer",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "3d-platformer"
+    },
+    {
+      "count": 12100,
+      "kind": "tag",
+      "name": "weird",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "weird"
+    },
+    {
+      "count": 12000,
+      "kind": "tag",
+      "name": "Animals",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "animals"
+    },
+    {
+      "count": 12000,
+      "kind": "tag",
+      "name": "My First Game Jam",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "my-first-game-jam"
+    },
+    {
+      "count": 12000,
+      "kind": "tag",
+      "name": "Roguelite",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "roguelite"
+    },
+    {
+      "count": 11900,
+      "kind": "tag",
+      "name": "16-bit",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "16-bit"
+    },
+    {
+      "count": 11900,
+      "kind": "tag",
+      "name": "Multiple Endings",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "multiple-endings"
+    },
+    {
+      "count": 11700,
+      "kind": "tag",
+      "name": "Hand-drawn",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "hand-drawn"
+    },
+    {
+      "count": 11600,
+      "kind": "tag",
+      "name": "Medieval",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "medieval"
+    },
+    {
+      "count": 11600,
+      "kind": "tag",
+      "name": "Zombies",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "zombies"
+    },
+    {
+      "count": 11500,
+      "kind": "tag",
+      "name": "minigames",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "minigames"
+    },
+    {
+      "count": 11300,
+      "kind": "tag",
+      "name": "Turn-based",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "turn-based"
+    },
+    {
+      "count": 11000,
+      "kind": "tag",
+      "name": "Cats",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "cats"
+    },
+    {
+      "count": 10900,
+      "kind": "tag",
+      "name": "artgame",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "artgame"
+    },
+    {
+      "count": 10900,
+      "kind": "tag",
+      "name": "Runner",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "runner"
+    },
+    {
+      "count": 10900,
+      "kind": "tag",
+      "name": "storygame",
+      "printed_as": "abbreviated",
+      "scope": "physical-games",
+      "slug": "storygame"
+    },
+    {
+      "count": 10900,
+      "kind": "tag",
+      "name": "Virtual Reality (VR)",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "virtual-reality"
+    },
+    {
+      "count": 10700,
+      "kind": "tag",
+      "name": "Procedural Generation",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "procedural"
+    },
+    {
+      "count": 10200,
+      "kind": "tag",
+      "name": "Fangame",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "fangame"
+    },
+    {
+      "count": 10100,
+      "kind": "tag",
+      "name": "Twine",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "twine"
+    },
+    {
+      "count": 10000,
+      "kind": "tag",
+      "name": "Mouse only",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "mouse-only"
+    },
+    {
+      "count": 10000,
+      "kind": "tag",
+      "name": "Ren'Py",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "renpy"
+    },
+    {
+      "count": 10000,
+      "kind": "tag",
+      "name": "Third Person",
+      "printed_as": "abbreviated",
+      "scope": "games",
+      "slug": "third-person"
+    },
+    {
+      "count": 9839,
+      "kind": "tag",
+      "name": "Robots",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "robots"
+    },
+    {
+      "count": 9784,
+      "kind": "tag",
+      "name": "Walking simulator",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "walking-simulator"
+    },
+    {
+      "count": 9575,
+      "kind": "tag",
+      "name": "Spooky",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "spooky"
+    },
+    {
+      "count": 9559,
+      "kind": "tag",
+      "name": "Game Boy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gameboy"
+    },
+    {
+      "count": 9462,
+      "kind": "tag",
+      "name": "Dark Fantasy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dark-fantasy"
+    },
+    {
+      "count": 9459,
+      "kind": "tag",
+      "name": "Cyberpunk",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "cyberpunk"
+    },
+    {
+      "count": 9374,
+      "kind": "tag",
+      "name": "Idle",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "idle"
+    },
+    {
+      "count": 9329,
+      "kind": "tag",
+      "name": "Global Game Jam",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "global-game-jam"
+    },
+    {
+      "count": 9188,
+      "kind": "tag",
+      "name": "Tileset",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "tileset"
+    },
+    {
+      "count": 9114,
+      "kind": "tag",
+      "name": "PSX (PlayStation)",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "psx"
+    },
+    {
+      "count": 9020,
+      "kind": "tag",
+      "name": "Boss battle",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "boss-battle"
+    },
+    {
+      "count": 8902,
+      "kind": "tag",
+      "name": "Prototype",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "prototype"
+    },
+    {
+      "count": 8773,
+      "kind": "tag",
+      "name": "Board Game",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "board-game"
+    },
+    {
+      "count": 8707,
+      "kind": "tag",
+      "name": "Aliens",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "aliens"
+    },
+    {
+      "count": 8643,
+      "kind": "tag",
+      "name": "Speedrun",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "speedrun"
+    },
+    {
+      "count": 8529,
+      "kind": "tag",
+      "name": "Solo RPG",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "solo-rpg"
+    },
+    {
+      "count": 8469,
+      "kind": "tag",
+      "name": "jumping",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "jumping"
+    },
+    {
+      "count": 8389,
+      "kind": "tag",
+      "name": "OSR",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "osr"
+    },
+    {
+      "count": 8230,
+      "kind": "tag",
+      "name": "PICO-8",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "pico-8"
+    },
+    {
+      "count": 8220,
+      "kind": "tag",
+      "name": "Management",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "management"
+    },
+    {
+      "count": 8189,
+      "kind": "tag",
+      "name": "maze",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "maze"
+    },
+    {
+      "count": 7987,
+      "kind": "tag",
+      "name": "Animation",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "animation"
+    },
+    {
+      "count": 7898,
+      "kind": "tag",
+      "name": "Halloween",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "halloween"
+    },
+    {
+      "count": 7880,
+      "kind": "tag",
+      "name": "Metroidvania",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "metroidvania"
+    },
+    {
+      "count": 7819,
+      "kind": "tag",
+      "name": "Surreal",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "surreal"
+    },
+    {
+      "count": 7797,
+      "kind": "tag",
+      "name": "Comics",
+      "printed_as": "exact",
+      "scope": "books",
+      "slug": "comics"
+    },
+    {
+      "count": 7622,
+      "kind": "tag",
+      "name": "infinite-runner",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "infinite-runner"
+    },
+    {
+      "count": 7614,
+      "kind": "tag",
+      "name": "Dice",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dice"
+    },
+    {
+      "count": 7613,
+      "kind": "tag",
+      "name": "Stealth",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "stealth"
+    },
+    {
+      "count": 7606,
+      "kind": "tag",
+      "name": "Co-op",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "co-op"
+    },
+    {
+      "count": 7576,
+      "kind": "tag",
+      "name": "Abstract",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "abstract"
+    },
+    {
+      "count": 7396,
+      "kind": "tag",
+      "name": "Cartoon",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "cartoon"
+    },
+    {
+      "count": 7374,
+      "kind": "tag",
+      "name": "Isometric",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "isometric"
+    },
+    {
+      "count": 7355,
+      "kind": "tag",
+      "name": "nature",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "nature"
+    },
+    {
+      "count": 7329,
+      "kind": "tag",
+      "name": "Ludum Dare",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare"
+    },
+    {
+      "count": 7246,
+      "kind": "tag",
+      "name": "Dating Sim",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dating-sim"
+    },
+    {
+      "count": 7172,
+      "kind": "tag",
+      "name": "Sandbox",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sandbox"
+    },
+    {
+      "count": 7066,
+      "kind": "tag",
+      "name": "Furry",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "furry"
+    },
+    {
+      "count": 6954,
+      "kind": "tag",
+      "name": "Action RPG",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "action-rpg"
+    },
+    {
+      "count": 6922,
+      "kind": "tag",
+      "name": "Audio",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "audio"
+    },
+    {
+      "count": 6908,
+      "kind": "tag",
+      "name": "Endless Runner",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "endless-runner"
+    },
+    {
+      "count": 6755,
+      "kind": "tag",
+      "name": "Farming",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "farming"
+    },
+    {
+      "count": 6670,
+      "kind": "tag",
+      "name": "Escape Game",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "escape-game"
+    },
+    {
+      "count": 6625,
+      "kind": "tag",
+      "name": "Incremental",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "incremental"
+    },
+    {
+      "count": 6608,
+      "kind": "tag",
+      "name": "Bitsy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "bitsy"
+    },
+    {
+      "count": 6407,
+      "kind": "tag",
+      "name": "Icons",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "icons"
+    },
+    {
+      "count": 6380,
+      "kind": "tag",
+      "name": "Post-apocalyptic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "post-apocalyptic"
+    },
+    {
+      "count": 6085,
+      "kind": "tag",
+      "name": "Dungeons & Dragons",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "dungeons-and-dragons"
+    },
+    {
+      "count": 6061,
+      "kind": "tag",
+      "name": "LGBTQIA",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "lgbtqia"
+    },
+    {
+      "count": 5990,
+      "kind": "tag",
+      "name": "JRPG",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "jrpg"
+    },
+    {
+      "count": 5983,
+      "kind": "tag",
+      "name": "Queer",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "queer"
+    },
+    {
+      "count": 5978,
+      "kind": "tag",
+      "name": "Blender",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "blender"
+    },
+    {
+      "count": 5901,
+      "kind": "tag",
+      "name": "User Interface (UI)",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "user-interface"
+    },
+    {
+      "count": 5890,
+      "kind": "tag",
+      "name": "Turn-Based Combat",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "turn-based-combat"
+    },
+    {
+      "count": 5647,
+      "kind": "tag",
+      "name": "Ghosts",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ghosts"
+    },
+    {
+      "count": 5618,
+      "kind": "tag",
+      "name": "Christmas",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "christmas"
+    },
+    {
+      "count": 5588,
+      "kind": "tag",
+      "name": "Print & Play",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "print-and-play"
+    },
+    {
+      "count": 5585,
+      "kind": "tag",
+      "name": "Controller",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "controller"
+    },
+    {
+      "count": 5570,
+      "kind": "tag",
+      "name": "Sound effects",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "sound-effects"
+    },
+    {
+      "count": 5520,
+      "kind": "tag",
+      "name": "One-page",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "one-page"
+    },
+    {
+      "count": 5483,
+      "kind": "tag",
+      "name": "Two Player",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "two-player"
+    },
+    {
+      "count": 5476,
+      "kind": "tag",
+      "name": "party-game",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "party-game"
+    },
+    {
+      "count": 5328,
+      "kind": "tag",
+      "name": "16x16",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "16x16"
+    },
+    {
+      "count": 5321,
+      "kind": "tag",
+      "name": "Meaningful Choices",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "meaningful-choices"
+    },
+    {
+      "count": 5224,
+      "kind": "tag",
+      "name": "Flappy Bird",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "flappy-bird"
+    },
+    {
+      "count": 5174,
+      "kind": "tag",
+      "name": "Food",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "food"
+    },
+    {
+      "count": 5077,
+      "kind": "tag",
+      "name": "Black and White",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "black-and-white"
+    },
+    {
+      "count": 5027,
+      "kind": "tag",
+      "name": "Futuristic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "futuristic"
+    },
+    {
+      "count": 4955,
+      "kind": "tag",
+      "name": "Open World",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "open-world"
+    },
+    {
+      "count": 4933,
+      "kind": "tag",
+      "name": "Royalty Free",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "royalty-free"
+    },
+    {
+      "count": 4928,
+      "kind": "tag",
+      "name": "1-bit",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "1-bit"
+    },
+    {
+      "count": 4912,
+      "kind": "tag",
+      "name": "Forest",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "forest"
+    },
+    {
+      "count": 4820,
+      "kind": "tag",
+      "name": "War",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "war"
+    },
+    {
+      "count": 4808,
+      "kind": "tag",
+      "name": "Non violent",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "non-violent"
+    },
+    {
+      "count": 4759,
+      "kind": "tag",
+      "name": "Turn-based Strategy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "turn-based-strategy"
+    },
+    {
+      "count": 4666,
+      "kind": "tag",
+      "name": "Tactical",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tactical"
+    },
+    {
+      "count": 4661,
+      "kind": "tag",
+      "name": "Weapons",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "weapons"
+    },
+    {
+      "count": 4609,
+      "kind": "tag",
+      "name": "Backgrounds",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "backgrounds"
+    },
+    {
+      "count": 4603,
+      "kind": "tag",
+      "name": "Tilemap",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "tilemap"
+    },
+    {
+      "count": 4585,
+      "kind": "tag",
+      "name": "Parkour",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "parkour"
+    },
+    {
+      "count": 4563,
+      "kind": "tag",
+      "name": "Historical",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "historical"
+    },
+    {
+      "count": 4543,
+      "kind": "tag",
+      "name": "Top Down Adventure",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "top-down-adventure"
+    },
+    {
+      "count": 4536,
+      "kind": "tag",
+      "name": "One-shot",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "one-shot"
+    },
+    {
+      "count": 4522,
+      "kind": "tag",
+      "name": "Game Design",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "game-design"
+    },
+    {
+      "count": 4516,
+      "kind": "tag",
+      "name": "Driving",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "driving"
+    },
+    {
+      "count": 4510,
+      "kind": "tag",
+      "name": "Slice Of Life",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "slice-of-life"
+    },
+    {
+      "count": 4501,
+      "kind": "tag",
+      "name": "Gay",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gay"
+    },
+    {
+      "count": 4496,
+      "kind": "tag",
+      "name": "Detective",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "detective"
+    },
+    {
+      "count": 4489,
+      "kind": "tag",
+      "name": "Character Customization",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "character-customization"
+    },
+    {
+      "count": 4414,
+      "kind": "tag",
+      "name": "Real time strategy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "real-time-strategy"
+    },
+    {
+      "count": 4348,
+      "kind": "tag",
+      "name": "one-button",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "one-button"
+    },
+    {
+      "count": 4272,
+      "kind": "tag",
+      "name": "Crafting",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "crafting"
+    },
+    {
+      "count": 4248,
+      "kind": "tag",
+      "name": "blocks",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "blocks"
+    },
+    {
+      "count": 4228,
+      "kind": "tag",
+      "name": "Fishing",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "fishing"
+    },
+    {
+      "count": 4218,
+      "kind": "tag",
+      "name": "Voxel",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "voxel"
+    },
+    {
+      "count": 4192,
+      "kind": "tag",
+      "name": "upgrades",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "upgrades"
+    },
+    {
+      "count": 4157,
+      "kind": "tag",
+      "name": "Transgender",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "transgender"
+    },
+    {
+      "count": 4073,
+      "kind": "tag",
+      "name": "Local Co-Op",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "local-co-op"
+    },
+    {
+      "count": 4068,
+      "kind": "tag",
+      "name": "Parody",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "parody"
+    },
+    {
+      "count": 4027,
+      "kind": "tag",
+      "name": "journaling",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "journaling"
+    },
+    {
+      "count": 4006,
+      "kind": "tag",
+      "name": "Math",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "math"
+    },
+    {
+      "count": 3997,
+      "kind": "tag",
+      "name": "City Builder",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "city-builder"
+    },
+    {
+      "count": 3973,
+      "kind": "tag",
+      "name": "Score Attack",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "score-attack"
+    },
+    {
+      "count": 3918,
+      "kind": "tag",
+      "name": "underwater",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "underwater"
+    },
+    {
+      "count": 3912,
+      "kind": "tag",
+      "name": "Meme",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "meme"
+    },
+    {
+      "count": 3906,
+      "kind": "tag",
+      "name": "32x32",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "32x32"
+    },
+    {
+      "count": 3906,
+      "kind": "tag",
+      "name": "Graphical User Interface (GUI)",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "gui"
+    },
+    {
+      "count": 3857,
+      "kind": "tag",
+      "name": "Vector",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "vector"
+    },
+    {
+      "count": 3847,
+      "kind": "tag",
+      "name": "Life Simulation",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "life-simulation"
+    },
+    {
+      "count": 3771,
+      "kind": "tag",
+      "name": "Creative",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "creative"
+    },
+    {
+      "count": 3766,
+      "kind": "tag",
+      "name": "Open Source",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "open-source"
+    },
+    {
+      "count": 3754,
+      "kind": "tag",
+      "name": "Deck Building",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "deck-building"
+    },
+    {
+      "count": 3752,
+      "kind": "tag",
+      "name": "RPG Maker MZ",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "rpg-maker-mz"
+    },
+    {
+      "count": 3749,
+      "kind": "tag",
+      "name": "Neon",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "neon"
+    },
+    {
+      "count": 3741,
+      "kind": "tag",
+      "name": "chiptune",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "chiptune"
+    },
+    {
+      "count": 3713,
+      "kind": "tag",
+      "name": "Five Nights at Freddy's",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "fnaf"
+    },
+    {
+      "count": 3702,
+      "kind": "tag",
+      "name": "Dark Humor",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dark-humor"
+    },
+    {
+      "count": 3681,
+      "kind": "tag",
+      "name": "Pirates",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "pirates"
+    },
+    {
+      "count": 3668,
+      "kind": "tag",
+      "name": "GM-Less",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "gmless"
+    },
+    {
+      "count": 3662,
+      "kind": "tag",
+      "name": "LÖVE",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "love2d"
+    },
+    {
+      "count": 3616,
+      "kind": "tag",
+      "name": "Cooking",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "cooking"
+    },
+    {
+      "count": 3595,
+      "kind": "tag",
+      "name": "Ludum Dare 46",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-46"
+    },
+    {
+      "count": 3590,
+      "kind": "tag",
+      "name": "Dogs",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dogs"
+    },
+    {
+      "count": 3497,
+      "kind": "tag",
+      "name": "Construct 2",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "construct-2"
+    },
+    {
+      "count": 3487,
+      "kind": "tag",
+      "name": "Vampire",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "vampire"
+    },
+    {
+      "count": 3457,
+      "kind": "tag",
+      "name": "Family Friendly",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "family-friendly"
+    },
+    {
+      "count": 3450,
+      "kind": "tag",
+      "name": "Beat 'em up",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "beat-em-up"
+    },
+    {
+      "count": 3446,
+      "kind": "tag",
+      "name": "Hack and Slash",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "hack-and-slash"
+    },
+    {
+      "count": 3425,
+      "kind": "tag",
+      "name": "Swords",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "swords"
+    },
+    {
+      "count": 3417,
+      "kind": "tag",
+      "name": "Art Book",
+      "printed_as": "exact",
+      "scope": "books",
+      "slug": "art-book"
+    },
+    {
+      "count": 3412,
+      "kind": "tag",
+      "name": "Generator",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "generator"
+    },
+    {
+      "count": 3357,
+      "kind": "tag",
+      "name": "PvP",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "pvp"
+    },
+    {
+      "count": 3315,
+      "kind": "tag",
+      "name": "Asteroids",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "asteroids"
+    },
+    {
+      "count": 3310,
+      "kind": "tag",
+      "name": "Twin Stick Shooter",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "twin-stick-shooter"
+    },
+    {
+      "count": 3301,
+      "kind": "tag",
+      "name": "Music Production",
+      "printed_as": "exact",
+      "scope": "tools",
+      "slug": "music-production"
+    },
+    {
+      "count": 3296,
+      "kind": "tag",
+      "name": "Drawing",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "drawing"
+    },
+    {
+      "count": 3275,
+      "kind": "tag",
+      "name": "Time Travel",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "time-travel"
+    },
+    {
+      "count": 3241,
+      "kind": "tag",
+      "name": "Thriller",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "thriller"
+    },
+    {
+      "count": 3195,
+      "kind": "tag",
+      "name": "Gravity",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gravity"
+    },
+    {
+      "count": 3183,
+      "kind": "tag",
+      "name": "Dragons",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dragons"
+    },
+    {
+      "count": 3146,
+      "kind": "tag",
+      "name": "supernatural",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "supernatural"
+    },
+    {
+      "count": 3127,
+      "kind": "tag",
+      "name": "Touch-Friendly",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "touch-friendly"
+    },
+    {
+      "count": 3104,
+      "kind": "tag",
+      "name": "Dreams",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dreams"
+    },
+    {
+      "count": 3061,
+      "kind": "tag",
+      "name": "Mental Health",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mental-health"
+    },
+    {
+      "count": 3060,
+      "kind": "tag",
+      "name": "Time Attack",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "time-attack"
+    },
+    {
+      "count": 3047,
+      "kind": "tag",
+      "name": "Gore",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gore"
+    },
+    {
+      "count": 3023,
+      "kind": "tag",
+      "name": "Flying",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "flying"
+    },
+    {
+      "count": 3006,
+      "kind": "tag",
+      "name": "Ludum Dare 48",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-48"
+    },
+    {
+      "count": 3003,
+      "kind": "tag",
+      "name": "Dystopian",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dystopian"
+    },
+    {
+      "count": 2974,
+      "kind": "tag",
+      "name": "Western",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "western"
+    },
+    {
+      "count": 2963,
+      "kind": "tag",
+      "name": "Wizards",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "wizards"
+    },
+    {
+      "count": 2925,
+      "kind": "tag",
+      "name": "Scary",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "scary"
+    },
+    {
+      "count": 2918,
+      "kind": "tag",
+      "name": "Third-Person Shooter",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "third-person-shooter"
+    },
+    {
+      "count": 2846,
+      "kind": "tag",
+      "name": "Lesbian",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "lesbian"
+    },
+    {
+      "count": 2845,
+      "kind": "tag",
+      "name": "Scratch",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "scratch"
+    },
+    {
+      "count": 2842,
+      "kind": "tag",
+      "name": "Tetris",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tetris"
+    },
+    {
+      "count": 2842,
+      "kind": "tag",
+      "name": "Textures",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "textures"
+    },
+    {
+      "count": 2825,
+      "kind": "tag",
+      "name": "mythology",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mythology"
+    },
+    {
+      "count": 2825,
+      "kind": "tag",
+      "name": "NES (Nintendo Entertainment System)",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "nes"
+    },
+    {
+      "count": 2824,
+      "kind": "tag",
+      "name": "Typing",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "typing"
+    },
+    {
+      "count": 2794,
+      "kind": "tag",
+      "name": "Snake",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "snake"
+    },
+    {
+      "count": 2789,
+      "kind": "tag",
+      "name": "PNG",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "png"
+    },
+    {
+      "count": 2751,
+      "kind": "tag",
+      "name": "gamepad",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gamepad"
+    },
+    {
+      "count": 2704,
+      "kind": "tag",
+      "name": "Frogs",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "frog"
+    },
+    {
+      "count": 2662,
+      "kind": "tag",
+      "name": "Chess",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "chess"
+    },
+    {
+      "count": 2662,
+      "kind": "tag",
+      "name": "Word game",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "word-game"
+    },
+    {
+      "count": 2616,
+      "kind": "tag",
+      "name": "Flight",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "flight"
+    },
+    {
+      "count": 2601,
+      "kind": "tag",
+      "name": "suspense",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "suspense"
+    },
+    {
+      "count": 2592,
+      "kind": "tag",
+      "name": "Explosions",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "explosions"
+    },
+    {
+      "count": 2583,
+      "kind": "tag",
+      "name": "Homebrew",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "homebrew"
+    },
+    {
+      "count": 2570,
+      "kind": "tag",
+      "name": "Mechs",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mechs"
+    },
+    {
+      "count": 2561,
+      "kind": "tag",
+      "name": "artificial-intelligence",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "artificial-intelligence"
+    },
+    {
+      "count": 2548,
+      "kind": "tag",
+      "name": "Tanks",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tanks"
+    },
+    {
+      "count": 2547,
+      "kind": "tag",
+      "name": "rules-lite",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "rules-lite"
+    },
+    {
+      "count": 2540,
+      "kind": "tag",
+      "name": "Yuri",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "yuri"
+    },
+    {
+      "count": 2515,
+      "kind": "tag",
+      "name": "Male protagonist",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "male-protagonist"
+    },
+    {
+      "count": 2515,
+      "kind": "tag",
+      "name": "satire",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "satire"
+    },
+    {
+      "count": 2506,
+      "kind": "tag",
+      "name": "Virtual Pet",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "virtual-pet"
+    },
+    {
+      "count": 2490,
+      "kind": "tag",
+      "name": "Lo-fi",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "lo-fi"
+    },
+    {
+      "count": 2478,
+      "kind": "tag",
+      "name": "Tycoon",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tycoon"
+    },
+    {
+      "count": 2468,
+      "kind": "tag",
+      "name": "Sprunki",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sprunki"
+    },
+    {
+      "count": 2466,
+      "kind": "tag",
+      "name": "Slime",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "slime"
+    },
+    {
+      "count": 2451,
+      "kind": "tag",
+      "name": "Dinosaurs",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dinosaurs"
+    },
+    {
+      "count": 2435,
+      "kind": "tag",
+      "name": "sourcecode",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sourcecode"
+    },
+    {
+      "count": 2430,
+      "kind": "tag",
+      "name": "Gorilla Tag",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gorilla-tag"
+    },
+    {
+      "count": 2429,
+      "kind": "tag",
+      "name": "Farming Simulator",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "farming-simulator"
+    },
+    {
+      "count": 2429,
+      "kind": "tag",
+      "name": "RPG Maker MV",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "rpg-maker-mv"
+    },
+    {
+      "count": 2415,
+      "kind": "tag",
+      "name": "Space Sim",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "space-sim"
+    },
+    {
+      "count": 2414,
+      "kind": "tag",
+      "name": "Sokoban",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sokoban"
+    },
+    {
+      "count": 2385,
+      "kind": "tag",
+      "name": "Remake",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "remake"
+    },
+    {
+      "count": 2338,
+      "kind": "tag",
+      "name": "Ninja",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ninja"
+    },
+    {
+      "count": 2314,
+      "kind": "tag",
+      "name": "Ludum Dare 50",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-50"
+    },
+    {
+      "count": 2311,
+      "kind": "tag",
+      "name": "Gothic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gothic"
+    },
+    {
+      "count": 2309,
+      "kind": "tag",
+      "name": "PuzzleScript",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "puzzlescript"
+    },
+    {
+      "count": 2262,
+      "kind": "tag",
+      "name": "Otome",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "otome"
+    },
+    {
+      "count": 2258,
+      "kind": "tag",
+      "name": "DRM Free",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "drm-free"
+    },
+    {
+      "count": 2249,
+      "kind": "tag",
+      "name": "Aseprite",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "aseprite"
+    },
+    {
+      "count": 2247,
+      "kind": "tag",
+      "name": "Versus",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "versus"
+    },
+    {
+      "count": 2242,
+      "kind": "tag",
+      "name": "Quiz",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "quiz"
+    },
+    {
+      "count": 2241,
+      "kind": "tag",
+      "name": "Ludum Dare 49",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-49"
+    },
+    {
+      "count": 2220,
+      "kind": "tag",
+      "name": "Real-Time",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "real-time"
+    },
+    {
+      "count": 2203,
+      "kind": "tag",
+      "name": "Project template",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "template"
+    },
+    {
+      "count": 2190,
+      "kind": "tag",
+      "name": "Crime",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "crime"
+    },
+    {
+      "count": 2171,
+      "kind": "tag",
+      "name": "Fonts",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "fonts"
+    },
+    {
+      "count": 2164,
+      "kind": "tag",
+      "name": "Effects",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "effects"
+    },
+    {
+      "count": 2152,
+      "kind": "tag",
+      "name": "Voice Acting",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "voice-acting"
+    },
+    {
+      "count": 2150,
+      "kind": "tag",
+      "name": "Destruction",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "destruction"
+    },
+    {
+      "count": 2133,
+      "kind": "tag",
+      "name": "Farming Simulator 25",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "farming-simulator-25"
+    },
+    {
+      "count": 2129,
+      "kind": "tag",
+      "name": "Baldi's Basics",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "baldis-basics"
+    },
+    {
+      "count": 2128,
+      "kind": "tag",
+      "name": "Superhero",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "superhero"
+    },
+    {
+      "count": 2121,
+      "kind": "tag",
+      "name": "Synthwave",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "synthwave"
+    },
+    {
+      "count": 2120,
+      "kind": "tag",
+      "name": "Modern",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "modern"
+    },
+    {
+      "count": 2116,
+      "kind": "tag",
+      "name": "Souls-like",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "souls-like"
+    },
+    {
+      "count": 2105,
+      "kind": "tag",
+      "name": "Level Editor",
+      "printed_as": "exact",
+      "scope": "tools",
+      "slug": "level-editor"
+    },
+    {
+      "count": 2093,
+      "kind": "tag",
+      "name": "Breakout",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "breakout"
+    },
+    {
+      "count": 2080,
+      "kind": "tag",
+      "name": "Fanzine",
+      "printed_as": "exact",
+      "scope": "comics",
+      "slug": "fanzine"
+    },
+    {
+      "count": 2065,
+      "kind": "tag",
+      "name": "Minecraft",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "minecraft"
+    },
+    {
+      "count": 2004,
+      "kind": "tag",
+      "name": "atari",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "atari"
+    },
+    {
+      "count": 1991,
+      "kind": "tag",
+      "name": "secrets",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "secrets"
+    },
+    {
+      "count": 1987,
+      "kind": "tag",
+      "name": "Alternate History",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "alternate-history"
+    },
+    {
+      "count": 1959,
+      "kind": "tag",
+      "name": "Commodore 64",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "commodore-64"
+    },
+    {
+      "count": 1959,
+      "kind": "tag",
+      "name": "Violent",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "violent"
+    },
+    {
+      "count": 1952,
+      "kind": "tag",
+      "name": "Game engine",
+      "printed_as": "exact",
+      "scope": "tools",
+      "slug": "game-engine"
+    },
+    {
+      "count": 1952,
+      "kind": "tag",
+      "name": "Steampunk",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "steampunk"
+    },
+    {
+      "count": 1946,
+      "kind": "tag",
+      "name": "Incredibox",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "incredibox"
+    },
+    {
+      "count": 1936,
+      "kind": "tag",
+      "name": "Football",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "football"
+    },
+    {
+      "count": 1933,
+      "kind": "tag",
+      "name": "Playdate",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "playdate"
+    },
+    {
+      "count": 1926,
+      "kind": "tag",
+      "name": "Vehicles",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "vehicles"
+    },
+    {
+      "count": 1918,
+      "kind": "tag",
+      "name": "MÖRK BORG",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "mork-borg"
+    },
+    {
+      "count": 1915,
+      "kind": "tag",
+      "name": "psychedelic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "psychedelic"
+    },
+    {
+      "count": 1908,
+      "kind": "tag",
+      "name": "Brain Training",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "brain-training"
+    },
+    {
+      "count": 1907,
+      "kind": "tag",
+      "name": "Fairy Tale",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "fairy-tale"
+    },
+    {
+      "count": 1901,
+      "kind": "tag",
+      "name": "Economy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "economy"
+    },
+    {
+      "count": 1899,
+      "kind": "tag",
+      "name": "Strategy RPG",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "strategy-rpg"
+    },
+    {
+      "count": 1882,
+      "kind": "tag",
+      "name": "Friday Night Funkin' (FNF)",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "fnf"
+    },
+    {
+      "count": 1881,
+      "kind": "tag",
+      "name": "Ludum Dare 42",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-42"
+    },
+    {
+      "count": 1877,
+      "kind": "tag",
+      "name": "Game Boy ROM",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gameboy-rom"
+    },
+    {
+      "count": 1877,
+      "kind": "tag",
+      "name": "Lovecraftian Horror",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "lovecraft"
+    },
+    {
+      "count": 1863,
+      "kind": "tag",
+      "name": "Skeletons",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "skeletons"
+    },
+    {
+      "count": 1861,
+      "kind": "tag",
+      "name": "Immersive",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "immersive"
+    },
+    {
+      "count": 1850,
+      "kind": "tag",
+      "name": "Survivor-like",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "survivor-like"
+    },
+    {
+      "count": 1850,
+      "kind": "tag",
+      "name": "ZX Spectrum",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "zx-spectrum"
+    },
+    {
+      "count": 1844,
+      "kind": "tag",
+      "name": "Golf",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "golf"
+    },
+    {
+      "count": 1771,
+      "kind": "tag",
+      "name": "Liminal space",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "liminal-space"
+    },
+    {
+      "count": 1771,
+      "kind": "tag",
+      "name": "Supplement",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "supplement"
+    },
+    {
+      "count": 1765,
+      "kind": "tag",
+      "name": "PbtA",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "pbta"
+    },
+    {
+      "count": 1758,
+      "kind": "tag",
+      "name": "Ludum Dare 44",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-44"
+    },
+    {
+      "count": 1713,
+      "kind": "tag",
+      "name": "ascii",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ascii"
+    },
+    {
+      "count": 1713,
+      "kind": "tag",
+      "name": "Painting",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "painting"
+    },
+    {
+      "count": 1710,
+      "kind": "tag",
+      "name": "Ludum Dare 41",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-41"
+    },
+    {
+      "count": 1701,
+      "kind": "tag",
+      "name": "micro-rpg",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "micro-rpg"
+    },
+    {
+      "count": 1697,
+      "kind": "tag",
+      "name": "Soccer",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "soccer"
+    },
+    {
+      "count": 1687,
+      "kind": "tag",
+      "name": "Touhou",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "touhou"
+    },
+    {
+      "count": 1680,
+      "kind": "tag",
+      "name": "Oculus Quest",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "oculus-quest"
+    },
+    {
+      "count": 1679,
+      "kind": "tag",
+      "name": "Noir",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "noir"
+    },
+    {
+      "count": 1678,
+      "kind": "tag",
+      "name": "Farming Simulator 22",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "farming-simulator-22"
+    },
+    {
+      "count": 1665,
+      "kind": "tag",
+      "name": "MMORPG",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mmorpg"
+    },
+    {
+      "count": 1661,
+      "kind": "tag",
+      "name": "Cult Classic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "cult-classic"
+    },
+    {
+      "count": 1654,
+      "kind": "tag",
+      "name": "Ludum Dare 38",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-38"
+    },
+    {
+      "count": 1649,
+      "kind": "tag",
+      "name": "Ludum Dare 40",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-40"
+    },
+    {
+      "count": 1648,
+      "kind": "tag",
+      "name": "Automation",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "automation"
+    },
+    {
+      "count": 1639,
+      "kind": "tag",
+      "name": "Manga",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "manga"
+    },
+    {
+      "count": 1635,
+      "kind": "tag",
+      "name": "Ludum Dare 54",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-54"
+    },
+    {
+      "count": 1625,
+      "kind": "tag",
+      "name": "Tactical RPG",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tactical-rpg"
+    },
+    {
+      "count": 1615,
+      "kind": "tag",
+      "name": "Trijam",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "trijam"
+    },
+    {
+      "count": 1602,
+      "kind": "tag",
+      "name": "Loot",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "loot"
+    },
+    {
+      "count": 1589,
+      "kind": "tag",
+      "name": "Doom",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "doom"
+    },
+    {
+      "count": 1578,
+      "kind": "tag",
+      "name": "Kinetic Novel",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "kinetic-novel"
+    },
+    {
+      "count": 1577,
+      "kind": "tag",
+      "name": "FPS Platformer",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "fps-platformer"
+    },
+    {
+      "count": 1572,
+      "kind": "tag",
+      "name": "LOWREZJAM",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "lowrezjam"
+    },
+    {
+      "count": 1568,
+      "kind": "tag",
+      "name": "Folklore",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "folklore"
+    },
+    {
+      "count": 1568,
+      "kind": "tag",
+      "name": "Ludum Dare 53",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-53"
+    },
+    {
+      "count": 1564,
+      "kind": "tag",
+      "name": "Ludum Dare 43",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-43"
+    },
+    {
+      "count": 1550,
+      "kind": "tag",
+      "name": "glitch",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "glitch"
+    },
+    {
+      "count": 1538,
+      "kind": "tag",
+      "name": "Hacking",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "hacking"
+    },
+    {
+      "count": 1533,
+      "kind": "tag",
+      "name": "Working Simulator",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "working-simulator"
+    },
+    {
+      "count": 1526,
+      "kind": "tag",
+      "name": "Ludum Dare 45",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-45"
+    },
+    {
+      "count": 1486,
+      "kind": "tag",
+      "name": "Photorealistic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "photorealistic"
+    },
+    {
+      "count": 1481,
+      "kind": "tag",
+      "name": "Buttons",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "buttons"
+    },
+    {
+      "count": 1480,
+      "kind": "tag",
+      "name": "Trains",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "trains"
+    },
+    {
+      "count": 1477,
+      "kind": "tag",
+      "name": "Chicken",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "chicken"
+    },
+    {
+      "count": 1456,
+      "kind": "tag",
+      "name": "Feel Good",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "feel-good"
+    },
+    {
+      "count": 1442,
+      "kind": "tag",
+      "name": "GBJam",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gbjam"
+    },
+    {
+      "count": 1431,
+      "kind": "tag",
+      "name": "Modular",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "modular"
+    },
+    {
+      "count": 1431,
+      "kind": "tag",
+      "name": "Tutorial",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tutorial"
+    },
+    {
+      "count": 1425,
+      "kind": "tag",
+      "name": "Ludum Dare 51",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-51"
+    },
+    {
+      "count": 1423,
+      "kind": "tag",
+      "name": "Ludum Dare 47",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-47"
+    },
+    {
+      "count": 1399,
+      "kind": "tag",
+      "name": "Ludum Dare 55",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-55"
+    },
+    {
+      "count": 1394,
+      "kind": "tag",
+      "name": "Gardening",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gardening"
+    },
+    {
+      "count": 1387,
+      "kind": "tag",
+      "name": "FBX",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "fbx"
+    },
+    {
+      "count": 1382,
+      "kind": "tag",
+      "name": "VTT",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "vtt"
+    },
+    {
+      "count": 1379,
+      "kind": "tag",
+      "name": "mind-bending",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mind-bending"
+    },
+    {
+      "count": 1368,
+      "kind": "tag",
+      "name": "Shaders",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "shaders"
+    },
+    {
+      "count": 1355,
+      "kind": "tag",
+      "name": "one-hit-kill",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "one-hit-kill"
+    },
+    {
+      "count": 1355,
+      "kind": "tag",
+      "name": "Pinball",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "pinball"
+    },
+    {
+      "count": 1345,
+      "kind": "tag",
+      "name": "Yaoi",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "yaoi"
+    },
+    {
+      "count": 1344,
+      "kind": "tag",
+      "name": "VRChat",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "vrchat"
+    },
+    {
+      "count": 1337,
+      "kind": "tag",
+      "name": "Tarot",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tarot"
+    },
+    {
+      "count": 1331,
+      "kind": "tag",
+      "name": "Superpowers",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "superpowers"
+    },
+    {
+      "count": 1301,
+      "kind": "tag",
+      "name": "Ludum Dare 57",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-57"
+    },
+    {
+      "count": 1293,
+      "kind": "tag",
+      "name": "Models",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "models"
+    },
+    {
+      "count": 1247,
+      "kind": "tag",
+      "name": "parallax",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "parallax"
+    },
+    {
+      "count": 1241,
+      "kind": "tag",
+      "name": "relationship",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "relationship"
+    },
+    {
+      "count": 1225,
+      "kind": "tag",
+      "name": "Split Screen",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "split-screen"
+    },
+    {
+      "count": 1200,
+      "kind": "tag",
+      "name": "Arena Shooter",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "arena-shooter"
+    },
+    {
+      "count": 1184,
+      "kind": "tag",
+      "name": "Ludum Dare 39",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-39"
+    },
+    {
+      "count": 1180,
+      "kind": "tag",
+      "name": "Webcomic",
+      "printed_as": "exact",
+      "scope": "comics",
+      "slug": "webcomic"
+    },
+    {
+      "count": 1170,
+      "kind": "tag",
+      "name": "Auto Battler",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "auto-battler"
+    },
+    {
+      "count": 1167,
+      "kind": "tag",
+      "name": "solitaire",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "solitaire"
+    },
+    {
+      "count": 1147,
+      "kind": "tag",
+      "name": "Streaming",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "streaming"
+    },
+    {
+      "count": 1118,
+      "kind": "tag",
+      "name": "Undertale",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "undertale"
+    },
+    {
+      "count": 1109,
+      "kind": "tag",
+      "name": "video",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "video"
+    },
+    {
+      "count": 1108,
+      "kind": "tag",
+      "name": "Perma Death",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "perma-death"
+    },
+    {
+      "count": 1102,
+      "kind": "tag",
+      "name": "combos",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "combos"
+    },
+    {
+      "count": 1102,
+      "kind": "tag",
+      "name": "Ludum Dare 56",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-56"
+    },
+    {
+      "count": 1093,
+      "kind": "tag",
+      "name": "Shadows",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "shadows"
+    },
+    {
+      "count": 1074,
+      "kind": "tag",
+      "name": "lone-survivor",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "lone-survivor"
+    },
+    {
+      "count": 1070,
+      "kind": "tag",
+      "name": "Visualization",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "visualization"
+    },
+    {
+      "count": 1058,
+      "kind": "tag",
+      "name": "Backrooms",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "backrooms"
+    },
+    {
+      "count": 1056,
+      "kind": "tag",
+      "name": "Wholesome",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "wholesome"
+    },
+    {
+      "count": 1041,
+      "kind": "tag",
+      "name": "Urban",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "urban"
+    },
+    {
+      "count": 1029,
+      "kind": "tag",
+      "name": "LARP",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "larp"
+    },
+    {
+      "count": 1019,
+      "kind": "tag",
+      "name": "Hex Based",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "hex-based"
+    },
+    {
+      "count": 1009,
+      "kind": "tag",
+      "name": "Classes",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "classes"
+    },
+    {
+      "count": 1002,
+      "kind": "tag",
+      "name": "Trivia",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "trivia"
+    },
+    {
+      "count": 992,
+      "kind": "tag",
+      "name": "Boys' Love",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "boys-love"
+    },
+    {
+      "count": 977,
+      "kind": "tag",
+      "name": "Ludum Dare 37",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-37"
+    },
+    {
+      "count": 973,
+      "kind": "tag",
+      "name": "Ludum Dare 52",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-52"
+    },
+    {
+      "count": 971,
+      "kind": "tag",
+      "name": "Traps",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "traps"
+    },
+    {
+      "count": 967,
+      "kind": "tag",
+      "name": "Oculus Rift",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "oculus-rift"
+    },
+    {
+      "count": 964,
+      "kind": "tag",
+      "name": "On-Rails Shooter",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "on-rails-shooter"
+    },
+    {
+      "count": 929,
+      "kind": "tag",
+      "name": "World War II",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "world-war-ii"
+    },
+    {
+      "count": 928,
+      "kind": "tag",
+      "name": "Minesweeper",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "minesweeper"
+    },
+    {
+      "count": 923,
+      "kind": "tag",
+      "name": "VTT Battlemaps",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "vtt-battlemaps"
+    },
+    {
+      "count": 922,
+      "kind": "tag",
+      "name": "Wild West",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "wild-west"
+    },
+    {
+      "count": 918,
+      "kind": "tag",
+      "name": "Seven Day Roguelike Challenge",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "7drl"
+    },
+    {
+      "count": 918,
+      "kind": "tag",
+      "name": "Two colors",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "two-colors"
+    },
+    {
+      "count": 915,
+      "kind": "tag",
+      "name": "Desktop Pet",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "desktop-pet"
+    },
+    {
+      "count": 912,
+      "kind": "tag",
+      "name": "Ludum Dare 35",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-35"
+    },
+    {
+      "count": 910,
+      "kind": "tag",
+      "name": "Horrible",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "horrible"
+    },
+    {
+      "count": 910,
+      "kind": "tag",
+      "name": "Trading",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "trading"
+    },
+    {
+      "count": 895,
+      "kind": "tag",
+      "name": "Heist",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "heist"
+    },
+    {
+      "count": 892,
+      "kind": "tag",
+      "name": "Boring",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "boring"
+    },
+    {
+      "count": 890,
+      "kind": "tag",
+      "name": "Nonlinear",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "non-linear"
+    },
+    {
+      "count": 884,
+      "kind": "tag",
+      "name": "Yandere",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "yandere"
+    },
+    {
+      "count": 868,
+      "kind": "tag",
+      "name": "Pizza Tower",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "pizza-tower"
+    },
+    {
+      "count": 861,
+      "kind": "tag",
+      "name": "Mountains",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mountains"
+    },
+    {
+      "count": 859,
+      "kind": "tag",
+      "name": "Hidden Object",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "hidden-object"
+    },
+    {
+      "count": 856,
+      "kind": "tag",
+      "name": "Troika",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "troika"
+    },
+    {
+      "count": 845,
+      "kind": "tag",
+      "name": "Spoopy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "spoopy"
+    },
+    {
+      "count": 845,
+      "kind": "tag",
+      "name": "Team-Based",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "team-based"
+    },
+    {
+      "count": 840,
+      "kind": "tag",
+      "name": "Demake",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "demake"
+    },
+    {
+      "count": 832,
+      "kind": "tag",
+      "name": "Magical Realism",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "magical-realism"
+    },
+    {
+      "count": 829,
+      "kind": "tag",
+      "name": "Coming Of Age",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "coming-of-age"
+    },
+    {
+      "count": 827,
+      "kind": "tag",
+      "name": "deathmatch",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "deathmatch"
+    },
+    {
+      "count": 826,
+      "kind": "tag",
+      "name": "Dress Up",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dress-up"
+    },
+    {
+      "count": 824,
+      "kind": "tag",
+      "name": "Altgame",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "altgame"
+    },
+    {
+      "count": 821,
+      "kind": "tag",
+      "name": "diceless",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "diceless"
+    },
+    {
+      "count": 808,
+      "kind": "tag",
+      "name": "Amiga",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "amiga"
+    },
+    {
+      "count": 804,
+      "kind": "tag",
+      "name": "Slasher",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "slasher"
+    },
+    {
+      "count": 800,
+      "kind": "tag",
+      "name": "PROCJAM",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "procjam"
+    },
+    {
+      "count": 794,
+      "kind": "tag",
+      "name": "Amare",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "amare"
+    },
+    {
+      "count": 785,
+      "kind": "tag",
+      "name": "Moddable",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "moddable"
+    },
+    {
+      "count": 776,
+      "kind": "tag",
+      "name": "Augmented Reality",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "augmented-reality"
+    },
+    {
+      "count": 773,
+      "kind": "tag",
+      "name": "Internet",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "internet"
+    },
+    {
+      "count": 768,
+      "kind": "tag",
+      "name": "Game Boy Advance",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gameboy-advance"
+    },
+    {
+      "count": 767,
+      "kind": "tag",
+      "name": "Horses",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "horses"
+    },
+    {
+      "count": 767,
+      "kind": "tag",
+      "name": "TIC-80",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tic-80"
+    },
+    {
+      "count": 764,
+      "kind": "tag",
+      "name": "Forged in the Dark",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "forged-in-the-dark"
+    },
+    {
+      "count": 751,
+      "kind": "tag",
+      "name": "Hexcrawl",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "hexcrawl"
+    },
+    {
+      "count": 748,
+      "kind": "tag",
+      "name": "Instrument",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "instrument"
+    },
+    {
+      "count": 729,
+      "kind": "tag",
+      "name": "Grayscale",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "grayscale"
+    },
+    {
+      "count": 726,
+      "kind": "tag",
+      "name": "GitHub",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "github"
+    },
+    {
+      "count": 720,
+      "kind": "tag",
+      "name": "picoCAD",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "picocad"
+    },
+    {
+      "count": 713,
+      "kind": "tag",
+      "name": "lyric-game",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "lyric-game"
+    },
+    {
+      "count": 706,
+      "kind": "tag",
+      "name": "Gacha",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gacha"
+    },
+    {
+      "count": 701,
+      "kind": "tag",
+      "name": "Monster Girls",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "monster-girls"
+    },
+    {
+      "count": 695,
+      "kind": "tag",
+      "name": "Basketball",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "basketball"
+    },
+    {
+      "count": 692,
+      "kind": "tag",
+      "name": "Bara",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "bara"
+    },
+    {
+      "count": 688,
+      "kind": "tag",
+      "name": "Modeling",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "modeling"
+    },
+    {
+      "count": 686,
+      "kind": "tag",
+      "name": "watercolor",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "watercolor"
+    },
+    {
+      "count": 670,
+      "kind": "tag",
+      "name": "libGDX",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "libgdx"
+    },
+    {
+      "count": 659,
+      "kind": "tag",
+      "name": "creepypasta",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "creepypasta"
+    },
+    {
+      "count": 658,
+      "kind": "tag",
+      "name": "memoir",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "memoir"
+    },
+    {
+      "count": 657,
+      "kind": "tag",
+      "name": "rpglatam",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "rpglatam"
+    },
+    {
+      "count": 655,
+      "kind": "tag",
+      "name": "WAV",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "wav"
+    },
+    {
+      "count": 640,
+      "kind": "tag",
+      "name": "NES ROM",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "nes-rom"
+    },
+    {
+      "count": 636,
+      "kind": "tag",
+      "name": "Ludum Dare 36",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-36"
+    },
+    {
+      "count": 630,
+      "kind": "tag",
+      "name": "pastel",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "pastel"
+    },
+    {
+      "count": 630,
+      "kind": "tag",
+      "name": "Sailing",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sailing"
+    },
+    {
+      "count": 627,
+      "kind": "tag",
+      "name": "fantasy-console",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "fantasy-console"
+    },
+    {
+      "count": 625,
+      "kind": "tag",
+      "name": "Materials",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "materials"
+    },
+    {
+      "count": 622,
+      "kind": "tag",
+      "name": "flat-shading",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "flat-shading"
+    },
+    {
+      "count": 617,
+      "kind": "tag",
+      "name": "Sega Genesis",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sega-genesis"
+    },
+    {
+      "count": 617,
+      "kind": "tag",
+      "name": "Soundtoy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "soundtoy"
+    },
+    {
+      "count": 611,
+      "kind": "tag",
+      "name": "8x8",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "8x8"
+    },
+    {
+      "count": 607,
+      "kind": "tag",
+      "name": "Wordle",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "wordle"
+    },
+    {
+      "count": 599,
+      "kind": "tag",
+      "name": "Archery",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "archery"
+    },
+    {
+      "count": 594,
+      "kind": "tag",
+      "name": "Tennis",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tennis"
+    },
+    {
+      "count": 592,
+      "kind": "tag",
+      "name": "Ludum Dare 34",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-34"
+    },
+    {
+      "count": 592,
+      "kind": "tag",
+      "name": "PBR (Physically Based Rendering)",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "pbr"
+    },
+    {
+      "count": 587,
+      "kind": "tag",
+      "name": "Massively multiplayer",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "massively-multiplayer"
+    },
+    {
+      "count": 577,
+      "kind": "tag",
+      "name": "Ludum Dare 59",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-59"
+    },
+    {
+      "count": 567,
+      "kind": "tag",
+      "name": "Movement Shooter",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "movement-shooter"
+    },
+    {
+      "count": 565,
+      "kind": "tag",
+      "name": "Zero Gravity",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "zero-gravity"
+    },
+    {
+      "count": 561,
+      "kind": "tag",
+      "name": "business-card",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "business-card"
+    },
+    {
+      "count": 556,
+      "kind": "tag",
+      "name": "DOS",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dos"
+    },
+    {
+      "count": 551,
+      "kind": "tag",
+      "name": "Skating",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "skating"
+    },
+    {
+      "count": 538,
+      "kind": "tag",
+      "name": "Episodic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "episodic"
+    },
+    {
+      "count": 537,
+      "kind": "tag",
+      "name": "Ludum Dare 58",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-58"
+    },
+    {
+      "count": 530,
+      "kind": "tag",
+      "name": "Gender",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "gender"
+    },
+    {
+      "count": 521,
+      "kind": "tag",
+      "name": "Nuclear Throne Together",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "ntt"
+    },
+    {
+      "count": 521,
+      "kind": "tag",
+      "name": "Rotation",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "rotation"
+    },
+    {
+      "count": 520,
+      "kind": "tag",
+      "name": "live-action",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "live-action"
+    },
+    {
+      "count": 498,
+      "kind": "tag",
+      "name": "boxing",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "boxing"
+    },
+    {
+      "count": 493,
+      "kind": "tag",
+      "name": "Victorian",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "victorian"
+    },
+    {
+      "count": 485,
+      "kind": "tag",
+      "name": "Decker",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "decker"
+    },
+    {
+      "count": 483,
+      "kind": "tag",
+      "name": "Kickstarter",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "kickstarter"
+    },
+    {
+      "count": 480,
+      "kind": "tag",
+      "name": "screensaver",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "screensaver"
+    },
+    {
+      "count": 470,
+      "kind": "tag",
+      "name": "Emulator",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "emulator"
+    },
+    {
+      "count": 459,
+      "kind": "tag",
+      "name": "MIDI",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "midi"
+    },
+    {
+      "count": 450,
+      "kind": "tag",
+      "name": "1GAM",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "1gam"
+    },
+    {
+      "count": 449,
+      "kind": "tag",
+      "name": "Roadtrip",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "roadtrip"
+    },
+    {
+      "count": 447,
+      "kind": "tag",
+      "name": "Suika Game",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "suika-game"
+    },
+    {
+      "count": 446,
+      "kind": "tag",
+      "name": "7dfps",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "7dfps"
+    },
+    {
+      "count": 445,
+      "kind": "tag",
+      "name": "World War I",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "world-war-i"
+    },
+    {
+      "count": 444,
+      "kind": "tag",
+      "name": "Amstrad CPC",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "amstrad-cpc"
+    },
+    {
+      "count": 443,
+      "kind": "tag",
+      "name": "4X",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "4x"
+    },
+    {
+      "count": 439,
+      "kind": "tag",
+      "name": "tablet",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tablet"
+    },
+    {
+      "count": 424,
+      "kind": "tag",
+      "name": "Nintendo 64",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "nintendo64"
+    },
+    {
+      "count": 419,
+      "kind": "tag",
+      "name": "voice-controlled",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "voice-controlled"
+    },
+    {
+      "count": 415,
+      "kind": "tag",
+      "name": "Super Nintendo",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "snes"
+    },
+    {
+      "count": 413,
+      "kind": "tag",
+      "name": "Sims 4",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "sims-4"
+    },
+    {
+      "count": 404,
+      "kind": "tag",
+      "name": "SVG",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "svg"
+    },
+    {
+      "count": 386,
+      "kind": "tag",
+      "name": "Perspective",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "perspective"
+    },
+    {
+      "count": 383,
+      "kind": "tag",
+      "name": "Tentacles",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tentacles"
+    },
+    {
+      "count": 378,
+      "kind": "tag",
+      "name": "sitting-simulator",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sitting-simulator"
+    },
+    {
+      "count": 372,
+      "kind": "tag",
+      "name": "Norse",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "norse"
+    },
+    {
+      "count": 372,
+      "kind": "tag",
+      "name": "SFML",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sfml"
+    },
+    {
+      "count": 366,
+      "kind": "tag",
+      "name": "TyranoBuilder",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "tyranobuilder"
+    },
+    {
+      "count": 360,
+      "kind": "tag",
+      "name": "Ludum Dare 33",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-33"
+    },
+    {
+      "count": 359,
+      "kind": "tag",
+      "name": "Leap Motion",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "leap-motion"
+    },
+    {
+      "count": 359,
+      "kind": "tag",
+      "name": "Mega Drive",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mega-drive"
+    },
+    {
+      "count": 359,
+      "kind": "tag",
+      "name": "MS-DOS",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ms-dos"
+    },
+    {
+      "count": 356,
+      "kind": "tag",
+      "name": "MSX",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "msx"
+    },
+    {
+      "count": 355,
+      "kind": "tag",
+      "name": "discord",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "discord"
+    },
+    {
+      "count": 355,
+      "kind": "tag",
+      "name": "FMV",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "fmv"
+    },
+    {
+      "count": 341,
+      "kind": "tag",
+      "name": "Global Game Jam 2020",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ggj2020"
+    },
+    {
+      "count": 332,
+      "kind": "tag",
+      "name": "Ludum Dare 32",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-32"
+    },
+    {
+      "count": 327,
+      "kind": "tag",
+      "name": "trashcore",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "trashcore"
+    },
+    {
+      "count": 321,
+      "kind": "tag",
+      "name": "Isekai",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "isekai"
+    },
+    {
+      "count": 315,
+      "kind": "tag",
+      "name": "VST",
+      "printed_as": "exact",
+      "scope": "tools",
+      "slug": "vst"
+    },
+    {
+      "count": 312,
+      "kind": "tag",
+      "name": "Nuclear Throne",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "nuclear-throne"
+    },
+    {
+      "count": 297,
+      "kind": "tag",
+      "name": "mashup",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "mashup"
+    },
+    {
+      "count": 288,
+      "kind": "tag",
+      "name": "DOOM WAD",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "doom-wad"
+    },
+    {
+      "count": 288,
+      "kind": "tag",
+      "name": "Doujinshi",
+      "printed_as": "exact",
+      "scope": "comics",
+      "slug": "doujinshi"
+    },
+    {
+      "count": 288,
+      "kind": "tag",
+      "name": "Stencyl",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "stencyl"
+    },
+    {
+      "count": 281,
+      "kind": "tag",
+      "name": "Celtic",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "celtic"
+    },
+    {
+      "count": 279,
+      "kind": "tag",
+      "name": "Unicorns",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "unicorns"
+    },
+    {
+      "count": 276,
+      "kind": "tag",
+      "name": "job-system",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "job-system"
+    },
+    {
+      "count": 273,
+      "kind": "tag",
+      "name": "filipino",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "filipino"
+    },
+    {
+      "count": 269,
+      "kind": "tag",
+      "name": "belonging-outside-belonging",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "belonging-outside-belonging"
+    },
+    {
+      "count": 258,
+      "kind": "tag",
+      "name": "non-eucledian",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "non-eucledian"
+    },
+    {
+      "count": 254,
+      "kind": "tag",
+      "name": "Brushes",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "brushes"
+    },
+    {
+      "count": 245,
+      "kind": "tag",
+      "name": "Ludum Dare 31",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-31"
+    },
+    {
+      "count": 242,
+      "kind": "tag",
+      "name": "Kung Fu",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "kung-fu"
+    },
+    {
+      "count": 231,
+      "kind": "tag",
+      "name": "Dicey Dungeons",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "dicey-dungeons"
+    },
+    {
+      "count": 228,
+      "kind": "tag",
+      "name": "stop-motion",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "stop-motion"
+    },
+    {
+      "count": 219,
+      "kind": "tag",
+      "name": "Railroad",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "railroad"
+    },
+    {
+      "count": 216,
+      "kind": "tag",
+      "name": "sworddream",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "sworddream"
+    },
+    {
+      "count": 206,
+      "kind": "tag",
+      "name": "VIC-20",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "vic-20"
+    },
+    {
+      "count": 201,
+      "kind": "tag",
+      "name": "Ludum Dare 30",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-30"
+    },
+    {
+      "count": 193,
+      "kind": "tag",
+      "name": "moe",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "moe"
+    },
+    {
+      "count": 188,
+      "kind": "tag",
+      "name": "Dreamcast",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "dreamcast"
+    },
+    {
+      "count": 180,
+      "kind": "tag",
+      "name": "Playstation Portable",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "psp"
+    },
+    {
+      "count": 173,
+      "kind": "tag",
+      "name": "Period Piece",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "period-piece"
+    },
+    {
+      "count": 172,
+      "kind": "tag",
+      "name": "astronomy",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "astronomy"
+    },
+    {
+      "count": 171,
+      "kind": "tag",
+      "name": "Beginner Friendly",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "beginner-friendly"
+    },
+    {
+      "count": 164,
+      "kind": "tag",
+      "name": "Picross",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "picross"
+    },
+    {
+      "count": 161,
+      "kind": "tag",
+      "name": "Nonogram",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "nonogram"
+    },
+    {
+      "count": 156,
+      "kind": "tag",
+      "name": "binaural",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "binaural"
+    },
+    {
+      "count": 150,
+      "kind": "tag",
+      "name": "Itch Funding",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "itchfunding"
+    },
+    {
+      "count": 146,
+      "kind": "tag",
+      "name": "HyperCard",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "hypercard"
+    },
+    {
+      "count": 141,
+      "kind": "tag",
+      "name": "Wobbly",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "wobbly"
+    },
+    {
+      "count": 136,
+      "kind": "tag",
+      "name": "Ciphers",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ciphers"
+    },
+    {
+      "count": 131,
+      "kind": "tag",
+      "name": "monsterhearts",
+      "printed_as": "exact",
+      "scope": "physical-games",
+      "slug": "monsterhearts"
+    },
+    {
+      "count": 130,
+      "kind": "tag",
+      "name": "norway",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "norway"
+    },
+    {
+      "count": 124,
+      "kind": "tag",
+      "name": "Ludum Dare 29",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ludum-dare-29"
+    },
+    {
+      "count": 117,
+      "kind": "tag",
+      "name": "Gacha Club",
+      "printed_as": "exact",
+      "scope": "game-mods",
+      "slug": "gacha-club"
+    },
+    {
+      "count": 115,
+      "kind": "tag",
+      "name": "Corona SDK",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "corona-sdk"
+    },
+    {
+      "count": 105,
+      "kind": "tag",
+      "name": "CHIP-8",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "chip8"
+    },
+    {
+      "count": 96,
+      "kind": "tag",
+      "name": "Cursors",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "cursors"
+    },
+    {
+      "count": 94,
+      "kind": "tag",
+      "name": "Siren Head",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "siren-head"
+    },
+    {
+      "count": 79,
+      "kind": "tag",
+      "name": "Thanksgiving",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "thanksgiving"
+    },
+    {
+      "count": 75,
+      "kind": "tag",
+      "name": "kinect",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "kinect"
+    },
+    {
+      "count": 74,
+      "kind": "tag",
+      "name": "ggj15",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "ggj15"
+    },
+    {
+      "count": 64,
+      "kind": "tag",
+      "name": "ENDESGA 32",
+      "printed_as": "exact",
+      "scope": "game-assets",
+      "slug": "endesga-32"
+    },
+    {
+      "count": 48,
+      "kind": "tag",
+      "name": "Barfcade",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "barfcade"
+    },
+    {
+      "count": 31,
+      "kind": "tag",
+      "name": "TurboGrafx-16",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "turbografx"
+    },
+    {
+      "count": 20,
+      "kind": "tag",
+      "name": "SHARECART1000",
+      "printed_as": "exact",
+      "scope": "games",
+      "slug": "sharecart1000"
+    }
+  ],
+  "tags_total": 616,
+  "what": "itch.io tag directory, names and counts only. No price is read here."
+}

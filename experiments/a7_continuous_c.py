@@ -710,8 +710,34 @@ def write_verdicts() -> Path:
     )
     dk0 = legb[0.0]["d"]["K"]["log_inv_hhi_prod"]
 
+    # Rule 11f, 2026-09-13. Three of this sheet's verdicts were a literal True while
+    # their details stated claims the objects above can answer. None of the readings
+    # moves; what changes is that the claim and the verdict become the same object.
+
+    # A7-A-1: nothing participates below the first reach, and something does at it.
+    a7_a1 = (gu[first_reach]["peripheral_participating_mean"] > 0
+             and all(gu[s]["peripheral_participating_mean"] == 0
+                     for s in sorted(gu) if s < first_reach))
+
+    # A7-B-3: the clause fires when the two measures disagree. It did not fire, and
+    # the reason given is that the aggregate is sign-unstable too, so check that:
+    # every competitor's range on the aggregate straddles zero at s = 0.
+    def _straddles(cell):
+        lo, hi = cell["range"]
+        return lo < 0 < hi
+    agg0 = legb[0.0]["d"]
+    a7_b3 = (bool(agg0)
+             and all(_straddles(agg0[arm]["log_inv_hhi"]) for arm in agg0)
+             and _straddles(dk0))
+
+    # A7-B-4: the trigger the section registered. The aggregate has more room than
+    # the band and the production-layer axis does not, which is what makes the
+    # substitution fire; the band is named here rather than left in the prose.
+    ROOM_BAND = 1.5
+    a7_b4 = room_max > ROOM_BAND >= room_max_prod
+
     criteria = [
-        {"name": "A7-A-1", "passed": True, "detail":
+        {"name": "A7-A-1", "passed": a7_a1, "detail":
          f"reach: peripheral-tercile participation is 0.0 at every seed through "
          f"s = 0.7 and first strictly positive at s = {first_reach}, where the "
          f"graph carries {gu[first_reach]['graph']['edges']:.0f} of 39800 edges "
@@ -760,16 +786,17 @@ def write_verdicts() -> Path:
          "not adjudicable as registered: the noise floor the clause conditions "
          "on was never given a numeric form. Against A7-B-1's standard E fails "
          "too, at 17/20 rather than 20/20; docs section 13.2"},
-        {"name": "A7-B-3", "passed": True, "detail":
+        {"name": "A7-B-3", "passed": a7_b3, "detail":
          "the two-measure disagreement clause did not fire. On the aggregate "
          "log(1/HHI) both competitors are also sign-unstable and near zero, so "
          "the measures agree and what they agree on is that nothing is "
          "readable; docs section 13.3"},
-        {"name": "A7-B-4", "passed": True, "detail":
+        {"name": "A7-B-4", "passed": a7_b4, "detail":
          f"both probes ran before anything was scored and the section 5.3 "
          f"trigger was decided on them alone. Room relative to s = 0, largest "
          f"over the grid: aggregate log(1/HHI) {room_max:.2f} against a "
-         f"registered band of 1.5, production-layer-only {room_max_prod:.2f}. "
+         f"registered band of {ROOM_BAND}, production-layer-only "
+         f"{room_max_prod:.2f}. "
          f"The substitution registered with the band fires and leg B proceeds "
          f"on one axis; docs sections 12.2 and 12.3"},
         {"name": "A7-B-5", "passed": False, "void": True, "detail":

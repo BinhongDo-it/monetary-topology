@@ -1,0 +1,696 @@
+{
+  "config": {
+    "atom_rule": "four digits, all numeric, not starting 00",
+    "break_month": 9,
+    "per_hog": {
+      "feet": 4,
+      "hearts": 1,
+      "tongues": 1
+    },
+    "source": "b35_census_raw_020630-020649_bycountry.json"
+  },
+  "criteria": [
+    {
+      "detail": "atoms sum to the world total row on all 84 commodity-months, worst relative difference 0.000e+00; 1153 of 2296 rows are aggregates (20 distinct labels)",
+      "kind": "instrument",
+      "name": "B35-TA-1",
+      "passed": true
+    },
+    {
+      "detail": "among the 11 month on month steps of 2022, August to September is rank 1 in the China leg tongue unit value (log step -0.655 against a next largest of 0.318) and rank 9 in the whole leg's tonnage (log step -0.080, while the leg's largest step is +0.206); the leg climbs all year with no September event, and what breaks in September is the mix",
+      "kind": "own_reading",
+      "name": "B35-TA-10",
+      "passed": true
+    },
+    {
+      "detail": "summing every returned row inflates the tongue tonnage by 6.058x over the atom sum, so this file is one where the wildcard trap changes the answer rather than one where the filter is decoration",
+      "kind": "known_answer",
+      "name": "B35-TA-2",
+      "passed": true
+    },
+    {
+      "detail": "tongues 1744 -> 4323 t/mo across all countries (2.48x), while the non China leg goes 1435 -> 1328 t/mo (0.93x); the China leg carries 1.041 of the increment",
+      "kind": "own_reading",
+      "name": "B35-TA-3",
+      "passed": true
+    },
+    {
+      "detail": "tongues gain 2578.7 t/mo while head meat loses 2204.2 t/mo (0.85 of the gain); the increment prices at $1.173/kg against head meat's $1.223 and old tongue's $2.885, so it looks like the source and not like the destination",
+      "kind": "own_reading",
+      "name": "B35-TA-4",
+      "passed": true
+    },
+    {
+      "detail": "one tongue, one heart and four feet per hog, so these ratios are locked at the animal; tongue over foot moves 1.75x while the heart over foot control moves 0.90x (log sizes 0.560 against 0.103); on the China leg tongue over heart goes 2.18 -> 36.63",
+      "kind": "known_answer",
+      "name": "B35-TA-5",
+      "passed": true
+    },
+    {
+      "detail": "the step against spike test is named and all 3 of its outcomes carry distinct readings written before it runs, so no branch can arrive without one; the test itself is not run in this record",
+      "kind": "bookkeeping",
+      "name": "B35-TA-6",
+      "passed": true
+    },
+    {
+      "detail": "on the China leg the tongue unit value ranges do not overlap (3.212-3.764 against 1.419-1.950), while head meat's own price ranges do overlap and so do the ranges of the two codes taken together (1.211-1.627 against 1.418-1.802); the pair is continuous where each member is not",
+      "kind": "known_answer",
+      "name": "B35-TA-7",
+      "passed": true
+    },
+    {
+      "detail": "with the two pre break China leg prices as endpoints ($3.3838 and $1.2189), the share of the tongue line that prices like head meat runs -0.176 to +0.079 before the break and 0.662 to 0.907 after; the implied real tongue flow after the break is 386-609 t/mo, inside the observed pre break range 79-699, so the tongue flow itself never moved",
+      "kind": "own_reading",
+      "name": "B35-TA-8",
+      "passed": true
+    },
+    {
+      "detail": "sweeping the second endpoint from $0.90 to $1.60/kg, the mean share of the post break tongue line that is not tongue stays between 0.705 and 0.982, so the majority reading does not depend on which value inside that band is used",
+      "kind": "instrument",
+      "name": "B35-TA-9",
+      "passed": true
+    }
+  ],
+  "report": {
+    "aggregate_labels": [
+      [
+        "-",
+        "TOTAL FOR ALL COUNTRIES"
+      ],
+      [
+        "0003",
+        "EUROPEAN UNION"
+      ],
+      [
+        "0014",
+        "PACIFIC RIM COUNTRIES"
+      ],
+      [
+        "0017",
+        "CAFTA-DR"
+      ],
+      [
+        "0020",
+        "USMCA (NAFTA)"
+      ],
+      [
+        "0021",
+        "TWENTY LATIN AMERICAN REPUBLICS"
+      ],
+      [
+        "0022",
+        "OECD"
+      ],
+      [
+        "0023",
+        "NATO"
+      ],
+      [
+        "0024",
+        "LAFTA"
+      ],
+      [
+        "0025",
+        "EURO AREA"
+      ],
+      [
+        "0026",
+        "APEC"
+      ],
+      [
+        "0027",
+        "ASEAN"
+      ],
+      [
+        "0028",
+        "CACM"
+      ],
+      [
+        "1XXX",
+        "NORTH AMERICA"
+      ],
+      [
+        "2XXX",
+        "CENTRAL AMERICA"
+      ],
+      [
+        "3XXX",
+        "SOUTH AMERICA"
+      ],
+      [
+        "4XXX",
+        "EUROPE"
+      ],
+      [
+        "5XXX",
+        "ASIA"
+      ],
+      [
+        "6XXX",
+        "AUSTRALIA AND OCEANIA"
+      ],
+      [
+        "7XXX",
+        "AFRICA"
+      ]
+    ],
+    "anatomical_ratios": {
+      "atoms": {
+        "heart_per_foot": {
+          "logmove": 0.10315324486265255,
+          "mult": 0.9019887377495985,
+          "post": 0.009834734181593975,
+          "pre": 0.01090338911118888
+        },
+        "tongue_per_foot": {
+          "logmove": 0.560492050996555,
+          "mult": 1.751534132410599,
+          "post": 0.17666577338357517,
+          "pre": 0.10086344885579468
+        },
+        "tongue_per_heart": {
+          "logmove": 0.6636452958592075,
+          "mult": 1.9418580954575544,
+          "post": 17.963451794580365,
+          "pre": 9.25065113491091
+        }
+      },
+      "china": {
+        "heart_per_foot": {
+          "logmove": 0.9185855422507682,
+          "mult": 0.39908312827509457,
+          "post": 0.003445430052554214,
+          "pre": 0.008633364350545089
+        },
+        "tongue_per_foot": {
+          "logmove": 1.9036897319083794,
+          "mult": 6.710609167655318,
+          "post": 0.1262095409847176,
+          "pre": 0.018807464096261044
+        },
+        "tongue_per_heart": {
+          "logmove": 2.8222752741591477,
+          "mult": 16.815066065708457,
+          "post": 36.63099788984373,
+          "pre": 2.178462918117615
+        }
+      },
+      "nonchina": {
+        "heart_per_foot": {
+          "logmove": 1.3673408732561545,
+          "mult": 3.9249000002093988,
+          "post": 0.21429539624351598,
+          "pre": 0.054598944236052646
+        },
+        "tongue_per_foot": {
+          "logmove": 0.06393084694283989,
+          "mult": 1.0660186777619614,
+          "post": 1.7912883477782364,
+          "pre": 1.6803536233895384
+        },
+        "tongue_per_heart": {
+          "logmove": 1.3034100263133146,
+          "mult": 0.2716040351869061,
+          "post": 8.3589679441489,
+          "pre": 30.77630248901354
+        }
+      }
+    },
+    "break_location": {
+      "aug_to_sep_rank_in_leg_total": 8,
+      "aug_to_sep_rank_in_tongue_uv": 0,
+      "leg_month_on_month_log": [
+        -0.0814,
+        0.0862,
+        -0.0126,
+        0.1804,
+        0.0989,
+        0.1056,
+        0.2064,
+        -0.0805,
+        0.1395,
+        -0.0888,
+        0.0486
+      ],
+      "leg_total_t_per_mo": [
+        18295.3,
+        16864.4,
+        18382.4,
+        18151.4,
+        21739.9,
+        23999.9,
+        26673.0,
+        32788.3,
+        30253.6,
+        34784.0,
+        31829.3,
+        33414.8
+      ],
+      "n_steps": 11,
+      "tongue_uv_china": [
+        3.7643,
+        3.5348,
+        3.3354,
+        3.6248,
+        3.3068,
+        3.377,
+        3.2124,
+        3.2923,
+        1.71,
+        1.4486,
+        1.9501,
+        1.4192
+      ],
+      "tongue_uv_month_on_month_log": [
+        -0.0629,
+        -0.0581,
+        0.0832,
+        -0.0918,
+        0.021,
+        -0.05,
+        0.0246,
+        -0.6551,
+        -0.1659,
+        0.2973,
+        -0.3178
+      ]
+    },
+    "continuity": {
+      "head_meat_china": {
+        "monthly_t": [
+          1806.8,
+          1921.9,
+          2492.6,
+          2976.1,
+          2901.8,
+          3407.8,
+          4071.1,
+          3541.8,
+          2380.9,
+          121.6,
+          376.2,
+          24.4
+        ],
+        "monthly_uv": [
+          1.1427,
+          1.1154,
+          1.1807,
+          1.1287,
+          1.1803,
+          1.3185,
+          1.266,
+          1.2985,
+          1.3456,
+          1.0913,
+          1.0913,
+          1.2011
+        ],
+        "uv_overlap": true,
+        "uv_post_range": [
+          1.0912627907741914,
+          1.3456290200776022
+        ],
+        "uv_pre_range": [
+          1.115448974303741,
+          1.3184960188181052
+        ]
+      },
+      "tongues_china": {
+        "monthly_t": [
+          198.6,
+          78.9,
+          171.0,
+          316.5,
+          376.3,
+          278.2,
+          354.7,
+          698.7,
+          1745.5,
+          4259.5,
+          1804.5,
+          4168.5
+        ],
+        "monthly_uv": [
+          3.7643,
+          3.5348,
+          3.3354,
+          3.6248,
+          3.3068,
+          3.377,
+          3.2124,
+          3.2923,
+          1.71,
+          1.4486,
+          1.9501,
+          1.4192
+        ],
+        "uv_overlap": false,
+        "uv_post_range": [
+          1.4191850845528693,
+          1.9501351652407537
+        ],
+        "uv_pre_range": [
+          3.2124044730974255,
+          3.764312290117459
+        ]
+      },
+      "union_china": {
+        "monthly_t": [
+          2005.4,
+          2000.8,
+          2663.5,
+          3292.6,
+          3278.1,
+          3685.9,
+          4425.9,
+          4240.5,
+          4126.4,
+          4381.1,
+          2180.7,
+          4192.8
+        ],
+        "monthly_uv": [
+          1.4023,
+          1.2108,
+          1.319,
+          1.3687,
+          1.4244,
+          1.4738,
+          1.422,
+          1.627,
+          1.4998,
+          1.4387,
+          1.802,
+          1.4179
+        ],
+        "uv_overlap": true,
+        "uv_post_range": [
+          1.4179176135225329,
+          1.8019663816605562
+        ],
+        "uv_pre_range": [
+          1.2108460290502927,
+          1.627009953403629
+        ]
+      },
+      "union_nonchina_note": {
+        "monthly_t": [
+          3546.6,
+          3605.2,
+          4163.2,
+          4565.6,
+          5049.3,
+          5341.3,
+          6015.6,
+          5820.0,
+          5204.5,
+          5905.8,
+          3563.6,
+          5877.5
+        ],
+        "monthly_uv": [
+          1.958,
+          1.8647,
+          1.738,
+          1.7423,
+          1.8153,
+          1.8815,
+          1.7767,
+          1.8961,
+          1.7549,
+          1.7529,
+          1.9756,
+          1.6945
+        ],
+        "uv_overlap": true,
+        "uv_post_range": [
+          1.694506796172998,
+          1.9755837133835676
+        ],
+        "uv_pre_range": [
+          1.738043526822709,
+          1.9579701449107003
+        ]
+      }
+    },
+    "headmeat_loss_kg_per_mo": -2204246.0,
+    "headmeat_uv_pre": 1.2229920625635617,
+    "increment_closer_to": "head meat",
+    "increment_unit_value": 1.1731397021406091,
+    "legs": {
+      "head meat": {
+        "atoms_mult": 0.26998602149442585,
+        "atoms_post_t": 815.21125,
+        "atoms_pre_t": 3019.45725,
+        "atoms_uv_post": 1.3057278098161673,
+        "atoms_uv_pre": 1.2229920625635617,
+        "china_mult": 0.2511256544366745,
+        "china_post_t": 725.7495,
+        "china_pre_t": 2889.9855,
+        "nonchina_monthly_t": [
+          127.6,
+          68.7,
+          142.0,
+          93.1,
+          152.8,
+          132.5,
+          110.5,
+          208.6,
+          11.9,
+          94.9,
+          204.1,
+          47.0
+        ],
+        "nonchina_post_t": 89.46175,
+        "nonchina_pre_t": 129.47175
+      },
+      "tongues": {
+        "atoms_mult": 2.4787025382689998,
+        "atoms_post_t": 4322.62175,
+        "atoms_pre_t": 1743.905,
+        "atoms_uv_post": 1.863903312844803,
+        "atoms_uv_pre": 2.8853372173369536,
+        "china_mult": 9.68722666654805,
+        "china_post_t": 2994.4925,
+        "china_pre_t": 309.117625,
+        "nonchina_monthly_t": [
+          1413.6,
+          1535.7,
+          1357.7,
+          1179.9,
+          1618.4,
+          1522.8,
+          1479.2,
+          1370.9,
+          1066.2,
+          1429.8,
+          1178.8,
+          1637.7
+        ],
+        "nonchina_post_t": 1328.12925,
+        "nonchina_pre_t": 1434.787375
+      }
+    },
+    "mass_balance_ratio": 0.8547840704102145,
+    "mixture": {
+      "headmeat_loss_t_per_mo": 2164.236,
+      "implied_tongue_post_range_t": [
+        385.58239926281976,
+        609.4751262650265
+      ],
+      "mixed_in_t_per_mo": 2533.742177774906,
+      "mixed_over_loss": 1.170732848808959,
+      "observed_tongue_pre_range_t": [
+        78.892,
+        698.69
+      ],
+      "other_share_post_range": [
+        0.6622392284746851,
+        0.9074999695899898
+      ],
+      "other_share_pre_range": [
+        -0.17578009263594138,
+        0.07916161498051273
+      ],
+      "p_headmeat_pre_china": 1.2189373874021168,
+      "p_tongue_pre_china": 3.383776644893671,
+      "post": [
+        {
+          "implied_other_t": 1349.5491086469149,
+          "implied_tongue_t": 395.9658913530852,
+          "month": 9,
+          "other_share": 0.7731523983734971,
+          "t": 1745.515,
+          "uv": 1.710025980870975
+        },
+        {
+          "implied_other_t": 3807.562127980555,
+          "implied_tongue_t": 451.977872019445,
+          "month": 10,
+          "other_share": 0.8938904501379386,
+          "t": 4259.54,
+          "uv": 1.4486475065382647
+        },
+        {
+          "implied_other_t": 1194.9828737349733,
+          "implied_tongue_t": 609.4751262650265,
+          "month": 11,
+          "other_share": 0.6622392284746851,
+          "t": 1804.458,
+          "uv": 1.9501351652407537
+        },
+        {
+          "implied_other_t": 3782.87460073718,
+          "implied_tongue_t": 385.58239926281976,
+          "month": 12,
+          "other_share": 0.9074999695899898,
+          "t": 4168.457,
+          "uv": 1.4191850845528693
+        }
+      ],
+      "pre": [
+        {
+          "implied_other_t": -34.913969339628586,
+          "implied_tongue_t": 233.5369693396286,
+          "month": 1,
+          "other_share": -0.17578009263594138,
+          "t": 198.623,
+          "uv": 3.764312290117459
+        },
+        {
+          "implied_other_t": -5.505301555210288,
+          "implied_tongue_t": 84.39730155521029,
+          "month": 2,
+          "other_share": -0.06978276067548406,
+          "t": 78.892,
+          "uv": 3.5348451047000964
+        },
+        {
+          "implied_other_t": 3.819146829980804,
+          "implied_tongue_t": 167.1418531700192,
+          "month": 3,
+          "other_share": 0.022339286913277318,
+          "t": 170.961,
+          "uv": 3.335415679599441
+        },
+        {
+          "implied_other_t": -35.24495138602267,
+          "implied_tongue_t": 351.7919513860227,
+          "month": 4,
+          "other_share": -0.11134192200849376,
+          "t": 316.547,
+          "uv": 3.624814008662221
+        },
+        {
+          "implied_other_t": 13.37821068064426,
+          "implied_tongue_t": 362.93878931935575,
+          "month": 5,
+          "other_share": 0.03555037556274168,
+          "t": 376.317,
+          "uv": 3.3068157962568794
+        },
+        {
+          "implied_other_t": 0.8658295299737365,
+          "implied_tongue_t": 277.3021704700263,
+          "month": 6,
+          "other_share": 0.0031126137081682165,
+          "t": 278.168,
+          "uv": 3.377038336544822
+        },
+        {
+          "implied_other_t": 28.08202878303203,
+          "implied_tongue_t": 326.660971216968,
+          "month": 7,
+          "other_share": 0.07916161498051273,
+          "t": 354.743,
+          "uv": 3.2124044730974255
+        },
+        {
+          "implied_other_t": 29.519006457230308,
+          "implied_tongue_t": 669.1709935427697,
+          "month": 8,
+          "other_share": 0.04224907535134367,
+          "t": 698.69,
+          "uv": 3.2923141879803635
+        }
+      ]
+    },
+    "mixture_sweep": [
+      {
+        "other_share_mean": 0.7052881402175951,
+        "other_share_min": 0.5772022547197638,
+        "p_head": 0.9
+      },
+      {
+        "other_share_mean": 0.7348751462707169,
+        "other_share_min": 0.6014160272624305,
+        "p_head": 1.0
+      },
+      {
+        "other_share_mean": 0.7670532118409132,
+        "other_share_min": 0.6277503024905771,
+        "p_head": 1.1
+      },
+      {
+        "other_share_mean": 0.80217828809972,
+        "other_share_min": 0.6564963880373039,
+        "p_head": 1.2000000000000002
+      },
+      {
+        "other_share_mean": 0.8406746543041053,
+        "other_share_min": 0.6880015107022528,
+        "p_head": 1.3
+      },
+      {
+        "other_share_mean": 0.8830521395148541,
+        "other_share_min": 0.7226829105701863,
+        "p_head": 1.4
+      },
+      {
+        "other_share_mean": 0.9299288295889419,
+        "other_share_min": 0.7610464242345666,
+        "p_head": 1.5
+      },
+      {
+        "other_share_mean": 0.9820614120090001,
+        "other_share_min": 0.803711318766804,
+        "p_head": 1.6
+      }
+    ],
+    "per_hog": {
+      "feet": 4,
+      "hearts": 1,
+      "tongues": 1
+    },
+    "rows_aggregate": 1153,
+    "rows_atom": 1143,
+    "rows_total": 2296,
+    "step_vs_spike": {
+      "branches": {
+        "neither": {
+          "pattern": "2021 and 2023 differ from each other and from both halves of 2022",
+          "reading": "undecided at this resolution: the series has more moving parts than one break, and the arm waits"
+        },
+        "spike": {
+          "pattern": "2021 and 2023 both look like 2022 January to August",
+          "reading": "a demand episode inside one good: the code kept carrying the same thing and the arm may use the whole of 2022 with the episode named"
+        },
+        "step": {
+          "pattern": "2021 looks like 2022 January to August, and 2023 looks like 2022 September to December",
+          "reading": "a boundary move: the contents of 0206490010 changed in September 2022 and stayed changed, which is what the D23 gate already ruled on the China leg and which confines the three anchor arm to Jan-Aug for 2022 and to whole years elsewhere"
+        }
+      },
+      "needs": "US Census intltrade exports, HS10 0206490010 and 0206490040, CTY_CODE=*, months 2021-01..2021-12 and 2023-01..2023-12",
+      "status": "registered, not run",
+      "why_not_run_here": "api.census.gov is outside the egress allowlist of both shells available to this session; the 2022 cache was fetched on the machine that owns data/b35/ and the same fetcher resumes there"
+    },
+    "sumcheck_cells": 84,
+    "sumcheck_worst_rel_diff": 0.0,
+    "tongue_gain_kg_per_mo": 2578716.7500000005,
+    "tongue_naive_over_atom": 6.057558949926167,
+    "tongue_nonchina_mult": 0.925662765885433,
+    "tongue_rise_share_on_china": 1.0413609307807845,
+    "tongue_uv_pre": 2.8853372173369536
+  },
+  "stage": "B35-TA"
+}

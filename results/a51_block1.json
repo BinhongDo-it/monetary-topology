@@ -1,0 +1,294 @@
+{
+ "config": {
+  "R0": 1.16,
+  "asset": {
+   "base_terms": [
+    1.0,
+    1.0,
+    1.05,
+    1.15
+   ],
+   "initial_price": [
+    0.5,
+    0.5,
+    1.0,
+    2.0
+   ],
+   "residual_owner": true,
+   "tiers": 4,
+   "units": [
+    54,
+    6,
+    30,
+    10
+   ],
+   "units_at_share_0.3": [
+    42,
+    18,
+    30,
+    10
+   ],
+   "units_per_node": 1.1
+  },
+  "core_share": [
+   0.1,
+   0.3
+  ],
+  "g": [
+   0.0,
+   0.005
+  ],
+  "s": [
+   0.027,
+   0.083
+  ],
+  "tau_o": 0.02
+ },
+ "criteria": [
+  {
+   "detail": "switches off: A49/A48 rows and previews reproduce",
+   "kind": "instrument",
+   "name": "A51-1",
+   "passed": true
+  },
+  {
+   "detail": "core never built, priced by the premium, one unit per renter, cheapest affordable choice, 16 arms",
+   "kind": "instrument",
+   "name": "A51-2",
+   "passed": true
+  },
+  {
+   "detail": "s near zero, g zero, market rent (listed): the old matching field for field",
+   "kind": "known_answer",
+   "name": "A51-3",
+   "passed": true
+  }
+ ],
+ "preview_seed0": {
+  "listed 0.271 | g 0.0 | core share 0.1 | s 0.027": {
+   "core_households_end": 0.0769,
+   "core_rental_slots_end": 12,
+   "core_tenants_last50": 0.0,
+   "employed_share_of_core_tenants": null,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 15,
+   "prod_share": 0.1959,
+   "seconds": 0.61,
+   "structure_ok": true,
+   "top_decile": 0.8041
+  },
+  "listed 0.271 | g 0.0 | core share 0.1 | s 0.083": {
+   "core_households_end": 0.0769,
+   "core_rental_slots_end": 12,
+   "core_tenants_last50": 11.88,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4645,
+   "location_rent_collected_per_round": 0.0475,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 16,
+   "prod_share": 0.1947,
+   "seconds": 0.59,
+   "structure_ok": true,
+   "top_decile": 0.8053
+  },
+  "listed 0.271 | g 0.0 | core share 0.3 | s 0.027": {
+   "core_households_end": 0.075,
+   "core_rental_slots_end": 37,
+   "core_tenants_last50": 0.0,
+   "employed_share_of_core_tenants": null,
+   "employed_share_of_renters_end": 0.4575,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 34,
+   "prod_share": 0.1973,
+   "seconds": 0.61,
+   "structure_ok": true,
+   "top_decile": 0.8027
+  },
+  "listed 0.271 | g 0.0 | core share 0.3 | s 0.083": {
+   "core_households_end": 0.075,
+   "core_rental_slots_end": 37,
+   "core_tenants_last50": 37.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4575,
+   "location_rent_collected_per_round": 0.148,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 34,
+   "prod_share": 0.1969,
+   "seconds": 0.6,
+   "structure_ok": true,
+   "top_decile": 0.8031
+  },
+  "listed 0.271 | g 0.005 | core share 0.1 | s 0.027": {
+   "core_households_end": 0.0769,
+   "core_rental_slots_end": 12,
+   "core_tenants_last50": 0.0,
+   "employed_share_of_core_tenants": null,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 17,
+   "prod_share": 0.1895,
+   "seconds": 0.6,
+   "structure_ok": true,
+   "top_decile": 0.8105
+  },
+  "listed 0.271 | g 0.005 | core share 0.1 | s 0.083": {
+   "core_households_end": 0.0769,
+   "core_rental_slots_end": 12,
+   "core_tenants_last50": 0.0,
+   "employed_share_of_core_tenants": null,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 17,
+   "prod_share": 0.1895,
+   "seconds": 0.6,
+   "structure_ok": true,
+   "top_decile": 0.8105
+  },
+  "listed 0.271 | g 0.005 | core share 0.3 | s 0.027": {
+   "core_households_end": 0.05,
+   "core_rental_slots_end": 38,
+   "core_tenants_last50": 0.0,
+   "employed_share_of_core_tenants": null,
+   "employed_share_of_renters_end": 0.4605,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 33,
+   "prod_share": 0.1718,
+   "seconds": 0.6,
+   "structure_ok": true,
+   "top_decile": 0.8282
+  },
+  "listed 0.271 | g 0.005 | core share 0.3 | s 0.083": {
+   "core_households_end": 0.05,
+   "core_rental_slots_end": 38,
+   "core_tenants_last50": 0.0,
+   "employed_share_of_core_tenants": null,
+   "employed_share_of_renters_end": 0.4605,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0,
+   "locks": 33,
+   "prod_share": 0.1718,
+   "seconds": 0.61,
+   "structure_ok": true,
+   "top_decile": 0.8282
+  },
+  "public | g 0.0 | core share 0.1 | s 0.027": {
+   "core_households_end": 0.0769,
+   "core_rental_slots_end": 12,
+   "core_tenants_last50": 11.48,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0459,
+   "locks": 24,
+   "prod_share": 0.4189,
+   "seconds": 0.59,
+   "structure_ok": true,
+   "top_decile": 0.5896
+  },
+  "public | g 0.0 | core share 0.1 | s 0.083": {
+   "core_households_end": 0.0769,
+   "core_rental_slots_end": 12,
+   "core_tenants_last50": 11.48,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.0459,
+   "locks": 24,
+   "prod_share": 0.4189,
+   "seconds": 0.58,
+   "structure_ok": true,
+   "top_decile": 0.5896
+  },
+  "public | g 0.0 | core share 0.3 | s 0.027": {
+   "core_households_end": 0.025,
+   "core_rental_slots_end": 39,
+   "core_tenants_last50": 39.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4605,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.156,
+   "locks": 34,
+   "prod_share": 0.4211,
+   "seconds": 0.61,
+   "structure_ok": true,
+   "top_decile": 0.5869
+  },
+  "public | g 0.0 | core share 0.3 | s 0.083": {
+   "core_households_end": 0.025,
+   "core_rental_slots_end": 39,
+   "core_tenants_last50": 39.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4605,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 0.156,
+   "locks": 34,
+   "prod_share": 0.4211,
+   "seconds": 0.64,
+   "structure_ok": true,
+   "top_decile": 0.5869
+  },
+  "public | g 0.005 | core share 0.1 | s 0.027": {
+   "core_households_end": 0.0,
+   "core_rental_slots_end": 13,
+   "core_tenants_last50": 13.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 1.1537,
+   "locks": 18,
+   "prod_share": 0.4188,
+   "seconds": 0.57,
+   "structure_ok": true,
+   "top_decile": 0.5901
+  },
+  "public | g 0.005 | core share 0.1 | s 0.083": {
+   "core_households_end": 0.0,
+   "core_rental_slots_end": 13,
+   "core_tenants_last50": 13.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4675,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 1.1537,
+   "locks": 18,
+   "prod_share": 0.4188,
+   "seconds": 0.57,
+   "structure_ok": true,
+   "top_decile": 0.5901
+  },
+  "public | g 0.005 | core share 0.3 | s 0.027": {
+   "core_households_end": 0.0,
+   "core_rental_slots_end": 40,
+   "core_tenants_last50": 40.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4636,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 3.5499,
+   "locks": 28,
+   "prod_share": 0.4241,
+   "seconds": 0.59,
+   "structure_ok": true,
+   "top_decile": 0.584
+  },
+  "public | g 0.005 | core share 0.3 | s 0.083": {
+   "core_households_end": 0.0,
+   "core_rental_slots_end": 40,
+   "core_tenants_last50": 40.0,
+   "employed_share_of_core_tenants": 1.0,
+   "employed_share_of_renters_end": 0.4636,
+   "location_rent_collected_per_round": 0.0,
+   "location_rent_left_with_tenants_per_round": 3.5499,
+   "locks": 28,
+   "prod_share": 0.4241,
+   "seconds": 0.6,
+   "structure_ok": true,
+   "top_decile": 0.584
+  }
+ },
+ "stage": "A51-block1"
+}

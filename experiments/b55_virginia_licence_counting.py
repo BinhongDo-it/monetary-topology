@@ -150,7 +150,20 @@ RESIDENCY_PAIRS = [
  ("hunt, youth combination under 16", 1500, 3000),
  ("hunt, partially disabled veteran, annual", 1100, 5500),
  ("hunt, infant lifetime", 13000, 27500),
+ # The lifetime ladders, all three of them, added 2026-09-13. The schedule prices
+ # a resident lifetime licence by the age it is bought at and prices the
+ # non-resident one at a single figure with no age band, so every rung of the
+ # resident ladder stands against that same figure. Only the first rung was here,
+ # and B57's pairing self-test could not see the omission because it reads this
+ # list rather than the schedule: it reproduced the count of what was written down
+ # and never asked what was left out. B57-3b now walks the fee rows and names
+ # every one no pair uses, which is how these were found.
  ("hunt, lifetime through 44", 26500, 58000),
+ ("hunt, lifetime 45-50", 21500, 58000),
+ ("hunt, lifetime 51-55", 16500, 58000),
+ ("hunt, lifetime 56-60", 11500, 58000),
+ ("hunt, lifetime 61-64", 6500, 58000),
+ ("hunt, lifetime 65+", 2500, 58000),
  ("deer and turkey, 16+", 2200, 8500),
  ("deer and turkey, 12-15", 750, 1500),
  ("bear", 2000, 15000),
@@ -168,9 +181,26 @@ RESIDENCY_PAIRS = [
  ("freshwater and saltwater fish, five consecutive days", 2300, 3000),
  ("fishing, partially disabled veteran", 1100, 2300),
  ("fish, infant lifetime", 13000, 27500),
- ("fish, special lifetime freshwater", 26500, 58000),
- ("fish, special lifetime stocked trout", 26500, 58000),
+ ("fish, special lifetime freshwater, through 44", 26500, 58000),
+ ("fish, special lifetime freshwater, 45-50", 21500, 58000),
+ ("fish, special lifetime freshwater, 51-55", 16500, 58000),
+ ("fish, special lifetime freshwater, 56-60", 11500, 58000),
+ ("fish, special lifetime freshwater, 61-64", 6500, 58000),
+ ("fish, special lifetime freshwater, 65+", 2500, 58000),
+ ("fish, special lifetime stocked trout, through 44", 26500, 58000),
+ ("fish, special lifetime stocked trout, 45-50", 21500, 58000),
+ ("fish, special lifetime stocked trout, 51-55", 16500, 58000),
+ ("fish, special lifetime stocked trout, 56-60", 11500, 58000),
+ ("fish, special lifetime stocked trout, 61-64", 6500, 58000),
+ ("fish, special lifetime stocked trout, 65+", 2500, 58000),
 ]
+
+#: What stays unpaired, and it is not an oversight: a resident row here has no
+#: non-resident counterpart in the schedule at all. The multi-year licences, the
+#: senior annual, the sportsman combination and the junior lifetime exist only on
+#: the resident side; the non-resident youth-under-12 rows, the two annual
+#: licences for totally and permanently disabled veterans and the one-day
+#: freshwater licence exist only on the other. B57-3b prints them every run.
 
 
 def main():

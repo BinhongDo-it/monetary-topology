@@ -1,0 +1,145 @@
+{
+ "config": {
+  "corn_input": [
+   0.05,
+   0.45
+  ],
+  "efficiency_profiles": {
+   "constant": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "declining": [
+    1.2,
+    1.1,
+    1.0,
+    0.9,
+    0.8
+   ],
+   "rising": [
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2
+   ],
+   "running_in": [
+    0.3,
+    1.0,
+    1.1,
+    1.2,
+    1.4
+   ]
+  },
+  "labour_input": [
+   0.1,
+   0.9
+  ],
+  "linear_floor": 1e-06,
+  "machine_params": {
+   "a": 0.2,
+   "c": 0.5,
+   "l0": 0.3,
+   "l1": 0.1
+  },
+  "machine_periods": 5,
+  "n_systems": 400,
+  "rates": [
+   0.0,
+   0.05,
+   0.15,
+   0.3
+  ],
+  "seed": 0,
+  "tol": 1e-12,
+  "tol_cycle": 1e-10,
+  "yield_range": [
+   0.8,
+   2.0
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "210 drawn pairs of methods on one acre, at rates in 0, 0.05, 0.15, 0.3, kept when the wage comes out positive. **Sraffa's condition of section 87, that the method producing more corn per acre should show the higher cost per unit of product, holds exactly when the rent is positive**, on all 210, and it is not a coincidence but an identity: `rho (1/q1 - 1/q2) = C2/q2 - C1/q1`, checked within 1e-10. The rent is positive on 128 of them. **Bidard's correction is read back as well**: the condition for a non-negative rent is not the condition for the incoming method to be more productive, and the two diverge on 98 of the draws, which is where his survey says the Ricardian dynamics fail",
+   "kind": "known_answer",
+   "name": "B73-5",
+   "passed": true,
+   "statement": "Sraffa's section 87 on intensive rent, and Bidard's correction to it"
+  },
+  {
+   "detail": "A machine lasting 5 periods, read under the efficiency profiles the record lists: constant, declining, mildly rising, and one that runs in. **The graph is the same one every time**, `b1 = 6` under each, because a profile changes weights and no edge. At a zero rate the price falls each period by exactly `q_j - a - w l1`, within 1e-10 under every profile, **so the schedule is straight-line exactly when the profile is constant**: the deviation is 2.5e-16 for the constant profile and 0.1655 and 0.1655 for the declining and the mildly rising ones. **So Corollary 15.1(3) of B70 needs both of its hypotheses**, a zero rate and constant efficiency, and it named the first. **A rising profile is not by itself enough to make the machine's price rise with age**, and the mildly rising one here does not do it. What does it is a period whose output falls below that period's own non-machine cost, since the fall in the price is `q_j - a - w l1` and its sign is the sign of that. The fourth profile has the same total output as the others, so the same wage, with the first period below the line: **its schedule goes [1.8125 2.15   1.7875 1.325  0.7625], rising after the first period**. So the machine's price follows what is left to earn and not what has elapsed",
+   "kind": "instrument",
+   "name": "B73-6a",
+   "passed": true,
+   "statement": "Theorem 18(1): declining efficiency costs nothing in the graph, and straight-line depreciation needs constant efficiency too"
+  },
+  {
+   "detail": "400 drawn graphs of 2 to 5 processes. **Giving the land a second user raises `b1` by exactly one**, on 400 of 400, with `b1` read from the incidence matrix rather than a formula, and **deleting that land vertex lowers it again**, on 400 of 400, so the land really does lie on a cycle rather than hanging off one. The two price equations are then square in the wage and the rent, non-singular on 400 draws, **and no zero-rent condition is used anywhere**: the second method is the second equation. **Reading the added cycle**: charge the two users `rho1` and `rho2` for the same acre and the cycle carries exactly `log(rho2 / rho1)`, within 1e-10, so **it closes exactly when the two rates agree**. One rent per acre is not a bookkeeping convention here: **it is that cycle closing**",
+   "kind": "instrument",
+   "name": "B73-6b",
+   "passed": true,
+   "statement": "Theorem 18(2): intensive rent costs a cycle, and that cycle is the equation"
+  }
+ ],
+ "mapping": {
+  "B73-5": "both read back -> PASS; either not -> FAIL, and the code or the reading of the source is fixed first",
+  "B73-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B73-5": {
+   "agree": 210,
+   "diverge": 98,
+   "identity_ok": 210,
+   "rent_positive": 128,
+   "systems": 210,
+   "within": 1e-10
+  },
+  "B73-6a": {
+   "b1": 6,
+   "periods": 5,
+   "profiles": {
+    "constant": [
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "declining": [
+     1.2,
+     1.1,
+     1.0,
+     0.9,
+     0.8
+    ],
+    "rising": [
+     0.8,
+     0.9,
+     1.0,
+     1.1,
+     1.2
+    ],
+    "running_in": [
+     0.3,
+     1.0,
+     1.1,
+     1.2,
+     1.4
+    ]
+   },
+   "within": 1e-10
+  },
+  "B73-6b": {
+   "b1_lowered_by_deletion": 400,
+   "b1_raised": 400,
+   "closes_at_equal_rates": 320,
+   "non_singular": 400,
+   "systems": 400,
+   "within": 1e-10
+  }
+ },
+ "stage": "B73"
+}

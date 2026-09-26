@@ -6,11 +6,29 @@ carry. That is the counting law's object: a procedure partitions a set and the
 number of values it produces is the number of DISTINCT class values it wrote,
 not the number of classes it drew.
 
-Why this corpus and not another. Every collision the tariff corpus reports is
-bounded above by that survey rounding charges to two decimals, so it is an upper
-bound at the published resolution rather than a count. Tuition is published in
-whole dollars. No rounding turns two different figures into one, so a collision
-here is a collision, and B53-3 checks that premise rather than assuming it.
+Why this corpus and not another, restated 2026-09-13 because the earlier version
+of this paragraph argued against itself. It said the tariff corpus rounds charges
+to two decimals, so its collisions are an upper bound, and then said tuition is
+published in whole dollars, so a collision here is exact. **Whole dollars is the
+coarser rounding of the two.** If two decimals makes a count an upper bound then
+whole dollars makes it a worse one, and nothing about integrality could have
+carried what that sentence asked it to carry.
+
+What the corpus is actually good for is narrower and it is the law's own object.
+**The counting law counts the values a procedure writes down**, and a published
+tuition schedule writes whole dollars: the figure in the schedule is the price the
+class is charged, not a rounded report of some finer price the class is charged.
+So a schedule that writes one figure against two of its three classes has written
+one value for them, and that is the fact being counted, whatever the institution's
+internal components were before it published a number.
+
+What integrality does buy is the comparison. Two figures are equal or they are
+not, with no tolerance to choose and no float to worry about, which is the thing
+the tariff corpus cannot offer. **What it does not buy is any statement about
+components.** IPEDS is reported as whole dollars, so this check cannot fail on
+this corpus, and a check that cannot fail says nothing about the world: it says
+the corpus arrived in the format the comparison needs. B53-3 is registered and
+read as exactly that.
 
 The known answer this file can be caught on. A private institution has no
 in-state and out-of-state distinction, so its three classes must carry one
@@ -293,8 +311,12 @@ def main() -> int:
         },
         "B53-3": {
             "kind": "premise",
-            "name": "the premise that makes these collisions exact rather than "
-                    "an upper bound: every figure is a whole dollar amount",
+            "name": "the premise that makes the COMPARISON exact: every figure "
+                    "is a whole dollar amount, so two of them are equal or they "
+                    "are not, with no tolerance and no float. This says nothing "
+                    "about what the institution summed before it published a "
+                    "number, and it cannot fail on a corpus reported in whole "
+                    "dollars, which is what it is here",
             "passed": len(nonint) == 0,
             "detail": "%d non-integer figures over %d schedules"
                       % (len(nonint), len(full)),

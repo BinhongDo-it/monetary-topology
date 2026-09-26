@@ -1,0 +1,1485 @@
+{
+  "arm": "D23 gate on the swine-tongue three-anchor candidate",
+  "china_leg_by_code": {
+    "0206490010": {
+      "cold_start": false,
+      "died": false,
+      "good": "tongues",
+      "post_kg_per_month": 2994492.5,
+      "post_usd_per_kg": 1.552032356067013,
+      "pre_kg_per_month": 309117.625,
+      "pre_usd_per_kg": 3.383776644893671,
+      "ratio": 9.68722666654805
+    },
+    "0206490020": {
+      "cold_start": false,
+      "died": false,
+      "good": "hearts",
+      "post_kg_per_month": 81747.5,
+      "post_usd_per_kg": 1.388858986513349,
+      "pre_kg_per_month": 141897.125,
+      "pre_usd_per_kg": 1.3524216928285193,
+      "ratio": 0.5761039908313857
+    },
+    "0206490030": {
+      "cold_start": false,
+      "died": false,
+      "good": "feet",
+      "post_kg_per_month": 23726356.0,
+      "post_usd_per_kg": 1.7926010003390322,
+      "pre_kg_per_month": 16435901.375,
+      "pre_usd_per_kg": 2.303369283572377,
+      "ratio": 1.4435688958373298
+    },
+    "0206490040": {
+      "cold_start": false,
+      "died": false,
+      "good": "head meat",
+      "post_kg_per_month": 725749.5,
+      "post_usd_per_kg": 1.3008004139169231,
+      "pre_kg_per_month": 2889985.5,
+      "pre_usd_per_kg": 1.2189373874021168,
+      "ratio": 0.2511256544366745
+    },
+    "0206490050": {
+      "cold_start": true,
+      "died": false,
+      "good": "skins",
+      "post_kg_per_month": 1446962.75,
+      "post_usd_per_kg": 0.7495669809053481,
+      "pre_kg_per_month": 0.0,
+      "pre_usd_per_kg": null,
+      "ratio": null
+    },
+    "0206490090": {
+      "cold_start": false,
+      "died": false,
+      "good": "offal nesoi",
+      "post_kg_per_month": 3595112.75,
+      "post_usd_per_kg": 5.035099594581561,
+      "pre_kg_per_month": 2334921.25,
+      "pre_usd_per_kg": 4.567851485355234,
+      "ratio": 1.5397147762478072
+    }
+  },
+  "config": {
+    "anchors": [
+      "CHINA",
+      "JAPAN",
+      "MEXICO"
+    ],
+    "break_month": 9,
+    "codes": {
+      "0206490010": "tongues",
+      "0206490020": "hearts",
+      "0206490030": "feet",
+      "0206490040": "head meat",
+      "0206490050": "skins",
+      "0206490090": "offal nesoi"
+    },
+    "source_record": "b35_census_raw_020630-020649_bycountry.json"
+  },
+  "criteria": [
+    {
+      "criterion": "print the object: every code, every month, all three anchors",
+      "detail": "3 anchors x 6 codes x 12 months printed whole into the record, no month summarised away.",
+      "kind": "instrument",
+      "name": "B35-D23-1",
+      "passed": true
+    },
+    {
+      "criterion": "the September break is tongue-specific, so the code's contents are unchanged and the anchors keep pricing one thing",
+      "detail": "It is not. On the China leg in the same months: tongues x9.69 in volume with unit value 3.384 -> 1.552; skins **cold start**, zero for eight months then 1,446,963 kg a month; head meat **dies**, 2,889,986 -> 725,750 kg a month. Feet and offal-nesoi stay flat (x1.44 and x1.54).",
+      "kind": "own_reading",
+      "name": "B35-D23-2",
+      "passed": false
+    },
+    {
+      "criterion": "the other two anchors, same code, same split, do not move: a US-side reclassification would hit every leg at once",
+      "detail": "JAPAN: unit value 3.179 -> 3.387 (x1.065), volume x0.68; MEXICO: unit value 2.368 -> 2.260 (x0.954), volume x1.17. So this is a China-leg event, not a code revision.",
+      "kind": "known_answer",
+      "name": "B35-D23-3",
+      "passed": true
+    },
+    {
+      "criterion": "the mixture decomposition names what the new flow prices like, and the quantity is matched against what left another code",
+      "detail": "if the old flow continued at its own pre-break rate, the implied new flow is 10,741,500 kg at **$1.341/kg**. Head meat on the same leg priced $1.219 before the break, 10.0 per cent away, and it lost 8,656,944 kg over the same four months against the 10,741,500 kg tongues gained. Price and quantity both line up.",
+      "kind": "own_reading",
+      "name": "B35-D23-4",
+      "passed": true
+    },
+    {
+      "criterion": "the rule text was chased and the source classes tried are named",
+      "detail": "5 classes: English trade press (hits fell in 2014 and 2025, outside the window); USDA FAS and FSIS (nothing on a September 2022 event); **the industry body's own dated filing, USMEF to USTR, 28 October 2022, which names no 2022 access event for pork offal**; Chinese-language search, which surfaced the plant-reinstatement announcement class; that class's one item, robots-blocked from here. The gate is answered on the data instead. Reading the announcement would confirm the mechanism; it would not change the verdict, which is that the code's contents on this leg changed at the break.",
+      "kind": "bookkeeping",
+      "name": "B35-D23-5",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "This is a pre-opening gate, not a station reading. It decides whether the three-anchor candidate can be opened and over which window.",
+  "mixture": {
+    "head_meat_lost_kg": 8656944.0,
+    "head_meat_pre_usd_per_kg": 1.2189373874021168,
+    "implied_new_kg": 10741499.5,
+    "implied_new_usd_per_kg": 1.3411774585103318,
+    "post_usd_per_kg": 1.552032356067013,
+    "pre_usd_per_kg": 3.383776644893671
+  },
+  "other_legs_same_code": {
+    "JAPAN": {
+      "post_usd_per_kg": 3.3866661679037104,
+      "pre_usd_per_kg": 3.1785268466849694,
+      "unit_value_ratio": 1.0654829520901543,
+      "volume_ratio": 0.6830043607308852
+    },
+    "MEXICO": {
+      "post_usd_per_kg": 2.2595163231164426,
+      "pre_usd_per_kg": 2.3683189593035885,
+      "unit_value_ratio": 0.9540591288349355,
+      "volume_ratio": 1.1689186513847698
+    }
+  },
+  "panel": {
+    "CHINA": {
+      "0206490010": [
+        {
+          "kg": 198623.0,
+          "month": 1,
+          "usd": 747679.0,
+          "usd_per_kg": 3.764312290117459
+        },
+        {
+          "kg": 78892.0,
+          "month": 2,
+          "usd": 278871.0,
+          "usd_per_kg": 3.5348451047000964
+        },
+        {
+          "kg": 170961.0,
+          "month": 3,
+          "usd": 570226.0,
+          "usd_per_kg": 3.335415679599441
+        },
+        {
+          "kg": 316547.0,
+          "month": 4,
+          "usd": 1147424.0,
+          "usd_per_kg": 3.624814008662221
+        },
+        {
+          "kg": 376317.0,
+          "month": 5,
+          "usd": 1244411.0,
+          "usd_per_kg": 3.3068157962568794
+        },
+        {
+          "kg": 278168.0,
+          "month": 6,
+          "usd": 939384.0,
+          "usd_per_kg": 3.377038336544822
+        },
+        {
+          "kg": 354743.0,
+          "month": 7,
+          "usd": 1139578.0,
+          "usd_per_kg": 3.2124044730974255
+        },
+        {
+          "kg": 698690.0,
+          "month": 8,
+          "usd": 2300307.0,
+          "usd_per_kg": 3.2923141879803635
+        },
+        {
+          "kg": 1745515.0,
+          "month": 9,
+          "usd": 2984876.0,
+          "usd_per_kg": 1.710025980870975
+        },
+        {
+          "kg": 4259540.0,
+          "month": 10,
+          "usd": 6170572.0,
+          "usd_per_kg": 1.4486475065382647
+        },
+        {
+          "kg": 1804458.0,
+          "month": 11,
+          "usd": 3518937.0,
+          "usd_per_kg": 1.9501351652407537
+        },
+        {
+          "kg": 4168457.0,
+          "month": 12,
+          "usd": 5915812.0,
+          "usd_per_kg": 1.4191850845528693
+        }
+      ],
+      "0206490020": [
+        {
+          "kg": 275014.0,
+          "month": 1,
+          "usd": 384040.0,
+          "usd_per_kg": 1.3964379995200245
+        },
+        {
+          "kg": 123952.0,
+          "month": 2,
+          "usd": 182851.0,
+          "usd_per_kg": 1.4751758745320769
+        },
+        {
+          "kg": 172711.0,
+          "month": 3,
+          "usd": 257870.0,
+          "usd_per_kg": 1.4930722420691211
+        },
+        {
+          "kg": 72817.0,
+          "month": 4,
+          "usd": 112136.0,
+          "usd_per_kg": 1.5399700619360863
+        },
+        {
+          "kg": 105061.0,
+          "month": 5,
+          "usd": 132920.0,
+          "usd_per_kg": 1.26516975852124
+        },
+        {
+          "kg": 110713.0,
+          "month": 6,
+          "usd": 137487.0,
+          "usd_per_kg": 1.2418324857966092
+        },
+        {
+          "kg": 130438.0,
+          "month": 7,
+          "usd": 160140.0,
+          "usd_per_kg": 1.22770971649366
+        },
+        {
+          "kg": 144471.0,
+          "month": 8,
+          "usd": 167794.0,
+          "usd_per_kg": 1.1614372434606253
+        },
+        {
+          "kg": 69912.0,
+          "month": 9,
+          "usd": 89688.0,
+          "usd_per_kg": 1.2828698935805012
+        },
+        {
+          "kg": 140704.0,
+          "month": 10,
+          "usd": 179668.0,
+          "usd_per_kg": 1.2769217648396634
+        },
+        {
+          "kg": 23154.0,
+          "month": 11,
+          "usd": 28892.0,
+          "usd_per_kg": 1.2478189513690938
+        },
+        {
+          "kg": 93220.0,
+          "month": 12,
+          "usd": 155895.0,
+          "usd_per_kg": 1.6723342630336837
+        }
+      ],
+      "0206490030": [
+        {
+          "kg": 13800607.0,
+          "month": 1,
+          "usd": 36210469.0,
+          "usd_per_kg": 2.623831618420842
+        },
+        {
+          "kg": 12605745.0,
+          "month": 2,
+          "usd": 32568181.0,
+          "usd_per_kg": 2.5835982720577007
+        },
+        {
+          "kg": 13268875.0,
+          "month": 3,
+          "usd": 32820848.0,
+          "usd_per_kg": 2.4735215306497347
+        },
+        {
+          "kg": 12954456.0,
+          "month": 4,
+          "usd": 33698852.0,
+          "usd_per_kg": 2.6013328541159892
+        },
+        {
+          "kg": 15885943.0,
+          "month": 5,
+          "usd": 40210622.0,
+          "usd_per_kg": 2.5312077476294608
+        },
+        {
+          "kg": 18159912.0,
+          "month": 6,
+          "usd": 41675148.0,
+          "usd_per_kg": 2.2948981250569935
+        },
+        {
+          "kg": 19180605.0,
+          "month": 7,
+          "usd": 38219438.0,
+          "usd_per_kg": 1.992608575172681
+        },
+        {
+          "kg": 25631068.0,
+          "month": 8,
+          "usd": 47460045.0,
+          "usd_per_kg": 1.8516608437853623
+        },
+        {
+          "kg": 23602757.0,
+          "month": 9,
+          "usd": 40836386.0,
+          "usd_per_kg": 1.7301532189650557
+        },
+        {
+          "kg": 25166493.0,
+          "month": 10,
+          "usd": 46640620.0,
+          "usd_per_kg": 1.85328245775047
+        },
+        {
+          "kg": 23778952.0,
+          "month": 11,
+          "usd": 41653845.0,
+          "usd_per_kg": 1.7517107145848985
+        },
+        {
+          "kg": 22357222.0,
+          "month": 12,
+          "usd": 40996707.0,
+          "usd_per_kg": 1.8337120327382355
+        }
+      ],
+      "0206490040": [
+        {
+          "kg": 1806813.0,
+          "month": 1,
+          "usd": 2064576.0,
+          "usd_per_kg": 1.1426616921618342
+        },
+        {
+          "kg": 1921914.0,
+          "month": 2,
+          "usd": 2143797.0,
+          "usd_per_kg": 1.115448974303741
+        },
+        {
+          "kg": 2492575.0,
+          "month": 3,
+          "usd": 2942863.0,
+          "usd_per_kg": 1.1806517356548951
+        },
+        {
+          "kg": 2976101.0,
+          "month": 4,
+          "usd": 3359187.0,
+          "usd_per_kg": 1.128720765861105
+        },
+        {
+          "kg": 2901789.0,
+          "month": 5,
+          "usd": 3424965.0,
+          "usd_per_kg": 1.1802942943129222
+        },
+        {
+          "kg": 3407782.0,
+          "month": 6,
+          "usd": 4493147.0,
+          "usd_per_kg": 1.3184960188181052
+        },
+        {
+          "kg": 4071141.0,
+          "month": 7,
+          "usd": 5154194.0,
+          "usd_per_kg": 1.2660318077904942
+        },
+        {
+          "kg": 3541769.0,
+          "month": 8,
+          "usd": 4598962.0,
+          "usd_per_kg": 1.2984929282513908
+        },
+        {
+          "kg": 2380862.0,
+          "month": 9,
+          "usd": 3203757.0,
+          "usd_per_kg": 1.3456290200776022
+        },
+        {
+          "kg": 121572.0,
+          "month": 10,
+          "usd": 132667.0,
+          "usd_per_kg": 1.0912627907741914
+        },
+        {
+          "kg": 376197.0,
+          "month": 11,
+          "usd": 410530.0,
+          "usd_per_kg": 1.0912633540405692
+        },
+        {
+          "kg": 24367.0,
+          "month": 12,
+          "usd": 29267.0,
+          "usd_per_kg": 1.2010916403332377
+        }
+      ],
+      "0206490050": [
+        {
+          "kg": 0,
+          "month": 1,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 2,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 3,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 4,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 5,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 6,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 7,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 8,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 86717.0,
+          "month": 9,
+          "usd": 65000.0,
+          "usd_per_kg": 0.7495646758997659
+        },
+        {
+          "kg": 1283119.0,
+          "month": 10,
+          "usd": 961783.0,
+          "usd_per_kg": 0.7495664860390969
+        },
+        {
+          "kg": 1936065.0,
+          "month": 11,
+          "usd": 1451210.0,
+          "usd_per_kg": 0.7495667759088667
+        },
+        {
+          "kg": 2481950.0,
+          "month": 12,
+          "usd": 1860389.0,
+          "usd_per_kg": 0.7495674771852777
+        }
+      ],
+      "0206490090": [
+        {
+          "kg": 2214255.0,
+          "month": 1,
+          "usd": 9881414.0,
+          "usd_per_kg": 4.462635965595652
+        },
+        {
+          "kg": 2133878.0,
+          "month": 2,
+          "usd": 9305777.0,
+          "usd_per_kg": 4.360969558709542
+        },
+        {
+          "kg": 2277237.0,
+          "month": 3,
+          "usd": 9774471.0,
+          "usd_per_kg": 4.292250213745868
+        },
+        {
+          "kg": 1831520.0,
+          "month": 4,
+          "usd": 8508254.0,
+          "usd_per_kg": 4.6454606010308375
+        },
+        {
+          "kg": 2470793.0,
+          "month": 5,
+          "usd": 11001581.0,
+          "usd_per_kg": 4.452651840927184
+        },
+        {
+          "kg": 2043325.0,
+          "month": 6,
+          "usd": 9296304.0,
+          "usd_per_kg": 4.54959636866382
+        },
+        {
+          "kg": 2936041.0,
+          "month": 7,
+          "usd": 13546494.0,
+          "usd_per_kg": 4.613864043451709
+        },
+        {
+          "kg": 2772321.0,
+          "month": 8,
+          "usd": 14010293.0,
+          "usd_per_kg": 5.053633038886911
+        },
+        {
+          "kg": 2367816.0,
+          "month": 9,
+          "usd": 12177473.0,
+          "usd_per_kg": 5.14291355409373
+        },
+        {
+          "kg": 3812609.0,
+          "month": 10,
+          "usd": 19713083.0,
+          "usd_per_kg": 5.170496895957598
+        },
+        {
+          "kg": 3910435.0,
+          "month": 11,
+          "usd": 19226008.0,
+          "usd_per_kg": 4.916590609484622
+        },
+        {
+          "kg": 4289591.0,
+          "month": 12,
+          "usd": 21290439.0,
+          "usd_per_kg": 4.963279482822488
+        }
+      ]
+    },
+    "JAPAN": {
+      "0206490010": [
+        {
+          "kg": 725373.0,
+          "month": 1,
+          "usd": 2242615.0,
+          "usd_per_kg": 3.091671457305414
+        },
+        {
+          "kg": 836931.0,
+          "month": 2,
+          "usd": 2444786.0,
+          "usd_per_kg": 2.9211320885473233
+        },
+        {
+          "kg": 488253.0,
+          "month": 3,
+          "usd": 1427964.0,
+          "usd_per_kg": 2.9246394799417517
+        },
+        {
+          "kg": 686673.0,
+          "month": 4,
+          "usd": 2123947.0,
+          "usd_per_kg": 3.0930981704537674
+        },
+        {
+          "kg": 566597.0,
+          "month": 5,
+          "usd": 1735608.0,
+          "usd_per_kg": 3.0632142422215436
+        },
+        {
+          "kg": 827498.0,
+          "month": 6,
+          "usd": 2818711.0,
+          "usd_per_kg": 3.4063055137293383
+        },
+        {
+          "kg": 576822.0,
+          "month": 7,
+          "usd": 1975672.0,
+          "usd_per_kg": 3.42509821053982
+        },
+        {
+          "kg": 536616.0,
+          "month": 8,
+          "usd": 1901317.0,
+          "usd_per_kg": 3.5431612177050256
+        },
+        {
+          "kg": 478010.0,
+          "month": 9,
+          "usd": 1637694.0,
+          "usd_per_kg": 3.4260664002845127
+        },
+        {
+          "kg": 516894.0,
+          "month": 10,
+          "usd": 1959900.0,
+          "usd_per_kg": 3.7916864966511508
+        },
+        {
+          "kg": 428827.0,
+          "month": 11,
+          "usd": 1317590.0,
+          "usd_per_kg": 3.0725444060192104
+        },
+        {
+          "kg": 367367.0,
+          "month": 12,
+          "usd": 1150667.0,
+          "usd_per_kg": 3.1322002248432765
+        }
+      ],
+      "0206490020": [
+        {
+          "kg": 0,
+          "month": 1,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 2,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 3,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 4,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 5,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 6,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 7,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 8,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 9,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 10,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 11,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 24040.0,
+          "month": 12,
+          "usd": 34450.0,
+          "usd_per_kg": 1.433028286189684
+        }
+      ],
+      "0206490030": [
+        {
+          "kg": 22684.0,
+          "month": 1,
+          "usd": 102948.0,
+          "usd_per_kg": 4.538353024157997
+        },
+        {
+          "kg": 31144.0,
+          "month": 2,
+          "usd": 102948.0,
+          "usd_per_kg": 3.305548420241459
+        },
+        {
+          "kg": 0.0,
+          "month": 3,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 4,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 5,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 6,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 7,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 8,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 9,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 10,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 11,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 12,
+          "usd": 0.0,
+          "usd_per_kg": null
+        }
+      ],
+      "0206490040": [
+        {
+          "kg": 0,
+          "month": 1,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 2,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 96245.0,
+          "month": 3,
+          "usd": 105028.0,
+          "usd_per_kg": 1.091256688659151
+        },
+        {
+          "kg": 47425.0,
+          "month": 4,
+          "usd": 76999.0,
+          "usd_per_kg": 1.6235951502372166
+        },
+        {
+          "kg": 89096.0,
+          "month": 5,
+          "usd": 97227.0,
+          "usd_per_kg": 1.0912611116099489
+        },
+        {
+          "kg": 0.0,
+          "month": 6,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 7,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 8,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 9,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 10,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 63368.0,
+          "month": 11,
+          "usd": 69151.0,
+          "usd_per_kg": 1.0912605731599545
+        },
+        {
+          "kg": 0.0,
+          "month": 12,
+          "usd": 0.0,
+          "usd_per_kg": null
+        }
+      ],
+      "0206490050": [
+        {
+          "kg": 0,
+          "month": 1,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 2,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 3,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 4,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 5,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0,
+          "month": 6,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 356182.0,
+          "month": 7,
+          "usd": 266982.0,
+          "usd_per_kg": 0.749566232993245
+        },
+        {
+          "kg": 197084.0,
+          "month": 8,
+          "usd": 147727.0,
+          "usd_per_kg": 0.7495636378397029
+        },
+        {
+          "kg": 0.0,
+          "month": 9,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 272486.0,
+          "month": 10,
+          "usd": 204246.0,
+          "usd_per_kg": 0.7495651152719772
+        },
+        {
+          "kg": 0.0,
+          "month": 11,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 0.0,
+          "month": 12,
+          "usd": 0.0,
+          "usd_per_kg": null
+        }
+      ],
+      "0206490090": [
+        {
+          "kg": 167989.0,
+          "month": 1,
+          "usd": 767762.0,
+          "usd_per_kg": 4.5703111513253845
+        },
+        {
+          "kg": 149786.0,
+          "month": 2,
+          "usd": 594308.0,
+          "usd_per_kg": 3.967713938552335
+        },
+        {
+          "kg": 70161.0,
+          "month": 3,
+          "usd": 347232.0,
+          "usd_per_kg": 4.949074272031471
+        },
+        {
+          "kg": 57451.0,
+          "month": 4,
+          "usd": 230112.0,
+          "usd_per_kg": 4.005361090320447
+        },
+        {
+          "kg": 200414.0,
+          "month": 5,
+          "usd": 853361.0,
+          "usd_per_kg": 4.257990958715459
+        },
+        {
+          "kg": 87534.0,
+          "month": 6,
+          "usd": 435333.0,
+          "usd_per_kg": 4.973301802728082
+        },
+        {
+          "kg": 165172.0,
+          "month": 7,
+          "usd": 731157.0,
+          "usd_per_kg": 4.426640108492965
+        },
+        {
+          "kg": 106007.0,
+          "month": 8,
+          "usd": 539514.0,
+          "usd_per_kg": 5.089418623298461
+        },
+        {
+          "kg": 192556.0,
+          "month": 9,
+          "usd": 849355.0,
+          "usd_per_kg": 4.410950580610316
+        },
+        {
+          "kg": 140540.0,
+          "month": 10,
+          "usd": 711784.0,
+          "usd_per_kg": 5.064636402447702
+        },
+        {
+          "kg": 52757.0,
+          "month": 11,
+          "usd": 271003.0,
+          "usd_per_kg": 5.13681596754933
+        },
+        {
+          "kg": 52648.0,
+          "month": 12,
+          "usd": 271997.0,
+          "usd_per_kg": 5.166331104695335
+        }
+      ]
+    },
+    "MEXICO": {
+      "0206490010": [
+        {
+          "kg": 577200.0,
+          "month": 1,
+          "usd": 1383381.0,
+          "usd_per_kg": 2.3967099792099793
+        },
+        {
+          "kg": 578460.0,
+          "month": 2,
+          "usd": 1451033.0,
+          "usd_per_kg": 2.5084413788334543
+        },
+        {
+          "kg": 820614.0,
+          "month": 3,
+          "usd": 1931398.0,
+          "usd_per_kg": 2.3536010840663213
+        },
+        {
+          "kg": 451937.0,
+          "month": 4,
+          "usd": 1071384.0,
+          "usd_per_kg": 2.3706490063880583
+        },
+        {
+          "kg": 746437.0,
+          "month": 5,
+          "usd": 1854683.0,
+          "usd_per_kg": 2.4847147180539015
+        },
+        {
+          "kg": 663637.0,
+          "month": 6,
+          "usd": 1575630.0,
+          "usd_per_kg": 2.3742347096379497
+        },
+        {
+          "kg": 673168.0,
+          "month": 7,
+          "usd": 1436979.0,
+          "usd_per_kg": 2.1346513797447293
+        },
+        {
+          "kg": 691217.0,
+          "month": 8,
+          "usd": 1617094.0,
+          "usd_per_kg": 2.3394881780974717
+        },
+        {
+          "kg": 546943.0,
+          "month": 9,
+          "usd": 1214631.0,
+          "usd_per_kg": 2.220763406790104
+        },
+        {
+          "kg": 820617.0,
+          "month": 10,
+          "usd": 1742871.0,
+          "usd_per_kg": 2.1238543681156985
+        },
+        {
+          "kg": 622339.0,
+          "month": 11,
+          "usd": 1390319.0,
+          "usd_per_kg": 2.2340219719477648
+        },
+        {
+          "kg": 1050850.0,
+          "month": 12,
+          "usd": 2522801.0,
+          "usd_per_kg": 2.400724175667317
+        }
+      ],
+      "0206490020": [
+        {
+          "kg": 0,
+          "month": 1,
+          "usd": 0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 18371.0,
+          "month": 2,
+          "usd": 25110.0,
+          "usd_per_kg": 1.3668281530673343
+        },
+        {
+          "kg": 42041.0,
+          "month": 3,
+          "usd": 60242.0,
+          "usd_per_kg": 1.4329345163055114
+        },
+        {
+          "kg": 17962.0,
+          "month": 4,
+          "usd": 70884.0,
+          "usd_per_kg": 3.94633114352522
+        },
+        {
+          "kg": 18370.0,
+          "month": 5,
+          "usd": 25515.0,
+          "usd_per_kg": 1.3889493739793142
+        },
+        {
+          "kg": 37371.0,
+          "month": 6,
+          "usd": 53241.0,
+          "usd_per_kg": 1.4246608332664366
+        },
+        {
+          "kg": 72879.0,
+          "month": 7,
+          "usd": 96382.0,
+          "usd_per_kg": 1.3224934480440182
+        },
+        {
+          "kg": 18143.0,
+          "month": 8,
+          "usd": 25515.0,
+          "usd_per_kg": 1.4063275092322107
+        },
+        {
+          "kg": 18143.0,
+          "month": 9,
+          "usd": 64800.0,
+          "usd_per_kg": 3.5716254202722815
+        },
+        {
+          "kg": 36659.0,
+          "month": 10,
+          "usd": 60224.0,
+          "usd_per_kg": 1.642816225210726
+        },
+        {
+          "kg": 35724.0,
+          "month": 11,
+          "usd": 66584.0,
+          "usd_per_kg": 1.863845034150711
+        },
+        {
+          "kg": 18507.0,
+          "month": 12,
+          "usd": 24888.0,
+          "usd_per_kg": 1.344788458421138
+        }
+      ],
+      "0206490030": [
+        {
+          "kg": 563036.0,
+          "month": 1,
+          "usd": 599806.0,
+          "usd_per_kg": 1.0653066588992532
+        },
+        {
+          "kg": 501732.0,
+          "month": 2,
+          "usd": 566197.0,
+          "usd_per_kg": 1.128484928208685
+        },
+        {
+          "kg": 328298.0,
+          "month": 3,
+          "usd": 349123.0,
+          "usd_per_kg": 1.06343322225539
+        },
+        {
+          "kg": 200749.0,
+          "month": 4,
+          "usd": 223274.0,
+          "usd_per_kg": 1.1122047930500276
+        },
+        {
+          "kg": 333244.0,
+          "month": 5,
+          "usd": 386338.0,
+          "usd_per_kg": 1.159324699019337
+        },
+        {
+          "kg": 295216.0,
+          "month": 6,
+          "usd": 350401.0,
+          "usd_per_kg": 1.1869309251531082
+        },
+        {
+          "kg": 291228.0,
+          "month": 7,
+          "usd": 306354.0,
+          "usd_per_kg": 1.0519386872141414
+        },
+        {
+          "kg": 295622.0,
+          "month": 8,
+          "usd": 336236.0,
+          "usd_per_kg": 1.137384903694583
+        },
+        {
+          "kg": 277287.0,
+          "month": 9,
+          "usd": 358185.0,
+          "usd_per_kg": 1.2917482608272295
+        },
+        {
+          "kg": 397132.0,
+          "month": 10,
+          "usd": 483280.0,
+          "usd_per_kg": 1.216925354793872
+        },
+        {
+          "kg": 501463.0,
+          "month": 11,
+          "usd": 580235.0,
+          "usd_per_kg": 1.1570843711300733
+        },
+        {
+          "kg": 288520.0,
+          "month": 12,
+          "usd": 343761.0,
+          "usd_per_kg": 1.1914633300984334
+        }
+      ],
+      "0206490040": [
+        {
+          "kg": 73637.0,
+          "month": 1,
+          "usd": 66575.0,
+          "usd_per_kg": 0.9040971250865734
+        },
+        {
+          "kg": 14721.0,
+          "month": 2,
+          "usd": 16380.0,
+          "usd_per_kg": 1.1126961483594864
+        },
+        {
+          "kg": 18589.0,
+          "month": 3,
+          "usd": 21400.0,
+          "usd_per_kg": 1.1512184625316046
+        },
+        {
+          "kg": 18628.0,
+          "month": 4,
+          "usd": 18565.0,
+          "usd_per_kg": 0.9966179944170066
+        },
+        {
+          "kg": 0.0,
+          "month": 5,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 36954.0,
+          "month": 6,
+          "usd": 44647.0,
+          "usd_per_kg": 1.2081777344807056
+        },
+        {
+          "kg": 36288.0,
+          "month": 7,
+          "usd": 49935.0,
+          "usd_per_kg": 1.3760747354497354
+        },
+        {
+          "kg": 16967.0,
+          "month": 8,
+          "usd": 18328.0,
+          "usd_per_kg": 1.0802145340955973
+        },
+        {
+          "kg": 0.0,
+          "month": 9,
+          "usd": 0.0,
+          "usd_per_kg": null
+        },
+        {
+          "kg": 21379.0,
+          "month": 10,
+          "usd": 32513.0,
+          "usd_per_kg": 1.520791430843351
+        },
+        {
+          "kg": 89134.0,
+          "month": 11,
+          "usd": 112827.0,
+          "usd_per_kg": 1.265813269908228
+        },
+        {
+          "kg": 46998.0,
+          "month": 12,
+          "usd": 51287.0,
+          "usd_per_kg": 1.0912592025192562
+        }
+      ],
+      "0206490050": [
+        {
+          "kg": 273588.0,
+          "month": 1,
+          "usd": 225375.0,
+          "usd_per_kg": 0.8237751655774376
+        },
+        {
+          "kg": 453315.0,
+          "month": 2,
+          "usd": 351928.0,
+          "usd_per_kg": 0.7763431609366556
+        },
+        {
+          "kg": 228518.0,
+          "month": 3,
+          "usd": 207853.0,
+          "usd_per_kg": 0.9095694868675553
+        },
+        {
+          "kg": 148809.0,
+          "month": 4,
+          "usd": 119377.0,
+          "usd_per_kg": 0.8022162638012486
+        },
+        {
+          "kg": 251448.0,
+          "month": 5,
+          "usd": 187083.0,
+          "usd_per_kg": 0.744022620979288
+        },
+        {
+          "kg": 103870.0,
+          "month": 6,
+          "usd": 90964.0,
+          "usd_per_kg": 0.8757485318186194
+        },
+        {
+          "kg": 104548.0,
+          "month": 7,
+          "usd": 90336.0,
+          "usd_per_kg": 0.8640624402188468
+        },
+        {
+          "kg": 484010.0,
+          "month": 8,
+          "usd": 376000.0,
+          "usd_per_kg": 0.776843453647652
+        },
+        {
+          "kg": 144078.0,
+          "month": 9,
+          "usd": 116148.0,
+          "usd_per_kg": 0.8061466705534502
+        },
+        {
+          "kg": 60707.0,
+          "month": 10,
+          "usd": 54439.0,
+          "usd_per_kg": 0.8967499629367289
+        },
+        {
+          "kg": 81537.0,
+          "month": 11,
+          "usd": 63728.0,
+          "usd_per_kg": 0.7815838208420717
+        },
+        {
+          "kg": 164644.0,
+          "month": 12,
+          "usd": 127908.0,
+          "usd_per_kg": 0.7768761691892812
+        }
+      ],
+      "0206490090": [
+        {
+          "kg": 1095155.0,
+          "month": 1,
+          "usd": 2225143.0,
+          "usd_per_kg": 2.031806456620296
+        },
+        {
+          "kg": 1215460.0,
+          "month": 2,
+          "usd": 2590844.0,
+          "usd_per_kg": 2.1315748770013
+        },
+        {
+          "kg": 1318190.0,
+          "month": 3,
+          "usd": 2811217.0,
+          "usd_per_kg": 2.1326341422708412
+        },
+        {
+          "kg": 883930.0,
+          "month": 4,
+          "usd": 2276624.0,
+          "usd_per_kg": 2.575570463724503
+        },
+        {
+          "kg": 1322476.0,
+          "month": 5,
+          "usd": 3145342.0,
+          "usd_per_kg": 2.378373596193806
+        },
+        {
+          "kg": 1305449.0,
+          "month": 6,
+          "usd": 3198644.0,
+          "usd_per_kg": 2.450225171569322
+        },
+        {
+          "kg": 826361.0,
+          "month": 7,
+          "usd": 2078593.0,
+          "usd_per_kg": 2.515357089698086
+        },
+        {
+          "kg": 815856.0,
+          "month": 8,
+          "usd": 1966512.0,
+          "usd_per_kg": 2.41036653527093
+        },
+        {
+          "kg": 1115105.0,
+          "month": 9,
+          "usd": 2959167.0,
+          "usd_per_kg": 2.6537115338914274
+        },
+        {
+          "kg": 1111668.0,
+          "month": 10,
+          "usd": 2846473.0,
+          "usd_per_kg": 2.560542356171087
+        },
+        {
+          "kg": 1417192.0,
+          "month": 11,
+          "usd": 3409903.0,
+          "usd_per_kg": 2.406098115146007
+        },
+        {
+          "kg": 1093494.0,
+          "month": 12,
+          "usd": 2749574.0,
+          "usd_per_kg": 2.5144847616905075
+        }
+      ]
+    }
+  },
+  "stage": "B35",
+  "verdict": "two goods under one code, in its sharpest form: not a code that always held two goods, but goods moving between codes on this leg from September. The anchors do not price one thing across the break, so the arm can use January to August only."
+}

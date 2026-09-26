@@ -1,0 +1,105 @@
+{
+ "config": {
+  "dominated_input": 1.2,
+  "dominated_output": 0.9,
+  "input_column_sums": [
+   0.3,
+   0.5,
+   0.7
+  ],
+  "joint_weight": [
+   0.0,
+   0.6
+  ],
+  "n_systems": 400,
+  "seed": 0,
+  "sizes": [
+   2,
+   6
+  ],
+  "tol": 1e-12,
+  "tol_cycle": 1e-10,
+  "tol_rank": 1e-09,
+  "value_of_basket": [
+   0.3,
+   0.5,
+   0.7
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "400 drawn square systems whose input matrix per unit of output bundle, `B^{-1}A`, is non-negative and irreducible. von Neumann (1945), *A Model of General Economic Equilibrium*, Review of Economic Studies 13(1), 1-9, writes his conditions as (7) `a Sum a_ij x_i <= Sum b_ij x_i`, (8) `B Sum a_ij y_j >= Sum b_ij y_j`, with (7') `if < in (7) then y_j = 0` and (8') `if > in (8) then x_i = 0`, and concludes **'the interest factor and the coefficient of expansion of the economy are equal and uniquely determined'**. Here both hold with equality, within 1e-10 on the flow side and 1e-10 on the field side, and **the two factors agree** within 1e-10 on all 400 systems. **Uniqueness is read back as well**: exactly one eigenvalue carries a positive intensity vector on 400 of 400, and exactly one carries a positive left vector on 400 of 400. The price vector itself, `u B^{-1}`, comes out positive on 400 of 400, which is what the filter buys: **these draws are the systems where Perron-Frobenius reaches the pencil, and there the equality system already has the positive solution.** B70 read the other side of that: among productive joint systems drawn without this filter, 52 of 400 had no rate at all carrying a positive price vector. **The inequalities and free disposal are for those**",
+   "kind": "known_answer",
+   "name": "B71-5",
+   "passed": true,
+   "statement": "von Neumann (1945): the interest factor and the coefficient of expansion are equal and uniquely determined"
+  },
+  {
+   "detail": "400 systems. **The root is the same read from either side of the pencil**, within 1e-10. At the solution the wage is zero and every process's production cycle buys its input bundle for `(pA)_j` and sells its output bundle for `(pB)_j`, so **each cycle carries `log(beta)` and they are all equal**, within 1e-10 on the 400 systems where every leg is positive. **So von Neumann's equality says that the common cycle sum is the logarithm of the economy's expansion factor**: the number the field puts on every cycle and the number the flow grows by are one number. Every leg is positive on every draw here, the filter having put these systems inside Perron-Frobenius's reach; B70 is where the other case lives, and there the equality between the legs holds while the logarithm does not exist",
+   "kind": "instrument",
+   "name": "B71-6a",
+   "passed": true,
+   "statement": "Theorem 16(1) and (2): one pencil, one root, and the cycle sum it puts on every process"
+  },
+  {
+   "detail": "400 systems, 399 of them with a positive price vector, on which both slackness conditions are built rather than solved for. **(8') read on cycles.** Append a process that uses 1.2 times the inputs of an existing one and delivers 0.9 times its outputs: its cycle sum falls short of the common one on every construction, the smallest shortfall 0.3573 in the factor. **So an idle process is exactly a cycle whose sum does not reach the common value**, which is what (8') says: where (8) is strict, the intensity is zero. **(7') read on quantities.** Append a commodity that no process uses and one process makes: its net output is strictly positive at the same intensities, so (7) is strict there, and setting its price to zero leaves every other condition exactly as it was, within 1e-10 on all 399 constructions. **So free disposal is not an extra assumption about behaviour: it is the statement that a commodity off every cycle carries no term**",
+   "kind": "instrument",
+   "name": "B71-6c",
+   "passed": true,
+   "statement": "Theorem 16(3): the two slackness conditions read on cycles, built rather than solved"
+  },
+  {
+   "detail": "400 single production systems from stage A19's generator. With `B = I` and no wage the pencil is `(I, A)`. **The expansion factor agrees with the rate at which the wage vanishes**, found by scanning the determinant `det(I - (1+r)A)` for a sign change and bisecting, a route sharing no code with the eigen-decomposition: within 1e-10 on every system. The intensity vector satisfies `x = alpha A x` and the price vector `p = alpha p A` as residuals of those equations, both within 1e-10 relative, with both vectors strictly positive, on 400 of 400. **So the intensity vector is Sraffa's standard proportions and the price vector is his price vector at the maximum rate: the standard system is the von Neumann ray of that economy, and Corollary 12.4 of B67 and von Neumann's duality are one statement said twice.** That identification is algebraic and no run establishes it; what the run establishes is that both objects solve the equations claimed for them. Both vectors come out positive by Perron-Frobenius, which is why single production never needs the inequalities",
+   "kind": "instrument",
+   "name": "B71-6d",
+   "passed": true,
+   "statement": "Corollary 16.1: the standard commodity is the von Neumann ray of that economy"
+  },
+  {
+   "detail": "400 systems, 3 wage baskets each, drawn so that the basket's labour value is 0.3, 0.5, 0.7. Folding the basket into the input matrix, `M = A + b l`, and reading the pencil `(I, M)` gives an expansion factor equal to `1 + r`, where `r` is read by scanning `det(I - (1+r)M)` for a sign change and bisecting, a route sharing no code with the eigen-decomposition. **That `r` is the very one the Fundamental Marxian Theorem and Okishio's theorem are about**, matched within 1e-10 at all 1200 points. **So the maximal balanced growth factor of an economy that reinvests every profit is the profit factor itself**: the flow side's growth and the field side's return are one number because they are one root, and B68's Corollary 13.2 and B69's Theorem 14 are statements about that root read from the field side",
+   "kind": "instrument",
+   "name": "B71-6e",
+   "passed": true,
+   "statement": "Corollary 16.2: reinvest every profit and the growth factor is the profit factor"
+  }
+ ],
+ "mapping": {
+  "B71-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B71-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B71-5": {
+   "equal": 400,
+   "prices_positive": 400,
+   "systems": 400,
+   "unique_intensity": 400,
+   "unique_left": 400,
+   "within": 1e-10
+  },
+  "B71-6a": {
+   "equal": 400,
+   "readable": 400,
+   "systems": 400,
+   "within": 1e-10
+  },
+  "B71-6c": {
+   "constructions": 399,
+   "dominated_input": 1.2,
+   "dominated_output": 0.9,
+   "free_disposal_ok": 399,
+   "systems": 400
+  },
+  "B71-6d": {
+   "matched": 400,
+   "systems": 400,
+   "within": 1e-10
+  },
+  "B71-6e": {
+   "matched": 1200,
+   "points": 1200,
+   "systems": 400,
+   "within": 1e-10
+  }
+ },
+ "stage": "B71"
+}

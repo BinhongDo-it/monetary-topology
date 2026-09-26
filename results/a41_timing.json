@@ -1,0 +1,13 @@
+{
+  "cell_seconds": {
+    "attempts 1 x 1": 0.157,
+    "attempts 1 x 10": 0.187,
+    "attempts 10 x 1": 0.187,
+    "attempts 10 x 10": 0.502
+  },
+  "cells_per_seed_per_tier": 36,
+  "cells_total": 720,
+  "control_seconds": 0.142,
+  "estimate_seconds": 188.0,
+  "note": "measured on the machine that ran --time, on the heaviest cell of each tier (D38); --run reads this file and refuses without it"
+}

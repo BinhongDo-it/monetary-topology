@@ -265,8 +265,8 @@ def _unused_gap_v2(model: A3Model) -> tuple[float, float, float]:
 
     Each node's terminal net worth is divided by **its own opening claims** and
     the two group **means** are then subtracted. A difference and not a ratio,
-    for the reason recorded in `a3_asset_channel.md` §9.13: a ratio puts a
-    treated quantity in a denominator.
+    for the reason recorded in `a3_asset_channel.md` §6.1, item 3: a ratio puts a
+    treated quantity in a denominator, and a small one produces a large multiple.
 
     The null cell is **not** expected to be zero. Centrality drives the
     underlying A2 economy through wages and adjacency whatever the asset channel

@@ -1939,8 +1939,8 @@ that withdrawal**: Theorem 3's quantity contains no 2-cells, so the within share
 is a function of `(Gamma's 1-skeleton, omega)` alone and is invariant under every
 choice of `C2`. **The invariance argument exists to show the within share is
 untouched.** A review kept outside this repository read it as showing the within share
-**is** an identity, which is the sign reversed; that review cites it as "B2
-§12.2" while `b2_measurement.md` ends at §11; and that review's own section 7 states
+**is** an identity, which is the sign reversed; that review cites the section as B2's while it is
+`b1_theorem.md`'s, and `b2_measurement.md` ends at §11 in any case; and that review's own section 7 states
 that its section 2.4 is a second-hand reconstruction with the originals unread. **This
 stage picked up the reconstruction, dropped the caveat it carried, and built a
 stronger claim on top of it.** Three steps, each stronger than the last.

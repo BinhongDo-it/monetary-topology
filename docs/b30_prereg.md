@@ -115,6 +115,27 @@ against the density of asserted comparables at the destination.
 - dispersion rises as comparables thin out → no anchor to attach to
 - flat → anchoring is not what sets the entry price
 
+**Registered 2026-09-17, after the carrier settled and before the reading was taken
+from it.** The text above says dispersion and does not say which one, and on the
+carrier the two families that could answer to the word give different answers
+because they measure different things. **The measure is `price_point_entropy`**: the
+entropy of a tag's paid projects over the distinct price points they sit on, every
+tag drawing the same twelve prices, the median over repeated draws, against the
+destination's project count, with breadth held by the genre entropy of the same
+projects.
+
+**The ground is that the mechanism under the word is anchoring, and anchoring is
+copying a number rather than narrowing a range.** A seller who looks at the
+comparables and prices near them lands on the point they used; the width of the range
+is set by what the thing cost to make. The width family is also **unreadable on this
+carrier once breadth is held**, turning over between one third of breadth and the
+next, which is recorded in the results file rather than treated as a flat reading.
+
+**Branch A is a negative sign.** The criterion asks whether the sign is the same in
+every third of breadth and across seeds; the sizes are printed and none is read
+against a line. `B30-4-1` checks the instrument, `B30-4-2` carries the reading, both
+in `results/b30_4_knob_sweep.json`.
+
 **B30-5  the front.** Regional deviation regressed on the propagation branch and on
 the region's own conditions.
 
@@ -130,6 +151,15 @@ public ATPCO record cannot supply. **B30-1 needs it: its statistic is amplitude
 against hop count.** B30-5's registered text above asks for regional deviation
 regressed on the propagation branch and on the region's own conditions, and
 **names no clock**. So the cross-section can run.
+
+**The branch regressor ran on 2026-09-09 as B61**, on a carrier where the
+intermediary is an administrative one the data carries itself: Agmarknet mandi
+day prices, the branch read as the leave-one-out median of the market's own state.
+That run does not need the timing this section says is unobtainable, because the
+registered sentence asks what the deviation correlates with and not who moved
+first. It returned the middle cell of its three-state criterion on its thickest
+commodity and the opposite reading on a thinner one, so the branch regressor is
+still without a carrier that reads it. Records `results/b61_branch_loading_*.json`.
 
 **The limit, stated first rather than discovered later.** A cross-section
 separates the two branches the criterion names. It does **not** separate
@@ -480,7 +510,89 @@ needs a route census, and B30-3, B30-4 and B30-6 are ordinary and can follow.
 >   corrected in duty's own favour, swept across the uncertain rate, and entered
 >   with squares and an interaction. It enters and does not carry the co-movement.
 > - **B30-4**: **carrier settled on paper**, one candidate closed without
->   collecting anything, availability gate registered and unrun.
+>   collecting anything, availability gate registered and unrun. **Chunk two ran the
+>   gate over six source classes and it returned a constant, the top-25 leaderboard
+>   depth. Chunk three, 2026-09-16, read a seventh class, third-party aggregate
+>   directories, where the count does vary; it fails a different requirement and the
+>   gate is still not passed. Chunk four closed that class on a structural reason,
+>   and that reason was withdrawn the same day in its own `作废栏`: the requirement
+>   is chunk one's, about who counts rather than who labels, and on that reading the
+>   directories fail because their counts are crawls while Patreon's own
+>   categorisation returns as a candidate. Chunk five then settled Patreon out of its
+>   own help centre and API documentation: the classification qualifies and the count
+>   is published at no resolution (`D45`), so it is not a carrier and the class-1 item
+>   from chunk two is closed. Chunk six moved the carrier to itch.io as a change
+>   rather than as the old carrier passing, made tags the treatment and genre a
+>   stratifier, and registered the split rule and the order of work before any price
+>   was pulled. Steps one and two of that order then ran, 2026-09-16: `616` directory
+>   cells parsed and `516` games-scope tags split `151` market / `292` not a market /
+>   `73` third state, the market side spanning `161` to `114,000`. The split was
+>   amended once inside the third state, with the discriminant written down and what
+>   moved printed; three of the classifier's own set entries matched nothing in the
+>   vocabulary while every total stayed right, and the check that finds that now runs
+>   with a seeded dead entry. Step three reads nested pairs, because one market under
+>   two names splits the treatment and not the outcome. Chunk seven opened step three:
+>   the published resolution is three bins above zero and the per-project prices are
+>   reachable at `36` a page, so the bins become a cross-check and the walk is the
+>   reading; the counts ran for every market tag and failed their own `free + paid =
+>   total` identity on nine of them, which the walk settles by construction; the same
+>   attribute order cost five matchers in one file, each silently, leaving `26%` of a
+>   paid listing with no price until lookaheads recovered `1,319` prices for no new
+>   requests; the site prices in four currencies; the free-to-paid boundary is a
+>   commitment threshold rather than a price point, measured off `116` zero-floor paid
+>   rows that are all discounts; and the unit of the axis is the tag, with the multiple
+>   counting it implies measured at `0.95` slots a project on the market side once
+>   the site's own project count replaced the genre sum. The walk then returned
+>   `26,353` distinct paid projects over `151` markets, matched the printed count on
+>   `146` tags with the five differences at one apiece, and matched the printed
+>   `paid` exactly on all nine anomalous tags, so the fault sits in `free` or
+>   `total`, which chunk ten then walked. A paid project carries `2.17` market tags against `0.95` for the
+>   population, the overlap ladder keeps at least `128` of the `151` points at any
+>   edge test of `0.15` or above, and `26,188` posted prices are on the disk.** All
+>   seven chunks collected nothing, and no price has entered a reading. **The
+>   dispersion statistic is the one thing not chosen, and it will not be chosen
+>   before its behaviour on a declared knob is checked. Chunk eight ran that check:
+>   `360` settings all positive, then three passes to get a number that stayed put
+>   (the sample size, the breadth of the label, and the draws), and the controlled
+>   comparison reads flat on the middle of the distribution at every containment
+>   level against a design that resolves a ten per cent difference. That control was
+>   withdrawn the same day: a containment pair sets a tag against a subset of itself,
+>   so the bigger side is a mixture and at least as spread by construction. Chunk
+>   nine replaced it with breadth measured from genre entropy and registered
+>   `price_point_entropy`, on the ground that the mechanism under the word is
+>   anchoring and anchoring is copying a number rather than narrowing a range. It
+>   reads `-0.291` to `-0.260` against a null at zero, z `-2.7`, sign holding in
+>   every third of breadth and on both density definitions, which is **branch A: the
+>   price points scatter where the comparables thin out, so there is no anchor to
+>   attach to.**
+>   **Chunk ten closed the two items left for a walk, and neither moved the sign.**
+>   Walking three of the nine anomalous tags sides with a different counter on each:
+>   `total` overstates by 26 where the walk equals `free + paid` exactly, `free`
+>   overstates by 1,591 where the walk equals `total`, **so there is no single faulty
+>   counter**, and the account from dual listing is refuted in both directions by
+>   arithmetic, having the wrong sign on eight of the nine and needing an overlap of
+>   1,591 against a smaller bin of 208 on the ninth. **The listing stops at 200 pages
+>   of 36 rows**, found by a 404 on page 201, so the check cannot be run at all on 45
+>   of the 151 tags, while the largest paid listing is 120 pages, so the walk that
+>   vindicated the `paid` counter on every tag ran untruncated. The shared symbol is
+>   `JPY` on all twelve pages, and the twelve sit outside every setting already
+>   because the parser declined their price strings. **The broken counter that does
+>   enter one density definition was measured against the rank it enters**: replacing
+>   `total` by `free + paid` moves two tags materially and leaves the two orderings
+>   correlated at `+0.9989`.
+>   **Chunk eleven then gated the combination-market axis and it did not clear, which
+>   closes the arm.** 719 two-tag destinations exist, 49 of them share no project at all
+>   (density `12` to `1,233`, `0` of `1,176` pairs touching), and resolution was measured
+>   by planting after a probe killed the counting version. **Planting nothing is detected
+>   at `0.050`, exactly alpha, so the test is calibrated; planting the registered effect
+>   is detected at `0.400` against a floor of `0.50`.** About 66 points are needed and 66
+>   is reachable only by dropping the requirement that both parents are established,
+>   **which is the axis itself**, so it is registered not adjudicable and the account that
+>   thin markets scatter because their sellers are less practised is named as surviving.
+>   **Two reproducibility defects were found by comparing runs**: a seed does not fix a
+>   sample drawn from set order, and a rank is decided by equality while equality is
+>   decided by the last bit; both fixed, and the record now returns the same twelve
+>   decimals on two builds.
 > - **B30-6**: run, three chunks, **first branch fails on a six-product panel.**
 
 ---

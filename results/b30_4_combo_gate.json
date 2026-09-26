@@ -1,0 +1,699 @@
+{
+  "config": {
+    "alpha": 0.05,
+    "currency": "usd_only",
+    "equal_n": 12,
+    "pack_seed": 7,
+    "pack_trials": 600,
+    "plants": 20,
+    "power_floor": 0.5,
+    "registered_effect": 0.26,
+    "reps": 50,
+    "sale": "all",
+    "shuffles": 120,
+    "span_floor": 10.0
+  },
+  "criteria": [
+    {
+      "detail": "unplanted detection rate 0.050 against alpha 0.05: the test does not find an effect where none was planted",
+      "kind": "known_answer",
+      "name": "B30-4-3",
+      "passed": true,
+      "statement": "Planting no effect at all into the packed axis is detected no more often than a few times alpha, which is the calibration of the test and is separate from whether the axis has the power to see a real effect."
+    },
+    {
+      "detail": "49 destinations, 0 of 1176 pairs touching, span factor 103, planted detection rate 0.400 against a floor of 0.5, reference power at this n 0.562; not adjudicable on this carrier: the axis does not resolve an effect of the registered size",
+      "kind": "instrument",
+      "name": "B30-4-4",
+      "passed": false,
+      "statement": "The packed axis is independent as a fact about its sets, spans at least a decade of density, and catches a planted effect of the registered size more than half the time. All three are computed."
+    }
+  ],
+  "destinations": 719,
+  "diagnostic_only": true,
+  "diagnostic_reason": "A gate, not a reading. The observed correlations are printed as objects and are not scored; the arm they gate is not open.",
+  "established_threshold": 156,
+  "knob_variants": [
+    {
+      "currency": "usd_only",
+      "destinations": 719,
+      "eligible": 683,
+      "established_required": true,
+      "keeps_the_axis_purpose": true,
+      "packed": 49,
+      "reference_power": 0.562114663954606,
+      "span": 102.75
+    },
+    {
+      "currency": "all_face_value",
+      "destinations": 719,
+      "eligible": 711,
+      "established_required": true,
+      "keeps_the_axis_purpose": true,
+      "packed": 53,
+      "reference_power": 0.5909100799976286,
+      "span": 102.75
+    },
+    {
+      "currency": "usd_only",
+      "destinations": 921,
+      "eligible": 874,
+      "established_required": false,
+      "keeps_the_axis_purpose": false,
+      "packed": 66,
+      "reference_power": 0.6740726160884792,
+      "span": 102.75
+    },
+    {
+      "currency": "all_face_value",
+      "destinations": 921,
+      "eligible": 912,
+      "established_required": false,
+      "keeps_the_axis_purpose": false,
+      "packed": 67,
+      "reference_power": 0.6798394823906404,
+      "span": 102.75
+    }
+  ],
+  "observed_not_adjudicated": {
+    "full_axis": -0.011528190045183616,
+    "kept_full": 683,
+    "kept_packed": 49,
+    "packed_axis": -0.1646276835584157
+  },
+  "packed_axis": {
+    "density_span_factor": 102.75,
+    "members": [
+      {
+        "a": "horror",
+        "b": "psychological-horror",
+        "paid": 1233,
+        "parent_a": 4317,
+        "parent_b": 1448
+      },
+      {
+        "a": "arcade",
+        "b": "shoot-em-up",
+        "paid": 381,
+        "parent_a": 3800,
+        "parent_b": 887
+      },
+      {
+        "a": "action-adventure",
+        "b": "fantasy",
+        "paid": 139,
+        "parent_a": 1041,
+        "parent_b": 2444
+      },
+      {
+        "a": "casual",
+        "b": "exploration",
+        "paid": 134,
+        "parent_a": 3454,
+        "parent_b": 1305
+      },
+      {
+        "a": "casual",
+        "b": "clicker",
+        "paid": 108,
+        "parent_a": 3454,
+        "parent_b": 420
+      },
+      {
+        "a": "dungeon-crawler",
+        "b": "roguelite",
+        "paid": 72,
+        "parent_a": 549,
+        "parent_b": 617
+      },
+      {
+        "a": "card-game",
+        "b": "fantasy",
+        "paid": 65,
+        "parent_a": 650,
+        "parent_b": 2444
+      },
+      {
+        "a": "detective",
+        "b": "point-and-click",
+        "paid": 65,
+        "parent_a": 271,
+        "parent_b": 901
+      },
+      {
+        "a": "arcade",
+        "b": "driving",
+        "paid": 55,
+        "parent_a": 3800,
+        "parent_b": 216
+      },
+      {
+        "a": "interactive-fiction",
+        "b": "otome",
+        "paid": 52,
+        "parent_a": 1185,
+        "parent_b": 223
+      },
+      {
+        "a": "arcade",
+        "b": "infinite-runner",
+        "paid": 44,
+        "parent_a": 3800,
+        "parent_b": 156
+      },
+      {
+        "a": "survival",
+        "b": "tower-defense",
+        "paid": 41,
+        "parent_a": 2527,
+        "parent_b": 370
+      },
+      {
+        "a": "post-apocalyptic",
+        "b": "zombies",
+        "paid": 39,
+        "parent_a": 213,
+        "parent_b": 547
+      },
+      {
+        "a": "arcade",
+        "b": "party-game",
+        "paid": 38,
+        "parent_a": 3800,
+        "parent_b": 201
+      },
+      {
+        "a": "metroidvania",
+        "b": "science-fiction",
+        "paid": 37,
+        "parent_a": 340,
+        "parent_b": 1562
+      },
+      {
+        "a": "interactive-fiction",
+        "b": "space",
+        "paid": 35,
+        "parent_a": 1185,
+        "parent_b": 1393
+      },
+      {
+        "a": "real-time-strategy",
+        "b": "space",
+        "paid": 30,
+        "parent_a": 208,
+        "parent_b": 1393
+      },
+      {
+        "a": "female-protagonist",
+        "b": "jrpg",
+        "paid": 29,
+        "parent_a": 946,
+        "parent_b": 363
+      },
+      {
+        "a": "cyberpunk",
+        "b": "futuristic",
+        "paid": 28,
+        "parent_a": 323,
+        "parent_b": 186
+      },
+      {
+        "a": "historical",
+        "b": "medieval",
+        "paid": 27,
+        "parent_a": 198,
+        "parent_b": 315
+      },
+      {
+        "a": "turn-based-strategy",
+        "b": "war",
+        "paid": 24,
+        "parent_a": 253,
+        "parent_b": 252
+      },
+      {
+        "a": "board-game",
+        "b": "music",
+        "paid": 23,
+        "parent_a": 384,
+        "parent_b": 618
+      },
+      {
+        "a": "music",
+        "b": "puzzle-platformer",
+        "paid": 21,
+        "parent_a": 618,
+        "parent_b": 634
+      },
+      {
+        "a": "historical",
+        "b": "romance",
+        "paid": 20,
+        "parent_a": 198,
+        "parent_b": 730
+      },
+      {
+        "a": "management",
+        "b": "text-based",
+        "paid": 20,
+        "parent_a": 436,
+        "parent_b": 443
+      },
+      {
+        "a": "arcade",
+        "b": "hack-and-slash",
+        "paid": 19,
+        "parent_a": 3800,
+        "parent_b": 179
+      },
+      {
+        "a": "farming",
+        "b": "survival",
+        "paid": 19,
+        "parent_a": 187,
+        "parent_b": 2527
+      },
+      {
+        "a": "runner",
+        "b": "speedrun",
+        "paid": 18,
+        "parent_a": 341,
+        "parent_b": 264
+      },
+      {
+        "a": "fantasy",
+        "b": "minigames",
+        "paid": 18,
+        "parent_a": 2444,
+        "parent_b": 425
+      },
+      {
+        "a": "dating-sim",
+        "b": "science-fiction",
+        "paid": 18,
+        "parent_a": 355,
+        "parent_b": 1562
+      },
+      {
+        "a": "fighting",
+        "b": "science-fiction",
+        "paid": 18,
+        "parent_a": 687,
+        "parent_b": 1562
+      },
+      {
+        "a": "boss-battle",
+        "b": "casual",
+        "paid": 18,
+        "parent_a": 306,
+        "parent_b": 3454
+      },
+      {
+        "a": "jrpg",
+        "b": "science-fiction",
+        "paid": 18,
+        "parent_a": 363,
+        "parent_b": 1562
+      },
+      {
+        "a": "dating-sim",
+        "b": "furry",
+        "paid": 17,
+        "parent_a": 355,
+        "parent_b": 208
+      },
+      {
+        "a": "dark-fantasy",
+        "b": "exploration",
+        "paid": 17,
+        "parent_a": 318,
+        "parent_b": 1305
+      },
+      {
+        "a": "farming",
+        "b": "idle",
+        "paid": 16,
+        "parent_a": 187,
+        "parent_b": 422
+      },
+      {
+        "a": "card-game",
+        "b": "party-game",
+        "paid": 15,
+        "parent_a": 650,
+        "parent_b": 201
+      },
+      {
+        "a": "life-simulation",
+        "b": "management",
+        "paid": 15,
+        "parent_a": 198,
+        "parent_b": 436
+      },
+      {
+        "a": "music",
+        "b": "racing",
+        "paid": 15,
+        "parent_a": 618,
+        "parent_b": 827
+      },
+      {
+        "a": "casual",
+        "b": "dark-fantasy",
+        "paid": 14,
+        "parent_a": 3454,
+        "parent_b": 318
+      },
+      {
+        "a": "action-rpg",
+        "b": "boss-battle",
+        "paid": 14,
+        "parent_a": 463,
+        "parent_b": 306
+      },
+      {
+        "a": "puzzle-platformer",
+        "b": "speedrun",
+        "paid": 14,
+        "parent_a": 634,
+        "parent_b": 264
+      },
+      {
+        "a": "action-rpg",
+        "b": "bullet-hell",
+        "paid": 13,
+        "parent_a": 463,
+        "parent_b": 515
+      },
+      {
+        "a": "lgbtqia",
+        "b": "science-fiction",
+        "paid": 13,
+        "parent_a": 177,
+        "parent_b": 1562
+      },
+      {
+        "a": "board-game",
+        "b": "minigames",
+        "paid": 13,
+        "parent_a": 384,
+        "parent_b": 425
+      },
+      {
+        "a": "bullet-hell",
+        "b": "female-protagonist",
+        "paid": 13,
+        "parent_a": 515,
+        "parent_b": 946
+      },
+      {
+        "a": "strategy-rpg",
+        "b": "survival",
+        "paid": 12,
+        "parent_a": 168,
+        "parent_b": 2527
+      },
+      {
+        "a": "jrpg",
+        "b": "medieval",
+        "paid": 12,
+        "parent_a": 363,
+        "parent_b": 315
+      },
+      {
+        "a": "exploration",
+        "b": "life-simulation",
+        "paid": 12,
+        "parent_a": 1305,
+        "parent_b": 198
+      }
+    ],
+    "n": 49,
+    "overlap": {
+      "distinct_projects": 3131,
+      "largest_multiplicity": 1,
+      "pairs_total": 1176,
+      "pairs_with_any_overlap": 0,
+      "projects_in_more_than_one": 0
+    },
+    "reference_power": 0.562114663954606,
+    "restart_counts": {
+      "max": 49,
+      "median": 39.0,
+      "min": 32
+    }
+  },
+  "plant": {
+    "detection_rate": 0.4,
+    "planted_correlation": -0.28475172797103576,
+    "replicates": [
+      {
+        "cut": -0.18165024204959823,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.1811049315863264
+      },
+      {
+        "cut": -0.1972547345522359,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.18197913210945846
+      },
+      {
+        "cut": -0.23258445198478805,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.3504269196239056
+      },
+      {
+        "cut": -0.18501987414384194,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.25760204557901495
+      },
+      {
+        "cut": -0.202033393761211,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.16471442097279074
+      },
+      {
+        "cut": -0.21300510887335647,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.14007167902556938
+      },
+      {
+        "cut": -0.24854683157725688,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.3658351329168528
+      },
+      {
+        "cut": -0.2601581339082748,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.43975119570729676
+      },
+      {
+        "cut": -0.2388302526988708,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.12177372514979246
+      },
+      {
+        "cut": -0.20694915743971679,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.2975008869457924
+      },
+      {
+        "cut": -0.2682161926831504,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.05625048876691936
+      },
+      {
+        "cut": -0.2229812179632952,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.10259507393813108
+      },
+      {
+        "cut": -0.26171166177129523,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.1382948424963589
+      },
+      {
+        "cut": -0.16867970119184064,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.24462017587650495
+      },
+      {
+        "cut": -0.25980762233450316,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.19313573978622964
+      },
+      {
+        "cut": -0.20613019724651205,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.018276679467304525
+      },
+      {
+        "cut": -0.24789376177433084,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.009489882539830302
+      },
+      {
+        "cut": -0.16255057588865277,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.24413063864263704
+      },
+      {
+        "cut": -0.21793808121147995,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.0492101865929598
+      },
+      {
+        "cut": -0.2554461391979061,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.3181168323657557
+      }
+    ],
+    "slope": 0.07942504882812498,
+    "unplanted_detection_rate": 0.05,
+    "unplanted_replicates": [
+      {
+        "cut": -0.26113840166704294,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.126477660172326
+      },
+      {
+        "cut": -0.2591495367230625,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.1434696967344582
+      },
+      {
+        "cut": -0.2235753504484403,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.09877286045439466
+      },
+      {
+        "cut": -0.22628469456632652,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.05171628487671531
+      },
+      {
+        "cut": -0.2501551811724775,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.006077325211189406
+      },
+      {
+        "cut": -0.18370889332654508,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.13746752204108134
+      },
+      {
+        "cut": -0.21511205870044992,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.10735926471562514
+      },
+      {
+        "cut": -0.23839176823936079,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.03639006972132716
+      },
+      {
+        "cut": -0.2336856480899775,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.02498030243912482
+      },
+      {
+        "cut": -0.21799831737339612,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.006195597615926394
+      },
+      {
+        "cut": -0.26327649236128625,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.09416487324374598
+      },
+      {
+        "cut": -0.2538410478506981,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.2716974030077985
+      },
+      {
+        "cut": -0.22788320815548355,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.022079803830025672
+      },
+      {
+        "cut": -0.23206653696435176,
+        "detected": true,
+        "kept": 49,
+        "observed": -0.3842438403191169
+      },
+      {
+        "cut": -0.23046114423994565,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.13436892777191606
+      },
+      {
+        "cut": -0.264569699118327,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.12091042045769705
+      },
+      {
+        "cut": -0.19480877261184765,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.1714696956909499
+      },
+      {
+        "cut": -0.2714184951349667,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.24706241917940144
+      },
+      {
+        "cut": -0.23139062262876833,
+        "detected": false,
+        "kept": 49,
+        "observed": 0.032699953746792625
+      },
+      {
+        "cut": -0.20883484853377202,
+        "detected": false,
+        "kept": 49,
+        "observed": -0.07209556803139557
+      }
+    ]
+  },
+  "reference_floor_n": 41.029955621301774,
+  "station": "B30-4",
+  "what": "the combination-market gate: whether an axis of two-tag destinations can carry the effect the single-tag axis returned. Resolution is measured by planting. No price relation is adjudicated here."
+}

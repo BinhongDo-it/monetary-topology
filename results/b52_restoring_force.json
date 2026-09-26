@@ -1,0 +1,528 @@
+{
+  "arm": "restoring force, the readable form of D48 shape four",
+  "artefact_above_one_half": 0.16139243337235565,
+  "block_bootstrap_nulls": [
+    {
+      "block": 2,
+      "mean": 0.6772580130276254,
+      "p05": 0.6348314606741573,
+      "p95": 0.712707182320442,
+      "phi": 1.0,
+      "sd": 0.02377240264967369,
+      "sims": 200
+    },
+    {
+      "block": 3,
+      "mean": 0.6774168618823785,
+      "p05": 0.6392045454545454,
+      "p95": 0.7122905027932961,
+      "phi": 1.0,
+      "sd": 0.023344255896870017,
+      "sims": 200
+    },
+    {
+      "block": 4,
+      "mean": 0.6960660950927681,
+      "p05": 0.6564245810055865,
+      "p95": 0.7320441988950276,
+      "phi": 1.0,
+      "sd": 0.02475824431699846,
+      "sims": 200
+    },
+    {
+      "block": 6,
+      "mean": 0.7103307547002728,
+      "p05": 0.6713091922005571,
+      "p95": 0.7479224376731302,
+      "phi": 1.0,
+      "sd": 0.0243878866272078,
+      "sims": 200
+    },
+    {
+      "block": 8,
+      "mean": 0.7199023947751075,
+      "p05": 0.6796657381615598,
+      "p95": 0.7535014005602241,
+      "phi": 1.0,
+      "sd": 0.021599559260351658,
+      "sims": 200
+    }
+  ],
+  "block_trend_not_eligible": [
+    {
+      "block": 12,
+      "mean": 0.7320308705771339,
+      "p05": 0.6991643454038997,
+      "p95": 0.7645429362880887,
+      "phi": 1.0,
+      "sd": 0.01985268578278003,
+      "sims": 200
+    },
+    {
+      "block": 16,
+      "mean": 0.7382612678913039,
+      "p05": 0.7050561797752809,
+      "p95": 0.770949720670391,
+      "phi": 1.0,
+      "sd": 0.0214478873035058,
+      "sims": 200
+    }
+  ],
+  "config": {
+    "base_tax": "I_TAX",
+    "half_lives_semesters": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "nsim": 200,
+    "seed": 42,
+    "source_record": "b52_europe_class_square.json",
+    "tercile": 0.6666666666666666,
+    "z90": 1.6448536269514722
+  },
+  "criteria": [
+    {
+      "criterion": "the pipeline reproduces the artefact it has to be read against, and separates a planted restoring force from a random walk",
+      "detail": "a random walk matched to this panel's own lengths and step scales reads 0.6614 back, not 0.5, so the pull toward a sample-estimated centre is +0.1614 and is mechanical. A planted half-life of 4 semesters reads 0.7150 against that walk, gap +0.0536 on a floor of 0.0417, so the code can see a force when one is there. The first version of this file wrote the null at one half and this check killed it: every reading against one half was the artefact.",
+      "kind": "known_answer",
+      "name": "B52-R1",
+      "passed": true
+    },
+    {
+      "criterion": "print every country's series length and how many of its steps entered the reading; name the ones too short rather than dropping them",
+      "detail": "33 countries, 360 large-deviation steps entered, 200 simulations per null, each matched country by country on length and step scale.",
+      "kind": "instrument",
+      "name": "B52-R2",
+      "passed": true
+    },
+    {
+      "criterion": "print the observed proportion against a measured random-walk null, with that null's own spread beside it",
+      "detail": "observed 0.7667 (back 276, away 84); gaussian-walk null 0.6614 sd 0.0253; shuffled-differences null 0.6747 sd 0.0218; held against the stricter of the two (block_bootstrap_8, 0.7199, 5th to 95th 0.6797 to 0.7535); gap +0.0468 against a floor of 0.0355. Separated.",
+      "kind": "own_reading",
+      "name": "B52-R3",
+      "passed": true
+    },
+    {
+      "criterion": "a null carrying the panel's own step autocorrelation is computed, and the reading is held against the strictest null available",
+      "detail": "the steps this panel carries are negatively autocorrelated: median lag-one -0.2046, negative in 25 of 33 countries. **A shuffled-difference null destroys exactly that**, so it understates what a level with no restoring force does, and holding the reading against it would score the step structure as a force. Block bootstraps keep the local step structure and still integrate to a walk: block 2 reads 0.6773, block 3 reads 0.6774, block 4 reads 0.6961, block 6 reads 0.7103, block 8 reads 0.7199; gaussian walk 0.6614, shuffled 0.6747. The usual block length at a median series of 37 points is 3.3, and the ladder is carried to 8, more than twice that. Beyond it the null degenerates into the observation: block 12 reads 0.7320, block 16 reads 0.7383, printed as a trend and not eligible. The strictest eligible null is block_bootstrap_8 at 0.7199 and it is the one used.",
+      "kind": "instrument",
+      "name": "B52-R5",
+      "passed": true
+    },
+    {
+      "criterion": "the reading is repeated inside each semester half, where a half-yearly alternation cannot act",
+      "detail": "S1: observed 0.8162 against a shuffled null of 0.7615, gap +0.0547, floor 0.0517, separated True; S2: observed 0.7892 against a shuffled null of 0.7509, gap +0.0383, floor 0.0475, separated False. Consecutive points inside one half are a year apart, so an S1-to-S2 alternation cannot produce this. Not both halves separate, so seasonality is not excluded and the main reading is held to that scope.",
+      "kind": "own_reading",
+      "name": "B52-R6",
+      "passed": true
+    },
+    {
+      "criterion": "the reading repeated on a window stopping before the energy shock, at the cut this station already fixed and did not search over",
+      "detail": "up to 2021-S1: 33 countries, n 279, observed 0.7849 against block_bootstrap_8 at 0.7557, gap +0.0293 on a floor of 0.0416, separated False. A shock that goes up and comes back down is by itself large deviations followed by moves back, so this is the alternative that has to be measured rather than argued away.",
+      "kind": "own_reading",
+      "name": "B52-R7",
+      "passed": true
+    },
+    {
+      "criterion": "the reading repeated on the other two tax bases, so a force living in the tax component can be told from one in the price",
+      "detail": "X_TAX: observed 0.8056 against 0.7234 (block_bootstrap_8), gap +0.0821, floor 0.0351, separated True; X_VAT: observed 0.7729 against 0.7128 (block_bootstrap_8), gap +0.0601, floor 0.0370, separated True. Tax-excluded against tax-included is the cheapest split there is on this record, and administratively set tax rates are one of the three candidates registered for where a restoring force could come from.",
+      "kind": "own_reading",
+      "name": "B52-R8",
+      "passed": true
+    },
+    {
+      "criterion": "print which half-lives this panel could have told apart from a random walk, so the reading carries a bound and not a bare zero",
+      "detail": "half-lives in semesters this panel separates from a level with no restoring force, built on the panel's own steps: [1, 2, 4, 8]; those it does not: [16, 32, 64]. The panel spans 38 semesters. This is the separation D48's fourth shape was registered as missing: the first list is what a reading of no restoring force excludes, the second is what it leaves open.",
+      "kind": "own_reading",
+      "name": "B52-R4",
+      "passed": true
+    }
+  ],
+  "diagnostic_only": true,
+  "diagnostic_reason": "This arm adds a reading and changes no verdict of B52's registered criteria. It writes D48 shape four in a readable form and runs it once on a panel already on disk.",
+  "floor": 0.03552811338994268,
+  "gap_against_null": 0.046764271891559184,
+  "half_life_ladder": [
+    {
+      "half_life_semesters": 1,
+      "phi": 0.5,
+      "proportion_it_produces": 0.855153,
+      "separated_from_the_strict_null": true
+    },
+    {
+      "half_life_semesters": 2,
+      "phi": 0.707107,
+      "proportion_it_produces": 0.818048,
+      "separated_from_the_strict_null": true
+    },
+    {
+      "half_life_semesters": 4,
+      "phi": 0.840896,
+      "proportion_it_produces": 0.788392,
+      "separated_from_the_strict_null": true
+    },
+    {
+      "half_life_semesters": 8,
+      "phi": 0.917004,
+      "proportion_it_produces": 0.767006,
+      "separated_from_the_strict_null": true
+    },
+    {
+      "half_life_semesters": 16,
+      "phi": 0.957603,
+      "proportion_it_produces": 0.746615,
+      "separated_from_the_strict_null": false
+    },
+    {
+      "half_life_semesters": 32,
+      "phi": 0.978572,
+      "proportion_it_produces": 0.733291,
+      "separated_from_the_strict_null": false
+    },
+    {
+      "half_life_semesters": 64,
+      "phi": 0.989228,
+      "proportion_it_produces": 0.726245,
+      "separated_from_the_strict_null": false
+    }
+  ],
+  "half_lives_not_separable": [
+    16,
+    32,
+    64
+  ],
+  "half_lives_separable": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "median_series_length": 37,
+  "parity_both_separate": false,
+  "planted_check": {
+    "gap": 0.05357205327420567,
+    "mean": 0.7149644866465613,
+    "separates": true
+  },
+  "pre_crisis_arm": {
+    "all_nulls": {
+      "block_bootstrap_2": 0.721497,
+      "block_bootstrap_3": 0.721271,
+      "block_bootstrap_4": 0.740449,
+      "block_bootstrap_6": 0.748428,
+      "block_bootstrap_8": 0.755689,
+      "gaussian_walk": 0.689086,
+      "shuffled_differences": 0.712129
+    },
+    "countries": 33,
+    "floor": 0.041571611947207134,
+    "gap": 0.029257002953218758,
+    "label": "I_TAX up to 2021-S1",
+    "n": 279,
+    "observed": 0.7849462365591398,
+    "separated": false,
+    "strict_null": 0.755689233605921,
+    "strict_null_name": "block_bootstrap_8",
+    "usable": true
+  },
+  "pre_crisis_end": "2021-S1",
+  "principled_block_length": 3.332221851645953,
+  "random_walk_null": {
+    "mean": 0.6613924333723556,
+    "p05": 0.61731843575419,
+    "p95": 0.7024793388429752,
+    "sd": 0.025323235002858713,
+    "sims": 200
+  },
+  "reading": {
+    "away": 84,
+    "back": 276,
+    "median_large_deviation": 0.2200125,
+    "n": 360,
+    "per_unit": {
+      "AT": {
+        "away": 2,
+        "back": 9,
+        "points": 34,
+        "used": 11
+      },
+      "BA": {
+        "away": 6,
+        "back": 4,
+        "points": 32,
+        "used": 10
+      },
+      "BE": {
+        "away": 3,
+        "back": 10,
+        "points": 37,
+        "used": 13
+      },
+      "BG": {
+        "away": 4,
+        "back": 8,
+        "points": 37,
+        "used": 12
+      },
+      "CZ": {
+        "away": 1,
+        "back": 12,
+        "points": 37,
+        "used": 13
+      },
+      "DE": {
+        "away": 4,
+        "back": 9,
+        "points": 37,
+        "used": 13
+      },
+      "DK": {
+        "away": 3,
+        "back": 10,
+        "points": 37,
+        "used": 13
+      },
+      "EE": {
+        "away": 2,
+        "back": 10,
+        "points": 37,
+        "used": 12
+      },
+      "EL": {
+        "away": 1,
+        "back": 7,
+        "points": 26,
+        "used": 8
+      },
+      "ES": {
+        "away": 0,
+        "back": 12,
+        "points": 37,
+        "used": 12
+      },
+      "FR": {
+        "away": 3,
+        "back": 9,
+        "points": 37,
+        "used": 12
+      },
+      "GE": {
+        "away": 1,
+        "back": 5,
+        "points": 15,
+        "used": 6
+      },
+      "HR": {
+        "away": 4,
+        "back": 8,
+        "points": 38,
+        "used": 12
+      },
+      "HU": {
+        "away": 2,
+        "back": 10,
+        "points": 37,
+        "used": 12
+      },
+      "IE": {
+        "away": 3,
+        "back": 10,
+        "points": 37,
+        "used": 13
+      },
+      "IT": {
+        "away": 3,
+        "back": 9,
+        "points": 36,
+        "used": 12
+      },
+      "LI": {
+        "away": 3,
+        "back": 5,
+        "points": 23,
+        "used": 8
+      },
+      "LT": {
+        "away": 2,
+        "back": 11,
+        "points": 37,
+        "used": 13
+      },
+      "LU": {
+        "away": 3,
+        "back": 9,
+        "points": 37,
+        "used": 12
+      },
+      "LV": {
+        "away": 3,
+        "back": 9,
+        "points": 37,
+        "used": 12
+      },
+      "MD": {
+        "away": 2,
+        "back": 5,
+        "points": 22,
+        "used": 7
+      },
+      "MK": {
+        "away": 0,
+        "back": 5,
+        "points": 17,
+        "used": 5
+      },
+      "NL": {
+        "away": 6,
+        "back": 6,
+        "points": 38,
+        "used": 12
+      },
+      "PL": {
+        "away": 1,
+        "back": 11,
+        "points": 33,
+        "used": 12
+      },
+      "PT": {
+        "away": 1,
+        "back": 11,
+        "points": 37,
+        "used": 12
+      },
+      "RO": {
+        "away": 6,
+        "back": 6,
+        "points": 37,
+        "used": 12
+      },
+      "RS": {
+        "away": 0,
+        "back": 8,
+        "points": 25,
+        "used": 8
+      },
+      "SE": {
+        "away": 4,
+        "back": 9,
+        "points": 38,
+        "used": 13
+      },
+      "SI": {
+        "away": 4,
+        "back": 9,
+        "points": 37,
+        "used": 13
+      },
+      "SK": {
+        "away": 1,
+        "back": 12,
+        "points": 37,
+        "used": 13
+      },
+      "TR": {
+        "away": 3,
+        "back": 9,
+        "points": 37,
+        "used": 12
+      },
+      "UA": {
+        "away": 1,
+        "back": 2,
+        "points": 7,
+        "used": 3
+      },
+      "UK": {
+        "away": 2,
+        "back": 7,
+        "points": 26,
+        "used": 9
+      }
+    },
+    "proportion_back": 0.7666666666666667
+  },
+  "semester_parity": {
+    "S1": {
+      "countries": 33,
+      "floor": 0.05174430930225191,
+      "gap": 0.05474219130248237,
+      "n": 185,
+      "null_sd": 0.03145830635285976,
+      "observed": 0.8162162162162162,
+      "separated": true,
+      "shuffled_null": 0.7614740249137338
+    },
+    "S2": {
+      "countries": 32,
+      "floor": 0.04748509026349245,
+      "gap": 0.038258343406965656,
+      "n": 185,
+      "null_sd": 0.028868885039637266,
+      "observed": 0.7891891891891892,
+      "separated": false,
+      "shuffled_null": 0.7509308457822236
+    }
+  },
+  "separated_from_null": true,
+  "shuffled_differences_null": {
+    "mean": 0.6746505714264118,
+    "p05": 0.6418732782369146,
+    "p95": 0.7084468664850136,
+    "sd": 0.021793656413580883,
+    "sims": 200
+  },
+  "stage": "B52",
+  "step_acf1_median": -0.20457435253976416,
+  "step_acf1_negative_countries": 25,
+  "strict_block": 8,
+  "strict_null_used": "block_bootstrap_8",
+  "tax_base_arms": [
+    {
+      "all_nulls": {
+        "block_bootstrap_2": 0.681777,
+        "block_bootstrap_3": 0.688673,
+        "block_bootstrap_4": 0.704024,
+        "block_bootstrap_6": 0.715959,
+        "block_bootstrap_8": 0.723425,
+        "gaussian_walk": 0.665244,
+        "shuffled_differences": 0.681089
+      },
+      "countries": 33,
+      "floor": 0.035143437927091216,
+      "gap": 0.08213051361907375,
+      "label": "X_TAX",
+      "n": 360,
+      "observed": 0.8055555555555556,
+      "separated": true,
+      "strict_null": 0.7234250419364818,
+      "strict_null_name": "block_bootstrap_8",
+      "usable": true
+    },
+    {
+      "all_nulls": {
+        "block_bootstrap_2": 0.67642,
+        "block_bootstrap_3": 0.685261,
+        "block_bootstrap_4": 0.693739,
+        "block_bootstrap_6": 0.705292,
+        "block_bootstrap_8": 0.712797,
+        "gaussian_walk": 0.663634,
+        "shuffled_differences": 0.674239
+      },
+      "countries": 33,
+      "floor": 0.03696799826430943,
+      "gap": 0.06005619698966236,
+      "label": "X_VAT",
+      "n": 361,
+      "observed": 0.7728531855955678,
+      "separated": true,
+      "strict_null": 0.7127969886059055,
+      "strict_null_name": "block_bootstrap_8",
+      "usable": true
+    }
+  ]
+}

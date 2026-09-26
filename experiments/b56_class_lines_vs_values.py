@@ -448,7 +448,16 @@ def main():
                       "ceiling_is_not_a_value": True,
                       "carriers": sorted(rows)},
            "rival_arm": riv,
-           "criteria": [{"name": k, "passed": v["passed"], "detail": v["detail"],
+           # Rule 0b: a rival criterion says which cell it is in. Here the rival
+           # stakes distinct values == blocks named and this framework stakes the
+           # counting law, so where the rival misses the two accounts differ and
+           # the cell is B.
+           "criteria": [{**({"grid": "B",
+ "rival_premise": "a seller who has paid to sort prices each named block by that block's own elasticity", "rival_entailment": "the inverse elasticity rule sets a distinct price wherever elasticities differ, so a seller that has already bought the sorting writes as many distinct values as it named blocks", "cite": "Stole chapter 34, read for station B58",                              "grid_note": "the rival stakes one value per named "
+                                          "block; where it misses, the two "
+                                          "accounts differ on that operator"}
+                            if KIND[k] == "rival" else {}),
+                         "name": k, "passed": v["passed"], "detail": v["detail"],
                          "kind": KIND[k], "criterion": v["name"]}
                         for k, v in sorted(crit.items())],
            "rows": rows}

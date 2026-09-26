@@ -309,10 +309,10 @@ coordinate. **That is the assumption the literature makes, and it is made in the
 choice of state space rather than in a stated assumption**, which is why the
 question does not come up there.
 
-**Open check.** Whether the edge-valued version has been done is not settled.
-Ilinski's lattice gauge treatment of prices, recorded in
-[`b29_locality_theorem.md`](b29_locality_theorem.md) §5, is the first place to
-look, and until it is read this is an open question rather than a novelty claim.
+**The nearest construction.** Ilinski's lattice gauge treatment of prices also puts
+the price on edges, and its cycles are triangular arbitrages among assets at one
+moment, with no agent who observes only some edges. The comparison is in
+[`b0c_related_literature.md`](b0c_related_literature.md) §2b.
 
 ---
 
@@ -349,7 +349,11 @@ plus `b1` extra edges carries `b1` independent disagreements. None of that needs
 data and none of it carries any weight about the world.
 
 **The claim half is that real price fields are generated this way**, and nothing
-above establishes it. Every arm in §10 is unrun.
+above establishes it. **B30-5 has run on both of its registered regressors**: the
+region's own conditions cross-sectionally on 2026-09-01, and the propagation
+branch as B61 on 2026-09-09. The branch arm returned a reading on neither side of
+its registered dichotomy on its best carrier and the opposite reading on a second
+one, so it clears nothing here. **B30-1 through B30-4 are unrun.**
 
 **Nothing here requires anyone to be irrational, uninformed or foolish.** Every
 agent in the construction arbitrages perfectly over everything they can reach and
@@ -813,3 +817,128 @@ streaming, music and adult content alike, and the arm is specified over the clas
 so that any single member can be removed without touching the result. **A finding
 that survives dropping any one member is also a finding that cannot be dismissed
 by objecting to that member.**
+
+---
+
+## 15. Cutting an information edge re-roots the tree
+
+**15.1 What `G_I` carries is state, not flow.** An edge delivers an update and the
+node keeps a copy. Cutting the edge stops the updates; it does not take back the
+copy. The node holding the copy is itself a source and keeps radiating on its own
+out-edges, so the downstream block does not go dark. It keeps propagating, without
+correction.
+
+Propagation builds a tree (§2). Cutting an edge of a tree gives two trees, and the
+downstream one has a new root: the copy left behind, held by one local authority or
+by no centre at all, sustained by nodes citing one another. **What is lost is the
+route back to the source, not the number.** The number goes from checkable to
+uncheckable with its value unchanged.
+
+**15.2 After the cut: divergence, not decay.**
+
+| Quantity | After the cut |
+|---|---|
+| level | held; the ripple keeps travelling |
+| accuracy against the source | decays |
+| dispersion across downstream nodes | grows, since each block re-roots and drifts on its own |
+
+**The observable signature of a cut information edge is divergence, not silence**,
+and it is measurable: the dispersion of quotes for one object across downstream
+nodes grows with the length of the cut, and collapses when the edge is restored.
+
+**15.3 Freeze or drift, decided by the size of the reconnecting step (B37).** A node
+with a single upstream edge does not drift when that edge is cut; it freezes, because
+drift needs some other input. The `mayorista` series B37 reads froze at `365.9497`
+from 2023-12-12 for 30 trading days while the source rate it follows moved `+0.7991`;
+the first step after the thaw was `+0.7984`, `step / gap = 1.00`, and three other
+freezes of the same series read `1.04`, `1.02` and `1.05`.
+
+| The reconnecting step | What was cut |
+|---|---|
+| closes the whole gap | the only edge was deleted; a pure freeze |
+| closes a small part | other inputs remained; noise, not deletion |
+
+The same publisher's `oficial` series also freezes, but there the source moved only
+`1.9` to `3.3` times the series' own daily step, against `11.8` to `539` for
+`mayorista`, with nothing in between. **One stops because the world stopped, the
+other because the pipe was cut.** Readings in the B37 section of
+[RESULTS.md](../RESULTS.md).
+
+**15.4 Four cells, and one is empty.**
+
+| | `G_I` open | `G_I` cut |
+|---|---|---|
+| **`G_T` open** | the ordinary case | information cut with trade open |
+| **`G_T` cut** | B36 (a trade edge deleted for fourteen months, news open throughout); B48 (an input removed in three steps while publishing never stops: live, frozen, empty) | **empty** |
+
+B48 names two states that had no name: frozen, the same value reprinted, and empty,
+a channel still running that delivers "this number does not exist". Empty is not
+silence.
+
+The same `G_T`-cut cell has a price-side reading that is purely informational. In
+the Havana informal market no arbitrage edge joins the local euro to the world
+market, so `G_T` is identically zero on the local EUR/USD cross, and only information
+can pull it toward the world cross. With `h(t) = log(local EUR/USD) − log(world
+EUR/USD)`, the B6-13 series reads `+0.0777` on 2025-12-24, `+0.0260` on 2026-03-07
+and `−0.0001` on 2026-06-21: **about eight months from 7.8 per cent to zero**, which
+is a convergence time for a local copy toward its source while `G_I` is open. Beside
+B36's transit time of about a month on the quantity side, the table now carries two
+time constants, one for quantities and one for prices.
+
+The empty cell is a registered prediction, with a carrier requirement rather than
+an outstanding measurement. Its physical form is narrow: a position that could both
+trade with and hear from upstream loses both on dated events and keeps forming a
+price. The signature separates it from a position that never received the
+broadcast:
+
+> **dispersion across quoters near zero at the cut and growing ⇒ both edges cut;
+> dispersed from the start ⇒ never transmitted.**
+
+A third condition follows from `G_I` being directed. Recording a local price is an
+out-edge, but a recorder usually also carries outside prices in, which reconnects
+the in-edge. The clean case needs a recorder inside who is not also an in-edge.
+
+**15.5 Information alone flattens dispersion.** R. A. Radford, *The Economic
+Organisation of a P.O.W. Camp* (*Economica* 12(48), 1945), records the mechanism
+with the trade edges fully open. A tin of salmon *"is known to have varied by two
+cigarettes in 20 between one end of a hut and the other"* (p. 191), within a hut
+where arbitrage is a few steps. Then (p. 191): *"The public and semi-permanent
+records of transactions led to cigarette prices being well known and thus tending to
+equality throughout the camp."* A notice board added an information edge, the
+transfer edges did not change, and dispersion collapsed. And where compounds had
+been separated, the first to reach the French exchange found coffee extract at a
+premium, and *"some enterprising people made small fortunes that way"*: dispersion
+built during isolation, cashed at reconnection.
+
+**Two carriers, one direction: what flattens dispersion is the information edge,
+not the transfer edge.** Havana holds `G_T` at zero; Radford's camp holds `G_T`
+open and changes only `G_I`. That pair closes the reply that convergence was
+arbitrage's doing from both ends. Radford is cited as literature, not as a
+measurement, and the empty cell stays empty.
+
+**15.6 What survives compression is exactly `b₁` numbers.** Along one path, each
+stage compresses its inputs to one number and the reasons are lost; the number
+survives at full amplitude. But a chain that passes one number per position needs
+that number to be well defined, which means every loop returns to it: **compressing
+each stage to one number forces every cycle sum to zero, which is the scalar price
+field.** A nonzero cycle sum is where that picture fails. What survives is not in
+any single number; it is in the disagreement between routes, and its size is exact:
+
+```
+numbers on edges                                dim = E
+the part that is a difference of node values    dim = V − c      (c components)
+the part on cycles                              dim = E − V + c = b₁
+```
+
+"A map from very high dimension to one dimension" misplaces the object: one edge
+carries one number, and the object is all the edges. What compression removes is the
+fibre; what survives is `b₁` numbers, and they can be counted.
+
+The destination can also rebuild a reason for a good, but it arrives by another
+channel. A number travels on `ω` and carries one comparison; the good itself travels
+on `G_T` and is read against the destination's own substitution graph. **A reason
+rebuilt at the destination is a different, locally generated reason, not a degraded
+copy of the origin's**, and a registered arm follows: one physical good shipped to two
+destinations with different local substitution graphs and no broadcast from the
+origin should take different relative prices, predicted by the local substitution
+structure.

@@ -1,0 +1,1501 @@
+{
+  "config": {
+    "authority": "none, so neither side can issue its way across",
+    "boundary_swing": 0.25,
+    "gaps": [
+      "level",
+      "support",
+      "active_nodes",
+      "layer2_reached",
+      "layer1_volume"
+    ],
+    "lag_share_of_claims": 0.5,
+    "pair_machinery": "a25_boundary.run_pair",
+    "rounds": 80,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "tail": 15,
+    "widths": [
+      0.0,
+      0.02,
+      0.05,
+      0.1
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "three seeds, both sides, 156 history fields compared against the same configuration run alone: worst absolute difference 0.000e+00. Rule 19, and it is run rather than argued.",
+      "kind": "instrument",
+      "name": "A40-0  the boundary shut is two graphs that never met",
+      "passed": true
+    },
+    {
+      "detail": "the pair machinery asserts every round that the two sides' claims sum to what they summed to before the transfer. A network that quietly loses a thousandth of its holdings each round was planted and the assertion fired. A check nobody has seen fail is not known to work.",
+      "kind": "instrument",
+      "name": "A40-1  pair-level conservation, and the check that would catch its absence",
+      "passed": true
+    },
+    {
+      "detail": "Void: printed, not adjudicated. This is the description rule 13 puts before any test, and no criterion was registered on which gap should close. Each gap is a log ratio of the leading side to the lagging one, so zero is closed whatever the units. The lagging side starts with 50% of the other's claims and nothing else differs. level: opens +0.551, shut boundary closes to +0.476, widest closes to +0.451, moved 0.025 against a seed floor of 0.002 | support: opens -0.263, shut boundary closes to -0.437, widest closes to -0.412, moved 0.025 against a seed floor of 0.020 | active_nodes: opens +0.000, shut boundary closes to +0.000, widest closes to +0.000, moved 0.000 against a seed floor of 0.000 | layer2_reached: opens +0.000, shut boundary closes to +0.000, widest closes to +0.000, moved 0.000 against a seed floor of 0.000 | layer1_volume: opens +0.837, shut boundary closes to +0.947, widest closes to +0.892, moved 0.055 against a seed floor of 0.008. Floor measured, not declared: the seed spread of the closing figure at a shut boundary, where nothing crossed.",
+      "kind": "own_reading",
+      "name": "A40-2  which candidate gap the boundary closes",
+      "passed": null,
+      "void": true
+    },
+    {
+      "detail": "one seed, initial claims over a sixteenfold range (0.125, 0.5, 2.0, 4.0 times the reference). Active nodes and the share of the second layer reached are bitwise identical at every stock: worst absolute difference 0.0000. Over the same range the level is sublinear and the support set moves the other way: x0.125 -> volume x0.18; x0.5 -> volume x0.62; x2 -> volume x1.76; x4 -> volume x3.27 against support x1.93; support x1.55; support x0.76; support x0.65. **So a pure difference in the claim stock is invisible in who takes part, and the level and the support set are two directions rather than one.** That is why two of the candidate gaps in A40-2 read exactly zero: they have no object on this axis, which is a property of the module and not a bug.",
+      "kind": "instrument",
+      "name": "A40-4  the claim stock does not move who takes part, at all",
+      "passed": true
+    },
+    {
+      "detail": "the field-exact arm. A22 forced w = d phi on A3's carrier and read that the whole holonomy carries 1.33% of the support contraction there, the graph carrying the rest. Whether catch-up splits the same way between the two channels is the question this station opens and does not answer: A22's construction sits on a different carrier and joining the two is its own piece of work. Registered here so the next session does not re-derive the need.",
+      "kind": "bookkeeping",
+      "name": "A40-3  what is registered and not run",
+      "passed": true
+    }
+  ],
+  "report": {
+    "claim_scale": [
+      {
+        "active_nodes": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "claims_multiple": 0.125,
+        "effective_support": {
+          "max_abs_diff": 28.04703499102922,
+          "tail_ratio": 1.9303797113165506
+        },
+        "layer2_reached": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "total_volume": {
+          "max_abs_diff": 62.37752249626574,
+          "tail_ratio": 0.17590100769698525
+        }
+      },
+      {
+        "active_nodes": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "claims_multiple": 0.5,
+        "effective_support": {
+          "max_abs_diff": 14.438004876637969,
+          "tail_ratio": 1.5481301845767557
+        },
+        "layer2_reached": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "total_volume": {
+          "max_abs_diff": 32.086734088625974,
+          "tail_ratio": 0.6220549888550693
+        }
+      },
+      {
+        "active_nodes": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "claims_multiple": 2.0,
+        "effective_support": {
+          "max_abs_diff": 6.3874643222015415,
+          "tail_ratio": 0.7573433726161793
+        },
+        "layer2_reached": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "total_volume": {
+          "max_abs_diff": 64.17346817725193,
+          "tail_ratio": 1.755890022289861
+        }
+      },
+      {
+        "active_nodes": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "claims_multiple": 4.0,
+        "effective_support": {
+          "max_abs_diff": 9.283296472424599,
+          "tail_ratio": 0.6472252777607469
+        },
+        "layer2_reached": {
+          "max_abs_diff": 0.0,
+          "tail_ratio": 1.0
+        },
+        "total_volume": {
+          "max_abs_diff": 192.52040453175584,
+          "tail_ratio": 3.2676700668695817
+        }
+      }
+    ],
+    "default_off": {
+      "fields_compared": 156,
+      "worst_abs_difference": 0.0
+    },
+    "floor_seed_sd_at_width_zero": {
+      "active_nodes": 0.0,
+      "layer1_volume": 0.007661442596382275,
+      "layer2_reached": 0.0,
+      "level": 0.0016747187603403347,
+      "support": 0.019872263677911995
+    },
+    "gap_rows": [
+      {
+        "close": 0.4747267836311795,
+        "gap": "level",
+        "open": 0.5512986271594889,
+        "ratio": 0.8611064135551395,
+        "seed": 0,
+        "width": 0.0
+      },
+      {
+        "close": -0.4370478701952454,
+        "gap": "support",
+        "open": -0.2586982342143509,
+        "ratio": 1.6894118799168858,
+        "seed": 0,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.0
+      },
+      {
+        "close": 0.952042418244254,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.138119362307348,
+        "seed": 0,
+        "width": 0.0
+      },
+      {
+        "close": 0.47677449285611795,
+        "gap": "level",
+        "open": 0.5514810415133047,
+        "ratio": 0.8645346928841172,
+        "seed": 1,
+        "width": 0.0
+      },
+      {
+        "close": -0.4667550719546596,
+        "gap": "support",
+        "open": -0.2738535112722089,
+        "ratio": 1.704396886446008,
+        "seed": 1,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.0
+      },
+      {
+        "close": 0.9448088498192782,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.1294719910082602,
+        "seed": 1,
+        "width": 0.0
+      },
+      {
+        "close": 0.47369597692668375,
+        "gap": "level",
+        "open": 0.5515522671359645,
+        "ratio": 0.8588415008906342,
+        "seed": 2,
+        "width": 0.0
+      },
+      {
+        "close": -0.4259326785278268,
+        "gap": "support",
+        "open": -0.26293436392247704,
+        "ratio": 1.6199201662868525,
+        "seed": 2,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.0
+      },
+      {
+        "close": 0.95759128750796,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.144752759545659,
+        "seed": 2,
+        "width": 0.0
+      },
+      {
+        "close": 0.47605429564870594,
+        "gap": "level",
+        "open": 0.5516325370139827,
+        "ratio": 0.8629916904931207,
+        "seed": 3,
+        "width": 0.0
+      },
+      {
+        "close": -0.4054615264510102,
+        "gap": "support",
+        "open": -0.23544804301005184,
+        "ratio": 1.7220849290885805,
+        "seed": 3,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.0
+      },
+      {
+        "close": 0.9470592469386809,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.1321622288436666,
+        "seed": 3,
+        "width": 0.0
+      },
+      {
+        "close": 0.47854930519758954,
+        "gap": "level",
+        "open": 0.5514012738439393,
+        "ratio": 0.8678784904893623,
+        "seed": 4,
+        "width": 0.0
+      },
+      {
+        "close": -0.4378280989337,
+        "gap": "support",
+        "open": -0.2659858531462018,
+        "ratio": 1.6460578401252166,
+        "seed": 4,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.0
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.0
+      },
+      {
+        "close": 0.934696755731931,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.117383485439876,
+        "seed": 4,
+        "width": 0.0
+      },
+      {
+        "close": 0.469777267720084,
+        "gap": "level",
+        "open": 0.5512986271594889,
+        "ratio": 0.8521284918494437,
+        "seed": 0,
+        "width": 0.02
+      },
+      {
+        "close": -0.4320615954860698,
+        "gap": "support",
+        "open": -0.2586982342143509,
+        "ratio": 1.6701373969490427,
+        "seed": 0,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.02
+      },
+      {
+        "close": 0.9409888138897196,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.1249053280394412,
+        "seed": 0,
+        "width": 0.02
+      },
+      {
+        "close": 0.4718020620139671,
+        "gap": "level",
+        "open": 0.5514810415133047,
+        "ratio": 0.8555181892006795,
+        "seed": 1,
+        "width": 0.02
+      },
+      {
+        "close": -0.4614077593214505,
+        "gap": "support",
+        "open": -0.2738535112722089,
+        "ratio": 1.684870707620081,
+        "seed": 1,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.02
+      },
+      {
+        "close": 0.9338624708605363,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.1163861393682952,
+        "seed": 1,
+        "width": 0.02
+      },
+      {
+        "close": 0.4687579885507449,
+        "gap": "level",
+        "open": 0.5515522671359645,
+        "ratio": 0.8498886079915074,
+        "seed": 2,
+        "width": 0.02
+      },
+      {
+        "close": -0.421076517162994,
+        "gap": "support",
+        "open": -0.26293436392247704,
+        "ratio": 1.6014510651302438,
+        "seed": 2,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.02
+      },
+      {
+        "close": 0.9464550475471807,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.1314399385202707,
+        "seed": 2,
+        "width": 0.02
+      },
+      {
+        "close": 0.47108992652019976,
+        "gap": "level",
+        "open": 0.5516325370139827,
+        "ratio": 0.8539922773051702,
+        "seed": 3,
+        "width": 0.02
+      },
+      {
+        "close": -0.4008600346108575,
+        "gap": "support",
+        "open": -0.23544804301005184,
+        "ratio": 1.7025413738254933,
+        "seed": 3,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.02
+      },
+      {
+        "close": 0.9360795699310454,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.119036571042288,
+        "seed": 3,
+        "width": 0.02
+      },
+      {
+        "close": 0.47355699670090434,
+        "gap": "level",
+        "open": 0.5514012738439393,
+        "ratio": 0.8588246331018327,
+        "seed": 4,
+        "width": 0.02
+      },
+      {
+        "close": -0.43280205673278394,
+        "gap": "support",
+        "open": -0.2659858531462018,
+        "ratio": 1.6271619396798893,
+        "seed": 4,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.02
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.02
+      },
+      {
+        "close": 0.9238993338222916,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.1044757045439104,
+        "seed": 4,
+        "width": 0.02
+      },
+      {
+        "close": 0.4622697908731501,
+        "gap": "level",
+        "open": 0.5512986271594889,
+        "ratio": 0.8385106874924559,
+        "seed": 0,
+        "width": 0.05
+      },
+      {
+        "close": -0.4245240427407144,
+        "gap": "support",
+        "open": -0.2586982342143509,
+        "ratio": 1.6410009292485714,
+        "seed": 0,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.05
+      },
+      {
+        "close": 0.9243002120822132,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.10495493456644,
+        "seed": 0,
+        "width": 0.05
+      },
+      {
+        "close": 0.4642599227151609,
+        "gap": "level",
+        "open": 0.5514810415133047,
+        "ratio": 0.8418420358407923,
+        "seed": 1,
+        "width": 0.05
+      },
+      {
+        "close": -0.4533256797203298,
+        "gap": "support",
+        "open": -0.2738535112722089,
+        "ratio": 1.6553582885038363,
+        "seed": 1,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.05
+      },
+      {
+        "close": 0.9173341349393529,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.0966273357917589,
+        "seed": 1,
+        "width": 0.05
+      },
+      {
+        "close": 0.4612679493847964,
+        "gap": "level",
+        "open": 0.5515522671359645,
+        "ratio": 0.8363086816413867,
+        "seed": 2,
+        "width": 0.05
+      },
+      {
+        "close": -0.41373550263268344,
+        "gap": "support",
+        "open": -0.26293436392247704,
+        "ratio": 1.573531494554543,
+        "seed": 2,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.05
+      },
+      {
+        "close": 0.9296429597423228,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.1113419236788658,
+        "seed": 2,
+        "width": 0.05
+      },
+      {
+        "close": 0.4635599816963558,
+        "gap": "level",
+        "open": 0.5516325370139827,
+        "ratio": 0.8403419859996503,
+        "seed": 3,
+        "width": 0.05
+      },
+      {
+        "close": -0.39390264795573326,
+        "gap": "support",
+        "open": -0.23544804301005184,
+        "ratio": 1.672991811356515,
+        "seed": 3,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.05
+      },
+      {
+        "close": 0.9195014604890313,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.0992182656970257,
+        "seed": 3,
+        "width": 0.05
+      },
+      {
+        "close": 0.4659847903064418,
+        "gap": "level",
+        "open": 0.5514012738439393,
+        "ratio": 0.8450919727804753,
+        "seed": 4,
+        "width": 0.05
+      },
+      {
+        "close": -0.42520640305385626,
+        "gap": "support",
+        "open": -0.2659858531462018,
+        "ratio": 1.5986053319164206,
+        "seed": 4,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.05
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.05
+      },
+      {
+        "close": 0.9075937027002943,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.0849831334788413,
+        "seed": 4,
+        "width": 0.05
+      },
+      {
+        "close": 0.44952988382990045,
+        "gap": "level",
+        "open": 0.5512986271594889,
+        "ratio": 0.8154017835053541,
+        "seed": 0,
+        "width": 0.1
+      },
+      {
+        "close": -0.4118027095835193,
+        "gap": "support",
+        "open": -0.2586982342143509,
+        "ratio": 1.5918265187782836,
+        "seed": 0,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 0,
+        "width": 0.1
+      },
+      {
+        "close": 0.8961877036032453,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.0713478288221934,
+        "seed": 0,
+        "width": 0.1
+      },
+      {
+        "close": 0.45146145220092704,
+        "gap": "level",
+        "open": 0.5514810415133047,
+        "ratio": 0.8186345825453646,
+        "seed": 1,
+        "width": 0.1
+      },
+      {
+        "close": -0.43968870301819507,
+        "gap": "support",
+        "open": -0.2738535112722089,
+        "ratio": 1.6055616777582482,
+        "seed": 1,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 1,
+        "width": 0.1
+      },
+      {
+        "close": 0.8894872977425408,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.0633378268524825,
+        "seed": 1,
+        "width": 0.1
+      },
+      {
+        "close": 0.44855750518802795,
+        "gap": "level",
+        "open": 0.5515522671359645,
+        "ratio": 0.8132638226967036,
+        "seed": 2,
+        "width": 0.1
+      },
+      {
+        "close": -0.4013454569169461,
+        "gap": "support",
+        "open": -0.26293436392247704,
+        "ratio": 1.526409294432423,
+        "seed": 2,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 2,
+        "width": 0.1
+      },
+      {
+        "close": 0.9013258189251703,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.0774901901514669,
+        "seed": 2,
+        "width": 0.1
+      },
+      {
+        "close": 0.45078211381250766,
+        "gap": "level",
+        "open": 0.5516325370139827,
+        "ratio": 0.8171782546631785,
+        "seed": 3,
+        "width": 0.1
+      },
+      {
+        "close": -0.3821564523520111,
+        "gap": "support",
+        "open": -0.23544804301005184,
+        "ratio": 1.6231031163665095,
+        "seed": 3,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 3,
+        "width": 0.1
+      },
+      {
+        "close": 0.8915721033252377,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095062,
+        "ratio": 1.0658301082412562,
+        "seed": 3,
+        "width": 0.1
+      },
+      {
+        "close": 0.45313552302971116,
+        "gap": "level",
+        "open": 0.5514012738439393,
+        "ratio": 0.8217890391707005,
+        "seed": 4,
+        "width": 0.1
+      },
+      {
+        "close": -0.4123923993296126,
+        "gap": "support",
+        "open": -0.2659858531462018,
+        "ratio": 1.5504298234347709,
+        "seed": 4,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "active_nodes",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.1
+      },
+      {
+        "close": 0.0,
+        "gap": "layer2_reached",
+        "open": 0.0,
+        "ratio": NaN,
+        "seed": 4,
+        "width": 0.1
+      },
+      {
+        "close": 0.8801162094280239,
+        "gap": "layer1_volume",
+        "open": 0.8365048955095058,
+        "ratio": 1.0521351568324713,
+        "seed": 4,
+        "width": 0.1
+      }
+    ],
+    "gap_summary": {
+      "active_nodes": {
+        "0.0": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        },
+        "0.02": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        },
+        "0.05": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        },
+        "0.1": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        }
+      },
+      "layer1_volume": {
+        "0.0": {
+          "close_median": 0.9470592469386809,
+          "close_sd": 0.007661442596382275,
+          "open_median": 0.8365048955095058,
+          "seeds": 5
+        },
+        "0.02": {
+          "close_median": 0.9360795699310454,
+          "close_sd": 0.007548077914795854,
+          "open_median": 0.8365048955095058,
+          "seeds": 5
+        },
+        "0.05": {
+          "close_median": 0.9195014604890313,
+          "close_sd": 0.007378622047343186,
+          "open_median": 0.8365048955095058,
+          "seeds": 5
+        },
+        "0.1": {
+          "close_median": 0.8915721033252377,
+          "close_sd": 0.007097680356363748,
+          "open_median": 0.8365048955095058,
+          "seeds": 5
+        }
+      },
+      "layer2_reached": {
+        "0.0": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        },
+        "0.02": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        },
+        "0.05": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        },
+        "0.1": {
+          "close_median": 0.0,
+          "close_sd": 0.0,
+          "open_median": 0.0,
+          "seeds": 5
+        }
+      },
+      "level": {
+        "0.0": {
+          "close_median": 0.47605429564870594,
+          "close_sd": 0.0016747187603403347,
+          "open_median": 0.5514810415133047,
+          "seeds": 5
+        },
+        "0.02": {
+          "close_median": 0.47108992652019976,
+          "close_sd": 0.0016559747753291528,
+          "open_median": 0.5514810415133047,
+          "seeds": 5
+        },
+        "0.05": {
+          "close_median": 0.4635599816963558,
+          "close_sd": 0.0016276217190216021,
+          "open_median": 0.5514810415133047,
+          "seeds": 5
+        },
+        "0.1": {
+          "close_median": 0.45078211381250766,
+          "close_sd": 0.0015797186893578457,
+          "open_median": 0.5514810415133047,
+          "seeds": 5
+        }
+      },
+      "support": {
+        "0.0": {
+          "close_median": -0.4370478701952454,
+          "close_sd": 0.019872263677911995,
+          "open_median": -0.26293436392247704,
+          "seeds": 5
+        },
+        "0.02": {
+          "close_median": -0.4320615954860698,
+          "close_sd": 0.019629940872056467,
+          "open_median": -0.26293436392247704,
+          "seeds": 5
+        },
+        "0.05": {
+          "close_median": -0.4245240427407144,
+          "close_sd": 0.019264561905289863,
+          "open_median": -0.26293436392247704,
+          "seeds": 5
+        },
+        "0.1": {
+          "close_median": -0.4118027095835193,
+          "close_sd": 0.018650414441353104,
+          "open_median": -0.26293436392247704,
+          "seeds": 5
+        }
+      }
+    },
+    "path_at_widest_seed0": {
+      "active_nodes": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "layer1_volume": [
+        0.8365048955095062,
+        0.8482585233789623,
+        0.8710883781196492,
+        0.8812224491166414,
+        0.887919477488802,
+        0.8913191607088811,
+        0.8938694875489874,
+        0.8953192996011583,
+        0.8955965789347555,
+        0.8959613217708453,
+        0.897297336133259,
+        0.8972828687980376,
+        0.8974652244059143,
+        0.8959647458669417,
+        0.8967395074963931,
+        0.8961570927622033,
+        0.8967207157035517,
+        0.896858264797951,
+        0.8958675230109678,
+        0.8970005024151826,
+        0.8970740880239019,
+        0.8969457876206177,
+        0.8957590892875573,
+        0.895564983158013,
+        0.8965841856545964,
+        0.8963744063907138,
+        0.8962843655814074,
+        0.8957235069562759,
+        0.8966883350254888,
+        0.8956889454096375,
+        0.8963268209674351,
+        0.8962221587074133,
+        0.8970825324992489,
+        0.8976131204087467,
+        0.897387710746052,
+        0.8969426282384347,
+        0.8966495387118281,
+        0.8961891207557824,
+        0.896569494747474,
+        0.8969986907823366,
+        0.8958044036426531,
+        0.8961236619051896,
+        0.8966775864985457,
+        0.8967128531348845,
+        0.8960329254977233,
+        0.8953731371104263,
+        0.8947885200267454,
+        0.8968763109167579,
+        0.8962824955854058,
+        0.8967172779538837,
+        0.8966539886299865,
+        0.8966098464386896,
+        0.8962863792047444,
+        0.8968041329600194,
+        0.8968830760948237,
+        0.8976304343330628,
+        0.896991130577971,
+        0.8969146897756808,
+        0.8964749288719904,
+        0.8960360678001376,
+        0.896607472553212,
+        0.8961823318828479,
+        0.8957068882278474,
+        0.8951447664884822,
+        0.8954848630841488,
+        0.8969335881098406,
+        0.8971399336397585,
+        0.8962471609025817,
+        0.8968797235505446,
+        0.89697771474661,
+        0.8955369466684426,
+        0.8958370382143728,
+        0.8956318261573641,
+        0.8960543319562384,
+        0.8964696802544405,
+        0.8961877036032453,
+        0.8957345388577655,
+        0.8962231256926714,
+        0.8959664764096442,
+        0.8958338075103196
+      ],
+      "layer2_reached": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "level": [
+        0.5512986271594889,
+        0.4912673009768582,
+        0.47438350235273674,
+        0.46339957683819843,
+        0.45753886565843294,
+        0.4544888504926452,
+        0.4526123311818373,
+        0.45082216784277573,
+        0.45057515000437043,
+        0.4510578125968254,
+        0.450512175708198,
+        0.44972683781907374,
+        0.44878688200892913,
+        0.45006360669779566,
+        0.4494236439304591,
+        0.4499915914555337,
+        0.45026993938403814,
+        0.44877377772773874,
+        0.45042970867911647,
+        0.4496945706104487,
+        0.4495676088748781,
+        0.4487285175300144,
+        0.44892924861939454,
+        0.4505908224216286,
+        0.4494865006269153,
+        0.44968291236976654,
+        0.44900031311354427,
+        0.45017080108914387,
+        0.44906678861630533,
+        0.4499207266946952,
+        0.44954777539101753,
+        0.4506308825574141,
+        0.45049235825922107,
+        0.44945368578141576,
+        0.4496279307014963,
+        0.448886256970352,
+        0.44965923088486015,
+        0.4504215088940482,
+        0.4498593042151673,
+        0.44807965149138207,
+        0.45053563933987206,
+        0.4499340401593983,
+        0.44952435486024456,
+        0.44960302298538757,
+        0.44866426329992226,
+        0.4487382956668635,
+        0.45075687991710156,
+        0.44970505210439526,
+        0.44991107601412317,
+        0.44943177094650544,
+        0.4499690118977222,
+        0.4492482017146835,
+        0.4500855112129969,
+        0.44980010255558467,
+        0.45073128792330097,
+        0.4489380593276584,
+        0.45002052384988867,
+        0.4491049206777995,
+        0.44930197438529085,
+        0.44983747635264937,
+        0.44959193216885174,
+        0.44893737600416905,
+        0.44899903692874554,
+        0.4496340841816311,
+        0.45097501884067936,
+        0.449676260722252,
+        0.4492835887188482,
+        0.44988618106343115,
+        0.44999941001185606,
+        0.4484165518019063,
+        0.44943845363139845,
+        0.4492776834782424,
+        0.45021063251104465,
+        0.44969733476965734,
+        0.4496765970195309,
+        0.44913432153219635,
+        0.4496246527634633,
+        0.44933912681534194,
+        0.44952988382990045,
+        0.44923123973089574
+      ],
+      "support": [
+        -0.2586982342143509,
+        -0.3136922277317087,
+        -0.35288996652250626,
+        -0.3784118338739262,
+        -0.3915372274046165,
+        -0.40104155958242593,
+        -0.40536618881879916,
+        -0.40804564389594944,
+        -0.41031430479470465,
+        -0.411457494854941,
+        -0.41088246504743653,
+        -0.41295838982707567,
+        -0.4119855320040253,
+        -0.4120639245082316,
+        -0.4113795480174032,
+        -0.4118313621280265,
+        -0.411861291132563,
+        -0.4116823676695862,
+        -0.4126391363875994,
+        -0.4133679665138228,
+        -0.41206874708083907,
+        -0.41110945105786545,
+        -0.4126141806301393,
+        -0.41186795674572796,
+        -0.4122926605725601,
+        -0.41208022130142785,
+        -0.41188371633617793,
+        -0.4117727998781304,
+        -0.4116026301391469,
+        -0.41200683512836545,
+        -0.4120335430488784,
+        -0.41161910525199197,
+        -0.41164033213324647,
+        -0.41401621377850173,
+        -0.41219853845459165,
+        -0.41257111353004117,
+        -0.4116886969577682,
+        -0.4111805709253127,
+        -0.4117634341777556,
+        -0.41396091186671136,
+        -0.41100809861838883,
+        -0.412303585505974,
+        -0.4120958511552191,
+        -0.4107971967170685,
+        -0.4123167934184906,
+        -0.4117923459344013,
+        -0.412392434109099,
+        -0.4106976348777711,
+        -0.41315791837156146,
+        -0.41187437960423257,
+        -0.4124351687297292,
+        -0.4119010015925437,
+        -0.4119189985608993,
+        -0.41227923248421927,
+        -0.41239463893141926,
+        -0.413491442682159,
+        -0.41144729938745384,
+        -0.41277421811136517,
+        -0.4111997600953403,
+        -0.4132477478801668,
+        -0.41072128045609135,
+        -0.4125327287207923,
+        -0.41149356154549555,
+        -0.4117272305588946,
+        -0.4115546775239758,
+        -0.4127961503981763,
+        -0.41124180104066754,
+        -0.41329521957751014,
+        -0.41174341471127507,
+        -0.4120599673209755,
+        -0.4120779344836669,
+        -0.41136173536028053,
+        -0.4114245927693756,
+        -0.4123030493030795,
+        -0.4116987335040827,
+        -0.4116028363769657,
+        -0.4128116246429534,
+        -0.4118585107585102,
+        -0.4115069114504917,
+        -0.4118027095835193
+      ]
+    }
+  },
+  "stage": "A40"
+}

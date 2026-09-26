@@ -1,0 +1,1528 @@
+{
+  "ada_ceiling": {
+    "checked": {
+      "king_county": {
+        "ceiling_cents": 600,
+        "full_fare_cents": 300,
+        "name": "Access Transportation",
+        "paratransit_cents": 175,
+        "share_of_ceiling": 0.2916666666666667,
+        "under_ceiling": true
+      },
+      "mta_maryland": {
+        "ceiling_cents": 400,
+        "full_fare_cents": 200,
+        "name": "Mobility one-way",
+        "paratransit_cents": 220,
+        "share_of_ceiling": 0.55,
+        "under_ceiling": true
+      },
+      "rtd_denver": {
+        "ceiling_cents": 550,
+        "full_fare_cents": 275,
+        "name": "Access-a-Ride one-way",
+        "paratransit_cents": 450,
+        "share_of_ceiling": 0.8181818181818182,
+        "under_ceiling": true
+      },
+      "rtd_denver_income": {
+        "ceiling_cents": 550,
+        "full_fare_cents": 275,
+        "name": "Access-a-Ride LiVE one-way",
+        "paratransit_cents": 225,
+        "share_of_ceiling": 0.4090909090909091,
+        "under_ceiling": true
+      }
+    },
+    "reading": "the ceiling is blind to every discount class, so it neither requires nor forbids a split among paratransit riders. the split the fourth operator makes there is its own",
+    "rule": "49 CFR 37.131(c), read from eCFR 2026-09-08: twice the fare charged to an individual paying full fare, i.e. without regard to discounts"
+  },
+  "config": {
+    "amounts_in": "smallest currency unit, except care_fera_bands, jp_health_insurance_art74 and jp_elderly_care_art67, which are in thousandths of one per cent. those rows are not compared with each other: the first files a discount off a price, the other two file the share the patient pays",
+    "carried_rows": [
+      "auto_classification_gender"
+    ],
+    "n_rows": 24,
+    "recomputed_rows": [
+      "agra_nationality",
+      "amtrak_everyday_discounts",
+      "boulder_resident_line",
+      "care_fera_bands",
+      "cinema_arts_evening",
+      "cinema_village_categories",
+      "clayton_admission_age",
+      "clayton_admission_standing",
+      "income_vs_senior",
+      "jp_elderly_care_art67",
+      "jp_health_insurance_art74",
+      "king_county_types",
+      "marcus_matinee",
+      "maryland_columns",
+      "mbta_free_list",
+      "mbta_reduced_list",
+      "rtd_discount_four",
+      "sg_emergency_rule",
+      "sg_subsidy_residency",
+      "state_park_residence",
+      "student_vs_senior",
+      "transit_federal_three",
+      "virginia_residency"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "the general pairing rule reproduces the hand pairing B55 reported",
+      "detail": "B55 pairs 41 with 1 same-value, read from its own list; the rule returns 41 and 1",
+      "kind": "known_answer",
+      "name": "B57-1",
+      "passed": true
+    },
+    {
+      "criterion": "every paratransit fare on disk sits at or under twice its own operator's full fare, which is what 49 CFR 37.131(c) permits",
+      "detail": "4 fares checked, 0 over the ceiling; shares of ceiling king_county 0.292, mta_maryland 0.550, rtd_denver 0.818, rtd_denver_income 0.409",
+      "kind": "known_answer",
+      "name": "B57-10",
+      "passed": true
+    },
+    {
+      "cite": "Stole chapter 34, read for station B58",
+      "criterion": "the same rival prediction read per line-value pair, which R3 established as the comparable unit: a pair of drawn classes separates somewhere",
+      "detail": "87 pairs read across the non-degenerate rows, 39 separate nothing: amtrak_everyday_discounts :: Rail Passengers Association members | active duty military and dependents (1 contexts); amtrak_everyday_discounts :: Rail Passengers Association members | seniors 65 and over (1 contexts); amtrak_everyday_discounts :: Rail Passengers Association members | veterans (1 contexts); amtrak_everyday_discounts :: active duty military and dependents | seniors 65 and over (1 contexts); amtrak_everyday_discounts :: active duty military and dependents | veterans (1 contexts); amtrak_everyday_discounts :: seniors 65 and over | veterans (1 contexts); cinema_arts_evening :: child | college student (1 contexts); cinema_arts_evening :: child | senior (1 contexts); cinema_arts_evening :: college student | senior (1 contexts); cinema_village_categories :: child | federally disabled, valid ID (1 contexts); cinema_village_categories :: child | senior citizen, 65+ with ID (1 contexts); cinema_village_categories :: child | student, valid student ID (1 contexts); cinema_village_categories :: federally disabled, valid ID | senior citizen, 65+ with ID (1 contexts); cinema_village_categories :: federally disabled, valid ID | student, valid student ID (1 contexts); cinema_village_categories :: senior citizen, 65+ with ID | student, valid student ID (1 contexts); income_vs_senior :: income-qualified | senior (6 contexts); jp_health_insurance_art74 :: item 1: before the month after turning 70 | item 3: from that month, income at or over the cabinet-order amount (1 contexts); king_county_types :: disability or Medicare | income-qualified (1 contexts); king_county_types :: disability or Medicare | senior 65+ (1 contexts); king_county_types :: income-qualified | senior 65+ (1 contexts); marcus_matinee :: 11 and under | 60 and over (1 contexts); mbta_reduced_list :: 18-64 on state assistance | 65 or over (2 contexts); mbta_reduced_list :: 18-64 on state assistance | disability or Medicare card (2 contexts); mbta_reduced_list :: 18-64 on state assistance | middle or high school student (2 contexts); mbta_reduced_list :: 65 or over | disability or Medicare card (2 contexts); mbta_reduced_list :: 65 or over | middle or high school student (2 contexts); mbta_reduced_list :: disability or Medicare card | middle or high school student (2 contexts); rtd_discount_four :: Medicare | disability (3 contexts); rtd_discount_four :: Medicare | income (LiVE) (3 contexts); rtd_discount_four :: Medicare | senior 65+ (3 contexts); rtd_discount_four :: disability | income (LiVE) (3 contexts); rtd_discount_four :: disability | senior 65+ (3 contexts); rtd_discount_four :: income (LiVE) | senior 65+ (3 contexts); sg_emergency_rule :: PR | citizen (1 contexts); sg_emergency_rule :: PR | foreigner (1 contexts); sg_emergency_rule :: citizen | foreigner (1 contexts); transit_federal_three :: 65 or over | Medicare card (6 contexts); transit_federal_three :: 65 or over | disability (6 contexts); transit_federal_three :: Medicare card | disability (6 contexts)",
+      "grid": "mixed",
+      "grid_note": "a pair that separates is grid A, both accounts right; a pair that separates nothing is grid B",
+      "grid_split": {
+        "A": 48,
+        "B": 39
+      },
+      "kind": "rival",
+      "name": "B57-11",
+      "passed": true,
+      "rival_entailment": "the inverse elasticity rule sets a distinct price wherever elasticities differ, so a seller that has already bought the sorting writes as many distinct values as it named blocks",
+      "rival_premise": "a seller who has paid to sort prices each named block by that block's own elasticity"
+    },
+    {
+      "criterion": "the rival's cost defence, that finer segmentation is not worth paying for, read against the credentials the sellers issue: a zero pair whose two classes each have their own application has already been paid for",
+      "detail": "39 zero pairs; 18 separately credentialed on the seller's own page, 1 sharing one credential, 3 mixed across the operators the row spans, 3 where a published rule forbids the line, 14 not read. separately credentialed: cinema_village_categories :: federally disabled, valid ID | senior citizen, 65+ with ID; cinema_village_categories :: federally disabled, valid ID | student, valid student ID; cinema_village_categories :: senior citizen, 65+ with ID | student, valid student ID; income_vs_senior :: income-qualified | senior; king_county_types :: disability or Medicare | income-qualified; king_county_types :: disability or Medicare | senior 65+; king_county_types :: income-qualified | senior 65+; mbta_reduced_list :: 18-64 on state assistance | 65 or over; mbta_reduced_list :: 18-64 on state assistance | disability or Medicare card; mbta_reduced_list :: 18-64 on state assistance | middle or high school student; mbta_reduced_list :: 65 or over | disability or Medicare card; mbta_reduced_list :: 65 or over | middle or high school student; mbta_reduced_list :: disability or Medicare card | middle or high school student; rtd_discount_four :: Medicare | income (LiVE); rtd_discount_four :: Medicare | senior 65+; rtd_discount_four :: disability | income (LiVE); rtd_discount_four :: disability | senior 65+; rtd_discount_four :: income (LiVE) | senior 65+. one credential: rtd_discount_four :: Medicare | disability. mixed: transit_federal_three :: 65 or over | Medicare card; transit_federal_three :: 65 or over | disability; transit_federal_three :: Medicare card | disability. forbidden by rule: sg_emergency_rule :: PR | citizen; sg_emergency_rule :: PR | foreigner; sg_emergency_rule :: citizen | foreigner",
+      "grid": "B",
+      "grid_note": "this one runs only on the pairs already in grid B, and asks why the zero is there",
+      "kind": "rival",
+      "name": "B57-12",
+      "passed": true,
+      "rival_entailment": "were the sorting unbought, the two classes would not hold separate credentials. Where each class has its own application and its own eligibility documents, the cost is already paid, and the step the seller did not take is one more line in a fare table",
+      "rival_premise": "finer segmentation is not worth what it costs, so a seller that merges two classes onto one number is economising on sorting",
+      "sources": {
+        "cinema_village_categories": "the cinema's own price policy page: age 65 and over with ID, valid student ID, valid federal disability ID. three different documents named; the page says nothing about how a child is checked",
+        "income_vs_senior": "all three operators read. MBTA income card against Senior CharlieCard; King County ORCA LIFT against the Regional Reduced Fare Permit; RTD LiVE against the Senior Special Discount Card",
+        "king_county_types": "two sources that describe the same permit at two levels, both read 2026-09-13. kingcounty.gov reduced fares: one Regional Reduced Fare Permit application covers senior riders, riders with disabilities and Medicare card holders alike, with the documents required differing by group. info.myorca.com, which is the fare system the permit is loaded onto, lists them under Card type as two named types, Senior (RRFP) and Disability (RRFP), and both take the same $1.00 fare on King County Metro. The question this row asks is whether the seller can tell the two apart where the price is set, and two named card types in the fare system is that. ORCA LIFT is a separate income programme with its own application",
+        "mbta_reduced_list": "mbta.com/fares/reduced, read 2026-09-08: Senior CharlieCard; Transportation Access Pass for disability and Medicare; S-Card or M7 Card for students; a reduced fare card for income-eligible riders aged 18 to 64",
+        "rtd_discount_four": "rtd-denver.com/fares-passes/fares/discounted-fares, read 2026-09-08: Senior Special Discount Card; Individuals with Disabilities Special Discount Card, which Medicare recipients are served through; Zero Fare for Youth Special Discount Card; LiVE, applied for through the state benefits website. each has its own application and its own eligibility documents",
+        "transit_federal_three": "all three operators read 2026-09-08. MBTA: Senior CharlieCard, and TAP covering disability and Medicare together. MDOT MTA: seniors use a Maryland Photo Identification Card from the motor vehicle administration, disability an MTA Disability photo ID card whose application must be filled out by the applicant and the applicant's health care professional and takes up to two weeks to review, and Medicare a Medicare card with a government issued photo ID. MTA New York: one Reduced-Fare OMNY Card for 65 and over and for disability alike, Medicare appearing only as documentation for the disability route"
+      }
+    },
+    {
+      "criterion": "separated + same-value = pairable, in every row",
+      "detail": "24 rows, 0 violations",
+      "kind": "instrument",
+      "name": "B57-2",
+      "passed": true
+    },
+    {
+      "cells_checked": 324,
+      "cells_without_a_published_number": [
+        "emergency department :: PR",
+        "emergency department :: citizen",
+        "emergency department :: foreigner"
+      ],
+      "criterion": "every recomputed cell is an exact integer in the unit its own source files: the smallest currency unit for a fare, thousandths of one per cent for a filed discount",
+      "detail": "324 cells walked, 0 inexact, 3 carrying no published number because a rule forbids the line: none inexact",
+      "kind": "premise",
+      "name": "B57-3",
+      "passed": true
+    },
+    {
+      "criterion": "coverage of the Virginia hand pairing, printed and not gated: which fee rows carry a value no registered pair uses",
+      "detail": "106 fee rows in the schedule, 41 registered pairs using 18 distinct resident values; 16 rows carry a value no pair uses. This is printed rather than scored because whether a given row has a counterpart on the other side is a reading of the schedule and not an arithmetic fact, and the lifetime age bands are the clear case: one non-resident lifetime licence with no age band stands against a resident ladder of them. Uncovered: resident 4300 :: Two-year Resident License to Hunt, 16+; resident 6400 :: Three-year Resident License to Hunt, 16+; resident 8500 :: Four-year Resident License to Hunt, 16+; resident 800 :: Resident Senior Citizen Annual License to Hunt, 65+; resident 9900 :: Resident Sportsman License to Hunt and Freshwater Fish; resident 26000 :: Resident Junior Lifetime License to Hunt, under 12; nonresident 1200 :: Nonresident Youth License to Hunt, under 12; nonresident 2750 :: Nonresident Annual Hunting License for Totally and Permanently Disabled Veterans; nonresident 1200 :: Nonresident Deer and Turkey Hunting License, under 12; resident 4300 :: Two-year Resident License to Freshwater Fish; resident 6400 :: Three-year Resident License to Freshwater Fish; resident 8500 :: Four-year Resident License to Freshwater Fish; resident 800 :: Resident License to Freshwater Fish, 65+; resident 9900 :: Resident Sportsman License to Hunt and Freshwater Fish; nonresident 1150 :: Nonresident Annual Fishing License for Totally and Permanently Disabled Veterans; nonresident 700 :: Nonresident License to Freshwater Fish for One Day",
+      "kind": "instrument",
+      "name": "B57-3b",
+      "passed": true
+    },
+    {
+      "criterion": "print the object: per row and per line-pair, pairable / separated / rate",
+      "detail": "agra_nationality 32/45 = 0.7111; amtrak_everyday_discounts 9/15 = 0.6000; auto_classification_gender 8400/9450 = 0.8889; boulder_resident_line 7/11 = 0.6364; care_fera_bands 1/2 = 0.5000; cinema_arts_evening 3/6 = 0.5000; cinema_village_categories 4/10 = 0.4000; clayton_admission_age 9/9 = 1.0000; clayton_admission_standing 9/9 = 1.0000; income_vs_senior 0/6 = 0.0000; jp_elderly_care_art67 3/3 = 1.0000; jp_health_insurance_art74 2/3 = 0.6667; king_county_types 7/10 = 0.7000; marcus_matinee 0/1 = 0.0000; maryland_columns 5/5 = 1.0000; mbta_free_list 0/20 = 0.0000; mbta_reduced_list 0/12 = 0.0000; rtd_discount_four 0/18 = 0.0000; sg_emergency_rule 0/3 = 0.0000; sg_subsidy_residency 15/15 = 1.0000; state_park_residence 16/16 = 1.0000; student_vs_senior 1/3 = 0.3333; transit_federal_three 0/18 = 0.0000; virginia_residency 40/41 = 0.9756",
+      "kind": "own_reading",
+      "name": "B57-4",
+      "passed": true
+    },
+    {
+      "criterion": "every row names its source and says whether it was recomputed or carried",
+      "detail": "24 rows, 23 recomputed from cells on disk, 1 carried, 0 without provenance",
+      "kind": "bookkeeping",
+      "name": "B57-5",
+      "passed": true
+    },
+    {
+      "cite": "Stole chapter 34, read for station B58",
+      "criterion": "rival: a line drawn and credentialed separates somewhere, so the use rate is above zero",
+      "detail": "the rival's point prediction fails where the rate is zero; 17 of 23 rows read hold it, zero-rate rows: income_vs_senior, marcus_matinee, mbta_reduced_list, rtd_discount_four, sg_emergency_rule, transit_federal_three",
+      "grid": "mixed",
+      "grid_note": "rows where the drawn line separates are grid A: the rival is right and so is the counting law, since the programme wrote distinct class values there. Rows with a zero rate are grid B",
+      "grid_split": {
+        "A": 17,
+        "B": 6
+      },
+      "kind": "rival",
+      "name": "B57-6",
+      "passed": true,
+      "rival_entailment": "the inverse elasticity rule sets a distinct price wherever elasticities differ, so a seller that has already bought the sorting writes as many distinct values as it named blocks",
+      "rival_premise": "a seller who has paid to sort prices each named block by that block's own elasticity"
+    },
+    {
+      "criterion": "every row names the partition the source itself draws, which the line values are taken from",
+      "detail": "24 rows, 0 without a named partition",
+      "kind": "bookkeeping",
+      "name": "B57-7",
+      "passed": true
+    },
+    {
+      "criterion": "rows whose table has absent cells report them rather than dropping them in silence, because an absent cell is an H0 fact not a rate",
+      "detail": "amtrak_everyday_discounts 6 of 6 cells present, 0 absent; boulder_resident_line 22 of 22 cells present, 0 absent; care_fera_bands 4 of 4 cells present, 0 absent; cinema_arts_evening 4 of 4 cells present, 0 absent; cinema_village_categories 5 of 5 cells present, 0 absent; clayton_admission_age 9 of 9 cells present, 0 absent; clayton_admission_standing 9 of 9 cells present, 0 absent; jp_elderly_care_art67 3 of 3 cells present, 0 absent; jp_health_insurance_art74 3 of 3 cells present, 0 absent; marcus_matinee 2 of 2 cells present, 0 absent; maryland_columns 9 of 15 cells present, 6 absent; sg_emergency_rule 3 of 3 cells present, 0 absent; sg_subsidy_residency 15 of 15 cells present, 0 absent; state_park_residence 32 of 32 cells present, 0 absent",
+      "kind": "bookkeeping",
+      "name": "B57-8",
+      "passed": true
+    },
+    {
+      "criterion": "every row says whether its partition's own label fixes the value, and a row where it does is excluded from the rival reading",
+      "detail": "24 rows, 0 without the field; degenerate: mbta_free_list",
+      "kind": "instrument",
+      "name": "B57-9",
+      "passed": true
+    }
+  ],
+  "pairing_rule": "cells indexed by (class-line value, context); a pairable pair shares context and differs in line value; the line separates it when the two values differ; use rate = separated / pairable",
+  "rows": {
+    "agra_nationality": {
+      "contexts": 15,
+      "family": "public service pricing",
+      "label_fixes_value": false,
+      "line": "nationality (three blocks)",
+      "pairable": 45,
+      "partition": "Indian / SAARC and BIMSTEC / other foreign, the three columns the published schedule prints",
+      "per_pair": {
+        "Indian | SAARC/BIMSTEC": {
+          "pairable": 15,
+          "same_value_contexts": [
+            "('friday', 'Agra Fort')",
+            "('friday', \"Akbar's Tomb\")",
+            "('friday', 'Fatehpur Sikri')",
+            "('friday', 'Itimad-Ud-Daulah')",
+            "('friday', \"Mariyam's Tomb\")",
+            "('friday', 'Mehtab Bagh')",
+            "('friday', 'Ram Bagh')",
+            "('weekday', \"Akbar's Tomb\")",
+            "('weekday', 'Fatehpur Sikri')",
+            "('weekday', 'Itimad-Ud-Daulah')",
+            "('weekday', \"Mariyam's Tomb\")",
+            "('weekday', 'Mehtab Bagh')",
+            "('weekday', 'Ram Bagh')"
+          ],
+          "separated": 2,
+          "use_rate": 0.13333333333333333
+        },
+        "Indian | other foreign": {
+          "pairable": 15,
+          "same_value_contexts": [],
+          "separated": 15,
+          "use_rate": 1.0
+        },
+        "SAARC/BIMSTEC | other foreign": {
+          "pairable": 15,
+          "same_value_contexts": [],
+          "separated": 15,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 32,
+      "source": "tajmahal.gov.in, official site of the Department of Tourism, Government of Uttar Pradesh, retrieved 2026-09-07 by browser, recomputed from the cells in B56",
+      "use_rate": 0.7111111111111111,
+      "why": "nationality names who, not how much"
+    },
+    "amtrak_everyday_discounts": {
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 6,
+        "cells_present": 6
+      },
+      "family": "national rail carrier",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the six classes this carrier's own everyday discounts page names with a figure",
+      "no_figure_on_page": {
+        "count": 3,
+        "names": [
+          "passengers with disabilities",
+          "groups of fifteen or more",
+          "government employees"
+        ],
+        "reading": "listed under the same heading with no figure in the text read. absent cells, not same-valued cells, and they contribute no pairs"
+      },
+      "nominal_pairs": 15,
+      "pairable": 15,
+      "partition": "the categories listed under everyday discounts on the carrier's own page, restricted to those the page gives a figure for",
+      "per_pair": {
+        "Rail Passengers Association members | active duty military and dependents": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one ticket on most trains"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "Rail Passengers Association members | children 2 through 12": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "Rail Passengers Association members | seniors 65 and over": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one ticket on most trains"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "Rail Passengers Association members | students 17 to 24": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "Rail Passengers Association members | veterans": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one ticket on most trains"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "active duty military and dependents | children 2 through 12": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "active duty military and dependents | seniors 65 and over": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one ticket on most trains"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "active duty military and dependents | students 17 to 24": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "active duty military and dependents | veterans": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one ticket on most trains"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "children 2 through 12 | seniors 65 and over": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "children 2 through 12 | students 17 to 24": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "children 2 through 12 | veterans": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "seniors 65 and over | students 17 to 24": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "seniors 65 and over | veterans": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one ticket on most trains"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "students 17 to 24 | veterans": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 9,
+      "source": "Amtrak published everyday discounts page, read 2026-09-08; statutory status from 49 U.S.C. 24301(a)(2) and (a)(3)",
+      "subset_reading": "9 of 15. one of the six, association membership, is bought rather than held, which B54's third question puts in the band where crossing costs near nothing. dropping it leaves 7 of 10 = 0.7000. the page draws all six, so the rate reported is over all six and the subset is recorded",
+      "the_object": "children at 50 and students at 15 separate from everything; seniors, active duty military, veterans and association members all read 10, so all six pairs among those four separate nothing",
+      "use_rate": 0.6,
+      "why": "the page writes three different figures under this one heading, 50, 15 and 10 per cent, so the heading plainly does not fix the value"
+    },
+    "auto_classification_gender": {
+      "carried_reason": "the cells are in a 1,415-page filing that is not on this disk; that block used the same pairing rule, in its own words 'cells carry a complete pair' and 'pairs whose two values differ'",
+      "contexts": 9450,
+      "family": "corporate compliance classification",
+      "label_fixes_value": false,
+      "line": "gender, two blocks",
+      "note": "the 1,050 same-value pairs are exactly one ninth of 9,450, recorded there as unexplained and not interpreted",
+      "pairable": 9450,
+      "partition": "one column header of the filed classification table, which that block reports has exactly two blocks",
+      "recomputed_from_cells": false,
+      "separated": 8400,
+      "source": "filing METX-132665343, classification table, as read and reported by the B30-22 block on that corpus",
+      "use_rate": 0.8888888888888888,
+      "why": "a rating factor names who, not how much"
+    },
+    "boulder_resident_line": {
+      "contexts": 11,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 22,
+        "cells_present": 22
+      },
+      "family": "municipal facility pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "resident against non-resident, the two columns this operator's own fee schedule prints",
+      "nominal_pairs": 11,
+      "one_column_items": {
+        "count": 6,
+        "names": [
+          "basketball court",
+          "handball court",
+          "pickleball court",
+          "platform tennis court",
+          "sand volleyball court",
+          "tennis court"
+        ],
+        "reading": "the outdoor courts on the same schedule carry one fee column, so every buyer pays the same and the line is not drawn there at all. counting them as contexts where the line separates nothing gives 7 of 17 = 0.4118. that is a second defensible reading and the choice between them is the reader's, so both are printed and the rate reported is the one over the two-column rows only"
+      },
+      "pairable": 11,
+      "partition": "the column headers of the two rental tables on the published schedule, resident/hour against non-resident/hour and resident/day against non-resident/day. the Aquatics table on the same page is headed youth and adult and is a different line",
+      "per_pair": {
+        "non-resident | resident": {
+          "pairable": 11,
+          "same_value_contexts": [
+            "indoor: Valmont Farmhouse, per hour",
+            "outdoor: Valmont shelter, three hours",
+            "outdoor: alcohol permit, per day",
+            "outdoor: parking lots, per day"
+          ],
+          "separated": 7,
+          "use_rate": 0.6363636363636364
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 7,
+      "source": "City of Boulder, Colorado, published Parks and Recreation Fee Schedule, read 2026-09-08; column headers verified on a second reading of the same page",
+      "the_object": "six of the seven indoor rows separate and one does not, and one of the four outdoor rows separates. both rows that name Valmont read the same on both sides, 150 and 150, so the exception on this schedule is a site rather than a table",
+      "use_rate": 0.6363636363636364,
+      "why": "the headers name who, and the same schedule prints a different number under them in most rows, so separate values are plainly available to this line"
+    },
+    "care_fera_bands": {
+      "contexts": 2,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 4,
+        "cells_present": 4
+      },
+      "family": "regulated utility tariff",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "which of the two filed income schedules the household takes service on",
+      "nominal_pairs": 2,
+      "pairable": 2,
+      "partition": "two separately filed schedules, D-CARE and E-FERA, each with its own name, its own applicability clause and its own income table published by the regulator",
+      "per_pair": {
+        "CARE | FERA": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "delivery minimum bill"
+          ],
+          "separated": 1,
+          "use_rate": 0.5
+        }
+      },
+      "recomputed_from_cells": true,
+      "same_row_other_context": "one line-pair, one document, two contexts, and the pair separates in one of them. on bundled volumetric charges the two schedules file 35.000 and 18 per cent; on the delivery minimum bill they file 50 and 50. the merge this station keeps reading in transit happens here too, inside a single filed tariff, one line item away from a split by the same two classes",
+      "separated": 1,
+      "source": "PG&E filed electric tariff book, read 2026-09-08: Schedule D-CARE, whose own title is LINE-ITEM DISCOUNT FOR CALIFORNIA ALTERNATE RATES FOR ENERGY (CARE) CUSTOMERS, and ELECTRIC SCHEDULE E-FERA FAMILY ELECTRIC RATE ASSISTANCE. income tables for both published by the CPUC",
+      "use_rate": 0.5,
+      "what_this_row_does_not_say": "B54 reads Q2 as failing on this carrier because a multiplier is not a second price. that is a fact about prices. this row is about class values, which the counting law counts, and the programme wrote 35.000, 18 and 50.000. one carrier, two questions, and it answers them differently",
+      "why": "the labels are CARE and FERA. neither one names a number, and the two schedules are filed apart, so separate values are available to this line and nothing in the labels forces them"
+    },
+    "cinema_arts_evening": {
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 4,
+        "cells_present": 4
+      },
+      "family": "commercial cinema admission",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the classes this theatre's own evening price band names",
+      "nominal_pairs": 6,
+      "pairable": 6,
+      "partition": "the 4pm-11pm rows of the published price table: Adults, and Seniors, College Students, Children",
+      "per_pair": {
+        "adult | child": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult | college student": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult | senior": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "child | college student": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "evening show, 4pm to 11pm"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "child | senior": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "evening show, 4pm to 11pm"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "college student | senior": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "evening show, 4pm to 11pm"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "rival_conditions_hold": "Stole states price discrimination is feasible when the firm has short-run market power, consumers can be segmented directly or indirectly, and arbitrage across differently priced goods is infeasible. a cinema showing meets all three, and the page itself says ID is required, so the sorting is direct and paid for. no grant condition and no statute groups these classes",
+      "separated": 3,
+      "source": "Cinema Arts Theatre published theater-info page, read 2026-09-08. the 4pm-11pm band prints Adults at 14.00 and one further row reading Seniors, College Students, Children at 13.00",
+      "subset_reading": "3 of 6. dropping Adults leaves the three classes the one row names, which read 0 of 3, and that is the same shape as the statutory three classes sitting in one Senior/Disability column",
+      "the_object": "the page puts Seniors, College Students and Children in one row at 13.00, so all three pairs among them read the same value, while the same page gives senior and college separate numbers on their own days",
+      "use_rate": 0.5,
+      "why": "the same page prices two of these classes apart on their own promotion days, Senior Wednesdays at 7.00 and College Tuesdays at 8.00, so separate values are demonstrably available to this operator for the same two labels"
+    },
+    "cinema_village_categories": {
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 5,
+        "cells_present": 5
+      },
+      "family": "commercial cinema admission",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the five admission categories this cinema's own price page prints",
+      "nominal_pairs": 10,
+      "pairable": 10,
+      "partition": "the category list on the published price policy page: Adults, Senior Citizens, Children, Students, Federally Disabled",
+      "per_pair": {
+        "adult | child": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult | federally disabled, valid ID": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult | senior citizen, 65+ with ID": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult | student, valid student ID": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "child | federally disabled, valid ID": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one admission"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "child | senior citizen, 65+ with ID": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one admission"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "child | student, valid student ID": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one admission"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "federally disabled, valid ID | senior citizen, 65+ with ID": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one admission"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "federally disabled, valid ID | student, valid student ID": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one admission"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "senior citizen, 65+ with ID | student, valid student ID": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "one admission"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "rival_conditions_hold": "Stole states price discrimination is feasible when the firm has short-run market power, consumers can be segmented directly or indirectly, and arbitrage across differently priced goods is infeasible. a cinema showing meets all three, and the page itself says ID is required, so the sorting is direct and paid for. no grant condition and no statute groups these classes",
+      "separated": 4,
+      "source": "Cinema Village, New York, published price policy page, read 2026-09-08. the page states Senior Citizens age 65 and over with ID, Students with valid student ID, and Federally Disabled with valid ID, so the sorting cost is paid on three of the four",
+      "subset_reading": "4 of 10. dropping the full-price category leaves the four discount categories, which read 0 of 6. that subset is one the reader would be drawing and the page does not draw it, so it is recorded and not reported as the rate",
+      "the_object": "four named categories, three of them ID-checked, all carry 10.00. every one of the six pairs among senior, child, student and federally disabled reads the same value. the only separation on this page is between the full price and that block",
+      "use_rate": 0.4,
+      "why": "four of the five categories are discounts and three of those four are ID-checked, so the seller has paid to tell them apart and could price them apart"
+    },
+    "clayton_admission_age": {
+      "contexts": 3,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 9,
+        "cells_present": 9
+      },
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the three rows this operator's own admission table prints",
+      "nominal_pairs": 9,
+      "pairable": 9,
+      "partition": "the row headers of the published admission table, Youth (3-17), Adult and Senior (65+)",
+      "per_pair": {
+        "adult | senior 65+": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        },
+        "adult | youth 3-17": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        },
+        "senior 65+ | youth 3-17": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 9,
+      "source": "City of Clayton, Missouri, Shaw Park Aquatic Center published admission page, read 2026-09-08. columns headed Resident, Corporate and Guest; rows Youth (3-17), Adult, Senior (65+)",
+      "use_rate": 1.0,
+      "why": "the headers name age bands, not numbers",
+      "why_it_is_here": "the age line reads 0.00 per cent at four transit operators, all of them in this same family. it reads 9 of 9 here. whatever produces those zeros, it is not that the line is an age line and it is not that the seller is a public operator"
+    },
+    "clayton_admission_standing": {
+      "contexts": 3,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 9,
+        "cells_present": 9
+      },
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the three columns this operator's own admission table prints",
+      "nominal_pairs": 9,
+      "pairable": 9,
+      "partition": "the column headers of the published admission table, Resident, Corporate and Guest, which the same page ties to a status the visitor must show proof of",
+      "per_pair": {
+        "corporate | guest": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        },
+        "corporate | resident": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        },
+        "guest | resident": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "same_table_other_partition": "the row headers of the same table are the age line, read as clayton_admission_age, and they also separate every pair. one table, two named partitions, and unlike the transit case the two readings agree rather than sitting at opposite ends",
+      "separated": 9,
+      "source": "City of Clayton, Missouri, Shaw Park Aquatic Center published admission page, read 2026-09-08. columns headed Resident, Corporate and Guest; rows Youth (3-17), Adult, Senior (65+)",
+      "use_rate": 1.0,
+      "why": "the headers name standing, not a number"
+    },
+    "income_vs_senior": {
+      "contexts": 6,
+      "family": "public service pricing",
+      "independent_facts": 3,
+      "label_fixes_value": false,
+      "line": "income-qualified against senior",
+      "nominal_pairs": 6,
+      "pairable": 6,
+      "partition": "two entries each operator's own reduced-fare page lists separately, each with its own eligibility test and its own credential",
+      "per_pair": {
+        "income-qualified | senior": {
+          "pairable": 6,
+          "same_value_contexts": [
+            "('king_county', 'single ride')",
+            "('mbta_boston', 'bus')",
+            "('mbta_boston', 'subway')",
+            "('rtd_denver', '3-hour pass')",
+            "('rtd_denver', 'day pass')",
+            "('rtd_denver', 'monthly pass')"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "mbta.com/fares/reduced, retrieved 2026-09-07; kingcounty.gov/en/dept/metro/fares-and-payment/prices, effective 2025-09-01, retrieved 2026-09-08 by browser; rtd-denver.com/fares-passes/fares, retrieved 2026-09-08 by browser",
+      "use_rate": 0.0,
+      "why": "one of these operators prices the student line apart from the senior line on the same page, so separate values are available to it under the same kind of label"
+    },
+    "jp_elderly_care_art67": {
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 3,
+        "cells_present": 3
+      },
+      "family": "statutory cost sharing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the three cases Elderly Medical Care Act art. 67(1) lists",
+      "nominal_pairs": 3,
+      "pairable": 3,
+      "partition": "the cases the article itself lists, which it calls 区分, each stated as a condition on age or on income and none of them stated as a number",
+      "per_pair": {
+        "item 1: neither of the other two cases | item 2: income at or over the first cabinet-order amount": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "item 1: neither of the other two cases | item 3: income at or over the second": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "item 2: income at or over the first cabinet-order amount | item 3: income at or over the second": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 3,
+      "source": "Japan, Act on Assurance of Medical Care for Elderly People (高齢者の医療の確保に関する法律) article 67 paragraph 1, read 2026-09-08 through the e-Gov law API, lawId 357AC0000000080",
+      "use_rate": 1.0,
+      "why": "three cases, three distinct ratios, and the line separates every pair. this is the row on the age and income axes that the transit tables do not produce"
+    },
+    "jp_health_insurance_art74": {
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 3,
+        "cells_present": 3
+      },
+      "family": "statutory cost sharing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the three cases Health Insurance Act art. 74(1) lists",
+      "nominal_pairs": 3,
+      "pairable": 3,
+      "partition": "the cases the article itself lists, which it calls 区分, each stated as a condition on age or on income and none of them stated as a number",
+      "per_pair": {
+        "item 1: before the month after turning 70 | item 2: from that month, general": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "item 1: before the month after turning 70 | item 3: from that month, income at or over the cabinet-order amount": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "the medical care benefit the article prices"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "item 2: from that month, general | item 3: from that month, income at or over the cabinet-order amount": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 2,
+      "source": "Japan, Health Insurance Act (健康保険法) article 74 paragraph 1, read 2026-09-08 through the e-Gov law API, lawId 211AC0000000070",
+      "use_rate": 0.6666666666666666,
+      "why": "the article lists three cases and writes two distinct ratios. items 1 and 3 both get 30 per hundred, so crossing the income threshold after 70 returns the patient exactly to the ratio a person under 70 pays. an age line and an income line meeting on one number, written into one article"
+    },
+    "king_county_types": {
+      "contexts": 1,
+      "excluded": {
+        "Access Transportation": {
+          "cents": 175,
+          "reason": "paratransit, fails Q0"
+        },
+        "subsidised annual pass": {
+          "cents": 0,
+          "reason": "an annual pass, not a single ride"
+        }
+      },
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the five fare types this operator prices a single ride for",
+      "nominal_pairs": 10,
+      "note": "the youth cell is worded on the page as unlimited rides free rather than as a single-ride price; free is taken as zero",
+      "pairable": 10,
+      "partition": "the sections under the heading Types of fares on the operator's own price page, less two excluded under Q0",
+      "per_pair": {
+        "adult 19-64 | disability or Medicare": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult 19-64 | income-qualified": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult 19-64 | senior 65+": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "adult 19-64 | youth 0-18": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "disability or Medicare | income-qualified": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "single ride"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "disability or Medicare | senior 65+": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "single ride"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "disability or Medicare | youth 0-18": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "income-qualified | senior 65+": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "single ride"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "income-qualified | youth 0-18": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "senior 65+ | youth 0-18": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 7,
+      "source": "kingcounty.gov/en/dept/metro/fares-and-payment/prices, effective 2025-09-01, retrieved 2026-09-08 by browser",
+      "use_rate": 0.7,
+      "why": "the page prints 300, 100, 0 and 175 under this one heading, so the label plainly does not fix the value"
+    },
+    "marcus_matinee": {
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 2,
+        "cells_present": 2
+      },
+      "family": "listed cinema chain",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the two age classes the chain's own announcement names for one price",
+      "nominal_pairs": 1,
+      "pairable": 1,
+      "partition": "the two classes named in one sentence of the company's own press release",
+      "per_pair": {
+        "11 and under | 60 and over": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "any show starting before 4 p.m."
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "The Marcus Corporation press release, marcustheatres.com press-releases/view/136, dated 2024-05-30 and distributed by BusinessWire, read 2026-09-08: moviegoers 11 years old & under and 60 & over may buy tickets for $7 for all shows before 4 p.m. Corroborated on route by the Young at Heart page, read the same day. Figure carried at its date, not claimed current",
+      "use_rate": 0.0,
+      "why": "the same chain's value pricing page prices Student Thursdays at $7.50 with a valid school ID and a military discount at $8.50 with a valid ID, so it plainly writes different numbers for different named classes when it wants to",
+      "why_it_is_here": "one pair, and it is the only zero on the board at a seller whose objective stands on a document: The Marcus Corporation, NYSE: MCS, reporting net earnings per diluted common share in a release filed with the SEC. B58 has an admissible cell that has been reachable and empty; this is what reaches it"
+    },
+    "maryland_columns": {
+      "contexts": 5,
+      "coverage": {
+        "absent_by_context": {
+          "all-access student pass": [
+            "full fare",
+            "senior/disability"
+          ],
+          "day pass": [
+            "student"
+          ],
+          "monthly pass": [
+            "student"
+          ],
+          "weekly pass": [
+            "senior/disability",
+            "student"
+          ]
+        },
+        "cells_absent": 6,
+        "cells_possible": 15,
+        "cells_present": 9
+      },
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the three columns the operator's own fare table prints",
+      "nominal_pairs": 5,
+      "pairable": 5,
+      "partition": "the column headers of the published fare table, less the Mobility column, which fails Q0 of the B54 screen because paratransit is not the same commodity",
+      "per_pair": {
+        "full fare | senior/disability": {
+          "pairable": 3,
+          "same_value_contexts": [],
+          "separated": 3,
+          "use_rate": 1.0
+        },
+        "full fare | student": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        },
+        "senior/disability | student": {
+          "pairable": 1,
+          "same_value_contexts": [],
+          "separated": 1,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "same_table_other_partition": "the three classes 49 U.S.C. 5307(c)(1)(D) names sit inside this table's single Senior/Disability column and read 0.00 per cent in transit_federal_three. Same operator, same table, two named partitions, 0 and 1. Neither reading is wrong and neither is the reading: the partition has to be named",
+      "separated": 5,
+      "source": "mta.maryland.gov/regular-fares, retrieved 2026-09-07 by browser",
+      "use_rate": 1.0,
+      "why": "column heads name who, and this table prints three different numbers under them"
+    },
+    "mbta_free_list": {
+      "contexts": 2,
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": true,
+      "line": "the five lines the operator's free list names",
+      "nominal_pairs": 20,
+      "overlap_note": "this operator's two goods carry one value each, so the pairs inside a list are one fact per list, not one per pair (D22). the three federally named classes at this operator are also counted in transit_federal_three; the reduced list is not that partition, since it lists disability and Medicare as a single entry",
+      "pairable": 20,
+      "partition": "the five entries under the heading Free Fare Eligibility on the operator's own reduced-fare page",
+      "per_pair": {
+        "children 11 and younger | government officials": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "children 11 and younger | legally blind": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "children 11 and younger | military personnel": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "children 11 and younger | on-duty police and firefighters": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "government officials | legally blind": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "government officials | military personnel": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "government officials | on-duty police and firefighters": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "legally blind | military personnel": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "legally blind | on-duty police and firefighters": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "military personnel | on-duty police and firefighters": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "mbta.com/fares/reduced and mbta.com/fares, both retrieved 2026-09-07 by browser",
+      "use_rate": 0.0,
+      "why": "DEGENERATE. the heading is Free Fare Eligibility, so zero is in the label and every entry carries it by construction. the rate reads the heading back and carries no claim (D25)"
+    },
+    "mbta_reduced_list": {
+      "contexts": 2,
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the four lines the operator's reduced list names",
+      "nominal_pairs": 12,
+      "overlap_note": "this operator's two goods carry one value each, so the pairs inside a list are one fact per list, not one per pair (D22). the three federally named classes at this operator are also counted in transit_federal_three; the reduced list is not that partition, since it lists disability and Medicare as a single entry",
+      "pairable": 12,
+      "partition": "the four entries under the heading Riders Eligible for Reduced Fares on the operator's own page",
+      "per_pair": {
+        "18-64 on state assistance | 65 or over": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "18-64 on state assistance | disability or Medicare card": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "18-64 on state assistance | middle or high school student": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "65 or over | disability or Medicare card": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "65 or over | middle or high school student": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "disability or Medicare card | middle or high school student": {
+          "pairable": 2,
+          "same_value_contexts": [
+            "bus",
+            "subway"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "mbta.com/fares/reduced and mbta.com/fares, both retrieved 2026-09-07 by browser",
+      "use_rate": 0.0,
+      "why": "the heading is Riders Eligible for Reduced Fares, which does not fix WHICH reduced fare. another operator prints three different reduced columns under the same idea, so several values are available under this label"
+    },
+    "rtd_discount_four": {
+      "contexts": 3,
+      "family": "public service pricing",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the four classes this operator's own footnote names for one discount column",
+      "merge_declared_by_source": true,
+      "merge_declared_note": "this operator both names the partition and puts it in one column, and presents the consolidation as policy. that does not weaken the reading, since four verified classes still carry one price, but it is not a merge discovered across independent tables the way the statute row is",
+      "near_refutation": {
+        "cells": {
+          "Access-a-Ride LiVE one-way": 225,
+          "Access-a-Ride one-way": 450
+        },
+        "reading": "the income line separates from the disability line there, 450 against 225. Q0 was set before this page was read and door-to-door is not the same commodity, so this does not enter the row, and it is the closest thing to a refutation the corpus holds",
+        "where": "the operator's paratransit service, which fails Q0"
+      },
+      "nominal_pairs": 18,
+      "pairable": 18,
+      "partition": "the four classes named in one sentence of the footnote to the Standard and Discount Fares table, less the airport day pass row whose discount cell reads no additional charge rather than a price",
+      "per_pair": {
+        "Medicare | disability": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "3-hour pass",
+            "day pass",
+            "monthly pass"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "Medicare | income (LiVE)": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "3-hour pass",
+            "day pass",
+            "monthly pass"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "Medicare | senior 65+": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "3-hour pass",
+            "day pass",
+            "monthly pass"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "disability | income (LiVE)": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "3-hour pass",
+            "day pass",
+            "monthly pass"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "disability | senior 65+": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "3-hour pass",
+            "day pass",
+            "monthly pass"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "income (LiVE) | senior 65+": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "3-hour pass",
+            "day pass",
+            "monthly pass"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "rtd-denver.com/fares-passes/fares, retrieved 2026-09-08 by browser",
+      "standard_column": {
+        "3-hour pass": 275,
+        "day pass": 550,
+        "monthly pass": 8800
+      },
+      "use_rate": 0.0,
+      "why": "the heading is Discount Fares, which does not fix WHICH discount; the same page prices a different discount structure on its paratransit service and prices youth at zero"
+    },
+    "sg_emergency_rule": {
+      "cells_are_not_figures": "the announcement says emergency department fees will not discriminate between nationality or citizenship. what was read is that the three cells are equal; their shared level is not on that page. the cells carry a marker rather than a number, and this row is excluded from the exact-integer premise for that reason",
+      "contexts": 1,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 3,
+        "cells_present": 3
+      },
+      "family": "national health subsidy schedule",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the same three residency statuses, in the one place the same document forbids the distinction",
+      "nominal_pairs": 3,
+      "pairable": 3,
+      "partition": "the same three statuses named by the same announcement",
+      "per_pair": {
+        "PR | citizen": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "emergency department"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "PR | foreigner": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "emergency department"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "citizen | foreigner": {
+          "pairable": 1,
+          "same_value_contexts": [
+            "emergency department"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "Singapore Ministry of Health published announcement on the revision of hospital subsidy for foreigners, read 2026-09-08. subsidy percentages by ward class and residency status, at their announcement date and not claimed current",
+      "the_object": "a zero of a kind not otherwise on this board. it is not a merge the seller chose, and not one its credentials forced. a published rule bans the line in this one context while the same document draws it in five others",
+      "use_rate": 0.0,
+      "why": "the labels name residency, not a number, and the same document prints five rows in which they take different values"
+    },
+    "sg_subsidy_residency": {
+      "contexts": 5,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 15,
+        "cells_present": 15
+      },
+      "family": "national health subsidy schedule",
+      "independent_facts": 1,
+      "label_fixes_value": false,
+      "line": "the three residency statuses the health ministry's own subsidy table prints",
+      "nominal_pairs": 15,
+      "pairable": 15,
+      "partition": "the columns of the published subsidy table, Singapore citizen, permanent resident and foreigner",
+      "per_pair": {
+        "PR | citizen": {
+          "pairable": 5,
+          "same_value_contexts": [],
+          "separated": 5,
+          "use_rate": 1.0
+        },
+        "PR | foreigner": {
+          "pairable": 5,
+          "same_value_contexts": [],
+          "separated": 5,
+          "use_rate": 1.0
+        },
+        "citizen | foreigner": {
+          "pairable": 5,
+          "same_value_contexts": [],
+          "separated": 5,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 15,
+      "source": "Singapore Ministry of Health published announcement on the revision of hospital subsidy for foreigners, read 2026-09-08. subsidy percentages by ward class and residency status, at their announcement date and not claimed current",
+      "the_object": "fifteen pairs, fifteen separations, and the gap between citizen and permanent resident is five points in every row but the first, where it is ten. what is published is a percentage off a common bill, which is why B54 reads this carrier's second question as failing while this row reads its class values",
+      "use_rate": 1.0,
+      "why": "the table prints three different figures under these headings in every one of its rows"
+    },
+    "state_park_residence": {
+      "contexts": 16,
+      "coverage": {
+        "absent_by_context": {},
+        "cells_absent": 0,
+        "cells_possible": 32,
+        "cells_present": 32
+      },
+      "family": "state park fee schedule",
+      "independent_facts": 2,
+      "label_fixes_value": false,
+      "line": "resident against non-resident, the two columns two state park systems print",
+      "nominal_pairs": 16,
+      "pairable": 16,
+      "partition": "the column headers of the published camping fee schedules, RESIDENT and NON-RESIDENT",
+      "per_pair": {
+        "non-resident | resident": {
+          "pairable": 16,
+          "same_value_contexts": [],
+          "separated": 16,
+          "use_rate": 1.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 16,
+      "source": "Maine Bureau of Parks and Lands published fee schedule and Rhode Island State Parks published camping policies, both read 2026-09-08",
+      "the_object": "sixteen sites, sixteen separations, no site where the two columns carry the same figure. the ratio is not constant either: Maine runs from 1.40 to 1.67 and Rhode Island from 1.50 to 2.00, so this is not one multiplier applied to a base, which is what D30's third clause would make a single price",
+      "use_rate": 1.0,
+      "why": "the headers name who, and one of the two systems states the check and its consequence, so the sorting cost is paid"
+    },
+    "student_vs_senior": {
+      "contexts": 3,
+      "family": "public service pricing",
+      "independent_facts": 2,
+      "label_fixes_value": false,
+      "line": "school student against senior",
+      "nominal_pairs": 3,
+      "pairable": 3,
+      "partition": "two entries both operators list separately on their own reduced-fare pages, each with its own credential",
+      "per_pair": {
+        "school student | senior": {
+          "pairable": 3,
+          "same_value_contexts": [
+            "('mbta_boston', 'bus')",
+            "('mbta_boston', 'subway')"
+          ],
+          "separated": 1,
+          "use_rate": 0.3333333333333333
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 1,
+      "source": "the two operators' own fare pages, recomputed from the cells in B56",
+      "use_rate": 0.3333333333333333,
+      "why": "one of the two operators prices them apart, which settles it"
+    },
+    "transit_federal_three": {
+      "contexts": 6,
+      "family": "public service pricing",
+      "independent_facts": 3,
+      "label_fixes_value": false,
+      "line": "the three lines the federal condition names",
+      "nominal_pairs": 18,
+      "pairable": 18,
+      "partition": "the three classes named in 49 U.S.C. 5307(c)(1)(D), which is one list in one sentence of the statute",
+      "per_pair": {
+        "65 or over | Medicare card": {
+          "pairable": 6,
+          "same_value_contexts": [
+            "('mbta_boston', 'bus')",
+            "('mbta_boston', 'subway')",
+            "('mta_maryland', 'day pass')",
+            "('mta_maryland', 'monthly pass')",
+            "('mta_maryland', 'single trip')",
+            "('mta_new_york', 'subway and local bus')"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "65 or over | disability": {
+          "pairable": 6,
+          "same_value_contexts": [
+            "('mbta_boston', 'bus')",
+            "('mbta_boston', 'subway')",
+            "('mta_maryland', 'day pass')",
+            "('mta_maryland', 'monthly pass')",
+            "('mta_maryland', 'single trip')",
+            "('mta_new_york', 'subway and local bus')"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        },
+        "Medicare card | disability": {
+          "pairable": 6,
+          "same_value_contexts": [
+            "('mbta_boston', 'bus')",
+            "('mbta_boston', 'subway')",
+            "('mta_maryland', 'day pass')",
+            "('mta_maryland', 'monthly pass')",
+            "('mta_maryland', 'single trip')",
+            "('mta_new_york', 'subway and local bus')"
+          ],
+          "separated": 0,
+          "use_rate": 0.0
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 0,
+      "source": "49 U.S.C. 5307(c)(1)(D) and the operators' own fare pages, recomputed from the cells in B56",
+      "use_rate": 0.0,
+      "why": "the statute caps the fare at half the peak fare and does not require the three to pay the same as each other, so three different values are fully available under this label"
+    },
+    "virginia_residency": {
+      "contexts": 41,
+      "family": "government regulatory licence",
+      "label_fixes_value": false,
+      "line": "residency",
+      "pairable": 41,
+      "partition": "resident against non-resident, the two columns the fee schedule itself is written in",
+      "per_pair": {
+        "nonresident | resident": {
+          "pairable": 41,
+          "same_value_contexts": [
+            "fish in designated stocked trout waters"
+          ],
+          "separated": 40,
+          "use_rate": 0.975609756097561
+        }
+      },
+      "recomputed_from_cells": true,
+      "separated": 40,
+      "source": "4 Va. Admin. Code 15-20-65, recomputed from the cells in B55",
+      "use_rate": 0.975609756097561,
+      "why": "the two column heads name who, not how much"
+    }
+  },
+  "stage": "B57"
+}

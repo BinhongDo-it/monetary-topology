@@ -1,0 +1,113 @@
+{
+  "config": {
+    "basis": "every industry against row 0, every class against column 0",
+    "floor": "sd of the year-over-year change in the same square, divided by sqrt(2)",
+    "reps": 5,
+    "seed": 0,
+    "sources": [
+      "labour accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "a separable field has every square zero, and the basis spans the rest",
+      "detail": "separable in, every square zero: worst 8.88e-16 over 20 tables. An arbitrary square rebuilt from four basis squares against the direct calculation: worst 4.44e-16 over 400 draws. So the 17 by (J-1) basis spans them and nothing is being counted twice.",
+      "kind": "known_answer",
+      "name": "B106-16",
+      "passed": true,
+      "payload": {
+        "tables_checked": 20,
+        "worst_rebuild": 4.440892098500626e-16,
+        "worst_zero": 8.881784197001252e-16
+      }
+    },
+    {
+      "criterion": "the squares themselves against a floor measured from this panel's own year-to-year noise",
+      "detail": "188,054 independent squares over 621 country-year tables, 17 classes against a reference class and every industry against a reference industry. Floor measured from this panel's own year-to-year change in the same square, 176,715 pairs: 0.1766 in log points. |square| median 0.3925, p90 1.3444, max 6.9888. Above the floor: 139,811 (74.3%); above twice it 101,142 (53.8%). Median square is 2.22 times the floor. Floor by lag, where a longer lag carries more real drift and so is an upper bound on the noise: 1y 0.1766 clears 74.3%, 2y 0.2346 clears 66.9%, 5y 0.3470 clears 54.4%. The competing reading puts every one of these at exactly zero.",
+      "kind": "own_reading",
+      "name": "B106-15",
+      "passed": true,
+      "payload": {
+        "floor": 0.17660501901202638,
+        "floor_by_lag": {
+          "1": {
+            "floor": 0.17660501901202638,
+            "fraction_over": 0.7434619843236517,
+            "over_floor": 139811,
+            "pairs": 176715
+          },
+          "2": {
+            "floor": 0.23463502928501098,
+            "fraction_over": 0.6690312357088921,
+            "over_floor": 125814,
+            "pairs": 165376
+          },
+          "5": {
+            "floor": 0.3470200426369734,
+            "fraction_over": 0.5440937177619194,
+            "over_floor": 102319,
+            "pairs": 131580
+          }
+        },
+        "floor_pairs": 176715,
+        "max_abs": 6.988811152996832,
+        "median_abs": 0.3924939760039079,
+        "median_over_floor": 2.2224395331436195,
+        "n_squares": 188054,
+        "over_floor": 139811,
+        "over_twice_floor": 101142,
+        "p90_abs": 1.3443541522162554,
+        "tables": 621
+      }
+    },
+    {
+      "criterion": "the position-scalar reading puts every square at exactly zero",
+      "detail": "139,811 of 188,054 squares (74.3%) stand above the panel's own measured floor of 0.1766 log points, and 101,142 stand above twice it. The median square is 2.22 times the floor and the largest is 6.9888. A point prediction of exactly zero, so PASS here means the prediction does not hold.",
+      "grid": "B",
+      "grid_note": {
+        "ours": "two classes at one position are on different terms and the terms are the position's own, so the squares do not vanish",
+        "reality": "filled in by this run",
+        "rival": "every square is exactly zero"
+      },
+      "kind": "rival",
+      "name": "B106-17",
+      "passed": true,
+      "payload": {
+        "floor": 0.17660501901202638,
+        "floor_by_lag": {
+          "1": {
+            "floor": 0.17660501901202638,
+            "fraction_over": 0.7434619843236517,
+            "over_floor": 139811,
+            "pairs": 176715
+          },
+          "2": {
+            "floor": 0.23463502928501098,
+            "fraction_over": 0.6690312357088921,
+            "over_floor": 125814,
+            "pairs": 165376
+          },
+          "5": {
+            "floor": 0.3470200426369734,
+            "fraction_over": 0.5440937177619194,
+            "over_floor": 102319,
+            "pairs": 131580
+          }
+        },
+        "floor_pairs": 176715,
+        "max_abs": 6.988811152996832,
+        "median_abs": 0.3924939760039079,
+        "median_over_floor": 2.2224395331436195,
+        "n_squares": 188054,
+        "over_floor": 139811,
+        "over_twice_floor": 101142,
+        "p90_abs": 1.3443541522162554,
+        "tables": 621
+      },
+      "rival_entailment": "under that premise p(j,k) = a_j + b_k, so every difference in differences across two positions and two classes cancels term by term and is identically zero. The squares read here are that quantity.",
+      "rival_premise": "there is a scalar on the position and a factor for the class, so in logs the pay field is additively separable",
+      "rival_shape": "point prediction"
+    }
+  ],
+  "stage": "B106"
+}

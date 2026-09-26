@@ -1,0 +1,166 @@
+{
+  "config": {
+    "basic_share": "LAB / VA_CP",
+    "carriers": [
+      "growth accounts basic",
+      "growth accounts extended"
+    ],
+    "extended_share": "LAB / (LAB + CAP)",
+    "mix": "ln(LAB_QI / CAP_QI)",
+    "placebos": [
+      "share shuffled in time within a series",
+      "share reversed in time within a series"
+    ],
+    "seed": 101,
+    "windows": [
+      2,
+      3,
+      4,
+      6,
+      9,
+      13,
+      18,
+      26
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "exponents printed, not scored: basic 1.39 (fit r2 0.998), extended 1.31, share shuffled in time 0.92, share reversed in time 1.36. The textbook figure for independent per-step contributions is 0.5 and the shuffled placebo reads 0.92 on this panel, so 0.5 is not this data's null and nothing is scored against it. The criterion is the level: real median over shuffled median by window, n=2: 0.38, n=3: 0.47, n=4: 0.53, n=6: 0.66, n=9: 0.83, n=13: 0.99, n=18: 1.08, n=26: 1.19. Reading fixed in advance: one means the alignment between the share and the mix carries nothing, below one means the share moves with the mix in a way that encloses less area than a random pairing, above one the reverse. It runs 0.38 to 1.19 and crosses one, so **undecided across windows, and that is the reading**: the alignment matters at short windows and is gone by the long ones.",
+      "kind": "own_reading",
+      "name": "B101-13  how the drift grows with the window, against a share with the alignment removed",
+      "passed": null,
+      "void": true
+    },
+    {
+      "detail": "the extended file capitalises intangibles the national accounts do not and rebuilds capital to match, so both the share and the mix differ. Reported apart from the basic arm under D11, not merged. At a 9-year window: basic 99.8% non-zero over 13,274 windows, median 2.419e-03; extended 100.0% over 16,992, median 2.691e-03. Exponent in the window length: basic 1.39, extended 1.31.",
+      "kind": "own_reading",
+      "name": "B101-14  the second value-added concept gives the same reading",
+      "passed": true
+    },
+    {
+      "detail": "Void: not adjudicated, printed only. A share that curves one way against the mix gives an area of one sign; a share that wanders gives a sign near even. Share of windows with a negative drift, basic: n=2: 47.9%, n=6: 47.0%, n=13: 48.1%, n=26: 51.2%; extended: n=2: 48.3%, n=6: 47.4%, n=13: 48.9%, n=26: 54.5%. No criterion was registered on this before the run and none is invented after it; the numbers are here so the next reader does not have to re-run.",
+      "kind": "own_reading",
+      "name": "B101-15  the drift carries a sign rather than cancelling",
+      "passed": null,
+      "void": true
+    },
+    {
+      "detail": "the smoothing replaces the observed share with an affine function of the log mix, so what it keeps is exactly what that function explains. Within-series r-squared of the share on the log mix, 968 series with at least twelve years: median 0.212, p10 to p90 0.009 to 0.673, and 79.0% of series sit below a half. Extended file: median 0.189. **So the step that makes the index transitive keeps a minority of the share's own movement and discards the rest**, and the discarded part is precisely what the drift measures.",
+      "kind": "own_reading",
+      "name": "B101-17  how much of the share the smoothing keeps",
+      "passed": true
+    },
+    {
+      "detail": "basic: 1,057 series usable for this reading. extended: 1,547. The extended file carries no value-added level at all, only a growth rate on the adjusted concept, and this reading needs none: the value-added terms telescope around a closed path, which the first driver measured at 1.8e-15 under an arbitrary rescaling of every level.",
+      "kind": "instrument",
+      "name": "B101-16  the two files are two definitions, and the counts say so",
+      "passed": true
+    }
+  ],
+  "report": {
+    "exponent": {
+      "basic": {
+        "medians": {
+          "2": 0.0002599724741114487,
+          "3": 0.0005006739096665002,
+          "4": 0.0007634033196768433,
+          "6": 0.001397055537963078,
+          "9": 0.002418900089541133,
+          "13": 0.003917763718626233,
+          "18": 0.00549831403753509,
+          "26": 0.009697749788983481
+        },
+        "r2": 0.9977012205405261,
+        "slope": 1.3866242478274076
+      },
+      "extended": {
+        "medians": {
+          "2": 0.0003271820920204248,
+          "3": 0.0006308156718966775,
+          "4": 0.0009650050743657684,
+          "6": 0.0016832738939349529,
+          "9": 0.0026907714052962287,
+          "13": 0.003957878585321678,
+          "18": 0.005523225229871462,
+          "26": 0.011694336703827746
+        },
+        "r2": 0.9932130680276765,
+        "slope": 1.3148176865720655
+      }
+    },
+    "extended_arm": {
+      "basic": {
+        "median": 0.002418900089541133,
+        "share_negative": 0.46338707247250266,
+        "share_nonzero": 0.9978152779870424,
+        "windows": 13274
+      },
+      "extended": {
+        "median": 0.0026907714052962287,
+        "share_negative": 0.4785781544256121,
+        "share_nonzero": 1.0,
+        "windows": 16992
+      },
+      "window": 9
+    },
+    "placebo": {
+      "share_reversed_in_time": {
+        "medians": {
+          "2": 0.0002715147189618766,
+          "3": 0.0005125900347675086,
+          "4": 0.0007886797348523582,
+          "6": 0.0013948690585950593,
+          "9": 0.00231281083238339,
+          "13": 0.00377866010224219,
+          "18": 0.005711259190111506,
+          "26": 0.009423874236447805
+        },
+        "slope": 1.3639308228124518
+      },
+      "share_shuffled_in_time": {
+        "medians": {
+          "2": 0.0006832458888031342,
+          "3": 0.0010641023506185697,
+          "4": 0.0014371457837370066,
+          "6": 0.0021115515255177436,
+          "9": 0.00291419154443609,
+          "13": 0.003956144331040448,
+          "18": 0.005082212480426285,
+          "26": 0.008150781805920118
+        },
+        "slope": 0.924265276348842
+      }
+    },
+    "share_explained_by_mix": {
+      "basic": {
+        "median": 0.21152400506293434,
+        "p10": 0.009172792469025082,
+        "p90": 0.6727665531297327,
+        "series": 968,
+        "share_below_half": 0.7902892561983471
+      },
+      "extended": {
+        "median": 0.18922560304475067,
+        "p10": 0.006440422530157363,
+        "p90": 0.6481703472737608,
+        "series": 1482,
+        "share_below_half": 0.8029689608636977
+      }
+    },
+    "sign": {
+      "basic": {
+        "2": 0.4786105491685992,
+        "6": 0.4701778216843665,
+        "13": 0.4805360561582642,
+        "26": 0.512249443207127
+      },
+      "extended": {
+        "2": 0.4832655728183534,
+        "6": 0.4735080870050195,
+        "13": 0.48910302593659943,
+        "26": 0.5453100158982512
+      }
+    }
+  },
+  "stage": "B101"
+}

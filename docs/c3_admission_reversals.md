@@ -294,3 +294,90 @@ with the direction of failure surviving the change of cohort.
 declared exchange rate that does not close. C3 shows that removing the exchange
 rate, the units, and the cardinal structure entirely does not rescue the
 underlying scalar, because the scalar was never what the institution had.
+
+
+---
+
+## 9. Three features of the filing mechanism this station had not recorded
+
+Added 2026-09-08. The mechanism that produces a filing line has three features
+that bear on how a reversal should be read, and none of them appeared above.
+They are set down here with what they do and do not reach.
+
+### 9.1 Falling through the tier makes filing strategic, and lines reflexive
+
+Under parallel choice a candidate lists several universities in order and is
+filed to the first whose line they clear. **A candidate who clears none of the
+lines they listed is filed nowhere in that tier** and drops to the supplementary
+round or to the tier below. That risk is what candidates are managing when they
+choose what to list, so the list is a bet on where the lines will fall.
+
+The consequence is that a line is an equilibrium of a coordination problem
+rather than a reading of a fixed quantity. A university whose line was
+unusually high in one year draws fewer applicants the next and its line falls,
+and the cycle is well enough known in the apparatus to have a name. **A
+reversal between two provinces can therefore be two provinces' applicant pools
+mis-coordinating in opposite directions in one year, rather than two stable
+orders.**
+
+**What already stands against that reading.** C3-6 is the criterion built to
+separate a stable province-pair property from a one-draw artefact, and it does
+separate them to the extent that the two tracks' coordination draws are
+independent. Filing lines are published by track, so the previous year's signal
+a candidate reads is track-specific, which pushes the two draws apart. The two
+pools sit in one province and read one information environment, which pushes
+them together. **The two tracks are therefore partly and not wholly
+independent, and 0.9024 should be read with that.**
+
+**What settles it, and it has not been done.** The same panel for a second
+year. A reversal produced by one year's mis-coordination should vanish or flip;
+a reversal that is a property of the province pair should persist. **Registered
+here, not run.**
+
+**What this could not rescue even if it were the whole story.** If a reversal is
+a coordination artefact, the ordering is a property of institution, province and
+year jointly. The claim under test is that it is a property of the institution.
+**A mechanism that indexes it by province and year does not restore the scalar,
+it names a reason there is not one.** What such a mechanism would damage is a
+claim that the ordering is stable across years, and no such claim is made here.
+
+### 9.2 The filing ratio is a gap in the invariance argument, and it is bounded
+
+A province files at a stated multiple of the quota, commonly a hundred to a
+hundred and five per cent under parallel choice, and the line is the score of
+the last candidate filed. **A higher ratio lowers the line by an amount that
+depends on how densely applicants sit near that school's cut**, so it is a
+school-specific shift inside a province and not a province-wide one.
+
+**C3-2 does not cover it.** That criterion checks invariance under a strictly
+increasing map applied province by province, and a per-school shift is not such
+a map. This is a real gap and it is recorded as one.
+
+**It is bounded, and the bound is what C3-8 already prints.** A few per cent of
+quota moves a line by the score spread across a few per cent of a school's
+applicants. It does not move a line by fifty-seven points, and the widest
+reversal in the panel has the two provinces separating the same pair by
+fifty-seven and seventy points in opposite directions. **The tail C3-8 prints,
+7,793 arts and 16,028 science comparisons in which both provinces separate the
+pair by at least the ninth decile of rank distance, is out of this mechanism's
+reach. The close-pair bulk is not**, and C3-8 already reports that reversals
+concentrate among close pairs.
+
+### 9.3 Internal reassignment is why the programme-mix caveat is not hypothetical
+
+The line is the line for being filed **to the university**. Programmes are
+allocated inside it afterwards, and a candidate who reaches no programme's line
+is either moved to a programme with unfilled seats, if they agreed to that in
+advance, or returned, in which case they leave the tier.
+
+So the quantity is the price of a bundle: the university, plus the programme mix
+it offers in that province, plus the risk of being moved inside it. **Section 7
+already excludes a scalar over institution-and-programme pairs from what is
+refuted. This is the mechanism that makes that exclusion bite rather than
+decorate**, because the reassignment risk is itself a function of the programme
+mix in that province, so two provinces' lines for one university price two
+different objects even before any preference enters.
+
+**It does not weaken the reading, it locates it.** A scalar one level down would
+be a scalar over institution-and-province, which section 7 already answers: that
+is the data written twice.

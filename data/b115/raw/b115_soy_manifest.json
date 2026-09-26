@@ -1,0 +1,169 @@
+{
+ "agtransport/_count": {
+  "pages": 1,
+  "retrieved_utc": "2026-09-16T23:20:15Z",
+  "rows": 1619,
+  "url": "https://agtransport.usda.gov/resource/v85y-3hep.json?%24select=count%28%2A%29&%24where=commodity%3D%27Soybeans%27+AND+date+between+%272016-01-01T00%3A00%3A00%27+and+%272020-12-31T23%3A59%3A59%27"
+ },
+ "agtransport/grain_basis_soybeans_2016_2020_p000.json": {
+  "bytes": 659977,
+  "check": "page with 1619 row(s), 0 without a basis",
+  "retrieved_utc": "2026-09-16T22:23:46Z",
+  "sha256": "e6319c05b4c18e91a534910267da11de8acd19ed6829e9ee2e6641e8fc8b2232",
+  "url": "https://agtransport.usda.gov/resource/v85y-3hep.json?%24where=commodity%3D%27Soybeans%27+AND+date+between+%272016-01-01T00%3A00%3A00%27+and+%272020-12-31T23%3A59%3A59%27&%24order=date%2Cmarket_name%2C%3Aid&%24limit=5000&%24offset=0"
+ },
+ "cepea/soja_paranagua_series.xls": {
+  "bytes": 380928,
+  "check": "binary workbook, 3 stream(s), workbook stream 375336 bytes",
+  "retrieved_utc": "2026-09-16T22:25:08Z",
+  "sha256": "bebef5d362baf0171a7f28a68ec005b1eaca8493ebd8a37e335eea47d7c4f3ee",
+  "url": "https://cepea.org.br/br/indicador/series/soja.aspx?id=92"
+ },
+ "dce/2016_corn.zip": {
+  "bytes": 47766,
+  "check": "zip with 1 member(s): c.csv",
+  "retrieved_utc": "2026-09-16T22:23:48Z",
+  "sha256": "8a5fb5a1379553f8eeac09768b673baa29f7a26dec1b2c616ab1ff7db113dcc5",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2017/04/c.zip"
+ },
+ "dce/2016_no1_soybeans.zip": {
+  "bytes": 62339,
+  "check": "zip with 1 member(s): a.csv",
+  "retrieved_utc": "2026-09-16T22:23:50Z",
+  "sha256": "90eccf62ae92e3795227715b18da26ae4c57d93dc08e2f946d88dbe82d2a522c",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2017/04/a.zip"
+ },
+ "dce/2016_no2_soybeans.zip": {
+  "bytes": 20937,
+  "check": "zip with 1 member(s): b.csv",
+  "retrieved_utc": "2026-09-16T22:23:52Z",
+  "sha256": "bee0e6cad9a559c4c2cca43c661d907e1c011ba015bbe9aaacc32d8e9165f0f3",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2017/04/b.zip"
+ },
+ "dce/2016_soybean_meal.zip": {
+  "bytes": 62637,
+  "check": "zip with 1 member(s): m.csv",
+  "retrieved_utc": "2026-09-16T22:23:55Z",
+  "sha256": "c24cc4e3371cc1a1f526248609eadb629b9944e32bdf2031d888ad8ca4d4af2a",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2017/04/m.zip"
+ },
+ "dce/2017_corn.zip": {
+  "bytes": 141700,
+  "check": "zip with 1 member(s): 2018011113545470783.csv",
+  "retrieved_utc": "2026-09-16T22:23:58Z",
+  "sha256": "3434ccbe9f9df603cfb5b487e1da4deebe4b91e3e7eb26e13d4ecae3c273fa00",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/article/6084184/6084269/2018011113545470783.zip"
+ },
+ "dce/2017_no1_soybeans.xlsx": {
+  "bytes": 205812,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T23:20:22Z",
+  "sha256": "52c094b6f5e563e015eb24ba9e7ff558d92b9608bcd004ba17297542a879dd9b",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2018/01/2018011113533776164.csv"
+ },
+ "dce/2017_no2_soybeans.xlsx": {
+  "bytes": 133019,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T23:20:25Z",
+  "sha256": "ee502072199116a777eff6140eccafe5d4b33899461d5da3b84c46be896e68bd",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2018/01/2018011113530726662.csv"
+ },
+ "dce/2017_soybean_meal.xlsx": {
+  "bytes": 197638,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T23:20:28Z",
+  "sha256": "85fcd9b89ad7b72bf3e3c334edffefe31c9bfadd1da7382aba44c8bf99dd5f59",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2018/01/2018011113522038255.csv"
+ },
+ "dce/2018_corn.xlsx": {
+  "bytes": 1250262,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:14Z",
+  "sha256": "a9b6f44011ed3754366eb774501740d33a74933016a3348baaad74881649ddb1",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2019/01/2019012315465149647.xlsx"
+ },
+ "dce/2018_no1_soybeans.xlsx": {
+  "bytes": 208020,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:18Z",
+  "sha256": "1d34f95b6db416c2574042c007d4170019e2de8a8d71605f6dc830efcb6c95af",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2019/01/2019012315491595717.xlsx"
+ },
+ "dce/2018_no2_soybeans.xlsx": {
+  "bytes": 1158112,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:25Z",
+  "sha256": "89b16480cc25de81c9114e095ef4206ac9caa07094dbff254b6578a4eb8bda3d",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2019/01/2019012315494384352.xlsx"
+ },
+ "dce/2018_soybean_meal.xlsx": {
+  "bytes": 1282928,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:34Z",
+  "sha256": "aec2d0fde45b2d891f8acde2319bddae9d510912a2478e95179b8b15020f6647",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2019/01/2019012315503149436.xlsx"
+ },
+ "dce/2019_corn.xlsx": {
+  "bytes": 158350,
+  "check": "xlsx with 10 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:39Z",
+  "sha256": "15b4e6b7e07eb93a817e1083f60bb3cd69d590fa9df41541a5f61561bdaa6b60",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2020/03/2020030415204421551.xlsx"
+ },
+ "dce/2019_no1_soybeans.xlsx": {
+  "bytes": 152812,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:42Z",
+  "sha256": "ced4822e5c62fce83f3fd0dd12eb626b38669a642364147e0d1c33047f24c04f",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2020/03/2020030415214926535.xlsx"
+ },
+ "dce/2019_no2_soybeans.xlsx": {
+  "bytes": 275806,
+  "check": "xlsx with 10 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:46Z",
+  "sha256": "116c0f00b88fc9fdad10255cf75cd7c35faad6287da165616c76b07b5e1e8a63",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2020/03/2020030415221765732.xlsx"
+ },
+ "dce/2019_soybean_meal.xlsx": {
+  "bytes": 210650,
+  "check": "xlsx with 10 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:48Z",
+  "sha256": "40a4aadadd212731e035676f786088550b21af324edf0828fb43c2ac26903007",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2020/03/2020030415233887199.xlsx"
+ },
+ "dce/2020_corn.xlsx": {
+  "bytes": 142124,
+  "check": "xlsx with 12 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:51Z",
+  "sha256": "f647b7a3dd86f0f21c1a445fcb3de9e3806c2ff43ae5be8b100b803963781786",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2021/01/2021013022310721941.xlsx"
+ },
+ "dce/2020_no1_soybeans.xlsx": {
+  "bytes": 132799,
+  "check": "xlsx with 10 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:54Z",
+  "sha256": "ba3b2da588611bd9c8aeb013f9f2838746fc248180e96a2a8211579ddbb9439e",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2021/01/2021013022293775777.xlsx"
+ },
+ "dce/2020_no2_soybeans.xlsx": {
+  "bytes": 234914,
+  "check": "xlsx with 10 member(s)",
+  "retrieved_utc": "2026-09-16T22:24:58Z",
+  "sha256": "f137142b831c2640173053c232bf8f0c59ab7a808fe5f577ece944b8addc38e0",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2021/01/2021013022290225068.xlsx"
+ },
+ "dce/2020_soybean_meal.xlsx": {
+  "bytes": 175481,
+  "check": "xlsx with 10 member(s)",
+  "retrieved_utc": "2026-09-16T22:25:01Z",
+  "sha256": "6159bebcf8a41c0dad7f288aba56b0344166de06ba2465cc1e4eaac6c5908332",
+  "url": "http://www.dce.com.cn/dalianshangpin/resource/cms/2021/01/2021013022274187325.xlsx"
+ },
+ "fred/DEXCHUS.csv": {
+  "bytes": 211513,
+  "check": "csv with 11921 data line(s)",
+  "retrieved_utc": "2026-09-16T22:25:03Z",
+  "sha256": "8e68170b14bbb89d10af637b191bd871a6979e3083fe1d3564cbbb33465dc3c5",
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXCHUS"
+ }
+}

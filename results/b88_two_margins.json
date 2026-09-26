@@ -1,0 +1,161 @@
+{
+  "config": {
+    "corn_factor": [
+      1.0,
+      3.0
+    ],
+    "imports": "b72_land_and_rent, b73_two_extensions",
+    "labour_factor": [
+      1.0,
+      3.0
+    ],
+    "lands": [
+      2,
+      7
+    ],
+    "rate": 0.05,
+    "seed": 88,
+    "systems": 3000,
+    "yield": [
+      1.05,
+      2.0
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "the rent this station writes on a land not being intensified reproduces B72's own rent to 0.00e+00 over 3000 systems, and a pair solved by hand at `q = (1, 1.5)`, `a = (0.2, 0.5)`, `l = (0.4, 0.9)`, `r = 0` gives `w = 0.4` and `rho = 0.64` against the solver's 0.4000000000 and 0.6400000000. **Both solvers are imported rather than copied**, so the three stations can disagree",
+      "kind": "known_answer",
+      "name": "B88-1",
+      "passed": true
+    },
+    {
+      "detail": "with `k` lands all cultivated there are `k` equations in `k + 1` unknowns, the wage and one rent per land, and B72's boundary condition supplies the missing one: the marginal land's rent is zero to 1.11e-16. **Put a second method on one acre and there are `k + 1` equations in the same `k + 1` unknowns, so the system closes itself and the boundary condition has nowhere to go.** Measured rather than argued: over 12009 mixed configurations the rent the boundary condition would set to zero comes out at least 0.0001 away from it. **The extensive run is the control and gives exactly zero on the same quantity**, so this is the two closures disagreeing and not a solver tolerance. The shapes are printed rather than counted: extensive k=2 -> 2 by 3; extensive k=3 -> 3 by 4; extensive k=4 -> 4 by 5; extensive k=5 -> 5 by 6; extensive k=6 -> 6 by 7; mixed k=2 -> 3 by 3; mixed k=3 -> 4 by 4; mixed k=4 -> 5 by 5; mixed k=5 -> 6 by 6; mixed k=6 -> 7 by 7",
+      "kind": "own_reading",
+      "name": "B88-2",
+      "passed": true
+    },
+    {
+      "detail": "the mixed system's standing is one number, the intensive closure's wage, read against two thresholds, the acre's own wage curve and the extensive envelope. Four cells and all four occur on 12009 drawn configurations: wage non-positive 3911; not worth operating on its own acre 2478; profitable on its own acre and infeasible for the system 1703; viable 3917. **The third is the one neither B72 nor B73 could state**: the second method pays a non-negative rent on its own acre and still drives some other land's rent below zero, because it is the whole system's wage it moves. **A one-land model cannot see it and an extensive model has no second method**",
+      "kind": "own_reading",
+      "name": "B88-3",
+      "passed": true
+    },
+    {
+      "detail": "`w_int <= w_ext` and `every rent >= 0` agree on 8098 of 8098 configurations. **This is an implementation check and not a reading** (`D35` second clause): a rent is `1 - (1+r)a - w l`, decreasing in the wage, and the marginal land's is zero exactly at `w_ext`, so the two statements are one statement. What it can catch is the code not implementing it",
+      "kind": "instrument",
+      "name": "B88-4",
+      "passed": true
+    },
+    {
+      "detail": "on 3917 of 3917 viable configurations the land that paid no rent under extensive cultivation pays a strictly positive one once the second method is in, the smallest being 0.0002. **Free land disappears at the intensive margin**, and it does so because the boundary condition that made it free is the equation the cycle replaced. **Not implied by the cell being viable**: viability asks for rents at or above zero and would be satisfied by a marginal rent of exactly zero, which is what a boundary condition surviving the step would look like",
+      "kind": "own_reading",
+      "name": "B88-5",
+      "passed": true
+    },
+    {
+      "detail": "one intensification technology per system, the same extra dose on whichever acre it goes, so which acre gets it is a reading and not a draw. On 1762 systems where some acre can take it, **the acre that does is the most fertile one on 558 of them and the marginal one on 406**. The order of fertility and the order by intensive closure are the same on 899 of 1498 systems and differ on 599. **Both choosing rules are run over the same candidates and they part on 305 of 1762 systems**, which is what says the closure and not the fertility is choosing. **B87 put the second method on the best land by fiat and that is wrong**; its graph reading survives because any acre with two users closes a cycle, and its field reading would not have",
+      "kind": "own_reading",
+      "name": "B88-6",
+      "passed": true
+    },
+    {
+      "detail": "the three files this station joins each name it, so a reader of any of them finds where the boundary condition went. `D20`",
+      "kind": "bookkeeping",
+      "name": "B88-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B88-1": {
+      "hand_pair": true,
+      "systems": 3000,
+      "worst_rent_gap": 0.0
+    },
+    "B88-2": {
+      "least_mixed_marginal_rent": 7.995871238508645e-05,
+      "mixed_configurations": 12009,
+      "shapes": [
+        [
+          "extensive",
+          2,
+          3
+        ],
+        [
+          "extensive",
+          3,
+          4
+        ],
+        [
+          "extensive",
+          4,
+          5
+        ],
+        [
+          "extensive",
+          5,
+          6
+        ],
+        [
+          "extensive",
+          6,
+          7
+        ],
+        [
+          "mixed",
+          3,
+          3
+        ],
+        [
+          "mixed",
+          4,
+          4
+        ],
+        [
+          "mixed",
+          5,
+          5
+        ],
+        [
+          "mixed",
+          6,
+          6
+        ],
+        [
+          "mixed",
+          7,
+          7
+        ]
+      ],
+      "worst_extensive_marginal_rent": 1.1102230246251565e-16
+    },
+    "B88-3": {
+      "cells": {
+        "not worth operating on its own acre": 2478,
+        "profitable on its own acre and infeasible for the system": 1703,
+        "viable": 3917,
+        "wage non-positive": 3911
+      }
+    },
+    "B88-4": {
+      "agree": 8098,
+      "configurations": 8098
+    },
+    "B88-5": {
+      "least": 0.00015053538772569208,
+      "strictly_positive": 3917,
+      "viable": 3917
+    },
+    "B88-6": {
+      "orders_same": 899,
+      "orders_seen": 1498,
+      "picked_best": 558,
+      "picked_marginal": 406,
+      "rules_part": 305,
+      "systems": 1762
+    },
+    "B88-7": {
+      "missing_writebacks": []
+    }
+  },
+  "stage": "B88"
+}

@@ -1,0 +1,298 @@
+{
+ "config": {
+  "base_processes": 6,
+  "draw_range": [
+   0.3,
+   1.6
+  ],
+  "draws": 120,
+  "graph_ages": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "graph_lands": [
+   0,
+   3
+  ],
+  "neg_tol": 1e-10,
+  "params": {
+   "a": 0.2,
+   "c": 0.5,
+   "l0": 0.3,
+   "l1": 0.1
+  },
+  "profiles": {
+   "constant": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+   ],
+   "declining": [
+    1.4,
+    1.28,
+    1.16,
+    1.04,
+    0.92,
+    0.8,
+    0.68,
+    0.56
+   ],
+   "humped": [
+    0.6,
+    1.1,
+    1.4,
+    1.45,
+    1.3,
+    1.0,
+    0.7,
+    0.45
+   ],
+   "rising": [
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.2,
+    1.3
+   ]
+  },
+  "rates": [
+   0.0,
+   0.95,
+   400
+  ],
+  "seed": 0,
+  "spot_rates": [
+   0.0,
+   0.2,
+   0.5,
+   0.9
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "The three statements of the truncation literature, read back on a machine lasting up to 8 periods with a declining output profile. **The truncation that maximises the wage is the one chosen at every rate probed**, and **at that truncation every old-machine price is non-negative**, and **it is the longest truncation of which that is true**. Read at rates 0.0, 0.2, 0.5, 0.9: r=0.00 gives life 6 and longest non-negative truncation 6; r=0.20 gives life 7 and longest non-negative truncation 7; r=0.50 gives life 8 and longest non-negative truncation 8; r=0.90 gives life 8 and longest non-negative truncation 8. **The fourth statement in that literature is that the economic life varies with the rate of profit, in either direction depending on the example**, and this carrier shows the variation, with the direction reported in B78-6c as this carrier gives it rather than as a general claim",
+   "kind": "known_answer",
+   "name": "B78-5",
+   "passed": true,
+   "statement": "the truncation results of the fixed-capital literature, read back"
+  },
+  {
+   "detail": "The economic life read off `max_T w_T(r)` at 400 rates from 0 to 0.95, for four output profiles. **Each truncation is a technique and the life is the owner of their envelope**, so everything B76 proved about envelopes applies to it without a new argument. **The life moves with the rate**: declining gives [6, 7, 8] over 388 viable rates of 400; constant gives [8] over 311 viable rates of 400; rising gives [8] over 234 viable rates of 400; humped gives [6, 7, 8] over 298 viable rates of 400. **Rates at which no truncation is viable are excluded rather than counted as a change**, which is what the first prototype got wrong: its sentinel for an infeasible rate read as one more fall",
+   "kind": "instrument",
+   "name": "B78-6a",
+   "passed": true,
+   "statement": "Theorem 23(1): the economic life is the owner of the wage envelope over truncations"
+  },
+  {
+   "detail": "The same sweep, with the two characterisations compared **at every viable rate rather than at a few spot values**. **The truncation that maximises the wage is exactly the longest one whose own old-machine prices are all non-negative**, on 1231 of 1231 rates across the four profiles: declining 388 of 388; constant 311 of 311; rising 234 of 234; humped 298 of 298. Both halves are checked separately: **the chosen truncation passes the price test on all 1231**, and **no longer truncation ever passes it**, 0 of 1231. **Each truncation must be asked about its own price system.** Reading the first negative age off the untruncated system instead is off by one and agrees only on 1044 of these 1231 rates; four spot rates did not catch it and a dense sweep did",
+   "kind": "instrument",
+   "name": "B78-6b",
+   "passed": true,
+   "statement": "Theorem 23(2): the wage-maximising truncation and the first negative price are the same age"
+  },
+  {
+   "detail": "**How often the economic life can change as the rate runs is bounded by B76's bound on an envelope with `k` members**, here `2k - 2 = 14` for `k = 8` candidate truncations. The four named profiles change 2/0/0/2 times, and 120 drawn profiles reach at most 3, owner sequence [5, 6, 7, 8]. **The life can skip an age**: yes, [5, 7, 8]. **On the direction this carrier is one-sided**: across the drawn profiles the life rises with the rate 47 times and falls 0 times. **That is reported as what this carrier gives, not as a general claim**: the literature's examples show both directions and non-monotone cases, and nothing in the construction fixes a direction, because the life is an envelope owner and owner sequences are governed by the crossing structure rather than by any monotonicity",
+   "kind": "instrument",
+   "name": "B78-6c",
+   "passed": true,
+   "statement": "Theorem 23(3): how often the life changes, whether it skips, and which way it goes"
+  },
+  {
+   "detail": "With the process count held at 6, **each machine age costs exactly one cycle and each land quality costs none**, and **the two do not interact**: `b_1` reads 0 ages and 0 lands give 6, 0 ages and 3 lands give 6, 1 ages and 0 lands give 7, 1 ages and 3 lands give 7, 2 ages and 0 lands give 8, 2 ages and 3 lands give 8, 3 ages and 0 lands give 9, 3 ages and 3 lands give 9, 4 ages and 0 lands give 10, 4 ages and 3 lands give 10. An age position is delivered by one process and bought by the next, so its degree is two; a land under extensive rent is bought by one process only, so its degree is one. **One machine age and one land with two users give the same `b_1`, 7 against a base of 6**, while a land with one user leaves the base untouched. **So fixed capital and intensive rent are the same graph move and extensive rent is the other one**, which is B72's Corollary 17.1 recognised in a construction that corollary was not about. **The extra cycle per age is the extra machine price to determine**",
+   "kind": "instrument",
+   "name": "B78-6d",
+   "passed": true,
+   "statement": "Theorem 23(4): an age costs one cycle, a land costs none, and an age is a land with two users"
+  }
+ ],
+ "mapping": {
+  "B78-5": "read back -> PASS; not read back -> FAIL, and the code or the reading of the source is fixed first",
+  "B78-6": "every check holds -> PASS; any check fails -> FAIL, and the code is fixed. These read no data and decide nothing about the world"
+ },
+ "report": {
+  "B78-5": {
+   "rows": [
+    {
+     "chosen_prices_non_negative": true,
+     "life": 6,
+     "longest_non_negative": 6,
+     "maximises_wage": true,
+     "rate": 0.0
+    },
+    {
+     "chosen_prices_non_negative": true,
+     "life": 7,
+     "longest_non_negative": 7,
+     "maximises_wage": true,
+     "rate": 0.2
+    },
+    {
+     "chosen_prices_non_negative": true,
+     "life": 8,
+     "longest_non_negative": 8,
+     "maximises_wage": true,
+     "rate": 0.5
+    },
+    {
+     "chosen_prices_non_negative": true,
+     "life": 8,
+     "longest_non_negative": 8,
+     "maximises_wage": true,
+     "rate": 0.9
+    }
+   ]
+  },
+  "B78-6a": {
+   "profiles": [
+    {
+     "name": "declining",
+     "owner_sequence": [
+      6,
+      7,
+      8
+     ],
+     "rates": 400,
+     "viable": 388
+    },
+    {
+     "name": "constant",
+     "owner_sequence": [
+      8
+     ],
+     "rates": 400,
+     "viable": 311
+    },
+    {
+     "name": "rising",
+     "owner_sequence": [
+      8
+     ],
+     "rates": 400,
+     "viable": 234
+    },
+    {
+     "name": "humped",
+     "owner_sequence": [
+      6,
+      7,
+      8
+     ],
+     "rates": 400,
+     "viable": 298
+    }
+   ]
+  },
+  "B78-6b": {
+   "agreeing": 1231,
+   "checked": 1231,
+   "chosen_passes_price_test": 1231,
+   "longer_also_passes": 0,
+   "per_profile": [
+    {
+     "agreeing": 388,
+     "checked": 388,
+     "name": "declining"
+    },
+    {
+     "agreeing": 311,
+     "checked": 311,
+     "name": "constant"
+    },
+    {
+     "agreeing": 234,
+     "checked": 234,
+     "name": "rising"
+    },
+    {
+     "agreeing": 298,
+     "checked": 298,
+     "name": "humped"
+    }
+   ]
+  },
+  "B78-6c": {
+   "bound": 14,
+   "draws": 120,
+   "falls": 0,
+   "most_changes": 3,
+   "most_changes_runs": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "named": [
+    {
+     "changes": 2,
+     "name": "declining",
+     "runs": [
+      6,
+      7,
+      8
+     ]
+    },
+    {
+     "changes": 0,
+     "name": "constant",
+     "runs": [
+      8
+     ]
+    },
+    {
+     "changes": 0,
+     "name": "rising",
+     "runs": [
+      8
+     ]
+    },
+    {
+     "changes": 2,
+     "name": "humped",
+     "runs": [
+      6,
+      7,
+      8
+     ]
+    }
+   ],
+   "rises": 47,
+   "skipped_instance": [
+    5,
+    7,
+    8
+   ]
+  },
+  "B78-6d": {
+   "age_costs_one": true,
+   "base": 6,
+   "grid": {
+    "0,0": 6,
+    "0,3": 6,
+    "1,0": 7,
+    "1,3": 7,
+    "2,0": 8,
+    "2,3": 8,
+    "3,0": 9,
+    "3,3": 9,
+    "4,0": 10,
+    "4,3": 10
+   },
+   "land_costs_nothing": true,
+   "land_one_user": 6,
+   "land_two_users": 7,
+   "one_age": 7
+  }
+ },
+ "stage": "B78"
+}

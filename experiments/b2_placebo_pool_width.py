@@ -33,8 +33,8 @@ programme whose borrowers sort strongly across tracts look narrow at fixed
 position when it is not. Shares are reported alongside and are not what the
 criteria read.
 
-Two dispersion measures, because one of them has a known weakness
-----------------------------------------------------------------
+Three income measures, and which one the criteria read
+------------------------------------------------------
 Log income in this sample is right-tailed and conventional lending here includes
 jumbo while FHA has the lowest county loan limits, so a variance in log income
 gives conventional a tail no government programme is allowed to have. That runs
@@ -43,9 +43,33 @@ but it is large enough to be worth removing rather than signing.
 
 So the same dispersion is computed a second time on the **within-programme rank**
 of income, the device loop A already uses for its ranked analogue. Ranks are
-bounded, so no tail can dominate, and each programme is ranked against its own
-distribution so a level difference cannot enter. The criteria require the
-conclusion on both.
+bounded, so no tail can dominate.
+
+Ranking each programme against its own distribution removes the tail and removes
+the level difference with it, and that second removal is one step too many for a
+criterion that compares one programme's pool to another's. Three borrowers at 50,
+100 and 150 and three at 99, 100 and 101 hold the same within-programme ranks, so
+a measure built on them reports two pools of equal width where the income spread
+differs by a factor of twenty-five. Those ranks are a monotone relabelling of each
+programme's own scale, so what they produce is a statement about shape that
+carries no statement about width.
+
+So the dispersion is computed a third time on a **pooled** ladder: the three
+programmes' income histograms are added, one rank is assigned to each income
+value, and every loan is placed on that single ladder whatever programme wrote
+it. That measure is bounded like the within-programme rank, so no tail dominates,
+and it keeps one scale across the three programmes, so a difference in spread
+survives it. PW-2 and PW-3 read the pooled ladder. Log income and the
+within-programme rank are reported beside it and do not enter those verdicts.
+
+Every dispersion here is a variance
+-----------------------------------
+``within`` is the within term of the law of total variance, ``sum n_c*var_c / N``,
+so every level is a variance and every ratio of two of them is a ratio of
+variances. PW-2's floor sits on the variance and the run prints the standard
+deviation ratio beside it, because a ratio of variances is the square of a ratio
+of standard deviations and the floor is close enough to the reading that the two
+can fall on opposite sides of it.
 
 Memory and passes
 -----------------
@@ -116,8 +140,8 @@ MAX_MISSING_SPREAD = 0.10
 #: This is the same failure the project already hit once, on a rate spread of
 #: -9999997 (`docs/b2_measurement.md` section 10), and the same remedy: state a
 #: band, count what it removes, and sweep it so that no result rests on where
-#: exactly it was put. The ranked measure was already immune, which is why it is
-#: the one the discriminating criterion reads.
+#: exactly it was put. Both ranked measures are immune to it, and the pooled one
+#: of the two is what the discriminating criteria read.
 INCOME_BOUNDS: tuple[float, ...] = (1000.0, 10000.0, math.inf)
 LTV_BOUNDS: tuple[float, ...] = (110.0, 150.0, math.inf)
 
@@ -141,6 +165,7 @@ def ltv_field(bound: float) -> str:
 CONTINUOUS: tuple[str, ...] = (
     "rate_spread",
     "rank_income",
+    "pooled_rank_income",
     *(income_field(b) for b in INCOME_BOUNDS),
     *(ltv_field(b) for b in LTV_BOUNDS),
 )
@@ -162,10 +187,34 @@ class Criterion:
     name: str
     passed: bool
     detail: str
+    #: Discipline 11d. A FAIL means a different thing in each kind, so a count
+    #: that adds them together names nothing. ``instrument`` asks whether this
+    #: run's reading is usable at all; ``own_reading`` is a reading this station
+    #: registered, and its failure withdraws that reading; ``rival`` is a point
+    #: prediction of the competing account, and it passes when that prediction
+    #: fails.
+    kind: str = "own_reading"
+    #: Rule 0b and discipline 11e, carried on ``kind == "rival"`` and empty
+    #: otherwise. The score is each account against reality rather than the two
+    #: against each other, so the cell has to say what THIS framework reads on
+    #: the same question. Without it, a rival being wrong slides into being read
+    #: as us being right.
+    grid: str | None = None
+    rival_shape: str | None = None
+    rival_premise: str | None = None
+    rival_entailment: str | None = None
 
     def line(self) -> str:
         mark = "PASS" if self.passed else "FAIL"
         return f"  [{mark}] {self.name}\n         {self.detail}"
+
+    def record(self) -> dict:
+        out = {"name": self.name, "passed": bool(self.passed),
+               "detail": self.detail, "kind": self.kind}
+        for key in ("grid", "rival_shape", "rival_premise", "rival_entailment"):
+            if getattr(self, key):
+                out[key] = getattr(self, key)
+        return out
 
 
 @dataclass
@@ -322,6 +371,12 @@ def rank_table(hist: Counter) -> tuple[list[int], list[float]]:
     Same convention as ``effective_price.average_ranks``: every member of a tie
     group takes the group's mean rank, so a value held by many borrowers cannot
     be spread across an interval it does not occupy.
+
+    Called once per programme and once on the sum of the three histograms. The
+    second table is the pooled ladder, one scale for all three programmes, so a
+    difference in income spread between programmes survives the transform. The
+    within-programme tables cannot report such a difference at all, each being a
+    relabelling of its own programme's scale.
     """
     values = sorted(hist)
     total = sum(hist.values())
@@ -339,6 +394,8 @@ def accumulate(
     common: set[tuple[str, str]],
     values: list[int],
     ranks: list[float],
+    pooled_values: list[int],
+    pooled_ranks: list[float],
     product: str,
 ) -> ProgrammeFold:
     """Pass three: fold each file's cells into running totals and discard them."""
@@ -367,6 +424,8 @@ def accumulate(
                 if income <= INCOME_BOUND:
                     index = bisect.bisect_left(values, int(income))
                     moments["rank_income"].add(cell, ranks[index])
+                    pooled = bisect.bisect_left(pooled_values, int(income))
+                    moments["pooled_rank_income"].add(cell, pooled_ranks[pooled])
                 else:
                     out.out_of_band["income"] += 1
 
@@ -444,6 +503,7 @@ def evaluate(folds: dict[str, ProgrammeFold], headline: int) -> list[Criterion]:
 
     log_inc = w(income_field(INCOME_BOUND))
     rank_inc = w("rank_income")
+    pooled_inc = w("pooled_rank_income")
     ltv = w(ltv_field(LTV_BOUND))
     rate = w("rate_spread")
     dti = {p: folds[p].levels[headline].dti.bound for p in folds}
@@ -468,50 +528,151 @@ def evaluate(folds: dict[str, ProgrammeFold], headline: int) -> list[Criterion]:
             + ". A programme with none reports zero dispersion, which is an "
             "absence and not a narrow pool, and every criterion below would "
             "read it as the second",
+            kind="instrument",
         )
     )
 
     out.append(
         Criterion(
             "PW-1  the VA pool is wider than the FHA pool",
-            log_inc["va"] > log_inc["fha"] and rank_inc["va"] > rank_inc["fha"],
-            f"within-cell dispersion, log income: VA {log_inc['va']:.5f} against "
-            f"FHA {log_inc['fha']:.5f}, conventional {log_inc['conventional']:.5f}; "
-            f"ranked income: VA {rank_inc['va']:.5f} against FHA "
-            f"{rank_inc['fha']:.5f}, conventional {rank_inc['conventional']:.5f}",
+            log_inc["va"] > log_inc["fha"]
+            and rank_inc["va"] > rank_inc["fha"]
+            and pooled_inc["va"] > pooled_inc["fha"],
+            f"within-cell dispersion, pooled-ladder rank: VA "
+            f"{pooled_inc['va']:.5f} against FHA {pooled_inc['fha']:.5f}, "
+            f"conventional {pooled_inc['conventional']:.5f}; log income: VA "
+            f"{log_inc['va']:.5f} against FHA {log_inc['fha']:.5f}, conventional "
+            f"{log_inc['conventional']:.5f}; within-programme rank: VA "
+            f"{rank_inc['va']:.5f} against FHA {rank_inc['fha']:.5f}, conventional "
+            f"{rank_inc['conventional']:.5f}",
+            kind="own_reading",
         )
     )
 
     ratios = {
+        "pooled-ladder rank": pooled_inc["va"] / pooled_inc["conventional"]
+        if pooled_inc["conventional"] > 0
+        else 0.0,
         "log income": log_inc["va"] / log_inc["conventional"]
         if log_inc["conventional"] > 0
         else 0.0,
-        "ranked income": rank_inc["va"] / rank_inc["conventional"]
+        "within-programme rank": rank_inc["va"] / rank_inc["conventional"]
         if rank_inc["conventional"] > 0
         else 0.0,
     }
     out.append(
         Criterion(
             "PW-2  the VA pool is comparable to the conventional pool",
-            all(v >= MIN_POOL_RATIO for v in ratios.values()),
-            "VA over conventional: "
-            + ", ".join(f"{k} {v:.4f}" for k, v in ratios.items())
-            + f", against the registered floor {MIN_POOL_RATIO:.2f}. Loan-limit "
-            "truncation biases the log-income ratio down and cannot touch the "
-            "ranked one",
+            ratios["pooled-ladder rank"] >= MIN_POOL_RATIO,
+            "VA over conventional, as a ratio of within-cell variances with the "
+            "ratio of standard deviations it implies in brackets: "
+            + ", ".join(
+                f"{k} {v:.4f} ({math.sqrt(v):.4f})" for k, v in ratios.items()
+            )
+            + f", against the registered floor {MIN_POOL_RATIO:.2f}, which sits "
+            "on the variance (section 3). The verdict is the pooled-ladder "
+            "figure. Loan-limit truncation biases the log-income ratio down, and "
+            "the within-programme rank is a monotone relabelling of each "
+            "programme's own scale, so it reports the same width for any two "
+            "pools whose shapes agree and carries no comparison of width at all. "
+            "The other two are printed and do not enter",
+            kind="own_reading",
         )
     )
 
     r = {
+        p: (rate[p] / pooled_inc[p] if pooled_inc[p] > 0 else float("inf"))
+        for p in folds
+    }
+    r_log = {
+        p: (rate[p] / log_inc[p] if log_inc[p] > 0 else float("inf")) for p in folds
+    }
+    r_own = {
         p: (rate[p] / rank_inc[p] if rank_inc[p] > 0 else float("inf")) for p in folds
     }
+    # PW-3a. The rival's half, scored on its own. An account under which rate
+    # dispersion at a fixed position is a function of pool width alone entails
+    # that the two orderings agree, and it entails that under ANY increasing
+    # function, so the test assumes no functional form and fits no parameter.
+    # An inversion is a pair holding more pool and less price.
+    def invert(width: dict[str, float]) -> list[tuple[str, str]]:
+        return [(p, q) for p in folds for q in folds
+                if width[p] > width[q] and rate[p] < rate[q]]
+
+    inv_pool, inv_log = invert(pooled_inc), invert(log_inc)
+    worst = max(inv_pool, key=lambda pq: pooled_inc[pq[0]] / pooled_inc[pq[1]],
+                default=None)
     out.append(
         Criterion(
-            "PW-3  the graded grid converts pool width into rate dispersion",
+            "PW-3a  rival: rate dispersion at fixed position does not follow "
+            "pool width",
+            bool(inv_pool),
+            "pool width orders "
+            + " > ".join(sorted(folds, key=lambda p: pooled_inc[p], reverse=True))
+            + " on the pooled ladder and "
+            + " > ".join(sorted(folds, key=lambda p: log_inc[p], reverse=True))
+            + " on log income, while rate dispersion orders "
+            + " > ".join(sorted(folds, key=lambda p: rate[p], reverse=True))
+            + f". Inversions, a pair holding more pool and less price: "
+            + (", ".join(f"{p} over {q}" for p, q in inv_pool) or "none")
+            + " on the pooled ladder, "
+            + (", ".join(f"{p} over {q}" for p, q in inv_log) or "none")
+            + " on log income"
+            + (f". The widest of them: {worst[0]} holds "
+               f"{pooled_inc[worst[0]] / pooled_inc[worst[1]]:.3f} times "
+               f"{worst[1]}'s pool on the pooled ladder and "
+               f"{log_inc[worst[0]] / log_inc[worst[1]]:.3f} times on log income, "
+               f"against {rate[worst[0]] / rate[worst[1]]:.3f} times its rate "
+               f"dispersion" if worst else "")
+            + ". This framework reads the same question as a position carrying "
+            "different terms for different classes, so it does not require the "
+            "two orderings to agree, which is why the cell is B and not both "
+            "accounts wrong. The stronger ordering this station registered on "
+            "top of that is PW-3b, and it is a separate line",
+            kind="rival",
+            grid="B",
+            rival_shape=(
+                "direction: a full ordering of three programmes, one of six, and "
+                "order-preserving under any increasing function, so neither a "
+                "functional form nor a fitted parameter stands behind it"
+            ),
+            rival_premise=(
+                "Rate dispersion at a fixed position is a function of the pool of "
+                "borrowers standing at that position and of nothing else: one "
+                "position carries one schedule, so two borrowers there differ in "
+                "price only through where they sit in that pool. Written out for "
+                "this carrier in docs/b2_measurement.md section 8, whose table "
+                "assigns high rate dispersion to the wide pools and low to the "
+                "narrow one."
+            ),
+            rival_entailment=(
+                "Write d(rate, p) = f(d(income, p)) with one f shared by the three "
+                "programmes. The account asserts only that f increases, and every "
+                "increasing f preserves order, so the ordering of rate dispersion "
+                "across programmes must equal the ordering of pool width. Pool "
+                "width orders conventional > VA > FHA on both width measures, so "
+                "rate dispersion must order conventional > VA > FHA. Any pair "
+                "holding more pool and less price contradicts the premise, with no "
+                "functional form assumed and no parameter fitted."
+            ),
+        )
+    )
+    out.append(
+        Criterion(
+            "PW-3b  the graded grid converts a given pool into more rate "
+            "dispersion than a flat grid does",
             r["conventional"] > r["va"] and r["conventional"] > r["fha"],
-            f"rate dispersion per unit of ranked-income dispersion: conventional "
-            f"{r['conventional']:.3f}, VA {r['va']:.3f}, FHA {r['fha']:.3f}. A "
-            f"pure pool-width account makes this ratio constant across programmes",
+            f"rate dispersion per unit of pooled-ladder income dispersion: "
+            f"conventional {r['conventional']:.3f}, VA {r['va']:.3f}, FHA "
+            f"{r['fha']:.3f}. Per unit of log income: conventional "
+            f"{r_log['conventional']:.3f}, VA {r_log['va']:.3f}, FHA "
+            f"{r_log['fha']:.3f}; per unit of within-programme rank: conventional "
+            f"{r_own['conventional']:.3f}, VA {r_own['va']:.3f}, FHA "
+            f"{r_own['fha']:.3f}, and that last denominator holds no width, so a "
+            f"ratio built on it is not a conversion rate. This is one reading "
+            f"registered by this station on top of PW-3a and its failure "
+            f"withdraws that reading",
+            kind="own_reading",
         )
     )
 
@@ -523,6 +684,7 @@ def evaluate(folds: dict[str, ProgrammeFold], headline: int) -> list[Criterion]:
             f"{dti['fha']:.4f}, conventional {dti['conventional']:.4f}. FHA and "
             f"VA underwrite to higher ceilings, which inflates both, so a pass "
             f"here is weak and only a failure would be strong",
+            kind="own_reading",
         )
     )
 
@@ -542,6 +704,7 @@ def evaluate(folds: dict[str, ProgrammeFold], headline: int) -> list[Criterion]:
             + ", ".join(f"{p} {folds[p].missing_rate('income'):.4f}" for p in folds)
             + "; dti "
             + ", ".join(f"{p} {folds[p].missing_rate('dti'):.4f}" for p in folds),
+            kind="instrument",
         )
     )
 
@@ -554,23 +717,31 @@ def evaluate(folds: dict[str, ProgrammeFold], headline: int) -> list[Criterion]:
             f"and not on the pool: the rules pin LTV for both government "
             f"programmes and a method that cannot see that is not measuring "
             f"dispersion. A failure voids the rest",
+            kind="instrument",
         )
     )
 
+    keys = (income_field(INCOME_BOUND), "rank_income", "pooled_rank_income")
     verdicts = {
-        (m, key): pool_holds(folds, key, m)
-        for m in MIN_SIZES
-        for key in (income_field(INCOME_BOUND), "rank_income")
+        (m, key): pool_holds(folds, key, m) for m in MIN_SIZES for key in keys
     }
+    # Registered per measure across thresholds, which is the object: a verdict
+    # that moves with the threshold is a statement about density. Pooling the
+    # measures into one set instead asks whether the measures agree with each
+    # other, a different question with its own criteria, and it fails whenever
+    # any two measures differ at every threshold alike.
+    stable = all(len({verdicts[(m, key)] for m in MIN_SIZES}) == 1 for key in keys)
     out.append(
         Criterion(
             "PW-7  the minimum-size threshold is not carrying the verdict",
-            len(set(verdicts.values())) == 1,
-            "PW-1 and PW-2 together, evaluated at every folded threshold: "
+            stable,
+            "PW-1 and PW-2 together, evaluated at every folded threshold and "
+            "compared within each measure: "
             + "; ".join(
                 f"{key} at {m} {'holds' if v else 'fails'}"
                 for (m, key), v in verdicts.items()
             ),
+            kind="instrument",
         )
     )
 
@@ -595,6 +766,7 @@ def evaluate(folds: dict[str, ProgrammeFold], headline: int) -> list[Criterion]:
             + ", ".join(
                 f"{b:g} {ltv_range[b]['conventional']:.3f}" for b in LTV_BOUNDS
             ),
+            kind="instrument",
         )
     )
     return out
@@ -639,11 +811,26 @@ def main() -> int:
     common = set.intersection(*reached.values())
     print(f"  common to all three {len(common):>9,}\n")
 
-    print("pass 2 and 3: income ranks, then the fold")
+    print("pass 2: income ranks, within each programme and on the pooled ladder")
+    tables, pooled_hist = {}, Counter()
+    for product, group in paths.items():
+        hist = income_histogram(group, common)
+        pooled_hist.update(hist)
+        tables[product] = rank_table(hist)
+        print(f"  {product:<13} {len(tables[product][0]):>5,} distinct incomes")
+    pooled_values, pooled_ranks = rank_table(pooled_hist)
+    print(
+        f"  pooled ladder {len(pooled_values):>5,} distinct incomes over "
+        f"{sum(pooled_hist.values()):,} loans\n"
+    )
+
+    print("pass 3: the fold")
     folds = {}
     for product, group in paths.items():
-        values, ranks = rank_table(income_histogram(group, common))
-        folds[product] = accumulate(group, common, values, ranks, product)
+        values, ranks = tables[product]
+        folds[product] = accumulate(
+            group, common, values, ranks, pooled_values, pooled_ranks, product
+        )
         f = folds[product]
         print(
             f"  {product:<13} {f.files:>3} files, "
@@ -683,10 +870,7 @@ def main() -> int:
                 "states_subset": list(states) if states else None,
                 "common_tract_years": len(common),
                 "programmes": {p: report(f) for p, f in folds.items()},
-                "criteria": [
-                    {"name": c.name, "passed": bool(c.passed), "detail": c.detail}
-                    for c in criteria
-                ],
+                "criteria": [c.record() for c in criteria],
             },
             indent=2,
             sort_keys=True,

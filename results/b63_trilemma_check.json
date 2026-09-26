@@ -1,0 +1,128 @@
+{
+ "config": {
+  "band_draws": 20,
+  "big": 1.0,
+  "bisection_steps": 90,
+  "currencies": [
+   3,
+   10
+  ],
+  "edge_p": 0.35,
+  "forward_p": 0.5,
+  "n_gauge": 1000,
+  "n_graphs": 400,
+  "peg_p": 0.5,
+  "perturb": 0.001,
+  "r0": 0.03,
+  "seed": 0,
+  "shape_spreads": {
+   "beta_k": 0.001,
+   "beta_l": 0.001,
+   "sigma": 0.002,
+   "sigma_locked": 0.002
+  },
+  "tol_band": 1e-09,
+  "tol_cycle": 1e-12,
+  "tol_identity": 1e-12
+ },
+ "criteria": [
+  {
+   "detail": "1000 draws of rates, parities, forwards and spreads, each with a random change of units at the four positions. Both orientations of the plaquette keep their sum under the change of units, and every sum equals the closed form S(Q+) = (r_k - r_l + lam - e) - beta_l - sigma_bar, S(Q-) = -(r_k - r_l + lam - e) - beta_k - sigma_bar, to within 1e-12",
+   "kind": "instrument",
+   "name": "B63-8a",
+   "passed": true,
+   "statement": "the plaquette sum is invariant under a change of units and equals its closed form"
+  },
+  {
+   "detail": "400 random currency graphs of 3 to 10 currencies, 1 to 6 components. With rates constant on the components of the peg graph, no positive cycle in 400 of 400. The rank count of the equalities equals the number of components in 400 of 400. Moving one rate by 0.001, with every forward re-priced, creates a positive cycle in 327 of 327 graphs where that currency shares a component and in 0 of 73 where it is alone. One-way pegs: a directed 3-cycle is infeasible with unequal rates (yes) and feasible with equal ones (yes); two strongly connected components joined one way stay feasible with their rates 5 points apart in either direction (yes, yes) and become infeasible once a rate inside the two-way pair moves (yes)",
+   "kind": "instrument",
+   "name": "B63-8b",
+   "passed": true,
+   "statement": "Corollary 8.1: rates equal exactly within components of the peg graph, and within strongly connected components for one-way pegs"
+  },
+  {
+   "detail": "20 spread draws, the first with no spreads at all. In every draw the feasible r_k - r_l runs from -(sigma_bar + beta_k) to sigma_bar + beta_l, the endpoints found by bisection within 1e-09 of the closed form; the draw with no spreads collapses to r_k = r_l, which is Theorem 8",
+   "kind": "instrument",
+   "name": "B63-8c",
+   "passed": true,
+   "statement": "Corollary 8.3: the band is [-(sigma_bar + beta_k), sigma_bar + beta_l]"
+  },
+  {
+   "detail": "band here is [-0.003000, +0.003000]. one direction closed at every date: [unbounded, unbounded]; closed at t+1 only: [-0.003000, unbounded]; class-split one-way, agent edges at par: [-0.003000, +0.003000]; class-split one-way, agent edges removed: [unbounded, unbounded]; float with a forward that re-prices: every probe from -1 to +1 feasible",
+   "kind": "instrument",
+   "name": "B63-8d",
+   "passed": true,
+   "statement": "Corollaries 8.2 to 8.4: the feasible set has the registered shape in five configurations"
+  }
+ ],
+ "report": {
+  "B63-8a": {
+   "draws": 1000,
+   "identity_residuals_below": 1e-12
+  },
+  "B63-8b": {
+   "components_max": 6,
+   "components_min": 1,
+   "constant_on_components_feasible": 400,
+   "graphs": 400,
+   "moved_alone": 73,
+   "moved_alone_made_positive": 0,
+   "moved_inside_component": 327,
+   "moved_inside_made_positive": 327,
+   "one_way_cycle_equal_feasible": true,
+   "one_way_cycle_unequal_infeasible": true,
+   "one_way_join_apart_down_feasible": true,
+   "one_way_join_apart_up_feasible": true,
+   "one_way_join_inside_moved_infeasible": true,
+   "rank_count_matches": 400
+  },
+  "B63-8c": {
+   "draws": 20,
+   "endpoint_error_below": 1e-09
+  },
+  "B63-8d": {
+   "class-split one-way, agent edges at par": {
+    "expected_lower": -0.003,
+    "expected_upper": 0.003,
+    "lower": -0.003000000001,
+    "match": true,
+    "upper": 0.003000000001
+   },
+   "class-split one-way, agent edges removed": {
+    "expected_lower": null,
+    "expected_upper": null,
+    "lower": null,
+    "match": true,
+    "upper": null
+   },
+   "closed at t+1 only": {
+    "expected_lower": -0.003,
+    "expected_upper": null,
+    "lower": -0.003000000001,
+    "match": true,
+    "upper": null
+   },
+   "float with a forward that re-prices": {
+    "all_feasible": true,
+    "match": true,
+    "probes": [
+     -1.0,
+     -0.5,
+     -0.01,
+     0.0,
+     0.01,
+     0.5,
+     1.0
+    ]
+   },
+   "one direction closed at every date": {
+    "expected_lower": null,
+    "expected_upper": null,
+    "lower": null,
+    "match": true,
+    "upper": null
+   }
+  }
+ },
+ "stage": "B63-8"
+}

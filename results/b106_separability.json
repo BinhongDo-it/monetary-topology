@@ -1,0 +1,253 @@
+{
+  "config": {
+    "aggregates_excluded": [
+      "M-N",
+      "MARKT",
+      "NMARKT",
+      "TOT",
+      "TOT_IND"
+    ],
+    "classes": "3 education x 3 age x 2 gender = 18",
+    "field": "ln(Share_W / Share_E)",
+    "reps": 5,
+    "sections": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T"
+    ],
+    "seed": 0,
+    "sources": [
+      "labour accounts.csv"
+    ]
+  },
+  "criteria": [
+    {
+      "criterion": "what the tables are, and the five aggregates kept out of them by name",
+      "detail": "212,805 class-cells on the 20 NACE sections, 36,288 on the five aggregates that are sums of them (M-N, MARKT, NMARKT, TOT, TOT_IND) and are excluded by name rather than silently. 621 country-year tables with three or more industries, rows min 9 median 19 max 20; 527 industry-year tables with three or more countries, rows min 8 median 33 max 37. Columns are the 18 classes in every table.",
+      "kind": "instrument",
+      "name": "B106-1",
+      "passed": true,
+      "payload": {
+        "aggregates_excluded": [
+          "M-N",
+          "MARKT",
+          "NMARKT",
+          "TOT",
+          "TOT_IND"
+        ],
+        "cells_on_aggregates": 36288,
+        "cells_on_sections": 212805,
+        "country_year_tables": 621,
+        "cycles_median_country": 544,
+        "cycles_median_industry": 306,
+        "industry_year_tables": 527,
+        "rows_median_country": 33,
+        "rows_median_industry": 19
+      }
+    },
+    {
+      "criterion": "a separable field reads zero and a field with no structure reads its own degrees of freedom",
+      "detail": "separable in, zero out: worst interaction share 6.84e-32 over 15 draws. No structure in, the degrees of freedom out: J=4 0.7230 vs (J-1)(K-1)/(JK-1) = 0.7183 (z 0.14), J=8 0.8088 vs (J-1)(K-1)/(JK-1) = 0.8322 (z 1.19), J=19 0.9129 vs (J-1)(K-1)/(JK-1) = 0.8974 (z 1.50); worst z 1.50 against four standard errors of the exact Beta over 5 draws",
+      "kind": "known_answer",
+      "name": "B106-2",
+      "passed": true,
+      "payload": {
+        "noise": [
+          {
+            "J": 4,
+            "closed_form": 0.7183098591549296,
+            "draws": 5,
+            "mean": 0.7229624352720958,
+            "se": 0.03329739842532066,
+            "z": 0.13972791681010677
+          },
+          {
+            "J": 8,
+            "closed_form": 0.8321678321678322,
+            "draws": 5,
+            "mean": 0.8088139630247205,
+            "se": 0.019628587967056542,
+            "z": 1.1897885462931623
+          },
+          {
+            "J": 19,
+            "closed_form": 0.8973607038123167,
+            "draws": 5,
+            "mean": 0.9129416914196838,
+            "se": 0.010363901865817328,
+            "z": 1.503390113983715
+          }
+        ],
+        "worst_z": 1.503390113983715,
+        "worst_zero": 6.835229673522603e-32
+      }
+    },
+    {
+      "criterion": "how much of the field no scalar on positions plus a class ladder can produce",
+      "detail": "countries_within_industry_year: 527 tables, interaction share median 0.4353 against a no-structure 0.9174, ratio 0.502, below half of it in 262; industries_within_country_year: 621 tables, interaction share median 0.4027 against a no-structure 0.8974, ratio 0.450, below half of it in 366",
+      "kind": "own_reading",
+      "name": "B106-3",
+      "passed": true,
+      "payload": {
+        "countries_within_industry_year": {
+          "below_half_null": 262,
+          "median": 0.4353197952142326,
+          "n": 527,
+          "null_median": 0.9173693086003373,
+          "over_null_median": 0.5020557283639085,
+          "p10": 0.22510224340453397,
+          "p90": 0.6257119508404083
+        },
+        "industries_within_country_year": {
+          "below_half_null": 366,
+          "median": 0.4027487550125273,
+          "n": 621,
+          "null_median": 0.8973607038123167,
+          "over_null_median": 0.45013096148458936,
+          "p10": 0.11610186235860981,
+          "p90": 0.6307377903456493
+        }
+      }
+    },
+    {
+      "criterion": "whether what is left over repeats next year, which survey noise does not",
+      "detail": "countries_within_industry_year: 197,622 adjacent-year pairs, correlation +0.9545, which is 424 standard errors from the rival's zero; ten years apart +0.6684 over 85,050; with the position pairing broken and every marginal kept, +0.1537 over 186,534; industries_within_country_year: 197,622 adjacent-year pairs, correlation +0.9544, which is 424 standard errors from the rival's zero; ten years apart +0.6790 over 85,050; with the position pairing broken and every marginal kept, +0.0510 over 168,354. Survey noise does not repeat, so the rival's reading is a point at zero. The decade-apart figure answers a compiler that interpolates between survey years, and the broken pairing answers the statistic itself.",
+      "grid": "B",
+      "grid_note": {
+        "ours": "the interaction is the square, two positions by two classes, and it is a standing feature of who is being paid where, so it repeats",
+        "reality": "filled in by this run",
+        "rival": "it is zero, so what is measured is noise and does not repeat"
+      },
+      "kind": "rival",
+      "name": "B106-4",
+      "passed": true,
+      "payload": {
+        "countries_within_industry_year": {
+          "corr_next_year": 0.9544791832868773,
+          "corr_placebo": 0.15371789337975023,
+          "corr_ten_years": 0.6683742056938445,
+          "pairs": 197622,
+          "pairs_10y": 85050,
+          "pairs_placebo": 186534,
+          "se": 0.0022494982069765886,
+          "z_against_zero": 424.30759905771777
+        },
+        "industries_within_country_year": {
+          "corr_next_year": 0.9543729157397104,
+          "corr_placebo": 0.050973556088519195,
+          "corr_ten_years": 0.6790029510939104,
+          "pairs": 197622,
+          "pairs_10y": 85050,
+          "pairs_placebo": 168354,
+          "se": 0.0022494982069765886,
+          "z_against_zero": 424.26035850120724
+        }
+      },
+      "rival_entailment": "sampling error in one year is independent of sampling error in the next, so under that premise the interaction measured at a position and class in year t has zero correlation with the same position and class in year t+1. The prediction is a point at zero, with a standard error of one over the root of the pair count.",
+      "rival_premise": "the price a class is paid at a position is a scalar on the position times a factor for the class, so in logs the field is additively separable and the interaction is identically zero; anything observed in it is sampling error in the survey the shares come from",
+      "rival_shape": "point prediction"
+    },
+    {
+      "criterion": "whether the leftover shrinks where the class is large, which is what sampling noise does",
+      "detail": "interaction residual by the class's own employment share, ten deciles from the smallest classes to the largest: d1 0.6894, d2 0.3987, d3 0.3419, d4 0.3177, d5 0.2845, d6 0.2666, d7 0.2505, d8 0.2558, d9 0.2496, d10 0.2265. The thinnest decile reads 0.6894 and the thickest 0.2265, a fall of 3.04 times across a span of at least 22 times in employment share. Sampling error would fall as one over the root of the count, which over that span is about 5 times, so the profile is far flatter than noise and it stops falling after the fifth decile: d5 to d10 move only from 0.2845 to 0.2265.",
+      "kind": "own_reading",
+      "name": "B106-5",
+      "passed": true,
+      "payload": {
+        "by_decile": [
+          {
+            "decile": 1,
+            "n": 21030,
+            "sd": 0.6894025841739496,
+            "share_e_from": 0.00053341244205954,
+            "share_e_to": 0.6025896001110791
+          },
+          {
+            "decile": 2,
+            "n": 21029,
+            "sd": 0.39866439037050255,
+            "share_e_from": 0.6025896001110791,
+            "share_e_to": 1.1533274028130642
+          },
+          {
+            "decile": 3,
+            "n": 21029,
+            "sd": 0.34188605310641323,
+            "share_e_from": 1.1533274028130642,
+            "share_e_to": 1.8269555311153027
+          },
+          {
+            "decile": 4,
+            "n": 21030,
+            "sd": 0.31765234407651144,
+            "share_e_from": 1.8269555311153027,
+            "share_e_to": 2.636575437426273
+          },
+          {
+            "decile": 5,
+            "n": 21029,
+            "sd": 0.2845107313277026,
+            "share_e_from": 2.636575437426273,
+            "share_e_to": 3.613719753352755
+          },
+          {
+            "decile": 6,
+            "n": 21029,
+            "sd": 0.266569046955992,
+            "share_e_from": 3.613719753352755,
+            "share_e_to": 4.857181496479125
+          },
+          {
+            "decile": 7,
+            "n": 21028,
+            "sd": 0.25050150807687666,
+            "share_e_from": 4.857181496479125,
+            "share_e_to": 6.44079440917072
+          },
+          {
+            "decile": 8,
+            "n": 21031,
+            "sd": 0.2558371118551359,
+            "share_e_from": 6.44079440917072,
+            "share_e_to": 8.75663291002741
+          },
+          {
+            "decile": 9,
+            "n": 21029,
+            "sd": 0.24962062019095443,
+            "share_e_from": 8.75663291002741,
+            "share_e_to": 13.097892292421651
+          },
+          {
+            "decile": 10,
+            "n": 21030,
+            "sd": 0.22645561614944043,
+            "share_e_from": 13.097892292421651,
+            "share_e_to": 70.3240521148084
+          }
+        ],
+        "sd_thickest": 0.22645561614944043,
+        "sd_thinnest": 0.6894025841739496,
+        "share_span": 21.736007873363953
+      }
+    }
+  ],
+  "stage": "B106"
+}

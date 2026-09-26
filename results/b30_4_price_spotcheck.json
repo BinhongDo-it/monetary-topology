@@ -1,0 +1,553 @@
+{
+  "diagnostic_only": true,
+  "diagnostic_reason": "A spot check. It is sized to catch a systematic mismatch and is not a rate.",
+  "listing_price_found_on_page": 22,
+  "listing_price_not_found": 2,
+  "projects_with_more_than_one_paid_option": 2,
+  "rows": [
+    {
+      "band": "under $2",
+      "game_id": "951399",
+      "listing_cents": 100,
+      "listing_currency": "USD",
+      "listing_is_on_page": false,
+      "listing_is_the_lowest": null,
+      "page_amounts_cents": [],
+      "page_tags": [
+        "2d",
+        "casual",
+        "racing",
+        "singleplayer"
+      ],
+      "paid_options_on_page": 0,
+      "tags_on_page": 4,
+      "url": "https://playgamevn.itch.io/run-forevervn"
+    },
+    {
+      "band": "under $2",
+      "game_id": "1528335",
+      "listing_cents": 100,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        100
+      ],
+      "page_tags": [
+        "3d",
+        "medieval",
+        "real-time-strategy",
+        "tower-defense",
+        "turn-based"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 5,
+      "url": "https://bd-games.itch.io/kings-battle"
+    },
+    {
+      "band": "under $2",
+      "game_id": "2889411",
+      "listing_cents": 100,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        100
+      ],
+      "page_tags": [
+        "3d",
+        "atmospheric",
+        "first-person",
+        "horror",
+        "no-ai",
+        "psychological-horror",
+        "singleplayer",
+        "survival-horror"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 8,
+      "url": "https://max-horror.itch.io/room-202"
+    },
+    {
+      "band": "under $2",
+      "game_id": "3073427",
+      "listing_cents": 100,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        100
+      ],
+      "page_tags": [
+        "atmospheric",
+        "horror",
+        "psx",
+        "retro"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 4,
+      "url": "https://vermiislurk.itch.io/moon-demons"
+    },
+    {
+      "band": "under $2",
+      "game_id": "3483534",
+      "listing_cents": 100,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        100
+      ],
+      "page_tags": [
+        "2d",
+        "arcade",
+        "breakout",
+        "high-score",
+        "no-ai",
+        "pixel-art",
+        "robots",
+        "space"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 8,
+      "url": "https://unbelievabug.itch.io/dig-the-black-hole-full-game"
+    },
+    {
+      "band": "under $2",
+      "game_id": "2607311",
+      "listing_cents": 100,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        100
+      ],
+      "page_tags": [
+        "arcade",
+        "exploration",
+        "playdate",
+        "singleplayer"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 4,
+      "url": "https://rob-games.itch.io/bob-invasion"
+    },
+    {
+      "band": "$2 to $5",
+      "game_id": "4540770",
+      "listing_cents": 499,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        499
+      ],
+      "page_tags": [
+        "anime",
+        "casual",
+        "cozy",
+        "cute",
+        "dark-humor",
+        "female-protagonist",
+        "mouse-only",
+        "no-ai",
+        "remake"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 9,
+      "url": "https://ryan-nein.itch.io/yamasen-chans-hermit-home-designer"
+    },
+    {
+      "band": "$2 to $5",
+      "game_id": "1300461",
+      "listing_cents": 300,
+      "listing_currency": "GBP",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        300
+      ],
+      "page_tags": [
+        "horror",
+        "no-ai"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 2,
+      "url": "https://leyline-press.itch.io/the-god-with-no-name"
+    },
+    {
+      "band": "$2 to $5",
+      "game_id": "4979116",
+      "listing_cents": 400,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        400
+      ],
+      "page_tags": [
+        "godot",
+        "incremental",
+        "no-ai",
+        "pixel-art"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 4,
+      "url": "https://void-workspace.itch.io/phonemae"
+    },
+    {
+      "band": "$2 to $5",
+      "game_id": "603956",
+      "listing_cents": 299,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        299
+      ],
+      "page_tags": [
+        "mystery",
+        "rpgmaker",
+        "singleplayer",
+        "time-travel",
+        "top-down"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 5,
+      "url": "https://silhouettevalleygames.itch.io/future-proof"
+    },
+    {
+      "band": "$2 to $5",
+      "game_id": "509358",
+      "listing_cents": 499,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        499
+      ],
+      "page_tags": [
+        "2d",
+        "no-ai",
+        "strategy-rpg",
+        "tactical-rpg",
+        "turn-based-strategy"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 5,
+      "url": "https://armor-games-studios.itch.io/sonny"
+    },
+    {
+      "band": "$2 to $5",
+      "game_id": "4855381",
+      "listing_cents": 200,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        200
+      ],
+      "page_tags": [
+        "horror",
+        "scary",
+        "short",
+        "simple",
+        "singleplayer",
+        "spooky",
+        "thriller"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 7,
+      "url": "https://therealblueberrygaming.itch.io/graveyard-of-shadows"
+    },
+    {
+      "band": "$5 to $15",
+      "game_id": "348737",
+      "listing_cents": 999,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        999
+      ],
+      "page_tags": [
+        "2d",
+        "economy",
+        "funny",
+        "procedural",
+        "retro",
+        "singleplayer",
+        "trading",
+        "tycoon",
+        "working-simulator"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 9,
+      "url": "https://abyteentertainment.itch.io/dealers-life"
+    },
+    {
+      "band": "$5 to $15",
+      "game_id": "983945",
+      "listing_cents": 599,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        599
+      ],
+      "page_tags": [
+        "2d",
+        "boss-battle",
+        "casual",
+        "fantasy",
+        "indie",
+        "side-scroller",
+        "singleplayer",
+        "unity"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 8,
+      "url": "https://tommyyoder.itch.io/the-adventures-of-maximus"
+    },
+    {
+      "band": "$5 to $15",
+      "game_id": "503180",
+      "listing_cents": 999,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        999,
+        1000
+      ],
+      "page_tags": [
+        "3d",
+        "3d-platformer",
+        "controller",
+        "multigenre",
+        "no-ai",
+        "pixel-art",
+        "post-apocalyptic",
+        "quantum",
+        "singleplayer",
+        "unity"
+      ],
+      "paid_options_on_page": 2,
+      "tags_on_page": 10,
+      "url": "https://ofihombre.itch.io/randy-manilla"
+    },
+    {
+      "band": "$5 to $15",
+      "game_id": "2207978",
+      "listing_cents": 599,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        599,
+        999
+      ],
+      "page_tags": [
+        "alternate",
+        "casual",
+        "cctv",
+        "creepy",
+        "duty",
+        "horror",
+        "mystery",
+        "observation",
+        "psychological-horror",
+        "spot-the-difference"
+      ],
+      "paid_options_on_page": 2,
+      "tags_on_page": 10,
+      "url": "https://viexigames.itch.io/midnight-monitor-anomaly-watch"
+    },
+    {
+      "band": "$5 to $15",
+      "game_id": "3517437",
+      "listing_cents": 799,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        799
+      ],
+      "page_tags": [
+        "3d",
+        "casual",
+        "difficult",
+        "indie",
+        "no-ai",
+        "singleplayer",
+        "toki-pona",
+        "unity"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 8,
+      "url": "https://purplesloth.itch.io/trails"
+    },
+    {
+      "band": "$5 to $15",
+      "game_id": "1143614",
+      "listing_cents": 1099,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        1099
+      ],
+      "page_tags": [
+        "boys-love",
+        "controller",
+        "ecology",
+        "environmentalism",
+        "narrative",
+        "romance",
+        "story-rich",
+        "third-person"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 8,
+      "url": "https://machineboy.itch.io/embracelet"
+    },
+    {
+      "band": "over $15",
+      "game_id": "3847961",
+      "listing_cents": 5000,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        5000
+      ],
+      "page_tags": [
+        "2d",
+        "brain-teaser",
+        "cartoon",
+        "casual",
+        "line-drawing",
+        "no-ai",
+        "puzzle-solving"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 7,
+      "url": "https://shenyou-game.itch.io/save-the-puppy-game-project"
+    },
+    {
+      "band": "over $15",
+      "game_id": "2606929",
+      "listing_cents": 1900,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        1900
+      ],
+      "page_tags": [
+        "action-adventure",
+        "action-rpg",
+        "asian",
+        "cinematic",
+        "music",
+        "oriental",
+        "samurai"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 7,
+      "url": "https://thisound.itch.io/asian-music-pack"
+    },
+    {
+      "band": "over $15",
+      "game_id": "4387511",
+      "listing_cents": 6399,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        6399
+      ],
+      "page_tags": [
+        "endless-runner",
+        "no-ai"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 2,
+      "url": "https://ytgg-games.itch.io/noob-run-4"
+    },
+    {
+      "band": "over $15",
+      "game_id": "1199226",
+      "listing_cents": 999999,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        999999
+      ],
+      "page_tags": [
+        "3d",
+        "artgame",
+        "atmospheric",
+        "cosmic-horror",
+        "first-person",
+        "horror",
+        "short",
+        "surreal",
+        "unity",
+        "walking-simulator"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 10,
+      "url": "https://farfama.itch.io/the-golden-tower"
+    },
+    {
+      "band": "over $15",
+      "game_id": "949832",
+      "listing_cents": 1500,
+      "listing_currency": "USD",
+      "listing_is_on_page": true,
+      "listing_is_the_lowest": true,
+      "page_amounts_cents": [
+        1500
+      ],
+      "page_tags": [
+        "2d",
+        "board-game",
+        "casual",
+        "mahjong",
+        "minimalist",
+        "relaxing",
+        "singleplayer"
+      ],
+      "paid_options_on_page": 1,
+      "tags_on_page": 7,
+      "url": "https://rokasv.itch.io/zenbones"
+    },
+    {
+      "band": "over $15",
+      "game_id": "68888",
+      "listing_cents": 1500,
+      "listing_currency": "USD",
+      "listing_is_on_page": false,
+      "listing_is_the_lowest": null,
+      "page_amounts_cents": [],
+      "page_tags": [
+        "2d",
+        "bgs",
+        "blob-games-studio",
+        "felixblobdev",
+        "metroidvania",
+        "pixel-art",
+        "super-gear-quest"
+      ],
+      "paid_options_on_page": 0,
+      "tags_on_page": 7,
+      "url": "https://felixblobdev.itch.io/super-gear-quest"
+    }
+  ],
+  "sample_size": 24,
+  "seed": 4,
+  "station": "B30-4",
+  "what": "step three piece five: the listing price against the project's own page, on a sample stratified by price band"
+}

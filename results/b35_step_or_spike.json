@@ -1,0 +1,418 @@
+{
+  "config": {
+    "atom_rule": "four digits, all numeric, not starting 00",
+    "break": [
+      2022,
+      9
+    ],
+    "per_hog": {
+      "feet": 4,
+      "hearts": 1,
+      "tongues": 1
+    },
+    "source": "b35_census_raw_020649_bycountry_2021-2023.json",
+    "w_foot_kg": [
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55
+    ],
+    "w_tongue_kg": [
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45
+    ],
+    "windows": {
+      "2021": [
+        [
+          2021,
+          1
+        ],
+        [
+          2021,
+          2
+        ],
+        [
+          2021,
+          3
+        ],
+        [
+          2021,
+          4
+        ],
+        [
+          2021,
+          5
+        ],
+        [
+          2021,
+          6
+        ],
+        [
+          2021,
+          7
+        ],
+        [
+          2021,
+          8
+        ],
+        [
+          2021,
+          9
+        ],
+        [
+          2021,
+          10
+        ],
+        [
+          2021,
+          11
+        ],
+        [
+          2021,
+          12
+        ]
+      ],
+      "2022_post": [
+        [
+          2022,
+          9
+        ],
+        [
+          2022,
+          10
+        ],
+        [
+          2022,
+          11
+        ],
+        [
+          2022,
+          12
+        ]
+      ],
+      "2022_pre": [
+        [
+          2022,
+          1
+        ],
+        [
+          2022,
+          2
+        ],
+        [
+          2022,
+          3
+        ],
+        [
+          2022,
+          4
+        ],
+        [
+          2022,
+          5
+        ],
+        [
+          2022,
+          6
+        ],
+        [
+          2022,
+          7
+        ],
+        [
+          2022,
+          8
+        ]
+      ],
+      "2023": [
+        [
+          2023,
+          1
+        ],
+        [
+          2023,
+          2
+        ],
+        [
+          2023,
+          3
+        ],
+        [
+          2023,
+          4
+        ],
+        [
+          2023,
+          5
+        ],
+        [
+          2023,
+          6
+        ],
+        [
+          2023,
+          7
+        ],
+        [
+          2023,
+          8
+        ],
+        [
+          2023,
+          9
+        ],
+        [
+          2023,
+          10
+        ],
+        [
+          2023,
+          11
+        ],
+        [
+          2023,
+          12
+        ]
+      ]
+    }
+  },
+  "criteria": [
+    {
+      "detail": "36 months assembled from the per month cache, 6032 rows of which 3004 aggregate; atoms sum to the world total row on all 216 commodity-months, worst relative difference 0.000e+00",
+      "kind": "instrument",
+      "name": "B35-SS-1",
+      "passed": true
+    },
+    {
+      "detail": "China leg tongue unit value by window: 2021 2.305-3.617, 2022 Jan-Aug 3.212-3.764, 2022 Sep-Dec 1.419-1.950, 2023 1.066-1.582; 2021 overlaps the pre break window and 2023 overlaps the post break window while 2021 and 2023 do not overlap each other, so the registered branch that fires is STEP",
+      "kind": "own_reading",
+      "name": "B35-SS-2",
+      "passed": true
+    },
+    {
+      "detail": "head meat to China 81424 -> 26023 -> 713 tonnes a year, a factor of 0.0088 over two years, monotone; months at exactly zero go 0 -> 0 -> 4 of twelve; the thinnest month of 2021 is 1839 t and the thickest of 2023 is 212 t",
+      "kind": "known_answer",
+      "name": "B35-SS-3",
+      "passed": true
+    },
+    {
+      "detail": "over all 36 months the tongue unit value spans 1.066-3.764 (3.53x) while the two codes together span 1.028-1.802 (1.75x); the 2021 and 2023 tongue ranges do not overlap and the 2021 and 2023 union ranges do, so the pair holds its price for three years while its contents rotate",
+      "kind": "own_reading",
+      "name": "B35-SS-4",
+      "passed": true
+    },
+    {
+      "detail": "one tongue and four feet per hog, so both lines meter the same slaughter; to China the foot line moves 1.058x from 2021 to 2023 (161704 -> 171058 t) while the tongue line moves 12.765x (4940 -> 63057 t); log sizes 2.547 against 0.056, so a change in slaughter cannot be what moved the tongue line",
+      "kind": "known_answer",
+      "name": "B35-SS-5",
+      "passed": true
+    },
+    {
+      "detail": "tongue tonnage over foot tonnage on the China leg is 0.0305 in 2021 and 0.3686 in 2023, against an anatomical ceiling of one tongue to four feet that runs 0.114 to 0.321 over the 25 weight pairs swept; 2021 sits below the ceiling on all 25 and 2023 sits above it on all 25. The world tongue line of 2023 requires 233 million head at 0.35 kg a tongue with no domestic use at all; the slaughter figure to compare it against is not supplied here",
+      "kind": "bookkeeping",
+      "name": "B35-SS-6",
+      "passed": true
+    }
+  ],
+  "report": {
+    "branch": "step",
+    "head_meat_2023_over_2021": 0.008760017883121644,
+    "head_meat_china": {
+      "2021": {
+        "china_t": 81424.263,
+        "max_month_t": 10868.353,
+        "min_month_t": 1838.755,
+        "months_exactly_zero": 0
+      },
+      "2022": {
+        "china_t": 26022.882,
+        "max_month_t": 4071.141,
+        "min_month_t": 24.367,
+        "months_exactly_zero": 0
+      },
+      "2023": {
+        "china_t": 713.278,
+        "max_month_t": 211.612,
+        "min_month_t": 0.0,
+        "months_exactly_zero": 4
+      }
+    },
+    "hogs_required": [
+      {
+        "hogs_required_2021_millions": 85.084832,
+        "hogs_required_2023_millions": 326.152512,
+        "kg_per_tongue": 0.25
+      },
+      {
+        "hogs_required_2021_millions": 70.90402666666667,
+        "hogs_required_2023_millions": 271.79376,
+        "kg_per_tongue": 0.3
+      },
+      {
+        "hogs_required_2021_millions": 60.77488000000001,
+        "hogs_required_2023_millions": 232.96608,
+        "kg_per_tongue": 0.35
+      },
+      {
+        "hogs_required_2021_millions": 53.17802,
+        "hogs_required_2023_millions": 203.84532,
+        "kg_per_tongue": 0.4
+      },
+      {
+        "hogs_required_2021_millions": 47.26935111111111,
+        "hogs_required_2023_millions": 181.19584,
+        "kg_per_tongue": 0.45
+      }
+    ],
+    "intervals_china_tongue_uv": {
+      "2021": [
+        2.304838302511314,
+        3.617424133052291
+      ],
+      "2022_post": [
+        1.4191850845528693,
+        1.9501351652407537
+      ],
+      "2022_pre": [
+        3.2124044730974255,
+        3.764312290117459
+      ],
+      "2023": [
+        1.0659558027772027,
+        1.5823382734626716
+      ]
+    },
+    "meters_china": {
+      "feet": {
+        "china_2021_t": 161703.679,
+        "china_2023_t": 171057.968,
+        "factor": 1.0578483375137062
+      },
+      "hearts": {
+        "china_2021_t": 3986.87,
+        "china_2023_t": 1780.15,
+        "factor": 0.4465031465786444
+      },
+      "offal nesoi": {
+        "china_2021_t": 34967.986,
+        "china_2023_t": 46446.672,
+        "factor": 1.3282627143582133
+      },
+      "skins": {
+        "china_2021_t": 1260.878,
+        "china_2023_t": 19262.554,
+        "factor": 15.277095801497053
+      },
+      "tongues": {
+        "china_2021_t": 4939.788,
+        "china_2023_t": 63056.551,
+        "factor": 12.765031819179285
+      }
+    },
+    "months": 36,
+    "no_slaughter_figure": "this record neither fetches nor asserts a US hog slaughter figure; the head count is printed so that a reader who has one can make the comparison, and every reading that adjudicates above is internal",
+    "overlap_tests": {
+      "2021 overlaps 2022 pre": true,
+      "2021 overlaps 2023": false,
+      "2023 overlaps 2022 post": true,
+      "2023 overlaps 2022 pre": false
+    },
+    "rows": 6032,
+    "rows_aggregate": 3004,
+    "sumcheck_cells": 216,
+    "sumcheck_worst_rel_diff": 0.0,
+    "tongue_over_foot_china": {
+      "2021": 0.03054839587168576,
+      "2021_below_ceiling": 25,
+      "2023": 0.3686267979051406,
+      "2023_above_ceiling": 25,
+      "ceiling_range": [
+        0.11363636363636363,
+        0.32142857142857145
+      ],
+      "grid": 25
+    },
+    "union": {
+      "head_meat": {
+        "all36": [
+          0.9096248587734196,
+          2.2707614496045947
+        ],
+        "spread": 2.4963713641979783,
+        "windows": {
+          "2021": [
+            0.9096248587734196,
+            1.6805568468793814
+          ],
+          "2022_post": [
+            1.0912627907741914,
+            1.3456290200776022
+          ],
+          "2022_pre": [
+            1.115448974303741,
+            1.3184960188181052
+          ],
+          "2023": [
+            1.2347897774113767,
+            2.2707614496045947
+          ]
+        }
+      },
+      "tongue": {
+        "all36": [
+          1.0659558027772027,
+          3.764312290117459
+        ],
+        "spread": 3.5313962176574822,
+        "windows": {
+          "2021": [
+            2.304838302511314,
+            3.617424133052291
+          ],
+          "2022_post": [
+            1.4191850845528693,
+            1.9501351652407537
+          ],
+          "2022_pre": [
+            3.2124044730974255,
+            3.764312290117459
+          ],
+          "2023": [
+            1.0659558027772027,
+            1.5823382734626716
+          ]
+        }
+      },
+      "union": {
+        "all36": [
+          1.0276613339190315,
+          1.8019663816605562
+        ],
+        "spread": 1.7534632492094244,
+        "windows": {
+          "2021": [
+            1.0276613339190315,
+            1.7568663244419458
+          ],
+          "2022_post": [
+            1.4179176135225329,
+            1.8019663816605562
+          ],
+          "2022_pre": [
+            1.2108460290502927,
+            1.627009953403629
+          ],
+          "2023": [
+            1.0748414679094636,
+            1.5823382734626716
+          ]
+        }
+      }
+    }
+  },
+  "stage": "B35-SS"
+}

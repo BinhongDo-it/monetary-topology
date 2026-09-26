@@ -1,0 +1,330 @@
+{
+ "config": {
+  "arms": {
+   "A3 + new supply": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "new_supply_rate": 0.01,
+    "pool_pass_rate": 1.0,
+    "residence_bound": false,
+    "tenant_tier": false
+   },
+   "A3 + tenancy": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "new_supply_rate": 0.0,
+    "pool_pass_rate": 1.0,
+    "residence_bound": false,
+    "tenant_tier": true
+   },
+   "A3 + tenancy + new supply": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "new_supply_rate": 0.01,
+    "pool_pass_rate": 1.0,
+    "residence_bound": false,
+    "tenant_tier": true
+   },
+   "bound, cost, public + tenancy + new supply": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "cost",
+    "new_supply_rate": 0.01,
+    "pool_pass_rate": 1.0,
+    "residence_bound": true,
+    "tenant_tier": true
+   },
+   "bound, market, listed 0.271 + tenancy + new supply": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.271,
+    "landlord": "listed",
+    "liquidation": "market",
+    "new_supply_rate": 0.01,
+    "pool_pass_rate": 1.0,
+    "residence_bound": true,
+    "tenant_tier": true
+   },
+   "bound, market, public + tenancy + new supply": {
+    "bidders_exclude_owners": true,
+    "dividend_exit": 0.0,
+    "landlord": "public",
+    "liquidation": "market",
+    "new_supply_rate": 0.01,
+    "pool_pass_rate": 1.0,
+    "residence_bound": true,
+    "tenant_tier": true
+   }
+  },
+  "new_supply_rate": 0.01
+ },
+ "criteria": [
+  {
+   "detail": "rules off is A3",
+   "kind": "instrument",
+   "name": "A47-1",
+   "passed": true
+  },
+  {
+   "detail": "block-1 arms reproduce results/a47_block1.json",
+   "kind": "instrument",
+   "name": "A47-1b",
+   "passed": true
+  },
+  {
+   "detail": "tenancy structure",
+   "kind": "instrument",
+   "name": "A47-3",
+   "passed": true
+  },
+  {
+   "detail": "supply bookkeeping",
+   "kind": "instrument",
+   "name": "A47-4",
+   "passed": true
+  }
+ ],
+ "preview_seed0": {
+  "A3 + new supply": {
+   "build_paid": 199.8321,
+   "built": 300.0,
+   "exited_total": 0.0,
+   "landlord_sales_total": 0,
+   "landlord_units_end": 0.0,
+   "liquidations_total": 0,
+   "net_worth_production_layer_share": 0.0,
+   "net_worth_top_decile_share": 1.0,
+   "new_flags": 300.0,
+   "owners_end": 18,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    51.5048,
+    810.057,
+    2498.8164
+   ],
+   "price_ratio_end_to_start_low_tier": 118.9573,
+   "rent_total": 3314.9483,
+   "sales_total": 244,
+   "seconds": 0.12,
+   "supply_ok": true,
+   "tenancy_ok": true,
+   "unhoused_mean": 0.0,
+   "units_in_nodes": 361.0,
+   "units_with_landlord": 0.0,
+   "unowned_from_opening": 39.0
+  },
+  "A3 + tenancy": {
+   "build_paid": 0.0,
+   "built": 0.0,
+   "exited_total": 0.0,
+   "housed_by_tier": [
+    22,
+    19,
+    2
+   ],
+   "landlord_sales_total": 0,
+   "landlord_units_end": 0.0,
+   "liquidations_total": 0,
+   "net_worth_production_layer_share": 0.0004,
+   "net_worth_top_decile_share": 0.9996,
+   "new_flags": 0.0,
+   "owners_end": 18,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    45.4103,
+    713.9069,
+    2201.6562
+   ],
+   "price_ratio_end_to_start_low_tier": 105.4158,
+   "rent_total": 1066.248,
+   "rental_units_by_tier": [
+    22,
+    19,
+    2
+   ],
+   "renters": 180,
+   "sales_total": 221,
+   "seconds": 0.14,
+   "supply_ok": true,
+   "tenancy_ok": true,
+   "unhoused": 137,
+   "unhoused_mean": 135.99,
+   "units_in_nodes": 61.0,
+   "units_with_landlord": 0.0,
+   "unowned_from_opening": 39.0
+  },
+  "A3 + tenancy + new supply": {
+   "build_paid": 199.6066,
+   "built": 300.0,
+   "exited_total": 0.0,
+   "housed_by_tier": [
+    180,
+    0,
+    0
+   ],
+   "landlord_sales_total": 0,
+   "landlord_units_end": 0.0,
+   "liquidations_total": 0,
+   "net_worth_production_layer_share": 0.0,
+   "net_worth_top_decile_share": 1.0,
+   "new_flags": 300.0,
+   "owners_end": 18,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    50.4926,
+    794.1371,
+    2449.7075
+   ],
+   "price_ratio_end_to_start_low_tier": 117.1904,
+   "rent_total": 2879.4185,
+   "rental_units_by_tier": [
+    322,
+    19,
+    2
+   ],
+   "renters": 180,
+   "sales_total": 242,
+   "seconds": 0.17,
+   "supply_ok": true,
+   "tenancy_ok": true,
+   "unhoused": 0,
+   "unhoused_mean": 30.67,
+   "units_in_nodes": 361.0,
+   "units_with_landlord": 0.0,
+   "unowned_from_opening": 39.0
+  },
+  "bound, cost, public + tenancy + new supply": {
+   "build_paid": 0.0,
+   "built": 0.0,
+   "exited_total": 0.0,
+   "housed_by_tier": [
+    41,
+    29,
+    10
+   ],
+   "landlord_sales_total": 150,
+   "landlord_units_end": 80.0,
+   "liquidations_total": 173,
+   "net_worth_production_layer_share": 0.0013,
+   "net_worth_top_decile_share": 0.9987,
+   "new_flags": 0.0,
+   "owners_end": 20,
+   "passed_down_total": 409.4422,
+   "pool_end": 0.5,
+   "price_end_by_tier": [
+    0.0105,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 0.0867,
+   "rent_total": 325.4422,
+   "rental_units_by_tier": [
+    41,
+    29,
+    10
+   ],
+   "renters": 180,
+   "sales_total": 246,
+   "seconds": 0.14,
+   "supply_ok": true,
+   "tenancy_ok": true,
+   "unhoused": 100,
+   "unhoused_mean": 99.97,
+   "units_in_nodes": 20.0,
+   "units_with_landlord": 80.0,
+   "unowned_from_opening": 0.0
+  },
+  "bound, market, listed 0.271 + tenancy + new supply": {
+   "build_paid": 150.0,
+   "built": 300.0,
+   "exited_total": 42.4595,
+   "housed_by_tier": [
+    0,
+    0,
+    0
+   ],
+   "landlord_sales_total": 390,
+   "landlord_units_end": 200.0,
+   "liquidations_total": 233,
+   "net_worth_production_layer_share": 0.0013,
+   "net_worth_top_decile_share": 0.9987,
+   "new_flags": 300.0,
+   "owners_end": 200,
+   "passed_down_total": 0.0,
+   "pool_end": 0.0,
+   "price_end_by_tier": [
+    0.0,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 0.0,
+   "rent_total": 96.0433,
+   "rental_units_by_tier": [
+    161,
+    29,
+    10
+   ],
+   "renters": 0,
+   "sales_total": 1922,
+   "seconds": 0.22,
+   "supply_ok": true,
+   "tenancy_ok": true,
+   "unhoused": 0,
+   "unhoused_mean": 16.41,
+   "units_in_nodes": 200.0,
+   "units_with_landlord": 200.0,
+   "unowned_from_opening": 0.0
+  },
+  "bound, market, public + tenancy + new supply": {
+   "build_paid": 0.0,
+   "built": 0.0,
+   "exited_total": 0.0,
+   "housed_by_tier": [
+    8,
+    18,
+    8
+   ],
+   "landlord_sales_total": 194,
+   "landlord_units_end": 31.0,
+   "liquidations_total": 168,
+   "net_worth_production_layer_share": 0.0017,
+   "net_worth_top_decile_share": 0.9983,
+   "new_flags": 0.0,
+   "owners_end": 69,
+   "passed_down_total": 377.1825,
+   "pool_end": 2.0127,
+   "price_end_by_tier": [
+    0.0071,
+    1.0,
+    2.0
+   ],
+   "price_ratio_end_to_start_low_tier": 0.0588,
+   "rent_total": 252.4884,
+   "rental_units_by_tier": [
+    8,
+    18,
+    8
+   ],
+   "renters": 134,
+   "sales_total": 821,
+   "seconds": 0.14,
+   "supply_ok": true,
+   "tenancy_ok": true,
+   "unhoused": 100,
+   "unhoused_mean": 99.8,
+   "units_in_nodes": 69.0,
+   "units_with_landlord": 31.0,
+   "unowned_from_opening": 0.0
+  }
+ },
+ "stage": "A47-block2"
+}

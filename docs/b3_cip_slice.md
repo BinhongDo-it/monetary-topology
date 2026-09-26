@@ -217,11 +217,11 @@ and §4 of the availability check states it.** What I fix now:
 | benchmark series | `cip_govt` as the main series, with `_ibor` and `_sofr` used only for §4's noise floor | the publisher fixed the break dates per tenor-currency pair and they are not second-guessed here |
 | missing | dropped pairwise, with the count of dropped country-date cells reported per arm | silence about a dropped cell is how a sample becomes a selection |
 | **outlier band** | `Z` recomputed at `±100`, `±250`, `±500`, `±1000` bp caps on `x` | **§11.2**: a single unbounded value moves a variance decomposition and the size of the garbage never enters the answer, only the cell it lands in |
-| **rank version** | Spearman-style: `Z` recomputed on within-date ranks of `x` | bounded by construction, so a conclusion that survives it does not depend on the band at all |
+| **rank version** | Spearman-style: `Z` recomputed on within-date ranks of `x` | **empty by construction** (amended 2026-09-11): `k` currencies on one date always rank `0` to `k − 1`, so `Z` on ranks equals `(k² − 1)/6` whatever `x` is and cannot come out zero. Band dependence is read from the outlier band sweep in the row above |
 
-**The headline is the widest band at which the conclusion is unchanged, and the
-rank version is reported beside it.** If the two disagree, the band is doing the
-work and the result is reported as band-dependent.
+**The headline is the widest band at which the conclusion is unchanged.** If the
+sweep moves the conclusion, the band is doing the work and the result is reported
+as band-dependent.
 
 ---
 
@@ -232,7 +232,7 @@ work and the result is reported as band-dependent.
 | B3-1 or B3-2 fails | the machinery is wrong; nothing else may be read |
 | `Z(G10)` is within the noise floor | **the slice obstruction is not detected on this carrier.** Reported at the top of `RESULTS.md`, not in a footnote. It would mean the only obstruction this project has found is the square one, and Volume II's claim rests on half the cycle space |
 | B3-5 fails: `z` sits almost entirely in the bond-yield leg | the dispersion is sovereign credit, not funding topology. **The obstruction is real but it is not the one this framework is about**, and the stage reports that rather than the cycle magnitude |
-| the rank version and the banded version disagree | the result lives in the band. Reported as such and the headline is withdrawn |
+| the band sweep moves the conclusion | the result lives in the band. Reported as such and the headline is withdrawn. Amended 2026-09-11: this row first read the rank version, which cannot come out zero (§7) |
 | B3-6 fails: signs scramble across maturities | `z` is not a structural feature of a country pair, and no attribution to any pair may be made |
 | EM exceeds G10 and is reported as the headline | a process failure, not a data failure. §5 exists to prevent it |
 
@@ -350,8 +350,14 @@ nothing is claimed for them.**
 |---|---|
 | **B3-1** enumeration equals `2·Var` | **pass**, worst relative error `7.41e-16` |
 | **B3-3** signal above the noise floor, matched cells | **pass**, `Z/N` from `63` to `200` over eight tenors, against `4` |
-| **B3-4** cross-currency cycles do not vanish in G10 | **pass**, `9/9` tenors above `25` bp |
+| **B3-4** cross-currency cycles do not vanish in G10 | **pass**, `90/102` quarters above `25` bp, the reading §6 registers; every tenor clears it in more than half its quarters, lowest `3m` at `55/102`, and on the full-sample average `9/9` tenors do |
 | **B3-5** the forward-premium leg carries a material share | **pass**, forward leg `+3.13` of a decomposition summing to `1.000` |
+
+**B3-4 is read on quarters, as §6 registers it.** Amended 2026-09-11: the first
+implementation compared the nine tenors' full-sample averages; the code now pools
+each quarter's date-tenor cells at equal weight. The twelve quarters at or below
+`25` bp all fall between 2001Q2 and 2004Q2, the lowest `18.7` bp in 2003Q2, and
+every quarter after mid-2004 clears it. The verdict does not change.
 
 ### 11.1 The headline
 
@@ -428,7 +434,7 @@ softened by the numbers above.
 | **B3-2** trivial cycle | `\|z(i,i)\| = 0.0e+00`, taken off the diagonal of the same difference matrix every other number comes from, not short-circuited on `i == j` |
 | **B3-6** sign stable across maturities | ranked on `5y`, tested on the other eight; **nine of the top ten pairs agree on 8/8** and the tenth on 7/8, against a threshold of five |
 | **B3-8** CNH against CNY | rms `z` from `66.2` to `169.0` bp over seven tenors, against a floor of `4` to `30` bp; ratios `6.7` to `1198` |
-| rank version | `√Z` on within-date ranks runs `3.01` to `4.04` across tenors and is non-zero wherever the banded version is |
+| rank version | **carries no information** (amended 2026-09-11): it equals `(k² − 1)/6` on every cell, worst deviation `0`, so the `3.01` to `4.04` it printed is a count of the currencies quoted. The band question is answered by §11.2 |
 
 **B3-6's selection axis is disjoint from its test axis.** Pairs are ranked by
 `|mean z|` at one tenor and the sign is checked on the other eight. Ranking and

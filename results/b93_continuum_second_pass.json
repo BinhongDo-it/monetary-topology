@@ -1,0 +1,529 @@
+{
+  "config": {
+    "cohort": 25,
+    "degrees": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "families": 4000,
+    "fill_ladder": [
+      5,
+      20,
+      80,
+      320,
+      1280
+    ],
+    "floor": 0.02,
+    "imports": "b77_continuum",
+    "seed": 93,
+    "theta_base": 300,
+    "theta_ladder": [
+      100,
+      400,
+      1600,
+      6400
+    ],
+    "x_points": 1500,
+    "x_range": [
+      1.02,
+      4.0
+    ]
+  },
+  "criteria": [
+    {
+      "detail": "every member of B77's quadratic family has a strictly positive leading coefficient on 20 of 20 drawn families, so **every owner curve is convex and the slope rises inside any run of one owner by construction**. The rise is positive on all 60 readings, and refining the parameter grid by a factor of 256 moves it by at most 1.36e-04 because the `x` grid is fixed and runs stay longer than one `x` step. **So the registered object measures the `x` grid and not the family**, and this station reads capital per worker along the envelope instead, which is what a slope reversal means economically",
+      "kind": "known_answer",
+      "name": "B93-1",
+      "passed": true
+    },
+    {
+      "detail": "capital per worker along the envelope, counted apart: degree 2: at a change of owner 194 of 4000 (4.9%), inside one owner's own run 858, with one owner over the whole sweep 551, anywhere 987; degree 3: at a change of owner 312 of 4000 (7.8%), inside one owner's own run 585, with one owner over the whole sweep 390, anywhere 776; degree 4: at a change of owner 408 of 4000 (10.2%), inside one owner's own run 415, with one owner over the whole sweep 293, anywhere 643; degree 5: at a change of owner 422 of 4000 (10.5%), inside one owner's own run 340, with one owner over the whole sweep 234, anywhere 584. **The first column is capital reversing, read at the rate where the switch happens**, where both members carry one cost and therefore one wage. The others are price Wicksell effects on a single owner's own curve, **where no technique is chosen differently** and the value of one technique's capital simply moves with the rate. **The first version of this station reported the last column under the first column's name**, and at degree 2 551 of 987 of it, 56%, had one owner from end to end. **Neither all nor none at any degree**, so the reading is a property of the drawn family. **B92 showed reversing with no owner returning anywhere needs three techniques**, because the pair meeting on the envelope must not include the one owning a zero rate; **a continuum is always in that regime**, and every reversal reads between 4.9% and 10.5% here, **rising with the degree**. **The figure comparable to B92's `12 / 1878` is the no-return one**, since that is what B92 counted and two techniques reverse whenever they reswitch (`43 / 43` in its own record): it reads between 0.35% and 0.88% here against 0.64% there, by degree {'2': 14, '3': 27, '4': 26, '5': 35}",
+      "kind": "own_reading",
+      "name": "B93-2",
+      "passed": true
+    },
+    {
+      "detail": "a cohort of up to 25 families per degree **selected on a rise at a change of owner**, not on any rise, each taken through a parameter ladder from 100 to 6400, a 64-fold refinement: degree 2: 1 of 25 survive, 3 created by the refinement; degree 3: 2 of 25 survive, 6 created by the refinement; degree 4: 2 of 25 survive, 2 created by the refinement; degree 5: 3 of 25 survive, 2 created by the refinement, **8 of 100 in all, with 13 more that the refinement created rather than preserved**. A family counts as surviving when its coarse rise is positive and its fine rise is still positive and still more than half of it; a family whose coarse rise is not positive is counted on its own line, since for it the second half of that test is vacuous and only the selection condition would remain. **The cohort is taken in draw order rather than by the largest rise**, because selecting the maximiser selects on the statistic and a discretisation artefact is exactly what would win that selection. **B77 refined one maximiser, saw it collapse, and registered the question as not found; both outcomes occur and the survivors are the answer**, since the claim is an existence claim",
+      "kind": "own_reading",
+      "name": "B93-3",
+      "passed": true
+    },
+    {
+      "detail": "B92 reads `k` as two-valued at a switch, one price system carrying two capital values. Filling the family in from 5 members to 1280 **shrinks the jump where the active set fills in with it and leaves it where the active set does not**: on 16 families whose active set more than doubles the jump falls by a median factor of 0.003, and on 4 whose active set stays put it changes by a median factor of 0.994. **So the two-valuedness tracks the owners actually used and not the members on offer.** The count of members that own the envelope somewhere along the sweep runs to 637 at 1280 members here, so it is not bounded: **this is not B77's result and the first version of this station cited it as though it were.** B77 bounds the processes running together **at one rate** by the number of goods; this counts the members that own the envelope **at some rate or another over a sweep**, and the two are different objects that move in opposite directions under the same refinement, which is B77's Theorem 22(2) in its own words. **The ladder also plateaus at this station's `x` grid**, which is a statement about the grid and is printed",
+      "kind": "own_reading",
+      "name": "B93-4",
+      "passed": true
+    },
+    {
+      "detail": "on a closed method set the minimising method settles: `s` goes 0.39700, 0.39685, 0.39683 as the grid is refined a hundredfold, interior throughout, and the cost converges to 1.01079365. **On a half-open set whose cost falls toward the excluded end it does not**: the minimiser sits at the end point at every refinement and marches from 5.0e-04 to 5.0e-06 while the cost keeps falling, 1.1102650 to 1.1100027. **That is what non-attainment looks like on a grid**: not a minimum in the wrong place, but a minimiser with no limit in the set. **So the non-substitution theorem survives a continuum of methods per good exactly when the per-good minimum is attained**, and it fails by the infimum escaping rather than by two goods wanting different techniques",
+      "kind": "own_reading",
+      "name": "B93-5",
+      "passed": true
+    },
+    {
+      "detail": "choosing the cheapest method for each of 6 goods independently gives one technique that attains the componentwise minimum: 8000 drawn techniques over 40 method sets beat it in some component 0 times. **This is an implementation check and not a reading** (`D35` second clause): B86's Theorem 30(2) argument is per good and says nothing about how many methods each good has, so a continuum changes nothing here as long as each per-good minimum exists. **And every coefficient of every drawn profile stays at or above 0.02**, so each member is a real dated-labour profile rather than one with a negative labour input at some date. **And the envelope is checked to run the right way up**: the member owning the lowest rate is the one with the least total labour, since `C(theta, 1)` is that labour, with 0 exceptions over 40 families",
+      "kind": "instrument",
+      "name": "B93-6",
+      "passed": true
+    },
+    {
+      "detail": "compressing the owner sequence and looking for a member that leaves the envelope and comes back: **79 of 16000 drawn families carry one that crosses at least 2% of the family and leads by more than 1e-05 at both spells**, against 1234 that carry one at any width. **The width and the lead are both needed**: adjacent members of a dense family are nearly the same profile, so the argmin wobbles between neighbours at around `1e-8`, and those wobbles are the thing a continuum really does dissolve. The widest one found owns the envelope, loses it to member 299 and takes it back, crossing 299 of 300 members with a lead of 1.00e-04, and **it survives the refinement ladder**: 100 members: span 99, lead 1.00e-04, 400 members: span 399, lead 1.00e-04, 1600 members: span 1599, lead 1.00e-04, 6400 members: span 6399, lead 5.97e-05. **So technique return is defined on a continuum and it happens.** The question it becomes is whether the minimiser over the index is monotone in the rate, and here it is not",
+      "kind": "own_reading",
+      "name": "B93-8",
+      "passed": true
+    },
+    {
+      "detail": "**32724 of 560283 brackets held more than one change of owner (5.84% over 4 degrees)** and are dropped from every reading that needs a switch rate: degree 2: 3703 of 115243 (3.21%); degree 3: 7174 of 136710 (5.25%); degree 4: 9474 of 145118 (6.53%); degree 5: 12373 of 163212 (7.58%). The grid is 1500 points over [1.02, 4.0], so a bracket is about 0.0020 wide, and a continuum of 300 members owning short runs inside one is ordinary rather than rare. **The published form of this station bisected every bracket as if it held one change**, which returns a rate at which neither member is chosen and overstates the jump there; excluding them sharpened B93-4's growing group by an order of magnitude and changed B93-3's cohort",
+      "kind": "instrument",
+      "name": "B93-9",
+      "passed": true
+    },
+    {
+      "detail": "the stations this one answers or corrects each name it: B77 for the reformulated registration, B86 for the other index, and B92 for what a continuum does to its two readings. `D20`",
+      "kind": "bookkeeping",
+      "name": "B93-7",
+      "passed": true
+    }
+  ],
+  "report": {
+    "B93-1": {
+      "convex_families": 20,
+      "largest_move_under_refinement": 0.00013631838828420673,
+      "rise_always_positive": true
+    },
+    "B93-2": {
+      "counts": {
+        "2": 194,
+        "3": 312,
+        "4": 408,
+        "5": 422
+      },
+      "counts_no_return": {
+        "2": 14,
+        "3": 27,
+        "4": 26,
+        "5": 35
+      },
+      "largest": {
+        "2": 0.1523860990197492,
+        "3": 0.16762582268501586,
+        "4": 0.373606488399679,
+        "5": 0.3974095675896763
+      },
+      "one_owner_throughout": {
+        "2": 551,
+        "3": 390,
+        "4": 293,
+        "5": 234
+      },
+      "rises_anywhere": {
+        "2": 987,
+        "3": 776,
+        "4": 643,
+        "5": 584
+      },
+      "rises_within_one_owner": {
+        "2": 858,
+        "3": 585,
+        "4": 415,
+        "5": 340
+      },
+      "totals": {
+        "2": 4000,
+        "3": 4000,
+        "4": 4000,
+        "5": 4000
+      }
+    },
+    "B93-3": {
+      "cohort": 100,
+      "created_by_refinement": 13,
+      "ladder": [
+        100,
+        400,
+        1600,
+        6400
+      ],
+      "per_degree": {
+        "2": {
+          "cohort": 25,
+          "collapses": 21,
+          "created_by_refinement": 3,
+          "survives": 1
+        },
+        "3": {
+          "cohort": 25,
+          "collapses": 17,
+          "created_by_refinement": 6,
+          "survives": 2
+        },
+        "4": {
+          "cohort": 25,
+          "collapses": 21,
+          "created_by_refinement": 2,
+          "survives": 2
+        },
+        "5": {
+          "cohort": 25,
+          "collapses": 20,
+          "created_by_refinement": 2,
+          "survives": 3
+        }
+      },
+      "survivors": 8
+    },
+    "B93-4": {
+      "active_set_flat": 4,
+      "active_set_grew": 16,
+      "families": 20,
+      "ladder": [
+        5,
+        20,
+        80,
+        320,
+        1280
+      ],
+      "median_ratio_when_flat": 0.9936558704432695,
+      "median_ratio_when_growing": 0.0033548539445008175,
+      "owners_at_widest": 637,
+      "rows": [
+        [
+          {
+            "active_set": 2,
+            "largest_jump": 0.3681645290091548,
+            "members": 5,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 5,
+            "largest_jump": 0.09022971200593466,
+            "members": 20,
+            "owner_changes": 4,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 4
+          },
+          {
+            "active_set": 17,
+            "largest_jump": 0.02222563426263302,
+            "members": 80,
+            "owner_changes": 16,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 16
+          },
+          {
+            "active_set": 65,
+            "largest_jump": 0.00553352300159915,
+            "members": 320,
+            "owner_changes": 64,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 64
+          },
+          {
+            "active_set": 196,
+            "largest_jump": 0.0013640768332221498,
+            "members": 1280,
+            "owner_changes": 195,
+            "owner_changes_merged": 60,
+            "owner_changes_on_envelope": 135
+          }
+        ],
+        [
+          {
+            "active_set": 2,
+            "largest_jump": 1.6387634227973251,
+            "members": 5,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 1.6387634227973251,
+            "members": 20,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 1.6387634227973251,
+            "members": 80,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 1.6387634227973251,
+            "members": 320,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 1.6387634227973251,
+            "members": 1280,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          }
+        ],
+        [
+          {
+            "active_set": 2,
+            "largest_jump": 0.4234318699652565,
+            "members": 5,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 0.41527510292052694,
+            "members": 20,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 0.41471392496051473,
+            "members": 80,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 0.4147134507229602,
+            "members": 320,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          },
+          {
+            "active_set": 2,
+            "largest_jump": 0.4147120001219876,
+            "members": 1280,
+            "owner_changes": 1,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 1
+          }
+        ],
+        [
+          {
+            "active_set": 3,
+            "largest_jump": 0.2680822919365897,
+            "members": 5,
+            "owner_changes": 2,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 2
+          },
+          {
+            "active_set": 10,
+            "largest_jump": 0.06171169953457545,
+            "members": 20,
+            "owner_changes": 9,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 9
+          },
+          {
+            "active_set": 37,
+            "largest_jump": 0.01486523486114999,
+            "members": 80,
+            "owner_changes": 36,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 36
+          },
+          {
+            "active_set": 149,
+            "largest_jump": 0.003681802564992509,
+            "members": 320,
+            "owner_changes": 148,
+            "owner_changes_merged": 0,
+            "owner_changes_on_envelope": 148
+          },
+          {
+            "active_set": 590,
+            "largest_jump": 0.0009182980246542627,
+            "members": 1280,
+            "owner_changes": 589,
+            "owner_changes_merged": 3,
+            "owner_changes_on_envelope": 586
+          }
+        ]
+      ],
+      "x_points": 1500
+    },
+    "B93-5": {
+      "interior": [
+        {
+          "at_end": false,
+          "cost": 1.01079367,
+          "n": 2001,
+          "s": 0.397
+        },
+        {
+          "at_end": false,
+          "cost": 1.0107936511750002,
+          "n": 20001,
+          "s": 0.39685000000000004
+        },
+        {
+          "at_end": false,
+          "cost": 1.01079365079375,
+          "n": 200001,
+          "s": 0.39682500000000004
+        }
+      ],
+      "open_end": [
+        {
+          "at_end": true,
+          "cost": 1.110265,
+          "n": 2000,
+          "s": 0.0005
+        },
+        {
+          "at_end": true,
+          "cost": 1.1100265,
+          "n": 20000,
+          "s": 5e-05
+        },
+        {
+          "at_end": true,
+          "cost": 1.1100026500000002,
+          "n": 200000,
+          "s": 5e-06
+        }
+      ]
+    },
+    "B93-6": {
+      "checked": 40,
+      "coefficient_floor_holds": true,
+      "envelope_direction_bad": 0,
+      "goods": 6
+    },
+    "B93-7": {
+      "missing_writebacks": []
+    },
+    "B93-8": {
+      "any": 1234,
+      "by_degree": {
+        "2": {
+          "any": 180,
+          "families": 4000,
+          "wide": 8
+        },
+        "3": {
+          "any": 285,
+          "families": 4000,
+          "wide": 10
+        },
+        "4": {
+          "any": 382,
+          "families": 4000,
+          "wide": 25
+        },
+        "5": {
+          "any": 387,
+          "families": 4000,
+          "wide": 36
+        }
+      },
+      "example": {
+        "co": [
+          [
+            0.9331854492178142,
+            0.8500157984699004,
+            -0.584107817103529,
+            0.15186642914118198
+          ],
+          [
+            -0.034795520572720395,
+            0.5875972291664477,
+            -0.20521983474153904,
+            -0.8697435542412417
+          ],
+          [
+            0.09050625221453212,
+            -0.23144646231926957,
+            -0.013031322624986075,
+            0.3686802320333349
+          ]
+        ],
+        "degree": 2,
+        "margin": 0.00010020388368264178,
+        "members": 300,
+        "owner": 0,
+        "sequence": [
+          0,
+          299,
+          0
+        ],
+        "span": 299
+      },
+      "families": 16000,
+      "ladder": [
+        {
+          "margin": 0.0001002075952171764,
+          "members": 100,
+          "span": 99
+        },
+        {
+          "margin": 0.00010020373778883036,
+          "members": 400,
+          "span": 399
+        },
+        {
+          "margin": 0.00010020366403957886,
+          "members": 1600,
+          "span": 1599
+        },
+        {
+          "margin": 5.9660807289273226e-05,
+          "members": 6400,
+          "span": 6399
+        }
+      ],
+      "wide": 79
+    },
+    "B93-9": {
+      "by_degree": {
+        "2": {
+          "changes": 115243,
+          "merged": 3703,
+          "merged_share": 0.03213210346832346,
+          "on_envelope": 111540
+        },
+        "3": {
+          "changes": 136710,
+          "merged": 7174,
+          "merged_share": 0.052476044181113304,
+          "on_envelope": 129536
+        },
+        "4": {
+          "changes": 145118,
+          "merged": 9474,
+          "merged_share": 0.06528480271227553,
+          "on_envelope": 135644
+        },
+        "5": {
+          "changes": 163212,
+          "merged": 12373,
+          "merged_share": 0.07580937676151263,
+          "on_envelope": 150839
+        }
+      },
+      "changes": 560283,
+      "merged": 32724,
+      "on_envelope": 527559,
+      "x_points": 1500
+    }
+  },
+  "stage": "B93"
+}
