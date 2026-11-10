@@ -9,6 +9,14 @@ therefore reads the poverty-line ratio (D30, third clause) and is not read here 
 read: how far the national PPP sits from the rural value, how many class values each country-round-
 release writes, and where the line went when two became one.
 
+The national value read here is the platform's own: the PPP it converts household consumption with
+(the handbook calls the PPPs of global poverty measurement consumption PPPs). The PPP for GDP is
+another conversion factor and is not in these tables; no number below is a reading of it.
+
+A release is a version label the platform lists (pip_versions.csv), and a table is what the platform
+serves under that label on the day it was fetched. "The label where two became one" is therefore a
+statement about labels, not a calendar date of the change; the date is in the method notes.
+
 Criteria (each has a planted error in --selftest that must make it fail):
   B134-1  instrument    the same round across releases: every change is either a merge (rural and
                         urban set equal to national) or below 1e-6 relative; anything else is listed
@@ -21,6 +29,8 @@ Criteria (each has a planted error in --selftest that must make it fail):
                         value sits on the rural-to-urban interval
   B134-5  own_reading   where the line went: the India note's state-sector spatial deflators and the
                         Indonesia brief's regency-level deflator, quoted
+  B134-6  instrument    every release x round the platform lists has its table read: a label skipped
+                        can hide the release where a class value changed
 
 Run from the repo root:
     python experiments/b134_readings.py
@@ -75,7 +85,9 @@ def load_all() -> dict:
             if r["country_code"] in COUNTRIES:
                 ppp[(r["country_code"], rnd, r["data_level"])][rel] = float(r["value"])
     texts = {n: text_of(n) for n in set(SENTENCES) | set(MOVED)}
-    return {"ppp": dict(ppp), "texts": texts}
+    listed = [r["version"] for r in csv.DictReader(open(RAW / "pip_versions.csv", encoding="utf-8"))]
+    read = sorted(f.name[len("pip_ppp_"):-len(".csv")] for f in RAW.glob("pip_ppp_*.csv"))
+    return {"ppp": dict(ppp), "texts": texts, "listed": listed, "read": read}
 
 
 def classes(ppp, c, rnd, rel):
@@ -127,7 +139,11 @@ def c3(data):
     passed = bool(table) and any(k for v in table.values() for k in v.values())
     detail = "; ".join(f"{k}: {sorted(set(v.values()))}" for k, v in table.items()) + \
              f". Two to one: {'; '.join(drops) if drops else 'none'}"
-    return passed, detail, {"counts": table, "two_to_one": drops}
+    return passed, detail, {"counts": table, "two_to_one": drops,
+                            "last_label_with_two": {k: max((rel for rel, n in v.items() if n == 2), default=None)
+                                                    for k, v in table.items()},
+                            "first_label_with_one": {k: min((rel for rel, n in v.items() if n == 1), default=None)
+                                                     for k, v in table.items()}}
 
 
 def c4(data):
@@ -160,9 +176,19 @@ def c5(data):
     return passed, detail, got
 
 
+def c6(data):
+    listed, read = data.get("listed", []), set(data.get("read", []))
+    gone = [v for v in listed if v not in read]
+    dates = sorted({v.split("_")[0] for v in listed})
+    passed = bool(listed) and not gone
+    detail = (f"{len(listed)} release x round labels listed over {len(dates)} release dates, "
+              f"{len(listed) - len(gone)} read" + (f"; not read: {gone}" if gone else ""))
+    return passed, detail, {"listed": len(listed), "release_dates": dates, "not_read": gone}
+
+
 KINDS = {"B134-1": "instrument", "B134-2": "known_answer", "B134-3": "own_reading",
-         "B134-4": "own_reading", "B134-5": "own_reading"}
-FUNCS = {"B134-1": c1, "B134-2": c2, "B134-3": c3, "B134-4": c4, "B134-5": c5}
+         "B134-4": "own_reading", "B134-5": "own_reading", "B134-6": "instrument"}
+FUNCS = {"B134-1": c1, "B134-2": c2, "B134-3": c3, "B134-4": c4, "B134-5": c5, "B134-6": c6}
 
 
 def build(data):
@@ -190,7 +216,10 @@ def selftest() -> None:
     bad = copy.deepcopy(data)
     bad["texts"]["wb_indonesia_poverty_brief.pdf"] = ""
     assert not c5(bad)[0], "B134-5 must fail when the brief says nothing"
-    print("selftest ok: all five flags pass on the data and each fails on its planted error")
+    bad = copy.deepcopy(data)
+    bad["read"] = [v for v in bad["read"] if not v.startswith("20250401")]
+    assert not c6(bad)[0], "B134-6 must fail when a listed release is not read"
+    print("selftest ok: all six flags pass on the data and each fails on its planted error")
 
 
 def main() -> int:
@@ -201,7 +230,9 @@ def main() -> int:
         print(f"{'PASS' if passed else 'FAIL'} {name} [{KINDS[name]}]: {detail}")
         crit.append({"name": name, "kind": KINDS[name], "passed": passed, "detail": detail})
     record = {"stage": "B134", "criteria": crit, "objects": {n: o for n, (_, _, o) in res.items()},
-              "config": {"countries": list(COUNTRIES), "rel_tol": REL_TOL}}
+              "config": {"countries": list(COUNTRIES), "rel_tol": REL_TOL,
+                         "national_value": "the platform's national PPP for household consumption",
+                         "tables_fetched": json.loads((RAW / "manifest.json").read_text(encoding="utf-8"))}}
     OUT.write_text(json.dumps(record, indent=1, sort_keys=True, ensure_ascii=False, default=str) + "\n",
                    encoding="utf-8", newline="\n")
     print(f"wrote {OUT.relative_to(ROOT)}")

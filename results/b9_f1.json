@@ -1,6 +1,6 @@
 {
   "diagnostic_only": true,
-  "diagnostic_reason": "§5 的 F1 可通行性审计。阈值是扫描不是选定（纪律 8）。不算 ω、不算 λ。",
+  "diagnostic_reason": "section 5's F1 traversability audit. the threshold is swept, not chosen (engineering rule 8). computes no ω and no λ.",
   "funds": {
     "JNK": {
       "candidates": 404,
@@ -9,51 +9,62 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 374,
+        "1000000": 404,
         "25000": 404,
         "50000": 404,
-        "500000": 403
+        "500000": 404
       },
       "delta_known": 4705,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 176849208.0,
+        "max": 73300000.0,
         "min": 324.0,
         "n": 3927,
         "p01": 100000.0,
-        "p25": 500000.0,
-        "p50": 1100000.0,
-        "p75": 2400000.0,
-        "p99": 11000000.0
+        "p25": 700000.0,
+        "p50": 1800000.0,
+        "p75": 4200000.0,
+        "p99": 17400000.0
       },
       "delta_zero": 778,
       "delta_zero_share": 0.165356,
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 200000,
+        "gcd": 600000,
         "known": 404,
-        "multiples_of_50k": 348,
+        "multiples_of_creation_unit": 348,
         "non_multiple_rows": [],
         "nonzero_total": 348,
         "smallest_nonzero": [
-          200000,
-          200000,
-          200000,
-          200000,
-          200000
+          600000,
+          600000,
+          600000,
+          600000,
+          600000
         ],
         "zero": 56,
         "zero_share": 0.138614
       },
       "navhist_rows": 4706,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         324,
         1661,
         3801,
         96673,
         100000
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2019-05-06",
+          "factor": 0.3333333333333333,
+          "nav_ratio": 0.333725,
+          "reverse": true,
+          "tna_ratio": 1.000709
+        }
       ]
     },
     "SPAB": {
@@ -63,51 +74,61 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 312,
+        "1000000": 212,
         "25000": 404,
         "50000": 404,
-        "500000": 374
+        "500000": 312
       },
       "delta_known": 4835,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 19000132.0,
+        "max": 7500000.0,
         "min": 1.0,
-        "n": 1547,
+        "n": 1546,
         "p01": 43.0,
-        "p25": 200000.0,
-        "p50": 400000.0,
-        "p75": 900000.0,
-        "p99": 7400000.0
+        "p25": 100000.0,
+        "p50": 250000.0,
+        "p75": 500000.0,
+        "p99": 3700000.0
       },
-      "delta_zero": 3288,
-      "delta_zero_share": 0.680041,
+      "delta_zero": 3289,
+      "delta_zero_share": 0.680248,
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 100000,
+        "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 231,
+        "multiples_of_creation_unit": 231,
         "non_multiple_rows": [],
         "nonzero_total": 231,
         "smallest_nonzero": [
-          100000,
-          100000,
-          100000,
-          100000,
-          100000
+          50000,
+          50000,
+          50000,
+          50000,
+          50000
         ],
         "zero": 173,
         "zero_share": 0.428218
       },
       "navhist_rows": 4836,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         1,
         1,
         2,
         2,
         2
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2017-10-16",
+          "factor": 2,
+          "nav_ratio": 2.002831,
+          "tna_ratio": 0.998586
+        }
       ]
     },
     "SPDW": {
@@ -141,7 +162,7 @@
         "days": 404,
         "gcd": 100000,
         "known": 404,
-        "multiples_of_50k": 51,
+        "multiples_of_creation_unit": 51,
         "non_multiple_rows": [],
         "nonzero_total": 51,
         "smallest_nonzero": [
@@ -156,13 +177,15 @@
       },
       "navhist_rows": 4863,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         200000,
         200000,
         200000,
         200000,
         200000
-      ]
+      ],
+      "splits_detected": []
     },
     "SPEM": {
       "candidates": 404,
@@ -171,51 +194,61 @@
         "1": 240,
         "1000": 240,
         "100000": 240,
-        "1000000": 190,
+        "1000000": 139,
         "25000": 240,
         "50000": 240,
-        "500000": 238
+        "500000": 190
       },
       "delta_known": 4885,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 7800000.0,
-        "min": 100000.0,
-        "n": 405,
-        "p01": 100000.0,
+        "max": 3100000.0,
+        "min": 50000.0,
+        "n": 404,
+        "p01": 50000.0,
         "p25": 200000.0,
-        "p50": 600000.0,
-        "p75": 1400000.0,
-        "p99": 5500000.0
+        "p50": 350000.0,
+        "p75": 700000.0,
+        "p99": 2500000.0
       },
-      "delta_zero": 4480,
-      "delta_zero_share": 0.917093,
-      "gcd_of_changes": 100000,
+      "delta_zero": 4481,
+      "delta_zero_share": 0.917298,
+      "gcd_of_changes": 50000,
       "in_window": {
         "days": 404,
-        "gcd": 100000,
+        "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 50,
+        "multiples_of_creation_unit": 50,
         "non_multiple_rows": [],
         "nonzero_total": 50,
         "smallest_nonzero": [
-          300000,
-          400000,
-          400000,
-          500000,
-          600000
+          150000,
+          200000,
+          200000,
+          250000,
+          300000
         ],
         "zero": 354,
         "zero_share": 0.876238
       },
       "navhist_rows": 4886,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
-        100000,
-        100000,
-        100000,
-        100000,
-        100000
+        50000,
+        50000,
+        50000,
+        50000,
+        50000
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2017-10-16",
+          "factor": 2,
+          "nav_ratio": 1.99073,
+          "tna_ratio": 1.004657
+        }
       ]
     },
     "SPY": {
@@ -249,7 +282,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 402,
+        "multiples_of_creation_unit": 402,
         "non_multiple_rows": [],
         "nonzero_total": 402,
         "smallest_nonzero": [
@@ -264,13 +297,15 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         23586,
         50000,
         50000,
         50000,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLB": {
       "candidates": 404,
@@ -279,7 +314,7 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 345,
+        "1000000": 336,
         "25000": 404,
         "50000": 404,
         "500000": 402
@@ -287,37 +322,30 @@
       "delta_known": 5085,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 56073725.0,
+        "max": 48950000.0,
         "min": 802.0,
         "n": 4482,
         "p01": 50000.0,
         "p25": 300000.0,
-        "p50": 650000.0,
-        "p75": 1350000.0,
-        "p99": 7000000.0
+        "p50": 600000.0,
+        "p75": 1300000.0,
+        "p99": 6950000.0
       },
       "delta_zero": 603,
       "delta_zero_share": 0.118584,
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 25,
+        "gcd": 25000,
         "known": 404,
-        "multiples_of_50k": 370,
-        "non_multiple_rows": [
-          {
-            "date": "2025-12-05",
-            "delta": 56073725,
-            "shares_after": 112947450.0,
-            "shares_before": 56873725.0
-          }
-        ],
+        "multiples_of_creation_unit": 371,
+        "non_multiple_rows": [],
         "nonzero_total": 371,
         "smallest_nonzero": [
-          50000,
-          50000,
-          50000,
-          50000,
+          25000,
+          25000,
+          25000,
+          25000,
           50000
         ],
         "zero": 33,
@@ -325,12 +353,22 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         802,
         1128,
         1586,
-        50000,
-        50000
+        25000,
+        25000
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2025-12-05",
+          "factor": 2,
+          "nav_ratio": 2.005782,
+          "tna_ratio": 0.990104
+        }
       ]
     },
     "XLC": {
@@ -364,7 +402,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 385,
+        "multiples_of_creation_unit": 385,
         "non_multiple_rows": [],
         "nonzero_total": 385,
         "smallest_nonzero": [
@@ -379,13 +417,15 @@
       },
       "navhist_rows": 2050,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         50000,
         50000,
         50000,
         50000,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLE": {
       "candidates": 404,
@@ -394,7 +434,7 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 400,
+        "1000000": 399,
         "25000": 404,
         "50000": 404,
         "500000": 404
@@ -402,37 +442,30 @@
       "delta_known": 5085,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 300774200.0,
-        "min": 50000.0,
+        "max": 32350000.0,
+        "min": 25000.0,
         "n": 4958,
         "p01": 50000.0,
         "p25": 500000.0,
-        "p50": 1200000.0,
-        "p75": 2450000.0,
-        "p99": 11250000.0
+        "p50": 1150000.0,
+        "p75": 2350000.0,
+        "p99": 10900000.0
       },
       "delta_zero": 127,
       "delta_zero_share": 0.024975,
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 200,
+        "gcd": 25000,
         "known": 404,
-        "multiples_of_50k": 399,
-        "non_multiple_rows": [
-          {
-            "date": "2025-12-05",
-            "delta": 300774200,
-            "shares_after": 602248400.0,
-            "shares_before": 301474200.0
-          }
-        ],
+        "multiples_of_creation_unit": 400,
+        "non_multiple_rows": [],
         "nonzero_total": 400,
         "smallest_nonzero": [
-          50000,
-          50000,
-          50000,
-          50000,
+          25000,
+          25000,
+          25000,
+          25000,
           50000
         ],
         "zero": 4,
@@ -440,12 +473,22 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
-        50000,
-        50000,
-        50000,
-        50000,
+        25000,
+        25000,
+        25000,
+        25000,
         50000
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2025-12-05",
+          "factor": 2,
+          "nav_ratio": 2.008034,
+          "tna_ratio": 0.994843
+        }
       ]
     },
     "XLF": {
@@ -479,7 +522,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 404,
+        "multiples_of_creation_unit": 404,
         "non_multiple_rows": [],
         "nonzero_total": 404,
         "smallest_nonzero": [
@@ -494,13 +537,15 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         50000,
         50000,
         50000,
         50000,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLI": {
       "candidates": 404,
@@ -533,7 +578,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 385,
+        "multiples_of_creation_unit": 385,
         "non_multiple_rows": [],
         "nonzero_total": 385,
         "smallest_nonzero": [
@@ -548,13 +593,15 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         712,
         1426,
         2288,
         50000,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLK": {
       "candidates": 404,
@@ -563,7 +610,7 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 297,
+        "1000000": 249,
         "25000": 404,
         "50000": 404,
         "500000": 391
@@ -571,36 +618,29 @@
       "delta_known": 5085,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 324805897.0,
+        "max": 54400000.0,
         "min": 260.0,
         "n": 4432,
         "p01": 50000.0,
-        "p25": 350000.0,
-        "p50": 750000.0,
-        "p75": 1600000.0,
-        "p99": 10250000.0
+        "p25": 300000.0,
+        "p50": 700000.0,
+        "p75": 1550000.0,
+        "p99": 10150000.0
       },
       "delta_zero": 653,
       "delta_zero_share": 0.128417,
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 1,
+        "gcd": 25000,
         "known": 404,
-        "multiples_of_50k": 385,
-        "non_multiple_rows": [
-          {
-            "date": "2025-12-05",
-            "delta": 324805897,
-            "shares_after": 650611794.0,
-            "shares_before": 325805897.0
-          }
-        ],
+        "multiples_of_creation_unit": 386,
+        "non_multiple_rows": [],
         "nonzero_total": 386,
         "smallest_nonzero": [
-          50000,
-          50000,
-          50000,
+          25000,
+          25000,
+          25000,
           50000,
           50000
         ],
@@ -609,12 +649,22 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         260,
-        50000,
-        50000,
-        50000,
+        25000,
+        25000,
+        25000,
         50000
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2025-12-05",
+          "factor": 2,
+          "nav_ratio": 1.985054,
+          "tna_ratio": 1.005983
+        }
       ]
     },
     "XLP": {
@@ -648,7 +698,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 391,
+        "multiples_of_creation_unit": 391,
         "non_multiple_rows": [],
         "nonzero_total": 391,
         "smallest_nonzero": [
@@ -663,13 +713,15 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         640,
         711,
         1138,
         1503,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLRE": {
       "candidates": 404,
@@ -702,7 +754,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 315,
+        "multiples_of_creation_unit": 315,
         "non_multiple_rows": [],
         "nonzero_total": 315,
         "smallest_nonzero": [
@@ -717,13 +769,15 @@
       },
       "navhist_rows": 2728,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         50000,
         50000,
         50000,
         50000,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLU": {
       "candidates": 404,
@@ -732,7 +786,7 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 398,
+        "1000000": 393,
         "25000": 404,
         "50000": 404,
         "500000": 404
@@ -740,37 +794,30 @@
       "delta_known": 5085,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 249874160.0,
+        "max": 51200000.0,
         "min": 1673.0,
         "n": 4687,
         "p01": 50000.0,
-        "p25": 450000.0,
-        "p50": 1000000.0,
-        "p75": 2000000.0,
-        "p99": 8650000.0
+        "p25": 400000.0,
+        "p50": 950000.0,
+        "p75": 1950000.0,
+        "p99": 8600000.0
       },
       "delta_zero": 398,
       "delta_zero_share": 0.078269,
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 80,
+        "gcd": 25000,
         "known": 404,
-        "multiples_of_50k": 385,
-        "non_multiple_rows": [
-          {
-            "date": "2025-12-05",
-            "delta": 249874160,
-            "shares_after": 496148320.0,
-            "shares_before": 246274160.0
-          }
-        ],
+        "multiples_of_creation_unit": 386,
+        "non_multiple_rows": [],
         "nonzero_total": 386,
         "smallest_nonzero": [
-          50000,
-          50000,
-          50000,
-          50000,
+          25000,
+          25000,
+          25000,
+          25000,
           50000
         ],
         "zero": 18,
@@ -778,12 +825,22 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         1673,
         2513,
         2609,
         2719,
         3981
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2025-12-05",
+          "factor": 2,
+          "nav_ratio": 2.019018,
+          "tna_ratio": 0.997821
+        }
       ]
     },
     "XLV": {
@@ -817,7 +874,7 @@
         "days": 404,
         "gcd": 50000,
         "known": 404,
-        "multiples_of_50k": 393,
+        "multiples_of_creation_unit": 393,
         "non_multiple_rows": [],
         "nonzero_total": 393,
         "smallest_nonzero": [
@@ -832,13 +889,15 @@
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         666,
         846,
         50000,
         50000,
         50000
-      ]
+      ],
+      "splits_detected": []
     },
     "XLY": {
       "candidates": 404,
@@ -847,15 +906,15 @@
         "1": 404,
         "1000": 404,
         "100000": 404,
-        "1000000": 279,
+        "1000000": 231,
         "25000": 404,
         "50000": 404,
-        "500000": 378
+        "500000": 370
       },
       "delta_known": 5085,
       "delta_non_integral": 0,
       "delta_quantiles": {
-        "max": 96603252.0,
+        "max": 30550000.0,
         "min": 43.0,
         "n": 4478,
         "p01": 50000.0,
@@ -869,36 +928,39 @@
       "gcd_of_changes": 1,
       "in_window": {
         "days": 404,
-        "gcd": 4,
+        "gcd": 25000,
         "known": 404,
-        "multiples_of_50k": 372,
-        "non_multiple_rows": [
-          {
-            "date": "2025-12-05",
-            "delta": 96603252,
-            "shares_after": 198306504.0,
-            "shares_before": 101703252.0
-          }
-        ],
+        "multiples_of_creation_unit": 373,
+        "non_multiple_rows": [],
         "nonzero_total": 373,
         "smallest_nonzero": [
-          50000,
-          50000,
-          50000,
-          50000,
-          50000
+          25000,
+          25000,
+          25000,
+          25000,
+          25000
         ],
         "zero": 31,
         "zero_share": 0.076733
       },
       "navhist_rows": 5714,
       "neighbourhood_truncated": 5,
+      "share_unit": "every share count and change is in the unit before the fund's first detected split (divided by the cumulative split factor); the creation unit in force reads 50,000 / factor on each day, 25,000 after a 2-for-1",
       "smallest_nonzero_changes": [
         43,
         66,
         81,
         155,
-        50000
+        25000
+      ],
+      "splits_detected": [
+        {
+          "assets_continuous": true,
+          "date": "2025-12-05",
+          "factor": 2,
+          "nav_ratio": 1.989099,
+          "tna_ratio": 0.98027
+        }
       ]
     }
   },

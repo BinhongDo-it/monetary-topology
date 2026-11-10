@@ -15,16 +15,311 @@
   "share_h1": null,
   "share_h0": null,
   "notes": [
-    "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+    "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
   ],
   "criteria": [
     {
       "name": "A3-8  removing the holonomy removes the divergence",
       "passed": false,
       "void": true,
-      "detail": "state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift at machine precision, below `1e-10`. Indistinguishable from zero across seeds: H0_only"
+      "detail": "state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift at machine precision, below `1e-10`. Indistinguishable from zero across seeds: H0_only. The bidder pool that prices a tier is admitted on the payment terms, so `k_pay` moves it together with the loop sum and `k_gate` reaches the opening allocation alone: over the 10 single-channel runs the pool as run and the pool the gate terms give disagree on 3,446 node-tier-rounds in 1,132 rounds, a price gap of at most 5.26% from the same balances. Run again with the pool admitted on the gate terms, so that removing the loop sum leaves the pool dispersed, the four gaps are both +23.2667, loop sum only +20.3783, gate only +1.2403, null +0.000e+00, state unstable"
     }
   ],
+  "pricing_pool": {
+    "admitted_on": "the payment terms, at opening prices, against current claims, every round",
+    "gate_terms_reach": "the opening allocation and nothing after it",
+    "by_cell": {
+      "both": {
+        "by_seed": [
+          {
+            "seed": 0,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 1,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 2,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 3,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 4,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          }
+        ],
+        "rounds": 0,
+        "node_tier_rounds": 0,
+        "opening_node_tiers": 0,
+        "largest_relative_price_gap": 0.0
+      },
+      "H1_only": {
+        "by_seed": [
+          {
+            "seed": 0,
+            "opening_node_tiers": 0,
+            "rounds": 102,
+            "node_tier_rounds": 282,
+            "largest_relative_price_gap": 0.0213492,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 1,
+            "opening_node_tiers": 6,
+            "rounds": 64,
+            "node_tier_rounds": 194,
+            "largest_relative_price_gap": 0.04070532,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 2,
+            "opening_node_tiers": 0,
+            "rounds": 71,
+            "node_tier_rounds": 317,
+            "largest_relative_price_gap": 0.04770027,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 3,
+            "opening_node_tiers": 1,
+            "rounds": 131,
+            "node_tier_rounds": 251,
+            "largest_relative_price_gap": 0.02281628,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 4,
+            "opening_node_tiers": 5,
+            "rounds": 51,
+            "node_tier_rounds": 84,
+            "largest_relative_price_gap": 0.02217698,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          }
+        ],
+        "rounds": 419,
+        "node_tier_rounds": 1128,
+        "opening_node_tiers": 12,
+        "largest_relative_price_gap": 0.04770027
+      },
+      "H0_only": {
+        "by_seed": [
+          {
+            "seed": 0,
+            "opening_node_tiers": 0,
+            "rounds": 159,
+            "node_tier_rounds": 520,
+            "largest_relative_price_gap": 0.02139098,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 1,
+            "opening_node_tiers": 0,
+            "rounds": 150,
+            "node_tier_rounds": 674,
+            "largest_relative_price_gap": 0.05257863,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 2,
+            "opening_node_tiers": 0,
+            "rounds": 100,
+            "node_tier_rounds": 222,
+            "largest_relative_price_gap": 0.01211467,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 3,
+            "opening_node_tiers": 0,
+            "rounds": 201,
+            "node_tier_rounds": 622,
+            "largest_relative_price_gap": 0.02501627,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 4,
+            "opening_node_tiers": 0,
+            "rounds": 103,
+            "node_tier_rounds": 280,
+            "largest_relative_price_gap": 0.0156009,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          }
+        ],
+        "rounds": 713,
+        "node_tier_rounds": 2318,
+        "opening_node_tiers": 0,
+        "largest_relative_price_gap": 0.05257863
+      },
+      "null": {
+        "by_seed": [
+          {
+            "seed": 0,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 1,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 2,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 3,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          },
+          {
+            "seed": 4,
+            "opening_node_tiers": 0,
+            "rounds": 0,
+            "node_tier_rounds": 0,
+            "largest_relative_price_gap": 0.0,
+            "as_run_reproduces_the_recorded_pool": true,
+            "as_run_reproduces_the_recorded_prices": true
+          }
+        ],
+        "rounds": 0,
+        "node_tier_rounds": 0,
+        "opening_node_tiers": 0,
+        "largest_relative_price_gap": 0.0
+      }
+    },
+    "single_channel_cells": {
+      "runs": 10,
+      "rounds": 1132,
+      "node_tier_rounds": 3446,
+      "opening_node_tiers": 12,
+      "largest_relative_price_gap": 0.05257863,
+      "largest_at": {
+        "cell": "H0_only",
+        "seed": 1
+      }
+    },
+    "instrument_reproduces_the_run": true
+  },
+  "pool_on_gate_terms": {
+    "rule": "the bidder pool admitted on the gate terms; everything else as registered",
+    "state": "unstable",
+    "unstable_channels": [
+      "H0_only"
+    ],
+    "dropped_to_intersect": 11,
+    "deviations": [],
+    "tied_cells_reproduce_the_registered_run": true,
+    "pool_is_on_the_gate_terms": true,
+    "cells": {
+      "both": {
+        "gap_mean": 23.266654,
+        "gap_net_of_stretch": 23.279096,
+        "gap_by_seed": [
+          10.960021,
+          22.809372,
+          38.310804,
+          30.490416,
+          13.762656
+        ],
+        "same_sign_across_seeds": true,
+        "paired_population": 41.6
+      },
+      "H1_only": {
+        "gap_mean": 20.378268,
+        "gap_net_of_stretch": 20.448796,
+        "gap_by_seed": [
+          8.436906,
+          23.952262,
+          18.921397,
+          27.112394,
+          23.468382
+        ],
+        "same_sign_across_seeds": true,
+        "paired_population": 41.6
+      },
+      "H0_only": {
+        "gap_mean": 1.240255,
+        "gap_net_of_stretch": 1.176831,
+        "gap_by_seed": [
+          3.167423,
+          1.541131,
+          10.622148,
+          7.126804,
+          -16.256231
+        ],
+        "same_sign_across_seeds": false,
+        "paired_population": 41.6
+      },
+      "null": {
+        "gap_mean": 0.0,
+        "gap_net_of_stretch": 0.0,
+        "gap_by_seed": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_sign_across_seeds": false,
+        "paired_population": 41.6
+      }
+    }
+  },
   "sweep": {
     "baseline": "unstable",
     "cells": {
@@ -53,7 +348,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "elasticity=0.5": {
@@ -82,8 +377,8 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the loop sum (pricing pool on the payment terms) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "elasticity=1.5": {
@@ -111,7 +406,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "holding_period=50 turnover=0.02": {
@@ -140,7 +435,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "holding_period=12 turnover=0.08": {
@@ -169,7 +464,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "arm=forced forced_sale_floor=0.05": {
@@ -198,7 +493,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "arm=forced forced_sale_floor=0.1": {
@@ -227,7 +522,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "arm=forced forced_sale_floor=0.2": {
@@ -256,7 +551,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "stretch=1.0": {
@@ -285,8 +580,8 @@
         "paired_population": 18.4,
         "dropped_to_intersect": 2,
         "notes": [
-          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the loop sum (pricing pool on the payment terms) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "stretch=2.0": {
@@ -315,8 +610,8 @@
         "paired_population": 24.2,
         "dropped_to_intersect": 7,
         "notes": [
-          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the loop sum (pricing pool on the payment terms) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "stretch=5.0": {
@@ -344,7 +639,7 @@
         "paired_population": 98.8,
         "dropped_to_intersect": 18,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "centrality_bins=2": {
@@ -372,7 +667,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "centrality_bins=8": {
@@ -401,8 +696,8 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the loop sum channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the loop sum (pricing pool on the payment terms) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it",
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       },
       "stretch_cost=counted": {
@@ -430,7 +725,7 @@
         "paired_population": 41.6,
         "dropped_to_intersect": 11,
         "notes": [
-          "the gate channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
+          "the gate (opening allocation) channel's gap changes sign across seeds, so its contribution is NOT DISTINGUISHABLE FROM ZERO and no share may be quoted for it"
         ]
       }
     },
@@ -447,8 +742,7 @@
     "share_h1_range": null,
     "share_h0_range": null,
     "shares_are_not_gated": "no threshold is registered for either share, so their spread across the grid is reported and not judged",
-    "passed": false,
-    "from_an_earlier_run": true
+    "passed": false
   },
   "cells": {
     "both": {
@@ -457,22 +751,22 @@
         "terms_spread": 1.0,
         "gate_spread": 1.0
       },
-      "gap_mean": 23.26665390846545,
-      "gap_net_of_stretch": 23.279096334128727,
+      "gap_mean": 23.266653908465443,
+      "gap_net_of_stretch": 23.279096334128724,
       "gap_by_seed": [
-        10.96002126702766,
-        22.80937215542787,
+        10.960021267027644,
+        22.809372155427862,
         38.31080373592391,
         30.4904158976372,
-        13.762656486310606
+        13.762656486310608
       ],
       "same_sign_across_seeds": true,
       "gap_range": [
-        10.96002126702766,
+        10.960021267027644,
         38.31080373592391
       ],
-      "central_mean": 22.363918670615448,
-      "peripheral_mean": -0.9027352378500038,
+      "central_mean": 22.36391867061544,
+      "peripheral_mean": -0.9027352378500059,
       "mean_cost": 2.3882512552260966,
       "stretched_nodes": 37.8,
       "traders": 43.8,
@@ -485,22 +779,22 @@
         "terms_spread": 1.0,
         "gate_spread": 0.0
       },
-      "gap_mean": 21.67138846088038,
-      "gap_net_of_stretch": 21.74191631257775,
+      "gap_mean": 21.671388460880383,
+      "gap_net_of_stretch": 21.741916312577747,
       "gap_by_seed": [
-        8.4348990418884,
-        23.660125217699914,
+        8.434899041888396,
+        23.660125217699917,
         25.796849191533536,
-        27.17354988596543,
-        23.29151896731462
+        27.17354988596542,
+        23.291518967314623
       ],
       "same_sign_across_seeds": true,
       "gap_range": [
-        8.4348990418884,
-        27.17354988596543
+        8.434899041888396,
+        27.17354988596542
       ],
       "central_mean": 21.36968649281429,
-      "peripheral_mean": -0.3017019680660923,
+      "peripheral_mean": -0.30170196806609295,
       "mean_cost": 2.3882512552260966,
       "stretched_nodes": 35.2,
       "traders": 41.6,
@@ -513,11 +807,11 @@
         "terms_spread": 0.0,
         "gate_spread": 1.0
       },
-      "gap_mean": 1.4091481961594803,
-      "gap_net_of_stretch": 1.3457239229388152,
+      "gap_mean": 1.4091481961594767,
+      "gap_net_of_stretch": 1.3457239229388107,
       "gap_by_seed": [
-        4.024555950572237,
-        1.5311668444601654,
+        4.024555950572215,
+        1.5311668444601698,
         10.621195986082995,
         7.125400357576827,
         -16.256578157894822
@@ -527,8 +821,8 @@
         -16.256578157894822,
         10.621195986082995
       ],
-      "central_mean": -1.2742217538015062,
-      "peripheral_mean": -2.683369949960986,
+      "central_mean": -1.274221753801512,
+      "peripheral_mean": -2.6833699499609884,
       "mean_cost": 2.388251255226097,
       "stretched_nodes": 42.2,
       "traders": 43.8,

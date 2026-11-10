@@ -1,0 +1,3684 @@
+{
+ "config": {
+  "fetched_by": "experiments/b144_fetch.py --only uk",
+  "items": {
+   "carpenter": {
+    "occupation": "5316",
+    "occupation_words": "Carpenters and joiners",
+    "sold_as": "CARPENTER HOURLY RATE",
+    "unit": "hour, one customer"
+   },
+   "childminder": {
+    "occupation": "6114",
+    "occupation_words": "Childminders",
+    "sold_as": "CHILD MINDER - HOURLY RATE",
+    "unit": "hour, shared"
+   },
+   "decorator": {
+    "occupation": "5323",
+    "occupation_words": "Painters and decorators",
+    "sold_as": "DECORATOR-DAILY RATE;SPEC HRS",
+    "unit": "job"
+   },
+   "domestic cleaner": {
+    "occupation": "9223",
+    "occupation_words": "Cleaners and domestics",
+    "sold_as": "DOMESTIC CLEANER HOURLY RATE",
+    "unit": "hour, one customer"
+   },
+   "driving lesson": {
+    "occupation": "8215",
+    "occupation_words": "Driving instructors",
+    "sold_as": "DRIVING LESSON 1 HOUR",
+    "unit": "hour, one customer"
+   },
+   "electrician": {
+    "occupation": "5241",
+    "occupation_words": "Electricians and electrical fitters",
+    "sold_as": "ELECTRICIAN-DAYTIME RATE/HOUR",
+    "unit": "hour, one customer"
+   },
+   "home care assistant": {
+    "occupation": "6135",
+    "occupation_words": "Care workers and home carers",
+    "sold_as": "HOME CARE ASSISTANT HRLY RATE",
+    "unit": "hour, one customer"
+   },
+   "man's haircut": {
+    "occupation": "6221",
+    "occupation_words": "Hairdressers and barbers",
+    "sold_as": "MAN'S HAIRCUT",
+    "unit": "job"
+   },
+   "plumber": {
+    "occupation": "5315",
+    "occupation_words": "Plumbers & heating and ventilating installers and repairers",
+    "sold_as": "PLUMBER-DAYTIME HOURLY RATE",
+    "unit": "hour, one customer"
+   },
+   "solicitor": {
+    "occupation": "2412",
+    "occupation_words": "Solicitors and lawyers",
+    "sold_as": "HOURLY RATE FOR SOLICITOR",
+    "unit": "hour, one customer"
+   }
+  },
+  "knobs": {
+   "london": [
+    "with London",
+    "without London"
+   ],
+   "min_cell": [
+    3,
+    5
+   ],
+   "missing_regions": [
+    3,
+    0
+   ],
+   "month": [
+    "2025-04",
+    "2026-08"
+   ],
+   "pay": [
+    "median",
+    "mean"
+   ],
+   "price": [
+    "median",
+    "mean"
+   ]
+  },
+  "min_quotes": 30,
+  "n_boot": 1000,
+  "quote_files": {
+   "2025-04": "pricequotes202504.xlsx",
+   "2026-08": "upload-pricequotes202608.csv"
+  },
+  "rates": {
+   "basic": {
+    "page": "income_tax.html",
+    "passage": "Basic rate £12,571 to £50,270 20%",
+    "value": 0.2
+   },
+   "employee": {
+    "page": "employers_2025_26.html",
+    "passage": "A 0% 8% 2%",
+    "value": 0.08
+   },
+   "employer": {
+    "page": "employers_2025_26.html",
+    "passage": "A 15% 15% 15% 15%",
+    "value": 0.15
+   },
+   "floor 2025-04": {
+    "page": "minimum_wage.html",
+    "passage": "April 2025 to March 2026 £12.21",
+    "value": 12.21
+   },
+   "floor 2026-08": {
+    "page": "minimum_wage.html",
+    "passage": "April 2026 £12.71",
+    "value": 12.71
+   },
+   "share cap": {
+    "page": "eyfs_childminders.pdf",
+    "passage": "may care for a maximum of six children under the age of eight",
+    "value": 6
+   },
+   "vat": {
+    "page": "vat.html",
+    "passage": "Standard rate 20%",
+    "value": 0.2
+   },
+   "young cap": {
+    "page": "eyfs_childminders.pdf",
+    "passage": "A maximum of three may be young children",
+    "value": 3
+   }
+  },
+  "raw": "data/raw/b144/uk",
+  "regions": {
+   "10": {
+    "collector": "North",
+    "survey": "North East"
+   },
+   "11": {
+    "collector": "Wales",
+    "survey": "Wales"
+   },
+   "12": {
+    "collector": "Scotland",
+    "survey": "Scotland"
+   },
+   "13": {
+    "collector": "Northern Ireland",
+    "survey": "Northern Ireland"
+   },
+   "2": {
+    "collector": "London",
+    "survey": "London"
+   },
+   "3": {
+    "collector": "SE",
+    "survey": "South East"
+   },
+   "4": {
+    "collector": "SW",
+    "survey": "South West"
+   },
+   "5": {
+    "collector": "East Anglia",
+    "survey": "East"
+   },
+   "6": {
+    "collector": "East Midlands",
+    "survey": "East Midlands"
+   },
+   "7": {
+    "collector": "West Midlands",
+    "survey": "West Midlands"
+   },
+   "8": {
+    "collector": "Yorks & Humber",
+    "survey": "Yorkshire and The Humber"
+   },
+   "9": {
+    "collector": "NW",
+    "survey": "North West"
+   }
+  },
+  "relabellings_per_seed": 1000,
+  "rule_pages": "data/raw/b144/uk_rules",
+  "seeds": [
+   20261012,
+   20261013
+  ],
+  "worlds_per_seed": 200
+ },
+ "criteria": [
+  {
+   "detail": "2025-04: 151,300 rows, item named in ITEM_DESC/CS_DESC; 2026-08: 94,010 rows, item named in CS_DESC; 10 items, valid quotes per item 66 to 252; 12 region codes as the glossary numbers them; 8 rates on 5 cached pages; every item and occupation carries the words expected",
+   "kind": "instrument",
+   "name": "B144-D0",
+   "passed": true,
+   "statement": "The quote files, the pay tables, the glossary and the government pages say what the reading takes them to say."
+  },
+  {
+   "detail": "plumber posted 50.00 paid 18.00, wedge 2.78 (2.73 to 3.30 over 8 knob points; resamples 2.53 to 3.31), 2.01 after statute, 3.9 own hours, 19p taken home per pound earned; electrician posted 42.00 paid 19.00, wedge 2.21 (2.16 to 2.67 over 8 knob points; resamples 1.89 to 2.58), 1.60 after statute, 3.1 own hours, 23p taken home per pound earned; carpenter posted 25.00 paid 16.98, wedge 1.47 (1.42 to 1.75 over 8 knob points; resamples 1.33 to 1.79), 1.07 after statute, 2.0 own hours, 35p taken home per pound earned; domestic cleaner posted 17.00 paid 12.63, wedge 1.35 (1.25 to 1.48 over 8 knob points; resamples 1.30 to 1.43), 0.98 after statute, 1.9 own hours, 39p taken home per pound earned; home care assistant posted 27.05 paid 13.45, wedge 2.01 (1.86 to 2.23 over 8 knob points; resamples 1.89 to 2.15), 1.46 after statute, 2.8 own hours, 26p taken home per pound earned; driving lesson posted 40.00 paid 19.84, wedge 2.02 (1.57 to 2.04 over 8 knob points; resamples 1.58 to 2.48), 1.46 after statute, 2.8 own hours, 26p taken home per pound earned; solicitor posted 306.00 paid 30.66, wedge 9.98 (8.23 to 11.15 over 8 knob points; resamples 9.14 to 11.17), 7.23 after statute, 13.9 own hours, 5p taken home per pound earned. Above one at every knob point: 7 of 7; above everything statute can add (1.38) at every knob point: 6 of 7",
+   "kind": "own_reading",
+   "name": "B144-D1",
+   "passed": true,
+   "statement": "An hour that one customer buys alone is posted above the hourly pay of the occupation that does it."
+  },
+  {
+   "detail": "childminder posted 5.50 to each customer, paid 13.00, wedge 0.42 (0.41 to 0.50 over 8 knob points; resamples 0.36 to 0.48); 2.4 customers cover the pay (2.0 to 2.4), the rule allows 6, of whom 3 young -> shared and covered",
+   "kind": "own_reading",
+   "name": "B144-D2",
+   "passed": true,
+   "statement": "An hour that several customers share is posted to each below that pay, and the pay is covered within the number the rule allows."
+  },
+  {
+   "detail": "wedges in order: domestic cleaner 1.35, carpenter 1.47, home care assistant 2.01, driving lesson 2.02, electrician 2.21, plumber 2.78, solicitor 9.98. Largest over smallest 7.4 times (log 2.003); with any one occupation left out at least 2.1 times (log 0.725); the largest spread of 400 one-wedge worlds, log 0.532. Over 8 knob points the left-out spread is 0.725 to 0.887 against floors up to 0.567; more than one wedge at 8 of 8",
+   "kind": "own_reading",
+   "name": "B144-D3",
+   "passed": true,
+   "statement": "The wedge between the posted hour and the paid hour is not one number across occupations."
+  },
+  {
+   "detail": "83 cells, 8 items in 11 regions: the posted price against the region's pay +0.813, the occupation's pay against it +0.308, gap +0.505 (-0.014 to +0.676 over 32 knob points; region resamples -0.321 to +0.958). Without London: price +0.341 to +0.858, pay +0.181 to +0.354. By item: carpenter price +1.21 pay +0.51 (pay over the floor 1.39); decorator price -0.07 pay -0.10 (pay over the floor 1.29); domestic cleaner price +0.13 pay +0.28 (pay over the floor 1.03); electrician price +1.51 pay +0.24 (pay over the floor 1.56); home care assistant price -0.01 pay +0.17 (pay over the floor 1.10); man's haircut price +0.55 pay -0.02 (pay over the floor 1.01); plumber price +2.39 pay +0.40 (pay over the floor 1.47); solicitor price +0.75 pay +1.06 (pay over the floor 2.51) -> unread",
+   "kind": "own_reading",
+   "name": "B144-D4",
+   "passed": null,
+   "statement": "Across regions the posted price follows the region's pay more closely than the pay of the occupation does."
+  },
+  {
+   "detail": "274 occupations: the slope of an occupation's pay on the region's pay rises by +0.486 per log point of its national pay over the floor; relabelled occupations return -0.309 to +0.258 in 2000 relabellings; over 8 knob points the relation is +0.462 to +0.770 against a largest relabelled +0.585; above its own largest relabelling at 7 of 8 knob points (inside it at median, without London, 0 regions missing: +0.497 against +0.585). Mean slope by distance from the floor: within 10% of the floor +0.16 (33 occupations); 10% to 50% above +0.35 (134 occupations); 50% to 100% above +0.49 (63 occupations); more than double +0.65 (44 occupations) -> ours",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B144-D5",
+   "passed": true,
+   "rival_entailment": "Then every occupation's pay follows the region's level by the same amount, and the slope of an occupation's pay on the region's pay is unrelated to how far its national pay stands above the wage floor: what a relabelling of occupations gives.",
+   "rival_premise": "A region has one pay level: the pay of an occupation in a region is the occupation's own level times the region's, log w(occupation, region) = a(occupation) + m(region).",
+   "rival_shape": "point prediction",
+   "statement": "Pay follows the region's pay the less, the nearer the occupation's national pay sits to the wage floor written for the whole country. Passing means the rival is wrong here (`11e`)."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "mapping": {
+  "floor_states_to_cells": {
+   "opposite": "both_unmet",
+   "ours": "B",
+   "unread": "not placed"
+  },
+  "states": {
+   "above one": "above one at every knob point",
+   "below one": "below one at every knob point",
+   "unread": "the side changes somewhere on the knob grid, or a number is missing"
+  },
+  "states_of_the_floor": {
+   "opposite": "below the smallest any relabelling returns at the reference point, and negative at every knob point",
+   "ours": "above the largest any relabelling returns at the reference point, and positive at every knob point",
+   "unread": "inside the relabelling range at the reference point, or the sign changes somewhere on the knob grid, or too few occupations"
+  },
+  "states_of_the_gap": {
+   "pay steeper": "the occupation's pay follows the region's pay more, at every knob point",
+   "price steeper": "the posted price follows the region's pay more than the occupation's pay does, at every knob point",
+   "unread": "the order changes somewhere on the knob grid, or a slope is undefined"
+  },
+  "states_of_the_shared_hour": {
+   "not shared": "each customer pays more than the pay at every knob point, or the pay cannot be covered within the number the rule allows at any knob point",
+   "shared and covered": "each customer pays less than the pay at every knob point and the pay is covered within the number the rule allows",
+   "unread": "anything else"
+  },
+  "states_of_the_spread": {
+   "more than one wedge": "with any one occupation left out the spread is above the floor",
+   "one wedge": "the spread over all occupations is within the floor",
+   "unread": "above the floor only while one particular occupation is in"
+  },
+  "verdict": "true when every state is the stated one, false when none is and none is unread, null otherwise"
+ },
+ "objects": {
+  "coefficient_of_variation_percent": {
+   "carpenter": {
+    "mean": 1.8,
+    "median": 1.9
+   },
+   "childminder": {
+    "mean": 3.9,
+    "median": 6.9
+   },
+   "decorator": {
+    "mean": 2.3,
+    "median": 3.7
+   },
+   "domestic cleaner": {
+    "mean": 0.4,
+    "median": 0.2
+   },
+   "driving lesson": {
+    "mean": 7.9,
+    "median": 11.0
+   },
+   "electrician": {
+    "mean": 1.3,
+    "median": 1.6
+   },
+   "home care assistant": {
+    "mean": 0.4,
+    "median": 0.3
+   },
+   "man's haircut": {
+    "mean": 1.6,
+    "median": 0.8
+   },
+   "plumber": {
+    "mean": 1.6,
+    "median": 2.5
+   },
+   "solicitor": {
+    "mean": 3.2,
+    "median": 3.3
+   }
+  },
+  "floor_grid": [
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.1571,
+      "median_slope": 0.2015,
+      "occupations": 33
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.3497,
+      "median_slope": 0.3241,
+      "occupations": 134
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.4897,
+      "median_slope": 0.4744,
+      "occupations": 63
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.6545,
+      "median_slope": 0.6574,
+      "occupations": 44
+     }
+    ],
+    "london": "with London",
+    "mean_slope": 0.4077,
+    "missing": 3,
+    "null_max": 0.2578,
+    "null_min": -0.3091,
+    "occupations": 274,
+    "pay_stat": "median",
+    "relation": 0.4861
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.2103,
+      "median_slope": 0.2175,
+      "occupations": 26
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.3705,
+      "median_slope": 0.3175,
+      "occupations": 88
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.3956,
+      "median_slope": 0.4719,
+      "occupations": 33
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.6881,
+      "median_slope": 0.6391,
+      "occupations": 21
+     }
+    ],
+    "london": "with London",
+    "mean_slope": 0.3903,
+    "missing": 0,
+    "null_max": 0.3271,
+    "null_min": -0.2907,
+    "occupations": 168,
+    "pay_stat": "median",
+    "relation": 0.4617
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.0445,
+      "median_slope": 0.1082,
+      "occupations": 33
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.41,
+      "median_slope": 0.4214,
+      "occupations": 139
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.6932,
+      "median_slope": 0.682,
+      "occupations": 66
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.7906,
+      "median_slope": 0.7876,
+      "occupations": 45
+     }
+    ],
+    "london": "without London",
+    "mean_slope": 0.4939,
+    "missing": 3,
+    "null_max": 0.5744,
+    "null_min": -0.4859,
+    "occupations": 283,
+    "pay_stat": "median",
+    "relation": 0.7701
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.1682,
+      "median_slope": 0.138,
+      "occupations": 26
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.4034,
+      "median_slope": 0.4194,
+      "occupations": 92
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.5619,
+      "median_slope": 0.6287,
+      "occupations": 33
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.66,
+      "median_slope": 0.6962,
+      "occupations": 21
+     }
+    ],
+    "london": "without London",
+    "mean_slope": 0.4296,
+    "missing": 0,
+    "null_max": 0.5852,
+    "null_min": -0.5004,
+    "occupations": 172,
+    "pay_stat": "median",
+    "relation": 0.497
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.1324,
+      "median_slope": 0.2003,
+      "occupations": 11
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.2801,
+      "median_slope": 0.2624,
+      "occupations": 135
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.4786,
+      "median_slope": 0.4509,
+      "occupations": 88
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.6847,
+      "median_slope": 0.667,
+      "occupations": 76
+     }
+    ],
+    "london": "with London",
+    "mean_slope": 0.4304,
+    "missing": 3,
+    "null_max": 0.2569,
+    "null_min": -0.2466,
+    "occupations": 310,
+    "pay_stat": "mean",
+    "relation": 0.6014
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.2141,
+      "median_slope": 0.2417,
+      "occupations": 9
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.2867,
+      "median_slope": 0.2536,
+      "occupations": 97
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.4008,
+      "median_slope": 0.4078,
+      "occupations": 58
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.6353,
+      "median_slope": 0.6491,
+      "occupations": 52
+     }
+    ],
+    "london": "with London",
+    "mean_slope": 0.3982,
+    "missing": 0,
+    "null_max": 0.2361,
+    "null_min": -0.2763,
+    "occupations": 216,
+    "pay_stat": "mean",
+    "relation": 0.5018
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.1401,
+      "median_slope": 0.2367,
+      "occupations": 11
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.2931,
+      "median_slope": 0.3264,
+      "occupations": 138
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.6452,
+      "median_slope": 0.6229,
+      "occupations": 92
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.8099,
+      "median_slope": 0.8532,
+      "occupations": 77
+     }
+    ],
+    "london": "without London",
+    "mean_slope": 0.5148,
+    "missing": 3,
+    "null_max": 0.4521,
+    "null_min": -0.4997,
+    "occupations": 318,
+    "pay_stat": "mean",
+    "relation": 0.7336
+   },
+   {
+    "bands": [
+     {
+      "band": "within 10% of the floor",
+      "mean_slope": 0.2108,
+      "median_slope": 0.2425,
+      "occupations": 9
+     },
+     {
+      "band": "10% to 50% above",
+      "mean_slope": 0.3245,
+      "median_slope": 0.3469,
+      "occupations": 102
+     },
+     {
+      "band": "50% to 100% above",
+      "mean_slope": 0.4155,
+      "median_slope": 0.4401,
+      "occupations": 59
+     },
+     {
+      "band": "more than double",
+      "mean_slope": 0.7779,
+      "median_slope": 0.835,
+      "occupations": 52
+     }
+    ],
+    "london": "without London",
+    "mean_slope": 0.4503,
+    "missing": 0,
+    "null_max": 0.4788,
+    "null_min": -0.4445,
+    "occupations": 222,
+    "pay_stat": "mean",
+    "relation": 0.5898
+   }
+  ],
+  "kept": 0.72,
+  "knob_grid": [
+   {
+    "month": "2025-04",
+    "pay": "median",
+    "price": "median",
+    "wedge": {
+     "carpenter": 1.4723,
+     "childminder": 0.4231,
+     "domestic cleaner": 1.346,
+     "driving lesson": 2.0161,
+     "electrician": 2.2105,
+     "home care assistant": 2.0112,
+     "plumber": 2.7778,
+     "solicitor": 9.9804
+    }
+   },
+   {
+    "month": "2025-04",
+    "pay": "mean",
+    "price": "median",
+    "wedge": {
+     "carpenter": 1.4213,
+     "childminder": 0.4117,
+     "domestic cleaner": 1.2472,
+     "driving lesson": 1.6414,
+     "electrician": 2.1638,
+     "home care assistant": 1.8553,
+     "plumber": 2.7293,
+     "solicitor": 8.2302
+    }
+   },
+   {
+    "month": "2025-04",
+    "pay": "median",
+    "price": "mean",
+    "wedge": {
+     "carpenter": 1.6857,
+     "childminder": 0.4752,
+     "domestic cleaner": 1.3849,
+     "driving lesson": 1.9291,
+     "electrician": 2.6183,
+     "home care assistant": 2.0183,
+     "plumber": 3.1723,
+     "solicitor": 10.2956
+    }
+   },
+   {
+    "month": "2025-04",
+    "pay": "mean",
+    "price": "mean",
+    "wedge": {
+     "carpenter": 1.6273,
+     "childminder": 0.4624,
+     "domestic cleaner": 1.2833,
+     "driving lesson": 1.5705,
+     "electrician": 2.563,
+     "home care assistant": 1.8619,
+     "plumber": 3.1169,
+     "solicitor": 8.4901
+    }
+   },
+   {
+    "month": "2026-08",
+    "pay": "median",
+    "price": "median",
+    "wedge": {
+     "carpenter": 1.5607,
+     "childminder": 0.4615,
+     "domestic cleaner": 1.4252,
+     "driving lesson": 2.0161,
+     "electrician": 2.2105,
+     "home care assistant": 2.2305,
+     "plumber": 3.0278,
+     "solicitor": 11.1546
+    }
+   },
+   {
+    "month": "2026-08",
+    "pay": "mean",
+    "price": "median",
+    "wedge": {
+     "carpenter": 1.5065,
+     "childminder": 0.4491,
+     "domestic cleaner": 1.3206,
+     "driving lesson": 1.6414,
+     "electrician": 2.1638,
+     "home care assistant": 2.0576,
+     "plumber": 2.9749,
+     "solicitor": 9.1985
+    }
+   },
+   {
+    "month": "2026-08",
+    "pay": "median",
+    "price": "mean",
+    "wedge": {
+     "carpenter": 1.7459,
+     "childminder": 0.5009,
+     "domestic cleaner": 1.4759,
+     "driving lesson": 2.0414,
+     "electrician": 2.6743,
+     "home care assistant": 2.2051,
+     "plumber": 3.3021,
+     "solicitor": 11.0416
+    }
+   },
+   {
+    "month": "2026-08",
+    "pay": "mean",
+    "price": "mean",
+    "wedge": {
+     "carpenter": 1.6854,
+     "childminder": 0.4874,
+     "domestic cleaner": 1.3676,
+     "driving lesson": 1.662,
+     "electrician": 2.6178,
+     "home care assistant": 2.0342,
+     "plumber": 3.2444,
+     "solicitor": 9.1053
+    }
+   }
+  ],
+  "occupation_pay_by_region_median": {
+   "carpenter": {
+    "East": 16.01,
+    "East Midlands": 14.0,
+    "London": 18.52,
+    "North East": 16.77,
+    "North West": 17.19,
+    "Northern Ireland": null,
+    "Scotland": 17.03,
+    "South East": 17.93,
+    "South West": 17.86,
+    "Wales": 17.93,
+    "West Midlands": 16.56,
+    "Yorkshire and The Humber": 15.65
+   },
+   "childminder": {
+    "East": null,
+    "East Midlands": null,
+    "London": null,
+    "North East": null,
+    "North West": 12.86,
+    "Northern Ireland": null,
+    "Scotland": null,
+    "South East": 12.22,
+    "South West": null,
+    "Wales": null,
+    "West Midlands": 12.74,
+    "Yorkshire and The Humber": null
+   },
+   "decorator": {
+    "East": 15.5,
+    "East Midlands": 15.41,
+    "London": 14.84,
+    "North East": 16.75,
+    "North West": 14.55,
+    "Northern Ireland": null,
+    "Scotland": 15.5,
+    "South East": 15.37,
+    "South West": 14.44,
+    "Wales": 14.8,
+    "West Midlands": 16.55,
+    "Yorkshire and The Humber": 13.73
+   },
+   "domestic cleaner": {
+    "East": 12.5,
+    "East Midlands": 12.56,
+    "London": 13.85,
+    "North East": 12.5,
+    "North West": 12.58,
+    "Northern Ireland": null,
+    "Scotland": 12.94,
+    "South East": 12.6,
+    "South West": 12.67,
+    "Wales": 12.6,
+    "West Midlands": 12.56,
+    "Yorkshire and The Humber": 12.45
+   },
+   "driving lesson": {
+    "East": null,
+    "East Midlands": null,
+    "London": null,
+    "North East": null,
+    "North West": 17.18,
+    "Northern Ireland": null,
+    "Scotland": 15.17,
+    "South East": null,
+    "South West": null,
+    "Wales": null,
+    "West Midlands": 32.86,
+    "Yorkshire and The Humber": 15.35
+   },
+   "electrician": {
+    "East": 18.42,
+    "East Midlands": 18.53,
+    "London": 20.43,
+    "North East": 18.84,
+    "North West": 20.6,
+    "Northern Ireland": null,
+    "Scotland": 19.18,
+    "South East": 19.24,
+    "South West": 18.78,
+    "Wales": 17.9,
+    "West Midlands": 18.26,
+    "Yorkshire and The Humber": 19.4
+   },
+   "home care assistant": {
+    "East": 13.44,
+    "East Midlands": 13.08,
+    "London": 13.95,
+    "North East": 13.23,
+    "North West": 13.38,
+    "Northern Ireland": null,
+    "Scotland": 14.59,
+    "South East": 13.49,
+    "South West": 13.54,
+    "Wales": 13.68,
+    "West Midlands": 12.86,
+    "Yorkshire and The Humber": 13.33
+   },
+   "man's haircut": {
+    "East": 12.24,
+    "East Midlands": 12.7,
+    "London": 12.24,
+    "North East": 12.21,
+    "North West": 12.21,
+    "Northern Ireland": null,
+    "Scotland": 12.21,
+    "South East": 12.96,
+    "South West": 12.63,
+    "Wales": 12.52,
+    "West Midlands": 12.21,
+    "Yorkshire and The Humber": 12.22
+   },
+   "plumber": {
+    "East": 18.07,
+    "East Midlands": 18.16,
+    "London": 20.08,
+    "North East": 17.0,
+    "North West": 18.01,
+    "Northern Ireland": null,
+    "Scotland": 18.53,
+    "South East": 18.84,
+    "South West": 16.98,
+    "Wales": 17.76,
+    "West Midlands": 16.91,
+    "Yorkshire and The Humber": 17.61
+   },
+   "solicitor": {
+    "East": 27.54,
+    "East Midlands": 22.99,
+    "London": 38.56,
+    "North East": null,
+    "North West": 26.17,
+    "Northern Ireland": null,
+    "Scotland": 25.51,
+    "South East": 29.28,
+    "South West": 32.16,
+    "Wales": 24.36,
+    "West Midlands": 25.38,
+    "Yorkshire and The Humber": 31.17
+   }
+  },
+  "occupations_at_the_reference": [
+   [
+    "1121",
+    0.8057,
+    1.1487,
+    11
+   ],
+   [
+    "1122",
+    0.7352,
+    0.5124,
+    11
+   ],
+   [
+    "1131",
+    1.0829,
+    1.895,
+    11
+   ],
+   [
+    "1132",
+    1.3166,
+    0.975,
+    10
+   ],
+   [
+    "1134",
+    0.9053,
+    0.9749,
+    8
+   ],
+   [
+    "1136",
+    0.8919,
+    1.113,
+    11
+   ],
+   [
+    "1137",
+    1.3393,
+    0.8155,
+    9
+   ],
+   [
+    "1139",
+    1.1674,
+    1.2551,
+    10
+   ],
+   [
+    "1150",
+    0.3461,
+    0.5926,
+    11
+   ],
+   [
+    "1171",
+    0.9694,
+    0.6834,
+    8
+   ],
+   [
+    "1172",
+    0.7262,
+    -0.0086,
+    8
+   ],
+   [
+    "1222",
+    0.2045,
+    0.3039,
+    11
+   ],
+   [
+    "1224",
+    0.3173,
+    0.0846,
+    10
+   ],
+   [
+    "1232",
+    0.5644,
+    -0.6924,
+    11
+   ],
+   [
+    "1241",
+    0.5911,
+    0.4719,
+    11
+   ],
+   [
+    "1242",
+    0.3536,
+    0.3092,
+    11
+   ],
+   [
+    "1243",
+    0.6358,
+    -0.2297,
+    8
+   ],
+   [
+    "1251",
+    0.5593,
+    0.5471,
+    11
+   ],
+   [
+    "2113",
+    0.6882,
+    0.585,
+    10
+   ],
+   [
+    "2119",
+    0.5992,
+    2.2943,
+    9
+   ],
+   [
+    "2121",
+    0.7162,
+    0.3268,
+    10
+   ],
+   [
+    "2122",
+    0.707,
+    0.6137,
+    9
+   ],
+   [
+    "2123",
+    0.8943,
+    0.6756,
+    8
+   ],
+   [
+    "2125",
+    0.6641,
+    0.7363,
+    9
+   ],
+   [
+    "2127",
+    0.7813,
+    0.5115,
+    11
+   ],
+   [
+    "2129",
+    0.6725,
+    0.403,
+    11
+   ],
+   [
+    "2132",
+    0.8543,
+    0.7787,
+    11
+   ],
+   [
+    "2133",
+    0.934,
+    0.8895,
+    11
+   ],
+   [
+    "2134",
+    0.8757,
+    0.9189,
+    11
+   ],
+   [
+    "2136",
+    0.6687,
+    0.5057,
+    9
+   ],
+   [
+    "2137",
+    0.6783,
+    0.6858,
+    9
+   ],
+   [
+    "2139",
+    0.7681,
+    0.9332,
+    10
+   ],
+   [
+    "2142",
+    0.3531,
+    0.97,
+    10
+   ],
+   [
+    "2151",
+    0.4794,
+    0.8752,
+    8
+   ],
+   [
+    "2152",
+    0.5987,
+    0.0658,
+    9
+   ],
+   [
+    "2161",
+    0.8912,
+    0.4664,
+    10
+   ],
+   [
+    "2211",
+    1.0203,
+    -0.0301,
+    10
+   ],
+   [
+    "2212",
+    1.3024,
+    -0.0699,
+    10
+   ],
+   [
+    "2221",
+    0.6829,
+    0.3346,
+    11
+   ],
+   [
+    "2222",
+    0.6354,
+    0.4744,
+    11
+   ],
+   [
+    "2223",
+    0.6586,
+    0.0856,
+    10
+   ],
+   [
+    "2225",
+    0.9359,
+    0.0504,
+    10
+   ],
+   [
+    "2229",
+    0.4865,
+    0.6841,
+    8
+   ],
+   [
+    "2231",
+    0.745,
+    0.4174,
+    11
+   ],
+   [
+    "2232",
+    0.6289,
+    0.3061,
+    11
+   ],
+   [
+    "2233",
+    0.6556,
+    0.4135,
+    11
+   ],
+   [
+    "2234",
+    0.6837,
+    0.4363,
+    11
+   ],
+   [
+    "2235",
+    0.5423,
+    0.2159,
+    9
+   ],
+   [
+    "2237",
+    0.6064,
+    0.4703,
+    11
+   ],
+   [
+    "2251",
+    0.7951,
+    0.2183,
+    11
+   ],
+   [
+    "2254",
+    0.709,
+    0.4691,
+    11
+   ],
+   [
+    "2255",
+    0.7722,
+    0.5913,
+    9
+   ],
+   [
+    "2259",
+    0.6073,
+    0.1869,
+    11
+   ],
+   [
+    "2311",
+    0.863,
+    0.3712,
+    11
+   ],
+   [
+    "2312",
+    0.6849,
+    0.5936,
+    11
+   ],
+   [
+    "2313",
+    0.8654,
+    0.243,
+    11
+   ],
+   [
+    "2314",
+    0.8574,
+    0.2957,
+    11
+   ],
+   [
+    "2316",
+    0.8455,
+    0.3492,
+    11
+   ],
+   [
+    "2319",
+    0.6099,
+    1.2486,
+    10
+   ],
+   [
+    "2321",
+    1.289,
+    -0.3492,
+    11
+   ],
+   [
+    "2322",
+    0.7258,
+    0.4484,
+    9
+   ],
+   [
+    "2324",
+    0.2457,
+    0.3161,
+    11
+   ],
+   [
+    "2412",
+    0.9207,
+    1.0612,
+    10
+   ],
+   [
+    "2419",
+    0.3914,
+    1.7994,
+    9
+   ],
+   [
+    "2421",
+    0.7481,
+    1.038,
+    10
+   ],
+   [
+    "2422",
+    0.7734,
+    1.3813,
+    11
+   ],
+   [
+    "2431",
+    0.8274,
+    0.7886,
+    10
+   ],
+   [
+    "2432",
+    0.7973,
+    1.0443,
+    11
+   ],
+   [
+    "2433",
+    0.8289,
+    1.6033,
+    8
+   ],
+   [
+    "2434",
+    0.5611,
+    0.5334,
+    11
+   ],
+   [
+    "2439",
+    0.9066,
+    0.8182,
+    10
+   ],
+   [
+    "2440",
+    0.8842,
+    0.8122,
+    11
+   ],
+   [
+    "2453",
+    0.7325,
+    0.0698,
+    8
+   ],
+   [
+    "2454",
+    0.6845,
+    0.8737,
+    11
+   ],
+   [
+    "2455",
+    0.6397,
+    0.432,
+    10
+   ],
+   [
+    "2461",
+    0.6423,
+    0.513,
+    11
+   ],
+   [
+    "2463",
+    0.2901,
+    0.1507,
+    11
+   ],
+   [
+    "2469",
+    0.5337,
+    0.1922,
+    9
+   ],
+   [
+    "2481",
+    0.6032,
+    0.5119,
+    11
+   ],
+   [
+    "2482",
+    0.7305,
+    0.7898,
+    11
+   ],
+   [
+    "2493",
+    0.5059,
+    0.8533,
+    9
+   ],
+   [
+    "2494",
+    0.6907,
+    0.3931,
+    9
+   ],
+   [
+    "3111",
+    0.1774,
+    0.5828,
+    11
+   ],
+   [
+    "3112",
+    0.4599,
+    0.1933,
+    8
+   ],
+   [
+    "3113",
+    0.5851,
+    0.6702,
+    11
+   ],
+   [
+    "3115",
+    0.3191,
+    0.3189,
+    11
+   ],
+   [
+    "3116",
+    0.4008,
+    0.1429,
+    11
+   ],
+   [
+    "3119",
+    0.3496,
+    0.3786,
+    11
+   ],
+   [
+    "3120",
+    0.3639,
+    0.1149,
+    10
+   ],
+   [
+    "3131",
+    0.4074,
+    0.5977,
+    11
+   ],
+   [
+    "3132",
+    0.4008,
+    0.8665,
+    11
+   ],
+   [
+    "3133",
+    0.4824,
+    0.8013,
+    11
+   ],
+   [
+    "3212",
+    0.2759,
+    0.112,
+    11
+   ],
+   [
+    "3213",
+    0.2735,
+    0.6179,
+    10
+   ],
+   [
+    "3221",
+    0.2969,
+    0.3008,
+    11
+   ],
+   [
+    "3222",
+    0.3605,
+    0.3654,
+    11
+   ],
+   [
+    "3223",
+    0.3764,
+    0.5673,
+    11
+   ],
+   [
+    "3224",
+    0.3747,
+    0.4446,
+    10
+   ],
+   [
+    "3229",
+    0.2405,
+    0.2497,
+    11
+   ],
+   [
+    "3231",
+    0.3059,
+    0.576,
+    10
+   ],
+   [
+    "3232",
+    0.065,
+    0.2078,
+    11
+   ],
+   [
+    "3240",
+    0.2759,
+    0.3272,
+    8
+   ],
+   [
+    "3312",
+    0.641,
+    -0.5698,
+    11
+   ],
+   [
+    "3313",
+    0.4763,
+    0.4483,
+    9
+   ],
+   [
+    "3319",
+    0.5541,
+    0.2263,
+    10
+   ],
+   [
+    "3412",
+    0.5128,
+    0.0686,
+    8
+   ],
+   [
+    "3416",
+    0.5385,
+    1.2059,
+    8
+   ],
+   [
+    "3417",
+    0.2858,
+    0.4345,
+    10
+   ],
+   [
+    "3421",
+    0.3023,
+    0.4051,
+    9
+   ],
+   [
+    "3432",
+    0.245,
+    0.662,
+    11
+   ],
+   [
+    "3433",
+    0.126,
+    -0.0694,
+    10
+   ],
+   [
+    "3534",
+    0.6737,
+    1.1111,
+    10
+   ],
+   [
+    "3541",
+    0.4945,
+    0.5979,
+    11
+   ],
+   [
+    "3543",
+    0.3781,
+    0.3557,
+    11
+   ],
+   [
+    "3544",
+    0.5172,
+    0.5708,
+    11
+   ],
+   [
+    "3549",
+    0.3903,
+    1.3302,
+    11
+   ],
+   [
+    "3551",
+    0.438,
+    0.499,
+    11
+   ],
+   [
+    "3552",
+    0.3959,
+    0.5906,
+    11
+   ],
+   [
+    "3553",
+    0.1071,
+    0.8354,
+    9
+   ],
+   [
+    "3554",
+    0.3077,
+    0.4096,
+    11
+   ],
+   [
+    "3555",
+    0.1677,
+    0.382,
+    10
+   ],
+   [
+    "3556",
+    0.8274,
+    0.6391,
+    11
+   ],
+   [
+    "3557",
+    0.259,
+    0.8089,
+    10
+   ],
+   [
+    "3560",
+    0.5143,
+    0.3116,
+    11
+   ],
+   [
+    "3571",
+    0.387,
+    0.2758,
+    11
+   ],
+   [
+    "3572",
+    0.3262,
+    0.3922,
+    9
+   ],
+   [
+    "3574",
+    0.4263,
+    0.3815,
+    11
+   ],
+   [
+    "3581",
+    0.464,
+    0.7496,
+    10
+   ],
+   [
+    "3582",
+    0.6586,
+    0.8376,
+    11
+   ],
+   [
+    "4111",
+    0.3005,
+    0.7969,
+    11
+   ],
+   [
+    "4112",
+    0.252,
+    0.4236,
+    11
+   ],
+   [
+    "4121",
+    0.2469,
+    0.8003,
+    11
+   ],
+   [
+    "4122",
+    0.2907,
+    0.5225,
+    11
+   ],
+   [
+    "4123",
+    0.2609,
+    0.5678,
+    11
+   ],
+   [
+    "4124",
+    0.2962,
+    0.7201,
+    11
+   ],
+   [
+    "4129",
+    0.1944,
+    0.7032,
+    11
+   ],
+   [
+    "4131",
+    0.165,
+    0.6192,
+    11
+   ],
+   [
+    "4132",
+    0.2672,
+    0.7545,
+    11
+   ],
+   [
+    "4133",
+    0.191,
+    0.3242,
+    11
+   ],
+   [
+    "4134",
+    0.2463,
+    0.1209,
+    11
+   ],
+   [
+    "4135",
+    0.1849,
+    0.4882,
+    10
+   ],
+   [
+    "4136",
+    0.1684,
+    0.437,
+    11
+   ],
+   [
+    "4141",
+    0.4527,
+    0.6285,
+    11
+   ],
+   [
+    "4142",
+    0.3132,
+    0.4552,
+    11
+   ],
+   [
+    "4143",
+    0.3673,
+    0.4756,
+    11
+   ],
+   [
+    "4151",
+    0.1629,
+    0.6564,
+    11
+   ],
+   [
+    "4152",
+    0.1684,
+    0.2768,
+    11
+   ],
+   [
+    "4159",
+    0.187,
+    0.515,
+    11
+   ],
+   [
+    "4211",
+    0.1173,
+    0.5148,
+    11
+   ],
+   [
+    "4212",
+    0.1524,
+    1.4279,
+    11
+   ],
+   [
+    "4213",
+    0.2171,
+    0.4197,
+    10
+   ],
+   [
+    "4215",
+    0.2691,
+    1.1674,
+    11
+   ],
+   [
+    "4216",
+    0.0581,
+    0.2381,
+    11
+   ],
+   [
+    "5113",
+    0.1368,
+    0.3479,
+    11
+   ],
+   [
+    "5114",
+    0.1231,
+    0.1708,
+    11
+   ],
+   [
+    "5119",
+    0.2105,
+    1.022,
+    11
+   ],
+   [
+    "5211",
+    0.2469,
+    -0.3884,
+    8
+   ],
+   [
+    "5213",
+    0.2778,
+    -0.0498,
+    11
+   ],
+   [
+    "5221",
+    0.3479,
+    0.019,
+    11
+   ],
+   [
+    "5222",
+    0.4327,
+    0.9896,
+    8
+   ],
+   [
+    "5223",
+    0.4279,
+    0.4413,
+    11
+   ],
+   [
+    "5231",
+    0.3209,
+    0.4209,
+    11
+   ],
+   [
+    "5232",
+    0.3005,
+    0.6799,
+    10
+   ],
+   [
+    "5241",
+    0.4422,
+    0.2429,
+    11
+   ],
+   [
+    "5242",
+    0.4748,
+    0.1642,
+    11
+   ],
+   [
+    "5246",
+    0.4799,
+    0.4885,
+    11
+   ],
+   [
+    "5249",
+    0.5293,
+    0.7486,
+    10
+   ],
+   [
+    "5250",
+    0.5284,
+    0.1626,
+    11
+   ],
+   [
+    "5314",
+    0.2571,
+    0.6101,
+    9
+   ],
+   [
+    "5315",
+    0.3881,
+    0.4042,
+    11
+   ],
+   [
+    "5316",
+    0.3298,
+    0.4021,
+    11
+   ],
+   [
+    "5317",
+    0.1524,
+    -0.1197,
+    9
+   ],
+   [
+    "5319",
+    0.3315,
+    -0.2843,
+    10
+   ],
+   [
+    "5323",
+    0.2514,
+    -0.0845,
+    11
+   ],
+   [
+    "5330",
+    0.498,
+    0.4863,
+    10
+   ],
+   [
+    "5422",
+    0.2615,
+    -0.05,
+    8
+   ],
+   [
+    "5431",
+    0.1019,
+    -0.0671,
+    11
+   ],
+   [
+    "5432",
+    0.1282,
+    0.3173,
+    9
+   ],
+   [
+    "5434",
+    0.1368,
+    0.3033,
+    11
+   ],
+   [
+    "5435",
+    0.1071,
+    0.1301,
+    11
+   ],
+   [
+    "5436",
+    0.1951,
+    0.2074,
+    11
+   ],
+   [
+    "5442",
+    0.1815,
+    0.7446,
+    9
+   ],
+   [
+    "5449",
+    0.1944,
+    0.5049,
+    8
+   ],
+   [
+    "6111",
+    0.09,
+    0.1786,
+    11
+   ],
+   [
+    "6112",
+    0.1684,
+    0.1302,
+    11
+   ],
+   [
+    "6113",
+    0.1657,
+    0.1804,
+    11
+   ],
+   [
+    "6117",
+    0.0627,
+    0.286,
+    11
+   ],
+   [
+    "6129",
+    0.0378,
+    0.1798,
+    10
+   ],
+   [
+    "6131",
+    0.1788,
+    0.4833,
+    11
+   ],
+   [
+    "6132",
+    0.2584,
+    0.9176,
+    10
+   ],
+   [
+    "6133",
+    0.1361,
+    0.2053,
+    11
+   ],
+   [
+    "6134",
+    0.2065,
+    -0.2157,
+    10
+   ],
+   [
+    "6135",
+    0.0967,
+    0.1715,
+    11
+   ],
+   [
+    "6136",
+    0.151,
+    0.2687,
+    11
+   ],
+   [
+    "6137",
+    0.0764,
+    0.2015,
+    10
+   ],
+   [
+    "6138",
+    0.1311,
+    0.0572,
+    11
+   ],
+   [
+    "6211",
+    0.084,
+    0.273,
+    11
+   ],
+   [
+    "6212",
+    0.1622,
+    0.3744,
+    9
+   ],
+   [
+    "6213",
+    0.4193,
+    1.6251,
+    9
+   ],
+   [
+    "6214",
+    0.6214,
+    0.2409,
+    9
+   ],
+   [
+    "6219",
+    0.1217,
+    0.8331,
+    9
+   ],
+   [
+    "6221",
+    0.0073,
+    -0.0246,
+    11
+   ],
+   [
+    "6222",
+    0.0235,
+    -0.0748,
+    11
+   ],
+   [
+    "6231",
+    0.0488,
+    0.2083,
+    11
+   ],
+   [
+    "6232",
+    0.1453,
+    0.4471,
+    11
+   ],
+   [
+    "6240",
+    0.1566,
+    0.3405,
+    11
+   ],
+   [
+    "6311",
+    0.3747,
+    0.005,
+    10
+   ],
+   [
+    "6312",
+    0.1801,
+    0.4529,
+    10
+   ],
+   [
+    "7111",
+    0.033,
+    0.2252,
+    11
+   ],
+   [
+    "7112",
+    0.0915,
+    0.4327,
+    11
+   ],
+   [
+    "7113",
+    0.1144,
+    0.7756,
+    8
+   ],
+   [
+    "7114",
+    0.0306,
+    0.2423,
+    11
+   ],
+   [
+    "7115",
+    0.1705,
+    -0.4118,
+    11
+   ],
+   [
+    "7122",
+    0.2018,
+    1.0716,
+    11
+   ],
+   [
+    "7129",
+    0.1957,
+    0.221,
+    11
+   ],
+   [
+    "7132",
+    0.1453,
+    0.2435,
+    11
+   ],
+   [
+    "7211",
+    0.1545,
+    0.2365,
+    11
+   ],
+   [
+    "7213",
+    0.4305,
+    -0.1484,
+    11
+   ],
+   [
+    "7219",
+    0.1224,
+    0.2664,
+    11
+   ],
+   [
+    "7220",
+    0.3432,
+    0.5093,
+    10
+   ],
+   [
+    "8111",
+    0.0967,
+    -0.0825,
+    11
+   ],
+   [
+    "8119",
+    0.1767,
+    -0.5819,
+    9
+   ],
+   [
+    "8120",
+    0.189,
+    0.1478,
+    9
+   ],
+   [
+    "8131",
+    0.2018,
+    0.2042,
+    11
+   ],
+   [
+    "8134",
+    0.3628,
+    0.1323,
+    9
+   ],
+   [
+    "8135",
+    0.1991,
+    0.1457,
+    10
+   ],
+   [
+    "8141",
+    0.1496,
+    0.1694,
+    10
+   ],
+   [
+    "8142",
+    0.2011,
+    -1.0932,
+    10
+   ],
+   [
+    "8143",
+    0.3245,
+    0.2654,
+    11
+   ],
+   [
+    "8145",
+    0.126,
+    -0.1216,
+    9
+   ],
+   [
+    "8146",
+    0.0627,
+    -0.1225,
+    10
+   ],
+   [
+    "8149",
+    0.1446,
+    -0.1764,
+    11
+   ],
+   [
+    "8151",
+    0.4305,
+    -0.1917,
+    8
+   ],
+   [
+    "8152",
+    0.2759,
+    0.1377,
+    10
+   ],
+   [
+    "8153",
+    0.5196,
+    0.2725,
+    10
+   ],
+   [
+    "8159",
+    0.1829,
+    0.5193,
+    11
+   ],
+   [
+    "8160",
+    0.3536,
+    -0.4788,
+    9
+   ],
+   [
+    "8211",
+    0.2703,
+    0.2526,
+    11
+   ],
+   [
+    "8212",
+    0.2834,
+    0.6736,
+    11
+   ],
+   [
+    "8214",
+    0.0511,
+    0.2321,
+    11
+   ],
+   [
+    "8219",
+    0.1636,
+    0.2076,
+    11
+   ],
+   [
+    "8221",
+    0.331,
+    0.5586,
+    8
+   ],
+   [
+    "8222",
+    0.1897,
+    0.066,
+    11
+   ],
+   [
+    "8229",
+    0.2703,
+    0.362,
+    11
+   ],
+   [
+    "8231",
+    1.1605,
+    0.2679,
+    9
+   ],
+   [
+    "9111",
+    0.0627,
+    -0.1431,
+    9
+   ],
+   [
+    "9119",
+    0.0627,
+    -0.0754,
+    9
+   ],
+   [
+    "9121",
+    0.2703,
+    0.2931,
+    10
+   ],
+   [
+    "9129",
+    0.1004,
+    0.1395,
+    11
+   ],
+   [
+    "9131",
+    0.0772,
+    -0.1677,
+    10
+   ],
+   [
+    "9132",
+    0.0627,
+    -0.0607,
+    11
+   ],
+   [
+    "9139",
+    0.1144,
+    0.1998,
+    11
+   ],
+   [
+    "9211",
+    0.1684,
+    0.4301,
+    11
+   ],
+   [
+    "9219",
+    0.0495,
+    0.2515,
+    11
+   ],
+   [
+    "9223",
+    0.0338,
+    0.2707,
+    11
+   ],
+   [
+    "9224",
+    0.0227,
+    0.0303,
+    11
+   ],
+   [
+    "9225",
+    0.1115,
+    0.324,
+    11
+   ],
+   [
+    "9226",
+    0.0235,
+    0.4292,
+    11
+   ],
+   [
+    "9231",
+    0.1368,
+    0.2127,
+    11
+   ],
+   [
+    "9232",
+    0.0665,
+    0.4312,
+    11
+   ],
+   [
+    "9233",
+    0.1375,
+    0.2446,
+    11
+   ],
+   [
+    "9241",
+    0.0673,
+    -0.0035,
+    11
+   ],
+   [
+    "9249",
+    0.0195,
+    -0.1561,
+    9
+   ],
+   [
+    "9251",
+    0.1991,
+    -0.167,
+    11
+   ],
+   [
+    "9252",
+    0.1093,
+    0.083,
+    11
+   ],
+   [
+    "9253",
+    0.078,
+    0.2278,
+    11
+   ],
+   [
+    "9259",
+    0.2011,
+    0.2564,
+    8
+   ],
+   [
+    "9261",
+    0.0997,
+    0.2465,
+    11
+   ],
+   [
+    "9263",
+    0.0162,
+    0.1728,
+    11
+   ],
+   [
+    "9264",
+    0.0,
+    0.1995,
+    11
+   ],
+   [
+    "9265",
+    0.0,
+    0.1929,
+    11
+   ],
+   [
+    "9266",
+    0.0073,
+    0.1211,
+    11
+   ],
+   [
+    "9267",
+    0.0346,
+    0.5708,
+    11
+   ],
+   [
+    "9269",
+    0.0787,
+    0.2098,
+    11
+   ]
+  ],
+  "pay": {
+   "carpenter": {
+    "jobs": 59.0,
+    "mean": 17.59,
+    "median": 16.98,
+    "words": "Carpenters and joiners"
+   },
+   "childminder": {
+    "jobs": null,
+    "mean": 13.36,
+    "median": 13.0,
+    "words": "Childminders"
+   },
+   "decorator": {
+    "jobs": 24.0,
+    "mean": 16.19,
+    "median": 15.7,
+    "words": "Painters and decorators"
+   },
+   "domestic cleaner": {
+    "jobs": 512.0,
+    "mean": 13.63,
+    "median": 12.63,
+    "words": "Cleaners and domestics"
+   },
+   "driving lesson": {
+    "jobs": 5.0,
+    "mean": 24.37,
+    "median": 19.84,
+    "words": "Driving instructors"
+   },
+   "electrician": {
+    "jobs": 107.0,
+    "mean": 19.41,
+    "median": 19.0,
+    "words": "Electricians and electrical fitters"
+   },
+   "home care assistant": {
+    "jobs": 697.0,
+    "mean": 14.58,
+    "median": 13.45,
+    "words": "Care workers and home carers"
+   },
+   "man's haircut": {
+    "jobs": 43.0,
+    "mean": 13.1,
+    "median": 12.3,
+    "words": "Hairdressers and barbers"
+   },
+   "plumber": {
+    "jobs": 62.0,
+    "mean": 18.32,
+    "median": 18.0,
+    "words": "Plumbers & heating and ventilating installers and repairers"
+   },
+   "solicitor": {
+    "jobs": 150.0,
+    "mean": 37.18,
+    "median": 30.66,
+    "words": "Solicitors and lawyers"
+   }
+  },
+  "pay_all_employees": {
+   "jobs": 28890.0,
+   "mean": 23.11,
+   "median": 17.9,
+   "words": "All employees"
+  },
+  "region_pay": {
+   "East": {
+    "mean": 22.4,
+    "median": 17.51
+   },
+   "East Midlands": {
+    "mean": 20.2,
+    "median": 16.16
+   },
+   "London": {
+    "mean": 31.05,
+    "median": 23.4
+   },
+   "North East": {
+    "mean": 19.7,
+    "median": 15.88
+   },
+   "North West": {
+    "mean": 21.65,
+    "median": 17.25
+   },
+   "Northern Ireland": {
+    "mean": 20.27,
+    "median": 16.17
+   },
+   "Scotland": {
+    "mean": 22.68,
+    "median": 18.34
+   },
+   "South East": {
+    "mean": 22.86,
+    "median": 18.16
+   },
+   "South West": {
+    "mean": 21.32,
+    "median": 17.02
+   },
+   "Wales": {
+    "mean": 20.25,
+    "median": 16.58
+   },
+   "West Midlands": {
+    "mean": 21.27,
+    "median": 16.96
+   },
+   "Yorkshire and The Humber": {
+    "mean": 20.67,
+    "median": 16.52
+   }
+  },
+  "regional_by_item": {
+   "carpenter": {
+    "pay": 0.5111,
+    "price": 1.2142,
+    "regions": 9
+   },
+   "decorator": {
+    "pay": -0.1019,
+    "price": -0.0721,
+    "regions": 10
+   },
+   "domestic cleaner": {
+    "pay": 0.2818,
+    "price": 0.1322,
+    "regions": 10
+   },
+   "electrician": {
+    "pay": 0.2429,
+    "price": 1.5053,
+    "regions": 11
+   },
+   "home care assistant": {
+    "pay": 0.1715,
+    "price": -0.0102,
+    "regions": 11
+   },
+   "man's haircut": {
+    "pay": -0.0246,
+    "price": 0.5502,
+    "regions": 11
+   },
+   "plumber": {
+    "pay": 0.4042,
+    "price": 2.3872,
+    "regions": 11
+   },
+   "solicitor": {
+    "pay": 1.0612,
+    "price": 0.7531,
+    "regions": 10
+   }
+  },
+  "regional_grid": [
+   {
+    "cells": 83,
+    "gap": 0.505,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.3077,
+    "pay_stat": "median",
+    "price": 0.8127,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 79,
+    "gap": 0.5434,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.2922,
+    "pay_stat": "median",
+    "price": 0.8356,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 75,
+    "gap": 0.2873,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.3545,
+    "pay_stat": "median",
+    "price": 0.6417,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 71,
+    "gap": 0.4352,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.3112,
+    "pay_stat": "median",
+    "price": 0.7465,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 84,
+    "gap": 0.3902,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.3201,
+    "pay_stat": "mean",
+    "price": 0.7102,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 80,
+    "gap": 0.4213,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.3079,
+    "pay_stat": "mean",
+    "price": 0.7292,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 76,
+    "gap": 0.465,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.2268,
+    "pay_stat": "mean",
+    "price": 0.6918,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 72,
+    "gap": 0.6153,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.1814,
+    "pay_stat": "mean",
+    "price": 0.7968,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 83,
+    "gap": 0.4374,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.3077,
+    "pay_stat": "median",
+    "price": 0.7451,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 79,
+    "gap": 0.4604,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.2922,
+    "pay_stat": "median",
+    "price": 0.7526,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 75,
+    "gap": 0.1271,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.3545,
+    "pay_stat": "median",
+    "price": 0.4816,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 71,
+    "gap": 0.1996,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.3112,
+    "pay_stat": "median",
+    "price": 0.5109,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 84,
+    "gap": 0.3344,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.3201,
+    "pay_stat": "mean",
+    "price": 0.6545,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 80,
+    "gap": 0.3541,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.3079,
+    "pay_stat": "mean",
+    "price": 0.662,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 76,
+    "gap": 0.3114,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2025-04",
+    "pay": 0.2268,
+    "pay_stat": "mean",
+    "price": 0.5381,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 72,
+    "gap": 0.3952,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2025-04",
+    "pay": 0.1814,
+    "pay_stat": "mean",
+    "price": 0.5767,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 83,
+    "gap": 0.4941,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.3077,
+    "pay_stat": "median",
+    "price": 0.8018,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 78,
+    "gap": 0.5402,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.293,
+    "pay_stat": "median",
+    "price": 0.8332,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 75,
+    "gap": 0.2917,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.3545,
+    "pay_stat": "median",
+    "price": 0.6462,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 70,
+    "gap": 0.4896,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.3083,
+    "pay_stat": "median",
+    "price": 0.7979,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 84,
+    "gap": 0.3842,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.3201,
+    "pay_stat": "mean",
+    "price": 0.7042,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 79,
+    "gap": 0.4216,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.3079,
+    "pay_stat": "mean",
+    "price": 0.7295,
+    "price_stat": "median",
+    "regions": 11
+   },
+   {
+    "cells": 76,
+    "gap": 0.4796,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.2268,
+    "pay_stat": "mean",
+    "price": 0.7064,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 71,
+    "gap": 0.6764,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.1812,
+    "pay_stat": "mean",
+    "price": 0.8576,
+    "price_stat": "median",
+    "regions": 10
+   },
+   {
+    "cells": 83,
+    "gap": 0.4576,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.3077,
+    "pay_stat": "median",
+    "price": 0.7653,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 78,
+    "gap": 0.4817,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.293,
+    "pay_stat": "median",
+    "price": 0.7746,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 75,
+    "gap": -0.0135,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.3545,
+    "pay_stat": "median",
+    "price": 0.3409,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 70,
+    "gap": 0.1064,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.3083,
+    "pay_stat": "median",
+    "price": 0.4147,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 84,
+    "gap": 0.3481,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.3201,
+    "pay_stat": "mean",
+    "price": 0.6682,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 79,
+    "gap": 0.3672,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "with London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.3079,
+    "pay_stat": "mean",
+    "price": 0.6751,
+    "price_stat": "mean",
+    "regions": 11
+   },
+   {
+    "cells": 76,
+    "gap": 0.1609,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 3,
+    "month": "2026-08",
+    "pay": 0.2268,
+    "pay_stat": "mean",
+    "price": 0.3877,
+    "price_stat": "mean",
+    "regions": 10
+   },
+   {
+    "cells": 71,
+    "gap": 0.2763,
+    "items": [
+     "carpenter",
+     "decorator",
+     "domestic cleaner",
+     "electrician",
+     "home care assistant",
+     "man's haircut",
+     "plumber",
+     "solicitor"
+    ],
+    "london": "without London",
+    "min_cell": 5,
+    "month": "2026-08",
+    "pay": 0.1812,
+    "pay_stat": "mean",
+    "price": 0.4575,
+    "price_stat": "mean",
+    "regions": 10
+   }
+  ],
+  "regional_resamples": {
+   "gap": [
+    -0.3213,
+    0.9581
+   ],
+   "second_seed": [
+    -0.2815,
+    0.9239
+   ]
+  },
+  "resamples": {
+   "carpenter": {
+    "interval": [
+     1.3326,
+     1.7941
+    ],
+    "second_seed": [
+     1.3174,
+     1.781
+    ]
+   },
+   "childminder": {
+    "interval": [
+     0.3633,
+     0.4799
+    ],
+    "second_seed": [
+     0.3688,
+     0.4824
+    ]
+   },
+   "domestic cleaner": {
+    "interval": [
+     1.3049,
+     1.4255
+    ],
+    "second_seed": [
+     1.3044,
+     1.4246
+    ]
+   },
+   "driving lesson": {
+    "interval": [
+     1.5806,
+     2.4754
+    ],
+    "second_seed": [
+     1.5816,
+     2.448
+    ]
+   },
+   "electrician": {
+    "interval": [
+     1.8874,
+     2.5786
+    ],
+    "second_seed": [
+     1.8794,
+     2.5792
+    ]
+   },
+   "home care assistant": {
+    "interval": [
+     1.89,
+     2.1539
+    ],
+    "second_seed": [
+     1.8896,
+     2.1557
+    ]
+   },
+   "plumber": {
+    "interval": [
+     2.5279,
+     3.3084
+    ],
+    "second_seed": [
+     2.5173,
+     3.2998
+    ]
+   },
+   "solicitor": {
+    "interval": [
+     9.1375,
+     11.1682
+    ],
+    "second_seed": [
+     9.1509,
+     11.1943
+    ]
+   }
+  },
+  "states": {
+   "B144-D0": {
+    "problems": [],
+    "valid_quotes": {
+     "2025-04": {
+      "carpenter": 73,
+      "childminder": 134,
+      "decorator": 89,
+      "domestic cleaner": 145,
+      "driving lesson": 216,
+      "electrician": 123,
+      "home care assistant": 101,
+      "man's haircut": 248,
+      "plumber": 121,
+      "solicitor": 81
+     },
+     "2026-08": {
+      "carpenter": 66,
+      "childminder": 139,
+      "decorator": 80,
+      "domestic cleaner": 147,
+      "driving lesson": 216,
+      "electrician": 104,
+      "home care assistant": 99,
+      "man's haircut": 252,
+      "plumber": 100,
+      "solicitor": 88
+     }
+    }
+   },
+   "B144-D1": {
+    "reference": {
+     "carpenter": {
+      "over_statute": 1.0669,
+      "own_hours": 2.0449,
+      "paid": 16.98,
+      "pay_over_floor": 1.3907,
+      "posted": 25.0,
+      "taken_home_per_pound_earned": 0.3521,
+      "wedge": 1.4723
+     },
+     "domestic cleaner": {
+      "over_statute": 0.9754,
+      "own_hours": 1.8694,
+      "paid": 12.63,
+      "pay_over_floor": 1.0344,
+      "posted": 17.0,
+      "taken_home_per_pound_earned": 0.3851,
+      "wedge": 1.346
+     },
+     "driving lesson": {
+      "over_statute": 1.461,
+      "own_hours": 2.8002,
+      "paid": 19.84,
+      "pay_over_floor": 1.6249,
+      "posted": 40.0,
+      "taken_home_per_pound_earned": 0.2571,
+      "wedge": 2.0161
+     },
+     "electrician": {
+      "over_statute": 1.6018,
+      "own_hours": 3.0702,
+      "paid": 19.0,
+      "pay_over_floor": 1.5561,
+      "posted": 42.0,
+      "taken_home_per_pound_earned": 0.2345,
+      "wedge": 2.2105
+     },
+     "home care assistant": {
+      "over_statute": 1.4574,
+      "own_hours": 2.7933,
+      "paid": 13.45,
+      "pay_over_floor": 1.1016,
+      "posted": 27.05,
+      "taken_home_per_pound_earned": 0.2578,
+      "wedge": 2.0112
+     },
+     "plumber": {
+      "over_statute": 2.0129,
+      "own_hours": 3.858,
+      "paid": 18.0,
+      "pay_over_floor": 1.4742,
+      "posted": 50.0,
+      "taken_home_per_pound_earned": 0.1866,
+      "wedge": 2.7778
+     },
+     "solicitor": {
+      "over_statute": 7.2322,
+      "own_hours": 13.8617,
+      "paid": 30.66,
+      "pay_over_floor": 2.5111,
+      "posted": 306.0,
+      "taken_home_per_pound_earned": 0.0519,
+      "wedge": 9.9804
+     }
+    },
+    "states": {
+     "carpenter": "above one",
+     "domestic cleaner": "above one",
+     "driving lesson": "above one",
+     "electrician": "above one",
+     "home care assistant": "above one",
+     "plumber": "above one",
+     "solicitor": "above one"
+    }
+   },
+   "B144-D2": {
+    "reference": {
+     "childminder": {
+      "customers_to_cover_the_pay": 2.3636,
+      "paid": 13.0,
+      "posted_per_customer": 5.5,
+      "wedge": 0.4231
+     }
+    },
+    "states": {
+     "childminder": "shared and covered"
+    }
+   },
+   "B144-D3": {
+    "knob_points": [
+     {
+      "floor": 0.5322,
+      "largest": "solicitor",
+      "left_out": 0.7245,
+      "smallest": "domestic cleaner",
+      "spread": 2.0035
+     },
+     {
+      "floor": 0.4591,
+      "largest": "solicitor",
+      "left_out": 0.7831,
+      "smallest": "domestic cleaner",
+      "spread": 1.8869
+     },
+     {
+      "floor": 0.4193,
+      "largest": "solicitor",
+      "left_out": 0.8288,
+      "smallest": "domestic cleaner",
+      "spread": 2.0061
+     },
+     {
+      "floor": 0.3261,
+      "largest": "solicitor",
+      "left_out": 0.8874,
+      "smallest": "domestic cleaner",
+      "spread": 1.8894
+     },
+     {
+      "floor": 0.5674,
+      "largest": "solicitor",
+      "left_out": 0.7535,
+      "smallest": "domestic cleaner",
+      "spread": 2.0576
+     },
+     {
+      "floor": 0.4546,
+      "largest": "solicitor",
+      "left_out": 0.8121,
+      "smallest": "domestic cleaner",
+      "spread": 1.9409
+     },
+     {
+      "floor": 0.5346,
+      "largest": "solicitor",
+      "left_out": 0.8053,
+      "smallest": "domestic cleaner",
+      "spread": 2.0124
+     },
+     {
+      "floor": 0.4218,
+      "largest": "solicitor",
+      "left_out": 0.8639,
+      "smallest": "domestic cleaner",
+      "spread": 1.8958
+     }
+    ],
+    "states": [
+     "more than one wedge",
+     "more than one wedge",
+     "more than one wedge",
+     "more than one wedge",
+     "more than one wedge",
+     "more than one wedge",
+     "more than one wedge",
+     "more than one wedge"
+    ]
+   },
+   "B144-D4": {
+    "state": "unread"
+   },
+   "B144-D5": {
+    "grid": "B",
+    "state": "ours"
+   }
+  },
+  "statute": 1.38
+ },
+ "stage": "B144"
+}

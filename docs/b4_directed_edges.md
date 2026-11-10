@@ -67,10 +67,13 @@ to `ŵ`; `ω̄` is the friction and carries no agent-index content. The directed
 square splits along the same line: its two orientations sum to the friction and
 differ by twice the Theorem 1 square sum.
 
-And the case where the split is unavailable — an edge that exists in one
-direction only — is `H⁰`, not `H¹`. §5.2 states the criterion for telling which
-one is in front of you, because `b1_theorem.md` §12.1 records this project
-conflating the two once already.
+And the case where the split is unavailable, an edge that exists in one
+direction only, is `H⁰` and not `H¹` when no directed path leads back through
+other edges. §5.2 states the criterion for telling which one is in front of
+you, because `b1_theorem.md` §12.1 records this project conflating the two
+once already. A directed path that does lead back puts both ends in one strong
+component, Theorem 5 then bounds the price on both sides, and only the split of
+that pair is lost; §5.2 says so.
 
 **Update 2026-08-19: the split has been computed on real data, and both halves
 this time.** B5 could report `S − S'` and never `S + S'`, because no source for
@@ -78,8 +81,17 @@ the official rate's spread survived audit (`results/b5_friction.json`), which is
 §5.2's one-way case arriving in practice. B13's carrier quotes all four legs
 natively, so on CME calendar spreads the implied book supplies one pair and the
 directly quoted book the other. **Over 49,116 states the friction half is never
-positive**, which is Theorem 6(1) and, through Theorem 4, the statement that
-`P(ω)` is non-empty at every one of them.
+positive**, which is Theorem 6(1), **and the bound `|S − S'| ≤ −(S + S')` of
+Theorem 6(4) holds at every one of them**, so both loops that cross the two books
+are non-positive. Through Theorem 4 that is the statement that `P(ω)` is non-empty
+at every state. The sum alone would not carry it: `S = 3`, `S' = −5` sums to `−2`
+and holds a positive loop.
+These readings are additive: the legs are prices in ticks, because a calendar
+spread can trade below zero and has no logarithm. `S + S'` is minus the sum of
+the two quoted spreads and `S − S'` is twice the difference of the two arithmetic
+mids, so the log form of §5.1's quoted terms, and with it Theorem 6(5)'s
+geometric-mid term, does not enter. Theorems 4 and 6(4) hold for any edge
+weight and read the same in these units.
 **§5.1's invariance claim is still unmeasured** and
 needs a dated friction change meeting the three conditions of §9, one of which
 is that it must not work by coarsening the price grid; see §9.
@@ -302,8 +314,9 @@ are non-negative. Equality holds iff `S S' = 0`. ∎
   `rho` **falls** when a common friction widens. Friction leaking into the index
   predicts `rho` stays put.
 
-Checked in code as B4-9 and measured on B13's carrier: 49,116 states, zero
-violations, `rho` median `0.2000`, and no state at `rho = 1`.
+Checked in code as B4-9 and measured on B13's carrier, in its additive tick
+units (§0): 49,116 states, zero violations, `rho` median `0.2000`, and no state
+at `rho = 1`.
 
 **This is the reduction check the repository demands**: a generalisation that
 does not reproduce the special case is not a generalisation. Setting `ω̄ ≡ 0`
@@ -381,7 +394,10 @@ logarithm of a product. The second term is zero iff `(s_a/2M_a)^2 =
 to be true. It is not "the same rule was imposed on both classes", and it is not
 "the same number of cents". It is equal spread as a fraction of the level. A rule
 that binds both classes but that each realises at a different relative spread
-moves `S - S'` with no change in either class's antisymmetric term.
+moves `S - S'` with no change in either class's arithmetic mid. The antisymmetric
+term is the log of the geometric mid, and at a fixed arithmetic mid it moves with
+the relative spread: at a mid of 20, widening one class from 0.01 to 0.03 moves
+its term by `2.5e-7` and the index by `5.0e-7`.
 
 **The leak is bounded a priori.** With `M_a = M_b = M` and `s << M`,
 
@@ -497,7 +513,15 @@ So the criterion for which failure is in front of you is mechanical:
 | what is observed | which object | what may be reported |
 |---|---|---|
 | both directions quoted, spread present | `H¹` with friction | `S − S'`, with `S + S'` beside it |
-| one direction only, for some class | `H⁰` | reachability, and the one-sided bound of Theorem 5 |
+| one direction only, for some class, and no directed path leads back | `H⁰` | reachability, and the one-sided bound of Theorem 5 |
+| one direction only, for some class, and a directed path leads back through other edges | one strong component; the split of that pair is still unavailable | reachability of the direct edge, and the two-sided interval of Theorem 5 that the return path gives |
+
+A missing reverse quote makes the split of that pair unavailable. It does not by
+itself leave the price bounded on one side. Three positions with edges `0→1` at
+1, `1→2` at 1 and `2→0` at −3 have no pair quoted both ways and are one strong
+component, and `φ₁ − φ₀` lies in `[1, 2]`; with the third edge at −2 the interval
+is the point 1. The one-sided bound is read only after the return path has been
+looked for.
 
 A number computed from a one-way edge by *imputing* the missing direction — from
 another class's quote, from a lagged quote, from a model — has imputed exactly
@@ -521,8 +545,10 @@ exists in the local's slice and not in the foreigner's. This breaks the product
 structure in the position factor: `Γ` is no longer `G □ H` for any single `G`,
 because the slices are not isomorphic.
 
-**Both are `H⁰` statements and Theorem 5 applies to either**, since Theorem 5
-assumes only a directed graph. What neither supports is Theorem 2's splitting:
+**Both are `H⁰` statements wherever no directed path leads back, and Theorem 5
+applies to either**, since Theorem 5 assumes only a directed graph; where a path
+does lead back through other edges, the third row of §5.2's table applies. What
+neither supports is Theorem 2's splitting:
 the directed cycles of a graph form a **cone**, not a vector space, and a cone
 does not decompose as a direct sum. So **Theorem 2 does not generalise**, and the
 slice-versus-square accounting is available only after the split of §5 has been
@@ -546,9 +572,11 @@ reachability produces both an `H⁰` separation and a non-zero `H¹`.
 existence condition is strictly **weaker**. A sub-potential is easier to find in
 the directed world, not harder.
 
-**The second clause is half right.** One-way reachability produces `H⁰`
-separation, and Theorem 5 makes that precise and gives it a one-sided price
-bound. It does **not** by itself produce a non-zero `H¹`. What it produces that
+**The second clause is half right.** One-way reachability, meaning that no
+directed path leads back, produces `H⁰` separation, and Theorem 5 makes that
+precise and gives it a one-sided price bound; an edge quoted one way inside a
+strong component is bounded on both sides by the path that returns. It does
+**not** by itself produce a non-zero `H¹`. What it produces that
 looks like one is the friction term `ω̄`, which is sign-constrained by
 no-arbitrage and is fully compatible with a sub-potential existing. §5.1
 separates the two and §5.2 gives the criterion.
@@ -579,11 +607,11 @@ dispersion.
 | Theorem 4, both directions | `sub_potential` vs `worst_directed_cycle` | Bellman-Ford, which never sees a cycle, against brute-force enumeration of every simple directed cycle, which never builds a potential |
 | Theorem 4, validity | `violation` | every edge satisfies the inequality |
 | Theorem 5, unbounded | `sink_component`, `ray_is_valid` | `φ + t·1_S ∈ P(ω)` over a grid of `t`, by direct verification |
-| Theorem 5, bounded | `potential_interval`, `shift_breaks` | strongly connected: every coordinate interval finite, non-empty, and containing the returned potential; and every proper subset shift breaks |
+| Theorem 5, bounded | `potential_interval`, `shift_breaks` | strongly connected: every coordinate interval finite, non-empty, and containing the returned potential; and the shift of a random proper subset of each size 1, n/2 and n−1 breaks |
 | Theorem 6 (1) | `split` | `ω̄ ≤ 0` on every two-way edge whenever a sub-potential exists |
 | Theorem 6 (3), **the reduction** | `from_antisymmetric` vs `potential_from_cochain` | on an antisymmetric field the directed machinery reproduces Theorem 1's potential **bitwise** |
 | §5.1 | `directed_square` | `S ± S'` as directed cycle sums, against `ŵ` and `ω̄` computed separately |
-| §5.1 invariance | `directed_square` | a spread common to both classes moves `S + S'` and leaves `S − S'` unchanged |
+| §5.1 invariance | `directed_square` | a log friction common to both classes, that is an equal relative spread in Theorem 6(5)'s sense, moves `S + S'` and leaves `S − S'` unchanged |
 | Corollary 6.1, the identity | `split`, `simple_directed_cycles` | `S ± S'` against `ŵ` and `ω̄` on cycles of every length the enumerator produces, not only on the square |
 | Corollary 6.1, the degenerate cell | `sub_potential` | a field whose friction is identically zero and whose index part is not: no sub-potential exists, so reading the ratio as zero there is forced rather than conventional |
 | Corollary 6.1, the equivalence | `split`, `sub_potential` | the ratio sits at machine precision on an exact antisymmetric part however wide the symmetric friction, and is non-zero both when that part is not exact and when the friction is drawn separately for each leg |
@@ -623,7 +651,7 @@ representation.
 | B4-1 Theorem 4 both ways | 24 graphs, 0 disagreements; 5 admit a sub-potential, 19 carry a positive cycle |
 | B4-2 the potential is valid | worst breach `0.000e+00` |
 | B4-3 the unbounded ray | 31 graphs with a proper sink; worst violation `1.18e-11` at shifts up to `1e6` |
-| B4-4 strong connectivity bounds | 24 graphs; every proper subset breaks; every coordinate interval finite, non-empty, containing the returned potential; widest `2.055` |
+| B4-4 strong connectivity bounds | 24 graphs; a random proper subset of each size 1, n/2 and n−1 breaks in every graph; every coordinate interval finite, non-empty, containing the returned potential; widest `2.055` |
 | B4-5 `ω̄ ≤ 0` | worst `−4.28e-04` over 24 fields |
 | B4-6 **the reduction** | 12 fields, **0 byte-level mismatches** |
 | B4-7 the square splits | worst residual `1.11e-15` over 226 squares |
@@ -675,7 +703,7 @@ measurement and are restated here so this section is not read as more than it is
   2. **common in the Theorem 6(5) sense: the two classes' RELATIVE spreads must
      change equally.** A rule imposed identically on both classes but realised at
      different relative spreads moves `S - S'` through the geometric mid, with no
-     change in either class's antisymmetric term;
+     change in either class's arithmetic mid;
   3. **the friction change must not quantise the price grid.** `S - S'` is a
      difference of price levels. A friction change that works BY coarsening the
      grid moves those levels onto a lattice, and the lattice does the moving.
@@ -700,7 +728,8 @@ measurement and are restated here so this section is not read as more than it is
   `CLU3-CLV3` gives **716 of 716** states with the index exactly zero wherever
   parity allowed it, so on that edge the two books are **one class**; `RBU3-RBX3`
   and `RBU3-RBV3` take the zero in only 4.5% and 8.2% of the states where it was
-  available and their non-zero residual is 97.5% and 98.9% one-signed, so on
+  available and their non-zero residual is 75.3% and 98.9% one-signed (1,423 of
+  1,890 and 1,721 of 1,740), so on
   those two edges they are **two classes** and the §13 measurement supports a
   claim about `ŵ` there; the five remaining CL edges sit between. **The interpretive question is settled too, on 2026-08-19**: a class is
   defined by behaviour and by the feasible decision set, **not** by whether a

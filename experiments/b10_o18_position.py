@@ -20,8 +20,12 @@ Two confounds, both handled by stratifying rather than by correcting
 * **Length.** §35.4 just measured that short loans freeze more, and a short
   loan's pairs are nearly all "start" and "end" by construction. Comparing
   positions without stratifying compares lengths. So the comparison happens
-  **inside a band of loans with the same number of pairs**, where every loan
-  contributes the same count to each bucket.
+  **inside a band of loans of similar length**. Each loan gives three pairs to
+  `start` and three to `end`, and `n - 6` to `middle`, so inside a band the
+  middle rate weights a loan by its length and the two ends weight every loan
+  the same. Weighting the middle per loan as well flips one band's sign
+  (age >= 8, still reporting, 7-12, end: -0.00142 to +0.00008) and leaves every
+  row's verdict where it was.
 * **Calendar.** §33.3 measured the frozen rate falling over time, and a loan's
   end is later than its start. That pushes the end **down**, so an end that
   still reads high is reading high against the confound; an end that reads low
@@ -69,6 +73,12 @@ P_ZEROBAL = 8
 #: `MIN_AGE`, same number and same reason: age 7 is the first cent-reported
 #: month, so the 6->7 step mixes a rounded side with an exact one and the first
 #: usable difference is 7 -> 8.
+#:
+#: So a pair is kept when its earlier side is at age >= `min_age - 1` and its
+#: later side at age >= `min_age`: with 8 the first pair kept is 7 -> 8. The
+#: same split is used by `b10_o18_assistance.py`, `b10_o18_null.py` and the
+#: cross-check in `b10_c8_1d_freddie.py`, so the four records share one
+#: population.
 DEFAULT_MIN_AGE = 8
 
 WINDOWS = (("pre_crisis", 0, 2008), ("hamp", 2009, 2016), ("flex", 2017, 2019),
@@ -134,9 +144,10 @@ def classify(rows, min_age: int = 0) -> dict:
     which is §32.2's definition unchanged.
 
     `min_age` applies §37.3's discriminant: **both** sides of the pair must be
-    at or above it, because a pair spanning the grid boundary has one rounded
-    balance and one exact one, which is the same trap §12.3 named on the 6 -> 7
-    step. **Positions are computed after the filter**, so "start" means the
+    cent-reported, so the earlier side is at age >= `min_age - 1` and the later
+    at age >= `min_age` (the first usable difference is 7 -> 8), because a pair
+    spanning the grid boundary has one rounded balance and one exact one, which
+    is the same trap §12.3 named on the 6 -> 7 step. **Positions are computed after the filter**, so "start" means the
     start of what survives, and that is the point: if the grid is the whole
     story, the surviving start is no longer special.
     """
@@ -146,7 +157,7 @@ def classify(rows, min_age: int = 0) -> dict:
         p1, u1, _, a1 = rows[i]
         if p1 != next_period(p0) or not (u0 > 0 and u1 > 0):
             continue
-        if min_age and (a0 < min_age or a1 < min_age):
+        if min_age and (a0 < min_age - 1 or a1 < min_age):
             continue
         pairs.append((p1, u0 == u1))
     terminated = any(z for _, _, z, _ in rows)
@@ -420,11 +431,11 @@ def cmd_selftest() -> int:
         classify(L2)["n"], 3)
     L3 = [(200001, 100.0, False, 1), (200003, 100.0, False, 3)]
     chk("    a calendar gap kills the pair", classify(L3)["n"], 0)
-    chk("    min_age drops a pair with either side below it",
-        classify(L, min_age=3)["n"], 1)
+    chk("    min_age=3 keeps 2 -> 3 and 3 -> 4, drops 1 -> 2",
+        classify(L, min_age=3)["n"], 2)
     chk("    and positions are computed after the filter",
         classify(L, min_age=3)["pairs"][0][0], "start")
-    print("    (both sides must clear the age, because a pair straddling the\n"
+    print("    (both sides must be cent-reported, because a pair straddling the\n"
           "     grid boundary has one rounded balance and one exact one --\n"
           "     the same trap §12.3 named on the 6 -> 7 step)")
 

@@ -6,7 +6,7 @@
       "passed": true
     },
     {
-      "detail": "the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs section 6.2",
+      "detail": "the registered shape is wrong. On D_fixed, the estimator it names, over its interior points s = 0.01, 0.02, 0.05 the rank correlation of both against s is negative in 8/20 seeds in the uniform arm and 12/20 in the preferential one, not at every seed. Not a gradient: a step at the first grid point, on D_fixed both +20.1927 to -0.2439 and +20.6382 to +0.7422; on D_reach the same step reads +18.9854 to -0.1157 and stays flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs sections 6.2 and 11.1",
       "name": "A7-A-2",
       "passed": false
     },
@@ -22,7 +22,7 @@
       "passed": false
     },
     {
-      "detail": "the identity does not hold on the measured population. Mean |loop sum| over the fixed production layer rises before it falls, to 1.44 times its s = 0 value in the uniform arm and 4.13 in the preferential one; docs section 6 changelog",
+      "detail": "the identity does not hold on the measured population. Mean |loop sum| over the fixed production layer rises before it falls. On the mean of the 20 seeds its peak over the grid is 1.29 times its s = 0 value in the uniform arm and 4.39 in the preferential one, the mean rising at 5 and 10 of 16 steps; 20 and 20 of 20 seeds rise above their own s = 0 value. Per seed, 20 and 20 of 20 seeds rise by more than section 2.6's tolerance (0.62% of the seed's own s = 0 value) at some step, 106 and 191 steps, each named in results/a7_loop_sum_by_seed.json. The first seed alone, which is what the grid records carry, peaks at 1.44 and 4.13; docs section 9, changelog entry of 2026-08-16",
       "name": "A7-A-5",
       "passed": false
     },
@@ -32,7 +32,7 @@
       "passed": false
     },
     {
-      "detail": "unreadable. d(K, s) is sign-unstable at every grid point including s = 0, where the mean is -0.00039 against a range of [-0.0020, +0.0010] that straddles zero. A quantity with no sign has no magnitude to trend. This is A4-4's position on a different estimator; docs section 13.1",
+      "detail": "unreadable. d(K, s) is sign-unstable at 9 of the 9 grid points leg B ran, including s = 0, where the mean is -0.00039 against a range of [-0.0020, +0.0010] that straddles zero. A quantity with no sign has no magnitude to trend. This is A4-4's position on a different estimator; docs section 13.1",
       "name": "A7-B-1",
       "passed": false,
       "void": true
@@ -49,18 +49,18 @@
       "passed": true
     },
     {
-      "detail": "both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3",
+      "detail": "both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. P1 in both arms and P2 in both arms carry every one of the 9 points leg B ran (9 to 9 points per record). Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3",
       "name": "A7-B-4",
       "passed": true
     },
     {
-      "detail": "I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5",
+      "detail": "I and M recorded as not run on leg B's grid, on section 5.2's ruling that they are unreadable for direction. The further reason once given here, that above s = 0.02 a one-off transfer leaves nothing after a generation and so their effects are identically zero, does not hold: what vanishes is the memory of a perturbation, and the two switches act on current holdings through the demographic layer. At s = 0.5 in the uniform arm the switch cells end on other holdings than the control in 20 and 20 of 20 seeds, production-layer log(1/HHI) -0.0548 for I and -0.0540 for M, negative in 20 and 20 seeds. Either switch also turns on the demographic layer, so that is the switch cell against the control and not an effect of inheritance or mating alone; docs sections 12.1 and 13.5",
       "name": "A7-B-5",
       "passed": false,
       "void": true
     }
   ],
-  "note": "One pre-registration with two legs. The measurement records carry diagnostic_only because section 4.2's scored estimator is computed under a flag rather than by default; this sheet carries the verdicts and is assembled from those records by experiments/a7_continuous_c.py --verdicts.",
+  "note": "One pre-registration with two legs. The measurement records carry diagnostic_only because section 4.2's scored estimator is computed under a flag rather than by default; this sheet carries the verdicts and is assembled from those records by experiments/a7_continuous_c.py --verdicts. Leg B ran on 9 of leg A's 17 grid points; the points leg A has and leg B does not are 0.15, 0.3, 0.4, 0.6, 0.7, 0.8, 0.95, 0.99.",
   "rounds": 300,
   "seeds": 20,
   "stage": "A7"

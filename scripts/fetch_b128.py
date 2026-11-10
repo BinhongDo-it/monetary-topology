@@ -9,9 +9,12 @@ One request per product shape takes every reference area at once (the key's area
 empty), so the whole MIR pull is ten requests. The two borrowing tables are one request each.
 
 Rules this obeys:
-  - resumable: a file already on disk that passes the checks below is skipped
-  - detects truncation: every row must have as many fields as the header, and the series in the
-    file must be the series the key list says exist; a file that fails is renamed, never deleted
+  - resumable: a file already on disk is skipped when it is the file the manifest recorded: the same
+    bytes and SHA-256, and the same series with the same first and last period and row count
+  - detects truncation: every row must have as many fields as the header; a new download must carry
+    exactly the series a separate series-keys-only request for the same key lists (the reply's own
+    series cannot show that none is missing); a file that fails is renamed, never deleted
+  - `--check` only reports: it writes neither the manifest nor the timings
   - measured cost: every request is timed and the times are written to timings.json (`D38`)
   - enumerates before it chooses (`D12`): the product list is the one written in the design
     after the key list was read, and a shape an area does not publish is named, not guessed at
@@ -27,6 +30,7 @@ import csv
 import hashlib
 import io
 import json
+import tempfile
 import time
 import urllib.error
 import urllib.request
@@ -67,6 +71,46 @@ TABLES = {
 
 def url_of(flow: str, key: str) -> str:
     return f"{API}/{flow}/{key}?startPeriod={START}&format=csvdata"
+
+
+def keys_url(flow: str, key: str) -> str:
+    return f"{API}/{flow}/{key}?startPeriod={START}&detail=serieskeysonly&format=csvdata"
+
+
+def key_list(text: str) -> set[str]:
+    rows = list(csv.reader(io.StringIO(text)))
+    if not rows or "KEY" not in rows[0]:
+        return set()
+    i = rows[0].index("KEY")
+    return {r[i] for r in rows[1:] if len(r) > i and r[i]}
+
+
+def matches_manifest(body: bytes, entry: dict) -> tuple[bool, str]:
+    """The file on disk is the one the manifest recorded: bytes, SHA-256, and per series first, last and rows."""
+    if len(body) != entry.get("bytes"):
+        return False, f"{len(body)} bytes against the manifest's {entry.get('bytes')}"
+    if hashlib.sha256(body).hexdigest() != entry.get("sha256"):
+        return False, "SHA-256 differs from the manifest"
+    ok, why, span = check(body.decode("utf-8", errors="replace"))
+    if not ok:
+        return False, why
+    want = {k: list(v) for k, v in entry.get("series", {}).items()}
+    got = {k: list(v) for k, v in span.items()}
+    if got != want:
+        gone, new = sorted(set(want) - set(got)), sorted(set(got) - set(want))
+        moved = sorted(k for k in set(want) & set(got) if want[k] != got[k])
+        return False, f"series differ from the manifest: {len(gone)} missing, {len(new)} new, {len(moved)} with other span or rows"
+    return True, f"{why}, as recorded"
+
+
+def matches_keys(span: dict, expected: set[str]) -> tuple[bool, str]:
+    """A new download carries exactly the series the separate key list names."""
+    if not expected:
+        return False, "the series-keys-only request returned no keys"
+    gone, extra = sorted(expected - set(span)), sorted(set(span) - expected)
+    if gone or extra:
+        return False, f"{len(gone)} listed series missing (first {gone[:3]}), {len(extra)} not listed"
+    return True, f"all {len(expected)} listed series present"
 
 
 def get(url: str) -> tuple[bytes, float]:
@@ -114,7 +158,10 @@ def run(only_check: bool) -> int:
     for name, (flow, key) in TABLES.items():
         path = RAW / f"{name}.csv"
         if path.exists():
-            ok, why, span = check(path.read_text(encoding="utf-8", errors="replace"))
+            if name in manifest:
+                ok, why = matches_manifest(path.read_bytes(), manifest[name])
+            else:
+                ok, why = False, "no manifest entry, so nothing says the file is whole"
             if ok:
                 print(f"  have {name}: {why}")
                 continue
@@ -129,6 +176,7 @@ def run(only_check: bool) -> int:
             continue
         url = url_of(flow, key)
         try:
+            kbody, ksecs = get(keys_url(flow, key))
             body, secs = get(url)
         except (urllib.error.URLError, TimeoutError, OSError) as e:
             print(f"  {name}: request failed ({e}); re-run to resume")
@@ -136,18 +184,24 @@ def run(only_check: bool) -> int:
             continue
         text = body.decode("utf-8", errors="replace")
         ok, why, span = check(text)
+        expected = key_list(kbody.decode("utf-8", errors="replace"))
+        if ok:
+            ok, why = matches_keys(span, expected)
         timings[f"fetch {name}"] = {"seconds": secs, "bytes": len(body)}
+        timings[f"keys {name}"] = {"seconds": ksecs, "bytes": len(kbody)}
         if not ok:
             print(f"  {name}: fetched but fails ({why}); not written")
             bad += 1
             continue
         path.write_bytes(body)
         manifest[name] = {"url": url, "bytes": len(body), "sha256": hashlib.sha256(body).hexdigest(),
-                          "fetched": time.strftime("%Y-%m-%d"), "series": {k: v for k, v in sorted(span.items())}}
+                          "fetched": time.strftime("%Y-%m-%d"), "series": {k: v for k, v in sorted(span.items())},
+                          "keys_url": keys_url(flow, key), "keys_listed": len(expected)}
         print(f"  got {name}: {why}, {secs} s, {len(body)} bytes")
         time.sleep(PAUSE)
-    man_path.write_text(json.dumps(manifest, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
-    tim_path.write_text(json.dumps(timings, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    if not only_check:
+        man_path.write_text(json.dumps(manifest, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+        tim_path.write_text(json.dumps(timings, indent=1, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     return 1 if bad else 0
 
 
@@ -159,6 +213,44 @@ def selftest() -> None:
     assert not check("KEY,TIME_PERIOD,OBS_VALUE\n")[0]  # header only
     assert not check("<html>error</html>\n<p>x</p>\n")[0]  # an error page
     assert len(TABLES) == len(SHAPES) + 7
+
+    # a cached file is whole only if it is the file the manifest recorded
+    rows = ["KEY,TIME_PERIOD,OBS_VALUE"] + [f"{k},{2003 + i // 12}-{i % 12 + 1:02d},{i / 10:.1f}"
+                                             for k in ("A", "B", "C") for i in range(40)]
+    whole = ("\n".join(rows) + "\n").encode()
+    _, _, span = check(whole.decode())
+    entry = {"bytes": len(whole), "sha256": hashlib.sha256(whole).hexdigest(), "series": span}
+    assert matches_manifest(whole, entry)[0]
+    cut_row = ("\n".join(rows[:-1]) + "\n").encode()                        # the last whole row gone
+    no_c = ("\n".join(r for r in rows if not r.startswith("C,")) + "\n").encode()   # a whole series gone
+    head = ("\n".join(rows[:31]) + "\n").encode()                           # only the first rows
+    for bad in (cut_row, no_c, head):
+        assert check(bad.decode())[0], "each of these passes the structural check alone"
+        assert not matches_manifest(bad, entry)[0]
+    same_len = whole.replace(b"A,2003-01,0.0", b"A,2003-01,0.1", 1)         # one digit, same length
+    assert len(same_len) == len(whole) and not matches_manifest(same_len, entry)[0]
+    # a series whose span or count moved, with the manifest's bytes and hash forged to match
+    _, _, span_c = check(cut_row.decode())
+    forged = {"bytes": len(cut_row), "sha256": hashlib.sha256(cut_row).hexdigest(), "series": span}
+    assert span_c != span and not matches_manifest(cut_row, forged)[0]
+
+    # a new download carries exactly the listed series
+    assert key_list("KEY,FREQ\nA,M\nB,M\nC,M\n") == {"A", "B", "C"}
+    assert matches_keys(span, {"A", "B", "C"})[0]
+    assert not matches_keys(span, {"A", "B", "C", "D"})[0]                 # one listed series never arrived
+    assert not matches_keys(span, {"A", "B"})[0]                           # one arrived that is not listed
+    assert not matches_keys(span, set())[0]                                # an empty key list proves nothing
+
+    # --check writes neither the manifest nor the timings
+    global RAW
+    saved = RAW
+    with tempfile.TemporaryDirectory() as d:
+        RAW = Path(d)
+        (RAW / "manifest.json").write_text("{}\n", encoding="utf-8")
+        before = (RAW / "manifest.json").read_bytes()
+        assert run(only_check=True) == 1
+        assert (RAW / "manifest.json").read_bytes() == before and not (RAW / "timings.json").exists()
+    RAW = saved
     print("selftest ok")
 
 

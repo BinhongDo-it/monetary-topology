@@ -12,6 +12,7 @@
    "household deposits": true,
    "loans": false
   },
+  "dose": "FM.B.U2.EUR.4F.KR.DFR.CHG summed by calendar month",
   "end": "2023-12",
   "groups": {
    "corporate deposits": [
@@ -37,18 +38,22 @@
     "A2D_F_R_A_2250"
    ]
   },
-  "rival_slope": 0.8,
-  "ruling": "ECB speech 2016-07-28, data/raw/b128/lit/ecb_praet_20160728.html",
+  "rival_q": {
+   "2022-11": 1.25,
+   "2022-12": 0.8,
+   "2023-01": 0.8
+  },
+  "ruling": "ECB speech by Beno\u00eet C\u0153ur\u00e9, 2016-07-28, cached as data/raw/b128/lit/ecb_praet_20160728.html",
   "start": "2022-06"
  },
  "criteria": [
   {
-   "detail": "2022-11: R1 0.4615 (floor 0.6175), R2 0.9458 (floor 0.7892), rho -0.0318 slope -0.0652 (dose-free 5-95% [-0.5656, 0.4419]) -> neither; 2022-12: R1 0.5999 (floor 0.6368), R2 0.8494 (floor 0.7825), rho -0.0015 slope -0.0022 (dose-free 5-95% [-0.5173, 0.4089]) -> neither; 2023-01: R1 0.6312 (floor 0.672), R2 0.8183 (floor 0.7969), rho 0.0113 slope 0.0147 (dose-free 5-95% [-0.5368, 0.4317]) -> neither",
+   "detail": "2022-11: R1 0.4615 (floor 0.6175), R2 0.9458 (floor 0.7892), rho -0.0318 slope -0.0652 (dose-free 5-95% [-0.5656, 0.4419]), q 1.25, residual 1.1234 (dose-free max 1.3548) -> neither; 2022-12: R1 0.5999 (floor 0.6368), R2 0.8494 (floor 0.7825), rho -0.0015 slope -0.0022 (dose-free 5-95% [-0.5173, 0.4089]), q 0.8, residual 0.9762 (dose-free max 1.1016) -> neither; 2023-01: R1 0.6312 (floor 0.672), R2 0.8183 (floor 0.7969), rho 0.0113 slope 0.0147 (dose-free 5-95% [-0.5368, 0.4317]), q 0.8, residual 0.9567 (dose-free max 1.2671) -> neither",
    "grid": "both_unmet",
    "kind": "rival",
    "name": "B128-6",
    "passed": true,
-   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so across 2022-12 to 2023-12 (+2.00) it moves +0.80 times what it moved across 2022-06 to 2022-12 (+2.50)",
+   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so after the boundary it moves q times what it moved before it, q the policy change after over that before: 2022-11 1.25, 2022-12 0.80, 2023-01 0.80",
    "rival_premise": "pass-through coefficients to the policy rate differ by country and product, and are the same in every part of a cycle",
    "rival_shape": "point prediction",
    "state": "neither shape at every boundary",
@@ -58,15 +63,15 @@
     "neither shape at every boundary": "pass, grid both_unmet (both sides read, neither held)",
     "rival shape at every boundary": "fail, grid C"
    },
-   "statement": "loans: the rival's +0.80 does not hold; the framework's registered shape is both parts inside their floors, part 2 unrelated to part 1"
+   "statement": "loans: the rival's part 2 = q x part 1 does not hold; the framework's registered shape is both parts inside their floors, part 2 unrelated to part 1"
   },
   {
-   "detail": "2022-11: R1 0.2512 (floor 0.1976), R2 0.3444 (floor 0.1971), rho -0.0105 slope -0.0144 (dose-free 5-95% [-0.4034, 0.3109]) -> neither; 2022-12: R1 0.2805 (floor 0.202), R2 0.3235 (floor 0.1924), rho -0.0189 slope -0.0219 (dose-free 5-95% [-0.4061, 0.3313]) -> neither; 2023-01: R1 0.3008 (floor 0.2151), R2 0.3096 (floor 0.1959), rho -0.0346 slope -0.0356 (dose-free 5-95% [-0.4136, 0.3162]) -> neither",
+   "detail": "2022-11: R1 0.2512 (floor 0.1976), R2 0.3444 (floor 0.1971), rho -0.0105 slope -0.0144 (dose-free 5-95% [-0.4034, 0.3109]), q 1.25, residual 0.4685 (dose-free max 0.3534) -> neither; 2022-12: R1 0.2805 (floor 0.202), R2 0.3235 (floor 0.1924), rho -0.0189 slope -0.0219 (dose-free 5-95% [-0.4061, 0.3313]), q 0.8, residual 0.3972 (dose-free max 0.2689) -> neither; 2023-01: R1 0.3008 (floor 0.2151), R2 0.3096 (floor 0.1959), rho -0.0346 slope -0.0356 (dose-free 5-95% [-0.4136, 0.3162]), q 0.8, residual 0.3987 (dose-free max 0.285) -> neither",
    "grid": "both_unmet",
    "kind": "rival",
    "name": "B128-7",
    "passed": true,
-   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so across 2022-12 to 2023-12 (+2.00) it moves +0.80 times what it moved across 2022-06 to 2022-12 (+2.50)",
+   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so after the boundary it moves q times what it moved before it, q the policy change after over that before: 2022-11 1.25, 2022-12 0.80, 2023-01 0.80",
    "rival_premise": "pass-through coefficients to the policy rate differ by country and product, and are the same in every part of a cycle",
    "rival_shape": "point prediction",
    "state": "neither shape at every boundary",
@@ -76,15 +81,15 @@
     "neither shape at every boundary": "pass, grid both_unmet (both sides read, neither held)",
     "rival shape at every boundary": "fail, grid C"
    },
-   "statement": "deposits: the rival's +0.80 does not hold; the framework's registered shape is part 1 above its floor, part 2 inside it, part 2 unrelated to part 1"
+   "statement": "deposits: the rival's part 2 = q x part 1 does not hold; the framework's registered shape is part 1 above its floor, part 2 inside it, part 2 unrelated to part 1"
   },
   {
-   "detail": "2022-11: R1 0.233 (floor 0.203), R2 0.2863 (floor 0.2105), rho -0.0461 slope -0.0566 (dose-free 5-95% [-0.4558, 0.4103]) -> neither; 2022-12: R1 0.2758 (floor 0.21), R2 0.2966 (floor 0.2084), rho -0.2073 slope -0.2229 (dose-free 5-95% [-0.4643, 0.4132]) -> neither; 2023-01: R1 0.3061 (floor 0.2231), R2 0.2914 (floor 0.2136), rho -0.2716 slope -0.2585 (dose-free 5-95% [-0.4485, 0.3933]) -> neither",
+   "detail": "2022-11: R1 0.233 (floor 0.203), R2 0.2863 (floor 0.2105), rho -0.0461 slope -0.0566 (dose-free 5-95% [-0.4558, 0.4103]), q 1.25, residual 0.4177 (dose-free max 0.3085) -> neither; 2022-12: R1 0.2758 (floor 0.21), R2 0.2966 (floor 0.2084), rho -0.2073 slope -0.2229 (dose-free 5-95% [-0.4643, 0.4132]), q 0.8, residual 0.4047 (dose-free max 0.2373) -> neither; 2023-01: R1 0.3061 (floor 0.2231), R2 0.2914 (floor 0.2136), rho -0.2716 slope -0.2585 (dose-free 5-95% [-0.4485, 0.3933]), q 0.8, residual 0.4285 (dose-free max 0.2501) -> neither",
    "grid": "both_unmet",
    "kind": "rival",
    "name": "B128-8",
    "passed": true,
-   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so across 2022-12 to 2023-12 (+2.00) it moves +0.80 times what it moved across 2022-06 to 2022-12 (+2.50)",
+   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so after the boundary it moves q times what it moved before it, q the policy change after over that before: 2022-11 1.25, 2022-12 0.80, 2023-01 0.80",
    "rival_premise": "pass-through coefficients to the policy rate differ by country and product, and are the same in every part of a cycle",
    "rival_shape": "point prediction",
    "state": "neither shape at every boundary",
@@ -94,15 +99,15 @@
     "neither shape at every boundary": "pass, grid both_unmet (both sides read, neither held)",
     "rival shape at every boundary": "fail, grid C"
    },
-   "statement": "household deposits: the rival's +0.80 does not hold; the framework's registered shape is part 1 above its floor, part 2 inside it, part 2 unrelated to part 1"
+   "statement": "household deposits: the rival's part 2 = q x part 1 does not hold; the framework's registered shape is part 1 above its floor, part 2 inside it, part 2 unrelated to part 1"
   },
   {
-   "detail": "2022-11: R1 0.2188 (floor 0.1666), R2 0.257 (floor 0.2171), rho -0.3241 slope -0.3807 (dose-free 5-95% [-0.5906, 0.5398]) -> neither; 2022-12: R1 0.2345 (floor 0.2017), R2 0.2324 (floor 0.1879), rho -0.2891 slope -0.2866 (dose-free 5-95% [-0.5853, 0.5566]) -> neither; 2023-01: R1 0.2388 (floor 0.1703), R2 0.22 (floor 0.1909), rho -0.2661 slope -0.2451 (dose-free 5-95% [-0.5758, 0.4852]) -> neither",
+   "detail": "2022-11: R1 0.2188 (floor 0.1666), R2 0.257 (floor 0.2171), rho -0.3241 slope -0.3807 (dose-free 5-95% [-0.5906, 0.5398]), q 1.25, residual 0.4318 (dose-free max 0.3375) -> neither; 2022-12: R1 0.2345 (floor 0.2017), R2 0.2324 (floor 0.1879), rho -0.2891 slope -0.2866 (dose-free 5-95% [-0.5853, 0.5566]), q 0.8, residual 0.3383 (dose-free max 0.3078) -> neither; 2023-01: R1 0.2388 (floor 0.1703), R2 0.22 (floor 0.1909), rho -0.2661 slope -0.2451 (dose-free 5-95% [-0.5758, 0.4852]), q 0.8, residual 0.3276 (dose-free max 0.3014) -> neither",
    "grid": "both_unmet",
    "kind": "rival",
    "name": "B128-9",
    "passed": true,
-   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so across 2022-12 to 2023-12 (+2.00) it moves +0.80 times what it moved across 2022-06 to 2022-12 (+2.50)",
+   "rival_entailment": "each cell moves by its interaction coefficient times the dose, so after the boundary it moves q times what it moved before it, q the policy change after over that before: 2022-11 1.25, 2022-12 0.80, 2023-01 0.80",
    "rival_premise": "pass-through coefficients to the policy rate differ by country and product, and are the same in every part of a cycle",
    "rival_shape": "point prediction",
    "state": "neither shape at every boundary",
@@ -112,7 +117,7 @@
     "neither shape at every boundary": "pass, grid both_unmet (both sides read, neither held)",
     "rival shape at every boundary": "fail, grid C"
    },
-   "statement": "corporate deposits: the rival's +0.80 does not hold; the framework's registered shape is part 1 above its floor, part 2 inside it, part 2 unrelated to part 1"
+   "statement": "corporate deposits: the rival's part 2 = q x part 1 does not hold; the framework's registered shape is part 1 above its floor, part 2 inside it, part 2 unrelated to part 1"
   }
  ],
  "instrument": "long differences split at the zero floor",
@@ -145,6 +150,9 @@
      "null_p05": -0.5656,
      "null_p95": 0.4419,
      "pairs": 1116,
+     "point_residual": 1.1234,
+     "point_residual_floor_max": 1.3548,
+     "q": 1.25,
      "rho": -0.0318,
      "slope": -0.0652
     },
@@ -157,6 +165,9 @@
      "null_p05": -0.5173,
      "null_p95": 0.4089,
      "pairs": 1131,
+     "point_residual": 0.9762,
+     "point_residual_floor_max": 1.1016,
+     "q": 0.8,
      "rho": -0.0015,
      "slope": -0.0022
     },
@@ -169,6 +180,9 @@
      "null_p05": -0.5368,
      "null_p95": 0.4317,
      "pairs": 1144,
+     "point_residual": 0.9567,
+     "point_residual_floor_max": 1.2671,
+     "q": 0.8,
      "rho": 0.0113,
      "slope": 0.0147
     }
@@ -210,6 +224,9 @@
      "null_p05": -0.4034,
      "null_p95": 0.3109,
      "pairs": 1116,
+     "point_residual": 0.4685,
+     "point_residual_floor_max": 0.3534,
+     "q": 1.25,
      "rho": -0.0105,
      "slope": -0.0144
     },
@@ -222,6 +239,9 @@
      "null_p05": -0.4061,
      "null_p95": 0.3313,
      "pairs": 1131,
+     "point_residual": 0.3972,
+     "point_residual_floor_max": 0.2689,
+     "q": 0.8,
      "rho": -0.0189,
      "slope": -0.0219
     },
@@ -234,6 +254,9 @@
      "null_p05": -0.4136,
      "null_p95": 0.3162,
      "pairs": 1144,
+     "point_residual": 0.3987,
+     "point_residual_floor_max": 0.285,
+     "q": 0.8,
      "rho": -0.0346,
      "slope": -0.0356
     }
@@ -277,6 +300,9 @@
      "null_p05": -0.4558,
      "null_p95": 0.4103,
      "pairs": 1116,
+     "point_residual": 0.4177,
+     "point_residual_floor_max": 0.3085,
+     "q": 1.25,
      "rho": -0.0461,
      "slope": -0.0566
     },
@@ -289,6 +315,9 @@
      "null_p05": -0.4643,
      "null_p95": 0.4132,
      "pairs": 1131,
+     "point_residual": 0.4047,
+     "point_residual_floor_max": 0.2373,
+     "q": 0.8,
      "rho": -0.2073,
      "slope": -0.2229
     },
@@ -301,6 +330,9 @@
      "null_p05": -0.4485,
      "null_p95": 0.3933,
      "pairs": 1144,
+     "point_residual": 0.4285,
+     "point_residual_floor_max": 0.2501,
+     "q": 0.8,
      "rho": -0.2716,
      "slope": -0.2585
     }
@@ -342,6 +374,9 @@
      "null_p05": -0.5906,
      "null_p95": 0.5398,
      "pairs": 1116,
+     "point_residual": 0.4318,
+     "point_residual_floor_max": 0.3375,
+     "q": 1.25,
      "rho": -0.3241,
      "slope": -0.3807
     },
@@ -354,6 +389,9 @@
      "null_p05": -0.5853,
      "null_p95": 0.5566,
      "pairs": 1131,
+     "point_residual": 0.3383,
+     "point_residual_floor_max": 0.3078,
+     "q": 0.8,
      "rho": -0.2891,
      "slope": -0.2866
     },
@@ -366,6 +404,9 @@
      "null_p05": -0.5758,
      "null_p95": 0.4852,
      "pairs": 1144,
+     "point_residual": 0.3276,
+     "point_residual_floor_max": 0.3014,
+     "q": 0.8,
      "rho": -0.2661,
      "slope": -0.2451
     }

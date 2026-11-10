@@ -11,6 +11,27 @@ from a50_grid import rules_for
 
 C = 0.12
 LEVIES = (0.20, 0.15, 0.25)
+#: Wages due over the last 50 rounds on this carrier (8 a round). A run that paid less than half
+#: of it has stalled; a difference in shares that involves such a run is not a reading of the
+#: distribution (A50 design, block 5).
+WAGE_DUE = 400.0
+ACTIVE_FLOOR = 0.5 * WAGE_DUE
+
+
+def active(x) -> bool:
+    return x["wage_paid_last50"] >= ACTIVE_FLOOR
+
+
+def read_by_activity(values, act) -> dict:
+    """values and act are aligned lists over pairs. Signs over the pairs whose every run is
+    active, signs over the stalled ones, and whether the active pairs give one direction."""
+    def sg(v):
+        return sorted({"+" if x > 0 else ("-" if x < 0 else "0") for x in v if x is not None})
+    on = [v for v, a in zip(values, act) if a and v is not None]
+    off = [v for v, a in zip(values, act) if not a and v is not None]
+    s_on = sg(on)
+    return {"pairs": len(on) + len(off), "active_pairs": len(on), "signs_active": s_on,
+            "signs_stalled": sg(off), "read": bool(on) and len(s_on) == 1 and "0" not in s_on}
 
 
 def rules(regime, arm, levy, **extra):

@@ -304,6 +304,11 @@ class A4Result:
     cross_layer_rate: float
     cross_layer_baseline: float
     generational_events: int
+    #: Holdings once the last round's returns and household pooling have settled.
+    #: ``history`` is written after a round's flows and before that settlement,
+    #: so its last row, which the registered measures read, is one settlement
+    #: behind this.
+    settled_final: np.ndarray | None = None
 
 
 class A4Model(Network):
@@ -546,6 +551,7 @@ def run_a4(config: A4Config) -> A4Result:
             model._n, config.network.spec.layer1_size
         ),
         generational_events=len(events),
+        settled_final=np.asarray(model.holdings, dtype=float).copy(),
     )
 
 

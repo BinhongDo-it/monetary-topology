@@ -1,0 +1,316 @@
+{
+ "config": {
+  "aliases": {
+   "Bahamas": "Bahamas, The",
+   "Bosnia And Herzegovina": "Bosnia and Herzegovina",
+   "Brunei": "Brunei Darussalam",
+   "Cape Verde": "Cabo Verde",
+   "Congo": "Congo, Rep.",
+   "Czech Republic": "Czechia",
+   "Egypt": "Egypt, Arab Rep.",
+   "Gambia": "Gambia, The",
+   "Hong Kong": "Hong Kong SAR, China",
+   "Iran": "Iran, Islamic Rep.",
+   "Ivory Coast": "Cote d'Ivoire",
+   "Kosovo (Disputed Territory)": "Kosovo",
+   "Kyrgyzstan": "Kyrgyz Republic",
+   "Laos": "Lao PDR",
+   "Russia": "Russian Federation",
+   "Saint Lucia": "St. Lucia",
+   "Saint Vincent And The Grenadines": "St. Vincent and the Grenadines",
+   "Sao Tome And Principe": "Sao Tome and Principe",
+   "Slovakia": "Slovak Republic",
+   "South Korea": "Korea, Rep.",
+   "Swaziland": "Eswatini",
+   "Syria": "Syrian Arab Republic",
+   "Trinidad And Tobago": "Trinidad and Tobago",
+   "Turkey": "Turkiye",
+   "Venezuela": "Venezuela, RB",
+   "Vietnam": "Viet Nam",
+   "Yemen": "Yemen, Rep."
+  },
+  "classes": "arm A's six classes",
+  "fetched_by": "experiments/b144_fetch.py --only worldbank",
+  "fold_seeds": [
+   "a",
+   "b"
+  ],
+  "folds": 5,
+  "n_boot": 1000,
+  "price_level": "World Bank PA.NUS.PRVT.PP / PA.NUS.FCRF, 2022",
+  "scores": [
+   "root mean square",
+   "median absolute"
+  ],
+  "seed": 20261014,
+  "table": "data/raw/cost-of-living_v2.csv",
+  "wage_input": [
+   "the city's salary",
+   "the country's median salary"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "163 held-out countries with a price level, 161,269 city-item cells: law of one price 0.729, one price level 0.574 (root mean square error of the log price); lower at 8 of 8 knob points",
+   "kind": "known_answer",
+   "name": "B144-L0",
+   "passed": true,
+   "statement": "The official price level predicts dollar prices better than one dollar price everywhere."
+  },
+  {
+   "detail": "a, the city's salary, root mean square: who writes the price 0.515 against one price level 0.574, ratio resamples 0.800 to 0.983; a, the city's salary, median absolute: who writes the price 0.306 against one price level 0.320, ratio resamples 0.909 to 1.002; a, the country's median salary, root mean square: who writes the price 0.511 against one price level 0.574, ratio resamples 0.796 to 0.974; a, the country's median salary, median absolute: who writes the price 0.306 against one price level 0.320, ratio resamples 0.910 to 0.999; b, the city's salary, root mean square: who writes the price 0.512 against one price level 0.570, ratio resamples 0.800 to 0.984; b, the city's salary, median absolute: who writes the price 0.305 against one price level 0.318, ratio resamples 0.914 to 1.002; b, the country's median salary, root mean square: who writes the price 0.509 against one price level 0.570, ratio resamples 0.797 to 0.978; b, the country's median salary, median absolute: who writes the price 0.305 against one price level 0.318, ratio resamples 0.915 to 0.998 -> unread",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B144-L1",
+   "passed": null,
+   "rival_entailment": "Then, given the official price level, a model in which items respond to the wage by different amounts predicts held-out prices no better than the price level does.",
+   "rival_premise": "A country has one price level: an item's price there is its dollar price times the country's price level, log p = a(item) + log PLI(country).",
+   "rival_shape": "point prediction",
+   "statement": "Item prices of unseen countries are predicted better by class slopes on the wage than by the official price level. Passing means the rival is wrong here (`11e`)."
+  },
+  {
+   "detail": "one wage slope 0.538, six class slopes 0.515, 55 item slopes 0.496; the classes capture 0.45 to 0.55 of the improvement the item slopes make over one slope; lower than one slope at 8 of 8 knob points",
+   "kind": "own_reading",
+   "name": "B144-L2",
+   "passed": true,
+   "statement": "Six class slopes predict better than one common wage slope."
+  },
+  {
+   "detail": "a, root mean square: one slope 0.4659, two slopes 0.4553 (153,000 cells); a, median absolute: one slope 0.2710, two slopes 0.2652 (153,000 cells); b, root mean square: one slope 0.4661, two slopes 0.4554 (153,000 cells); b, median absolute: one slope 0.2714, two slopes 0.2647 (153,000 cells)",
+   "kind": "own_reading",
+   "name": "B144-L3",
+   "passed": true,
+   "statement": "Inside countries, separate slopes across and within countries predict held-out cities better."
+  },
+  {
+   "detail": "a, the city's salary, root mean square: corrected 0.552 against 0.574, ratio resamples 0.945 to 0.974; a, the city's salary, median absolute: corrected 0.306 against 0.320, ratio resamples 0.923 to 0.984; a, the country's median salary, root mean square: corrected 0.554 against 0.574, ratio resamples 0.948 to 0.978; a, the country's median salary, median absolute: corrected 0.308 against 0.320, ratio resamples 0.927 to 0.988; b, the city's salary, root mean square: corrected 0.550 against 0.570, ratio resamples 0.948 to 0.977; b, the city's salary, median absolute: corrected 0.305 against 0.318, ratio resamples 0.927 to 0.989; b, the country's median salary, root mean square: corrected 0.551 against 0.570, ratio resamples 0.950 to 0.981; b, the country's median salary, median absolute: corrected 0.306 against 0.318, ratio resamples 0.932 to 0.993",
+   "kind": "own_reading",
+   "name": "B144-L4",
+   "passed": true,
+   "statement": "The official price level corrected by each class's response to the wage predicts better than the price level alone."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "objects": {
+  "countries": 209,
+  "countries_with_price_level": 163,
+  "grid": [
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "a",
+    "resample_corrected_over_level": [
+     0.94534,
+     0.97386
+    ],
+    "resample_writer_over_level": [
+     0.79999,
+     0.98309
+    ],
+    "score": "root mean square",
+    "scores": {
+     "law of one price": 0.72855,
+     "one price level": 0.57419,
+     "one wage slope": 0.53802,
+     "per item": 0.49604,
+     "price level corrected by class": 0.55173,
+     "who writes the price": 0.51495
+    },
+    "wage": "the city's salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "a",
+    "resample_corrected_over_level": [
+     0.92332,
+     0.98414
+    ],
+    "resample_writer_over_level": [
+     0.90879,
+     1.00191
+    ],
+    "score": "median absolute",
+    "scores": {
+     "law of one price": 0.45765,
+     "one price level": 0.32011,
+     "one wage slope": 0.32342,
+     "per item": 0.29015,
+     "price level corrected by class": 0.30593,
+     "who writes the price": 0.30619
+    },
+    "wage": "the city's salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "a",
+    "resample_corrected_over_level": [
+     0.94833,
+     0.97768
+    ],
+    "resample_writer_over_level": [
+     0.79635,
+     0.97405
+    ],
+    "score": "root mean square",
+    "scores": {
+     "law of one price": 0.72855,
+     "one price level": 0.57419,
+     "one wage slope": 0.53388,
+     "per item": 0.49144,
+     "price level corrected by class": 0.55374,
+     "who writes the price": 0.51142
+    },
+    "wage": "the country's median salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "a",
+    "resample_corrected_over_level": [
+     0.92696,
+     0.98799
+    ],
+    "resample_writer_over_level": [
+     0.90986,
+     0.99889
+    ],
+    "score": "median absolute",
+    "scores": {
+     "law of one price": 0.45765,
+     "one price level": 0.32011,
+     "one wage slope": 0.32051,
+     "per item": 0.28762,
+     "price level corrected by class": 0.30751,
+     "who writes the price": 0.30575
+    },
+    "wage": "the country's median salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "b",
+    "resample_corrected_over_level": [
+     0.94762,
+     0.97727
+    ],
+    "resample_writer_over_level": [
+     0.80044,
+     0.98385
+    ],
+    "score": "root mean square",
+    "scores": {
+     "law of one price": 0.71394,
+     "one price level": 0.57011,
+     "one wage slope": 0.53298,
+     "per item": 0.49389,
+     "price level corrected by class": 0.54955,
+     "who writes the price": 0.51181
+    },
+    "wage": "the city's salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "b",
+    "resample_corrected_over_level": [
+     0.92696,
+     0.98858
+    ],
+    "resample_writer_over_level": [
+     0.91447,
+     1.00223
+    ],
+    "score": "median absolute",
+    "scores": {
+     "law of one price": 0.44986,
+     "one price level": 0.31779,
+     "one wage slope": 0.32182,
+     "per item": 0.28918,
+     "price level corrected by class": 0.30495,
+     "who writes the price": 0.30534
+    },
+    "wage": "the city's salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "b",
+    "resample_corrected_over_level": [
+     0.95042,
+     0.98079
+    ],
+    "resample_writer_over_level": [
+     0.79668,
+     0.97848
+    ],
+    "score": "root mean square",
+    "scores": {
+     "law of one price": 0.71394,
+     "one price level": 0.57011,
+     "one wage slope": 0.5291,
+     "per item": 0.48971,
+     "price level corrected by class": 0.55129,
+     "who writes the price": 0.50871
+    },
+    "wage": "the country's median salary"
+   },
+   {
+    "cells": 161269,
+    "countries": 163,
+    "fold_seed": "b",
+    "resample_corrected_over_level": [
+     0.93151,
+     0.99272
+    ],
+    "resample_writer_over_level": [
+     0.91489,
+     0.99825
+    ],
+    "score": "median absolute",
+    "scores": {
+     "law of one price": 0.44986,
+     "one price level": 0.31779,
+     "one wage slope": 0.3201,
+     "per item": 0.2874,
+     "price level corrected by class": 0.30645,
+     "who writes the price": 0.30525
+    },
+    "wage": "the country's median salary"
+   }
+  ],
+  "inside": [
+   {
+    "cells": 153000,
+    "fold_seed": "a",
+    "one slope": 0.46593,
+    "score": "root mean square",
+    "two slopes": 0.4553
+   },
+   {
+    "cells": 153000,
+    "fold_seed": "a",
+    "one slope": 0.27102,
+    "score": "median absolute",
+    "two slopes": 0.26523
+   },
+   {
+    "cells": 153000,
+    "fold_seed": "b",
+    "one slope": 0.4661,
+    "score": "root mean square",
+    "two slopes": 0.45544
+   },
+   {
+    "cells": 153000,
+    "fold_seed": "b",
+    "one slope": 0.2714,
+    "score": "median absolute",
+    "two slopes": 0.26473
+   }
+  ]
+ },
+ "stage": "B144"
+}

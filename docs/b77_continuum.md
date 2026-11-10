@@ -87,8 +87,9 @@ on.
 
    **A note on where the envelope theorem does and does not apply**, because this repository has
    a station arguing the other way. [`b0b_aggregation_and_the_potential.md`](b0b_aggregation_and_the_potential.md)
-   observes that the Hulten aggregation argument has **no object for the envelope theorem to act
-   on**, because the allocation it differentiates is not the argmax of anything. **That is
+   observes that the Hulten aggregation argument has **no object for the envelope step to act
+   on**, because on a non-exact field no function's gradient generates the terms at the
+   allocation it differentiates. **That is
    consistent with this clause and is its other half**: the theorem holds exactly where there is
    a genuine optimisation, and choice of technique is one. The two together are one
    discriminant, applied in the two cases where it comes out differently.

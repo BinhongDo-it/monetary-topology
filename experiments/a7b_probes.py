@@ -1,8 +1,12 @@
-"""A7-B probe P1: how much of a one-off transfer survives a generation.
+"""A7-B: probe P1, how much of a one-off transfer survives a generation, and
+the rest of leg B.
 
-**Status: probe. Nothing here is scored, and section 5.8 of
-`docs/a7_continuous_c.md` requires it and P2 to run and the section 5.3 trigger
-to be decided before any `d(X, s)` is computed.**
+Section 5.8 of `docs/a7_continuous_c.md` requires P1 and P2 to run and the
+section 5.3 trigger to be decided before any `d(X, s)` is computed. P1 is the
+default entry and `--check`. The same file runs P2 (`--p2`) and leg B's cells
+(`--legb`) on the nine-point `GRID` below, the section 5.4 fence (`--fence`)
+at its two endpoints, and the `I` and `M` switch cells at one point (`--im`).
+Their verdicts are assembled by `experiments/a7_continuous_c.py --verdicts`.
 
 Why this exists
 ---------------
@@ -91,11 +95,17 @@ SECTION_9_C1 = {
     "median": {"half_life": 5, 10: 0.002, 40: 0.0000},
 }
 
+#: Leg B's grid: nine of leg A's seventeen points. The registration says the
+#: same grid as leg A; the eight points leg A has and this one does not are
+#: 0.15, 0.3, 0.4, 0.6, 0.7, 0.8, 0.95 and 0.99, and "every grid point" in
+#: the leg-B readings means these nine.
 GRID: tuple[float, ...] = (0.0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 0.9, 1.0)
 
 #: Section 5.4's cells. `I` and `M` are absent because section 5.2 rules them
-#: unreadable and section 12.1 measured that above the cliff they have nothing
-#: to transmit at all. `E+K` runs as a diagnostic on the interaction and is not
+#: unreadable for direction. Section 12.1 went further and said that above the
+#: cliff they have nothing to transmit at all; that does not hold, and
+#: ``im_point`` below is the reading that says so. They stay off this grid
+#: on section 5.2's ruling. `E+K` runs as a diagnostic on the interaction and is not
 #: scored, since section 5.5 registers criteria on `E` and `K` separately.
 LEGB_CELLS: dict[str, dict] = {
     "none": {},
@@ -344,6 +354,104 @@ def legb_point(seeds: range, rounds: int, s: float, arm: str,
     return out
 
 
+#: Section 12.1 recorded `I` and `M` as having nothing to transmit above the
+#: retention cliff and section 13.5 recorded them as not run for that reason.
+#: These are the two switch cells that argument was about, put to the model at
+#: one interior point so that the argument is a reading and not an inference.
+IM_CELLS: dict[str, dict] = {
+    "none": {},
+    "I": {"inheritance": True},
+    "M": {"mating": True},
+}
+
+#: Where the switch cells are read: `a7_continuous_c.PROBE_S`, interior and well
+#: above the cliff in both arms.
+IM_POINT = 0.5
+
+
+def difference_block(cell: list[dict], control: list[dict], key: str) -> dict:
+    """One measure, switch cell against control, within seed."""
+    d = [c[key] - n[key] for c, n in zip(cell, control, strict=True)]
+    return {
+        "mean": float(np.mean(d)),
+        "by_seed": d,
+        "range": [float(min(d)), float(max(d))],
+        "n_positive": sum(1 for v in d if v > 0),
+        "n_negative": sum(1 for v in d if v < 0),
+        "same_sign_across_seeds": bool(
+            all(v > 0 for v in d) or all(v < 0 for v in d)),
+    }
+
+
+def im_point(seeds: range, rounds: int, s: float, arm: str) -> dict:
+    """The `I` and `M` switch cells against `none`, at one grid point.
+
+    **Not leg B's grid for `I` and `M`, which stays not run.** One point, to
+    read whether the two switch cells differ from the control at all. Section
+    12.1 argued they could not: a one-off transfer leaves nothing after a
+    generation above the cliff, so a transmitting mechanism has nothing to
+    transmit. What vanishes there is the memory of a perturbation. Holdings
+    still circulate, and the demographic layer acts on current holdings.
+
+    **What a difference here is, and what it is not.** `Switches.
+    demography_active` is `inheritance or mating`, so switching either on also
+    switches on households and generations, which pool and split holdings
+    whether or not anything is inherited. A difference is the switch cell
+    against the control. It is not an effect of inheritance or of mating alone,
+    and no cell exists that has the demographic layer on and both channels off.
+    """
+    per_cell: dict[str, list[dict]] = {}
+    finals: dict[str, list[np.ndarray]] = {}
+    for name, flags in IM_CELLS.items():
+        rows, ends = [], []
+        for seed in seeds:
+            spec = NetworkSpec(seed=seed, shortcut_rate=s, shortcut_mode=arm)
+            model = A4Model(
+                A4Config(
+                    switches=Switches(connectivity=True, **flags),
+                    network=NetworkConfig(spec=spec, seed=seed, rounds=rounds),
+                )
+            )
+            end = np.asarray(model.run().holdings)[-1]
+            ends.append(end)
+            rows.append(_measures(end, spec.layer1_size))
+        per_cell[name], finals[name] = rows, ends
+
+    keys = ("log_inv_hhi_prod", "log_inv_hhi", "gini_prod", "gini")
+    out: dict = {
+        "s": s, "arm": arm,
+        "levels": {
+            n: {k: float(np.mean([r[k] for r in rows])) for k in keys}
+            for n, rows in per_cell.items()
+        },
+        "final_holdings_differ_from_none": {},
+        "d": {},
+    }
+    for name in ("I", "M"):
+        out["final_holdings_differ_from_none"][name] = sum(
+            1 for a, b in zip(finals[name], finals["none"], strict=True)
+            if not np.array_equal(a, b)
+        )
+        out["d"][name] = {
+            k: difference_block(per_cell[name], per_cell["none"], k)
+            for k in keys
+        }
+    return out
+
+
+def _rounded(obj):
+    """Floats to ten significant figures, as `a7_continuous_c` writes them."""
+    if isinstance(obj, (float, np.floating)):
+        return float(format(float(obj), ".10g"))
+    if isinstance(obj, dict):
+        return {k: _rounded(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_rounded(v) for v in obj]
+    if isinstance(obj, np.integer):
+        return int(obj)
+    return obj
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true",
@@ -355,11 +463,53 @@ def main() -> int:
                     help="leg B proper, section 5.4")
     ap.add_argument("--fence", action="store_true",
                     help="section 5.4's pooling fence at the two endpoints")
+    ap.add_argument("--im", action="store_true",
+                    help="the I and M switch cells against the control, at one "
+                         "point; leg B's grid for them stays not run")
+    ap.add_argument("--s", type=float, default=IM_POINT,
+                    help="the grid point --im reads")
     ap.add_argument("--seeds", type=int, default=5)
     ap.add_argument("--rounds", type=int, default=300)
     ap.add_argument("--arm", choices=("uniform", "preferential"),
                     default="uniform")
     args = ap.parse_args()
+
+    if args.im:
+        print(
+            f"\nI AND M  the two switch cells against the control at"
+            f" s = {args.s}, arm {args.arm}, {args.seeds} seeds,"
+            f" {args.rounds} rounds.\n  One point. Leg B's grid for `I` and `M`"
+            f" stays not run. Switching either on also switches on\n  the"
+            f" demographic layer, so a difference is the switch cell against the"
+            f" control and not\n  an effect of inheritance or mating alone.\n"
+        )
+        p = im_point(range(args.seeds), args.rounds, args.s, args.arm)
+        for name in ("I", "M"):
+            d = p["d"][name]["log_inv_hhi_prod"]
+            print(f"    {name}: final holdings differ from the control in "
+                  f"{p['final_holdings_differ_from_none'][name]}/{args.seeds}"
+                  f" seeds; production-layer log(1/HHI) {d['mean']:+.7f},"
+                  f" range [{d['range'][0]:+.7f}, {d['range'][1]:+.7f}],"
+                  f" negative in {d['n_negative']}/{args.seeds}")
+        RESULTS.mkdir(parents=True, exist_ok=True)
+        out = RESULTS / (
+            f"a7b_im_switch.offparam_{args.arm}_{args.seeds}x{args.rounds}.json")
+        out.write_text(json.dumps(_rounded(
+            {"stage": "A7-B I and M switch cells", "diagnostic_only": True,
+             "diagnostic_reason":
+                 "one grid point, read to test the argument that I and M have "
+                 "nothing to act on above the retention cliff; it scores "
+                 "nothing and leg B's grid for I and M stays not run",
+             "what_a_difference_is": (
+                 "the switch cell against the control. Either switch also "
+                 "turns on the demographic layer, so it is not an effect of "
+                 "inheritance or of mating alone"),
+             "primary_outcome": "log_inv_hhi_prod",
+             "seeds": args.seeds, "rounds": args.rounds, "point": p}),
+            indent=2, sort_keys=True) + "\n",
+            encoding="utf-8", newline="\n")
+        print(f"\n  written: {out.name}\n")
+        return 0
 
     if args.fence:
         print("\nFENCE  section 5.4: `pooling = generation` at the two"

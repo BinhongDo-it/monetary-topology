@@ -399,6 +399,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -408,6 +409,7 @@
       "map": "coupling x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -417,6 +419,7 @@
       "map": "coupling x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -426,6 +429,7 @@
       "map": "coupling x0.2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -435,6 +439,7 @@
       "map": "coupling x0.1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -444,6 +449,7 @@
       "map": "coupling x0.05",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -453,6 +459,7 @@
       "map": "coupling x0.02",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -462,6 +469,7 @@
       "map": "financial within x0.25",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -471,6 +479,7 @@
       "map": "financial within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -480,6 +489,7 @@
       "map": "financial within x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -489,6 +499,7 @@
       "map": "financial within x2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -498,6 +509,7 @@
       "map": "financial within x4",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -507,6 +519,7 @@
       "map": "financial within x8",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -516,6 +529,7 @@
       "map": "financial within x16",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -525,6 +539,7 @@
       "map": "financial propensity 0.1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -534,6 +549,7 @@
       "map": "financial propensity 0.2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -543,6 +559,7 @@
       "map": "financial propensity 0.3",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -552,6 +569,7 @@
       "map": "financial propensity 0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -561,6 +579,7 @@
       "map": "financial propensity 0.7",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -570,6 +589,7 @@
       "map": "financial propensity 0.9",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -579,6 +599,7 @@
       "map": "grid propensity 0.2 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -588,6 +609,7 @@
       "map": "grid propensity 0.2 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -597,6 +619,7 @@
       "map": "grid propensity 0.2 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -606,6 +629,7 @@
       "map": "grid propensity 0.2 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -615,6 +639,7 @@
       "map": "grid propensity 0.2 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -624,6 +649,7 @@
       "map": "grid propensity 0.35 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -633,6 +659,7 @@
       "map": "grid propensity 0.35 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -642,6 +669,7 @@
       "map": "grid propensity 0.35 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -651,6 +679,7 @@
       "map": "grid propensity 0.35 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -660,6 +689,7 @@
       "map": "grid propensity 0.35 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -669,6 +699,7 @@
       "map": "grid propensity 0.5 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -678,6 +709,7 @@
       "map": "grid propensity 0.5 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -687,6 +719,7 @@
       "map": "grid propensity 0.5 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -696,6 +729,7 @@
       "map": "grid propensity 0.5 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -705,6 +739,7 @@
       "map": "grid propensity 0.5 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -714,6 +749,7 @@
       "map": "grid propensity 0.65 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -723,6 +759,7 @@
       "map": "grid propensity 0.65 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -732,6 +769,7 @@
       "map": "grid propensity 0.65 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -741,6 +779,7 @@
       "map": "grid propensity 0.65 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -750,6 +789,7 @@
       "map": "grid propensity 0.65 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -759,6 +799,7 @@
       "map": "grid propensity 0.8 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -768,6 +809,7 @@
       "map": "grid propensity 0.8 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -777,6 +819,7 @@
       "map": "grid propensity 0.8 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -786,6 +829,7 @@
       "map": "grid propensity 0.8 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -795,6 +839,7 @@
       "map": "grid propensity 0.8 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -804,6 +849,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.03
     },
     {
@@ -813,6 +859,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 0,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.06
     },
     {
@@ -822,6 +869,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -831,6 +879,7 @@
       "map": "coupling x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -840,6 +889,7 @@
       "map": "coupling x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -849,6 +899,7 @@
       "map": "coupling x0.2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -858,6 +909,7 @@
       "map": "coupling x0.1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -867,6 +919,7 @@
       "map": "coupling x0.05",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -876,6 +929,7 @@
       "map": "coupling x0.02",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -885,6 +939,7 @@
       "map": "financial within x0.25",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -894,6 +949,7 @@
       "map": "financial within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -903,6 +959,7 @@
       "map": "financial within x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -912,6 +969,7 @@
       "map": "financial within x2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -921,6 +979,7 @@
       "map": "financial within x4",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -930,6 +989,7 @@
       "map": "financial within x8",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -939,6 +999,7 @@
       "map": "financial within x16",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -948,6 +1009,7 @@
       "map": "financial propensity 0.1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -957,6 +1019,7 @@
       "map": "financial propensity 0.2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -966,6 +1029,7 @@
       "map": "financial propensity 0.3",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -975,6 +1039,7 @@
       "map": "financial propensity 0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -984,6 +1049,7 @@
       "map": "financial propensity 0.7",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -993,6 +1059,7 @@
       "map": "financial propensity 0.9",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1002,6 +1069,7 @@
       "map": "grid propensity 0.2 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1011,6 +1079,7 @@
       "map": "grid propensity 0.2 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1020,6 +1089,7 @@
       "map": "grid propensity 0.2 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1029,6 +1099,7 @@
       "map": "grid propensity 0.2 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1038,6 +1109,7 @@
       "map": "grid propensity 0.2 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1047,6 +1119,7 @@
       "map": "grid propensity 0.35 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1056,6 +1129,7 @@
       "map": "grid propensity 0.35 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1065,6 +1139,7 @@
       "map": "grid propensity 0.35 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1074,6 +1149,7 @@
       "map": "grid propensity 0.35 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1083,6 +1159,7 @@
       "map": "grid propensity 0.35 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1092,6 +1169,7 @@
       "map": "grid propensity 0.5 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1101,6 +1179,7 @@
       "map": "grid propensity 0.5 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1110,6 +1189,7 @@
       "map": "grid propensity 0.5 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1119,6 +1199,7 @@
       "map": "grid propensity 0.5 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1128,6 +1209,7 @@
       "map": "grid propensity 0.5 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1137,6 +1219,7 @@
       "map": "grid propensity 0.65 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1146,6 +1229,7 @@
       "map": "grid propensity 0.65 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1155,6 +1239,7 @@
       "map": "grid propensity 0.65 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1164,6 +1249,7 @@
       "map": "grid propensity 0.65 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1173,6 +1259,7 @@
       "map": "grid propensity 0.65 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1182,6 +1269,7 @@
       "map": "grid propensity 0.8 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1191,6 +1279,7 @@
       "map": "grid propensity 0.8 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1200,6 +1289,7 @@
       "map": "grid propensity 0.8 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1209,6 +1299,7 @@
       "map": "grid propensity 0.8 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1218,6 +1309,7 @@
       "map": "grid propensity 0.8 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1227,6 +1319,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.03
     },
     {
@@ -1236,6 +1329,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 1,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.06
     },
     {
@@ -1245,6 +1339,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1254,6 +1349,7 @@
       "map": "coupling x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1263,6 +1359,7 @@
       "map": "coupling x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1272,6 +1369,7 @@
       "map": "coupling x0.2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1281,6 +1379,7 @@
       "map": "coupling x0.1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1290,6 +1389,7 @@
       "map": "coupling x0.05",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1299,6 +1399,7 @@
       "map": "coupling x0.02",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1308,6 +1409,7 @@
       "map": "financial within x0.25",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1317,6 +1419,7 @@
       "map": "financial within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1326,6 +1429,7 @@
       "map": "financial within x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1335,6 +1439,7 @@
       "map": "financial within x2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1344,6 +1449,7 @@
       "map": "financial within x4",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1353,6 +1459,7 @@
       "map": "financial within x8",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1362,6 +1469,7 @@
       "map": "financial within x16",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1371,6 +1479,7 @@
       "map": "financial propensity 0.1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1380,6 +1489,7 @@
       "map": "financial propensity 0.2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1389,6 +1499,7 @@
       "map": "financial propensity 0.3",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1398,6 +1509,7 @@
       "map": "financial propensity 0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1407,6 +1519,7 @@
       "map": "financial propensity 0.7",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1416,6 +1529,7 @@
       "map": "financial propensity 0.9",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1425,6 +1539,7 @@
       "map": "grid propensity 0.2 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1434,6 +1549,7 @@
       "map": "grid propensity 0.2 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1443,6 +1559,7 @@
       "map": "grid propensity 0.2 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1452,6 +1569,7 @@
       "map": "grid propensity 0.2 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1461,6 +1579,7 @@
       "map": "grid propensity 0.2 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1470,6 +1589,7 @@
       "map": "grid propensity 0.35 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1479,6 +1599,7 @@
       "map": "grid propensity 0.35 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1488,6 +1609,7 @@
       "map": "grid propensity 0.35 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1497,6 +1619,7 @@
       "map": "grid propensity 0.35 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1506,6 +1629,7 @@
       "map": "grid propensity 0.35 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1515,6 +1639,7 @@
       "map": "grid propensity 0.5 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1524,6 +1649,7 @@
       "map": "grid propensity 0.5 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1533,6 +1659,7 @@
       "map": "grid propensity 0.5 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1542,6 +1669,7 @@
       "map": "grid propensity 0.5 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1551,6 +1679,7 @@
       "map": "grid propensity 0.5 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1560,6 +1689,7 @@
       "map": "grid propensity 0.65 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1569,6 +1699,7 @@
       "map": "grid propensity 0.65 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1578,6 +1709,7 @@
       "map": "grid propensity 0.65 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1587,6 +1719,7 @@
       "map": "grid propensity 0.65 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1596,6 +1729,7 @@
       "map": "grid propensity 0.65 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1605,6 +1739,7 @@
       "map": "grid propensity 0.8 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1614,6 +1749,7 @@
       "map": "grid propensity 0.8 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1623,6 +1759,7 @@
       "map": "grid propensity 0.8 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1632,6 +1769,7 @@
       "map": "grid propensity 0.8 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1641,6 +1779,7 @@
       "map": "grid propensity 0.8 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1650,6 +1789,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.03
     },
     {
@@ -1659,6 +1799,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 2,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.06
     },
     {
@@ -1668,6 +1809,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1677,6 +1819,7 @@
       "map": "coupling x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1686,6 +1829,7 @@
       "map": "coupling x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1695,6 +1839,7 @@
       "map": "coupling x0.2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1704,6 +1849,7 @@
       "map": "coupling x0.1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1713,6 +1859,7 @@
       "map": "coupling x0.05",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1722,6 +1869,7 @@
       "map": "coupling x0.02",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1731,6 +1879,7 @@
       "map": "financial within x0.25",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1740,6 +1889,7 @@
       "map": "financial within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1749,6 +1899,7 @@
       "map": "financial within x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1758,6 +1909,7 @@
       "map": "financial within x2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1767,6 +1919,7 @@
       "map": "financial within x4",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1776,6 +1929,7 @@
       "map": "financial within x8",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1785,6 +1939,7 @@
       "map": "financial within x16",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1794,6 +1949,7 @@
       "map": "financial propensity 0.1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1803,6 +1959,7 @@
       "map": "financial propensity 0.2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1812,6 +1969,7 @@
       "map": "financial propensity 0.3",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1821,6 +1979,7 @@
       "map": "financial propensity 0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1830,6 +1989,7 @@
       "map": "financial propensity 0.7",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1839,6 +1999,7 @@
       "map": "financial propensity 0.9",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1848,6 +2009,7 @@
       "map": "grid propensity 0.2 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1857,6 +2019,7 @@
       "map": "grid propensity 0.2 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1866,6 +2029,7 @@
       "map": "grid propensity 0.2 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1875,6 +2039,7 @@
       "map": "grid propensity 0.2 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1884,6 +2049,7 @@
       "map": "grid propensity 0.2 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1893,6 +2059,7 @@
       "map": "grid propensity 0.35 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1902,6 +2069,7 @@
       "map": "grid propensity 0.35 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1911,6 +2079,7 @@
       "map": "grid propensity 0.35 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1920,6 +2089,7 @@
       "map": "grid propensity 0.35 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1929,6 +2099,7 @@
       "map": "grid propensity 0.35 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1938,6 +2109,7 @@
       "map": "grid propensity 0.5 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1947,6 +2119,7 @@
       "map": "grid propensity 0.5 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1956,6 +2129,7 @@
       "map": "grid propensity 0.5 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1965,6 +2139,7 @@
       "map": "grid propensity 0.5 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1974,6 +2149,7 @@
       "map": "grid propensity 0.5 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1983,6 +2159,7 @@
       "map": "grid propensity 0.65 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -1992,6 +2169,7 @@
       "map": "grid propensity 0.65 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2001,6 +2179,7 @@
       "map": "grid propensity 0.65 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2010,6 +2189,7 @@
       "map": "grid propensity 0.65 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2019,6 +2199,7 @@
       "map": "grid propensity 0.65 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2028,6 +2209,7 @@
       "map": "grid propensity 0.8 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2037,6 +2219,7 @@
       "map": "grid propensity 0.8 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2046,6 +2229,7 @@
       "map": "grid propensity 0.8 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2055,6 +2239,7 @@
       "map": "grid propensity 0.8 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2064,6 +2249,7 @@
       "map": "grid propensity 0.8 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2073,6 +2259,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.03
     },
     {
@@ -2082,6 +2269,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 3,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.06
     },
     {
@@ -2091,6 +2279,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2100,6 +2289,7 @@
       "map": "coupling x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2109,6 +2299,7 @@
       "map": "coupling x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2118,6 +2309,7 @@
       "map": "coupling x0.2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2127,6 +2319,7 @@
       "map": "coupling x0.1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2136,6 +2329,7 @@
       "map": "coupling x0.05",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2145,6 +2339,7 @@
       "map": "coupling x0.02",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2154,6 +2349,7 @@
       "map": "financial within x0.25",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2163,6 +2359,7 @@
       "map": "financial within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2172,6 +2369,7 @@
       "map": "financial within x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2181,6 +2379,7 @@
       "map": "financial within x2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2190,6 +2389,7 @@
       "map": "financial within x4",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2199,6 +2399,7 @@
       "map": "financial within x8",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2208,6 +2409,7 @@
       "map": "financial within x16",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2217,6 +2419,7 @@
       "map": "financial propensity 0.1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2226,6 +2429,7 @@
       "map": "financial propensity 0.2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2235,6 +2439,7 @@
       "map": "financial propensity 0.3",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2244,6 +2449,7 @@
       "map": "financial propensity 0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2253,6 +2459,7 @@
       "map": "financial propensity 0.7",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2262,6 +2469,7 @@
       "map": "financial propensity 0.9",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2271,6 +2479,7 @@
       "map": "grid propensity 0.2 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2280,6 +2489,7 @@
       "map": "grid propensity 0.2 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2289,6 +2499,7 @@
       "map": "grid propensity 0.2 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2298,6 +2509,7 @@
       "map": "grid propensity 0.2 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2307,6 +2519,7 @@
       "map": "grid propensity 0.2 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2316,6 +2529,7 @@
       "map": "grid propensity 0.35 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2325,6 +2539,7 @@
       "map": "grid propensity 0.35 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2334,6 +2549,7 @@
       "map": "grid propensity 0.35 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2343,6 +2559,7 @@
       "map": "grid propensity 0.35 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2352,6 +2569,7 @@
       "map": "grid propensity 0.35 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2361,6 +2579,7 @@
       "map": "grid propensity 0.5 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2370,6 +2589,7 @@
       "map": "grid propensity 0.5 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2379,6 +2599,7 @@
       "map": "grid propensity 0.5 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2388,6 +2609,7 @@
       "map": "grid propensity 0.5 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2397,6 +2619,7 @@
       "map": "grid propensity 0.5 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2406,6 +2629,7 @@
       "map": "grid propensity 0.65 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2415,6 +2639,7 @@
       "map": "grid propensity 0.65 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2424,6 +2649,7 @@
       "map": "grid propensity 0.65 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2433,6 +2659,7 @@
       "map": "grid propensity 0.65 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2442,6 +2669,7 @@
       "map": "grid propensity 0.65 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2451,6 +2679,7 @@
       "map": "grid propensity 0.8 within x0.5",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2460,6 +2689,7 @@
       "map": "grid propensity 0.8 within x1",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2469,6 +2699,7 @@
       "map": "grid propensity 0.8 within x2",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2478,6 +2709,7 @@
       "map": "grid propensity 0.8 within x4",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2487,6 +2719,7 @@
       "map": "grid propensity 0.8 within x8",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.0
     },
     {
@@ -2496,6 +2729,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.03
     },
     {
@@ -2505,6 +2739,7 @@
       "map": "carrier",
       "mass_err_at_most": 1e-12,
       "seed": 4,
+      "stationary_err_at_most": 1e-12,
       "wall": 0.06
     }
   ],
@@ -6584,15 +6819,15 @@
       "passed": true
     },
     {
-      "detail": "Holds on all 165 pairs of 15 carriers and 11 levers: the stationary vector's derivative from the fundamental matrix with its projector, Z (dB/dtheta) pi with dB a central difference at step 1e-06, differs from the central difference of the re-solved stationary vector by at most 1e-06 in every entry.",
+      "detail": "Holds on all 210 pairs of 15 carriers and 11 levers, 45 of them on M3's maps: the stationary vector's derivative from the fundamental matrix with its projector, Z (dB/dtheta) pi with dB a central difference at step 1e-06, differs from the central difference of the re-solved stationary vector by at most 1e-06 in every entry.",
       "kind": "instrument",
       "name": "A45-1  the derivative of the stationary split is Z dB pi: it matches re-solving the split on either side of every lever",
       "passed": true
     },
     {
-      "detail": "Holds on all 235 maps, 15 carriers and 220 sweep points: every column of the class chain conserves claims to within 1e-12, and the chain carries the class sums of the stationary vector to themselves to within 1e-12, and the sums over the classes that hold claims add to one to within 1e-12.",
+      "detail": "Holds on all 280 maps, 15 carriers, 220 sweep points and 45 of M3's maps: the stationary vector solves the map to within 1e-12, every column of the class chain conserves claims to within 1e-12, and the chain carries the class sums of the stationary vector to themselves to within 1e-12, and the sums over the classes that hold claims add to one to within 1e-12.",
       "kind": "instrument",
-      "name": "A45-2  the class chain keeps the stationary split: weighted by stationary mass, it conserves claims and returns the class sums, which add to one",
+      "name": "A45-2  the class chain keeps the stationary split: the stationary vector solves the map, and weighted by stationary mass the chain conserves claims and returns the class sums, which add to one",
       "passed": true
     },
     {
@@ -10763,11 +10998,11 @@
       "gap_intermediate_others": 0.031458,
       "gap_intermediate_others_neither": 0.0,
       "gap_intermediate_others_no_bill": 0.001775,
-      "gap_intermediate_others_no_pass_on": 0.076367,
+      "gap_intermediate_others_no_pass_on": 0.030569,
       "gap_intermediate_own": 0.093542,
       "gap_intermediate_own_neither": 0.0,
       "gap_intermediate_own_no_bill": 0.005033,
-      "gap_intermediate_own_no_pass_on": 0.091653,
+      "gap_intermediate_own_no_pass_on": 0.090767,
       "measured": -15.9664,
       "payer_classes": "mid",
       "routes_into_earners": 0.0,
@@ -10878,11 +11113,11 @@
       "gap_intermediate_others": 0.031952,
       "gap_intermediate_others_neither": 0.0,
       "gap_intermediate_others_no_bill": 0.003411,
-      "gap_intermediate_others_no_pass_on": 0.079115,
+      "gap_intermediate_others_no_pass_on": 0.031036,
       "gap_intermediate_own": 0.092681,
       "gap_intermediate_own_neither": 0.0,
       "gap_intermediate_own_no_bill": 0.009325,
-      "gap_intermediate_own_no_pass_on": 0.090679,
+      "gap_intermediate_own_no_pass_on": 0.089855,
       "measured": -15.9659,
       "payer_classes": "mid",
       "routes_into_earners": 0.0,
@@ -10901,11 +11136,11 @@
       "gap_intermediate_others": 0.031952,
       "gap_intermediate_others_neither": 0.0,
       "gap_intermediate_others_no_bill": 0.003411,
-      "gap_intermediate_others_no_pass_on": 0.079115,
+      "gap_intermediate_others_no_pass_on": 0.031036,
       "gap_intermediate_own": 0.092681,
       "gap_intermediate_own_neither": 0.0,
       "gap_intermediate_own_no_bill": 0.009325,
-      "gap_intermediate_own_no_pass_on": 0.090679,
+      "gap_intermediate_own_no_pass_on": 0.089855,
       "measured": -15.9659,
       "payer_classes": "mid",
       "routes_into_earners": 0.0,
@@ -10913,6 +11148,1227 @@
       "wall": 0.06
     }
   ],
+  "holding_time_checks": {
+    "chains": [
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 0,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 1,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 2,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 3,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 4,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.0
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.03
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_bill",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 no_pass_on",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      },
+      {
+        "classes": 3,
+        "conserve_err_at_most": 1e-12,
+        "identity_err_at_most": 1e-12,
+        "map": "M3 neither",
+        "mass_err_at_most": 1e-12,
+        "seed": 4,
+        "stationary_err_at_most": 1e-12,
+        "wall": 0.06
+      }
+    ],
+    "derivative": [
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 9.6e-05,
+        "dpi_l1": 0.201805,
+        "dpi_mid": -0.2019,
+        "elasticity_earners": 0.2563,
+        "elasticity_l1": 0.2563,
+        "elasticity_mid": -0.7236,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0003494404,
+        "pi_l1": 0.738078754,
+        "pi_mid": 0.2615718055,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000497,
+        "dpi_l1": 0.175535,
+        "dpi_mid": -0.176032,
+        "elasticity_earners": 0.2207,
+        "elasticity_l1": 0.2207,
+        "elasticity_mid": -0.6538,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021102927,
+        "pi_l1": 0.7454892542,
+        "pi_mid": 0.2524004532,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.206902,
+        "dpi_mid": -0.206902,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2633,
+        "elasticity_mid": -0.7367,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7367053385,
+        "pi_mid": 0.2632946615,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 9.6e-05,
+        "dpi_l1": 0.201805,
+        "dpi_mid": -0.2019,
+        "elasticity_earners": 0.2563,
+        "elasticity_l1": 0.2563,
+        "elasticity_mid": -0.7236,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0003494404,
+        "pi_l1": 0.738078754,
+        "pi_mid": 0.2615718055,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000497,
+        "dpi_l1": 0.175535,
+        "dpi_mid": -0.176032,
+        "elasticity_earners": 0.2207,
+        "elasticity_l1": 0.2207,
+        "elasticity_mid": -0.6538,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021102927,
+        "pi_l1": 0.7454892542,
+        "pi_mid": 0.2524004532,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.206902,
+        "dpi_mid": -0.206902,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2633,
+        "elasticity_mid": -0.7367,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7367053385,
+        "pi_mid": 0.2632946615,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 9.6e-05,
+        "dpi_l1": 0.201805,
+        "dpi_mid": -0.2019,
+        "elasticity_earners": 0.2563,
+        "elasticity_l1": 0.2563,
+        "elasticity_mid": -0.7236,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0003494404,
+        "pi_l1": 0.738078754,
+        "pi_mid": 0.2615718055,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000497,
+        "dpi_l1": 0.175535,
+        "dpi_mid": -0.176032,
+        "elasticity_earners": 0.2207,
+        "elasticity_l1": 0.2207,
+        "elasticity_mid": -0.6538,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021102927,
+        "pi_l1": 0.7454892542,
+        "pi_mid": 0.2524004532,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.206902,
+        "dpi_mid": -0.206902,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2633,
+        "elasticity_mid": -0.7367,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7367053385,
+        "pi_mid": 0.2632946615,
+        "seed": 0,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 6.6e-05,
+        "dpi_l1": 0.202981,
+        "dpi_mid": -0.203047,
+        "elasticity_earners": 0.1718,
+        "elasticity_l1": 0.2588,
+        "elasticity_mid": -0.7198,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0003590378,
+        "pi_l1": 0.7351991286,
+        "pi_mid": 0.2644418336,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000503,
+        "dpi_l1": 0.176389,
+        "dpi_mid": -0.176892,
+        "elasticity_earners": 0.2224,
+        "elasticity_l1": 0.2224,
+        "elasticity_mid": -0.6525,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021213339,
+        "pi_l1": 0.7437071261,
+        "pi_mid": 0.25417154,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.208548,
+        "dpi_mid": -0.208548,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2666,
+        "elasticity_mid": -0.7334,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7334219351,
+        "pi_mid": 0.2665780649,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 6.6e-05,
+        "dpi_l1": 0.202936,
+        "dpi_mid": -0.203002,
+        "elasticity_earners": 0.1709,
+        "elasticity_l1": 0.2588,
+        "elasticity_mid": -0.7197,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0003631044,
+        "pi_l1": 0.735186749,
+        "pi_mid": 0.2644501466,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000504,
+        "dpi_l1": 0.176474,
+        "dpi_mid": -0.176978,
+        "elasticity_earners": 0.2225,
+        "elasticity_l1": 0.2225,
+        "elasticity_mid": -0.6523,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021228951,
+        "pi_l1": 0.7435185051,
+        "pi_mid": 0.2543585998,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.208548,
+        "dpi_mid": -0.208548,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2666,
+        "elasticity_mid": -0.7334,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7334219351,
+        "pi_mid": 0.2665780649,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 6.6e-05,
+        "dpi_l1": 0.202936,
+        "dpi_mid": -0.203002,
+        "elasticity_earners": 0.1709,
+        "elasticity_l1": 0.2588,
+        "elasticity_mid": -0.7197,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0003631044,
+        "pi_l1": 0.735186749,
+        "pi_mid": 0.2644501466,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000504,
+        "dpi_l1": 0.176474,
+        "dpi_mid": -0.176978,
+        "elasticity_earners": 0.2225,
+        "elasticity_l1": 0.2225,
+        "elasticity_mid": -0.6523,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021228951,
+        "pi_l1": 0.7435185051,
+        "pi_mid": 0.2543585998,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.208548,
+        "dpi_mid": -0.208548,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2666,
+        "elasticity_mid": -0.7334,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7334219351,
+        "pi_mid": 0.2665780649,
+        "seed": 1,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 3.8e-05,
+        "dpi_l1": 0.204217,
+        "dpi_mid": -0.204254,
+        "elasticity_earners": 0.2592,
+        "elasticity_l1": 0.2592,
+        "elasticity_mid": -0.733,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0001364848,
+        "pi_l1": 0.7386086184,
+        "pi_mid": 0.2612548968,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000497,
+        "dpi_l1": 0.175465,
+        "dpi_mid": -0.175962,
+        "elasticity_earners": 0.2206,
+        "elasticity_l1": 0.2206,
+        "elasticity_mid": -0.6538,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021119262,
+        "pi_l1": 0.7455770552,
+        "pi_mid": 0.2523110187,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.206189,
+        "dpi_mid": -0.206189,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2619,
+        "elasticity_mid": -0.7381,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7381131864,
+        "pi_mid": 0.2618868136,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 3.8e-05,
+        "dpi_l1": 0.204217,
+        "dpi_mid": -0.204254,
+        "elasticity_earners": 0.2592,
+        "elasticity_l1": 0.2592,
+        "elasticity_mid": -0.733,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0001364848,
+        "pi_l1": 0.7386086184,
+        "pi_mid": 0.2612548968,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000497,
+        "dpi_l1": 0.175465,
+        "dpi_mid": -0.175962,
+        "elasticity_earners": 0.2206,
+        "elasticity_l1": 0.2206,
+        "elasticity_mid": -0.6538,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021119262,
+        "pi_l1": 0.7455770552,
+        "pi_mid": 0.2523110187,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.206189,
+        "dpi_mid": -0.206189,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2619,
+        "elasticity_mid": -0.7381,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7381131864,
+        "pi_mid": 0.2618868136,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 3.3e-05,
+        "dpi_l1": 0.20416,
+        "dpi_mid": -0.204192,
+        "elasticity_earners": 0.2589,
+        "elasticity_l1": 0.2589,
+        "elasticity_mid": -0.7343,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0001183349,
+        "pi_l1": 0.739167072,
+        "pi_mid": 0.2607145931,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000481,
+        "dpi_l1": 0.176156,
+        "dpi_mid": -0.176637,
+        "elasticity_earners": 0.2214,
+        "elasticity_l1": 0.2214,
+        "elasticity_mid": -0.6573,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0020379396,
+        "pi_l1": 0.7460243408,
+        "pi_mid": 0.2519377197,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.205873,
+        "dpi_mid": -0.205873,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2613,
+        "elasticity_mid": -0.7387,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7387337485,
+        "pi_mid": 0.2612662515,
+        "seed": 2,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 3.9e-05,
+        "dpi_l1": 0.202051,
+        "dpi_mid": -0.20209,
+        "elasticity_earners": 0.2551,
+        "elasticity_l1": 0.2551,
+        "elasticity_mid": -0.7365,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.000144817,
+        "pi_l1": 0.7426043119,
+        "pi_mid": 0.2572508711,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000474,
+        "dpi_l1": 0.172788,
+        "dpi_mid": -0.173262,
+        "elasticity_earners": 0.2156,
+        "elasticity_l1": 0.2156,
+        "elasticity_mid": -0.659,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0020606093,
+        "pi_l1": 0.7514666167,
+        "pi_mid": 0.246472774,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.204218,
+        "dpi_mid": -0.204218,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.258,
+        "elasticity_mid": -0.742,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7419621096,
+        "pi_mid": 0.2580378904,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 4e-05,
+        "dpi_l1": 0.202543,
+        "dpi_mid": -0.202583,
+        "elasticity_earners": 0.256,
+        "elasticity_l1": 0.256,
+        "elasticity_mid": -0.7355,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0001450096,
+        "pi_l1": 0.741650566,
+        "pi_mid": 0.2582044245,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000477,
+        "dpi_l1": 0.173154,
+        "dpi_mid": -0.173631,
+        "elasticity_earners": 0.2162,
+        "elasticity_l1": 0.2162,
+        "elasticity_mid": -0.6583,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0020671447,
+        "pi_l1": 0.7506783712,
+        "pi_mid": 0.2472544841,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.204701,
+        "dpi_mid": -0.204701,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.259,
+        "elasticity_mid": -0.741,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7410250392,
+        "pi_mid": 0.2589749608,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 4e-05,
+        "dpi_l1": 0.202554,
+        "dpi_mid": -0.202593,
+        "elasticity_earners": 0.256,
+        "elasticity_l1": 0.256,
+        "elasticity_mid": -0.7355,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0001450172,
+        "pi_l1": 0.7416300225,
+        "pi_mid": 0.2582249603,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000478,
+        "dpi_l1": 0.173285,
+        "dpi_mid": -0.173763,
+        "elasticity_earners": 0.2165,
+        "elasticity_l1": 0.2165,
+        "elasticity_mid": -0.6581,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0020694885,
+        "pi_l1": 0.7503956798,
+        "pi_mid": 0.2475348316,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.204701,
+        "dpi_mid": -0.204701,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.259,
+        "elasticity_mid": -0.741,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7410250392,
+        "pi_mid": 0.2589749608,
+        "seed": 3,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 6.4e-05,
+        "dpi_l1": 0.206414,
+        "dpi_mid": -0.206478,
+        "elasticity_earners": 0.2644,
+        "elasticity_l1": 0.2644,
+        "elasticity_mid": -0.7229,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0002275373,
+        "pi_l1": 0.731995927,
+        "pi_mid": 0.2677765357,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.00051,
+        "dpi_l1": 0.177237,
+        "dpi_mid": -0.177748,
+        "elasticity_earners": 0.224,
+        "elasticity_l1": 0.224,
+        "elasticity_mid": -0.6509,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0021349504,
+        "pi_l1": 0.74186439,
+        "pi_mid": 0.2560006596,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.209821,
+        "dpi_mid": -0.209821,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2691,
+        "elasticity_mid": -0.7309,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7308530555,
+        "pi_mid": 0.2691469445,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.0
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 6.4e-05,
+        "dpi_l1": 0.206433,
+        "dpi_mid": -0.206497,
+        "elasticity_earners": 0.2644,
+        "elasticity_l1": 0.2644,
+        "elasticity_mid": -0.7229,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0002273762,
+        "pi_l1": 0.7319614945,
+        "pi_mid": 0.2678111293,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000498,
+        "dpi_l1": 0.178434,
+        "dpi_mid": -0.178932,
+        "elasticity_earners": 0.2257,
+        "elasticity_l1": 0.2257,
+        "elasticity_mid": -0.6534,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0020690352,
+        "pi_l1": 0.7412077504,
+        "pi_mid": 0.2567232145,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.209821,
+        "dpi_mid": -0.209821,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2691,
+        "elasticity_mid": -0.7309,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7308530555,
+        "pi_mid": 0.2691469445,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.03
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 6.4e-05,
+        "dpi_l1": 0.206433,
+        "dpi_mid": -0.206497,
+        "elasticity_earners": 0.2644,
+        "elasticity_l1": 0.2644,
+        "elasticity_mid": -0.7229,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_bill",
+        "pi_earners": 0.0002273762,
+        "pi_l1": 0.7319614945,
+        "pi_mid": 0.2678111293,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.000498,
+        "dpi_l1": 0.178434,
+        "dpi_mid": -0.178932,
+        "elasticity_earners": 0.2257,
+        "elasticity_l1": 0.2257,
+        "elasticity_mid": -0.6534,
+        "lever": "propensity, intermediate block",
+        "map": "M3 no_pass_on",
+        "pi_earners": 0.0020690352,
+        "pi_l1": 0.7412077504,
+        "pi_mid": 0.2567232145,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.06
+      },
+      {
+        "diff_at_most": 1e-06,
+        "dpi_earners": 0.0,
+        "dpi_l1": 0.209821,
+        "dpi_mid": -0.209821,
+        "elasticity_earners": null,
+        "elasticity_l1": 0.2691,
+        "elasticity_mid": -0.7309,
+        "lever": "propensity, intermediate block",
+        "map": "M3 neither",
+        "pi_earners": 0.0,
+        "pi_l1": 0.7308530555,
+        "pi_mid": 0.2691469445,
+        "seed": 4,
+        "theta": 0.9375,
+        "wall": 0.06
+      }
+    ]
+  },
   "outrate_pairs": [
     {
       "k_a": 1.5895622179,

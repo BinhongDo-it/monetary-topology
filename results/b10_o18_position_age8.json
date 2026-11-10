@@ -27,37 +27,37 @@
   "loans": 1353651,
   "min_age": 8,
   "min_pairs": 7,
-  "pairs": 62321303,
+  "pairs": 63576604,
   "per_window": {
     "covid|term": {
-      "end": 0.08337,
-      "middle": 0.07746,
-      "start": 0.07054
+      "end": 0.08319,
+      "middle": 0.07741,
+      "start": 0.06936
     },
     "flex|term": {
-      "end": 0.08227,
-      "middle": 0.05175,
-      "start": 0.04342
+      "end": 0.08207,
+      "middle": 0.05164,
+      "start": 0.04322
     },
     "hamp|term": {
-      "end": 0.10152,
-      "middle": 0.07539,
-      "start": 0.04136
+      "end": 0.1009,
+      "middle": 0.07489,
+      "start": 0.04017
     },
     "post2023|open": {
-      "end": 0.05124,
-      "middle": 0.04925,
-      "start": 0.04938
+      "end": 0.05115,
+      "middle": 0.04929,
+      "start": 0.04946
     },
     "post2023|term": {
-      "end": 0.08859,
-      "middle": 0.06502,
-      "start": 0.05017
+      "end": 0.08812,
+      "middle": 0.06481,
+      "start": 0.05001
     },
     "pre_crisis|term": {
-      "end": 0.08317,
-      "middle": 0.06093,
-      "start": 0.05825
+      "end": 0.08272,
+      "middle": 0.06082,
+      "start": 0.05801
     }
   },
   "short": {
@@ -67,33 +67,33 @@
         0
       ],
       "1": [
-        1332,
-        18872
+        1308,
+        18252
       ],
       "2": [
-        2483,
-        40364
+        2373,
+        37788
       ],
       "3": [
-        3714,
-        63306
+        3501,
+        60438
       ],
       "4": [
-        4708,
-        80372
+        4668,
+        84468
       ],
       "5": [
-        5911,
-        99340
+        5834,
+        100460
       ],
       "6": [
-        7117,
-        119514
+        6908,
+        119244
       ]
     },
-    "frozen": 25265,
-    "loans": 237760,
-    "pairs": 421768
+    "frozen": 24592,
+    "loans": 218084,
+    "pairs": 420650
   },
   "sign_tables": {
     "still_reporting": {
@@ -101,83 +101,83 @@
       "rows": [
         {
           "band": "7-12",
-          "end_minus_middle": -0.00142,
+          "end_minus_middle": -0.00083,
           "n": {
-            "end": 63906,
-            "middle": 72444,
-            "start": 63906
+            "end": 64218,
+            "middle": 75232,
+            "start": 64218
           },
           "rates": {
-            "end": 0.04784,
-            "middle": 0.04925,
-            "start": 0.04713
+            "end": 0.0472,
+            "middle": 0.04802,
+            "start": 0.04639
           },
           "readable": true,
-          "start_minus_middle": -0.00212
+          "start_minus_middle": -0.00164
         },
         {
           "band": "13-24",
-          "end_minus_middle": 0.00204,
+          "end_minus_middle": 0.00182,
           "n": {
-            "end": 111063,
-            "middle": 462505,
-            "start": 111063
+            "end": 109599,
+            "middle": 453175,
+            "start": 109599
           },
           "rates": {
-            "end": 0.05348,
-            "middle": 0.05144,
-            "start": 0.04972
+            "end": 0.05324,
+            "middle": 0.05142,
+            "start": 0.04971
           },
           "readable": true,
-          "start_minus_middle": -0.00172
+          "start_minus_middle": -0.00171
         },
         {
           "band": "25-60",
-          "end_minus_middle": 0.00151,
+          "end_minus_middle": 0.00155,
           "n": {
-            "end": 352044,
-            "middle": 4260505,
-            "start": 352044
+            "end": 353709,
+            "middle": 4279593,
+            "start": 353709
           },
           "rates": {
-            "end": 0.04838,
-            "middle": 0.04687,
-            "start": 0.05027
+            "end": 0.04851,
+            "middle": 0.04695,
+            "start": 0.05031
           },
           "readable": true,
-          "start_minus_middle": 0.0034
+          "start_minus_middle": 0.00336
         },
         {
           "band": "61-120",
-          "end_minus_middle": -0.00527,
+          "end_minus_middle": -0.00524,
           "n": {
-            "end": 201291,
-            "middle": 5516850,
-            "start": 201291
+            "end": 207633,
+            "middle": 5645079,
+            "start": 207633
           },
           "rates": {
-            "end": 0.05361,
-            "middle": 0.05888,
-            "start": 0.05743
+            "end": 0.05342,
+            "middle": 0.05866,
+            "start": 0.05719
           },
           "readable": true,
-          "start_minus_middle": -0.00144
+          "start_minus_middle": -0.00147
         },
         {
           "band": "121+",
-          "end_minus_middle": -0.00221,
+          "end_minus_middle": -0.00234,
           "n": {
-            "end": 150987,
-            "middle": 7798303,
-            "start": 150987
+            "end": 153762,
+            "middle": 7955911,
+            "start": 153762
           },
           "rates": {
-            "end": 0.05452,
-            "middle": 0.05674,
-            "start": 0.047
+            "end": 0.05435,
+            "middle": 0.05669,
+            "start": 0.04636
           },
           "readable": true,
-          "start_minus_middle": -0.00974
+          "start_minus_middle": -0.01033
         }
       ],
       "start_vs_middle": "mixed",
@@ -188,83 +188,83 @@
       "rows": [
         {
           "band": "7-12",
-          "end_minus_middle": 0.00878,
+          "end_minus_middle": 0.00939,
           "n": {
-            "end": 299046,
-            "middle": 344590,
-            "start": 299046
+            "end": 301437,
+            "middle": 349403,
+            "start": 301437
           },
           "rates": {
-            "end": 0.06643,
-            "middle": 0.05765,
-            "start": 0.05551
+            "end": 0.06599,
+            "middle": 0.0566,
+            "start": 0.05523
           },
           "readable": true,
-          "start_minus_middle": -0.00213
+          "start_minus_middle": -0.00137
         },
         {
           "band": "13-24",
-          "end_minus_middle": 0.01372,
+          "end_minus_middle": 0.01373,
           "n": {
-            "end": 502542,
-            "middle": 2039117,
-            "start": 502542
+            "end": 514581,
+            "middle": 2091851,
+            "start": 514581
           },
           "rates": {
-            "end": 0.07356,
-            "middle": 0.05984,
-            "start": 0.05233
+            "end": 0.07262,
+            "middle": 0.05889,
+            "start": 0.05185
           },
           "readable": true,
-          "start_minus_middle": -0.00751
+          "start_minus_middle": -0.00704
         },
         {
           "band": "25-60",
-          "end_minus_middle": 0.02908,
+          "end_minus_middle": 0.029,
           "n": {
-            "end": 887199,
-            "middle": 10103377,
-            "start": 887199
+            "end": 905373,
+            "middle": 10309501,
+            "start": 905373
           },
           "rates": {
-            "end": 0.09201,
-            "middle": 0.06293,
-            "start": 0.04825
+            "end": 0.09144,
+            "middle": 0.06244,
+            "start": 0.04769
           },
           "readable": true,
-          "start_minus_middle": -0.01468
+          "start_minus_middle": -0.01475
         },
         {
           "band": "61-120",
-          "end_minus_middle": 0.04045,
+          "end_minus_middle": 0.04043,
           "n": {
-            "end": 595737,
-            "middle": 15581576,
-            "start": 595737
+            "end": 607698,
+            "middle": 15905661,
+            "start": 607698
           },
           "rates": {
-            "end": 0.10573,
-            "middle": 0.06528,
-            "start": 0.04779
+            "end": 0.10532,
+            "middle": 0.06489,
+            "start": 0.04704
           },
           "readable": true,
-          "start_minus_middle": -0.01748
+          "start_minus_middle": -0.01785
         },
         {
           "band": "121+",
-          "end_minus_middle": 0.04215,
+          "end_minus_middle": 0.04249,
           "n": {
-            "end": 183858,
-            "middle": 9024922,
-            "start": 183858
+            "end": 188691,
+            "middle": 9277146,
+            "start": 188691
           },
           "rates": {
-            "end": 0.12075,
-            "middle": 0.07859,
-            "start": 0.0585
+            "end": 0.12119,
+            "middle": 0.0787,
+            "start": 0.05828
           },
           "readable": true,
-          "start_minus_middle": -0.02009
+          "start_minus_middle": -0.02042
         }
       ],
       "start_vs_middle": "all_negative",

@@ -22,7 +22,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, fields
 from itertools import pairwise
 from pathlib import Path
 
@@ -31,6 +31,7 @@ import numpy as np
 
 from monetary_topology import WageChannel, run
 from monetary_topology.calibration import dfa_calibrated, source_faithful
+from monetary_topology.economy import History
 from monetary_topology.plotting import (
     COLOR_ACCENT,
     COLOR_INSTRUMENT,
@@ -222,10 +223,18 @@ def evaluate(base, sweeps: dict[str, list[float]]) -> list[Criterion]:
 
     zero_e = run(with_wages(base, 0.0))
     fixed = run(base)
+    # Every history series, compared for exact equality. `np.allclose` with
+    # `atol=0` still carries its default relative tolerance of 1e-5, so it
+    # checked something weaker than the bitwise equality the detail states,
+    # and it read one series where the name speaks of the model.
+    identical = all(
+        np.array_equal(getattr(zero_e, f.name), getattr(fixed, f.name))
+        for f in fields(History)
+    )
     out.append(
         Criterion(
             "A0b-1  zero elasticity reproduces the fixed-bill model exactly",
-            bool(np.allclose(zero_e.layer2_spending, fixed.layer2_spending, atol=0)),
+            identical,
             "series identical to bitwise equality; the addition is a strict "
             "generalisation and cannot have changed the earlier results",
         )
@@ -264,8 +273,10 @@ def evaluate(base, sweeps: dict[str, list[float]]) -> list[Criterion]:
     predicted = [slope * fs for fs in sweeps["floor_share"]]
     resid = float(np.max(np.abs(np.array(floors) - np.array(predicted))))
     tol = 1e-6 * max(1.0, max(floors))
-    # The residual is two to eight units in the last place of a value near 12.7,
-    # so it is rounding and not a measurement, and its exact size is a property
+    # The residual is two to eight multiples of machine epsilon (4.4e-16 to
+    # 1.8e-15 seen so far) on levels that reach 12.7 under the DFA preset and
+    # 17.0 under the source one, so it is rounding and not a measurement, and
+    # its exact size is a property
     # of the machine's floating-point library. Printing it into the record made
     # the record read 1.776e-15 on a Windows build and 4.441e-16 on a Linux
     # one, so the two disagreed on that line for as long as it was printed.
@@ -316,7 +327,10 @@ def main() -> int:
         base = variant(factory(), rounds=args.rounds, seed=args.seed)
         print(f"=== preset: {tag} ===")
         print(f"  baseline wage bill = {base.wages.bill}")
-        print(f"  Layer 2 outflow / downward inflow = {base.flow_balance():.3f}")
+        print(
+            "  Layer 2 outflow / downward inflow, shorthand on Layer 2 means = "
+            f"{base.flow_balance():.3f}"
+        )
 
         p4 = figure_4(base, tag)
         p5, sweeps = figure_5(base, tag)

@@ -756,18 +756,21 @@ def flat_path(periods: int, n_strata: int, multiplier: float = 1.0):
 
 
 # ---------------------------------------------------------------------------
-# The dispersion the published means will carry
+# Each arm's dispersion cap at the registered concentration floor of 2
 # ---------------------------------------------------------------------------
 #: A Beta at mean ``m`` cannot have a coefficient of variation above
-#: ``sqrt((1 - m) / m)``, so the spread a stage can ask for is bounded by its
-#: own tightest cell. This is derived from the data rather than chosen, and the
-#: value it produces is printed and recorded rather than left implicit.
+#: ``sqrt((1 - m) / m)``. At the concentration floor of 2 the model registers,
+#: the cap is ``sqrt((1 - m) / (3m))``, and an arm's cap is that value at its
+#: own tightest cell. The caps come from the published means and are printed
+#: and recorded. The dispersion drawn is the registered 0.25 unless a run
+#: states another.
 BLENDED_PAYMENT_RATE = 1.0 / (0.5 / 0.02 + 0.5 / (1.0 / 60.0))
 
 
 def arm_dispersion(inputs: Inputs, households: int
                    ) -> tuple[float | None, str]:
-    """The largest dispersion this arm's own means support, and what binds it.
+    """The largest dispersion this arm's own means support at the registered
+    concentration floor of 2, and what binds it.
 
     ``None`` when some cell's published debt exceeds its published disposable:
     that arm has no population at any dispersion, and the reason is a level
@@ -1156,7 +1159,7 @@ def print_feasibility(inputs: Inputs, households: int) -> None:
     print("\nbaseline feasibility, the mean of the drawn service share")
     print(f"    {'group':<10}{'tenure':>11}{'share of grp':>13}"
           f"{'disposable':>12}{'service':>10}{'draw mean':>11}"
-          f"{'max disp':>10}")
+          f"{'cap at k=2':>12}")
     weight = {
         Tenure.MORTGAGED: inputs.mortgaged_share,
         Tenure.OUTRIGHT: inputs.outright_share,
@@ -1170,12 +1173,13 @@ def print_feasibility(inputs: Inputs, households: int) -> None:
             disposable = built.disposable(i, tenure)
             share = service / disposable if disposable > 0 else float("inf")
             limit = max_dispersion(share) if 0.0 < share < 1.0 else 0.0
-            flag = "" if limit >= spec.dispersion else "  <- degenerate"
+            flag = ("" if limit >= spec.dispersion
+                    else "  <- dispersion above the cap at k=2")
             print(f"    {group:<10}{tenure.value.lower():>11}"
                   f"{weight[tenure][i]:>13.3f}{disposable:>12,.0f}"
-                  f"{service:>10,.0f}{share:>11.3f}{limit:>10.3f}{flag}")
-    print(f"    the registered dispersion is {spec.dispersion:g}; a cell whose "
-          f"maximum is below it cannot be drawn")
+                  f"{service:>10,.0f}{share:>11.3f}{limit:>12.3f}{flag}")
+    print(f"    the dispersion drawn is {spec.dispersion:g}; a cell whose "
+          f"cap at the registered floor is below it is refused")
 
 
 def print_realisation(inputs: Inputs, cost: CostRule, households: int) -> None:
@@ -1219,9 +1223,9 @@ def main() -> int:
     ap.add_argument("--households", type=int, default=100,
                     help="stratified population size, an estimation setting")
     ap.add_argument("--dispersion", type=float, default=None,
-                    help="force a service-share dispersion instead of the "
-                         "largest one every arm's published means support; "
-                         "whatever is used is reported in the output")
+                    help="the service-share dispersion to draw at; the "
+                         "default is the registered 0.25, and whatever is "
+                         "used is reported in the output")
     ap.add_argument("--inputs", action="store_true",
                     help="print the inputs and stop")
     args = ap.parse_args()
@@ -1244,7 +1248,8 @@ def main() -> int:
         return 0
 
     caps = dispersion_report(inputs, args.households)
-    print("\nthe dispersion each arm's own cells will carry, reported only")
+    print("\neach arm's dispersion cap at the registered concentration floor "
+          "of 2, reported only")
     for label, value, binding in caps:
         shown = "none at any spread" if value is None else f"{value:.3f}"
         print(f"    {label:<24}{shown:>18}   {binding}")
@@ -1305,9 +1310,13 @@ def main() -> int:
                 "dispersion_is_derived": False,
                 "dispersion_caps_by_arm": [
                     {"arm": label, "cap": value, "binding": binding,
-                     "note": "a property of that arm's crossing of two "
-                             "rankings, reported and not minimised into a "
-                             "parameter"}
+                     "note": ("the cap at the registered concentration "
+                              "floor of 2, a property of that arm's crossing "
+                              "of two rankings, reported and not minimised "
+                              "into a parameter" if value is not None else
+                              "no cap: a cell's published debt exceeds its "
+                              "disposable, a level that refuses the arm at "
+                              "any dispersion")}
                     for label, value, binding in caps
                 ],
                 "rank_correlation": REGISTERED_RANK_CORRELATION,

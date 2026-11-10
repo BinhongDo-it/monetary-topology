@@ -20,7 +20,7 @@
    "NL": 12.8,
    "PT": 4.2,
    "SI": 2,
-   "SK": 4.51
+   "SK": 4.5
   },
   "envelope_source": "ECB Occasional Paper 257, tables A.3 and A.4",
   "objects": {
@@ -40,7 +40,7 @@
  },
  "criteria": [
   {
-   "detail": "eligible minus house, ILM longer-term, to 2020-12: dose corr 0.3527, b_G 0.4632 (floor [-0.4117, 0.8057]) -> inside the floor, b_T 0.2622 (floor [-0.3897, 1.6156]) -> inside the floor; eligible minus house, ILM longer-term, to 2021-03: dose corr 0.3344, b_G -0.2282 (floor [-0.2925, 0.8766]) -> inside the floor, b_T 1.1517 (floor [-0.7696, 1.3103]) -> inside the floor; eligible minus house, ILM longer-term, to 2021-06: dose corr 0.1359, b_G 0.1025 (floor [0.0754, 0.9677]) -> inside the floor, b_T 1.1694 (floor [-1.0702, 0.7682]) -> positive past the floor; eligible minus house, BSI Eurosystem borrowing, to 2020-12: dose corr 0.3737, b_G 0.4724 (floor [-0.4359, 0.8301]) -> inside the floor, b_T 0.1823 (floor [-0.4903, 1.6863]) -> inside the floor; eligible minus house, BSI Eurosystem borrowing, to 2021-03: dose corr 0.3441, b_G -0.2063 (floor [-0.3172, 0.8873]) -> inside the floor, b_T 0.9083 (floor [-0.85, 1.2873]) -> inside the floor; eligible minus house, BSI Eurosystem borrowing, to 2021-06: dose corr 0.2023, b_G 0.0945 (floor [0.0439, 1.0001]) -> inside the floor, b_T 0.7803 (floor [-0.8908, 0.9913]) -> inside the floor; corporate minus house, ILM longer-term, to 2020-12: dose corr 0.3527, b_G 0.2823 (floor [-0.5755, -0.0439]) -> positive past the floor, b_T 0.5479 (floor [-0.2098, 1.7938]) -> inside the floor; corporate minus house, ILM longer-term, to 2021-03: dose corr 0.3344, b_G 0.142 (floor [-0.6576, -0.1127]) -> positive past the floor, b_T 0.4771 (floor [-0.161, 1.5219]) -> inside the floor; corporate minus house, ILM longer-term, to 2021-06: dose corr 0.1359, b_G 0.3277 (floor [-0.6736, -0.0114]) -> positive past the floor, b_T 0.6099 (floor [-0.4473, 1.6937]) -> inside the floor; corporate minus house, BSI Eurosystem borrowing, to 2020-12: dose corr 0.3737, b_G 0.2895 (floor [-0.5815, -0.0242]) -> positive past the floor, b_T 0.4504 (floor [-0.2955, 1.7631]) -> inside the floor; corporate minus house, BSI Eurosystem borrowing, to 2021-03: dose corr 0.3441, b_G 0.164 (floor [-0.6594, -0.1082]) -> positive past the floor, b_T 0.3049 (floor [-0.3237, 1.3686]) -> inside the floor; corporate minus house, BSI Eurosystem borrowing, to 2021-06: dose corr 0.2023, b_G 0.3254 (floor [-0.7011, 0.0221]) -> positive past the floor, b_T 0.3855 (floor [-0.2641, 1.6397]) -> inside the floor",
+   "detail": "eligible minus house, ILM longer-term, to 2020-12: dose corr 0.3528, b_G 0.4629 (floor [-0.4126, 0.8057]) -> inside the floor, b_T 0.2623 (floor [-0.3898, 1.6165]) -> inside the floor; eligible minus house, ILM longer-term, to 2021-03: dose corr 0.3343, b_G -0.2283 (floor [-0.2932, 0.8769]) -> inside the floor, b_T 1.1518 (floor [-0.769, 1.3105]) -> inside the floor; eligible minus house, ILM longer-term, to 2021-06: dose corr 0.1358, b_G 0.1021 (floor [0.075, 0.9679]) -> inside the floor, b_T 1.1695 (floor [-1.07, 0.7686]) -> positive past the floor; eligible minus house, BSI Eurosystem borrowing, to 2020-12: dose corr 0.3738, b_G 0.4722 (floor [-0.4368, 0.8301]) -> inside the floor, b_T 0.1825 (floor [-0.4904, 1.6872]) -> inside the floor; eligible minus house, BSI Eurosystem borrowing, to 2021-03: dose corr 0.344, b_G -0.2065 (floor [-0.3179, 0.8875]) -> inside the floor, b_T 0.9084 (floor [-0.8494, 1.2876]) -> inside the floor; eligible minus house, BSI Eurosystem borrowing, to 2021-06: dose corr 0.2022, b_G 0.0941 (floor [0.0435, 1.0003]) -> inside the floor, b_T 0.7805 (floor [-0.8906, 0.9916]) -> inside the floor; corporate minus house, ILM longer-term, to 2020-12: dose corr 0.3528, b_G 0.2824 (floor [-0.5758, -0.044]) -> positive past the floor, b_T 0.5477 (floor [-0.21, 1.7943]) -> inside the floor; corporate minus house, ILM longer-term, to 2021-03: dose corr 0.3343, b_G 0.1421 (floor [-0.6575, -0.1127]) -> positive past the floor, b_T 0.477 (floor [-0.1612, 1.5221]) -> inside the floor; corporate minus house, ILM longer-term, to 2021-06: dose corr 0.1358, b_G 0.3277 (floor [-0.6735, -0.0116]) -> positive past the floor, b_T 0.6099 (floor [-0.4474, 1.6937]) -> inside the floor; corporate minus house, BSI Eurosystem borrowing, to 2020-12: dose corr 0.3738, b_G 0.2897 (floor [-0.5818, -0.0243]) -> positive past the floor, b_T 0.4503 (floor [-0.2954, 1.7636]) -> inside the floor; corporate minus house, BSI Eurosystem borrowing, to 2021-03: dose corr 0.344, b_G 0.1641 (floor [-0.6593, -0.1081]) -> positive past the floor, b_T 0.3048 (floor [-0.3236, 1.3688]) -> inside the floor; corporate minus house, BSI Eurosystem borrowing, to 2021-06: dose corr 0.2022, b_G 0.3254 (floor [-0.701, 0.0219]) -> positive past the floor, b_T 0.3855 (floor [-0.2642, 1.6398]) -> inside the floor",
    "kind": "own_reading",
    "name": "B128-12",
    "passed": null,
@@ -56,16 +56,16 @@
  "dose": "envelope",
  "rows": [
   {
-   "b_G": 0.4632,
+   "b_G": 0.4629,
    "b_G_floor": [
-    -0.4117,
+    -0.4126,
     0.8057
    ],
    "b_G_state": "inside the floor",
-   "b_T": 0.2622,
+   "b_T": 0.2623,
    "b_T_floor": [
-    -0.3897,
-    1.6156
+    -0.3898,
+    1.6165
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -86,7 +86,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3527,
+   "dose_corr": 0.3528,
    "end": "2020-12",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -104,23 +104,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "ILM longer-term",
    "object": "eligible minus house",
    "windows": 17
   },
   {
-   "b_G": -0.2282,
+   "b_G": -0.2283,
    "b_G_floor": [
-    -0.2925,
-    0.8766
+    -0.2932,
+    0.8769
    ],
    "b_G_state": "inside the floor",
-   "b_T": 1.1517,
+   "b_T": 1.1518,
    "b_T_floor": [
-    -0.7696,
-    1.3103
+    -0.769,
+    1.3105
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -141,7 +141,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3344,
+   "dose_corr": 0.3343,
    "end": "2021-03",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -159,23 +159,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "ILM longer-term",
    "object": "eligible minus house",
    "windows": 14
   },
   {
-   "b_G": 0.1025,
+   "b_G": 0.1021,
    "b_G_floor": [
-    0.0754,
-    0.9677
+    0.075,
+    0.9679
    ],
    "b_G_state": "inside the floor",
-   "b_T": 1.1694,
+   "b_T": 1.1695,
    "b_T_floor": [
-    -1.0702,
-    0.7682
+    -1.07,
+    0.7686
    ],
    "b_T_state": "positive past the floor",
    "countries": [
@@ -196,7 +196,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.1359,
+   "dose_corr": 0.1358,
    "end": "2021-06",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -214,23 +214,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "ILM longer-term",
    "object": "eligible minus house",
    "windows": 11
   },
   {
-   "b_G": 0.4724,
+   "b_G": 0.4722,
    "b_G_floor": [
-    -0.4359,
+    -0.4368,
     0.8301
    ],
    "b_G_state": "inside the floor",
-   "b_T": 0.1823,
+   "b_T": 0.1825,
    "b_T_floor": [
-    -0.4903,
-    1.6863
+    -0.4904,
+    1.6872
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -251,7 +251,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3737,
+   "dose_corr": 0.3738,
    "end": "2020-12",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -269,23 +269,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "BSI Eurosystem borrowing",
    "object": "eligible minus house",
    "windows": 17
   },
   {
-   "b_G": -0.2063,
+   "b_G": -0.2065,
    "b_G_floor": [
-    -0.3172,
-    0.8873
+    -0.3179,
+    0.8875
    ],
    "b_G_state": "inside the floor",
-   "b_T": 0.9083,
+   "b_T": 0.9084,
    "b_T_floor": [
-    -0.85,
-    1.2873
+    -0.8494,
+    1.2876
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -306,7 +306,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3441,
+   "dose_corr": 0.344,
    "end": "2021-03",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -324,23 +324,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "BSI Eurosystem borrowing",
    "object": "eligible minus house",
    "windows": 14
   },
   {
-   "b_G": 0.0945,
+   "b_G": 0.0941,
    "b_G_floor": [
-    0.0439,
-    1.0001
+    0.0435,
+    1.0003
    ],
    "b_G_state": "inside the floor",
-   "b_T": 0.7803,
+   "b_T": 0.7805,
    "b_T_floor": [
-    -0.8908,
-    0.9913
+    -0.8906,
+    0.9916
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -361,7 +361,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.2023,
+   "dose_corr": 0.2022,
    "end": "2021-06",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -379,23 +379,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "BSI Eurosystem borrowing",
    "object": "eligible minus house",
    "windows": 11
   },
   {
-   "b_G": 0.2823,
+   "b_G": 0.2824,
    "b_G_floor": [
-    -0.5755,
-    -0.0439
+    -0.5758,
+    -0.044
    ],
    "b_G_state": "positive past the floor",
-   "b_T": 0.5479,
+   "b_T": 0.5477,
    "b_T_floor": [
-    -0.2098,
-    1.7938
+    -0.21,
+    1.7943
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -416,7 +416,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3527,
+   "dose_corr": 0.3528,
    "end": "2020-12",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -434,23 +434,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "ILM longer-term",
    "object": "corporate minus house",
    "windows": 17
   },
   {
-   "b_G": 0.142,
+   "b_G": 0.1421,
    "b_G_floor": [
-    -0.6576,
+    -0.6575,
     -0.1127
    ],
    "b_G_state": "positive past the floor",
-   "b_T": 0.4771,
+   "b_T": 0.477,
    "b_T_floor": [
-    -0.161,
-    1.5219
+    -0.1612,
+    1.5221
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -471,7 +471,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3344,
+   "dose_corr": 0.3343,
    "end": "2021-03",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -489,7 +489,7 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "ILM longer-term",
    "object": "corporate minus house",
@@ -498,13 +498,13 @@
   {
    "b_G": 0.3277,
    "b_G_floor": [
-    -0.6736,
-    -0.0114
+    -0.6735,
+    -0.0116
    ],
    "b_G_state": "positive past the floor",
    "b_T": 0.6099,
    "b_T_floor": [
-    -0.4473,
+    -0.4474,
     1.6937
    ],
    "b_T_state": "inside the floor",
@@ -526,7 +526,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.1359,
+   "dose_corr": 0.1358,
    "end": "2021-06",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -544,23 +544,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "ILM longer-term",
    "object": "corporate minus house",
    "windows": 11
   },
   {
-   "b_G": 0.2895,
+   "b_G": 0.2897,
    "b_G_floor": [
-    -0.5815,
-    -0.0242
+    -0.5818,
+    -0.0243
    ],
    "b_G_state": "positive past the floor",
-   "b_T": 0.4504,
+   "b_T": 0.4503,
    "b_T_floor": [
-    -0.2955,
-    1.7631
+    -0.2954,
+    1.7636
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -581,7 +581,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3737,
+   "dose_corr": 0.3738,
    "end": "2020-12",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -599,23 +599,23 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "BSI Eurosystem borrowing",
    "object": "corporate minus house",
    "windows": 17
   },
   {
-   "b_G": 0.164,
+   "b_G": 0.1641,
    "b_G_floor": [
-    -0.6594,
-    -0.1082
+    -0.6593,
+    -0.1081
    ],
    "b_G_state": "positive past the floor",
-   "b_T": 0.3049,
+   "b_T": 0.3048,
    "b_T_floor": [
-    -0.3237,
-    1.3686
+    -0.3236,
+    1.3688
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -636,7 +636,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.3441,
+   "dose_corr": 0.344,
    "end": "2021-03",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -654,7 +654,7 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "BSI Eurosystem borrowing",
    "object": "corporate minus house",
@@ -663,14 +663,14 @@
   {
    "b_G": 0.3254,
    "b_G_floor": [
-    -0.7011,
-    0.0221
+    -0.701,
+    0.0219
    ],
    "b_G_state": "positive past the floor",
    "b_T": 0.3855,
    "b_T_floor": [
-    -0.2641,
-    1.6397
+    -0.2642,
+    1.6398
    ],
    "b_T_state": "inside the floor",
    "countries": [
@@ -691,7 +691,7 @@
     "SI",
     "SK"
    ],
-   "dose_corr": 0.2023,
+   "dose_corr": 0.2022,
    "end": "2021-06",
    "guarantee_dose": {
     "AT": 0.0785,
@@ -709,7 +709,7 @@
     "LV": 0.0425,
     "PT": 0.0613,
     "SI": 0.2113,
-    "SK": 0.223
+    "SK": 0.2225
    },
    "numerator": "BSI Eurosystem borrowing",
    "object": "corporate minus house",

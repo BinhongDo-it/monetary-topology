@@ -13,9 +13,10 @@ again at levy 0.15 and 0.25 (11f).
 Checks, each with a planted error that must make it fail (--selftest):
   A51-2  instrument  block 1's structure check on every run (core never built, priced by the
                      premium, one unit per renter, every choice the cheapest affordable)
-  A51-4  instrument  every lease holds: a renter kept on a lease sits on the tier and lessor it
-                     signed for, pays the signed rent when rents are locked, and is never kept
-                     L rounds or more after signing
+  A51-4  instrument  every lease holds, read against the lease as it was signed: a renter kept
+                     on a lease sits on the tier and with the lessor it signed with, is due the
+                     signed rent when rents are locked and otherwise the rent the rule gives that
+                     round, and is never kept L rounds or more after signing
   A51-5  instrument  L 1 is the block-1 matching, field for field (an implementation check)
 
 Readings (own_reading), per seed, a sign read only where it holds at every seed and levy:
@@ -64,30 +65,52 @@ def rules(landlord, g, s, lease, levy):
     return a51_block1.rules_for(landlord, g, s, lease_rounds=L, lease_rent_lock=lock, **knob)
 
 
+def rent_due_by_rule(m, t: int, q: int, who: int) -> float:
+    """The rent the rule gives on tier q in round t, from the histories: the cost price of the
+    round for a cost-renting public landlord, otherwise the quote standing when round t collects
+    (the close of round t - 1; the opening quote in round 0)."""
+    from monetary_topology.housing_rules import LANDLORD
+    rate = m.a3.asset.rent_rate
+    if who == LANDLORD and m.rules.public_rent_cost:
+        return rate * float(m.cost_price_history[t][q])
+    if t > 0:
+        return rate * float(m.price_history[t - 1][q])
+    p0 = np.asarray(m.a3.asset.initial_price, dtype=float).copy()
+    if m.rules.core_premium:
+        p0[m._core_q] = m.opening_core_price
+    return rate * float(p0[q])
+
+
 def lease_check(m) -> tuple[bool, list[str]]:
     L = m.rules.lease_rounds
     bad = []
-    signed: dict[int, tuple[int, int]] = {}      # node -> (round signed, tier)
-    dues: dict[tuple[int, int], set] = {}
-    chosen = {(t, i): q for t, i, q, _, _ in m.location_choices}
-    events = sorted([(t, 0, i, q, None, None) for (t, i), q in chosen.items()]
+    signed: dict[int, tuple[int, int, int, float]] = {}      # node -> (round, tier, lessor, rent) as signed
+    choices = {(t, i): q for t, i, q, _, _ in m.location_choices}
+    for t, i, q, who, rent in m.lease_signings:
+        if choices.get((t, i)) != q:
+            bad.append(f"round {t}: node {i} signed for tier {q}, chose {choices.get((t, i))}")
+    if L > 1 and len(m.lease_signings) != len(m.location_choices):
+        bad.append(f"{len(m.location_choices)} choices, {len(m.lease_signings)} leases signed")
+    close = lambda a, b: abs(a - b) <= 1e-12 * max(abs(b), 1e-300)
+    events = sorted([(t, 0, i, q, who, rent) for t, i, q, who, rent in m.lease_signings]
                     + [(t, 1, i, q, who, due) for t, i, q, who, due in m.lease_log])
     for t, kind, i, q, who, due in events:
         if kind == 0:
-            signed[i] = (t, q)
+            signed[i] = (t, q, who, due)
             continue
         if i not in signed:
             bad.append(f"round {t}: node {i} kept without a lease")
             continue
-        t0, q0 = signed[i]
+        t0, q0, who0, rent0 = signed[i]
         if q != q0:
             bad.append(f"round {t}: node {i} kept on tier {q}, signed {q0}")
+        if who != who0:
+            bad.append(f"round {t}: node {i} kept with lessor {who}, signed with {who0}")
         if t - t0 >= L:
             bad.append(f"round {t}: node {i} kept {t - t0} rounds after signing, lease {L}")
-        # every kept entry of one lease pays the same due when rents are locked
-        dues.setdefault((i, t0), set()).add(due)
-    if m.rules.lease_rent_lock and any(len(v) > 1 for v in dues.values()):
-        bad.append("a locked lease paid two different rents")
+        want = rent0 if m.rules.lease_rent_lock else rent_due_by_rule(m, t, q, who)
+        if not close(due, want):
+            bad.append(f"round {t}: node {i} due {due}, the lease gives {want}")
     return not bad, bad[:5]
 
 
@@ -119,7 +142,35 @@ def implementation_twin() -> tuple[bool, list[str]]:
 
 KEY = ("landlord", "g", "share", "s")
 QTY = ("core_tenants_last50", "employed_share_of_core_tenants", "location_rent_left_with_tenants_per_round",
-       "location_rent_collected_per_round", "prod_share", "top_decile", "evictions", "core_households_end")
+       "location_rent_collected_per_round", "commute_saved_per_round", "prod_share", "top_decile", "evictions",
+       "core_households_end", "core_tenant_rounds", "core_last_occupied_round", "location_rent_collected_total")
+
+
+def lock_pairs(rows) -> dict:
+    """A rent-locked lease against the same lease unlocked, same cell, levy and seed: which stored
+    fields differ. 2 lease lengths x 16 cells x 3 levies x 5 seeds = 480 pairs."""
+    idx = {(r["landlord"], r["g"], r["share"], r["s"], r["lease"], r["levy"], r["seed"]): r for r in rows}
+    skip = {"seconds", "lease"}
+    pairs = differing = 0
+    listed, worst = [], 0.0
+    whole = ("core_tenant_rounds", "core_last_occupied_round", "location_rent_collected_total",
+             "location_rent_left_with_tenants_total", "commute_saved_total")
+    whole_only = 0
+    for key, a in idx.items():
+        if not key[4].endswith(" lock"):
+            continue
+        b = idx[key[:4] + (key[4][:-5],) + key[5:]]
+        pairs += 1
+        fields = sorted(k for k in a if k not in skip and a[k] != b[k])
+        if fields:
+            differing += 1
+            worst = max(worst, abs(a["prod_share"] - b["prod_share"]))
+            whole_only += int(all(f in whole for f in fields))
+            listed.append({"landlord": key[0], "g": key[1], "share": key[2], "s": key[3], "lease": key[4],
+                           "levy": key[5], "seed": key[6], "fields": fields,
+                           "prod_share_locked_minus_unlocked": round(a["prod_share"] - b["prod_share"], 4)})
+    return {"pairs": pairs, "differing": differing, "differing_in_whole_run_totals_only": whole_only,
+            "max_abs_prod_share_diff": round(worst, 4), "list": listed}
 
 
 def by(rows, **k):
@@ -168,14 +219,43 @@ def selftest() -> None:
     t, i, q, who, due = m.lease_log[2]
     m.lease_log[2] = (t, i, q, who, due + 0.01)
     assert not lease_check(m)[0], "A51-4 must catch a locked lease paying two rents"
+    # every renewal of one lease moved to the same wrong rent: no two rents differ, the signed one does
+    m, _ = a47_block3.run(rules("listed 0.271", 0.005, S_HIGH, "L5 lock", 0.20), seed=0, rounds=80,
+                          asset=split_asset(0.1))
+    t0, i0 = m.lease_signings[0][:2]
+    mine = [k for k, (t, i, q, who, due) in enumerate(m.lease_log) if i == i0 and t0 < t < t0 + 5]
+    assert mine, "the first lease must have renewals"
+    for k in mine:
+        t, i, q, who, due = m.lease_log[k]
+        m.lease_log[k] = (t, i, q, who, due + 0.01)
+    assert not lease_check(m)[0], "A51-4 must catch a lease whose every renewal pays the same wrong rent"
+    m, _ = a47_block3.run(rules("listed 0.271", 0.005, S_HIGH, "L5 lock", 0.20), seed=0, rounds=80,
+                          asset=split_asset(0.1))
+    t, i, q, who, due = m.lease_log[3]
+    m.lease_log[3] = (t, i, q, who + 1, due)
+    assert not lease_check(m)[0], "A51-4 must catch a renter kept with another lessor"
+    m, _ = a47_block3.run(rules("listed 0.271", 0.005, S_HIGH, "L5", 0.20), seed=0, rounds=80,
+                          asset=split_asset(0.1))
+    assert lease_check(m)[0], "the unlocked lease arm must pass"
+    t, i, q, who, due = m.lease_log[3]
+    m.lease_log[3] = (t, i, q, who, due * 1.01)
+    assert not lease_check(m)[0], "A51-4 must catch an unlocked renewal not at the round's rent"
+    # the lock pairs
+    a = {"landlord": "x", "g": 0.0, "share": 0.1, "s": 0.027, "lease": "L5", "levy": 0.2, "seed": 0, "seconds": 1.0,
+         "prod_share": 0.2, "core_tenant_rounds": 5}
+    b = dict(a, lease="L5 lock", seconds=2.0)
+    assert lock_pairs([a, b])["differing"] == 0
+    assert lock_pairs([a, dict(b, core_tenant_rounds=6)])["differing_in_whole_run_totals_only"] == 1
+    assert lock_pairs([a, dict(b, prod_share=0.21)])["max_abs_prod_share_diff"] == 0.01
     try:
         replace(a51_block1.rules_for("public", 0.0, 0.0), lease_rounds=5)
     except ValueError:
         pass
     else:
         raise AssertionError("a lease without location demand must be refused")
-    print("selftest ok: A51-4 catches a wrong tier, a lease past its term and a locked lease paying two rents; "
-          "a lease without location demand is refused")
+    print("selftest ok: A51-4 catches a wrong tier, a lease past its term, a locked lease paying two rents, a "
+          "lease whose every renewal pays the same wrong rent, another lessor and an unlocked renewal off the "
+          "round's rent; the lock pairs count a differing field; a lease without location demand is refused")
 
 
 def main() -> int:
@@ -204,6 +284,15 @@ def main() -> int:
             smm[q] = round(float(np.mean(v)), 4) if v else None
         smm["employed_share_min"] = min((r["employed_share_of_core_tenants"] for r in rs
                                          if r["employed_share_of_core_tenants"] is not None), default=None)
+        # the same share with tenant-rounds as the denominator, pooled over seeds
+        tr = sum(r["core_tenant_rounds_last50"] for r in rs)
+        smm["employed_share_by_tenant_rounds"] = round(sum(r["core_employed_tenant_rounds_last50"] for r in rs) / tr, 4) if tr else None
+        smm["core_tenant_rounds_last50"] = int(tr)
+        for q in ("core_choices", "core_choices_plain_full", "core_choices_no_wage", "core_choices_dear",
+                  "core_choices_dear_plain_full"):
+            smm[q] = int(sum(r[q] for r in rs))
+        fd = [r["first_dear_core_choice_round"] for r in rs if r["first_dear_core_choice_round"] is not None]
+        smm["first_dear_core_choice_round"] = sorted(fd)
         name = f"{ll} | g {g} | share {share} | s {s} | {lease}"
         summary[name] = smm
         print(f"  {name:48s} " + " | ".join(str(smm[q]) for q in QTY))
@@ -223,12 +312,20 @@ def main() -> int:
     n_unread = sum(1 for v in verdict.values() if not v["read"])
     print(f"  {n_unread} of {len(verdict)} comparisons not read (sign moves or zero); all in the record")
 
+    lp = lock_pairs(rows)
+    print(f"\nrent locked against unlocked, same lease length: {lp['pairs']} pairs, {lp['differing']} differ in a stored "
+          f"field ({lp['differing_in_whole_run_totals_only']} of them in whole-run totals only); largest gap in the "
+          f"production-layer share {lp['max_abs_prod_share_diff']}")
+    for x in lp["list"][:12]:
+        print(f"  {x['landlord']} g {x['g']} share {x['share']} s {x['s']} {x['lease']} levy {x['levy']} seed {x['seed']}: "
+              f"{len(x['fields'])} fields, share {x['prod_share_locked_minus_unlocked']:+.4f}")
+
     record = {"stage": "A51-grid",
               "criteria": [
                   {"name": "A51-5", "kind": "instrument", "passed": ok5, "detail": "L 1 equals the block-1 matching" + (f"; {d5}" if d5 else "")},
                   {"name": "A51-2", "kind": "instrument", "passed": ok2, "detail": f"structure holds in {len(rows)} runs"},
                   {"name": "A51-4", "kind": "instrument", "passed": ok4, "detail": f"every lease holds in {len(rows)} runs"}],
-              "rows": rows, "cell_summary": summary, "comparisons": verdict,
+              "rows": rows, "cell_summary": summary, "comparisons": verdict, "lock_pairs": lp,
               "config": {"landlords": list(LANDLORDS), "g": list(GS), "core_share": list(SHARES), "s": list(SS),
                          "leases": {k: list(v) for k, v in LEASES.items()}, "levies": list(LEVIES),
                          "seeds": list(SEEDS), "R0": a51_block1.R0, "tau_o": a51_block1.TAU_O}}

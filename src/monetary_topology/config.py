@@ -100,7 +100,9 @@ class SpendRule:
     top1     30.0         15.0              0.50
     ======== ============ ================= ==========
 
-    Implied retention rates are (0.06, 0.13, 0.50, 0.50). The source's ordering
+    Implied retention rates, at the middle of each range, are (0.06, 0.065,
+    0.50, 0.50), which is what ``retention_rate`` returns; the largest the ranges
+    allow are (0.12, 0.13, 0.50, 0.50). The source's ordering
     (top >= middle >= bottom) holds, with a tie between the top two strata: the
     source's own worked example gives both a propensity of exactly one half. We
     keep the tie rather than breaking it to preserve a strict inequality.
@@ -390,6 +392,12 @@ class EconomyConfig:
 
         Above 1 means Layer 2 is drained round by round. This is the death-zone
         criterion expressed in the model's own parameters.
+
+        A shorthand on means: the Layer 2 strata's propensities are averaged, so
+        are their upward shares (``upward_leakage``), and the product is applied
+        to their pooled holdings. Weighting each stratum's own holdings by its own
+        propensity and upward share, before wages settle, gives a slightly
+        different number (2.2753 against 2.2135 at the defaults). Both are above 1.
         """
         shares = np.asarray(self.strata.wealth_share)
         layer2_claims = float(shares[list(LAYER_2)].sum() * self.initial_claims)

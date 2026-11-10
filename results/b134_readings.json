@@ -5,11 +5,134 @@
    "IND",
    "IDN"
   ],
-  "rel_tol": 1e-06
+  "national_value": "the platform's national PPP for household consumption",
+  "rel_tol": 1e-06,
+  "tables_fetched": {
+   "chen_ravallion_wps4703.pdf": {
+    "bytes": 816000,
+    "sha256": "5403190126df33acb3a4416cd3686e4568edee2dc4ba8749d1bd5ee5524f4396",
+    "url": "https://documents1.worldbank.org/curated/en/526541468262138892/pdf/WPS4703.pdf"
+   },
+   "pip_handbook_convert.html": {
+    "bytes": 34992,
+    "sha256": "42fb146bd6f025476c1c8d2aeaaf5838fbf14684db576de481f5ac0a386053a7",
+    "url": "https://worldbank.github.io/PIP-Methodology-2022-04/convert.html"
+   },
+   "pip_ppp_20220909_2011_02_02_PROD.csv": {
+    "bytes": 7367,
+    "sha256": "2d1c4863962076d254a822b0ca7cdbe967dc6ea468eadf549f49b464d483245a",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20220909_2011_02_02_PROD&format=csv"
+   },
+   "pip_ppp_20220909_2017_01_02_PROD.csv": {
+    "bytes": 7257,
+    "sha256": "1b30afe35effbe7c2087bda2035091465f422a6136b5eba01aff6e8b5e38bae8",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20220909_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20230328_2011_02_02_PROD.csv": {
+    "bytes": 7361,
+    "sha256": "0b19d5a681910727f4c8554a0f8024a8cd87d440c0fcf2f2b654f9753a5e3b62",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20230328_2011_02_02_PROD&format=csv"
+   },
+   "pip_ppp_20230328_2017_01_02_PROD.csv": {
+    "bytes": 7258,
+    "sha256": "36c7d0e3ae07aa48fba0e645b1fb76b2a2ae9b37115b1b31c7dc41b5dfeb477f",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20230328_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20230919_2011_02_02_PROD.csv": {
+    "bytes": 7361,
+    "sha256": "0b19d5a681910727f4c8554a0f8024a8cd87d440c0fcf2f2b654f9753a5e3b62",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20230919_2011_02_02_PROD&format=csv"
+   },
+   "pip_ppp_20230919_2017_01_02_PROD.csv": {
+    "bytes": 7258,
+    "sha256": "36c7d0e3ae07aa48fba0e645b1fb76b2a2ae9b37115b1b31c7dc41b5dfeb477f",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20230919_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20240326_2011_02_02_PROD.csv": {
+    "bytes": 7361,
+    "sha256": "0b19d5a681910727f4c8554a0f8024a8cd87d440c0fcf2f2b654f9753a5e3b62",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20240326_2011_02_02_PROD&format=csv"
+   },
+   "pip_ppp_20240326_2017_01_02_PROD.csv": {
+    "bytes": 7258,
+    "sha256": "36c7d0e3ae07aa48fba0e645b1fb76b2a2ae9b37115b1b31c7dc41b5dfeb477f",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20240326_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20240627_2011_02_02_PROD.csv": {
+    "bytes": 7365,
+    "sha256": "5748d048a91e6b72ef9362004475851424b45c78721ee834df997da6ee011998",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20240627_2011_02_02_PROD&format=csv"
+   },
+   "pip_ppp_20240627_2017_01_02_PROD.csv": {
+    "bytes": 7262,
+    "sha256": "e0c21a8bb30ce8b3eee83f39e18b4ad8fdf143a873e1e49adfb998f2ed7d5032",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20240627_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20250401_2017_01_02_PROD.csv": {
+    "bytes": 6313,
+    "sha256": "9099fd5d58cc67bfbfa309874ac53dfee54b60492c6f4605b247770a52435b92",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20250401_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20250401_2021_01_02_PROD.csv": {
+    "bytes": 6384,
+    "sha256": "cab69fd48f6da6fc301e37ccb0dfe6db0e6cc70edfaa51f055adc3af04e58d7e",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20250401_2021_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20250930_2017_01_02_PROD.csv": {
+    "bytes": 6313,
+    "sha256": "9099fd5d58cc67bfbfa309874ac53dfee54b60492c6f4605b247770a52435b92",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20250930_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20250930_2021_01_02_PROD.csv": {
+    "bytes": 6384,
+    "sha256": "cab69fd48f6da6fc301e37ccb0dfe6db0e6cc70edfaa51f055adc3af04e58d7e",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20250930_2021_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20260324_2017_01_02_PROD.csv": {
+    "bytes": 7364,
+    "sha256": "3f7ce58323c8e72284783ccb685dff3d1d69a6d0bb89226efce43b209aea5971",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20260324_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20260324_2021_01_02_PROD.csv": {
+    "bytes": 7500,
+    "sha256": "792476948da84a005cc9c61c359cb586b42866f850f55973ef7bdc2693347eb6",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20260324_2021_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20260922_2017_01_02_PROD.csv": {
+    "bytes": 7364,
+    "sha256": "3f7ce58323c8e72284783ccb685dff3d1d69a6d0bb89226efce43b209aea5971",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20260922_2017_01_02_PROD&format=csv"
+   },
+   "pip_ppp_20260922_2021_01_02_PROD.csv": {
+    "bytes": 7500,
+    "sha256": "792476948da84a005cc9c61c359cb586b42866f850f55973ef7bdc2693347eb6",
+    "url": "https://api.worldbank.org/pip/v1/aux?table=ppp&version=20260922_2021_01_02_PROD&format=csv"
+   },
+   "pip_versions.csv": {
+    "bytes": 837,
+    "sha256": "7265503df514613fb3ab63fef940319b455e96fd5b5d2a4142c554c4595f4453",
+    "url": "https://api.worldbank.org/pip/v1/versions?format=csv"
+   },
+   "wb_india_poverty_methodology_2025.pdf": {
+    "bytes": 1629353,
+    "sha256": "48bbce9110c64cc8420cf3578843167b65e4ca5fa827c532d26327d9dc787c1a",
+    "url": "https://openknowledge.worldbank.org/server/api/core/bitstreams/1a3697f8-bb80-4246-8773-a27c78080a44/content"
+   },
+   "wb_indonesia_poverty_brief.pdf": {
+    "bytes": 463984,
+    "sha256": "75a44591a32d21e26f7c2efc3aa0c9765733ad456d086eea8da4872d411352f5",
+    "url": "https://documents1.worldbank.org/curated/en/099124001062512710/pdf/IDU1bc79f79214c1314c0d19a351de1a45668677.pdf"
+   },
+   "wb_pip_update_2025_06.txt": {
+    "bytes": 139186,
+    "sha256": "7c9bb7093d5323475664234f02a828acb7669d6285cbba3b3bbc1f051b93b429",
+    "url": "https://documents1.worldbank.org/curated/en/099510306052516849/txt/IDU-eb272b02-ecd1-4633-9e37-9297e20a711c.txt"
+   }
+  }
  },
  "criteria": [
   {
-   "detail": "release-to-release pairs unchanged to 1e-6: 57; rural or urban merged into national: 6; any other change: 0",
+   "detail": "release-to-release pairs unchanged to 1e-6: 129; rural or urban merged into national: 6; any other change: 0",
    "kind": "instrument",
    "name": "B134-1",
    "passed": true
@@ -21,7 +144,7 @@
    "passed": true
   },
   {
-   "detail": "CHN 2011: [2]; CHN 2017: [2]; CHN 2021: [2]; IND 2011: [2]; IND 2017: [1, 2]; IND 2021: [1]; IDN 2011: [1, 2]; IDN 2017: [1, 2]; IDN 2021: [1]. Two to one: IND 2017: two class values to one in release 20250930; IDN 2011: two class values to one in release 20240627; IDN 2017: two class values to one in release 20240627",
+   "detail": "CHN 2011: [2]; CHN 2017: [2]; CHN 2021: [2]; IND 2011: [2]; IND 2017: [1, 2]; IND 2021: [1]; IDN 2011: [1, 2]; IDN 2017: [1, 2]; IDN 2021: [1]. Two to one: IND 2017: two class values to one in release 20250401; IDN 2011: two class values to one in release 20240627; IDN 2017: two class values to one in release 20240627",
    "kind": "own_reading",
    "name": "B134-3",
    "passed": true
@@ -37,6 +160,12 @@
    "kind": "own_reading",
    "name": "B134-5",
    "passed": true
+  },
+  {
+   "detail": "18 release x round labels listed over 9 release dates, 18 read",
+   "kind": "instrument",
+   "name": "B134-6",
+   "passed": true
   }
  ],
  "objects": {
@@ -46,11 +175,11 @@
     "IDN 2011 urban: 4140.3 -> 3892.22 (equal to national) in 20240627",
     "IDN 2017 rural: 4746.85 -> 5089.69 (equal to national) in 20240627",
     "IDN 2017 urban: 5098.2 -> 5089.69 (equal to national) in 20240627",
-    "IND 2017 rural: 17.092 -> 19.469 (equal to national) in 20250930",
-    "IND 2017 urban: 20.7873 -> 19.469 (equal to national) in 20250930"
+    "IND 2017 rural: 17.092 -> 19.469 (equal to national) in 20250401",
+    "IND 2017 urban: 20.7873 -> 19.469 (equal to national) in 20250401"
    ],
    "other": [],
-   "unchanged": 57
+   "unchanged": 129
   },
   "B134-2": {
    "chen_ravallion_wps4703.pdf": {
@@ -74,55 +203,101 @@
    "counts": {
     "CHN 2011": {
      "20220909": 2,
+     "20230328": 2,
      "20230919": 2,
+     "20240326": 2,
      "20240627": 2
     },
     "CHN 2017": {
      "20220909": 2,
+     "20230328": 2,
      "20230919": 2,
+     "20240326": 2,
      "20240627": 2,
+     "20250401": 2,
      "20250930": 2,
+     "20260324": 2,
      "20260922": 2
     },
     "CHN 2021": {
+     "20250401": 2,
      "20250930": 2,
+     "20260324": 2,
      "20260922": 2
     },
     "IDN 2011": {
      "20220909": 2,
+     "20230328": 2,
      "20230919": 2,
+     "20240326": 2,
      "20240627": 1
     },
     "IDN 2017": {
      "20220909": 2,
+     "20230328": 2,
      "20230919": 2,
+     "20240326": 2,
      "20240627": 1,
+     "20250401": 1,
      "20250930": 1,
+     "20260324": 1,
      "20260922": 1
     },
     "IDN 2021": {
+     "20250401": 1,
      "20250930": 1,
+     "20260324": 1,
      "20260922": 1
     },
     "IND 2011": {
      "20220909": 2,
+     "20230328": 2,
      "20230919": 2,
+     "20240326": 2,
      "20240627": 2
     },
     "IND 2017": {
      "20220909": 2,
+     "20230328": 2,
      "20230919": 2,
+     "20240326": 2,
      "20240627": 2,
+     "20250401": 1,
      "20250930": 1,
+     "20260324": 1,
      "20260922": 1
     },
     "IND 2021": {
+     "20250401": 1,
      "20250930": 1,
+     "20260324": 1,
      "20260922": 1
     }
    },
+   "first_label_with_one": {
+    "CHN 2011": null,
+    "CHN 2017": null,
+    "CHN 2021": null,
+    "IDN 2011": "20240627",
+    "IDN 2017": "20240627",
+    "IDN 2021": "20250401",
+    "IND 2011": null,
+    "IND 2017": "20250401",
+    "IND 2021": "20250401"
+   },
+   "last_label_with_two": {
+    "CHN 2011": "20240627",
+    "CHN 2017": "20260922",
+    "CHN 2021": "20260922",
+    "IDN 2011": "20240326",
+    "IDN 2017": "20240326",
+    "IDN 2021": null,
+    "IND 2011": "20240627",
+    "IND 2017": "20240627",
+    "IND 2021": null
+   },
    "two_to_one": [
-    "IND 2017: two class values to one in release 20250930",
+    "IND 2017: two class values to one in release 20250401",
     "IDN 2011: two class values to one in release 20240627",
     "IDN 2017: two class values to one in release 20240627"
    ]
@@ -159,6 +334,21 @@
   "B134-5": {
    "wb_india_poverty_methodology_2025.pdf": "960 indices (32 states x 2 sectors x 15 commodity groups)",
    "wb_indonesia_poverty_brief.pdf": "annual regency-level spatial deflator based on a Paasche-type index"
+  },
+  "B134-6": {
+   "listed": 18,
+   "not_read": [],
+   "release_dates": [
+    "20220909",
+    "20230328",
+    "20230919",
+    "20240326",
+    "20240627",
+    "20250401",
+    "20250930",
+    "20260324",
+    "20260922"
+   ]
   }
  },
  "stage": "B134"

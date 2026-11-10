@@ -1,8 +1,22 @@
 {
-  "calm_rate": 0.902624091052798,
+  "calm_rate": 0.9032564021498577,
   "crossed_at_mark": 0,
   "dataset": "ARCX.PILLAR",
   "diagnostic_only": false,
+  "early_close": {
+    "calm_rate_without": 0.9083969465648855,
+    "days": [
+      "2025-07-03",
+      "2025-11-28",
+      "2025-12-24"
+    ],
+    "exact": 1,
+    "exact_rate_without": 0.9005524861878453,
+    "n": 22,
+    "n_without": 6154,
+    "stress_rate_without": 0.892358803986711,
+    "verdict_without": "passes_on_subtest"
+  },
   "exact_rate": 0.8975064766839378,
   "funds": {
     "JNK": {
@@ -89,7 +103,7 @@
       "stress_n": 201
     },
     "XLB": {
-      "calm_exact": 185,
+      "calm_exact": 184,
       "calm_n": 203,
       "exact": 375,
       "n": 403,
@@ -103,7 +117,7 @@
         "38": 1,
         "4": 1
       },
-      "stress_exact": 190,
+      "stress_exact": 191,
       "stress_n": 200
     },
     "XLC": {
@@ -173,7 +187,7 @@
       "stress_n": 200
     },
     "XLK": {
-      "calm_exact": 156,
+      "calm_exact": 161,
       "calm_n": 203,
       "exact": 335,
       "n": 403,
@@ -188,7 +202,7 @@
         "4": 1,
         "5": 1
       },
-      "stress_exact": 179,
+      "stress_exact": 174,
       "stress_n": 200
     },
     "XLP": {
@@ -225,7 +239,7 @@
       "stress_n": 201
     },
     "XLU": {
-      "calm_exact": 191,
+      "calm_exact": 189,
       "calm_n": 201,
       "exact": 377,
       "n": 401,
@@ -237,7 +251,7 @@
         "3": 4,
         "4": 1
       },
-      "stress_exact": 186,
+      "stress_exact": 188,
       "stress_n": 200
     },
     "XLV": {
@@ -306,12 +320,17 @@
     "79": 1,
     "8": 1
   },
+  "header_only_captures": 0,
   "median_abs_bp": 2.7693016619059597e-05,
+  "min_size": 0,
   "n": 6176,
+  "never_compared": 25,
   "offset_s": 0,
   "one_tick_spread_rate": 0.7317033678756477,
   "p90_abs_bp": 0.07362192354381118,
+  "registered_fund_days": 6201,
   "stage": "B9-A-6 (§36)",
-  "stress_rate": 0.8921340856289413,
-  "verdict": "fails"
+  "stress_rate": 0.8914702953866578,
+  "verdict": "fails",
+  "verdict_reading": "unread: `fails` with the early-close days counted and `passes_on_subtest` without them"
 }

@@ -43,16 +43,26 @@ close to full strength"; or `C` upstream, so switching it off attenuates them.
 Both assume the same four mechanisms operate in both arms and differ in
 strength. Section 11.2's resolution table, sorted by arm, says they do not.
 
-| competitor alone, against the null | C=1, in control-cell sd | C=0 |
-|---|---|---|
-| education | **0.00** | **35.62** |
-| capital returns | **0.02** | **3.07** |
-| inheritance | **36.45** | **0.27** |
-| assortative mating | **32.10** | **0.23** |
+| competitor alone, against the null | C=1, in control-cell sd | C=0 | C=1, settled | C=0, settled |
+|---|---|---|---|---|
+| education | **0.00** | **35.62** | 0.00 | 35.62 |
+| capital returns | **0.02** | **3.07** | 0.03 | 16.94 |
+| inheritance | **36.45** | **0.27** | 43.97 | 0.27 |
+| assortative mating | **32.10** | **0.23** | 39.53 | 0.23 |
+
+The first two columns are the registered reading: the last history row, written
+before the last round's capital returns and household pooling settle. The last
+two are read once they have settled (§15.1; `settled.resolution` in the record).
+The same pairs are readable in the same arms on both. Settlement leaves education
+where it was and moves the other three readable entries further from the floor:
+inheritance and mating under `C = 1` to 43.97 and 39.53, capital returns under
+`C = 0` from 3.07 to 16.94.
 
 The stock-moved diagnostic agrees and is not a ratio: inheritance relocates
 44.15% of the closing stock under `C = 1` and 0.39% under `C = 0`; education
-moves 1.03% under `C = 0` and 0.04% under `C = 1`.
+moves 1.03% under `C = 0` and 0.04% under `C = 1`. Those are registered; on the
+settled state inheritance relocates 58.03% under `C = 1` and still 0.39% under
+`C = 0`, and education's two figures do not move.
 
 **The four split into two disjoint pairs and each pair is readable in exactly one
 arm.** So the third reading is that connectivity does not scale the other
@@ -61,10 +71,12 @@ assortative mating transmit a position, and a complete graph has no position to
 transmit; education and capital returns are properties of an agent, and they
 survive the graph's removal and stop mattering once position dominates.
 
-This is why `A(X)` has no domain. A ratio across the two arms needs a competitor
-with an effect in both, and there is none. Section 11.3's ceiling and section
-11.8's noisy denominators are both real, and A4-4b shows neither was the binding
-constraint: on the unbounded measure the readable set is the same one.
+This is why `A(X)`, the comparison against the null, has no domain. A ratio
+across the two arms needs a competitor with an effect in both, and against the
+null there is none. Section 11.3's ceiling and section 11.8's noisy denominators
+are both real, and A4-4b shows neither was the binding constraint: on `1/HHI` the
+readable set is the same one. On a base one comparison is readable in both arms,
+`I|K`, and §15.2 says what that does and does not carry.
 **The instrument was not the problem; the presupposition was.**
 
 A4-4c reports the two sets and passes on the one condition that could make their
@@ -177,7 +189,9 @@ elsewhere in the repository.
 
 **Registered: the Gini coefficient of claim holdings** at the end of the run. It
 is the measure the competing literature reports, which is what makes the
-diagnostic comparisons in §6 possible at all.
+diagnostic comparisons in §6 possible at all. "End of the run" is the last
+history row, written after the last round's flows and before that round's capital
+returns and household pooling settle; §15.1 prints the settled state beside it.
 
 **Reported alongside: `1/HHI`**, the effective number of holders, which is
 threshold-free and is the measure stage A2 already uses. If the two disagree in
@@ -459,7 +473,8 @@ control cell reaches a Gini of `0.935`, so a competitor switched on under
 `C = 1` has `0.065` of room while the same competitor under `C = 0` has `0.99`.
 `A(X)` is compressed by the bound and not by anything about connectivity:
 `A(E) = 0.00` and `A(K) = 0.06` against a registered prediction of `A(X) > 1`,
-while the same comparison on `log(1/HHI)`, which has no ceiling, gives
+while the same comparison on `log(1/HHI)`, where the `C = 1` control sits
+mid-range instead of against a bound (§15.3), gives
 `A(K) = 5.31` in the registered direction. This survives the A3 dependency,
 since the ceiling comes from the graph driving the effective holder count to
 about fourteen of two hundred. Not resolved here; §3 already provides for the
@@ -604,6 +619,12 @@ where `D` is the divergence measure of `a3c_load_bearing.py`: each node paired
 against **itself** in the null cell, normalised by its own opening claims, the
 central tercile's mean minus the peripheral tercile's, over the agents who
 complete a round trip in every cell.
+
+(Restated 2026-10-20: on `A3Model` the bidder pool that prices a tier is
+admitted on the payment terms, so `κ_pay = 0` levels that pool together with
+`H¹`, and `routed(X | C)` as written counts what routes through either.
+`a3_asset_channel.md` §5.2 separates the two at A3-8's registered point by
+admitting the pool on the gate terms.)
 
 Registered readings:
 
@@ -1436,3 +1457,82 @@ unreadable there, but sorting an unshaped opening distribution is not
 transmission of position and does not need the graph. Whether that is what is
 happening at `1.01` is not established here: at that margin this run cannot tell
 that mechanism from the floor.
+
+---
+
+## 15. Two readings named more exactly (2026-10-10)
+
+Nothing here moves a verdict. Three statements above were wider than what was
+computed, and each is restated against the object it was read on.
+
+### 15.1 Which sub-round the registered measures read
+
+A round runs its flows, the history row is written, and only then do that round's
+capital returns and household pooling settle. §3's "holdings at the end of the
+run" is therefore the last history row: **after the last round's flows and before
+that round's settlement.** The series is consistent, every row being read at the
+same point of its round, and the last row is one settlement behind the state the
+model is left in.
+
+The settled state is now recorded beside it (`settled` in the record), and every
+table and every criterion is read on it a second time:
+
+| cell | Gini, registered | Gini, settled |
+|---|---|---|
+| `C1_I` | 0.76597 | 0.73076 |
+| `C1_K` | 0.93681 | 0.93687 |
+| `C1_M` | 0.78635 | 0.75156 |
+| `C1_E+I` | 0.75087 | 0.71193 |
+| `C1_E+M` | 0.78647 | 0.75149 |
+| `C1_K+I` | 0.75014 | 0.71121 |
+| `C1_K+M` | 0.78668 | 0.75176 |
+| `C0_K` | 0.00792 | 0.01155 |
+| `C0_E+I` | 0.01493 | 0.01354 |
+| `C0_E+M` | 0.01490 | 0.01347 |
+| `C0_K+I` | 0.00749 | 0.00947 |
+| `C0_K+M` | 0.00760 | 0.00956 |
+
+The other cells do not move to five places (`C1_none`, `C1_E`, `C0_none`, `C0_I`, `C0_E`, `C0_M`): either nothing settles
+there, or what settles moves the fifth place or less.
+
+- Readable objects (two arms, eight contrasts, four measures: 64 per ordering)
+  that change between the two readings: **10** on the registered ordering; 4 on
+  `capital_first` / `match_first`, 12 on `pooling_first` / `inherit_first` and 10
+  on `pooling_first` / `match_first`.
+- The sets readable alone against the null are the same on both readings:
+  `C = 1` {I, M}, `C = 0` {E, K}.
+- All nine criteria return the same state on the settled reading as on the
+  registered one: A4-1, A4-2, A4-3b, A4-4b, A4-4c and A4-6 pass, A4-3 and A4-5
+  fail, A4-4 is void.
+
+The criteria keep scoring the registered reading. A level quoted from a cell with
+`I`, `M` or `K` on should say which of the two it is.
+
+Added 2026-10-14: the record also carries the settled reading's whole resolution
+table (`settled.resolution`, the same rows and fields as `resolution`), and §1a
+prints its rows read alone against the null beside the registered ones. On a base,
+`I|K` reads 50.35 and 4.41 control-cell sd on the settled state, against 41.0 and
+1.89 registered. A4-4c's detail now says that the domain it reads is that of the
+comparison against the null, on the ordering run.
+
+### 15.2 `A(X)` against the null, and `A(X|G)` on a base
+
+§1a's "`A(X)` has no domain" is a statement about the comparisons against the
+null, where it holds on the registered ordering: no competitor is readable on
+Gini in both arms. §11.5 also registered comparisons on a base, and one of those
+is readable in both arms under the registered one-sd rule: **`I|K`**, at 41.0
+control-cell sd under `C = 1` and 1.89 under `C = 0`, the five per-seed ratios
+sharing a sign, pooled ratio 440.7 on Gini and 6,948 on `1/HHI`. That ratio has a
+domain. It is one comparison on one base, and A4-4 asked about the four
+competitors together, so A4-4 stays void on its first ground, the strawman floor
+of A4-3. The second ground is now worded as what it covers.
+
+### 15.3 `1/HHI` is bounded by the number of nodes
+
+With a fixed number of nodes `1/HHI` lies between 1 and that number: 200 in
+aggregate here, 180 on the production layer. The `C = 0` control sits at 199.97
+and the `C = 1` control at 13.75, so the two arms are at opposite ends of its
+range. What it offers over Gini is that the `C = 1` arm is not pressed against a
+bound, and a ratio on it grows large where the `C = 0` difference in its
+denominator is close to zero. A4-4b is renamed for what it reads, the effective
+number of holders; its figures are unchanged.

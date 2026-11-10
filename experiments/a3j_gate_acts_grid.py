@@ -1,11 +1,15 @@
 """A3j: does the gate keep acting on the mechanism along the whole grid?
 
 A3h answered the inertness objection at one point: between the two cells that
-differ only in the gate, the gate moves 19.8 nodes' cycle counts against the
-other channel's 17.4 and 72.4 of total absolute cycle change against 84.2,
+differ only in the gate, the gate moves 19.4 nodes' cycle counts against the
+other channel's 16.8 and 74.0 of total absolute cycle change against 85.6,
 **eighty-six per cent of it**. A3i then pooled every point on record and found
 the gate cell sign-stable at none of 57 and never above 2.94 in absolute value
 while the loop cell reaches 24.83.
+
+The other channel is the payment terms, which in this model also admit the
+bidder pool that prices a tier, so its column counts what the pricing pool
+does as well; the gate column is the opening allocation alone.
 
 **The join between those two is one point wide.** The mechanical ratio was
 measured at the registered carrier only, so at every other point on the grid

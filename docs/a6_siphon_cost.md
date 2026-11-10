@@ -40,6 +40,17 @@ distribution: threshold-free, continuous, and already the headline of that
 stage. `R*` is the smallest tax rate at which its trend over the run is not
 negative.
 
+**Restated 2026-10-26: what `R*` is in the code.** `R*` is the smallest of the
+fifteen grid rates (§9.1) at which the support set does not contract, and
+"contract" is two tests, either of which is enough: the end value is more than
+one percent below the opening value, or the slope over the last hundred and
+fifty rounds is below minus `1e-4` of the opening value. The inflow is read off
+the round's flow matrix, and under the registered default the levy and its
+payout are a direct adjustment to holdings after that matrix is formed, so the
+support set is read on wages, spending and the other non-fiscal flows. On the
+zero-levy runs, every cell and seed, the slope test gives no verdict the level
+test does not already give.
+
 **The Palma ratio is reported and is not a criterion.** A closed economy
 guarantees that no new money is needed. It does not guarantee where the money
 sits at any given moment. Requiring the distribution to be stationary would be
@@ -56,6 +67,21 @@ model's own structure rather than a statistic imported over it. The Gini, by
 contrast, is least informative precisely in the middle, which is where this model
 has least to say, and most sensitive to redistribution among agents whose
 position in the graph is identical.
+
+**Restated 2026-10-10: the top decile is a ranking, and it is not the layer.**
+The ratio is taken off a sort of every node's claims: the twenty richest over
+the eighty poorest, whichever layer each sits in. The decile has the financial
+layer's size and is the layer only while the twenty financial-layer nodes are
+the twenty richest. In the registered A6-6 run they are not at any point: of
+the twenty richest, 19, 18, 19, 17 and 17 are financial-layer nodes in the
+first period, by seed, and 7, 6, 5, 4 and 3 in the last; at the end of the
+two-thousand-round run none is. In seed 0 with no levy the first period already
+has one production-layer node inside the top twenty and one financial-layer
+node outside it, and the rank ratio is `15.814` where the layer's claims over
+the eighty poorest production-layer nodes' is `15.740`. So Palma here is a
+statistic of the claims distribution, as it is anywhere else, and a reading
+about the financial layer takes the layer's own share. The arithmetic, the
+mixed direction and A6-6's status as reported and not judged are unchanged.
 
 **The Pareto index is a conditional secondary.** Where the top tail is heavy
 enough to estimate, `α` is reported as a robustness note. It is not primary,
@@ -83,6 +109,12 @@ and what they do.
 > §15 registers a second base assessed on a measured stock each round, and
 > records what the difference measures. **Layer as position is not changed by
 > that and is not in question**; only who the levy is assessed on.
+
+**Restated 2026-10-27.** "Progressive" here means the levy falls on the top layer. Under the
+registered layer base the rate itself is one rate for every payer: each round
+it takes `R` times the positive part of the current holdings of the twenty
+node indices fixed as the financial layer at construction, so a node's holdings
+change what it pays and not the rate it pays.
 
 ### Arm T — transfer
 
@@ -119,6 +151,12 @@ downward edge**. Arm I **attenuates the upward ones**. Neither is "quantity
 against topology"; the question is *which edges*, which is a question entirely
 inside the A track's own terms.
 
+**Restated 2026-10-26.** In the code the downward edge is in the accounts and
+not in the measured flow: under the registered default (`as_edge=False`) the
+payout moves claims after the round's flows, so the support set does not see
+it as an edge (§2). Arm I's reduced leakage is applied to the route from the
+round after the levy that paid for it.
+
 The distinction that does the work is what happens next. Claims delivered by the
 new downward edge leak back up along the old upward edges at the rate those edges
 always had. Attenuating those edges lowers the rate itself, so the same claims
@@ -148,6 +186,17 @@ uses when it flattens access. It is implemented as a switch of its own so that
 retention and access can move independently, which stage A4 could not do because
 there the two were deliberately one object.
 
+**Restated 2026-10-10: on the flat graph the retention switch reaches
+nothing.** `uniform_access` already gives every node the same two propensity
+values, `0.620375` and `0.6605`, so fair retention has nothing left to flatten
+and the flat / stratified cells are the flat / fair cells run a second time:
+identical inputs, identical paths, identical `R*`. Retention moves independently
+of access on the stratified graph only. The factorial therefore has six
+distinct cells where the tables below print eight, and the driver now checks
+this on the built models and marks the twin. The comparisons that carry A6-3
+and A6-4 are not touched: A6-3 reads the transfer arm's fair cell on each graph,
+and A6-4 reads the four access cells.
+
 ---
 
 ## 5. Pre-registered predictions
@@ -162,6 +211,14 @@ no rate does, the siphon cannot be offset by taxing the top at any rate, which
 would be a more severe finding than any number this stage could report and is
 recorded as such rather than as a failure.
 
+**Restated 2026-10-27.** The driver scores A6-1 and A6-2 with the contraction test of §2: the
+support set has contracted when it ends more than one percent below its opening
+value, or when its slope over the last hundred and fifty rounds is below minus
+`1e-4` of its opening value. A6-1 asks that test to say contracted in every
+cell and every seed at `R = 0`. A6-2 passes when every seed of every cell has a
+rate among the fifteen grid rates of §9.1, the largest `0.95`, at which the
+test says not contracted.
+
 **A6-3 — the siphon, in tax points. The stage's first number.** Under **fair
 retention**, `R*` on the stratified graph is strictly positive, while `R*` on the
 complete graph is zero.
@@ -169,6 +226,11 @@ complete graph is zero.
 The difference is the siphon: **the redistribution that access alone requires,
 with retention already fair and no monetary injection anywhere.** Registered:
 `R*(access, fair) > 0.02` and `R*(no access, fair) < 0.005`.
+
+**Restated 2026-10-27.** The driver scores A6-3 on the transfer arm and on the medians over seeds,
+`access/fair/T` against `flat/fair/T`, with every seed printed beside them. On
+the stratified graph the infrastructure arm needs `0.005`, the grid's first
+non-zero point, and that cell is A6-4's object.
 
 **A6-4 — topology is cheaper than quantity. The stage's second number.**
 `R*(arm I) < R*(arm T)` under access, at every retention setting. Registered:
@@ -189,6 +251,12 @@ The expectation is that the support set can be held open while Palma drifts, and
 if that is what happens it is the stage's most quotable result: **a closed
 economy that stays reachable is not a closed economy that stays equal, and
 conflating the two is what makes the first look impossible.**
+
+**Restated 2026-10-26: one cell, not every cell.** The driver computes the
+Palma trajectory in one cell, access with fair retention in arm I at
+`R = 0.005`, over three hundred rounds and five seeds, and prints its first and
+last value per seed. No other cell's trajectory is computed and nothing is
+plotted.
 
 ---
 
@@ -236,11 +304,15 @@ pricing the siphon. It is not an argument that issuance should stop.
 | issuance | in every cell | **off** |
 | everything else | stage A2's registered values | as registered |
 
+**Restated 2026-10-27.** `R` is scanned, not bisected, over the fifteen rates `0, 0.005, 0.01,
+0.02, 0.04, 0.06, 0.08, 0.12, 0.16, 0.24, 0.32, 0.48, 0.64, 0.80, 0.95`; see
+§9.1.
+
 ---
 
 ## 9. Changes after pre-registration
 
-None. Entries go here with the timing of each change marked, and any change made
+Entries go here with the timing of each change marked, and any change made
 after a result was read flagged in bold, in the same format as
 `b2_measurement.md` §10.
 
@@ -285,6 +357,8 @@ tail slope of `1/HHI` was negative. At a zero levy that slope is `+1.1e-05`
 while the support set has fallen from `35.7` to `26.0`: it contracts early and
 then sits. A tail slope answers "is it still contracting" and the question is
 "did it contract". Now: net level, with the slope reported beside it.
+**Restated 2026-10-26:** the slope is a second test and not only reported; see
+§2.
 
 **Machine precision was destroying A6-3's own prediction.** The uniform-access
 arm holds `1/HHI` at exactly two hundred, and `y[-1] < y[0]` failed it on the
@@ -327,7 +401,8 @@ points and the flat graph needs none. **That difference is the siphon.**
 #### A6-1 fails, and the reason is a contradiction inside this document
 
 At `R = 0` the support set contracts in **4 of 8 cells**: all four access cells,
-none of the four flat ones.
+none of the four flat ones. (Restated 2026-10-10: the four flat cells are two
+cells, each run twice; see §4. Over distinct cells the count is 4 of 6.)
 
 A6-1 as written requires **every** cell to contract. A6-3 requires
 `R*(no access, fair) < 0.005`, which says the flat graph needs no redistribution
@@ -352,6 +427,9 @@ registered band is symmetric — "within `10%` of round five hundred" — so it
 scores "grew by two thirds" and "collapsed to a fifteenth" as the same failure.
 They are opposite outcomes and the script now prints the direction beside the
 verdict.
+
+**Restated 2026-10-26.** The two that collapse end at `0.072×` and `0.152×` of
+their opening support, about a fourteenth and a seventh.
 
 #### And then the finding, which reverses A6-4 at the long horizon
 
@@ -695,7 +773,7 @@ failures are predicted before either is seen.** A criterion that only said
 
 **The band is one-sided on purpose, and the reason was learned from A6-5.**
 A6-5's registered band is symmetric, so it scored *grew by two thirds* and
-*collapsed to a fifteenth* as the same failure, and §9.2 records that. A6-9 asks
+*collapsed to a fourteenth or a seventh* as the same failure, and §9.2 records that. A6-9 asks
 only that the economy not close. **A6-5 is not rewritten**; it stays failed, with
 its symmetric band, in §5 and in §9.2.
 
@@ -847,6 +925,9 @@ and nothing else changed. Its setting matches A6-5 item for item: `access / fair
 The two seeds that collapsed to a fifteenth come back at `1.77` and `2.53`. No
 absorption was involved.
 
+**Restated 2026-10-27.** The two seeds ended at `0.072` and `0.152` of their opening support
+(§9.2), about a fourteenth and a seventh.
+
 **The mechanism is legible in one number.** At two thousand rounds and
 `R = 0.005` the argument of `g` reaches only `x ≈ 2.8`, and the surviving leak
 under `exp` is `0.058` to `0.068`. The wall reaches exactly one at `x = 1`, which
@@ -937,9 +1018,9 @@ that band ends was never located. With the ratchet on, at two thousand rounds:
 
 | cell | `R*` per seed | top of the band per seed | contiguous |
 |---|---|---|---|
-| `exp`, `λ = 1e-3` | `0.005` ×5 | `0.950, 0.040, 0.950, 0.950, 0.950` | yes ×5 |
+| `exp`, `λ = 1e-3` | `≤ 0.005` ×5, grid floor | `0.950, 0.040, 0.950, 0.950, 0.950` | yes ×5 |
 | `exp`, `λ = 1e-2` | `0.010, 0.010, 0.010, 0.005, 0.010` | `0.950` ×5 | yes ×5 |
-| `hill`, `λ = 1e-3` | `0.005` ×5 | `0.950, 0.800, 0.950, 0.950, 0.950` | yes ×5 |
+| `hill`, `λ = 1e-3` | `≤ 0.005` ×5, grid floor | `0.950, 0.800, 0.950, 0.950, 0.950` | yes ×5 |
 | `hill`, `λ = 1e-2` | `0.010` ×5 | `0.950` ×5 | yes ×5 |
 
 **At `λ = 1e-2` there is no upper end on this grid at all**, under either shape:
@@ -1249,6 +1330,14 @@ to forty-four puts the `exp` arm across the `37.43` at which section 13.3
 registered that it becomes the wall in float64, which is why the surviving leak
 reads as exactly zero.
 
+**Restated 2026-10-27.** Cell by cell in the table above, `exp` closes seed 1 2.7 times sooner
+under the threshold base (round 1402 against 3808), and `clip / λ=1e-3`, which
+closes in no seed under the layer base even at sixty thousand rounds (§16.1),
+closes seed 1 at round 426 under the threshold base. Nine is round 3808 of
+`layer / exp` over round 426 of `threshold / clip / λ=1e-3`, two different
+cells. Over the long-horizon runs of §16.1 the same comparison under `hill`
+gives 4.2 (round 15522 against 64854).
+
 ### 15.9 The control cell flipped, and `x* = I/λ` predicts both sides exactly
 
 `clip / λ=1e-3` was A6-16's control, chosen because under the layer base it has
@@ -1305,7 +1394,8 @@ inside the lower half does not repair it.
 
 ### 15.11 A6-19, registered before its code exists
 
-Section 14.4's A6-16 asks whether a smooth `g` removes the collapse or postpones
+A6-16, registered in the comment above `HORIZON_ROUNDS` and `HORIZON_CELLS` in
+`experiments/a6_ratchet.py`, asks whether a smooth `g` removes the collapse or postpones
 it, and it is judged on the `layer` base. **It stays there.** A criterion is not
 moved to a different arm after it has returned a verdict, even a null one.
 
@@ -1411,12 +1501,25 @@ settled at `x = 0.87–0.89`, `threshold / clip` at `x = 0.32` against a predict
 `x* ≈ 0.27`, both moving `0.01%` across the second half of thirty thousand
 rounds.
 
+**Restated 2026-10-26.** `threshold / clip` settles at `x = 0.324` to `0.335`
+across the five seeds; `0.32` is its lowest seed (`long_horizon`, `final_x`).
+Both controls ran sixty thousand rounds, and the `0.01%` is the largest movement
+of any seed over rounds 30,000 to 60,000, rounded: `0.007%` on the layer base
+and `0.014%` on the threshold base (`long_horizon.cells`,
+`x_growth_second_half`).
+
 **So the answer does not depend on who pays.** A smooth saturation buys time and
-nothing else. Under the wall the leak is sealed by round three hundred; under
-`exp` it takes to round three thousand eight hundred; under `hill` on the
-threshold base to fifteen thousand and on the layer base to sixty-five thousand.
-The ordering is the ordering of how fast each shape drives the leak down, and
-every one of them arrives.
+nothing else. Under the wall the leak is sealed by round three hundred. Under the
+smooth shapes the round to read is the one at which a seed closes: under `exp`
+round three thousand eight hundred on the layer base and fourteen hundred on
+the threshold base, under `hill` fifteen thousand on the threshold base and
+sixty-five thousand on the layer base. The ordering is the ordering of how fast
+each shape drives the leak down, and every judged cell loses a seed.
+
+A cell counts as closed once one of its seeds ends below the floor of `0.9`,
+which is the reading A6-16 and A6-19 are scored on. The last column of the
+table lists the rounds of the seeds that closed; the other seeds of each cell
+end open, and §16.4 counts them.
 
 ### 16.2 The correction of a correction. Three layers, all kept
 
@@ -1440,6 +1543,14 @@ the second half. At the same horizon, `x` in every `λ = 0` cell is still
 climbing: `+13%` for `layer / exp`, `+49%` for `layer / hill`, `+102%` and
 `+117%` for the two threshold cells.
 
+**Restated 2026-10-27.** The four figures are the largest of the five seeds (`long_horizon.cells`,
+`x_growth_second_half`), and every seed is climbing: `+12.6%` to `+13.1%` for
+`layer / exp`, `+44.2%` to `+49.2%` for `layer / hill`, `+100.4%` to `+102.0%`
+for `threshold / exp` and `+106.3%` to `+117.3%` for `threshold / hill`. The
+`layer / hill` figures are over the second half of its one-hundred-and-eighty-
+thousand-round run, rounds 90,000 to 180,000; the other three are over rounds
+30,000 to 60,000.
+
 There is no cell anywhere in this stage in which the building process stops on
 its own. The one that looked like it did, `clip / λ=0` halting at
 `x = 1.000000`, was the tax base dying (§15.8). **`λ` is the only stop the
@@ -1460,6 +1571,9 @@ one systematic inversion:
 | `0.0196` | `layer / hill` | 1 |
 | `0.1345` | `layer / clip / λ=1e-3` | 0 |
 | `0.6758` | `threshold / clip / λ=1e-2` | 0 |
+
+The leak column is the largest of the five seeds (`long_horizon.cells`,
+`final_leak_factor`); sorting on the smallest seed gives the same order.
 
 The inversion is the finding. `layer / exp` at a **higher** leak has **more**
 seeds closed than `threshold / exp` at zero. Seed 4 is the case: it closes under
@@ -1491,6 +1605,17 @@ since `threshold / exp` closes a seed at a leak of exactly zero.
 | `threshold / hill / λ=0` | `3.110e-03` | `2.683e-03` | −13.7% |
 | `threshold / clip / λ=1e-2` | `3.110e-03` | `3.241e-03` | **+4.2%** |
 
+Each column is the smallest over the five seeds, taken on its own, so the two
+entries of a row can come from different seeds.
+
+**Restated 2026-10-26.** The change column compares those two smallest values.
+Seed by seed (`long_horizon.levy_comparison`): the layer cells fall by `99.5%`,
+`94.3%` to `95.9%` and `75.3%` to `76.1%`; `threshold / exp / λ=0` falls in two
+seeds (`8.5%`, `14.0%`) and grows in three (`+0.1%`, `+0.25%`, and `+22.0%` in
+seed 1, the seed that closes at round 1402); `threshold / hill / λ=0` grows in
+seed 1 (`+5.3%`) and falls in the other four (`1.6%` to `15.8%`);
+`threshold / clip / λ=1e-2` grows in all five (`+3.7%` to `+6.2%`).
+
 The last row is the identity of §15.3 doing its work. A threshold levy is
 proportional to the mean absolute deviation of holdings, so a base that runs at
 a `λ` high enough to keep the economy in a steady state **collects more at the
@@ -1502,12 +1627,19 @@ cell at every horizon, against twenty-four to sixty-six under `threshold`, and
 one hundred percent of the levy coming from production-layer nodes in the two
 `λ = 0` threshold cells.
 
+**Restated 2026-10-26.** The threshold range in the final round is seventeen
+to sixty-six: seed 1 of `threshold / exp / λ=0`, the seed that closes at round
+1402, ends with seventeen payers (`long_horizon.levy_comparison`,
+`final_payer_count`). The other fourteen threshold seeds run from twenty-four
+to sixty-six.
+
 ### 16.6 A6-9's band has a horizon-dependent low end. Recorded, not withdrawn
 
 A6-9 passed, and its band is `λ ∈ [0, 0.01]` on the two-thousand-round curve.
 **That low endpoint is a two-thousand-round artefact.** At `λ = 0` the same
-cells close under both smooth shapes once the horizon is long enough, at round
-3808 for `exp` and 64854 for `hill`.
+cells close under both smooth shapes once the horizon is long enough: on the
+layer base one seed closes at round 3808 under `exp` (a second at 50440) and
+one at 64854 under `hill`, and the remaining seeds end open.
 
 A6-9 is registered at two thousand rounds and is not withdrawn: it measured what
 it said it would measure. What may not be said is that `λ = 0` holds the economy
@@ -1599,6 +1731,13 @@ set of assumptions:
 Those are internal comparisons. The absolute horizons are the units they were
 measured in and are not a prediction of anything.
 
+**Restated 2026-10-27.** Cell by cell, the threshold base brings seed 1's closure forward 2.7
+times under `exp` (round 3808 to 1402) and 4.2 times under `hill` (round 64854
+to 15522), and under `clip` at `λ = 1e-3` it closes a cell at round 426 (§15.8)
+that closes in no seed under the layer base. The nine in the second item is
+round 3808 of `layer / exp` over round 426 of `threshold / clip / λ=1e-3`, two
+different cells.
+
 ### 17.3 The one place the year reading earns its keep
 
 §12.2's own worked example of the frontier moving is Prussian compulsory
@@ -1616,6 +1755,13 @@ be forecasts. It also sharpens what §16.1 established: **the collapse is a
 statement about a counterfactual in which the frontier never moves.** At the
 absorption rate the historical example implies, the arm has a fixed point and
 holds it at sixty thousand rounds to within `0.01%`.
+
+**Restated 2026-10-27.** The long-horizon block has no cell at `λ ≈ 0.0058`. The two cells
+measured holding their fixed point to within `0.01%` over rounds 30,000 to
+60,000 are the `clip` controls on either side of it, `λ = 1e-3` on the layer
+base and `λ = 1e-2` on the threshold base (`long_horizon.cells`,
+`x_growth_second_half`), so the implied rate lies between the two absorption
+rates at which the arm was measured holding its fixed point.
 
 ### 17.4 Three limits on the mapping, and what each one governs
 
@@ -1656,9 +1802,11 @@ self.holdings[self._l2_idx] += total / self._l2_idx.size
 layer at construction. So the corrected instrument taxes a **measured**
 magnitude and pays a **fixed address list**, and nothing in the run says so.
 
-The consequence is not subtle once it is measured. At the registered
-infrastructure cell over twenty thousand rounds, `λ = 1e-3`, `R = 0.005`,
-threshold levy, five seeds:
+The consequence is not subtle once it is measured. On the stratified graph
+with stratified retention, infrastructure arm (`access / stratified /
+infrastructure`, not the `access / fair` cell §13 to §17 read), over twenty
+thousand rounds, `λ = 1e-3`, `R = 0.005`, five seeds, each levy base against
+each rebate base:
 
 | levy base | rebate base | nodes on **both** sides in one round, worst | recipients |
 |---|---|---|---|
@@ -1668,8 +1816,9 @@ threshold levy, five seeds:
 | threshold | threshold | 0 | 123 to 183 |
 
 The third row is the shipped configuration of §15's correction. **Sixty-one
-nodes pay the levy and receive the rebate in the same round**, and on a
-seed-by-seed mean it is fifty-four. Meanwhile the financial-layer nodes that
+nodes pay the levy and receive the rebate in the same round** at the worst
+round of the worst seed. Averaged over its rounds, seed zero has fifty-four,
+and the five seeds' round averages run from forty-one to fifty-four. Meanwhile the financial-layer nodes that
 have fallen below `θ` pay nothing, because they are below the threshold, and
 receive nothing, because they are not in `_l2_idx`. At the twenty-thousandth
 round of seed zero there are four of them.
@@ -1721,23 +1870,34 @@ are split across every node and the round is recorded in
 > mismatched pairs put **at least one**; claims are conserved to within `1e-6`
 > of the opening stock; and the empty-recipient fallback does not fire.
 
+**Restated 2026-10-10: the clause on the mismatched pairs is over the run, not
+over every round.** As worded above, the criterion asks the mismatched pairs
+for at least one node on both sides in every round. What the driver tests, and
+what the paragraph below needs, is that the overlap occurs: the largest count
+over the run is positive. For the matched pairs the largest count being zero
+is the every-round statement, and it holds in all 100,000 seed-rounds of
+each. For the mismatched pairs it is not the same statement, and the overlap
+is absent in some rounds: in 139 of 100,000 seed-rounds under a layer levy
+with a threshold rebate (137, 0, 1, 0, 1 by seed) and in 209 under a threshold levy
+with a layer rebate (10, 19, 101, 0, 79). The verdict below is on the test as run. The
+per-round counts are in `results/a6_ratchet.json` under `rebate_sides`, which
+the record did not carry before this date, along with `rho_scaling` and
+`rebase_curve` for A6-21 to A6-23.
+
 Every quantity is fixed by construction, so there is nothing here to tune. The
 criterion is two-sided on purpose. A zero in the mismatched rows would not be a
 success, it would mean the distribution never put anybody in the overlapping
 region and the comparison was empty.
 
-**The first draft demanded zero in all four cells and failed on the two
-mismatched ones.** That is the criterion having the wrong scope, not the model
-misbehaving: those cells are supposed to overlap. It is disclosed here rather
-than silently repaired, and the repair is only legitimate because **nothing had
-been registered when it happened**: the first form never left the experiment
-file and A6-20 reaches this page in the corrected form. A criterion already on
-this page would have been left failing, as A6-1 is.
+**Zero is required in the two matched cells only.** A form demanding zero in all
+four cells fails on the two mismatched ones, and that failure is the criterion
+having the wrong scope, not the model misbehaving: those cells are supposed to
+overlap.
 
 **Result: pass.** Five seeds, twenty thousand rounds, four cells, at the
 registered rate. Worst claim drift `1.9e-11` against the `1e-6` bound, zero
 fallback rounds, the two matched rows at zero and the two mismatched rows at
-sixty-one and five.
+sixty-one and five in their worst round.
 
 ### 18.4 What the correction does to A6's numbers, and what is still open
 
@@ -1889,6 +2049,13 @@ smallest non-zero point of `0.005`. A6-10 asked where `R*` was on a grid that
 did not extend to where it was. **A6-10 and A6-11 stay failed.** Nothing here is
 carried back into them.
 
+**Restated 2026-10-27.** The `0.001` above is A6-21's reading at ten thousand rounds. At §14.5's
+own two thousand rounds, the refined rate grid from the same scan places
+`R*(I)` at `λ = 1e-3` at `0.001` in every seed under both `exp` and `hill`.
+That is the refined grid's first non-zero point, so `R*(I) ≤ 0.001` and
+`R*(I)/R*(T) ≤ 0.017` (`rescan`, `refined`), which agrees with the critical
+rate above.
+
 **The parameter-free form agrees.** §19.1's derivation assumes `I` rises with
 `R`; `I(R*)/λ` does not, and it comes out at `0.686`, `0.621`, `0.609` across a
 decade of `λ`, a spread of twelve percent on the means. Since `ι = 1` in every
@@ -1902,7 +2069,7 @@ makes the gap reach a fixed height, and the ratchet sets that height at `I/λ`.
 
 **One seed carries the dispersion and it is not hidden.** Seed 3 solves at
 `ρ* = 0.5` at the two larger `λ`, one grid step below the rest, which is what
-drags its `I(R*)/λ` to `0.370` and the cell means below `0.686`. Five seeds with
+drags its `I(R*)/λ` to `0.374` and `0.370` and the cell means below `0.686`. Five seeds with
 one at one step is inside what the criterion registered as agreement, and it is
 also the whole of the spread: the other four sit between `0.65` and `0.70` in
 every cell.
@@ -1942,7 +2109,9 @@ effect of `λ`.
 **And a fourth, which is new and is about the reading rather than the run.**
 §19.5 measured `R* = λ`. A curve at a **fixed** rate therefore crosses every `λ`
 at a different multiple of that `λ`'s own critical rate. At the registered
-`R = 0.005`:
+`R = 0.005`, with `R*` taken as `λ`, which A6-21 measured on the layer levy and
+layer rebate for `λ` from `1e-3` to `1e-2`; the last two rows carry it past
+the measured decade:
 
 | `λ` | `R / R*` |
 |---|---|
@@ -2005,8 +2174,12 @@ an artefact. Excluding it here does not remove that record.
 
 **The `ρ = 1` column**, meaning `R = λ` rather than `R = 0.005`, on column C with
 `g = exp`. §19.5 makes this available for the first time: it is the curve in `λ`
-with the policy held at each `λ`'s own critical strength, which is the
-comparison §20.1's fourth defect says the fixed-rate curve cannot make. **No
+with the policy held at `R = λ`, the critical ratio A6-21 measured on the
+layer levy and layer rebate, which is the comparison §20.1's fourth defect
+says the fixed-rate curve cannot make. On column C the critical rate itself
+was not measured, and §19.5 expects it to move under the threshold levy, so
+this column holds the policy at the layer base's critical ratio and not at
+column C's own. **No
 threshold is registered for it.** It is a quantity nobody has seen and §14.6 is
 the precedent for reporting such a thing rather than gating on it.
 
@@ -2046,6 +2219,12 @@ levy and layer rebate, and at the corrected horizon it already gives the band
 `λ = 1e-3` and by under two percent everywhere else, and the rebate change
 alone moves them by less than half a percent, once in each direction.
 
+**Restated 2026-10-26.** Column A to column C moves the minimum end-over-start
+by `5.9%` at `λ = 1e-3`, `2.4%` at `3e-3`, `1.9%` at `1e-2`, `0.7%` at `3e-2`
+and `0.4%` at `1e-1`, so "under two percent" holds from `1e-2` up and not at
+`3e-3`. The rebate change alone, column B to column C, is `+0.35%` at
+`λ = 1e-3` and `−0.03%` to `−0.05%` at the other four (`rebase_curve`).
+
 So §16.8 listed three open items and they were not equally open. **§15.9's
 warning about the band moving is true of the wall and not of the smooth shape**:
 the `clip` column's low end moved a grid step, the `exp` column's did not move
@@ -2063,14 +2242,16 @@ spread rather than as a number.
 
 Reported and not judged, per §20.4, and it is the largest thing in this section.
 
-With the policy held at each `λ`'s own critical strength, `R = λ`, **the band is
-the entire scanned set** and end-over-start **rises monotonically with `λ`**:
-`1.069, 1.078, 1.109, 1.187, 1.425`. Every absorption rate across a decade keeps
-the economy open, and more absorption is monotonically better.
+With the policy held at `R = λ`, the critical ratio A6-21 measured on the layer
+base, **the band is the entire scanned set** and end-over-start **rises
+monotonically with `λ`**: `1.069, 1.078, 1.109, 1.187, 1.425`. Every absorption
+rate across the two decades scanned keeps the economy open, and more absorption
+is monotonically better.
 
 The fixed-rate curve says the opposite at its top end: it closes at `λ = 0.03`
 and `λ = 0.1`. §20.1's table is why. At `R = 0.005` those two cells are running
-a levy at `0.17` and `0.05` of their own critical rate. **They do not close
+a levy at `0.17` and `0.05` of the critical rate `R* = λ`, carried past the
+decade A6-21 measured. **They do not close
 because absorption is too high. They close because the tax is too small for
 them**, and the fixed-rate curve reads the second as the first.
 
@@ -2081,7 +2262,7 @@ that sets what `R` means, which is `MEASUREMENT.md` §4's stratification error i
 this stage's own results, found by this stage's own later criterion.
 
 **What it does not say.** One rate ratio, `ρ = 1`, which §19.5 measured as
-critical and not as optimal. Nothing here scans `ρ` against `λ` jointly, so
+critical on the layer base and not as optimal. Nothing here scans `ρ` against `λ` jointly, so
 "more absorption is better" holds along the line `R = λ` and is not a statement
 about the plane. The registered limits of §19.3 and §20.2 on the `λ` span apply
 unchanged.

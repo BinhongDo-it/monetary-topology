@@ -15,13 +15,20 @@ neither is "quantity against topology". The question is *which* edges.
 ``transfer``
     Adds a downward edge. The levy is paid out equally per head across the
     production layer. The claims arrive and then leak back upward along the
-    existing edges at the rate those edges always had.
+    existing edges at the rate those edges always had. Under the default
+    ``as_edge=False``, which every A6 record uses, the payment is a direct
+    adjustment to holdings after the round's flows and is not an entry in the
+    flow matrix, so ``effective_support`` is read on the round's non-fiscal
+    flows; see ``FiscalSpec.as_edge``.
 
 ``infrastructure``
     Attenuates the upward edges. The levy is paid to the production layer as
     payment for building, so claims move exactly as in the transfer arm and
     conservation is identical, but the building **permanently reduces the share
     of production-layer spending that terminates in the financial layer**.
+    The upward weights are scaled by ``1 − min(1, ι × cumulative levy / opening
+    claims)`` and each row renormalised, and the rebuilt route is used from the
+    next round on.
 
 Infrastructure is not anybody's wealth and is not added to any holdings. What it
 does is make ordinary households need to spend less, and it does so for ordinary
@@ -72,15 +79,19 @@ Section 15 records what the difference measures.
 
 What is measured, and what is deliberately not
 ----------------------------------------------
-``R*`` is the smallest levy rate at which the **support set stops contracting**.
-That is stage A2's threshold-free ``1 / HHI`` and it is the only stationarity
-condition.
+``R*`` is the smallest levy rate on :data:`RATE_GRID` at which the **support
+set stops contracting**, as :func:`contracted` reads it. The support set is
+stage A2's threshold-free ``1 / HHI`` of the round's inflow and it is the only
+stationarity condition.
 
 The **Palma ratio** is reported and is not a criterion. A closed economy
 guarantees that no new money is needed; it does not guarantee where the money
 sits. Palma is used rather than the Gini because on two hundred nodes split
-twenty to one hundred and eighty the top decile *is* the financial layer, so the
-statistic reads off the model's own structure instead of being imported over it.
+twenty to one hundred and eighty the top decile has the financial layer's size.
+It is a ranking of all nodes by claims and not the layer: at the opening of the
+registered runs seventeen to nineteen of the twenty richest nodes are
+financial-layer nodes, and at the end of the long run none is. Where a reading
+is meant of the layer, the layer's own share is the quantity to take.
 """
 
 from __future__ import annotations
@@ -131,11 +142,13 @@ class FiscalSpec:
     #: opening stock removes the whole of the production layer's upward leakage.
     leak_response: float = 1.0
 
-    #: One propensity for every node, at the claim-weighted mean of the two
-    #: layers'. The same construction stage A4 uses when it flattens access, but
-    #: as a switch of its own, so that retention and access move independently.
-    #: Stage A4 could not separate them because there they were deliberately one
-    #: object.
+    #: One propensity range for every node, each end at the claim-weighted
+    #: mean of the two layers' ends. The same construction stage A4 uses when it flattens access, but
+    #: as a switch of its own, so that retention can move without access on the
+    #: stratified graph. On the ``uniform_access`` graph both layers already hold
+    #: those two values, so the switch changes nothing there and the fair and
+    #: stratified cells are one model. Stage A4 could not separate them because
+    #: there they were deliberately one object.
     fair_retention: bool = False
 
     def __post_init__(self) -> None:
@@ -246,11 +259,14 @@ class RebateSpec:
     other side sat three lines further down in ``_post_round`` and was not
     looked at, so under the threshold base the payers are recomputed from
     measured holdings every round while the recipients stay the hundred and
-    eighty node indices assigned to the production layer at construction. Over
-    twenty thousand rounds at the registered infrastructure cell that leaves
-    **fifty-six of the hundred and eighty recipients also paying**, and **four
+    eighty node indices assigned to the production layer at construction. At
+    the cell A6-20 runs (stratified graph, stratified retention,
+    infrastructure arm, ``λ = 1e-3``, ``R = 0.005``), seed zero after twenty
+    thousand rounds has **fifty-six of the hundred and eighty recipients above
+    the threshold, so assessed to pay as well as receive**, and **four
     financial-layer nodes below the threshold paying nothing and receiving
-    nothing**. Section 15's own argument, that liability belongs on a measured
+    nothing**. Over five seeds the worst single round has sixty-one nodes on
+    both sides. Section 15's own argument, that liability belongs on a measured
     stock, says the same thing about eligibility.
 
     ``threshold`` applies it: pay the nodes **below** the same ``θ`` the levy is
@@ -359,8 +375,10 @@ def palma(holdings: np.ndarray) -> float:
     """Top decile's share of holdings over the bottom four deciles'.
 
     Reported rather than registered. On this model's two hundred nodes the top
-    decile is exactly the financial layer, so the statistic is the model's own
-    structure and not one imported over it.
+    decile has the financial layer's size, and it is taken off a sort of every
+    node's claims, so it is the twenty richest nodes whichever layer they are
+    in. It coincides with the financial layer only while those are the same
+    twenty.
 
     Returns infinity when the bottom four deciles hold nothing, which is a real
     state of this economy and not a numerical accident: it is what a fully
@@ -409,10 +427,11 @@ def contracted(series: np.ndarray, tail: int = 150) -> bool:
     first part of the run and then sits there. A tail slope answers "is it still
     contracting" and the question is "did it contract".
 
-    So the test is the level: the support set at the end must be at least what it
-    was at the start. The tail slope is reported beside it, because an economy
-    that ends level but is still sliding has not settled and saying so is worth
-    a line.
+    So the first test is the level: the support set at the end must be within
+    ``CONTRACTION_SLACK`` of where it started. The tail slope is a second test,
+    because an economy that ends level but is still sliding has not settled: a
+    slope over the last ``tail`` rounds below minus ``1e-4`` of the opening value
+    also counts as contracted. Either one is enough.
     """
     y = np.asarray(series, dtype=float)
     fell = y[-1] < y[0] * (1.0 - CONTRACTION_SLACK)
@@ -610,18 +629,21 @@ class A6RatchetModel(A6Model):
         #: threshold base: does the tax follow the money downstream?
         self.l2_levy_share_history: list[float] = []
         #: How many nodes the rebate was split across. Constant at the
-        #: production layer's size under the layer base; under the threshold
-        #: base it moves with the distribution and is the measurement A6-20
-        #: turns on.
+        #: production layer's size under the layer rebate; under the
+        #: threshold rebate it moves with the distribution. A6-20 prints its
+        #: range and is judged on ``both_sides_history``.
         self.payee_count_history: list[int] = []
         #: Rounds in which the threshold rebate named nobody and the claims
         #: were split across every node instead. Recorded per round so that a
         #: fallback can never be a silent change of policy.
         self.rebate_fallback_history: list[bool] = []
-        #: How many nodes both paid and received in the same round. Zero under
-        #: the threshold rebate by construction, since both sides are read off
-        #: one measurement, and it is recorded anyway: a non-zero entry would
-        #: mean the within-round ordering had been changed.
+        #: How many nodes both paid and received in the same round. Zero by
+        #: construction when levy and rebate are on the same base: under
+        #: threshold and threshold both sides are read off one measurement,
+        #: under layer and layer the layers are disjoint. The mismatched
+        #: pairings are not zero (A6-20). Recorded in every pairing: a
+        #: non-zero entry in a matched one would mean the within-round
+        #: ordering had been changed.
         self.both_sides_history: list[int] = []
 
     def _assess(self) -> tuple[np.ndarray | None, np.ndarray]:
@@ -660,8 +682,8 @@ class A6RatchetModel(A6Model):
         measurement date. Taking the recipients off the post-levy holdings
         would let a node pay and then immediately qualify to receive, which is
         the overlap :class:`RebateSpec` exists to remove, reintroduced by
-        ordering rather than by membership. Assessed here, above ``θ`` pays,
-        below it receives, and no node does both. ``both_sides_history`` checks
+        ordering rather than by membership. Assessed here under the threshold
+        levy, above ``θ`` pays, below it receives, and no node does both. ``both_sides_history`` checks
         that rather than trusting it.
         """
         if self.a6.rebate.base == "layer":

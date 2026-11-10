@@ -180,8 +180,13 @@ than from the data.** Volume One section 18 says the failure concentrates in the
 holding consumer credit against little net worth. So:
 
 > the model's share of households ever behind is **decreasing in net-worth
-> group**, and the ordering of the four groups matches `LATE60`'s ordering of the
-> same four groups, **in every cell of the shock sweep**.
+> group**, and its ordering matches `LATE60`'s ordering of the same groups,
+> **in every cell of the shock sweep**, on the adjacent pairs both sides resolve.
+> A pair the survey does not resolve at two standard errors is printed and not
+> scored. A sweep size at which a pair the survey resolves expects fewer than five
+> events in either of its groups is refused, and the criterion is void at it.
+
+The pair rule was added 2026-10-17; the entry of that date says what it replaced.
 
 **Written before the gradient was measured.** The national rate above is an
 availability fact and was read before this criterion was written; the gradient
@@ -295,6 +300,10 @@ shock: card `0.0589`, auto `0.0191`, mortgage `0.0001`, basket `0.0135`, and
 `1,744` of `6,292` renters displaced. Every shocked reading in this stage is
 reported against these and never against zero.
 
+> **Pointer, 2026-10-15.** `1,744` counts every displaced household, the mortgaged
+> ones included, and `6,292` counts the renters. The split by starting tenure is in
+> the 2026-10-10 entry below, at 100,000 households.
+
 **A scope item that belongs in §6 and cannot go there**, sections 1 to 7 being
 fixed now that A1b-0 has a result: **this model has no transfers in kind.** The
 SCF's `INCOME` includes cash transfers and does not include SNAP, Medicaid or
@@ -363,6 +372,12 @@ ordinally reproduced on a population every figure of which was measured on the
 same respondent.** No level is claimed and none can be: the population is 2022
 and the target is 2026Q1.
 
+> **Pointer, 2026-10-15.** Two of the payments on that population are rules applied
+> to a balance: `REVPAY` is the publisher's 2.5% of the card balance plus
+> buy-now-pay-later and other lines, and the vehicle payment is the registered one
+> sixtieth of the vehicle balance. The 2026-10-10 entry below reads each payment
+> carrier against the publisher's definitions.
+
 **A1-2 fails, and not on the card.** Among 7,277 defaulting households the first
 default is card `0.4278`, auto `0.0627`, shelter `0.3500` (rent `0.2379`,
 mortgage `0.1121`), basket `0.1595`. The registered inequality is
@@ -370,6 +385,11 @@ mortgage `0.1121`), basket `0.1595`. The registered inequality is
 three**. Among the 5,054 households not already short at baseline the shares are
 card `0.4865`, auto `0.0602`, shelter `0.3192`: the same failure, so it is not
 an artefact of baseline stress.
+
+> **Pointer, 2026-10-15.** `5,054` was classified on the bills the run left, so it
+> includes households that were short at the start. Classified on the bills as
+> built, before the run, the group is `24,981` at 100,000 households; see the
+> 2026-10-10 entry below.
 
 **Where it comes from, measured.** The share of households holding each rung at
 all: card `0.456`, mortgage `0.413`, auto `0.349`, rent `0.315`. Card and car
@@ -610,6 +630,103 @@ this stage's record and a silent edit to it would be failure mode 9.
 columns, and `scf_joint.extract` gained the nesting anchor that guards them.
 None of the three is read by any quantity this stage computes.
 
+### 2026-10-10, the payment carriers read against the publisher's definitions, and two readings moved before the run
+
+**No criterion changed state.** Three payment columns were read against the Federal
+Reserve's variable-definition macro, which this stage had not read.
+
+- **`REVPAY` is not a payment a household reported.** The macro builds it as 2.5% of
+  the card balance, plus 33% of buy-now-pay-later balances, plus payments on lines of
+  credit not secured by the residence. The card rung therefore carries a publisher's
+  rate on the card balance with two other obligations folded in. On rows with a card
+  balance it averages 226.39 a month against 153.02 for the card alone.
+- **`MORTPAY` is wider than `NH_MORT`.** The payment adds to the loans `NH_MORT`
+  counts the payments on other residential property, on land contracts and on the
+  home-equity lines the primary residence secures; the stock is the primary
+  residence net of those lines. 1,541 of 8,811 mortgaged rows pay beyond the
+  `NH_MORT` loans, 1,160 on other property or land contracts and 381 on the primary
+  residence's home-equity line alone. The weighted mean is 1,703.02 a month against
+  1,557.52 on the `NH_MORT` loans, and the 145.50 between them is 116.65 on other
+  property and land contracts and 28.86 on the home-equity line. (Composition
+  corrected 2026-10-15.)
+- **The vehicle payments are in the extract**, loan by loan. The one sixtieth of the
+  balance this stage registered as the only unmeasured payment gives 122.96 a month
+  over all households where the published payments give 198.54.
+
+Each leg is now also run alone on the narrower or the published carrier, beside the
+registered construction and replacing nothing in it. A1-3's ordinal reading holds on
+all three; the last-period card, auto and mortgage shares are 0.1879, 0.0924, 0.0027
+as registered, 0.1883, 0.0924, 0.0025 on the payments on the `NH_MORT` loans (label
+corrected 2026-10-17), 0.1571,
+0.0929, 0.0028 on the card at 2.5%, and 0.2160, 0.1376, 0.0031 on the published
+vehicle payments. Which carrier the stage stands on is left open.
+
+> **Pointer, 2026-10-17.** The carrier was ruled on that date: each rung on the payment
+> of its own stock. The entry of that date, at the end of this file, has the readings.
+
+**Read before the run, where they had been read after it.** A run removes the shelter
+rung of a displaced household. The per-carrier first-default rate is now over the
+households that carried the rung at the start: rent 0.2813 over 32,098 where the table
+read 0.7080 over the 12,754 not displaced, the mortgage 0.0958 over 40,894 where it
+read 0.1225. The defaulting households not short at baseline are classified on the bills as
+built: 24,981 where the record read 32,547. And the no-shock baseline's 8,838
+displaced households are reported by starting tenure, 7,076 renters and 1,762
+mortgaged.
+
 ### Anything altered after this date
 
 Goes here with the date, the reason, and what had been seen at the time.
+
+### 2026-10-17, the payment carriers: each rung on the payment of its own stock
+
+Ruled 2026-10-17. Each rung now stands on the payment of its own stock: the card rung
+on the publisher's 2.5% of the card balance, the mortgage rung on `PAYMORT1` to
+`PAYMORT3`, the loans `NH_MORT` counts, and the car-loan rung on the published vehicle
+payments. Every other published payment a household makes is paid each period on no
+rung, out of the same cash before the rungs are settled, and is never missed. A shock
+to income does not scale it, and the scheduled cushion is one month of all of it.
+
+That is 147.24 a month per family, on 4,104 implicate rows: 48.93 of `REVPAY` beyond
+the card rate, 98.28 of `MORTPAY` beyond the mortgage rung (all of it on the 913 rows
+with no mortgage rung), and 0.02 of vehicle payments on the 5 rows with no vehicle
+balance. The registered construction carried 922.22 a month of debt payments per family
+and left those three out; the default carries 1,052.29. 46 rows (187 households at
+100,000) hold a mortgage rung with no payment on its loans, and 15 rows (40 households)
+a vehicle balance with no published payment; those rungs are held and never due.
+
+The registered construction is kept. `--carrier registered` runs it as the stage, and on
+it the record reproduces the one before this ruling in every number, 268 numeric fields;
+the default run reads it as an arm. The three single-leg arms are kept as they were,
+each replacing one leg of the registered construction.
+
+On the default the count is as before, six of seven live criteria passing with two
+void. A1-3 reads mortgage 0.0028 < auto 0.1419 < card 0.2105, against 0.0027 < 0.0924
+< 0.1879 as registered. A1-6's ratio is x1.45 where it was x2.12. A1b-1 still fails,
+and the reason has turned over: the model's ordering now matches the survey's in every
+cell, the inverted top pair included, and so no cell decreases. The survey's top pair
+is inverted, top1 0.0026 above next9 0.0022, so the criterion's two halves cannot both
+hold on this target. Per carrier at the start, tenants read card 0.5760, rent 0.2823 and
+car loan 0.2231, and mortgaged households card 0.2859 against mortgage 0.1016.
+
+### 2026-10-17, A1b-1 scored on the pairs both sides resolve
+
+§5.3 asked every cell to decrease and to match the survey's ordering over all four
+groups. The survey's top pair is inverted by four basis points, top1 0.0026 above
+next9 0.0022, at 0.13 standard errors on the source side, and the model expects 0.8
+events in the thinner group at 50,000 households. On that target the two halves could
+not both hold, so the criterion's shape was broken. It now scores the adjacent pairs
+both sides resolve, by the rule A1d-1 already used: two standard errors on the source
+side, five expected events in each group on the model side, a pair the source does not
+resolve printed and not scored, and a size that leaves a resolved pair under the floor
+refused. The rule lives in this stage's script and A1d imports it; A1d's record
+reproduces byte for byte.
+
+The sweep moves from 20,000 to 50,000 households, the size A1d-1 uses: at 20,000 next9
+expects 4.2 events, under the floor, and the size is refused. Only the sweep block of
+the record changes; every other number is as before.
+
+On the default carrier the scored pairs are bottom50/next40 and next40/next9, and
+every one of the six cells decreases on them and matches the survey, for example
+seed 7x1 0.324/0.191/0.021/0.028. The model's top pair is inverted as the survey's is
+and is reported only. A1b-1 passes, and the count is seven of seven live criteria
+passing with two void.

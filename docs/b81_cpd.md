@@ -121,7 +121,7 @@ carried by B79. The discrete Hodge decomposition behind both is cited at
 |---|---|---|
 | `B81-1` `known_answer` | transitivity and base invariance | worst triple sum `2.2e-16`, worst shift on changing the base country `2.2e-16`, worst residual-design inner product `2.1e-15` |
 | `B81-2` `own_reading` | **why they hold** | every cycle of the bipartite graph sums to `2.2e-16` on the fitted values and to **`2.207` or more on the raw log prices**. The cycle basis is built from the incidence pattern and never sees the regression. The cycle count matches both the closed form and the incidence rank |
-| `B81-3` `own_reading` | **two graphs** | `(M−1)(R−1)` against its incidence rank in 10 of 10, running 8 to 36; the country graph's `(R−1)(R−2)/2` running 3 to 15 |
+| `B81-3` `own_reading` | **two graphs** | `(M−1)(R−1)` against its incidence rank in 10 of 10, running 8 to 36; the country graph's `(R−1)(R−2)/2` running 1 to 15 |
 | `B81-4` `own_reading` | do they agree | worst gap `2.0e-15` on complete equal-weight tableaux, by two routes sharing no code |
 | `B81-5` `own_reading` | **identification is connectivity** | 40 sparse tableaux, **13 disconnected**; rank deficiency equals the component count in 40 of 40, and `b₁ = E − V + c` matches the incidence rank throughout |
 | `B81-6` `instrument` | the gauge | dropping each dummy in turn moves the fitted values by at most `2.4e-15` and the coefficients by up to `1.139`. **Both halves are required**: unchanged coefficients would mean the gauge was never exercised |

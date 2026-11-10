@@ -281,6 +281,16 @@ def anchor_fico(per_vintage: dict, candidates) -> dict:
     The stratification by vintage stays and is not optional: the coupon level
     moves several hundred basis points across this sample, so a pooled test
     would be reading the vintage and not the field.
+
+    **The quantity is the median origination coupon (`O_RATE`) per band, not a
+    default rate.** And on the winning column the file's missing code `9999`
+    is above every cut, so it lands in band 0 with the highest scores: no
+    column's missing code can be excluded here without first knowing which
+    column is FICO, which is what this anchor is for. Measured 2026-10-27 on
+    the 28 vintages: 2,115 rows carry it, and with them held out no vintage's
+    band-0 median and no vintage's score or coverage moves, column 0 still
+    wins with the same margin of 22. The class step downstream
+    (`parse_orig_classes`) reads `9999` as missing.
     """
     out = {}
     for i in candidates:
@@ -745,6 +755,15 @@ def scan_vintage(v: int) -> dict:
 # — `r(t)` reads bal(t) and bal(t-1), so both ends must be on the cent side and
 # the first usable t is 8, the same number as §6·1 for a different reason.
 #
+# As coded, `floor_window` asks every row of the trip, the opening current
+# row included, to be at age >= 8, so the first `r(t)` it keeps is at t = 9:
+# one cent-side month narrower than the sentence above. The trips it gives up
+# are those whose opening current row is at age 7, 3,598 of the 164,975
+# round trips in `results/b10_floor.json` (`minage_hist`), counted under
+# `touches_below`. `--resid`, `--curve` and `--omega` go through the same
+# gate, so their trips are the same narrower set. Adding 3,598 trips to a
+# priced set of 123,792 moves any quantile by at most 2.8 percentile ranks.
+#
 # The population is the no-modification round trips. §8·16·3 names the producer
 # and forbids a second finder, so this walks the same `classify_loan` and asks
 # it where the trip was.
@@ -855,6 +874,11 @@ def floor_absorb(acc: dict, rows) -> None:
     if st == "rate_varies":
         acc["rate_varies"] += 1
         return
+    #: `k` counts the rows the trip spans, which equals the calendar months
+    #: only when no month is missing inside the span. On 12 of the 123,792
+    #: priced trips a month is missing; there the calendar `k` is larger and
+    #: the bound 2% to 63% higher (largest absolute change 1.9e-06). The
+    #: quantiles printed from this sample are read on the row count.
     k = len(span) - 1
     acc["k_hist"][k] = acc["k_hist"].get(k, 0) + 1
     mb = min(bals)
@@ -1978,9 +2002,12 @@ def print_resid(pl, prod=None) -> None:
     print("       previous contract period's, because Freddie publishes no")
     print("       per-row payment. On Fannie those two differ exactly at a")
     print("       modification month, which is leg 2. This population has no")
-    print("       modifications in it (§8·16's round trips are the")
-    print("       no-modification ones), so the two agree on every row here")
-    print("       — a scope fact, and the scope is why it holds.")
+    print("       modification flags in it (§8·16's round trips are the")
+    print("       no-modification ones), so the two are taken to agree here.")
+    print("       That is an assumption, not a measurement: no payment field")
+    print("       is published to check it against, and on 6 of the 123,792")
+    print("       priced trips the window's rate differs from the origination")
+    print("       rate with no flag anywhere before or inside the window.")
 
 
 def cmd_resid(only) -> int:
@@ -2317,8 +2344,13 @@ def substitution_payment(t0, contract_payment, n_override=None):
     6.* §8·19·1 fed it the origination balance instead, and Freddie's
     origination UPB is on that grid on every row of every archive checked.
 
-    `t0` is the loop's first row, the last current month. §8·16 has already
-    required age >= 8 across the window, so this balance is reported to the
+    `t0` is the loop's first row, the last current month. **No age gate
+    applies on this call chain**: §8·16's age >= 8 belongs to `floor_window`,
+    and `find_loops_rows` does not carry it. So on a front anchor below age 8
+    the reported balance can still sit on the origination's $1,000 grid, and
+    the payment is then computed from that grid value rather than from a
+    balance reported to the cent. `legs_payload` counts those anchors
+    (`anchor_grid_low_age`); on the other loops the balance is reported to the
     cent. The balance used is the **interest-bearing** one (§8·18), since that
     is what amortises.
 
@@ -2441,9 +2473,11 @@ def read_orig_profile(vintage: int, seq_col: int) -> dict:
     row per loan against seventy-five million performance rows, so a second
     pass over it costs nothing measurable.
 
-    **Unreadable is `None`, never a sentinel.** Freddie writes 9s for missing
-    FICO and DTI, and folding those into a band would put "not reported" in
-    with "reported low" (§11 item 6).
+    **Only a blank is `None` here.** Freddie writes `9999` for a missing FICO
+    and `999` for a missing DTI, and this reader passes both through as the
+    strings they are; `cls_file` then parses them as numbers, so `9999` lands
+    in FICO band 0 and `999` enters the DTI quantiles (the p90 of `++` and
+    `--` reads 999 in `results/b10_noise.json`).
 
     `seq_col` comes in rather than being named here: the loan-sequence column
     already has a name in `b10_c8_1d_freddie` and a second copy of a column
@@ -3397,6 +3431,12 @@ def noise_anchor(rows, min_age):
     that Freddie reports UPB on a $1,000 grid below age 7 and to the cent at
     and above it, so the age floor selects a **reporting precision**, not a
     behaviour. Returns None when the loan has no such row.
+
+    With `min_age = FLOOR_MIN_AGE` the anchor is the first row at age >= 8,
+    and the first residual a window sums reads the anchor's balance, so the
+    cent windows start at t = 9. An age-7 row is cent-reported and could
+    anchor (§8·16·2's first usable t is 8); it is skipped, one month later
+    than the precision boundary requires.
     """
     for j, t in enumerate(rows):
         if (t[R_UPB] is not None and t[R_UPB] > 0 and t[R_RATE] is not None
@@ -4458,6 +4498,8 @@ def print_coh_signs(d) -> None:
     elif v == "disjoint":
         print(f"     §8·31·2 -> SECOND BRANCH at window {L0}. No loop is both")
         print("     same-sign and path-qualifying.")
+    elif v == "no_reference":
+        print(f"     §8·31·2 -> no referent at window {L0}: the 2x2 is empty.")
     else:
         print(f"     §8·31·2 -> THIRD BRANCH at window {L0}, mixed (R01).")
         print("     Neither containment nor disjointness; the lift and its two")
@@ -4513,6 +4555,8 @@ def print_pat_overlap(d) -> None:
     elif v == "disjoint":
         print(f"     §8·32·2 -> SECOND BRANCH at window {L0}. No loop is both")
         print("     off-pattern and over the grid bound.")
+    elif v == "no_reference":
+        print(f"     §8·32·2 -> no referent at window {L0}: the 2x2 is empty.")
     else:
         print(f"     §8·32·2 -> THIRD BRANCH at window {L0}, mixed (R01).")
     if o0["lift"] is not None:
@@ -6257,7 +6301,13 @@ def legs_new_acc() -> dict:
                 "omega": [], "leg1": [], "leg2": [], "leg3": [],
                 "share": {"leg1": [], "leg2": [], "leg3": []},
                 "share3": {"leg1": [], "leg2": [], "leg3": []},
-                "n3_zero": 0, "all3": 0, "by_arm": {}, "capped": False,
+                #: Loops with a non-empty leg 3 whatever leg 1 holds. Until
+                #: 2026-10-27 this was the population `all3` and `share3`
+                #: read, and §8·23·3 registers all three legs non-empty.
+                "share_n3live": {"leg1": [], "leg2": [], "leg3": []},
+                "n3_zero": 0, "n3_live": 0, "all3": 0,
+                "anchor_grid_low_age": {"pre": 0, "post": 0},
+                "by_arm": {}, "capped": False,
                 "p_reldiff": [],
                 #: §8·24. **Accumulator only**: `legs_payload` does not emit
                 #: these, so `b10_legs.json` stays byte for byte what it was
@@ -6266,6 +6316,32 @@ def legs_new_acc() -> dict:
                         "n1": [], "l1_exact_in": [], "by_arm": {}}}
     return {"loans": 0, "loops": 0, "arm": {"mod": 0, "defer": 0},
             "schemes": {k: scheme() for k in LEG_SCHEMES}}
+
+
+def legs_population(n1, n2, n3) -> str:
+    """§8·23·3's population, by the three legs' month counts.
+
+    `n3_zero`: leg 3 spans no months (`t_M == t_B`), set aside whole.
+    `leg1_empty`: leg 3 has months and leg 1 has none (`t_M` is the row after
+    `t_A`), so leg 1 is zero by construction and would drag any comparison
+    exactly as an empty leg 3 does. `all3`: all three legs non-empty, which is
+    what §8·23·3 registers.
+    """
+    if n3 == 0:
+        return "n3_zero"
+    if n1 > 0 and n2 > 0:
+        return "all3"
+    return "leg1_empty"
+
+
+def anchor_on_grid_low_age(row) -> bool:
+    """A payment anchor below age 8 whose interest-bearing balance sits on
+    the $1,000 grid, i.e. a balance not reported to the cent."""
+    age, u, z = row[R_AGE], row[R_UPB], row[R_DEFER]
+    if age is None or age >= 8 or u is None or z is None:
+        return False
+    b = u - z
+    return b > 0 and abs(b - 1000.0 * round(b / 1000.0)) < 1e-6
 
 
 def legs_absorb(acc, rows, orig, pos, tab, max_h, r_month,
@@ -6307,12 +6383,19 @@ def legs_absorb(acc, rows, orig, pos, tab, max_h, r_month,
             #: 87.2 per cent of loops, and their leg 3 spans no months, so it
             #: must be exactly zero. A range helper off by one row shows up
             #: here and nowhere else.
-            if m["n3"] == 0:
+            pop = legs_population(m["n1"], m["n2"], m["n3"])
+            if pop == "n3_zero":
                 sc["n3_zero"] += 1
                 if m["leg3"] != 0.0:
                     sc["empty3_nonzero"] += 1
             else:
-                sc["all3"] += 1
+                sc["n3_live"] += 1
+                if pop == "all3":
+                    sc["all3"] += 1
+            if name == "sub":
+                for role, t in (("pre", rec["t_A"]), ("post", rec["t_B"])):
+                    if anchor_on_grid_low_age(rows[t]):
+                        sc["anchor_grid_low_age"][role] += 1
             if len(sc["omega"]) < LEG_SAMPLE_CAP:
                 sc["omega"].append(m["omega"])
                 sc["leg1"].append(m["leg1"])
@@ -6324,7 +6407,9 @@ def legs_absorb(acc, rows, orig, pos, tab, max_h, r_month,
             if aw > 0:
                 for g in ("leg1", "leg2", "leg3"):
                     sc["share"][g].append(abs(m[g]) / aw)
-                    if m["n3"] > 0:
+                    if pop != "n3_zero":
+                        sc["share_n3live"][g].append(abs(m[g]) / aw)
+                    if pop == "all3":
                         sc["share3"][g].append(abs(m[g]) / aw)
             b = sc["by_arm"].setdefault(rec["arm"], {"n": 0, "omega": []})
             b["n"] += 1
@@ -6353,6 +6438,9 @@ def legs_payload(acc) -> dict:
                for g in ("leg1", "leg2", "leg3")}
         med3 = {g: (_q(sc["share3"][g], (50,))[0] if sc["share3"][g] else None)
                 for g in ("leg1", "leg2", "leg3")}
+        med_n3 = {g: (_q(sc["share_n3live"][g], (50,))[0]
+                      if sc["share_n3live"][g] else None)
+                  for g in ("leg1", "leg2", "leg3")}
         live = {g: v for g, v in med3.items() if v is not None}
         out[name] = {
             "n": sc["n"], "ok": sc["ok"],
@@ -6360,6 +6448,10 @@ def legs_payload(acc) -> dict:
             "miss_before": sc["miss_before"], "miss_after": sc["miss_after"],
             "identity_bad": sc["identity_bad"],
             "n3_zero": sc["n3_zero"], "all3": sc["all3"],
+            "n3_live": sc["n3_live"],
+            "n3_live_leg1_empty": sc["n3_live"] - sc["all3"],
+            "share_med_n3live": med_n3,
+            "anchor_grid_low_age": dict(sc["anchor_grid_low_age"]),
             "empty3_nonzero": sc["empty3_nonzero"],
             "q_omega": _q(sc["omega"]),
             "q_absomega": _q([abs(x) for x in sc["omega"]]),
@@ -6476,7 +6568,9 @@ def print_legs(pl) -> None:
     print("     **On the loops with all three legs non-empty**"
           f" ({main['all3']:,});")
     print(f"     the {main['n3_zero']:,} with an empty leg 3 are set aside")
-    print("     whole (§17.3), never pooled into an omega_3 reading.")
+    print("     whole (§17.3), never pooled into an omega_3 reading, and so are")
+    print(f"     the {main.get('n3_live_leg1_empty', 0):,} whose leg 1 is empty"
+          " (leg 1 zero by construction).")
     print(f"     {'':<8}{'median share of |omega|, all3':>32}"
           f"{'all loops':>14}")
     for g in ("leg1", "leg2", "leg3"):
@@ -6502,6 +6596,16 @@ def print_legs(pl) -> None:
     print("     The `all loops` column is a deliverable, not a reading: it")
     print("     includes the empty-leg-3 loops, where leg 3 is zero by")
     print("     construction and would drag any comparison.")
+    n3l = main.get("share_med_n3live")
+    if n3l:
+        print(f"     Beside it, leg 3 non-empty whatever leg 1 holds"
+              f" ({main.get('n3_live', 0):,}): "
+              + "   ".join(f"{g} {('%.4f' % n3l[g]) if n3l[g] is not None else 'n/a'}"
+                         for g in ("leg1", "leg2", "leg3")))
+    ag = main.get("anchor_grid_low_age")
+    if ag:
+        print(f"     Payment anchors below age 8 on the $1,000 grid (not to the"
+              f" cent): front {ag['pre']:,}, rear {ag['post']:,}.")
 
     print("\n  G. What travels with every number above (§8·23·4)")
     print("     1. the modification arm's loops are **not a random sample** of")
@@ -6643,18 +6747,24 @@ def signal_payload(legs_acc, omega_acc, mad_scale) -> dict:
         return {"n": len(xs), "mad": (mad_scale(xs) if xs else None),
                 "absmed": (_q([abs(x) for x in xs], (50,))[0] if xs else None)}
 
-    floors = {}
-    for f in SIGNAL_FLOORS:
-        v = omega_acc["b8like"][f"gap_{f}"]
-        floors[f] = q(v)
+    #: §8·24·2: **both sides of a ratio use one payment scheme.** The
+    #: clean-cure floor comes in two payments (§8·20·8): `P_orig` files into
+    #: the top-level tree and `P_sub` into `p_sub`. Until 2026-10-27 every
+    #: scheme was read over the `P_orig` floor, so the `sub` ratios had an
+    #: `orig` denominator. `floors` keeps the `P_orig` floor at its old key.
+    floor_tree = {"orig": omega_acc["b8like"], "sub": omega_acc["p_sub"]["b8like"]}
+    floors_by = {s: {f: q(floor_tree[s][f"gap_{f}"]) for f in SIGNAL_FLOORS}
+                 for s in LEG_SCHEMES}
+    floors = floors_by["orig"]
 
     out = {}
     for name in LEG_SCHEMES:
         sg = legs_acc["schemes"][name]["sig"]
         raw, net = sg["omega"], sg["omega_net"]
         cell = {"raw": q(raw), "net": q(net), "ratios": {}}
+        own = floors_by[name]
         for f in SIGNAL_FLOORS:
-            fl = floors[f]["mad"]
+            fl = own[f]["mad"]
             r_raw = (cell["raw"]["mad"] / fl) if (fl and cell["raw"]["mad"]
                                                   is not None) else None
             r_net = (cell["net"]["mad"] / fl) if (fl and cell["net"]["mad"]
@@ -6674,8 +6784,8 @@ def signal_payload(legs_acc, omega_acc, mad_scale) -> dict:
         #: carrier's own resolution floor**, never copied from B8's `1e-7`:
         #: that number's source is Fannie's floor, and a tolerance imported
         #: across carriers is a tolerance reasoned from the wrong quantity.
-        tol = (2.0 * floors["resolution"]["mad"]
-               if floors["resolution"]["mad"] else None)
+        tol = (2.0 * own["resolution"]["mad"]
+               if own["resolution"]["mad"] else None)
         ex = (sum(1 for d in sg["l1_exact_in"] if d <= tol)
               if tol is not None else None)
         cell["l1"] = {
@@ -6691,7 +6801,7 @@ def signal_payload(legs_acc, omega_acc, mad_scale) -> dict:
         for arm, d in sorted(sg["by_arm"].items()):
             a = {"raw": q(d["omega"]), "net": q(d["omega_net"]), "ratios": {}}
             for f in SIGNAL_FLOORS:
-                fl = floors[f]["mad"]
+                fl = own[f]["mad"]
                 a["ratios"][f] = {
                     "raw": (a["raw"]["mad"] / fl) if (fl and a["raw"]["mad"]
                                                       is not None) else None,
@@ -6699,7 +6809,7 @@ def signal_payload(legs_acc, omega_acc, mad_scale) -> dict:
                                                       is not None) else None}
             cell["by_arm"][arm] = a
         out[name] = cell
-    return {"floors": floors, "schemes": out,
+    return {"floors": floors, "floors_by_scheme": floors_by, "schemes": out,
             "readable_line": SIGNAL_READABLE,
             "inherited_line": SIGNAL_INHERITED,
             "fannie_beside": [list(r) for r in B8_1_SIGNAL]}
@@ -6842,15 +6952,19 @@ def print_signal(pl) -> None:
     print("     this carrier (§8·21·4), not a quantisation one.")
     print(f"     {'floor':<12}{'n':>10}{'MAD':>14}{'median |.|':>14}"
           f"   what it answers")
-    for f in SIGNAL_FLOORS:
-        d = pl["floors"][f]
-        what = ("every clean-cure loop, path unfiltered"
-                if f == "ambient" else
-                "only the derived-path ones, where P is right")
-        print(f"     {f:<12}{d['n']:>10,}"
-              f"{('%.4e' % d['mad']) if d['mad'] is not None else 'n/a':>14}"
-              f"{('%.4e' % d['absmed']) if d['absmed'] is not None else 'n/a':>14}"
-              f"   {what}")
+    fb = pl.get("floors_by_scheme") or {"orig": pl["floors"]}
+    for s in sorted(fb):
+        for f in SIGNAL_FLOORS:
+            d = fb[s][f]
+            what = ("every clean-cure loop, path unfiltered"
+                    if f == "ambient" else
+                    "only the derived-path ones, where P is right")
+            print(f"     {s + ' ' + f:<17}{d['n']:>10,}"
+                  f"{('%.4e' % d['mad']) if d['mad'] is not None else 'n/a':>14}"
+                  f"{('%.4e' % d['absmed']) if d['absmed'] is not None else 'n/a':>14}"
+                  f"   {what}")
+    print("     each scheme's ratios are read over its own scheme's floor"
+          " (§8·24·2)")
 
     print("\n  B. §8·24·4: the signal against each floor")
     print(f"     MAD(omega) = "
@@ -7485,15 +7599,35 @@ def width_curve(items, grid: str, widths) -> list:
     if not items:
         return []
     lo = min(v for v, _ in items)
+    levs = {lev for _, lev in items}
     rows = []
     for w in widths:
         cells = Counter((((v - lo) // w), lev) for v, lev in items)
         bins = {b for b, _ in cells}
+        #: §24.3's cell is (class level x cohort bin), C9's own convention,
+        #: where a combination nobody occupies is a cell of zero. `min_cell`
+        #: stays the minimum over occupied cells; the reading uses
+        #: `min_cell_cartesian`, which is 0 when any combination is empty.
+        empty = len(bins) * len(levs) - len(cells)
         rows.append({"w": w, "bins": len(bins), "cells": len(cells),
                      "min_cell": min(cells.values()),
+                     "levels": len(levs), "empty_cells": empty,
+                     "min_cell_cartesian": 0 if empty else min(cells.values()),
                      "mean_cell": round(sum(cells.values()) / len(cells), 2),
                      "loans": sum(cells.values())})
     return rows
+
+
+def robust_moves(m: int) -> list:
+    """§30.4·3's robustness, both directions: `[(sign, branch), ...]` for
+    each side of `+-RESIDUAL` on which the branch moves. Empty means robust.
+    Until 2026-10-27 only `-RESIDUAL` was checked."""
+    b = branch_of(m)
+    out = []
+    for sign, mm in (("-", max(0, m - RESIDUAL)), ("+", m + RESIDUAL)):
+        if branch_of(mm) != b:
+            out.append((sign, branch_of(mm)))
+    return out
 
 
 def branch_of(m: int) -> str:
@@ -7634,7 +7768,7 @@ def cmd_windows(only, rescan: bool) -> int:
               f"{(str(axis[0]) + '..' + str(axis[-1])) if axis else 'empty'}"
               f"   {len(axis)} vintages")
         print(f"     {'grid':<20}{'w':>3}{'bins':>6}{'min':>6}{'-5':>6}"
-              f"   reading")
+              f"{'+5':>6}   reading   (min over class x bin, zeros counted)")
         for gname in C9_GRIDS:
             items = [(r[0], grids_of(r[3], r[4], r[5], r[6])[gname])
                      for r in rows_w]
@@ -7646,14 +7780,14 @@ def cmd_windows(only, rescan: bool) -> int:
             for r in curve:
                 if r["bins"] < 3:
                     continue
-                b = branch_of(r["min_cell"])
-                b2 = branch_of(max(0, r["min_cell"] - RESIDUAL))
-                robust = (b == b2)
+                m = r["min_cell_cartesian"]
+                b = branch_of(m)
+                robust = not robust_moves(m)
                 if b != "dead" and robust and best is None:
                     best = r
                 if gname in FINE_GRIDS and r["w"] in (4, 6, 8):
                     print(f"     {gname:<20}{r['w']:>3}{r['bins']:>6}"
-                          f"{r['min_cell']:>6}{max(0, r['min_cell'] - RESIDUAL):>6}"
+                          f"{m:>6}{max(0, m - RESIDUAL):>6}{m + RESIDUAL:>6}"
                           f"   {b}{'' if robust else '  NOT ROBUST'}")
             if gname in FINE_GRIDS:
                 verdict[(name, gname)] = best
@@ -7775,10 +7909,12 @@ def cmd_run(only, rescan: bool) -> int:
             if r["bins"] < 3:
                 read = "not read: under 3 bins is not an axis (§24.5)"
             else:
-                b, b2 = branch_of(r["min_cell"]), \
-                    branch_of(max(0, r["min_cell"] - RESIDUAL))
-                read = (f"{b}" if b == b2 else
-                        f"{b} -> **NOT ROBUST**: {b2} at -{RESIDUAL} (§30.4·3)")
+                m = r["min_cell_cartesian"]
+                b, moved = branch_of(m), robust_moves(m)
+                read = (f"{b}" if not moved else
+                        f"{b} -> **NOT ROBUST**: "
+                        + ", ".join(f"{bb} at {s}{RESIDUAL}" for s, bb in moved)
+                        + " (§30.4·3)")
             r["reading"] = read
             print(f"  {gname if r is rows[0] else '':<20} {r['w']:>3} "
                   f"{r['bins']:>5} {r['cells']:>6} {r['min_cell']:>5} "
@@ -7806,8 +7942,12 @@ def cmd_run(only, rescan: bool) -> int:
     print(f"    clears_c9_floor min >= {MARK_BORROWED_FROM_C9}          a width "
           f"exists and clears the borrowed floor; report the width and the bin "
           f"count. **This is not a statement that B8-4b can run** (§23.2 (b))")
-    print(f"    NOT ROBUST      the branch moves at -{RESIDUAL}   §30.4·3: a "
-          f"verdict that turns on the unlocated residual is not a verdict")
+    print(f"    NOT ROBUST      the branch moves at -{RESIDUAL} or +{RESIDUAL}"
+          f"   §30.4·3: a verdict that turns on the unlocated residual is not a "
+          f"verdict")
+    print("    the reading is on the class x bin minimum, an empty combination "
+          "counting as a cell of zero (C9's convention); `min_cell` beside it "
+          "is over occupied cells only")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / partial_name("b10_cohort_width", only)
@@ -8293,7 +8433,10 @@ def overlap_read(n, n_x, n_y, a, dir_x_in_y, dir_y_in_x, dir_same) -> dict:
     p_x = (n_x / n) if n else None
     p_y = (n_y / n) if n else None
     lift_same = (1.0 / max(p_x, p_y)) if (p_x and p_y) else None
-    verdict, which = "mixed", None
+    #: An empty denominator has no referent. It used to fall through to
+    #: `mixed`, and the printers then said "both kinds of loan exist" about a
+    #: table with nothing in it (seen on a single-vintage 2026 run).
+    verdict, which = ("mixed" if n else "no_reference"), None
     if n:
         if a and (a == n_x or a == n_y):
             verdict = "contained"
@@ -8341,6 +8484,12 @@ def overlap_read(n, n_x, n_y, a, dir_x_in_y, dir_y_in_x, dir_same) -> dict:
     #: a live alternative.
     a_floor = max(0, (n_x + n_y - n)) if n else None
     a_ceiling = min(n_x, n_y) if n else None
+    #: `mixed` needs an integer `a` with `a > 0` that equals neither margin.
+    #: `a` cannot exceed `min(n_x, n_y)`, so that is an `a` in
+    #: `[max(a_floor, 1), a_ceiling - 1]`. The count used to add one for
+    #: `mixed` unconditionally, which over-reports by one when the margins
+    #: pin `a` (a saturated singleton: `n = n_x = n_y = 1`).
+    mixed_ok = (max(a_floor, 1) < a_ceiling) if n else False
     return {"a": a, "p_x": p_x, "p_y": p_y, "lift": lift,
             "lift_if_independent": 1.0, "lift_if_contained": lift_same,
             "lift_nearer": near, "overlap_verdict": verdict,
@@ -8350,7 +8499,8 @@ def overlap_read(n, n_x, n_y, a, dir_x_in_y, dir_y_in_x, dir_same) -> dict:
             "contained_reachable": (a_ceiling > 0) if n else None,
             "branches_reachable": (
                 (1 if (a_ceiling or 0) > 0 else 0)
-                + (1 if a_floor == 0 else 0) + 1) if n else None}
+                + (1 if a_floor == 0 else 0)
+                + (1 if mixed_ok else 0)) if n else None}
 
 
 def print_reachable(pl) -> None:
@@ -8506,6 +8656,8 @@ def print_pgrid(pl) -> None:
         print("     §8·26·1 -> SECOND BRANCH. The cell is empty: no loop is")
         print("     both consistent and qualified. **Two separate mechanisms**")
         print("     each push the rate to a tenth, and they never coincide.")
+    elif v == "no_reference":
+        print("     §8·26·1 -> no referent: the 2x2 is empty, no branch.")
     else:
         print("     §8·26·1 -> THIRD BRANCH, mixed (R01). Neither containment")
         print("     nor disjointness. **That is a reading, not a failure**:")
@@ -8720,8 +8872,12 @@ def cmd_pgrid(only) -> int:
 #: "carries at least one O18 residue month with the counter saying paid".
 OJ_CELLS = ("AB", "Ab", "aB", "ab")
 
-#: §8·28·5 item 1. A loan can carry both kinds of loop, and folding that into
-#: `A` alone would hide it.
+#: §8·28·5 item 1 asks for this split because a loan could carry both kinds of
+#: loop. **In this call chain it cannot**: `omega_absorb` files at most one
+#: scored loop per loan (the loan's one priced clean-cure window), so
+#: `some_over` is unreachable here and reads 0 on all 28 archives, and `A`
+#: reads "the loan's scored loop is over the bound", not a census of every
+#: clean cure the loan ever had.
 OJ_SPLIT = ("all_over", "some_over", "none_over", "no_loop")
 
 
@@ -8881,6 +9037,8 @@ def print_o18join(pl) -> None:
     print(f"     §8·28·5 item 1, the three-way split of loans with loops: "
           f"all over {s['all_over']:,}, some {s['some_over']:,}, "
           f"none {s['none_over']:,}")
+    print("     (`some` cannot fire in this call chain: omega_absorb scores at")
+    print("      most one loop per loan, so A is that loop's state)")
 
     print()
     v = pl["overlap_verdict"]
@@ -8899,6 +9057,9 @@ def print_o18join(pl) -> None:
         print("     the over-bound set, if it is prepayment, is balance-too-")
         print("     low. **Disjoint is what (a) and (c) each owning a")
         print("     different set of borrowers looks like.**")
+    elif v == "no_reference":
+        print("     §8·28·3 -> no referent: no loan in this run carries a")
+        print("     scored loop, so the 2x2 is empty and no branch is read.")
     else:
         print("     §8·28·3 -> THIRD BRANCH, mixed (R01). Both kinds of loan")
         print("     exist and the proportions are the reading. **Not to be")
@@ -11250,8 +11411,21 @@ def cmd_selftest() -> int:
         (sg["ok"] + sg["drop_total"], sg["n"]), (4, 4))
     chk("    and the two drops landed on opposite sides of t_M",
         (sg["miss_before"], sg["miss_after"]), (1, 1))
-    chk("    the empty-leg-3 count and the all-three count partition the ok",
-        sg["n3_zero"] + sg["all3"], sg["ok"])
+    chk("    the empty-leg-3 count and the leg-3-live count partition the ok",
+        sg["n3_zero"] + sg["n3_live"], sg["ok"])
+    chk("    and the all-three count sits inside the leg-3-live one",
+        sg["all3"] <= sg["n3_live"], True)
+    chk("    §8·23·3's population: an empty leg 1 is not all three",
+        [legs_population(*t) for t in ((2, 1, 3), (0, 1, 3), (2, 1, 0),
+                                       (0, 1, 0))],
+        ["all3", "leg1_empty", "n3_zero", "n3_zero"])
+    chk("    a low-age anchor on the $1,000 grid is flagged, a cent one is not",
+        [anchor_on_grid_low_age(r) for r in (
+            (200101, "00", "", 2, 104000.0, 6.0, 300, 0.0),
+            (200101, "00", "", 2, 103999.37, 6.0, 300, 0.0),
+            (200101, "00", "", 9, 104000.0, 6.0, 300, 0.0),
+            (200101, "00", "", 2, 105000.0, 6.0, 300, 1000.0))],
+        [True, False, False, True])
     chk("    and no empty leg 3 came back non-zero",
         (sg["empty3_nonzero"], sg["identity_bad"]), (0, 0))
 
@@ -11334,6 +11508,23 @@ def cmd_selftest() -> int:
         pl_s["schemes"]["sub"]["raw"]["mad"], 2.0)
     chk("    and both floors go through the same one",
         [pl_s["floors"][f]["mad"] for f in SIGNAL_FLOORS], [2.0, 2.0])
+
+    #: §8·24·2, grown rather than asserted: two floors that differ, and each
+    #: scheme must divide by its own. Reverting to one shared floor reads
+    #: 1.0 for `sub` here.
+    _fake_o = {"b8like": {"gap_ambient": [1.0], "gap_resolution": [1.0]},
+               "p_sub": {"b8like": {"gap_ambient": [3.0, 3.0],
+                                    "gap_resolution": [3.0, 3.0]}}}
+    _pl_f = signal_payload(accg, _fake_o,
+                           lambda xs: max(abs(x) for x in xs) if xs else None)
+    _den = {s: (_pl_f["schemes"][s]["raw"]["mad"]
+                / _pl_f["schemes"][s]["ratios"]["resolution"]["raw"])
+            for s in LEG_SCHEMES
+            if _pl_f["schemes"][s]["ratios"]["resolution"]["raw"]}
+    chk("    each scheme's ratio is over its own scheme's floor",
+        ({s: round(v, 9) for s, v in _den.items()},
+         _pl_f["floors"]["resolution"]["mad"]),
+        ({"orig": 1.0, "sub": 3.0}, 1.0))
     chk("    the operative line is 1 and the inherited 3 is carried beside it",
         (pl_s["readable_line"], pl_s["inherited_line"]), (1.0, 3.0))
     chk("    the l1 tolerance is 2 x the resolution floor, computed not typed",
@@ -11756,6 +11947,13 @@ def cmd_selftest() -> int:
         branch_of(22) == branch_of(22 - RESIDUAL), False)
     chk("    while 30 -> 25 does not", branch_of(30) == branch_of(30 - RESIDUAL),
         True)
+    chk("    §30.4·3 is two-sided: 18 survives -5 and fails +5, 13 survives both",
+        (robust_moves(18), robust_moves(13)), ([("+", "clears_c9_floor")], []))
+    _gap = [(2000, 0)] * 30 + [(2000, 1)] * 30 + [(2001, 0)] * 30
+    _rg = width_curve(_gap, "x", (1,))[0]
+    chk("    an empty class x bin combination is a cell of zero",
+        (_rg["min_cell"], _rg["empty_cells"], _rg["min_cell_cartesian"]),
+        (30, 1, 0))
 
 
     # §8·29, folded into --noise. Registered before the code before this.
@@ -12344,10 +12542,9 @@ def cmd_selftest() -> int:
         (_d["fico"], _d["fico_bad"]), ({0: 3, 7: 1}, 1))
     chk("    a blank DTI is unreadable, and 999 is NOT silently a band",
         (_d["dti"], _d["dti_bad"]), ([30, 30, 30, 45, 999], 0))
-    print("     (Freddie writes 999 for a missing DTI and this file does NOT")
-    print("      know that — it parses as an integer. It lands in the")
-    print("      quantiles as 999 and the reading has to say so. Guessing a")
-    print("      sentinel this file never registered would be worse.)")
+    print("     (Freddie writes 999 for a missing DTI, and this census")
+    print("      parses it as an integer, so it lands in the quantiles as 999")
+    print("      and the reading has to say so.)")
     chk("    the hazard's two counts are kept apart from the share's",
         (_d["redel"], _d["exposure"], _d["n"]), (1, 24 * 3 + 6 + 10, 5))
 
@@ -13092,6 +13289,16 @@ def cmd_selftest() -> int:
     chk("    an empty side takes the contained branch out instead",
         overlap_read(100, 0, 20, 0, "x", "y", "same")["contained_reachable"],
         False)
+    #: An empty denominator used to print `mixed` (a single-vintage 2026 run).
+    chk("    an empty 2x2 has no referent, not a mixed branch",
+        (overlap_read(0, 0, 0, 0, "x", "y", "same")["overlap_verdict"],
+         overlap_read(0, 0, 0, 0, "x", "y", "same")["branches_reachable"]),
+        ("no_reference", None))
+    #: Saturated singleton margins pin `a`; mixed is not reachable there.
+    chk("    margins that pin the corner leave one branch, not two",
+        (overlap_read(1, 1, 1, 1, "x", "y", "same")["overlap_verdict"],
+         overlap_read(1, 1, 1, 1, "x", "y", "same")["branches_reachable"]),
+        ("contained", 1))
     chk("    the ceiling is min of the two margins, which containment needs",
         (_rt["a_ceiling"], _rl["a_ceiling"]), (40, 10))
     print("     (§8·28 landed `mixed` with the disjoint branch arithmetically")
@@ -13419,7 +13626,7 @@ def cmd_selftest() -> int:
     print(f"     printer and json.dumps both exercised, {len(_pblob):,} bytes")
 
     chk("    an empty accumulator reads no verdict rather than a false one",
-        (_pg([])["overlap_verdict"], _pg([])["lift"]), ("mixed", None))
+        (_pg([])["overlap_verdict"], _pg([])["lift"]), ("no_reference", None))
 
     #: **規矩 19, run rather than asserted, and at zero scan cost.** §8·26 puts
     #: a new subtree in `omega_new_acc`, and the claim is that `b10_omega.json`
@@ -13874,7 +14081,7 @@ def cmd_signal_selftest() -> int:
     """
     import copy
 
-    src = RESULTS / "b10_signal.json"
+    src = RESULTS / partial_name("b10_signal", None)
     if not src.exists():
         print(f"  no {src.name} on disk. Run --signal once first.")
         return 1

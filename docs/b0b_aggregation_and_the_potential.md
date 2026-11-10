@@ -98,26 +98,29 @@ which the paper describes, at p. 514, as
 
 **Read the second display again.** The price vector is not merely consistent with
 a frontier. It is *defined as* the normalised gradient of one. `P = ∇F / (∂F/∂Y_1)`
-is step one of §1, written out, with `F` in the role of `φ`.
+is step one of §1, written out, with `log P` in the role of `φ`: `F`, together
+with the competitive equilibrium the setup assumes, is what makes that `P` one vector
+common to every agent.
 
 ### 2.2 Why the theorem needs it and not just likes it
 
 The load-bearing step in the result is an envelope argument: the first-order
 effect of a sectoral productivity shock on aggregate TFP equals that sector's
 Domar weight, because the reallocation terms cancel when the allocation is a
-stationary point of something.
+stationary point of a function whose gradient the prices are.
 
 **An envelope step needs a function to envelope.** If the local terms are not the
-gradient of any function, the allocation reached by following them is not the
-argmax of anything, and there is no object for the envelope theorem to act on.
-The conclusion is not that the theorem gives the wrong number. It is that the
-quantity the theorem is about is not defined.
+gradient of any function, the allocation reached by following them is not a
+stationary point of any function whose gradient generates those terms, and there
+is no object for the envelope step to act on. What fails is the
+derivation: the identity Domar weight equals the frontier's first-order shift has no
+derivation on those terms, whatever number the formula returns.
 
 So the statement available is:
 
 > **Domar-weighted aggregation may hold on a production graph**, where flows
 > conserve and weights are shares given by an accounting identity. **It does not
-> hold on a claims graph.** A macro model that runs a claims graph through the
+> hold on a claims graph whose field is not exact.** A macro model that runs a claims graph through the
 > production-graph machinery inherits that.
 
 ### 2.3 The obvious reply, and the shorter answer to it
@@ -129,7 +132,8 @@ marginal products and the frontier reading no longer applies.
 **Handling wedges is a different thing from handling non-integrability.** An
 economy with wedges still has a well defined allocation and a well defined
 comparative static. The claim here is stronger: the field admits no potential, so
-"the allocation reached" is not the optimum of any objective, wedged or not.
+"the allocation reached" is not the optimum of any objective whose supporting
+prices are common to all agents, wedged or not.
 
 That is an argument rather than evidence, and the shorter route does not need it.
 
@@ -151,9 +155,12 @@ and pricing as
 > marginal cost"
 
 **One price per producer, common to every purchaser of that good.** That sentence
-is Theorem 1 condition (1) restricted to the position graph, stated in the setup
+is the second half of Theorem 1 condition (4), `w_a = w_b`, stated in the setup
 rather than derived. The wedges are indexed `τ_ij`, on a pair of goods, which is
-an **edge** index. Generality on the edge index does not produce an **agent**
+an **edge** index: the first index is the purchasing producer, which is node `i`.
+Edge wedges can break the first half of (4), exactness on `G`, and cannot break
+the second. Read instead as a class of purchasers on a shared purchase, `τ` is the
+second branch of the table below. Generality on the edge index does not produce an **agent**
 index, and the field measured on this repository's carriers is `w_a(i, j)`,
 carrying both.
 
@@ -162,7 +169,7 @@ The rest is a two-branch argument, and both branches are already answered:
 | branch | consequence | what answers it |
 |---|---|---|
 | **keep one producer per node** | the field has no slot for `a`. `w_a(i,j)` lies outside the representable class, whatever `τ` is allowed to be | stage B2's measurement: fix census tract, year, lien position, loan purpose, occupancy and dwelling type, and 78 percent of the variance in financing terms is still **inside** those cells (`0.7831`, `0.8480` under `min_size = 20`). A single price vector on positions predicts zero |
-| **split nodes by agent** | the object becomes the position-by-agent product graph | that is exactly `Γ = G □ H`. Theorem 1 applies to it verbatim, with no economic assumptions, and Corollary 1 is decided by one inequality. Theorem 2 splits its cycle space; Theorem 3 identifies what B2 measured as the square component |
+| **split nodes by agent** | the object becomes the position-by-agent product graph | that is exactly `Γ = G □ H`. Theorem 1 applies to it verbatim, with no economic assumptions, and Corollary 1 is decided by one inequality. Theorem 2 splits its cycle space; Theorem 3 identifies what B2 measured as the square component, on the square reading of `b0_claim_scope.md` §5 |
 
 **The second branch costs the thing the framework was for.** A sufficient
 statistic whose dimension grows with the number of agent classes is not a
@@ -171,7 +178,6 @@ as being.
 
 ### 2.4 What §13.4 of the theorem file adds, and what it takes away
 
-Being exact about this matters more than winning the paragraph.
 [`b1_theorem.md`](b1_theorem.md) §13.4 states, in two-way form, that **the square
 summand is reachable** by a saturated two-way specification: it is the interaction
 term `γ_ag`, and a difference-in-differences style estimand reaches it. What
@@ -297,11 +303,14 @@ In stage A2c, over 600 rounds:
 - circulation over net displacement rises from `4.4` to `268`, while net
   displacement itself stays flat within a factor of `1.62`;
 - realised cycle rank collapses to `0.029` of the potential rank **with no edge
-  deleted**, and one autonomous edge restores it to `0.783`.
+  deleted**, and one autonomous edge restores it to `0.783`. The realised graph
+  is the edges whose flow exceeds a fixed cutoff, and every cutoff across `145`
+  decades reads the same graph.
 
 And in stage A2, under issuance, transaction volume rises `x44.87` while the
-support set contracts to `x0.402`, with the production layer falling to `0.51`
-percent of all circulation.
+effective support of inflow (its inverse Herfindahl) contracts to `x0.402`,
+with every node still reached in that realised graph and the production layer
+falling to `0.51` percent of all circulation.
 
 A ratio of two aggregates went by orders of magnitude in each case while the
 object underneath moved by well under a factor of two, or did not move at all.
@@ -340,21 +349,21 @@ entries and they carry over unchanged.
 
 ---
 
-## 6. Where a critic should push
+## 6. The setup questions
 
-**Not at Theorem 1.** It is an equivalence with an elementary proof and no
-economic assumptions in it, and `b0_claim_scope.md` §5 already names the weak
-point of the programme: whether the measured object is the field the claim is
-about.
+Theorem 1 is an equivalence with an elementary proof and no economic assumptions
+in it. The empirical step of the programme, whether the measured object is the
+field the claim is about, is set out in `b0_claim_scope.md` §5.
 
-**The push specific to this document** is at §2.3's index argument. It rests on
-reading the setups rather than the proofs, so the way to break it is to produce a
-formulation in that literature whose sufficient statistic carries an agent index
-and whose dimension does not grow with the number of agent classes. If that
-exists, the second branch of §2.3's table is answered and the row weakens.
+§2.3's index argument rests on reading the setups. A formulation in that
+literature whose sufficient statistic carries an agent index on a shared
+transition, with a dimension that does not grow with the number of agent classes,
+would answer the cost stated under the second branch of §2.3's table. It would do
+so by writing the agent index on a shared transition, which is the product graph
+`Γ` and concedes the non-zero square the carriers measure.
 
-Four questions put that push in executable form, and they are the shape any
-extension of this section should take:
+Four questions put the index argument in executable form, and they are the shape
+any extension of this section should take:
 
 1. In the theorem being cited, does one industry node correspond to one producer
    or to a family of heterogeneous producers? Quote the setup.
@@ -424,20 +433,133 @@ turns on something more elementary and therefore harder to repair.
 
 If no single scalar on positions generates the observed terms, then there is no `p*` for
 the triple `(p*, x*, y*)` to contain. **The hypothesis is not false. It is unsatisfiable.**
-A theorem whose hypothesis cannot be met on a carrier says nothing about that carrier, and
-the correct reading is that its domain is empty there rather than that its conclusion has
-been refuted.
+A theorem whose hypothesis cannot be met on a carrier says nothing about that carrier: its
+domain is empty there. That is as far as the hypothesis goes. **Section 8.2a continues to
+the conclusion, and on a carrier that meets its conditions the conclusion is false.**
 
 Theorem 1 in [`b1_theorem.md`](b1_theorem.md) gives the criterion, Corollary 1 decides it
 with a single edge, and the carriers in [RESULTS.md](../RESULTS.md) are where it was
 measured.
 
-**This is the sharpest form of the general point and it is also the narrowest.** It makes
-no comparison of anybody's welfare, ranks no allocation against another, and does not
-assert that any market fails to clear. [`b0_claim_scope.md`](b0_claim_scope.md) fixes this
-record's position at issuing no welfare criterion, and this section is consistent with
-that: it removes a theorem's applicability rather than supplying a verdict the theorem
-would otherwise have given.
+**This is the sharpest form of the general point, and it uses the inequality alone.** It
+makes no comparison of anybody's welfare and does not assert that any market fails to
+clear. [`b0_claim_scope.md`](b0_claim_scope.md) fixes this record's position at issuing no
+welfare criterion that someone has to choose, and this section is consistent with that: it
+removes a theorem's applicability. Section 8.2a adds the one verdict that needs no chosen
+criterion, Pareto dominance, under conditions it states.
+
+### 8.2a The fork, and the Pareto verdict it carries
+
+Added 2026-09-29. Section 8.2 stops at the hypothesis. This section continues to the
+conclusion, and on a carrier that meets the conditions below the conclusion is false.
+
+Take one transition `(i, j)`, two classes `a` and `b` adjacent in `H`, and the square of
+[`b1_theorem.md`](b1_theorem.md) §3. Its sum is `σ = w_a(i, j) − w_b(i, j)`, and Corollary 1's
+premise is `σ ≠ 0`.
+
+**The fork.** Suppose
+
+- **C1.** the positions `i` and `j` each pass between the two classes at weight zero, which
+  is A1 of `b1_theorem.md` §8;
+- **C2.** `w_a(i, j)` and `w_b(i, j)` are marginal executable rates for a positive quantity,
+  so neither is an average over a schedule and neither is rationed at the margin;
+- **C3.** the reverse leg is available at the inverse rate, which is Theorem 1's
+  antisymmetric setting;
+- **C4.** the four legs are the same two positions, which is A3.
+
+Let class `a` hold one unit of `i`, and let `σ > 0`. Class `a` converts it into
+`e^{w_a(i,j)}` units of `j` and passes them to class `b`; class `b` converts them back at
+`e^{−w_b(i,j)}` and passes the result to `a`. The unit returns as `e^{σ}` units of `i`. For
+`σ < 0` the square runs the other way. **Each unit cycled comes back as `e^{|σ|}` units of
+`i`, a gain of `e^{|σ|} − 1` at no risk**, and a side payment in `i` leaves both classes
+strictly better off, provided each prefers more `i` to less. No single class can take the
+gain: a square needs two agents, and no single agent traverses it (`b1_theorem.md`
+§9.1). The two classes together can.
+
+> **So a non-zero square is one of two things: a riskless joint gain of `e^{|σ|} − 1` per
+> unit cycled, or a failure of C1, C2 or C3 on a named leg of that square, which is a
+> located barrier or friction.**
+
+Both branches are findings about the carrier. The second contains the hole of
+`b1_theorem.md` §8, where the agent edge "does not exist" and "the square is not a cycle".
+On a field with spreads C3 fails on every leg that carries one, and the fork reads on the
+directed square of [`b4_directed_edges.md`](b4_directed_edges.md) §5.1. A positive directed
+sum `S` is a round trip that ends with `e^{S}` for each unit, and by Theorem 4 there no
+sub-potential exists. Where both orientations are non-positive, the spread on the named legs
+is the located friction, and Theorem 6(4) bounds the index part `S − S'` by it.
+
+**The Pareto form.** The joint gain assumes only that more `i` is preferred to less. The
+standard wedge argument uses first-order conditions and delivers the verdict the First
+Welfare Theorem is about. Suppose
+
+- **P1.** `w_a` and `w_b` are the effective marginal terms that enter each class's
+  first-order conditions, with taxes, fees and financing included, and risk-adjusted
+  where the terms are risky;
+- **P2.** each class is at an interior optimum of a differentiable problem, a household with
+  locally non-satiated preferences or a firm minimising cost over a differentiable
+  technology, so that its marginal rate of substitution between `i` and `j` (of technical
+  substitution, for a firm) equals `e^{w_a(i,j)}`, and likewise for `b`;
+- **P3.** quantities at the two positions can be reassigned between the two classes, by
+  resale or at the point of supply, leaving every other agent's bundle unchanged;
+- **P4.** A1 and A3 hold.
+
+Class `a` then values a marginal unit of `i` at `e^{w_a(i,j)}` units of `j`, and class `b`
+at `e^{w_b(i,j)}`. With `σ > 0` let `b` pass a small quantity `ε` of `i` to `a` and receive
+`qε` of `j`, for any `q` strictly between `e^{w_b(i,j)}` and `e^{w_a(i,j)}`. At first order
+`a` gains `ε (e^{w_a(i,j)} − q)` and `b` gains `ε (q − e^{w_b(i,j)})`, both in units of `j`,
+and no other bundle moves. **For small enough `ε` both classes are strictly better off, so
+the observed allocation is not Pareto optimal.** Where the two classes are firms the same
+reassignment raises both outputs, which is production inefficiency, and locally
+non-satiated households take the gain from there.
+
+**This uses each class's own ordering of bundles and nothing more.** There is no
+interpersonal comparison, no cardinal utility and no social welfare function. The verdict
+concerns the allocation, relative to the economy's resources and technology, so it does not
+depend on which instruments are available to reach the dominating allocation. **On a
+carrier that meets P1 to P4, the conclusion the First Welfare Theorem is cited for, that the
+allocation the market reached is Pareto optimal, is false, and one inequality shows it.**
+The theorem's proof is untouched: its hypothesis fails there (section 8.2), and its
+conclusion fails with it.
+
+The result is the standard one. At an interior Pareto optimum every pair of consumers has
+the same marginal rate of substitution between two goods, and every pair of producers the
+same marginal rate of transformation; this is in every text that proves the welfare
+theorems, including those section 8.6 names. Diamond and Mirrlees (1971) show that, under
+their conditions, an optimal commodity tax system keeps production efficient, with every
+producer facing the same prices. Varian (1985) decomposes the welfare effect of
+third-degree price discrimination and isolates the misallocation that arises because
+consumers facing different prices end at different marginal rates of substitution. **What
+Corollary 1 adds is that the wedge is decided by one edge and one pair of classes, with no
+tolerance band.**
+
+**Where the conditions hold by construction.** P1 holds wherever the terms are printed as
+rates by statute, treaty or fee schedule, since the printed rate is then the term at the
+margin. Carriers of this kind in [RESULTS.md](../RESULTS.md) include:
+
+- **stage B21**, A+H dual listings, where the Connect legs are withheld at 0%, 10% or 20%
+  under the statutes that section names;
+- **stage B23**, the same wedge priced by treaty, the two classes "both withheld at source
+  and both flat";
+- **stage B122**, value added tax, where the rate is printed per input and the deductible
+  share per class of buyer. Goods against services, full deduction against the simplified
+  method, reads `106/113`, `−0.0639` in log, in exact rational arithmetic. The Pareto form
+  there is production inefficiency in Diamond and Mirrlees's sense: two classes of firm
+  face different relative costs of the same two inputs.
+
+On these carriers P2 is the local non-satiation the First Welfare Theorem already assumes,
+with differentiability at an interior point added, and P3 and P4 are read carrier by
+carrier.
+
+**The currency reforms decide the fork in their own text.** `b1_theorem.md` §8 records that
+A1 is "denied in the text of a law" there: the statute prints each class's terms. The
+programmes also rule on whether notes may pass between classes. Russia's 1993 exchange,
+read in stage B47, later "added proof that the money was held before 26 July". Where the
+text cuts the agent edge the carrier sits on the second branch, with the barrier printed.
+
+**Where the conditions need work.** On stage B2's mortgages the quoted rate includes
+compensation for default, so the effective marginal term of P1 is the risk-adjusted one, and
+the Pareto form on that carrier needs the risk-adjusted field. The existence result does
+not: Corollary 1 reads the quoted terms.
 
 ### 8.3 The escape, and its price
 
@@ -452,21 +574,31 @@ Two things follow, and they are the price.
 which is what section 2.3 records as costing the thing the compression was for.
 
 **Second, and specific to this construct**, on the enlarged commodity space each
-agent-good has exactly one possible buyer. The theorem still holds, and it now holds of an
-object in which no two agents trade the same commodity. **What the literature applies the
+class-good has exactly one buyer class. The theorem still holds, and it now holds of an
+object in which no two classes trade the same commodity. **What the literature applies the
 theorem to is the unenlarged economy**, where a common good exists and its allocation
 across agents is the thing being called efficient. The enlarged version is a different
 object with the same theorem attached to it, and saying so is not a refutation of anyone.
 It is a statement about which of the two objects a given carrier is.
 
+**Section 8.2a prices the same escape from the other side.** In the enlarged space the
+position held by `a` and the position held by `b` are two commodities. If the position could
+still pass from one class to the other at no cost, the two commodities would be perfect
+substitutes and their prices would be forced together, so the enlargement carries two
+prices only where the agent edge is cut or costly. **The enlargement therefore sits on the
+fork's second branch by construction**, and the Pareto optimality the theorem then delivers
+is optimality relative to a technology in which the position cannot pass between the
+classes at no cost.
+
 ### 8.4 The same step, one level down: the quadratic loss function
 
 The New Keynesian loss function in inflation and the output gap is obtained as a
 second-order expansion of a representative household's utility around an efficient steady
-state. **That is section 2.2's envelope step again**: it requires the allocation reached to
-be a stationary point of something. Where the local terms are not the gradient of any
-function, there is no object for the expansion to be taken of, and the loss function is
-undefined rather than wrong.
+state. **It rests on the same object as section 2.2's envelope step**: one price vector
+faced by every household. A representative household is constructed over one price vector
+faced by every household, and Corollary 1 excludes that wherever two classes face different
+terms on the same transition. The loss function therefore has no application to such a
+carrier.
 
 [`b0d_new_keynesian.md`](b0d_new_keynesian.md) section 5.3 records the consequence for that
 literature: the normative closure it has over this framework is not an advantage this
@@ -479,16 +611,18 @@ Following section 5's pattern, since the same misreadings are available.
 **Does not claim** that the welfare theorems are wrong. On an economy with a price system
 they hold, and section 8.1 quotes the hypothesis rather than disputing the proof.
 
-**Does not claim** that any allocation is inefficient, that any market fails to clear, or
-that anyone behaved badly. Those are `b0_claim_scope.md` section 3's entries and they carry
-over unchanged.
+**Does not claim** that any market fails to clear, or that anyone behaved badly. Those are
+`b0_claim_scope.md` section 3's entries and they carry over unchanged. On efficiency the
+claim is the one section 8.2a makes: under its conditions the allocation reached is not
+Pareto optimal.
 
 **Does not claim** that the enlargement in section 8.3 is illegitimate. It is legitimate
 and it is priced, which is a different objection.
 
-**Does not claim** that this delivers a welfare judgement of its own. It removes a
-theorem's applicability on a carrier and supplies nothing in its place, which is the
-position `b0_claim_scope.md` already fixes.
+**Does not claim** a welfare judgement that depends on a chosen criterion. Section 8.2
+removes a theorem's applicability using the inequality alone, and section 8.2a supplies the
+one judgement that needs no chosen criterion, Pareto dominance, under its stated conditions.
+`b0_claim_scope.md` section 2 records the same division.
 
 ### 8.6 Citation status for this section
 
@@ -517,3 +651,11 @@ the book rather than from a description of it. **Section numbers are deliberatel
 here.** An attempt to fix them from online copies returned a table of contents from a single
 mirror with no second source that could corroborate it, and a number carried in on one
 unverified mirror would be the same defect as the quotation it replaced.
+
+**Section 8.2a cites on the same footing.** The equal-marginal-rate conditions at an interior
+Pareto optimum do not vary across sources any more than the definition of equilibrium does,
+so they are stated and not quoted. The applications named there are Diamond, P. A. and
+Mirrlees, J. A. (1971), "Optimal Taxation and Public Production I: Production Efficiency",
+*American Economic Review* 61(1), and Varian, H. R. (1985), "Price Discrimination and Social
+Welfare", *American Economic Review* 75(4). For the reason above, no section, lemma or
+proposition number is given for either.

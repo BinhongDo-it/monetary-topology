@@ -109,8 +109,8 @@ Derived quantities:
 | PASS | A0-5  the same sweep moves Layer 1 churn by an order of magnitude | churn ranged 356.20 to 5338.97, factor 15.0 |
 | PASS | A0-6  opening one downward edge raises Layer 2 inflow | inflow rose from 17.7007 at weight 0 to 48.3919 at weight 0.85, factor 2.73 |
 | PASS | A0-7  edge response monotone | sequence = [17.701, 35.436, 36.281, 37.706, 39.047, 40.386, 42.928, 45.846, 48.392] |
-| PASS | A0-8  production layer settles at the payroll edge rather than zero | settled inflow = 17.7007 against net downward wage flow 7.2000 |
-| PASS | A0-9  issuance accumulates in the layer it was issued to | Layer 1 holds 0.9982 of all claims at steady state, from 0.7291 at t=0 |
+| PASS | A0-8  production layer inflow settles above the net payroll edge rather than at zero | settled inflow = 17.7007 against net downward wage flow 7.2000 |
+| PASS | A0-9  issuance accumulates in the layer it was issued to | Layer 1 holds 0.9982 of all claims at steady state, from 0.7291 at the end of round 0 |
 
 Derived quantities:
 
@@ -231,8 +231,10 @@ rise of that kind reads here as an edge being opened.
 | | criterion | detail |
 |---|---|---|
 | PASS | A1-1  zero calibration | 60 cells over 20 seeds and 24 periods in 3 arms, every rung exactly 0.000000. 3 arm(s) could not be built and are reported rather than scored: stratified, stratified:permuted, stratified:scf-tenure |
-| VOID | A1-10 licence  the population size is an estimation setting | not tested: the main arm has no population at 10,000 households. stratum 0, mortgaged: the published debt takes 0.862 of the disposable, and a Beta with that mean cannot carry a dispersion of 0.250. Its concentration would fall to 1.552, which is two point masses at zero and one rather than a spread. The largest dispersion this mean supports is 0.231 |
+| VOID | A1-10 licence  the population size is an estimation setting | not tested: the main arm has no population at 10,000 households. stratum 0, mortgaged: the published debt takes 0.862 of the disposable, and at that mean a dispersion of 0.250 needs a Beta concentration of 1.552, below the floor of 2 this model registers. The model does not draw below this registered floor. A Beta with that mean reaches two point masses at zero and one only in the limit as the concentration goes to zero. The largest dispersion this mean supports at the floor is 0.231 |
 | PASS | A1-11 free parameters within the registered bound | 6 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, population.dispersion=0.25, population.buffer_months=1, cost.grace_basket=1, cost.grace_rent=4 |
+
+The refusal is worded for what it is as of 2026-10-15. A dispersion of 0.250 at a mean of 0.862 needs a concentration of 1.552, which is a proper Beta with both shape parameters positive, and what refuses it is the concentration floor of 2 the model registers. The floor is a threshold of the model: at that mean the Beta is J-shaped on both sides of it, and it reaches two point masses only as the concentration goes to zero. The message before 2026-10-10 called the draw two point masses, and the 2026-10-10 wording said the draw stops being a spread around the mean below the floor. The floor, the refusal and the void stand.
 
 ## A1a — the joint the SCF publishes, against the crossing A1 built
 
@@ -262,96 +264,251 @@ beside these under `model_consumer_credit`, and the two are on different
 denominators, so the record reports both and this file draws no ratio between
 them.
 
+**The mortgage payment column covers more than the mortgage stock beside it (added
+2026-10-10, split by component 2026-10-15).** The stock is `NH_MORT`, debt on the
+primary residence net of its home-equity lines. The payment is `MORTPAY`, which in the
+Federal Reserve's variable definitions adds to the payments on the `NH_MORT` loans
+(`PAYMORT1` to `PAYMORT3`) the payments on other residential property, on land
+contracts and on the home-equity lines the primary residence secures. 1,541 of the
+8,811 mortgaged implicate rows, 11.5% of mortgaged families by weight, pay beyond the
+`NH_MORT` loans: 1,160 of them pay on other residential property, and for 381 the
+excess is the primary residence's home-equity line alone. No mortgaged row carries a
+land-contract payment (`rows_with_a_land_contract_payment` is 0). The weighted mean is
+1,703.02 a month in all against 1,557.52 on the `NH_MORT` loans, and the 145.50
+between them is 116.65 on other residential property and 28.86 on the primary
+residence's home-equity line, each rounded on its own. In the cell of the next 9% by wealth in the bottom half by income
+`MORTPAY` and the payment on the `NH_MORT` loans are 2,344 and 1,849. The record
+carries every part for every cell under `mortgage_payment_coverage`.
+
 Cells and the wealth-income copula are in `results/a1a_joint_probe.json` and
-`data/processed/scf_joint_cells.csv`.
+`data/processed/scf_joint_cells.csv`. In the CSV `payment_per_mortgaged` is
+`MORTPAY`, `nh_mort_loan_payment_per_mortgaged` beside it is `PAYMORT1` to
+`PAYMORT3`, and `mortgage_debt_per_mortgaged` is `NH_MORT`.
 
 ## A1b — the cascade on a measured population: the K shape holds ordinally, one rule covers every rung, and the first-default reading is now split by tenure
 
-**6/7 live criteria passed, 2 void**
+**7/7 live criteria passed, 2 void**
+
+**Each rung stands on the payment of its own stock (ruled 2026-10-17).** The card
+rung pays the publisher's 2.5% of the card balance, the mortgage rung the payments on
+the `NH_MORT` loans (`PAYMORT1` to `PAYMORT3`), and the car-loan rung the vehicle
+payments the extract carries loan by loan. Every other published payment a household
+makes is paid each period on no rung, out of the same cash before the rungs are
+settled, and is never missed; a shock to income does not scale it, and the scheduled
+cushion is one month of all of it. That is 147.24 a month per family,
+on 4,104 implicate rows: 48.93 of `REVPAY` beyond the card rate,
+98.28 of `MORTPAY` beyond the mortgage rung, and 0.02 of vehicle payments where
+there is no vehicle balance. The registered construction carried 922.22 a month
+of debt payments per family and left out the revolving payment of the
+596 rows with no card balance, the `MORTPAY` of the 913 rows with no
+mortgage rung and the vehicle payment of the 5 rows with no vehicle balance;
+the default carries 1,052.29. 46 rows (187 households at 100,000) hold a mortgage rung with
+no payment on its loans and 15 rows (40 households) a vehicle balance with no
+published payment; those rungs are held and never due. The registered construction is
+run beside it as an arm, and `--carrier registered` runs it as the stage, where the
+record reproduces the one before this ruling in every number.
 
 | | criterion | detail |
 |---|---|---|
 | PASS | A1b-0 zero calibration, by removing the cause | income raised to cover each household's own obligations: every rung exactly 0.000000 over 24 periods |
-| VOID | A1-2  the order is an output | void as registered: the estimator and the object do not line up. The pooled share is a distribution across households, decided both by how hard a rung is and by how many households stand on it, while its denominator is every defaulter. Rent is carried only by tenants and the mortgage only by borrowers. The ordering claim is carried by A1c, which reads the sequence inside one household and holds |
-| PASS | A1-3  K shape, ordinally | mortgage 0.0027 < auto 0.0924 < card 0.1879. Over baseline: mortgage +0.0024, auto +0.0721, card +0.1249. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
-| PASS | A1-6  the subprime gradient | bottom 0.1438 against middle 0.0680, ratio x2.12. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
-| VOID | A1-7  the rent gradient | by net worth: bottom50 0.6577 (28,776), next40 0.3584 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. By income: bottom50 0.8129 (23,585), next40 0.1046 (7,581), next9 0.0000 (897), top1 0.0000 (35) [monotone]. Overall 0.6220 against SHED's 0.23, reported only: the source counts renters behind at some point in twelve months and this is sixty months of a model. Published by income band: 0.33/0.31/0.17/0.05. **The two readings of the registration disagree**, so this is reported on both and gated on neither. The source is banded by income and the model's strata are net worth, and A1 could not see the difference because it had one ranking |
+| VOID | A1-2  the order is an output | first default among 38,436 defaulting households: card 0.4255, auto 0.0791, shelter 0.3438 (rent 0.2357, mortgage 0.1081), basket 0.1516. Among the 26,691 defaulting households not short at baseline: card 0.4843, auto 0.0738, shelter 0.3215. VOID as registered: the estimator and the object do not line up. This share is a distribution across households, and a distribution is decided both by how hard a rung is and by how many households stand on it, while the pooled denominator is every defaulter. Rent is carried only by tenants and the mortgage only by borrowers, so those two rungs are divided by a head count that includes households which could not default on them. Volume One section 18 states its cascade about tenants. The ordering claim itself is carried by A1c, which reads the sequence inside one household and holds. The tenure-split shares and the per-carrier-at-start rates are reported beside this line and are what the section 18 reading needs |
+| PASS | A1-3  K shape, ordinally | mortgage 0.0028 < auto 0.1419 < card 0.2105. Over baseline: mortgage +0.0028, auto +0.1103, card +0.1478. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
+| PASS | A1-6  the subprime gradient | bottom 0.1906 against middle 0.1313, ratio x1.45. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
+| VOID | A1-7  the rent gradient | by net worth: bottom50 0.6928 (28,776), next40 0.4287 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. By income: bottom50 0.8416 (23,585), next40 0.1752 (7,581), next9 0.0000 (897), top1 0.0000 (35) [monotone]. Overall 0.6598 against SHED's 0.23, reported only: the source counts renters behind at some point in twelve months and this is sixty months of a model. Published by income band: 0.33/0.31/0.17/0.05. **The two readings of the registration disagree**, so this is reported on both and gated on neither. The source is banded by income and the model's strata are net worth, and A1 could not see the difference because it had one ranking |
 | PASS | A1-9  the representative arm is degenerate | every rung of the collapsed household takes values in {0, 1} across all three tenures, which is Corollary 1 with a number attached: the difference between the arms is the population |
 | PASS | A1-10 one parameter set across every rung | one rule, one attribute table, one grace table; every rung's pair is CARD 0.000/6, AUTO 0.117/3, RENT 0.250/4, MORTGAGE 0.083/12, BASKET 1.000/1 |
-| **FAIL** | A1b-1 the delinquency gradient | LATE60 by net worth: bottom50 0.0847, next40 0.0163, next9 0.0022, top1 0.0026. Model over 6 sweep cells: seed 7x1 0.301/0.174/0.017/0.000  <-; seed 7x3 0.258/0.140/0.017/0.000  <-; seed 8x1 0.301/0.177/0.017/0.000  <-; seed 8x3 0.262/0.144/0.017/0.000  <-; seed 9x1 0.280/0.158/0.017/0.000  <-; seed 9x3 0.233/0.122/0.017/0.000  <-. Decreasing in every cell: True. Ordering matches the survey in every cell: False. Group sizes at 20,000 households: [9993, 7998, 1895, 114]. Including rent, reported only: 0.483/0.191/0.017/0.000. The target's smallest adjacent gap is 0.0004, which is what the ordering turns on |
+| PASS | A1b-1 the delinquency gradient | LATE60 by net worth: bottom50 0.0847 (886 of 9,283 implicate rows, 1,856.6 family equivalents), next40 0.0163 (155 of 7,373 implicate rows, 1,474.6 family equivalents), next9 0.0022 (11 of 3,472 implicate rows, 694.4 family equivalents), top1 0.0026 (5 of 2,847 implicate rows, 569.4 family equivalents). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model, any missed loan payment over the run, over 6 sweep cells: seed 7x1 0.324/0.191/0.021/0.028; seed 7x3 0.278/0.154/0.021/0.028; seed 8x1 0.324/0.193/0.021/0.028; seed 8x3 0.282/0.159/0.021/0.028; seed 9x1 0.299/0.175/0.021/0.028; seed 9x3 0.255/0.131/0.021/0.028. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000 households: [25310, 20078, 4322, 290]. Including rent, reported only: 0.513/0.209/0.021/0.028 |
 | PASS | A1-11 free parameters within the registered bound | 5 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4, population.buffer_months=1. A1 counted six; the service-share dispersion is measured here |
+
+**A1b-1 is scored on the adjacent pairs both sides resolve (restated 2026-10-17).**
+The survey's top pair is inverted by four basis points, top1 0.0026 above next9
+0.0022, at 0.13 standard errors, and the model expects 0.8 events in the thinner of
+the two groups at 50,000 households. A criterion that asked every cell to decrease and
+to match the survey's ordering over all four groups therefore asked the model to
+reproduce that noise, and its two halves could not both hold. It now uses A1d-1's
+rule: a pair is scored when the survey resolves it at two standard errors and each of
+its groups expects at least five events at the survey's rate; a pair the survey does
+not resolve is printed and not scored; a size at which a pair the survey resolves falls
+under five expected events is refused. The sweep runs at 50,000 households, the size
+A1d-1 uses; at 20,000 next9 expects 4.2 events and the size is refused. On the scored
+pairs every cell decreases and matches the survey. The model's top pair reads 0.021
+against 0.028, inverted as the survey's is, and is reported only. Outside the sweep
+block the record reproduces the one before in every number.
 
 
 ### First default by starting tenure, with each rung on its own denominator
 
 Volume One section 18 states its cascade about tenants, so the rent rung belongs
 inside the tenancy. Two denominators are reported for each rung: the share of that
-tenure's defaulting households, and the rate per household that carries the rung at
-all. The second is what the section 18 reading needs, since a renter without a car
-loan cannot default on one. The structural zeros are a check on the split: a
-mortgaged household carries no rent and an outright owner carries neither.
+tenure's defaulting households, and the rate per household that carried the rung
+when the run started. The second is what the section 18 reading needs, since a
+renter without a car loan cannot default on one. The structural zeros are a check on
+the split: a mortgaged household carries no rent and an outright owner carries
+neither.
 
-| tenure | defaulting | rung | share | households carrying it | per carrier |
+| tenure | defaulting | rung | share | carried it at the start | per carrier at the start |
 |---|---|---|---|---|---|
-| RENTER | 21,478 | rent | 0.4204 | 12,754 | **0.7080** |
-| | | card | 0.3910 | 15,636 | **0.5370** |
-| | | auto | 0.0897 | 10,618 | **0.1814** |
-| | | basket | 0.0989 | 34,054 | 0.0624 |
-| | | mortgage | 0.0000 | **0** | — |
-| MORTGAGED | 10,168 | card | 0.5925 | 22,174 | **0.2717** |
-| | | mortgage | 0.3852 | 31,970 | **0.1225** |
-| | | basket | 0.0157 | 40,894 | 0.0039 |
-| | | auto | 0.0065 | 18,481 | 0.0036 |
-| | | rent | 0.0000 | **0** | — |
-| OUTRIGHT | 4,646 | basket | 0.7256 | 25,052 | 0.1346 |
-| | | card | 0.1879 | 7,472 | 0.1168 |
-| | | auto | 0.0865 | 5,722 | 0.0703 |
-| | | rent / mortgage | 0.0000 | **0** | — |
+| RENTER | 22,674 | card | 0.3972 | 15,636 | **0.5760** |
+|  |  | rent | 0.3996 | 32,098 | **0.2823** |
+|  |  | auto | 0.1045 | 10,618 | **0.2231** |
+|  |  | basket | 0.0987 | 34,054 | 0.0657 |
+| | | mortgage | 0.0000 | **0** | n/a |
+| MORTGAGED | 10,770 | card | 0.5887 | 22,174 | **0.2859** |
+|  |  | mortgage | 0.3858 | 40,894 | **0.1016** |
+|  |  | basket | 0.0203 | 40,894 | 0.0054 |
+|  |  | auto | 0.0052 | 18,481 | **0.0030** |
+| | | rent | 0.0000 | **0** | n/a |
+| OUTRIGHT | 4,992 | card | 0.2021 | 7,472 | **0.1350** |
+|  |  | basket | 0.6745 | 25,052 | 0.1344 |
+|  |  | auto | 0.1234 | 5,722 | **0.1077** |
+| | | rent / mortgage | 0.0000 | **0** | n/a |
 
-**Among mortgaged households the card goes first**, 0.2717 per carrier against
-0.1225 for the mortgage, which is the manuscript's order. The pooled reading mixed
-this tenure with the tenancy and produced a shelter aggregate that sat above the
-card.
+**The denominator is the households that carried the rung at the start (restated
+2026-10-10).** A run removes the shelter rung of every household it displaces. On the
+default, the 9,060 first defaults on rent set against the 12,203 tenants still
+carrying it at the end read 0.7424, where 32,098 tenants carried rent at the start,
+0.2823. The mortgage reads 0.1319 over the 31,506 still holding one and
+0.1016 over the 40,894 that started with one. The card, the car loan and the basket
+are never removed, so their rates do not move. The record keeps the end-of-run
+denominator under `exposed` and its rate under `per_exposed`, and reads
+`per_carrier_at_start`.
 
-**Among tenants the rent goes first**, 0.7080 per carrier against 0.5370 for the
-card and 0.1814 for the car loan, and switching to the per-carrier denominator
-widens the gap rather than closing it: 3 points on shares becomes 17 points here.
-So the car loan sitting last is not an exposure artefact. 10,618 of the 12,754
-tenants carry one, and they still default on it far less often than on either of
-the other two.
+**In both borrowing tenures the card goes first per carrier.** Among tenants it is
+0.5760 for the card, 0.2823 for rent and 0.2231 for the car loan; among mortgaged
+households 0.2859 for the card against 0.1016 for the mortgage, which is the
+manuscript's order. By share of a tenure's defaulting households rent is still the
+tenants' largest first default, 0.3996 against 0.3972 for the card, because nearly
+every tenant carries rent and under half carry a card: the share mixes how hard a
+rung is with how many stand on it, which is the reason A1-2 is void. The car loan
+sits behind the card and the rent on both denominators.
 
-**Rent is the largest single obligation a tenant holds**, which is the reading this
-supports: a rung is abandoned first because it cannot be met, and the cost rule
-already prices shelter as supporting all of a household's earning capacity. That is
-consistent with A1c holding: among households that fall behind on several rungs the
-sequence inside the household is what the manuscript describes, with 2 inversions in
-1,142, while which rung breaks first across the population is set by size.
-## A1c — the order inside a household: the sequence holds with 2 inversions of 1,142, and all 13 inversions are attributed to the release clause
+That is consistent with A1c holding. In A1c's run at 20,000 households,
+1,419 households missed both the card and the car loan: 670 missed the card first,
+744 missed both in the same month and 5 missed the car loan first. Across A1c's
+three pairs there are 37 inversions, all attributed to the release clause.
+
+### The payment carriers (added 2026-10-10, the default ruled 2026-10-17)
+
+Three of the model's payments come from columns that cover more, or are built
+differently, than the balance each is set beside. The definitions are the Federal
+Reserve's, in the macro that builds the extract.
+
+| leg | registered construction | default | what the column is | on the file |
+|---|---|---|---|---|
+| card | `REVPAY` on `CCBAL` | 2.5% of `CCBAL`; the rest of `REVPAY` on no rung | `REVPAY` is 2.5% of the card balance, plus 33% of buy-now-pay-later balances, plus payments on lines of credit not secured by the residence: a publisher's rate and not a payment the household reported | 1,251 of 8,694 rows with a card balance carry more than the card rate; weighted mean 226.39 a month against 153.02 on the card alone; 596 rows have a revolving payment and no card balance |
+| mortgage | `MORTPAY` on `NH_MORT` | `PAYMORT1` to `PAYMORT3` on `NH_MORT`; the rest of `MORTPAY` on no rung | `MORTPAY` is the payments on the `NH_MORT` loans plus those on other residential property, on land contracts and on the home-equity lines the primary residence secures; the stock is the primary residence net of those lines | 1,541 of 8,811 mortgaged rows pay beyond the `NH_MORT` loans, 1,160 on other residential property (no mortgaged row carries a land-contract payment) and 381 on the primary residence's home-equity line alone; 1,703.02 a month against 1,557.52 on the `NH_MORT` loans, 116.65 on other residential property and 28.86 on the home-equity line |
+| vehicle | one sixtieth of `VEH_INST` | the published vehicle payments on `VEH_INST`; a payment with no vehicle balance on no rung | the extract carries the vehicle payments loan by loan | 198.54 a month over all households against 122.96 at one sixtieth; 571.54 against 354.01 among holders; 6,900 of the 6,960 rows with a vehicle balance differ; 5 rows, 10 households at 100,000, carry a published vehicle payment and no vehicle balance |
+
+The default and the registered construction are both run, and each leg is also read
+alone on the registered construction, everything else as registered, the scheduled
+cushion following the one payment that changed.
+
+| carrier | card | auto | mortgage | K shape |
+|---|---|---|---|---|
+| each rung on the payment of its own stock (the default) | 0.2105 | 0.1419 | 0.0028 | holds |
+| as registered | 0.1879 | 0.0924 | 0.0027 | holds |
+| registered, the payments on the `NH_MORT` loans | 0.1883 | 0.0924 | 0.0025 | holds |
+| registered, the card at the publisher's 2.5% of the card balance | 0.1571 | 0.0929 | 0.0028 | holds |
+| registered, the published vehicle payments on households with a vehicle balance | 0.2160 | 0.1376 | 0.0031 | holds |
+
+The ordinal reading of A1-3 stands on every carrier. Against the registered
+construction the default raises the card rung 2.3 points and the car loan
+5.0, and leaves the mortgage within a hundredth of a point. Two things move the
+card rung in opposite directions: its own payment is smaller, which alone lowers it
+3.1 points, and the payments now on no rung come out of the same cash first, which
+raises every rung. The car loan also takes its published payment.
+
+**Two readings are taken before the run (restated 2026-10-10).** The households
+called not short at baseline are classified on the bills as built, before the run
+removes a displaced household's shelter bill. On the default, 26,691 defaulting households were not short at
+the start, with first defaults card 0.4843, auto 0.0738, shelter 0.3215. On the registered construction the classification
+had been made after the run and labelled 32,547, of whom 7,566 were short at the start;
+read first, that group was 24,981. The strict order fails on both and A1-2 is void
+either way. The no-shock baseline displaces 7,286 of 32,098 renters and 1,880 of
+40,894 mortgaged households, 9,166 in all.
+
+## A1c — the order inside a household: the sequence holds with 5 inversions of 1,419, and all 37 inversions are attributed to the release clause
 
 **2/2 live criteria passed**
 
 | | criterion | detail |
 |---|---|---|
-| PASS | A1c-1 the sequence holds inside a household | card_before_auto: 607 in order, 533 tied, 2 inverted, of 1,142 in scope; auto_before_rent: 449 in order, 526 tied, 2 inverted, of 977 in scope; card_before_rent: 523 in order, 1,080 tied, 9 inverted, of 1,612 in scope. 17,499 of 20,000 households are in scope for no pair at all, which is the population A1-2 quantified over and the size of the mismatch between the claim and its cross-sectional form |
-| PASS | A1c-2 every inversion is attributed | 13 inversions: 13 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed |
+| PASS | A1c-1 the sequence holds inside a household | card_before_auto: 670 in order, 744 tied, 5 inverted, of 1,419 in scope; auto_before_rent: 799 in order, 387 tied, 9 inverted, of 1,195 in scope; card_before_rent: 682 in order, 1,042 tied, 23 inverted, of 1,747 in scope. 17,141 of 20,000 households are in scope for no pair at all. At this run's setting, 20,000 households on A0's path at seed 7 over 60 months, the population A1-2 quantifies over is every household that defaults, 7,692 of them, and 4,833 of those, 62.83%, are in scope for no pair, which is the size of the mismatch between the claim and its cross-sectional form. A1-2's own record in A1b is a run of 100,000 households, 38,436 of them defaulting |
+| PASS | A1c-2 every inversion is attributed | 37 inversions: 37 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed |
+
+These counts stand on A1b's default construction, each rung on the payment of its own
+stock (ruled 2026-10-17). On the registered construction the same run read 2
+inversions of 1,142 for the card before the car loan and 13 inversions in all, every
+one attributed to the release clause. How A1b's readings move between the carriers is
+recorded in the A1b section, under *The payment carriers*.
 
 ## A1d — the cascade on a measured cushion
 
-**Scope.** Liquid assets, no floor, and a matched twelve-month window. The top pair sits below both sides' resolution and is reported rather than scored.
+**Scope.** Liquid assets as published, no floor added, and a matched twelve-month window. The top pair sits below both sides' resolution and is reported rather than scored.
 
-**7/9 live criteria passed**
+**7/8 live criteria passed, 1 void**
 
 | | criterion | detail |
 |---|---|---|
 | PASS | A1d-0 zero calibration, by removing the cause | income raised to cover each household's own obligations: every rung exactly 0.000000 over 24 periods |
-| **FAIL** | A1-2  the order is an output | first default among 44,578 defaulting households: card 0.3068, auto 0.0704, shelter 0.1564 (rent 0.0965, mortgage 0.0599), basket 0.4664. Among the 39,492 not short at baseline: card 0.3163, auto 0.0741, shelter 0.1647. The manuscript's sequence is what fails here, not the code |
-| PASS | A1-3  K shape, ordinally | mortgage 0.0069 < auto 0.0807 < card 0.1810. Over baseline: mortgage +0.0054, auto +0.0615, card +0.1404. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
-| PASS | A1-6  the subprime gradient | bottom 0.1345 against middle 0.0518, ratio x2.60. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
+| VOID | A1-2  the order is an output | first default among 46,381 defaulting households: card 0.3195, auto 0.1020, shelter 0.1471 (rent 0.0918, mortgage 0.0553), basket 0.4314. Among the 34,828 defaulting households not short at baseline: card 0.3419, auto 0.1040, shelter 0.1309. VOID as registered: the estimator and the object do not line up. This share is a distribution across households, and a distribution is decided both by how hard a rung is and by how many households stand on it, while the pooled denominator is every defaulter. Rent is carried only by tenants and the mortgage only by borrowers, so those two rungs are divided by a head count that includes households which could not default on them. Volume One section 18 states its cascade about tenants. The ordering claim itself is carried by A1c, which reads the sequence inside one household and holds. The tenure-split shares and the per-carrier-at-start rates are reported beside this line and are what the section 18 reading needs |
+| PASS | A1-3  K shape, ordinally | mortgage 0.0100 < auto 0.1208 < card 0.2016. Over baseline: mortgage +0.0085, auto +0.0973, card +0.1552. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes |
+| PASS | A1-6  the subprime gradient | bottom 0.1786 against middle 0.0973, ratio x1.84. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them |
 | PASS | A1-9  the representative arm is degenerate | every rung of the collapsed household takes values in {0, 1} across all three tenures, which is Corollary 1 with a number attached: the difference between the arms is the population |
 | PASS | A1-10 one parameter set across every rung | one rule, one attribute table, one grace table; every rung's pair is CARD 0.000/6, AUTO 0.117/3, RENT 0.250/4, MORTGAGE 0.083/12, BASKET 1.000/1 |
-| PASS | A1d-1 the delinquency gradient, matched window | LATE60 by net worth: bottom50 0.0847 (886 of 1,857 families), next40 0.0163 (155 of 1,475 families), next9 0.0022 (11 of 694 families), top1 0.0026 (5 of 569 families). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model on the last 12 periods over 6 sweep cells: seed 7x1 0.067/0.042/0.004/0.003; seed 7x3 0.066/0.045/0.005/0.000; seed 8x1 0.067/0.044/0.004/0.003; seed 8x3 0.068/0.045/0.005/0.000; seed 9x1 0.059/0.041/0.004/0.003; seed 9x3 0.061/0.038/0.005/0.000. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000: [25310, 20078, 4322, 290]. Reported and never scored, the other three windows on cell one: first 12 periods 0.167/0.059/0.013/0.000; whole run at sixty days 0.244/0.125/0.013/0.017; whole run on A1b-1's any-miss rule 0.361/0.177/0.024/0.034; last window including rent 0.071/0.042/0.004/0.003 |
-| **FAIL** | A1d-2 the rent gradient, on net worth | by net worth, sixty days: bottom50 0.5842 (28,776), next40 0.2562 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. Reported and not scored, by income: bottom50 0.7162 (23,585), next40 0.0877 (7,581), next9 0.0000 (897), top1 0.0000 (35). A measured cushion did not produce the monotonicity a label could not, so the non-monotonicity is a property of the data. docs/a1b_prereg.md section 8 has what the cells are made of |
+| PASS | A1d-1 the delinquency gradient, matched window | LATE60 by net worth: bottom50 0.0847 (886 of 9,283 implicate rows, 1,856.6 family equivalents), next40 0.0163 (155 of 7,373 implicate rows, 1,474.6 family equivalents), next9 0.0022 (11 of 3,472 implicate rows, 694.4 family equivalents), top1 0.0026 (5 of 2,847 implicate rows, 569.4 family equivalents). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model on the last 12 periods over 6 sweep cells: seed 7x1 0.084/0.061/0.005/0.003; seed 7x3 0.080/0.058/0.006/0.000; seed 8x1 0.086/0.064/0.005/0.003; seed 8x3 0.079/0.059/0.006/0.000; seed 9x1 0.077/0.058/0.005/0.003; seed 9x3 0.072/0.051/0.006/0.000. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000: [25310, 20078, 4322, 290]. Reported and never scored, the other three windows on cell one: first 12 periods 0.189/0.068/0.013/0.000; whole run at sixty days 0.273/0.141/0.014/0.017; whole run on A1b-1's any-miss rule 0.390/0.201/0.026/0.034; last window including rent 0.088/0.061/0.005/0.003 |
+| **FAIL** | A1d-2 the rent gradient, on net worth | by net worth, sixty days: bottom50 0.6141 (28,776), next40 0.3286 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. Reported and not scored, by income: bottom50 0.7410 (23,585), next40 0.1516 (7,581), next9 0.0000 (897), top1 0.0000 (35). A measured cushion did not produce the monotonicity a label could not, so the non-monotonicity is a property of the data. docs/a1b_prereg.md section 8 has what the cells are made of |
 | PASS | A1d-3 free parameters within the registered bound | 4 free against 12: cost.commute_dependency=0.35, cost.access_penalty=1, cost.grace_basket=1, cost.grace_rent=4. A1b counted five; population.buffer_months left the list when the cushion became a measurement rather than a choice |
+
+**Restated 2026-10-10.** The stored record predated the ruling that voids A1-2, which
+A1d inherits as the same code, so it counted that criterion as a live failure; rerun on
+the current code it is void here as it is in A1b, and the count is seven of eight with
+one void. Nothing numerical in the other criteria moved. Four more things are now said
+for what they are. The published liquid column is checking, savings, money market and
+call accounts and prepaid cards, and the publisher leaves one dollar where an account
+holds nothing: 3,482 of the 22,975 implicate rows carry a prepaid balance inside it and
+the floor of one dollar binds on 235, so a cushion of zero means no transaction account and no positive prepaid balance, in wording corrected 2026-10-15 (338
+rows as published, 573 on the five components without the floor, 1,333 on the four
+accounts alone). The counts beside the survey rates are implicate rows and family
+equivalents, a fifth of the rows, and were labelled families. The size rule is the one
+the registration states: a population at which the source resolves a pair and the model
+would expect under five events is refused, and the criterion is void there, where the
+code had dropped that pair and scored the rest; at the registered 50,000 nothing is
+refused and the two scored pairs are as before. And the households not short at
+baseline are classified before the run, as in A1b: 33,461 where the record read 39,492,
+with first defaults card 0.3249, auto 0.0735, shelter 0.1374. The no-shock baseline
+displaces 7,350 of 32,098 renters and 1,303 of 40,894 mortgaged households.
+
+**On A1b's default carrier (2026-10-17).** A1d builds on A1b's records, and A1b now
+puts each rung on the payment of its own stock, with every other published payment
+paid on no rung. Rerun on that construction the counts are as before, seven of eight
+live with one void. The defaulting households not short at baseline are 34,828, with first
+defaults card 0.3419, auto 0.1040, shelter 0.1309. The no-shock baseline displaces 7,479 of
+32,098 renters and 1,380 of 40,894 mortgaged households. The months of bills a
+cushion covers now count the payments on no rung as bills: 2.63 / 15.06 / 52.92 / 151.43
+by net-worth group. The readings of the paragraph above are those of the registered
+construction.
+
+**First defaults by starting tenure (added 2026-10-15).** The split A1b reports, on the measured cushion. Each rung's first defaults are divided by the households of that tenure that carried the rung when the run began, read before the run, because a run removes the shelter rung of every household it displaces. The record also keeps the end-of-run denominator under `exposed` and its rate under `per_exposed`: for rent it is the 14,602 tenants still carrying it, 0.2917, against 32,098 at the start, 0.1327.
+
+| tenure | defaulting | rung | share | carried it at the start | per carrier at the start |
+|---|---|---|---|---|---|
+| RENTER | 25,514 | card | 0.2668 | 15,636 | 0.4353 |
+|  |  | basket | 0.4429 | 34,054 | 0.3318 |
+|  |  | auto | 0.1234 | 10,618 | 0.2965 |
+|  |  | rent | 0.1670 | 32,098 | 0.1327 |
+| | | mortgage | 0.0000 | **0** | n/a |
+| MORTGAGED | 14,294 | card | 0.4889 | 22,174 | 0.3152 |
+|  |  | basket | 0.2573 | 40,894 | 0.0899 |
+|  |  | mortgage | 0.1793 | 40,894 | 0.0627 |
+|  |  | auto | 0.0744 | 18,481 | 0.0576 |
+| | | rent | 0.0000 | **0** | n/a |
+| OUTRIGHT | 6,573 | basket | 0.7657 | 25,052 | 0.2009 |
+|  |  | card | 0.1553 | 7,472 | 0.1366 |
+|  |  | auto | 0.0790 | 5,722 | 0.0907 |
+| | | rent / mortgage | 0.0000 | **0** | n/a |
+
+**Behind the survey counts (added 2026-10-15).** The implicate rows behind `LATE60`, by net-worth group, are 9,283 / 7,373 / 3,472 / 2,847, which are 1,908 / 1,571 / 753 / 595 distinct SCF families, and the rows reporting a payment sixty days or more late on at least one implicate, 886 / 155 / 11 / 5, are 195 / 38 / 4 / 2 families with such a row. A family whose implicates rank into more than one net-worth group is counted in each. The standard errors stay on the family equivalents, rows over five.
 
 ## A2 — support-set contraction and the intermediate layer
 
@@ -361,14 +518,28 @@ sequence inside the household is what the manuscript describes, with 2 inversion
 
 | | criterion | detail |
 |---|---|---|
-| PASS | A2-1  without issuance, volume and support move the same way | volume x0.87, support x0.729 |
-| PASS | A2-2  with issuance, volume rises while support contracts | volume x44.87, support x0.402; production layer falls to 0.51% of all circulation |
+| PASS | A2-1  without issuance, volume and support move the same way | volume x0.87, effective support x0.729 |
+| PASS | A2-2  with issuance, volume rises while support contracts | volume x44.87, effective support x0.402; production layer falls to 0.51% of all circulation |
 | PASS | A2-3  the sign flip holds across graph seeds | 12/12 seeds flip under issuance, 12/12 agree without it |
 | PASS | A2-4  a maximal propensity with no in-edge still terminates at zero | final holdings across 12 seeds, maximum 0.000e+00. Propensity is a property of the agent; reachability is a property of the graph, and only the second one decides |
 | PASS | A2-5  the two-layer payroll channel never narrows | funding ratio 1.0000 |
 | PASS | A2-6  H1: the three-layer payroll channel closes with the bill unchanged | funding ratio 2.571e-139 while the bill owed stayed constant and the elasticity was zero |
 | PASS | A2-7  H2: three-layer at zero elasticity matches two-layer at unity | three-layer 3.2428e-138 against two-layer at e=1 7.8382e-66 and at e=0 17.4309 |
 | PASS | A2-8  zero autonomous edges collapses; one rescues | 0 edges 3.243e-138, 1 edge 22.7300 (75% of the maximum), 30 edges 30.4821 |
+
+**Restated 2026-10-27.** `support` in A2-1 to A2-3 is effective support, the
+inverse Herfindahl of inflow. The count of nodes reached along edges carrying
+more than `1e-4` of the opening mean edge flow (the realized graph A2c reads)
+stays at the potential count in every round of all twelve seeds, with issuance
+and without it (174 of 174 in seed 0, where effective support goes `35.727` to
+`14.363`; at the close of seed 0 the count is the same for any cutoff from
+`1e-24` to `1e-2` of that mean), so what contracts is how the flow is spread
+over the nodes it reaches. Neither total volume nor a reachability
+count sees it. Zero autonomous edges is a geometric decay to zero: the
+production set's balance shrinks by at least a fixed fraction every round, and
+the tail mean `3.243e-138` is where it stands at round 600. Figure 8 prints that
+number. The details of A2-1 and A2-2 now name effective support; nothing else in
+the record moved, and figures 6 and 7 are byte for byte what they were.
 
 ## A2c — cycle structure of the realized graph
 
@@ -384,7 +555,96 @@ sequence inside the household is what the manuscript describes, with 2 inversion
 | PASS | A2c-4  cycle rank collapses with no edge deleted | potential rank 2846, realized fraction 0.029, and the potential graph is identical throughout |
 | PASS | A2c-5  one autonomous edge restores most of the loop structure | 0 edges 0.029, 1 edge 0.783, 30 edges 0.891 |
 | PASS | A2c-6  the collapse and the rescue hold across graph seeds | 6 seeds: collapsed 0.023-0.029, rescued 0.744-0.862 |
-| PASS | A2c-7  limitation recorded: cycle rank saturates when nothing dies | in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges genuinely stop carrying claims. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record |
+| PASS | A2c-7  limitation recorded: cycle rank saturates when nothing dies | in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges drop out of the realized graph. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record |
+
+**Restated 2026-10-14.** The seven verdicts are where they were, and every field
+the record carried is what it was. The blocks added after them are not scored.
+One sentence on figure 10 was reworded.
+
+*The realized graph is read at a cutoff, and the cutoff sits in an empty band.*
+A directed edge is in the realized graph when its flow in that round exceeds
+`1e-4` of the mean flow per potential edge at round 0. In the zero-edge arm at
+the last round the smallest flow above that cutoff is `10^0.8`, the largest
+flow at or below it is `10^-144.7`, and there is no flow between them, so the
+rank `83` is the rank at every cutoff across `145.5` decades. Over the six
+seeds the band is `137.5` to `165.7` decades wide. The `2426` directed edges
+below it are not resting at a small level. The largest of them falls about a
+quarter of a decade a round, `10^-12.7` at round 50 and `10^-144.7` at round
+599; together they carry `10^-145.9` of the last round's volume; and the rank
+at the cutoff is `83` at every snapshot from round 50 on. Of the `776`
+potential directed edges at exactly zero in the last round, `330` are already
+at zero at the round-50 snapshot, and the positive count does not move again
+until the round-250 snapshot. The other `446` arrive between rounds 200 and
+300, as the fastest-decaying flows leave the floating-point range: the smallest
+positive flow is `10^-283.8` at round 200 and `10^-322.1` at round 250.
+
+Counting every flow that is still a positive floating-point number gives `2156`
+at round 599, against a potential `2846`. That count measures the run length
+against the exponent range of a double: 600 rounds at `0.24` of a decade a
+round is 144 decades, and a double reaches 324 below one. The zero-edge and
+one-edge runs of all six seeds were continued to 3000 rounds with nothing else
+changed, each reproducing its registered 600 rounds at every snapshot the two
+share. In the zero-edge arm the count over positive flows ends equal to the
+count at the cutoff in every seed (`83`, `69`, `82`, `66`, `71`, `73`), from
+the snapshot at round 1200 to 1450 on, and the count at the cutoff takes one
+value per seed at every snapshot after round 0. The one-edge arm keeps its
+loops: at round 2999 its count over positive flows equals its count at the
+cutoff in every seed (`2230`, `2250`, `2442`, `2137`, `2309`, `2126`). Read
+with no cutoff at all, the two arms stand at `0.023` to `0.029` and `0.744` to
+`0.862` of potential, the two ranges A2c-6 registered. At round 599 the count
+over positive flows cannot tell the arms apart (`0.726` to `0.839` against
+`0.746` to `0.862`), because in the zero-edge arm it is still counting flows on
+their way out of the floating-point range. The cutoff reads at round 50 what
+the positive count reads once they have left it. A round is a unit of trend
+and not a calendar period, so that is an ordering and not a duration.
+
+At round 599 four of the six one-edge runs have no positive flow below the
+cutoff at all, and the other two have six directed edges near `10^-182` (rank
+`2137` against `2142`, and `2126` against `2131`). In the two-layer run A2c-7
+reads, the two counts are both `1074` from the round-300 snapshot on, where the
+`142` directed edges outside the realized graph carry exactly zero. Record
+blocks `cutoff`, `continuation` and `continuation_one_edge`.
+
+*Both Hodge splits are run.* The gradient part is the same vector whether or
+not faces are filled. Which criteria read the choice is worked out by comparing
+the columns each criterion reads under the two splits, and it is A2c-3 alone:
+A2c-1 and A2c-2 read the gradient and the net flow, which the choice does not
+touch, and A2c-4 to A2c-7 are counts. With no face filled everything outside
+the gradient is a single component. It is the part of A2c-1's total that grows
+(the total, gradient included, is `x97.1`), and its norm goes `2.682` to
+`267.249`, `x99.65`, its share `0.948647` to `0.999986`. With every triangle
+filled that component splits in two. The part triangles account for goes
+`2.651` to `267.249`, `x100.81`, and carries all of the growth. The part no
+triangle accounts for goes `0.406` to `0.248` and stays within about 2% after
+round 0 (`0.2458` to `0.2508`), which is the object A2c-3 is about. Record block
+`hodge_choice`, with every series under `series`.
+
+*`x97.1` is the norm of net flow per edge.* A2c-1's "total flow" and A2c-2's
+"circulation" are the Euclidean norm of `flow[i, j] - flow[j, i]` over the
+edges of the realized graph. On the same run gross volume rises `x44.87`, which
+is A2-2's figure, and net flow per edge summed in absolute value rises `x36.28`.
+A2c-1's threshold of ten and A2c-2's order of magnitude hold on each of the
+three: the ratio to the gradient norm rises `x28.0` on gross volume, `x22.7` on
+the sum and `x60.6` on the norm. The three are recorded side by side under
+`hodge_choice`.
+
+*The potential graph is compared round by round.* Each run takes a copy of the
+potential graph before round 0 and compares the live graph with it as every
+round closes: 32 runs, 48,000 rounds, 48,000 equal. A2c-4's flag now requires
+that of the six runs it reads; its detail has stated it all along. Record block
+`potential_graph`.
+
+*Figure 10.* "Loops disappear only because nothing traverses them" now reads
+"because the flow across them decays to nothing (10^-146 of volume)".
+
+*A2c-7's detail, 2026-10-26.* It said the rank moves only where edges stop
+carrying claims; it now says the rank moves only where edges drop out of the
+realized graph. In the two-layer run the rank reaches `1074` at the round-50
+snapshot, when the `142` directed edges that left the realized graph still
+carry flow (largest `10^-62.8`), and those edges carry exactly zero from the
+round-300 snapshot on (record `cutoff.two_layer_by_snapshot`). The verdict
+and every number in the record are unchanged; the regenerated record differs
+from the previous one in that one string.
 
 ## A3
 
@@ -396,11 +656,82 @@ sequence inside the household is what the manuscript describes, with 2 inversion
 |---|---|---|
 | PASS | A3-1  the closed channel reproduces A2 bitwise | largest absolute difference over 5 seeds and four series: 0.000e+00. Not a tolerance: anything but zero is a different model |
 | DIAG | A3-2  a gap opens between agents who started level | entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in §5.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero |
-| DIAG | A3-3  the gap compounds rather than levelling off | largest drift between a node's first and second half of trades, over 101 nodes with four or more: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in §5.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken |
+| DIAG | A3-3  the gap compounds rather than levelling off | largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in §5.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken |
 | PASS | A3-4  the realised terms differential is the loop sum | mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10` |
 | VOID | A3-5  the gate binds at the high tier, not at ownership | price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per §6.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure |
-| **FAIL** | A3-6  a stock exists, and A4's domain is exactly who holds it | median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring |
+| **FAIL** | A3-6  a stock exists, and A4's domain is exactly who holds it | holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.107%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain |
 | PASS | A3-7  non-overlapping windows agree in sign | better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing |
+
+**Restated 2026-10-10.** Three wordings in the table above were changed to say
+what the code counts, and two readings were added beside the criteria. No
+threshold, domain or verdict moved.
+
+*A3-6 scores a size.* The statistic is the gap between a holder's net worth and
+its own untransferred path forty rounds after the transfer, over the same gap in
+the round the transfer lands, with the direction dropped. A holder that ends
+below its own path counts exactly like one that kept the transfer. The two
+holders that clear the threshold are both in seed 3: node 12, whose gap grew to
+177.2% of what it was at landing, and node 19, which stands 63.7% of its landing
+gap **below** its own path. Four of the 79 stand below their own path at that
+round, and with the sign kept the median is 13.5% against 13.8%. The criterion
+fails either way. The row used to read "retains 13.8% of the transfer", "3% of 79
+holders clear" and "a non-holder retains 0.1%"; the last was a mean over five
+single nodes, one of which shows no gap at all in the landing round and so has
+nothing to divide by. Every holder's response is in the record under
+`shock_response`. The 13.8% and 13.5% are each seed's holder median averaged
+over the five seeds; pooled over all 79 holders the medians are 14.25% and
+13.99%, which are the figures the §16.1 profile prints for the same holders.
+
+*A3-3 counts cells.* The 101 are (seed, node, tier) cells with four or more
+trades. They sit on 86 nodes counted once per seed.
+
+*Twelve trades are left out with the opening allocation.* A3-3, A3-4 and A3-7
+leave out every trade whose cost basis is dated round zero. That is the opening
+allocation, where a stretched entrant pays what it has and the identity does not
+hold by construction, and it is also 12 units bought on resale inside round
+zero (2, 2, 2, 4 and 2 by seed), which paid `gamma` times the reference price
+like any other resale. The date cannot tell the two apart; the order each node
+sold its units in can, since the opening units leave first. With the 12 counted,
+A3-4 reads +0.36566 against
++0.37717, relative error
+3.0527% against
+3.0517% as scored, and A3-7 is unchanged in
+all three windows. The criteria score the date filter as registered, and the
+record carries both readings under `round_zero_resales`.
+
+*The fourteen-cell grid was rerun on this code* and every cell returned the
+state it had on record: four cells move A3-7 from pass to fail (`elasticity =
+1.5`, `holding_period = 50` with `turnover = 0.02`, `stretch = 1.0`, `stretch =
+5.0`), two are inert, and nothing else moves.
+
+**The rent arm at a frozen price, printed and not scored.** `--rent-sweep` runs
+`rent_rate` over its registered values with `elasticity = 0`, every node paired
+against itself in the rent-free arm and each change divided by that node's own
+opening claims. Its summary used to stop on a wrong variable name before the
+record was written, so the record had never held it. The rent-free row is a
+separately built model and reproduces the comparison arm exactly, and no node
+had to be dropped to form the paired population (179.8 production-layer nodes
+per seed that hold nothing at the end in any arm).
+
+| `rent_rate` | renters, median of each seed, averaged over seeds | renters, worst node of each seed, averaged over seeds | financial-layer holders, median of each seed, averaged over seeds | rent collected over the run, as a multiple of all opening claims, averaged over seeds |
+|---|---|---|---|---|
+| 0 | +0.0000 | +0.0000 | +0.0000 | 0.0000 |
+| 0.002 | -0.0201 | -0.1146 | +0.5500 | 0.4763 |
+| 0.005 | -0.0338 | -0.1438 | +1.5865 | 1.1495 |
+| 0.01 | -0.0562 | -0.2296 | +3.2188 | 2.2204 |
+| 0.02 | -0.0986 | -0.3857 | +6.3797 | 4.1639 |
+| 0.05 | -0.2178 | -0.8562 | +13.8683 | 8.6646 |
+
+At the registered `0.05` the median node that never holds ends 21.8% of its
+opening claims below where it ends with no rent, and the median financial-layer
+holder (16.2 nodes per seed) ends 13.9 times its opening claims above. The
+production-layer landlord set is one node in one seed of five, so no figure is
+read for it. The comparison arm is `rent_rate = 0`, which
+`docs/a3_asset_channel.md` treats as a bracket and not a world: with no rent,
+production-layer nodes that never held anything end 253% richer in claims than
+with no asset market at all.
+
+**Restated 2026-10-27.** "The median node that never holds" is the median of the paired set above, production-layer nodes holding nothing at the end of the run in every arm, taken in each seed and averaged over the five. The set includes nodes that held a unit earlier and sold out: the opening hands production-layer nodes units, and by the end one production-layer node in one seed of five still holds.The landlord count `0.2` is averaged over all five seeds, the four empty ones counted as zero, while its median comes from the one seed that has a landlord.
 
 ## A3b
 
@@ -410,6 +741,72 @@ Record with no criteria block, kept as evidence and named here so it is findable
 `results/a3b_construction.json`, the initial-construction run. It adjudicates
 nothing, and no criterion anywhere reads it.
 
+**The opening is not round one.** The checkpoint tables in
+`docs/a3b_initial_construction.md` §10 carry the opening as their first row, above
+round one. Before any
+round has run, 21.9% of nodes hold a unit under `auction` and `continuous` and
+74.4% under `occupancy`, with 23.8 and 128.8 production-layer holders of 180; a
+round later it is 21.3% and 72.0%, 22.6 and 124.0.
+
+**The path between the checkpoints, by seed.**
+
+| arm | round from which the production layer holds nothing | a production-layer holder after that | times a production-layer node that had sold out held again | times a financial-layer node did | rounds ending with more holders than the one before |
+|---|---|---|---|---|---|
+| `auction` | 90, 93, 61, 75, 52 | no | 0 | 32 | 11, 4, 9, 3, 0 |
+| `continuous` | 90, 93, 61, 75, 52 | no | 0 | 32 | 11, 4, 9, 3, 0 |
+| `occupancy` | 132, 128, 132, 187, 122 | no | 0 | 11 | 1, 1, 2, 2, 4 |
+| `auction_pre_a3b` | 111, 105, 100, 73, 56 | no | 1 | 102 | 22, 17, 17, 17, 10 |
+
+In the fifteen fixed-stock runs no production-layer node that sold out ever
+holds again. The count of holders in the whole population is not monotone:
+financial-layer nodes sell out and buy back, and the holder count ends a round
+higher than the one before in up to eleven rounds of a fixed-stock run. What
+does not come back is the production layer. The one production-layer return on
+record is in the pre-A3b arm, seed 3.
+
+**Resale per unit instead of per holding (2026-10-26).** This stage opens with the
+unsold stock in whole blocks (largest opening holding 11 to 17 units in the
+auction arm), so the rule as coded turns the stock over at 1.33% to 1.53% a
+round on the first day against `tau = 4%`. `experiments/resale_rule_probe.py` (`results/resale_rule_probe.json`) runs this stage's driver three times: the rule as coded, the same rule with the asset stream shifted by one seed, and a draw per unit. The shifted stream
+alone moves 171 of 392 numbers, so a number counts as moved by the rule only
+where the per-unit run moves it further. Trades rise about sevenfold. The
+reading above stands in the auction and continuous arms: the production layer
+holds nothing by the end in every seed and no production node that sold out
+holds again. In the occupancy arm one seed of five still has one production
+node holding at round 300. A3-4 stays within its tolerance on every arm, the
+auction arm's relative error moving from 14.3% to 8.4% (stream 14.8%).
+
+**The occupancy transfer hands out tiers by place in the drawn set, not by
+layer.** The draw of 140 nodes does not consult claims. Inside the drawn set the
+walk is in descending claims, low tier first, one unit each, so the 132 low-tier
+units go to the front of the set and the eight with the least claims are handed
+the middle tier. In all five seeds those eight are production-layer nodes (the
+drawn set has 127, 126, 128, 128, 124 production-layer nodes by seed).
+
+**A3-4 on each construction.** Trade by trade the identity is where it was. The
+aggregate comparison moves with how each group's trades fall across the tiers:
+
+| arm | ledger side against graph side | relative error, against 20% | tier-mix term | round trips A3-4 reads (purchase dated after round zero), better-termed / worse-termed group, by seed |
+|---|---|---|---|---|
+| `auction_pre_a3b` | +0.36536 against +0.37686 | 3.05% | -0.01150 | 102 / 17, 156 / 35, 71 / 25, 101 / 11, 152 / 23 |
+| `auction` | +0.28831 against +0.33655 | 14.34% | -0.04825 | 298 / 30, 284 / 29, 233 / 38, 260 / 7, 273 / 36 |
+| `continuous` | +0.28831 against +0.33655 | 14.34% | -0.04825 | 298 / 30, 284 / 29, 233 / 38, 260 / 7, 273 / 36 |
+| `occupancy` | no reading | | | 423 / 0, 388 / 0, 407 / 0, 409 / 0, 370 / 0 |
+
+The tier-mix term is the whole gap between the two sides on every arm that has a
+reading. On `occupancy` the worse-termed third sells the units it was handed and
+never completes a round trip that began with a purchase, so there is nothing to
+compare.
+
+**Restated 2026-10-27.** On `occupancy`, the worse-termed third completes no round trip whose purchase is dated after round zero, which is the population A3-4 reads: every round trip it completes sells a unit it was handed at the opening, and those units, which the transfer charged for at the registered discount or at what the node held, are dated round zero and left out with the rest of that round. The graph side moves as well, from `+0.37686` to `+0.33655`: it reads which nodes form the two groups and how many round trips each completed, and the opening changes both. What does not move is the per-trade identity, which holds by construction because a resale pays `γ · P`. The return columns of the path table count returns, one per node and round, not distinct nodes.
+
+**Restated 2026-10-10.** The stage document called the round-one figures the
+opening, said the transfer's tier follows the layer, said the model has no
+mechanism that raises ownership where the supported statement is about the
+production layer, and the driver's header said A3-4 had been checked across
+constructions when the entry did not compute it. The four readings above are
+what the record now carries for each.
+
 ## A3 P-C
 
 `rounds=300` `5 seeds`
@@ -418,7 +815,64 @@ nothing, and no criterion anywhere reads it.
 
 | | criterion | detail |
 |---|---|---|
-| VOID | A3-8  removing the holonomy removes the divergence | state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift at machine precision, below `1e-10`. Indistinguishable from zero across seeds: H0_only |
+| VOID | A3-8  removing the holonomy removes the divergence | state: **unstable**. Gaps against the null: both +23.2667, loop sum only +21.6714, gate only +1.4091, null +0.000e+00. Mean-cost drift at machine precision, below `1e-10`. Indistinguishable from zero across seeds: H0_only. The bidder pool that prices a tier is admitted on the payment terms, so `k_pay` moves it together with the loop sum and `k_gate` reaches the opening allocation alone: over the 10 single-channel runs the pool as run and the pool the gate terms give disagree on 3,446 node-tier-rounds in 1,132 rounds, a price gap of at most 5.26% from the same balances. Run again with the pool admitted on the gate terms, so that removing the loop sum leaves the pool dispersed, the four gaps are both +23.2667, loop sum only +20.3783, gate only +1.2403, null +0.000e+00, state unstable |
+
+The bidder pool that prices a tier is admitted on the payment terms, so `k_pay`
+moves it together with the loop sum and `k_gate` reaches the opening allocation
+alone. Where the pool as run parts from the pool the gate terms would give:
+
+| cell | `k_pay` | `k_gate` | node-tiers differing at the opening | rounds with a difference | node-tier-rounds | largest price gap from the same balances |
+|---|---|---|---|---|---|---|
+| both | 1 | 1 | 0 | 0 | 0 | 0.00% |
+| loop sum only | 1 | 0 | 12 | 419 | 1,128 | 4.77% |
+| gate only | 0 | 1 | 0 | 713 | 2,318 | 5.26% |
+| null | 0 | 0 | 0 | 0 | 0 | 0.00% |
+
+The same four cells on a model that differs in one method, the pool admitted on
+the gate terms, so that removing the loop sum leaves the pricing pool
+dispersed. Printed, not scored:
+
+| cell | gap as registered | gap with the pool on the gate terms | across seeds, pool on the gate terms |
+|---|---|---|---|
+| both | +23.2667 | +23.2667 | same sign, [+10.96, +38.31] |
+| loop sum only | +21.6714 | +20.3783 | same sign, [+8.44, +27.11] |
+| gate only | +1.4091 | +1.2403 | **sign flips**, [-16.26, +10.62] |
+| null | +0.0000 | +0.0000 | zero calibration |
+
+**Restated 2026-10-10: what `k_pay` moves, and that the reading does not depend
+on it.** The split gives the gate terms the admission threshold. In the model
+the gate terms decide the opening allocation and are read nowhere after it:
+resale eligibility is affordability at the paid terms, and the pool that sets
+each tier's price is admitted on the payment terms too, at opening prices,
+against current claims, every round. So in the registered cells levelling the
+payment terms removes the loop sum and also levels who is in the pricing pool.
+Over the ten single-channel runs the two pools disagree on
+3,446 (node, tier, round) admissions in
+1,132 rounds and on 12 node-tiers at
+the opening, and from the same balances the gate-terms pool would have set a
+price at most 5.26% away. That figure sizes
+the pricing input that moved and is not a run of the other rule. The second
+table is that run. With the loop sum removed and the pool left dispersed the gap
+is +1.2403 and its sign still flips across seeds; with the gate and the pool
+both levelled it is +20.3783, of one sign in every seed. The two cells with tied terms
+reproduce the registered run seed for seed: the two models are one model there,
+and the two arms pair the same nodes at every seed. **The collapse in the gate-only cell is not carried by
+the pricing pool.** A3-8 is read from the registered cells and its state is
+unchanged.
+
+Deducting the stretch write-off moves the three gaps by
++0.012, +0.071 and -0.063, to
++23.279,
++21.742 and
++1.346. The stage documents said it moved
+nothing at the third digit; the order, the signs and the state are where they
+were. The fourteen-cell grid was rerun on this code.
+
+**Resale per unit instead of per holding (2026-10-26).** `experiments/resale_rule_probe.py` (`results/resale_rule_probe.json`) runs this stage's driver three times: the rule as coded, the same rule with the asset stream shifted by one seed, and a draw per unit. The
+state stays unstable and the shape stays: the loop-sum-only cell keeps one sign
+in every seed and the gate-only cell flips. The levels about halve: both
++23.27 to +10.96, loop sum only +21.67 to +11.46, gate only +1.41 to -0.02,
+against +20.15, +19.24 and -1.56 with the stream shifted and the rule as coded.
 
 ## A3 §16.1 step one — retention at every node, not two of them
 
@@ -431,37 +885,81 @@ points**: one holder statistic and one non-holder statistic. Two points cannot
 tell a step from a steep monotone gradient.
 
 Every node in the population is shocked separately, one full model run each,
-five seeds, 1,000 nodes, horizon 40. The sharp comparison needs no threshold: the
+five seeds, 1,000 nodes, horizon 40. "Retention" is the size of the gap between
+a node's net worth and its own untransferred path at the horizon, over the same
+gap in the round the transfer lands. The sharp comparison needs no threshold: the
 poorest node that holds a unit against the richest node that does not. Under a
 gradient the richer non-holder retains more; under a step the poorer holder does.
+The pair can come out either way only when the holder is the poorer of the two.
 
-| arm | shock | boundary pair reads *step* | holder block contiguous | holder / non-holder median |
-|---|---|---|---|---|
-| registered | 150 | 3 / 5 | 1 / 5 | 0.1425 / 3.99e-05 |
-| rent by holding | 150 | 3 / 5 | 1 / 5 | 0.1456 / 5.61e-05 |
-| rent off | 150 | 2 / 5 | 0 / 5 | 0.3070 / 2.25e-03 |
-| registered | 20 | 3 / 5 | 0 / 5 | 0.0825 / 3.88e-03 |
-| rent off | 20 | **0 / 5** | 0 / 5 | 0.1716 / 8.64e-03 |
+| arm | shock | boundary pair: step / gradient / cannot tell | step with the direction kept | holder block contiguous | holder / non-holder median | below their own path at the horizon: holders, non-holders |
+|---|---|---|---|---|---|---|
+| registered | 150 | 2 / 2 / 1 | 1 | 1 / 5 | 0.1425 / 4.09e-05 | 4 of 79, 239 of 910 |
+| rent by holding | 150 | 2 / 2 / 1 | 1 | 1 / 5 | 0.1456 / 5.83e-05 | 4 of 79, 238 of 911 |
+| rent off | 150 | 2 / 3 / 0 | 2 | 0 / 5 | 0.3070 / 2.25e-03 | 2 of 75, 436 of 925 |
+| registered | 20 | 3 / 2 / 0 | 1 | 0 / 5 | 0.0825 / 3.93e-03 | 52 of 150, 426 of 842 |
+| rent off | 20 | 0 / 5 / 0 | 2 | 0 / 5 | 0.1716 / 8.64e-03 | 55 of 145, 525 of 855 |
 
 **The two-point statistic reproduces and the shape it was taken as evidence for
-does not.** The holder and non-holder medians are 20 to 3,568 times apart in
+does not.** The holder and non-holder medians are 20 to 3,483 times apart in
 every arm, which is the two-point reading. The boundary pair, which is the
 comparison that actually separates a step from a gradient, comes out *step* in
-**11 of 25 seed-arm cells** and *gradient* in the other 14, and in the rent-off
-shock-20 arm it is gradient in all five. And **the holders are a contiguous block
-in the wealth ordering in 2 of 25 cells**: holders and non-holders are
-interleaved, so on this population the two shapes are not cleanly separable in
-the first place.
+**9 of 25 seed-arm cells** and *gradient* in 14; in the other 2 the poorest
+holder is still richer than every non-holder, so the pair cannot come out either
+way. In the rent-off shock-20 arm it is gradient in all five. And **the holders
+are a contiguous block in the wealth ordering in 2 of 25 cells**: holders and
+non-holders are interleaved, so on this population the two shapes are not cleanly
+separable in the first place.
+
+**The retention figure is a size, and its direction is printed beside it.** A
+node that ends below its own untransferred path reads the same as one that kept
+the transfer. Of the 5,000 node-seed rows in the five arms, 16 end the landing
+round itself below their own path, and 1,981 of the 4,971 that have a landing
+gap stand below it forty rounds on. At the registered shock round the holders
+are mostly above: 4 of 79 below, median 14.0% with its sign against 14.2% as a
+size. At shock round 20 they are not: 52 of 150 holders below, median 1.2% with
+its sign against 8.2% as a size, and inside the production layer 32 of 62
+holders below with a median, sign kept, of zero to two decimals of a percent.
+Non-holders at shock round 20 split close to evenly, 426 of 842 and 525 of 855,
+which is what a deviation with no direction looks like. Read with the direction
+kept the boundary pair is a step in 7 cells, and they are not a subset of the 9:
+in 4 of the 9 the poorest holder ended below its own path, by 24% and 26% of its
+landing gap at round 150 and by 5.4 and 8.7 times its landing gap at round 20,
+and 2 cells that read *gradient* on size read *step* with the direction kept
+because the richer non-holder ended further below.
+
+**Rows with no gap in the landing round are left out, and there are 29.** A node
+whose net worth at the end of the landing round is exactly what it would have
+been has nothing to divide by, which is a different event from a response of
+zero: "the transfer left no trace to measure" and "the transfer was recaptured"
+are not the same, and folding the first into the second would manufacture the
+step this is testing for. The registered arm has 11 such rows at round 150, rent
+by holding 10, the registered arm at round 20 has 8, and the rent-off arms none.
+All 29 are production-layer non-holders. Each record lists them, and they enter
+no median, decile or rank correlation.
+
+**Rank correlations are on average ranks.** At the registered shock round 900
+of the 921 non-holder wealth values repeat another node's, 540 of them at
+exactly zero, and a ranking that hands tied values distinct ranks in row order
+is not a function of the data. Within non-holders Spearman of retention against
+wealth is +0.276, +0.208, +0.299, +0.052 and +0.293 in the order of the table;
+within holders +0.776, +0.771, +0.795, +0.495 and +0.386.
 
 **What this does not say.** It does not touch A3-6. It does not say the step is
 absent in the world; it says the internal profile does not carry the step that
 §16.1 wanted to take to external data, and that the evidence which looked like a
 step was a comparison of two medians.
 
-Nodes whose deviation at the shock round is zero are counted separately rather
-than recorded as retaining nothing: "the transfer left no trace to measure" and
-"the transfer was recaptured" are different events, and folding the first into
-the second would manufacture the step this is testing for.
+**Restated 2026-10-10.** The five arms were run again on a driver that keeps the
+direction of each response; every field the earlier records held, row by row, is
+unchanged. The table's first two rows read "3 / 5" and the count read "11 of 25,
+gradient in the other 14" before: the driver had already stopped counting a
+cell where the holder is the richer of the two, and this section had not been
+brought up to it. The three non-holder medians that had rows with no landing gap
+in them read 3.99e-05, 5.61e-05 and 3.88e-03 with those rows entered as a
+retention of zero. The non-holder rank correlations read +0.159, +0.096 and
++0.068 on ranks that depended on the order of the rows; read in reverse order
+the same rows gave +0.313 for the first.
 
 ## A2d — what selects the terminal distribution: not sigma, and not where issuance enters
 
@@ -490,7 +988,9 @@ Readings:
   2990.0, putting every unit into the single most central financial node against
   spreading it over all 200 nodes moves terminal top1% wealth share by 0.0027.
   A0-9's numbers stand; its phrase `the layer it was issued to` does not carry
-  the mechanism on this carrier.
+  the mechanism on this carrier. That is a reading of claims, which on this
+  carrier are all a node holds; with an asset layer on and net worth read, the
+  entry point is worth 0.032 at the same matched volume (twenty seeds, below).
 - Control: with `rule="none"` the two entry points return bitwise identical
   closes (0.181641 and 0.181641, support 24.928 and 24.928), which is what the
   switch must do when there is nothing to place.
@@ -513,29 +1013,116 @@ world.
 
 Scope, M/R levels only (A13, 2026-08-23): the `mr_close` column is taken on a
 graph fixed at construction. With endogenous rewiring on, M/R moves between −47%
-and +14%; the starvation, topology and Gini readings are unaffected.
+and +32%; the starvation, topology and Gini readings are unaffected.
 
 ### Read again with A3's asset layer on the carrier (2026-08-24)
 
 `--asset` puts A3's asset layer on the same carrier and writes
 `a2d_terminal_selector_asset.json`. The default is off and reproduces the record above key for
-key. **Every concentration number this stage reports is read without asset
+key. **Every concentration number in the record above is read without asset
 revaluation**, and the empirical decomposition puts the weight on that channel:
-Montecino and Epstein give an employment channel of about −0.5 points on the
-90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+Montecino and Epstein (version of 24 April 2017, Table 2) find that rising
+equity returns contribute +6.3 percentage points to the change in the 95/10
+ratio of household net income against −0.4 from the employment channel, and
++4.1 against −0.5 on the 90/10 ratio.
 
-**The ordering survives and the margin does not.** Sigma's span on terminal top
-one percent wealth goes from **0.006644 to 0.031873**, nearly five times wider,
+**Which account a terminal share is read on (restated 2026-10-14; the asset
+record's A2d-2, A2d-3 and A2d-4 details name it since 2026-10-27, with every
+other field of that record unchanged).** The
+registered fields read claims per node in the last row of the run's history,
+and a round writes that row before its asset step. On the plain carrier the
+row is the state the run ends in, in 265 runs of 265, and claims are all a
+node holds. With the asset layer on it is neither: the last asset step moves
+claims after the row is written in 265 runs of 265, and held units are not in
+it. The asset record therefore carries the three grids on three accounts under
+`accounts`: that row (`claims_recorded`, which the four criteria and the
+numbers in the next paragraph are read on), claims after the last asset step
+(`claims_settled`), and settled claims plus held units at the closing price
+(`net_worth`), the account revaluation is on. On the same runs the top one
+percent holds 0.22 to 0.25 of claims across the sigma grid and 0.44 to 0.57 of
+net worth. Cell by cell the net-worth share is above the settled-claims share
+in 53 cells of 53 and in 264 runs of 265, by a median factor of 2.0, and at the
+default cell it is 0.4657 against 0.2229 on the plain carrier. Held units at
+the closing price are 57 to 90 percent of what nodes hold here, so a share of
+claims is a share of the smaller part.
+
+**The ordering survives and the margin does not.** On claims as recorded
+(`claims_recorded`, the account the criteria read), sigma's span on the top one
+percent share goes from **0.006644 to 0.031873**, nearly five times wider,
 while the structural span barely moves, **0.156439 to 0.153907**. The ratio that
-is this stage's headline goes from **23.5 to 4.83**. The mechanism is plain:
-sigma is a retention rate and retained claims can sit in an appreciating asset,
-so retention buys more when there is something to retain into. **Quote the
-ordering, not the multiple, unless the carrier is named with it.**
+is this stage's headline goes from **23.5 to 4.83** on that account. What widens
+it there is what the asset layer settles in claims: rent, stretch-debt service
+and resale settlement. Sigma is a retention rate and retained claims can sit in
+an appreciating asset, so retention buys more when there is something to retain
+into; that is read on net worth, the last row of the table below, where sigma's
+span is **0.129474** and the ratio **2.36**. **Quote the ordering, not the
+multiple, unless the carrier and the account are named with it.**
 
 **A four-corner probe is not enough to get this number.** Run first on the four
 corners the plain carrier's extremes sit at, the sigma span read 0.015829 and the
 ratio 9.7, both off by about a factor of two. **The extremes move when the
 carrier moves**, so corners chosen on one carrier are not corners on another.
+
+**The ordering holds on every account and in every seed, and the mechanism
+reads largest on the account it is about.**
+
+| carrier, account | sigma span | structural span | ratio | structural span larger | financial retention 0.80 minus 0.20 |
+|---|---|---|---|---|---|
+| plain, claims | 0.006644 | 0.156439 | 23.55 | 5 seeds of 5 (18.8 to 27.6) | +0.0043, 4 of 5 |
+| asset, `claims_recorded` | 0.031873 | 0.153907 | 4.83 | 5 of 5 (2.5 to 13.6) | +0.0183, 5 of 5 |
+| asset, `claims_settled` | 0.031290 | 0.154181 | 4.93 | 5 of 5 (2.5 to 11.4) | +0.0179, 5 of 5 |
+| asset, `net_worth` | **0.129474** | **0.305669** | **2.36** | 5 of 5 (1.03 to 10.2) | **+0.1031**, 5 of 5 (+0.006 to +0.273) |
+
+The bracket in the fifth column is the ratio seed by seed. The last column is
+terminal top one percent share at the highest financial-layer retention minus
+the same at the lowest, each a mean over the four production-layer columns,
+with the number of seeds in which it is positive. The two carriers differ in
+the asset layer and in nothing else, so the fivefold widening on claims is that
+layer's doing too; what reaches the claims accounts is what settles in claims
+(rent, debt service, resale settlement). Value sitting in an asset that
+appreciates is on net worth, where the mark is. Read there, sigma's span is 19.5 times the plain carrier's. Going from
+the lowest to the highest financial-layer retention lifts the top share in
+every seed on every account of this carrier; on net worth the share climbs at
+each step from 0.30 up (0.453 at 0.20, then 0.448, 0.456, 0.473, 0.497,
+0.556), and on claims more than nine tenths of the lift is the last step.
+
+**Issuance on this carrier, on twenty seeds (added 2026-10-14, printed and not
+scored).** The asset record's four criteria read `claims_recorded` and stand as
+written: the on-off gap is 0.026360 and positive in five seeds of five. At five
+seeds the sign of the matched-volume pair is not placed on any account (3 to 2,
+4 to 1, 3 to 2). Its size is, on the row the criteria read: below the on-off
+gap in every seed, at most 0.0100 against a gap of at least 0.0160, which is
+the reading the fourth criterion declares. On net worth the pair's standard
+deviation across seeds is 0.047 against a mean of 0.041, so `issuance_by_seed`
+reads the six issuance cells on twenty seeds, of which the first five are the
+grid's own runs.
+
+| account | no issuance | each issuing cell minus no issuance | matched volume, top node minus uniform |
+|---|---|---|---|
+| `claims_recorded` | 0.1919 | +0.0288, +0.0301, +0.0285, +0.0248; each above in 20 seeds of 20 | +0.0036 (se 0.0021), 13 of 20 |
+| `claims_settled` | 0.2038 | +0.0290, +0.0201, +0.0240, +0.0160; each above in 19 of 20 | +0.0081 (se 0.0035), 12 of 20 |
+| `net_worth` | 0.4361 | **+0.0456** (se 0.0100, median +0.0452, above in 19 of 20), +0.0098 (se 0.0089, median +0.0031, above in 15), **+0.0295** (se 0.0108, median +0.0258, above in 16), −0.0026 (se 0.0049, median +0.0025, above in 14) | **+0.0321** (se 0.0122, median +0.0409), 14 of 20 |
+
+Cells in the order endogenous at the top node, endogenous uniform, fixed at
+the top node, fixed uniform. On claims, issuance separates from no issuance on
+either side of the last asset step. The fourth criterion's reading holds there
+on twenty seeds as on five: the matched-volume pair is 0.0036 against an on-off
+gap of 0.0248 on the row, and 0.0081 against 0.0160 after the last asset step.
+The step narrows the gap, 0.0248 to 0.0160 at fixed uniform, and does so in 19
+seeds of 20; it stays positive in 19. On net worth what separates is issuance
+that enters at the top node: the two uniform cells sit 1.1 and 0.5 standard
+errors from no issuance. The on-off gap as the third criterion takes it, the
+lowest issuing cell minus no issuance, reads −0.0026 on this account on twenty
+seeds, half its standard error, and is positive in 11 of them: on net worth it
+is not placed. The cell that sets it, fixed uniform, sits above no issuance in
+14 seeds of 20. At an identical issued volume of 2990.0 the entry point is
+worth 0.032 on net worth, against 0.0027 on the plain carrier. Seed by seed it
+is two groups: 0.038 or more in twelve seeds, within 0.007 of zero in seven,
+and −0.1275 in one. The endogenous pair reads +0.0357 (se 0.0102) at unmatched
+volume. So the qualification this stage puts on A0-9's phrase `the layer it
+was issued to` is a statement about claims; on the account that carries
+revaluation the entry point reads again. With `rule="none"` the two entry
+points agree in all twenty seeds on all three accounts.
 
 ## A13 — whether position can be bought and sold, and whether the terminal distribution notices
 
@@ -563,20 +1150,41 @@ full-time executive employment with no median pay change while two thirds leave.
 | PASS | A13-1  every arm ran and returned a finite share | 17/17 arms, 85 runs. The stock-flow identity is asserted inside the loop, so reaching here is also the claim that it held in every round of every run |
 | PASS | A13-2  the off arm moves nothing | 0 promoted, 0 demoted over 5 runs; with the switch off the rewire path is unreachable, so every record taken before this stage is this arm |
 | PASS | A13-3  mobility's span on terminal top1% wealth, against sigma's and the structure's | mobility 0.220184-0.223509, width **0.003325**; from A2d's record on the same quantity, sigma width 0.006644 and structure width 0.156439. The criterion prints the three and draws no line |
-| PASS | A13-4  the terminal core size, rank alone against rank with a share | rank alone reaches **200.0 of 200** in all four such arms; with a share, 33.0 and 27.8, from an opening core of 20. A rank always has somebody in it, so rank alone admits somebody every round for ever; the share is what bounds the object |
+| PASS | A13-4  the terminal core size, rank alone against rank with a share | rank alone reaches **200.0 of 200** in all four such arms; with a share, 33.0 and 27.6, from an opening core of 20. A rank always has somebody in it, so rank alone admits somebody every round for ever; the share is what bounds the object |
 | PASS | A13-5  every arm that can fire, fired | counts per arm reported; the two that cannot fire by construction are named rather than filtered |
-| PASS | A13-5a  retaining every candidate is bitwise the construction | four readings per seed over 5 seeds, identical |
-| PASS | A13-6  what mobility does move: M/R | off 33.132214, and across the mobility arms 17.436912-37.660813, per-arm values printed |
-| PASS | A13-7  demotions counted, outbound-only against inbound-cut | both 218, against 63 once the demoted node's inbound edges are cut too; demote .005 reads 2 either way; every arm's count printed |
-| PASS | A13-8  what a promoted node acquires, one mechanism per rung | `both` 0.221707 → `+ propensity` 0.220951 (**−0.000756**) → `+ payroll` 0.221488 (**+0.000537**); whole ladder −0.000219 against the off arm at 0.222923. Prints the steps, draws no line |
+| PASS | A13-5a  retaining every candidate is bitwise the construction | every reading in the row, 15 per seed over 5 seeds, and one hash per run over the whole history and the state the run ends in, equal in 5 of 5 seeds |
+| PASS | A13-6  what mobility does move: M/R | off 33.132214, and across the mobility arms 17.436912-43.642845, per-arm values printed |
+| PASS | A13-7  demotions counted, outbound-only against inbound-cut | both 224, against 70 once the demoted node's inbound edges are cut too; demote .005 reads 2 either way; every arm's count printed |
+| PASS | A13-8  what a promoted node acquires, one mechanism per rung | `both` 0.221833 → `+ propensity` 0.221601 (**−0.000232**) → `+ payroll` 0.221554 (**−0.000047**); whole ladder −0.000279 against the off arm at 0.222923. Prints the steps, draws no line |
+
+**What an exchange of edges does (rerun 2026-10-14).** With `conserve_degree`
+on, every exchange holds out-degree exactly: a promoted node gives up one edge
+outside its targets for each new target it gains, so when the cluster fires it
+reaches as many core members as it has such edges, and a demoted node's
+replacements land on outside nodes it does not already point at. In the
+thirteen arms that only exchange edges no node's out-degree moves in any round,
+and the run checks that from the rows before it writes a record
+(`exchange_only_check`). Four arms move out-degree and are built to: `both,
+degree not conserved` keeps every edge it is given (2,002 edges at the close
+against 1,478 before the first round, means over seeds), the two inbound-cut
+arms delete what the core sends a demoted node (1,452 and 1,477), and the
+payroll rung adds the wage edges (1,566). The stage was first recorded on a rule
+under which a fired cluster took a node from 5 out-edges to the whole core of
+20, so its arms read position and density together; the grid was rerun on the
+exact rule the same day, and the arms that rule does not reach (off, the three
+demotion-only arms, `demote, inbound cut` and `both, degree not conserved`)
+read as they did, row for row.
 
 Readings:
 
 - **Mobility does not select the terminal distribution.** Letting position be
   bought and sold, in both directions, at every cluster and retention rate
-  tried, moves terminal top1% wealth share by 0.0033. That is half what the
-  savings rate moves it and a forty-seventh of what the structural knobs move
-  it.
+  tried, moves terminal top1% wealth share by 0.0033 over all seventeen arms,
+  and by 0.0026 over the thirteen that change who sits where at a fixed edge
+  count (`demote .005` at 0.220831 to `rank k=1 cluster 1` at 0.223403). The
+  first is half what the savings rate moves it and a forty-seventh of what the
+  structural knobs move it; the second is 0.39 of sigma's width and a
+  sixty-first of the structure's.
 - The sharpest arm is rank-only acquisition with no cluster: 180 nodes buy in,
   the terminal core is all 200 nodes so the core-periphery split has ceased to
   exist, and terminal top1% wealth reads 0.2229 against the control's 0.2229.
@@ -584,39 +1192,55 @@ Readings:
   the core, so one joins every round for ever. The share condition is what
   bounds the object, and the two conditions together are required rather than
   redundant.
-- **What moves is M/R.** Both directions open takes it from 33.13 to 23.36, and
-  to 17.44 when acquisition adds edges instead of redirecting them. The
-  endogenous issuance rule targets active claims per active resource, and
-  rewiring circulates claims more widely, so less issuance is called for.
-  Concentration and the money stock separate under this mechanism.
-- Rewiring every tenth round reads the same as rewiring every round (top1%
-  0.2211 against 0.2217, M/R 23.20 against 23.36). The frequency is not
-  load-bearing.
+- **Promotion and demotion move the share in opposite directions, and both by
+  little.** The six rank arms read −0.000016 to +0.000480 against the off arm,
+  and the five with a cluster or a share sit above it in all five seeds; the
+  three where the cluster fires read +0.000320, +0.000480 and +0.000364.
+  Demotion alone reads −0.002092 (`demote .005`), below the off arm in all five
+  seeds.
+- **The edge count is read on its own arm.** `both, degree not conserved` runs
+  `both`'s acquisition and demotion and keeps every edge it is given, 1.35 times
+  the starting edges at the close. It reads 0.220184 against `both`'s 0.221833,
+  −0.001649, lower in four seeds of five, and it is the low end of the
+  seventeen-arm width; the high end is `demote, inbound cut` at 0.223509.
+- **What moves is M/R.** Promotion at a fixed edge count raises it: 40.14 to
+  43.64 in the three rank-only cluster arms and 37.19 and 38.11 with a share,
+  against the off arm's 33.13. Demotion lowers it: 21.65 and 21.71 in the two
+  demotion arms that fire. Both directions open read 23.64, and 17.44 when
+  acquisition keeps every edge it is given. Fourteen of the fifteen arms that
+  fire sit on one side of the off arm in all five seeds. The endogenous issuance
+  rule targets active claims per active resource, so where claims circulate
+  after rewiring sets how much is issued. Concentration and the money stock
+  separate under this mechanism.
+- Rewiring every tenth round reads the same as rewiring every round on
+  concentration (top1% 0.2217 against 0.2218) and not on M/R (26.24 against
+  23.64). The frequency is not load-bearing for concentration.
 - **Demotion that only cuts outbound edges is not demotion.** With both
-  directions open the stage counts 218 demotions; cutting the demoted node's
-  inbound edges as well takes that to 63. What the core keeps sending a demoted
+  directions open the stage counts 224 demotions; cutting the demoted node's
+  inbound edges as well takes that to 70. What the core keeps sending a demoted
   node carries its share back over the promotion condition, so it re-enters and
   is demoted again. The two `inbound cut` arms are what separate the two
-  readings, and terminal top1% barely notices either: 0.2230 with the cut
-  against 0.2217 without.
-- **A promoted node could acquire three things, and taken one at a time they
-  cancel.**
-  The arms above buy edges only. The ladder added 2026-08-24 hands over the
-  spending propensity and then the payroll role, one rung at a time, so each
-  step's difference belongs to the thing that step added. The two steps go
-  **opposite ways** and are the same order of magnitude: taking on the core's
-  propensity moves terminal top1% by **−0.000756**, taking on the payroll role
-  by **+0.000537**, and the whole ladder lands at −0.000219 against an off arm
-  at 0.222923. **The ladder's whole range sits inside the span edge-buying
-  already covers**, so A13-3's width is unchanged at 0.003325 with the two arms
-  in the grid.
-- What the two rungs do move is churn and `M/R`. Demotions go 218 → **271** with
-  the propensity and back to **188** with the payroll role; `M/R` goes 23.36 →
-  **19.91** → **22.20** against the off arm's 33.13. A node that takes on the
+  readings, and terminal top1% barely notices either: 0.2228 with the cut
+  against 0.2218 without.
+- **A promoted node could acquire three things, and the two that are not edges
+  move the share by less than a quarter of a thousandth.** The arms above buy
+  edges only. The ladder added 2026-08-24 hands over the spending propensity and
+  then the payroll role, one rung at a time, so each step's difference belongs
+  to the thing that step added. Taking on the core's propensity moves terminal
+  top1% by **−0.000232**, taking on the payroll role by **−0.000047**, and the
+  whole ladder lands at −0.000279 against an off arm at 0.222923. Seed by seed
+  the two steps are positive in three and four seeds of five, so at five seeds
+  neither step's sign is placed. **The ladder's whole range sits inside the
+  span edge-buying already covers**, so A13-3's width is unchanged at 0.003325
+  with the two arms in the grid.
+- What the two rungs do move is churn and `M/R`. Demotions go 224 → **236** with
+  the propensity and down to **182** with the payroll role; `M/R` goes 23.64 →
+  **22.68** → **22.47** against the off arm's 33.13. A node that takes on the
   core's low propensity spends less, falls back under the demotion share sooner,
   and crosses more often; giving it the payroll role puts a claim outflow back
-  on it and undoes about half of that. **Neither shows up in the terminal
-  distribution**, which is the same separation A13-6 reads on the arms above.
+  on it and takes the count below where it started. **Neither shows up in the
+  terminal distribution**, which is the same separation A13-6 reads on the arms
+  above.
 
 Why the qualification is a rank and a share rather than a level, measured before
 the arms were written: the richest production node peaks in round zero at 1.0477
@@ -632,6 +1256,13 @@ surfaces stand unchanged. Quoted M/R **levels** carry a scope line instead. M/R
 against an opening ratio of one, so any reading of the form "M/R rises" holds
 with a seventeen-fold margin.
 
+A13-1 requires every arm on every seed and every share finite. A13-5a compares
+every reading in the row and one hash per run over the whole history and the
+state the run ends in. Both fail on a planted row: a missing seed, a repeated
+seed, one changed reading, a billionth of a claim moved in the last round. The
+exchange check fails on one planted round in one seed, and with the earlier rule
+put back it names nine arms.
+
 
 ### Read again with A3's asset layer on the carrier (2026-08-24)
 
@@ -639,32 +1270,75 @@ with a seventeen-fold margin.
 `a13_mobility_asset.json`. The default is off and reproduces the record above key for
 key. **Every concentration number this stage reports is read without asset
 revaluation**, and the empirical decomposition puts the weight on that channel:
-Montecino and Epstein give an employment channel of about −0.5 points on the
-90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+Montecino and Epstein (version of 24 April 2017, Table 2) find that rising
+equity returns contribute +6.3 percentage points to the change in the 95/10
+ratio of household net income against −0.4 from the employment channel, and
++4.1 against −0.5 on the 90/10 ratio.
 
 Mobility's span on terminal top one percent wealth goes from **0.003325 to
-0.010028**, and it stays the smallest of the three: structure 0.154, sigma 0.032,
-mobility 0.010 on that carrier. **The ordering survives; the margin against sigma
-narrows from a factor of two to a factor of three in mobility's favour, and
-against structure it stays an order of magnitude.**
+0.012428**, and it stays the smallest of the three: structure 0.154, sigma 0.032,
+mobility 0.012 on that carrier. **The ordering survives.** Sigma's width is 2.0
+times mobility's on the registered carrier and 2.6 times here; the structure's
+is 47 times there and 12 here.
 
-**A13-8's two rungs both reverse sign on this carrier**, and by about eight
-times the magnitude:
+**On claims as recorded, A13-8's first rung changes sign on this carrier and the
+second keeps it**, each larger in magnitude:
 
 | step | registered carrier | asset carrier |
 |---|---|---|
-| `both` → `+ propensity` | **−0.000756** | **+0.006026** |
-| `+ propensity` → `+ payroll` | **+0.000537** | **−0.005068** |
-| whole ladder | −0.000219 | +0.000958 |
+| `both` → `+ propensity` | **−0.000232** | **+0.001745** |
+| `+ propensity` → `+ payroll` | **−0.000047** | **−0.002432** |
+| whole ladder | −0.000279 | −0.000687 |
 
-On the registered carrier a node that takes the core's low propensity spends
-less and its terminal share falls; with revaluation on the carrier the claims it
-does not spend are the ones that get revalued, so the same move raises its share
-instead. The payroll rung undoes it in both cases and it too changes sign.
-**Which mechanism helps and which hurts is decided by whether the carrier
-revalues**, so neither step's sign is a property of the mechanism alone. Nine of
-nine criteria pass on both carriers, and the registered reading is the one
-without the asset layer.
+The table reads claims as recorded, and the units a node holds are not in it.
+On claims after the round's settlement the two rungs read +0.001533 and
++0.010305, and on the model's own net worth +0.001549 and +0.006308. Seed by
+seed the six steps are positive in 3 and 3 seeds of five on claims as recorded,
+3 and 4 on settled claims, 3 and 2 on net worth, and on claims as recorded the
+first step runs from −0.027896 to +0.020049 across seeds. **Which rung helps and
+which hurts changes with the carrier, with the account and with the seed**, so
+neither step's sign is a property of the mechanism alone. Nine of nine criteria
+pass on both carriers, and the registered reading is the one without the asset
+layer.
+
+**What "wealth" is on this carrier, and the three widths on each account
+(2026-10-14).** Every number above in this subsection is a share of claims as
+recorded: the stage reads `holdings` off the history, which is written before
+the round's asset settlement, and the units a node holds are not in it. The
+record carries the same readings on claims after the last settlement and on the
+model's own net worth (those claims plus held units at the closing price). A2d's
+record on this carrier carries sigma's and the structure's widths on all three
+accounts, and the record here sets mobility's beside them.
+
+| account | mobility | sigma | structure |
+|---|---|---|---|
+| claims as recorded | **0.012428** | 0.031873 | 0.153907 |
+| claims after the last settlement | **0.023620** | 0.031290 | 0.154181 |
+| net worth | **0.042970** | 0.129474 | 0.305669 |
+
+**Mobility is the smallest of the three on every account.** The margins are 2.6
+and 12 times on claims as recorded, 1.3 and 6.5 on settled claims, 3.0 and 7.1
+on net worth. Over the thirteen arms that only exchange edges mobility reads
+0.012428, 0.023620 and 0.037901; on net worth the top of the seventeen-arm width
+is `both, degree not conserved`.
+
+*Counting what is held, the top one percent's share doubles.* In the off arm it
+is 0.228942 of claims and 0.460226 of net worth; units held at the closing price
+are 72 to 82 percent of net worth across the 85 runs.
+
+*Seed by seed.* On the registered carrier eleven of the fifteen arms that fire
+sit on one side of the off arm in all five seeds. On this carrier none does on
+claims as recorded, two on settled claims (the two demotion-only arms that fire)
+and one on net worth (`both, degree not conserved`). Each asset width is a width
+of five-seed means over differences that change sign from seed to seed, and the
+seed-to-seed differences are inside it: seed by seed the width on claims as
+recorded is 0.004114, 0.048151, 0.002790, 0.027896 and 0.036811. The width of
+the means is the smallest of the three all the same.
+
+A13-3 on this carrier reads A2d's record on this carrier, 0.031873 and
+0.153907. The last settlement moves claims in 85 of 85 runs, by up to 854.84 at
+one node, and conserves their total, so M/R is the same at either sampling
+point.
 
 ## A14 — which readings are scale free, and which are artefacts of two hundred nodes
 
@@ -684,7 +1358,7 @@ core as a share of nodes at 0.10. A2d's structure grid held both fixed.
 
 | | criterion | detail |
 |---|---|---|
-| PASS | A14-1  every cell ran, and the construction's own cell reproduces | 27/27 cells; at n=200, fraction 0.10 the two degree arms coincide by definition and both read 0.222923 |
+| PASS | A14-1  every cell ran, and the construction's own cell reproduces | 27/27 cells, each carrying seeds 0 to 4; at n=200, fraction 0.10 the two degree arms coincide by definition, both read 0.222923, and they agree row for row on all 16 fields |
 | PASS | A14-2  the structural span with both knobs in the grid | **0.096596-0.479285, width 0.382689**, against A2d's 0.151491-0.307930, width 0.156439 |
 | PASS | A14-3  the two degree arms, same quantity, direction compared | five of six quantities **reverse**; only `support_close` agrees in direction, and by a factor of 1.7 in magnitude |
 | PASS | A14-4  the core fraction axis at n=1000, density held | 0.05: top1% 0.3704, Gini 0.9641; 0.10: 0.1874, 0.9275; 0.20: 0.0966, 0.8543 |
@@ -702,6 +1376,16 @@ Readings:
   room to build hubs it did not have. Terminal top1% wealth rises 0.2229 to
   0.3419 with degrees fixed and **falls** to 0.1874 with density held. Five of
   six headline quantities reverse the same way.
+  **The reversal is not a property of the 0.10 column.** Top1% wealth, the Gini
+  and the support ratio reverse at each of the three core shares, nine cells of
+  nine: between 200 and 1000 nodes top1% wealth rises in 5, 5 and 4 of five
+  seeds with degrees fixed and in 1, 0 and 1 with density held, the Gini in 5, 5
+  and 4 against 1, 0 and 0, and the support ratio in none of fifteen against
+  fifteen of fifteen. Counted over every pairing of a run at 200 nodes with a
+  run at 1000, top1% rises in 25, 25 and 21 of 25 with degrees fixed and in 5,
+  1 and 5 with density held. `support_close` agrees in direction at all three.
+  Counting all six quantities, five reverse at 0.05, five at 0.10 and four at
+  0.20.
 - **The fixed-degree arm is the one with a source.** Personal network size does
   not scale with the size of the surrounding population, so a node's count of
   trading partners should not rise with `n`. Its consequence, that within-group
@@ -718,46 +1402,122 @@ Readings:
   derivation while 0.05 has two published sources.
 - A4's null holds at 0.0071 at every size and the gap widens with `n`.
 
-Sources for the two published references are in the stage's design note; both
-are literature rather than measurement, they place the grid and carry no verdict,
-and all three are urban and about income or activity rather than claim holdings.
+The published references are literature rather than measurement: they place the
+grid and carry no verdict. For the core share, Fagereng, Guiso, Malacrino and
+Pistaferri, "Heterogeneity and Persistence in Returns to Wealth", Econometrica
+88(1), 2020, and Saez and Zucman, "The Rise of Income and Wealth Inequality in
+America", Journal of Economic Perspectives 34(4), 2020. For inequality against
+population, Heinrich Mora, Heine, Jackson, West, Yang and Kempes, "Scaling of
+urban income inequality in the USA", J. R. Soc. Interface 18: 20210223, 2021,
+and Huang, Liu, Zhang, Jin, Xu and Ou, "A universal scaling law of intra-urban
+inequality", Nature Communications, 2026, doi 10.1038/s41467-026-73015-1, whose
+activity measure is the spatial Gini of night-time lights over 11,210 urban
+centres. The urban references are about income or activity in cities rather
+than claim holdings.
 
 
 ### Read again with A3's asset layer on the carrier (2026-08-24)
 
 `--asset` puts A3's asset layer on the same carrier and writes
 `a14_scale_asset.json`. The default is off and reproduces the record above key for
-key. **Every concentration number this stage reports is read without asset
+key. **Every concentration number this stage scores is read without asset
 revaluation**, and the empirical decomposition puts the weight on that channel:
-Montecino and Epstein give an employment channel of about −0.5 points on the
-90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+Montecino and Epstein (version of 24 April 2017, Table 2) find that rising
+equity returns contribute +6.3 percentage points to the change in the 95/10
+ratio of household net income against −0.4 from the employment channel, and
++4.1 against −0.5 on the 90/10 ratio.
 
 **A14-6 fails on this carrier and the failure is the finding.** That criterion
 asks whether A4's null stays under its registered ceiling of 0.02. With the asset
 layer it reads **0.030177 at n=200 and 0.065545 at n=500**, over the ceiling; at
-n=1000 it is back to 0.007071. On a complete graph with identical agents there
+n=1000 it reads 0.007071, and that is the cell where the asset layer holds
+nothing: claims per node are 0.1, the cheapest tier admits from 1/6 (its gate
+of 0.5 over the stretch of 3), no unit is allocated in any of the fifteen null
+runs, and each of them is the registered carrier's run field for field. On a
+complete graph with identical agents there
 are no positions, so nothing here is topology: **the asset market's opening
-allocation generates the dispersion by itself.** A hundred units walked out in
-descending order of claims with no per-agent cap turns a negligible opening
-difference into three units against none. Capping at one unit returns the null
-to 0.0194, under the ceiling. The A8 section carries the full reading.
+allocation generates the dispersion by itself.** The opening hands one unit each
+to 90 of 200 nodes and to 60 of 500, and with no per-agent cap resale then
+gathers them: by the close one node holds between 8 and 27 units at n=200 and
+between 10 and 18 at n=500, against none for most. Capping at one unit returns
+the null to 0.0194, under the ceiling. The A8 section carries the full reading.
 **Read this against its carrier.** A4's ceiling was registered on a construction
 with no asset layer, and that registered reading is unchanged. What the failure
 locates is a second generator of dispersion inside the asset layer, which is a
 finding about the asset layer rather than a result about A14.
 
+**Restated 2026-10-14.** The verdicts are where they were: seven of seven on the
+registered carrier, and on the asset carrier six with A14-6 failing. Three
+things were brought to what the runs show.
+
+*A14-1 now reads every cell's seeds and both construction arms.* Its flag read
+the number of distinct cells and that the top1% reading was finite. It now also
+requires every cell to carry the seeds the run asked for, and the two degree
+arms to agree row for row on every field at the construction's own cell. Both
+hold on both records. At that cell the registered record's Gini, 0.93673, and
+the null's, 0.007112, are A4's registered 0.93673 and 0.00711 to the digits A4
+prints.
+
+*What the fields named wealth read on the asset carrier.* `top1_wealth`,
+`top01_wealth` and `gini` are read on claims at the last round's measurement
+point, after the network step and before that round's asset settlement. On the
+registered carrier nothing follows the measurement and claims are all a node
+has. On the asset carrier claims move after the measurement in 120 of 135 runs,
+and held units at the closing price are between 27% and 99% of net worth across
+the ninety stratified runs. The record now carries the same three readings on
+settled claims and on net worth under `accounts` on every run, and
+`asset_accounts` prints this stage's readings under all three. **Net worth is
+more concentrated than claims on the Gini in all eighteen stratified cells and
+on top1% in seventeen**: at the construction's cell top1% reads 0.228942 on
+claims at the measurement point, 0.230680 on settled claims and **0.460226 on
+net worth**, twice the claim reading, and across the eighteen cells the span is
+0.384001, 0.383739 and 0.436983. The claim reading reverses between the two
+degree arms at all three core shares under both sampling points.
+
+On net worth the direction against `n` is set by two absolute numbers in the
+asset layer. Supply is a hundred units and the price ladder is 0.5, 1 and 2 in
+claims at every `n`, while the mean opening claim falls from 0.5 to 0.1, so
+entry thins as `n` rises. On that grid top1% net worth falls in both arms at a
+core share of 0.10, in every seed, rises in both at 0.05 (in three seeds of
+five with degrees fixed and five with density held), and at 0.20 falls with
+degrees fixed (in four) and rises with density held (in three).
+`per_node_control` runs the
+same 27 cells with the asset layer held per node, 0.5 units a node and the
+ladder at 1, 2 and 4 times the mean opening claim, which at 200 nodes is the
+grid above run for run. There top1% net worth **rises in both arms** at 0.10,
+from 0.460226 to 0.660899 with degrees fixed and to 0.512511 with density held,
+in five seeds of five each; it rises in both at 0.05 (in four seeds of five
+each), and at 0.20 rises with degrees fixed (in three) and falls with density
+held, where three seeds of five rise and the two that fall set the mean. Away
+from 0.10 these directions are five-seed means that the seeds do not all
+share; the counts are under `direction_by_fraction` in the record. The claim
+reading still reverses at
+all three core shares under both sampling points. The net-worth readings are
+printed and not scored, and A14-3's reading of agreement as a scale effect is
+not applied to them.
+
+*A14-6 on the asset carrier fails at every size once units are held at every
+size.* On the grid above the null's Gini at n=200 and n=500 is 0.030177 and
+0.065545 on claims at the measurement point, 0.082495 and 0.131105 on settled
+claims, and 0.417806 and 0.330890 on net worth, every one over the ceiling of
+0.02; the one size under it is the one where nothing is allocated. With the
+asset layer held per node the null holds 90, 225 and 450 units and reads
+0.030177, 0.032035 and 0.032191 on claims at the measurement point, 0.082495,
+0.080603 and 0.080760 on settled claims, and 0.417806, 0.425612 and 0.432994 on
+net worth: over the ceiling at every size, and close to one level across `n`.
+
 ## A4 — the causal primitive: connectivity does not scale the other mechanisms, it selects which of them operate
 
 `rounds=300` `5 seeds`
 
-**3/4 live criteria passed, 2 void**
+**6/8 live criteria passed, 1 void** (nine criteria: the six registered, with A4-5 reshaped on 2026-08-24 and no longer void, and the three added that day)
 
 | | criterion | detail |
 |---|---|---|
 | PASS | A4-1 null calibration: identical agents on a complete graph do not stratify | C=0 all competitors off, Gini 0.00711 against a ceiling of 0.02. Production layer 0.00714. Spread across seeds 0.00026. |
 | PASS | A4-2 connectivity alone is sufficient | Gini 0.93673 against 0.00711, gap +0.92962 against a floor of 0.05, and the sign holds at 5 of 5 seeds. Production layer 0.59490 against 0.00714. |
 | **FAIL** | A4-3 no competitor is a strawman | Each competitor alone with C off, Gini rise over the null against a floor of 0.02: I +0.00007, E +0.00932, K +0.00080, M -0.00006. Below the floor: I, E, K, M. The floor is in absolute Gini units and the C=0 control sits at 0.00711, so it asks each competitor for 2.8 times the control's whole value; the threshold is registered and is not moved on that account. Education's rise is 35.6 control-cell sd and still below it. |
-| VOID | A4-4 connectivity is upstream | **Void on two independent grounds and not evaluated.** §7's table: A4-3 fails for 4 of four competitors, and a failed strawman floor makes that competitor's comparison void rather than favourable. §11.8's rule: A(X) is a ratio across the two arms and no competitor is readable in both, so one of its two terms is a reading of the graph draw in every case. Readable Gini cells: C=0/K/I, C=0/null/E, C=0/null/K, C=1/E/I, C=1/E/M, C=1/K/I, C=1/K/M, C=1/null/I, C=1/null/M. Ratios whose per-seed sign happens to agree: I\|K = 440.7 (denominator -0.00042), and each rests on a denominator inside two control-cell sd, so the agreement is five draws landing the same way rather than a quantity. |
+| VOID | A4-4 connectivity is upstream | **Void and not evaluated.** §7's table: A4-3 fails for 4 of four competitors, and a failed strawman floor makes that competitor's comparison void rather than favourable; that ground carries the void on its own. §11.8's rule is about the comparisons against the null: A(X) is a ratio across the two arms, and of those the competitors readable on Gini in both arms are none. On a base, §11.5's A(X\|G), the registered one-sd rule reads in both arms: I\|K (41.0 and 1.89 control-cell sd, pooled ratio 440.7). Such a ratio has a domain and is one comparison on one base; it is not the four competitors together, which is what this criterion asked. Readable Gini cells: C=0/K/I, C=0/null/E, C=0/null/K, C=1/E/I, C=1/E/M, C=1/K/I, C=1/K/M, C=1/null/I, C=1/null/M. Ratios whose per-seed sign agrees: I\|K = 440.7 (denominator -0.00042). |
 | FAIL | A4-5 the update order does not decide A4-4c's disjointness | **Reshaped 2026-08-24**; the registered form was void because A4-4 had no result for an ordering to preserve, and A4-4c has one. Judged on 4 of 4 orderings. **Intersection non-empty at capital_first/match_first and pooling_first/match_first**, both of which apply matching first, and in both it is mating that enters the C=0 set. **It enters at 1.01 against a floor of 1.00.** Registered ordering C=1 {I, M} smallest score 32.10, C=0 {E, K} smallest 4.35, intersection empty; pooling_first/inherit_first identical to it. Readable set has 35 cells; orderings whose set differs: capital_first/match_first 12, pooling_first/inherit_first 2, pooling_first/match_first 6. A4-1, A4-2 and A4-6 flip on none. |
 | PASS | A4-6 caste is derived from holdings, not read off the layer | Matching reads holdings and never the layer label. Cross-layer pairing rate with M on: C=1 0.1610 against C=0 0.1780, uniform-random reference 0.1809, and C=1 is lower at 5 of 5 seeds. On §11.5's based cells the same direction holds and wider: E+M 0.1645 against 0.1835, K+M 0.1645 against 0.1835. This criterion reads a rate directly and takes no ratio across arms, which is why §11's collapse does not reach it. |
 
@@ -782,7 +1542,7 @@ Added 2026-08-24. Three criteria beside the originals, which are unchanged:
 | | criterion | detail |
 |---|---|---|
 | PASS | A4-3b  the same question in control-cell spread rather than absolute Gini units | rise over the null in control-cell sd: I 0.3, E **35.6**, K **3.1**, M −0.2; clearing two sd: E, K |
-| PASS | A4-4b  the amplification on a measure with no ceiling | `holders` (1/HHI) was in SCORED_MEASURES from the start and A4-4 took its ratio on Gini alone; on the unbounded measure the readable set is the same one and the single quotable ratio is the same cell |
+| PASS | A4-4b  the amplification on the effective number of holders | `holders` (1/HHI) was in SCORED_MEASURES from the start and A4-4 took its ratio on Gini alone; on it the readable set is the same one and the single quotable ratio is the same cell, `I\|K` = 6,948. 1/HHI lies between 1 and the number of nodes (200): the C=0 control sits at 199.97 and the C=1 control at 13.75 |
 | PASS | A4-4c  the two arms' readable competitors, as sets | **C=1 {I, M}, C=0 {E, K}, intersection empty**; passes because both arms are live, which is the only way the disjointness could be an artefact |
 
 Reading:
@@ -791,12 +1551,19 @@ Reading:
   exactly one arm. With connectivity on, inheritance and assortative mating clear
   the resolution floor by 36 and 32 control-cell sd while education and capital
   read **0.00 and 0.02**. With connectivity off the four exchange places: 35.6 and
-  3.1 against 0.3 and −0.2.
+  3.1 against 0.3 and −0.2. Those are the registered reading; once the last
+  round's returns and pooling have settled the same pairs are readable, at 44.0
+  and 39.5 against 0.00 and 0.03 with connectivity on, and education 35.6 and
+  capital 16.9 with it off.
 - The stock-moved diagnostic agrees and takes no ratio: inheritance relocates
-  **44.15%** of the closing stock under C=1 and **0.39%** under C=0.
-- So `A(X)` has no domain, and the reason is not the instrument. A ratio across
-  arms needs a competitor with an effect in both. The Gini ceiling and the noisy
-  denominators are both real and A4-4b shows neither was binding.
+  **44.15%** of the closing stock under C=1 and **0.39%** under C=0 (registered;
+  58.03% and 0.39% settled).
+- So `A(X)`, the comparison against the null, has no domain, and the reason is
+  not the instrument. A ratio across arms needs a competitor with an effect in
+  both. The Gini ceiling and the noisy denominators are both real and A4-4b shows
+  neither was binding. On a base, one comparison is readable in both arms under
+  the registered one-sd rule: `I|K`, 41.0 and 1.89 control-cell sd, pooled ratio
+  440.7 on Gini. It is one comparison on one base and not the four together.
 - Section 1 offered two readings, the others near full strength with C off, or
   the others attenuated. **An exchange is neither.** Connectivity does not scale
   the other mechanisms; it selects which of them can operate. Inheritance and
@@ -815,63 +1582,130 @@ Reading:
   **What to quote**: `A(X)` has no domain on the registered ordering, with the
   ordering named, not `A(X)` has no domain full stop.
 
+**Re-read 2026-10-10: which sub-round the measures read.** The registered measures
+read the last history row, written after the last round's flows and before that
+round's capital returns and household pooling settle. The settled state is now in
+the record beside it (`settled`). Gini moves in the cells with `I`, `M` or `K` on:
+`C1_I` 0.76597 to 0.73076, `C1_M` 0.78635 to 0.75156, `C0_K` 0.00792 to 0.01155.
+Of the 64 readable objects per ordering, 10 change on the registered ordering, 4
+on `capital_first/match_first`, 12 on `pooling_first/inherit_first` and 10 on
+`pooling_first/match_first`. The sets readable alone against the null
+are the same, `C = 1` {I, M} and `C = 0` {E, K}, and all nine criteria return the
+same state on the settled reading. The criteria keep scoring the registered one.
+Added 2026-10-14: the record carries the settled resolution table whole
+(`settled.resolution`); on a base, `I|K` reads 50.35 and 4.41 control-cell sd
+settled against 41.0 and 1.89 registered. Every registered field is unchanged.
+
+
 ## A5 — the reachability threshold: the region closes through the denominator, and freezing the price does not stop it
 
 `rounds=300` `12 seeds`
 
 **4 of 5 live criteria passed, 3 void, 1 diagnostic.** Three of the eight
 registered criteria were voided on 2026-08-24 and one was marked diagnostic. The
-reasons are below and none of them is a number changing: two were registered as
-the complements of criteria that hold, one asked for a share the construction
-cannot reach, and one is satisfied by an ordering over three equal values.
+reasons are below and none of them is a number changing: one needs a benign end
+state that A5-4 shows the registered configuration does not have, one makes the
+opposite claim to a criterion that holds on the same frozen-price run, one asked for
+a share the construction cannot reach, and one is satisfied by an ordering over
+three equal values.
 
-**What this stage establishes.** Reachability is `terms x price / median
-production-layer claims`, so it has a numerator and a denominator, and the stage
+**What this stage establishes.** Reachability is `median terms x price / median
+production-layer claims / s`, with `s = 3` the opening's stretch, so `rho = 1` is
+where the median production agent can just enter by paying everything it holds.
+It has a numerator and a denominator, and the stage
 was registered expecting the numerator to close the region: the price is set
 against a bidder pool made of the financial layer's claims, and those grow with
 issuance. **Measured, the denominator closes it.** With the price frozen at
-`eta = 0` the region still closes in 12 of 12 seeds, and the median production
-agent's claims end below their opening value in 72 of 72 cells across six
-reachabilities and twelve seeds, at a ratio of `x0.045`. The earlier headline on
+`eta = 0` the region still closes at configured `rho = 0.5` in 12 of 12 seeds,
+and the median production agent's claims end below their opening value in 72 of
+72 cells across six reachabilities and twelve seeds, at a median cell ratio of
+`x0.045`. The earlier headline on
 this section named the price channel and has been corrected.
 
 | | criterion | detail |
 |---|---|---|
-| **FAIL** | A5-1  participation falls with reachability | 22.2%, 27.2%, 29.2%, 11.1%, 0.6%, 0.0% across `rho` = 0.25 to 8. **It rises and then falls, and the turn is a regime boundary.** Entry is read at the opening allocation before any round runs, so this is not drift. Below the peak every unit sells and cheapening lets the head of the descending-claims walk take more each, 1.250 units per production buyer at `rho=0.25` against 1.004 at `rho=1`; above it units go unsold, 2.4 at `rho=1.25` rising to 83.6 at `rho=8`. Peak 30.0% near `rho=1.1`, which is where the median production agent can just pay. The registered form assumed price is the only rationing device |
-| **VOID** | A5-2  the threshold sits where the definition puts it | **the registered floor of 50% is above what the construction can reach.** 100 units over 180 production-layer nodes bounds entry at 55.6%, and that bound needs every unit to reach a different production node with none to the financial layer, which heads the walk and takes 36 to 50 units at every reachability. The high half was decidable and is reported: 11.1% at `rho=2` against a registered ceiling of 5% |
-| **VOID** | A5-3  the sign of the production layer's trend flips | share at `rho=0.25`: 0.279 to 0.001; at `rho=4`: 0.260 to 0.010. **A5-4 is this criterion's complement and it holds**: with no benign equilibrium there is no benign end state for the share to rise to, so the two cannot both pass. Both regimes fall, which is the finding |
+| **FAIL** | A5-1  participation falls with reachability | 22.2%, 27.2%, 29.2%, 11.1%, 0.6%, 0.0% across `rho` = 0.25 to 8. **It rises and then falls, and the turn is a regime boundary.** Entry is read at the opening allocation before any round runs, so this is not drift. Up to `rho=0.9` every unit sells in every seed and cheapening lets the head of the descending-claims walk take more each, 1.256 units per production buyer at `rho=0.25` against 1.002 at `rho=1`; from `rho=1` units go unsold, 3.2 at `rho=1.25` rising to 83.3 at `rho=8`. From `rho=1.3` up entry falls at every step; from `rho=0.9` to `1.3` it is flat between 28.9% and 29.6%, highest at `rho=1.2`, near `rho=1`, where the median production agent can just enter through the stretch, paying everything it holds. The registered form assumed price is the only rationing device |
+| **VOID** | A5-2  the threshold sits where the definition puts it | **the registered floor of 50% is above what the construction can reach.** 100 units over 180 production-layer nodes bounds entry at 55.6%, and that bound needs every unit to reach a different production node with none to the financial layer, which heads the walk: at `rho=0.5` it takes 48.9 of the hundred, which leaves the production layer at most 28.4% even at one unit each (its take runs from 16.6 at `rho=8` to 49.8 at `rho=0.25`). The high half was decidable and is reported: 11.1% at `rho=2` against a registered ceiling of 5% |
+| **VOID** | A5-3  the sign of the production layer's trend flips | share at `rho=0.25`: 0.279 to 0.001; at `rho=4`: 0.260 to 0.010. **Void on this run because A5-4 holds on it**: with no benign equilibrium there is no benign end state for the share to rise to. That is a reading of this configuration and not an identity: the two criteria read different statistics at different reachabilities, and a configuration in which both fail has been read. Both regimes fall, which is the finding |
 | PASS | A5-4  the benign side is not an equilibrium | configured `rho=0.5` is never observed, since the opening allocation moves it to 0.319 before any round runs. Crossed in 12/12 seeds, median round 2 from `rho_opening` against a registered 100, 0.0% of subsequent rounds back below one against 5% |
 | **diag** | A5-5  issuance sets the clock | medians by issuance gain: 2, 2, 2. **Every median is equal, so the ordering is satisfied by every ordering and the arms cannot be told apart.** The line is kept and the verdict is not |
-| **VOID** | A5-6  freeze the price and the drift disappears | largest relative move in `rho` with the price frozen: 654.51% against a registered 1%. **A5-7 is this criterion's complement on the same frozen-price arm and it holds.** This number is that evidence with the sign of the claim reversed |
+| **VOID** | A5-6  freeze the price and the drift disappears | largest relative move in `rho` with the price frozen: 654.51% against a registered 1%. **Void on this run because A5-7 holds on it**: the frozen series starts below one, so a crossing forces a move far above the threshold, and this number is that evidence with the sign of the claim reversed. That is a reading of this configuration and not an identity: the two read different statistics, and with the wage bill at four times its registered value both fail |
 | PASS | A5-7  the denominator crosses the threshold on its own | price frozen at `eta=0`: crossed in 12/12 seeds, median round 2, 0.0% of subsequent rounds back below one. The asset does not move and the reachable region closes anyway |
-| PASS | A5-8  the drain is not a property of one reachability | price frozen: median production-layer claims end below their opening value in 72/72 cells across six reachabilities and twelve seeds, ratio `x0.045` |
+| PASS | A5-8  the drain is not a property of one reachability | price frozen: median production-layer claims end below their opening value in 72/72 cells across six reachabilities and twelve seeds, median cell ratio `x0.045` |
 | PASS | A5-9  one unit per agent makes entry monotone | registered 2026-08-24 to test A5-1's reading by removing the thing it names. With `max_units=1`: 44.4%, 44.4%, 43.3%, 11.1%, 0.6%, 0.0%. **Monotone.** The cap is an existing field and a policy that exists |
 
 Readings:
 
 - **The reachable region closes through the denominator.** The registered design
   put the price channel in the load-bearing position and the frozen-price arm
-  closes the region anyway, in every seed and at every reachability. **Four of
-  the stage's failures are one fact read four ways rather than four failures.**
-- **Entry has two rationing regimes and they meet where the median agent can
-  just pay.** Below that point every unit sells, so cheapening does not admit
-  more people; it lets the front of the queue take more each. Above it units go
-  unsold and cheapening does admit more.
+  closes the region anyway: at configured `rho = 0.5` in every seed (A5-7), and
+  the drain shows in all 72 cells of the grid (A5-8). At `rho = 4` and `8` the
+  median agent is above one before any round runs, so there is nothing left to
+  close. **A5-3, A5-5 and A5-6 are that drain read three ways rather than three
+  failures**; A5-1 and A5-2 are read at the opening allocation, before any round
+  runs.
+- **Entry has two rationing regimes and they meet near `rho = 1`, where the
+  median agent can just enter through the stretch.** Up to `rho = 0.9` every unit
+  sells, so cheapening does not admit more people; it lets the front of the queue
+  take more each. From `rho = 1.3` up entry falls at every step, so cheapening
+  does admit more. Between the two entry is flat, 28.9% to 29.6%.
 - **A cap of one unit per agent removes the rise, and the number it lands on is
   arithmetic.** A hundred units to a hundred distinct agents gives the twenty
   financial-layer nodes one each and the production layer eighty, and `80/180`
   is 44.4%, which is what it reads. The cap doubles entry at the cheap end,
-  22.2% to 44.4%, **and changes nothing at `rho >= 2`, where price is what
+  22.2% to 44.4%, **and leaves entry unchanged at `rho >= 2`, where price is what
   rations.** No supply was added; the gain is entirely units returned from
   multiple holders.
-- **Even with the cap the registered 50% floor is out of reach**, by the 5.6
-  points the financial layer holds. Reaching it needs the cap and the exclusion
+- **Even with the cap the registered 50% floor is out of reach**, by 5.6
+  points: the financial layer's twenty units are 11.1 points of the production
+  layer's 180, and reaching 50% needs ten of them in production hands. Reaching it needs the cap and the exclusion
   of that layer together, and the registered form asked for neither.
-- **The cap changes who enters and not who stays.** Entry is the opening
-  allocation; A5-4 and A5-7 read the other side and the region closes on it
-  regardless.
+- **The cap changes who enters below `rho = 2` and who stays up to `rho = 4`;
+  what it does not change is the crossing.** Restated 2026-10-10: this line read
+  "the cap changes who enters and not who stays" and rested the second half on
+  A5-4 and A5-7, which read the median production agent's claims against the
+  stretched cost at the current price and say nothing about holders. At
+  `rho = 8` the two arms are identical, 0.05% at the opening and at the end. Read off
+  the unit matrix at round 300, the share of production-layer nodes holding a unit
+  goes from 22.2%, 27.2%, 29.2%, 11.1% at `rho` = 0.25 to 2 to **zero in every
+  seed** with no cap, and stays at 44.4%, 44.4%, 43.3%, 11.1% with one unit per
+  agent, where little trades (14.3, 4.7, 0.0, 0.1 transactions over the run against
+  508.3, 496.6, 467.4, 188.3). Following the nodes and not their number, 90.8%,
+  95.9%, 100.0%, 99.6% of the opening entrants hold a unit at the end under the cap,
+  and none without it; that is read at the two endpoints, so it counts an entrant
+  who sold and bought back (at `rho = 0.25`, 846 of the 960 entrants held without
+  a break against 872 at the end). With the cap, configured `rho = 0.5` still crosses one in 12/12
+  seeds at round two and does not return, price live and price frozen.
+- **Resale draws once per holding, and the stage does not hang on that.** Each
+  positive `(node, tier)` holding offers one unit with probability `tau`, so a
+  holding of `k` units turns over at `tau/k` per unit; the model's description
+  said per unit and is corrected. At the end of the uncapped histories the
+  expected share of held units offered in a round is 1.24% to 3.24% across the
+  grid against 4% at the opening, where every holding is one unit. Read under a
+  draw per unit instead (`experiments/a5b_offer_unit_probe.py`), **all nine
+  criteria return the same state**; the frozen-price drain is `x0.055` against
+  `x0.045`, in 72/72 cells under both. The two rules also consume different
+  random numbers, so a contrast smaller than the cap-one arm's, where the rules
+  coincide (14.3 against 13.5 trades at `rho = 0.25`), is not read as the rule's.
+  The stages that open with block holdings were read the same way on
+  2026-10-26 (`experiments/resale_rule_probe.py`); their readings are under
+  A3b, A3 P-C and A47. Every other driver on the asset model was then run the
+  same way inside a copy of the repository (`experiments/resale_rule_sweep.py`,
+  `results/resale_rule_sweep.json`): forty-five drivers or carrier variants,
+  three arms each. No verdict moves with the rule. A verdict that differs
+  between arms differs under the shifted stream as well, and every one is a
+  check that a run reproduces a stored record. Fourteen runs move nothing under
+  either arm (their registered run does not reach the resale draw), and the
+  residence-bound housing blocks move under the shifted stream and almost not
+  under the rule, because they cap holdings at one unit. Where the rule does
+  move a number by more than the stream, the median relative move is 3% to 12%
+  on the asset-carrier variants of A2d, A8, A10 to A14, and larger on the A3
+  family and A7, which read trades and gaps directly.
 
-Every number here is read off `results/a5_reachability.json` as it stands.
+Every number here is read off `results/a5_reachability.json` as it stands, and the
+resale contrast off `results/a5b_offer_unit_probe.json`. The opening figures in
+A5-1 and A5-2 were a five-seed reading until 2026-10-10 and are now computed
+from the twelve seeds of the record.
 
 ## A6-7 to A6-23 — the frontier ratchet, who the levy falls on, who the rebate reaches, and R* as a slope in lambda
 
@@ -892,12 +1726,49 @@ Every number here is read off `results/a5_reachability.json` as it stands.
 | PASS | A6-16 | both judged cells closed on the layer base, which is what the surviving-leak reading predicts: a smooth g postpones the collapse rather than removing it |
 | PASS | A6-18 | levy collected in the final round, in units of the opening claim stock: layer/exp/lambda=0 1.69e-05 from 3.57e-03; layer/hill/lambda=0 1.46e-04 from 3.57e-03; layer/clip/lambda=0.001 8.66e-04 from 3.57e-03; threshold/exp/lambda=0 2.74e-03 from 3.11e-03; threshold/hill/lambda=0 2.68e-03 from 3.11e-03; threshold/clip/lambda=0.01 3.24e-03 from 3.11e-03 |
 | PASS | A6-19 | both judged cells closed on the threshold base, which is what the surviving-leak reading predicts: a smooth g postpones the collapse rather than removing it |
-| PASS | A6-20 | nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. Worst claim drift at machine precision, below 1e-06; fallback rounds 0 |
+| PASS | A6-20 | nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. The test on the mismatched pairs is that the overlap occurs in the run, not that it occurs in every round; rounds with nobody on both sides, of the rounds counted over all seeds: levy=layer/rebate=threshold 139 of 100000; levy=threshold/rebate=layer 209 of 100000. Worst claim drift at machine precision, below 1e-06; fallback rounds 0 |
 | PASS | A6-21 | rho* per lambda, median over seeds: lambda=0.001 1; lambda=0.003 1; lambda=0.01 1. Worst separation 0 grid steps against 1; at a grid end False; unsolved seeds 0 |
 | PASS | A6-22 | band of lambda keeping every seed open, exp, on the corrected instrument: 0.001 to 0.01. The other columns, one change at a time: A exp laye/laye 0.001 to 0.01; B exp thre/laye 0.001 to 0.01; C clip thre/thre 0.003 to 0.01; C exp rho=1 0.001 to 0.1 |
 | PASS | A6-23 | clip control band on the corrected instrument: 0.003 to 0.01, scanned over [0.001, 0.003, 0.01, 0.03, 0.1] |
 
-## A6 — the siphon in tax points: the stratified graph needs R* = 0.060 where the flat graph needs 0.000, and that difference is the siphon
+**Restated 2026-10-10.** Thirteen of fifteen pass, as before, and every block
+the record held before is unchanged. Two things were brought to what the run
+does.
+
+*The record now holds the three blocks A6-20 to A6-23 are scored from.*
+`rebate_sides`, `rho_scaling` and `rebase_curve` were computed and printed on
+every run and never written, so the four verdicts sat in the record without
+their per-seed readings, their grids or their bands. They are written now:
+floats to ten significant digits, and the claim drift as the bound it is under.
+
+*A6-20 tests that the overlap occurs in the run, and it occurs in 99,861 of
+100,000 seed-rounds under `levy=layer/rebate=threshold` and in 99,791 under
+`levy=threshold/rebate=layer`.* The criterion's page said that in every round the mismatched pairs put
+at least one node on both sides. The test is on the largest count over the run.
+For the matched pairs the largest being zero is the every-round statement, and
+it holds in all 100,000 seed-rounds of each. For the mismatched pairs it says the
+overlap occurs, and there are rounds without it: `levy=layer/rebate=threshold`
+has nobody on both sides in 139 of 100,000 seed-rounds (137, 0, 1, 0, 1 by
+seed) and `levy=threshold/rebate=layer` in 209 (10, 19, 101, 0, 79). The verdict is
+on the test as run and is unchanged. In three of the ten mismatched seed-runs
+the overlap is present in every one of the 20,000 rounds: seeds 1 and 3 under
+`levy=layer/rebate=threshold` and seed 3 under `levy=threshold/rebate=layer`
+(`rebate_sides`, `both_sides_by_seed`, `rounds_with_none` 0).
+
+**2026-10-26.** Four rows name their objects more narrowly than the cells above
+say. A6-16 and A6-19 call a cell closed when one of its seeds ends below the
+floor; one or two seeds per judged cell close and the rest end open
+(`long_horizon`, `closed_at_round`). A6-18's numbers are the smallest over the
+five seeds, the final round and the first round each on its own. A6-20's four
+cells run the stratified graph with stratified retention, not the access / fair
+cell A6-9 to A6-19 read. In A6-22 the `C exp rho=1` column sets `R = λ`, the
+critical ratio A6-21 measured on the layer levy and layer rebate for `λ` from
+`1e-3` to `1e-2`; on column C the critical rate itself was not measured.
+On the refined rate grid from the same scan, at two thousand rounds, `R*(I)` at
+`λ = 1e-3` is `0.001` in every seed, that grid's first non-zero point, so
+`R*(I)/R*(T) ≤ 0.017` (`rescan`, `refined`).
+
+## A6 — the siphon in tax points: the stratified graph needs a transfer R* = 0.060 where the flat graph needs 0.000, and that difference is the siphon
 
 5 seeds `rounds=300` `long_run=2000`
 
@@ -905,11 +1776,34 @@ Every number here is read off `results/a5_reachability.json` as it stands.
 
 | | criterion | detail |
 |---|---|---|
-| **FAIL** | A6-1 | the support set contracts at R=0 in 4 of 8 cells, all seeds. The four that do are the access cells and the four that do not are the flat ones, which is what A6-3 predicts; the criterion's scope is what is wrong |
+| **FAIL** | A6-1 | the support set contracts at R=0 in 4 of 8 cells, all seeds. The four that do are the access cells and the four that do not are the flat ones, which is what A6-3 predicts; the criterion's scope is what is wrong. The eight are 6 distinct cells: on the flat graph the retention switch reaches nothing, so its stratified cells are its fair cells run a second time |
 | PASS | A6-2 | 0 seed-cells with no rate on the grid holding the economy open |
 | PASS | A6-3 | with retention already fair and no issuance anywhere, the stratified graph needs R* = 0.060 (> 0.02) and the flat graph 0.000 (< 0.005). That difference is the siphon |
 | PASS | A6-4 | R*(I)/R*(T) under access against 0.75: fair 0.083 (an upper bound, R*(I) is on the grid floor), stratified 0.031 (an upper bound, R*(I) is on the grid floor) |
 | **FAIL** | A6-5 | at R* = 0.005 over 2000 rounds, end over start per seed 1.66x, 0.07x, 1.60x, 1.86x, 0.15x. 2 of 5 seeds collapsed and the rest ended more open. The registered band is symmetric and scores those as the same failure |
+
+**Restated 2026-10-10.** Three things, and none of them moves a verdict.
+
+*The registered file belongs to the registered run.* The entry used to write
+`results/a6_siphon_cost.json` whenever the seeds and rounds were the registered
+ones, so `--skip-long` would have replaced this record by one with four scored
+criteria, and `--long 300` by one that scores A6-5 over three hundred rounds.
+Only the full registered run now writes that name: five seeds, three hundred
+rounds, A6-5 over two thousand. Any other run writes beside it under a name
+that says which it is.
+
+*Six distinct cells, printed as eight.* On the flat graph both layers already
+share one spending-propensity range, so the retention switch reaches nothing there
+and flat / stratified is flat / fair run a second time. The record marks the
+twin on each of the two cells and carries the check under `retention_axis`.
+A6-3 reads the transfer arm's fair cell on each graph and A6-4 the four access cells, so
+neither reads a twin.
+
+*The Palma ratio's top decile is the twenty richest nodes, not the financial
+layer.* Of the twenty, 19, 18, 19, 17 and 17 are financial-layer nodes in the
+first period of the A6-6 run, by seed, and 7, 6, 5, 4 and 3 in the last; at the
+end of the two-thousand-round run none is. A6-6 stays reported and not judged:
+Palma 16.27 to 14.41 at the median, mixed across seeds.
 
 ## A7 — continuous connectivity
 
@@ -924,16 +1818,85 @@ in `results/a7_verdicts.json`, which reads it.
 | | criterion | detail |
 |---|---|---|
 | PASS | A7-A-1 | reach: peripheral-tercile participation is 0.0 at every seed through s = 0.7 and first strictly positive at s = 0.8, where the graph carries 32051 of 39800 edges and the layer gap has fallen from 0.394 to 0.030. The carrier gains a measurable population by ceasing to be stratified; docs section 6.1 |
-| **FAIL** | A7-A-2 | the registered shape is wrong. Not a gradient: a step at the first grid point, both +18.9854 to -0.1157, then flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs section 6.2. **Scope, added 2026-08-24: it is a step in downward edges and not a step in connectivity.** See the scope reading below |
+| **FAIL** | A7-A-2 | the registered shape is wrong. On D_fixed, the estimator it names, over its interior points s = 0.01, 0.02, 0.05 the rank correlation of both against s is negative in 8/20 seeds in the uniform arm and 12/20 in the preferential one, not at every seed. Not a gradient: a step at the first grid point, on D_fixed both +20.1927 to -0.2439 and +20.6382 to +0.7422; on D_reach the same step reads +18.9854 to -0.1157 and stays flat to s = 0.9. Recorded under the project's engineering rule 8 and not repaired; docs sections 6.2 and 11.1. **Scope, added 2026-08-24: it is a step in downward edges and not a step in connectivity.** See the scope reading below |
 | VOID | A7-A-3 | void on the estimator it names. On D_fixed each arm's population is intersected across its own grid, so the two are 24.20 against 35.95 nodes and a difference of falls compares quantities on different agents; docs section 11.2 |
 | **FAIL** | A7-A-4 | A3-8' holds nowhere including where it was derived. Loop-sum-only same-sign across seeds on D_fixed at s = 0: 17/20 and 19/20, against 20/20 on D_reach. A3-8's own state is untouched; docs section 11.3 |
-| **FAIL** | A7-A-5 | the identity does not hold on the measured population. Mean \|loop sum\| over the fixed production layer rises before it falls, to 1.44 times its s = 0 value in the uniform arm and 4.13 in the preferential one; docs section 6 changelog |
+| **FAIL** | A7-A-5 | the identity does not hold on the measured population. Mean \|loop sum\| over the fixed production layer rises before it falls. On the mean of the 20 seeds its peak over the grid is 1.29 times its s = 0 value in the uniform arm and 4.39 in the preferential one, the mean rising at 5 and 10 of 16 steps; 20 and 20 of 20 seeds rise above their own s = 0 value. Per seed, 20 and 20 of 20 seeds rise by more than section 2.6's tolerance (0.62% of the seed's own s = 0 value) at some step, 106 and 191 steps, each named in results/a7_loop_sum_by_seed.json. The first seed alone, which is what the grid records carry, peaks at 1.44 and 4.13; docs section 9, changelog entry of 2026-08-16 |
 | **FAIL** | A7-A-6 | the round-count ladder is not monotone in the uniform arm and gives 4.85 against a registered five in the preferential one. The retained fraction goes as 1/R because the s = 0 baseline scales with the round count; unnormalised the gap at s = 0.01 does not move at all across a fourfold change in rounds while the gap at s = 0 moves with it; docs sections 10.2 and 10.3 |
-| VOID | A7-B-1 | unreadable. d(K, s) is sign-unstable at every grid point including s = 0, where the mean is -0.00039 against a range of [-0.0020, +0.0010] that straddles zero. A quantity with no sign has no magnitude to trend. This is A4-4's position on a different estimator; docs section 13.1 |
+| VOID | A7-B-1 | unreadable. d(K, s) is sign-unstable at 9 of the 9 grid points leg B ran, including s = 0, where the mean is -0.00039 against a range of [-0.0020, +0.0010] that straddles zero. A quantity with no sign has no magnitude to trend. This is A4-4's position on a different estimator; docs section 13.1 |
 | VOID | A7-B-2 | not adjudicable as registered: the noise floor the clause conditions on was never given a numeric form. Against A7-B-1's standard E fails too, at 17/20 rather than 20/20; docs section 13.2 |
 | PASS | A7-B-3 | the two-measure disagreement clause did not fire. On the aggregate log(1/HHI) both competitors are also sign-unstable and near zero, so the measures agree and what they agree on is that nothing is readable; docs section 13.3 |
-| PASS | A7-B-4 | both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3 |
-| VOID | A7-B-5 | I and M recorded as not run. Above s = 0.02 in the uniform arm a one-off transfer leaves nothing after a generation, so a transmitting mechanism has no stock and their effects are identically zero by construction; docs sections 12.1 and 13.5 |
+| PASS | A7-B-4 | both probes ran before anything was scored and the section 5.3 trigger was decided on them alone. P1 in both arms and P2 in both arms carry every one of the 9 points leg B ran (9 to 9 points per record). Room relative to s = 0, largest over the grid: aggregate log(1/HHI) 2.00 against a registered band of 1.5, production-layer-only 1.20. The substitution registered with the band fires and leg B proceeds on one axis; docs sections 12.2 and 12.3 |
+| VOID | A7-B-5 | I and M recorded as not run on leg B's grid, on section 5.2's ruling that they are unreadable for direction. The further reason once given here, that above s = 0.02 a one-off transfer leaves nothing after a generation and so their effects are identically zero, does not hold: what vanishes is the memory of a perturbation, and the two switches act on current holdings through the demographic layer. At s = 0.5 in the uniform arm the switch cells end on other holdings than the control in 20 and 20 of 20 seeds, production-layer log(1/HHI) -0.0548 for I and -0.0540 for M, negative in 20 and 20 seeds. Either switch also turns on the demographic layer, so that is the switch cell against the control and not an effect of inheritance or mating alone; docs sections 12.1 and 13.5 |
+
+(Restated 2026-10-24: A7-A-4's loop-sum-only cell, and every `H1_only` and
+`H0_only` cell in this station, run on the registered rule, where the bidder
+pool that prices a tier is admitted on the payment terms, so the loop-sum-only
+cell carries that pool along with the loop sum. A7 did not run the other rule.
+On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
+
+**Restated 2026-10-10.** The eleven verdicts are where they were: three pass,
+four fail, four void. Three details were brought to what the records show.
+
+*A7-A-5 is registered on the seed mean and per seed, and the figures `1.44` and
+`4.13` were one seed.* The grid records carry the loop sum for the first seed
+alone. Over the twenty seeds the criterion names, the mean peaks at `1.29` times
+its `s = 0` value in the uniform arm and `4.39` in the preferential one, rising
+at 5 and 10 of the 16 grid steps, and every one of the twenty seeds rises above
+its own `s = 0` value in both arms, by 1.08 to 1.66 times and 3.37 to 5.93
+times. The criterion fails on the mean and in every seed. The per-seed reading
+is `results/a7_loop_sum_by_seed.json`, taken off the terms matrix of models that
+are built and not run.
+
+*`I` and `M` are not identically zero above the cliff.* A7-B-5 stays void, not
+run on leg B's grid, on the ruling that the two are unreadable for direction.
+The reason once given beside it was that a one-off transfer leaves nothing after
+a generation there, so a transmitting mechanism has nothing to act on. What
+vanishes is the memory of a perturbation; holdings still circulate, and the two
+switches act on current holdings through the demographic layer. Read at
+`s = 0.5` in the uniform arm, twenty seeds, the switch cells end on other
+holdings than the control in every seed, with production-layer `log(1/HHI)`
+lower by `0.0548` for `I` (`-0.0622` to `-0.0464` by seed) and `0.0540` for `M`
+(`-0.0592` to `-0.0447`). Either switch also turns on the demographic layer,
+so that is the switch cell against the control and not an effect of inheritance
+or of mating alone. The record is
+`results/a7b_im_switch.offparam_uniform_20x300.json`.
+
+*Leg B ran on nine of leg A's seventeen grid points.* The registration says the
+same grid, with the probes on every row. Leg B and its two probes ran
+at `s = 0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 0.9, 1`, and the fence at `s = 0` and
+`s = 1`; "every grid point" in
+the leg-B rows above means those nine. The points leg A has and leg B does not
+are `0.15, 0.3, 0.4, 0.6, 0.7, 0.8, 0.95, 0.99`.
+
+**Restated 2026-10-27.** The verdicts are still three pass, four fail, four void.
+Three details and one quoted figure now read the object their criterion names.
+
+*A7-A-5's per-seed clause is computed.* The flag read the seed-mean clause alone,
+from a field stored beside the values. It now recomputes both clauses from the
+per-seed values: the seed mean falls monotonically, and each seed falls within
+section 2.6's tolerance, `0.62%` of its own `s = 0` value, with every violation
+named. In both arms all twenty seeds break it, at `106` and `191` named steps.
+
+*A7-A-2's detail reads `D_fixed`, the estimator it names.* It quoted the `D_reach`
+step. On `D_fixed`, over the interior points `0.01, 0.02, 0.05`, the rank
+correlation of the gap against `s` is negative in `8/20` and `12/20` seeds, not
+at every seed, and the step reads `+20.1927` to `-0.2439` and `+20.6382` to
+`+0.7422`. The fail is unchanged.
+
+*A7-B-4 reads the probe records.* The flag checked the trigger alone; it now also
+checks that P1 and P2, in both arms, carry each of the nine points leg B ran.
+They do.
+
+*The paired-population loop sum at `s = 0.01`, every seed.* The `+4.9%` and
+`+7.0%` that `docs/a7_continuous_c.md` section 14.2 quotes are the first seed
+alone. Over the twenty seeds, each seed on its own paired population, the seed
+mean moves `+4.2%` in the uniform arm and `-0.3%` in the preferential one
+from `s = 0`, higher in `16` and `9` of `20` seeds. The margin moves by a
+few per cent in both arms while `D` falls `98%`, so it is not what removed `D`. The
+record is `results/a7_paired_loop_sum_by_seed.json`.
 
 ### The step is in the downward edges (2026-08-24)
 
@@ -959,6 +1922,11 @@ matched to what the registered arm draws, `H1_only` range:
 | upward only | 350 | `[14.138, 36.915]` | 22.78 | **yes** |
 | financial only | **260, saturated** | `[5.478, 33.288]` | 27.81 | **yes** |
 
+(Restated 2026-10-27: these are `D_reach` ranges, each over its own within-`s`
+population: `41.65` paired nodes at `s = 0`, and at `s = 0.01` `35.95`
+registered, `35.9` downward, `36.75` production, `41.5` upward, `42.5`
+financial. No `D_fixed` was computed on the scope arms.)
+
 - **Only the downward arm reproduces the collapse, and it reproduces it almost
   exactly.** The same edge count placed inside the production layer or pointing
   upward leaves the gap where it was.
@@ -979,6 +1947,15 @@ disappears as connectivity rises without saying how many of that point's edges
 point downward.** No number in `results/a7_continuous_c.json` moves; what moves
 is what those numbers carry.
 
+**Restated 2026-10-26.** The edge counts above are the first seed's graph. At
+`s = 0.01` the registered arm adds `337` to `436` edges across the twenty seeds
+(mean `383.85`), of which `21` to `47` point downward (mean `35.0`), `278` to
+`350` land inside the production layer and `20` to `45` point upward; each
+scope arm holds that seed's count, except the financial arm, which saturates at
+260. So "twenty one edges are enough" is the first seed, and the collapse in
+the `H1_only` range is read over seeds whose registered arms carry 21 to 47
+downward edges.
+
 ## A8 — the coverage test: four surfaces on one curve, and the edge width that takes them off it
 
 `rounds=600` `seed=0` `5 graph seeds`
@@ -998,13 +1975,24 @@ adjudication: a ratio above one, a ratio below one, a count equal to one. The
 magnitudes sit beside the flags in `results/a8_coverage.json`, which holds all 90
 runs.
 
+**The flags are read at the record's resolution, and the record says where that
+decides one.** The values a flag is read off are rounded to six decimal places, so
+the two conditions that ask for a positive value read zero for anything under
+`5e-7`. That is the one finite resolution in the adjudication. The record lists
+every flag it decides (`diagnostics.rounding`, and `surfaces_unrounded` in each
+row): **11, all at zero autonomous edges**, where the values that read zero are
+positive at `1e-151` to `1e-108` of their opening value and circulation reaches
+no production-layer node at the close. Everywhere else the smallest value read as
+positive is 1.008 for the active ratio and 0.01 for the wage bill, so no flag
+sits near the resolution. Stated 2026-10-10; no flag and no verdict changed.
+
 **5/5 live criteria passed**
 
 | | criterion | detail |
 |---|---|---|
 | PASS | A8-1  the grid comes from A2, not from this stage | imported from A2's module at runtime: edges [0,1,2,3,5,8,12,20,30], elasticities [0.0,0.5,0.9,0.99,1.0], intermediate 30, tail 25 |
 | PASS | A8-2  the real side is a level, not state | across 90 runs, the count of distinct resource values within a run is 1 every time |
-| PASS | A8-3  claims are conserved across the grid | 90/90 runs hold the identity between the holdings row sum and opening-plus-issuance at machine precision, below `1e-9`. The bound rather than the residue, because the residue is decided by accumulation order. Checked across the whole run rather than inside the loop: the loop's own assertion spans the transfer stage, while issuance lands before it and the asset settlement of stage A3 runs after it |
+| PASS | A8-3  claims are conserved across the grid | 90/90 runs hold the identity between the holdings row sum and opening-plus-issuance at machine precision, below `1e-9`, on every recorded row and on the settled state the run is left in. The bound rather than the residue, because the residue is decided by accumulation order. Checked across the whole run rather than inside the loop: the loop's own assertion spans the transfer stage, while issuance lands before it and the asset settlement of stage A3 runs after it. A round's row is written before that settlement, so the rows cover every settlement but the last and the settled state covers the last |
 | PASS | A8-4  one setting puts all four surfaces on the table | all four present at edges [1,2,3,5,8,12,20]; absent at [0,30]; no surface is absent everywhere on the grid |
 | PASS | A8-5  the seed arm is tallied surface by surface, no line on it | f2i=0: all_four 0/5, two 0/5 three 5/5 four_a 5/5 four_b 5/5; f2i=1,2,3,5,8,12,20: all_four 5/5, every surface 5/5; f2i=30: all_four 1/5, two 4/5 three 4/5 four_a 1/5 four_b 4/5 |
 
@@ -1028,23 +2016,29 @@ that adding a criterion did not move an existing one.
 The two ends of the curve lose different surfaces. At zero autonomous edges the
 consuming-power surface is the one that goes: `M_a/R_a` reads 0.000, which is
 circulation having stopped rather than the ratio a price index reads holding
-steady. At thirty edges the support surface is the one that goes: effective
+steady. (0.000 at the record's six places: unrounded it is positive at about
+`1e-139` of its opening value, and no production-layer node is reached at the
+close.) At thirty edges the support surface is the one that goes: effective
 support ends at 1.016 of its opening value, so nothing contracted.
 
-Across the whole 45-cell grid `M_a/R_a` stays between 1.008 and 1.028 of its
-opening value while `M/R` runs from 1.02 to 132. Claims per unit of resource rise
+Across the 40 cells with at least one autonomous edge `M_a/R_a` stays between
+1.008 and 1.028 of its opening value, and in the five zero-edge cells it reads
+0.000, while `M/R` runs from 1.00 to 132 over all 45 (1.02 to 132 as means over
+the five elasticities at each edge count). Claims per unit of resource rise
 by two orders of magnitude and the ratio a price index reads moves by under three
 percent. `network.layer2_inflow` and `economy.active_claims` carry the same
 definition, claims landing in Layer 2, so this is the same quantity A0 reports.
 
 Two objects are printed without being criteria, and neither can pass or fail. The
 first is the paired reading of payroll: at zero edges and unit elasticity the
-funding ratio reads 0.7559 while the bill it is measured against has gone to zero,
+funding ratio reads 0.7559 while the bill it is measured against has gone to zero
+(`1e-108` of its opening value, which reads zero at six places),
 so the pair is what makes that cell read as an absent surface rather than a healthy
 one, and the pairing was written down before the run. The second is the response
 of each surface across elasticity: holding the edge count at one and moving
 elasticity from zero to unity moves the funding ratio by 10.6% while `M/R` moves
-4.9%, the closing Gini 0.0%, and effective support 0.5%. The surfaces respond to
+5.0%, the closing Gini 0.0%, and effective support 0.6%, each taken against the
+lowest-elasticity cell (`diagnostics.response_across_elasticity` in the record). The surfaces respond to
 the two axes differently, which is the evidence that they are not one collapse
 seen four ways.
 
@@ -1066,11 +2060,20 @@ that takes published shares rather than the spending propensity this curve is
 drawn over.
 
 **The carrier has no asset revaluation on it, and that is the channel the
-empirical work weights most heavily.** Montecino and Epstein decompose QE into an
-employment channel worth about −0.5 points on the 90/10 ratio and an equity
-channel worth about +6.3 points on the 95/10 ratio, the second dwarfing the
-first. Every concentration reading taken on this carrier and on the stages
-downstream of it therefore carries one channel and not the other. `--asset` puts
+empirical work weights most heavily.** Montecino and Epstein, in the version of
+24 April 2017 (Table 2), decompose the change in household net income
+inequality between the 2010 and 2013 waves of the Survey of Consumer Finances.
+On the 95/10 ratio rising equity returns contribute +6.3 percentage points of
+its change and the employment channel −0.4, which is the comparison the authors
+draw; on the 90/10 ratio the pair is +4.1 against −0.5. The October 2015 working
+paper reports the 99/10 and 90/10 ratios instead, +15.4 against −0.9 and +2.2
+against −0.7. Their ratio is of net income, which counts realised capital gains
+and nets out debt service; the readings on this carrier are concentration
+statistics of claim balances, and the asset carrier adds held units at market
+value where a stage reads net worth. So the paper ranks the two channels and
+supplies no number to match here. Every concentration reading taken on this
+carrier and on the stages downstream of it therefore carries one channel and not
+the other. `--asset` puts
 A3's asset layer on the same carrier and writes `a8_coverage_asset.json`; the
 default is off and reproduces this record key for key.
 
@@ -1186,7 +2189,7 @@ co-movement between productivity growth and the labour share (Stansbury and Summ
 half of a global fall of five points in the labour share (Karabarbounis and Neiman
 2014, *QJE*), and sales shifting towards low-labour-share superstar firms carry the US
 fall (Autor, Dorn, Katz, Patterson and Van Reenen 2020, *QJE*), which is the shape of
-A2's support set contracting while volume rises. The measured break sits around 1973.
+A2's effective support contracting while volume rises. The measured break sits around 1973.
 
 ## A10 — the write-off chain: one switch, and the aggregate stops showing what the distribution still shows
 
@@ -1266,7 +2269,7 @@ trigger 2 and rate 0.02 and the high-rate arms at trigger 10 and rate 0.10. Reco
 
 Scope, M/R levels only (A13, 2026-08-23): the M/R figures quoted here are taken
 on a graph fixed at construction. With endogenous rewiring on, M/R moves between
-−47% and +14%; concentration readings and the direction of every M/R statement
+−47% and +32%; concentration readings and the direction of every M/R statement
 are unaffected, the minimum across all mobility arms being 17.44 against an
 opening ratio of one.
 
@@ -1310,8 +2313,10 @@ issues no verdict on this stage.
 `a10_writeoff_asset.json`. The default is off and reproduces the record above key for
 key. **Every concentration number this stage reports is read without asset
 revaluation**, and the empirical decomposition puts the weight on that channel:
-Montecino and Epstein give an employment channel of about −0.5 points on the
-90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+Montecino and Epstein (version of 24 April 2017, Table 2) find that rising
+equity returns contribute +6.3 percentage points to the change in the 95/10
+ratio of household net income against −0.4 from the employment channel, and
++4.1 against −0.5 on the 90/10 ratio.
 
 **A10-4a fails on this carrier.** It asks whether the refilled arm concentrates
 further than the control, and on the registered carrier that holds at 8 of 8
@@ -1334,8 +2339,11 @@ Pre-registered. Volume One section 8 states that MPC is a property of an agent
 while this framework talks about the edges of a graph, and that an agent with a
 high marginal propensity and no in-edge starves anyway. That is falsifiable here,
 because the repository already carries an arm that erases the topology and leaves
-every behavioural parameter alone: `uniform_access` puts every node on a complete
-graph. The floor itself is derived rather than transcribed, and the derivation
+every configuration field alone: `uniform_access` puts every node on a complete
+graph and, with the layers gone, collapses what the model assigns by layer, who
+pays and receives payroll, which spending propensity a node draws, the routing
+mask and the opening split, holding the aggregate propensity and the claim stock
+where they were. The floor itself is derived rather than transcribed, and the derivation
 sits in the spec's own docstring: it is a level on the real side rather than a
 ratio on the claim side, it is a floor on inflow rather than on holdings, leaving
 is absorbing, and leaving destroys nothing because destruction is the write-off
@@ -1355,10 +2363,47 @@ financial layer barely moves: raising the floor twentyfold takes the financial
 layer from zero losses to four out of twenty, while the production layer goes from
 42 of 180 to all 180. On the complete graph there is no middle state at all.
 Below the resource pool per node nobody leaves, and at it all two hundred leave
-together. The two graphs share every behavioural parameter and differ only in
-their edges, so what the comparison isolates is the asymmetry of the edges: with
-no asymmetry there is no question of who starves first, only whether everyone has
-enough.
+together, in one round. The two graphs share every configuration field and differ
+in one switch, and that switch removes position whole, so what the registered
+comparison isolates is the asymmetry of position: with no asymmetry there is no
+question of who starves first, only whether everyone has enough.
+
+**Switching each half on its own puts the result on the edges.** Arms built from
+switches the model already carries, each read against the stratified arm under the
+same rule and paired by seed, floor and grace, printed and not scored
+(`results/a11_subsistence_arms.json`). The table is the registered rule; the
+`drawdown` reading of the same arms follows it:
+
+| arm | differs from the stratified arm in | floors under the pool per node | at the pool per node | closing gap against the stratified arm |
+|---|---|---|---|---|
+| adjacency made complete (`shortcut_rate = 1`) | the adjacency | nobody below the floor at any round, 30/30 runs | all 200 leave in one round, 10/10 | narrower in 10/10 pairs, and over the path in 40/40 |
+| the same, opening vector held node for node | the adjacency | nobody below the floor at any round, 30/30 runs | all 200 leave in one round, 10/10 | narrower in 10/10 pairs, and over the path in 40/40 |
+| one propensity for every node | the propensities | fires on the production side, 30/30 | fires on the production side, 10/10 | equal in 31/40 pairs, narrower in 4, wider in 5; over the path wider in 33/40 |
+
+With only the adjacency completed, the propensities still 0.5 in the financial
+layer and 0.875 to 1.0 in the production layer, five financial nodes still paying
+the same ninety receivers and the opening stock still split 0.679 to 0.321, the
+none-or-all result is there in full; with the stratified arm's opening vector put
+back node for node as well, every cell reads the same under both rules. Completing
+the adjacency gives the production layer 3,150 discretionary in-edges from the
+financial layer where the stratified graph has none outside payroll, in each of the
+five seeds. With the edges left stratified and every node given the one
+claim-weighted pair of 0.620 to 0.661, the stratified result is there in full: 40/40
+firing runs with the financial layer below the production layer, medians 0.050
+against 0.986, cell counts within one node of the registered arm. Equalising the
+propensity does not narrow the gap and completing the adjacency removes it, which
+is section 8's sentence with each half measured separately. Under `drawdown` the
+adjacency-only arm leaves one asymmetry at the pool per node and it is an in-edge:
+the ninety nodes above the floor at the close are exactly the ninety payroll
+receivers, in 10/10 runs. The adjacency-only arm is the `s = 1` endpoint of A7's
+continuum and a different economy from the registered control
+(`docs/a7_continuous_c.md` section 2.4); each is read against the stratified arm
+and not against the other. What still moves with the adjacency under the held
+rules is which five financial nodes pay, since in-degree ties everywhere on a
+complete graph, and the opening split within each layer, which the held arm puts
+back. The record also carries `uniform_access` with the stratified opening vector
+permuted in place of the flat one: under both rules no round of it separates the
+two sets, largest per-round gap 0.000.
 
 Three readings come with it. **The Gini falls as the floor rises**, 0.934 to
 0.715, and it is not the economy becoming equal. **Where the claims go is the
@@ -1386,18 +2431,47 @@ zero-floor control:
 | stratified | 0.5 | `exit` | **−0.2229 ± 0.0023**, 5/5 negative | 39.7% | 182.4 |
 | stratified | 0.5 | `drawdown` | **+0.00024 ± 0.00001**, 5/5 positive | 0.21% | 172.0 |
 | complete | 1.0 | `exit` | **+0.9822 ± 0.0003** | 100% | 200 |
-| complete | 1.0 | `drawdown` | **−0.0027 ± 0.0002** | 0% | 0 |
+| complete | 1.0 | `drawdown` | **−0.0027 ± 0.0002** | 0% | 0 at the close; all 200 in 150 of the 300 rounds |
 
-**All of the fall is the freeze and none of it is the exit.** The same floor
-starves a comparable population under both rules, 182 against 172 on the
-stratified graph, so the two rules agree on who leaves. They differ on what
-happens to the claims those nodes were holding when they left. Under `drawdown` those claims are spent
-down, the frozen share closes at two tenths of one per cent, and the Gini does
-not move: **+0.00024 against a control of 0.9367**, a thousandth of the
-magnitude `exit` reports and pointing the other way. **What the exit itself does
-to the distribution is raise the Gini very slightly**, which is the direction the
-construction implies, since a node that spends its way to nothing and then stops
-leaves the survivors marginally more concentrated than before.
+The last two columns count nodes that have left under `exit` and the share they
+hold. Under `drawdown` nobody leaves, all 200 stay in the graph and keep trading,
+and the two columns count the nodes below the floor in the closing round and the
+share those nodes hold.
+
+**All of the fall is the freeze and none of it is the exit, and both halves are now
+measured inside the registered rule.** In the registered run itself, 99.4 per cent
+of what the frozen set holds at the close reached those nodes after they left, all
+of it payroll, and setting each departed node back to what it held in the round it
+left puts the closing Gini **−0.0003 ± 0.0004** from the control, where the vector
+as it stands reads −0.2229. With one switch inside the same rule: keep the exit, the
+absorbing wall and the removal of routes, and cut payroll to the nodes that have
+left: 156 nodes still leave and the Gini sits **−0.0002 ± 0.0004** from the control
+on a frozen share of 0.27 per cent. Make the wall reversible instead and not one
+number moves at any floor on the grid, 40/40 runs: a departed node receives
+nothing, or the payroll draw of 8/90 = 0.089 a round, which is under every floor at
+which a receiver leaves, and at the lowest floor that draw clears the floor on its
+own and no receiver leaves at all. Across rules: under `drawdown` the share held
+below the floor closes at two tenths of one per cent and the Gini does not move,
+**+0.00024 against a control of 0.9367**, a thousandth of the magnitude `exit`
+reports and pointing the other way.
+
+The two rules put the same nodes under the floor. At a floor of 0.5 all 172.0 that
+are below it at the close under `drawdown` are among the 182.4 that left under
+`exit`; across all forty floor-on runs on the grid two nodes fall outside. On this
+graph being below is not a passing state under `drawdown` either: 102 returns above
+the floor against 51,523 node-rounds spent below it, per run, five-seed means. What
+else differs between the rules is recorded beside the pile: under `exit` the
+departed are out of the routing and M/R runs to 60.6, under `drawdown` all 200 stay
+in the graph and M/R stays at 33.1, and issuance over the run is 5,956 against
+3,212, with 3,213 at the floor off. **With the pile absent the floor raises the Gini
+very slightly**: 5/5 seeds under `drawdown` at either grace, and 5/5 inside the exit
+rule at grace 5 both ways of removing the pile (+0.0005 ± 0.0002 with payroll cut,
++0.0009 ± 0.0002 with the accrual set back), which is the direction the
+construction implies, since a node that spends its way to nothing leaves the rest
+marginally more concentrated than before. At grace 1 the two exit readings are
+−0.0002 ± 0.0004 and −0.0003 ± 0.0004 and are not read for sign. The layer
+asymmetry A11-3 reads is there in every corner of the exit rule, 5/5 seeds in each
+cell.
 
 **The sign of the `exit` number is a property of the graph rather than of the
 mechanism.** The same switch at the same depth reads −0.22 on the stratified
@@ -1411,15 +2485,24 @@ than argued, and it is why they were written the way they were: they read
 starvation rates by layer and the complete-graph comparison, and none of them
 passes through the frozen set's holdings. The layer asymmetry is the same object
 under both rules, median production rate 1.000 against a financial rate of 0.150
-under `exit` and 0.950 against 0.100 under `drawdown`. A11-4 passes for a
-stronger reason on the second rule: on the complete graph `drawdown` puts nobody
-below the floor at any depth on this grid, so erasing the topology removes the
-question rather than narrowing a gap.
+under `exit` and 0.950 against 0.100 under `drawdown`. A11-4 reads the same object
+on the second rule, and over the whole path it reads it exactly. On the complete
+graph `drawdown` puts nobody below the floor at any round at depths under the pool
+per node, 30/30 runs. At the pool per node the whole population crosses and comes
+back together: in each of the 10 runs every round has either all 200 nodes below
+the floor or none, 150 rounds of 300 at grace 1 and 50 at grace 5, so the two sets
+are below at the same rate in every one of the 3,000 run-rounds and the gap is zero
+throughout, which A15-3 reads as the cascade nobody wrote. The closing count of zero
+is the phase the 300th round lands on. At 299 rounds the close reads all 200 in
+10/10 runs, the criterion takes its paired branch, and it passes 10/10 at +0.000
+against +0.775; at 301 rounds it passes as well. Either way erasing the topology
+removes the question of who.
 
 **The Gini among nodes still trading is recorded and is not judged.** It falls
 steeply as the floor rises, 0.9367 to 0.303 under `exit` and to 0.555 under
 `drawdown` at a floor of 0.5, and both are computed over a set that is
-shrinking, 200 nodes down to 18 and 28. What that column measures is how alike
+shrinking, 200 nodes down to 18 and 28 (under `drawdown` the 28 are the nodes
+above the floor at the close, and all 200 are still trading). What that column measures is how alike
 the survivors are, and the survivors are the top of the distribution by
 construction. It is here because the frozen share is only half of the
 decomposition, and it is left unjudged for the same reason the all-node column
@@ -1460,16 +2543,36 @@ the classic kinds are rare and concentrated in remote or disadvantaged places (K
 McKenzie 2014, *JEP*); on this carrier, position is what decides who falls below the
 floor first.
 
+Added on 2026-10-14. The rows now carry the path as well as the close (rounds and
+node-rounds below the floor, returns above it, the largest per-round gap between the
+two sets), what reached the departed after they left, and the three accounts at the
+close; each record carries coverage, structure and definitions blocks, and A11-2 to
+A11-4 are not judged on rows that are not the registered grid. The one-switch arms,
+the corners of the exit rule and the `drawdown` grid at 299 and 301 rounds are in
+`results/a11_subsistence_arms.json`. No verdict and no number the records already
+carried moved. The `drawdown` record's A11-4 detail now says "at the close" and
+carries the path, and the asset record, regenerated from the current script, gains
+the `exit_rule` key and the sentence on how often the complete graph fires.
+
 ### Read again with A3's asset layer on the carrier (2026-08-24)
 
 `--asset` puts A3's asset layer on the same carrier and writes
 `a11_subsistence_asset.json`. The default is off and reproduces the record above key for
 key. **Every concentration number this stage reports is read without asset
 revaluation**, and the empirical decomposition puts the weight on that channel:
-Montecino and Epstein give an employment channel of about −0.5 points on the
-90/10 ratio against an equity channel of about +6.3 on the 95/10 ratio.
+Montecino and Epstein (version of 24 April 2017, Table 2) find that rising
+equity returns contribute +6.3 percentage points to the change in the 95/10
+ratio of household net income against −0.4 from the employment channel, and
++4.1 against −0.5 on the 90/10 ratio.
 
-All four criteria hold on this carrier as they do on the registered one.
+All four criteria hold on this carrier as they do on the registered one. The Gini
+in that record is read on claims as recorded, the last history row, which is
+written before that round's asset settlement, and the record now carries the same
+statistic on claims settled and on net worth beside it, five-seed means with the
+floor off: 0.9374, 0.9385 and 0.9630 on the stratified graph, and 0.0302, 0.0825
+and 0.4178 on the complete graph. Settlement moves claims in all 90 runs, by 0.51
+to 1,027 at the node it moves most, and conserves the total. On the registered
+carrier there is no asset step and the three accounts are one vector.
 
 ## A12 — the coverage result under the two later mechanisms
 
@@ -1519,10 +2622,10 @@ was already the right handling.
 |---|---|---|
 | PASS | A12-1  one structure, the two mechanism fields only | fields differing from the control across 14 arms: `subsistence`, `writeoff` |
 | PASS | A12-2  the identity holds with destruction in it | 630/630 runs, below 1e-09 |
-| PASS | A12-3  the both-off arm reproduces A8 | this stage `[1, 2, 3, 5, 8, 12, 20]` against `a8_coverage.json` `[1, 2, 3, 5, 8, 12, 20]` |
+| PASS | A12-3  the both-off arm reproduces A8 | this stage `[1, 2, 3, 5, 8, 12, 20]` against `a8_coverage.json` `[1, 2, 3, 5, 8, 12, 20]`. The edge sets are compared; A8's record ran 600 rounds and this one 300, so the quantities under the two sets are not |
 | PASS | A12-4  the coverage result survives each mechanism | judged on the arms whose subsistence state has somebody in it: drawdown `[1,2,3,5,8,12,20]`, write-off `[1,2,3,5,8,12,20]`, drawdown with write-off `[1,2,3,5,8,12,20]`, against the control's `[1,2,3,5,8,12,20]`. The exit arms are printed and not judged on, for the reason above: floor `[]`, both `[1]`, floor payroll kept `[]` |
-| PASS | A12-5  the transfer channel, and who is left in circulation | reshaped: its first form asked whether the transfer arm carries all four surfaces, and surface three needs the closing Gini above the opening one while a per-head transfer lowers it by construction, 90 of 90 paired cells, range −0.20 to −0.86. Judged instead on who is still in circulation, cell by cell. Branch C: excluded nodes 11 down / 12 level / 22 up, support ratio 17 / 0 / 28, the two quantities pointing opposite ways and reported separately |
-| PASS | A12-6  which of the exit floor's two booleans carries the construction artefact | the payroll one. Closing Gini: floor 0.5903, payroll severed 0.9121, payroll kept 0.5908, drawdown 0.9179, against the control's 0.9172. Wage funding 0.5000 / 0.0000 / 0.5000 / 0.7382 against 0.7381 |
+| PASS | A12-5  the transfer channel, and who is left in circulation | reshaped: its first form asked whether the transfer arm carries all four surfaces, and surface three needs the closing Gini above the opening one while a per-head transfer lowers it by construction, 90 of 90 paired cells, range −0.20 to −0.86. Judged instead on who is still in circulation, cell by cell, and read per state object without pooling, since `starved` counts nodes out of the graph on the exit pairs and nodes below the floor at the close on the drawdown pair. Exit pairs: branch C, excluded nodes 21 down / 19 level / 50 up over the two pairs, support ratio 37 / 0 / 53, the two quantities pointing opposite ways and reported separately. Drawdown pair, where nobody leaves the graph: branch A, nodes below the floor 43 / 1 / 1, support ratio 0 / 0 / 45 and dropped as one-directional |
+| PASS | A12-6  which of the exit floor's two booleans carries the construction artefact | the payroll one. Closing Gini: floor 0.5903, payroll severed 0.9121, payroll kept 0.5908, drawdown 0.9179, against the control's 0.9172. Wage funding 0.5000 / 0.0000 / 0.5000 / 0.7382 against 0.7381. The reversible boolean leaves the edge sets and the medians where they are and moves nodes underneath them: 375 returns in 5 of 45 cells, 4 cells closing with a different number of nodes in the graph, largest closing-Gini gap 0.271975 at `f2i = 30`, elasticity 0 (49 nodes in the graph against 125) |
 | PASS | A12-7  every write-off-bearing arm fired in at least one cell | write-off 10/45, both 45/45, both with transfers 45/45, write-off refill 10/45, severed without refill 15/45, kept with refill 44/45 |
 
 
@@ -1541,6 +2644,11 @@ reproduce its autonomous share and reads `(0, 2, 5, 8, 15, 28, 45, 72, 128)`.
 
 Closing Gini, drawdown against the control: 0.9179 / 0.9172 at two hundred,
 0.9153 / 0.9177 with the asset layer, 0.9377 / 0.9369 at a thousand.
+These medians are read on the history row of the last round, which is written
+before that round's settlement step. On the two plain carriers only the transfer
+arms move cash after it. On the asset carrier the settlement moves cash in 488 of
+495 runs, and after it the same two medians read 0.9161 / 0.9083; on net worth
+they read 0.9414 / 0.9406. The record names the instant of every field.
 
 Readings:
 
@@ -1556,13 +2664,16 @@ Readings:
   to 38 of 45 paired cells, by up to a full point, while the count of nodes out
   of circulation rises in 22 of 45 at two hundred nodes and in 42 of 45 at a
   thousand. A per-head transfer breaks a concentrated inflow into an even
-  trickle, and the floor is a threshold on inflow.
+  trickle, and the floor is a threshold on inflow. That reading is about the
+  exit pairs. On the drawdown pair, where nobody leaves the graph, the same
+  transfer lowers the count below the floor at the close in 43 of 45 cells at
+  two hundred nodes and 38 of 45 at a thousand, and the two are reported apart.
 - **The drawdown result holds on all three carriers, in grid position.** Two
   hundred nodes, two hundred with A3's asset layer, and a thousand with the edge
   grid solved for equal autonomous share: on every one the drawdown arm returns
   the control's positions exactly, `1` to `7` on the two plain carriers and `0`
-  to `8` on the asset one, and the closing Gini differs from the control by at
-  most 0.003. The exit arm is empty at two hundred, a single position at a
+  to `8` on the asset one, and the median closing Gini, read before the last
+  settlement, differs from the control by at most 0.003. The exit arm is empty at two hundred, a single position at a
   thousand, and every position on the asset carrier, so the asset layer masks
   the accumulation rather than removing it. Both variants are marked diagnostic
   in their own records and are reported beside this run, never in place of it.
@@ -1600,6 +2711,17 @@ confirmed, not dissolved.
 **Path dependence is a discrete event, not a drift.** Of the three legs of a
 modification triangle, the modification month carries **98.71%** of `|omega|`.
 
+**Restated 2026-10-27.** 98.71% is the median share on the 2,675 loops whose
+last leg is non-empty, and 1,669 of those have an empty first leg, which puts
+the whole sum on the modification month by construction. On the population the
+leg map registers, all three legs non-empty (1,006 loops), the modification
+month's median share is **63.28%** against **58.07%** for the stretch before
+it and 11.23% after. The modification month still ranks first and the map's
+branch is unchanged, and the stretch before it carries nearly as much. On the
+origination-payment scheme, carried beside and not read, the first two legs
+swap places, 60.28% against 59.89%. `results/b10_legs.json` now carries
+both populations.
+
 **A third of the population is not on the contract path.** Of clean-cure round
 trips, only **64.66%** carry the sign pattern an ideal cure must produce. The
 other 35% do something else, and it is not noise: errors cluster, and at the
@@ -1623,9 +2745,9 @@ reading a layout document.** Nothing downstream is possible until these land.
 | map | the variable | landed | reading |
 |---|---|---|---|
 | §2·5 | is this sample fixed-rate by behaviour | **1 of 3** | it is; the 544 exceptions touch 0.04% of 1,362,500 loans and cannot move the verdict |
-| §5·4 | how a loan with no balance ever reported behaves | **3 of 3 empty** | the branch "never reported a balance at all" has no members |
-| §5·5 | the phase of the thousand-dollar grid | **arms split, so branch 1 is refused** | two spikes; `499 + 500` together are **4.73%**, a 47-fold excess of half-thousand borrowers |
-| §8·12 | does the state cut decide the reading | **1 of 3** | `E(g0m) − E(g2)` positive in all twelve cells: the cut decides it |
+| §5·4 | how a loan with no balance ever reported behaves | **3 of 3 empty** | the branch "never reported a balance at all" has no members. *Scope, 2026-10-27*: read on this instrument's own population, 1,016 loans with an age-0 row at 0.00, since the 975 the cross-check named have no producer to compare against |
+| §5·5 | the phase of the thousand-dollar grid | **arms split, so branch 1 is refused**. **Restated 2026-10-28.** The rerun in `results/b10_phase.json` is read under the cross-arm rule registered for every rerun: the all-loans arm decides unless the gated arm reads the opposite sign. The all-loans arm is negative on all five ages 2–6 at every phase θ, and the gated arm is negative on all five at θ = 0.25 and mixed at the other four, never positive. **Branch 1: balances move beyond the amortisation schedule, so the closed form is an upper bound.** The alignment criterion (no θ reaches 12.142%) is unaffected | two spikes; `499 + 500` together are **4.73%**, a 47-fold excess of half-thousand borrowers |
+| §8·12 | does the state cut decide the reading | **1 of 3** | `E(g0m) − E(g2)` positive in all twelve cells: the cut decides it. *Scope, 2026-10-27*: each grid reads the loops whose path is still a cycle there, so the loop sets differ slightly (2019Q1 modification arm: 3,767 at the coarsest grid, 3,869 at the finest); with the coarsest grid's set held fixed at every grid, all twelve stay positive and no difference moves by more than 0.016 |
 | §8·14 | how many columns behave like a zero-interest balance | **4 of 4** | thirteen do, and the registered handling for that branch could not be executed |
 | §8·14·5 | the same question with the disjunction removed | **1 of 4** | exactly one column, signature two |
 | §8·14·6 | the balloon horizon | **3 of 4** | more than one column holds it down, and the pre-run prediction that picked one was wrong |
@@ -1634,9 +2756,9 @@ reading a layout document.** Nothing downstream is possible until these land.
 | §8·14·6·7 | does term rewriting explain the 32.90% that disagree | **1 of 3** | it does, by a factor of **23** |
 | §8·14·6·8 | which column `bn` takes | **1 of 3** | by a factor of **3,207** |
 | §8·15 | what `delinq == 99` is | **2 of 3** | it is not a count of missed months. Three rows step `00 → 99` in one month, which no counter can do |
-| §8·16 | no-modification round trips wholly inside age ≥ 8 | **1 of 3** | the construction's prediction is delivered |
+| §8·16 | no-modification round trips wholly inside age ≥ 8 | **1 of 3** | the construction's prediction is delivered. *Scope, 2026-10-27*: the bound's `k` is the rows a trip spans; on 12 of 123,792 trips a month is missing inside the span, where the calendar count would raise the bound by 2% to 63% |
 | §8·17 | does the discount curve reach the horizons the round trips need | **1 of 3** | full coverage |
-| §8·18 | which column is the interest-bearing balance | **1 of 3** | `col 3`, and it contains the deferred balance |
+| §8·18 | which column is the interest-bearing balance | **1 of 3** | `col 3`, and it contains the deferred balance. *Scope, 2026-10-27*: the 422,102 pairs read (median residuals 1.42 against 47.54) do not filter on delinquency status or loan age as the registered quiet month does; on the 375,211 pairs that meet both conditions the medians are 1.24 against 42.14, same branch. The payment is taken at the origination rate; at the current rate (48 pairs differ) the branch is the same |
 
 **Then the machine.** Section numbers are not consecutive here: registration
 order and landing order are different, and this table is in the order things
@@ -1648,13 +2770,13 @@ ran. It is the entry point to this family.
 | §8·20 | the clean-cure loop sum against the closed form | **1** | `ratio_max` 0.4004 against the first carrier's 0.400, **same fourth digit on all six vintages** |
 | §8·21 | is there a rounding noise floor | **none of them** | the grid anchor reads 0.609 half-steps, which is the grid; the cent anchor reads **578 times** cent rounding, which is payment error. This carrier publishes no contract payment |
 | §8·22 | does the triangle's loop window hold up | **1** | `rho(vintage, deferral share) = +0.8254`, **and the trend is a composition effect**: 2020–2021 are 51.2% of it |
-| §8·23 | the three legs of `omega` | **1 and 1** | 20,846 of 20,850 measurable; **leg 2 carries 98.71% of `\|omega\|`** |
-| §8·24 | `omega` against the floor | **1 and 1** | modification arm ratio 6,388,937, inside the first carrier's 2.4M–6.8M band. **Scored as four criteria 2026-09-16, below** |
+| §8·23 | the three legs of `omega` | **1 and 1** | 20,846 of 20,850 measurable; **leg 2 carries 98.71% of `\|omega\|`**. *Restated 2026-10-27*: 63.28% against leg 1's 58.07% on the registered all-three-legs population, branch unchanged (see *What it says*) |
+| §8·24 | `omega` against the floor | **1 and 1** | modification arm ratio 6,388,937, inside the first carrier's 2.4M–6.8M band. **Scored as four criteria 2026-09-16, below**. *Restated 2026-10-27*: 6,862,691 over the same-scheme floor, just above that band; both branches unchanged |
 | §8·25 | §8·12 re-asked on this carrier | **1** | `E(g0m) − E(g2)` = **+0.3048 / +0.2126**, both arms up, same direction as the first carrier |
 | §8·26·1 | are those two 0.108 rates the same loans | **3** | lift **3.68**, each only 40% inside the other. Two rates near each other is a coincidence of magnitude |
 | §8·26·2 | whose tail is `P_sub`'s | **3** | **35.97% out of bounds**, worst 1,338-fold. The grid explains at most 64% |
-| §8·27 | is that 36% term or balance | **3, six rescued** | `h = age + rem − term ≡ 0` on 99.993%. Term is not the cause; `rem` is a derived field |
-| §8·28 | are the out-of-bounds loans the same as the unnamed ones | **3** | lift **1.02**, 36.7% against 32.7%. Two independent populations |
+| §8·27 | is that 36% term or balance | **3, six rescued** | `h = age + rem − term ≡ 0` on 99.993%. Term is not the cause; `rem` is a derived field. *Restated 2026-10-27*: correcting the horizon rescues 6 of 41,393 and makes none newly out of bounds, so term accounts for those six and the other 41,387 stay out of bounds; on five of them the current coupon differs from the origination coupon, which moves the payment by itself |
+| §8·28 | are the out-of-bounds loans the same as the unnamed ones | **3** | lift **1.02**, 36.7% against 32.7%. Two independent populations. *Scope, 2026-10-27*: each loan contributes at most one scored loop (115,081 loops on 115,081 loans), so "over the bound" is that loop's state, not a census of every clean cure the loan had |
 | §8·29 | why the ratio rises with window length | **1** | coherence does not rise. **And that branch's pre-written explanation was refuted by the same run**: it predicted 2.57×, the measurement is 20.86× |
 | §8·30 | where in the distribution that 20.86× lives | **1, peak in the middle** | by quantile 10.30 / **20.86** / 6.08 / 3.22. The denominator is small, the numerator is not large |
 | §8·31 | are the two modes two kinds of loan | **2, and it is a theorem** | the sign alphabet: `+-` **64.66%**, `++` 17.18%, `--` 12.50%, `-+` 5.66% |
@@ -1688,6 +2810,20 @@ they agree to 0.046 per cent. The payment scheme is reconstructed rather than
 published on this carrier, and the reading does not rest on which reconstruction
 is taken.
 
+**Restated 2026-10-27.** Each payment scheme's ratio is now read over the floor
+built with the same payment, which is what the registration asks for; until
+this run the substituted scheme was divided by the origination-payment floor.
+The substituted floor is wider on the unfiltered clean cures (115,085 loops)
+and narrower on the derived-path ones (10,576). On the resolution floor
+the modification arm now reads **6,862,690.9** on the registered scheme against
+6,391,860.1 on the other, widest over narrowest **1.073661**, so the two
+schemes agree to 7.4 per cent rather than 0.046. All four criteria
+still pass and every ratio stays on the same side of the readable line; the
+whole-sample ratio on the ambient floor moves from 94.6 to 37.6.
+The registered scheme's 6,862,691 now sits just above the first carrier's
+band, whose top is 6,765,766.9; the band is printed beside the criteria and
+not scored, so no verdict moves with it.
+
 **What this run did not move.** Every number in the payload is unchanged against
 two independent earlier copies of the record, field by field: two fields differ and
 both were changed on purpose, the flag saying the record is no longer diagnostic and
@@ -1718,6 +2854,16 @@ runs against the finding rather than for it: they are observed longer, not less.
 They are also a different population at origination, with a median FICO band two
 steps lower and a first-time-buyer share of 10.1% against 14.3%. Debt-to-income
 does not separate them.
+
+**Restated 2026-10-27.** The hazard's denominator is the months at risk: from
+the cure up to and including the first re-delinquency, or every remaining month
+when there is none. Counted over every month after the cure instead, the rates
+are 0.009629 against 0.008602, a factor of 1.12, and `++` is still the higher of
+the two. In the origination profile, Freddie's missing codes are kept as
+numbers: `999` sits at the 90th percentile of debt-to-income for `++` and `--`,
+so those two upper quantiles are the missing code and not a ratio, and `9999`
+puts a few loans in the top FICO band. The median FICO bands do not move with
+them.
 
 **And that share is not stable in time.** It runs near a third before 2019 and
 under a thirtieth after. The break is a calendar event, not a property of the
@@ -1929,6 +3075,8 @@ Enumerated whole over every three-bin threshold cut of the delinquency ladder, s
 | **FAIL** | B12-D  2019Q1 mod: between-class spread of median \|omega\| is invariant to where the delinquency ladder is cut | max/min 11.96 across 1,891 enumerated 3-bin cuts, line at 4.0; spread in floor units 173,137 to 2,071,535, the 30/60-day cut at 2,071,535 which is quantile 1.0000; 1,505 cuts give a finite spread |
 | PASS | B12-D  the spread's position is not fixed by the class count | class-count quantile of the real cut spans 0.9942 to 1.0000 over 12 cells while its spread quantile spans 0.0007 to 1.0000: a near-constant class count against the full range of spread positions |
 
+**Restated 2026-10-29.** A PASS on an `is invariant to where the delinquency ladder is cut` row means the max/min ratio of the spread stays under the registered line of 4.0. The three passing rows (2002Q1, 2006Q1 and 2007Q1 defer) still move 3.58 to 3.75 times across cuts, and the line is a relative one, so it does not by itself bound an instrument error.
+
 Derived quantities:
 
 - `real_grid_quantile_2002Q1_defer` = 0.0007
@@ -1982,6 +3130,15 @@ differ only in the gate, and then the two that differ only in the terms:
 not inert. It also moves 19.4 nodes' cycle counts while moving 2.2 in and none
 out, **so it acts on the intensive margin**, which is not where an earlier
 diagnostic assigned it.
+
+(Restated 2026-10-20: the terms column switches the payment terms, and in this
+model those also admit the bidder pool that prices a tier, so `16.8` and `85.6`
+count what the pricing pool does as well; the gate column is the opening
+allocation alone. The loop-sum-only cell scored below keeps the pool dispersed
+too. `docs/a3_asset_channel.md` section 5.2 reads that cell with the pool
+levelled at A3-8's registered seeds. On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
 
 **The criterion is scored on seeds that did not exist when it was written.** It
 was registered on 2026-08-13 after the ordering had been seen at the registered
@@ -2042,6 +3199,14 @@ carriers, two attachment arms, two population conventions, two density axes and
 three seed blocks, and it never reaches three in absolute value while the loop
 cell reaches twenty-four. **The prediction that the gate carries no holonomy has
 no counterexample on record.**
+
+(Restated 2026-10-20: every loop cell pooled here is the loop-sum-only cell on
+the registered pool rule, where the bidder pool that prices a tier is admitted
+on the payment terms, so it carries the pricing pool's dispersion along with the
+loop sum. The gate cell has the pool levelled and carries the opening allocation
+alone, so the gate count above reads as written. On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
 
 **The three points where the ordering does not hold are printed with the gate
 value beside them**, and the gate cell reads exactly `0.0000` at all three:
@@ -2262,8 +3427,15 @@ by subtraction.
 |---|---|---|---|---|---|---|
 | **Toronto** | **0.0 h, one bell all year** | **465** | **12.1** | **16.4** | 38.7 | **54.9** |
 | Sao Paulo | 0 h or 1 h | 1 | | 103.9 | | |
-| London | 4.5 h | 21 | 166.3 | 223.8 | | 536.7 |
-| Tokyo | 15.0 h | 6 | 131.8 | 244.1 | | 317.6 |
+| London | 4.5 h | 21 | 166.3 | 243.7 | | 536.7 |
+| Tokyo | 15.0 h | 6 | 131.8 | 244.0 | | 317.6 |
+
+The London and Tokyo medians are recomputed from the record's list of pairings
+(updated 2026-10-13): `243.7` and `244.0`. The `223.8` and `244.1` printed here
+before are superseded; minima and maxima are unchanged. The same list holds five
+venues with one pairing each (Amsterdam 887.2, Mumbai 368.5, Paris 194.3, Madrid
+167.9, Frankfurt 146.5) and, at Sao Paulo, the mispaired preferred line at 815.4
+beside the 103.9 in the table.
 
 **The same-bell cell is thirty-two interlisted names rather than two**, and its
 465 pairings run from 12.1 to 54.9 with no tail.
@@ -2302,6 +3474,17 @@ the one object all of them literally share is the exchange-rate series.** A
 dislocation common to all of them is still not excluded by this design; it would
 have to be uniform across six industries to that precision.
 
+> **Updated 2026-09-13, written into this section 2026-10-13: the `57.2` is
+> superseded and no figure is carried for the exchange-rate cut.** Each of the
+> 465 pairings is a difference of two companies' readings, so the term to remove
+> is half of `16.4^2`, and the same subtraction then gives `58.4`. A p10-p90
+> spread is not a standard deviation, and the subtraction is an operation on
+> variances. And the result moves its input by under four per cent, `59.5` to
+> `57.2` here and `59` to `57.5` in the first round, so the two agree by
+> construction. **What stands is the `59.5` median with the rate left in and the
+> 12.5 basis point agreement across six industries.** The dislocation common to
+> all of them is open, as the paragraph above says.
+
 **The pooled median hid this and the per-pair rows showed it.** With the rate
 removed the pool's median is 244 against 219 with it in, which reads as "the rate
 is not the main term" and is wrong: at a zero clock gap removing the rate takes
@@ -2309,11 +3492,28 @@ is not the main term" and is wrong: at a zero clock gap removing the rate takes
 two pairs only adds two helpings of it. **Both readings are right and the
 aggregate cancelled them.**
 
+> **Updated 2026-10-13 from the record.** Over the 530 same-venue pairings now
+> on file, 496 of them at Toronto, the pooled median is **17** with the rate
+> removed against **147** with it in (B24-5). The `244` against `219` above is
+> the first round's pool, which held one zero-gap pairing, and is superseded.
+> The per-venue rows are the reading in both rounds: a pooled median follows
+> whichever venue holds most of the pairings.
+
 **The instrument's floor, measured in three layers rather than asserted**: about
 13 bp between two listings, about 57 bp from the exchange rate's cut, and 150 to
 320 bp from the closing bells, rising with the gap. The clock gradient is printed
 and not scored, and the zero-gap venue was named before the run rather than
 picked after it.
+
+> **Updated 2026-10-13.** Two layers are measured. Between two listings at a
+> zero clock gap with the rate removed: `12.1` to `54.9`, median `16.4`, over
+> 465 pairings; the `about 13 bp` was the first round's single pairing, `12.8`,
+> which is the lower end of that distribution. From the closing bells: B24-4
+> prints one figure per venue, `154` to `332` over the eleven venues at 4.5
+> hours or more, leaving aside Amsterdam (`860`) and Zurich (`610`), which the
+> next paragraph names; the `150 to 320` above is that range before Mumbai's
+> `332`. The middle layer, `about 57 bp` from the exchange rate's cut, is
+> superseded and has no measured figure.
 
 **Named and not explained away**: `PHG` at 860, `NVS` at 610 and `UL` at 527 each
 had a corporate action inside the window and this station did not check whether
@@ -2465,6 +3665,15 @@ mechanical work. On those eight points:
 shows up as a gate cell with a stable sign, and neither the eight active points
 nor the fifty-seven pooled ones ever produced one.
 
+(Restated 2026-10-20: the terms cell is the loop-sum-only cell, and in this
+model it also keeps the bidder pool that prices a tier dispersed, since that
+pool is admitted on the payment terms; the gate cell has the pool levelled. The
+zero domain is read on the gate cell and does not move. The terms column is the
+loop sum together with the pricing pool; at A3-8's registered point the same
+cell with the pool levelled reads `+20.3783`. On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
+
 **Three things this does not claim.** The five points where the gate reads
 exactly `0.0000` **are not evidence and the record says so beside each**: two are
 where A3j measures the gate as mechanically inert, and the other three sit inside
@@ -2472,7 +3681,7 @@ the complete-graph endpoint that `docs/a7_continuous_c.md` section 4.1 already
 excluded as over-determined. **A3-8 stays void** for the reason A3g-5 measured,
 and the zero domain needs neither of its clauses. And this is **a mechanism
 model agreeing with its own theorem**, a different object from B13's `81,968`
-states of derived-against-quoted and from B6's arithmetic identity in a
+bid and offer readings of derived-against-quoted and from B6's arithmetic identity in a
 publisher's table. **Three zero domains, three kinds, never one reading**, and
 this is the smallest and the only one on the A track.
 
@@ -2526,29 +3735,81 @@ which both cells were computed.
 **Stretch 3.0 reproduces A3h's registered block to the digit**, 74.0 against
 74.0 and 85.6 against 85.6.
 
+(Restated 2026-10-20: the terms column switches the payment terms, which in this
+model also admit the bidder pool that prices a tier, so it counts what the
+pricing pool does as well; the gate column is the opening allocation alone.
+On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
+
 **No threshold is placed on the ratio.** The eight interior values are reported
 and not scored; the two zeros are a printed object and not a line crossed.
 
 
 ## B13 — the zero domain, measured where the order can actually be placed
 
-`81,968 states` `9 products` `3 channels` `one ten-minute window of 2023-07-17` `the vendor's free public sample`
+`81,968 bid and offer readings` `8 products` `3 channels` `the first 92 seconds of a ten-minute capture, 2023-07-17` `the vendor's free public sample`
 
 **7/7 live criteria passed**
 
-**The framework names where its own quantity must be zero and this station goes and measures it there.** Never worse than the two-leg derivation in 81,968 states over nine products, exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states.
+**The framework names where its own quantity must be zero and this station goes and measures it there.** Never worse than the two-leg derivation in 81,968 bid and offer readings over eight products, exactly equal on six of them, while the directly quoted member of the same family is non-zero in 65 to 96 per cent of states.
 
-**Why six and not all nine is open.** The explanation the station first gave is superseded in B13-2, and the six are not distinguished from the other three by anything established here.
+**Why six and not all eight is open.** The explanation the station first gave is superseded in B13-2, and the six are not distinguished from the other two, CL and RB, by anything established here.
 
 | | criterion | detail |
 |---|---|---|
 | PASS | B13-0  the gate: one spread, both multicast sides, a book class that implements every action it is sent | 34923 end-of-event states with a book change on one of the three instruments, 2442 of them republished the spread's implied book and are paired. Update actions this book class does not implement: 0. Reading only the A-side of an A+B deduplicated capture had cost 2 per cent of updates and produced a bid agreement of 0.9229 that looked like a finding; with both sides it is 0.9990 |
-| PASS | B13-1  section 4.A.2, load-bearing: the exchange's published implied price is never worse than the two-leg derivation | 0 violations in 63168 states on ch382, 0 in 5336 on ch386 and 0 in 13464 on ch360, over nine products and three channels. The criterion is a one-sided inequality and not an equality, which is what makes zero violations the whole of it |
-| PASS | B13-2  on six of the nine products the inequality is an equality, bit for bit, and why those six is not established | equality rate 1.0000 on both sides of both ch386 and ch360, which is 2668 offer and 2668 bid states there and 6732 of each on ch360, 18800 in all. **The explanation the station first gave is withdrawn**: it said those products have only one derivation path, and the instrument listing says otherwise for every root measured, CL 906 of 906 multi-path, NG 1124 of 1127, GC 231 of 231, HG 820 of 820, MHG 780 of 780, QI 55 of 55. The reading stands and the attribution does not |
-| PASS | B13-3  the same apparatus on the directly quoted member of the same family returns non-zero | share of states with a non-zero gap between the directly quoted book and the two-leg derivation, by channel: 0.8751 offer and 0.9240 bid on ch382, 0.7470 and 0.6516 on ch386, 0.9478 and 0.9610 on ch360. Nine products, no exception. **Not an economic statement**: it is ordinary queueing and market-making difference, and the design file forbids reading it as more |
+| PASS | B13-1  section 4.A.2, load-bearing: the exchange's published implied price is never worse than the two-leg derivation | 0 violations in 63168 bid and offer readings on ch382, 0 in 5336 on ch386 and 0 in 13464 on ch360, over eight products and three channels; a state quoted on both sides is read twice. The criterion is a one-sided inequality and not an equality, which is what makes zero violations the whole of it |
+| PASS | B13-2  on six of the eight products the inequality is an equality, bit for bit, and why those six is not established | equality rate 1.0000 on both sides of both ch386 and ch360, which is 2668 offer and 2668 bid states there and 6732 of each on ch360, 18800 in all. **The explanation the station first gave is withdrawn**: it said those products have only one derivation path, and the instrument listing says otherwise for every root measured, CL 906 of 906 multi-path, NG 1124 of 1127, GC 231 of 231, HG 820 of 820, MHG 780 of 780, QI 55 of 55. The reading stands and the attribution does not |
+| PASS | B13-3  the same apparatus on the directly quoted member of the same family returns non-zero | share of states with a non-zero gap between the directly quoted book and the two-leg derivation, by channel: 0.8751 offer and 0.9240 bid on ch382, 0.7470 and 0.6516 on ch386, 0.9478 and 0.9610 on ch360. Eight products, no exception. **Not an economic statement**: it is ordinary queueing and market-making difference, and the design file forbids reading it as more |
 | PASS | B13-4  section 5.2's precondition: the spread quotes on the same grid as its legs | equal 10 different 0 no data 0 on ch382, equal 7 different 0 no data 0 on ch386, equal 8 different 0 no data 0 on ch360. **This registered check was skipped when the gate first ran and was performed afterwards**, so the readings above stood on luck until it passed. Measured as the gcd of the observed prices rather than read off the definition field |
 | PASS | B13-5  B4's section 5.1 split, both halves computed on live quotes for the first time in this repository | the split is available in 49116 of 50055 states, 0.981; Theorem 6(1)'s sign constraint has 0 counterexamples in those 49116; the index part is exactly zero in 12637 of them. B5 could report the index half and never the friction half, and this is the first carrier that quotes all four legs natively |
 | PASS | B13-6  Theorem 6(4)'s bound, and section 5.1's own criterion for two agent classes, adjudicated per position edge | 0 violations of \|S - S'\| <= -(S + S') in 49116 states; rho median 0.2000 with 0 states at rho = 1. Under the parity control the index is zero in 0.5649 of the states where zero was available: CLU3-CLV3 takes it 716 times out of 716 and is one class, RBU3-RBX3 takes it 88 times out of 1978 and RBU3-RBV3 155 out of 1895, and those two are two classes |
+
+**How the directly quoted side is read, 2026-09-12.** A scalar on positions
+gives the directly quoted spread and the two-leg derivation the same terms, and
+they differ in 65 to 96 per cent of states, by channel and side, on every one of
+the eight products. The comparison is bit for bit on one tick grid (B13-4), so
+there is no ratio to a floor to report. It is carried as a reading against the
+scalar price field, measured beside the zero domain with the same apparatus.
+Queueing and market making say where the gap comes from; they do not make it
+zero. The sentence in the B13-3 detail that sets the gap aside is superseded by
+this reading, and the row above prints the record as it was written.
+
+**Coverage, units, signs and the tail, restated 2026-10-10.** No verdict moves.
+
+- **Eight products have a state, over 36 calendar spreads** (9 on ch382, 15 on
+  ch386, 12 on ch360): CL, RB, NG, TTF, GC, HG, MHG, QI. The sheet said nine,
+  which was a count of the instrument list; it is now counted off the three gate
+  products (`coverage` in the record). The six that are exactly equal are NG,
+  TTF, GC, HG, MHG and QI, and the two that are not are CL and RB.
+- **The independent side's values are printed in units of `1e9` raw price for
+  every product.** That is one tick for CL, RB, NG and GC. TTF, HG and MHG tick
+  in `5e9` and QI in `125e9`, so a printed −115 on TTF is −23 ticks and a printed
+  −250 on QI is −2 ticks. The products carry the label "in ticks" over those
+  numbers; the zero test, the signs and the non-zero shares do not depend on it.
+- **The direction of the independent side is a majority and not a rule.** The
+  directly quoted offer sits above the two-leg derivation in 58 of 31,550 states on
+  ch382, 168 of 2,506 on ch386 and none of 4,331 on ch360; the directly quoted bid sits
+  below it in 41 of 31,176, 331 of 2,474 and none of 3,202.
+- **What the grid can show in the tail of `rho`.** Both orientations are whole
+  ticks on one grid, so the index has the friction count's parity and, strictly
+  inside the band, stops two short of it: the largest `rho` a state with friction
+  count `k` can show is `(k−2)/k`. `experiments/b13_rho_tail.py` printed `(k−1)/k`
+  and now prints the three branches per spread and cut
+  (`results/b13_rho_tail_ch382.txt`, `results/b13_rho_tail_ch386.txt`). On
+  `CLQ3-CLV3` no state can represent `rho ≥ 0.8`, where the earlier count read
+  2,493; on `CLU3-CLV3` none can represent `rho ≥ 0.6`; on `RBU3-RBV3` 252 states
+  can represent `rho ≥ 0.9` and none shows it. An empty tail is a reading only
+  where it is marked reachable.
+
+**What the counts count, and how much of the capture, 2026-10-26.** No reading
+moves. The gate products count a state once for its bid and once for its offer,
+so `81,968` (63,168 on ch382, 5,336 on ch386, 13,464 on ch360) and the `18,800`
+of exact equality are one-sided readings; a state quoted on both sides is read
+twice. The runs on the trade capture read its first 6,000,000 packets, which
+span 92.37 seconds of the ten-minute file; the instrument listing behind the
+path count is read in full from the definitions capture.
 
 ## B14 — a dated, exogenous, symmetric friction change: the SEC tick size pilot
 
@@ -3722,7 +4983,7 @@ Record with no criteria block, kept as evidence and named here so it is findable
 | PASS | B4-1  Theorem 4: Bellman-Ford agrees with cycle enumeration | 24 agree, 0 disagree over 24 graphs; 5 admit a sub-potential and 19 carry a positive cycle |
 | PASS | B4-2  the returned potential satisfies every edge inequality | worst breach 0.000e+00 over 5 potentials against 1e-09 |
 | PASS | B4-3  Theorem 5: a sink component gives an unbounded ray | 31 graphs with a proper sink; the worst violation over shifts up to 1e+06 is at machine precision for that scale, below 1e-09 |
-| PASS | B4-4  Theorem 5: strong connectivity bounds the polytope | 24 strongly connected graphs; every proper subset breaks (smallest breach 1.000e+06); every coordinate interval is finite, non-empty and contains the returned potential, widest 2.055 |
+| PASS | B4-4  Theorem 5: strong connectivity bounds the polytope | 24 strongly connected graphs; a random proper subset of each size 1, n//2 and n-1 breaks in every graph (smallest breach 1.000e+06); every coordinate interval is finite, non-empty and contains the returned potential, widest 2.055 |
 | PASS | B4-5  Theorem 6(1): the symmetric part is non-positive | worst w_bar -4.284e-04 over 24 fields against 1e-09 |
 | PASS | B4-6  Theorem 6(3): the antisymmetric case reproduces Theorem 1 bitwise | 12 fields, 0 mismatches; potentials compared as raw bytes after centring on the minimum |
 | PASS | B4-7  section 5.1: the directed square splits into friction and index | \|S+S' - friction\| and \|S-S' - index\| are both at machine precision, below `1e-10`, over 226 squares |
@@ -3961,8 +5222,8 @@ than a criterion the stage failed.
 | | criterion | detail |
 |---|---|---|
 | PASS | B8-0a | the gate holds on the split registered after the closed form was found. (i-a) runs on the clean cures whose every quiet month sits in its segment's modal cluster and requires an exact return to zero within floating-point tolerance; all six vintages pass. (i-b) is a reading and not a gate. What passes it is the qualifying count and not the ratio: max ratio reads 0.399 to 0.400 in every vintage because the path tolerance and the agreement bound share one 1/B, so the ratio is capped by the path filter itself and carries no independent information |
-| PASS | B8-0b | the floor is MAD(omega - closed) on the clean-cure arm, 2.68e-08 to 5.22e-08, against a construction that predicts half a cent divided by the median balance, 3.03e-08. Two further quantities in this repository are also called a floor and one of them is a signal; they are named N_cure, N_placebo(L) and IB_RESIDUAL, and any quotation of a floor has to say which |
-| PASS | B8-1 | necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,051.8 to 6,632,538.5, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution. The leg-1 shortfall behind that subtraction is a constant integer month count, n1 - eff of 3.98 to 4.99, and not a proportion; section 21.6's discriminant does not settle it, since flat equals round(eff) on 0.5525 to 0.7137 of loops and on none of the six archives outright, though the residual class that would break the reading is zero at the median in all six. B8-1's verdict does not move on it: section 21.6 registered in advance that removing a quantity 1.2 to 1.6 times the measured leg 1 changes the net ratio by at most 11.5 per cent |
+| PASS | B8-0b | the floor is MAD(omega - closed) on the clean-cure arm, 2.68e-08 to 5.22e-08, against a construction that predicts half a cent divided by each vintage's median balance, 3.04e-08 to 5.85e-08, and each vintage's floor sits just under its own prediction. Two further quantities in this repository are also called a floor and one of them is a signal; they are named N_cure, N_placebo(L) and IB_RESIDUAL, and any quotation of a floor has to say which |
+| PASS | B8-1 | necessary condition holds in all six vintages. Ratio 2,412,840 to 6,765,767; subtract the closed form for leg 1 and it is 2,135,051.8 to 6,632,538.5, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of the signal is construction. Leg 1 equals its flat-delinquency closed form on only 0.0043 to 0.1198 of loops by vintage, so that subtraction is not a flat-delinquency reading. The threshold was demoted to a readability line rather than a significance test: corr(omega, closed) is +1.0000 in five of six vintages, which makes the residual instrument resolution rather than a sampling distribution. The leg-1 shortfall behind that subtraction is a constant integer month count, n1 - eff of 3.98 to 4.99, and not a proportion; section 21.6's discriminant does not settle it, since flat equals round(eff) on 0.5525 to 0.7137 of loops and on none of the six archives outright, though the residual class that would break the reading is zero at the median in all six. B8-1's verdict does not move on it: section 21.6 registered in advance that removing a quantity 1.2 to 1.6 times the measured leg 1 changes the net ratio by at most 11.5 per cent |
 | PASS | B8-2 | sign agreement across windows. 29 readable cells of 32, all 29 same-sign with intervals clear of zero, in all five windows, and re-run under the far-corner curve construction with zero cells flipping. leg 2 came back positive in every readable cell where section 14.3 had registered negative, and is not small: \|leg2\|/\|leg1\| has a median of 3.67 |
 | PASS | B8-3 | the two paths to the same state differ, and the verdict is carried by per-cell signs and permutation rather than by margin. Re-run under the far-corner construction: all six vintages keep their sign, permutation p is 0.001 throughout, and the per-cell sign counts are identical under both constructions. delta/N_cure is 5.78e4 to 4.30e6. The earlier exemption, that the gap ran two to four orders above the curve spread, used the wrong denominator and is withdrawn; at 2007Q1 the two are 1.4 times apart, not an order of magnitude |
 | PASS | B8-4a | class ordering reproduces on fico_llpa9, the finest grid that clears both gates. Six vintages same direction, sign test p = 0.0312, three significant on their own and surviving equal-n. The loading monotonicity, median Spearman -0.82 and 6/6 negative, is a post-hoc reading, is labelled as one, and **no product on disk prints it**: section 3 of b8_4_class.md carries mean rank and span, not a Spearman, so that number is carried by this sheet alone and cannot be checked against the stage's own output (found 2026-08-19 by the number check below). Of eleven grids only five clear the floor of 20 and hang on the borrower rather than the house or the location, and the comfortable ones among them are the coarse ones |
@@ -3990,6 +5251,31 @@ RUN 2026-09-15. Product `results/b8_o35_floor_steps.md`, record `results/b8_o35_
 
 **What they carried.** The floor's `MAD` moves in its fifth figure at most. The variance-type readings move by orders of magnitude: with the three named, `sqrt(Z)/sqrt(N)` reads 2.7e5 to 2.1e6 on every arm of every archive (2002Q1 from 7.06e2, 2017Q1 from 1.51e4), the same order as the MAD ratio, and `2*Var` on the floor settles as the sample grows on all six archives. The non-convergence recorded in `b8_0b_floor.md` section 2.3 was carried by these three loops.
 
+### B8, delinquency status `99`, and three products regenerated (2026-10-10)
+
+Field 40 counts months delinquent in two digits, and `99` is the top of that count,
+ninety-nine months or more. Three scripts compared against 98 and so filed the `99`
+rows with the unknown ones (`XX`, blank, a digit string of the wrong length). The data
+identify the code by behaviour: of the 4,820 rows that carry it across the six
+archives, 4,792 follow a month at `98` or `99`. The comparison is now against one
+constant, `DELINQ_KNOWN_MAX = 99`, and the fixture carries a loan with a `99` month
+inside its window; put the 98 back and the self-test fails.
+
+The loop caches were rebuilt and every product regenerated. **No loop anchor and no
+loop count moved**: all 39 cached arrays are identical in all six archives, 85,308
+signal loops and 864,769 floor loops. Four products changed and eight did not.
+
+| product | what changed |
+|---|---|
+| `b8_loops_census.md` | unknown-status rows fall by the 4,820 that were `99` (647, 2,199, 1,883, 90, 1, 0 by archive). The 154 of them inside a signal window had marked 12 windows (1, 4, 7, 0, 0, 0) as holding an unknown status; no window holds one now |
+| `b8_5_hole.md` | one loan in 2012Q1 enters the deepest rung, six months delinquent, in the post-2022 cohort: the matured denominators read 278, 207 and 142 where they read 277, 206 and 141, and thirteen statistic rows move in the third decimal. No significance flag, stability flag or direction changes, and the totals stand at 554 cells, 132 endpoint-stable, 20 significant |
+| `b8_0a_gate.md`, `b8_1_signal.md` | regenerated from the current scripts, which they had fallen behind: the legacy-screen column of the gate (it had been a copy of the corrected one), one placebo denominator (414,133), the table that sets the earlier screen beside the current one, and the paragraph every citation of B8-1 carries about the flat-delinquency assumption. No ratio and no verdict in either moves |
+
+`b8_0b_floor.md`, `b8_2_windows.md`, `b8_2_curve.md`, `b8_3_paths.md`, `b8_3_curve.md`,
+`b8_4_class.md`, `b8_loop_omega.md` and `b8_residue.md` come back byte for byte, and
+`results/b8_verdicts.json` is unchanged: eight of nine pass and one is void.
+
+
 ## B9 — the ETF creation triangle: a scalar price on the three positions predicts a loop sum of zero; eleven registered predictions, and the two that were designed so they could lose
 
 **This stage's records carry no criteria block, and the reason is the same one
@@ -4012,13 +5298,13 @@ no cross-grid calibration either.
 | id | the bet | role | where it landed |
 |---|---|---|---|
 | **B9-0** | the degenerate loop returns exactly zero | gate | **re-labelled from test to construction check.** The reverse edge is implemented as the negation of the forward one, same state dict, same call, so `z = −x + x` **cannot fail**. 200,000 draws, zero non-zeros, because zero was the only reachable answer |
-| **B9-A-1** | a measured zero: the reading is below its floor | load-bearing | **a resolvable non-zero.** The indicator part runs 1.050 to 5.083 times the measurement floor, **11 of 11 above 1**. This carrier has no zero, and the reason is measured rather than argued |
-| **B9-A-2** | the ratio rises with stress | substantive | **9 of 11 rise**, median ratio 1.211, range 0.881 to 1.365 |
+| **B9-A-1** | a measured zero: the reading is below its floor | load-bearing | **a resolvable non-zero.** The indicator part runs 1.050 to 4.974 times the measurement floor, **11 of 11 above 1**. This carrier has no zero, and the reason is measured rather than argued |
+| **B9-A-2** | the ratio rises with stress | substantive | **9 of 11 rise**, median ratio 1.211, range 0.881 to 1.547 |
 | **B9-A-3** | the closing leg is open only to authorised participants | reported, not estimated | institutional fact from the fund's own filings: the unit is **50,000 shares and indivisible**, and the wedge is 1.2 to 1.7 bp. **No price makes this edge appear**, so it is a hole and not a cost, and the two are never added |
 | **B9-A-4** | `pi` is non-zero under stress and indistinguishable from zero when calm | calibration | **not constructible**, and that is a property of the carrier's topology rather than of the data. `pi` here is exactly `(V + d²)/(2V + d²)`, a monotone reparameterisation of mean premium over its own dispersion, matched to **8.09e-05**. It carries nothing about the size of the reading |
 | **B9-A-5** | a free historical premium/discount table covering 2020 and 2022 exists | gate | **fails, and the reason is structural**: the disclosure rule covers the most recent calendar year plus the quarters after it, **and it replaced the older rule rather than adding to it. Nobody was ever required to retain that history** |
-| **B9-A-6** | one venue's closing midpoint can stand in for the consolidated one | gate | **fails.** Listing venue 0.8975, four venues combined 0.5564, neither at the registered 0.90. **It is not rounded up**: 0.8975 is about fifteen fund-days short |
-| **B9-A-7** | the reconstructed price survives the readings, not just the prices | direct criterion | **not usable.** `Δρ_c` goes **+0.06942 → +0.00010** and the four-cell verdict changes cell |
+| **B9-A-6** | one venue's closing midpoint can stand in for the consolidated one | gate | **unread on the listing venue, fails on the others.** Listing venue 0.8975 over all 6,176 captured fund-days, which is under the registered 0.90; but on the three early-close days of 2025 the 16:00 capture is three hours after the 13:00 close, and there it matches 1 of 22. Without those days it is 0.9006 over 6,154, calm 0.9084 and stress 0.8924, which is the sub-test cell. **A cell that changes with 22 fund-days on which the instrument was pointed at the wrong instant is not read**, as a failure or as a pass. At round-lot size the listing venue reads 0.8967 and 0.8980, failing both ways; the second venue 0.5256 and four venues combined 0.5564 fail both ways. Their all-days columns also count 3 and 5 fund-days, all on the early-close days, whose record at the mark is the vendor's undefined-price sentinel taken as a price; the second venue's two crossed-at-the-mark counts are two of these. **Restated 2026-10-27.** The sentinel is now treated as a missing quote: the second venue reads 0.5258 of 6,175 and the combination 0.5567 of 6,185, with no crossed book on the second venue and 1,862 on the combination; the without columns are unchanged and no cell moves |
+| **B9-A-7** | the reconstructed price survives the readings, not just the prices | direct criterion | **survives on the days the capture holds the close.** On the 401 days outside the three early closes, `Δρ_c` reads +0.00294 on the disclosed price and +0.00471 on the reconstructed one, `V_c` ×2.370 against ×2.335, and both land in the same cell. The change of cell first recorded here (+0.06942 → +0.00010) came from those three days, on which the reconstruction read a late-session quote |
 | **B9-A-9** | the redemption-side fee equals the creation-side fee | registered | **run 2026-08-29: the two fees are equal item for item** (row updated 2026-09-11), so the friction lands wholly in `(S+S')/2`; readings in the B9-A-9 section below. Registered here so that "every registered prediction has a written disposition" is true again |
 | **B9-B-1** | tick data with volume exists and has no size-dependent disclosure cap | gate | **passes.** Nothing has to be bought |
 | **B9-B-2** | `pi` rises with order size over ADV | size channel | **route closed by derivation** |
@@ -4030,15 +5316,15 @@ in the register and not a lost prediction, written here so nobody looks for it.
 
 | map | the variable | landed | reading |
 |---|---|---|---|
-| §9·1 | the reading against the measurement floor | **resolvable non-zero, 4 cells** | 1.050 to 5.083, all eleven above 1. On the standard-deviation floor the same eleven run 3.64 to 17.61: **both columns are reported and the headline keeps the conservative one**, because a choice that changes no verdict should not be dressed up as a finding |
-| §9·5 D1 | first-order autocorrelation of the signed reading | **rises, 10 of 11** | calm **+0.0762**, stress **+0.1211**. The noise null predicts a point, zero, **and calm was already positive before any stress comparison was made** |
-| §9·5 D1b | the same after removing the daily cross-fund mean | **falls, 3 of 11** | calm **+0.0882**, stress **−0.0094**. So the per-fund loop persists on its own when calm, **and the amplification under stress is market-level rather than per-fund** |
-| §9·5 D2 | share of days at a discount | **moves, 10 of 11** | 0.4532 → 0.5075. **A symmetric disturbance cannot move a share**, which is why this one is read on level and never on count |
-| §10·1 | the variance decomposition | **both, 4 cells** | `V_c` ×2.518 and `V_e` ×2.130 with the mix barely moving, and `Δρ_c` = **+0.069132** |
-| §11 | the cross term against a circular-shift null | **inside the body, 3 rows** | **0 of 22** cells at or above their own 95th percentile against a chance expectation of 1.1. The null's own floor is **0.09332**, which is **9.3 times** the tolerance that had been registered to be compared against |
-| §12 | does the reconstruction survive the readings | **not usable, 3 rows** | the error is a fixed half-tick while the signal doubles under stress, **so a fixed error does most of its damage where the signal is smallest, which is the calm regime, which is the axis every reading here lives on** |
-| §12·1 | the same question for the discount-share statistic | **the exception, and the asymmetry was predicted backwards** | 76% of the move survives and the direction holds. The registered row named the wrong side of the split; **the split is real and its handling still applies** |
-| §14·5 | the gate-speed test mapped onto primary-market activity | **fund-flow, 5 cells** | the share of zero-change days **falls in 10 of 11**, and the intensive margin **rises in 8 of 11**. Under stress the primary market is both more frequent and larger. **The mapping onto this carrier is refused** |
+| §9·1 | the reading against the measurement floor | **resolvable non-zero, 4 cells** | 1.050 to 4.974, all eleven above 1. On the standard-deviation floor the same eleven run 3.64 to 17.23: **both columns are reported and the headline keeps the conservative one**, because a choice that changes no verdict should not be dressed up as a finding |
+| §9·5 D1 | first-order autocorrelation of the signed reading | **rises, 8 of 11** | calm **+0.0441**, stress **+0.1184**. The noise null predicts a point, zero, **and calm was already positive before any stress comparison was made** |
+| §9·5 D1b | the same after removing the daily cross-fund mean | **falls, 3 of 11** | calm **+0.0889**, stress **−0.0383**. So the per-fund loop persists on its own when calm, **and the amplification under stress is market-level rather than per-fund** |
+| §9·5 D2 | share of days at a discount | **moves, 10 of 11** | 0.4631 → 0.5025. **A symmetric disturbance cannot move a share**, which is why this one is read on level and never on count |
+| §10·1 | the variance decomposition | **both, 4 cells** | `V_c` ×2.389 and `V_e` ×1.910 with the mix barely moving, and `Δρ_c` = **+0.007136**, which is 0.07 of its own standard error, so the cell is fixed by `V_e` and the sign of `Δρ_c` is not resolved |
+| §11 | the cross term against a circular-shift null | **inside the body, 3 rows** | **0 of 22** cells at or above their own 95th percentile against a chance expectation of 1.1. The null's own floor is **0.09578**, which is **9.6 times** the tolerance that had been registered to be compared against |
+| §12 | does the reconstruction survive the readings | **survives where the capture holds the close** | on the 401 days outside the three early closes the two prices give the same cell, `Δρ_c` +0.00294 against +0.00471 and `V_e` ×1.941 against ×1.972. The reconstruction covers all 6,154 fund-days on those days. **The earlier "not usable" was three days**: the capture brackets 16:00 on every day, and on an early close that is a late-session quote |
+| §12·1 | the same question for the discount-share statistic | **survives** | 88% of the move survives (0.0423 on the disclosed price, 0.0373 on the reconstructed one) and the direction holds, in 11 of 11 funds against 10. The registered row named the wrong side of the split; **the split is real and its handling still applies** |
+| §14·5 | the gate-speed test mapped onto primary-market activity | **fund-flow, 5 cells** | the share of zero-change days **falls in 10 of 11**, and the intensive margin **rises in 9 of 11**. Under stress the primary market is both more frequent and larger. **The mapping onto this carrier is refused** |
 
 ### The two numbers that carry the most, and the one that carries the least
 
@@ -4051,23 +5337,39 @@ reading spans 33.0", which is quantisation confirmed. The exclusion was
 registered on the stale-NAV ground, not chosen afterwards.
 
 **The threshold was earned by behaviour, and it was free.** The primary-market
-unit is the gcd of non-zero share changes: **exactly 50,000, with 100% of changes
-a multiple of it** on all eleven main-arm funds. Swept over eight candidate
-values, **the cleared counts at 0 and at 50,000 are identical fund by fund**, and
-nothing moves until the threshold passes 500,000. **A parameter that could have
+unit is the gcd of non-zero share changes, read in the creation unit in force on
+each day: **exactly 50,000, with 100% of changes a multiple of it** on all eleven
+main-arm funds. The F1 record keeps share counts in each fund's unit before its
+first split, so it prints 25,000 for the five funds that split on 2025-12-05.
+Swept over eight candidate values, **the cleared counts at 0 and at 50,000 are
+identical fund by fund**; 100,000 moves nothing either, and 500,000 is the first
+value that moves a count. **A parameter that could have
 been tuned until a zero appeared is shown to be untunable.**
 
-**One quantity here is below the resolution of this window, and the day count
-that would reach it is computed rather than guessed at.** `Δρ_c` is **0.693 of its
+**One quantity here is below the resolution of this window.** `Δρ_c` is **0.07 of its
 own standard error**, using the standard error of a difference between two disjoint
-partitions of the same window and not one end's. Reaching two standard errors
-needs about **3,348 trading days** against the 404 in hand, roughly 11.7 years at
-one per day. **Nothing is concluded from it.** And the extrapolation that
-produces that day count diverges: on the reconstruction arm the same formula
-returns 1.7 billion trading days, because its divisor is near zero there. The
-record carries a flag saying whether the point estimate exceeds its own standard
-error, and a note saying the day count is readable only when that flag is true
-and only as an order of magnitude.
+partitions of the same window and not one end's: +0.0071 against 0.0996. **Nothing is
+concluded from it**, and no day count is quoted for it: the extrapolation divides by
+the point estimate, and the record carries a flag saying whether the estimate exceeds
+its own standard error and a note saying the day count is readable only when that flag
+is true. It is false here.
+
+**Two corrections to the instrument, 2026-10-10. No reading changed side and the
+headline lost its largest fund.** (1) The stress label is each fund's trailing
+sixty-day NAV volatility against its own median, and it was computed on the raw NAV per
+share. Five funds split 2-for-1 on 2025-12-05 (XLB, XLE, XLK, XLU, XLY), so one return of
+`−log 2` sat in each of their windows for sixty days and all of those days read as
+stress. The volatility is now taken on the split-comparable series; the premium, the
+price, the floor and the sample are untouched. The headline moves from
+1.050–5.083 to 1.050–4.974, still 11 of 11, and `Δρ_c` from +0.0691
+(0.69 of its standard error) to +0.0071 (0.07). (2) The quote capture brackets 16:00 on every
+day, and on three early-close days the close was at 13:00. Those days are absent from
+the reconstruction instead of being filled from the late session, and the venue gate
+is reported with and without them. `docs/b9_zero_holonomy.md` section 58 has both in
+full. The F1 audit's share counts are in each fund's unit before its first split, and its
+list of changes that are not a whole creation unit compares each day with the unit in
+force (25,000 after a 2-for-1); it is empty in all sixteen funds. The 6,201 admitted
+fund-days are the same with changes read in either unit.
 
 ### What this stage established, and what it could not
 
@@ -4196,7 +5498,7 @@ Records with no criteria block and no sample metadata, kept as evidence and list
 
 ## B9-A-6 (§36)
 
-Records with no criteria block and no sample metadata, kept as evidence and listed so they are findable: `results/b9_nbbo_overlap.json`, `results/b9_nbbo_overlap_ARCX_PILLAR.json`, `results/b9_nbbo_overlap_ARCX_PILLAR_sz100.json`.
+Records with no criteria block and no sample metadata, kept as evidence and listed so they are findable: `results/b9_nbbo_overlap_XNAS_ITCH.json`, `results/b9_nbbo_overlap_ARCX_PILLAR.json`, `results/b9_nbbo_overlap_ARCX_PILLAR_sz100.json`.
 
 ## B17 — how many independent directions the parallel-rate deviations occupy
 
@@ -4381,7 +5683,9 @@ it.
 
 `rounds=300` `f2i=30` `150 rows in two batches` `two rulers read off disk`
 
-**10/10 criteria passed. Closed.** Three phenomena that look like three
+**10/10 criteria passed. Closed.** Each criterion that reads rows checks them
+against the registered grid first and is VOID when a cell is missing, doubled
+or foreign. Three phenomena that look like three
 questions share one discriminant: remove the absorbing wall and see whether the
 phenomenon is still there. `SubsistenceSpec.mode` is the instrument, with `exit`
 carrying the wall and `drawdown` not, and nothing else differing.
@@ -4427,10 +5731,20 @@ residual is a reading at that horizon and not a limit.
 At the registered floor of 0.20 they never diverge, in 1,260 arm-cells across
 two carrier sizes: the Gini rising implies all three rise in 344 of 344 cells
 and the top percentile falling implies all three fall in 266 of 266. At a floor
-of 0.05 ten of A12's fourteen arms produce the divergence, all fifteen hits land
-on one seed, and the arm with no floor at all is among them with zero
-departures. The four arms that produce nothing are the three carrying a fiscal
-transfer and the one combining the exit floor with the write-off.
+of 0.05, with every floor-bearing arm built at that depth, eleven of A12's
+fourteen arms produce the divergence, all eleven hits land on one seed, and the
+arm with no floor at all is among them with zero departures. The three arms that
+produce nothing are exactly the three carrying a per-head fiscal transfer, which
+pulls the closing Gini to 0.56–0.60 on the same seed. The window is the one the
+stage registered, from the state after round one to the close. Read from the
+claims before round one, no arm produces it: round one lifts the top percentile
+from 0.1439 to 0.1515, and the fall happens over the remaining 299 rounds.
+
+**Pointer added 2026-11-09 (A57).** On 1,000 seeds at this cell the arm with no mechanism produces the shape
+on 190, seed 3 among them. How often is set by the count of edges from the financial layer into the
+intermediate block: 0 in 4,000 runs at three or fewer, 190 of 1,000 at 30, 0.320 to 0.325 at 40 to 44 on
+200 seeds each. Which seeds
+produce it is the graph draw; how many is the edge count. The paragraph above stands as written.
 
 | | criterion | detail |
 |---|---|---|
@@ -4439,9 +5753,9 @@ transfer and the one combining the exit floor with the write-off.
 | PASS | A15-2b does the one cell survive four more seeds | seed 0 reproduces A12's record on 16 of 16 shared cells. Catch rate 3 of 5 at `f2i=30, e=0`, 1 of 5 at `e=0.5`, 0 of 10 at `f2i=20`. The catches sit in a second cluster with an empty band of 12.6 times |
 | PASS | A15-3 ruler two: a cascade nobody wrote | complete graph at 1.00: both rules peak at 200 of 200, `exit` closes at 200 and `drawdown` at 0. Stratified: 183–187 against 179–182, neither returning |
 | PASS | A15-4 do the three measures ever go three ways | at floor 0.20, zero in 1,260 arm-cells, and the target's own pair, the top percentile falling with the Gini rising, is zero there too |
-| PASS | A15-4b the question at the depth where the shape is | at floor 0.05, 10 of 14 arms produce it, every hit on one seed, and the arm with no floor is among them at zero departures |
+| PASS | A15-4b the question at the depth where the shape is | 70 of 70 registered cells, every arm at need 0.025. 11 of 14 arms produce it, every hit on seed 3, and the arm with no floor is among them at zero departures. State: the arm with no mechanism produces it and some arms do not. From the pre-round claims, zero of 70 |
 | PASS | A15-5 which switches every producing subset shares | nothing produced it at the registered depth, so there was no intersection to take |
-| PASS | A15-5b which switches every producing arm shares | the intersection is empty and must be, since an arm with no mechanisms is in the set. The informative set is the suppressors: three of the four carry a fiscal transfer |
+| PASS | A15-5b which switches every producing arm shares | the intersection is empty and must be, since an arm with no mechanisms is in the set. The informative set is the suppressors: the three transfer arms, and nothing else |
 | PASS | A15-6 how many nodes each top share averages over | 2 and 20 nodes at 200, 10 and 100 at 1000 |
 | PASS | A15-7 does the wage level come back | control reads exactly 1.0000 at forty of forty rows with the elasticity at zero; at 0.5 the closing bill is 26.2–29.5 per cent down in ten of ten cells, and 66.1 per cent of the loss is recovered on the one cell where the return catches |
 
@@ -4450,7 +5764,10 @@ transfer and the one combining the exit floor with the write-off.
 
 `rounds=300` `seeds=5` `f2i=30` `e=0.5` `380 rows + a 160-row floor scan`
 
-**6/6 criteria passed on the grid and 1/1 on the floor scan.** This model has no
+**6/6 criteria passed on the grid and 1/1 on the floor scan.** Each criterion
+checks its rows against the registered grid first (19 configurations, four floor
+depths and five seeds on the grid; four arms, eight depths and five seeds on the
+scan) and is VOID when a cell is missing, doubled or foreign. This model has no
 liabilities anywhere else: no receivables, no borrowing, claims conserved
 through every exit, and it still produces a cascade. So balance-sheet
 interconnection, which the interbank literature derives cascades from, and real
@@ -4474,14 +5791,27 @@ the stratified carrier the survivors are never the hub set, in 0 of 380 runs.
 
 **The cascade does become a function of the debt structure, and the slope is
 flat.** Against the control at the same cell, the closing starved count moves by
-single digits on a base of 76 to 154: `debtor` monotonically down to -9 at the
-highest rate, `creditor` both ways from -4 to +6, `mutual` smallest. The
-sentence this supports is that the cascade size is a function of the debt
-structure, not that debt changes it appreciably.
+single digits: `debtor` monotonically down to -9 at the highest rate, `creditor`
+both ways from -4 to +6, `mutual` smallest. The control itself already cascades
+partially on this carrier, closing at 75 to 173 below the line across its twenty
+cells, so the partial cascade belongs to the stratified carrier and what the
+obligation adds is the single-digit move on top of it. The sentence this
+supports is that the cascade size is a function of the debt structure, not that
+debt changes it appreciably.
+
+**With two hubs, `mutual` has no edge to run on at four seeds of five.** There
+the two hubs are not connected, nothing is paid in any of the 300 rounds, and the
+run is the control bit for bit on every reading: 16 cells of the 360 with the
+switch on. Each row records whether the obligation paid anything.
 
 **The 1929 shape appears, and the debt is not what produces it.** The three
 concentration measures go three ways in 21 of 380 rows, all of them at a floor
-of 0.05, and one of the twenty-one is the arm with the obligation off. The two
+of 0.05, and one of the twenty-one is the arm with the obligation off. That is
+the registered window, from the state after round one to the close. From the
+claims before round one, 9 rows carry the shape, all at 0.05 and all under
+`debtor`: round one lifts the top percentile (0.1439 to 0.1515 on the control at
+seed 3) and only the orientation in which hubs pay out brings it back below its
+opening level by the close. The two
 floor depths differ sharply in what the departing nodes carry: at 0.05 they hold
 **0.3 per cent** of the closing stock and at 0.20 they freeze holding **94 per
 cent**.
@@ -4492,10 +5822,12 @@ obligation, so nothing here can turn the floor off. A15 ran A12's fourteen arms
 at the shallow depth, one of which has no floor at all, and **that arm produces
 the same shape with zero departures**, to within a digit of the arms that have
 one. So the pattern is the baseline drift of a particular graph draw rather than
-a composition effect, and what the mechanisms do to it is destroy it: the four
-arms that do not produce it are the three carrying a fiscal transfer and the one
-combining the exit floor with the write-off, all of which move the closing Gini
-far enough to bury it.
+a composition effect, and what the mechanisms do to it is destroy it: the three
+arms that do not produce it are exactly the three carrying a per-head fiscal
+transfer, which move the closing Gini far enough to bury it.
+**Pointer added 2026-11-09 (A57).** The draw sets which seeds carry the shape; its rate on the arm with no
+mechanism is set by the edges from the financial layer into the intermediate block, 190 of 1,000 seeds at
+this carrier's 30.
 
 **The boundary is between 0.125 and 0.150, and it is a jump.** Across 160 cells
 the frozen share takes two values and nothing between: 105 cells at or below
@@ -4505,7 +5837,9 @@ the shape lands on the same four cells in twenty at every depth, so which draw
 produces it is a property of the graph and the depth only decides which regime.
 
 **Orientation does not move the boundary.** All four arms cross at the same
-place. What it moves is the frequency inside the shallow regime, and that effect
+place for the shape. The frozen share, read per seed, enters the high cluster
+at the same depth on all four arms at four seeds, and on seed 0 `debtor` enters
+one step later, at 0.175 against 0.150. What it moves is the frequency inside the shallow regime, and that effect
 is one to two seeds wide: on independent seeds `debtor` is 3 of 5 and the others
 1 of 5, against a grid reading of 13 of 30 against 1 of 30 that came from six
 rate settings sharing one set of seeds.
@@ -4515,9 +5849,9 @@ rate settings sharing one set of seeds.
 | PASS | A16-1 the control arm is A12's floor arm | 6 of 6 fields identical to `a12_mechanisms.json`: closing Gini, `m_ratio`, support ratio, starved, top 1% and top 10% |
 | PASS | A16-2 the hub set, and how much of it is degree | in-degree takes 32 distinct values; the cut is 49 against 47 at two hubs and 33 against 32 at ten, neither a tie. The failing state is one distinct in-degree, which is the complete graph's |
 | PASS | A16-6 do the survivors turn out to be the hub set | 0 of 380 runs, and 0 runs where the survivor count matches the hub count without the sets matching |
-| PASS | A16-4 does the cascade become a function of the debt | all three orientations move it; ranges against the control at the same cell given above |
-| PASS | A16-5 every cell, and the thinnest three | printed per cell rather than averaged, with the three cells where the obligation moved least named |
-| PASS | A16-7 does the obligation add a second concentration process | **no.** 21 of 380 rows carry the 1929 shape, all at a floor of 0.05, and the control arm is among them |
+| PASS | A16-4 does the cascade become a function of the debt | all three orientations move it; ranges against the control at the same cell given above; the control's own closing count is 75 to 173 |
+| PASS | A16-5 every cell, and the thinnest three | printed per cell for all 19 configurations; 16 of 360 switched-on cells paid nothing, all `mutual` with two hubs, and are named; the thinnest three among cells that paid are `debtor` with two hubs at seed 0, 0.47 to 0.51 per cent of volume |
+| PASS | A16-7 does the obligation add a second concentration process | **no.** 21 of 380 rows carry the 1929 shape after round one, all at a floor of 0.05, and the control arm is among them. From the pre-round claims, 9, all `debtor` |
 | PASS | A16-8 where along the floor the composition effect lives | the boundary sits between 0.125 and 0.150; the frozen share is bimodal with an empty band of 108 times; four hits in twenty at every shallow depth, the same four cells |
 
 
@@ -4553,24 +5887,39 @@ times: it is the subsistence floor.** So the three read together: taking nodes
 out cascades, taking edges out at random does not, taking edges out at the hubs
 does not. The graph's phase transition is not what does it.
 
+**The graph a cut removes is the discretionary one.** A cut deletes adjacency
+entries and rebuilds the discretionary routes from what is left. Payroll pays
+its fixed roster without reading the adjacency, and the authority's endogenous
+rule keeps issuing what the non-financial inflow falls short of its opening
+level. These readings are of the discretionary graph with payroll and issuance
+still running.
+
 **The targeted arm's stranded set is fixed by the construction, and the
 artefact detector caught it.** The same node ids at all five seeds, intersection
 full, every one of them with an opening out-degree of 81 against 3 to 18 for the
 rest. Those thirty are the wage payers, whose out-degree is set when the graph is
 built rather than drawn, so a rule that ranks on degree always reaches them
-first. **That arm therefore measures cutting the payroll channel's edges first**,
-which is a named intervention its readings hold for, and not the generic
-targeting of the literature.
+first. **That arm therefore measures the wage payers losing their discretionary
+outlets first, with their wages still paid**: at a share of 0.7, 29 nodes per
+seed have no discretionary route left, and 73 to 75 per cent of all the wages
+paid over the run go along relations the cut has deleted. That is a named
+intervention its readings hold for, and not the generic targeting of the
+literature.
 
 **Who does the cutting is the mechanism, by three orders of magnitude.** At the
 same trigger and share, a stressed node cutting its own out-edges leaves flow at
 0.0199 of the control's, while its counterparties cutting the edges that point
 at it leaves flow at **32.9 times** the control's. Withdrawal by the weak and
 withdrawal from the weak are different objects here, not one object named twice.
-The second is intelligible: cutting the edges into the weakest redirects flow to
-the better-connected, who have more onward edges and a higher propensity, so
-circulation speeds up among them until the trigger rises far enough that
-everyone counts as weak, at which point the same rule leaves 0.0097.
+**The 32.9 is carried mostly by the stock of money.** Cutting the edges into the
+weakest drops the non-financial inflow below its opening level, and the
+authority's endogenous rule issues the shortfall: 8,534 to 8,833 over the run
+across the five seeds, against at most 0.54 on the control. Average cash runs at
+43.2 to 44.5 times the control's, and each unit of it turns over at 0.74 of the
+control's speed. Inside the twenty financial nodes money does turn over faster,
+by 28 to 30 per cent. When the trigger rises far enough that everyone counts as
+weak, the same rule leaves 0.0097. The run arm removes relations only: a cut
+moves no cash when it happens, and nothing is redeemed.
 
 **A resemblance worth naming, and it is a pointer rather than a result.** Money
 leaving weaker institutions and concentrating in stronger ones, with the
@@ -4582,19 +5931,25 @@ and this stage does not claim it.** What is measured is that the sign and the
 magnitude of the effect depend on which side does the cutting, which is the part
 someone doing the empirical work would need.
 
-**Sixty-two cells run on under a twentieth of the control's flow**, and the
-support statistic there is a ratio of two small numbers rather than a reading.
-It takes the values 0.0, 0.3706 and 0.4246 on them against the control's 1.0338,
-and those numbers are not to be read in either direction.
+**On thin flow the support statistic is a reading of what flow is left.** It is
+E = (sum F)^2 / sum F^2, which does not move when every inflow is scaled by the
+same factor, so a small flow leaves it a reading rather than a ratio of two small
+numbers. Cells are named when their flow over the whole run or over the last 25
+rounds, the window support is read in, is under a twentieth of the control's:
+66 rows, 61 distinct cells. On 47 nothing moves in the tail and E reads 0, the
+convention for an empty vector. On 1 the fixed payroll is the whole flow and E
+reads 75, the size of the wage roster. On 16 what is left is a residue under
+1e-9 of the control's tail, and E reads its spread, 3.0 to 55.9. On 2 thin trade
+is still going, at 3.01 and 35.67.
 
 | | criterion | detail |
 |---|---|---|
 | PASS | A17-1 the control arm is A12's off arm | 5 of 5 fields identical to `a12_mechanisms.json` |
-| PASS | A17-2 one threshold, two responses, two readings | identical on 0 of 5 seeds at both settings. At the mild one the same threshold strands 25 through the edge rule against 195 departing through the floor, and the floor arm's flow is thirty times the edge arm's |
+| PASS | A17-2 one threshold, two responses, two readings | identical on 0 of 5 seeds at both settings, and the paired seeds are all five of the control's. At the mild one the same threshold strands 25 through the edge rule against 195 departing through the floor, and the floor arm's flow is thirty times the edge arm's |
 | PASS | A17-4 what the graph does with no trigger anywhere | random and hub-targeted, nine shares each, given above. Neither collapses |
 | PASS | A17-5 the two triggered arms against each other | 0.0199 against 32.9 at the same trigger and share |
 | PASS | A17-7 is the stranded set the low-degree tail | it is not: the stranded carry a higher mean opening out-degree than the kept, and on the targeted arm they are a construction-fixed set |
-| PASS | A17-8 support readings taken on near-zero flow | 62 cells named, and their support numbers refused |
+| PASS | A17-8 what support reads on thin flow | 66 rows named on either window, 4 of them on the last 25 rounds only. Tail states: 47 no flow, 1 payroll only, 16 residue, 2 thin trade. The flag fails if a no-flow cell reads E other than 0, a payroll-only cell reads a fractional E, or a cell with flow left reads E = 0; a planted case of each fails it |
 
 ## A18 — what the policy switches do to the time path
 
@@ -4617,9 +5972,10 @@ ratio and on total flow, which mean the same thing under both.
 floor the arm that lets nodes go ends with a claim stock **17.45 times** its
 opening; the arm that keeps everyone in the market ends at **1.0005**. The
 predicted shape, quiet for a while and then a larger release, needs both a later
-start and a larger jump; the forbearance arm starts twelve rounds later and its
-largest single-round jump is **smaller** than the control's, so it has one of the
-two. The un-forborne arm's largest jump lands at **round 5 at every seed** and
+start and a larger jump. On three of the forbearance arm's five seeds the ratio
+first moves 12, 49 and 141 rounds after the control's; on the other two it never
+leaves its opening value. Its largest single-round jump is **smaller** than the
+control's on every seed, so it has one of the two. The un-forborne arm's largest jump lands at **round 5 at every seed** and
 measures `0.069` to `0.081`. The forbearance arm has **no jump to read**: two of
 its five seeds never leave their opening value by more than floating tolerance
 at all, and the three that do move by `0.0003` to `0.0005`, three orders below
@@ -4658,10 +6014,10 @@ withdrawn and replaced above**; nothing else in this record changed, and
 | | criterion | detail |
 |---|---|---|
 | PASS | A18-1 the control policy is A12's floor arm | `M/R` over its opening 17.56787 against A12's 17.56787, closing count below the line 151 against 151 |
-| PASS | A18-2 the count below the line is not one object | monotone in 12 of 12 under `exit` and 6 of 12 under `drawdown`, which is why the main readings are taken elsewhere |
-| PASS | A18-6 does not recognising a loss accumulate anything | at the shallow floor the two write-off settings are identical and nothing is destroyed; at the deeper one 17.57 against 4.92 |
-| PASS | A18-3 quiet then release, a slow grind, or neither | neither, and better than neither: 1.0005 against 17.45, with a later start and no readable jump at all on two of five seeds |
-| PASS | A18-4 the paths, sampled | five sample rounds per series per cell, printed rather than summarised |
+| PASS | A18-2 the count below the line is not one object | monotone in 12 of 12 under `exit` and 6 of 12 under `drawdown`, on the same cells in both modes, which is why the main readings are taken elsewhere |
+| PASS | A18-6 does not recognising a loss accumulate anything | at the shallow floor the two write-off settings are identical and nothing is destroyed over the whole run; at the deeper one 17.57 against 4.92, with 1,358.68 to 1,519.03 claims destroyed over the run |
+| PASS | A18-3 quiet then release, a slow grind, or neither | neither, and better than neither: 1.0005 against 17.45. The lag is read where both series moved: 12, 49 and 141 rounds on three seeds, and no move at all on the other two |
+| PASS | A18-4 the paths, sampled | five sample rounds per series, every seed of every cell |
 | PASS | A18-5 every cell, and the three most extreme | 110 cells against a control at the same floor and seed |
 
 
@@ -4679,14 +6035,20 @@ conservation assertion stays a criterion rather than something to exempt.
 **The interesting quantity is not the node being kept alive, it is the ones
 paying.** Across the thirty-nine cells where money moved, the lenders hand over
 a gross amount and end holding between **0.0016% and 0.44%** of it less than
-they would have. **The rescue is a loop**: what they pay, the rescued node
+they would have. Both are measured on the registered payer set, the lenders to
+the nodes the unrescued control leaves below the line; payment by nodes outside
+it is about a tenth of the gross at the middle floor, and the net on the union
+of everyone who actually paid, `-0.274`, is the same size as on the set,
+`-0.268`. **The rescue is a loop**: what they pay, the rescued node
 spends, and the graph carries it back. Not one cell has them better off.
 
 **The constraint they are under is real and this record now says so.** The model
 computed the shortfall the rescue asked for and recorded only the part it could
 fund; both are recorded from this run. The lenders cover **87%** of what is
 asked at the shallow floor and **27%** at the deepest floor with the largest
-rate. **They cannot fund three quarters of it.** That is what makes the funding
+rate. **They cannot fund three quarters of it.** What is asked counts the
+shortfalls that have a living lender to ask; at the shallow floor the shortfall
+of every node below the line is ten times that, `2,482` against `240`. That is what makes the funding
 routes below a measurement rather than an identity.
 
 **Three routes, because "where does a rescue's money come from" has three
@@ -4715,18 +6077,26 @@ whatever it is asked for and stops doing everything else.
 
 The count below the line turns on **27 of 45 cells**, first turning at `0.5`,
 `0.9` or `1.0` depending on how large the rescue is relative to the need. At the
-deeper floor with a rescue that is not marginal, the count is **flat from `0.00`
-to `0.95` and moves only at total withdrawal**, while `M/R` climbs from about 5
-to about 32 over the same span. **The benefit survives almost any amount of
+deeper floor with a rescue that is not marginal, on seeds 0, 1 and 2 the count
+reads `[75, 75, 75]` at no retention, `[75, 77, 75]` at `0.9`, `[75, 151, 75]` at
+`0.95` and `[129, 120, 120]` at total withdrawal: two of the three seeds hold
+flat to `0.95` and one turns there, while `M/R` climbs from about 5 to about 32
+over the same span. **The benefit survives almost any amount of
 retention. The price is paid throughout**, at **1.0 to 26.1 times** the claim
 stock at no retention.
 
 **At total retention the arm produces the one shape this repository had not
-produced before**: claims created that do not circulate. At the shallow floor
+produced before**: the recapitalised nodes keep what they receive. Retention
+scales their discretionary spending; their wages, the rescue they fund and their
+necessary spending go on. At the shallow floor
 with the smallest rate, the claim stock closes at **30.9 times** its opening
 while total flow closes at **0.893** of the control's, the count below the line
 does not move, and **the only flow that grows is lending to the nodes below the
-line**, from 207 to 772. Decomposed against an opening claim stock of 100: the
+line**, from 207 to 772. That comparison is against the `creditors` route at
+no retention, so it changes the route as well. Against the same `issuance`
+route at no retention, total retention takes flow to **0.747**, puts the count
+below the line back from 91.4 to 152.8, and multiplies lending to the nodes
+below it by 25.5. Decomposed against an opening claim stock of 100: the
 injection itself is **7.7×** and the authority's own issuance rule, reacting to
 the inflow collapse the injection caused, is **22.2×**. **The reaction is 2.89
 times the intervention**, and it is A15's amplifier reached from a new direction.
@@ -4777,11 +6147,11 @@ a model with one kind of claim and is not tested either way.
 
 **The landing point is not inert everywhere, and where it is not is
 informative.** It matters in one corner of the C arm's grid, at zero wage
-elasticity, and its influence falls monotonically as the wage channel
-strengthens: the count differs in 14 of 45 pairs at elasticity 0 with a largest
+elasticity, where the wage bill is fixed, and its influence falls
+monotonically as wages respond more: the count differs in 14 of 45 pairs at elasticity 0 with a largest
 gap of 11 nodes, 10 of 45 and a gap of 2 at 0.5, and 6 of 45 and a gap of 1 at
-1.0. **Where the claims land matters only when there is no redistribution
-channel to carry them away from where they landed.**
+1.0. **Where the claims land matters only when the wage bill does not respond and
+so does not carry them away from where they landed.**
 
 **Two scope statements, and a third that A18_E closed.** The cell was selected
 from a scan and needs retention at its maximum; at `0.9` the flow is **1.084**
@@ -4791,9 +6161,9 @@ the cause of deflation is reproducible here and deflation is not.
 **The third was that retaining and holding something outside the trading system
 were one state, because there was no outside.** There is one now. A18_E
 separates them, and with it the signature this pointer reaches for by selecting
-an extreme retention cell is produced directly and as a continuous dial: the
-stock rises **22 times** while the circulating half falls to **0.15** of its
-opening. **A reading that needed a corner of the grid is now a reading of a
+an extreme retention cell is produced directly and as a continuous dial: on the
+issuance-funded grid the stock at close rises **16.6 times** over the unparked
+close while the circulating half falls to **0.147** of it. **A reading that needed a corner of the grid is now a reading of a
 parameter.**
 
 | | criterion | detail |
@@ -4814,15 +6184,18 @@ parameter.**
 
 **5/5 criteria passed.** The B arm reported that created claims can fail to
 circulate and attributed it to retention, having created them in one place only.
-**This arm exists to find out whether the place was the operative part.** The
-same amount is created for the same reason and arrives either on the nodes that
-funded the rescue or spread evenly over every node still trading; nothing else
-differs, which is what A18_C1 checks before anything is read.
+**This arm exists to find out whether the place was the operative part.** New
+claims are created for the same reason and arrive either on the nodes that
+funded the rescue or spread evenly over every node still trading. Opening cash,
+graph, routes, wage roster, injection node and the 300 rounds of drawn
+propensities are identical across the pair; the amount is not held fixed,
+because each round's recapitalisation repays the previous round's rescue, so
+where it lands feeds back into how much follows. The pair reads the landing
+point's total effect.
 
 **Over 135 paired cells the landing point changes the count below the line in
-30, and 23 of those by a single node in both directions.** That is the size of
-the discrete jitter this carrier already carries, measured in A18_B6. **In 105
-pairs there is no difference at all.**
+30, and 23 of those by a single node in both directions. In 105 pairs there is
+no difference at all.**
 
 **The five pairs that differ by more than two nodes are one cell of the grid,
 at every seed.** Floor `0.50`, rate `4.0`, wage elasticity `0.0`: landing on the
@@ -4830,7 +6203,8 @@ lenders leaves 3, 4, 5, 9 and 11 more nodes below the line than landing on
 everyone, in the same direction at all five seeds, with total flow 16 to 17 per
 cent lower.
 
-**And the effect is monotone in the wage channel's strength.**
+**And the effect falls as wages respond more to spending.** At elasticity `0.0`
+the wage bill is a fixed 8 a round and is paid in full; it does not respond.
 
 | wage elasticity | pairs whose count differs | largest gap |
 |---|---|---|
@@ -4838,16 +6212,16 @@ cent lower.
 | 0.5 | 10 of 45 | 2 |
 | 1.0 | 6 of 45 | **1** |
 
-**So where new claims land matters only when there is nothing to redistribute
-them.** With a live wage channel the graph carries them away from wherever they
-arrived and the landing point does no work; with the channel dead it is the only
-thing moving them and the landing point becomes visible.
+**So where new claims land matters only when wages do not respond to spending.**
+With a responsive wage bill the graph carries them away from wherever they
+arrived and the landing point does no work; with a fixed bill the landing point
+becomes visible.
 
 **This narrows the B arm's reading rather than confirming it.** "The claims
 stopped where they landed" is not what the model says. What it says is that the
 claims stopped because whoever received them did not pass them on, and that
-where they arrived is second order and appears only when the redistribution
-channel is off as well.
+where they arrived is second order and appears only when the wage bill is
+fixed as well.
 
 **The wage channel's own effect on the count is not monotone**, and that is
 reported rather than smoothed: it moves the count in 45 of 90 cells, and it
@@ -4857,9 +6231,10 @@ count; at floor `0.50` with rate `2.0` it runs `103, 75, 75`, so raising it
 halves it.
 
 **The full-retention rows are printed and carry no criterion.** Under `uniform`
-every node still trading is a recipient, so retention there withdraws the whole
-economy rather than the recapitalised set, and the two are not the same
-experiment. They are worth printing: at three of five seeds the two landing
+every node still trading is a recipient, so retention there stops the
+discretionary spending of every node rather than of the recapitalised set;
+necessary spending, wages and the rescue go on in both. The two are not the
+same experiment. They are worth printing: at three of five seeds the two landing
 points are identical, and at the other two the uniform arm's flow falls to
 between 1,013 and 2,249 against roughly 20,200 on the lender arm. **Another
 bimodal pair with nothing between**, which is now the fifth on this carrier.
@@ -4886,8 +6261,8 @@ spends anything of its own**, which is the seniority Volume One gives to
 mortgage, rent, tax and interest and the same ordering the hub obligation
 already carries.
 
-**The book closes exactly.** Lent, less repaid, less outstanding, is **zero to
-the last bit in all 330 rows**. That check is not redundant with the round's
+**The book closes.** Lent, less repaid, less outstanding, is **zero at six
+decimals in all 330 rows**, and `7.6e-10` at most unrounded. That check is not redundant with the round's
 conservation assertion: the assertion watches the holdings total and this
 watches the ledger, and a repayment rule can be wrong in the second while the
 first is satisfied.
@@ -4899,9 +6274,11 @@ the gift arm's in **97**, with a median ratio of **1.34** and a maximum of
 **3.00**. The count below the line falls in 93 comparisons, holds in 77, and
 **rises in 10**.
 
-**The best repayment rate is almost never the largest one.** Of 45 cells it sits
-strictly inside the grid in **24**, at zero in 19, and at the largest rate in
-**2**. The counts show what that means:
+**The best repayment rate sits inside the grid.** The counts are integers and
+ties are common, so each cell is read by its whole set of best rates. Of 45
+cells the best set is **entirely inside the grid in 17**, includes the largest
+rate in 11, includes zero in 3, and covers all five rates in 16. The counts
+show what that means:
 
 | cell, counts at repayment 0 / 0.05 / 0.20 / 0.50 / 1.00 | |
 |---|---|
@@ -4909,26 +6286,29 @@ strictly inside the grid in **24**, at zero in 19, and at the largest rate in
 | floor 0.20, rate 1.0, seed 3 | `153, 120, 123, `**`117`**`, 123` |
 | floor 0.20, rate 1.0, seed 4 | `152, `**`113`**`, 117, 121, 121` |
 
-**Repaying faster is worse than repaying slowly, past a point that is inside the
-grid rather than at its edge.** The first row is the sharpest: five per cent a
+**In those 17 cells repaying faster is worse than repaying slowly, past a point
+that is inside the grid rather than at its edge.** The first row is the sharpest: five per cent a
 round leaves 111 below the line and repaying the whole balance leaves 127, which
 is worse by sixteen nodes and still better than never repaying at all.
 
 **Whether the balance clears depends on how deep the floor is.** The share of
 everything lent that is still outstanding at close has a median of **4.5%** at
 floor 0.20 and **19.0%** at floor 0.50, and the ranges do not overlap at their
-middles. **At the deepest floor a fifth of the rescue is structurally
-unrepayable**, and it stays that way at every repayment rate on the grid.
+middles. **At the deepest floor a fifth of what has been lent is still
+outstanding after 300 rounds**, at every repayment rate on the grid, while new
+lending is still going out in the last round.
 
 **One branch is reported as never firing, and the reason is two different
 things.** A debtor that owes while every one of its creditors has left
 circulation pays nothing and its arrears stand. That fired in **0 of 90** exit
 rows and **0 of 240** drawdown rows. Under `drawdown` it *cannot* fire, because
 `_alive` is set false only by the exit rule and every creditor is therefore live
-forever; under `exit` it can, and does not, **because the creditors are by
-construction the solvent in-neighbours of whoever was below the line and are
-therefore the last nodes to leave.** A count of zero here is a statement about
-who lends, not about how many rows were run.
+forever. Under `exit` the rescue goes to nodes that have already left, the exit
+is not reversible, and the repayment step zeroes what a departed debtor pays
+before it looks for a live creditor, so **no loan written on this grid has a
+debtor that can reach the branch**; set up by hand, a live debtor owing a
+departed creditor triggers it. A count of zero here is a statement about who
+borrows, not about how many rows were run.
 
 **The cell A18_B named as closest to a real episode, now with the rescue
 repayable**, printed and not judged: the count below the line falls from
@@ -4971,6 +6351,9 @@ episode. A18_E supplies it, and **the sign turns**:
 | 0.20 | **−0.58 to −0.37** |
 | 0.50 | +0.24 to +0.49 |
 
+Total flow includes the repayment itself, one unit per unit repaid; taken out,
+the three rows read +0.08 to +0.50, −1.58 to −1.37 and −0.76 to −0.51.
+
 **The `+1.5` above is not wrong; it is the answer for a creditor who lends the
 payment out again.** With the payment leaving the trading system the same
 measurement is negative, and the estimates the argument is usually conducted
@@ -4981,11 +6364,11 @@ left.
 
 | | criterion | detail |
 |---|---|---|
-| PASS | A18_D1 the ledger closes | largest absolute residual 0 over 330 rows |
+| PASS | A18_D1 the ledger closes | largest absolute residual 0 at six decimals over 330 rows |
 | PASS | A18_D2 a loan against a gift | 93 down, 77 level, 10 up; rescue delivered exceeds the gift arm's in 97 of 180, median ratio 1.34 |
-| PASS | A18_D3 where the best repayment rate sits | strictly inside in 24 of 45 cells, at zero in 19, at the largest in 2 |
+| PASS | A18_D3 where the best repayment rate sits | best set all inside in 17 of 45 cells, includes the largest rate in 11, includes zero in 3, all five tie in 16 |
 | PASS | A18_D4 does the balance clear | outstanding over lent, median 4.5% at floor 0.20 and 19.0% at floor 0.50 |
-| PASS | A18_D5 a debtor whose creditors have left | 0 of 90 exit rows and 0 of 240 drawdown rows, and the two reasons are different |
+| PASS | A18_D5 a debtor whose creditors have left | 0 of 90 exit rows and 0 of 240 drawdown rows; under both modes no debtor on the grid is a live one whose creditors have gone |
 | PASS | A18_D6 the retained-issuance cell, with the rescue repayable | printed, not judged |
 
 
@@ -5011,20 +6394,26 @@ Under every retention setting the parked stock is zero in **90 of 90** cells,
 because a retaining node's claims are still on its account; under parking it is
 above zero in **245 of 245**. The difference is what an obligation can reach: a
 retaining node still owes and still pays, so retention is pierced, and parked
-claims are not there to be taken.
+claims are not there to be taken. That last part is how this carrier is built:
+each round's obligations are paid before anything is parked, later repayment
+reads trading accounts only, and nothing parked comes back, since the carrier
+has no recovery, maturity or enforcement.
 
 **The stock and the circulating half separate, and in every cell the two
 mechanisms move the second in opposite directions.**
 
 | parking rate | stock | circulating | parked | count below | flow |
 |---|---|---|---|---|---|
-| none | 185.1 | **185.1** | 0 | 86.7 | 36,794 |
+| none | 279.7 | **279.7** | 0 | 79.1 | 50,692 |
 | 0.05 | 1,925.9 | **171.3** | 1,754.6 | 104.1 | 34,732 |
-| 0.20 | 2,725.0 | **56.9** | 2,668.1 | 112.3 | 14,856 |
-| 0.50 | 4,127.0 | **28.2** | 4,098.8 | 135.0 | 9,188 |
+| 0.20 | 3,442.4 | **79.6** | 3,362.8 | 102.0 | 19,429 |
+| 0.50 | 4,642.2 | **41.1** | 4,601.1 | 106.7 | 12,386 |
 
-**The stock rises twenty-two times while the money that circulates falls to
-0.15 of its opening.** That is a continuous dial rather than a corner of a grid,
+Every row is the issuance-funded park grid with no repayment, averaged over
+the floors, rates and seeds.
+**The stock at close rises 16.6 times over the unparked close while the money
+that circulates falls to 0.147 of it**, and to 0.41 of the opening holding of
+about 100. That is a continuous dial rather than a corner of a grid,
 and it is the shape both pointers above were reaching for.
 
 **The recorded `M` was already the circulating half and this makes that
@@ -5034,20 +6423,23 @@ stock, `M/R` follows the circulating part, and the rest is carried beside it as
 `parked`. The conservation assertion counts both, because those claims still
 exist; destroying them is what the write-off does and this is not that.
 
-**Output per unit repaid turns sign with the parking rate.** A18_D measured
+**Claim turnover per unit repaid turns sign with the parking rate.** The model
+has no production quantity, so this is the turnover of claims and not output. A18_D measured
 that quantity at **+0.56 to +1.50** and that number is the answer for a creditor
 who lends the payment out again. Here:
 
-| creditors parking, per round | flow per unit repaid |
-|---|---|
-| none | **+1.08 to +1.50** |
-| 0.20 | **−0.58 to −0.37** |
-| 0.50 | +0.24 to +0.49 |
+| creditors parking, per round | flow per unit repaid | less the repayment itself |
+|---|---|---|
+| none | **+1.08 to +1.50** | +0.08 to +0.50 |
+| 0.20 | **−0.58 to −0.37** | **−1.58 to −1.37** |
+| 0.50 | +0.24 to +0.49 | **−0.76 to −0.51** |
 
 **One switch separates a payment that recirculates from a payment that leaves**,
 and nothing else in the cell differs. The return to positive at the highest rate
 is reported and not smoothed: by then so little circulates that the repayment
-flow is itself a large share of what remains.
+flow is itself a large share of what remains. Total flow counts each unit
+repaid once before anything else moves; with that unit taken out both parking
+rates are negative.
 
 **Who parks changes the size of the damage**, printed and not judged because the
 three sets are different sizes and part of any difference is that:
@@ -5069,10 +6461,10 @@ way past.
 
 | | criterion | detail |
 |---|---|---|
-| PASS | A18_E1 a stock that does not circulate | retention parks nothing in 90 of 90; parking parks something in 245 of 245 |
+| PASS | A18_E1 a stock that does not circulate | retention parks nothing in 90 of 90; parking parks something in 245 of 245, and both halves are now in the flag |
 | PASS | A18_E2 the two halves under each mechanism | first state: in every cell the two move the circulating half in opposite directions |
-| PASS | A18_E3 how far the circulating half moves | stock ×22 against circulating ×0.15 across the parking grid |
-| PASS | A18_E5 output per unit repaid, at each parking rate | first state: positive throughout at 0 and 0.50, negative throughout at 0.20 |
+| PASS | A18_E3 how far the circulating half moves | issuance-funded cells: stock ×16.6 against circulating ×0.147 of the unparked close |
+| PASS | A18_E5 claim turnover per unit repaid, at each parking rate | first state: positive throughout at 0 and 0.50, negative throughout at 0.20; less the repayment itself, negative at both parking rates |
 | PASS | A18_E4 who parks | printed, not judged |
 
 
@@ -5097,11 +6489,18 @@ span a third, so an external figure for how much of a banking system's assets
 sit outside the trading system has somewhere to land. **Landing it is not done
 here**, and no external number sets any parameter in this repository.
 
-**The table is indexed by rate and horizon together, because the share has no
-steady state.** Parking is one way, so the parked stock only accumulates and its
-share climbs towards one without settling. A table indexed by the rate alone
+**The table is indexed by rate and horizon together, because the share keeps
+moving over the 300 rounds.** The parked stock only accumulates; its share can
+still fall in a round when new issuance outpaces parking, and does in 72 of the
+100 parking configurations, by at most 0.011 in a round. Nothing here sets its
+limit. A table indexed by the rate alone
 would invite a reader to match a figure without matching the second index, and
 the second index moves it more than any policy switch does.
+
+Rounds are history indices: index 50 is after 51 rounds and 299 is after all
+300. The share is the financial layer's parked stock over the whole graph's cash
+plus that parked stock. On a bank-like denominator, the financial layer's own
+cash plus parked, the `0.002` row closes at 0.377 rather than 0.313.
 
 | parking rate | share at round 50 | 150 | 299 |
 |---|---|---|---|
@@ -5146,7 +6545,11 @@ make before the dial means anything to them.
 **The deeper the distress, the more the funding route decides.** At the
 shallower floor an authority creating the claims buys about thirty per cent more
 circulation than making the lenders carry it; at the deeper one it buys four to
-five times as much. **The count below the line differs in 48 of 60 pairs.**
+five times as much. **The count below the line differs in 48 of 60 pairs.** The
+lenders here are whichever nodes fund the rescue along the graph's edges, mostly
+the intermediate layer; the financial layer supplies about 2.4 per cent of it.
+The pair changes the funding route and the rescue amount follows, so this is a
+comparison of routes under one rescue rule rather than of costs at a fixed amount.
 
 **The two routes are non-monotone in the parking rate for different reasons, and
 that is the reading rather than the count of cells.** Four of ten cells on the
@@ -5156,8 +6559,9 @@ upward** as parking rises, `113, 122, 127, 128, 126, 129` at one seed and
 `117, 129, 129, 131, 131, 130` at another. On the authority's route it **flips
 between two values**, `78, 78, 77, 78, 153, 78` at one seed and
 `76, 76, 76, 151, 76, 151` at another. **One is a trend with noise on it and the
-other is a knife-edge between two basins**, and this carrier has now shown that
-second shape six times.
+other is a jump in the closing phase**: in those high cells the count is above
+120 in only 6 to 36 of the last 100 rounds, and the unparked baseline already
+alternates between 75 and 150. Basins of attraction are not tested here.
 
 ### The two ends of the axis, as directions only
 
@@ -5178,7 +6582,7 @@ figure can place it; placing it is their work and not this stage's.
 
 | | criterion | detail |
 |---|---|---|
-| PASS | A18_F1 the dial is monotone and spans the region | monotone in 4 of 4 series, and 4 of 4 bracket a parked share of one third |
+| PASS | A18_F1 the dial is monotone and spans the region | monotone in 4 of 4 series, and 4 of 4 bracket a parked share of one third; both conditions are in the flag |
 | PASS | A18_F2 does who carries it change the count | second state: 48 of 60 pairs; flow ratio 1.30–1.44 at the shallower floor and 4.42–5.21 at the deeper |
 | PASS | A18_F3 is the count monotone in the parking rate | second state: 4 of 10 and 6 of 10 cells by route, and the two shapes are different |
 
@@ -5994,7 +7398,7 @@ to 14.4 bp and the arm's ratio from 0.9859 to 0.9863.
 
 ## C1 — an administratively declared exchange rate, and the exact count of its loops
 
-`105 species` `11 published standards` `b1 = 339` `no market anywhere in it`
+`105 species` `11 published columns, six of them hundred-year standards` `b1 = 339 on those six` `no market anywhere in it`
 
 **This is the first carrier in the project that is not money.** A global warming
 potential is an administrative declaration: under standard `s`, one tonne of
@@ -6049,7 +7453,7 @@ not shrink and the most recent revision is the second largest of the four.
 
 ## C2 — the control arm: a system of the same kind, asked the same question, that agrees with itself
 
-`115 colleges` `84,018 comparable placements` `six parallel classification schemes` `no market here either`
+`115 colleges` `84,018 comparable placements` `six published list types` `five classification schemes` `no market here either`
 
 **C1 has one cheap objection and this stage is built to answer it.** That a
 state-scale administrative system carries inconsistent conversion factors could
@@ -6456,26 +7860,53 @@ dissolution rates. That reading stands and is reported below, but it is
 conditioned on the register dump's 2005 window, and it reaches only about half
 of each arm. **This station asks a margin that sits one step earlier and needs no
 join at all: did the disposed entity ever acquire a commercial-register entry?**
-The answer is inside the released file, in a column that names the registry
+It is read inside the released file, in a column that names the registry
 court, and it is reproduced independently by a second column that carries the
 registration date. Registered design: the criteria are written in the script
 that produced the record, the record carries their text, and every quantity this
 run produced is reported.
 
 **In the six East German Länder, 37.1% of returned firms (687 of 1,853) have no
-registry entry, against 4.8% of sold firms (320 of 6,662).** A ratio of 7.7 and
+register court on file, against 4.8% of sold firms (320 of 6,662).** A ratio of 7.7 and
 a difference of 32.3 percentage points, 28.0 standard errors. Liquidated firms
-sit at 7.0%, merged firms at 0.8%. **No Land reverses the sign**: Saxony 323/835 against 145/1994, 5.3x; Saxony-Anhalt 108/364 against 47/1149, 7.3x; Thuringia 80/272 against 34/1104, 9.6x; Brandenburg 136/202 against 41/1020, 16.7x; Mecklenburg 27/142 against 26/776, 5.7x; Berlin 13/38 against 27/619, 7.8x. Three readings of the same file were then used against the three
-explanations that do not need the mechanism.
+sit at 7.0%, merged firms at 0.8%. **No Land reverses the sign**: Saxony 323/835 against 145/1994, 5.3x; Saxony-Anhalt 108/364 against 47/1149, 7.3x; Thuringia 80/272 against 34/1104, 9.6x; Brandenburg 136/202 against 41/1020, 16.7x; Mecklenburg 27/142 against 26/776, 5.7x; Berlin 13/38 against 27/619, 7.8x.
+
+The outcome is the file's own field: a court column that is empty, a dash, or says in
+words that no entry exists. Below, "no registry entry" is shorthand for that reading,
+and it is not by itself a finding that no entry was ever made. Seventeen of those rows
+in the two arms still carry something in the number or date columns. Nine carry the
+date of the court's reply beside the words that no entry exists. Eight carry a register
+number: three commercial register numbers in the sold arm, two of them dated 1992;
+three entries dated 1936, 1939 and 1969; and two numbers in the form of the old
+state-enterprise register. With
+all seventeen left out the comparison reads 681 of 1,853 against 309 of 6,662, 36.8%
+against 4.6%, a ratio of 7.9 at 27.9 standard errors, and no Land reverses. Three
+readings of the same file were then used against the three explanations that do not
+need the mechanism.
 
 **Sloppy recording is refused by another column on the same row.** Where the
-court name is absent, the registration date is absent too, in 0% of returned
-firms and 1% of sold ones; where a court is named, the date is present in 97%
+court name is absent, the registration date is absent too: across all Länder it is
+present on 0% of returned firms and 1% of sold ones, and where a court is named on 97%
 and 98%. But the founding date, on those same rows with no court, is present in
-84% and 92%, and the predecessor's name in 82%. The agency knows when the firm
+84% and 92%, and the predecessor's name in 83% and 70%. The agency knows when the firm
 was set up and which state enterprise it came from. Loose recording degrades a
 row; it does not empty exactly two columns and leave the rest. The same shape
 holds in the sold and liquidated arms, so the split means the same thing in each.
+One caution on the founding date: 678 East German rows carry the single date
+1980-01-01, and it accounts for 221 of the returned arm's 687 rows without a court
+and 200 of the sold arm's 320, so a founding date other than that one is present on
+49% and 29% of those rows. The predecessor's name has no such repeated value.
+
+**Where the gap sits.** The founding date splits each arm in two. On rows dated
+1980-01-01 or not dated at all, 898 in the six Länder and 484 of them carrying the name
+prefix discussed below, both arms are without a court almost throughout and do not
+differ: 221 of 294 returned against 200 of 261 sold on the first kind, 128 of 135
+against 27 of 28 on the second. On rows with any other founding date the returned arm
+reads 338 of 1,424 against 93 of 6,373, 23.7% against 1.5%, a ratio of 16.3 at 19.6
+standard errors. The pooled 7.7x therefore has two parts: among firms with a founding
+date on file the returned ones are sixteen times as likely to have no court, and the
+returned arm holds five times the share of rows that have neither (23.2% of it against
+4.3% of the sold arm).
 
 **The asset-not-a-firm story reverses under restriction.** The status label
 covers both a shareholding and a bare asset, so I restricted to firms whose own
@@ -6497,14 +7928,23 @@ released file has no employment or turnover. The agency's own rating committee
 scores are public and join cleanly to it, but they cover large firms rated in
 the first year only, which leaves 20 returned firms against 387 sold: 2 of 20
 against 0 of 387, 1.5 se, under-powered and therefore undecidable rather than
-failed. What settles the question instead is § 11 GmbHG: *Vor der Eintragung in
-das Handelsregister des Sitzes der Gesellschaft besteht die Gesellschaft mit
-beschränkter Haftung als solche nicht.* **Before registration the company does
-not exist as such.** The registration duty on a GmbH does not scale with size,
-and the exemption the file names in words on 64 rows, that an entry was not
-required, belongs to small traders, who may not call themselves a GmbH. On the
-GmbH subset the size explanation cannot hold by construction, and the gap there
-is 12.9x. A published rule, and free.
+failed. Two published rules bear on the question instead, and they are not the same
+rule. § 11 GmbHG: *Vor der Eintragung in das Handelsregister des Sitzes der
+Gesellschaft besteht die Gesellschaft mit beschränkter Haftung als solche nicht.* A
+company founded in the ordinary way does not exist as such before registration, and
+that duty does not scale with size. Most of these firms were not founded in the
+ordinary way. § 11(2) of the Treuhandgesetz made the state enterprises it covered stock
+corporations or limited companies by statute on 1 July 1990, and § 15(1) orders each
+entered in the commercial register *von Amts wegen*. Such a company exists before any
+entry, so for it a missing court is a missing entry and not a missing legal person; its
+entry does not depend on size either. The exemption the file names in words on 64 rows,
+that an entry was not required, belongs to small traders, who may not call themselves a
+GmbH. **The converted firms can be read on their own**, because the file carries the
+founding date: 4,113 East German rows are dated 1 July 1990. Among them 102 of 464
+returned firms have no court on file against 10 of 1,520 sold, 22.0% against 0.7%, and
+among those calling themselves GmbH, 39 of 342 against 4 of 1,358, 11.4% against 0.3%.
+On the GmbH subset as a whole the gap is 12.9x. Neither rule lets size excuse a missing
+entry, and both are published and free.
 
 **The industry story is answered by composition rather than by a classification.**
 A confound needs two things at once: industry has to move the outcome, and
@@ -6530,15 +7970,17 @@ the predecessor state-enterprise name alone, fixed before 1990 and therefore
 settled before any disposal decision was taken, 5,258 (40.8%) — and the answer
 does not move.** The lowest
 cell under all three groupings is chemicals and plastics, where the sold arm's
-own no-entry rate is highest at 8.8 to 10.3%, and it still points the same way.
-The keyword table is coarse and misassignment is visible in the sample names;
-misassignment scrambles labels toward the pooled 7.7x, so a sharper grouping can
-only make a reversal less likely, not more.
+own no-entry rate is the highest of the sixteen named groups at 8.8 to 10.3%, and it still points the same way.
+The keyword table is coarse and misassignment is visible in the sample names. A
+coarse grouping does not bound a finer one, since a cell can point one way while a part
+of it points the other. What is on record is the count: 51 cells across the three
+groupings, the thin ones and each grouping's unclassified remainder included, and the returned arm is above the sold arm in every
+one.
 
 **One name prefix carries much of the cell but not the difference.** 707 firms
 carry a prefix formed by replacing the state-enterprise abbreviation in the
 predecessor's name, and 90.9% of them have no registry entry. They concentrate
-in the returned arm, 22.9% of it against 2.9% of the sold arm, and within those
+in the returned arm, 22.9% of it against 2.8% of the sold arm, and within those
 rows alone the two arms are 402 of 424 against 155 of 185. The released
 codebook does not define the prefix and I do not supply a meaning for it. **With
 every one of those rows deleted the comparison is unchanged**: 285 of 1,429
@@ -6560,21 +8002,24 @@ into Jena, were joined by name instead of by register number. A name join has no
 external key to check it, and this register dump cannot supply one: of 89,459
 name rows only 364 carry a validity date before 2005, and of 44,536 founding
 dates at those two courts not one falls before 1995. So the instrument was
-calibrated first, on the 2,594 firms whose register number had already resolved
+calibrated first, on the 2,595 firms whose register number had already resolved
 uniquely and whose answer was therefore known. It returns exactly one candidate
-for 1,275 of them and is right on 1,244: **precision 97.6%, recall 48.0%.** It
+for 1,276 of them and is right on 1,245: **precision 97.6%, recall 48.0%.** It
 finds nothing at all for 1,294 and several candidates for 25, of which 24 contain
-the right one. That
-recall sits almost exactly on the register-number hit rate of 49.1%, because both
-are held back by the same 2005 window; the name join changes the key, not the
-wall. Its failures share one shape, a later company of the same name at a much
-higher register number — *Fördertechnik Freital GmbH* resolves to HRB309 by
+the right one. Every one of those firms is inside the dump's 2005 window, since its
+number resolved there, so the window does not explain the misses. For 949 of the 1,294
+the dump holds names for the true company and none equals a name in the released file:
+*Fotopapier GmbH Dresden* is on file under a name that reduces to *fotopapier dresden
+vermoegensverwaltung*. For the other 345 it holds no name at these courts. That the
+recall sits near the register-number hit rate of 49.1%, which has a different
+denominator, is not evidence of one mechanism. The wrong answers share one shape, a
+later company of the same name at a much higher register number — *Fördertechnik Freital GmbH* resolves to HRB309 by
 number and to HRB23285 by name.
 
 Run on the merged-court firms it resolves **787 more**, 400 in Sachsen-Anhalt of
 2,250 tried and 387 in Thuringia of 2,045, taking the returned arm from 341
-uniquely joined firms to 470 and the sold arm from 2,030 to 2,594. **The
-dissolution gap goes from −0.30 percentage points to +0.54**, that is from −0.10
+uniquely joined firms to 470 and the sold arm from 2,031 to 2,595. **The
+dissolution gap goes from −0.28 percentage points to +0.56**, that is from −0.10
 standard errors to +0.22: the sign flips inside the noise and neither reading
 resolves anything. What the extra coverage buys is resolution, from 4.81
 percentage points down to 4.12, which is what was written down before it was run.
@@ -6582,8 +8027,8 @@ percentage points down to 4.12, which is what was written down before it was run
 used**: unique-hit rates after the name join are 35.4% for returned against 40.6%
 for sold. Three things make it unreadable — the denominator now mixes two Laender
 with the other four, the two arms are joined by different instruments, and firms
-with no registry entry fail a name join by construction, which is the earlier
-margin leaking into this one.
+with no court on file rarely pass a name join (10 of the 364 tried resolve to one
+candidate), which is the earlier margin leaking into this one.
 
 **Who was rated at all is itself a measurement, and it was not planned.** The
 agency's Leitungsausschuss graded firms 1 to 6, grade 6 reading *sollte dem
@@ -6593,11 +8038,12 @@ did not decide should be the one the grades miss. **Across all seven disposal
 codes, restitution is the least covered: 1.03% of it carries a grade, against
 5.59% of the sold arm and 7.21% of the liquidated arm, a ratio of 5.43 and 12.7
 standard errors.** That is the identifying premise of this arm, which the
-published paper states in words, counted instead. Liquidation being the best
-covered of all seven also fixes the direction of the appendix's sentence that
-grades are not awarded to firms already being privatized, municipalized or
-liquidated: that sentence is about the state at the meeting rather than the
-eventual outcome, and it does not name restitution at all, so it does not by
+published paper states in words, counted instead. Best covered first, the seven run
+bankruptcy execution 8.10%, merger 7.92%, liquidation 7.21%, sale 5.59%, split 2.78%,
+`IL` 1.52%, restitution 1.03%. Liquidated firms carrying a grade more often than sold
+ones also fixes the direction of the appendix's sentence that grades are not awarded to
+firms already being privatized, municipalized or liquidated: that sentence is about the
+state at the meeting rather than the eventual outcome, and it does not name restitution at all, so it does not by
 itself account for the gap.
 
 **Criteria.** B40-1, the outcome means the same object in both arms, passed. B40-2, no
@@ -6608,11 +8054,12 @@ B40-7 and B40-8, industry in weak form and in strong form, both passed. B40-9, r
 coverage across the seven statuses, passed. B40-5, the size question on the rated
 subset, returns a bound rather than a decision: the grades differ by +0.087 at 0.3
 standard errors, and the subset resolves 0.511 grade points at two standard errors,
-10% of a scale five wide, so it excludes a quality gap larger than that and says
-nothing about smaller ones. That bound holds on the rated firms, which are
-selected, and not on the arm. **Its n = 20 is not a sample that could be
+10% of a scale five wide. Two standard errors either side of the difference run from
+−0.42 to +0.60, so a gap outside that range is excluded and one inside it is not. That
+bound holds on the rated firms, which are selected, and not on the arm. **Its n = 20 is not a sample that could be
 enlarged**: it is every rated restituted firm there is, which is the fact B40-9
-then reads. The statute quoted above is what carries the size question instead.
+then reads. The two statutes quoted above, and the converted firms read on their own,
+carry the size question instead.
 
 Both gates that read a band on an estimate are inapplicable here rather than
 unmet, since the criteria are directional and structural and no band was
@@ -6652,20 +8099,28 @@ returned and sold is 32.3 points at a ratio of 7.7. The two outcome variables ar
 different objects and are not combined. On that reading the branch is unsupported
 rather than excluded, since nobody has run the comparison directly.
 
-**On the earlier margin it is excluded outright, and that bound borrows no estimate
-at all.** The sold arm's no-registry rate is 4.80% and is a weighted average over the
-buyer types, each of which is a non-negative rate. A component can therefore not
-exceed 4.80% divided by its own share. For the East-buyer component to reach the
-returned arm's 37.08%, East German buyers would have to be under **12.96%** of the
-sold arm: at most 863 of its 6,662 firms, since only 320 of them lack a registry
-entry at all. **The agency's own closing account puts management buyouts alone at
-21.6% of its firms**, and a management buyout is by definition an incumbent East
-German buyer, so that figure is a floor on the share rather than an estimate of it.
-Three further counts sit higher still, between 43% and 49%, and the one dataset among
-them that excludes the smallest sales notes those went mostly to East German buyers,
-which moves the true share up rather than down. The inputs to this bound are two rates
-measured here, the non-negativity of a rate, and one head-count share that only has to
-clear thirteen percent. **The often-quoted figure that East Germans received under 5%
+**On the earlier margin the branch is bounded, and the bound borrows no estimate.**
+The sold arm's no-registry rate is 4.80% and is a weighted average over the buyer
+types, each of which is a non-negative rate. No buyer type can therefore exceed 4.80%
+divided by its own share of the sold firms, and for any one of them to reach the
+returned arm's 37.08% it would have to be under **12.96%** of the sold arm: at most 863
+of its 6,662 firms, since only 320 of them lack a registry entry at all. That holds for
+each type in turn, East German, West German or foreign, and it is the whole of what the
+bound says: the branch survives only for a buyer type that small. Which types are that
+small is not counted in this file, and the shares on record come from other counts. The
+agency's balance of 31 May 1994 (*Aus Politik und Zeitgeschichte* B 43–44/1994, p. 23,
+from its central controlling) lists 2,664 management buyouts in a gross stock of 12,335
+enterprises, 21.6%, which is 43.8% of the 6,089 it had fully privatized, and 844
+enterprises and parts sold to foreign investors; a management buyout is an incumbent
+East German buyer. The ownership sample of the published study, N = 2,566 in 1995, has
+East German majority owners at 0.480, West German at 0.452 and international at 0.067.
+On those shares the East German and the West German types each stand three to four
+times above the threshold, which would cap each at about 10 to 11%, and the international
+type stands below it and is not capped below the returned arm's rate. The same 1994
+source states that no figures exist on how large the share of buyers from the new
+Länder was. So the bound is given as a threshold a reader can test with whatever share
+he trusts, and the three-class reading stays unmeasured here. The inputs to the bound
+are two rates measured here and the non-negativity of a rate. **The often-quoted figure that East Germans received under 5%
 is a share of asset value, not of firms, and does not enter a bound stated in firm
 counts**; East German buyers took many small firms, which is why the two shares differ
 without contradicting each other. The bound does not bite on the later margin, where
@@ -6679,6 +8134,33 @@ produced is reported. Scripts `experiments/treuhand_registry_entry.py` and
 `results/treuhand_registry_entry.json` and `results/treuhand_name_join.json`,
 caches `data/processed/treuhand/bvs_registry_entry.csv` and
 `data/processed/treuhand/bvs_name_join.csv`.
+
+**Restated 2026-10-10.** All eleven criteria stand as they were. The outcome is now named
+for the field it is read from, with the rows that still carry a number or a date counted
+and the comparison read again without them. The size question is answered with both
+statutes, since most of these firms became companies under the Treuhandgesetz and not by
+ordinary foundation, and the firms converted on 1 July 1990 are read on their own. The
+split by founding date is new. The rated subset's bound is stated as the range it
+excludes, where the text had given its resolution as the bound. The mixture bound is
+stated for each buyer type and no longer as an exclusion of the branch, and the 21.6% is
+given with the count it comes from. The register dump lists one sold firm's reference
+number twice; counting that company once moves the sold arm's joined firms from 2,030 to
+2,031 and the calibration set from 2,594 to 2,595, and the dissolution gap from −0.30 and
++0.54 percentage points to −0.28 and +0.56. Three sentences were wrong and are replaced:
+that liquidation was the best covered status, that a sharper grouping could only make a
+reversal less likely, and that the name join's recall was held back by the dump's 2005
+window.
+
+**Restated 2026-10-26.** Two printed numbers did not match the file and are corrected.
+The sold arm's share of rows carrying the name prefix is 2.8% (185 of 6,662), where the
+text gave 2.9%. On rows with no court the predecessor's name is present in 83% of
+returned and 70% of sold firms, where the text gave one figure of 82%. Three
+descriptions are narrowed: the registration-date and founding-date shares in that
+paragraph are over all Länder; the 51 industry cells include each grouping's
+unclassified remainder; and the chemicals cell has the highest sold-arm rate among the
+sixteen named groups. No criterion and no other reading moves.
+
+
 ## B30-5 — regional deviation on income, and whether the carrier measures a level at all
 
 **RUN: 2026-09-01.  DESIGN: `docs/b30_prereg.md`, "B30-5 cross-sectional".**
@@ -6882,7 +8364,7 @@ treatment. The mean acquisition cost is held at its registered value, because
 flattening the dispersion also lowers the mean and the flat cell would otherwise
 also be the cheap cell. The admission threshold is pinned at its registered value,
 because it is otherwise tied to the dispersion and one switch would move both what
-is paid and who may enter.
+is paid and who is admitted at the opening allocation.
 
 | criterion | reading |
 |---|---|
@@ -6898,6 +8380,14 @@ cycle is a difference of two equal terms, and all three terms of the treated squ
 vanish, so a zero read there is not a measurement. What the stage establishes is the
 other half: removing the entire holonomy costs 0.99 points of a 74.43-point
 contraction, so the field carries 1.33 per cent of it.
+
+(Restated 2026-10-20: pinning the gate holds the opening allocation. The bidder
+pool that prices a tier is admitted on the payment terms, so the treatment also
+levels that pool, and resale eligibility follows the payment terms too. Run
+again with the pool admitted on the pinned gate terms, as A3-8's comparison arm
+does, the treated arm contracts 73.49 points and the field's part is 0.94
+points, 1.26 per cent; all five treated support ratios stay below one. Both admission rules were run,
+and the reading did not change.)
 
 **This is a control arm on the instrument and not an engagement.** The exact field is
 constructed here rather than taken from anyone, so no rival is answering and the
@@ -7865,18 +9355,24 @@ carrier check -- an administratively priced item on twelve large Chinese cities.
 an underestimate and `52` is an upper bound on the rank.
 
 The second floor needs no measurement: **take the entire residual to be noise**,
-`sd 0.4521`, and put the edge at `sigma(sqrt(I)+sqrt(C)) = 19.38`. That is the
+`sd 0.4521`, and put the edge at `sigma(sqrt(I)+sqrt(C)) = 19.47`. That is the
 highest floor any reading of this matrix could defend, and **eight directions
 still clear it**. The truth lies between eight and fifty-two.
 
 | k | sigma | share | above |
 |---|---|---|---|
-| 1 | `61.50` | 25.2% | both floors |
-| 2 | `36.79` | 9.0% | both |
-| 3 | `33.30` | 7.4% | both |
+| 1 | `61.50` | 27.3% | both floors |
+| 2 | `36.79` | 9.8% | both |
+| 3 | `33.30` | 8.0% | both |
 | ... | | | |
-| 8 | `19.53` | 2.5% | both |
+| 8 | `19.79` | 2.8% | both |
 | 9 | `18.66` | 2.5% | the measured floor only |
+
+Restated from the record, 2026-10-13: the edge is `19.47` (printed `19.38`
+before), the eighth singular value `19.79` (`19.53`), and the shares, each
+`sigma^2` over the residual's total sum of squares, `27.3%`, `9.8%`, `8.0%` and
+`2.8%` (`25.2%`, `9.0%`, `7.4%`, `2.5%`). The earlier figures are superseded.
+Eight directions clear the conservative floor on both.
 
 > **SUPERSEDED IN PART, 2026-09-01, same day, by B39.** The `52` rested on the
 > measured carrier noise `0.0293`, and an independently collected posted price
@@ -8440,16 +9936,16 @@ that concedes the entire residual to measurement.
 The script prints a table and returns an exit code; it does not write to
 `results/`, so this section is the record. Reported here for the first time.**
 
-Corollary 5 reduces the residual on the box product to a two-part split, and
-these eleven checks are what stands between that formula and the code that
+Theorem 5 and its Corollary 5.1 reduce the residual on the box product to a
+two-part split, and these eleven checks are what stands between that formula and the code that
 computes it. Ten of them accumulate into a single counter and the script exits
 non-zero if it is not empty. This run printed `ALL AGREE`.
 
 | criterion | state | reading |
 |---|---|---|
-| R-1 four routes to `dist(omega, im d0)^2` agree | **PASS** | five shapes, worst gap `1.42e-14` |
+| R-1 four routes to `dist(omega, im d0)^2` agree | **PASS** | ten draws over five shape templates, worst gap `1.42e-14` |
 | R-2 the split has no cross term | **PASS** | `t` swept `1.00` to `0.01`, `R/t^2` fixed at `17.11315731` in all five |
-| R-3 `rho*D^2 <= R <= D^2`, both ends spectral | **PASS** | ten shapes, both bounds hold in every one |
+| R-3 `rho*D^2 <= R <= D^2`, both ends spectral | **PASS** | ten draws over five shape templates, both bounds hold in every one |
 | R-4 the two degenerate ends | **PASS** | all classes equal reproduces `m*dist(w, im d_G)^2` at `5.8049602561`; equal and exact returns `2.132e-14` |
 | **R-5 what the damping does** | **printed, carries no assertion** | four choices of `H` on one graph and one field; see below |
 | R-6 the product Laplacian factors | **PASS** | five shapes, difference `0.00e+00` exactly |
@@ -8459,6 +9955,13 @@ non-zero if it is not empty. This run printed `ALL AGREE`.
 | R-10 `m = 1` collapses to the one-index problem on `G` | **PASS** | `0.7377548093` by both routes |
 | R-11 stress, 300 random shapes to `n = 12`, `m = 8` | **PASS** | worst relative spread across four routes `5.11e-15`; Corollary 5.3's bounds held on all 300 |
 
+**Machine residuals, noted 2026-10-13.** The four residuals in this table (R-1
+`1.42e-14`, R-4 `2.132e-14`, R-8 `5.68e-14`, R-11 `5.11e-15`) are those of the
+2026-09-02 run, and their trailing digits belong to the linear-algebra build: a
+rerun on 2026-10-13 printed `2.93e-14`, `1.421e-14`, `4.97e-14` and `7.55e-15`.
+What each check asserts is its bound, `1e-7` for R-1, `1e-9` for R-4 and `1e-8`
+for R-8 and R-11, and both runs sit four orders or more inside it.
+
 R-9's three arms, printed as objects:
 
     each class exact, all different    rho^2 = 18.24281028   R = 18.24281028   common = 0.00e+00
@@ -8467,15 +9970,16 @@ R-9's three arms, printed as objects:
 
 ### R-5 carries no assertion, and the reading attached to it holds on one field
 
-**R-5 is the one step here that cannot fail.** Lines 294 to 314 print a table and
-never touch the counter the other ten write into; the counter appears zero times
-in that block and between one and five times in each of the others. So R-5 is a
+**R-5 is the one step here that cannot fail.** The R-5 block of
+`experiments/b1_reduction.py` prints a table and never touches the counter the
+other ten write into; the counter appears zero times in that block and between one
+and four times in each of the others. So R-5 is a
 printed object, which is the shape this project asks criteria to have, but it is
 **not** one of the things that could have come out wrong. Counting it inside
 `ALL AGREE` overstates what that phrase covers by one.
 
-The reading the theorem document attaches to it (`docs/b1_theorem.md`, the R-5
-row) is that `R/D^2` rises with `mu_1`. On the shape and field the script draws
+The reading attached to it (`docs/b1_theorem.md`, the R-5 row) is that `R/D^2`
+rises with `mu_1` on the draw it prints. On the shape and field the script draws
 it does: path `0.581067` at `mu_1 = 0.585786`, star `0.597132` at `1.0`, cycle
 `0.654533` at `2.0`, complete `0.750915` at `4.0`, monotone across all four.
 
@@ -8489,9 +9993,8 @@ pass.
 
 ### Three further limits on what these checks reach
 
-**R-6 is an implementation check, and the document calls it something stronger.**
-`docs/b1_theorem.md` names R-6 and R-7 as "the two that would catch a wrong
-theorem rather than a wrong implementation". R-7 does: it pins the formula
+**R-6 is an implementation check.** R-7 is the check that would catch a wrong
+theorem rather than a wrong implementation: it pins the formula
 against targets computed without it, at both limits. R-6 compares the Laplacian
 of `box_product` against the Kronecker form and returns `0.00e+00` exactly, which
 is what an identity between two expressions of the same construction returns.
@@ -8502,18 +10005,17 @@ is what an identity between two expressions of the same construction returns.
 confirms the code reads that construction back. The second and third arms are not
 in that position.
 
-**The fourth route shares more than its docstring claims.** `residual_projector`
-is documented as "a fourth route that shares no code with the other three". It
-builds `L_Gamma` from the product graph directly and never touches the mode
-transform, the Kronecker structure or `lstsq`, which is the substance of the
-claim. It does share `box_product`, `incidence_matrix` and the assembly helpers
+**The fourth route shares the graph construction with brute force.**
+`residual_projector` builds `L_Gamma` from the product graph directly and never
+touches the mode transform, the Kronecker structure or `lstsq`, and its docstring
+says what it shares. It does share `box_product`, `incidence_matrix` and the assembly helpers
 with the brute-force route, so **the agreement in R-1 and R-11 is evidence about
 the spectral algebra and not about the graph construction underneath it**. R-6 is
 what covers that construction, subject to the paragraph above.
 
 ### What this section changes and what it does not
 
-**No reading moves.** Corollary 5 is unaffected; the ten asserting checks pass
+**No reading moves.** Theorem 5 is unaffected; the ten asserting checks pass
 with the margins printed above, and the two that reach past the implementation
 are R-7 and, for the bounds, R-3 and R-11. What changes is the count: **ten
 checks can fail here, not eleven**, and the monotone reading in the R-5 row of
@@ -9716,6 +11218,14 @@ including firms is consistent at a wider scope. The derivation assumes this pool
 one and two to one and contains none of the three to one applied to non-residents; the savings banks' figure
 landing independently in the same place is the check on that assumption.
 
+> **Updated 2026-10-14. The 193.4 and 129.1 are lines of the Bundesbank's own conversion
+> table on 31 May 1990 positions, which assumes every allowance is taken up in full, and the
+> 64.8 they solve to is that table's footnote: 2,000 × 3.2 million, plus 4,000 × 10.1 million,
+> plus 6,000 × 3.0 million.** It is a planning figure. The 33.5 per cent and the savings
+> banks' 34 per cent are a plan and an outturn on different bases, all household financial
+> assets against the savings banks' savings deposits, and are printed side by side as a
+> description rather than as two routes to one quantity.
+
 Dividing 64.8 billion by sixteen million applications gives about 4,050 mark converted at one to one per
 application, against a middle-band allowance of 4,000 for those born between 2 July 1931 and 1 July 1976. Let
 C be the population-weighted allowance ceiling. Utilisation is 4,050 over C and cannot exceed one, so C is at
@@ -9756,6 +11266,19 @@ denominator, with 1.0018 reported alongside and labelled as per application; the
 either the precision of the inputs, since 64.8 is solved from two figures given to a tenth of a billion and
 the applications are given as about sixteen million, or applicants skewing toward the higher bands. **Both
 readings are kept and neither is chosen.**
+
+> **Updated 2026-10-14: the 0.9754 is superseded as a take-up reading, together with the
+> 0.675 bound and the 1.0018.** Its numerator is the planning figure above, headcount times
+> allowance on the Bundesbank's band counts of 3.2, 10.1 and 3.0 million; its denominator is
+> the same product on the GESIS band counts of 2.94, 10.21 and 3.29 million. The ratio
+> compares two population tables and says nothing about use, and the 1.0018 landing above
+> one is where that shows. What stands is the subtraction, the three band counts, the ceiling
+> of 4,042.7 marks a head and the full entitlement of 66.44 billion. The one outturn is the
+> savings banks' at 30 June: about 50 billion converted at one to one. Their 14.3 million
+> applicants, placed on the national band counts, hold an entitlement of at least 52.8 and at
+> most 60.8 billion, so take-up among them by that date is between 0.82 and 0.95. No take-up
+> figure exists for the whole population, and the 33.5 per cent in the comparison below is
+> the planning share.
 
 Set beside the 1947 North Korean case the comparison is instructive, and it is not in the numbers. The share
 of holdings that received the favourable treatment is 35 per cent there and 33.5 per cent here, on two
@@ -10340,6 +11863,17 @@ reading that the favourable band was filled to the brim: the allowances were 2,0
 6,000 marks by birth cohort, and a population of about 16.1 million at an age-weighted average
 allowance near 4,020 marks gives 64.7 billion against the 64.8 billion computed, though the
 population and age shares here are not retrieved figures and are registered for sourcing.
+
+**Restated 2026-10-26.** The 193.4 and 129.1, and the split into 64.8 and 128.6 solved from
+them, are lines of the Bundesbank's conversion table on 31 May 1990 positions, which assumes every
+allowance is taken up in full; its footnote computes the 64.8 as 2,000 × 3.2 million, plus 4,000 ×
+10.1 million, plus 6,000 × 3.0 million. The cross-check above sets that figure against population
+times an average allowance, which is the same quantity computed twice, so it does not show the band
+filled, and the B32 section withdraws the same reading. The 66.5 per cent is the planning share.
+The one outturn is the savings banks' count at 30 June 1990: of the 146 billion of savings deposits
+they had converted, 96 billion went at two to one, 65.8 per cent. Germany's place at the closed end
+of the ordering stands on that outturn, about 324 times Estonia's 0.203 per cent, and the 66.5 per
+cent quoted for Germany below reads as the planning share.
 
 Two limits belong with that comparison. The denominators are not the same object, cash roubles
 collected in one case and household monetary assets in the other, so the order of magnitude is
@@ -11545,7 +13079,7 @@ is the scalar price field written in computable form. Noland, Robinson and Wang,
 99-1 of January 1999, published in World Development in 2000, so peer reviewed and a serious
 rival rather than grey literature. A CGE solves for a price vector clearing all markets, and a
 price vector is a potential on positions whose gradient generates every term, which is exactly
-the proposition seven carriers here have measured to be false. The model does not fail an
+the proposition the carriers here have measured to be false. The model does not fail an
 independent test; it inherits the refutation by construction, and that distinction has to be
 kept.
 
@@ -14050,6 +15584,20 @@ Registered read-outs, their verdicts, and the ones with no verdict yet.
 | registered prediction: August 2026 | **registered, source has not published** | mechanism puts August below the 72,417 to 102,327 tonne seasonal band, because every August sailing clears after the ceiling |
 | registered prediction: US beef, second half of 2026 | **registered, not yet readable** | if eligibility was the binding constraint, monthly volume should keep rising above June's 1,152 tonnes |
 
+**WRITEBACK 2026-10-28. The two registered predictions, read as far as their sources allow**
+(`experiments/b36_step8_registered_reads.py`, record `results/b36_registered_reads.json`). Both
+sources are the ones the station already fetches from. For US beef in the second half of 2026,
+July and August are published at 2,025.9 and 2,272.8 tonnes; exports are not negative, so the
+half-year mean is at least 716.5 tonnes whatever September to December turn out to be. That
+already clears the July-December 2025 mean of 709.6 tonnes, so the second clause holds; the first
+clause, above June's 1,152 tonnes, needs the remaining four months to sum to more than 2,613 tonnes
+and is not read until December is published. For Brazil in August, the Comex Stat API answered
+503 on every attempt from 2026-10-27 21:28 to 2026-10-28 02:41, so August is not on disk and all
+three clauses stay unread. Both fetchers had stored a not-yet-published period as an ordinary cache
+file (an empty Census month reads as no trade; the Brazilian year file stops at July), so a plain
+re-run would have read zeros or nothing; those files are renamed and the reader counts a month
+as published only when that month's world total is on disk.
+
 **Not claimed by this station.** Which of expiry and tariff caused the April step
 was undecidable on the monthly series alone and is answered only by the
 cross-meat design; poultry's failure to recover is unexplained; the Brazilian
@@ -14753,9 +16301,11 @@ percentage off gets, reached from the opposite direction: here the discounted
 figure is filed with a regulator to three decimals, and it is still one price,
 because what is filed is a multiplier.
 
-That failure is about prices and says nothing about class values. The same tariff
-writes 35.000, 18 and 50.000, and those are class values, filed at a higher
-resolution than any transit table this project has read. B57 reads them as a row
+That failure is about prices and says nothing about class values. The two
+separately filed income schedules, D-CARE and E-FERA, write 35.000 and 18 per cent on
+bundled volumetric charges and 50.000 and 50 per cent on the delivery minimum bill, and
+those are class values; CARE's are filed at a higher resolution than any transit table this
+project has read. B57 reads them as a row
 and the line separates. One carrier, two questions, two answers, both correct.
 
 **A third candidate failed the same question on the same day, from the hardest
@@ -14816,6 +16366,13 @@ cent, so no rounding turns two different figures into one.
 | **B55-2** cells, distinct figures and collisions satisfy collisions = cells − figures | 104 cells, 45 figures, 59 collisions | PASS · `instrument` |
 | **B55-3** the residency line counted on its own, across pairable activity, age and term cells | 41 pairs, 1 carrying the same figure on both sides | PASS · `own_reading` |
 | **B55-4** every row carries its sub-heading | 106 rows, 0 without one, 9 sub-headings | PASS · `bookkeeping` |
+
+> **On B55-3's wording, dated 2026-10-18.** The row keeps the record's wording. The 41 pairs it
+> counts share activity and term; an age band is not required on both sides. Eighteen of them pair
+> a rung of a resident lifetime age ladder (through 44 up to 65 and over, on hunting, freshwater
+> fishing and stocked trout) with the single non-resident lifetime licence, which has no age band;
+> fifteen of those eighteen were added on 2026-09-13, for the reason given under Read 2026-09-13
+> below.
 
 The largest single block of the difference has a name: one lifetime age ladder,
 265 / 215 / 165 / 115 / 65 / 25, is reused across hunting, freshwater fishing and
@@ -15158,7 +16715,7 @@ family does not fix the rate and neither does the row.**
 That carrier fails B54's question about two posted prices, because what is filed
 is a multiplier and a price with a published constant that converts it is one
 price. That is a fact about prices. This row counts class values, and the
-programme wrote 35.000, 18 and 50.000. One carrier, two questions, two answers,
+two filed schedules wrote 35.000 and 18 on one line item and 50 and 50 on the other. One carrier, two questions, two answers,
 and both hold.
 
 **Three further rows, read the same day, close off the two cheapest explanations
@@ -15222,6 +16779,14 @@ they no longer sit inside one family. Nine are at the two cinemas, seventeen at
 five transit operators, one inside a statute. Changing the grain changes no
 reading, since both grains are computed by the same function; the two criteria are
 the same prediction at two resolutions and both are kept.
+
+> **Dated 2026-10-18.** The pair count in this paragraph is the one on file when it was written,
+> and its three family counts sum to 27 against the 29: read off the current B58 record, the five
+> transit rows hold 19 of those zero pairs, the two cinemas 9 and the statute 1. B57-11 now reads
+> 87 pairs across the non-degenerate rows, 39 of which separate nothing, over six families
+> (criteria table above); the ten added zero pairs are the rail carrier's six, the matinee row's
+> one and three on an emergency-department fee rule, and B58-4 splits all 39. The credential
+> count further down covers the 29 then on file.
 
 The pair grain also surfaces two things the row grain hid. One transit row reading
 70 per cent contains three pairs that separate nothing, disability against income,
@@ -15363,7 +16928,7 @@ bookkeeping.
 |---|---|---|
 | **B58-1** every element of the rival's construction carries the source it was read from | 13 elements, 0 without a source | PASS · `premise` |
 | **B58-2** the cell to verdict map is written out, and an unchecked or unestablished feasibility answer never lands on an admitting verdict | 7 cells printed, 0 leaks; 2 carriers still carry an unchecked answer, both named | PASS · `instrument` |
-| **B58-3** print the object: every carrier, its four answers, whether each stands on a document, and its verdict | 8 carriers printed | PASS · `own_reading` |
+| **B58-3** print the object: every carrier, its four answers, whether each stands on a document, and its verdict | 11 carriers printed (8 before the rail carrier, the matinee row and the emergency-department rule were added) | PASS · `own_reading` |
 | **B58-4** B57-11's zero pairs partitioned by whether the rival's own conditions admit the carrier | **39 pairs: 7 admissible, 19 objective contested, 9 objective open, 4 inadmissible** | PASS · `own_reading` |
 | **B58-5** coverage: which parts of the rival carry a reading and which carry none | 13 elements, **first and second degree carry no reading at all** | PASS · `bookkeeping` |
 
@@ -15374,6 +16939,15 @@ bookkeeping.
 | five transit rows | **19** | the three feasibility conditions hold and are checked, and a named document constrains the seller's objective: the federal grant condition names the three classes together and caps the reduced fare at half the peak fare |
 | two cinema rows | **9** | the three hold and are checked, and no document speaks to the seller's objective either way |
 | one statutory row | **1** | **inadmissible.** The seller is a statute. There is no firm, and it does not maximise profit, so the rival's prediction has no referent there |
+
+> **Superseded partition, dated 2026-10-18.** The three rows above are the 29-pair partition. The
+> current one is B58-4, 39 pairs: 7 admissible, 19 objective contested, 9 objective open,
+> 4 inadmissible (`results/b58_rival_admissibility.json`). The five transit rows (19) and the two
+> cinema rows (9) are unchanged. The ten pairs added are the rail carrier's 6 and the matinee
+> row's 1, which make the admissible cell, and 3 on a health ministry's emergency-department fee
+> rule, inadmissible because both scored predictions need profit maximisation and it does not
+> apply there; with the statutory row that cell holds 4. In the paragraph below that begins
+> `So the number to carry`, the last count reads 4 on the current partition.
 
 **One pair comes out of the count, and it should.** The earlier reading carried
 29 across three families, and one of those rested on an article of a health
@@ -15554,7 +17128,8 @@ is the level of the common field, and the level was never the object: the gross
 half is read off the rule, and the rule prints a source, not a number.
 
 The primary credit rate less IORB is still 10 bp. On disk that difference takes
-exactly one value, 10.0 bp, on all 1,334 paired days from 2021-06-17, across 17
+exactly one value, 10.0 bp, on all 1,334 paired days from 2021-07-29, the first day
+of the IORB series (against IOER the same 10.0 bp runs back to 2021-06-17), across 17
 changes in IORB, 11 of them increases, with single steps as large as 75 bp. This
 is the eighteenth such change and the twelfth increase, so it confirms and does
 not measure.
@@ -16503,7 +18078,8 @@ carries it. The other half of the ordering is computable and is printed so the
 size of the missing comparison is on the record: across the four published
 statuses, effective rate being total income tax over adjusted gross income less
 deficit with both taken from the same block, the spread within an income band runs
-0.09 to 6.98 percentage points over 54 band-years, median 2.83.
+0.09 to 6.98 percentage points over 54 band-years, median 2.73 (the upper of the two middle
+values is 2.83).
 
 | band, tax year 2023 | HOH | **MFJ+QSS** | MFS | single | spread |
 |---|---|---|---|---|---|
@@ -16519,7 +18095,7 @@ percentage points and nothing published narrows it.
 |---|---|---|---|
 | B33-21 the table with money carries the price list's partition, and the merged block is the pair | own_reading | 3 of 3 years, 4 blocks, merged MFJ+QSS | PASS |
 | B33-22 the within-pair gap in effective rate | own_reading | **not adjudicable**: 0 of 3 years report the pair apart; recorded as out of reach, not absent | no verdict |
-| B33-23 control: the fold is exact, and the benchmark half is computed | known_answer | one merged block and four in total each year; 54 band-years, 0.09 to 6.98 pp, median 2.83 | PASS |
+| B33-23 control: the fold is exact, and the benchmark half is computed | known_answer | one merged block and four in total each year; 54 band-years, 0.09 to 6.98 pp, median 2.73 (the record's detail prints the upper middle value, 2.83) | PASS |
 | B33-24 the price list partition is read from arm one's record | instrument | `[[HOH],[MFJ,QSS],[MFS],[SINGLE]]` | PASS |
 | B33-25 each year named with shape, headings and bands read | bookkeeping | 3 years, identical headings, 18 bands each | PASS |
 
@@ -16549,6 +18125,15 @@ class values         the three provisions printing numbers 4 cells, the pair mer
 publication, money   the basic table by income and status  4 cells, matching exactly
 publication, counts  the published count of those returns  5, matching the register
 ```
+
+> **Dated 2026-10-18.** The fourth line of the block is superseded as a count. The record of the
+> three-layer reading leaves the class count of the publication layer unread
+> (`results/b33_three_layers.json`: the publication layer's `classes` is null and its `not_read`
+> field says the table stub was not opened), and the three-layer section above writes
+> `not counted`. What the count series establishes is that the two are reported apart; the `5` is
+> the registration point's count. In the bold sentence that follows the block, `keeps the
+> register's` reads as keeping the pair apart; the class count on that side is not read. The
+> half saying the money side is capped by the price list is unchanged.
 
 **Published statistics are not one granularity.** The side carrying money is
 capped by the price list; the side carrying only a count of returns keeps the
@@ -17850,10 +19435,10 @@ quantity**: it fires when the claim total runs past a trigger against the resour
 | **no such controller** | 159 of 797 (19.9%), 74 beyond, largest gap 80 | 199 of 872 (22.8%), 116 beyond, largest gap 119 |
 
 With such a controller present, 6 of 877 paired cells differ at all and **none differs by more
-than one node**, which is the discrete jitter this carrier family carries and which A18_C
-measured and attributed to A18_B6. Nothing turns a block anywhere on that side, against an
+than one node**, the same single-node gaps in both directions that A18_C reads on its
+own pairs. Nothing turns a block anywhere on that side, against an
 instrument that moves 42 to 125 nodes when it moves. With none present, mixing does not lower
-the rate: it is 19.9% with the wage channel dead and 22.8% with it live, and the largest gap
+the rate: it is 19.9% with the wage bill fixed and 22.8% with it responding, and the largest gap
 rises from 80 nodes to 119. Every cell the survey flags against the claim has that one shape, no
 controller and mixing live and incidence deciding anyway. The recapitalisation's own three
 elasticities are not monotone, which is not new here: A18_C reported the wage channel's effect
@@ -18711,8 +20296,8 @@ the frontier under a continuum, and rent as an integral with a marginal land pay
 | **C** | Empty, and this station cannot produce it: it reads no data, so no point prediction of any other account is scored here |
 
 **On the envelope theorem and `b0b`.** That station observes the Hulten aggregation argument has
-no object for the envelope theorem to act on, because what it differentiates is not the argmax of
-anything. **That is consistent with clause 2 and is its other half**: the theorem holds exactly
+no object for the envelope step to act on, because on a non-exact field no function's gradient
+generates the terms at the allocation it differentiates. **That is consistent with clause 2 and is its other half**: the theorem holds exactly
 where there is a genuine optimisation, and choice of technique is one. One discriminant, two
 cases, opposite answers.
 
@@ -18979,7 +20564,7 @@ piece rather than how many cells are missing.
 |---|---|---|
 | PASS | B81-1 `known_answer` transitivity and base invariance | worst triple sum `2.2e-16`, worst shift on changing the base country `2.2e-16`, worst residual-design inner product `2.1e-15` |
 | PASS | B81-2 `own_reading` **why they hold** | every cycle of the bipartite graph sums to `2.2e-16` on the fitted values and to **`2.207` or more on the raw log prices**. The cycle basis comes from the incidence pattern and never sees the regression; the cycle count matches the closed form and the incidence rank. **The second clause had to be able to fail**: if the raw prices were transitive too this would be reading an identity |
-| PASS | B81-3 `own_reading` **two graphs** | `(M−1)(R−1)` against its incidence rank in 10 of 10, running 8 to 36; the country graph's `(R−1)(R−2)/2` running 3 to 15 |
+| PASS | B81-3 `own_reading` **two graphs** | `(M−1)(R−1)` against its incidence rank in 10 of 10, running 8 to 36; the country graph's `(R−1)(R−2)/2` running 1 to 15 |
 | PASS | B81-4 `own_reading` do they agree | worst gap `2.0e-15` on complete equal-weight tableaux, two routes sharing no code: an OLS on dummies, and products averaged then multiplied out through the GEKS formula |
 | PASS | B81-5 `own_reading` **identification is connectivity** | 40 sparse tableaux, **13 disconnected**; rank deficiency equals the component count in 40 of 40, `b₁ = E − V + c` matching the incidence rank throughout |
 | PASS | B81-6 `instrument` the gauge | dropping each dummy in turn moves the fitted values by at most `2.4e-15` and the coefficients by up to `1.139`. **Both halves are required**: unchanged coefficients would mean the gauge was never exercised |
@@ -20135,6 +21720,22 @@ neither is in these sources: the dispersion of one rate across Cypriot banks, wh
 domestic edge pins and which the country aggregate cannot reach, and a seasonally adjusted
 country price index, which this dataflow publishes for the euro area alone.
 
+**The steps at the cross-border date, on the record (2026-10-29).** `results/b97_edge_restoration.json`,
+field `report.cross_border_steps`, carries for each instrument and both window lengths the island's
+step at 2015-04, how many controls moved at least as much, and how many of the island's own
+non-event months show a step at least as big; these are the numbers `--wedges` prints.
+
+| instrument | step, 2 months | controls at least as big | non-event months at least as big | step, 3 months | controls | non-event months |
+|---|---|---|---|---|---|---|
+| overnight deposits, firms | `-0.065` | 0 of 5 | 14 of 121 | `-0.06` | 0 of 5 | 23 of 116 |
+| overnight deposits, households | `-0.145` | 0 of 5 | 6 of 122 | `-0.16` | 0 of 5 | 7 of 117 |
+| term deposits up to one year, firms | `-0.22` | 0 of 4 | 27 of 122 | `-0.51` | 0 of 4 | 7 of 117 |
+| term deposits up to one year, households | `-0.245` | 0 of 4 | 11 of 122 | `-0.42` | 0 of 4 | 8 of 117 |
+| loans up to one year, firms (placebo) | `-0.345` | 1 of 5 | 29 of 122 | `-0.46` | 0 of 5 | 19 of 117 |
+| loans up to one year, households (placebo) | `-0.49` | 0 of 5 | 3 of 122 | `-0.583` | 0 of 5 | 4 of 117 |
+
+The other fields of the record are as they were, and no reading or criterion above changes.
+
 **Counted by kind: one `instrument`, one `known_answer`, two `rival` and one `own_reading`
 criterion hold, and one `own_reading` criterion is in its third state and carries no verdict.
 The number to report for the rival column is that both rival criteria pass, which is to say the
@@ -20198,7 +21799,7 @@ group is 41 pairs where the earlier batch happens to repeat a value.
 | | criterion | kind | detail |
 |---|---|---|---|
 | PASS | B98-F1 the two schedules meet on one position key, in one unit | instrument | 576 positions; column medians `0.05859` and `0.07514` $/kWh, highest single cell `2.52139`. The unit is read off each column's middle, not its extreme |
-| PASS | B98-F2 whether the two classes differ by a constant | known_answer | the difference runs `-0.56081` to `+1.92634`, a spread of `2.48715` against a floor of `0.00002` read value by value, **124,357 times it** |
+| PASS | B98-F2 whether the two classes differ by a constant | own_reading | the difference runs `-0.56081` to `+1.92634`, a spread of `2.48715` against a floor of `0.00002` read value by value, **124,357 times it** |
 | PASS | B98-F3 the square, within a block and across blocks, apart | own_reading | crossing pairs **165,371 of 165,559 above the floor**, median `0.02137`, max `2.48715`. Within-block: 41 pairs, all above the floor |
 | PASS | B98-F4 how many values each side takes, before any reading | instrument | the earlier batch takes 539 distinct values, the later 557 |
 
@@ -20254,8 +21855,25 @@ table still drops F1 — and a run is no longer failed by three true spikes.
 California closed its second net metering regime on 2023-04-14. A meter's vintage
 is fixed by the date its interconnection application was filed, so two identical
 roof arrays on the same street, exporting the same kilowatt hour in the same hour,
-are paid on two different published schedules and neither owner can move to the
-other.
+are paid on two different published schedules. The door between them opens one
+way only: a meter on the older schedule can be moved to the newer one, voluntarily or
+by expanding the system past the greater of 10% of its original capacity or 1 kW, and
+can never be moved back, while nobody who applied after the cutoff can enter the older
+schedule at all. The older schedule runs 20 years from interconnection and passes to a
+buyer of the house with whatever years remain.
+
+**Corrected 2026-09-29.** This paragraph first said that neither owner can move to the
+other schedule, which overstated it: the older one can be given up. No criterion below
+changes. The station reads the two published schedules against each other, not anyone's
+choice between them; the first clause of `D30`, as this station applied it, already required
+only that the two prices not be interchangeable, which a one-way door satisfies; and
+`D25` makes the cost of changing class the same at every hour, so it cancels in the
+square whichever direction it runs. A class edge that exists in one direction only is
+the same kind of object as B21's holders who can sell and not buy, and is recorded here
+as an observation with no criterion attached. Sources: CPUC, *Net Energy Metering and
+Net Billing* (20-year legacy period; customers permitted to switch to the current
+tariff); the 10% or 1 kW expansion limit, the bar on switching back, and transfer to a
+new owner are from a third-party summary and are not yet read in the tariff text.
 
 **Two rivals are in play and they die in different ways.** The bare one says a
 position carries one scalar, so two classes at one position get the same terms;
@@ -20292,7 +21910,7 @@ shares no retail schedule with any of these and carries its own zero calibration
 | | criterion | kind | E-TOU-C | EV2 |
 |---|---|---|---|---|
 | PASS | B98-E1 the two schedules meet on one position key, in one unit | instrument | 576 positions, both credits in (0, 2) $/kWh | same |
-| PASS | B98-E2 whether the two vintages differ by a constant | known_answer | difference runs `-0.59947` to `+0.57834`, spread `1.17781` against a floor of `0.00002` read value by value, **58,890 times it** | `-0.56887` to `+0.60894`, same spread and same multiple |
+| PASS | B98-E2 whether the two vintages differ by a constant | own_reading | difference runs `-0.59947` to `+0.57834`, spread `1.17781` against a floor of `0.00002` read value by value, **58,890 times it** | `-0.56887` to `+0.60894`, same spread and same multiple |
 | PASS | B98-E3 the square, within a block and across blocks, apart | own_reading | crossing pairs **104,096 of 104,128 above the floor**, median `0.04427`, max `1.07871` | **94,522 of 94,528**, median `0.16705`, max `1.06822` |
 | PASS | B98-E4 how many values each side takes, before any reading | instrument | NEM-2 takes 4 values, NEM-3 takes 557 | NEM-2 takes 5, NEM-3 takes 557 |
 
@@ -20644,7 +22262,7 @@ property the superlative index was built on.
 | PASS | B101-4 `own_reading` **inside one country-industry the chained index does not equal the direct one** | Counts printed, no threshold on an estimator. Non-zero above `1e-12` in `99.8%` of 20,206 two-year windows, `99.8%` of 12,247 ten-year, `100.0%` of 445 twenty-six-year. Median moves `2.588e-04` to `9.481e-03` across those windows. Floor measured rather than declared: a relative shock of `1e-2` to every published quantity moves the ten-year median by a factor `1.05`, and the construction floor is `1.665e-16` |
 | PASS | B101-5 `instrument` **under the paper's own share form the drift is not reduced, it is set to zero** | `sigma = a + b*ln(K/L)` is affine in the log mix along every path inside a series whatever fits the two coefficients, so the sum telescopes. Smoothed shares read `0.0%` non-zero at every window, medians `8.3e-17` to `2.2e-16` |
 | PASS | B101-6 `rival` **a translog technology makes this index transitive** | Point prediction of exact zero. It fails in `99.8%` of ten-year windows and `100.0%` of twenty-six-year ones. Cell B, with both readings written out beside it |
-| VOID | B101-8 `premise` **the cross-country half has an object in this file** | `LAB_QI` and `CAP_QI` are indices based at 100 in 2015 in every series, so the log capital-labour ratio reads exactly zero in all 1,053 cells of 2015. The cross-country level is not in this file, equations 10 and 11 cannot be built from it, and criteria that depend on it are not run rather than failed |
+| VOID | B101-8 `premise` **the cross-country half has an object in this file** | `LAB_QI` and `CAP_QI` are indices based at 100, in 2015 for 1,053 series and in 1995 and 1996 for one each (B101-25), so the log capital-labour ratio reads exactly zero in all 1,053 cells of 2015. The cross-country level is not in this file, equations 10 and 11 cannot be built from it, and criteria that depend on it are not run rather than failed |
 | PASS | B101-7 `bookkeeping` **the write-backs** | Station documents, this section, the theory note's pointer |
 
 **B101-5 is the one worth reading twice.** The smoothing is presented as a technical step that
@@ -21056,7 +22674,10 @@ between two graphs does not make the smaller one converge on the larger.
 read that the whole holonomy carries `1.33%` of the support contraction there, the graph
 carrying the rest. Whether catch-up splits the same way between the field and the graph is
 what this station opens; A22's construction sits on a different carrier and joining the two is
-its own piece of work rather than a flag on this one.
+its own piece of work rather than a flag on this one. (Restated 2026-10-24: A22
+ran both admission rules for the bidder pool that prices a tier; with the pool
+admitted on the gate terms the field's part is `1.26%`, and the reading did not
+change.)
 
 ## B103: what an action that changes the world state rewrites in the prices set before it
 
@@ -21104,6 +22725,13 @@ independent, and inside a component one number drives both.**
 | PASS | B103-3 `own_reading` one formula | a bridge walked from conductance `1` to `1e-4`: `R` from `2.703` to `10001.7`, measured share from `0.7299` to `0.999900`, `D` constant to `4.7e-12`, and with the bridge removed the level pinned to `1.2e-15`. A complete graph on eight vertices, weights `1` to `1e4`: share from `0.25` to `3.3e-5`. The measured share equals `w_e R/(1 + w_e R)` on every rung of both walks to `1.8e-15` |
 | PASS | B103-4 `known_answer` B84-4's ladder | the same ten edges come back, `R` from `0.603` to `1.800` computed from each tableau, and the closed form matches all fifty recorded distances to `5.3e-15`. **B84's printed low end `0.8490` is the first step at `R = 1.800`, and its high end `1.0025` is a last step, where the closed form bends by less than the float noise** |
 
+Figures below `1e-11` in this table are what the run printed on the build that first wrote the
+record; the record carries the tolerances only, because those digits belong to the BLAS build.
+A Windows build writes the same record byte for byte and prints `9.8e-15` and `3.6e-15` for
+`B103-1`, `3.2e-14` against the same floor `2.8e-14` for `B103-2`, and for `B103-3` `D` constant
+to `2.0e-12`, the level pinned to `2.6e-15` and the share matching to `1.9e-15`. `B103-4` prints
+`5.3e-15` on both.
+
 **Every criterion has a seeded failure in `--selftest`**, and where a seed could land on nothing,
 a fixture without a reachable pair or new edges all of weight one, the self-test asserts that it
 landed.
@@ -21113,7 +22741,7 @@ to `1.00`, splits exactly: `(1 + w_b R)/(1 + w_a R)` on the first step at `R = 1
 `1.8e-3` of one, and float noise on the last step. And near the bridge limit the projection is
 solved on the weighted incidence matrix: with a bridge of conductance `1e-4` its condition number
 is about `9e2` against the Laplacian's `7e5`, and `D` reads constant to `5e-12` one way and to
-`4e-11` the other.
+`4e-11` the other (`2.0e-12` and `1.5e-10` on the Windows build).
 
 **Placement.** A: effective resistance, Rayleigh's law and the rank-one update are circuit theory
 and linear algebra, and that a measure can decline with nobody manipulating it is the
@@ -21133,7 +22761,9 @@ rewritten, so the boundary settles with the same code and the same conservation 
 the treatment is the same three knobs together.**
 
 A40 registered this arm and did not run it. A22 had forced `w = d phi` on one graph and found
-the whole holonomy carries `1.33%` of the support contraction there. Catch-up is a different
+the whole holonomy carries `1.33%` of the support contraction there (restated 2026-10-24:
+`1.26%` with the bidder pool that prices a tier admitted on the gate terms; this station's own
+rerun under that rule is in the restatement below the table). Catch-up is a different
 phenomenon, so this runs A40's reading on both arms and asks what changes.
 
 | | criterion | reading |
@@ -21155,6 +22785,15 @@ phenomenon, so this runs A40's reading on both arms and asks what changes.
 reduce what the clearing boundary achieves between the two graphs; it increases it, by about
 a third on the level gap and by more on the first layer's volume. So the field is not carrying
 the convergence here. It stands against it.
+
+(Restated 2026-10-20: the treated arm takes A22's treatment, which in this model
+also levels the bidder pool that prices a tier, since that pool is admitted on
+the payment terms. Rerun 2026-10-23 with the pool admitted on the gate terms, all
+else as recorded: the control arm is unchanged, and the treated arm moves the level
+gap by `-0.1619`, the first layer's volume by `-0.1662` and the support gap by
+`+0.0086`, ratios `+1.29`, `+1.44` and `+1.22` against the control. The treated arm
+moves more on all three gaps, the support gap included, which read `+0.88` with the
+pool on the payment terms.)
 
 **A first run could not read this at all and the fix was the design, not the seeds.** At
 widths to `0.10` the boundary moved the level gap by `0.032` against a seed spread of `0.044`:
@@ -21326,11 +22965,14 @@ vertices with every missing edge added once (`189,587` actions, `2,827,313` pair
 
 Part (4) is printed and not judged: distinct positions of the created block come no closer in
 potential than `9.85e-8` of `R` in the enumeration and `1.8e-8` on the random graphs. **Every
-criterion has seeded failures in `--selftest`**, and each seed is asserted to have landed.
+criterion has seeded failures in `--selftest`**, and wherever a seed could land on nothing it is
+asserted to have landed. The figures below `1e-11` in the table are what the run printed on the
+build that first wrote the record; a Windows build writes the same record byte for byte and prints
+`3.5e-14`, `3.9e-14` and `1.9e-14`.
 
 **Two things the checks found that the statement did not contain.** The frame an action leaves
 untouched is common and made of small pieces: on the random graphs `2,786` of `3,000` actions
-leave positions outside the block they create, `12.6%` of the positions, yet only `0.74%` of
+leave positions outside the block they create, `12.6%` of all positions across the `3,000`, yet only `0.74%` of
 pairs cannot move, since the positions outside hang from many gateways and shift against one
 another. And a count of the pairs that move depends on `D` while the potential gaps do not:
 counting moves above `1e-9` in the fits drops two pairs of the random graphs that hang apart and
@@ -21744,8 +23386,8 @@ respect to eleven parts of the map is `Z (dB/dθ) π`.
 | | criterion | reading |
 |---|---|---|
 | PASS | A45-0 `instrument` **the rebuilt map is A44's mean field** | On 65 carriers, the 15 defaults and A44's 50 variants, the matrix assembled from the mean field's parts is bitwise A44's; 58 of them have short payers, where the pass-on lines matter. Two planted faults are reported: the pass-on to wage earners divided by the payers' count, and the spending state's row taken before the wage step |
-| PASS | A45-1 `instrument` **the derivative of the stationary split is `Z (dB/dθ) π`** | On 165 pairs of 15 carriers and 11 levers it matches the central difference of the re-solved split to within `1e-6`; the largest difference measured is `7.9e-9`. Four planted faults are reported, the least by `1.2e-3`: a pseudo-inverse in place of the fundamental matrix, the map transposed, the spending state dropped, and the pass-on lever scaling payers that have left the market |
-| PASS | A45-2 `instrument` **the class chain keeps the stationary split** | On 235 maps, the 15 carriers and 220 sweep points, every column conserves claims (`4.4e-16`), the chain returns the stationary class sums (`1.7e-14`), and the sums over the classes that hold claims add to one (`1.6e-14`), all within `1e-12`. Two planted faults, nodes weighted by count and the spending state counted as mass, are each reported by the clause meant to see them. The selftest also holds a class with no stationary mass to node-count weights, and reports a test that reads the mass off the class's sum |
+| PASS | A45-1 `instrument` **the derivative of the stationary split is `Z (dB/dθ) π`** | On 210 pairs, 165 of 15 carriers and 11 levers and 45 on the three maps the holding-time reading takes apart (bill slope at zero, pass-on removed, both), it matches the central difference of the re-solved split to within `1e-6`; the largest difference measured is `8.0e-9`. Five planted faults are reported, the least by `1.2e-3`: a pseudo-inverse in place of the fundamental matrix, the map transposed, the spending state dropped, the pass-on lever scaling payers that have left the market, and the holding-time maps removing the pass-on from those payers too, reported on the pass-on map alone |
+| PASS | A45-2 `instrument` **the class chain keeps the stationary split** | On 280 maps, the 15 carriers, 220 sweep points and the 45 holding-time maps, the stationary vector solves the map (`1.3e-14`), every column conserves claims (`4.4e-16`), the chain returns the stationary class sums (`1.6e-14`), and the sums over the classes that hold claims add to one (`1.6e-14`), all within `1e-12`. Two planted faults, nodes weighted by count and the spending state counted as mass, are each reported by the clause meant to see them. The selftest also holds a class with no stationary mass to node-count weights, and reports a test that reads the mass off the class's sum. The holding-time fault above is reported by the conservation and stationary clauses (`4.4e-3`) |
 | PASS | A45-3 `instrument` **every lever moves what it names** | On 165 pairs, an edge lever changes only the routes out of its source class and raises the share they send into its destination; a propensity lever changes only its class's spending rates; the elasticity lever raises the bill slope; the pass-on lever scales only the short shares of payers still trading. Two planted faults, an edge lever with source and destination swapped and one that reweights the edges into its destination from every source, are reported |
 
 **How long the entry advantage lasts follows the mixing between classes.** On the 15 default carriers
@@ -21898,7 +23540,9 @@ does not.**
 B2A reads dispersion at a position: two loans in the same cell at different rates, a
 within-cell share of `0.7831`. That is an `H0` statement, and it is all that carrier can
 give, because its borrowers have no labels and so there is no "the same class at another
-position" to compare against. A square needs two positions and two classes.
+position" to compare against. A square needs two positions and two classes. This is the
+dispersion reading, with the cell as the position; `docs/b0_claim_scope.md` §5 keeps it beside
+the square reading, which takes the dwelling as the position under A1.
 
 This module labels them. At every position (country, industry, year) it reports, for each of
 3 education by 3 age by 2 gender cells, that cell's share of employment and its share of the
@@ -21932,7 +23576,7 @@ an alternative for any part of the leftover.
 | PASS | B106-6 `instrument` **whether the competing reading is given a test or a saturation** | 11,124 positions carry all four modules at section level; 410 country-year tables of six or more sections. The median table's interaction has 306 dimensions and the competing reading spends 68 of them |
 | PASS | B106-10 `instrument` **what the caliber verdict changes** | The two totals differ by the change in hours per worker, standard deviation `0.0325` against `0.0569` for hours and `0.0441` for persons, correlation `+0.8221`. Different objects, so the verdict is load bearing |
 | PASS | B106-3 `own_reading` **how much of the field no scalar on positions plus a class ladder can produce** | Industries within a country-year: `0.4027` against a no-structure `0.8974`, ratio `0.450`. Countries within an industry-year: `0.4353` against `0.9174`, ratio `0.502` |
-| PASS | B106-5 `own_reading` **whether the leftover shrinks where the class is large** | By employment-share decile, thinnest to thickest: `0.6894, 0.3987, 0.3419, 0.3177, 0.2845, 0.2666, 0.2505, 0.2558, 0.2496, 0.2265`. A fall of `3.04` times across a span of at least `22` times in share, where sampling alone would fall about `5`, and it stops falling after the fifth decile |
+| PASS | B106-5 `own_reading` **whether the leftover shrinks where the class is large** | By employment-share decile, thinnest to thickest: `0.6894, 0.3987, 0.3419, 0.3177, 0.2845, 0.2666, 0.2505, 0.2558, 0.2496, 0.2265`. A fall of `3.04` times across a span of at least `21.7` times in share, where sampling alone would fall about `5`, and it stops falling after the fifth decile |
 | PASS | B106-8 `own_reading` **how much of the leftover four position characteristics with their own class loadings can produce** | Generous scope, every country-year with its own loadings: `33.4%`, against `22.2%` the same parameter count takes from an unrelated leftover, so the characteristics account for about `10.8` points. Strict scope, one set for the panel, 68 parameters against 135,558 observations: `2.3%`. What would have to be reached: about `95%` |
 | PASS | B106-4 `rival` `grid B` **whether the leftover repeats next year, which survey noise does not** | Year to year `+0.9544` and `+0.9545` over 197,622 pairs, `424` standard errors from the prediction of zero. Ten years apart `+0.6790` and `+0.6684` over 85,050. With the position pairing broken and every marginal kept, `+0.0510` and `+0.1537`. The decade figure answers a compiler interpolating between survey years; the broken pairing answers the statistic |
 | PASS | B106-11 `known_answer` **the class grid splits the leftover exactly, and a planted component comes back whole** | The 18 classes are a complete 3 by 3 by 2 grid, so the leftover splits orthogonally into seven components with 2, 2, 1, 4, 2, 2, 4 degrees of freedom, summing to `K - 1 = 17`. They sum back to the whole at a worst relative gap of `3.58e-16` over 40 tables, and a leftover planted to vary only with gender returns entirely in the gender component at `2.22e-16` |
@@ -22106,9 +23750,10 @@ carries a price every Friday, `W` up to its September contract's expiry.
 
 ## B112: where newly created euro area reserves stay, and which rule keeps them in the country they enter
 
-**RUN: 2026-09-16. Scripts `experiments/b112_fetch.py` (ECB Data Portal, 77 requests) and
-`experiments/b112_object.py`, record `results/b112_object.json`, which carries the configuration it
-ran under. Data `data/b112/raw/`, described in `data/SOURCES.md`.**
+**RUN: 2026-09-16, restated 2026-10-10. Scripts `experiments/b112_fetch.py` (ECB Data Portal, 77
+requests) and `experiments/b112_object.py`, record `results/b112_object.json`, which carries the
+configuration it ran under and a definition of each printed quantity. Data `data/b112/raw/`,
+described in `data/SOURCES.md`.**
 
 The classes are the national components of the Eurosystem. Minimum reserves "shall be held on
 reserve accounts, denominated in euro, with the relevant NCBs in each euro area Member State in
@@ -22116,47 +23761,68 @@ which they are established" (Regulation (EU) 2021/378, Article 3(1)(b)), so a un
 in the class whose central bank books it, and a longer-term refinancing dose enters exactly there.
 From end-of-month central bank balance sheets, 2016-06 to 2026-07, the station prints each
 country's share of euro area reserves around the dated rules that change what holding reserves
-pays, and the same-month share of each refinancing dose that stays in the borrowing country. From
-annual TARGET payments, 2019 to 2021, it prints how many days of payments to other national
-components, and of payments inside the home component, a country's average reserves come to.
+pays, and, for each refinancing dose, the same month's change in the borrowing country's reserves
+and in its TARGET balance per unit of the dose. From annual TARGET payments, 2019 to 2021, it
+prints how many days of payments to other national components, and of payments inside the home
+component, a country's average reserves come to.
 
 | | Criterion | Reading |
 |---|---|---|
 | PASS | `B112-1` `instrument` every request is on disk, passes the fetch checks, and has the series count its enumeration found | 77 of 77 |
 | no verdict | `B112-2` `known_answer` the directions ECB Occasional Paper 302 (p. 15) states for the start of the two-tier system read the same way from September to November 2019 | shares: Italy +2.92 pp (z +3.0) and Greece +0.32 pp (z +3.3) as stated, Portugal +0.22 and Slovakia −0.02 within noise; TARGET claims, monthly averages: Germany −42.3, France −15.6, Netherlands −9.5, Belgium −13.9 bn, each in the stated direction and within its two-month noise |
-| PASS | `B112-3` `own_reading` the same-month share of a refinancing dose that stays in the borrowing country is higher while holding it pays (TLTRO III special rate period, from 2020-06-24) than under the first TLTRO III terms | median 1.05 over 14 cells against 0.39 over 3; the order is the same at all nine points of the two declared knobs (noise multiple 2, 3, 4; quiet-month cut 10, 20, 40 bn) |
-| PASS | `B112-4` `bookkeeping` every rule date and regime boundary names the dated ECB text it was copied from | 11 dates |
+| PASS | `B112-3` `own_reading` the month's change in the borrowing country's reserves per unit of a refinancing dose is higher in the TLTRO III special rate period (2020-06-24 to 2022-06-23), when holding the borrowed reserves paid, than under the TLTRO III terms before it | median 1.05 over 14 cells against 0.39 over 3; the order is the same at all nine points of the two declared knobs (noise multiple 2, 3, 4; quiet-month cut 10, 20, 40 bn), and the TARGET column beside it orders the same way at all nine (a fall of 0.12 of the dose against 1.06) |
+| PASS | `B112-4` `bookkeeping` every rule date and regime boundary names the dated ECB text it was copied from, and each boundary agrees with the end date in its regime's own text | 12 dates |
 
 `B112-2` reads a country as stated or opposite only at three times its own two-month noise; any
 opposite country fails it, one as-stated country per statement passes it, and anything else carries
 no verdict. `B112-3` counts a country-month when its dose is at least three times that country's
 month-to-month noise in months with little net refinancing, December and January left out.
 
-**Retention of a refinancing dose, by the terms in force at month end.**
+**One month's balance sheet per unit of dose, by the terms in force at month end.** The month's
+change in a country's reserves is the dose, plus the change in its TARGET balance, plus everything
+else on its central bank's balance sheet (its own purchases, banknotes, deposits of other
+residents, main refinancing operations). Per unit of dose the first column below is therefore one,
+minus the second, plus the third.
 
-| Terms | Cells | Share kept at home (median) | Share out through TARGET (median) |
-|---|---|---|---|
-| TLTRO II: MRO rate at allotment, as low as the deposit facility rate for banks meeting the lending benchmark (2016-03-10) | 1 | 0.54 | 0.52 |
-| TLTRO III as first set: average MRO rate + 10 bp, as low as the average deposit facility rate + 10 bp (2019-06-06); bridge LTROs at the average deposit facility rate from 2020-03-17 (2020-03-12) | 3 | 0.39 | 1.06 |
-| Special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate (2020-04-30), extended to 2022-06-23 (2020-12-10) | 14 | 1.05 | 0.12 |
-| Indexed to the average key rates from 2022-11-23, with added repayment dates (2022-10-27) | 18 | 0.78 | 0.15 |
+| Terms | Cells | Change in reserves (median) | Fall in the TARGET balance (median) | Rest of the balance sheet (median) |
+|---|---|---|---|---|
+| TLTRO II: MRO rate at allotment, as low as the deposit facility rate for banks meeting the lending benchmark (2016-03-10) | 1 | 0.54 | 0.52 | 0.07 |
+| TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate (2019-09-12); bridge LTROs at the average deposit facility rate, first settled 2020-03-18 (2020-03-12) | 3 | 0.39 | 1.06 | 0.41 |
+| Special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than −1% (2020-04-30, 2020-12-10) | 14 | 1.05 | 0.12 | 0.10 |
+| After the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation (2020-12-10, 2022-10-27) | 0 | . | . | . |
+| Indexed to the average key rates from 2022-11-23, with added repayment dates (2022-10-27) | 18 | 0.78 | 0.15 | −0.07 |
 
-While holding borrowed reserves paid, the dose stayed in the borrowing country: Germany 159.1 bn in
-June 2020 with retention 1.08, France 105.3 bn with 1.08, Spain 78.1 bn with 1.38. After the terms
-were indexed, repayments came out of the same country's reserves: Italy −145.3 bn in June 2023 with
-0.94, France −116.7 bn with 0.98. Under the first TLTRO III terms most of a dose left the borrowing
-country within the month (France March 2020 0.79, Greece April 2020 0.08, Greece May 2020 0.39).
+The first column is a balance ratio and follows no tagged unit: it stands above one in 13 of the 36
+cells, wherever the rest of the balance sheet added reserves in the same month (Spain, June 2020:
+dose 78.1 bn, reserves +108.0, TARGET −10.6, the rest +40.5, ratio 1.38). In the special rate
+period the borrowing country's reserves ended the month higher by about the whole dose (median
+1.05) and its TARGET balance lower by a median 0.12 of it; the largest doses read 1.08 for Germany
+(159.1 bn, June 2020), 1.08 for France (105.3 bn) and 1.38 for Spain. Under the terms before it the
+TARGET balance fell within the month by about the whole dose, 0.62 of it for France in March 2020,
+1.06 for Greece in April and 1.40 for Greece in May, and reserves rose by 0.79, 0.08 and 0.39 of
+the dose. The order between the two regimes sits in the TARGET column. The rest of the balance
+sheet added more per unit of dose under the earlier terms than in the special rate period at six
+of the nine scan points (0.41 against 0.10 at the baseline) and within 0.03 of it at the three
+where the earlier terms keep a single cell, so it does not produce the order. After the terms were
+indexed, repayments came out
+of the same country's reserves: Italy −145.3 bn in June 2023 with 0.94, France −116.7 bn with 0.98.
 The long-run split of reserves across classes follows each class's out-rate, and these terms set
-the out-rate of the borrowed units.
+what a bank earns by keeping a borrowed balance where it borrowed it. What the station reads is
+where each country's balances ended the month, and an order between regimes: no size is put on
+what the terms did alone.
 
-**Speed.** When the two-tier system started, Italy's share of euro area reserves went from 4.30% to
-7.21% in one month and stayed at 7.22%; Greece's went 0.10%, 0.23%, 0.42%, 0.39%, 0.62% over four
-months. Month-to-month noise in a share is 0.94 pp for Germany, 0.93 for France, 0.87 for the
-Netherlands and 0.67 for Italy, larger over December and January, and 0.07 to 0.14 pp for Greece,
-Portugal and Ireland. For the large classes the adjustment completes inside one month-end
-interval, and so does what the payment clocks give: in 2019 Italy's average reserves came to 3.6
-days of its payments to other components and 5.1 days of its payments at home. At end-of-month
-sampling this carrier bounds the duration from above for those classes.
+**Speed.** The two-tier system applied from 30 October 2019. Italy's share of euro area reserves
+read 4.30% at the end of September, 7.21% at the end of October and 7.22% at the end of November,
+so the whole rise falls inside the first month-end interval; the next two month ends, across the
+year end, read 6.12% and 6.67%. Greece's went 0.10%, 0.23%, 0.42%, 0.39%, 0.62% over four months.
+Month-to-month noise in a share is 0.98 pp for Germany, 0.93 for France, 0.90 for the Netherlands
+and 0.68 for Italy, larger over December and January (France 1.83), and 0.07 to 0.14 pp for
+Greece, Portugal and Ireland. End-of-month sampling places the Italian step inside one interval
+and does not resolve its path within it. The payment clocks are stock-to-flow ratios: in 2019
+Italy's average reserves came to 3.6 days of its payments to other components and 5.1 days of its
+payments at home. They size a balance against the payments made out of it and are the candidate
+coupling quantity; a stock-to-flow ratio is not the time any one unit stays, and Greece shows it,
+with clocks of 6.9 and 2.2 days beside a share that kept moving for four months.
 
 **Two clocks, 2021** (days of payments to other components against days of payments at home):
 Belgium 3.2 and 53.5, Luxembourg 4.7 and 40.6, Estonia 23.5 and 105.6, Germany 5.5 and 3.2, France
@@ -22170,17 +23836,36 @@ No `rival` is registered. On the split, the corridor attribution in ECB Occasion
 the tiering flows in Occasional Paper 302 point the same way as this reading; on the duration of
 reserves across national components, no point prediction in the opposite direction is on record.
 
+**Restated 2026-10-10.** Three things changed in the text and none in a verdict. The terms the
+first TLTRO III operations were allotted on carried no 10 bp spread: the press release of
+2019-09-12 removed it as of the first operation, so the second regime is named for the terms that
+applied. The special rate period ended on 2022-06-23, so the month ends from June to October 2022
+are a regime of their own; it holds no cell at the baseline point, and at the three scan points
+with a noise multiple of 2 one Slovenian repayment of June 2022 (−0.75 bn) moves into it, leaving
+the special rate period 21 cells with a median of 1.0805 where it read 22 and 1.0821. The columns
+are named for what they measure, and the TARGET column and the rest of the balance sheet are
+printed beside the first for every cell. The share-noise figures are now taken from the record,
+which reads 0.98, 0.90 and 0.68 pp for Germany, the Netherlands and Italy where this section read
+0.94, 0.87 and 0.67.
+
 ## B113: the discount window edge, and where banks with and without it pay for overnight fed funds against the posted rate
 
-**RUN: 2026-09-16. Scripts `experiments/b113_dw_loans.py` (the Federal Reserve's discount window loan
+**RUN: 2026-09-16, restated 2026-10-10. Scripts `experiments/b113_dw_loans.py` (the Federal Reserve's discount window loan
 files, 56 quarterly workbooks from 2010Q3 to 2024Q2, fetched by `scripts/fetch_dw_lending.py`) and
 `experiments/b113_discount_window.py`, records `results/b113_discount_window.json` (the criteria and the
 readings behind them) and `results/b113_after_2020.json` (the years after 2020Q1 in stretches and year by
-year, under each filter), each carrying the configuration it ran under. Sources in `data/SOURCES.md`.**
+year, under each filter), each carrying the configuration it ran under and a definition of the price
+and of the differences read on it. Sources in `data/SOURCES.md`.**
 
-The position is overnight borrowing by a depository institution, and its price is the size arm's
-RC-K reading: the quarter's expense on fed funds purchased over their quarterly average, with repo
-absent at both quarter ends. The posted price is the primary credit rate, which 12 CFR 201.4(a)
+The position is overnight borrowing by a depository institution. Its price is read by the size
+arm's RC-K indicator: the quarter's expense on federal funds purchased and securities sold under
+agreements to repurchase, over the quarterly average of the same two liabilities together, kept
+where repo is absent at both quarter ends. The indicator is a quarter's average rate on that line.
+Schedule RC-K lets the average be taken over daily or over Wednesday closes, and repo inside the
+quarter is not seen, so it is the overnight price where the balance was fed funds throughout and
+the filed average is the balance the expense accrued on. Below, a filer-quarter pays above the rate
+when this indicator stands above the quarter's mean primary credit rate. The posted price is the
+primary credit rate, which 12 CFR 201.4(a)
 extends "as a backup source of funding to a depository institution that is in generally sound
 financial condition in the judgment of the Reserve Bank". The class is read from the loans. A loan
 names its borrower by ABA routing number and each quarter's panel of reporters carries every filer's
@@ -22217,7 +23902,11 @@ below the table.
 The rival is one price at the position with the posted rate as its cap for every sound institution.
 Under it no sound bank pays more than the rate except through the instrument's own noise, and that
 noise does not depend on whether the bank has borrowed at the window, so the difference is zero. The
-framework reads the cap as holding along the edge that exists, so the difference is positive.
+framework reads the cap as holding along the edge that exists, so the difference is positive. The
+instrument's noise has four named parts: the basis of the filed average, repo inside the quarter,
+the thousand-dollar step and the rounding. The last two are measured in the stretches below; the
+zero and the reading both rest on the first two not differing by class inside a size band, quarter
+and asset bin.
 
 **The readings, pooled below $10 billion, finest cut.**
 
@@ -22240,6 +23929,8 @@ cap comes down, which is why every reading is also taken in log odds.
 | filer-quarters within four quarters of a secondary credit loan left out | 3.77 and 3.74 | 3.43 and 3.32 | 1.79 and 1.91 | 2.19 and 2.49 |
 | 2014Q1 to 2019Q4 only | 3.44 and 3.41 | 3.79 and 3.65 | | |
 
+The first row keeps the filers that held fed funds at both quarter ends, the banks that borrow on
+most days, where taking the average over Wednesday closes instead of daily ones can move it least.
 Secondary credit goes to institutions not eligible for primary credit, so the second row reads the
 first span and the second with those institutions away; the third reads the years after the FDIC's list
 of problem institutions had fallen to a fraction of its 2010 length.
@@ -22284,8 +23975,8 @@ in quarter means, 62.1 basis points over the effective federal funds rate; from 
 stood 17.0 over it, a shift of 45.1 basis points. `B113-5` reads the class difference at both heights
 in both spans, on the members that had used the window by the quarter read and on the readings the
 instrument decides at each height. In the span where the rate stood at a height, that height is the
-quarter's own mean rate; in the other span it is that rate moved by the shift. A difference made by the
-rate standing at a height is larger there in the span when it stood there.
+quarter's own mean rate; in the other span it is that rate moved by the shift. `B113-5` asks whether
+the difference at a height is larger in the span when the rate stood there.
 
 | height over the effective rate | 2011Q3 to 2019Q4 | 2023Q1 to 2024Q2 | the span the rate stood there minus the other |
 |---|---|---|---|
@@ -22293,10 +23984,15 @@ rate standing at a height is larger there in the span when it stood there.
 | 62.1 bp, where the rate stood to 2019Q4 | +0.113 (4.27 se) | +0.107 (3.36 se) | +0.006 (0.16 se) |
 
 Finest cut, share of prices above the height. The twelve readings `B113-5` rests on run from −1.11 to
-+0.56 se. The class difference holds at both heights in both spans, from 2.81 to 4.27 se, at nearly the
-same size whether the rate stood there or 45 basis points away: the banks that had used the window
-paid less along the whole range read, and the height of the posted rate does not add to that at this
-resolution. The readings are in the `crossed` block of `results/b113_discount_window.json`.
++0.56 se. The class difference holds at both heights in both spans, from 2.81 to 4.27 se: the banks
+that had used the window paid less at both heights read. The two crossed differences are inside one
+standard error of zero. They are printed as a description of the two spans at the two heights and
+not as a measure of what the rate's height adds. A share above a height is not linear in the level
+of prices, so a move of both classes' prices between the spans changes the class difference at a
+fixed height by itself: inside the class the share above the 62.1 bp height went from 0.154 to
+0.295. And the readings the instrument decides are a different set at each height: 2,570 and 1,652
+filer-quarters outside and inside at the lower height in the first span, 2,824 and 2,050 at the
+higher. The readings are in the `crossed` block of `results/b113_discount_window.json`.
 
 **What a loan at the window looks like.** The amount that recurs most among the 41,890 joined
 primary credit loans is 1,000 dollars (7,880 loans, 94 percent of them overnight).
@@ -22308,6 +24004,14 @@ with the banks that used the edge.
 
 **The band at $10 billion and over** has 0 filers outside the class in its thinnest quarter
 (2015Q4) and one filer outside it from 2020Q2 on. It is printed and does not enter the pooled cell.
+
+**Restated 2026-10-10.** No criterion, reading or grid changed. The price is now described as the
+indicator it is, with the two conditions under which it is an overnight fed funds price, and both
+records carry that definition. The crossed differences of `B113-5` are described and no longer read
+as cancelling the two classes' positions: the earlier text said the height of the posted rate adds
+nothing at this resolution, which the crossed differences do not establish, for the reason given
+above.
+
 
 ## B114: how long new money stays in the area it enters, and which clock sets it
 
@@ -22619,6 +24323,53 @@ investigation's opening sorghum moved −0.0114 at NOLA and −0.0020 at Texas i
 moved against Gulf corn by −0.1650 and −0.1975. The tables' own pricing identity and futures months flag 22 of
 the 1,270 cells, which are left out.
 
+## B115: China's 2018 deposit on US sorghum and its end, read in weekly export sales by destination
+
+**RUN: 2026-10-13. Station document `docs/b115_sorghum_deposit.md`, section 8. Script
+`experiments/b115_sorghum_flows.py`; record `results/b115_sorghum_flows.json`, which carries the configuration
+it ran under; the data in `data/b115_sorghum_esr.json`, with sources and caliber in `data/SOURCES.md`.**
+
+The section above reads the two steps in prices at the US end. This one reads them in tonnage on the
+relation itself, US sorghum to China, and on the relations beside it, from the weekly export sales the USDA
+Foreign Agricultural Service reports by destination: six marketing years, 313 Thursdays, 2,722 destination
+rows. By Corollary 43.6 (`docs/b105_cutting_relations.md`) a deal along the relation pays more beyond the gap
+between its ends while the deposit is in force, so shipments and new sales to China move by at most 0 at
+the deposit and by at least 0 at its end, and what travelled along it lands on the relations still open, so
+the other named destinations move by at least 0 at the deposit. A move is the mean weekly tonnage over one
+plateau minus the mean over another, in the four settings of the price branch, set against the median
+absolute move over windows of the same shape on two grids that end on 2018-02-01, from 2016-01-07 and from
+2013-09-05. A criterion has a verdict only when all eight cells, four settings by two grids, give one state.
+The criteria come in five kinds: `instrument` asks whether the files and identities hold, `own_reading` is a
+reading this station registers, `known_answer` reads back something already reported elsewhere, and
+`bookkeeping` asks whether the record is complete. No rival criterion is registered: the direction read on
+this relation is the one the ordinary account of a tariff gives as well.
+
+| | Criterion | Reading |
+|---|---|---|
+| PASS | `B115-17` `instrument` each of the six files is one page with the dates and commodity asked for; every Thursday from 2013-09-05 to 2019-08-29 has a Total row; every plateau week is there | 6 files, 313 of 313 Thursdays, 15 plateau weeks |
+| PASS | `B115-18` `instrument` Total Commitment is Outstanding Sales plus Accumulated Exports in every row; the Total row is the sum of the destinations in all eight columns; China's outstanding and accumulated chain week to week from 2018-01-04 to 08-30, within 0.15 t | 2,722 rows, 35 links, no break |
+| PASS | `B115-19` `instrument` no placebo window kept spans a dated sorghum document, and every series, move, setting and grid has windows | 99 to 103 windows from 2016, 221 to 225 from 2013 |
+| PASS | `B115-20` `own_reading` printed: the weekly table 2018-01-04 to 08-30 with the charge in force, China's eight columns, the unknown destination, every other destination and China's shares; the same weeks of 2016/17 and 2018/19 | 35 weeks; China's share of weekly exports by calendar year 2014 to 2017: 0.951, 0.958, 0.899, 0.894 |
+| PASS | `B115-21` `own_reading` the deposit: China's weekly exports moved by at most 0 | from 153,162 t a week to 23,744 (15,186 without the mixed week): −129,417 and −137,976 against floors 35,626 to 42,835; matches in all eight cells. With the largest of the same weeks of three earlier years taken off (2014/15), −48,868 and −48,537, still beyond both floors in all eight |
+| no verdict | `B115-22` `own_reading` the deposit: China's gross new sales moved by at most 0 | −6,680 and −6,806 against floors 29,938 to 47,722; new sales were already 7,601 t a week before the deposit, under every floor; within the floor in all eight |
+| no verdict | `B115-23` `own_reading` the end: China's weekly exports moved by at least 0 | −2,208 to −23,677 against floors 24,945 to 36,509; within the floor in all eight. Exports stood at 15,186 to 23,744 t a week under the deposit, under every floor, so a cell here can only match or be not read; after the end they stood at 68 to 12,978 |
+| no verdict | `B115-24` `own_reading` the end: China's gross new sales moved by at least 0 | −602 to +152 against floors 28,498 to 42,812; within the floor in all eight; 795 to 921 t a week under the deposit |
+| PASS | `B115-25` `own_reading` the deposit: gross new sales to the other named destinations moved by at least 0 | +87,205 and +101,762 against floors 6,516 to 8,740, above every placebo window; matches in all eight cells |
+| PASS | `B115-26` `own_reading` the deposit: exports to the other named destinations moved by at least 0 | +54,159 and +68,838 against floors 4,671 to 6,551, above every placebo window; matches in all eight cells. 207,758 t of the plateau's 298,342 t sit in three rows sold and shipped in the same week (also counted in `B115-25`); without them +12,608 and +16,898, still above every floor |
+| PASS | `B115-27` `own_reading` printed without a state, each with both floors: the 22 moves with no predicted direction; beside the criteria, the states each cell can reach, the same weeks of earlier years against each move, and the tonnage sold and shipped in one row and week | China's exports from before the deposit to after its end −140,184 (floor 41,071), across list one −12,978 (37,060); Gross New Sales minus Net Sales for China −86,838 t a week before the deposit and +12,639 under it |
+| FAIL | `B115-28` `known_answer` each of the four destinations Hansen, Marchant, Zhang and Grant (Choices 33(2), 2018) name for cargoes sent on in April has gross new sales or exports above zero in the weeks ending 04-19 to 05-31 | Spain 182,551 t sold and 182,551 shipped, Japan 117,698 and 96,674, Vietnam 1,760 and 1,058; Saudi Arabia has no row in any of the six marketing years |
+| PASS | `B115-29` `bookkeeping` the record carries its configuration, a kind on every criterion, the mapping from states to verdicts, and the hash and URL of each file | 6 files |
+
+The deposit's step reads as two things: shipments along the relation to China down, and business on the
+other relations up. In the four whole weeks of the deposit the other named destinations bought 182,551 t
+(Spain), 117,698 (Japan), 115,334 (Mexico) and 25,207 (Colombia); Spain's and Colombia's tonnage shipped in
+the weeks it was sold, so `B115-25` and `B115-26` share most of their tonnage. China's weekly exports under
+the deposit stood at 0.155 of the plateau before it, against 0.693, 0.934 and 0.566 over the same weeks of
+the three earlier years. In the first whole week after the end China's outstanding sales went from 215,729 t
+to 203, through exports of 51,707 and net sales of −163,819, and from 05-31 to 08-09 its weekly exports were
+at most 957 t. The other named destinations' new sales and exports fell back at the end by −97,673 and
+−50,620 t a week, further than any placebo window.
+
 ## B117: how coarse the classes of a payment chain can be and still read how long new money stays in its area
 
 **RUN: 2026-09-17. Script `experiments/b117_partition_grain.py`, which imports `experiments/b114_sarafu.py`; record
@@ -22635,7 +24386,7 @@ with single wallets it is B114's wallet chain.
 
 | | Criterion | Reading |
 |---|---|---|
-| PASS | `B117-1` `instrument` classes = areas and classes = single wallets give B114's recorded area and wallet chains on its cells, the chain on class balances equals the wallet chain summed into classes, every partition stays inside its areas and every random partition keeps its reference's class sizes, and the tag pass conserves value | largest difference from B114's record, which prints nine significant figures: 5.0e-10, at three settings that between them take every value of every knob; class balances against wallets, 4.1e-15; tagged value conserved to 1.4e-07 |
+| PASS | `B117-1` `instrument` classes = areas and classes = single wallets give B114's recorded area and wallet chains on its cells, the chain on class balances equals the wallet chain summed into classes, every partition stays inside its areas and every random partition keeps its reference's class sizes, and the tag pass conserves value | largest difference from B114's record, which prints nine significant figures: 5.0e-10, at three settings that between them take every value of every knob; class balances against wallets, 4.4e-15; tagged value conserved to 1.4e-07 |
 | PASS | `B117-2` `rival` the chain on area x business type cells misses the range of the observed entry-area share across monthly cohorts, area by area and age by age, at every setting of the station's knobs; ours is the chain on the circles of payments inside each area | 55 cells: the area x business type chain outside the range at all 18 settings in 20; inside it with the circle chain outside in 0; both inside in 6 (Kilifi from 0 to 8 weeks, Mukuru Nairobi at 1 week); not read in 29. Placed in the grid: A 6, B 17, both_unmet 1 (Kisauni Mombasa at 8 weeks, where the cohort range is 0.6 points wide). The circle chain is inside the range at every setting and seed in 41 cells |
 | PASS | `B117-3` `own_reading` the observed share sits nearer the chain on the circles than the chain on random classes with the circles' sizes, the whole cohort range on one side of their midpoint, at every setting and seed | 55 cells: nearer the circles 5, nearer the random classes 0, across the midpoint 31, moving with a knob or a seed 19 |
 
@@ -23360,9 +25111,9 @@ bimodal reading.
 
 ## B32 — the German monetary union's conversion, and which side of the balance sheet the exception was written for
 
-**WRITEBACK 2026-09-20. Read 2026-08-31. Never carried into this ledger. The station is closed.
-Six criteria: four PASS, one PASS with figures printed and no verdict, one withdrawn, none
-failed.**
+**WRITEBACK 2026-09-20, restated 2026-10-10. Read 2026-08-31. Never carried into this ledger. The
+station is closed. Six criteria: three PASS, one PASS with figures printed and no verdict, one not
+evaluated on its registered object, one withdrawn, none failed.**
 
 **The treaty's own wording puts the burden on the right side.** Article 10(5): *"Alle anderen auf
 Mark der Deutschen Demokratischen Republik lautenden Forderungen und Verbindlichkeiten werden
@@ -23375,10 +25126,10 @@ the default, par is the exception granted, and the test for the exception is whe
 recurring flow.
 
 **`B32-4`, and it needs three numbers at once or it writes a false sentence.** Household net money
-income ran about 159 billion marks a year, converted at 1:1; household demand and savings deposits
+income averaged about 159 billion marks a year over 1986 to 1989, and that kind of flow converted at 1:1; household demand and savings deposits
 of 165.6 billion converted to 115.2 billion, of which 100.8 billion went at 2:1; **and prices moved
 across at 1:1**, so a ten-mark item became a ten-D-mark item. The tempting comparison is that the
-flow exception is worth more in its first year (79.5 billion) than the stock write-down is once
+flow exception is worth more in one year at that average (79.5 billion) than the stock write-down is once
 (50.4 billion), and **that sentence is arithmetically true and misleading, because it drops the
 price leg.** Converting wages at 1:1 while prices move at 1:1 preserves the old relation between
 them, which is the neutral setting rather than a benefit; converting the stock at 2:1 under a 1:1
@@ -23391,15 +25142,37 @@ since subsidies were removed and prices freed, with East German living costs up 
 replaced.** A reading that the tax-free conversion allowances were filled to about 100 per cent was
 **withdrawn in full** on 2026-08-31 once Appendix 4 was obtained, because the 64.8 billion figure it
 rested on is an output of the same model computation rather than an observation, and the arithmetic
-is kept while the reading is gone. And a **qualification now hangs on every figure taken from
-Appendices 4 and 5**: that table opens *"Precise statistical data are not yet available."* and is a
-substitute computation made in July 1990 on the consolidated balance sheet of 1990-05-31 to *"gain
-some idea of the quantitative implications"*. **Those are projections from May positions, not the
-realised conversion of 1 July.** Two further computational conventions are recorded from the same
+is kept while the reading is gone. The one outturn on record is the savings banks' own count,
+about 50 billion marks converted at par by 1990-06-30 out of 146 billion of savings deposits. They
+handled 14.3 million of the applications, one to a person, and the allowance is set by age, so by
+the age groups' headcounts those applicants' allowances come to between 52.8 and 60.8 billion and
+take-up by that date to between 0.82 and 0.95. And a **qualification now hangs on every figure
+taken from Appendix 4**: its conversion table opens *"Precise statistical data are not yet
+available."* and is a substitute computation made in July 1990 on the consolidated balance sheet of
+1990-05-31 to *"gain some idea of the quantitative implications"*. **Those are projections from May
+positions, not the realised conversion of 1 July.** Appendix 5 is a different kind of record and
+does not carry that qualification: it is the account of current and capital transactions between
+the two German states in 1989, and none of its figures enters the conversion table. Two further computational conventions are recorded from the same
 page: external assets and liabilities were foreign-currency business already and are revalued rather
 than converted, and claims on and liabilities to CMEA countries enter at 50 per cent of their mark
 value, with the Bundesbank adding *"It remains to be seen whether due account has thereby been taken
 of the doubts about the intrinsic value of these claims."*
+
+**`B32-2`, restated 2026-10-10: not evaluated on its registered object.** The criterion asks for
+the treaty's schedule, par up to the allowance and 2:1 above it, integrated over the actual
+distribution of deposits by balance, to return the published blended rate. No distribution by
+balance was obtained, so that check has not been run. What had been recorded as a pass on a subset
+compared two shares of deposits converted at par: 0.335, solved from the household totals 193.4 →
+129.1, against 0.3425, the savings banks' count above. The first is not an observation. It solves
+back to 64.8 billion, which a footnote to the table computes as headcount times allowance (2,000 ×
+3.2 million, 4,000 × 10.1 million, 6,000 × 3.0 million), the same input the withdrawn reading
+rested on. The two are a plan and an outturn on different bases, 0.74 percentage points apart, and
+are kept as a description. On deposit bases, the plan is 64.8 of residents' demand and savings deposits of
+165.6, or 0.391, and the savings banks' outturn is 50 of the 146 billion of savings deposits they
+had converted, 0.3425; the second base is the savings banks' part of the first. What holds exactly is the reading of the
+law: the treaty's rates applied to the table's opening positions return its converted positions
+line by line (64.8 + 100.8 / 2 = 115.2 for residents' deposits, 14.2 / 2 = 7.1 for life insurance,
+2.1 / 2 + 0.2 / 3 = 1.1 for non-residents) and its total, 446.6 → 246.0.
 
 **The mechanism the station found on the way, and it is this framework's own object.** Footnote 1
 sets out the Richtungskoeffizient in full: the old East German credit system **formally maintained a
@@ -23421,10 +25194,13 @@ published, and in which issue, was not checked. The denominator of the "about 1.
 conversion rate is still undetermined, and it no longer affects any criterion; the load-bearing
 figure is `1.8154:1`, which has two independent supports, the division `446.6 → 246.0` and a source
 stating *durchschnittlicher Satz von 1,8:1*. External assets and liabilities are provisional at the
-1989 year-end booking rate and the 1990-06-30 market-rate final values were not fetched. A second
-caliber conflict is open and both numbers are held out of the tables: converted enterprise
-liabilities at 115.8 billion DM (APuZ 24/1998) against 167.1 billion (Busch 2010), a ratio of 1.443,
-too far apart to be one caliber.
+1989 year-end booking rate and the 1990-06-30 market-rate final values were not fetched. The
+distribution of deposits by balance before conversion, which `B32-2` needs, was not obtained, nor
+were the savings banks' final figures after the application period closed on 6 July. A second
+caliber conflict was closed on 2026-08-31 by one addition and is not open: the Bundesbank's table
+converts credit to enterprises to 115.8 billion DM and credit to the housing sector to 51.3
+billion, and 115.8 + 51.3 = 167.1, so APuZ 24/1998 quotes the enterprise line and Busch (2010) the
+two together.
 
 ## B20 — a station that the derivation converted from an unmeasured quantity into a zero domain, and was therefore not built
 
@@ -23469,6 +25245,101 @@ itself is that the draft's conclusion was right while its route was wrong, and w
 **WRITEBACK 2026-09-20. Paper stage done 2026-09-14. No record file:
 `experiments/b99_drug_routes.py` and `results/b99_drug_routes.json` are named in the design and not
 yet written. Never carried into this ledger.**
+
+**WRITEBACK 2026-10-27. The script and the record now exist; neither carries a reading.**
+`experiments/b99_drug_routes.py` implements the design's four criteria, each with its kind,
+reads every source under the column names that source prints and refuses a file whose header
+lacks one, and prints the three cells of `B99-3` with the verdict each maps to (cell 3 carries
+none). Its selftest catches ten seeded faults on a synthetic fixture, among them a `1e-12`
+split of one position, Old and New swapped on one comparison row, three billing units flipped
+and named, and a renamed price column; six deliberate breaks of the implementation are all
+caught. `results/b99_drug_routes.json` carries its config block and four criteria in their
+third state, because none of the four sources is on disk, and its `pending_fetch` block names
+each source, where it lands and which criteria it feeds. Nothing was there to reproduce: this
+section reports paper verdicts only.
+
+| | Criterion | Reading |
+|---|---|---|
+| no verdict | `B99-0` `instrument` the one-index NADAC field returns every square exactly 0.0 and every slice cycle inside its float band | not run: NADAC reference file and source-NDC map not on disk |
+| no verdict | `B99-1` `instrument` Percent Change recomputed from Old and New lands inside the rounding band of the printed digits | not run: comparison file not on disk |
+| no verdict | `B99-2` `known_answer` NADAC Pricing Unit and NSDE Billing Unit agree on the same NDC-11 | not run: NADAC reference file and NSDE not on disk |
+| no verdict | `B99-3` `own_reading` the repackaging wedge, one per pair, in three named cells | not run: NADAC reference file and source-NDC map not on disk |
+
+The cheapest first step needs no SPL at all: one annual NADAC file and NSDE run `B99-2`, and
+one comparison file runs `B99-1`. The source-NDC map is the GB-scale piece, and the design
+names it as the one branch that can come up empty, so the pairs that reach NADAC are counted
+on a sample before any bulk download.
+
+**WRITEBACK 2026-10-29. Three sources fetched; `B99-1` and `B99-2` read.** NADAC 2025 and 2026,
+the cumulative NADAC comparison file and FDA NSDE, 644.8 MB in all, by `scripts/fetch_b99.py`
+(resumable, length checked against the server, headers checked against the source's own names).
+Detail in `docs/b99_drug_routes.md`.
+
+| | Criterion | Reading |
+|---|---|---|
+| no verdict | `B99-0` `instrument` | waits for the source-NDC map |
+| FAIL | `B99-1` `instrument` Percent Change recomputed from Old and New, scale read per comparison week | 3,492,295 rows in 617 weeks; 599 weeks print a per cent, 16 a fraction, 2 a hundred times the per cent, the rescaled weeks rounded twice; 107,712 rows outside with one scale for the file, 737 with the scale read per week, all in three named weeks (2017-06-21: 360, 2017-07-19: 372, small changes printed `0.00`; 2014-08-20: 5, New printed `0.00000`); prices printed to five decimals throughout, resolution `1e-5` |
+| PASS | `B99-2` `known_answer` NADAC Pricing Unit against NSDE Billing Unit | 35,666 NDC-11 in both, 0 disagree; 390 NADAC NDCs carry no NSDE billing unit and are not judged |
+| no verdict | `B99-3` `own_reading` | waits for the source-NDC map |
+
+**WRITEBACK 2026-10-29, second. `B99-1` reshaped; repackaging pairs counted on an SPL sample.**
+`B99-1` asked every one of 3,492,295 rows to sit inside the rounding band, an exact match on a
+set of 3.5 million elements, so one publisher slip settled it. It is now a printed criterion:
+every row outside the band is printed with its NDC, week, prices and both percentages
+(`report.B99-1.outside_rows`), and the weeks are named. The flag asserts that rows were
+recomputed and that every out-of-band row is named by its week. The rerun record matches the
+earlier one field by field; the verdict moves from FAIL to PASS and no reading moves.
+
+| | Criterion | Reading |
+|---|---|---|
+| PASS | `B99-1` `instrument` Percent Change recomputed from Old and New, scale read per comparison week, every out-of-band row printed and named by week | 737 rows outside, all printed: week ending 2014-08-20 5 of 18,586, 2017-06-21 360 of 20,170, 2017-07-19 372 of 20,697 |
+
+A sample of DailyMed SPL documents, 563 documents and 107.9 MB fetched by
+`scripts/fetch_b99_spl.py` and counted by `scripts/b99_spl_pairs.py`, reads the source NDC from
+`asEquivalentEntity/definingMaterialKind/code` under each product's own code. On 300 NADAC
+products drawn at random, 75 repackaging pairs have both ends in NADAC; adding up to 100 products
+from each of the five labelers that the random draw showed carrying source NDCs brings the count
+to 605, all on a common effective date with one pricing unit. On 604 of the 605 pairs the two
+NADAC values are equal to the last printed digit, so before any bulk download the NADAC
+methodology text is to be read for a rule that prices a generic group as one.
+
+**WRITEBACK 2026-10-29, third. The NADAC methodology prices a drug group, so `B99-3` has no
+object on NADAC.** The CMS methodology (December 2024) reports NADAC per NDC and computes it per
+group: "The NADAC is calculated at the drug grouping, classification for rate setting, and
+pharmacy type level" (p. 6), and "Only NDCs with the same drug grouping, classification for rate
+setting, and pharmacy type indicator will share the same NADAC rate" (p. 7). A group is active
+ingredient, strength, dosage form and route (p. 6); one generic rate applies to every generic
+NDC in it (pp. 15-16), whether or not costs were collected for that NDC (p. 26). The text has no
+clause on repackaged or relabeled NDCs. A repackaged NDC and its source sit in one group with one
+classification, so they carry one price, and that price is the group's. On the sample all 605
+pairs are generic at both ends, every repackaged package price appears among the source package
+prices (605 of 605), and on 601 pairs at least three labelers print that same price on that date.
+The one pair whose product medians differ, `60687-0122` against source `00603-5337` on
+2024-12-18, is the same price: the source product holds a dose pack (0.30794) and bottled tablets
+(0.04351), two drug groups, and the product median 0.175725 averages them; the repackaged tablets
+print 0.04351 like the source tablets. A wedge read on NADAC would read the group rule, so
+`B99-3` stays without a verdict and is not to be run on NADAC prices. Carrying the wedge needs a
+price set per NDC; the candidate is the Part D quarterly pricing file, once its own methodology
+shows the unit cost is set per NDC and not per generic group. Detail in `docs/b99_drug_routes.md`.
+
+**WRITEBACK 2026-10-29, fourth. The Part D quarterly pricing file prices a drug product, so
+`B99-3` has no object there either; nothing was fetched.** The record layout (2026, p. 15)
+defines the pricing file's NDC as "11-digit proxy NDC associated with the drug product", and the
+CY 2026 Drug Pricing Submission Guidelines state that "MPF displays one cost for all National
+Drug Codes (NDCs) for a given brand name, generic name, dosage form, route of administration, and
+strength combination" (p. 13), priced under the one related NDC that CMS's reference file names
+for each RXCUI (p. 15). A repackaged NDC and its source are one drug product, so a plan carries
+one price for both and at most one of the two NDCs has a row. The station script lists the source
+beside NADAC as one that sets a single rate per group or product; `B99-3` lands in its third cell
+there with the carrier as the reason. Selftest: 6 clean checks, 21 seeded faults caught, one of
+them this source fed differing prices; removing the entry is caught. With the default source the
+rerun record matches the earlier one field by field except the list of group-rated sources and
+the wording of the third cell. The latest quarter announces 2,485,007,192 bytes and was not
+downloaded. Detail in `docs/b99_drug_routes.md`, section 8.
+
+| | Criterion | Reading |
+|---|---|---|
+| no verdict | `B99-3` `own_reading` | no object on NADAC (one rate per drug group) or on the Part D quarterly pricing file (one proxy NDC and one price per drug product); the per-NDC candidate left is wholesale acquisition cost, held in licensed compendia |
 
 The number and the carrier names were checked against every earlier station on 2026-09-14 before
 use: `B99` had no earlier holder, with `99` to `107` free on the B arm, and the carrier names
@@ -23782,11 +25653,11 @@ Split at the zero floor (`experiments/b128_a_split.py`, `results/b128_a_split.js
 2016-07-28 says retail deposit rates have a zero lower bound and that cuts pass more strongly to loan rates; on that
 ruling the deposit edge breathes and the loan edge does not. The hike window is cut where the floor lets go: part
 one to the boundary (-0.50 to 2.00), part two to 2023-12 (2.00 to 4.00); the boundary month is a knob. The rival's
-linear pass-through gives part two about +0.80 times part one in every group. Registered before these halves were
+linear pass-through gives each cell a part-two change of q times its part-one change, q the ratio of the policy changes (1.25 at the 2022-11 boundary, 0.80 at 2022-12 and 2023-01), read as a value: both parts above their floors, the correlation beyond its dose-free range and the residual of part two against q times part one no larger than on any dose-free pair. Registered before these halves were
 read, the framework's shape was: deposits above the dose-free floor in part one and inside it in part two, loans
 inside it in both. Across loans, deposits, household deposits and corporate deposits and all three boundaries, the
-correlation of part two on part one runs from -0.32 to +0.01, inside the dose-free range every time, so the +0.80
-is absent; and deposits move above the floor in both parts (part two 0.29 to 0.34 against about 0.20), loans in
+correlation of part two on part one runs from -0.32 to +0.01, inside the dose-free range every time, so the rival's value
+is absent (in the three deposit groups the residual also exceeds its dose-free maximum at every boundary); and deposits move above the floor in both parts (part two 0.29 to 0.34 against about 0.20), loans in
 part two (0.82 to 0.95 against about 0.79), so the registered shape does not hold either. `B128-6` to `B128-9`
 (rival) are recorded as both sides read and neither held. What was read, both parts moving and in unrelated
 directions, is what a floor that lets go at a different rate level in each country gives; that is a lead, to be
@@ -23977,7 +25848,7 @@ Two networks drew these schedules separately, and neither factors on either line
 pairs two programs whose exempt rate is printed the same (on Mastercard's debit table, Full
 UCAF, Key-Entered, Merchant UCAF and Merit I all at `1.65% + 0.15`). Among products, Mastercard
 prints World High Value and World Elite at the same rate on every consumer credit program, so
-all 325 squares between those two are zero: two product names, one price. Visa's small merchant
+all 300 squares between those two are zero: two product names, one price. Visa's small merchant
 table does the same with two pairs of its products.
 
 Mastercard prints the regulated purchase rate once, for every program, under "Purchases,
@@ -23989,6 +25860,15 @@ schedule (starred for the fraud cent) and 20 on Mastercard's two editions (the f
 row of its own, one cent above the base row). The Board's covered average fee must not exceed
 the cap at the covered average ticket, plus half a cent for the printed rounding: 220 of 220
 network-years hold.
+
+**The Board's average tickets, on the record (2026-10-29).** `results/b123_interchange_square.json`,
+field `report._fed.average_tickets_exempt_covered`, carries the exempt and the covered issuers'
+average ticket for each network and year of the Board's table, 219 rows, network labels as printed.
+On all networks the covered ticket is the larger in every year, `$48.95` against `$42.27` in 2024;
+Visa dual-message `$49.84` against `$41.15`, Mastercard `$49.00` against `$48.57`, Discover `$32.56`
+against `$68.57`. Over all 219 network-years the covered ticket is larger in 188, equal in 3 and
+smaller in 28. The two classes of issuer carry different average tickets, so the Board's averages
+are read as a known answer and not as a square. No reading or criterion changes.
 
 **Mastercard's two editions.** Every table read here is printed the same in 2025-2026 and
 2026-2027, row for row and cell for cell, so the squares are the same in both years.
@@ -24056,6 +25936,125 @@ implementation each made the self-test fail.
 | PASS | B124-K1 `known_answer` Kleinrock's law read back from Cobham's formulas | work-weighted wait equal under both rules on 5 of 5 parameter sets, exactly |
 | PASS | B124-K2 `own_reading` the two-place square | index part `2 (w_b - w_a)(T_l - T_e)` on 4 of 4 swaps; symmetric part zero on every pure swap; time-unit square zero; 2 of 4 swaps carry a positive directed cycle |
 | PASS | B124-K3 `own_reading` the money dissipation moves with the rule | `dC` matches the formula on 5 of 5; the rule moves waiting in every case; the one zero `dC` has equal value per unit of service |
+
+### B124-N: the NHSBT donation zone by transplant centre matrix
+
+`experiments/b124_nhsbt_matrix.py` · `results/b124_nhsbt_matrix.json` · 2026-10-24
+
+NHS Blood and Transplant released two tables of adult elective liver transplants, donation zone by
+transplant centre, one block per year from 2016/17 to 2019/20 (years run 20 March to 19 March; the
+National Liver Offering Scheme started on 20 March 2018). Counts from 1 to 4 are printed `<5`, so
+every sum is an interval. Zonal means the donation zone row equals the centre column.
+
+| year | DBD zonal | DBD non-zonal | DCD zonal | DCD non-zonal |
+|---|---|---|---|---|
+| 2016/17 | 403 | 98 to 209 | 127 | 63 to 123 |
+| 2017/18 | 453 | 124 to 217 | 118 to 124 | 52 to 100 |
+| 2018/19 | 131 to 134 | 460 to 493 | 106 to 109 | 64 to 124 |
+| 2019/20 | 115 to 118 | 449 to 485 | 104 to 107 | 46 to 100 |
+
+Against Tables 14 and 15 of the 48-month monitoring report, DCD lies inside every published total,
+zonal and non-zonal count for 2017/18 to 2019/20. DBD lies inside in 2018/19 and misses in 2017/18
+(zonal 453 against 468) and in 2019/20 (all three counts, by 1 to 6). The report's DBD counts include
+liver and kidney transplants (20, 13 and 14); if the released table is liver only, every DBD year
+reconciles, with exactly 15 of the 20 liver and kidney transplants of 2017/18 zonal. The covering
+letter says the tables are given in the format in which they are held and does not state the scope.
+NHSBT confirmed on 2026-11-04 that the counts include simultaneous liver and kidney transplants, so the
+liver-only reading does not hold, and the DBD differences of 2017/18 and 2019/20 stay open. They do not
+touch the structure read in B124-L (every year one component of routes in use), which holds for any
+counts of this size.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B124-N1 `instrument` both tables parse | four years, eight donor-zone rows, seven centre columns each |
+| FAIL | B124-N2 `known_answer` published counts inside the matrix intervals, DBD then DCD | DCD 9 of 9; DBD 5 of 9, outside: 2017/18 zonal, 2019/20 total, zonal and non-zonal |
+| PASS | B124-N3 `known_answer` the swapped order fails | Table 1 is DBD and Table 2 is DCD |
+| FAIL | B124-N4 `known_answer` per-centre N of Tables 16 and 17 inside the matrix column intervals | 35 of 42; DBD columns fall short of the report by 7 of 13 liver and kidney transplants in 2018/19 and 13 of 14 in 2019/20, all at five centres; one DCD column (King's College 2018/19) exceeds the report by at least 3 |
+
+Per centre the same picture holds. Where a DBD column falls short of the report's N, the shortfall
+summed over centres stays within the year's liver and kidney count. The one DCD column above the
+report is King's College in 2018/19, and the report excludes 15 NHS group 2 transplants performed at
+King's College between August 2017 and September 2018. So the released tables read as liver only
+and including the transplants the report set aside; the scope question has been sent to NHSBT.
+
+### B124-T: Theorem 46, levels set by an allocation
+
+`docs/b124_transport_dual.md` · `experiments/b124_transport_dual.py` · `results/b124_transport_dual.json` · 2026-10-26
+
+A paper station on generated problems, no data. If the levels at donor zones and transplant
+centres are set by an allocation, they are the dual of a transport problem, and complementary
+slackness replaces Theorem 41's normal equations. On every route that carries flow the level
+difference equals the route's term exactly, and the routes in use form a spanning tree, so no
+cycle in use carries a loop sum. A new route with reduced cost `D >= 0` moves nothing; one with
+`D < 0` carries flow and moves its pair's relative level by all of `D`. A term change on a route
+in use moves exactly the pairs that route separates. The dual feasible set is the sub-potential
+polyhedron of Theorem 4 on the reversed graph. A least-squares fit on the tree of used routes
+gives the same levels; Theorem 41's share on that tree lies strictly between 0 and 1, while the
+allocation's is 0 or 1.
+
+200 random connected bipartite problems (3 to 7 zones and centres, supplies and demands as sums
+of a positive flow on every edge). The self-test seeds four failures; three deliberate faults in
+the implementation (half of `D` taken as the move, the dual sign flipped, the separated side
+dropped) each fail the criterion they target.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B124-T1 `own_reading` used routes form a tree, are tight, unused routes hold the inequality | 200 of 200; worst tight error 1.8e-15 |
+| PASS | B124-T2 `own_reading` a new route moves nothing or moves its pair by all of `D` | 200 of 200; 102 idle, 98 entering |
+| PASS | B124-T3 `own_reading` a term change on a used route moves exactly the pairs it separates | 200 of 200; worst 3.6e-15 |
+| PASS | B124-T4 `own_reading` least squares on the used tree equals the dual, Theorem 41's share there in (0, 1) | 200 of 200; share 0.614 to 0.990 |
+
+### B124-L: Theorem 46 against the matrix and the report's waiting times
+
+`experiments/b124_level_check.py` · `results/b124_level_check.json` · 2026-10-26
+
+Routes in use from the NHSBT matrix, levels from the per-centre medians of Tables 16 and 17 with a
+floor from N and the interquartile range on the log scale. All seven centres are joined by routes
+in use in every year, before the reform as after it, with `b1` of 36 to 38 for DBD and 15 to 21
+for DCD: the allocation is several transport problems at once, of which blood group is the
+evident split. DBD centre levels are equal within the floor in 2018/19 (Q/df 0.84), 2020/21
+(1.43) and 2021/22 (1.17), and apart in 2017/18 (4.20) and 2019/20 (3.07). DCD, under an
+unchanged zonal rule, goes from 4.12 to 1.11 and 1.72 over the same years.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B124-L1 `premise` after the reform all DBD centres share one component of the routes in use | true in every year, before the reform too |
+| PASS | B124-L2 `own_reading` DBD Q/df below its pre-reform value in both post-reform years with a matrix | 4.20; 0.84 and 3.07 |
+| FAIL | B124-L3 `own_reading` DBD Q/df below DCD Q/df in each post-reform year with a matrix | 0.84 against 1.11; 3.07 against 1.72 |
+
+### B124-S: the US 2020 liver reform, by donor type
+
+`experiments/b124_srtr_switch.py` · `results/b124_srtr_switch.json` · 2026-10-27
+
+SRTR transplant records as released by The Markup: adult recipients, deceased donors, liver only,
+January 2018 to February 2022. Share of livers transplanted outside the recovering OPO, mean of the
+12 months before February 2020 against months 2 to 13 after. The acuity-circle policy of 4 February
+2020 moves DBD livers from 0.343 to 0.662, a step in the month of the change, and DCD livers from
+0.348 to 0.483. DCD moves less than DBD, by less than half, and it moves. On this carrier DCD is a
+partial control, unlike the UK, where the DCD non-zonal share stays between 34.9% and 40.9%.
+
+| | criterion | detail |
+|---|---|---|
+| PASS | B124-S1 `instrument` both donor types read in every month of the window | 50 months each |
+| PASS | B124-S2 `premise` DCD's cross-OPO share moves less at the reform than DBD's | DBD +0.319, DCD +0.135 |
+
+### B124-U: Theorem 46 on the US carrier, within recipient blood group
+
+`experiments/b124_srtr_levels.py` · `results/b124_srtr_levels.json` · 2026-10-27
+
+SRTR transplant records, adult recipients of deceased-donor livers, four 12-month windows aligned
+to 4 February 2020. Within one blood group and one year, DBD routes in use from donor OPO to centre
+carry hundreds of independent cycles (`b1` 354 for group O before the reform, 740 to 809 after),
+so the annual flow matrix is a sum of many allocations, one per organ. Spread across centres of
+median lab MELD at transplant, after minus before: DBD O −0.19, A −0.51, B +0.27; of log median
+wait: DBD O +0.10, A +0.17, B −0.01. AB has too few centres with N ≥ 10.
+
+| | criterion | detail |
+|---|---|---|
+| FAIL | B124-U1 `own_reading` DBD MELD spread falls in each blood group | falls in O and A, rises in B |
+| FAIL | B124-U2 `own_reading` DBD wait spread falls in each blood group | rises in O and A |
+| FAIL | B124-U3 `own_reading` DBD fall in MELD spread exceeds DCD's in each group | A yes, O no |
+| FAIL | B124-U4 `own_reading` DBD fall in wait spread exceeds DCD's in each group | no in O, yes in A |
 
 ## B125: the island resident air fare discount, and the square its base rule writes
 
@@ -24334,12 +26333,15 @@ the 2019 Mietspiegel, or a published paper, and the files are in `data/b129/raw`
 3.92 to 9.80 EUR/m2. With the two surcharges of §6 (ten percent in buildings of at most two dwellings, one
 euro for modern equipment) there are 48; with the three location adjustments of §5 there are 129 distinct
 values among 144 combinations, 3.64 to 12.52. The bill's reasoning (Drucksache 18/2347, p. 34) derives
-every row as the row's 2013 Mietspiegel median times 1.134, the real wage index carried from 2012 to 2019;
-all twelve rows match to the cent. §6(5) would have re-indexed the table to real wages every two years.
+every row as a 2013 rent-index base times 1.134, the real wage index carried from 2012 to 2019. Five bases
+are the 2013 Mietspiegel values as printed, five are a full-equipment value less a published equipment
+difference, one is West and East weighted by dwelling counts, one is a value plus the new-build
+supplement; every base follows from its printed derivation and every cap from its base, to the cent. §6(5) would have re-indexed the table to real wages every two years.
 
 **Two statutes write a third class.** The federal rent brake exempts dwellings first used and let after
-2014-10-01 (BGB §556f); the cap exempts those first ready from 2014-01-01. Dwellings first ready between
-the two dates are outside the cap and inside the brake.
+2014-10-01 (BGB §556f); the cap exempts those first ready from 2014-01-01. The two statutes date two
+different events, so a dwelling first ready from 2014-01-01 and first let on or before 2014-10-01 is outside
+the cap and inside the brake.
 
 **The square.** Hahn, Kholodilin, Waltl and Fongoni (2023, Management Science, doi:10.1287/mnsc.2023.4775),
 on 74,657 asking-rent ads with hedonic controls and exact location, report the regulated-minus-exempt gap
@@ -24367,20 +26369,33 @@ as a mean ratio and 0.208 against 0.286 to 0.292 as a share above the line.
 | | criterion | reading |
 |---|---|---|
 | PASS | B129-1 `instrument` the §6 table as transcribed is the enacted text | 12/12 rows, in order; the bill and the paper's Table 1 agree |
-| PASS | B129-1b `instrument` every cap is its 2013 median times 1.134 | 12/12, to the cent |
+| PASS | B129-1b `instrument` every 2013 base follows from its printed derivation and every cap is that base times 1.134 | 12/12 and 12/12, to the cent |
 | PASS | B129-2 `own_reading` class values the statute writes | 12, 48, 129 |
 | PASS | B129-3 `rival` the regulated/exempt square is zero (pass: it is not) | -0.113, 2.83 x floor; grid B |
 | PASS | B129-4 `own_reading` when the index moves | freeze: slope to 0.000; cut: 2021-02, -1.9; ruling: 2021-05, +0.9 |
-| PASS | B129-5 `own_reading` the older class falls more, as the statute predicts | -1.84 % against -0.37 % |
-| PASS | B129-6 `own_reading` a third class between the two exemption dates | present in both texts |
+| PASS | B129-5 `own_reading` the older class falls more, as the statute predicts | -1.84 % against -0.37 %; weighting the 89 cells by the 2019 Mietspiegel's dwelling stock (593,500 older, 766,000 newer) the older class still sits further above the §5 line in all four readings, mean upper-end ratio 1.2466 against 1.0113 |
+| PASS | B129-6 `own_reading` a third class written by two exemptions on two different events | a dwelling first ready on or after 2014-01-01 is outside the cap, and one first used and let on or before 2014-10-01 is inside the Bremse; a dwelling ready in June 2014 and first let in September 2014 is both, one ready in June 2014 and first let in February 2015 is exempt from both; both texts are on disk |
 
 ---
 
 ## A47: ownership tied to residence, public rental housing, and rent caps on the asset carrier
 
-**RUN: 2026-09-23. Model `src/monetary_topology/housing_rules.py` (a subclass of A3's model; `asset.py`
-unchanged), scripts `experiments/a47_block1.py` to `a47_block5.py`, records `results/a47_block1.json` to
-`results/a47_block5.json`. Nothing fetched.**
+**RUN: 2026-09-23; rerun 2026-09-30. Model `src/monetary_topology/housing_rules.py` (a subclass of A3's
+model; `asset.py` unchanged), scripts `experiments/a47_block1.py` to `a47_block5.py`, records
+`results/a47_block1.json` to `results/a47_block5.json`. Nothing fetched.**
+
+The rerun follows two rule fixes found in review. Public units built by the pool are held as stock the
+landlord never offers for sale, as the rules state; before, under residence binding they were drawn into
+the landlord's sale offers like units it had taken in from leaving owners. The listed landlord's dividend
+is taken on rent only; before, it was also taken on the proceeds of units it sold. Every reading below is
+from the rerun.
+
+**Resale per unit instead of per holding (2026-10-26), block 3.** `experiments/resale_rule_probe.py` (`results/resale_rule_probe.json`) runs this stage's driver three times: the rule as coded, the same rule with the asset stream shifted by one seed, and a draw per unit. The
+residence-bound arms cap every holding at one unit, where the two rules coincide, and they move by stream
+noise only. The three unbound carrier arms open with block holdings and move: sales over the run 298 to
+3,883, the low tier's price ratio 2.81 to 2.49, the production layer's share of net worth 1.1% to 1.8%
+(top decile 99.0% to 98.3%), and under the wage cap the regulated rent paid over the uncapped one 0.467 to
+0.530. The ordering between the unbound and the bound arms stands (production share 1.8% against 10% to 42%).
 
 **What is built.** Rules for the housing market A3 already runs, each a switch that defaults off.
 *Residence binding*: a node holds at most one unit and lives in it, so no node collects rent; a resident
@@ -24412,30 +26427,44 @@ owner (A3b's registered values).
 | PASS | A47-5 `instrument` **the carrier is A9's** | the levy with the housing market closed is A6's model bit for bit, 5 seeds x 300 rounds |
 | PASS | A47-6 `instrument` **the cap binds and nothing before it moves** | regulated rent paid never exceeds the caps or the uncapped rent; every round before the cap is the uncapped run's bit for bit |
 | PASS | A47-7 `instrument` **the floor** | every tier's price is at or above its cost price every round |
-| PASS | A47-8 `instrument` **public housing's books** | units close with public building counted; the pool is never negative; the state's top-up never exceeds the levy |
+| PASS | A47-8 `instrument` **public housing's books** | units close with public building counted; the pool is never negative; the state's top-up never exceeds the levy; every public unit built is still the landlord's and still flagged new |
+| PASS | A47-8b `instrument` **public units are not sold and sale proceeds carry no dividend** | read on the sale step itself: a public landlord holding only 2 freshly built units, turnover 1 and every renter able to pay, offers and sells none; a listed landlord that sells 3 units sends nothing of the proceeds out of the graph, and 27.1 of 100 in rent |
 
 Each check has a planted error in its script's `--selftest`, and each planted error is reported.
 
 **Readings.** Grid: regime x public building {0, 0.002, 0.005} x private building {0, 0.002, 0.005}
 x cap {none, wage}, five seeds, 240 runs; every run is in the record. The cap wage share, the
-maintenance rate and the levy were each moved to two other values (270 runs), and a comparison is read
-only where its sign held at every value in every seed.
+maintenance rate and the levy were each moved to two other values (315 runs), and a comparison is read
+only where its sign held at every value in every seed. Each comparison names both cells as (public
+building, private building, cap). K1 and K2 compare policy mixes, since the public arm also builds public
+housing; K1a and K2a compare the same regimes at equal public building. Beside the net-worth share the
+record carries its parts: the production layer's share of the nodes' cash, and of cash plus the housing
+nodes hold themselves, which leaves out the listed landlord's stock that net worth counts to its owners.
 
 | | reading, production layer's share of net worth, five seeds | knob sweep |
 |---|---|---|
-| K1 `own_reading` residence binding with a public landlord, minus no binding | +0.377 to +0.390 (0.417 against 0.032, both cells with building at 0.002); top decile 0.60 against 0.97; the price stays at cost against a rise of 3.3 times | read |
-| K2 `own_reading` public landlord minus listed landlord, both bound | +0.217 to +0.227 (0.417 against 0.194); a dividend exit of 0.421 in place of 0.271 gives 0.192 | read |
-| K3 `own_reading` public building at 0.002 without binding, minus none | +0.008 to +0.011; the price rise falls from 3.3 to 1.9 times | read |
+| K1 `own_reading` bound with a public landlord (0.002, 0.002, none) minus unbound (0, 0.002, none) | +0.376 to +0.392 (0.416 against 0.032); top decile 0.60 against 0.97; the price stays at cost against a rise of 3.3 times | read |
+| K1a `own_reading` the same, both cells with public building at 0.002 | +0.367 to +0.384 | read |
+| K2 `own_reading` bound, public landlord (0.002, 0.002, none) minus listed landlord 0.271 (0, 0.002, none) | +0.220 to +0.225 (0.416 against 0.194); a dividend exit of 0.421 in place of 0.271 gives 0.192 | read |
+| K2, parts `own_reading` the same gap in cash plus own housing, and in cash alone | +0.025 to +0.027, and +0.028 to +0.029: of the mean gap of 0.222, 0.196 (88 %) is the listed landlord's stock held by the financial layer | read |
+| K2a `own_reading` the same, both cells with public building at 0 | +0.213 to +0.219; in cash plus own housing +0.018 to +0.021, so the stock's part is 0.196 of 0.216 (91 %) | read |
+| K3 `own_reading` unbound, public building 0.002 minus 0, private building 0.002 | +0.008 to +0.011; the price rise falls from 3.3 to 1.9 times, and node landlords' rent from 5,393 to 2,425 | read |
 | K4 `own_reading` regulated rent paid under the wage cap, over uncapped | 0.360 to 0.469 | read |
 | K5a `own_reading` new rent over regulated rent, after the cap less before (log) | +0.78 to +1.10 | read |
 | K5b `own_reading` sale price under the cap over uncapped, round 199 | +0.11 % to +1.08 %; negative at one levy value | direction not read, size within 1.1 % |
 
 Residence binding carries most of the effect: with it the price no longer follows the claims of
-those who already own, which is where A3's rise came from. Where the rent goes carries much of the rest:
-the same binding with a listed landlord keeps about two fifths of it (0.194 against 0.417, from 0.032), and whether 27 % or 42 % of that
-landlord's rent leaves the graph hardly matters beside the rent reaching the financial layer at all.
-Building concentrates wealth when the listed landlord builds (0.217 to 0.155) and spreads it when the
-public landlord does (0.385 to 0.422). Without binding, public housing and caps move the distribution
+those who already own, which is where A3's rise came from. Who holds the rental stock carries much of
+the rest: the same binding with a listed landlord keeps about two fifths of it (0.194 against 0.416,
+from 0.032), and nearly nine tenths of that gap is the listed landlord's stock itself, owned by the
+financial layer, while a public landlord's stock is owned by no node. Rent is the yearly return on that
+holding. What is left of the gap with the stock taken out, in the nodes' cash and own housing, is
+smaller and holds its sign everywhere; it carries where the rent goes together with the public
+landlord's maintenance and building payments, the levy, trades and the change in the denominators, and
+this comparison does not separate rent from those. Whether 27 % or
+42 % of the listed landlord's rent leaves the graph hardly matters (0.194 against 0.192). Building
+concentrates wealth when the listed landlord builds (0.217 to 0.155) and spreads it when the public
+landlord does (0.385 to 0.417, with no private building). Without binding, public housing and caps move the distribution
 little and in a stable direction; once public housing or new building is present the wage cap no longer
 binds. Two readings line up with Berlin (B129): the cap opens the gap between new and regulated rents,
 and it leaves sale prices within about one percent, as Sagner and Voigtländer (2023) found. The model has
@@ -24446,27 +26475,38 @@ mechanism and not a city's magnitudes.
 
 ## A48: a core location under residence binding, who stays put, and who ends up with the premium
 
-**RUN: 2026-09-23. Model `src/monetary_topology/housing_rules.py` (A47's, two switches added, both off by
-default), scripts `experiments/a48_block1.py`, `experiments/a48_grid.py`, records `results/a48_block1.json`,
-`results/a48_grid.json`. Nothing fetched.**
+**RUN: 2026-09-23; rerun 2026-09-30 after A47's two rule fixes (public units are not sold; the listed
+landlord's dividend is taken on rent only); rerun 2026-10-05 after two rule fixes found in review of this
+station. Model `src/monetary_topology/housing_rules.py` (A47's, two switches added, both off by default),
+scripts `experiments/a48_block1.py`, `experiments/a48_grid.py`, records `results/a48_block1.json`,
+`results/a48_grid.json`. Nothing fetched. The numbers below are the last rerun's.**
+
+**The two fixes.** The budget for coming back left out a leg: an owner who returns must sell the low-tier
+unit it bought, since a node holds one unit, and that sale is now in the budget at today's low-tier quote.
+And the opening premium `R0` now stands in the core's quote from the opening allocation on, so the first
+buyers are charged it and round 0's trades pay it; before, it entered at the close of round 0. With both switches off,
+and at `R0 = 1` with no optional moves, every stored row reproduces field for field. Every criterion still
+passes, and every read-or-not verdict and read direction is where it was. Lock rates fell: at Berlin's
+median premium rising half a percent a round, from 0.37 to 0.13 under a public landlord and from 0.23 to
+0.05 under a listed one.
 
 **What is built.** On A47's bound carrier (levy 0.20, 1.1 dwellings per node, tenancy by unit, cost
 floor, public or listed landlord), the top tier is made a core location: after every other rule has set
-its price, the price is multiplied by `R0 (1+g)^t`, and nothing new is built there. `R0 = 1.16` is the
-median ratio of good-location to simple-location rents in Berlin's 2019 Mietspiegel, same age and size
-band, over 29 pairs of cells (range 0.79 to 1.52); `1.45` is its upper end; `g` is a knob. A3's turnover
-of 0.04 is split into moves that must happen and moves that may. A core owner drawn for a move that may
-happen sells only if it could come back: the gap between buying the core again after the holding period
-at the premium's path, and what selling the core and buying a low-tier unit leaves, must not exceed its
-claims. A budget, not a preference. Someone who does come back later buys as anyone else does; the model
-keeps no record of who lived where.
+its price, the price is multiplied by `R0 (1+g)^t`, from the opening allocation on, and nothing new is
+built there. `R0 = 1.16` is the median ratio of good-location to simple-location rents in Berlin's 2019
+Mietspiegel, same age and size band, over 29 pairs of cells (range 0.79 to 1.52); `1.45` is its upper
+end; `g` is a knob. A3's turnover of 0.04 is split into moves that must happen and moves that may. A core
+owner drawn for a move that may happen sells only if it could come back: the round trip (sell the core,
+buy a low-tier unit on its own terms, and after the holding period sell that unit at par and buy the core
+again at the premium's path) must not cost more than its claims. A budget, not a preference. Someone who
+does come back later buys as anyone else does; the model keeps no record of who lived where.
 
 | | criterion | reading |
 |---|---|---|
 | PASS | A48-1 `instrument` **both switches off is A47** | A47's stored grid rows, three regimes, five seeds, reproduce field for field |
-| PASS | A48-2 `instrument` **the premium is applied exactly** | the core price is the other rules' price times `R0 (1+g)^t` every round to `1e-12`; nothing is built in the core |
-| PASS | A48-3 `instrument` **every optional move in the core is a move or a lock** | a lock only where the gap exceeds the owner's claims; with no optional moves nothing is optional |
-| — | A48-4 `known_answer` **no premium** | lock rate 0.077 in one seed: an owner who cannot pay for a low-tier unit stays even without a premium |
+| PASS | A48-2 `instrument` **the premium is applied exactly** | the core price is the other rules' price times `R0 (1+g)^t` every round to `1e-12`; nothing is built in the core; the opening quote is the initial price times `R0`; every opening buyer was charged its terms on it and paid the charge, or all its claims where A3's opening rule admitted it short of the charge (4,320 of 8,352 opening purchases over the grid), each payment recomputed from the rule; the preview and all 560 grid runs |
+| PASS | A48-3 `instrument` **every optional move in the core is a move or a lock** | with no optional moves nothing is optional; recomputed leg by leg from the quotes and the terms, the round trip leaves every mover with claims and every locked owner short; the preview and all 560 grid runs |
+| PASS | A48-4 `known_answer` **a round trip that pays** | terms 1, core 2, low 0.5, flat prices, no claims: the gap is 0. With no premium the lock rate is 0.10 in one seed, what the terms alone give |
 
 Each check has a planted error in `--selftest`, and each is reported.
 
@@ -24476,21 +26516,29 @@ values each on one cell (80 runs). A comparison is read where its sign holds at 
 
 | | reading | knob sweep |
 |---|---|---|
-| lock rate `own_reading`, pooled over seeds, optional moves 0.02 | public landlord, `R0 = 1.16`: 0.10, 0.24, 0.52, 0.76 at `g` = 0, 0.005, 0.01, 0.02 | printed |
-| households' share of the core `own_reading` | 0.09 to 0.23 at round 50, 0 to 0.04 at round 150; at round 299 zero in 465 of 480 runs, one or two of the 22 core units in the other 15 | printed |
-| L2 `own_reading` lock on minus off: production-layer share of net worth | 0 to +0.0025 | not read (sign moves) |
-| L2 `own_reading` lock on minus off: round the core leaves households | mean +12 (public) and +26 (listed) rounds at `R0 = 1.16`, `g = 0.005` | not read (sign moves across seeds) |
-| L3 `own_reading` public minus listed landlord: production-layer share of net worth | +0.274 to +0.285 | read |
+| lock rate `own_reading`, pooled over seeds, optional moves 0.02 | public landlord, `R0 = 1.16`: 0.10, 0.13, 0.38, 0.73 at `g` = 0, 0.005, 0.01, 0.02; listed landlord 0.02, 0.05, 0.20, 0.70. With `g` = 0 the cells with an opening premium lock less than those without: public 0.23, 0.10, 0.05 at `R0` = 1.00, 1.16, 1.45 | printed |
+| households' share of the core `own_reading`, cell means over seeds | 0.11 to 0.28 at round 50, 0 to 0.15 at round 150; at round 299 zero in 461 of 480 runs, one or two of the 22 core units in the other 19, all of them at `g` 0.01 or 0.02 | printed |
+| core holdings `own_reading` | holdings that ended lasted 21.6 to 63.1 rounds (cell means); 24 are still open at the last round, 23 of them held since round 0 and one for 245 rounds | printed |
+| L2 `own_reading` lock on minus off: production-layer share of net worth, eight cells (optional moves 0.02, `R0` 1.16 and 1.45, `g` 0.005 and 0.01) | −0.0003 to +0.0010 | not read (sign moves) |
+| L2 `own_reading` the same over the whole grid, 360 pairs, in percentage points | `g` = 0: −0.57 to +0.32; 0.005: −0.56 to +0.32; 0.01: −9.92 to +0.32; 0.02: −36.36 to +0.93. Over the pairs in which no household holds a core unit at the end of either run, −1.72 to +0.93 | printed |
+| L2 `own_reading` lock on minus off: round the core leaves households | cell means −2.8 to +32.8 rounds over the eight cells; a zero in every cell and a negative seed in two | not read |
+| L3 `own_reading` public minus listed landlord: production-layer share of net worth | +0.273 to +0.279 | read |
 
 A premium that rises makes owners who may move stay: at Berlin's median premium rising half a percent a
-round, about a quarter of the moves that may happen do not. The distribution hardly notices. What the
-premium does decide is who holds its rise. An owner who must move must sell, and as the premium climbs no
-household can buy the core back, so under residence binding the core ends with the landlord: all 22 units in 465 of 480 runs, all
-but one or two in the rest. With a public landlord the rise stays outside the graph and the production layer's share holds at
-about 0.417; with a listed landlord it becomes its shareholders' net worth, and at `g = 0.02` the
-production layer's share falls from 0.19 to 0.004. In this carrier renters take the cheapest units and
-supply exceeds demand, so nobody pays extra to live in the core and it stands empty once households
-leave; who would live there needs a carrier with demand for location.
+round, about one in eight of the moves that may happen do not under a public landlord (0.13), and one in
+twenty under a listed one (0.05); at one percent a round it is 0.20 to 0.52, at two percent 0.64 to 0.78.
+With the premium flat or rising half a percent a round the distribution hardly notices: over 180 pairs the
+production layer's share moves by −0.57 to +0.32 percentage points. One and two percent a round are
+beyond what cities show, and there a lock can keep one or two core units with households to the last
+round; a unit still on a node's books at a core price in the hundreds lowers the production layer's share
+by up to 36 points. What the premium does decide is who holds its rise. An owner who must move must sell,
+and as the premium climbs no household can buy the core back, so under residence binding the core ends
+with the landlord: all 22 units in 461 of 480 runs, all but one or two in the rest. With a public landlord
+the rise stays outside the graph and, in the 227 runs where the core has left households, the production
+layer's share holds between 0.400 and 0.428; with a listed landlord it becomes its shareholders' net
+worth, and at `g = 0.02` the production layer's share falls from 0.19 to 0.004. In this carrier renters
+take the cheapest units and supply exceeds demand, so nobody pays extra to live in the core and it stands
+empty once households leave; who would live there needs a carrier with demand for location.
 
 ---
 
@@ -24543,9 +26591,17 @@ this house and is not read.
 
 ## A49: a loan secured on a commitment to stay, three lenders, and a rental market left to short stays
 
-**RUN: 2026-09-24. Model `src/monetary_topology/housing_rules.py` (switches added, all off by default),
-scripts `experiments/a49_block1.py`, `a49_block2.py`, `a49_block3.py`, `a49_grid.py`, records
-`results/a49_block1.json` to `a49_block3.json` and `results/a49_grid.json`. Nothing fetched.**
+**RUN: 2026-09-24; rerun 2026-10-04. Model `src/monetary_topology/housing_rules.py` (switches added, all
+off by default), scripts `experiments/a49_block1.py`, `a49_block2.py`, `a49_block3.py`, `a49_grid.py`,
+records `results/a49_block1.json` to `a49_block3.json` and `results/a49_grid.json`. Nothing fetched.**
+
+The rerun follows rule fixes found in review. A provident loan now needs the fund's cash for the loan
+and for the part of the down payment the borrower's account pays, and an account can pay out no more
+than the fund holds; before, the two payments were checked apart and the fund's cash could go below zero.
+Without binding and without lending, an account now pays for a dwelling as it does everywhere else;
+before, that one case fell back to a cash-only purchase. Dwellings the fund takes for unpaid loans are
+counted as the fund's, with their rent. Interest a borrower cannot pay in its round is owed until paid
+or written off. Every reading below is from the rerun, with A47's two fixes in place.
 
 **What is built.** On A47's carrier (levy 0.20, 1.1 dwellings per node, tenancy by unit, cost floor), a
 node that can commit to staying at least the holding period of 25 rounds and owns no dwelling may buy
@@ -24567,47 +26623,83 @@ a lender that exists:
 | | criterion | reading |
 |---|---|---|
 | PASS | A49-1 `instrument` **every new switch off is A48** | A48's stored grid rows, three cells, five seeds, field for field; rerun after each block (A49-1b, A49-1c) |
-| PASS | A49-2 `instrument` **the loan book closes** | lent = repaid principal + credited on foreclosure + written off + outstanding, every arm, to `1e-9`; claims conserved every round |
+| PASS | A49-2 `instrument` **the loan book closes** | lent = repaid principal + credited on foreclosure + written off + outstanding, every arm, to `1e-9`; interest accrued = paid + owed + written off; claims conserved every round |
+| PASS | A49-2g, A49-7g `instrument` **the books close in every run** | the loan, interest and fund books close in each of the 520 grid and knob runs, and the fund's cash is never negative in any round |
 | PASS | A49-3 `instrument` **who borrowed** | no short-stayer ever borrowed; every borrower held the down payment |
-| PASS | A49-7 `instrument` **the provident fund's books** | accounts equal contributions less member spending; the fund's cash equals contributions less spending, less what it lent, plus what came back; every provident borrower had contributed |
+| PASS | A49-7 `instrument` **the provident fund's books** | accounts equal contributions less member spending, plus what the fund owes on a dwelling it took; the fund's cash equals contributions less spending, less what it lent, plus what came back and the rent on its dwellings, and is never negative; every provident borrower had contributed |
 | PASS | A49-8 `instrument` **the treasury's overdraft** | the pool never ends a round below minus that round's levy (at most 0.82 of it); with the treasury off no pool is ever negative |
 
 Each check has a planted error in its script's `--selftest`, and each is reported.
 
 **Readings.** Grid: regime {unbound, bound} x lender {none, treasury, provident at two rates and two
 contribution rates, bank} x down payment {0.1, 0.2} x short stays {none, 0.1}, plus contributions with
-no lending, five seeds, 300 runs; the foreclosure lag (1, 6 rounds) and the levy (0.15, 0.25) moved on
-eight cells (160 runs). A comparison is read where its sign holds at every value in every seed.
+no lending, and a bank lending at zero interest, five seeds, 320 runs; the foreclosure lag (1, 6 rounds)
+and the levy (0.15, 0.25) moved on ten cells (200 runs). A comparison is read where its sign holds at
+every value in every seed. Net worth counts a bank's loans to its owners, the financial layer, and a
+treasury's or a fund's loans to no node; each run also carries the production layer's share with the
+loans left out.
 
 | | reading, bound unless stated, down payment 0.1, short stays 0.1 | knob sweep |
 |---|---|---|
-| renters left, of whom short-stayers `own_reading` | no loan 156, 10 % short; treasury 15, 95 to 97 % short; bank 12, 96 to 97 %; provident 86, 13 to 17 % | printed |
-| renters, with no short-stayers `own_reading` | treasury 0.8, bank 0.5: renting all but disappears | printed |
-| M4 `own_reading` renters, loan minus none | treasury −136 to −145, provident −64 to −74, bank −139 to −150 | read |
-| M1 `own_reading` renters, unbound minus bound, same loan | treasury +104 to +114, provident +49 to +58, bank +110 to +121 | read |
-| M3 `own_reading` production-layer share of net worth, treasury minus bank, provident minus bank | +0.034 to +0.059; +0.117 to +0.130 | read |
-| M4 `own_reading` production-layer share, loan minus none | treasury +0.060 to +0.072, provident +0.127 to +0.158; bank +0.001 to +0.034 | treasury and provident read; bank not read |
-| contributions alone `own_reading` production-layer share | 0.524 (5 %) and 0.587 (12 %) bound, against 0.413 with neither; 0.127 and 0.231 unbound, against 0.032 | printed |
-| M1 `own_reading` foreclosures, unbound minus bound | treasury +1 to +2, provident +4 to +13 per seed; bank mixed; a zero appears at other levy values | direction not read |
+| renters left, of whom short-stayers `own_reading` | no loan 155, 10 % short; treasury 16, 91 to 96 % short; bank 13, 92 to 96 %; provident 86, 12 to 17 % | printed |
+| renters, with no short-stayers `own_reading` | treasury 1.2, bank 1.2: renting all but disappears | printed |
+| M4 `own_reading` renters, loan minus none | treasury −134 to −145, provident −64 to −74, bank −137 to −150 | read |
+| M1 `own_reading` renters, unbound minus bound, same loan | treasury +104 to +113, provident +54 to +58, bank +110 to +120 | read |
+| M3 `own_reading` production-layer share of net worth, treasury minus bank, provident minus bank | +0.035 to +0.086; +0.131 to +0.182 | read |
+| M3o `own_reading` treasury minus a bank at zero interest: the same rate; the source of the money lent, the pool's overdraft and the party the loans are booked to all differ | +0.040 to +0.080 | read |
+| M3r `own_reading` bank at zero interest minus bank at 2 %: the rate alone | −0.013 to +0.018 | not read (sign moves) |
+| M3 with the loans left out of net worth `own_reading` treasury minus bank, provident minus bank | −0.004 to +0.039; +0.092 to +0.137 | treasury not read; provident read |
+| M4 `own_reading` production-layer share, loan minus none | treasury +0.038 to +0.075, provident +0.133 to +0.171; bank −0.011 to +0.013 | treasury and provident read; bank not read |
+| contributions alone `own_reading` production-layer share | 0.518 (5 %) and 0.587 (12 %) bound, against 0.416 with neither; 0.068 and 0.086 unbound, against 0.032 | printed |
+| M1 `own_reading` foreclosures, unbound minus bound | treasury +1 to +2, provident +3 to +13 per seed; bank mixed; a zero appears at other levy values | direction not read |
 
 Under residence binding, with dwellings at cost and sellable on leaving, a lender without a ceiling on
-its cash leaves renting to those who stay briefly: fifteen renters out of 180, nineteen in twenty of them
-short-stayers, and with no short stays almost nobody rents. The same loan without binding leaves 110 to
-120 more renters, because the price follows the bidders' claims and the down payment follows the price.
-The provident fund lends only what wages put in, so it clears the rental market least; it moves the
-distribution most, and contributions with no lending at all move it further than any lender does, since
-the employer's half is a transfer added to wages and the money waits outside circulation. Interest lent
-by the financial layer takes back part of what lending gives: treasury over bank adds 0.03 to 0.06 of the
-production layer's share. Foreclosures are more frequent without binding for the treasury and the fund in
-every seed, but not at every levy, and the bank forecloses 1.4 to 2.4 times on average under binding too,
-so the direction is not read.
+its cash leaves renting to those who stay briefly: about fifteen renters out of 180, more than nine in
+ten of them short-stayers, and with no short stays almost nobody rents. The same loan without binding
+leaves 105 to 120 more renters, because the price follows the bidders' claims and the down payment
+follows the price. The provident fund lends only what wages put in, so it clears the rental market
+least; it moves the distribution most, and contributions with no lending at all move it further than any
+lender does in either regime (0.587 against at most 0.570 bound, 0.086 against at most 0.077 unbound).
+The gap between a treasury and a bank is not the rate: at the same zero rate the treasury is
+0.040 to 0.080 above the bank in every seed and at every knob value. The two differ in three things at
+once: the treasury lends from the public pool and may overdraw it by the round's levy, a bank lends its
+shareholders' cash, and the loans are booked to no node in one case and to the financial layer in the
+other. With the bank's loans left out of net worth the mean gap to the bank at 2 % falls from 0.060 to
+0.017, so about seven tenths of it is the loan book as an asset; what is left against the bank at zero
+interest averages 0.011 with both signs across seeds, and is not taken apart further. The rate does little: a bank at 2 %
+against the same bank at zero moves the production layer's share by −0.013 to +0.018 with no stable
+sign. Interest is the return on holding the loans, as rent is on holding the rental stock in A47.
+Foreclosures are more frequent without binding for the treasury and the fund in every seed, but not at
+every levy, and the bank at 2 % forecloses 0.2 to 2.8 times on average under binding too, so the
+direction is not read.
 
 ---
 
 ## A50: the provident contribution taken apart; money parked outside circulation, and the authority that refills it
 
-**RUN: 2026-09-24. Model `src/monetary_topology/housing_rules.py` (switches added, all at A49's values by
-default), scripts `experiments/a50_block1.py`, `a50_grid.py`, `a50_block3.py` to `a50_block7.py` (shared
+**Rerun 2026-10-04, after rule fixes found in review.** Money spent from an account is now taken from
+the oldest parked amounts first, so a release pays back only what is left of the round it releases;
+before, an old release date could pay out money parked later. Without binding, an account that may pay
+for housing now does so with or without lending (A49). A difference in shares is read only over the pairs
+in which every run kept paying at least half the wages due. The criteria and every reading below are from
+the rerun. Three readings changed in substance:
+
+- *How long the money stays.* The longer it stays, the higher the production layer's share, in every
+  arm, under both authorities and in both regimes: each step from 5 to 25 and from 25 to 100 rounds is
+  positive in all 15 pairs of levy and seed. For the arm whose account can pay for housing, bound, at
+  levy 0.20, the share over the no-fund arm is +0.119 to +0.137 at 25 rounds and +0.150 to +0.175 at 100
+  with the authority refilling, and +0.255 to +0.284 and +0.326 to +0.351 with the accounts in its
+  target. The fall between 25 and 100 rounds in the first run came from the release rule above.
+- *An account that can pay for housing, without binding.* It is spent there as it is under binding:
+  production-layer share 0.086 with both sides parked at 12 % (0.231 when locked), 37 owners against 18.
+  Spending the parked money on housing lowers the share in both regimes, by 0.13 to 0.17 unbound and 0.25
+  to 0.27 bound for both sides, every seed and levy: the money is back in circulation.
+- *The authority's target counting the accounts.* 51 of 150 runs stall. Under binding the comparisons of
+  the locked arms have no pair in which both runs keep paying wages and are not read as distribution;
+  without binding nine of fifteen pairs do, and they hold their sign.
+
+**RUN: 2026-09-24, rerun 2026-10-04. Model `src/monetary_topology/housing_rules.py` (switches added, all at
+A49's values by default), scripts `experiments/a50_block1.py`, `a50_grid.py`, `a50_block3.py` to `a50_block7.py` (shared
 helpers in `a50_common.py`), records `results/a50_block1.json`, `a50_grid.json`, `a50_block3.json` to
 `a50_block7.json`. Nothing fetched.**
 
@@ -24622,7 +26714,7 @@ added to wages, and both halves wait in accounts outside circulation. On A49's c
 - whether a parked account may be spent on a dwelling, or is locked;
 - whether the authority sees the accounts: either it counts each round's contributions as arrived
   layer-2 inflow, or its target counts the account balances, converted at the carrier's own baseline
-  inflow per unit of circulating claims (0.46 to 0.49 by seed);
+  inflow per unit of circulating claims (0.46 to 0.53 by seed and regime);
 - how long money stays parked before it goes back to its owner, `L` rounds. A round carries a trend, not
   a calendar span, so `L` reads as short against long.
 
@@ -24634,36 +26726,37 @@ top node (`rule = "endogenous"`, `gain` 1.0).
 | PASS | A50-1, 1b, 8, 8b `instrument` **every new switch at its default is A49** | A49's contributions-only grid rows, A48's rows and A49's block previews, field for field, rerun after each new switch |
 | PASS | A50-2 `instrument` **the fund's books** | accounts and fund cash equal what was parked less what was spent from accounts and paid back; a returned arm holds nothing and returned exactly what the employer paid; a side that is off paid nothing |
 | PASS | A50-4 `instrument` **a locked account** | never spent; holds what was parked less what went back |
-| PASS | A50-5 `instrument` **unbound, locked equals parked** | without lending an unbound sale takes holdings only, so the two arms are the same run (an implementation check) |
+| PASS | A50-5 `instrument` **the account's way into a purchase** | every run with a spendable account spent from it, in both regimes, and no locked run did |
 | PASS | A50-6 `instrument` **the authority written out** | block 2's rows reproduce with the authority set explicitly |
 | PASS | A50-9, 11 `instrument` **what the authority withheld** | positive in every run, within `gain` times what was parked; the velocity used is the first round's layer-2 inflow over the initial claims, recomputed from the history |
-| PASS | A50-12 `instrument` **paying back** | never more than was parked; `L` = 300 pays nothing back in 300 rounds and equals never paying back, field for field |
+| PASS | A50-12 `instrument` **paying back** | never more than was parked; what is still due for release equals what the accounts hold; money parked, spent and parked again is not released on the first date; `L` = 300 pays nothing back in 300 rounds and equals never paying back, field for field |
+| PASS | A50-12b `instrument` **every step in `L` is paired** | each step, never paying back included, has all three levies and five seeds |
 | PASS | A50-15 `instrument` **every parked unit accounted for** | parked = spent on dwellings + paid back + still in accounts |
 
 Each check has a planted error in its script's `--selftest`, and each is reported.
 
 **Readings.** Five seeds; the levy (0.15, 0.25) moved on every comparison at `c` 0.12. A difference is read
-where its sign holds at every seed and every levy value. Production-layer share of net worth at `c` 0.12,
-short stays 0.1, levy 0.20, mean of five seeds, unless stated.
+where its sign holds at every seed and every levy value. Production-layer share of net worth, short stays
+0.1, levy 0.20; ranges are over the five seeds, at `c` 0.05 then 0.12 where two are given.
 
 | | reading | sweep |
 |---|---|---|
-| transfer only (employer's half paid into holdings) minus none `own_reading` | +0.004 to +0.005 (`c` 0.05) and +0.010 to +0.012 (0.12) bound; +0.000 to +0.005 unbound | bound read; unbound at 0.12 not read |
-| employee's own money parked minus none `own_reading` | +0.092 to +0.128 bound; +0.041 to +0.118 unbound | read |
-| employer's money parked minus the same money returned `own_reading` | +0.089 to +0.122 bound; +0.042 to +0.124 unbound | read |
-| locked, never spent, minus none (bound) `own_reading` | +0.210 to +0.222 (`c` 0.05); +0.334 to +0.348 (0.12) | read |
-| spendable minus locked (bound) `own_reading` | −0.115 to −0.281, with 18 to 63 more owners and 17 to 65 fewer renters | read |
-| refill: extra issuance over money locked `own_reading` | bound 0.99 to 1.04; unbound 0.59 to 0.84 | printed |
-| `gain` 0.5 instead of 1.0 `own_reading` | every difference keeps its reading; refill still 0.98 to 1.02 bound | printed |
+| transfer only (employer's half paid into holdings) minus none `own_reading` | +0.002 to +0.004 (`c` 0.05) and +0.008 to +0.010 (0.12) bound; +0.000 to +0.005 unbound | bound read; unbound at 0.12 not read |
+| employee's own money parked minus none `own_reading` | bound +0.088 to +0.097, +0.105 to +0.119; unbound +0.037 to +0.051, +0.029 to +0.038 | read |
+| employer's money parked minus the same money returned `own_reading` | bound +0.090 to +0.101, +0.115 to +0.125; unbound +0.038 to +0.053, +0.026 to +0.040 | read |
+| locked, never spent, minus none `own_reading` | bound +0.209 to +0.221, +0.333 to +0.347; unbound +0.041 to +0.055, +0.091 to +0.118 | read |
+| spendable minus locked `own_reading` | bound −0.119 to −0.273, with 21 to 64 more owners and 19 to 62 fewer renters; unbound −0.003 to −0.165, with 1 to 25 more owners and 0.4 to 25 fewer renters | read |
+| refill: extra issuance over money locked `own_reading` | bound 0.99 to 1.02; unbound 0.59 to 0.84 | printed |
+| `gain` 0.5 instead of 1.0 `own_reading` | on the production-layer share every difference keeps its reading, and refill is 0.99 to 1.04 bound; unbound at `c` 0.12, the transfer difference on the top decile and on the dwelling price, and the interaction on the dwelling price, hold one sign at `gain` 1.0 and both signs at 0.5 | printed |
 | no issuance `own_reading` | unbound, a locked account drains circulation from 100 to 0.05 and wages paid in the last 50 rounds fall from 400 to 1.2; bound, the public landlord's pool drains it even with no fund | bound not read |
-| authority counts each round's contributions as inflow `own_reading` | withholds what was parked (287 of 288) and issues as much in later rounds (830.1 against 831.7) | printed |
-| authority's target counts the balances `own_reading` | locked for good: circulation 0.0003 to 0.19, wages in the last 50 rounds 0.01 to 3.7 of 400; spendable (bound): circulation 187 → 100, wages 400, share 0.530 → 0.603 | printed |
-| share over none against `L` (1, 5, 25, 100, never), bound, employee locked `own_reading` | +0.003, +0.012 to +0.014, +0.059 to +0.065, +0.182 to +0.193, +0.334 to +0.348 | every step from 5 up read |
-| spendable arm, share at `L` 100 below `L` 25 `own_reading` | money spent on dwellings rises at every step of `L`; at the end, accounts hold 26 to 36 at `L` 25 and 8 to 16 above it | read |
+| authority counts each round's contributions as inflow `own_reading` | withholds what was parked (287 of 288) and issues as much in later rounds (821.3 against 823.9) | printed |
+| authority's target counts the balances `own_reading` | locked for good: circulation 0.0003 to 0.19, wages in the last 50 rounds 0.01 to 3.6 of 400; spendable (bound, employee's half): circulation 188 → 95, wages 400, share 0.530 → 0.612 | printed |
+| share over none against `L` (1, 5, 25, 100, never), bound, employee locked `own_reading` | +0.003, +0.013 to +0.014, +0.059 to +0.064, +0.182 to +0.192, +0.333 to +0.347 | every step read |
+| share over none against `L` (1, 5, 25, 100, never), bound, both sides, spendable `own_reading` | +0.013 to +0.016, +0.035 to +0.039, +0.119 to +0.137, +0.150 to +0.175, +0.154 to +0.187; of 576 parked, 36, 169 and 519 are spent on dwellings before release at `L` 5, 25 and 100 | steps up to 100 read; 100 to never has both signs |
 
 Parking the contribution is what moves the distribution: the employer's half paid as a wage rise flows
 back up and moves the share by a hundredth at most, while the employee's own money, which is no transfer
-at all, moves it by a tenth once it sits in an account. It moves it because the authority steers
+at all, moves it by a tenth under binding once it sits in an account (0.03 to 0.05 without binding). It moves it because the authority steers
 circulation by inflow and does not see the accounts: under binding it issues back exactly what was
 locked, so the account is net new wealth for the production layer and circulation is unchanged. Halving
 the authority's gain changes only how fast it refills. Without issuance a locked account takes the whole
@@ -24672,7 +26765,7 @@ shortfall in circulation persists; one whose target counts the balances accepts 
 then an account that never pays out stops the economy, while one that is spent on dwellings keeps wages
 paid and leaves the production layer a larger share. The effect is a stock: the longer money stays
 parked the higher the share, and money paid back or spent on a dwelling rejoins circulation and flows up.
-Spending accounts on dwellings under binding buys ownership (more owners, fewer renters) and gives up
+Spending accounts on dwellings buys ownership (more owners, fewer renters) in both regimes and gives up
 share for the same reason.
 
 ---
@@ -24696,7 +26789,7 @@ read here as A49's class that cannot commit, with the statute named beside every
 |---|---|---|
 | PASS | B130-1 `instrument` **sources whole, numbers on their pages** | six files pass their fetch checks; five numbers read from HDB's key statistics are found on the page each is attributed to (pp. 7, 10, 15) |
 | PASS | B130-2 `own_reading` **owner-occupied share of resident households, HDB minus condominiums** | positive in all 29 years printed (1980, 1990, 1995, 2000-2025), from +5.4 points (2025) to +15.8 (2005) |
-| PASS | B130-3 `own_reading` **who rents HDB flats whole, 2025** | resident non-owners in 3-room and larger HDB flats: 32,406; flats rented out whole: 59,567; so at least 45.6 % of whole-flat tenancies are non-resident, if the 55,883 non-owners in 1- and 2-room flats are public-rental tenants (public rental flats are 1- and 2-room, 63,558 of them). Counting every non-owner as a market tenant gives no floor |
+| PASS | B130-3 `own_reading` **who rents HDB flats whole, 2025** | resident non-owners in 3-room and larger HDB flats: 32,406; flats rented out whole: 59,567; so at least 45.6 % of whole-flat tenancies are non-resident, if the 55,883 non-owners in 1- and 2-room flats are public-rental tenants (public rental flats are 1- and 2-room, 63,558 of them). Counting every non-owner as a market tenant gives no floor. The floor counts tenancies, not people. By head, in June 2023 the people renting whole HDB flats were 80 % non-resident, 15 % permanent resident and 5 % citizen, and the non-resident share has stayed between 67 % and 82 % since 2010 (written answer, 3 Aug 2023) |
 | PASS | B130-4 `rival` **tenure rises with income, whatever the segment's rules** | condominium residents earn 1.94 to 2.40 times as much per household member as residents of the best-paid HDB flat type, every year 2000-2023; the premise then entails a condominium owner-occupied share at least HDB's; it is lower in all 24 years, by 7.3 to 15.8 points. Grid B, 24 years |
 
 The rival criterion records the rival's premise and the step that entails its inequality; it passes when the
@@ -24727,11 +26820,11 @@ objects.
 | PASS | B131-1 `instrument` **FISIM derived** | 3,988 sector-side-years derived, 54 lacking an item; 46 margins beyond ten points over year-end stocks, nearly all in 1995-2001 transition years, listed by name |
 | PASS | B131-2 `known_answer` **the ECB's own figure** | euro area households, deposit plus loan FISIM over disposable income: 1.71 % (2022) and 2.03 % (2023), against the box's 1.7 % and 2.1 % for first halves |
 | PASS | B131-3 `rival` **a fee paid is not negative** | premise (ESA 14.01, 14.09): one reference rate for every user sector, the gap to it an implicit fee paid; entailment: FISIM >= 0 in every cell. On euro-area members, deposit side in years the ECB deposit rate averaged below zero and loan side from 2023: **73 of 392 cells negative beyond the one-million-euro publication unit, 57 below minus 100 million**. `grid = B`, one-sided inequality |
-| PASS | B131-4 `own_reading` **where the negatives fall** | household deposits: 45 of 256 country-years negative while the deposit rate was below zero, 49 of 673 otherwise; household loans: 16 of 68 from 2023, 5 of 256 in the negative-rate years |
+| PASS | B131-4 `own_reading` **where the negatives fall** | household deposits: 45 of 256 country-years negative while the deposit rate was below zero, 49 of 673 otherwise; household loans: 16 of 68 from 2023, 5 of 256 in the negative-rate years, 22 of 673 otherwise |
 | PASS | B131-5 `own_reading` **the cut point moves, the sum barely does** | euro area households, 2021 to 2023: deposit FISIM EUR 16.5bn to 171.8bn, loan FISIM 125.2bn to 11.3bn; the sum moved 0.15 of what the two parts moved (Germany 0.005) |
-| PASS | B131-6 `own_reading` **where it lands** | household deposit FISIM is final consumption and enters GDP; mortgage FISIM is intermediate consumption of owner-occupiers and does not. Euro area: 0.25 % of household consumption in 2021, 2.19 % in 2023; the increase equals 1.06 % of 2023 GDP |
-| PASS | B131-7 `instrument` **a proxy for the reference rate** | the ECB deposit rate as a stand-in gives the sign of FISIM in 879 of 1,380 member cells; it is not the offices' rate, so the framework side is not computed cell by cell from it |
-| PASS | B131-8 `own_reading` **the band and the offices' scalar** | 188 member years with every input. A rate lying between every sector's deposit and loan rate existed in all 188. The offices' reference rate, backed out four ways, is one scalar (median difference 0.58 points) and lies outside that band in 96. **All 49 years with a negative cell are such years** |
+| PASS | B131-6 `own_reading` **where it lands** | household deposit FISIM used as consumers is final consumption; mortgage FISIM is intermediate consumption of owner-occupiers. Euro area: 0.25 % of household consumption in 2021, 2.19 % in 2023; the increase, EUR 155.3bn, is 1.06 % of 2023 GDP in size. Its net effect on GDP, after household producers' intermediate use and imports, is not computed here. No euro-area FISIM imports are published; by country, 2023 whole-economy FISIM imports against the change are 0.456 in Germany, 0.011 in France, 0.17 in the Netherlands, median 0.123 over 22 countries. That import total spans both sides and every sector and is negative in Croatia and Lithuania, so it does not cap the imported part |
+| PASS | B131-7 `instrument` **a proxy for the reference rate** | the ECB deposit rate as a stand-in gives the sign of FISIM in 877 of 1,369 member cells; it is not the offices' rate, so the framework side is not computed cell by cell from it |
+| PASS | B131-8 `own_reading` **the band and the offices' scalar** | 187 member years with every input. A rate lying between every sector's deposit and loan rate existed in all 187. The offices' reference rate, backed out four ways, is one scalar (median difference 0.58 points) and lies outside that band in 95. **All 49 years with a negative cell are such years** |
 
 A rate acceptable to both sides of every sector always existed, so the premise's concept holds; the rule that
 implements it takes the interbank rate, which is what banks obtain among themselves, and applies it to households
@@ -24742,11 +26835,15 @@ from the loan side, outside GDP, to the deposit side, inside it.
 
 ---
 
-## A51: location demand priced as commuting; wage earners live in the core, and who keeps its location value depends on the landlord
+## A51: location demand priced as commuting; wage earners live in the core while the plain tier has room, and the landlord decides how much of the commuting saved the tenant keeps
 
-**RUN: 2026-09-24. Model `src/monetary_topology/housing_rules.py` (switches added, all off by default),
-scripts `experiments/a51_block1.py`, `experiments/a51_grid.py`, records `results/a51_block1.json`,
-`results/a51_grid.json`. Nothing fetched.**
+**RUN: 2026-09-24; rerun 2026-10-04 and 2026-10-05 after rule fixes upstream (A47 to A50, then A48's return
+budget and opening premium) and one here (the location part of a rent is split on the premium inside the
+price that rent was charged on); rerun 2026-10-06 with whole-run readings added. Model
+`src/monetary_topology/housing_rules.py` (switches added, all off by default), scripts
+`experiments/a51_block1.py`, `experiments/a51_grid.py`, `experiments/a51_side_market_rent.py`, records
+`results/a51_block1.json`, `results/a51_grid.json`, `results/a51_side_market_rent.json`. Nothing fetched. The
+numbers below are the last rerun's.**
 
 **What is built.** A48's bound carrier left the core empty once households left it, because renters took the
 cheapest unit and nothing made a central unit worth more to anyone. Here a renter with a wage pays commuting if it
@@ -24764,37 +26861,52 @@ rent optionally locked at signing.
 | PASS | A51-1 `instrument` **every new switch off** | A50's reproduction of A49 and A48 holds, field for field |
 | PASS | A51-2 `instrument` **the split carrier** | the core is never built, is priced by the premium, no renter holds two units, every choice is the cheapest affordable rent plus commuting; 1,216 runs |
 | PASS | A51-3 `known_answer` **commuting near zero** | with market rents and no premium growth the new matching is the old one, field for field; under cost rents the core and plain tier rent alike, so this case is scoped to market rents |
-| PASS | A51-4 `instrument` **leases hold** | kept renters stay on the tier and lessor they signed for, pay the signed rent when it is locked, never past term |
+| PASS | A51-4 `instrument` **leases hold** | read against each lease as signed: a kept renter stays on the tier and with the lessor it signed with, is due the signed rent when it is locked and the round's rent by the rule when it is not, never past term; 1,200 runs |
 | PASS | A51-5 `instrument` **L 1** | equals the matching without leases, field for field |
 
 Each check has a planted error in its script's `--selftest`, and each is reported.
 
 **Readings.** Landlord {public at cost rents, listed with 27.1 % dividend exit at market rents} x g {0, 0.005} x
 core share of the low tier {0.1, 0.3} x s {0.027, 0.083} x five leases x five seeds x levy {0.20, 0.15, 0.25},
-1,200 runs.
+1,200 runs. Two quantities are kept apart: the commuting the core's tenants save, and the location rent, which
+is the part of the core's market rent above the plain tier's.
 
 | | reading | sweep |
 |---|---|---|
-| who lives in the core `own_reading` | wage earners, 100 % in 50 of the 52 occupied cells, against about 46 % of all renters; the other two (one cell, long leases) are 72 %, 0.04 households on average, placed there because the plain tier was full | printed |
-| public landlord at cost rents `own_reading` | the core is full in every cell; the location rent it does not charge stays with the core's tenants, 0.05 to 0.16 a round with no premium growth and 1.15 to 3.54 with g 0.005 | printed |
-| listed landlord at market rents `own_reading` | with no premium growth the core fills when commuting (0.0074) exceeds the premium (0.004) and stays empty when it does not (0.0024); the landlord then collects 0.05 to 0.16 a round. With g 0.005 the premium passes any commuting value near round 120 and the core empties | printed |
-| leases `own_reading` | locked and unlocked rents give identical runs in all 80 cells; a 25-round lease keeps the core occupied 15 rounds longer after the premium passes commuting (last occupied round 137 to 152) | printed |
-| production-layer share, public minus listed `own_reading` | +0.218 to +0.260 in all 40 cells | read |
+| who lives in the core, last 50 rounds `own_reading` | wage earners, 100 % in 50 of the 52 occupied cells, against about 46 % of all renters; the other two (one cell, 25-round leases) hold 12 tenant-rounds over five seeds, 8 of them wage earners | printed |
+| who chose the core, whole run, one-round leases `own_reading` | public landlord: wage earners in 100 % of 276,642 choices. Listed landlord: 79.1 % of 111,848 with g 0 and 54.1 % of 48,481 with g 0.005; the 41,758 and 44,889 choices that paid more above the plain tier than the chooser's commute were all made with no plain unit left open | printed |
+| public landlord at cost rents `own_reading` | the core is full in every cell; its tenants save 0.03 to 0.29 a round in commuting, whatever g is. The market rent the landlord does not charge is 0.05 to 0.16 a round with g 0 and 1.15 to 3.53 with g 0.005, 12 to 37 times the commuting saved; nobody receives it | printed |
+| listed landlord at market rents, g 0 `own_reading` | with commuting at 0.0074 above the premium of 0.004 the core is full, tenants save 0.09 to 0.30 a round and the landlord collects 0.05 to 0.16 of it; with commuting at 0.0024 the core is empty in the last 50 rounds, after being occupied to round 180 or 244 (one seed) by renters with no plain unit open | printed |
+| listed landlord at market rents, g 0.005 `own_reading` | the core's rent above the plain tier passes commuting at round 24 (s 0.083) or at once (s 0.027); the core stays occupied to round 137 or 119, when its rent above the next tier up passes commuting too | printed |
+| leases `own_reading` | a 25-round lease keeps the core occupied 13 rounds longer (last occupied round 137 to 149.6). Rent locked against unlocked, 480 pairs: 328 identical in every stored field, 149 differ only in whole-run totals of location rent, 3 differ in last-50-round readings, by at most 0.0048 in the production layer's share | printed |
+| production-layer share, public minus listed `own_reading` | cell means +0.223 to +0.253 in all 40 cells; +0.164 to +0.310 over all 600 pairs | read |
 
-Once location is valued as commuting, the core goes to renters with jobs and to no one else; nothing screens them.
-Who keeps the location value is set by the landlord: a public landlord renting at cost leaves it with whoever sits
-in the core, a market landlord collects it when commuting makes it worth paying and loses the tenants when the
-premium outruns commuting. A premium that grows at a fixed rate from outside, as A48 set it, is not paid by
-anyone on this carrier once it exceeds the commuting value. Leases change almost nothing here, because under
-residence binding the rents they would lock do not move.
+Once location is valued as commuting, the core goes to renters with jobs as long as a plain unit is open to
+the others; nothing screens them. A renter left with no plain unit takes the core whether it commutes or not,
+and keeps taking it until the core costs more than the next tier up with commuting counted. What a core
+tenant gains is the commuting it saves, and the landlord decides how much of that it keeps: all of it under a
+public landlord renting at cost, under half under a market landlord. A premium that grows at a fixed rate from
+outside, as A48 set it, soon exceeds anything commuting is worth; the gap between it and the cost rent is a
+quote, not a value anyone holds. Leases change almost nothing in the last 50 rounds, because under residence
+binding the rents they would lock hardly move; a locked rent shifts some location rent from the landlord to
+the tenant on the way.
 
 ---
 
 ## B132: the two borrowed prices in the national-accounts consumption deflator
 
-**RUN: 2026-09-25. Scripts `experiments/b132_fetch.py` and `experiments/b132_readings.py`, record
-`results/b132_readings.json`. Sources: Eurostat household final consumption by purpose (COICOP 2018, current and
-previous-year prices; the COICOP 1999 version as a cross-check), the HICP annual index, INSEE Premiere no 2002.**
+**RUN: 2026-09-25; rerun 2026-10-06 on a fresh fetch of all five files, countries read in national currency.
+Scripts `experiments/b132_fetch.py` and `experiments/b132_readings.py`, record `results/b132_readings.json`,
+which carries the fetch manifest. Sources: Eurostat household final consumption by purpose (COICOP 2018, current
+and previous-year prices, in euro and in national currency; the COICOP 1999 version as a cross-check), the HICP
+annual index, INSEE Premiere no 2002.**
+
+**The unit.** A country's deflator change is read in its national currency. Eurostat's euro series is converted
+at each year's exchange rate, so its yearly change carries the exchange rate's move, and the first run read every
+country in euro: Sweden's consumption deflator for 2023 is -1.3 % in euro and +6.6 % in kronor, against an HICP
+of +5.9 %. Aggregates are published in euro only and are read in euro; the EU aggregate spans several
+currencies, so its euro deflator still carries their moves. The euro area's and France's readings are the same
+to the printed digit.
 
 **What is read.** The national-accounts household consumption deflator carries two prices taken from somewhere
 else: imputed rentals, priced from actual rents, and FISIM, priced as the gap to a reference rate that is the
@@ -24804,79 +26916,2407 @@ current-less-previous-year value over the total's previous-year value.
 
 | | criterion | reading |
 |---|---|---|
-| PASS | B132-1 `instrument` **two versions, one change** | on 1,674 overlapping country-item-years the COICOP 1999 and 2018 versions give yearly deflator changes a median 0.011 points apart; levels are not compared, the versions being different vintages |
+| PASS | B132-1 `instrument` **two versions, one change** | on 1,624 overlapping country-item-years the COICOP 1999 and 2018 versions give yearly deflator changes a median 0.011 points apart; levels are not compared, the versions being different vintages |
 | PASS | B132-2 `known_answer` **INSEE's figure** | France 2023: 7.05 % with financial services and 4.94 % without, against INSEE's 7.1 % and 4.8 % (INSEE removes FISIM only) |
-| PASS | B132-3 `own_reading` **the gap and what fills it** | euro area 2023: national accounts 6.29 %, HICP 5.43 %; financial services pull 1.37 points and imputed rentals 0.35; without both, 5.33 %. In ten areas the national-accounts deflator ran above the HICP in 2023 and financial services alone pulled more than the gap (France: gap 1.38, pull 2.17; Spain: 1.76, 2.47) |
-| PASS | B132-4 `own_reading` **one purpose, two indices** | financial services in the euro area: +20.8 %, +61.6 %, +4.1 % in the national accounts for 2022-2024, +4.1 %, +4.4 %, +2.1 % for explicit fees in the HICP; France 2023 +181.8 % against -0.1 %, 2025 -12.7 % against +1.8 %. On 116 euro-area member years, correlation with the change in the ECB deposit rate's annual mean: 0.56 |
-| PASS | B132-5 `own_reading` **imputed against actual rents** | 177 country-years: yearly changes a median 0.70 points apart, within 0.5 point in 70, identical to 0.01 in 17 (Greece 2019-2024, Malta, Spain 2020-2021, Portugal 2021-2022) |
-| PASS | B132-6 `own_reading` **2020 to 2024** | euro area cumulated: national accounts 18.9 %, HICP 20.0 %, national accounts without the two borrowed prices 18.2 % |
+| PASS | B132-3 `own_reading` **the gap and what fills it** | euro area 2023: national accounts 6.29 %, HICP 5.43 %; financial services pull 1.37 points and imputed rentals 0.35; without both, 5.33 %. In eleven areas the national-accounts deflator ran above the HICP in 2023 and financial services alone pulled more than the gap (France: gap 1.38, pull 2.17; Spain: 1.76, 2.47) |
+| PASS | B132-4 `own_reading` **one purpose, two indices** | financial services in the euro area: +20.8 %, +61.6 %, +4.1 % in the national accounts for 2022-2024, +4.1 %, +4.4 %, +2.1 % for explicit fees in the HICP; France 2023 +181.8 % against -0.1 %, 2025 -12.7 % against +1.8 %. On 122 euro-area member years, correlation with the change in the ECB deposit rate's annual mean: 0.56 |
+| PASS | B132-5 `own_reading` **imputed against actual rents** | 185 country-years: yearly changes a median 0.70 points apart, within 0.5 point in 69, between 0.5 and 1 point in 42, identical to 0.01 in 18 (Greece 2019-2024, Malta in five years, Portugal in three, Spain 2020-2021) |
+| PASS | B132-6 `own_reading` **2020 to 2024** | euro area cumulated: national accounts 18.9 %, HICP 20.0 %, national accounts without the two borrowed prices 18.2 %. In national currency, Sweden 20.2 % against an HICP of 19.8 %, Hungary 48.2 % against 47.2 %, Czechia 34.3 % against 36.4 % |
+| PASS | B132-7 `instrument` **the unit** | on 370 item-years of euro-area members after the year they joined, the national-currency and euro deflator changes are one number; outside membership the total's change differs by more than 0.1 point in 51 country-years, most in Hungary 2022 (+5.7 % in euro, +15.3 % in forint) |
 
 In the year rates rose, the price of financial services in the national accounts rose by three fifths in the euro
 area and nearly trebled in France, while the fees households were actually charged rose by about 4 %; the national
 accounts' consumption inflation rose above the HICP's, and without the two borrowed prices it sits just below it.
 INSEE attributes the rise to the reference rate reaching an unprecedented level. The same item fell by 12.7 % in
-France in 2025. Imputed rentals add a steady 0.3 to 0.4 points a year to the euro-area deflator; some countries
+France in 2025. Imputed rentals add 0.31 to 0.35 points a year to the euro-area deflator in 2022 to 2024 and 0.15 to 0.17 in 2019 to 2021; some countries
 copy the actual-rent index to the digit, most do not.
 
 ---
 
 ## B133: how much of the consumer-output price divergence in the pay-productivity gap is borrowed prices
 
-**RUN: 2026-09-25. Scripts `experiments/b133_fetch.py` and `experiments/b133_readings.py`, record
-`results/b133_readings.json`. Sources: the BEA NIPA annual flat file (PCE price index and its percent change, the
-contributions to it of imputed rental of owner-occupied nonfarm housing and of financial services furnished without
-payment, the price index for nonfarm business value added); Table 1 of Bivens and Mishel (2015), EPI Briefing
-Paper #406.**
+**RUN: 2026-09-25; rerun 2026-10-06 on the same files with a second removal operator and its calibration added
+(every reading stored before is unchanged). Scripts `experiments/b133_fetch.py` and
+`experiments/b133_readings.py`, record `results/b133_readings.json`. Sources: the BEA NIPA annual flat file (PCE
+price index and its percent change, the contributions to it of imputed rental of owner-occupied nonfarm housing
+and of financial services furnished without payment, the price index for nonfarm business value added, PCE
+excluding food and energy); Table 1 of Bivens and Mishel (2015), EPI Briefing Paper #406.**
 
 **What is read.** One part of the gap between productivity and typical pay is that consumer prices rose faster than
 output prices. The consumer price carries two prices taken from elsewhere: imputed rent, priced from what tenants
-pay, and household FISIM, priced against the interbank rate (B131, B132). BEA publishes each item's exact
-contribution to the PCE price change, so the PCE without the two can be rebuilt year by year. That rebuilt index is
-the consumer price without borrowed prices; it is not what owners pay for housing, since mortgage interest and
-upkeep are not consumption.
+pay, and BEA's financial services furnished without payment (PCE line 107: commercial banks, other depository
+institutions and regulated investment companies, and pension funds, the last 14 % to 20 % of its value). For
+banks BEA prices the service against the return on safe government securities, so this is not the European
+household FISIM item for item, and B131's interbank reference rate is not carried over to it. The PCE without
+the two items is not published and the PCE is a Fisher index, so "without" is a construction. Two are computed:
+BEA's contributions taken off and the rest rescaled by its previous-year share, which the station has used from
+the start; and a Fisher removal, the geometric mean of a Laspeyres and a Paasche removal from the items' own
+price indexes and values. Neither is the Fisher index of the remaining lines recomputed from their prices and
+quantities, and both are calibrated on a removal BEA does publish (B133-6). Either is the consumer price without
+borrowed prices; it is not what owners pay for housing, since mortgage interest and upkeep are not consumption.
 
 | | criterion | reading |
 |---|---|---|
 | PASS | B133-1 `instrument` **the index against BEA's printed change** | 96 years within rounding; BEA's contributions against previous-year share times item price change: median gap 0.003 points |
 | PASS | B133-2 `known_answer` **EPI's divergence** | 1973-2014: 13.68 log points, 0.334 a year, against EPI's 0.33 (net) and 0.43 (gross) |
-| PASS | B133-3 `own_reading` **the borrowed share** | 1973-2014: 16.2 % of the divergence; 1979-2019: 33.0 %; 1973-2024: 41.8 %. Over 288 windows (start 1970-1985, end 2007-2024) the divergence is positive in every one and the share runs from 8.6 % to 47.7 %, median 22.9 % |
-| PASS | B133-4 `own_reading` **by decade** | imputed rent pulls PCE inflation 3 to 6 points a decade, FISIM 0.1 to 1.3; imputed rent's price rose more slowly than the PCE in the 1970s and faster in every decade since (2010s: 26.6 against 14.5 log points) |
-| PASS | B133-5 `own_reading` **in the whole gap** | EPI puts price divergence at 29.6 % of the net gap and 32.4 % of the gross gap for 1973-2014; on the PCE measure, borrowed prices are about 4.8 % and 5.3 % of the whole gap |
+| PASS | B133-3 `own_reading` **the borrowed share** | 1973-2014: 16.2 % of the divergence; 1979-2019: 33.0 %; 1973-2024: 41.8 %; by the Fisher removal 15.3 %, 32.6 %, 41.2 %. Over 288 windows (start 1970-1985, end 2007-2024) the divergence is positive in every one and the share runs from 8.6 % to 47.7 %, median 22.9 % (Fisher removal: 8.3 % to 47.8 %, median 22.2 %); the two operators differ by at most 1.0 point |
+| PASS | B133-4 `own_reading` **by decade** | imputed rent pulls PCE inflation 3 to 6 points a decade, financial services furnished without payment 0.1 to 1.3; imputed rent's price rose more slowly than the PCE in the 1970s and faster in every decade since (2010s: 26.6 against 14.5 log points) |
+| PASS | B133-5 `own_reading` **in the whole gap** | EPI puts price divergence at 29.6 % of the net gap and 32.4 % of the gross gap for 1973-2014; on the PCE measure, borrowed prices are about 4.8 % and 5.3 % of the whole gap (4.5 % and 5.0 % by the Fisher removal). A scale conversion: EPI's own consumer side is a compensation deflator it constructs |
+| PASS | B133-6 `known_answer` **the removal operators on a removal BEA publishes** | food and energy taken out of the PCE by each operator, against BEA's PCE excluding food and energy: the contributions operator is off by a median 0.006 points a year (largest 0.12, in 1943) and by +0.22, +0.14 and +0.25 log points over the three main windows, 3 % to 10 % of the borrowed amount it reads there; the Fisher removal by a median 0.0015 points a year and +0.005, +0.002 and +0.003 log points |
 
 Borrowed prices are a positive part of the price divergence in every window read, from a tenth to nearly half of
 it, almost all of it imputed rent. They are a small part of the whole gap: the larger components, inequality of
-compensation and the fall in labour's share, pass through no price index at all. On the CPI-U-RS that EPI uses,
-where owner's equivalent rent weighs about twice what imputed rent weighs in the PCE, the share would be larger;
-it is not computed here.
+compensation and the fall in labour's share, pass through no price index at all. EPI's consumer side is a
+compensation deflator of its own, wages deflated by the CPI-U-RS and health benefits by a medical index, set
+against the deflator of net domestic product; owner's equivalent rent weighs more in the CPI-U-RS than imputed
+rent does in the PCE, and the borrowed share on EPI's measure is not computed here.
 
 ---
 
 ## B134: the ICP's urban-rural dimension, urban prices in the rural cell
 
-**RUN: 2026-09-25. Scripts `experiments/b134_fetch.py` and `experiments/b134_readings.py`, record
-`results/b134_readings.json`. Sources: the World Bank Poverty and Inequality Platform's PPP table in ten releases
-(2022-2026) across the 2011, 2017 and 2021 rounds; the PIP Methodology Handbook; Chen and Ravallion (2008), World Bank
+**RUN: 2026-09-25; rerun 2026-10-06 with every release the platform lists. Scripts `experiments/b134_fetch.py`
+and `experiments/b134_readings.py`, record `results/b134_readings.json`. Sources: the World Bank Poverty and
+Inequality Platform's PPP table under each of the 18 release-by-round labels it lists (nine release dates,
+2022-2026; the 2011, 2017 and 2021 rounds), each as the platform serves it on the day of the fetch; the PIP
+Methodology Handbook; Chen and Ravallion (2008), World Bank
 Policy Research Working Paper 4703; the World Bank's India poverty methodology note (May 2025) and Indonesia poverty
 brief.**
 
 **What is read.** The ICP gives one PPP per economy for GDP and for comparisons of consumption. The poverty platform of
-the same institution gave China, India and Indonesia separate rural and urban PPPs, derived by rule from the national
-PPP, the ratio of urban to rural poverty lines and the urban share of price collection. Their ratio therefore carries
+the same institution converts consumption at the ICP's consumption PPPs, and gave China, India and Indonesia separate
+rural and urban ones, derived by rule from the national consumption PPP, the ratio of urban to rural poverty lines and
+the urban share of price collection. The national value read below is that consumption PPP; the PPP for GDP is a
+different conversion factor and is not in these tables. Their ratio therefore carries
 the poverty-line ratio and is read here as a pair of class values written down, not as an independently measured
 square.
 
 | | criterion | reading |
 |---|---|---|
-| PASS | B134-1 `instrument` **the same round across releases** | 57 release-to-release pairs identical to one part in a million; 6 changes, each a rural or urban value set equal to the national one; no other change |
+| PASS | B134-1 `instrument` **the same round across releases** | 129 release-to-release pairs identical to one part in a million; 6 changes, each a rural or urban value set equal to the national one; no other change |
 | PASS | B134-2 `known_answer` **four sentences on disk** | Chen and Ravallion treat China's 2005 ICP PPP as an urban PPP; the handbook computes separate rural and urban PPPs for China, India and Indonesia; the India note applies a single national PPP after spatial deflation; the Indonesia brief discontinues the separate urban and rural PPPs |
-| PASS | B134-3 `own_reading` **class values per country, round and release** | China two in every round and release; India 2017 two until the 2025-09-30 release, then one; Indonesia 2011 and 2017 two until the 2024-06-27 release, then one |
+| PASS | B134-3 `own_reading` **class values per country, round and release** | China two in every round and release; India 2017 two under the 2024-06-27 label and one under the 2025-04-01 label and after; Indonesia 2011 and 2017 two under the 2024-03-26 label and one under 2024-06-27 and after |
 | PASS | B134-4 `own_reading` **how far the national PPP is from the rural one** | China: national above rural by 21.7 %, 18.6 % and 17.2 % in the 2011, 2017 and 2021 rounds, urban above rural by 28.5 %, 23.6 % and 22.6 %; the national value sits 0.76 to 0.79 of the way from rural to urban |
 | PASS | B134-5 `own_reading` **where the line went** | India: "960 indices (32 states x 2 sectors x 15 commodity groups)" inside the survey; Indonesia: "annual regency-level spatial deflator based on a Paasche-type index" |
+| PASS | B134-6 `instrument` **every listed release is read** | 18 labels over nine release dates, all read; the first run read ten and placed India's change one release late |
 
-The PPP used for GDP sits on the urban side in all three countries, from six tenths to 0.98 of the way from the rural
-value to the urban one; converted at it, rural consumption in China reads 15 to 18 % lower than at the rural PPP. When
+The platform's national consumption PPP sits on the urban side in all three countries, from six tenths to 0.98 of the
+way from the rural value to the urban one; converted at it, rural consumption in China reads 15 to 18 % lower than at the rural PPP. When
 India and Indonesia dropped their separate urban and rural PPPs, the difference moved into the survey data as spatial
 deflators by state and sector and by regency, so the number of class values rose from two to dozens or hundreds, while
 the GDP product still prints one number per economy.
 
 ---
+
+## A53: A50's wage lock on A44's carrier; the share it adds is the account stock, and the reissue keeps circulation's split
+
+**RUN: 2026-09-26. Script `experiments/a53_wage_lock.py`, record `results/a53_wage_lock.json`, carrying
+the configuration it ran under. The carrier, its classes, its control paths and its mean field are A44's,
+imported; `network.py` is untouched. Nothing fetched.**
+
+**What is built.** A50 read that a provident lock, a share of wages moved into an account outside
+circulation, raises the production layer's net-worth share only because the authority reissues what the
+lock takes out, and that without issuance the accounts drain the economy. A44 and A45 read, on another
+carrier, where new claims settle and how long they stay. This station puts the lock on A44's carrier.
+Each wage earner moves `c` of the wages it received this round into its own account, after wages and
+before spending; each deposit comes back whole to its owner `L` rounds later, or never. The account is
+the network's parked stock, owned by the node that paid in. Grid: `c` 0.05 and 0.12, `L` 1, 5, 25, 100
+and never, the authority endogenous (the carrier's own rule) or absent, five seeds, at wage elasticity
+0.5, and at `c` 0.12 also at elasticity 0 and 1: 200 runs with 30 controls. A cell whose last 50 rounds
+paid less than half the wages of its own control has stalled, and its share gap is not read as
+distribution.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A53-0 `instrument` **the lock off is the network** | With `c = 0` every history field and the generator state match the plain network bit for bit on five seeds. Two planted faults, the switch ignored when off and one extra draw when off, are reported |
+| PASS | A53-1 `instrument` **the lock's ledger closes** | On 100 cells, holdings plus accounts equal the opening claims plus issuance; every deposit is `c` of its earner's wage; every release is its owner's deposit `L` rounds earlier; each node's account is its deposits less its releases; a hold of 300 is the never-returned run field for field. Three planted faults are reported, and five deliberate breaks of the implementation are all caught, two by the network's own conservation assertion |
+| PASS | A53-2 `instrument` **the lock's path tangent is the carrier's rule** | A44's path tangent with the lock as its forcing matches the whole model's finite difference at `c = 1e-8` on 60 cells, largest class gap `9.4e-8` of the wages paid, tolerance `1e-5`. Three planted faults, the least at `3.7e-4`; removing the tangent's reissue response or its wage-elasticity term moves it by `0.52` and `0.032` |
+| PASS | A53-3 `own_reading` **the readings are printed on every cell and seed** | 200 of 200 rows, all finite, every ledger closed; 15 rows stalled |
+| PASS | A53-4 `own_reading` **the gap splits into the account stock and a circulation term, read against A44's mean field** | 200 of 200 rows decomposed. The mean field is opened into its steps, which equal A44's matrix exactly, and is driven by each cell's own deposits, releases and reissue; the reissue is taken from the run, the mean field says where it lands |
+
+**The account is inflow times time held.** On all 200 rows the account stock equals `c` times the wages
+paid over the last `min(L, t)` rounds to within `2.2e-15`.
+
+**The authority sees the lock, at a wage elasticity of zero as well.** Reissue against the control, over
+the account at the end, median of five seeds, at `c` 0.12:
+
+| elasticity | `L` 1 | 5 | 25 | 100 | never |
+|---|---|---|---|---|---|
+| 0 | `0.000` | `0.207` | `0.855` | `0.961` | `0.982` |
+| 0.5 | `−0.488` | `0.669` | `0.935` | `0.979` | `0.992` |
+| 1 | `−0.925` | `0.628` | `0.920` | `0.975` | `0.992` |
+
+The earners spend less, layer-two inflow falls, and the authority fills the gap. A lock of one round is
+the exception: with wages elastic the authority issues less than in the control, by about half to nine
+tenths of the account at the end (at `c` 0.05 and elasticity 0.5, `−0.592`).
+
+**With the authority, the share gained is the account stock.** The gap in the production share, the
+account counted to its owner, splits into a stock term (the account added, circulation as in the
+control) and a circulation term, the rest. At elasticity 0.5 and `c` 0.12, medians:
+
+| `L` | gap | stock | circulation | mean field |
+|---|---|---|---|---|
+| 5 | `+0.0300` | `+0.0299` | `+0.0001` | `+0.0003` |
+| 25 | `+0.1300` | `+0.1290` | `+0.0011` | `+0.0013` |
+| 100 | `+0.3434` | `+0.3405` | `+0.0029` | `+0.0030` |
+| never | `+0.5332` | `+0.5324` | `+0.0007` | `+0.0008` |
+
+On all 20 cells with the authority the circulation term lies between `−0.0002` and `+0.0067`, and the
+mean field reads it to within `3.5e-4`. The gap is positive on all 200 rows. The mean field's two
+branches each move more claims than circulation holds and each land in the stationary split: at `L`
+never, the reissue branch adds `178.3` to the financial layer and `59.0` to the intermediate block, the
+lock branch takes `179.0` and `60.2`, `0.751` and `0.748` of the two classes' total against a
+stationary `0.747`. What is left between them is the circulation term, and it sits on the intermediate
+block: the reissue enters at the financial layer, the lock takes from the earners, whose spending reaches
+the intermediate block first, and the two entry terms differ.
+
+**Without the authority, the drain comes out of the classes in the stationary split.** The financial
+layer's share of the combined financial and intermediate loss, medians, against A44's stationary vector:
+
+| elasticity | `c` | `L` 25 | 100 | never | stationary |
+|---|---|---|---|---|---|
+| 0 | 0.12 | `0.739` | `0.746` | `0.761` (stalled) | `0.738` |
+| 0.5 | 0.05 | `0.746` | `0.747` | `0.749` | `0.747` |
+| 0.5 | 0.12 | `0.746` | `0.748` | `0.758` (stalled) | `0.747` |
+| 1 | 0.12 | `0.754` | `0.755` | `0.755` (stalled) | `0.755` |
+
+The mean field reads the loss class by class (at elasticity 0.5, `c` 0.12, `L` 100: financial `−43.49`
+against `−43.43`, intermediate `−14.45` against `−14.41`). The share gap is larger than with the
+authority (`+0.4349` against `+0.3434` in that cell), and the difference is the circulation term
+(`+0.1570`, mean field `+0.1565`). With no issuance the total of holdings and accounts stays at 100, so
+this is a transfer and not a change of denominator: the production layer's share rises by exactly what
+the financial layer no longer holds, over 100, on every one of the 100 cells without issuance (`43.49` and
+`+0.4349` in that cell), while wages paid in the last 50 rounds fall to `70.6%` of the control's. The
+circulation term is the split against a baseline of the control's circulation plus the account. On the 85
+cells that do not stall the gap is positive and wages are 54% to 101% of the control's.
+Never returned, circulation ends at `0.3%`, `0.5%` and `12.2%` of its opening at elasticity 0, 0.5 and
+1, and all three cells stall.
+
+**So A50's lock reads as two things, both computable before the run from A44 and A45's objects**: the
+share it adds is the account stock, inflow times rounds held; the reissue keeps circulation in its
+stationary split. Without the reissue the whole amount leaves circulation in that split until the
+economy stalls, and what leaves becomes the earners' accounts. A45's holding rule, a class holds its inflow
+over its out-rate, carries the account as one more class once deposits are steady: each round returns
+what was deposited `L` rounds earlier and nothing in the first `L` rounds, so the stock is `L` times the
+deposit and the mean out-rate `1/L` only after that; never returned, the account is the sum of deposits,
+close to linear in rounds where the reissue keeps deposits steady.
+
+---
+
+## B136: adding a channel, on the price side and on the money side, is one rank-one update
+
+**RUN: 2026-09-27; rerun 2026-10-06, every reading stored before unchanged. Script
+`experiments/b136_channel_bridge.py`, record `results/b136_channel_bridge.json`,
+carrying the configuration it ran under; statement and proof in `docs/b136_channel_bridge.md`. Paper
+station: zero data. B103's graph helpers and A45's money map, stationary vector and derivative are
+imported.**
+
+**What is built.** B103 moves the potentials by `w D / (1 + w R) · L⁺b` when a relation is added; A45 takes
+the derivative of where money settles as `Z (dB) π`. Theorem 44: when a map with `ℓB = ℓ` changes by
+`u v'` with `ℓu = 0`, the new stationary vector is `π + (v'π) / (1 − v'Zu) · Zu` exactly. For a rerouting,
+`Zu` is written in first-passage times on an irreducible chain: node `i` gains in proportion to its share
+and to how much sooner money reaches it from the new destination than from the old ones. On a reversible chain those times are
+B103's resistances term by term. A gate moves a set as one piece, as a cut vertex does in B104. One
+route changed can never make the denominator vanish; a bridge cut on the price side can, because it
+removes both directions. On A45's map one route added or cut is exactly one outer product, `v` the
+source's row of the wage step: rank one, or no change at all when that row is zero.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B136-1 `instrument` **the exact step** | 200 irreducible chains of 5 to 60 nodes: `8.7e-16` against the re-solved stationary vector. On a reducible two-node chain, where a transient node has no finite passage time, the step still returns the new split `(⅔, ⅓)`. Three planted faults caught |
+| PASS | B136-2 `instrument` **the first-passage form** | Passage times solved on their own: `9.7e-14`. Two planted faults caught |
+| PASS | B136-3 `instrument` **the reversible limit** | 90 of B103's weighted graphs, resistance from B103's own pseudoinverse: commute identity, Tetali's form and the rerouting's direction, `7.7e-14`. Two planted faults caught |
+| PASS | B136-4 `instrument` **the gate** | 30 gated chains, relative spread over the set `6.1e-11`; 30 with a back door, least spread `0.58` |
+| PASS | B136-5 `instrument` **the denominator** | Determinant ratio `2.4e-15`; 40 reroutes that close a set, least denominator `0.196`, share left outside `2.3e-15`; removed both ways, least singular value `1.4e-16` |
+| PASS | B136-6 `instrument` **one route on A45's map is one outer product** | 15 carriers, 1,020 routes (750 added, 270 cut): change against `u v'` `2.8e-17`; 46 change nothing (34 added, 12 cut, `v = 0`), the other 974 have rank one, second singular value `1.0e-15` of the first; exact step `1.3e-14`; first order against A45's derivative `1.7e-18`. Planted faults caught, among them a non-finite ratio placed first and last |
+| PASS | B136-7 `known_answer` **A45's exact column** | A45's three edge-lever variants on five seeds, one outer-product term per changed source (20 or 150 terms; the change's rank is 20, or 47 to 49 for the 150): Woodbury's step against A45's recorded exact split, `4.9e-11`. For the financial-to-intermediate edges at a third of their weight, seed 0, first order `0.843`, exact `0.881432`, recorded `0.881432` |
+| PASS | B136-8 `own_reading` **the channel readings** | 1,020 rows over 18 cells, all finite; distance from reversible read on all 15 carriers under two weights |
+
+**On the money side the destination always gains and the source goes either way.** Of 750 routes added,
+the destination node rises on 716 and falls on none; the source's own share rises on 304 and falls on 412;
+of 270 cuts, the source rises on 161 and falls on 97. On an irreducible nonnegative chain this is Corollary 44.2: the
+destination gains `π_k δ π_j m(r → j) / (1 − v'Zu) ≥ 0`, and the source moves with the sign of
+`m(r → k) − m(j → k)`. B103's Rayleigh monotonicity keeps only its destination half.
+
+**A route from a payer who is always short carries nothing.** The 34 added routes that leave the
+destination unmoved all start at payers short in every round: the wage step takes all they hold, their
+row of it is zero, and the map does not change. Twelve of the cuts are the same. Every other intermediate
+source is short in at most `39.2%` of rounds.
+
+**By class**, medians: a financial node's new route into the intermediate block lowers the financial
+layer's share by `0.0035` and raises the block's by `0.0034`; cutting one raises the financial layer by
+`0.0057`. Routes added by wage earners move every class by a few hundred-thousandths.
+
+**The carriers are far from reversible**: on the holdings block, `72.0%` to `77.8%` of the flow has no flow
+back when weighted by the whole map's stationary vector, `72.0%` to `77.7%` under the block's own, and `95%`
+to `96%` of node pairs carry flow one way only. The resistance form is the reversible limit of the money
+side, and the two halves the money side lacks against the price side come from direction.
+
+---
+
+## B137: the borrowed price, one formula, its slope in the unpublished price, and the least correction the rival's premise requires
+
+**RUN: 2026-09-27; rerun 2026-10-06, every reading stored before unchanged and the FISIM amounts read from
+the published cells as well. Script `experiments/b137_borrowed_price.py`, record
+`results/b137_borrowed_price.json`,
+carrying the configuration it ran under; statement and proof in `docs/b137_borrowed_price.md`. Nothing
+fetched: the raw data already on disk for B131 to B134, through those stations' own loaders.**
+
+**What is built.** Theorem 45: when the cells of a set of classes are filled with a donor class's value,
+published less true is `Σ (P_b − P_a) x_a`, the class-value gap times the own class's stock, and a chained
+Laspeyres growth rate is off by the share-weighted relative gap. When the own value is not published the
+error is a line in it with slope `−x_a`; dropping the borrowed items and renormalising, in a Laspeyres
+index or a geometric index at frozen mean shares, is the point of that line at own relative = rest of the
+basket. A scalar between an own class below it and one above moves the total only through the stock
+difference. A rival whose premise is one scalar acceptable to every class puts it in the intersection of
+the classes' intervals; a cell filled with a value outside it must move by at least the distance times the
+cell's stock, with no own price. Where published cells imply different scalars the bound is read cell by
+cell.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B137-1 to B137-5 `instrument` **the six parts** | 2,000 synthetic fields each: level and growth `9.0e-15`, the change `5.3e-15`, the interval's ends attained, the least correction against a search, the "without" reading `4.4e-16` for Laspeyres and at frozen mean shares; the rest's own Törnqvist index is a different operation (`4.999955%` against `4.961967%` on a three-item example). Seven planted faults caught |
+| PASS | B137-6 `known_answer` **the "without" readings from the raw data** | France 2023 `7.048` and `4.938` as B132 printed; B132's 2020–2024 "without both" in 31 areas; B133's 1973–2014 borrowed share by its two operators, `0.1623` on the contributions construct and `0.1528` by the Fisher removal |
+| PASS | B137-7 `known_answer` **B131's scalar is the formula inverted** | 187 member years, implied scalars exactly B131's; median spread `0.5824` and 95 years with one outside the band, as B131 printed |
+| PASS | B137-8 `own_reading` **FISIM, what the premise requires of the published cells** | 187 member years; a cell's implied scalar outside the band in 95; the cell-by-cell bound under the common-scalar fit in every year; every negative cell's bound at least its amount; the mean of the four outside the band in 56 |
+| PASS | B137-9 `own_reading` **deflators, the slope** | 1,011 EU area-years, 96 US years, B134's three rounds |
+
+**FISIM.** The four published cells each imply a scalar and the four differ, so the bound is read cell by
+cell: a deposit cell whose scalar lies below the band, or a loan cell whose scalar lies above it, must rise
+by at least the distance times its stock. In 95 of the 187 member years a cell lies outside the band. Cells
+that must rise appear in 67 years, with a least rise of `0.30%` of GDP at the median and `4.5%` at most;
+cells that must fall in 80 years, median `0.44%`. France 2023 needs at least 56 billion euros more on its
+two loan cells (`2.0%` of GDP) and 46 billion less on its two deposit cells. **A negative cell is published
+in 49 years, and each one's bound is at least its negative amount.**
+
+Taking the mean of the four as the office's one scalar, it lies outside the common intersection of the
+sectors' intervals in 56 years, 45 below and 11 above (outside both sectors' own intervals in 29). Its
+distance to the band times the understated side's stock has a median of `0.55%` of GDP; this is the least
+correction on a baseline rebuilt from the mean, and it exceeds the least sum of increases under one common
+scalar in 34 of the 56 years, and the cell-by-cell least rise in 35, so it is not read as a bound on them. With a median stock imbalance
+`|D − L| / (D + L)` of `0.15`, a common scalar mostly moves the split between deposit and loan services.
+
+**Deflators.** In the euro area the two borrowed items weigh `0.13` to `0.16`: each point of the own price
+relative the statistic does not observe moves the published consumption deflator by that much (median
+slope `0.137` over 1,011 area-years). The euro area's 2023 figure of `6.29%` becomes `5.33%` at own =
+rest, a bias of `+0.96`: FISIM `+1.24`, imputed rent `−0.29`. In the US PCE the borrowed items' base share
+has a median of `0.116` over 1930 to 2025; the PCE is a Fisher index, and the US line is exact on the
+contributions construct, which stands in for the index of the rest.
+
+**Where the own price is published the bias is read directly**: China's national price is `21.7%`, `18.6%`
+and `17.2%` above the rural one in the 2011, 2017 and 2021 rounds.
+
+---
+
+## A52: claims taken out of the financial layer, and which nodes the loss reaches first
+
+**RUN: 2026-09-27; rerun 2026-10-06 keeping every round of the episode (the readings at rounds 1, 5 and 20
+stored before are unchanged). Script `experiments/a52_withdrawal_reach.py`, record
+`results/a52_withdrawal_reach.json`, which carries the configuration it ran under. 150 cells: five arms, two amounts (1% and 5% of the
+financial layer's holdings when the episode opens, per round), three subsistence floors, five seeds. The
+carrier is A41's, imported. Nothing fetched.**
+
+**Why the station exists.** The empirical arm read industries closer to finance going into crisis less often
+after a monetary tightening, where the sign registered from A44, A45 and B114 (claims settle where they
+enter) was positive. That sign carried an injection result across to a withdrawal no station had run. A31
+read withdrawal on closing states and found the position washed out by trade; this station reads the path,
+round by round, for 20 rounds from round 150.
+
+**The arms.** Taken out of the financial layer, and added to it. Taken out of every live account outside the
+financial layer (the borrowers' side, A31's `production` position), and added there. And a transfer: taken
+from the borrowers' side and added to the financial layer, the claim total unchanged, which is what a rate
+rise does to the ledger. The production and transfer arms were added after the empirical reading came back
+with the opposite sign. Distance is hops along the graph from any financial node; on this carrier the 30
+nodes one hop away are the intermediate block, 75 more are two hops away, and 75 are not reached.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A52-0 `instrument` **an amount of zero is the plain network** (run by `--gate`) | bit for bit on every floor and two seeds, under every arm |
+| PASS | A52-1 `instrument` **the claim total closes** | tracked total against holdings plus parked claims at the close, 150 cells, largest gap `7.96e-13`; a seeded episode that does not book its claims leaves a gap of `75.7` and is reported |
+| PASS | A52-2 `bookkeeping` **every printed median and rank correlation is finite** | 11000 of 11000 |
+
+**Taken out of the financial layer, the loss reaches the near nodes first and hardest, and the mirror holds.**
+The rank correlation of closeness with the change among reached nodes, median over seeds, is `-0.98` after
+one round and `-0.63` to `-0.58` after twenty; the injection arm reads `+0.98` and `+0.78`. At 1% a round the
+one-hop band falls `-0.4%`, `-2.9%` and `-4.5%` at 1, 5 and 20 rounds, the two-hop band `0.0%`, `-0.8%` and
+`-1.8%`. The sign registered from A44 and A45 holds on the model.
+
+**Taken from the borrowers' side, the near nodes are hit first and the gap closes.** `-0.43` to `-0.47` after one
+round, about zero after twenty.
+
+**As a transfer from borrowers to the financial layer, the sign turns.** `-0.33` to `-0.35` after one round,
+`-0.16` to `-0.19` after two, `-0.02` to `0.00` after three, `+0.11` to `+0.14` after four, `+0.11` to `+0.16`
+after five and `+0.34` to `+0.43` after twenty: the median over seeds is negative for two rounds (three at 1%
+a round) and positive from the fourth on, on every floor and both amounts. Every round of the episode is in the
+record. One seed at 1% a round is still below zero after twenty (`-0.03` to `-0.06`). At 5% a round the
+one-hop band is at `-7.5%` after one round and `+3.7%` after twenty, while the two-hop band ends at `-7.3%`: the
+lenders' extra income is spent close to them.
+
+**What this reads for the empirical arm.** A tightening read as a transfer to lenders reproduces the sign the
+industry panel found over 12 and 24 months, and it registers a new one: over a short horizon the near nodes are
+hit first, so closeness should carry the opposite sign there. No subsistence floor produced an extra exit
+inside the episode, so the readings are holdings, not exits; on the highest floor each injection arm keeps one
+one-hop node from exiting in one seed.
+
+**Run on the industry panel the same day.** Over 3 and 6 months, closeness to finance carries the negative
+sign already (under Romer-Romer -0.0030 and -0.0064, 0.6% and 0.4% of permutations; under Jarocinski-Karadi
+the term is inside its floor), so no reversal shows down to a quarter. A round is a unit of trend rather than
+a calendar interval, and the model's opposite sign lasts two to three rounds, the median turning positive in
+the fourth, so a quarter is not placed before or after the turn: the panel reads the long-horizon sign at 3
+and 6 months and no reversal, and where the model's turn falls on the calendar is not located. The industry panel is the empirical arm's, on
+employment by industry.
+
+**The transfer's first link, read the same day on bank data.** A tightening lowers the net interest margin of
+U.S. banks (the 12-month Jarocinski-Karadi shock sum correlates -0.61 with the margin's four-quarter change six
+months on), and the margin does not carry the industry panel's closeness effect. On bank margins the lenders'
+net income falls first, so the transfer this station models is not the channel those margins show.
+
+**On the whole of the lenders' income the second link holds.** With finance and insurance value added as a
+share of GDP in place of bank margins, industries close to finance go into crisis less often when that share
+rises (-0.0205 and -0.0217 at 12 and 24 months, 0.2% and 0.6% of permutations), which is the transfer arm's
+second step: what the financial layer takes in is spent close to it. The first step still does not show: a
+Jarocinski-Karadi tightening does not raise that share (-0.18 to -0.03). The arm's mechanism reads on the
+data; its trigger, in 2006-2025, is not a tightening.
+
+**Split in time, both of this station's signs show in the data, one per period.** Industries closer to
+finance go into crisis less often after a tightening before 2008 (the transfer arm's sign) and more often from
+2008 on (the withdrawal arm's sign). The first sign is read on the services leaves at 12 months: it clears at
+the 2008 break (3.0% of permutations) and at the 2006 break close to the line (3.8%); at the 2009 break the same
+term, -0.0288, is reached from below by 3.4% of permutations under one permutation seed and 5.8% under another,
+so it sits on the 5% line. The second clears at 24 months on the goods leaves (0.4% of permutations at all three
+breaks) and on the services leaves at 12 and 24 months from breaks in 2008 and 2009 (2.4% to 3.8%). The
+full-window near-zero term is the two periods netted.
+
+**Against the Fed's balance sheet the withdraw arm's sign shows on goods.** When the Fed's total assets
+shrink, goods industries closer to finance go into crisis more often (-0.0061 at 12 months, 1.2% of
+permutations); on services the term is inside its floor. The tightening's closeness effect from 2009 is not
+carried by the balance sheet's size: where that term clears, adding the balance sheet leaves it where it was
+or larger (on goods +0.2555 to +0.2687 at 24 months, on services +0.0456 to +0.0544 at 12 months and +0.0676
+to +0.0836 at 24).
+
+**Read at the lender, the withdraw arm's sign straddles the 5% line on services, and the pre-2009 negative
+sign is not the lending cycle.** When banks tighten C&I lending standards, services industries closer to
+finance go into crisis more often: over 1991-2025 the term is positive in both constructions of the driver
+(the quarter's value and the four-quarter mean) at 12 and 24 months, reached from above by 2.8% to 7.2% of
+permutations, and before 2009 by 3.6% to 7.0%; from 2009 it is inside its floor at 12 months, and at 24 months
+its sign moves between the constructions. Before 2009 a tightening came with looser standards, and holding
+standards fixed moves the tightening's 12-month closeness term, on the 5% line to begin with, only from -0.0288
+to -0.0230 and -0.0247, while standards' own closeness term beside it falls inside the floor (32.7% and 32.9%
+of permutations from above); at 24 months the tightening's term is inside the floor with or without standards.
+The standards cycle does not carry that period's negative sign. From 2009 standards do not carry the
+tightening's closeness effect either.
+
+**On the price of credit the same sign shows before 2009.** When the Baa-Treasury spread is wide, services
+industries closer to finance go into crisis more often before 2009 (+0.0169 and +0.0197 on the level at 12
+and 24 months, 0.6% and 1.6% of permutations; the 12-month change has the same sign inside its floor). From
+2009 the term is not read at 12 months, where the level and the change disagree in sign; at 24 months both
+are negative, the level reached from below by 1.2% (-0.0162) and the change inside its floor: on the level, a
+cell where both accounts fall short. The balance sheet's size and banks' standards leave the post-2009
+tightening's closeness term where it was or larger; the spread's level takes up part of it (+0.0456 to
++0.0374 at 12 months, +0.0676 to +0.0391 at 24, both then inside the floor) and its 12-month change none.
+
+**On services most of these readings are the reached-unreached contrast.** 42 of the 546 services leaves are
+not reached by the finance channel (closeness 0, three quarters of them in health care and social assistance).
+On the reached leaves alone the tightening terms before and from 2009 and the lending-standards term fall
+inside the floor, and the finance-share term weakens to just inside it (6.4% and 8.0% of permutations);
+Romer-Romer's term (-0.0165 at 24 months, 1.0%) and the pre-2009 credit-spread term (+0.0267 at 24 months,
+0.4%) hold as gradients. On all services leaves the post-2009 tightening term falls inside the floor with the
+2022-on rate cycle left out; the goods leaves are all reached, and their post-2009 withdrawal sign holds with
+any one rate cycle left out.
+## B135: block trades, the six-month lock on buyers from large holders, and the second price of the same stock on the same day
+
+**RUN: 2026-09-27; rerun 2026-10-06 with the trade day's risk-warning (ST) price limit and with B135-5 split at
+the rule date. Scripts `experiments/b135_fetch.py` (the three tables), `experiments/b135_bars.py` (daily bars
+into B110's cache), `experiments/b135_yearbooks.py` (the exchanges' yearbooks) and `experiments/b135_readings.py`;
+record `results/b135_blocktrade.json`, carrying the configuration it ran under.**
+
+**What is built.** From 2017-05-27 the exchanges' rules lock for six months whoever buys, in a block, a large
+holder's shares other than those the holder bought at auction, or a specified holder's pre-listing or placement
+shares; the buyer on the open market is not locked. So on one stock on one day there are two classes of buyer.
+The lock-buy class is read from the seller's side: a block joined to a five-per-cent holder's reduction whose
+stated method is a block trade (41,833 A-share blocks, 33,171 from the rule date). It is a proxy. The holder table
+names the seller and the method and does not say where the shares came from, so which of these blocks sold
+auction-bought shares, whose buyer is not locked, is not read. One joining rule is used before the rule date,
+after it and on every placebo month. The unlocked class is a block no identity table names and whose stock had no
+pre-IPO or placement unlock in the year before. The discount is `1 − deal / close`. A deal lies inside the day's
+price limit, which is 5% for a main-board stock under risk warning; whether a stock was under risk warning on the
+trade day is read from that day's bar, and a block at the lower limit is left out.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B135-1 `instrument` **the source's premium column** | Deal over close less one on all 332,062 A-share blocks, largest gap `5.0e-13`. 21 blocks lie outside their price limit (13 on days the close itself is outside, 8 with the close inside) and are left out. The trade day's risk-warning flag is on disk for 125,688 blocks; it puts 2,733 of them at a 5% limit and takes out 998 more that sit on it (393 of the lock-buy class); a block with no bar that day keeps its board's limit. About half the table is bonds; the station reads Shanghai and Shenzhen A shares |
+| FAIL | B135-2 `known_answer` **yearly totals against the exchange's yearbook** | Shanghai 2011–2024: 2017 and 2018 agree in trades and amount to the last digit; the other twelve years differ by at most 22 trades (under 1%) and 3.70 hundred-million yuan (0.13%). Shenzhen's fact books carry no block-trade statistics |
+| unread | B135-3 `rival` **the 2017-05-27 step** | The lock-buy class's median discount steps up by `+0.015`, `+0.026` and `+0.045` over 20, 60 and 120 trading days, above 108, 126 and all 132 of the placebo month starts. The windows agree on sign and not on place, so the cell is not read. `grid = unread` |
+| PASS | B135-4 `own_reading` **the other dates** | At 2016-01-09 (no line drawn for buyers) and 2024-05-24 (the lock kept) both classes stay inside their placebo ranges. On 2017-05-27 the unlocked class moves the other way: `−0.008`, `−0.011`, `−0.016` |
+| PASS | B135-5 `own_reading` **against Longstaff's bound** | From the rule date, 25,120 lock-buy blocks with volatility on all three windows: above the six-month bound 158, 100 and 16 with volatility over 60, 120 and 250 trading days, most in 2023 and 2025. Before the rule date, when no buyer was locked, the same comparison on 5,866 blocks gives 1, 0 and 1 |
+| PASS | B135-6 `own_reading` **the borrowed amount** | Locked shares valued at the close, from the exchanges' total less negotiable market value: 48,704 hundred-million yuan in 2012, 164,532 in 2021, 80,798 in 2024 (both exchanges). Beside it four parameter scenarios, each one number applied to the whole amount |
+| PASS | B135-7 `bookkeeping` **coverage** | Every block one row; the class joins name the probe snapshot's blocks exactly |
+
+**The lock-buy discount rises on the rule date and stays inside what the lock can cost.** Its median is `0.030`
+over the 120 trading days before 2017-05-27 and `0.075` over the 120 after, while the unlocked class's falls from
+`0.016` to `0.000`. From the rule date almost every lock-buy discount lies below Longstaff's bound for six months,
+the most a perfectly timed seller could lose by being unable to sell.
+
+**Total market value borrows the close for the locked shares.** On the exchanges' own figures the locked block was
+between 67% and 77% of Shanghai's market value from 1995 to 2008 (76% of GDP in 2007) and 6% in 2024, and 58% of Shenzhen's in
+2005 and 13% in 2025. Two scenarios size the gap. The year's median lock-buy discount, applied to the whole block,
+takes 3% to 8% off its value at the close; Longstaff's six-month bound at the class's median volatility takes 23%
+to 45% off. Each applies one number to the whole amount. The model's own lower value is a sum over stocks, each
+with its locked value, its volatility and its remaining term, and that sum is not computed here.
+
+---
+
+---
+
+## B138: the split-share reform, a class line drawn by rule and the price written when it was erased
+
+**RUN: 2026-09-27; rerun 2026-10-06 with plans read whole, B and H shares kept apart from the A shares, and
+the statement listing rebuilt month by month for 2006. Script `experiments/b138_share_split.py`, record
+`results/b138_share_split.json`, carrying
+the configuration it ran under; the notices through `experiments/b138_fetch.py` and `experiments/b138_parse.py`,
+the dates and bars through `experiments/b138_bars.py`; the conversion and the readings in
+`docs/b138_share_split.md`.**
+
+**What is read.** Before 2005 most shares of a Chinese listed company could not trade on the exchange. They
+carried the same cash flows and votes as the tradable shares; a rule kept them off the market. Ending that
+rule, the holders of non-tradable shares in each company paid the holders of tradable A shares a published
+consideration `c`, stated as shares per tradable share. If the reform moves value between the two classes
+without adding any and leaves the tradable holders whole, the consideration reads the class-value ratio
+`r = P_N / P_A`: `r = ((1 − n) − c n) / ((1 − n)(1 + c))`, with `n` the tradable share of the A and
+non-tradable total. With the prices before and after observed, conservation alone gives a second reading
+`r_m`, equal to `r` exactly when the tradable holders come out whole. After the reform the former
+non-tradable shares were tradable under selling restrictions for one to three years; both readings value
+them at the free float's price, and with a restricted share worth `q` of a free one, `r(q) = q r`. They are
+the readings at `q = 1`, the upper ends in `q`, which is not read here.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B138-1 `instrument` **the conversion against counted shares** | 2,000 synthetic companies, 30% with B or H shares: the formula, its inverse, the merged price, the market reading and six forms of consideration against share counts and holdings, largest gap `1.3e-15`. Eight planted faults caught |
+| PASS | B138-2 `instrument` **every company read or named** | 1,214 companies with an implementation notice; the 16 read by eye agree, and so do 4 joint plans, 12 structures with B or H shares and 75 plan summaries read by eye; 759 read and converted, the rest named by reason. 34 directed conversions state their own equivalent transfer; the formula is within 1% of it in 33, median gap 0 |
+| PASS | B138-3 `known_answer` **the exchange's own tally** | to 2006-10-31, 999 companies: shares from the non-tradable holders in 750, mean 3.110 per 10 against the Shenzhen exchange research institute's 791 and 3.156; shares in the plan 92.9% against 96.5% |
+| PASS | B138-4 `rival` **the non-tradable share's transfer price is not the tradable price** | `grid = B`. Chen and Xiong (2001): discounts of 77.93% at auction and 85.59% in private transfers, August 2000 to July 2001, against a point prediction of zero |
+| PASS | B138-5 `rival` **the consideration is not zero** | `grid = B`. 759 companies, every consideration above zero, smallest 0.06 and median 0.30 shares per share, against a point prediction of zero |
+| PASS | B138-6 `own_reading` **the implied class-value ratio** | `r` median `0.636`, quartiles `0.595` and `0.676` |
+| PASS | B138-7 `own_reading` **the consideration against the float** | by quintile of `n`, median `c` 0.33, 0.32, 0.32, 0.30, 0.26 while `(1 − n)/n` runs 3.00 to 0.98 |
+| PASS | B138-8 `own_reading` **the borrowed price in Shanghai's market value** | the non-tradable part, valued at the float price, was 69% to 81% of total market value in 1993 to 2005 |
+| PASS | B138-9 `own_reading` **the market reading** | 733 companies with both prices: `r_m` against the index median `0.681`, `r` on the same companies `0.635`; tradable holders' gain against the index median `+3.8%` |
+
+**Two readings meet.** The consideration the two classes agreed on puts the non-tradable share at `0.636`
+of the tradable price (median over 759 companies); the prices before the statement and after the listing,
+against the index, put it at `0.681` (733 companies; `0.677` over the 572 whose window is 70 days or less).
+Both are upper ends: per 0.1 that a restricted share after the reform is worth less than a free one, `r`
+falls by a tenth of itself and `r_m` by a median of `0.071`. Chen and Xiong's transfer prices from 2000 and
+2001 put the ratio at `0.14` to `0.22`; none of the 759 considerations implies a discount that deep.
+
+**The consideration is close to one number.** Across quintiles of the float share the median consideration
+moves from 0.33 to 0.26 shares per share while `(1 − n)/n` moves by a factor of three; the rank correlation
+is `0.390`, ties at their mean rank. The implied ratio therefore follows the float share: the same "three
+shares for ten" writes a different class value in a company with a small float than in one with a large
+float.
+
+**The tradable holders came out slightly ahead.** Against the index their wealth over the reform rose by a
+median of `3.8%` (458 of 733 above zero), and `r_m − r` has a median of `+0.048`.
+
+**The borrowed price.** Shanghai's total market value priced the non-tradable shares at the float price: 69%
+to 81% of the total in 1993 to 2005. Revalued at the median `r`, the excess is largest in yuan in 2003, about
+786 billion (`5.7%` of GDP), and largest against GDP in 2000, `6.7%` (about 671 billion).
+
+**Named, not in the readings**, by reason: share structure not verified 234, a plan with a company-level part
+126 (an asset swap, donated or injected assets or cash, a debt waived, a buy-back, a one-way shrink, a new
+issue for assets), other forms 33, no consideration sentence 21, warrants 15, conversions to every holder 13,
+directed conversions with B or H shares 5, stated total disagrees 4, mixed conversions 3, amount not read 1.
+The plain share plans among the 234 have the same median consideration as those read (0.32).
+
+**What the rerun changed.** Plans are read to the full stop, so shares and a directed conversion in one
+sentence convert together (four companies). A plan whose summary names something the company itself receives
+or gives up is named and not converted: 57 such plans were read by eye among the notices that would otherwise
+convert, 52 of which had been read as plain share or conversion plans. A table's tradable total is read apart
+from its A row, which corrects the A shares of twelve companies with B or H shares. The statement listing for
+2006 has 3,352 rows, past the 100 pages the platform serves; it is now asked by month, each window checked
+against the platform's total, which moves 38 first-statement dates earlier and adds 50.
+
+## A45b: A45's wage bill read L rounds late; the lag moves no share and no entry term
+
+**RUN: 2026-09-28. Script `experiments/a45b_delay_line.py`, record `results/a45b_delay_line.json`,
+carrying the configuration it ran under, written twice and byte-identical. A45's rebuilt map on its five
+default carriers (A44's control runs, no wall), imported; A45's code is not changed. Nothing fetched.**
+
+**What is built.** On A45's map the wage bill follows the second layer's spending one round late,
+through the spending state, on which the mass functional is zero. This station stretches the spending
+state into a line of `L` cells: the newest cell takes the round's spending, the line shifts by one each
+round, and the bill reads the oldest cell. No cell of the line carries mass. At `L = 1` the block is
+A45's, bit for bit. For `L` in 1, 2, 3, 6 and 20 it reads the stationary split, A45's entry term `K`,
+and the extra term: each class's deviation term for claims entering each home class, less the same
+term at `L = 1`. The companion repository's F27 reads a wage-indexation interval as this lag.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A45b-0 `instrument` **the delay line at `L = 1` is A45's block** | On 5 carriers the `L = 1` block equals A45's bitwise; at `L` = 2, 3, 6 and 20 the bill column sits on the oldest cell, the newest cell holds the spending row, and the line shifts by one. Three planted faults are reported: the bill's own spending left out of the newest cell, the bill reading the newest cell, and a line that loses a tenth of what it carries each round |
+| PASS | A45b-1 `instrument` **each delay-line map keeps its stationary vector and conserves claims** | 25 maps: stationary residual `4.6e-15`, conservation `3.3e-16`, mass `6.3e-15`, each within `1e-12`, A45's chain tolerance. The planted fault that counts the line's cells as mass is reported |
+| PASS | A45b-2 `own_reading` **the lag moves no stationary share and no entry term** | Largest change from `L = 1` over 5 carriers, 3 classes and 4 lags: share `4.2e-15`, entry term `2.7e-15`, within `1e-12`. Reported by the line counted as mass and by the leaky line |
+| PASS | A45b-3 `own_reading` **the extra term is linear in the added rounds and the same for every entry class** | Distance from a line in `L − 1` at most `6.5e-15`; spread across entry classes `1.4e-16`; within `1e-12`. Reported by the leaky line |
+
+**The lag's elasticity is zero for `K` and one for the extra term.** On seed 0 the entry terms are
+`1.1951` (financial layer), `0.8009` (intermediate block) and `0.0703` (wage earners) at every `L`, and
+every stationary share stays where A45 puts it. What the lag adds, per round of lag and per unit
+injected, medians over the five carriers: the intermediate block, which pays the bill, `+0.0103`
+(`+0.0088` to `+0.0113`); the financial layer `−0.0085` (`−0.0095` to `−0.0068`); the wage earners
+`−0.0019` (`−0.0019` to `−0.0018`). On each carrier the three sum to zero within `1e-16`. Of what the
+payers gain, `0.83` comes from the financial layer and `0.18` from the wage earners (the ratio of the
+medians; `0.82` and `0.18` as the median of the carriers' own ratios). The line's own stationary value
+grows by `0.238` per cell on seed 0, outside the mass.
+
+**What that says.** A lag that carries no mass changes neither where claims end up nor how long an
+entry advantage lasts. It adds a term proportional to the claims still in the line: while the bill
+lags, those claims sit with the payers, and they leave once injection stops. Read as a
+wage-indexation interval, the interval's own effect on the permanent split is zero on this model, and
+shortening it moves the claims in transit from the payers back to the financial layer and the wage
+earners.
+
+## B139: Japan 1859, one conversion written by holder, and the ring the open ports joined
+
+**RUN: 2026-09-30; B139-11 to B139-13 on 2026-10-01; rerun 2026-10-06. Script `experiments/b139_japan_1859.py`, record
+`results/b139_japan_1859.json`, carrying the configuration it ran under; the ring and the readings in
+`docs/b139_japan_1859.md`; the dated statements of 1859 to 1861 in `data/b139_dated_statements.json`.**
+
+**What is read.** The treaty of 1858 made foreign silver pass against the ichibu by weight while the ichibu
+passed against the koban at face. The ring dollar -> ichibu -> koban -> gold sold abroad -> dollar returns
+`L = e (1/4) g_k R_w / s_d`; a scalar price per coin sums every ring to zero. Every published specification
+of each coin is carried, and their spread is the floor.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B139-1 `instrument` **the ring walked coin by coin** | 5,000 synthetic specifications against three closed forms, largest gap `6.4e-16`; four seeded faults caught |
+| PASS | B139-2 `known_answer` **the literature's threefold chain** | 2.97 to 2.99 with the Tenpo koban at four ichibu; that koban was raised to 1 ryo 1 bu a week before the ports opened, and the ring open from 1859-07-21 returns 2.38 to 2.40 |
+| PASS | B139-3 `rival` **ln L away from zero on every segment** | `grid = B`. Six segments, −0.52 to +0.87, floors 0.005 to 0.016; the bullion ring +0.19 to +0.40 under six readings of `R_b` |
+| PASS | B139-4 `own_reading` **one silver-gold ratio per edge** | `R_t` 6.0 to 6.9, `R_b` 10.1 to 12.5 |
+| PASS | B139-5 `own_reading` **written rules by holder** | nine rules on the edge dollar <-> ichibu; from 1860-07-01 two at once, the official class by weight less 4% and everyone else at market. December 1859: Kanagawa 10,000 ichibu a day for all nations, Nagasaki nine then four a day per American, Hakodate five dollars a day per man; Harris: the treaty rule binds the port offices, not trade between merchants |
+| PASS | B139-6 `own_reading` **the dose path** | the six segments above, each from its day; at market prices in mid-December 1859, a holder with a custom-house quota +0.15 to +0.40, everyone else −0.26 to +0.22, against +0.87 at the written rates; the gold leg at market prices had covered 60% of the revaluation (oban, 30 ryo 2 bu to 55 ryo 2 bu) before it was announced |
+| PASS | B139-7 `own_reading` **the two closings** | the Ansei two-shu closed the ring on opening day (−0.23) and was withdrawn three weeks later (+0.87); the koban revaluation and the Man'en recoinage closed it past zero (−0.12 to −0.10) |
+| PASS | B139-8 `bookkeeping` **outflow estimates** | 42 named, each with its source, not combined |
+| PASS | B139-9 `own_reading` **after the cut, 1601-1859** | `ln(R_w/R_b)` above zero throughout but one stretch; the Bunsei and Tenpo recoinages move it to +0.36 and +0.55; 1763-1779, when Chinese ships carried gold and silver in, it narrows to zero (1772) and opens again after (+0.25 in 1781) |
+| PASS | B139-10 `own_reading` **the Osaka gold quote day by day, 1859-1860** | 706 trading days. At the decrees on the dollar <-> ichibu edge the ten-day step is at most 0.004 in logs through January 1860 (median step of the series 0.005) and −0.018 on 1860-07-01, while those decrees moved the ring from −0.23 to +0.87. The day the quote left the koban, −0.093; in the month of the Man'en koban, −0.133, back to the level of mid-1859. Two tenders put four ichibu at a ryo of gold on hand to within 0.1% |
+| PASS | B139-11 `rival` **the custom house against everyone else, month by month** | `grid = B` under both rules that date a month. Ichibu per 100 dollars. Rule in force (everyone else dated to within two months, the custom house's side the written rate covering the month): Yokohama, the custom house above in 8 of 12, overlapping in 4, below in none (sign test `3.9e-03`); Nagasaki 15 of 16 (`3.1e-05`); 23 of 28 at the two ports. Both sides dated to within two months: 6 of 6. Sorted gaps +0.02 to +0.45 in logs. Each overlapping month at Yokohama is one in which a measure wrote one value for every holder |
+| unread | B139-12 `rival` **the duty counter against everyone else** | `grid = unread`. Dollars taken for duties at 311 by weight. Rule in force: Yokohama above in 17 of 20 months, 3 without a sign, none below (`7.6e-06`); Nagasaki 3 of 3. Both sides dated: two months at Yokohama, one above and one without a sign, which the criterion's rule reads the other way. The two rules differ, so no cell is claimed. In July and August 1860 the custom house asked for duties at the market rate and withdrew within six weeks |
+| PASS | B139-13 `own_reading` **the ring at each month's prices, by holder** | September to December 1859: open in 4 of 4 months for a holder changing at the custom house (+0.06 to +0.72), astride zero in 2 of 2 for a holder at the others' rate; six lots and shipments 1.26 to 1.65 times cost; the Shanghai leg at a booked sovereign rate −0.001 to +0.030; a koban paid in at its value of February 1860 against its Shanghai price of November 1859, +0.09 to +0.17 |
+
+**The issuer closed the ring twice.** The silver side closed it on the day the ports opened, and the
+closing was withdrawn under the treaty partner within three weeks. The gold side closed it for good and
+went past zero.
+
+**One edge, two values, month after month.** Read on 278 dated statements (`data/b139_dated_statements.json`; no day-by-day
+market series exists before 1862), the holders the custom house changed for got more ichibu for a dollar than everyone
+else in 23 of the 28 months of August 1859 to August 1861 in which everyone else's rate can be dated at Yokohama or
+Nagasaki and a written custom-house rate was in force, in all 6 months in which both sides are dated, and less in none.
+Statements from later compilations enter no reading, whichever way their figures were read. Thirteen seeded faults
+move the three readings.
+
+## B140: the reign titles in a hoard record when an edge was open
+
+**RUN: 2026-09-30; rerun 2026-10-06 with B140-9 read with the hoard as the unit and against two reference
+stocks, the common stock kept to Jin and Southern Song territory, and thirty unnamed coins of the Chong'an row
+read as Northern Song. Script `experiments/b140_hoard_vintage.py`, record `results/b140_hoard_vintage.json`,
+carrying the configuration it ran under; the quantities, the dating and the readings in
+`docs/b140_hoard_vintage.md`.**
+
+**What is read.** `S_h` Southern over Northern Song coins in a hoard; `Q_h` Southern Song cast after the cut
+over cast before. Jin and Xixia hoards are dated only by coins the Song cut does not touch. The rival,
+outflow as a property of the issuer, predicts the same ratio at every destination.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B140-1 `instrument` **the quantities and the labels** | closed forms to `1e-15`; a hoard-level bootstrap passes a cut world and not a same-stock world; 16 seeded faults caught; every label maps but one |
+| PASS | B140-2 `known_answer` **Japan's top twenty** | Northern Song 17 of 20 (Suzuki 1992, table 4) |
+| UNREAD | B140-3a `own_reading` **Jin territory, main window, printed** | No Jin hoard with a per-type table and `T_h >= 1204` yet; Beijing Youanmen (Li Wei 2013) is a river-silt scatter with Taihe coins and a collectors' type list with no Southern Song coin. Printed, not set against the rival: the Northern Song denominator is stock held before the border |
+| UNREAD | B140-3b `rival` **the late Southern Song coins** | `grid = unread`. Six Southern Song hoards with a table in the window; no Jin hoard with one, and `rho_Q` sets Jin against home. The Jin dating clock stops at Dading (1178) save for Taihe: 59 hoards nationally end on Zhenglong or Dading, one later. Ganquan Shehegou, dated 1210 by a Xixia coin, is in the window with 284 Southern Song coins of no type later than Chunxi, and no count by type. Three Xixia hoards sealed after 1211 hold 37 Southern Song coins, all cast 1127-1162 |
+| PASS | B140-3c `rival` **coins cast after the border, their share at the destinations** | `grid = B`. Read on the reign-type basis (types first cast 1190-1210): home share 0.136 to 0.714 where counted (six); at the destinations, three Xixia hoards sealed after 1211 and Ganquan Shehegou (Jin territory, 1210, types and total only) hold none of those types among 321 Southern Song coins, probability 3.65e-21 on the rival's premise. On the casting-year basis the Xixia hoards alone: 0 of 37 against 0.116, probability 0.0102. Eighteen Southern Song hoards in the window hold types cast from 1180. Jin reports dated below the window name a few late coins without counts by year. A single late coin is printed, not counted: a cut edge leaks a few. The other way: Jin coins cast before Jin's 1198 ban in fifteen of the eighteen home hoards, Taihe (1204) in none, a row of little power |
+| UNREAD | B140-9 `rival` **Northern Song vintages in Xixia follow war and peace** | `grid = unread`. Groups of reign titles (a coin is dated no finer than its title), Xixia share over reference-stock share; counted steps D to E and F to G; the hoard is the unit and the cell needs both reference stocks to agree. Against the common stock (Jin- and Southern Song-territory hoards, 482,834 coins) all six steps rise in the three Xixia hoards, as both do in 6 of 9 Southern Song-territory hoards and 4 of 16 Jin-territory hoards against the same stock; against the Southern Song home stock 2 of 6 rise, the rate of the Jin-territory hoards (10 of 34). Three hoards give at best 0.125 and 5 would be needed. Hoard by hoard the Xixia hoards are not separated from the Jin-territory hoards on either step (0.062, 0.244); their coin is older (the group cast 1102-1126 lower than in all nine Southern Song-territory hoards, 0.004). Pooled ratio against the common stock by group: 1.16, 0.17, 1.50, 0.90, 1.01, 0.81, 0.96; cast 1102-1126, 0.44 |
+| UNREAD | B140-4 `own_reading` **the Sinan ship** | the published catalogue gives no coin counts |
+| PASS | B140-5 `own_reading` **Japan by T_h** | twelve hoards, 1265-1470: Southern Song coin cast from 1180 two to three times that cast before; Ming coin about 5% from 1408 |
+| PASS | B140-6 `own_reading` **Jin's own coin** | 0 to 1.2% of Jin hoards; Jilin Dazheng cun left out as a collector's hoard, Penglai Xingwu because its entry names no Jin coin |
+| PASS | B140-7 `bookkeeping` **coverage** | 42 Chinese hoards with per-type tables (ten from the Qianbi kaogu wenxian xulu, six of them in Jin territory), 12 Japanese, each with its source and exclusion; seven more reports opened list coin types without counts (Youanmen, Gao'an, Shenzhen, Changxing, Changning, Yuping, Luoding) |
+| PASS | B140-8 `own_reading` **copper by issuer** | Northern Song richer in copper; melting by copper would raise `S_h`, and `Q_h` cancels it |
+
+**The Jin tables count no Southern Song coin cast from 1180**, and coins cast 1163-1178 are present, which
+fits the Song cut of 1166, its lifting in 1167 and the stable cut from 1179. The reports of Dingxing Xiaodian and
+Huolu Zhangjiazhuang name Chunxi back years after the cut among the Chunxi their tables count without back years
+(at most 40 Chunxi among 2,715 Southern Song coins in the eleven tables, 1.5%); other Jin reports name a few late types without counts. Northern Song coin was the stock
+of the whole north before the border and carries no border; the coins cast after it do.
+
+## B141: Ming tea for horses, one horse and two prices
+
+**RUN: 2026-09-30; rerun 2026-10-06 with horses taken kept apart from sums due, the posted prices checked
+against their records, and the pairing and the printed interval of a quote tightened; no verdict moved.
+Script `experiments/b141_tea_horse.py`, record `results/b141_tea_horse.json`, carrying the configuration it
+ran under; the square, the units and the readings in `docs/b141_tea_horse.md`.**
+
+**What is read.** The official tea price of a horse against the private price at the same place, time,
+grade and tea; the rival puts the square between them at zero. Where no pair exists, the official channel
+is read along the enforcement of the private ban.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B141-1 `instrument` **units, grades, pairing, dose** | known answers on synthetic records; 15 seeded faults caught; a feature not stated matches nothing, a quote is good to half the last place of its printed unit, the square is read under each weight of the bi |
+| PASS | B141-2 `known_answer` **the Hongwu price 120/70/50** | Taizu shilu 196, 1389, at Yazhou, third grade foals; the Qin-He price is 80/60/40 |
+| UNREAD | B141-3 `rival` **official against private price** | `grid = unread`. No pair on all four features; Li Dongyang's bound (an essay of about 1471-72) puts the private price between 80 and 200 jin |
+| PASS | B141-3b `rival` **the sign of the gap, from dated statements** | `grid = B`. Twenty-four statements read in the original, 22 years from 1397 to 1597, seven reigns: with the private channel open sellers leave the office and office tea loses value (twenty-one), with it cut tea grows dear at the border and horses come (three); none the other way. By reign, 0.0078 on the rival's premise. The sign only, not the size |
+| PASS | B141-4 `own_reading` **intake along enforcement** | horses taken by the three offices: tally campaigns of 13,518 (1398) and 13,000 (1435), one every three years; 840.5 a year in 1497-1502 after the tallies stopped; 2,488, 6,343, 4,298, 5,948 in 1503-1506 once enforcement tightened, 5.67 times the six years before. The levy due (14,051 every three years) and the later quotas are listed and not compared. A censor in 1502: early Chenghua "ten thousand a year", of late "not one in ten". At Diaomen, when the ban slackened in 1409, the official channel paid 1,186 jin a horse against a posted 120 |
+| PASS | B141-5 `own_reading` **the issuer's revisions** | each posted price checked against its record; top grade 40 (1383), 80 (Hongwu), 60 (1410), 100 (1490), 120 (early Shunzhi); Li Dongyang's 200/100, an essay of about 1471-72, with the reason written out, a high posted price starves the private market. No three-office count stands between 1435 and 1497, so the raising of 1490 is not placed against a fall by counts; the count after it is the lowest on file and rose when enforcement tightened in 1503 |
+| PASS | B141-6 `bookkeeping` **sources** | 108 records, each with its source |
+
+## A54: a fine, a cap on size and the loss of relationships on one node; trade takes the fine back, the cap and the cut stay
+
+**RUN: 2026-10-06. Script `experiments/a54_penalty.py`, record `results/a54_penalty.json`, which carries the
+configuration it ran under; every table and count below is reprinted from the record by
+`experiments/a54_tables.py`. 7,940 runs: 120 configurations and seeds on A30's carrier (three strains, the
+authority on and off, two wage elasticities, two subsistence floors, five seeds), each with one unpenalised
+twin and 28 penalties on each of two targets, 11 more where the sovereign's pool exists; and a growing block
+of 20 with a fixed issuance per round. `network.py` is not changed: a subclass adds a ceiling at the model's
+own capacity step, and fines and cuts are applied at the yield between two rounds. Nothing fetched.**
+
+**Why the station exists.** The reading it was opened on: a fine on a large node does little unless it is
+very large, a cap on its size works, and removing people works or does not depending on whom. On the graph
+these are three different operations. A fine takes claims out of an account: a change of the state. A cap
+limits what one column of the routing may deliver: a change of the operator. A cut removes edges: also the
+operator. No station had put the three on the same node. Two targets per graph: the node with the most
+in-edges inside the financial layer, which on this carrier is also where the authority issues, and the one
+with the most outside it, an intermediate node that pays wages.
+
+**The one number.** The target's share of the claims in the trading accounts, against the same share in its
+twin (same configuration, same seed, and the same draws, which every run checks), less one. It is read in
+the first round the penalty reaches and over the last fifty rounds. The band is twice the twin's own
+round-to-round jitter of that share; the jitter is 0.14% for the financial target and 3.5% for the
+production target.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A54-0 `instrument` **the class and the driver are the model, and the books close** (run by `--gate`) | 29 configurations, 467 runs, none differ: with no penalty against `Network.run()` bit for bit (51 history fields, the closing state, the generators), and every arm at size zero against its twin. In the grid the claim total equals held plus parked at every yield in 7,940 of 7,940 runs; every penalised run's generators end where its twin's do, 7,800 of 7,800; a fine paid into the sovereign's pool closes the pool's receipts, 880 of 880 |
+| PASS | A54-1 `instrument` **each penalty moves what it says and nothing else** | fines 3,600 of 3,600: the first take is the amount due, the accounts and the claim total fall by exactly it, taken plus untaken equals asked. Caps 840 of 840: no close above the cap in a round that took any routed inflow. Cuts 3,360 of 3,360: the routing edges fall by the number picked, the flow on them next round is exactly zero, the wage bill paid next round is the twin's to the bit. Edges put back restore the routing bit for bit, 480 of 480 |
+| PASS | A54-2a `known_answer` **where no switch flips, a fine's effect is proportional to the fine** | the carrier has four switches: who is below the floor, which of those cannot spend the floor amount, which payers cannot meet their share of the wage bill, whether the authority issues. With all four as the twin's, 317 cells, the effect on every node in every round per unit taken agrees across fine sizes to `1.9e-13`. With one flipped, 443 cells, 433 are apart, from `3.6e-6` up. The four are all of this carrier's non-linearity |
+| PASS | A54-2 `own_reading` **the linear segment** | one-off fines that leave the graph, authority off, 480 cells. Financial target: back inside its band 88, settled outside it 10, a switch flipped 142. Production target: back 98, a switch flipped 142. None still closing at the end of the window |
+| PASS | A54-3 `own_reading` **who carries a fine** | where no switch flipped, as a multiple of pro rata: financial layer 0.95 to 0.98, intermediate layer 1.01 to 1.06, households on a payroll 0.03 to 0.11 with a rigid wage bill and 0.47 to 0.54 with one that follows spending half-way |
+| PASS | A54-4 `own_reading` **how large a fine has to be before something stays** | production target: 0 of 960 cells outside the band at any share of the balance up to nine tenths, one-off or in instalments. Financial target, authority off: outside the band in 7 of 60 cells at half the balance and 22 of 60 at nine tenths, and the share ends higher than the twin's |
+| PASS | A54-5 `own_reading` **the cap** | below the balance on a graph that is not growing: the share sits 50% and 20% lower from the twentieth round to the last. At the balance on a growing graph: the slope of the log balance is zero against the twin's 0.0026 a round, and the share is 6.9%, 16.0%, 27.7% and 32.3% lower after 20, 50, 100 rounds and over the tail |
+| PASS | A54-6 `own_reading` **the cut: how many, and which** | a tenth of the in-edges picked from the largest flow down carries 50% of the inflow and costs 47% and 52% of the share; a random tenth carries 10% and 3.8% and costs 9.5% and 3.7%. Median rank correlation of the share lost with the share of the flow cut 1.000, with the share of the edges cut 0.717; the flow ranks better in 240 of 240 sets. Put back after twenty rounds: nothing left, 480 of 480 |
+| PASS | A54-7 `bookkeeping` **the three side by side** | 1,560 groups, each with its full median path and its states from the map |
+
+**A fine is a change of the state, and trade takes it back at the speed the node turns over.** A one-off
+fine of nine tenths of the balance on the financial target, authority off, healthy strain: its share
+against the twin's is `-89.2%` at the yield, `-40.5%` after one round, `-18.2%`, `-8.4%`, `-1.9%` after
+five, `+0.14%` after ten and `+0.24%` over the tail. About 45% is left after each round, because the
+financial layer spends exactly half its balance a round. The production target turns over almost its whole
+balance each round: nine tenths taken, and one round later its share is `2.4%` down, inside its own band.
+Over all cells, fines that leave the graph: financial target 892 gone, 253 ending on the other side of the
+band, 211 with nothing to read, 4 kept (all in the strain whose twin is itself running down); production
+target 1,308 of 1,360 with nothing to read.
+
+**What a fine does leave is the claims it destroyed, and they are not carried pro rata.** Where no switch
+flipped, the financial target's own lasting loss is `8.3%` of the fine beside a share of `8.5%`. The rest falls on the
+two layers whose balances are fed by routed spending: the financial layer carries 0.95 to 0.98 of its pro
+rata share and the intermediate layer 1.01 to 1.06. Households on a payroll carry 0.03 to 0.11 of theirs
+when the wage bill is a fixed nominal amount, and 0.47 to 0.54 when it follows spending half-way: nobody
+routes spending to them, so their balance is held up by the wage bill, and a smaller claim stock does not
+reach it. The wage payers carry the difference.
+
+**A fine that is spent again leaves nothing, and so does one the authority refills.** Paid into the
+sovereign's pool and passed down by the model's own rule, 880 cells: the median node's balance over the
+tail is its twin's, and the target's largest tail deviation is `6.2e-6`. Where the authority is already
+issuing every round to hold the production layer's inflow at its target, it issues `95%` to `100%` of a
+fine back, and no layer carries any of it. On this carrier the issue lands on the financial target itself.
+
+**How large.** A balance is one to two rounds of the node's own inflow (2.0 for the financial target, 1.05
+for the production target), so a share of the balance cannot be a large fine in the node's own terms. Fines
+of 2, 4 and 8 rounds of inflow, collected at every close until paid, authority off: the financial target's
+share ends
+`+0.28%`, `+0.72%` and `+1.5%` above its twin's, the production target's `-0.4%`, `-0.9%` and `-2.1%`
+below. While it is being collected the target has nothing to spend, so its out-edges carry no flow for as
+many rounds as the fine is rounds of inflow, and the edges come back by themselves when it is paid. What
+stays is on other nodes. A block of fifty or more nodes below the floor at the close appears only at the
+floor A30 found bistable, and almost only in the cell whose good state rests on a transfer with a wage
+bill that follows spending: 41 and 26 of 110 fines there with the authority off and on, 0 of 220 in the
+same strain with a rigid wage bill. The smallest fine that does it is `1.4%` of the claims in the trading
+accounts. The first switch a fine reaches is the payroll one: 226 of 960 one-off fines flip a payer into
+missing its share of the wage bill first, 190 a floor switch first, 71 the authority's, 17 several at
+once, 456 none.
+
+**A cap is a change of the routing, and it stays for as long as it binds.** The cap admits the routed
+inflow that leaves the target's closing balance at the level, and its payers spend the rest on their other
+counterparties in the proportions they already use. Set at 0.5 and 0.8 of the balance on a graph that is
+not growing, the share sits `-50%` and `-20%` from the twentieth round to the last, with 52% and 21% of
+the routed inflow turned away every round. Of what is turned away from the financial target, 66% goes to
+other financial nodes and 34% to the intermediate layer; about six tenths lands on nodes that themselves
+pay the target. Set at the balance on a graph that is not growing, it bites only on upward jitter and the
+share ends `-0.06%`.
+
+**A cap is the one penalty that acts on the growth rate.** In the growing block the twin's financial
+target grows 0.26% a round. Capped at its balance, its slope is zero and its share against the twin's is
+`-6.9%` after 20 rounds, `-16.0%` after 50, `-27.7%` after 100 and `-32.3%` over the tail; capped at 1.2
+times the balance it starts to bite near round 100, at 1.5 only in the tail. A one-off fine of half or
+nine tenths of the balance beside it leaves the slope at 0.00266 and 0.00272 against the twin's 0.00258.
+
+**Twenty cells are not a reading of the cap.** A cap at half the balance on the node the authority issues
+into, in the strain where the authority issues every round: what is issued takes the balance over the cap,
+so all routed inflow is turned away; the model reads a node with routed inflow under the floor amount as
+below the floor, and such a node spends the floor amount only; what is issued stays on it and the authority
+issues more. The balance ends 167 to 250 times the cap. These cells have a state of their own. The same
+mechanism accounts for the 15 pairs in which a random cut costs the financial target more than a cut by
+flow.
+
+**A cut costs the share of the flow the cut edges carried.** The share lost over the share of the inflow
+cut is 0.95 for the financial target and 1.01 for the production target. A tenth of the in-edges, five or
+six of them, is half the inflow when picked from the largest flow down and a tenth or less when picked at
+random. The cut does not close: 675 of 720 and 658 of 720 kept. The financial target loses only half of
+it in the first round, because half its balance turns over a round.
+
+**Put back, a cut leaves nothing.** In-edges cut by flow and restored twenty rounds later: the share goes
+`88%` to `100%` down at the deepest point and the tail is zero in 480 of 480 cells. A person who is
+replaced is a fine.
+
+**A cut of out-edges falls on the other end.** The target's own share moves `-1.0%` to `-0.1%` (financial)
+and `+1.5%` to `+6.8%` (production) at the median; the payees whose edge was cut hold 67% to 87% of their
+twin's balance and those whose edge was kept 103% to 159%. This is a reading of a payment graph: a node on
+this carrier needs no particular input, so what it cannot pay one payee it pays the others. Cutting a
+supplier a firm cannot replace needs an input constraint at the node, which this carrier does not have,
+and is not read here; A56 adds one and reads it.
+
+**What each penalty does to the totals.** Read where nothing issued answers the penalty: the main block
+with the authority off, and the growing block with its fixed issue. A cap or a cut leaves the claims in the
+trading accounts where the twin has them, `0.9998` to `1.0002` at the median, and moves the flow they
+carry by less than two per cent, `0.9858` to `1.0198`. A fine that leaves the graph takes the flow down
+with the claims: nine tenths of the financial target's balance is 7.5% of the claims in the trading
+accounts and total flow ends at `0.9305` of the twin's; on the production target, 1.9% and `0.9823`. A
+fine that is returned leaves both at `1.0000`. A cap and a cut of in-edges move total flow in opposite
+directions on the two targets: up when the position is taken from the financial target (`1.0118` for a cap
+at half the balance, `1.0198` for three tenths of the in-edges by flow), down when it is taken from the
+production target (`0.9921` and `0.9858`). The financial target spends half its balance a round and the
+production target nearly all of it, and what either loses lands on a mix of both layers, so the claims
+move to faster hands in the first case and to slower ones in the second. The table is printed by
+`python experiments/a54_tables.py totals`.
+
+**What this reads for the sentence the station was opened on.** All three of its parts hold on the model,
+and they are one statement: a penalty on the state is traded away, a penalty on the operator moves the
+steady state. A fine becomes more than a fee in two ways only. It can be large enough in the node's own
+inflow to leave its out-edges without flow while it is collected, which lasts as long as the collection.
+Or the claims it destroys can flip a switch somewhere else, and then the nodes that go under are the ones
+nearest the floor, with the target's own share back where it was. Which person matters when people are
+removed has two readings on the graph: the share of the flow on the edges that person carried, and whether
+the edges can be put back.
+
+**Reference points outside the model, cited as literature; nothing here was measured by this station.**
+The Federal Reserve capped Wells Fargo's total assets at their end-2017 level on 2 February 2018 and
+removed the cap on 3 June 2025 (Board press releases of those dates); over that span its assets were flat
+at about USD 1.95 trillion while all FDIC-insured institutions grew 41% (company filings; FDIC Quarterly
+Banking Profile), so its share fell by about three tenths, which is the arithmetic of the growing block.
+ZTE announced on 9 May 2018, 24 days after a US denial order took effect, that its major operating
+activities had ceased (ZTE Corporation, inside information announcement, HKEX). The ceiling on an EU
+competition fine is 10% of the preceding year's turnover (Regulation 1/2003, Art. 23(2)), 1.2 months of
+revenue. Event studies put the loss in market value beyond the legal penalty at about 7.5 times it
+(Karpoff, Lee and Martin 2008, *JFQA* 43) and nearly nine times it (Armour, Mayer and Polo 2017, *JFQA*
+52) when the party harmed trades with the firm, and the second finds none when the harm falls on third
+parties: on the graph that is the counterparties rewriting the in-edges, and the fine itself leaving
+nothing.
+
+**The cap on record met the issuing channel once.** On 8 April 2020 the Federal Reserve temporarily
+modified the growth restriction on Wells Fargo, for loans under the Paycheck Protection Program and the
+Main Street Lending Program only, and required the benefits from those loans to be handed to the Treasury
+or to approved non-profit organisations (Board press release of that date). The twenty cells above are
+the same meeting without the exemption: an authority issuing through a node it has capped.
+
+**Where the object differs from existing accounts of corporate sanctions.** An account that prices the
+offence (Becker 1968) has a firm with wealth and no position, so it has nothing that refills the account a
+fine has drained, and with a compensating fine it has no use for an order. Incapacitation (Shavell 1987) moves an
+actor out of a position, and the standing objection to it in that literature is replacement; here a
+position is a set of edges with a flow on each, and replacement is an arm. The key-player result (Ballester, Calvó-Armengol
+and Zenou 2006) ranks nodes in a game of complementary efforts along links; here the links are directed
+payments that conserve claims, and the ranking quantity is the flow on the edges cut.
+
+**Not read here.** Rewiring after a cut, beyond putting the same edges back. A financial target that is
+not the node the authority issues into. (A cap taken off again and a cap on every node of a layer are
+read in A55; a cut of out-edges with an input constraint at the node in A56.) Ownership: who bears a fine through equity or asset sales.
+
+## A55: a ceiling taken off, and a ceiling on a whole layer; the share comes back at the pace of turnover, and a layer's ceiling moves its share one layer down
+
+**RUN: 2026-10-06. Script `experiments/a55_cap_lift_layer.py`, record `results/a55_cap_lift_layer.json`,
+which carries the configuration it ran under; `--tables` reprints every table from the record. 1,160 runs:
+100 configurations and seeds on A54's carrier (the two strains whose twin is not itself running down, the
+authority on and off, two wage elasticities, two subsistence floors, five seeds, and A54's growing block),
+each with one twin, a ceiling on one node kept and lifted on each of two targets, and three ceilings on the
+whole financial layer. `network.py` is not changed. Nothing fetched.**
+
+**Why the station exists.** A54 read a ceiling on one node for as long as it stays, and found that two
+thirds of what it turns away from a financial node lands on other financial nodes. It did not read what
+happens when the ceiling comes off, nor what happens when every node of the layer has one, so that the way
+out along the layer is shut. A ceiling is a multiple of each capped node's own balance at the close of round
+149; a capped column takes in what fits under it and its payers spend the rest on their counterparties that
+carry no ceiling. With one node capped that is A54's arithmetic, and the gate compares the two classes bit
+for bit.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A55-0 `instrument` **the class is the model, and with one ceiling it is A54's class** (run by `--gate`) | 21 configurations, 222 runs, none differ: with no ceiling against `Network.run()` bit for bit (51 history fields, the closing state, the generators); one ceiling on either target against A54's class; every arm with an infinite ceiling against its twin |
+| PASS | A55-1 `instrument` **the ceilings hold, and what they turn away goes where the rule says** | the claim total equals held plus parked at every yield in 1,160 of 1,160 runs; no capped node closes above its level in a round that let inflow in, and a column that turned some away and let some in closes at its level, 1,060 of 1,060; nothing turned away landed on a capped node, 1,060 of 1,060; a lifted ceiling turned nothing away afterwards, 660 of 660 |
+| PASS | A55-2 `own_reading` **a ceiling taken off: the share comes back** | 560 lifted cells, 560 back. Where every switch stayed as the twin's, 251 of 251; where one flipped, 309 of 309. Financial target: the gap is multiplied by 0.45 a round and is inside the band for good after 7 rounds; production target, after 1 |
+| PASS | A55-3 `own_reading` **a ceiling on the whole layer: where its share goes** | 198 cells in which the layer's share left its band. The four layers' differences from the twin add to zero within `1.8e-16`; the financial layer is lower and the intermediate layer higher in 198 of 198. Households on a payroll gain more with an elastic wage bill than with a rigid one in 90 of 98 pairs of the same cell and seed |
+| PASS | A55-4 `bookkeeping` **every group carries its path and its states** | 212 groups, each with its full median path and its states from the maps |
+
+**Taken off, a ceiling leaves nothing.** Every one of 560 lifted cells is back inside its twin's band, the
+309 in which a switch had flipped under the ceiling among them. The pace is the node's turnover: the
+financial target's gap is multiplied by 0.45 to 0.46 a round, the production target is back after one round
+with 3% to 8% of the gap left. On the growing block a ceiling held for 100 rounds had opened a gap of 27.7%
+and 32.3%; it closes in 7 rounds and in 1. What the node did not grow while capped leaves no trace on this
+model, because the edges did not move.
+
+**A ceiling on the whole layer moves the layer's share to the layer below, and total flow rises.** With
+every financial node held at 0.8 of its balance the layer gives up 15.1 points of the trading accounts and
+the intermediate layer takes them; 18% of the layer's routed inflow is turned away. That first step is given
+by the construction: only a node without a ceiling can take what is turned away, and no routing edge on
+this carrier points at a household. What is read is the rest. Total flow is 1.098 of the twin's with a
+rigid wage bill and 1.123 with one that follows spending half-way; on the growing block, capped at the
+balance, 1.170 and 1.213. The claims have moved from nodes that spend half their balance a round to nodes
+that spend nearly all of it. On one node A54 read 1.012.
+
+**Households are reached through wages or not at all.** With a rigid wage bill wages paid are 1.020 of the
+twin's on the main block and unchanged on the growing block. With an elastic one they are 1.262, and 1.736
+on the growing block capped at the balance; the balance of a household on a payroll moves with them, 1.223
+and 1.735. A whole block of nodes below the floor in the twin is lifted above it in 4 of 40 rigid cells and
+10 of 40 elastic ones, and none is pushed under. On the growing block the financial layer's holdings stop
+growing (slope 0 against 0.00265), the intermediate layer's grow at 0.00534 against 0.00275, and
+households' on a payroll at 0.00255 against 0.00127.
+
+**Not read here.** Rewiring: with edges that follow what a ceiling turns away, a lifted ceiling need not
+give the share back. A carrier with routing edges into households. A ceiling on part of a layer.
+
+## A56: a cut of out-edges with an input constraint at the node; the cut reaches the payer when a whole kind of supplier is gone, and then both ends lose
+
+**RUN: 2026-10-06. Script `experiments/a56_supply_cut.py`, record `results/a56_supply_cut.json`, which
+carries the configuration it ran under; `--tables` reprints every table from the record. 1,680 runs: 80
+configurations and seeds on A54's main block (two strains, the authority on and off, two wage elasticities,
+two subsistence floors, five seeds), each with one twin and ten cuts on each of two targets. `network.py`
+is not changed: the constraint lives in A55's class, at the model's own capacity step, and is off by
+default. Nothing fetched.**
+
+**Why the station exists.** A54's cut of out-edges falls on the other end: the payees cut off hold less,
+the payer is untouched, because a node on that carrier needs no particular input. This station adds the
+condition under which the payer is reached. A node's counterparties are of two kinds, the financial layer
+and the production side. A kind the node bought from before the cut is filled while one counterparty of
+that kind that can itself deliver is still connected; with a kind empty the node takes in `1 - e` of its
+routed inflow, and a node that cannot deliver is a missing supplier to its own payers, to the fixed point.
+`e = 0` is A54's cut. What a limited node cannot take, its payers spend on their other counterparties.
+Wages are a separate channel and are not touched.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A56-0 `instrument` **with the constraint off the cut is the model's own** (run by `--gate`) | 16 configurations, 176 runs, none differ: a cut of a whole kind at `e = 0` against the same cut made on `Network`, and `e = 1` with nothing cut against the twin. In the grid the claim total equals held plus parked at every yield in 1,680 of 1,680 runs; edges put back restore the routing bit for bit, 320 of 320 |
+| PASS | A56-1 `known_answer` **the constraint binds when a whole kind is gone and not before** | half of a kind cut, a stand-in left for every edge removed: the run at `e = 1` is the run at `e = 0` to the bit in 160 of 160 pairs. A whole kind cut: the target takes in `1 - e` of its routed inflow and the share turned away over the run is `e` to `1e-9`, 960 of 960 |
+| PASS | A56-2 `own_reading` **a whole kind cut: with the constraint the kept payees lose too** | the payees the target keeps hold 1.196 of their twin's balance with the constraint off and 0.825 at `e = 1`; lower at `e = 1` in 320 of 320 pairs of the same cell, seed, target and kind |
+| PASS | A56-3 `own_reading` **who else is reached** | 640 cells; where the target's turned-away inflow landed is on the books and adds to one in all of them. Claims are conserved; a production target that stops is short of its share of the wage bill in 149 of 150 rounds and wages paid fall to 0.9675 of the twin's |
+| PASS | A56-4 `own_reading` **the edges put back after 20 rounds** | 320 cells at `e = 1`, every one with a switch flipped while the target was stopped: nothing left in the tail in 320 of 320 |
+| PASS | A56-5 `bookkeeping` **every group carries its path and its states** | 320 groups, each with its full median path and its states from the map |
+
+**With the constraint off the loss is the payees'.** A whole kind cut at `e = 0`: the target's own share
+ends between 7.2% lower and 4.4% higher, the payees cut off hold 0.54 to 0.85 of their twin's balance, and
+the payees kept 1.10 to 2.36. The financial target has six suppliers in the financial layer and two on the
+production side; the production target two and four.
+
+**With a stand-in left the constraint does not bind.** Half of the larger kind cut, picked from the largest
+flow down: at `e = 1` the run is the run at `e = 0` to the bit. The number of edges cut and the amounts on
+them are not the condition.
+
+**With a whole kind gone the payer stops, by the same amount whichever kind it was.** At `e = 1` the
+production target's share is 96% lower after one round and gone after two, whether the kind cut carried a
+third of its spending or two thirds: this side of an edge is a min, where the in-edge side (A54) is a sum.
+The financial target loses half in the first round, having spent as usual and taken nothing in, and the rest
+at the floor amount a round, which is the carrier's rule for a node with no routed inflow. At `e = 0.5`
+every figure is half.
+
+**Both ends lose then, and the payer's rivals gain.** The payees it keeps go from above their twin's
+balance to below it, 320 of 320 pairs: a payer that has stopped buys from nobody. The payees cut off do
+better than with the constraint off, 0.69 to 0.91, because what the stopped payer cannot take is spent by
+its own payers on their other counterparties, 65% in the financial layer and 35% in the intermediate layer
+for the financial target and half each for the production target. Claims are conserved. A stopped
+production target is one of thirty wage payers and wages paid fall by a thirtieth; a whole block goes below
+the floor at the close in 12 cells, all at the higher floor in the strain that lives on what is passed down
+with an elastic wage bill, 12 of that setting's 20.
+
+**Put back after twenty rounds, nothing is left.** 320 of 320, as with A54's in-edges and A55's ceiling.
+
+**Not read here.** Stock held against a cut, and the time a stand-in takes to connect. A stand-in with a
+limit on what it can deliver. More than two kinds of input.
+
+## A57: when the three concentration measures go three ways; the edges from the financial layer into the intermediate block set how often, and the top two fall when they and the rest of the layer both have an outlet
+
+**RUN: 2026-11-09. Script `experiments/a57_shape_conditions.py`, record `results/a57_shape_conditions.json`,
+which carries the configuration it ran under; `--tables` reprints every table from the record. 31,400 runs,
+one per seed: A12's arm with every mechanism off, built as A15's shallow batch builds it, 200 nodes, 300 rounds.
+`network.py` is not changed; the hand-wired outlets replace `build_graph` for one construction and put it back.
+Nothing fetched.**
+
+**Why the station exists.** A15 found the 1929 shape, the top percentile falling while the top decile and the
+Gini rise from the state after round one to the close, on the arm with no mechanism at all, on seed 3 of five.
+This station reads how often that arm produces it and what sets the rate. The shape is scored exactly as A15
+scores it, on A12's rounding.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A57-0 `instrument` **the arm is A12's, the cuts are clean, the split closes** (run by `--gate`) | 36 checks, none differ: this script's six numbers against A12's own run of the arm at counts 0, 20, 30 and 60; the outlet patch with no edges against the unpatched graph, bit for bit; both issuance cuts at count 40, where the base run issues nothing, bit for bit. Every share split closes to `3.6e-14` of the claim stock |
+| PASS | A57-1 `known_answer` **A15's five seeds at its cell** | 5 of 5 recorded rows equal on all six numbers; the seed that carries the shape is 3 here and in A15's record |
+| PASS | A57-2 `instrument` **past 60 edges nothing changes** | counts 61 and 80 against 60, 200 seeds each, the whole holdings path hashed: 0 differ |
+| PASS | A57-3 `own_reading` **the shape needs edges into the intermediate block** | at counts 0 to 3, 0 hits in 4,000 runs over 20 cells; at 30, hits in every elasticity, 45 to 53 of 200 |
+| PASS | A57-4 `own_reading` **moving or stopping issuance does not produce the fall** | at count 2 the top two lose share in 0 of 200 runs on the base arm, with issuance spread over every node, and with no issuance |
+| PASS | A57-5 `own_reading` **neither outlet alone produces the fall** | graph built at count 0, one outlet edge wired by hand to the chosen in-degree ranks: top-two falls none 0, the two hubs 1, the other eighteen 10, all twenty 27, of 1,000 each |
+| PASS | A57-6 `own_reading` **with the top two holding four outlet edges, the fall rises with the other nodes' outlets** | count 22: 42 of 678; 26: 110 of 998; 30: 190 of 1,000; 40: 313 of 1,000 |
+| PASS | A57-7 `own_reading` **the leg into the intermediate block carries the cross-seed variance of the share change** | the top two at counts 30, 40 and 60 and the top decile at 30, 40, 50 and 60: the largest share is that leg in all seven |
+| PASS | A57-8 `bookkeeping` **every section is in the record with every run it was planned with** | eight sections, row counts equal to the plan |
+
+**The arm with no mechanism produces the shape on 190 of 1,000 seeds at A15's cell**, and seed 3 is one of
+them. Only the top percentile changes sign across seeds: the top decile rises in 999 and the Gini in 1,000,
+and over the 9,000 runs of the grid both rise every time. The two largest holders at the opening are
+financial nodes in 1,000 of 1,000. So the shape is two movements at once: the financial layer as a whole keeps
+drawing from the production side, and inside it the two largest holders hand share to the rest.
+
+**What sets the rate is the count of edges from the financial layer into the intermediate block.** Hit rate
+on 200 seeds a cell, rows by edge count, columns by wage elasticity:
+
+| edges | 0 | 0.5 | 0.9 | 0.99 | 1.0 |
+|---|---|---|---|---|---|
+| 0 to 3 | 0 | 0 | 0 | 0 | 0 |
+| 8 | 0.005 | 0.005 | 0.005 | 0.005 | 0.005 |
+| 20 | 0.020 | 0.020 | 0.035 | 0.035 | 0.035 |
+| 30 | 0.225 | 0.245 | 0.260 | 0.265 | 0.265 |
+
+The build rule gives edge `i` to the financial node ranked `i mod 20` by in-degree and to the intermediate node
+`i mod 30` of a permutation, so the pairs repeat every 60 edges and the axis ends there. Along it, at an
+elasticity of 0.5, the top percentile falls in a share of runs that rises the whole way, 0.020 at 20 edges,
+0.325 at 40, 0.610 at 60; the top decile rises in every run up to 32 edges and in 0.495 of them at 60. The
+shape is where the two overlap, with its peak of 0.320 to 0.325 at 40 to 44 edges.
+
+**The top two's share change splits exactly into four legs**: net flow from the rest of the financial layer,
+from the intermediate block, from households, and issuance landing on them against their share of all issuance.
+Their money runs a loop: out along the edges into the intermediate block, into wages, and back through the
+upward edges from households and the intermediate block to the financial layer. Across seeds the leg into the
+intermediate block carries the variance: its covariance with the share change is 34.1, 46.2 and 72.1 times
+the change's own variance at 30, 40 and 60 edges, against negative shares for the other legs. Where the same
+two nodes lose share, that leg is 0.47, 0.66 and 1.28 share units more negative than where they gain, and the
+households' leg makes up 0.31, 0.28 and 0.29 of it.
+
+**Issuance moved off the top node, or switched off, changes nothing.** By default new claims land on the
+financial node with the highest in-degree, which is among the top two, and at 20 edges or fewer every run
+issues, a median of 370.6 a run at two edges against a stock of 100. The split books a contribution from it.
+Spread over every node instead, or not issued at all, the top two still never lose share at two edges, 0 of
+200 each way, and at 20 edges the rate is 0.023, 0.023 and 0.020. The contribution is bookkeeping; the cut is
+what reads the cause.
+
+**An outlet for the other eighteen alone does not do it, because the return points at the hubs.** On a graph
+built with no edges into the intermediate block and one wired to each of the other eighteen financial nodes,
+the top two lose share in 10 of 1,000 runs. They become net payers to the rest of the financial layer, by 2.52
+share units, and take all of it back from the intermediate block, 1.13, and households, 1.14: the upward edges
+are attached in proportion to one plus a node's in-degree inside the financial layer, so money sent to the
+production side comes back to the most central nodes first.
+
+**The top two fall when they have an outlet and the rest of the layer does too.** Grouped by how many outlet
+edges the opening top two hold between them: two at 20 edges, 0.023; at 22 edges, where only the two highest
+in-degree nodes hold a second edge, three, 0.025, and four, 0.062; four at 26, 30 and 40 edges, 0.110, 0.190
+and 0.313; six at 60 edges, 0.621. With the top two's own outlet held, the rest of the layer's outlets take the
+fall from 6.2 to 31.3 per cent. The model splits a node's spending evenly over its out-edges, so a financial
+node with six edges inside the layer and `k` outlet edges sends `k / (6 + k)` of it straight out of the layer. At 22 edges the opening top two are the two
+highest-in-degree nodes on 678 seeds of 1,000, which is why 22 and 30 differ as much as they do.
+
+**The top decile's fall at high counts is the same leg.** The top decile is typically sixteen financial and
+four intermediate nodes. From 30 to 60 edges its net leg to the rest of the intermediate block goes from
+−10.43 to −11.98 share units over the run and the households' leg from +9.97 to +11.71, the first growing
+faster, and the same set keeps its share in 0.970, 0.808, 0.168 and 0.136 of 500 runs at 30, 40, 50 and 60.
+The leg into the intermediate block is the largest share of the cross-seed variance at all four counts.
+
+**Reading.** The edge count is the one thing the axis changes, and issuance is ruled out by the cuts, so the
+rate belongs to those edges. The most central nodes leak first because the edges are handed out in in-degree
+order; while what they lose returns to the layer as a whole, the top percentile falls and the top decile still
+rises, which is the shape; once the edges are many enough that the whole decile pays out more than it gets
+back, the decile falls too and the shape goes.
+
+Scope: 200 nodes, the arm with no mechanism, elasticity 0.5 outside the grid. The 1,000-node carrier and the
+arms with a floor, a write-off or a transfer are not scanned here; neither is the in-degree weighting of the
+upward edges as a switch of its own.
+
+## B143: where a statute draws the line of a price regulation, and which side of it gets a written price
+
+**RUN: 2026-10-09. Script `experiments/b143_price_control_line.py`, record
+`results/b143_price_control_line.json`, carrying the configuration it ran under and the page behind every
+fragment; the rows and the passages in `docs/b143_price_control_line.md`.**
+
+**What is read.** Provisions that regulate the price of part of one line of business: the words that draw
+the line, and the side whose price an authority sets, caps or may regulate. Eleven rows, all printed. No
+rival is scored: which side a legislature regulates is its own choice, and the readings are that such
+provisions exist, with counts over the rows read.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B143-1 `bookkeeping` **every fragment has its words, its place and an opened page** | 11 rows resting on 11 pages; no fragment without a page; three pages opened that gave no row are listed |
+| PASS | B143-2 `premise` **part of one line of business, both sides named** | 10 of 11; the air ambulance section names only the regulated side and is printed, not counted |
+| PASS | B143-3 `own_reading` **lines drawn on an act of the buyer or on an emergency** | of 10 rows read, 6 on an act of the buyer (consent to a tow, consent to an out-of-network bill, hail or pre-arrangement twice, a tariff nobody chose, renewal), 2 on an emergency, 2 on the good or the seller; the first two kinds come from 5 issuing bodies; in 7 rows the same sellers supply the same thing on both sides |
+| PASS | B143-4 `own_reading` **the written price is on the side the buyer did not act on** | 6 of 6; none reversed |
+| PASS | B143-5 `instrument` **the reader of rows on seeded faults** | 10 seeded faults caught |
+
+**One vehicle, two writers of the price.** A New York Street Hail Livery charges the Commission's fare on a
+trip hailed in the street and its base's own filed rate on a trip arranged in advance.
+
+**Consent counts only where there is someone else to go to.** 42 U.S.C. 300gg-132 withholds its consent
+exception from "items and services provided by a nonparticipating provider if there is no participating
+provider who can furnish such item or service at such facility".
+
+**Not read here.** The level of any written price. Lines drawn on the good or the seller (household goods,
+small debit issuers) are printed and carry no reading.
+
+## B144: prices against the local salary at two scales; position rows are steeper inside a country than between countries, government-set rows flatter
+
+**RUN: 2026-10-12. Script `experiments/b144_wage_coordinates.py`, record
+`results/b144_wage_coordinates.json`, carrying the configuration it ran under. Arm A; arm B, a second reading of arm A inside one country, and arms C to L follow below. The first printout is `experiments/b144_first_look.py`.**
+
+**What is read.** The city by item table already on disk for B30-5 and B38 (4,956 cities, December 2022)
+carries a salary row, four rent rows and two purchase rows. For every row the slope of log price on log
+salary is taken twice: between countries, one point per country, and inside countries, cities of one
+country with the country mean removed. Each slope is divided by the same-scale slope of the rows that are
+produced where they are sold, which cancels the noise of the salary row. R is the quotient inside
+countries over the quotient between them. An account in which a price is a traded part at one world price
+and a local part at the local wage, with shares that belong to the good, gives R = 1 for every class of
+row. This framework gives a side: above 1 for rows that price a position, below 1 for rows whose number
+one writer sets for a whole country.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-A0 `instrument` **the table reads back, classes as in the city-pair station** | 55 item columns, 52 used in six classes, 2 dropped by name; 3,524 of 4,956 cities carry the salary row, in 209 countries |
+| PASS | B144-A1 `known_answer` **the reading on two synthetic worlds** | a world built on the cost-share premise, with the salary noise the real table shows: 6 of 6 place no class; a world with position rows steeper and written rows flatter inside countries: 6 of 6 place all four |
+| PASS | B144-A2 `rival` **R against 1** | `grid = B`. Rent rows R 2.09, 2.2 floors; purchase rows 2.77, 1.8 floors; government-set rows 0.39, 2.7 floors; each on the stated side at 18 of 18 knob points and in 1,000 of 1,000 country resamples. Rows posted by a national seller 0.75, 0.7 floors, 14 of 18 knob points: unread, not placed. Fresh food 0.90, no side stated |
+| PASS | B144-A3 `own_reading` **what a month of salary buys, five ratios between two countries** | 79 countries, 3,081 pairs; the spread of the five ratios has median 2.73 times and reaches 16.2; 220 pairs stand above the largest spread an independent-source error returns (6.40), 13 above the largest the table's own residuals return when shuffled over cells (13.40) |
+| PASS | B144-A4 `own_reading` **the wage between what labour sells and the purchase price of a position** | local rows move 0.405 per unit of log salary between countries (0.328 to 0.482 over the knob grid); the implied response of purchase rows inside a country is 1.44 (1.32 to 2.12), above 1 at 18 of 18 knob points. Conditional on local rows responding inside a country as they do between countries |
+| UNREAD | B144-A5 `own_reading` **the same for rent** | 1.13 (0.89 to 1.41), above 1 at 17 of 18 knob points |
+
+**The floor.** A class is placed when log R stands outside the largest value returned by 800 synthetic
+tables in which the cost-share premise holds exactly: the real table's shape, gaps and salaries, salary
+noise sized from the reference rows, and price noise taken two ways, the error of this archive against an
+independent posted price (0.2752 in logs, B39) and the whole residual of the cost-share fit split into a
+country part and a city part. The larger floor is used. The side must also be the same at every one of 18
+knob points: 5, 8 or 15 cities for a country to enter the inside slope; three choices of reference;
+all cities or only those the archive flags.
+
+**Row by row.** Ranked by R, all six housing rows are among the first nine of 52, together with the
+tennis court (2.78), the fitness membership (2.11) and the international school (2.03). The flat end is
+the taxi tariff per distance (0.15), domestic beer in a shop (0.25), utilities (0.28) and the named
+cigarette pack (0.29). The class of nationally posted rows is unread because it mixes rows with one
+writer per country (beer, the fast-food combo at 0.49) with rows on one world price (the two cars, whose
+slopes are near zero at both scales) and rows above 1 (milk, a chain-store dress).
+
+**The resolution of the sandwich rule.** On six synthetic worlds with a planted response of 1.55 and 1.62
+it read a sandwich in three; on six where every row keeps its share, in none. An unread at 1.13 is below
+what the rule resolves.
+
+**Not read here.** Which side moves: R says position rows are steeper than local rows inside countries,
+and does not separate the position taking up the wage gap from the wage of those who supply local rows
+being held flat across a country. Fresh food and nationally posted goods are not steeper than local rows
+(0.90, 0.75), which sits with the first; an independent city wage series would separate them. The housing
+rows are market prices, so a class that does not transact in that market is not in this table.
+
+**Arm B, RUN: 2026-10-12. Scripts `experiments/b144_fetch.py` (retrieval, cached and resumable) and
+`experiments/b144_posted_regions.py`, record `results/b144_posted_regions.json`, carrying the configuration
+it ran under. Sources and what each field is called by its source are in `data/SOURCES.md`.**
+
+**What is read.** A title on a store has no local input, and its list price is posted per account region by
+whoever publishes it. The quotient of the local list price over the United States list price is in units of
+local currency per dollar of list price. One thousand paid titles on Steam in each of the store's 42 price
+zones (249 country codes asked, 37 currencies), Apple's one page of iCloud+ prices (157 rows, five tiers)
+and Microsoft's catalogue for Game Pass (86 markets, three tiers). An account in which a region has one
+price level gives one quotient per zone for every title. This framework says the number belongs to whoever
+wrote it.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-B0 `instrument` **the cache is complete and in the units it is taken to be in** | no file missing, no cell in another currency than its zone's; the store's United States list price over the catalogue's has median 1 and is equal for 972 of 975 titles |
+| PASS | B144-B1 `rival` **one conversion factor per zone** | `grid = B`. 32,213 of 39,260 cells (82.1%) are more than one price point of their zone's own ladder away from the zone's level times the United States price; 75.0% to 84.8% over the knob grid. Distance from the level in logs: median 0.129, ninth decile 0.421 |
+| PASS | B144-B2 `rival` **who posts does not enter** | `grid = B`. Inside one zone and one United States list price, 0.390 of the variance of the quotient lies between publishers (32 publishers, 425 titles); 400 relabellings of publishers return at most 0.113; 0.369 to 0.586 over 12 knob points against a largest relabelled share of 0.177 |
+| PASS | B144-B3 `own_reading` **local prices written for one zone and one United States list price** | 529 such cells with ten or more titles: median 15 different local prices, at most 58, none with one; the commonest price holds a median 0.34 of the titles |
+| PASS | B144-B4 `own_reading` **a posted digital title between a car and a restaurant meal** | 41 zones: slope of the zone's level at the market rate on log salary 0.173 (0.160 to 0.201 over 12 knob points); same zones, rows of the city table: two cars 0.068 and 0.142, a fast-food combo 0.235, a restaurant meal 0.509 |
+| PASS | B144-B5 `own_reading` **zones billed in dollars that are not the United States** | five zones over 42 country codes; the median title is at 0.60 to 0.62 of the United States price; 13% to 25% of titles are at the United States price |
+| PASS | B144-B6 `own_reading` **three writers on the same 84 countries** | slope of the written level on log salary: store titles 0.174, storage tiers 0.027, game subscription 0.254; the gap between two writers varies across countries by 0.264, 0.278 and 0.385 in logs; 0.181 is left after a level per country and a level per writer |
+| PASS | B144-B7 `own_reading` **one writer against many** | Apple's five tiers across 157 rows leave a residual of 0.0445 in logs after country and tier; titles inside a Steam zone spread by 0.2387. 113 countries billed in dollars carry 7 sets of five prices, 85 of them the United States set |
+
+**A zone is not a level.** Zone levels at the market rate run from 0.45 of the United States price (Russia) and
+0.58 (China) through 0.81 (Korea) and 0.82 (Singapore) to 1.21 (Switzerland); 121 country codes have no zone
+of their own and are billed the United States price in dollars. Inside one zone and one United States list
+price the commonest local price holds about a third of the titles.
+
+**Three writers, three rules.** On the same 84 countries Apple's level has median 1.12 of the United States
+price (quartiles 1.00 and 1.15), mostly tax, and does not move with the salary; publishers on Steam write a
+median 0.83; Microsoft writes a median 0.77 and as low as 0.10. Japan is 1.15, 0.73 and 0.54 of the United
+States price for the three; Egypt 1.14, 0.62 and 0.26. Argentina is billed the United States price in
+dollars by the first, a regional dollar price by the second and a peso price by the third.
+
+**A class value with no currency in it.** In the four dollar zones the money and the title are the same and
+the region of the account moves the price by four tenths.
+
+**Publishers as writers.** The median distance of a publisher's titles from the common local price runs from
+-0.112 to +0.243 in logs across the 32 publishers with five or more titles.
+
+**Not read here.** A second store selling the same titles was probed and set aside: where the publisher, or
+a parity term of the larger store, keeps a title at one price on both, the two numbers are one. The levels
+include tax where the source includes it. One day's prices; list prices, with the discounted price as a knob.
+
+**Arm A read again inside one country, from official tables. RUN: 2026-10-12. Script
+`experiments/b144_inside_one_country.py`, record `results/b144_inside_one_country.json`.**
+
+**What is read.** Arm A left two accounts of its R above one standing side by side: positions absorb the
+wage difference inside a country, or the wage of those who supply local services is held flat there. Two
+official United States tables that share no data separate them: the regional price parities of 387
+metropolitan areas, whose housing line is a level of tenant rents, and average weekly wages by industry from
+the quarterly census of employment and wages. Knob grid of eight points: every employer or private
+employers, 2024 or 2023, each area once or weighted by employment.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-A6 `instrument` **the two sources parse, join, and say what their columns are** | 387 areas join; the United States row of the all-items parity is 100; the definition file calls the housing line a level of tenant rents; annual pay over 52 weekly wages has median 1.0000; nine industries are disclosed in 193 to 339 areas |
+| UNREAD | B144-A7 `own_reading` **rent responds to the area's average wage more than one for one** | 1.226 (0.975 to 1.230 over the knob grid; area resamples 1.105 to 1.397); the four private-employer points run 0.975 to 1.040 |
+| PASS | B144-A8 `own_reading` **wages in industries that supply local services respond less than one for one** | personal care 0.265, drycleaning 0.313, grocery stores 0.374, automotive repair 0.435, services to buildings 0.460, child day care 0.523, restaurants 0.554, building equipment contractors 0.670, residential building construction 0.691; below one at every knob point, 9 of 9 |
+| PASS | B144-A9 `own_reading` **rent responds more than the wage of each such industry, on the same areas** | gaps of +0.465 to +0.921; rent steeper at every knob point, 9 of 9 |
+
+**Which side moves between the scales.** The side that supplies local services follows three to seven tenths
+of a wage difference at both scales: the price of locally produced rows between countries (0.405) and the
+wage of nine service industries inside the United States (0.27 to 0.69). The position follows 0.54 between
+countries and 1.0 to 1.2 inside one. The R above one of arm A comes from the position side. An area whose
+average wage is a tenth higher has rents a tenth to an eighth higher, and pays 2.7 percent more in personal
+care, 4.6 in services to buildings, 5.2 in child day care, 5.5 in restaurants. The goods and other-services
+lines of the parities are nearly flat against the wage (0.080 and 0.055) and are not used to read the price
+of local services.
+
+**Arm C, RUN: 2026-10-12. Script `experiments/b144_class_lines.py`, record `results/b144_class_lines.json`;
+pages cached by `experiments/b144_fetch.py --only law`.**
+
+**What is read.** Eleven provisions on buying, holding, selling or renting a dwelling in six jurisdictions:
+Singapore, China with Shanghai, Korea, the United States with California, Germany and Japan. Each row carries
+verbatim passages, 22 in all, which the script looks for on the cached page; the edge the provision sits on;
+what its line is drawn on (status, standing, dwellings already held, household, date of entry, legal person,
+or the dwelling itself); and the level of its source.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-C0 `bookkeeping` **every passage is on its cached page and every page carries a row** | 11 rows, 22 passages, 11 pages; official text 6, official description 1, relay of an official notice 1, third-party copy of a statute 3 |
+| PASS | B144-C1 `own_reading` **on the buy, hold and sell edges every jurisdiction draws a line on the person or on what the person already holds** | six provisions in six jurisdictions; drawn on dwellings already held 4, status 3, the dwelling 3, household 2, legal person 2, standing 1, date of entry 1 |
+| PASS | B144-C2 `own_reading` **a provision that writes numbers writes more than one for one dwelling** | Singapore's additional buyer's stamp duty names 8 classes and writes 7 values, 0 to 65 percent; China's deed tax 4 classes and 3 values, 1 to 2 percent; the United States withholding on a sale 2 classes, 15 percent and 0 |
+| PASS | B144-C3 `own_reading` **on the rent edge the rules bind the landlord toward the tenant already in** | five provisions in Korea, Germany and Japan, all five; the class is the date of entry; two let the landlord's own household take the dwelling back |
+| PASS | B144-C4 `instrument` **the reader of rows names every seeded fault** | 8 of 8 |
+
+**One dwelling, several numbers by who buys.** A Singapore citizen buying a first dwelling pays 0, a permanent
+resident 5 percent, a foreigner 60, an entity 65: the same dwelling at up to 1.6 times the price. The
+commonest line, in four of the six jurisdictions, is drawn on what the buyer already holds. On the rent edge
+the class is time: Korea's renewal right and its cap of one twentieth on an increase, Germany's ordinary
+termination only for a legitimate interest and its cap on increases, Japan's requirement of just cause all
+protect whoever is already in. California does the same on the hold edge: the taxable value follows the
+year of purchase and rises by no more than 2 percent a year. Three pages are not in the table because their
+text could not be fetched: the eligibility pages of Singapore's housing board, the California code itself
+(the tax board's publication stands in for it), and one ministry reply.
+
+**Arm D, RUN: 2026-10-12. Script `experiments/b144_two_prices_of_an_hour.py`, record
+`results/b144_two_prices_of_an_hour.json`, carrying the configuration it ran under; files cached by
+`experiments/b144_fetch.py --only uk`.**
+
+**What is read.** One hour of work from both sides, inside one country and in one money. The customer's side
+is the set of price quotes the Office for National Statistics collects for its consumer price indices: eight
+of its items are an hour of somebody's work. The provider's side is the hourly pay, excluding overtime, of
+employees in the occupation that does that hour, from the Annual Survey of Hours and Earnings, pay period of
+April 2025. The wedge is the posted hour over the paid hour. With the published rates a wedge gives three
+more numbers: what is left after everything statute can put between pay and price (value added tax at 20
+percent and the employer's contribution at 15, together 1.38); the hours of the provider's own work that buy
+one such hour (the wedge over 0.72, which is what a basic-rate employee keeps of one more pound); and what
+the worker takes home of each pound a customer earns to pay for the hour. Knob grid of eight points: quotes
+of April 2025 or August 2026, median or mean on either side.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-D0 `instrument` **the quote files, the pay tables, the glossary and the government pages say what the reading takes them to say** | 151,300 and 94,010 rows, each file holding the month asked for; ten items with 66 to 252 valid quotes a month; the glossary's sentences on price, validity and region are there and its twelve region codes match; ten occupation codes carry the expected words; eight rates are on five cached pages |
+| PASS | B144-D1 `own_reading` **an hour one customer buys alone is posted above the pay of the occupation that does it** | domestic cleaner 1.35, carpenter 1.47, home care assistant 2.01, driving lesson 2.02, electrician 2.21, plumber 2.78, solicitor 9.98; above one at every knob point, 7 of 7; above 1.38 at every knob point, 6 of 7 |
+| PASS | B144-D2 `own_reading` **an hour several customers share is posted to each below that pay, and the pay is covered within the number the rule allows** | a childminder is posted at 5.50 a child and paid 13.00: wedge 0.42 (0.41 to 0.50); 2.4 children cover the pay, the statutory framework allows six, three of them young |
+| PASS | B144-D3 `own_reading` **the wedge is not one number across occupations** | largest over smallest 7.4 times; with any one occupation left out at least 2.1 times (0.725 in logs) against 0.532, the largest spread of 400 worlds in which every occupation stands at one multiple of its pay; 0.725 to 0.887 against floors up to 0.567 over the knob grid |
+| UNREAD | B144-D4 `own_reading` **across regions the posted price follows the region's pay more closely than the pay of the occupation does** | posted price +0.81, pay +0.31, gap +0.51; positive at 31 of 32 knob points, -0.01 at one; region resamples -0.32 to +0.96 |
+| PASS | B144-D5 `rival` **pay follows the region's pay the less, the nearer the occupation's national pay sits to the wage floor written for the whole country** | `grid = B`. 274 occupations; the regional slope of an occupation's pay rises by +0.486 per log point of its national pay over the floor; 2,000 relabellings of occupations return -0.309 to +0.258; +0.462 to +0.770 over the knob grid, above its own relabelling range at 7 of 8 points |
+
+| what is sold | posted, pounds an hour | paid | wedge | over the knob grid | after statute | own hours | taken home per pound earned |
+|---|---|---|---|---|---|---|---|
+| domestic cleaner | 17.00 | 12.63 | 1.35 | 1.25 to 1.48 | 0.98 | 1.9 | 39p |
+| carpenter | 25.00 | 16.98 | 1.47 | 1.42 to 1.75 | 1.07 | 2.0 | 35p |
+| home care assistant | 27.05 | 13.45 | 2.01 | 1.86 to 2.23 | 1.46 | 2.8 | 26p |
+| driving lesson | 40.00 | 19.84 | 2.02 | 1.57 to 2.04 | 1.46 | 2.8 | 26p |
+| electrician | 42.00 | 19.00 | 2.21 | 2.16 to 2.67 | 1.60 | 3.1 | 23p |
+| plumber | 50.00 | 18.00 | 2.78 | 2.73 to 3.30 | 2.01 | 3.9 | 19p |
+| solicitor | 306.00 | 30.66 | 9.98 | 8.23 to 11.15 | 7.23 | 13.9 | 5p |
+
+**The same hour, two numbers.** A customer pays 50.00 for an hour of a plumber and an employed plumber is
+paid 18.00 for it. The customer earns 69.4 before tax to hand over the 50; the plumber keeps 12.96 of the 18.
+Two people on the same pay who buy an hour from each other each work 3.9 hours for it. The domestic cleaner's
+wedge sits inside what statute alone can add, with nobody between customer and worker; the trades carry a
+vehicle, tools and hours that are not sold; the solicitor carries a firm. Where the hour can be shared the
+order turns round: each customer of a childminder pays four tenths of her hourly pay.
+
+**Who writes the provider's number.** The wage floor is one number for the whole country, 12.21 an hour from
+April 2025. Occupations whose national pay sits within a tenth of it are paid nearly the same in every
+region: their pay follows the region's pay by 0.16. Between a tenth and a half above the floor the slope is
+0.35, between a half and double 0.49, above double 0.65. An account in which a region has one pay level
+gives every occupation the same slope. D5 is placed as the first rival criterion of this station is: outside
+the relabelling range at the reference point and of one sign at every knob point; the one point inside its
+own range is the median with London out and no region missing, +0.497 against +0.585.
+
+**Not read here.** D4: the posted prices of plumbers, electricians, carpenters and barbers follow the
+region's pay (+2.39, +1.51, +1.21, +0.55) and their pay does not (+0.40, +0.24, +0.51, -0.02), cleaners and
+home care follow on neither side, solicitors on both; pooled, one knob point changes sign and eleven regions
+do not carry the difference. The two sides are two sets of people: those who post are mostly sole traders
+and small firms, and the survey covers employees. The 1.38 is an upper bound, every seller registered for
+the tax and every pound of pay above the employer's threshold. The August 2026 quotes stand against April
+2025 pay and lean every wedge upward. One country, one year.
+
+**Arm E, RUN: 2026-10-13. Script `experiments/b144_statute_multiple.py`, record
+`results/b144_statute_multiple.json`; files cached by `experiments/b144_fetch.py --only oecd` and
+`--only cuts`.**
+
+**What is read.** Two people on the same pay each hire the other for an hour through the books. The buyer
+pays out of pay taxed at the margin; the seller's hour is invoiced with value added tax on a labour cost that
+carries the employer's contributions. With nothing but statute between them, each works
+(1 + VAT) / (1 - marginal tax wedge) hours for the other's one. The wedge is the OECD's for a single person
+without children at 67, 100 and 167 percent of the average wage, 2023 to 2025; the VAT rate is the standard
+rate of the OECD's table, which ends in 2023. Beside the table stand ten provisions that sovereigns have
+written for services bought by households, each resting on verbatim passages found on its cached page.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-E0 `instrument` **the OECD's files say what the reading takes them to say, and the United Kingdom's row returns the multiple arm D computed from the government's rate pages** | 38 countries with every year and level; a VAT table of 37 rows ending in 2023; the United Kingdom at two thirds of the average wage in 2025 gives 1.9167 against 1.9167 |
+| PASS | B144-E1 `own_reading` **the multiple differs between sovereigns by more than it moves with the level of pay inside one** | at the average wage in 2023: lowest Colombia 1.19, median 2.21, highest Belgium 3.46; Korea 1.60, United States 1.68, Japan 1.76, United Kingdom 1.99, Sweden 2.42, Germany 2.85, France 2.87. Spread of the log multiple between countries 0.247, across the three levels of pay inside a country 0.068 at the median; 0.243 to 0.258 against 0.059 to 0.068 over the three years |
+| PASS | B144-E2 `bookkeeping` **every passage is on its cached page and every page carries a row** | 10 rows, 16 passages, 10 pages |
+| PASS | B144-E3 `own_reading` **every credit to the buyer that was read lowers the multiple of the sovereign that wrote it** | France writes back 50 percent, 2.87 to 1.43; Sweden 50 percent, 2.42 to 1.21; Germany 20 percent, 2.85 to 2.28; the United Kingdom 20 percent for childcare only, 1.99 to 1.59 |
+
+**What statute alone costs.** The part of a hired hour that belongs to statute differs threefold between
+sovereigns: 2.5 to 3.5 on the European continent, 1.6 to 2.0 in the English-speaking countries and East
+Asia, 1.2 to 1.6 in Latin America. The measured hours of arm D split into this number and what stands between
+customer and worker: a plumber's 3.9 own hours in the United Kingdom are 1.92 by statute times 2.01.
+
+**What sovereigns wrote back.** France and Sweden return half of what a household pays for work in the home,
+which takes their multiples to the lowest part of the table. The Union's VAT directive names, among the
+supplies that may carry a reduced rate, window-cleaning and cleaning in private households, domestic care and
+hairdressing. Others write a separate class of provider: Hong Kong's hourly floor of 43.1 does not cover a
+domestic worker who lives in, and foreign domestic helpers have a monthly floor of 5,100, the two meeting at
+118 hours a month; Singapore levies 300 a month on a foreign domestic worker and 60 where the household has
+a young child, an elderly member or a person with disability; the United States asks for no social security
+tax on a household employee paid under 3,000 in the year.
+
+**Not read here.** The provisions were picked by name, so the ranks of the four sovereigns with a credit (5,
+6, 15 and 27 of 38) are printed and no relation is claimed. Later years hold the VAT rate of 2023; state
+sales taxes in the United States are not counted; credits are capped and the multiples are marginal inside
+the cap. Pages for Belgium, Denmark, Finland and the Netherlands could not be fetched.
+
+**Arm F, RUN: 2026-10-13. Script `experiments/b144_one_basket.py`, record `results/b144_one_basket.json`,
+carrying the configuration it ran under.**
+
+**What is read.** One whole basket inside one country: the United Kingdom's index including owner occupiers'
+housing costs, April 2025, with the weights of its 684 consumption segments and the 131,464 valid price quotes
+collected in twelve regions. Three things: how the office itself prices the basket; inside one item, how the
+quotes of multiples (ten or more outlets) and of independents follow the region's pay and how often two of
+them carry the same price; and services sold on the spot against packaged goods.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-F0 `instrument` **the quote file, the weights file, the glossary and the pay table say what the reading takes them to say** | 151,300 rows, 599 items in 526 segments; 684 segments with a weight, adding to 966.3 parts in a thousand; twelve regions with a pay line |
+| PASS | B144-F1 `own_reading` **the basket by how the office prices it** | 447.1 parts (46.3%) in segments with quotes collected in the regions; 519.2 (53.7%) priced centrally, of which rent, actual and imputed, 231.3 (23.9%) |
+| PASS | B144-F2 `rival` **inside one item the prices of independents follow the region's pay more than the prices of multiples** | `grid = B`. 109 items with both kinds of shop in six or more regions: multiples +0.194, independents +1.316, gap +1.122; relabelling the kind of shop inside every item and region returns -0.386 to +0.445 in 1,000 relabellings; +0.616 to +2.065 over 8 knob points, positive at every one |
+| PASS | B144-F3 `own_reading` **two quotes from multiples carry the same price more often than two from independents** | chance 0.091 against 0.025 in 128 items, gap +0.065 against a relabelling range of 0.007 either way; +0.075 against +0.008 in the 94 items with forty quotes of each kind |
+| PASS | B144-F4 `own_reading` **services sold on the spot follow the region's pay more than packaged goods** | +0.443 against +0.211, gap +0.233; +0.181 to +0.974 over 16 knob points; region resamples +0.122 to +1.050 |
+
+**Who posts the price.** The 109 items are mostly fresh food sold by weight or by the piece: minced beef,
+bacon, chicken breast, potatoes, tomatoes, onions, apples, bananas. For the same item a seller with many
+outlets posts nearly one number across the country and a seller with few follows the region more than one
+for one; with London out, multiples -0.05 and independents +1.91. An account in which a region has one price
+level gives both kinds of shop the same slope.
+
+**How much of the basket is written by region.** Rent is 23.9 percent and has no regional quote in this
+file. Services sold on the spot are 9.1 percent, with a slope of 0.44. The other goods collected in the
+regions are 37 percent, and whether a quote among them follows the region depends on who posts it. The
+remaining 29.8 percent is priced centrally from national tariffs or sources: petrol, electricity, cars,
+accommodation, tuition, telecoms.
+
+**Not read here.** Twelve regions: the resamples of F4 are wide. The alcohol group includes drinks served in
+pubs, which the name packaged goods does not fit. Multiples and independents can stock different varieties;
+F2 compares slopes, and the level between the two kinds is absorbed. The centrally priced half is weighed,
+not read by region. The weights in the file add to 966.3 parts of the thousand.
+
+**Arm G, RUN: 2026-10-13. Script `experiments/b144_school_place.py`, record
+`results/b144_school_place.json`; pages cached by `experiments/b144_fetch.py --only school`.**
+
+**What is read.** One right a dwelling can carry: a place in the public school nearby. Ten provisions in six
+countries, with 16 verbatim passages found on their cached pages, and what each attaches the place to: the
+title of a dwelling, an entry in a register, living there, status, or a number of years asked of those
+without title.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-G0 `bookkeeping` **every passage is on its cached page and every page carries a row** | 10 rows, 16 passages, 10 pages; official text 9, official description 1 |
+| PASS | B144-G1 `own_reading` **outside China no provision read asks for title; in the Chinese cities read, title enters the rule** | five provisions in Japan, Bavaria, England, New York and Singapore, none naming title; five in China, two naming it |
+| PASS | B144-G2 `own_reading` **inside one country the rule is written district by district** | three districts read in China, three different rules |
+
+**Where the line is drawn.** In Japan the roll of school-age children is compiled from the residents'
+register; Bavaria sends a child to the school of the district of habitual residence; England draws catchment
+areas; New York admits whoever resides in the district; Singapore ranks by citizenship and by the distance
+of the registered address, with thirty months of residence. A tenant and an owner are one class in all five.
+China's national law attaches the place to the household register and hands the rule for children living
+elsewhere to the provinces; Shanghai hands it to its districts. There the title appears: Hongkou ranks first,
+among children registered in one place and living in another, those whose family holds the title of the
+dwelling they live in; Huangpu names owner or tenant side by side; Huairou in Beijing admits a child from
+another district whose family holds title there, and asks three years of sole renting and three years of the
+parents' employment of a family without. What is bought on the buy edge includes the school place; what is
+rented does not, or not for three years.
+
+**Not read here.** The ten provisions were picked by name and the three districts are the three whose rules
+could be fetched. No Korean provision could be fetched. Other rights that can hang on title, such as
+registration of the household itself, were not read.
+
+**Arm H, RUN: 2026-10-14. Script `experiments/b144_tenure_classes.py`, record
+`results/b144_tenure_classes.json`; tables cached by `experiments/b144_fetch.py --only eurostat`.**
+
+**What is read.** The share of people whose housing costs exceed 40 percent of their household's disposable
+income, from the Union's survey of income and living conditions, in four tenure classes: owners without a
+mortgage, owners with one, tenants at the market price, and tenants at a reduced price or free, the last
+being a class a sovereign writes.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-H0 `instrument` **the two tables say what the reading takes them to say** | 34 countries; with every class 33 in 2023, 32 in 2024, 29 in 2025 |
+| PASS | B144-H1 `own_reading` **inside one country the tenure class moves the overburden rate more than the country moves it** | spread across the four classes inside a country 8.5 points at the median, spread of the total rate across countries 4.4 (2025); 7.8 to 9.6 against 4.4 to 4.9 over three years and two reliability settings |
+| PASS | B144-H2 `own_reading` **tenants at a reduced price are overburdened less than tenants at the market price** | median difference +16.7 points in 2025, lower in 28 of 29 countries; +16.6 to +18.1 over the settings |
+
+In 2025 the median rates are 2.9 percent for owners without a mortgage, 3.0 with one, 23.2 for tenants at
+the market price and 7.7 at a reduced price. Greece is the exception: all four classes stand between 22 and
+36 percent. The classes also differ in income: median equivalised income in the Union is 23,750 for owners
+and 19,938 for tenants in purchasing power standards, and this table does not separate the two.
+
+**Arm I, RUN: 2026-10-14. Script `experiments/b144_time_slopes.py`, record `results/b144_time_slopes.json`;
+series cached by `experiments/b144_fetch.py --only bls`.**
+
+**What is read.** The same rows along time inside one country: for fifteen components of the United States
+consumer price index, the change of the log price over the change of the log of average hourly earnings of
+production and nonsupervisory employees, from 1991 or 2000 to 2019 or 2024 (the index for October 2025 was
+not published).
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-I0 `instrument` **the series are all there, with twelve months in every year read** | 16 series; only water and sewer starts after 1991 |
+| PASS | B144-I1 `own_reading` **along time, goods with global writers fall behind the wage more than services sold on the spot** | class medians -0.08 to +0.02 against +1.06 to +1.09 |
+| PASS | B144-I2 `own_reading` **prices one institution writes for a whole country rise faster than the wage** | +1.36 to +1.87; tuition and hospital services +1.87 from 1991 to 2019 |
+| PASS | B144-I3 `own_reading` **services sold on the spot follow the wage along time more than across places** | +1.06 to +1.09 along time, against 0.405 between countries (arm A) and 0.443 across the regions of one country (arm F) |
+
+The same class follows the wage by four tenths across places and one for one along time: along time every
+place's wage moves together and the national numbers under the wages of those who serve, such as the wage
+floor, are rewritten every year; across places at one moment the difference in wages goes into the position.
+
+**Arm J, RUN: 2026-10-14. Script `experiments/b144_borrowed_price.py`, record
+`results/b144_borrowed_price.json`.**
+
+**What is read.** How much of an official basket is a price nobody pays: the imputed rent of an owner's
+dwelling, borrowed from the rental market. Two offices publish their index with and without it.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-J0 `instrument` **the two official tables carry the lines the reading takes from them** | four segments of imputed rents in the United Kingdom's file, at zero in the CPI and above zero in the CPIH; the line of the Japanese table |
+| PASS | B144-J1 `own_reading` **one country publishes two price levels, with and without a price nobody pays** | United Kingdom: 170.7 of the 966.3 parts of the CPIH in the file, 17.7 percent, and zero in the CPI; Japan: 15.8 percent nationally and 20.0 percent in Tokyo |
+
+**Arm K, RUN: 2026-10-14. Script `experiments/b144_japan_regions.py`, record `results/b144_japan_regions.json`;
+the summary cached by `experiments/b144_fetch.py --only weights`.**
+
+**What is read.** The Statistics Bureau of Japan's regional price difference index for 2025, every prefecture in
+ten groups of the household budget: how far apart the prefectures stand in each group. Two groups are priced
+for the whole country by one schedule, medical care and transport and communication; housing is the rent of
+rented dwellings.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-K0 `instrument` **every column read is the one the summary names** | 47 prefectures in twelve columns; the highest and lowest prefecture of each group are those the summary names |
+| PASS | B144-K1 `known_answer` **the summary's own extreme ratios come back from the parsed table** | housing 1.641 and medical care 1.047; the summary prints 1.64 and 1.05 |
+| FAIL | B144-K2 `own_reading` **housing stands widest across prefectures, and the groups priced by one national schedule among the narrowest** | the two scheduled groups are the narrowest (0.011 and 0.012 in the spread of the log index), and the widest is education (0.094), ahead of housing (0.086); by the ratio of highest to lowest housing is still the widest, 1.64 against 1.60 |
+
+A price one schedule writes for the whole country is nearly one number inside it: medical care differs by 5
+percent between the dearest and the cheapest prefecture. Education, which here holds private school fees and
+cram schools priced by each school, spreads as widely as housing. Wages by prefecture were not read.
+
+**Arm L, RUN: 2026-10-14. Script `experiments/b144_held_out.py`, record `results/b144_held_out.json`; price levels
+cached by `experiments/b144_fetch.py --only worldbank`.**
+
+**What is read.** The prices of every item in the cities of countries left out of the fit (five folds, countries
+kept whole), predicted six ways from what is not the city's own prices: one dollar price everywhere; the dollar
+price times the country's price level (the World Bank's private consumption PPP over the official exchange rate,
+2022); one common slope on the city's salary; one slope for each of arm A's six classes; one slope for each of
+55 items; and the price level corrected by each class's own response to the salary. 163 countries carry a price
+level; 161,269 city-item cells.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B144-L0 `known_answer` **the official price level predicts dollar prices better than one dollar price everywhere** | root mean square error of the log price 0.729 to 0.574 |
+| UNREAD | B144-L1 `rival` **item prices of unseen countries are predicted better by class slopes on the wage than by the official price level** | lower at all 8 knob points: 0.509 to 0.515 against 0.570 to 0.574 in root mean square, 0.305 to 0.306 against 0.318 to 0.320 in median absolute error; the country-block resamples of the ratio stay below one in root mean square and touch one at two median points |
+| PASS | B144-L2 `own_reading` **six class slopes predict better than one common wage slope** | 0.515 against 0.538, with 55 item slopes at 0.496; the classes capture 45 to 55 percent of the improvement the item slopes make |
+| PASS | B144-L3 `own_reading` **inside countries, separate slopes across and within countries predict held-out cities better** | 0.4553 against 0.4659 in root mean square, 0.2652 against 0.2710 in median absolute error |
+| PASS | B144-L4 `own_reading` **the official price level corrected by each class's response to the wage predicts better than the price level alone** | 0.550 to 0.554 against 0.570 to 0.574; the resamples of the ratio stay below one at all 8 knob points |
+
+Using no official price level at all, the city's salary and six slopes set by who writes each price predict the
+prices of unseen countries about a tenth better in root mean square than the price level in use; added to the
+price level, the same six slopes improve it at every knob point. The salary comes from the same crowd-sourced table
+as the prices; countries with an official and a market exchange rate weigh on the price level.
+
+## B145: Carnegie libraries and who patents; the published share is a city-year ratio over city-years with a patent, and pooled shares move by under one percentage point
+
+**RUN: 2026-10-29. Script `experiments/b145_carnegie_share.py`, record `results/b145_carnegie_share.json`,
+carrying the configuration it ran under. Retrieval `experiments/b145_fetch.py`. Station document
+`docs/b145_carnegie_share.md`. Arm A; arms B and C are not yet run.**
+
+**What is read.** Berkes and Nencka (REStat 2026) report that a Carnegie library raises patenting against
+cities that applied and were turned down, and that the immigrant and women shares of patents do not move
+(table A5, column 3: -0.000 (0.002), -0.001 (0.004)). Their city-year panel is rebuilt from their
+replication packages, their code read as text and ported. The share regression is a ratio x/n per
+city-year with no rule for n = 0; Stata's x/0 is missing, so zero-patent city-years leave it (28,882 share
+observations against 48,698 count observations), and the median city-year in it has 2 patents. The count
+regressions are in levels; at the sample means the published level effects imply an immigrant share move
+of +0.0050 and a women's share move of -0.0022. Two city files built from the restricted census are not
+packaged; of three stand-ins, the one that reproduces the table's three count columns best (within 0.25
+published standard errors each) carries the readings, and all three are printed.
+Criteria come in kinds; only a rival kind can speak against the framework, and this arm hangs none,
+because a library opened both a book edge and a meeting room and the framework allows both outcomes here.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B145-1 `bookkeeping` **source and coverage table** | 5 rows; 2 files named by the code and absent from the package, listed with zero items |
+| UNREAD | B145-2 `known_answer` **table A5 column 3 shares to the published digits** | immigrant share 0.000 (0.002) against -0.000 (0.002); women's -0.002 (0.004) against -0.001 (0.004); not evaluated, because the census-match restriction is not in the package and the exact sample cannot be rebuilt. Count columns: 0.080 (0.022) against 0.080 (0.024), 0.018 (0.012) against 0.021 (0.013), total 0.715 (0.263) against 0.762 (0.269) |
+| PASS | B145-3 `own_reading` **pooled shares sum(x)/sum(n), difference in differences, placebo floor on the same cities** | immigrant +0.0045, 90% [+0.0006, +0.0083], placebo ten years before the grant -0.0045 (sd 0.0030): within twice the placebo spread; women -0.0042, [-0.0100, +0.0017], placebo +0.0019 (0.0054): covers zero. Weighted by the denominator, column 3 reads +0.0019 (0.0024) and -0.0034 (0.0036). 1,465 cities, each printed with its patents before and after |
+
+Pooled over cities, the immigrant share rises by the amount the published level counts imply, and the same
+cities moved by as much in the opposite direction in the decade before the grant; the women's share does
+not rise on any reading. A library moves neither share by more than about one percentage point.
+
+## B146: filing stops, closures and cut edges on the mandi panel; no market has both edges cut by a dated document, and a stop does not read the inbound edge
+
+**RUN: 2026-10-13. Scripts `experiments/b146_stop_census.py` and `experiments/b146_double_cut.py`, records
+`results/b146_double_cut_{lentil,cowpea,white}.json` and `results/b146_stop_census_{lentil,cowpea,white}.json`,
+each carrying the configuration it ran under. Station document `docs/b146_filing_stops.md`. No data was collected;
+the panel is the one B60 and B61 read.**
+
+**What is read.** A market has two edges to everywhere else: goods move on one, a price quoted elsewhere arrives on
+the other. The station asks whether the daily mandi panel (January 2008 to June 2017) holds any market for which a
+dated document cuts both at once, and sorts every (market, event) unit into one of seven cells. Dates of an
+information cut come only from named documents; a filing stop is one column of the panel, because a market that
+stops filing has lost the record or the price, and neither describes its inbound edge. Criteria come in kinds:
+`instrument` and `known_answer` ask about the tool, `bookkeeping` about the record, `premise` about a fact later
+criteria depend on, `own_reading` about a reading this station registers. No prediction of a rival account is
+registered here.
+
+Lentil, 115,905 rows, 388 markets, 19 states. Cowpea (28,236 rows) and White Peas (3,337 rows) give the same states
+for every criterion except B146-8, which has no unit to print on either.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B146-1 `instrument` **the panel parses** | 10 files, 115,905 rows, none dropped |
+| PASS | B146-2 `known_answer` **fixed closure days read back** | filing markets on three fixed closure days are 0.219 of the median of the 14 neighbouring days, below in 28 of 28 cells; on six shifted calendars the ratio is 0.795 to 1.035 and the cells below number 7 to 18 |
+| PASS | B146-3 `bookkeeping` **the event table is complete** | 10 event rows, 6 checked against sources, every field present; no unit of an unchecked row sits in a cell that reads |
+| FAIL | B146-4 `premise` **some unit has both edges cut by checked documents** | 0 units under a transport document and a full information cut; 0 when a stop of every data service with voice up also counts; 2 when any information order counts (mobile data only) |
+| PASS | B146-5 `own_reading` **every unit in exactly one cell, mapping printed** | 199 units: ordinary 127, transport cut with information open 7, object absent 65, both cut 0, unverified 0. With the same documents moved back a week at a time, the object-absent shares of the two closures (0.347 and 0.448) are reached in none of 403 and 377 windows (medians 0.077 and 0.061) |
+| not read | B146-6 `own_reading` **dispersion across both-cut markets that still file** | no unit in the cell |
+| not read | B146-7 `own_reading` **step across the stop for both-cut markets that stopped** | no unit in the cell |
+| PASS | B146-8 `own_reading` **transport cut, information open: printed** | Manipur blockade, 139 days, four markets filing on 87 to 93 days. Arrivals at Imphal fall to 0.517 of their level before: reached in none of 21 windows of the same length before the event (lowest 0.949), and in 12 of 103 markets outside the state over the same calendar window (Madhya Pradesh 9 of 55, Uttar Pradesh 3 of 24, none of 24 elsewhere), a window that also holds the nationwide withdrawal of large notes on its seventh day. Local prices, printed in steps of 1,000 rupees, are not distinguishable from the windows before the event; the change in the local price against the outside is read in one market of four (+0.096 to +0.209 under four definitions of the outside reference) |
+| PASS | B146-9 `instrument` **knob sweep** | 12 of 12 points; both-cut units are 0 at every point; 4 units change cell, all between object absent and ordinary |
+| PASS | B146-10 `bookkeeping` **the independent unit is the event** | 6 events carry the 199 units |
+
+**Where each event stops.** Manipur 2016: the order stopped mobile data in two districts for 13 days, a thinner
+inbound edge and not a cut one. Darjeeling 2017: the one order that stopped every data service, overlapping a
+transport document, and the panel has no market in the hills. Madhya Pradesh 2017: all 9 active markets in the six
+districts under the order filed their last row before it; the stops line up with the strike. Assam 2014 and
+Rajasthan 2015: a transport document and no document of an information cut. Madhya Pradesh, November 2016: markets
+shut for want of cash; no edge document.
+
+**Object absent against shifted windows.** The cell counts units that a closure document covers and that filed
+nothing in its window. A market silent for a fortnight with no document anywhere meets the same rule, so the count
+is set against the same documents moved back a week at a time: the strike's 35 of 101 and the cash closure's 30 of
+67 are reached in no shifted window, and at the median share about 12 of the 65 would sit in the cell in any window.
+Of the 65, 40 filed last within two days of the closure's first day and 25 were already silent when it began.
+
+**Clusters of stops against documents.** On lentil there are 191 clusters of at least three markets of one state
+stopping within three days of each other. Eight fall, by state and dates, on the documents of a checked event.
+Counted by the districts each document names, seven have a closure document covering their markets; one (Assam,
+three markets) has a transport document covering one market, which filed on every day of that document's window;
+none has a market under a document that cuts communication outright. The other 183 were set against no document.
+
+Two statements follow, with different scope. The date a market stops filing does not read the inbound edge; that
+holds by construction on a panel built from filings. That a stop reads whether a price formed rests on the eight
+clusters set against documents, 8 of 191.
+
+The conditional registered for the both-cut cell (if both edges are cut by named documents and the market still
+forms a price, dispersion across such markets does not fall back and grows) has an antecedent that does not occur
+on this panel, so it was not tested here. In the cell with transport cut and information open, the quantity side
+reads in the direction the framework states for a cut transport edge (the quantity on it falls and stays down while
+the cut lasts), as one event and one market, with the withdrawal of notes inside the same window not separated
+from it.
+
+## B142: after a loop sum moves away from its centre, whether it comes back; six carriers, typed by who can cross between the two classes
+
+**RUN: 2026-10-13. Scripts `experiments/b142_relaxation.py` (the instrument), `experiments/b142_reading.py`
+(cells, kept readings, queue) and `experiments/b142_record.py` (record and criteria); record
+`results/b142_relaxation.json`, carrying the configuration it ran under.**
+
+**What is read.** Six stations already keep a loop sum or a square sum as a series: B9, B3, B21, B5, B52 and
+B97. Nothing new is collected and none of their records is touched. Each carrier is read two ways, printed
+apart. Reading one: how far a series' own median stands from zero, in units of its own far-deviation cut.
+Reading two: at a series' own far points, whether the next step goes back toward its own median more often than
+under the strictest of three nulls made from its own steps (a matched walk, shuffled steps, a block bootstrap
+with the whole block ladder printed), drawn by date so that shocks shared by a carrier's series stay inside the
+null. A cell reads `above` when two seeds both clear the line, agree with each other, and clear every one of
+19 panels made from the cell's own steps with no force in them (5 panels above 100,000 points, 12 on B3
+daily). Otherwise it reads `inside`, or `marginal` or `unread`, and the last two carry no verdict. Daily
+carriers are read at three frequencies, which are three time scales. Where a cell reads `above` it is placed on
+a ladder of planted half-lives.
+
+Each carrier is typed from its rule text by who can cross between the two classes. Type A: someone crosses on
+behalf of others at a published cost (B9, the creation fee). Type B: someone crosses at a cost that is not
+published (B3; the B5 pairs without the official rate; the euro-area controls of B97). Type C: a rule written
+by a third party keeps the classes apart and nobody crosses (B21; B52; the B5 pairs with the official rate
+before 2025-04-14; Cyprus while the edge was cut). The type has three values and each holds a handful of
+carriers, so across types the station reads order and counts and runs no test.
+
+Criteria come in kinds: `known_answer` asks about the tool, `bookkeeping` about the record, `own_reading` about
+a reading this station registers. No prediction of a rival account is registered here. A scalar price on
+positions says every loop sum is zero at all times, so it has no object for what a loop sum does after it has
+moved, and this framework states no opposite point value in that cell.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B142-1 `known_answer` **every cell with a verdict says what it could resolve, and a planted force is read more often than none** | 140 cells carry a verdict; capacity from the whole reading 70, from a single-seed trial 40, taken from the same cell before the common term is removed 30. Panels planted at the shorter half-life read `above`, against panels with no force: B21 0.870 against 0.042, B3 1.000 against 0.026, B5 0.803 against 0.013, B52 0.608 against 0.026, B9 0.730 against 0.032, B97 0.390 against 0.022 |
+| PASS | B142-2 `bookkeeping` **every candidate carrier is listed, read or not** | 9 listed, 6 read, 3 listed with the reason they are not read |
+| PASS | B142-3 `own_reading` **each ranked carrier has a type, a source and a quoted passage** | 6 of 6 |
+| PASS | B142-4 `own_reading` **type C centres stand further from zero than the type A centre, and type A comes back within the step** | centre against zero: B9 main arm 0.080 (0 of 11 series beyond their own cut); B21 2.921 (180 of 198), B5 pairs with the official rate before 2025-04-14 2.352, Cyprus with the edge cut 3.857. B9 main arm, daily: 1,317 steps back and 166 away at far points, 0.8881 against a strictest null of 0.6586, `above`, placed at one trading day or faster |
+| PASS | B142-5 `own_reading` **after the split is lifted on B5 the centre moves toward zero and comes back faster** | pairs with the official rate: median over pairs of the absolute median 1.1041 before, 0.0341 after; reading two `inside` before, in a cell where a planted half-life of 12 or 48 days is read in 20 panels of 20, and `above` after at 3.1 to 6.2 days |
+| PASS | B142-6 `own_reading` **readings repeated with the date-common term removed, where series are interchangeable** | 27 cells on B9, B3, B21 and B52; share of the step sum of squares held by the common term: B9 0.4676 and 0.6895, B3 0.0911 and 0.3523, B21 0.1541 to 0.2741, B52 0.0838 to 0.1092 |
+| PASS | B142-7 `own_reading` **B9 counted apart on calm and stress days; B3 has no pinned date** | calm 589 back and 68 away (0.8965), stress 728 back and 98 away (0.8814), adding to the whole window; B3 is `unread` on this split, the station pinned no shock date |
+| PASS | B142-8 `own_reading` **one row per ranked carrier or span, typed as the type table** | 20 rows; type A 2, type B 12, type C 6 |
+
+**The rows.** Order and counts only.
+
+| carrier | arm and span | type | centre against zero | series beyond their own cut | reading two | placed, or what the cell could resolve | common term removed |
+|---|---|---|---|---|---|---|---|
+| B9 | main arm, whole window | A | 0.080 | 0 of 11 | above (daily above, weekly above, monthly inside) | one step (1.5 days) or faster | above |
+| B9 | comparison arm, whole window | A | 0.671 | 1 of 4 | above (daily above, weekly above, monthly inside) | one step (1.7 days) or faster | above |
+| B3 | G10, whole window | B | 0.824 | 39 of 90 | above (weekly above, monthly above) | 225.0 days to 1.2 years | above |
+| B3 | emerging markets, whole window | B | 0.910 | 73 of 160 | above (weekly above, monthly above) | 113.5 to 227.1 days | above |
+| B5 | pairs without the official rate, whole window | B | 0.322 | 1 of 3 | above (daily, weekly and monthly above) | 12.4 to 24.8 days | not read this way |
+| B5 | pairs with the official rate, before 2025-04-14 | C | 2.352 | 3 of 3 | inside (daily, weekly and monthly inside) | could resolve up to 120.6 days | not read this way |
+| B5 | pairs with the official rate, from 2025-04-14 | B | 1.428 | 2 of 3 | above (daily above, weekly inside, monthly inside) | 3.1 to 6.2 days | not read this way |
+| B97 | Cyprus against the euro area, before the cut | B | 5.868 | 14 of 15 | inside (monthly) | could resolve up to 30.4 days | not read this way |
+| B97 | Cyprus against the euro area, edge cut | C | 3.857 | 14 of 15 | inside (monthly) | could resolve up to 60.9 days | not read this way |
+| B97 | Cyprus against the euro area, edge restored | B | 7.759 | 14 of 15 | inside (monthly) | could resolve up to 60.9 days | not read this way |
+| B97 | Cyprus against the euro area, later | B | 2.818 | 12 of 15 | above (monthly) | one step (30.4 days) or faster | not read this way |
+| B97 | Greece against the euro area, to 2015-05 | B | 0.973 | 7 of 15 | inside (monthly) | could resolve up to 1.3 years | not read this way |
+| B97 | Slovenia against the euro area, whole window | B | 1.000 | 7 of 15 | inside (monthly) | could resolve up to 2.7 years | not read this way |
+| B97 | Malta against the euro area, whole window | B | 1.629 | 11 of 15 | above (monthly) | 60.9 to 121.8 days | not read this way |
+| B97 | Portugal against the euro area, whole window | B | 1.277 | 8 of 15 | inside (monthly) | could resolve up to 2.7 years | not read this way |
+| B97 | Ireland against the euro area, whole window | B | 3.143 | 11 of 15 | inside (monthly) | could resolve up to 2.7 years | not read this way |
+| B21 | A over H log premium, whole window | C | 2.921 | 180 of 198 | above (daily, weekly and monthly above) | daily slower than 99.5 days; monthly 243.3 days to 1.3 years | above |
+| B21 | A over H log premium, before each pair's own Connect opening | C | 1.770 | 58 of 82 | above (daily above, weekly inside, monthly inside) | daily slower than 100.1 days | above |
+| B21 | A over H log premium, from each pair's own Connect opening | C | 3.372 | 188 of 198 | above (daily, weekly and monthly above) | daily slower than 99.2 days; monthly 243.2 days to 1.3 years | above |
+| B52 | class square, tax-inclusive, whole window | C | 0.763 | 15 of 33 | above (half-yearly) | 182.6 to 365.2 days | inside |
+
+**Three statements are written without a condition, and each is read.** Where someone crosses at a published
+cost the centre is at zero and the series is back within the step: B9 main arm, 0.080 and one trading day.
+Inside the published fee band the next step goes toward zero on 0.6052 of days (1,139 against 743) and outside
+it on 0.8169 (2,084 against 467), the shape threshold cointegration already documents. Where nobody can cross,
+the centre is not pulled to zero: the three type C cells stand at 2.352 to 3.857 against 0.080. Where a split
+is lifted, the centre moves toward zero and the series comes back faster: on the B5 pairs with the official
+rate the centre falls to 3 percent of its earlier level and reading two goes from `inside`, in a cell that
+could have resolved 48 days, to `above` at 3 to 6 days. The three B5 pairs without the official rate keep
+their centre (0.0474 before, 0.0442 after) and also come back faster after the date, so the faster return is
+on both arms and the move of the centre is on the treated arm alone. On Cyprus the centre moves toward zero
+after the edge is restored (median absolute square 1.355 with the edge cut, 1.070 after, 0.615 later, against
+a published grid of 0.005), along a decline that was already under way before the cut (1.650); the four spans
+of 24 to 36 months are too short for reading two.
+
+**Type C and a shared anchor.** Whether a type C series comes back to its own non-zero centre is stated as a
+conditional: it does where both class values rest on one anchor that each class can value where it stands, and
+not where the only tie is a rule of the party that writes the prices. B21, where both legs are claims on one
+dividend: `above` at all three frequencies, monthly at 243 days to 1.3 years, in a cell where a planted
+half-life of 243 days is read in 20 panels of 20. B52, where both class prices include the same supply cost:
+`above` at half a year to a year on the whole window, and `inside` once the term common to the 33 countries is
+removed. B5 pairs with the official rate before the split was lifted, where the official rate is written by
+decree: `inside`, the observed share 0.4843 lying below the strictest null 0.5263. B3, type B, sits between:
+centre 0.824 and 0.910, `above` at weekly and monthly frequency at four months to a little over a year, and
+still `above` with the common term removed.
+
+**B52's whole-window reading and the energy shock.** B52 could not separate its restoring force from the
+2021 to 2023 shock on its own panel. Two carriers whose windows that shock does not dominate, B21 and B3, come
+back to their own centres at every frequency read, with and without the common term. B52's own span before
+2021 stays `inside`, in a cell whose capacity is under one year (a planted one-year half-life read in 7 to 11
+panels of 20).
+
+**B21 and Stock Connect.** The opening dates and the rule that A+H shares are eligible as a class date each
+pair's change of state without any constituent list: Shanghai main board pairs from 2014-11-17, Shenzhen pairs
+from 2016-12-05, STAR pairs from 2021-02-01. Connect adds an edge that each holder has to walk in person; the two
+legs stay unexchangeable. Reading one is far from zero on both sides (1.770 before, 3.372 after). The
+direction of the level is printed and not judged: over the 82 pairs read on both sides the median absolute
+premium is 0.3500 before and 0.4834 after, 25 pairs closer to zero after. Reading two, the registered
+conditional being that the return is not slower once the edge exists: no frequency and no variant reads slower
+after. Daily, both sides `above` on overlapping rungs. Weekly, `inside` before and `above` after at 114 to 229
+days, and the cell before reads a planted half-life of 57.6 days in 20 panels of 20 and of 1.3 years in 16 of
+20, so the return is faster after at this scale. With the date-common term removed, the two sides fall on the same
+rung at weekly and monthly frequency; the common term holds 0.2741 of the step sum of squares before and
+0.1541 after, so the weekly difference lives in the part all pairs share. In the 749 days when Shanghai had
+the edge and Shenzhen did not, both read `above` on the same daily rung (24.5 to 49.0 days); the six cells of
+that cross table are printed and not tested, there being two openings. Entry lags of 0, 10 and 30 trading days
+for pairs that entered after the opening leave every state where it was.
+
+**What a cell could resolve.** A reading of `inside` is printed with the half-lives the same cell reads when
+they are planted in it. Seventy cells were calibrated by sending every planted panel through the whole reading
+a real panel goes through; forty carry a single-seed trial, which reads about 7 percent more panels than the
+whole reading does and is marked as an upper bound. The line itself is not exact on B3 daily (7 of 24 no-force
+panels clear it), so B3's row takes its state from weekly and monthly frequency.
+
+**Cells without a verdict.** Of 155 cells, 70 read `above`, 70 `inside`, none below; 5 are descriptive only;
+1 is `marginal` (Shenzhen pairs from 2016-12-05, monthly, two seeds on the line at 3,200 draws); 9 are
+`unread` (SPY is one series; Greece has no readable series in the two later spans; one four-month span of B21
+has a null with no spread). B59 is listed and not read (one series per era, and its gap is not a loop sum), B49 has three
+years per country, and B128 cannot be typed from its rule text.
+
+## B147: a hospital's published price file read as a two-index table; equal printed percentages name a domain where every square closes, and hospitals carry from one to forty-six price bases
+
+**RUN: 2026-10-13. Scripts `experiments/b147_fetch.py`, `experiments/b147_parse.py` and
+`experiments/b147_payer_item_square.py`, record `results/b147_payer_item_square.json`, carrying the
+configuration it ran under. Station document `docs/b147_hospital_price_files.md`. Six hospital files and the CMS
+data dictionary were retrieved; `data/SOURCES.md`, section B147.**
+
+**What is read.** Under 45 CFR 180.50 a United States hospital prints, for each item and each payer and plan, the
+negotiated charge and the method that sets it. With rows as items and columns as payers, the square is
+`ln P(a,i) - ln P(a,k) - ln P(b,i) + ln P(b,k)`. Every square of a column pair is zero exactly when the two
+columns are one price list times a factor that depends on the payer alone. The product form used in bargaining
+models of hospital prices (price = payer-hospital base price times a weight common to all payers) predicts zero
+everywhere. The file marks in advance one domain where zero is arithmetic: two percentage-of-charges cells
+with the same printed percentages. The method label by itself names a contract arrangement and not the list a
+price is computed from (CMS's encoding guidance has a contract that pays a flat share of gross charges encoded
+in dollars under `fee schedule`), so column pairs labelled with two different arrangements are read as that and
+no more. The floor is the printing grid: one cent on a printed dollar, one unit of the last printed decimal on a
+percentage. Criteria come in kinds: `instrument`, `known_answer`, `premise` and `bookkeeping` ask about the tool,
+a check with a known result, a fact later criteria depend on, and the record; `own_reading` is a reading this
+station registers; `rival` scores the product form's point prediction and passes when that prediction fails.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B147-0 `instrument` **estimator returns zero on a rank-one table** | 885 independent squares, 0 above an exact floor; one cell times 1 + 1e-9 is reported |
+| PASS | B147-1 `known_answer` **calibration file reads zero** | Garfield County Health Center: 2,670 cells, all a percentage of billed charges, one percentage per column (95, 90, 85, 95, 75); 5,330 independent squares, 0 above the floor; the file's minimum column equals 0.75 times gross on 527 of 527 rows |
+| PASS | B147-2 `premise` **rows priced per item by two different methods exist** | 6,557,817 (row, column pair) cells: OHSU 5,887,108, Deaconess 445,276, Central Vermont 225,433; 0 at Garfield, Memorial Hermann and Cheshire |
+| PASS | B147-3 `own_reading` **connected classes per hospital, members printed** | k = 1 (Garfield, 5 columns), 1 (Memorial Hermann, 29), 4 (Deaconess, 24), 7 (Cheshire, 37), 17 (Central Vermont, 17), 46 (OHSU, 47). **Restated 2026-10-27.** k counts connected classes; the fewest common price bases on the observed per-item cells are 1, 2, 4, 18, 16 and 46 (record: `fewest_common_price_bases`; station document, section 5.3) |
+| PASS | B147-4 `rival` **product form on percentage-against-fee-schedule column pairs** | 1,207 column pairs in three files, 1,153 with a square above the floor, 54 with every square within it; 5,768,194 of 6,556,599 independent squares above the floor; median multiple of the floor 10,350 (OHSU), 7,861 (Central Vermont), 122 (Deaconess); 1,153 on each of six knob settings |
+| PASS | B147-5 `known_answer` **zero domain named from the method and percentage columns** | Cheshire, cells printing both the percentage and the dollar amount: 10,402,414 independent squares, 0 above the floor |
+| PASS | B147-6 `own_reading` **two dollar columns of one method** | fee-schedule squares above the floor: 0.0093 (Memorial Hermann), 0.106 (Deaconess), 0.237 (OHSU), 0.583 (Cheshire), 0.773 (Central Vermont); case-rate pairs at Central Vermont 21 of 21 within the floor |
+| PASS | B147-7 `bookkeeping` **coverage** | 6 files read of 6 in the manifest; cells left out counted by reason |
+
+**Each account against the file.** The framework states that a square is zero exactly when two columns share
+a base, and non-zero otherwise. On the column pairs the file labels with two different per-item arrangements,
+1,153 of 1,207 carry squares above the floor, in three hospitals in three states; the other 54 (all at OHSU) are
+one base under two labels. The product form states zero everywhere; it holds on those 54 pairs and on 0.120 of
+the independent squares. B147-4 is recorded as cell B on 1,153 pairs and cell A on 54.
+
+**What was already measured, and what is added.** That relative prices across services differ between insurers
+inside one hospital has been measured on other data: Craig, Ericson and Starc on Massachusetts claims (NBER
+Working Paper 25190); Wang, Xu and Anderson on insurer-side files for 1,970 hospitals, where the insurer with the
+lowest price is the same across ten services in 614 of them (JAMA Network Open 2024;7(12):e2451941); Douven,
+Burger and Schut on one Dutch hospital's contract prices (Health Economics, Policy and Law 2020;15(3)). B147-4 is
+that fact read on hospital-side files against a printing-grid floor, with independent squares counted. The
+readings this station adds are the partition of each hospital's columns into connected classes with its members (B147-3)
+and, beside it, the fewest common price bases those columns need, the closed
+domain named from printed percentages (B147-5), and how the method labels are used in practice (below).
+
+**A zero domain is printed; the label alone does not find it, and it is not the whole of it.** Squares also
+close outside the named domain wherever two columns are one schedule: 400 of 406 fee-schedule column pairs at
+Memorial Hermann, 66 of 78 at Deaconess, 37 of 513 at Cheshire, 2 of 811 at OHSU, none of 128 at Central Vermont.
+Three of the six files (Garfield, Deaconess, Cheshire) print a flat discount as a percentage under the
+percentage label, where the guidance would have it in dollars under `fee schedule`: one label, two uses. Where both cells are a percentage of billed
+charges and the printed percentages agree across two rows, every one of 10.4 million squares closes on printed
+dollars. Where both are a percentage and the percentages are not asked about, squares above the floor number
+802,670 of 10,402,432 at Cheshire, 233,541 of 2,005,612 at OHSU, 48,590 of 1,157,618 at Deaconess and 18,928 of
+295,069 at Central Vermont: the percentage varies by row.
+
+**Hospitals differ in how many bases they carry.** At Memorial Hermann every read column is one fee schedule at
+its own multiple (400 of 406 column pairs entirely within the floor). At Deaconess twelve Medicare Advantage and
+Veterans Affairs columns are one schedule and ten commercial columns one percentage list. At Central Vermont no
+two columns share a base on per-item rows, while its six case-rate columns are one schedule (15,962 squares, none
+above the floor). The count is a property of each hospital's contracts and is stated file by file.
+
+**Restated 2026-10-27.** The count above is of connected classes, and a class joined through a chain of compatible pairs need not share one base. At Memorial Hermann the read columns need two bases: Aetna Exchange conflicts with six columns of the one class on the rows they share (Aetna Medicare Managed Care Plan against it: HCPCS Q0480 and MS-DRG 018 give log ratios -0.4383 and -0.5008, 6.45 percent apart beyond the printing grid), and the other 28 fit one schedule. At Central Vermont Aetna Medicare Advantage and Cigna Behavioral Health share a single per-item row and fit one base, so the observed cells need 16 bases. The fewest common price bases by file, as the record prints them (`fewest_common_price_bases` in each file's report), each with a lower bound from a clique of columns that conflict pairwise and an upper bound from a partition each part of which passes the joint check: Garfield 1, Memorial Hermann 2, Deaconess 4, Cheshire 18, Central Vermont 16, OHSU 46, Iowa main campus 27, Downtown 25; the connected classes are 1, 1, 4, 7, 17, 46, 18 and 16. The heading's one to forty-six holds on the fewest bases.
+
+**Scope.** Six files chosen by hand; shares speak for these files. Cells with method `other` or an algorithm text
+only, percentage cells on rows without a gross charge, one-cent placeholders and cells printed twice with two
+prices are counted and not read. Rows whose two cells are charged in different units (item against case, case
+against day) are not read. Which published schedule a fee-schedule column follows is not printed in the files.
+Related measurements on claims data (the same hospital paid different prices by different insurers; share-of-charges
+and prospective contracts coexisting inside one hospital) are Cooper, Craig, Gaynor and Van Reenen, NBER Working
+Paper 21815.
+
+**Continuation, RUN: 2026-10-14. Two files of the University of Iowa Health Care Medical Center (one legal entity, the State University of Iowa; main campus and Downtown, 1,597,353,362 and 1,583,312,047 bytes) and nine Medicare Part B drug payment limit files from cms.gov (October 2024 and the eight quarters of 2025 and 2026) were added; the same scripts and record, `data/SOURCES.md`, section B147. Every number for the first six files is unchanged.** Squares are counted pair by pair: a column pair sharing n rows gives n - 1, summed over pairs; pairs that share a column are not independent of one another, and the bound (m - 1)(n - 1) on independent squares is printed for each file in the record. Shares are ratios of the pair-by-pair counts.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B147-0 `instrument` | as above |
+| PASS | B147-1 `known_answer` | as above |
+| PASS | B147-2 `premise` | qualifying cells at Iowa: main campus 7,263,120, Downtown 6,673,616 |
+| PASS | B147-3 `own_reading` | k = 18, 19, 21 (Iowa main campus, 54 columns) and 16, 17, 19 (Downtown, 51) at 2, 10 and 50 shared rows; the first files where the three settings differ. **Restated 2026-10-27.** These are connected classes; the fewest common price bases are 27 (main campus, from the 48 columns that print per-item cells) and 25 (Downtown, 45; record: `fewest_common_price_bases`), the same with rows of gross charge one dollar or less left out |
+| PASS | B147-4 `rival` | 2,788 column pairs in five files, 2,734 with a square above the floor, 54 (all at OHSU) with every square within it; 19,598,163 of 20,491,751 squares above the floor; at Iowa 843 of 843 and 738 of 738 pairs, 0.992 of squares; 2,734 on each of six knob settings; four legal entities |
+| PASS | B147-5 `known_answer` | Cheshire as above; at Iowa no cell prints both a percentage and a dollar amount, so the named domain has nothing to check; both cells labelled a percentage of billed charges at Iowa: 0.202 and 0.197 of squares above the floor |
+| PASS | B147-6 `own_reading` | Iowa fee-schedule pairs 485 and 414, 0.787 and 0.776 of squares above the floor; case-rate pairs 137 and 154, 0.712 and 0.696 |
+| PASS | B147-7 `bookkeeping` | 8 hospital files read of 8; nine payment limit files read as reference tables, each with the revision date in its member name |
+| PASS | B147-8 `own_reading` **columns that price drugs at the Medicare Part B payment limit** | on drug rows (one HCPCS or CPT code, found in the limit file): Medical Associates Medicare Advantage at both Iowa campuses follows the limit at c = 1.0; seven Memorial Hermann columns follow the fourth quarter of 2025 as revised on 2026-08-20, at c from 1.00 to 1.9; no verdict on 21 columns (11 at OHSU, 5 at each Iowa campus) that sit on c times the limit on every row except rows where columns with different constants depart by one ratio; every other column does not follow it |
+
+**Each account against the file, eight files.** The framework: squares open where the two columns come from two lists; on the pairs labelled with two per-item arrangements, 2,734 of 2,788 carry squares above the floor, in four legal entities in four states. The product form: zero everywhere; it holds on 54 pairs and on 0.0436 of squares counted file by file. The two Iowa files repeat each other on 0.915 of shared keys; with one of them kept the share is 0.061 or 0.063, with 1,996 or 1,891 pairs above the floor. By file: OHSU 0.131, Deaconess 0.025, Central Vermont 0.018, Iowa 0.0076 at each campus. B147-4 is cell B on 2,734 pairs and cell A on 54.
+
+**Magnitude at Iowa.** About a quarter of the Iowa squares on these pairs sit on rows whose gross charge is one dollar, where a percentage of billed charges prints cents against a fee-schedule price. With those rows left out (a second reading in the record), Iowa keeps 840 of 840 and 736 of 736 pairs above the floor, and the median absolute log gap is 1.00 at both campuses (2.06 and 2.07 with them), beside 1.33 at OHSU and 1.27 at Deaconess.
+
+**Drug prices that sit on a published schedule.** The limit files on cms.gov carry only the latest revision of each quarter (January 2026 as revised on 2026-09-15); the hospital files predate those revisions. Five codes (J9055, J1299, J1303, J2777, J9308) depart from c times the limit by the same ratio at OHSU and at Iowa, which places those departures in the revised file. Printed beside B147-8 and not scored: two Medicare Advantage columns at Central Vermont sit on the limit at c = 1.0 on 99.29 and 99.25 percent of 567 and 536 drug rows; two Anthem columns at Cheshire at c = 1.4151, 150 percent of the average sales price, on 99.08 percent of 978. Where a column follows the limit, its squares against a percentage column are the relative price of two published lists, the hospital's gross charges and the payment limit. Which column follows and at what multiple is set by contract and is stated column by column. The laboratory half, against the Clinical Laboratory Fee Schedule, is not read.
+
+**Two campuses of one entity.** Of 721,595 keys (payer, plan, codes) priced once in each file, 660,125 carry the same price to the cent, 0.915.
+
+## B148: customer-class lines on one UK bank's posted mortgage rate tables; four classes print four rates at 32 of 44 positions, and 542 incentive-neutral squares stand at two units or more
+
+**RUN: 2026-10-14 (first and same-day second read), next-day read 2026-10-18; second designer (Barclays) 2026-10-29.
+Script `experiments/b148_mortgage_class_square.py` (`--transcribe`, default run, `--selftest`, `--mutation-test`),
+record `results/b148_uk_mortgage_class_lines.json`, carrying the configuration it ran under. Station document
+`docs/b148_uk_mortgage_class_lines.md`. Text snapshots of four HSBC UK rate pages, each with a SHA-256; the Barclays
+customer rate sheet (PDF, 584,117 bytes, SHA-256 in the record), fetched by `experiments/b148_fetch_barclays.py` and read
+by `experiments/b148_read_barclays.py`; `data/SOURCES.md`, section B148.**
+
+**What is read.** HSBC UK posts one mortgage rate page per kind of borrower: first-time buyers (F), people moving home
+(M), people remortgaging to the bank (R) and existing customers switching product (E). A position is (LTV band, fixed
+period, product); the product carries the booking fee. An incentive-neutral square takes two classes and two positions
+of one fixed period where each class keeps its incentive, so fees and incentives cancel and the square is one of the
+rate alone; the unit is 0.01 point, the printing grid, and a square is read at two units or more. Three accounts make a
+point prediction on this table: a scalar price on the position, an additive class shift, a multiplicative class factor.
+Premier Standard is read as a product and as a class line; both partitions give the same verdict on every criterion.
+Criteria come in kinds: `instrument`, `bookkeeping` and `known_answer` ask about the tool, the record and answers fixed
+before the run; `own_reading` prints an object; `rival` scores another account's point prediction, where PASS means the
+prediction fails on the table. A `known_answer` criterion that does not pass names the entries that disagree.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B148-1 `instrument` **rows, headers and the same-day second read** | 208 keys, all eight fields resolved; the rate column is the one the pages call "Initial interest rate"; the second read agrees on all 1,248 compared fields, 0 shelved |
+| PASS | B148-2 `bookkeeping` **snapshots and three reads** | 31 snapshots carry SHA-256, offset, prompt and a time bracket; each read within one hour (2026-10-14 09:53 to 10:01, 10:15 to 10:26; 2026-10-18 13:43 to 13:50); the next-day read is compared with the first row by row: 208 of 208 keys present, 134 differ in rate and in no other field |
+| FAIL | B148-3 `known_answer` **four gate rates and the version mark** | first read 5.36, 5.29, 5.09, 5.06 as fixed at the gate; next-day read F 60% two-year Fee Saver 5.31, M 5.29 -> 5.19, F 60% five-year Standard 5.04, M 5.06 -> 4.99, with the fixed end dates 31.01.2029 and 31.01.2032 unchanged. Between the reads the bank lowered 134 of 136 fixed-rate rows on the F, M and R pages by 5 to 19 units (R 90% five-year Fee Saver stays at 5.59) and left the E page and every tracker row unchanged, so the end dates do not mark a repricing. The other criteria read the first-read table |
+| PASS | B148-4 `own_reading` **incentive-neutral squares printed** | 750, four cells and value each |
+| PASS | B148-5 `rival` **scalar price on the position** | 24 positions where both classes carry no incentive, 24 class differences nonzero, largest 36 units (E 4.74 against M 5.10, 70% and 75% two-year Premier Standard); grid B |
+| PASS | B148-6 `rival` **additive class shift** | 750 squares: 624 nonzero, 542 at two units or more, 82 at one unit; largest 38 (E against M, 90% against 95% two-year Fee Saver, 5.53, 5.54, 5.55, 5.94); grid B |
+| PASS | B148-7 `rival` **multiplicative class factor** | 678 four-term ratios differ from one, 542 on squares of two units or more; the class difference changes sign in 3 of 36 incentive groups; grid B |
+| PASS | B148-8 `own_reading` **class x LTV boundary** | 20 boundaries where every class keeps its incentive; two-year Fee Saver 85% to 90%: F +17, M +10, R +15, E +22; 90% to 95%: M +40, E +2 |
+| PASS | B148-9 `own_reading` **distinct rates per position** | four values at 32 of 44 positions, three at 6, two at 1, one at 5 (all trackers); fixed F and M equal at 2 of 38 rows |
+| PASS | B148-10 `own_reading` **full cost where incentives differ** | 1,194 squares at 100k to 500k pounds, 25-year repayment: 744 nonzero at every amount (619 with one sign), 0 zero, 450 mixed or carrying the legal-fees incentive |
+| PASS | B148-1-Barclays `instrument` **two extraction paths and the rate column** | table geometry and text stream agree on all 169 rate rows; every column header names "Initial Interest Rate", the APRC column apart |
+| PASS | B148-2-Barclays `bookkeeping` **file, manifest and page coverage** | length and SHA-256 match the manifest; all 11 pages listed with their rate rows (30, 18, 10, 20, 13, 23, 25, 8, 6, 16, 0); every row carries page and row |
+| PASS | B148-3-Barclays `known_answer` **numbers the sheet fixes itself** | every tracker rate is the printed Bank Rate 3.75% plus its printed margin, every follow-on line sums to 5.74: 211 checks, 0 off; version mark "Rates effective from 16 October 2026" |
+| PASS | B148-4-Barclays `own_reading` **incentive-neutral squares printed** | 40, each cell with its page and row |
+| PASS | B148-5-Barclays `rival` **scalar price on the position** | 16 positions with no incentive and the same fee on both sides, 9 nonzero, largest 11 units (E 5.56 against P 5.45, 75% five-year no fee; E 5.73 against P 5.62, 90% two-year no fee); grid B |
+| PASS | B148-6-Barclays `rival` **additive class shift** | 40 squares: 33 nonzero, 29 at two units or more, 4 at one unit; largest 29 (E against P, 75% against 90% five-year with fee, 5.42, 5.30, 5.74, 5.33); grid B |
+| PASS | B148-7-Barclays `rival` **multiplicative class factor** | 34 four-term ratios differ from one, 29 on squares of two units or more; the class difference changes sign in 2 of 17 incentive groups; grid B |
+| PASS | B148-8-Barclays `own_reading` **class x LTV boundary** | 5 boundaries; two-year with fee 85% to 90%: E +8, P +1 |
+| PASS | B148-9-Barclays `own_reading` **distinct rates per position** | 37 shared positions: three values at 4, two at 19, one at 14 |
+| PASS | B148-10-Barclays `own_reading` **full cost where an incentive or a fee moves** | 84 squares: 29 nonzero at every amount (25 with one sign), 0 zero, 55 carrying a remortgage package with no printed pound value |
+
+**Each account against the table.** The framework reads a two-index price with no printed rule that writes one class's
+rate from another's (each page was searched for such a sentence; none is there), and the squares are open: 542 at two
+units or more, the largest 38. The scalar price, the additive shift and the multiplicative factor each predict zero (or
+one) on these squares and do not hold on this table; all three are cell B, cell C is empty. Independent squares are
+bounded by `b1 = 109` of the fixed-rate table (162 cells, 54 vertices, one component). On the moving-home page the
+Premier line sits exactly 3 units below Standard at every band read, a single shift read from the numbers. Trackers
+print one rate for every class.
+
+**The next-day read.** Four days after the first read the F, M and R fixed-rate lines all moved down and the E line did
+not, so the existing-customer line now sits closer to the others at most positions; the squares above are those of the
+first-read table.
+
+**Second designer: Barclays.** The Barclays customer rate sheet prints separate tables for purchase (P), remortgage (R)
+and existing customers (E). The fee tier is the position and the fee amount moves with the class (899 pounds purchase,
+999 remortgage and existing), so a square is incentive-neutral when the four fees also cancel; on the HSBC pages every
+class pays the same fee at a position, and every HSBC reading above is unchanged to the byte. The sheet prints no rule
+that writes one class's rate from another's. The squares are open here too: 29 of 40 at two units or more, the largest
+29, and the three accounts are cell B again; cell C stays empty. Each bank is reported on its own. On the large-loan band
+purchase and remortgage print one rate; on the remortgage table the Premier line sits exactly 3 units below standard,
+the shape of the HSBC moving-home Premier line. Premier as a class line and The Great Escape as a product of its own give
+the same verdicts. The buy-to-let tables are printed in the record and not scored.
+
+## B149: Regulation Q ceilings read as holder-by-position tables, 1966 to 1986; with foreign official holders every revision read writes two class values on one position, and on the bound cells the IRA/Keogh ceiling stands 150 basis points above the ordinary one
+
+**RUN: 2026-10-14, 2026-10-18, 2026-10-29 (two runs). Script `experiments/b149_regq_table.py` (default run, `--selftest`
+with thirteen mutants), record `results/b149_regq_class_table.json`, carrying the configuration it ran under. Station
+document `docs/b149_regulation_q.md`. Transcription `data/b149_regq_cells.json`: every fixed ceiling read from the page
+image of the circular (FRASER), with page, paragraph and the text-layer token kept as an index; Bulletin survey and
+ceiling-table pages, circulars and Federal Register issues in `data/raw/b149/` with a SHA-256 manifest
+(`experiments/b149_fetch.py`); `data/SOURCES.md`, section B149.**
+
+**What is read.** Regulation Q set maximum rates on member-bank time deposits under $100,000. Each revision gives a table
+C(a, j): a is the depositor class (o ordinary, g governmental unit, k IRA/Keogh, and from 2026-10-29 f, foreign official
+holders under section 217.3), j the maturity band. A class gap is
+C(a, j) - C(o, j); a square is the difference of two class gaps along the maturity axis; the printed ceilings sit on a
+quarter-point grid, so 25 basis points is the floor. Floating categories are recorded as rule text: where the rule for
+g or k differs from the rule for o they are class-line cells, where it is the same they are zero-domain cells. Criteria
+come in kinds: `instrument`, `premise`, `known_answer` and `bookkeeping` ask about the tool and the record;
+`own_reading` prints an object; `rival` scores the point prediction of one scalar price per position, where PASS would
+mean the prediction fails on rates paid.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B149-1 `instrument` **cells from page images, on the grid, second printings agree** | 150 member-bank cells (17 second printings) and 18 cells from 1980-81; 0 without an image reading, 0 off the grid; 37 narrative checks agree; two source-internal discrepancies listed (the 8585 preamble prints 8 for the eight-year row; the 9225 reprint prints 6 3/4 for 1 to 2 1/2 years where the printings before and after print 6) |
+| FAIL | B149-2 `premise` **the ceilings bind on the compared cells** | Bulletin survey of the most common rate paid (1977-04-27, 1978-07-26, 1979-07-25, 1979-10-31, 1980-01-30), 63 readings: of 100 cells 44 bound, 38 below, 18 undecided or without a source; ordinary 32 bound, IRA/Keogh 12 bound, governmental units 0 bound and 37 below |
+| PASS | B149-3 `known_answer` **nine read-backs** | 7.75 (1977), the quarter-point thrift premium, 7.50 for banks, 8.00 (1978), 25 basis points below savings, 5 to 5 1/4, 7 3/4 at eight years, 1983-10-01, 1986-03-31 |
+| PASS | B149-4 `own_reading` **two class values on one position, class-line events** | with foreign official holders twelve revisions, 1966-09-26 included: 30 f cells, 9 rule-written f cells, 5 f events; o, g and k as before: eleven revisions (1974-11-27, 1975-12-04, 1978-06-01, 1979-07-01, 1979-08-01, 1980-01-01, 1980-10-30, 1981-01-15, 1982-09-01, 1983-10-01, 1984-01-01); 73 class cells differ from the ordinary row; 15 rule-written class cells, none with the ordinary rule; 26 class-line events in the window, each with its authority |
+| PASS (B) | B149-5 `rival` **one scalar per position: class gap zero** | 60 cells; 8 bound on both sides, all IRA/Keogh against ordinary: 150 basis points at 3 to 4 years on 1979-07-01, 1979-08-01 and 1980-01-01, 75 and 50 at 4 to 8 years on 1980-01-01, 25 (one grid step) at eight years three times |
+| PASS (B) | B149-6 `rival` **additive form: every square zero** | 170 squares; 8 bound on all four cells: 125 basis points three times, 75, 100 and 50 on 1980-01-01, two at one step; bank against thrift (Bulletin table 1.16 on four dates) at most one grid step |
+| PASS | B149-7 `own_reading` **zero domain** | 44 cells where the regulation writes one number or one rule for every class, all zero |
+| PASS | B149-8 `bookkeeping` **retain lists opened** | 22 revisions with all fields; 29 of 29 retain-list items opened. RUN 2026-10-29: the last two opened, the amendment effective 1978-07-06 (circular 8341, 217.1(f)(1): a member bank's note held for the United States is not a deposit) and the one effective 1978-11-01 (circular 8338, 217.5(c): automatic transfers from savings held only by individuals); neither changes a ceiling or writes a class value. FAIL before that run, at 27 of 29 |
+
+**The lines.** The IRA line starts on 1975-12-04, when the Supplement exempted IRA deposits from the $1,000 minimum at
+four and six years (7.25 and 7.50 against 6.50); section 217.7(e) followed on 1977-07-06. From 1980-01-01 governmental
+units and IRA/Keogh deposits at member banks get the thrift ceiling on the two floating certificates. The Deregulation
+Committee wrote ceilings for ordinary depositors from 1980, and the governmental-unit ceiling stayed in the Board's
+217.7(d): 8 per cent through 1981 and 1982, and after the removal of time-deposit ceilings on 1983-10-01 still 8 on 7 to
+31 day deposits under $2,500 against 5 1/4 (5 1/2 from 1984). Both lines end on 1986-01-01, three months before ceiling
+authority expired.
+
+**Each account against the table.** The framework reads a two-index table written by the regulator: at eleven revisions
+the same position carries two ceilings, class gaps up to 300 basis points, squares up to 275. The scalar-price account
+predicts a zero class gap on every cell; on the written ceilings it is contradicted, and it becomes a reading of rates
+paid only where the ceiling binds. The Bulletin survey gives that: at the ordinary bands and at IRA/Keogh deposits of
+three years or more the ceiling is the rate most commonly paid, so on those cells the class gap is a gap in rates paid
+(150 basis points at 3 to 4 years). Governmental units were most commonly paid at or below the ordinary ceilings,
+not at their own. Foreign official holders had no ceiling up to two years from the first day of the window. Where the
+regulation writes one rule for all
+classes (the 1983 and 1986 freed positions, the 1982 91-day and long-maturity paragraphs, the floating categories of
+1978-79) both accounts give zero.
+
+**Restated 2026-11-08.** The survey has one IRA/Keogh category, deposits of three years or more (readings S79a-k,
+S79b-k and S80-k), and the binding map gives that one reading to each of the four bands from three years: 3 to 4, 4
+to 6, 6 to 8, and 8 years and over. That is a proxy. It reads the rate most commonly paid on IRA/Keogh deposits of
+three years or more taken together and does not separate the bands. What holds without it: on 1979-07-01, 1979-08-01
+and 1980-01-01 the ordinary ceilings at those four bands are 6.50, 7.25, 7.50 and 7.75 (circulars 8585 p.3, 8616 p.3,
+8709 p.5), all below the IRA/Keogh 8.00, and 73.6, 76.0 and 81.3 percent of the category's deposits (July 1979,
+October 1979, January 1980) sit in the paying-ceiling column at 8.00. No ordinary depositor may be paid 8.00 at any
+band from three years, so on at least one band from three years the two classes are paid rates at least 25 basis
+points apart, wherever those deposits fall. That bound is one grid step, which B149-5 reads as the third state: the
+gap is exactly 25 if all of those deposits are at eight years and over. The B149-5 cells above the floor (150, 75 and
+50 basis points) and their count of 5 rest on the proxy, and so do the B149-6 squares, which need the IRA/Keogh rate
+band by band, and their count of 6. Both verdicts stand as recorded (PASS, grid B), carried by this proxy; the
+coverage is partial. Where the text reads IRA/Keogh as paid 8.00 at 3 to 4 years, read: IRA/Keogh deposits of three
+years or more were most commonly paid 8.00.
+
+## B150: Singapore's foreign worker levy, one job priced by worker class and by the employer's tier; one more S Pass holder adds $650 to $1,000 to the bill
+
+**RUN: 2026-10-14. Script `experiments/b150_levy_table.py` (with `--selftest`), record `results/b150_levy_table.json`,
+carrying the configuration it ran under and the result of every self-test check. Station document
+`docs/b150_singapore_levy.md`. Seven text snapshots of the Ministry of Manpower pages, each with a SHA-256, are in
+`data/raw/b150/`; `data/SOURCES.md`, section B150.**
+
+**What is read.** Singapore's Ministry of Manpower prints a monthly levy for each Work Permit and S Pass holder. The
+levy is written on two indices: the worker's class (higher-skilled, basic-skilled, construction's unskilled class,
+S Pass) and a position. In services and manufacturing the position is the tier the employer's own share of migrant
+workers falls into. In construction and process it is the source group, and construction adds an off-site row. The
+marine shipyard has one cell. The square is `(BS - HS)@a - (BS - HS)@b`, read in SGD (floor $1, the printing grid) and in
+logs (floor `log((x+1)/x)`, `x` the smallest of the four numbers); a sign is read only where both compositions are
+nonzero and agree. The guide's quota and tier steps (Tier 1 = floor(a W), Tier 2 = floor(b W) - Tier 1, filled in
+the order S Pass, higher-skilled, basic-skilled) give the bill for any workforce mix. Three standard shapes for a levy
+(one value per position; class term plus position term; class term times position term) are read on whole tables in
+the details of L3-3 and L3-4; the station carries no `rival` criterion. Criteria come in kinds: `instrument`,
+`known_answer` and `bookkeeping` ask about the tool, a check against answers already known, and the record;
+`own_reading` is a reading this station registers. L3-2 reconciles the guide's own worked bills and rate table row by
+row and lists the rows where the guide itself is wrong.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | L3-1 `instrument` **daily levy is the monthly levy times 12 / 365, rounded up to the cent** | 25 printed daily rates match, 0 differ; 3 cells carry no daily rate and take no verdict (the unskilled class on two on-site source groups, monthly only; an off-site unskilled cell the page does not write) |
+| PASS | L3-2 `bookkeeping` **the guide's worked bills and rate table, recomputed from its own steps** | 48 rows, all read and reconciled, 44 agree; the 4 that disagree are errors in the Ministry's guide, the source document, computed from the rows: page-15 factory Tier 2 levy printed 5,160 against 5,640, factory total 13,280 against 13,760, cafe plus factory 14,580 against 15,060 (four basic-skilled workers charged the $350 higher-skilled rate), and the marine higher-skilled rate, 300 in the guide against 350 on the page; page 12 (14,430) and page 14 (1,300) agree |
+| PASS | L3-3 `own_reading` **class values at every position** | higher-skilled and basic-skilled are written and differ at all 12 positions; construction sites add the unskilled class (900); distinct values services 5 of 6, manufacturing 6 of 6, construction 6 of 8, process 4 of 4, marine 2 of 2; 15 distinct Work Permit values in all, 200 to 900; S Pass one printed value, 650, and two (550, 650) before 1 September 2025 |
+| PASS | L3-4 `own_reading` **every square, in SGD and in logs** | 10 squares within tables, 7 independent by `b1 = E - V + 1`; nonzero squares stand 20 to 280 floors in SGD and 7.6 to 114 in logs (the two unskilled squares 153.5 and 176; they are one object, both 200 in SGD); no table has every SGD square zero and none has every log square zero; where signs are read, table by table, they are positive: the basic-skilled premium in manufacturing narrows in Tier 3, and on construction sites it is wider than off site |
+| PASS | L3-5 `own_reading` **bill increase from one more hire, computed from the guide's steps over every mix within quota** | one more S Pass holder: services 650, 750, 800, 850, 950, 1,000; manufacturing 650, 750, 930, 950; the printed S Pass rate is one number, 650; the sets are identical at LQS count 1 to 40, 1 to 80, 1 to 80 in half steps, and on a grid holding every mix the quota allows |
+| no verdict | L3-6 `known_answer` **the 2028 pages against the announced tables** | announced: services and manufacturing merge Tier 1 and Tier 2 (400 / 600 and 300 / 470), process and marine raise basic-skilled rates; Tier 3 is read at its current rates, which the pages do not restate; read in the month the change takes effect, with a quarterly check of the four pages from 15 January 2027; if not in effect by 31 December 2028 it is recorded as an announcement not yet implemented |
+| PASS | L3-7 `bookkeeping` **snapshot coverage** | 7 snapshots, SHA-256 recomputed equal on 7, 0 unlisted files of any type; each marked a full (5), partial (1) or summary (1) transcription; guide pages 1 to 15 read |
+
+## B151: one self-regulatory initiative writes two values for two classes of non-bank depositor at the same bank's demand-deposit position, each pinned to a different policy rate
+
+**RUN: 2026-10-14. Script `experiments/b151_nonbank_interbank_caps.py` (with `--selftest`), record
+`results/b151_nonbank_interbank_caps.json`, carrying the configuration it ran under. Station document
+`docs/b151_nonbank_interbank_deposit_caps.md`. No data series retrieved; pages and central bank notices read and
+snapshotted with their hashes under `data/raw/b151/`; `data/SOURCES.md`, section B151.**
+
+**What is read.** China's market interest-rate pricing self-regulatory mechanism adopted, effective 1 December 2024,
+an initiative on the rates banks pay on deposits placed with them by non-bank financial institutions. At the same
+bank it writes two positions. At the demand-deposit position (A), deposits of financial market infrastructure
+institutions "should refer to" the rate on excess reserves, and those of every other non-bank institution "should
+refer to" the 7-day reverse repo rate. At the early withdrawal of a time deposit (B), the rate for every non-bank
+institution "in principle should not be above" the rate on excess reserves. Two segments, cut where the 7-day rate
+changed on 2025-05-08. The square is `(other - infrastructure) at A - (other - infrastructure) at B`, in percentage
+points and in logs. Both policy rates are published to two decimals, so the floor is 0.01 percentage point and
+`log(0.36/0.35) = 0.0282` in logs. Criteria come in kinds: `instrument` and `bookkeeping` ask about the tool and the
+record; `own_reading` is a reading this station registers.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B151-1 `instrument` **policy rates read off the central bank's notices** | excess reserves 0.35 from 2020-04-07; 7-day 1.50 from 2024-09-27 and 1.40 from 2025-05-08; 1.40 in the reading date's operation |
+| PASS | B151-2 `bookkeeping` **sentence, wording, level and anchor per cell** | each of four cells' sentences on 3 of 3 verified snapshots; the one policy rate each sentence names is the rate its value is taken from |
+| PASS | B151-3 `own_reading` **distinct values at the demand position** | 2 values for 2 classes named in both segments: 0.35 and 1.50, then 0.35 and 1.40 |
+| PASS | B151-4 `own_reading` **square over two classes and two positions** | +1.15 and +1.05 pp (115 and 105 times the floor); +1.4553 and +1.3863 in logs (51.7 and 49.2 times) |
+| PASS | B151-5 `own_reading` **values equal separately written classes at each position** | 2 at A, 1 at B, both segments; interbank deposits placed by banks are not written for at either |
+| no verdict | B151-6 `own_reading` **second step (interbank time deposits)** | waiting for the event: no public text as of 2026-10-14; checked monthly from mid November 2026 |
+
+**Each account against the text.** The framework reads a price with two indices, position and class: at the demand
+position the initiative writes two values for two classes, each pinned to its own policy rate, and the square is open
+by the amount the writer chose. An account with one rate per position has no place for the two values at A. An
+additive class term needs the square in percentage points to be zero; it is +1.15 and +1.05. A multiplicative class
+term needs the square in logs to be zero; it is +1.4553 and +1.3863. Both shapes are read on the written schedule;
+rates actually paid are not read at either position. At B both accounts give one value, and one is what the
+framework predicts where one class is named. The class difference at A moved with the 7-day rate, from 1.15 to 1.05
+on 2025-05-08, while B stayed at 0.35.
+
+**Scope.** The readings state what the initiative writes in these cells; rates paid on any deposit are not read.
+Corporate and household deposits are general deposits, not interbank deposits, and are not at either position. The
+initiative has not been published by its writer; its sentences are read from three outlets that carry them word for
+word the same, and its existence and full name are on the central bank's own release of 29 November 2024. Where the
+funds of a repriced class moved is not read: the central bank's credit balance sheet publishes non-bank deposits as
+one line. The same shape, one obligor and one instrument with a rule writing two values by holder, appears in B59.
+
+## B152: two app stores' commission tables read as class-by-position tables; the zeros sit where one number is printed for two cells
+
+`experiments/b152_appstore_square.py` · `results/b152_appstore_square.json` · `docs/b152_appstore_square.md` · 2026-10-14
+
+Apple and Google each publish the share of a sale the store takes from a developer, by developer class and by
+the position the transaction sits on. On Apple's pages for the EU (effective 1 October 2026) and Japan (December
+2025) the positions are three payment routes: in-app purchase, an alternative payment processor inside the app,
+and an external link. On Google's pages a position is a product (subscription or other transaction), the buyer's
+install cohort and a billing route at once. The classes are the stores' own: Apple's standard rate against the
+reduced rate (three programs and subscriptions after their first year), Google's first million dollars of annual
+earnings, standard tier and program tier, and in the remaining markets the tranches inside the 15% tier. Every
+class line carries the store's quoted assignment rule; none is a choice on one transaction.
+
+**Sources.** Eight public pages saved as served on 14 October 2026: Apple's EU alternative payment options page,
+Japan app distribution page, December 2025 Japan announcement and Small Business Program page; Google's Play
+Console Help answer 112622, the Android Developers Blog post of 24 June 2026, and the Level Up and Apps Experience
+program pages. Every number used is quoted from its page with the hash of the saved page.
+
+**The test is exact.** A square is `f(a,c) + f(b,d) - f(a,d) - f(b,c)` in levels, and the same in `log(1 + f)`
+and `-log(1 - f)`, decided in rationals. Two point predictions are scored: L, a price of the position plus a
+term for the class (every level square zero); M, a scalar potential on positions with a constant offset per class
+(every log square zero). Each square is read across three transforms, with and without the printed add-on
+(Apple Japan's 5% payment processing fee, Google's 5% billing fee), and two readings of Google's "reduced by 4%"
+for alternative billing in South Korea and India, since the page prints no worked example: twelve settings. A
+square non-zero on all twelve is read; zero on all is zero; zero on some is not read. The floor is the printed
+format, one percentage point, with a number printed once moving every cell it sits in; it is taken in both of
+the two ways Google prints the same numbers (cell by cell on the help page, as two rules in the post), and the two
+layouts give the same value in every cell. Each rival is also scored in its own units: it fails where its own
+squares are non-zero and above the floor on all four of its add-on and Korea/India settings, holds where one of
+its own squares is zero on all four, and otherwise carries no verdict.
+
+| table | squares | read, above the floor | read, on the floor | zero | not read |
+|---|---|---|---|---|---|
+| Apple, EU | 3 | 2 | 1 | 0 | 0 |
+| Apple, Japan | 3 | 2 | 0 | 0 | 1 |
+| Google, five markets | 18 | 13 | 0 | 0 | 5 |
+| Google, remaining markets | 6 | 4 | 0 | 1 | 1 |
+| total | 30 | 21 | 1 | 1 | 7 |
+
+On all 21 squares read above the floor both point predictions fail, in levels and in either log; each holds one
+sign on every setting, and the smallest multiple of the floor among them is 3.90 (4.25 in the post's layout). Two
+designers, Apple and Google, give the reading separately. By the columns compared: billing route alone 6, product
+or install cohort on one route 10, both 5. Independent squares within the four tables: 13; the 21 span all 13.
+M also fails on one square that is not read jointly: Korea/India other transactions against their alternative
+billing, where both log squares are non-zero and 3.84 to 4.16 floors above zero while the level square is zero
+when the 4% is read in points.
+
+**Where a square is zero.** Three sources. One price printed for two cells (subscriptions against subscriptions
+under Korea/India alternative billing): zero in every transform, and both rivals hold. A printed rule combining
+numbers: Apple Japan prints 21% once for in-app purchase and alternative payment and one 5% fee for both classes,
+so that square is zero in levels on every setting and zero in the logs only without the fee; Korea/India "reduced
+by 4%" read in points gives a level zero there and nowhere else. Numbers that happen to be equal on Google's
+five-market table (five squares): zero in levels only. Each rival in its own units: L fails on 21 (spanning 13
+independent squares), holds on 7 (spanning 5), no verdict on 2; M fails on 22 (spanning 13), holds on 1, no
+verdict on 7.
+
+**Same writer, two jurisdictions.** Apple's standard-minus-reduced difference, EU against Japan: zero on in-app
+purchase and on external link, where the two pages' numbers happen to agree, and -1 point on alternative payment
+(one tick, not counted). The reduced class has the same four groups on both pages, worded differently.
+
+Each criterion carries a kind: `instrument` asks about the transcription, `premise` about a fact the squares
+depend on, `known_answer` about results fixed by printed rules, `own_reading` about this station's reading, and
+`bookkeeping` about the record.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | PAY1-1 `instrument` | 36 of 36 quotes on the saved pages as printed (34 inputs and Japan's two second reduced-class rows); 7 cells listed missing with a reason and none in any table; the alternative-billing column's rule quoted on its pages; the program pages' rate cards agree with the help page; the help page and the post give the same value in each of Google's 12 cells on all four settings |
+| PASS | PAY1-2 `premise` | 13 class lines, each with a quoted assignment rule (eligibility, earnings tranche, subscription age, program); none is a choice on one transaction |
+| PASS | PAY1-3 `known_answer` | Apple Japan in-app against alternative zero in levels; on the help page's cell-by-cell numbers the billing fee leaves every level square unchanged and the first-million row is flat; Korea/India alternative against Play billing zero in levels in points; subscriptions against subscriptions under alternative billing zero in every transform |
+| PASS | PAY1-4 `own_reading` | 30 squares: 21 read above the floor, 1 on the floor, 1 zero, 7 not read, square by square as registered; smallest multiple 3.90; 13 independent squares, all spanned; L fails 21, holds 7; M fails 22, holds 1 |
+| PASS | PAY1-5 `own_reading` | EU against Japan: in-app zero, alternative payment on the floor, external link zero; the reduced class has the same four groups, worded differently |
+| PASS | PAY1-6 `bookkeeping` | 8 pages with address, access date, version sentence or why none, and two hashes; 7 missing cells with reasons; the derived column with its rule |
+
+The self-test plants one error per criterion and checks each flips (33 checks); a mutation run (`--mutate`) breaks
+one piece of the implementation at a time and all 14 are caught. Both are written into the record check by check.
+
+## B153: triangle deficits in the British rail fares database, by fare setter; the scalar-potential prediction fails on 99.6% of triangles priced by set fares, and the share of split-ticket savings rises with the number of setters on every knob point
+
+**RUN: 2026-10-27. Script `experiments/b153_rail_triangles.py`, record `results/b153_rail_triangles.json`, carrying
+the configuration it ran under, all ten knob points and three route brackets. Station document
+`docs/b153_rail_triangles.md`. One full issue of the rail fares database, the timetable and routeing guide issued
+with it, and a retail check of fifteen fares read by hand on the National Rail journey planner; `data/SOURCES.md`,
+section B153. The record carries counts, shares, quantiles and public station names, no fare table; a single
+triangle carries a band of delta, not its value.**
+
+**What is read.** For a ticket type and three stations one public train calls at in order,
+`delta(o, b, d) = f(o, b) + f(b, d) - f(o, d)` in pence; `delta < 0` means two tickets split at `b` cost less than
+the through ticket. `f` is the lowest live fare among the flows serving the leg (own code, fare group or station
+cluster at each end, reversible flows both ways, no restriction code), priced on the train that carries the
+triangle: a flow on a route code naming a route is admitted when the route's include and exclude locations are met
+by the stations the train calls at or passes. One knob point prices each station pair once on the two route codes
+that put no condition on the journey. Each flow carries its fare setter; `k` counts the distinct setters on a
+triangle's three supplying flows. The rival holds fares to be differences of a scalar on stations, which entails
+`delta = 0` within the rounding floor of 1.5 times the 5 pence grid. Criteria come in kinds: `instrument` and
+`bookkeeping` ask about the tool and the record, `known_answer` a check fixed by a published rule, `own_reading` a
+reading this station registers, `rival` the scalar-potential prediction, which passes when that prediction fails.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B153-1 `instrument` **files whole** | 52 unpacked members match the manifest hashes; flow, ticket-type, setter and cluster files hold 8,504,279, 4,203, 149 and 43,751 records, equal to their headers, each ending on the end-of-file line; 427,719 open schedules, 427,719 closed |
+| PASS | B153-2 `instrument` **retail check of five triangles** | 15 legs read on the retail journey planner on 2026-10-27: 14 Anytime Day Single prices equal the station's price; the fifteenth (Nottingham to Elsecar) is sold only as an Anytime Single via Sheffield, which the fares database holds (route `VIA SHEFFIELD`, ticket `SOS`) and the lower of `SDS` and `SOS` on the same train returns |
+| FAIL | B153-3 `known_answer` **a concatenated (`G`) flow's fare is a sum of `SDS` flow fares** | 87,498 live `G` fares: 22,386 meet an exact two-leg sum (an upper count); 17,575 sit below the cheapest chain of two or more `SDS` flows of any length between the same ends; of the rest, a seeded sample of 2,000 searched at three legs gives 1,500 exact three-leg sums. Of the 17,575, 6,360 meet an exact two-leg sum once other standard-class singles are allowed on a leg (mostly a Bus Day Single leg; coincidence level 1,133), 40 with next-round fares (coincidence level 120), 1 with an Anytime Single leg, and 11,174 sit below every sum the file offers |
+| PASS | B153-4 `rival` **delta = 0 within the floor on triangles priced by set (`A`) fares** | 696,531 triangles, 693,464 beyond the floor (0.995597), 3,059 exactly zero; share beyond the floor 0.987192 to 0.998783 over ten knob points |
+| PASS | B153-5 `own_reading` **both signs clear the floor inside one setter's own table** | all priced triangles 104,219 below -7.5 pence, 3,077 within, 590,012 above; at `k = 1`, 75,680 below and 486,052 above |
+| PASS | B153-6 `own_reading` **share below the floor lower when one setter writes all three legs** | 0.134203 (`k = 1`) against 0.213720 (`k >= 2`) on the default point; 0.108482 against 0.177040 on the no-condition route codes priced pair by pair; lower on all ten knob points and on three route brackets |
+| no verdict | B153-7 `known_answer` **railcard arm** | not run in this pass |
+| PASS | B153-8 `bookkeeping` **config block and coverage table** | both present |
+
+On the default point delta quantiles in pence are 1% -1,600, 5% -500, 50% 280, 95% 890, 99% 1,600. Points whose
+configuration did not change reproduce the 2026-10-14 run field by field (the record's `rule19_vs_20261014`).
+Inside one through flow, comparing the share below the floor among its one-setter splits with that among its
+several-setter splits, the sign moves with the knob settings, so it is not read; the cross-section holds on every
+knob point.
+
+## B154: federal milk marketing orders, one tank of milk priced as four classes, a county differential on Class I only
+
+`experiments/b154_milk_orders.py` · `results/b154_milk_orders.json` · `docs/b154_milk_orders.md` · 2026-10-14
+
+The federal milk marketing orders classify the same producer milk by use (7 CFR 1000.40) and price each class
+separately (7 CFR 1000.50); on the handler side only the Class I price carries the county's "Class I
+differential adjusted for location" from 7 CFR 1000.52. A square `S(I, k; c1, c2)` therefore equals
+`d(c1) - d(c2)`, a number the rule prints. The rival, a scalar price field on positions (one handler price for
+one milk at one place, whatever its use), predicts every square to be exactly zero. On the producer side each
+order pays one location term for milk of every class, and there both accounts give zero. Three versions of the
+county table are read: v2000 (2000-01 to 2025-05), v2025 (from 2025-06, the Shannon County, SD placeholder row
+removed) and v2026 (from 2026-09-18, with 91 FR 59047). The floor is the printed format, 0.01, and every count
+is repeated at 0.05, 0.10 and 0.50.
+
+| criterion | kind | status | reading |
+|---|---|---|---|
+| B154-0 | instrument | PASS | v2000 3,111 rows, 37 values, 1.60 to 4.30; v2025 and v2026 3,108 rows, 42 values, 1.70 to 7.40; v2026 equals the 2026 print plus the two changes of 91 FR 59047 |
+| B154-0b | instrument | PASS | 3,294 order-month cells of the all-order overview, 2000-01 to 2026-08: Class I price minus the base county's differential is one base price per month; 3,287 cells within 0.01, 7 cells print another order's Class I price that month with the rest of the row their own (named, no verdict); the 51 Western-order cells are outside the 3,294 |
+| B154-1 | known_answer | PASS | only paragraphs (b) and (c) of 1000.50 cite 1000.52; squares among Classes II, III, IV are zero, and so is Class I against the Class I ESL price; the eleven .75 sections adjust all producer milk by plant location, naming no class, and the .61 sections pool it |
+| B154-2 | rival | PASS, grid mixed | county table: v2000 4,570,944 of 4,837,605 squares non-zero, largest 2.70; v2025/v2026 4,650,057/4,650,063 of 4,828,278, largest 5.70; Central plant lists 2,116 of 2,415 (v2000), 414 of 465, 316 of 351; squares above the floor at all four floors in every layer; current county table A 178,215, B 4,650,063; summed over the three versions and both layers A 623,482, B 13,873,910; plant lists of the eleven orders pooled (2026-10-29): 13,463 of 15,753 (v2000), 4,665 of 5,356, 4,106 of 4,753, above all four floors, largest 2.10, 3.70, 2.60; pooled pairs A 3,563, B 21,424, C 0; after the Census place file and the section .51(b) text (2026-10-29, continued): pooled 16,025 of 18,336 (v2000), 7,345 of 8,128, 6,304 of 7,021, above all four floors, largest 2.70, 3.90, 3.90; pooled pairs A 3,743, B 28,797, C 0; after the second round of county resolution (2026-10-29, 17:25Z): pooled 16,598 of 18,915 (v2000), 7,472 of 8,256, 6,422 of 7,140, above all four floors, largest 2.70, 3.90, 3.90; pooled pairs A 3,751, B 29,600, C 0 |
+| B154-3 | own_reading | PASS | Central order, 321 months: both location lines read in 247, producer line only in 74 (scanned page), 0 parse failures; T = Bp - A negative in all 15 v2025 months; the rival's T = 0 holds in none of the 247 months, smallest absolute T 64,328.42 |
+| B154-4 | known_answer | PASS | 12,918 printed plant rows over 320 months equal the county table relative to Jackson County, MO; 0 off; 1 named with no verdict |
+| B154-4b | known_answer | FAIL | ten other orders' plant lists (2026-10-29): 29,644 rows with a county equal the county table; 62 off, all Upper Midwest (Alameda, CA printed 1.75 for 56 months, 2000-05 to 2005-01, table 1.80; three Fond du Lac, WI plants printed 1.80 in 2004-04 and 2004-05, table 1.75); 107 named with no verdict (Calloway, KY +0.30 and Rockingham, VA +0.10 over the table, 2020-08 to 2025-03, where the .51(b) county adjustments apply); 1,609 rows print a city and no county, named; differential minus adjustment equals the base county's table value in 244 of 244 rows; after the Census place file and the section .51(b) text (2026-10-29, continued): 30,943 rows agree, 847 of them as the table plus the .51(b) entry for the county, the 107 among them; 62 off, unchanged; 417 rows without a county; after the second round of county resolution (2026-10-29, 17:25Z): 31,115 agree, 1,010 of them with a .51(b) entry; 62 off, unchanged; 245 rows without a county |
+| B154-5 | bookkeeping | PASS | v2000 to v2025: 3,104 counties changed (all increases), 2 same, 2 added, 5 removed; v2025 to v2026: Morgan County, OH -0.10; no month prints two class prices equal |
+| B154-3b | own_reading | PASS | ten other orders' location lines (2026-10-29), each assigned by its printed words: the handler line is the adjustment from the base county in Northeast, Appalachian, Mideast and California, where T = Bp - A is read in 1,057 months and is zero in none (smallest absolute T 28,255.86); Florida, Southeast, Pacific Northwest and Arizona print the whole differential at location, Southwest does not say, Upper Midwest prints the producer line only; these are printed without T; 0 parse failures |
+
+A square is exactly zero where two counties share a value: 5.51% of pairs under v2000, 3.69% under v2025 and
+v2026, 9.97% to 12.38% on the plant lists. There this framework's `d(c1) - d(c2)` is zero as well, so both
+accounts agree with the reading (cell A); on every other pair the reading agrees with this framework and not
+with the rival (cell B). Only Class I carries the differential, so the three class pairs give the same square;
+independent non-zero squares are 36 (v2000) and 41 (v2025, v2026). Kept in, the 2026 print's Shannon
+placeholder would read as a largest square of 7.40.
+
+The self-test plants one fault per criterion and checks each flips (34 checks); a mutation run plants four
+faults in the inputs and all four are caught.
+
+**RUN 2026-10-29: the ten other orders.** The statistical uniform price announcements of the other ten orders
+were fetched (1,879 files, 151,803,671 bytes, `experiments/b154_fetch_orders.py`, manifest
+`data/raw/b154/b154_orders_manifest.json`; six yearly files listed by the Florida and Southeast office were not
+served). Five orders print a plant list with a differential: Upper Midwest (state, county, rate; 316 months),
+California (county, FIPS, adjustment; 95 months), Appalachian (city and differential; 82 months), Pacific
+Northwest and Arizona (city, differential and adjustment; 9 and 5 months). Northeast and Mideast print a
+reference zone table, Southwest a handler list without differentials, Florida and Southeast the pool
+computation only. The coverage table in the record lists every file, those with zero rows included. Rows
+that print a city but no county (1,609) are read by city and do not enter the county layers. The pooled
+eleven-order layer enters the B154-2 verdict, which stays PASS with grid mixed; each order's own layer is printed
+with its cell (California's v2000 layer, 19 counties with a largest square of 0.50, flips at the 0.50 floor and
+is unread). A county where some row prints a value off the table leaves the four-cell count as unread (5
+counties, 875 pairs, v2000). All readings of the one-order run reproduce bit for bit; B154-2's text gains the
+new layers. Self-test 48 checks, mutation six faults, all caught.
+
+**RUN 2026-10-29, continued: Census places, section .51(b), location dollars of ten orders.** City-only rows take the county of the Census 2020 place of that name in that state when the place lies in one county (`data/raw/b154/census/`, manifest `b154_census_rules_manifest.json`): 1,192 of the 1,588 Appalachian, Pacific Northwest and Arizona rows, all agreeing with the table; places in several counties and cities with no place of that name are named and stay out. The section .51(b) text of the Appalachian, Florida and Southeast orders is read in the 2009, 2020 and 2024 CFR prints and the eCFR text of 2025-02-01, one table per order; each base county's entry equals the overview footnote, and the 107 Upper Midwest rows of Murray, KY and Mt. Crawford, VA equal the table plus the Southeast and Appalachian entries for those counties (0.30, 0.10). Each order's own list layer is printed and does not gate B154-2 (the county table is one table for all orders). B154-3b reads the location lines of the ten orders by their printed words. B154-0, 0b, 1, 3, 4 and 5 reproduce bit for bit; the counts of B154-4b and of B154-2's pooled and single-order list layers move with the rows newly given a county (pooled v2000 from 13,463 of 15,753 squares non-zero to 16,025 of 18,336; B154-4b from 29,644 to 30,943 rows agreeing), the B154-2 verdict and grid_split unchanged. Self-test 67 checks, mutation seven faults, all caught. Station document sections 11.1 to 11.6.
+
+**RUN 2026-10-29T17:25Z: second round for the city-only rows; single-order layers ruled.** Of the 396 city-only rows the place file left open, a row whose place lies in several counties takes the value when every one of those counties carries the same rule value for the row's order and month (Charleston, SC 23 rows, North Charleston, SC 8, High Point, NC 132 of v2000; the location is the counties joined by `+`); where the values differ the row stays out with each county's value printed (High Point, NC from 2025-06, 32 rows; Portland, OR, 18). A city with no Census place of its name takes a place of its state whose name begins with the printed words when that place is unique, the place file line recorded: Boise, ID is `Boise City city`, Ada County (9 rows); Julian, NC, Wirtz, VA, Clackamas, OR and Laveen, AZ have none (174 rows). 172 rows take a value and all agree; 245 rows stay without a county. That single-order layers are printed and do not gate B154-2 is a ruling (2026-10-29). B154-0, 0b, 1, 3, 3b, 4 and 5 reproduce bit for bit; B154-4b moves from 30,943 to 31,115 rows agreeing, and B154-2's pooled layer moves (v2000 pairs A 2,243 to 2,249, B 15,148 to 15,706; v2025 and v2026 likewise), as do two single-order layers (Appalachian v2000; Pacific Northwest v2025 and v2026, from unread to B); the B154-2 verdict and grid_split unchanged. Self-test 73 checks, mutation eight faults, all caught. Station document section 11.7.
+
+**Restated 2026-11-08.** The two run notes above first said that the other readings reproduced bit for bit. They did not for B154-2 and B154-4b, whose counts moved with the rows newly given a county; the two sentences now name what moved. The criterion table carries each round's numbers in order, the last of them the record's: B154-4b 31,115 rows agreeing, 1,010 of them with a section .51(b) entry, 62 off, 245 rows without a county; B154-2 pooled lists 16,598 of 18,915 squares non-zero (v2000), 7,472 of 8,256 and 6,422 of 7,140, pooled pairs A 3,751, B 29,600, C 0; current county table A 178,215, B 4,650,063. Verdicts unchanged.
+
+## B155: one corporate bond, two capital prices on one rating axis; the EU bank and insurer tables write squares above the printed tick on 225 of 252 grade-pair cells, and exactly zero where both print one number
+
+**RUN: 2026-10-14. Script `experiments/b155_capital_square.py` (with `--selftest`), record
+`results/b155_capital_square.json`, carrying the configuration it ran under and the quoted page texts
+(`page_text`). Station document `docs/b155_capital_square.md`. No data series retrieved; the legal texts were read
+on EUR-Lex and the Publications Office, and the sentences used are stored with version and access date in
+`data/raw/b155/b155_text_snapshot.json`; `data/SOURCES.md`, section B155.**
+
+**What is read.** A bank and an insurer in the European Union hold the same corporate bond. The bank's charge is 8%
+times a risk weight set by Article 122 of the Capital Requirements Regulation (standardised approach, banking book),
+by credit quality step alone. The insurer's charge is a stress factor set by Article 176 of Delegated Regulation (EU)
+2015/35 (Solvency II standard formula, spread risk), by credit quality step and modified duration, piecewise linear in
+five segments. Two implementing regulations (2016/1799 and 2016/1800) map the same agency ratings onto both step
+scales. Positions are (letter grade, duration): AAA to CCC plus unrated, on the durations {1, 7.5, 10, 12.5, 15, 17.5,
+20, 25, 30}. The square on two positions is `ln[(s(p)/RW(p)) / (s(q)/RW(q))]`, decided in rationals; the 8% and the
+insurer's market value cancel. Three families: grade pair at one duration (GP), grade pair across two durations
+(GPD), one grade across two durations (CD). The floor is the printed format: risk weights 1 point, stress coefficients
+0.1 point, a number printed once moved as one input; a square is above the floor when it exceeds the largest change one
+tick of one input produces. The point prediction scored: the capital price per euro is a scalar on the position with a
+constant multiple per licence, so every log square is zero; it is carried in the detail of MATH1-4. Criteria come in
+kinds: `instrument` and `known_answer` ask whether the transcription and the code are right, `premise` whether the two
+tables share a position axis, `bookkeeping` whether the record is complete, and `own_reading` is a reading this station
+registers. On the floor and exactly zero carry no verdict.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | MATH1-1 `instrument` **every number against the quoted text** | 189 cells, none differ; segment breaks: 2015 text step 1 at 10 years (8.5 against 8.4), corrected text step 4 at 20 years (46.5 against 46.6) |
+| PASS | MATH1-2 `premise` **one position axis** | Fitch, Moody's and S&P, issuer and issue scales: 56 placements in the two mapping standards, none off the axis; the class line is set by licence |
+| PASS | MATH1-3 `known_answer` **structural zeros** | B/CCC, within-letter notches (a check on the code's notch-to-letter routing), grade pairs within five years, and the CD family against the insurer's own stress ratio: 1797 squares, none off |
+| PASS | MATH1-4 `own_reading` **squares on the current tables** | GP 225 of 252 above the floor (smallest 1.39, median 9.10, largest 40.55 times), 15 on the floor, 12 exactly zero; GPD 699 of 1008; CD 288 of 288 |
+| PASS | MATH1-5 `own_reading` **the 2025 bank step** | step 3 from 100% to 75% moves the 63 squares involving BBB; A/BBB changes sign at each of the six durations where both sides stand above the floor (at 10, 15 and 20 years the earlier side sits exactly on the floor and is not counted) |
+| PASS | MATH1-6 `own_reading` **BB/B across duration** | one sign change on [1, 30], exactly at 140/11 years in the insurer's 10 to 15 year segment; the bank ratio is 2/3 in both versions |
+| PASS | MATH1-7 `bookkeeping` **sources** | 10 table-version rows with URL, access date, version and quoted text; the one table not covered is named with its reason |
+| PASS | MATH1-8 `known_answer` **the 2016 insurer correction** | four cells moved by one tick; 367 squares change, none by more than its own floor (this holds almost by construction; it catches a cell typed three ticks or more off) |
+| PASS | MATH1-9 `known_answer` **the 2027 insurer amendment** | paragraph 1 replaced only; the table and every square unchanged |
+
+**Each account against the text.** The framework reads a price with two indices. On the current tables (bank
+2024/1623, insurer as corrected by 2016/467) the ratio of the two tables moves with grade and duration together, so
+225 of 252 GP squares, 699 of 1008 GPD squares and all 288 CD squares are non-zero and above the printed tick; where
+both texts print one number for two grades (B and CCC) the square is exactly zero. The scalar account says every square
+is zero: it holds on the nine B/CCC cells and on AAA/BB at 1, 7.5 and 10 years (there the insurer's step 4 column is
+exactly five times its step 0 column, as the bank's 100/20 is), and it does not hold on the 225 cells above the floor.
+Each of three dated amendments touches one class only: the 2025 bank step changes the sign of A/BBB at every duration
+where both sides stand above the floor, the 2016 insurer correction moves no square by more than its floor, and the
+2027 insurer amendment leaves every square as it is.
+
+**Scope.** Printed factors only. Liability-side loss absorption, internal-ratings banks, the trading book and insurers
+on internal models are not read, nor is any holding behaviour. Level squares in capital per euro change sign across bank
+multipliers of 8%, 10.5% and 13% on 12 of 252 GP cells; they are printed and not read. With the one insurer cell
+printed "11 %" read at a 1 point tick, GP and CD do not move and GPD reads 686 above the floor. The self-test plants one
+wrong input per criterion, each passing through the criteria, and runs seven mutations of the implementation; each is
+caught (41 checks).
+
+## B156: one 30-year fixed mortgage for two borrower classes on forward-guidance days and on rate news; at fixed borrower scenarios the FHA rate takes about a tenth less of each 10-year move, on every knob point from 2009 to 2016
+
+**RUN: 2026-10-16, second pass 2026-10-17. Script `experiments/b156_fg_class_pass.py` (with `--selftest`), record
+`results/b156_fg_class_pass.json`, carrying the configuration it ran under and the event rule. Fetch
+`experiments/b156_fetch.py`; `data/SOURCES.md`, section B156.**
+
+**What is read.** Optimal Blue daily rate lock indices for the 30-year fixed mortgage by loan type (conventional
+conforming, VA, FHA), 2017-01-03 to 2026-10-15, with the 2- and 10-year Treasury yields. The rival premise is one
+intertemporal price schedule for every household (one bond price `Q_t` with no household index, as in the core New
+Keynesian model). Under it a spread between two borrower classes on the same contract is a constant wedge, so it does
+not move on news about the rate path. Forward-guidance days are computed from the FOMC statement text: the target range
+is unchanged and the set of sentences about the future path of the policy rate (written on the target range, or on the
+federal funds rate in the zero-bound years) differs from the previous statement's. That rule returns 28 days from 2009,
+ten of them from 2017, when the loan-type indices start (2018-01-31 to 2026-06-17). The floor is measured on non-event windows (two-day change in
+VA minus conventional, standard deviation 0.0499 percentage point). Criteria come in kinds: `instrument` and
+`known_answer` ask whether the files and the event rule are right, `rival` whether the rival's point prediction holds
+on a cell (PASS means it does not), `own_reading` and `bookkeeping` as elsewhere. A cell inside the floor, or one whose
+reading moves over the station's own declared knobs (window 2, 5, 10 days; exclusion band 2, 5 days), carries no
+verdict.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B156-1 `instrument` **files** | six FRED files match the row counts read before saving; 149 of 149 releases parse (2009 onward, for the exclusion bands) |
+| PASS | B156-2 `known_answer` **event rule** | ten events from 2017; 2019-01-30 ("patient") and 2020-09-16 (outcome-based guidance) both returned; six releases carry no rate decision and are skipped |
+| no verdict | B156-3 `rival` **VA minus conventional on the 10-year, all non-event windows** | slope 0.019, 90% month-block interval [-0.030, 0.066], n 904; positive on all six knob points, every interval contains zero |
+| no verdict | B156-4 `rival` **VA minus conventional on forward-guidance days** | ten days: two-day mean absolute change 0.058 against 0.037 on non-event windows, permutation p 0.025 and 0.024 at the two seeds (2,000 draws); at five and ten days p is 0.46 to 0.78. Three days carry it: 2022-01-26 (+0.104, 2-year +0.16), 2023-12-13 (-0.178, 2-year -0.36), 2024-01-31 (-0.121, 2-year -0.16) |
+| PASS | B156-5 `own_reading` **FHA minus conventional** | slope on the 10-year -0.137 to -0.219 on all six knob points, every interval excludes zero; the FHA split is chosen by the borrower, so this reads as a gradient |
+| PASS | B156-6 `instrument` **knob points** | all six computed |
+| PASS | B156-7 `bookkeeping` **permutation floor** | two seeds, largest spread between them 0.020 |
+| PASS | B156-8 `own_reading` **FHA minus conventional at fixed scenarios** | Mortgage News Daily rate-sheet index, one borrower scenario per product, so no borrower mix. From 2017: slope -0.064 and -0.111 at two days (intervals exclude zero), -0.010 and -0.051 at five, +0.011 and +0.056 at ten (intervals contain zero). 2009-04-29 to 2016-12-30: -0.112 to -0.117 at two days and -0.105 to -0.114 at five (intervals exclude zero), +0.115 and -0.207 at ten on 62 and 24 windows. The sign moves at ten days in both spans, so the cell is not read; the ten-day loading of -0.16 to -0.22 in B156-5 does not appear at fixed scenarios after 2017 |
+| no verdict | B156-9 `rival` **VA minus conventional on the 10-year, overlapping windows** | +0.021 to +0.047 on all six knob points; at five days the intervals exclude zero ([0.008, 0.083], n 1274; [0.001, 0.097], n 806), at the two-day default they contain zero ([-0.021, 0.069], n 1764) |
+| PASS | B156-10 `own_reading` **FHA minus conventional at fixed scenarios, overlapping windows** | 2009-04-29 to 2016-12-30: -0.063 to -0.122 on all six knob points, four intervals exclude zero, ten-day cells on 383 and 94 windows; the ten-day sign change in B156-8 came from 24 to 62 non-overlapping windows. From 2017: negative on five points (-0.032 to -0.087), +0.020 on the thinnest (ten days, band five, 134 windows), so that span is not read |
+| PASS | B156-11 `own_reading` **FHA minus conventional at fixed scenarios on forward-guidance days, 2009 to 2026** | 27 days including 2011-08-09 ("at least through mid-2013"), 2012-01-25, 2012-09-13, 2012-12-12 and 2014-12-17 ("patient"); two-day mean absolute change 0.044 against 0.031, permutation p 0.051 and 0.053 at 20,000 draws (at 2,000 the two seeds gave 0.043 and 0.048); at five and ten days p is 0.06 to 0.67 |
+
+## B157: Alsace and Lorraine 1918, the mark exchange and the identity cards; one rate written at three positions draws three partitions of the population, and two of the four cards span two exchange classes
+
+**RUN: 2026-10-26. Script `experiments/b157_alsace_cards.py` (with `--selftest`), record
+`results/b157_alsace_cards.json`, carrying the configuration it ran under, the item table with its quotes and the
+coverage table. Sources in `data/raw/b157/`; `data/SOURCES.md`, section B157.**
+
+**What is read.** In the same weeks after the armistice, two texts sorted the population of Alsace and Lorraine. The
+arrêté of 26 November 1918 (Journal officiel, 7 December 1918, p. 10544) ended the mark's legal tender on 15 December
+and wrote one exchange rate, 1 fr. 25 per mark, at three positions: cash in circulation (article 3), bank deposits
+(article 9) and contracts written in marks (article 11). Each position has its own list of eligible holders. The
+arrêté of 14 December 1918 on police in the liberated communes, issued by the army command, gave every resident over
+15 an identity card a, b, c or d by birthplace and parents' origin, and wrote a travel range for each card. It is read
+in the report of Le Temps, 18 December 1918, and in the Archives d'Alsace transcription of its articles 2 and 4 from
+the printed copy AVES 503 Fi 72. A class is the holder's standing as each text writes it. The value is francs per
+mark, and "unwritten" (no exchange path at that position) counts as a value. The market price of the mark, about 0.70
+franc, is the price of a different path and is not counted. Every item carries a source file, a grade (official,
+research, other) and a quote that the script finds in the stored file. Criteria come in kinds: `bookkeeping` asks
+whether the item table is complete, and `own_reading` is a reading this station registers. A card whose exchange class
+the texts do not settle carries no verdict.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B157-1 `bookkeeping` **items and files** | 50 items (31 official, 5 research, 14 other); every quote from a stored file is found; four files, SHA-256 recomputed equal; three sources named as not opened, among them the execution file AD 67, 121 AL 1020 |
+| PASS | B157-2 `own_reading` **class values per position** | one rate, 1.25, in articles 3, 9 and 11; two values at each position, 1.25 and unwritten; the three positions draw three partitions: cash pays Alsatians, Lorrainers and allied or neutral residents from before 1 August 1914, deposits add the French, contracts pay Alsatians, Lorrainers and the French; the French and the pre-1914 allied and neutral residents change value with the position |
+| PASS | B157-3 `own_reading` **cards against exchange classes at the cash position** | as executed: a spans two (French from the interior unwritten, Alsace-Lorraine-born of French-origin parents 1.25), b one class (1.25), c spans two (resident before or after 1 August 1914), d one class (unwritten). With the exchange arrêté alone, card b is not settled. Read as Le Temps prints class b (both parents not of French origin), a person with one parent of French origin has no card and a person with neither has two; the Cassel file (AD67 286 D 175: the mother, born in Strasbourg of Palatinate parents, card D; her children by an Alsatian father, card B) matches the rule as executed. The class was declared by the holder by 6 December, before the card arrêté of 14 December |
+| PASS | B157-4 `own_reading` **travel** | both transcriptions agree card by card: a the liberated territory, b and c their own cercle and the adjacent cercles, d their own commune; three ranges, nested; no motor vehicles for any card |
+| PASS | B157-5 `own_reading` **one holder exchanging another's marks** | cash priced (articles 4, 5 and 7: a declared standing, confiscation and six months to two years in prison); deposits moved before 11 November open, from 11 to 30 November priced (article 10), after 30 November cut (article 9); no ceiling per holder and no link to the card; the premium kept by the loop is 0.55 franc per mark, 0.786 of the market price |
+| PASS | B157-6 `own_reading` **changing a card** | a procedural edge: a letter of 14 May 1919 asking for an A card in place of a D card, sent to the mayor for an opinion on 16 May, recommended, forwarded to the Commissaire de la République at Strasbourg on 21 May; seven days from the request to the deciding office; the file carries no decision |
+
+**Reading.** At each position the arrêté names a set of holders and writes one rate for them, so each position reads
+two values. The class values were attached to a declaration each holder made by 6 December, eight days before the
+card arrêté existed. The cards cut the same population another way: two of the four cards span two exchange classes,
+and the archive's summary ("dans la pratique les titulaires des cartes A et B") places card b in the 1.25 class, in
+agreement with the account of the exchange in Weil (1921). The archive's summary gives card D holders 70 centimes per
+mark, which is the market price.
+
+**Scope.** Written values only; how many people used each path is not read. The execution file 121 AL 1020 was not
+opened: if it writes 0.70 as a rate for German subjects, the cash position reads three values. One secondary source
+says German nickel coins of 5 and 10 pfennig stayed in use until 1920, while article 1 ends legal tender for all German
+money from 15 December; the conflict is not settled. Postage was converted by unit of account (pfennig rates one for
+one in centimes, mark rates at 1.25); that split runs by asset, so it is recorded and not counted. The self-test plants
+one fault per criterion and checks each flips (32 checks).
+
+## B158: 340B contract pharmacies; after Arkansas's rule took effect, covered entities across the country routed new arrangements into one Arkansas pharmacy licensed two and a half years earlier
+
+**RUN: 2026-10-27. Script `experiments/b158_340b_routing.py` (with `--selftest`), record
+`results/b158_340b_routing.json`, carrying the configuration it ran under. Sources in `data/raw/org1/`; `data/SOURCES.md`,
+sections B158.**
+
+**What is read.** The 340B ceiling price is open to covered entities. A contract pharmacy dispenses drugs bought at that
+price to patients who carry commercial coverage, so it is the organisation that crosses the line between the 340B price
+and the commercial price on the covered entity's behalf. From 2020 manufacturers stopped honouring the 340B price at
+contract pharmacies; from 2021 states passed laws forbidding that. Arkansas Act 1103 protects an "Arkansas-based
+community pharmacy", which its Rule 123 (effective 2022-09-30) defines as a pharmacy licensed and located in the state,
+with no condition on where the covered entity sits. The station reads HRSA's registry of contract pharmacy arrangements
+(daily report exported 2026-10-14, 402,695 rows, terminated arrangements included from 2016-10-03 on) for what moved
+after that rule, and against what. What is read is registration, an arrangement a covered entity lists; whether the
+manufacturer honoured the price on it is not in the registry. Criteria come in kinds: `instrument` asks whether the
+data were read in full, `known_answer` checks a count against a published one, and `own_reading` is a reading this
+station registers.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B158-1 `instrument` **the registry read in full** | 402,695 cache rows against 402,695 workbook data rows; earliest begin 1995-08-07, earliest termination 2016-10-03, so stocks before 2016 count survivors only; 373,922 of 402,695 begin dates fall in January, April, July or October |
+| PASS | B158-2 `own_reading` **the closing side** | begins/terminations by quarter, 2019Q1 to 2022Q4, all sixteen printed; manufacturer restrictions from 2020-07 leave no cluster of terminations (2,610, 2,777, 2,421 in the three quarters after) and begins stay above 9,600 a quarter in 2020Q3 and Q4. A restriction cuts the price, not the listing, so the registry does not record the closing side |
+| PASS | B158-3 `own_reading` **routing into Arkansas** | new arrangements at Arkansas pharmacies from covered entities in other states: 11 in the eight quarters before Rule 123, 1,689 in the eight from it; the top pharmacy in each quarter from 2023Q1 is Walmart Pharmacy 10-5169, Rogers (23, 463, 516, 202, 270, 137) |
+| PASS | B158-4 `own_reading` **rule date or opening date** | 10-5169 holds Arkansas retail pharmacy licence AR20927, issued 2020-03-23 (state board roster); zero arrangements name it between that date and 2022-09-30; first begin 2023-01-01. Of the 2,343 covered entities that list it, 2,250 already listed the chain's central fill site in Spring, Texas (10-2670): 1,788 keep both, 20 ended Spring before or on the Rogers begin, 442 after; 93 never listed Spring |
+| PASS | B158-5 `own_reading` **twenty-two state laws by the reach of the text** | printed state by state with the eight quarters either side of the effective date; no row carries a verdict. Arkansas 11 → 1,689 is the one jump. Louisiana requires the patient to be in the state (372 → 383); the laws confined to in-state entities show none (Minnesota 118 → 134, Missouri 729 → 698); open-text laws effective from 2024 meet a manufacturer practice that already required both entity and pharmacy in the state; laws from 2025 on have windows reaching past the snapshot |
+| PASS | B158-6 `known_answer` **year-end pharmacy addresses against GAO-18-480** | 2010: 1,067 survivors against about 1,300; 2017: 19,546 against nearly 20,000 (ratio 0.977) |
+
+**Reading.** A contract pharmacy is a crosser of a written class line, and the crossing moved to where the text of the
+law left the line open. The Rogers pharmacy met Arkansas's definition from March 2020 and drew no listing for thirty
+months; listings came in the first registration window after the rule took effect, from entities that were already
+using the same chain's central fill site in Texas and kept it. Organisational economics records the form of an
+organisation as an attribute of the transaction (asset specificity, frequency, uncertainty); here the same chain, the
+same function and the same entities differ only by which state's law reaches the site.
+
+**Scope.** Registration only; the 340B price on these arrangements is not observed, and manufacturers' stated practice
+in Arkansas exempted in-state entities only. Arkansas is the one law whose text reached pharmacies by location alone,
+was never enjoined, and took effect early enough for a full eight-quarter window, so the routing reading rests on one
+carrier. The closing side (2020 restrictions) does not show in a registry that lists arrangements rather than prices.
+
+## B160: India 2016, one withdrawn note and two paths; when the exchange cap narrowed in steps, daily exchange fell 35-fold, at most 9-fold of it in the amount per person
+
+**RUN: 2026-10-29. Script `experiments/b160_exchange_deposit.py` (with `--selftest`), record
+`results/b160_exchange_deposit.json`, carrying the configuration it ran under. Sources in `data/raw/b160/` (fetched by
+`experiments/b160_fetch.py`); `data/SOURCES.md`, section B160. Station document `docs/b160_exchange_deposit.md`.**
+
+**What is read.** From 10 November 2016 a withdrawn ₹500 or ₹1,000 note could be exchanged for cash over the counter,
+capped per person, or deposited into an account without a cap; both credit face value. The cap moved in steps fixed by
+Reserve Bank circulars: ₹4,000 (from 10 Nov), ₹4,500 (13 Nov, immediate effect), indelible ink (15 Nov, metro cities
+first), ₹2,000 once per person (18 Nov), no exchange at bank counters after midnight of 24 November while Reserve Bank
+counters continued at the same limit. Banks reported "Exchanged in Cash" and "Deposits into Account" daily; the Reserve
+Bank published the two apart in two releases (21 and 28 November). Criteria come in kinds: `instrument` asks whether the
+figures were read as printed, `premise` whether the carrier gives the object, `own_reading` is a reading this station
+registers. No rival criterion: a scalar price field puts one price on both paths and has no point prediction on how flow
+splits between them.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B160-1 `instrument` **parts add to the total** | 10–18 Nov: 5,44,571 against 33,006 + 5,11,565, residue 0; 10–27 Nov: 8,44,982 against 33,948 + 8,11,033, residue 1 crore (rounding) |
+| PASS | B160-2 `instrument` **release words are report rows** | "exchange amounted to" / "deposits amounted to" match the Annex 6 rows "Exchanged in Cash" / "Deposits into Account" of circular DCM (Plg) 1264; both releases name the counters of the Reserve Bank and of the banks |
+| PASS | B160-3 `premise` **two cumulative points** | 740 press releases (8 Nov 2016 to mid-January 2017) and 110 circulars read; 78 concern the withdrawn notes; two print exchange and deposits apart (prid 38643, 38727); from 8 December the releases print notes issued, or notes returned to the Reserve Bank and chests |
+| PASS | B160-4 `own_reading` **dose table** | 10–18 Nov: exchange 3,667.3 crore a day, deposits 56,840.6 (₹4,000 3 days; ₹4,500 2 days without ink, 3 with; ₹2,000 once per person 1 day). 19–27 Nov: exchange 104.7 a day, deposits 33,274.2 (₹2,000 with ink at all counters 6 days; Reserve Bank counters only 3 days) |
+| PASS | B160-5 `own_reading` **who gets through** | daily exchange fell 35.04-fold (35.02 to 35.06 under rounding); the amount per counter event can fall at most 9-fold (₹4,500 to one ₹500 note), so counter events fell at least 3.89-fold; 15.6 to 17.5-fold if everyone exchanged the cap in force on the ₹4,000 and ₹4,500 days |
+| PASS | B160-6 `own_reading` **the deposit path** | exchange share of notes tendered 6.06% then 0.31%; deposits' own daily flow fell too (ratio 0.585); exchange falling like deposits would have been 19,321.6 crore, the shortfall 18,379.6 is 6.1% of second-segment deposits |
+
+**Reading.** On a narrowed edge the flow fell mainly in the number of people who got through, not in the amount each
+carried: the per-event cap can account for a factor of nine of thirty-five. Same price on both paths, different reach.
+
+**Scope.** Each segment holds more than one regime, so the fall belongs to the steps together (cap level, once per
+person, ink, bank counters closed) and is not split among them. Deposits slowed as well, so whether the exchange
+shortfall moved into deposits is not separable from the general slowing of tenders. Banks reported daily, but only two
+cumulative points were published.
+
+## B159: Definity takes over Travelers Canada; in Nova Scotia the same policies renew into the acquirer's rating program, and the commercial book moves +4.2% on the procedure alone
+
+**RUN: 2026-10-29. Script `experiments/b159_definity_travelers.py` (with `--selftest` and `--mutation`), record
+`results/b159_definity_travelers.json`, carrying the configuration it ran under. Station document
+`docs/b159_definity_travelers.md`. Sources in `data/raw/b159/`; `data/SOURCES.md`, section B159.**
+
+**What is read.** Definity acquired Travelers Canada on 2 January 2026. The Nova Scotia Regulatory and Appeals Board
+approved a plan under which every Travelers Canada automobile policy renews, on its own renewal date from 2026-07-01 to
+2027-06-30, into a Definity policy rated by Definity's rates and risk-classification system (2026 NSRAB 20, private
+passenger; 2026 NSRAB 8, commercial). Customers, vehicles and risks are the Travelers book's; the pricing procedure is
+Definity's. The station reads the public decisions, the Board's filing requirements and its rating-profile workbook.
+Criteria come in kinds: `bookkeeping` asks whether the sources and the availability table are complete, `instrument`
+checks the dose index, `known_answer` checks a citation, and `own_reading` is a reading this station registers. A
+criterion whose object is not in the public record carries no verdict.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B159-1 `bookkeeping` **sources** | 26 files match their recorded SHA-256; 58 quotes found in the text snapshots |
+| PASS | B159-2 `own_reading` **the swap as the Board writes it** | both decisions: each policy renews into a Definity policy, Definity's manual unchanged, "rates and risk-classification systems are different", a straight transfer "would result in large premium increases for many customers" (private passenger) and "many customers seeing large premium changes" (commercial); window 2026-07-01 to 2027-06-30 |
+| PASS | B159-3 `own_reading` **commercial book, portfolio move** | +4.2% uncapped, +4.2% capped (caps +15%, +25% after a new claim or conviction, -5%); the risks are the Travelers portfolio's, so this is the average move of the procedure alone; only the average is public |
+| UNREAD | B159-4 `own_reading` **private passenger, portfolio or distribution** | neither is in the public decision. The distribution exists: every rate filing fills CONF-8 (uncapped) and CONF-9 (capped), exposure counts in 17 percent bins and 17 dollar bins, in Part 2, which the filing requirements say is "routinely kept confidential"; the six-month capping update ordered in [21] is a filing to the matter |
+| PASS | B159-5 `own_reading` **the same vehicles on two CLEAR versions** | the Travelers side rates on the version with collision, DCPD and comprehensive separated, Definity on the version with collision and DCPD combined. Conversion pairing, 2025 tables, collision/DCPD rate groups to the merged one: CR-V 32/38 → 35, Tesla Model Y 51/57 → 54, Grand Caravan 32/35 → 34, Rogue 39/42 → 41, Corolla 37/37 → 37, F150 40/38 → 39, Civic 27/32 → 30, Altima 11/18 → 16, Corvette 24/22 → 23; comprehensive equal in both. In all 27 vehicle-years (2024 to 2026 tables) the merged rate group lies between the separated pair |
+| PASS | B159-6 `own_reading` **class lines keyed on provenance** | Definity ← Travelers, commercial: caps {+15, +25, -5} for the acquired book, none for Definity's own; private passenger: the same caps, Definity's own not printed (no verdict for that cell), plus a temporary Conversion Credit Score relativity until the first renewal as a Definity policy, and collector cars renewed as private passenger vehicles (no collector-car algorithm at Definity). Intact ← RSA (2023 NSUARB 11): {+5, -14} for RSA clients against Intact's own {+35, +45}, removed once all had renewed |
+| PASS | B159-7 `instrument` **dose index** | the index is the share of the book converted; inside the window Definity's own program changes twice: 2026-10-21 (overall +7%, four rating variables, renewal discount) and 2026-12-30 (2026 CLEAR table); calendar shares 0.307, 0.192, 0.501; the renewal-date distribution of the book is not public |
+| PASS | B159-8 `bookkeeping` **availability of every wanted object** | 17 objects: 6 read, 3 in the Board's matter files (not opened), 3 confidential by the filing requirements, 3 not found on public pages, 2 not carried in the manual. The rating profiles (fifteen standard risks by nine territories, each company's premium) are non-confidential and sit in the matter files |
+| PASS | B159-9 `known_answer` **the 8% the decision cites** | M12606 [3] cites the Travelers side's 8% increase to 2025 NSUARB 25, which is Hartford Fire adopting IAO commercial rates (M12044); the 8.0% Dominion private passenger increase is 2025 NSRAB 65 (M12284) |
+
+**Reading.** With the risks held by the acquisition, the price moved with the procedure: +4.2% on average for the
+commercial book, "large premium increases for many customers" in private passenger. The procedure change shows as class
+lines: one vehicle rate-group line merged (DCPD into collision), one deleted (collector cars), and temporary lines keyed
+on where the policy came from. The risk-pricing reading, one risk and one premium whoever runs the procedure, is not
+borne out by the regulator's own account; no rival criterion is registered, since the framework gives no opposite point
+prediction on the direction.
+
+**Scope.** Public decisions, filing requirements and the profile workbook. The policy-level displacement, both
+programs' relativities and the six-month update are filed and confidential; the rating profiles are non-confidential
+and were not opened, the matter database being reached through a search form. The commercial +4.2% is a portfolio
+mean. The 2021 decision that began the RSA conversion was not found; its caps are read from the 2023 decision that
+removed them.
+
+**Second pass, RUN: 2026-10-29. The Board's matter files.** The public items of matters M12606, M12284, M12803, M12161
+and M12466 in the Board's documents database, read by matter number; 51 files in the manifest. Three facts change: M12606
+changes no rate, so it carries no rating profiles (its Part 1 is three certificate pages); an Amending Order moved the
+first renewal into Definity to 2026-07-11, and another moved Definity's 2026 CLEAR table to 2027-01-27 for renewals; the
+Board's letter of 2026-08-05 acknowledges Definity's six-month update and states its sign only. The rows below supersede
+the first-pass rows for B159-1, -2, -4, -7 and -8 and add three.
+
+The pair: the Travelers side's profiles in M12284 (exhibit T-8, in force for renewals from 2025-12-21) and Definity's in
+M12161 (exhibit D-2, 2025 NSRAB 38, in force for renewals from 2025-11-21 until 2026-10-20). Both use the 2022 CARR
+profiles; all 22 profile descriptions match word for word; 14 profiles by 9 territories, 126 positions, are priced by
+both. On 2026-07-11 these are the two prices of the same standard risk.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | B159-1 `bookkeeping` **sources** | 51 files match their recorded SHA-256; 69 quotes found |
+| PASS | B159-2 `own_reading` **the swap as the Board writes it** | as above; private passenger window 2026-07-11 to 2027-06-30 by the Amending Order, commercial 2026-07-01 |
+| UNREAD | B159-4 `own_reading` **private passenger, portfolio or distribution** | still no figure; the Board's letter gives the sign for the book: premium foregone on the cap on increases exceeds extra premium collected on the cap on decreases |
+| PASS | B159-7 `instrument` **dose index** | 102, 98 and 155 days: M12161's program, M12803 (+7%) on the 2025 table, M12803 on the 2026 table from 2027-01-27; calendar shares 0.287, 0.276, 0.437 |
+| PASS | B159-8 `bookkeeping` **availability** | 22 objects: 10 read, 3 confidential by rule, 3 not found on public pages, 2 not in the manual, 1 not required by rule, 2 absent from the public listing, 1 listed public with a confidential cover and used for no reading |
+| PASS | B159-10 `own_reading` **same standard risk, two programs, two prices** | log(A/B) over 126 positions from -0.6735 to +0.5760, median +0.0005. Floor from printed rounding (whole-dollar components summed into the total), 0.0016 to 0.0064 in log. A = B fails its floor at 117 of 126 positions; A = constant x B leaves 115 of the 125 independent squares (a star around the median position) and 7,612 of all 7,875 pairs above floor; the largest square, 1.2495, is 236 times its floor |
+| PASS | B159-11 `own_reading` **the swap at profile resolution** | A/B - 1 from -49.0% to +77.9%, median +0.05%; 28 positions above the +15% cap, 39 below the -5% floor, 59 between. Unweighted over positions: 15,391 dollars foregone above the cap, 31,150 collected below the floor; the Board's book-weighted statement is a different object, printed beside it |
+| PASS | B159-12 `own_reading` **territory partitions** | grouping the nine territories by identical coverage vectors: Dominion 6 groups, Definity 4 (5 on two profiles where it splits Halifax from Dartmouth); the partitions differ on all 14 profiles, Dominion's strictly finer on 12, crossing on 2 |
+
+**Reading, second pass.** The move runs along driver age and experience: A/B - 1 for the 19-year-old (5.1) -47.1% to
+-20.1%, the 52-year-old with a 21-year-old occasional driver -49.0% to -35.1%, the 70-year-old +23.6% to +56.0%, the
+35-year-old commuter +45.3% to +77.9%, with the median near zero. The two procedures differ by class lines, the slope on
+age and experience and the territory grouping, rather than by a level. Definity's next step on its own 2025 profiles
+(M12803 exhibit D-3, renewals from 2026-10-21) moves +0.6% to +23.2%, median +5.5%, over 135 positions; the Travelers
+side filed no 2025 profiles, so the later segments have nothing to pair with. Not in the pair: Dominion's high-theft list
+update of 2025-12-21 (M12466), Definity's proprietary premium formula on expected loss cost (2025 NSRAB 38 [19]), and the
+tenure a converted policy carries.

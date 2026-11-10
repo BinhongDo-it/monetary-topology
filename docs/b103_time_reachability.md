@@ -205,6 +205,13 @@ and `B103-2` read every quantity they are built from.
 | `B103-3` `own_reading` | one formula | a bridge walked from conductance `1` to `1e-4`: `R` from `2.703` to `10001.7`, the share measured from the two fits from `0.7299` to `0.999900`, the rise in `ρ²` from `0.55` to `2.0e-4`, the new edge's residual from `0.39` to `1.4e-4`, and `D` constant to `4.7e-12`. With the bridge removed the level is pinned to `1.2e-15` and `ρ²` does not move. A complete graph on eight vertices less the joined pair, weights walked from `1` to `1e4`: `R` from `1/3` to `3.3e-5`, the measured share from `0.25` to `3.3e-5`. On every rung of both walks the measured share equals `w_e R / (1 + w_e R)` to `1.8e-15` |
 | `B103-4` `known_answer` | B84-4's ladder | the ten tableaux come back with the same ten edges, with `R` from `0.603` to `1.800` computed from each tableau, and the closed form matches all fifty recorded distances to `5.3e-15`. The first two ratios of every edge match `(1 + w_b R)/(1 + w_a R)`: first steps `0.8490` to `0.9437`, second steps `0.9982` to `0.9994`. On the last two ratios the closed form bends by at most `1.8e-6`, below the float noise of the distances they divide. **B84's printed low end, `0.8490`, is the first step of the edge with `R = 1.800`, and its high end, `1.0025`, is a last step** |
 
+Figures below `1e-11` in this table are what the run printed on the build that first wrote the
+record; the record carries the tolerances only, because those digits belong to the BLAS build.
+A Windows build writes the same record byte for byte and prints `9.8e-15` and `3.6e-15` for
+`B103-1`, `3.2e-14` against the same floor `2.8e-14` for `B103-2`, and for `B103-3` `D` constant
+to `2.0e-12`, the level pinned to `2.6e-15` and the share matching to `1.9e-15`. `B103-4` prints
+`5.3e-15` on both.
+
 **Each criterion has a seeded failure in `--selftest`.** Where a seed could land on nothing, a
 fixture without a reachable pair or new edges all of weight one, the self-test asserts that it
 landed. A reachable pair read as unreachable, and a broken component count, fail `B103-1`.
@@ -226,7 +233,7 @@ the floor is set aside is one number per edge, `R`.**
 singular value decomposition of the weighted incidence matrix `W^{1/2} d⁰`, whose condition
 number the Laplacian squares. With a bridge of conductance `1e-4` the two condition numbers are
 about `9e2` and `7e5`, and `D` reads constant across the walk to `5e-12` on the incidence matrix
-and to `4e-11` through the Laplacian. **Reading (3) near its limit is a question about a
+and to `4e-11` through the Laplacian (`2.0e-12` and `1.5e-10` on the Windows build). **Reading (3) near its limit is a question about a
 nearly disconnected graph, and on such a graph the normal equations spend digits the question
 needs.**
 

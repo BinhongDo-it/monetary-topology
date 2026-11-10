@@ -50,6 +50,7 @@ from __future__ import annotations
 
 import argparse
 import gc
+import inspect
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -119,8 +120,20 @@ def _sides(q: dict, seg: np.ndarray):
 
 #: The quiet predicate, condition by condition, in the order ``quiet_pairs``
 #: applies them. Each entry is (label, function of (c, cur, prv) -> bool array
-#: that is True when the condition **holds**). Kept as data so the attribution
-#: cannot drift from a hand-written re-listing without the count moving.
+#: that is True when the condition **holds**, the ``quiet_pairs`` keyword that
+#: switches it on or ``None`` when it always applies). Kept as data so the
+#: attribution cannot drift from a hand-written re-listing without the count
+#: moving.
+#:
+#: **The third field exists because the list did drift, on 2026-08-17.** This
+#: file was written while ``require_never_deferred`` defaulted to ``True``.
+#: §6.6.17 flipped that default to ``False``, the list kept applying the
+#: condition unconditionally, and the attribution went on describing a
+#: predicate ``quiet_pairs`` no longer runs. On the real archives both sides
+#: read zero and agreed by accident; the fixture, where the correction removes
+#: 856 pairs, read 565 and the selftest said so. The condition stays in the
+#: list, so its marginal count is still printed, and it joins the survivor
+#: product only when the flag it belongs to is on.
 def _conditions(c):
     period = c.row["period"].astype(np.int32)
     rate = c.row["rate"].astype(np.int32)
@@ -146,11 +159,24 @@ def _conditions(c):
         ("note rate unchanged", lambda u, v: rate[u] == rate[v]),
         ("previous UPB present", lambda u, v: upb[v] != K.U32_NA),
         ("current UPB present", lambda u, v: upb[u] != K.U32_NA),
-        ("never deferred up to here", lambda u, v: ~seen[u]),
+        ("never deferred up to here", lambda u, v: ~seen[u],
+         "require_never_deferred"),
     ]
 
 
-def _attribute(c, upb):
+def _predicate_defaults() -> dict:
+    """``quiet_pairs``'s own keyword defaults, read off its signature.
+
+    Read rather than re-typed: a default typed here is a second copy of the
+    one in ``b8_core``, and a second copy is how the 2026-08-17 flip went
+    unnoticed.
+    """
+    return {k: p.default for k, p in
+            inspect.signature(K.quiet_pairs).parameters.items()
+            if p.default is not inspect.Parameter.empty}
+
+
+def _attribute(c, upb, **flags):
     """Why the correction removes nothing: what already excluded these pairs.
 
     **This is the section that turns a redundant guard into a documented one.**
@@ -166,7 +192,14 @@ def _attribute(c, upb):
     reports it. For each condition the count is **marginal**: how many
     candidates that condition alone rejects, not an exclusive partition, so the
     columns do not sum to the total and are not meant to.
+
+    ``flags`` are ``quiet_pairs`` keywords, defaulting to ``quiet_pairs``'s own
+    defaults. A condition switched off by its flag still gets its marginal
+    count but does not enter the survivor product, so the survivors are the
+    pairs the predicate **as called with these flags** would admit but for a
+    zero current balance.
     """
+    on = dict(_predicate_defaults(), **flags)
     n = c.n_rows
     cur = np.arange(1, n, dtype=np.int64)
     prv = cur - 1
@@ -178,10 +211,11 @@ def _attribute(c, upb):
 
     attr = {}
     surv = np.ones(total, dtype=bool)
-    for label, fn in _conditions(c):
+    for label, fn, *flag in _conditions(c):
         held = np.asarray(fn(u, v), dtype=bool)
         attr[label] = int((~held).sum())
-        surv &= held
+        if not flag or on[flag[0]]:
+            surv &= held
     return total, attr, int(surv.sum())
 
 
@@ -416,6 +450,10 @@ def report(archs: list[Arch]) -> str:
     A("**Why it is worth writing down rather than dropping the guard.** The "
       "guard is dead only for as long as the condition below stays. Relax "
       "that condition, and the guard becomes load bearing the same day.\n")
+    A("`never deferred up to here` is printed for its marginal count only. "
+      "Since 2026-08-17 `quiet_pairs` applies it only when called with "
+      "`require_never_deferred=True`, so it is not in the default predicate "
+      "and does not enter **pass everything else**.\n")
     labels = [k for k in (archs[0].attr if archs else {})]
     A("| archive | payoff pairs | " + " | ".join(labels) +
       " | **pass everything else** |")
@@ -529,11 +567,35 @@ def selftest() -> int:
                          f"condition list has drifted from quiet_pairs.")
         if n_term < drop:
             fails.append("fewer payoff pairs than removed pairs, impossible")
+        # **The same question with every optional condition switched on.** The
+        # 2026-08-17 drift was a condition the list applied and the predicate,
+        # under its new default, did not. Checking only the default setting
+        # tests one of the two lists and lets the other rot, so the flag is
+        # turned on at both ends and the counts must agree there too. And the
+        # two settings must remove different numbers on this fixture: if they
+        # did not, the flag would be untested and either list could carry any
+        # amount of drift in that condition.
+        opt = {k: True for k in _predicate_defaults()
+               if k == "require_never_deferred"}
+        q_old_t = K.quiet_pairs(c, require_cur_positive=False, **opt)
+        q_new_t = K.quiet_pairs(c, **opt)
+        drop_t = q_old_t["cur"].size - q_new_t["cur"].size
+        _nt, _at, only_cur_t = _attribute(c, upb, **opt)
+        if only_cur_t != drop_t:
+            fails.append(f"with {sorted(opt)} on, attribution says "
+                         f"{only_cur_t} pairs pass every other condition, the "
+                         f"correction removed {drop_t}. The condition list "
+                         f"has drifted from quiet_pairs.")
+        if drop_t == drop:
+            fails.append(f"the fixture removes {drop} pairs with and without "
+                         f"{sorted(opt)}, so that flag is untested here")
         print(f"  fixture: {q_old['cur'].size:,} old, {q_new['cur'].size:,} "
               f"new, {drop:,} removed, {d_above:,} above the cluster, "
               f"{alone:,} alone in their segment", file=sys.stderr)
         print(f"  attribution: {n_term:,} payoff pairs, {only_cur:,} pass "
               f"every other condition", file=sys.stderr)
+        print(f"  with {sorted(opt)} on: {drop_t:,} removed, {only_cur_t:,} "
+              f"pass every other condition", file=sys.stderr)
     finally:
         c.close()
 

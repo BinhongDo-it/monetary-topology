@@ -1,0 +1,244 @@
+{
+ "config": {
+  "compared": "with all white space removed",
+  "fetched_by": "experiments/b144_fetch.py --only school",
+  "levels": [
+   "official text",
+   "official description"
+  ],
+  "pages": "data/raw/b144/law_school",
+  "scales": [
+   "country",
+   "state or city",
+   "district"
+  ],
+  "vocabulary": [
+   "title",
+   "register",
+   "residence",
+   "status",
+   "tenure"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "10 rows, 16 passages, 10 cached pages; every passage is on its page and every page carries a row. Levels: official text 9, official description 1",
+   "kind": "bookkeeping",
+   "name": "B144-G0",
+   "passed": true,
+   "statement": "Every row has its words on a cached page and every cached page carries a row."
+  },
+  {
+   "detail": "5 provisions in 5 countries outside China, 0 of them asking for title; 5 provisions in China, 2 of them naming title (CN-3, CN-5). China: register; Shanghai: register, residence; Shanghai, Hongkou district: register, residence, title; Shanghai, Huangpu district: register, residence; Beijing, Huairou district: register, title, tenure; Japan: residence, register; Bavaria: residence; England: residence; New York: residence; Singapore: status, register, residence",
+   "kind": "own_reading",
+   "name": "B144-G1",
+   "passed": true,
+   "statement": "Outside China no provision read attaches the school place to the title of a dwelling; in the Chinese cities read, title enters the rule."
+  },
+  {
+   "detail": "China: 3 districts read, 3 different rules (Shanghai, Hongkou district: register, residence, title | Shanghai, Huangpu district: register, residence | Beijing, Huairou district: register, title, tenure)",
+   "kind": "own_reading",
+   "name": "B144-G2",
+   "passed": true,
+   "statement": "Inside one country the rule is written district by district, and the districts read attach the place to different things."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "objects": {
+  "B144-G0": {
+   "faults": []
+  },
+  "B144-G1": {
+   "tally": {
+    "register": 7,
+    "residence": 8,
+    "status": 1,
+    "tenure": 1,
+    "title": 2
+   },
+   "title_inside": [
+    "CN-3",
+    "CN-5"
+   ],
+   "title_outside": []
+  },
+  "B144-G2": {
+   "shapes": {
+    "China": [
+     "register,residence",
+     "register,residence,title",
+     "register,tenure,title"
+    ]
+   }
+  }
+ },
+ "rows": [
+  {
+   "attached_to": [
+    "register"
+   ],
+   "country": "China",
+   "id": "CN-1",
+   "level": "official text",
+   "page": "cn_compulsory_education_law.html",
+   "scale": "country",
+   "what": "Compulsory Education Law, article 12",
+   "where": "China",
+   "words": [
+    "地方各级人民政府应当保障适龄儿童、少年在户籍所在地学校就近入学",
+    "在其父母或者其他法定监护人工作或者居住地接受义务教育的，当地人民政府应当为其提供平等接受义务教育的条件。具体办法由省、自治区、直辖市规定"
+   ]
+  },
+  {
+   "attached_to": [
+    "register",
+    "residence"
+   ],
+   "country": "China",
+   "id": "CN-2",
+   "level": "official text",
+   "page": "sh_city_2026.pdf",
+   "scale": "state or city",
+   "what": "city education commission, admissions for 2026",
+   "where": "Shanghai",
+   "words": [
+    "区教育行政部门结合本地区实际，制定“人户分离”适龄儿童入学实施细则，先安排户籍地与实际居住地一致的适龄儿童就近入学"
+   ]
+  },
+  {
+   "attached_to": [
+    "register",
+    "residence",
+    "title"
+   ],
+   "country": "China",
+   "id": "CN-3",
+   "level": "official text",
+   "page": "sh_hongkou_2026.pdf",
+   "scale": "district",
+   "what": "rules for children registered in one place and living in another, 2026",
+   "where": "Shanghai, Hongkou district",
+   "words": [
+    "按照“人户一致优先”原则，先安排户籍地与实际居住地一致的适龄儿童就近入学",
+    "适龄儿童与户主为直系亲属关系，且适龄儿童或父母三人中至少一人为居住地房屋产权所有人"
+   ]
+  },
+  {
+   "attached_to": [
+    "register",
+    "residence"
+   ],
+   "country": "China",
+   "id": "CN-4",
+   "level": "official text",
+   "page": "sh_huangpu_2026.pdf",
+   "scale": "district",
+   "what": "primary school admissions, 2026",
+   "where": "Shanghai, Huangpu district",
+   "words": [
+    "对于本区户籍地（户主为直系亲属或儿童本人）与居住地（产权人或承租人为直系亲属或儿童本人）一致的适龄儿童"
+   ]
+  },
+  {
+   "attached_to": [
+    "register",
+    "title",
+    "tenure"
+   ],
+   "country": "China",
+   "id": "CN-5",
+   "level": "official text",
+   "page": "bj_huairou_2026.docx",
+   "scale": "district",
+   "what": "primary school admissions, 2026",
+   "where": "Beijing, Huairou district",
+   "words": [
+    "具有本市非怀柔区户籍，在怀柔区有房屋产权家庭的适龄儿童",
+    "具有本市非怀柔区户籍的无房家庭，符合在怀柔区连续单独承租并实际居住3年以上，其父母在怀柔区合法稳定就业3年以上条件家庭的适龄儿童"
+   ]
+  },
+  {
+   "attached_to": [
+    "residence",
+    "register"
+   ],
+   "country": "Japan",
+   "id": "JP-1",
+   "level": "official text",
+   "page": "jp_gakko_rei_1.xml",
+   "scale": "country",
+   "what": "Order for Enforcement of the School Education Act, article 1",
+   "where": "Japan",
+   "words": [
+    "当該市町村の区域内に住所を有する学齢児童及び学齢生徒",
+    "前項の規定による学齢簿の編製は、当該市町村の住民基本台帳に基づいて行なうものとする"
+   ]
+  },
+  {
+   "attached_to": [
+    "residence"
+   ],
+   "country": "Germany",
+   "id": "DE-1",
+   "level": "official text",
+   "page": "de_bayeug_42.html",
+   "scale": "state or city",
+   "what": "Bavarian education act, article 42",
+   "where": "Bavaria",
+   "words": [
+    "erfüllen ihre Schulpflicht in der Schule, in deren Schulsprengel sie ihren gewöhnlichen Aufenthalt haben"
+   ]
+  },
+  {
+   "attached_to": [
+    "residence"
+   ],
+   "country": "United Kingdom",
+   "id": "EN-1",
+   "level": "official text",
+   "page": "en_admissions_code_2021.pdf",
+   "scale": "country",
+   "what": "School Admissions Code 2021, 1.14",
+   "where": "England",
+   "words": [
+    "Catchment areas must be designed so that they are reasonable and clearly defined",
+    "Catchment areas do not prevent parents who live outside the catchment of a particular school from expressing a preference for the school"
+   ]
+  },
+  {
+   "attached_to": [
+    "residence"
+   ],
+   "country": "United States",
+   "id": "US-1",
+   "level": "official text",
+   "page": "us_ny_edn_3202.html",
+   "scale": "state or city",
+   "what": "Education Law section 3202",
+   "where": "New York",
+   "words": [
+    "is entitled to attend the public schools maintained in the district in which such person resides without the payment of tuition"
+   ]
+  },
+  {
+   "attached_to": [
+    "status",
+    "register",
+    "residence"
+   ],
+   "country": "Singapore",
+   "id": "SG-1",
+   "level": "official description",
+   "page": "sg_moe_distance.html",
+   "scale": "country",
+   "what": "primary one registration, how distance affects priority",
+   "where": "Singapore",
+   "words": [
+    "priority admission will be given based on your child's citizenship and the Home-School Distance (HSD) category, which is in turn based on the address used for registration",
+    "must reside at the address used for registration (which shall continue to be the registering parent’s NRIC address) for at least 30 months"
+   ]
+  }
+ ],
+ "stage": "B144"
+}

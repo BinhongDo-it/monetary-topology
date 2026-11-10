@@ -56,8 +56,11 @@ not answered the question.
 AND A CHECK ON CANDIDATE 1, WHICH THIS RUN GETS FOR FREE
 ========================================================
 "0.00% of states above rho 0.70" was read off three instruments. But at the
-friction floor, f = 2 ticks, |index| can only be 0, 1 or 2 ticks and rho can
-only be 0, 0.5 or 1. If tail mass lives at low friction and low-friction states
+friction floor, f = 2 ticks, |index| can only be 0 strictly inside the band,
+and 2 on the knife edge, so rho can only be 0 or 1: both orientations are whole
+ticks on one grid, which gives the index the friction count's parity and stops
+it at f - 2 (b13_rho_tail.py states the algebra). If tail mass lives at low
+friction and low-friction states
 are simply rare, a pooled zero is a mixture artefact. So this run prints
 P(rho >= 0.70) and max rho PER FRICTION BIN, and --edge prints the density of
 rho next to what the grid could have represented there.
@@ -275,13 +278,18 @@ def run(paths):
 
 
 def representable(k, lo20, hi20):
-    """can an integer index a in [0, k] land in [lo20/20, hi20/20) at friction
-    k? exact integer arithmetic, no float compare near the bin walls."""
+    """can an index a land in [lo20/20, hi20/20) at friction k, strictly inside
+    the band? exact integer arithmetic, no float compare near the bin walls.
+
+    Strictly inside, the index has k's parity and is at most k - 2. Until
+    2026-10-10 this asked for any integer in [0, k], which counted bins the
+    grid cannot reach: at k = 5 it allowed a = 4, rho 0.8, where the largest
+    index the grid holds is 3."""
     lo = -(-lo20 * k // EDGE_STEP)                 # ceil(lo20*k/20)
     hi = (hi20 * k + EDGE_STEP - 1) // EDGE_STEP   # ceil(hi20*k/20)
-    if hi20 * k % EDGE_STEP == 0:
-        hi = hi20 * k // EDGE_STEP
-    return lo <= min(hi - 1, k)
+    if (lo - k) % 2:
+        lo += 1                                    # first a >= lo with k's parity
+    return lo <= min(hi - 1, k - 2)
 
 
 def edge(paths):
@@ -291,7 +299,8 @@ def edge(paths):
             data.update(load(q))
     lo0 = 10
     print("rho 密度，宽 0.05 的桶。上行 n = 落在桶里的状态数；")
-    print("下行 r = 该桶在自己的 friction 网格上可被表示的状态数。")
+    print("下行 r = 该桶在自己的 friction 网格上可被表示的状态数")
+    print("（指数与 friction 同奇偶，带内最大到 friction-2）。")
     print("r>0 而 n=0 的桶，是网格能表示而世界没去的地方。")
     print("")
     heads = ["%.2f" % (b / float(EDGE_STEP)) for b in range(lo0, EDGE_STEP)]
@@ -705,12 +714,20 @@ def selftest():
     # 7  wls declines to answer when x has no spread
     ck(wls([1.0, 1.0], [0.0, 1.0], [1.0, 1.0]) is None, "wls should decline")
 
-    # 8  representable agrees with brute force on every small friction
+    # 8  representable agrees with brute force on every small friction. The
+    #    brute force walks both orientations, S and S' negative integers with
+    #    S + S' = -k, so the parity and the k - 2 bound are enumerated and
+    #    not assumed
     for k in range(1, 140):
+        reach = sorted({abs(2 * s + k) for s in range(-k + 1, 0)})
         for b in range(10, EDGE_STEP):
-            brute = any(b * k <= a * EDGE_STEP < (b + 1) * k for a in range(k + 1))
+            brute = any(b * k <= a * EDGE_STEP < (b + 1) * k for a in reach)
             ck(representable(k, b, b + 1) == brute,
                "representable k=%d bin=%d" % (k, b))
+    #    and the two cells the parity decides: k = 5 cannot show 0.8, k = 10 can
+    ck(not representable(5, 16, 17), "k=5 shows 0.8 only off the grid")
+    ck(representable(10, 16, 17), "k=10 shows 0.8 at index 8")
+    ck(not representable(2, 10, 11), "k=2 holds index 0 only")
 
     # 9  the gap is non-negative on every real row, which is rho <= 1 again
     #    stated in tick units, and it is the quantity --gap floors

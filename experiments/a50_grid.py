@@ -13,8 +13,9 @@ Checks, each with a planted error that must make it fail (--selftest):
                       previews) still holds with the fourth switch in the module
   A50-2   instrument  the fund adds up in every run (block 1's check)
   A50-4   instrument  a locked arm never spends from its accounts; they end at what was parked
-  A50-5   instrument  unbound, locked equals parked field for field: without lending an unbound
-                      sale takes holdings only, so the accounts cannot be spent by construction
+  A50-5   instrument  the account's way into a purchase is the same in both regimes: every run
+                      with a spendable account spent from it, unbound as well as bound, and no
+                      locked run did
 
 Differences, per seed (A50-3): transfer, parking the employee's money, parking the employer's
 money, interaction, shelter alone, the housing use (employee), the housing use (both). One
@@ -161,15 +162,18 @@ def signs(v):
     return sorted({"+" if x > 0 else ("-" if x < 0 else "0") for x in v if x is not None})
 
 
-def twin_check(rows) -> tuple[bool, list[str]]:
-    """A50-5: unbound, locked and parked runs agree field for field."""
+def entry_check(rows) -> tuple[bool, list[str]]:
+    """A50-5: a spendable account pays for dwellings in both regimes, a locked one in neither."""
     d = []
-    skip = {"arm", "seconds", "lock_ok"}
-    for locked, parked in (("employee locked", "employee parked"), ("both locked", "both parked")):
-        for c in CS:
-            a, b = pick(rows, "unbound", locked, c), pick(rows, "unbound", parked, c)
-            for s in SEEDS:
-                d += [f"{locked} c{c} seed{s}: {k}" for k in a[s] if k not in skip and a[s][k] != b[s].get(k)]
+    for x in rows:
+        s = ARMS[x["arm"]]
+        if s is None or not s[2]:
+            continue                      # no contribution, or nothing parked
+        spent = x["spent_from_accounts"]
+        if s[3] and not spent > 0.0:
+            d.append(f"{x['regime']} {x['arm']} c{x['c']} seed{x['seed']}: spendable account never spent")
+        if not s[3] and spent != 0.0:
+            d.append(f"{x['regime']} {x['arm']} c{x['c']} seed{x['seed']}: locked account spent {spent}")
     return not d, d
 
 
@@ -184,12 +188,14 @@ def selftest() -> None:
     assert not lock_check(m)[0], "A50-4 must catch a locked account that shrank"
     m, _ = a47_block3.run(rules_for("bound", "employee parked", 0.12), rounds=80)
     assert m.pf_spent_from_accounts > 0, "under binding a spendable account must be spent"
-    rows = [one(j) for j in jobs_grid() if j[0] == "unbound" and "both" in j[1] and j[2] == 0.05]
-    rows = [r for r in rows] + [dict(r, c=0.12) for r in rows]
-    rows += [dict(r, arm=r["arm"].replace("both", "employee")) for r in rows]
-    assert twin_check(rows)[0], "the unbound twins must agree before the plant"
-    rows[0] = dict(rows[0], prod_share=rows[0]["prod_share"] + 0.001)
-    assert not twin_check(rows)[0], "A50-5 must catch a locked run that differs from its parked twin"
+    rows = [one(j) for j in jobs_grid() if j[0] == "unbound" and "both" in j[1] and j[2] == 0.05 and j[3] == 0]
+    assert entry_check(rows)[0], "unbound, the spendable account must be spent and the locked one not"
+    i = next(k for k, r in enumerate(rows) if r["arm"] == "both parked")
+    assert not entry_check(rows[:i] + [dict(rows[i], spent_from_accounts=0.0)] + rows[i + 1:])[0], \
+        "A50-5 must catch an unbound spendable account that was never spent"
+    j = next(k for k, r in enumerate(rows) if r["arm"] == "both locked")
+    assert not entry_check(rows[:j] + [dict(rows[j], spent_from_accounts=0.5)] + rows[j + 1:])[0], \
+        "A50-5 must catch a locked account that was spent"
     for bad in (dict(provident_spendable=False, provident_park=False, provident_employee=False),
                 dict(provident_spendable=False, commit_loan=True, loan_lender="provident")):
         try:
@@ -198,8 +204,8 @@ def selftest() -> None:
         except ValueError:
             continue
         raise AssertionError(f"{bad} must be refused")
-    print("selftest ok: A50-4 catches spending from and shrinking of a locked account; A50-5 catches a "
-          "locked run that differs from its parked twin; the two bad switch sets are refused")
+    print("selftest ok: A50-4 catches spending from and shrinking of a locked account; A50-5 catches an "
+          "unbound spendable account never spent and a locked one spent; the two bad switch sets are refused")
 
 
 def main() -> int:
@@ -219,10 +225,10 @@ def main() -> int:
 
     ok2 = all(r["fund_ok"] for r in rows + krows)
     ok4 = all(r["lock_ok"] for r in rows + krows)
-    ok5, d5 = twin_check(rows)
+    ok5, d5 = entry_check(rows + krows)
     print(f"{'PASS' if ok2 else 'FAIL'} A50-2 [instrument]: fund adds up in {len(rows) + len(krows)} runs")
     print(f"{'PASS' if ok4 else 'FAIL'} A50-4 [instrument]: locked accounts never spent, end at what was parked")
-    print(f"{'PASS' if ok5 else 'FAIL'} A50-5 [instrument]: unbound locked equals parked, field for field"
+    print(f"{'PASS' if ok5 else 'FAIL'} A50-5 [instrument]: spendable accounts spent in both regimes, locked ones never"
           + (f"; {d5[:6]}" if d5 else ""))
 
     print("\ncells, mean over 5 seeds: " + " | ".join(QTY) + " | parked | accounts end | spent from accounts | issuance | circulating end")
@@ -266,7 +272,8 @@ def main() -> int:
                   {"name": "A50-4", "kind": "instrument", "passed": ok4,
                    "detail": "locked accounts never spent and end at what was parked"},
                   {"name": "A50-5", "kind": "instrument", "passed": ok5,
-                   "detail": "unbound locked equals parked field for field" + (f"; {d5[:6]}" if d5 else "")}],
+                   "detail": "spendable accounts spent in both regimes, locked ones never"
+                   + (f"; {d5[:6]}" if d5 else "")}],
               "grid_rows": rows, "knob_rows": krows, "cell_summary": summary, "differences": verdict,
               "config": {"seeds": list(SEEDS), "c": list(CS), "short_stay_share": 0.1, "short_stay_rate": 0.25,
                          "arms": {k: list(v) if v else None for k, v in ARMS.items()},

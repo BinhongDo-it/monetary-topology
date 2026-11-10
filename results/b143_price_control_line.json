@@ -1,0 +1,671 @@
+{
+ "config": {
+  "corpus": "the towing provision, read first; two provisions named from memory before they were read (taxi fares, emergency medical bills); the other price provisions met in the same sections; two price rules already cited from their official texts (the British default tariff cap, the insurance renewal rule); the debit interchange rule; one statute for the emergency cell",
+  "direction_of_row": {
+   "the authority writes the price on the side the buyer acted on": "reversed",
+   "the authority writes the price on the side the buyer did not act on": "no_choice_side_written",
+   "the text does not say which side the buyer acted on": "undetermined: no verdict"
+  },
+  "kinds": {
+   "buyer_act": "something the buyer did or could do at this transaction: consent, prior arrangement, a hail, choosing a tariff, renewing",
+   "emergency": "an emergency, of the buyer or declared by a government",
+   "good_or_seller": "an attribute of the good, the service or the seller"
+  },
+  "state_of_row": {
+   "a cited page was not opened for this station": "unopened: not a reading, leaves every count",
+   "pages opened and both sides named": "read",
+   "pages opened, the text does not name the other side of the line": "no_object: printed, not counted"
+  },
+  "unit_of_hand": "the body that issued the text; several statutes of one legislature are one hand",
+  "what_counts_as_written": "an authority sets the price, caps it, or is given the power to regulate it"
+ },
+ "criteria": [
+  {
+   "detail": "11 rows resting on 11 pages, 12 pages listed; problems: none. Pages listed and never opened: none. Rows left out because a page was not opened: none. Pages opened that gave no row: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=396 (HTTP 403; the code was read from the FindLaw reproduction instead); https://law.justia.com/codes/california/code-pen/part-1/title-10/section-396/ (HTTP 403); https://nycadmincode.readthedocs.io/t19/c05/ (characters 100,000 to 211,207 not read; section 19-516 was not reached and no row rests on it)",
+   "kind": "bookkeeping",
+   "name": "B143-1  every fragment carries its words, its place and an opened page",
+   "passed": true
+  },
+  {
+   "detail": "10 of 11 rows name both sides in their own text and are read: debit_interchange_small_issuer, declared_emergency, default_energy_tariff, emergency_medical_bill, household_goods, insurance_renewal, medical_bill_without_consent, nyc_hail_or_prearranged, nyc_same_vehicle, tow_without_consent. Printed and not counted, the other side is not named: air_ambulance",
+   "kind": "premise",
+   "name": "B143-2  the provision regulates part of one line of business and names both sides",
+   "passed": true
+  },
+  {
+   "detail": "of 10 rows read, 6 draw the line on an act of the buyer (default_energy_tariff, insurance_renewal, medical_bill_without_consent, nyc_hail_or_prearranged, nyc_same_vehicle, tow_without_consent), 2 on an emergency (declared_emergency, emergency_medical_bill) and 2 on the good or the seller (debit_interchange_small_issuer, household_goods). Hands with a line on the buyer's act or an emergency: 5 (California Legislature, Financial Conduct Authority, New York City, United Kingdom Parliament, United States Congress). Rows where the same sellers supply the same thing on both sides of the line: 7 (declared_emergency, default_energy_tariff, emergency_medical_bill, insurance_renewal, medical_bill_without_consent, nyc_same_vehicle, tow_without_consent); a reading that ties the line to an attribute of the seller or the good fits the rows of that kind and has nothing to hold on to in these",
+   "kind": "own_reading",
+   "name": "B143-3  lines drawn on an act of the buyer or on an emergency exist, in more than one hand",
+   "passed": true
+  },
+  {
+   "detail": "rows whose line is an act of the buyer: 6; the authority writes the price on the side the buyer did not act on in 6 (default_energy_tariff, insurance_renewal, medical_bill_without_consent, nyc_hail_or_prearranged, nyc_same_vehicle, tow_without_consent), on the side the buyer acted on in 0 (none), and the text does not say in 0 (none)",
+   "kind": "own_reading",
+   "name": "B143-4  where the line is an act of the buyer, the price written is on the side the buyer did not act on",
+   "passed": true
+  },
+  {
+   "detail": "seeded faults caught: a corpus of seller lines alone fails three True, a fragment without words fails one True, a kind outside the three fails one True, a page that is not listed fails one True, a row on an unopened page leaves every count True, an act of the buyer the text does not place gets no verdict in four True, no row naming both sides fails two and leaves three and four without a verdict True, one reversed row fails four and is named True, the corpus as it stands passes one to four True, the row that does not name its other side is printed and not counted True",
+   "kind": "instrument",
+   "name": "B143-5  the reader of rows, on seeded faults",
+   "passed": true
+  }
+ ],
+ "pages": {
+  "ca_oag_gouging": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "the Attorney General's own page; a summary, read beside the code",
+   "rows": [],
+   "url": "https://oag.ca.gov/consumers/pricegougingduringdisasters",
+   "what": "the California Attorney General's page on price gouging during disasters"
+  },
+  "ca_pen_396": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "FindLaw, reproducing the code",
+   "rows": [
+    "declared_emergency"
+   ],
+   "url": "https://codes.findlaw.com/ca/penal-code/pen-sect-396/",
+   "what": "California Penal Code section 396, 'Current as of January 01, 2026'"
+  },
+  "fca_icobs_6b2": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "the Financial Conduct Authority's own handbook",
+   "rows": [
+    "insurance_renewal"
+   ],
+   "url": "https://www.handbook.fca.org.uk/handbook/ICOBS/6B/2.html",
+   "what": "FCA Handbook, ICOBS 6B.2 'Setting renewal prices', rule 6B.2.1R, in force 01/01/2022"
+  },
+  "nyc_admin_19_5": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "an unofficial mirror of the Administrative Code; read to character 100,000 of 211,207, which ends after section 19-507.1",
+   "rows": [
+    "nyc_hail_or_prearranged"
+   ],
+   "url": "https://nycadmincode.readthedocs.io/t19/c05/",
+   "what": "New York City Administrative Code, title 19 chapter 5, sections 19-502, 19-504 and 19-507"
+  },
+  "tlc_ch58": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "the Commission's own file",
+   "rows": [
+    "nyc_hail_or_prearranged"
+   ],
+   "url": "https://www.nyc.gov/assets/tlc/downloads/pdf/rule_book_current_chapter_58.pdf",
+   "what": "Rules of the New York City Taxi and Limousine Commission, chapter 58, 108 pages, 'Updated February 27, 2026'; section 58-26 on pages 58 and 59; a copy is kept at data/raw/b143/tlc/ with its hash in the manifest there"
+  },
+  "tlc_ch59": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "the Commission's own file",
+   "rows": [
+    "nyc_hail_or_prearranged",
+    "nyc_same_vehicle"
+   ],
+   "url": "https://www.nyc.gov/assets/tlc/downloads/pdf/rule_book_current_chapter_59.pdf",
+   "what": "Rules of the New York City Taxi and Limousine Commission, chapter 59, 198 pages, 'Updated February 27, 2026'; sections 59A-25, 59B-21 and 59B-23; a copy is kept at data/raw/b143/tlc/ with its hash in the manifest there"
+  },
+  "uk_tariff_cap_2018": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "legislation.gov.uk, the official publisher",
+   "rows": [
+    "default_energy_tariff"
+   ],
+   "url": "https://www.legislation.gov.uk/ukpga/2018/21/enacted",
+   "what": "Domestic Gas and Electricity (Tariff Cap) Act 2018, text as enacted, sections 1, 3 and 12"
+  },
+  "usc15_1693o2": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "Legal Information Institute, reproducing the current United States Code",
+   "rows": [
+    "debit_interchange_small_issuer"
+   ],
+   "url": "https://www.law.cornell.edu/uscode/text/15/1693o-2",
+   "what": "15 U.S.C. 1693o-2, reasonable fees and rules for payment card transactions"
+  },
+  "usc42_300gg131": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "Legal Information Institute, reproducing the current United States Code",
+   "rows": [
+    "emergency_medical_bill"
+   ],
+   "url": "https://www.law.cornell.edu/uscode/text/42/300gg-131",
+   "what": "42 U.S.C. 300gg-131, balance billing in cases of emergency services"
+  },
+  "usc42_300gg132": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "Legal Information Institute, reproducing the current United States Code",
+   "rows": [
+    "emergency_medical_bill",
+    "medical_bill_without_consent"
+   ],
+   "url": "https://www.law.cornell.edu/uscode/text/42/300gg-132",
+   "what": "42 U.S.C. 300gg-132, balance billing for non-emergency services by nonparticipating providers at participating facilities"
+  },
+  "usc42_300gg135": {
+   "opened": [
+    "2026-10-09"
+   ],
+   "publisher": "Legal Information Institute, reproducing the current United States Code",
+   "rows": [
+    "air_ambulance"
+   ],
+   "url": "https://www.law.cornell.edu/uscode/text/42/300gg-135",
+   "what": "42 U.S.C. 300gg-135, air ambulance services"
+  },
+  "usc49_14501": {
+   "opened": [
+    "2026-10-08",
+    "2026-10-09"
+   ],
+   "publisher": "Legal Information Institute, reproducing the current United States Code",
+   "rows": [
+    "household_goods",
+    "tow_without_consent"
+   ],
+   "url": "https://www.law.cornell.edu/uscode/text/49/14501",
+   "what": "49 U.S.C. 14501, with its amendment notes"
+  }
+ },
+ "pages_without_rows": [
+  {
+   "result": "HTTP 403; the code was read from the FindLaw reproduction instead",
+   "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=PEN&sectionNum=396"
+  },
+  {
+   "result": "HTTP 403",
+   "url": "https://law.justia.com/codes/california/code-pen/part-1/title-10/section-396/"
+  },
+  {
+   "result": "characters 100,000 to 211,207 not read; section 19-516 was not reached and no row rests on it",
+   "url": "https://nycadmincode.readthedocs.io/t19/c05/"
+  }
+ ],
+ "rows": [
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": "b",
+   "direction": "no_choice_side_written",
+   "dividing_words": {
+    "cite": "49 U.S.C. 14501(c)(2)(C)",
+    "source": "usc49_14501",
+    "text": "performed without the prior consent or authorization of the owner or operator of the motor vehicle"
+   },
+   "hand": "United States Congress",
+   "id": "tow_without_consent",
+   "kind": "buyer_act",
+   "line_of_business": "tow trucks, among motor carriers of property",
+   "note": "since 2015 the carve-out reads 'the regulation of tow truck operations performed without the prior consent', which is wider than the price",
+   "provision": "49 U.S.C. 14501(c), amended 2015 by Pub. L. 114-94",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "a State may regulate them; until 2015 the carve-out named the price itself",
+    "text": {
+     "cite": "49 U.S.C. 14501(c)(2)(C) as it stood before Pub. L. 114-94, from the amendment note",
+     "source": "usc49_14501",
+     "text": "the price of for-hire motor vehicle transportation by a tow truck, if such transportation is"
+    },
+    "what": "tows without the owner's prior consent"
+   },
+   "side_b": {
+    "price": "no State may regulate the price",
+    "text": {
+     "cite": "49 U.S.C. 14501(c)(1)",
+     "source": "usc49_14501",
+     "text": "may not enact or enforce a law, regulation, or other provision having the force and effect of law related to a price, route, or service of any motor carrier"
+    },
+    "what": "tows the owner consented to"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": null,
+   "direction": null,
+   "dividing_words": {
+    "cite": "49 U.S.C. 14501(c)(2)(B)",
+    "source": "usc49_14501",
+    "text": "does not apply to the intrastate transportation of household goods"
+   },
+   "hand": "United States Congress",
+   "id": "household_goods",
+   "kind": "good_or_seller",
+   "line_of_business": "motor carriers of property",
+   "note": "the words name the cargo",
+   "provision": "49 U.S.C. 14501(c)",
+   "same_seller_both_sides": false,
+   "side_a": {
+    "price": "a State may regulate price, route and service",
+    "text": {
+     "cite": "49 U.S.C. 14501(c)(2)(B)",
+     "source": "usc49_14501",
+     "text": "does not apply to the intrastate transportation of household goods"
+    },
+    "what": "intrastate carriage of household goods"
+   },
+   "side_b": {
+    "price": "no State may regulate the price",
+    "text": {
+     "cite": "49 U.S.C. 14501(c)(1)",
+     "source": "usc49_14501",
+     "text": "related to a price, route, or service of any motor carrier"
+    },
+    "what": "carriage of other property"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": null,
+   "direction": null,
+   "dividing_words": {
+    "cite": "42 U.S.C. 300gg-131(a)",
+    "source": "usc42_300gg131",
+    "text": "emergency services (for which benefits are provided under the plan or coverage) with respect to an emergency medical condition"
+   },
+   "hand": "United States Congress",
+   "id": "emergency_medical_bill",
+   "kind": "emergency",
+   "line_of_business": "care by providers and facilities outside the patient's plan network",
+   "note": "the words name a state of the buyer, not an act",
+   "provision": "42 U.S.C. 300gg-131, for plan years from January 1, 2022",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "the patient may be billed no more than the in-network cost-sharing amount",
+    "text": {
+     "cite": "42 U.S.C. 300gg-131(a)(1)",
+     "source": "usc42_300gg131",
+     "text": "shall not bill, and shall not hold liable, the participant, beneficiary, or enrollee for a payment amount for such emergency services so furnished that is more than the cost-sharing requirement for such services"
+    },
+    "what": "emergency services"
+   },
+   "side_b": {
+    "price": "this section does not reach them; section 300gg-132 treats part of them",
+    "text": {
+     "cite": "42 U.S.C. 300gg-132(a)",
+     "source": "usc42_300gg132",
+     "text": "items or services (other than emergency services to which section 300gg–131 of this title applies)"
+    },
+    "what": "services other than emergency services"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": "b",
+   "direction": "no_choice_side_written",
+   "dividing_words": {
+    "cite": "42 U.S.C. 300gg-132(b)(1)",
+    "source": "usc42_300gg132",
+    "text": "if the provider satisfies the notice and consent criteria of subsection (d)"
+   },
+   "hand": "United States Congress",
+   "id": "medical_bill_without_consent",
+   "kind": "buyer_act",
+   "line_of_business": "non-emergency care by out-of-network providers at in-network facilities",
+   "note": "consent cannot lift the limit where the patient has nobody else to go to: the ancillary services that keep the limit include 'items and services provided by a nonparticipating provider if there is no participating provider who can furnish such item or service at such facility' (300gg-132(b)(2)(D)); and the notice itself must carry 'a list of any participating providers at the facility who are able to furnish such items' and say the patient 'may be referred, at their option, to such a participating provider' (300gg-132(d)(2)(C))",
+   "provision": "42 U.S.C. 300gg-132, for plan years from January 1, 2022",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "the patient may be billed no more than the in-network cost-sharing amount",
+    "text": {
+     "cite": "42 U.S.C. 300gg-132(a)",
+     "source": "usc42_300gg132",
+     "text": "such provider shall not bill, and shall not hold liable, such participant, beneficiary, or enrollee for a payment amount for such an item or service"
+    },
+    "what": "care given without the patient's notice and consent"
+   },
+   "side_b": {
+    "price": "the limit does not apply",
+    "text": {
+     "cite": "42 U.S.C. 300gg-132(b)(1)",
+     "source": "usc42_300gg132",
+     "text": "Subsection (a) shall not apply with respect to items or services (other than ancillary services described in paragraph (2))"
+    },
+    "what": "care the patient consented to after notice"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": null,
+   "direction": null,
+   "dividing_words": {
+    "cite": "42 U.S.C. 300gg-135",
+    "source": "usc42_300gg135",
+    "text": "air ambulance services (for which benefits are available under such plan or coverage) from a nonparticipating provider"
+   },
+   "hand": "United States Congress",
+   "id": "air_ambulance",
+   "kind": "good_or_seller",
+   "line_of_business": "care by providers outside the patient's plan network",
+   "note": "the words name a kind of service; the section does not say what lies on the other side",
+   "provision": "42 U.S.C. 300gg-135, for plan years from January 1, 2022",
+   "same_seller_both_sides": false,
+   "side_a": {
+    "price": "the patient may be billed no more than the cost-sharing amount",
+    "text": {
+     "cite": "42 U.S.C. 300gg-135",
+     "source": "usc42_300gg135",
+     "text": "such provider shall not bill, and shall not hold liable, such participant, beneficiary, or enrollee for a payment amount for such service furnished by such provider that is more than the cost-sharing amount for such service"
+    },
+    "what": "air ambulance services"
+   },
+   "side_b": {
+    "price": "not named in the section",
+    "text": null,
+    "what": "other transport and other services"
+   },
+   "state": "no_object"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": "b",
+   "direction": "no_choice_side_written",
+   "dividing_words": {
+    "cite": "N.Y.C. Admin. Code 19-507(a)(4)",
+    "source": "nyc_admin_19_5",
+    "text": "shall accept passengers unless the passengers have engaged the use of the for-hire vehicle on the basis of telephone contract or prearrangement"
+   },
+   "hand": "New York City",
+   "id": "nyc_hail_or_prearranged",
+   "kind": "buyer_act",
+   "line_of_business": "passengers carried for hire by car",
+   "note": "'No motor vehicle other than a duly licensed taxicab shall be permitted to accept hails from passengers in the street' (Admin. Code 19-504(a)(1)); a taxicab is defined as a vehicle 'duly licensed as a taxi cab by the commission and permitted to accept hails from passengers in the street' (19-502(l)); 'A Base Owner must file a Rate Schedule with the Commission' (TLC Rules 59B-21(a)(1))",
+   "provision": "Administrative Code 19-502, 19-504, 19-507; TLC Rules 58-26, 59B-21, 59B-23",
+   "same_seller_both_sides": false,
+   "side_a": {
+    "price": "the Commission writes the fare: $3.00 for the first unit, $.70 for each further unit",
+    "text": {
+     "cite": "TLC Rules 58-26(a)(1)",
+     "source": "tlc_ch58",
+     "text": "The rate of fare for Taxicabs is as follows, regardless of the number of passengers or stops: (i) The charge for the initial unit is $3.00 plus the Taxicab Improvement Surcharge of $1.00 (ii) The charge for each additional unit is $.70"
+    },
+    "what": "trips hailed in the street, which only a taxicab may accept"
+   },
+   "side_b": {
+    "price": "the base writes its own fares and files them; it is held to what it filed",
+    "text": {
+     "cite": "TLC Rules 59B-23(a)",
+     "source": "tlc_ch59",
+     "text": "A Base Owner must not quote or charge a fare that is more than the fare listed in the Rate Schedule filed with the Commission."
+    },
+    "what": "trips arranged in advance through a base"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": "b",
+   "direction": "no_choice_side_written",
+   "dividing_words": {
+    "cite": "TLC Rules 59B-23(c)",
+    "source": "tlc_ch59",
+    "text": "Fares for Hail Trips in Street Hail Liveries will be as set forth in section 82-26 of these Rules"
+   },
+   "hand": "New York City",
+   "id": "nyc_same_vehicle",
+   "kind": "buyer_act",
+   "line_of_business": "one licensed vehicle, the Street Hail Livery, taking both kinds of trip",
+   "note": "the vehicle, its driver and its base are the same on both sides; what differs is how the passenger came to be in the car",
+   "provision": "TLC Rules 59B-21, 59B-23",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "the Commission's rule sets the fare",
+    "text": {
+     "cite": "TLC Rules 59B-23(c)",
+     "source": "tlc_ch59",
+     "text": "Fares for Hail Trips in Street Hail Liveries will be as set forth in section 82-26 of these Rules"
+    },
+    "what": "a trip hailed in the street"
+   },
+   "side_b": {
+    "price": "the base's own filed rates",
+    "text": {
+     "cite": "TLC Rules 59B-21(a)(1)",
+     "source": "tlc_ch59",
+     "text": "the Base’s rates for rides dispatched by the Base for Pre-Arranged Trips provided by Street Hail Liveries"
+    },
+    "what": "a trip in the same vehicle, arranged in advance through its base"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": null,
+   "direction": null,
+   "dividing_words": {
+    "cite": "Cal. Penal Code 396(b)",
+    "source": "ca_pen_396",
+    "text": "Upon the proclamation of a state of emergency declared by the President of the United States or the Governor, or upon the declaration of a local emergency"
+   },
+   "hand": "California Legislature",
+   "id": "declared_emergency",
+   "kind": "emergency",
+   "line_of_business": "listed consumer goods and services",
+   "note": "goods and services alike; the Attorney General's page reads the statute as prohibiting 'raising the price of many consumer goods and services by more than 10% after an emergency has been declared'",
+   "provision": "Penal Code 396",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "no more than ten percent above the seller's own price just before",
+    "text": {
+     "cite": "Cal. Penal Code 396(b)",
+     "source": "ca_pen_396",
+     "text": "for a price of more than 10 percent greater than the price charged by that person for those goods or services immediately prior to the proclamation or declaration of emergency"
+    },
+    "what": "sales in the thirty days after an emergency is declared"
+   },
+   "side_b": {
+    "price": "left to the market",
+    "text": {
+     "cite": "Cal. Penal Code 396(a)",
+     "source": "ca_pen_396",
+     "text": "While the pricing of consumer goods and services is generally best left to the marketplace under ordinary conditions, when a declared state of emergency or local emergency results in abnormal disruptions of the market, the public interest requires that excessive and unjustified increases in the prices of essential consumer goods and services be prohibited."
+    },
+    "what": "sales under ordinary conditions"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": "b",
+   "direction": "no_choice_side_written",
+   "dividing_words": {
+    "cite": "Tariff Cap Act 2018 s.1(4)(b)",
+    "source": "uk_tariff_cap_2018",
+    "text": "“default rate” means a rate or amount charged for, or in relation to, the supply of gas or electricity under the contract that applies if the customer under the contract fails to choose an alternative rate."
+   },
+   "hand": "United Kingdom Parliament",
+   "id": "default_energy_tariff",
+   "kind": "buyer_act",
+   "line_of_business": "gas and electricity supplied to homes",
+   "note": "a standard variable rate is one 'that is not fixed for a period specified in the contract' (s.1(4)(a)); the regulator is to keep 'incentives for domestic customers to switch to different domestic supply contracts' (s.1(6)(c))",
+   "provision": "Domestic Gas and Electricity (Tariff Cap) Act 2018, sections 1 and 3",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "capped by the regulator",
+    "text": {
+     "cite": "Tariff Cap Act 2018 s.1(1)",
+     "source": "uk_tariff_cap_2018",
+     "text": "conditions (“tariff cap conditions”) that impose a cap on all standard variable and default rates that may be charged by the holders of supply licences"
+    },
+    "what": "standard variable and default rates"
+   },
+   "side_b": {
+    "price": "not capped",
+    "text": {
+     "cite": "Tariff Cap Act 2018 s.3(2)(b)",
+     "source": "uk_tariff_cap_2018",
+     "text": "standard variable rates which apply only if chosen by domestic customers"
+    },
+    "what": "rates fixed for a period named in the contract, and green standard variable rates the customer chose"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": "b",
+   "direction": "no_choice_side_written",
+   "dividing_words": {
+    "cite": "ICOBS 6B.2.1R(1)",
+    "source": "fca_icobs_6b2",
+    "text": "A firm must not set a renewal price that is higher than the equivalent new business price."
+   },
+   "hand": "Financial Conduct Authority",
+   "id": "insurance_renewal",
+   "kind": "buyer_act",
+   "line_of_business": "insurance renewals within ICOBS 6B; the scope provision was not on the page read",
+   "note": "the customer who comes as new business has just chosen this firm; the customer who renews has not chosen again. The glossary definition of the equivalent new business price was not on the page",
+   "provision": "ICOBS 6B.2.1R, in force 1 January 2022",
+   "same_seller_both_sides": true,
+   "side_a": {
+    "price": "no higher than the firm's price for an equivalent new customer",
+    "text": {
+     "cite": "ICOBS 6B.2.1R(1)",
+     "source": "fca_icobs_6b2",
+     "text": "A firm must not set a renewal price that is higher than the equivalent new business price."
+    },
+    "what": "the price offered to a customer who renews"
+   },
+   "side_b": {
+    "price": "the firm sets it",
+    "text": {
+     "cite": "ICOBS 6B.2.1R(1)",
+     "source": "fca_icobs_6b2",
+     "text": "the equivalent new business price"
+    },
+    "what": "the price offered to a customer who comes as new business"
+   },
+   "state": "read"
+  },
+  {
+   "authority_writes": "a",
+   "buyer_acted_on": null,
+   "direction": null,
+   "dividing_words": {
+    "cite": "15 U.S.C. 1693o-2(a)(6)(A)",
+    "source": "usc15_1693o2",
+    "text": "This subsection shall not apply to any issuer that, together with its affiliates, has assets of less than $10,000,000,000"
+   },
+   "hand": "United States Congress",
+   "id": "debit_interchange_small_issuer",
+   "kind": "good_or_seller",
+   "line_of_business": "interchange fees on debit card transactions",
+   "note": "the words name the size of the seller",
+   "provision": "15 U.S.C. 1693o-2(a)",
+   "same_seller_both_sides": false,
+   "side_a": {
+    "price": "the fee must be reasonable and proportional to the issuer's cost",
+    "text": {
+     "cite": "15 U.S.C. 1693o-2(a)(2)",
+     "source": "usc15_1693o2",
+     "text": "The amount of any interchange transaction fee that an issuer may receive or charge with respect to an electronic debit transaction shall be reasonable and proportional to the cost incurred by the issuer with respect to the transaction."
+    },
+    "what": "issuers with assets of ten billion dollars or more"
+   },
+   "side_b": {
+    "price": "exempt",
+    "text": {
+     "cite": "15 U.S.C. 1693o-2(a)(6)(A)",
+     "source": "usc15_1693o2",
+     "text": "This subsection shall not apply to any issuer that, together with its affiliates, has assets of less than $10,000,000,000"
+    },
+    "what": "issuers with assets below ten billion dollars"
+   },
+   "state": "read"
+  }
+ ],
+ "stage": "B143",
+ "tallies": {
+  "by_direction": {
+   "no_choice_side_written": [
+    "default_energy_tariff",
+    "insurance_renewal",
+    "medical_bill_without_consent",
+    "nyc_hail_or_prearranged",
+    "nyc_same_vehicle",
+    "tow_without_consent"
+   ],
+   "reversed": [],
+   "undetermined": []
+  },
+  "by_kind": {
+   "buyer_act": [
+    "default_energy_tariff",
+    "insurance_renewal",
+    "medical_bill_without_consent",
+    "nyc_hail_or_prearranged",
+    "nyc_same_vehicle",
+    "tow_without_consent"
+   ],
+   "emergency": [
+    "declared_emergency",
+    "emergency_medical_bill"
+   ],
+   "good_or_seller": [
+    "debit_interchange_small_issuer",
+    "household_goods"
+   ]
+  },
+  "hands": {
+   "buyer_act": [
+    "Financial Conduct Authority",
+    "New York City",
+    "United Kingdom Parliament",
+    "United States Congress"
+   ],
+   "emergency": [
+    "California Legislature",
+    "United States Congress"
+   ],
+   "good_or_seller": [
+    "United States Congress"
+   ]
+  },
+  "no_object": [
+   "air_ambulance"
+  ],
+  "read": [
+   "debit_interchange_small_issuer",
+   "declared_emergency",
+   "default_energy_tariff",
+   "emergency_medical_bill",
+   "household_goods",
+   "insurance_renewal",
+   "medical_bill_without_consent",
+   "nyc_hail_or_prearranged",
+   "nyc_same_vehicle",
+   "tow_without_consent"
+  ],
+  "same_seller": [
+   "declared_emergency",
+   "default_energy_tariff",
+   "emergency_medical_bill",
+   "insurance_renewal",
+   "medical_bill_without_consent",
+   "nyc_same_vehicle",
+   "tow_without_consent"
+  ],
+  "unopened": []
+ }
+}

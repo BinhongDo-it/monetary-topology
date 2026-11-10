@@ -15,7 +15,9 @@ Reachability is
     rho_q  =  median terms * P_q(0) / median production-layer claims / s
 
 so ``rho = 1`` is the point at which the median production-layer agent can just
-afford the tier on the opening day. It is a definition and not a fitted
+enter the tier through the opening's stretch, paying everything it holds, which
+covers a third of the cost at ``s = 3``. Resale after the opening requires
+payment in full, which the median agent meets only at ``rho = 1 / s``. It is a definition and not a fitted
 threshold, which is why A5-2 is stated at that value.
 
 The criterion that matters is **A5-4**. The price is set by a bidder pool made
@@ -214,6 +216,7 @@ def trajectory(
     gain: float = 1.0,
     eta: float | None = None,
     tier: int = 0,
+    max_units: int | None = None,
 ) -> tuple[A3Model, np.ndarray]:
     """``rho`` from the opening state onward, and the model it came from.
 
@@ -222,8 +225,11 @@ def trajectory(
     as the default. One model is built, read, and then run, rather than two
     constructed separately: the opening value and the series have to be about
     the same object.
+
+    ``max_units`` is passed through to ``_config`` and ``None`` takes the
+    registered value, so every existing caller is unchanged.
     """
-    model = build(seed, rho, gain, eta)
+    model = build(seed, rho, gain, eta, max_units)
     opening = rho_opening(model, tier)
     model.run()
     return model, np.concatenate(([opening], rho_series(model, tier)))
@@ -298,10 +304,13 @@ def run(
 def participation(model: A3Model) -> float:
     """Share of production-layer nodes holding a unit **at the end**.
 
-    Kept, but it is survival and not entry: the production layer is sold out
-    within three hundred rounds at every reachability tried, so this number is
-    zero across the whole grid and cannot order it. A5-1 and A5-2 are measured
-    on ``entry_participation`` instead, which was the intent.
+    Kept, but it is survival and not entry. With no cap on units per agent the
+    production layer is sold out, or within one node of it, within three
+    hundred rounds at every reachability tried, so this number cannot order the
+    grid. A5-1 and A5-2 are measured on ``entry_participation`` instead, which
+    was the intent. **That is a reading of the uncapped market and not of the
+    mechanism**: with one unit per agent the entrants are still holding at the
+    end, and ``who_stays`` prints both.
     """
     layer1 = model.a3.network.spec.layer1_size
     held = model.units.sum(axis=1)[layer1:] > 0
@@ -331,6 +340,105 @@ def entry_participation(seed: int, rho: float, max_units: int = 0) -> float:
     return float((model.units.sum(axis=1)[layer1:] > 0).mean())
 
 
+#: Opening allocations read around ``rho = 1`` beside the registered grid.
+#: A5-1 and A5-2 say where entry is highest and where units start going
+#: unsold, and those sentences are computed from the seeds the run uses. They
+#: were fixed strings once, carried over from a five-seed reading into a
+#: twelve-seed record. Nothing is scored on this grid.
+OPENING_FINE_GRID = (0.9, 1.0, 1.1, 1.2, 1.25, 1.3, 1.4, 1.5)
+
+
+def holdings_now(model: A3Model) -> dict[str, float]:
+    """Who holds the stock, read off the unit matrix as it stands.
+
+    Means the same on a model that has been built and on one that has been
+    run, for the reason ``median_production_claims`` does: the state now.
+
+    ``cells_per_unit`` is the number of positive ``(node, tier)`` holdings over
+    the number of units held. Resale draws once per positive holding and offers
+    one unit from it (``A3Model._offers``), so ``turnover * cells_per_unit`` is
+    the expected share of held units offered in a round from this state. It is
+    one where every holding is a single unit and falls as units pile up in the
+    same hands.
+    """
+    layer1 = model.a3.network.spec.layer1_size
+    units = model.units
+    production = units[layer1:].sum(axis=1)
+    held = float(units.sum())
+    if held <= 0.0:
+        raise ValueError("nobody holds a unit, so there is no holding to read")
+    return {
+        "holding_share": float((production > 0).mean()),
+        "production_holders": float((production > 0).sum()),
+        "production_units": float(production.sum()),
+        "financial_units": float(units[:layer1].sum()),
+        "unowned": float(sum(model.supply)) - held,
+        "largest_holding": float(units.max()),
+        "cells_per_unit": float((units > 0).sum()) / held,
+    }
+
+
+def seed_means(rows: list[dict[str, float]]) -> dict[str, float | None]:
+    """``holdings_now`` over seeds: means, and four things a mean would hide.
+
+    ``units_per_production_holder`` is pooled, production-layer units over
+    production-layer holders summed across the seeds, so a seed in which nobody
+    got in is not given a ratio; it is ``None`` when nobody got in anywhere.
+    ``seeds_with_unowned`` counts the seeds, of ``seeds``, in which part of the
+    stock has no owner. ``largest_holding`` is the largest over the seeds and
+    ``cells_per_unit_min`` the smallest, because both are about the most
+    concentrated history and its mean says nothing about that one.
+    """
+    out: dict[str, float | None] = {
+        k: float(np.mean([r[k] for r in rows])) for k in rows[0]
+    }
+    holders = sum(r["production_holders"] for r in rows)
+    out["units_per_production_holder"] = (
+        float(sum(r["production_units"] for r in rows) / holders)
+        if holders
+        else None
+    )
+    out["seeds"] = float(len(rows))
+    out["seeds_with_unowned"] = float(sum(r["unowned"] > 0 for r in rows))
+    out["largest_holding"] = float(max(r["largest_holding"] for r in rows))
+    out["cells_per_unit_min"] = float(min(r["cells_per_unit"] for r in rows))
+    return out
+
+
+def entrants_still_holding(
+    opened: list[np.ndarray], models: list[A3Model]
+) -> float | None:
+    """Of the production-layer nodes that got a unit at the opening, the share
+    holding one now. Pooled over seeds; ``None`` when nobody got in.
+
+    ``opened`` is each seed's unit matrix at the opening allocation and
+    ``models`` the same seeds after the run. ``holding_share`` cannot say this
+    on its own: under a cap of one, a unit that passes from one production node
+    to another leaves the share where it was, while the entrant it left is no
+    longer a holder.
+    """
+    entered = stayed = 0
+    for units, model in zip(opened, models, strict=True):
+        layer1 = model.a3.network.spec.layer1_size
+        was = units[layer1:].sum(axis=1) > 0
+        now = model.units[layer1:].sum(axis=1) > 0
+        entered += int(was.sum())
+        stayed += int((was & now).sum())
+    return stayed / entered if entered else None
+
+
+def opening_table(
+    seeds: range, rhos: tuple[float, ...], max_units: int | None = None
+) -> dict[float, dict[str, float | None]]:
+    """``holdings_now`` at the opening allocation, by reachability."""
+    return {
+        rho: seed_means(
+            [holdings_now(build(seed, rho, max_units=max_units)) for seed in seeds]
+        )
+        for rho in rhos
+    }
+
+
 def rho_components(model: A3Model, tier: int = 0) -> tuple[float, float]:
     """How much of ``rho``'s drift is the price, and how much is the buyers.
 
@@ -338,11 +446,12 @@ def rho_components(model: A3Model, tier: int = 0) -> tuple[float, float]:
     named only the numerator. Returns the ratio each has moved by over the run,
     **measured from the series origin**, which is one round after
     ``rho_opening``. That distinction is not cosmetic: round zero alone takes
-    the median production-layer agent's claims down by fifty-four to sixty
-    percent, so the same run reads as a fall from the opening state and can
-    read as a rise from the state one round later. A5-8 measures the same
-    quantity from ``rho_opening`` and the two numbers differ for that reason
-    and for no other.
+    the median production-layer agent's claims down by 44.7 to 62.5 percent
+    across the twelve seeds at ``rho = 0.5`` (54 to 60 on the first five), so
+    the same run reads as a fall from the opening state and can read as a rise
+    from the state one round later. A5-8 measures the same quantity from
+    ``rho_opening``, and over the six reachabilities of the grid rather than at
+    one, so the two numbers differ by origin and by the cells they pool.
     """
     layer1 = model.a3.network.spec.layer1_size
     prices = np.asarray(model.price_history)[:, tier]
@@ -410,7 +519,12 @@ def crossing(series: np.ndarray) -> tuple[int | None, float]:
 # ---------------------------------------------------------------------------
 
 
-def sweep(seeds: range) -> dict[float, dict[str, float]]:
+def sweep(
+    seeds: range, ends: dict[float, dict[str, float | None]] | None = None
+) -> dict[float, dict[str, float]]:
+    """The registered grid. ``ends``, when given, is filled with who holds the
+    stock at the end of the same histories, so that reading is taken on the
+    models that produced the grid and not on a second set."""
     out: dict[float, dict[str, float]] = {}
     for rho in RHO_GRID:
         # One model per seed, built and read at its opening state and then run,
@@ -431,6 +545,13 @@ def sweep(seeds: range) -> dict[float, dict[str, float]]:
             "rho_opening": float(np.mean([t[0] for _, t in pairs])),
             "rho_series_first": float(np.mean([t[1] for _, t in pairs])),
         }
+        if ends is not None:
+            ends[rho] = seed_means([holdings_now(m) for m in models]) | {
+                "trades": out[rho]["trades"],
+                "entrants_still_holding": entrants_still_holding(
+                    [build(seed, rho).units for seed in seeds], models
+                ),
+            }
     return out
 
 
@@ -447,17 +568,176 @@ def capped_curve(seeds: range) -> list[float]:
     ]
 
 
+def crossing_summary(trajectories: list[np.ndarray]) -> dict[str, float]:
+    """A5-4's two statistics on a set of trajectories counted from ``rho_opening``."""
+    firsts, backs = [], []
+    for traj in trajectories:
+        first, back = crossing(traj)
+        firsts.append(ROUNDS if first is None else first)
+        backs.append(back)
+    return {
+        "seeds": float(len(trajectories)),
+        "crossed": float(sum(f < ROUNDS for f in firsts)),
+        "median_from_opening": float(np.median(firsts)),
+        "back": float(np.mean(backs)),
+    }
+
+
+def who_stays(
+    seeds: range,
+    opening: dict[float, dict[str, float | None]],
+    uncapped_end: dict[float, dict[str, float | None]],
+) -> dict[str, object]:
+    """Holding at the opening and at the end, with no cap and with one unit each.
+
+    Entry is who gets in at the opening allocation. Whether an entrant is still
+    holding three hundred rounds later is a second question, and A5-4 and A5-7
+    do not answer it: they read the median production agent's claims against
+    the stretched opening cost at the current price, and a holder whose claims
+    no longer reach it still owns what it holds. This reads
+    the unit matrix at both times, on the grid's own histories (``uncapped_end``
+    comes from ``sweep``) and on their twins under ``CAP_ONE``, and it reads the
+    crossing at A5-4's configured reachability under the cap, price live and
+    price frozen, so that the two statements can be put side by side.
+
+    Nothing here is scored. It is the reading the sentence "the cap changes who
+    enters" needs before anything is said about who stays.
+    """
+    capped_open = opening_table(seeds, RHO_GRID, CAP_ONE)
+    capped_end: dict[float, dict[str, float | None]] = {}
+    live: dict[str, float] = {}
+    for rho in RHO_GRID:
+        pairs = [trajectory(seed, rho, max_units=CAP_ONE) for seed in seeds]
+        capped_end[rho] = seed_means([holdings_now(m) for m, _ in pairs]) | {
+            "trades": float(np.mean([sum(m.sales) for m, _ in pairs])),
+            "entrants_still_holding": entrants_still_holding(
+                [build(seed, rho, max_units=CAP_ONE).units for seed in seeds],
+                [m for m, _ in pairs],
+            ),
+        }
+        if rho == A5_4_START:
+            live = crossing_summary([t for _, t in pairs])
+    frozen = crossing_summary(
+        [
+            trajectory(seed, A5_4_START, eta=0.0, max_units=CAP_ONE)[1]
+            for seed in seeds
+        ]
+    )
+    return {
+        "turnover": float(AssetSpec().turnover),
+        "uncapped": {
+            str(rho): {"open": opening[rho], "end": uncapped_end[rho]}
+            for rho in RHO_GRID
+        },
+        "cap_one": {
+            str(rho): {"open": capped_open[rho], "end": capped_end[rho]}
+            for rho in RHO_GRID
+        },
+        "cap_one_crossing": {
+            "configured_rho": A5_4_START,
+            "live": live,
+            "frozen": frozen,
+        },
+    }
+
+
+def who_stays_lines(holding: dict[str, object]) -> list[str]:
+    """The table ``who_stays`` produced, as printed lines."""
+    lines = [
+        "  share of production-layer nodes holding a unit, opening -> end "
+        f"of run ({ROUNDS} rounds), and in brackets the share of the entrants "
+        "still holding",
+        "    rho      no cap                           one unit per agent"
+        "                units offered per round, end (no cap)",
+    ]
+    tau = float(holding["turnover"])
+
+    def kept(row: dict[str, float | None]) -> str:
+        share = row["entrants_still_holding"]
+        return "    n/a" if share is None else f"{share:7.2%}"
+
+    for rho in RHO_GRID:
+        free = holding["uncapped"][str(rho)]
+        cap = holding["cap_one"][str(rho)]
+        lines.append(
+            f"    {rho:<6g}   {free['open']['holding_share']:8.4%} -> "
+            f"{free['end']['holding_share']:8.4%} [{kept(free['end'])}]   "
+            f"{cap['open']['holding_share']:8.4%} -> "
+            f"{cap['end']['holding_share']:8.4%} [{kept(cap['end'])}]    "
+            f"{tau * free['end']['cells_per_unit']:.2%} of held units "
+            f"(least {tau * free['end']['cells_per_unit_min']:.2%}; largest "
+            f"holding {free['end']['largest_holding']:.0f})"
+        )
+    x = holding["cap_one_crossing"]
+    for arm in ("live", "frozen"):
+        lines.append(
+            f"    one unit per agent, configured rho={x['configured_rho']}, price "
+            f"{arm}: crossed in {x[arm]['crossed']:.0f}/{x[arm]['seeds']:.0f} "
+            f"seeds, median round {x[arm]['median_from_opening']:.0f} from "
+            f"rho_opening, {x[arm]['back']:.1%} of later rounds back below one"
+        )
+    return lines
+
+
+def opening_reading(opening: dict[float, dict[str, float | None]]) -> str:
+    """The two rationing regimes at the opening, in this run's own numbers."""
+    lo, hi = min(RHO_GRID), max(RHO_GRID)
+    order = sorted(opening)
+    unsold = [r for r in order if opening[r]["seeds_with_unowned"] > 0]
+    if not unsold or unsold[0] == order[0]:
+        raise ValueError(
+            "the opening reading describes two regimes and needs a point where "
+            "every unit sells below a point where some do not"
+        )
+    first_unsold = unsold[0]
+    all_sold = [r for r in order if r < first_unsold]
+    fine = sorted(OPENING_FINE_GRID)
+    top = max(fine, key=lambda r: opening[r]["holding_share"])
+    # Where cheapening raises entry is read off the table and not written in:
+    # the lowest point from which entry falls at every step up the grid.
+    falling_from = order[-1]
+    for lower, upper in reversed(list(pairwise(order))):
+        if opening[lower]["holding_share"] > opening[upper]["holding_share"]:
+            falling_from = lower
+        else:
+            break
+    band = [r for r in order if all_sold[-1] <= r <= falling_from]
+    band_shares = [opening[r]["holding_share"] for r in band]
+    return (
+        f"Up to rho={all_sold[-1]:g} every unit sells in every seed and "
+        f"cheapening lets the head of the descending-claims walk take more "
+        f"each: {opening[lo]['units_per_production_holder']:.3f} units per "
+        f"production buyer at rho={lo:g} against "
+        f"{opening[1.0]['units_per_production_holder']:.3f} at rho=1, with the "
+        f"financial layer's take rising from "
+        f"{opening[1.0]['financial_units']:.1f} to "
+        f"{opening[lo]['financial_units']:.1f} of the hundred. From "
+        f"rho={first_unsold:g} units go unsold "
+        f"({opening[first_unsold]['seeds_with_unowned']:.0f} of "
+        f"{opening[first_unsold]['seeds']:.0f} seeds there), "
+        f"{opening[1.25]['unowned']:.1f} at rho=1.25 rising to "
+        f"{opening[hi]['unowned']:.1f} at rho={hi:g}. From rho={falling_from:g} "
+        f"up, entry falls at every step, so there cheapening admits more; "
+        f"from rho={all_sold[-1]:g} to {falling_from:g} it stays between "
+        f"{min(band_shares):.1%} and {max(band_shares):.1%}. On the finer "
+        f"opening grid entry reads "
+        + ", ".join(f"rho={r:g}: {opening[r]['holding_share']:.1%}" for r in fine)
+        + f"; the highest is {opening[top]['holding_share']:.1%} at rho={top:g}, "
+        f"near rho=1, where the median production agent can just enter through "
+        f"the stretch, paying everything it holds."
+    )
+
+
 def a5_9(grid: dict[float, dict[str, float]], seeds: range) -> Criterion:
     """A5-1's mechanism, tested by removing the thing it names.
 
     Registered 2026-08-24, after A5-1 failed and the failure was traced. A5-1
-    asks for entry to fall with reachability and it does not: it rises from 22.2
-    percent at ``rho = 0.25`` to a peak of about 30 percent near ``rho = 1.1``
-    and then collapses. The reading put that on there being **no cap on units
-    per agent**: below the peak every unit sells, so cheapening does not admit
-    more people, it lets the head of the descending-claims walk take more each,
-    1.250 units per production buyer at ``rho = 0.25`` against 1.004 at
-    ``rho = 1``.
+    asks for entry to fall with reachability and it does not: it rises from the
+    cheapest point of the grid to a peak near ``rho = 1`` and then collapses.
+    The reading put that on there being **no cap on units per agent**: below
+    the peak every unit sells, so cheapening does not admit more people, it
+    lets the head of the descending-claims walk take more each. The figures are
+    in A5-1's detail, computed by ``opening_reading``.
 
     **If that reading is right, capping the cap at one unit makes the curve
     monotone.** The cap is an existing field, not a new mechanism, and it is a
@@ -492,7 +772,10 @@ def a5_9(grid: dict[float, dict[str, float]], seeds: range) -> Criterion:
     )
 
 
-def a5_1(grid: dict[float, dict[str, float]]) -> Criterion:
+def a5_1(
+    grid: dict[float, dict[str, float]],
+    opening: dict[float, dict[str, float | None]],
+) -> Criterion:
     values = [grid[r]["participation"] for r in RHO_GRID]
     monotone = all(a >= b - 1e-12 for a, b in pairwise(values))
     return Criterion(
@@ -503,20 +786,19 @@ def a5_1(grid: dict[float, dict[str, float]]) -> Criterion:
         + ". **This fails, and what it fails on is a regime boundary rather "
         "than noise.** Entry is read at the opening allocation, before any "
         "round runs, so nothing here is drift. Two things ration it and they "
-        "swap over near rho=1. Below that every unit sells and cheapening lets "
-        "the head of the descending-claims walk take more each: 1.250 units per "
-        "production buyer at rho=0.25 against 1.004 at rho=1, with the "
-        "financial layer's take rising from 45.8 to 50.0 of the hundred. Above "
-        "it units go unsold, 2.4 at rho=1.25 rising to 83.6 at rho=8, and "
-        "cheapening does raise entry. Measured peak: 30.0% near rho=1.1, which "
-        "is where the median production agent can just pay. **The registered "
+        "swap over near rho=1. "
+        + opening_reading(opening)
+        + " **The registered "
         "form assumed price is the only rationing device; there is no per-agent "
         "cap, so cheapness rations by letting the front of the queue buy more "
         "than one.**",
     )
 
 
-def a5_2(grid: dict[float, dict[str, float]]) -> Criterion:
+def a5_2(
+    grid: dict[float, dict[str, float]],
+    opening: dict[float, dict[str, float | None]],
+) -> Criterion:
     """Void 2026-08-24: the registered floor was never reachable.
 
     The criterion asks for entry above 50 percent of the production layer at
@@ -527,25 +809,28 @@ def a5_2(grid: dict[float, dict[str, float]]) -> Criterion:
     different production node and none to the financial layer. Reaching 50
     percent needs ninety distinct production holders, which leaves at most ten
     units for the twenty financial-layer nodes. The opening walk is by
-    descending claims and those nodes are at its head; measured, they take
-    thirty six to fifty units at every reachability on the grid.
+    descending claims and those nodes are at its head; what they take at the
+    registered low point, and what that leaves the production layer, is
+    computed in the detail from the opening allocation.
 
     **The high half was decidable and is reported**: entry at ``rho = 2`` reads
     against its registered ceiling and that comparison stands.
 
     The reachable question underneath this one is where entry peaks and what
-    rations it on each side, and the curve is printed for it. Measured, entry
-    peaks at 30.0 percent near ``rho = 1.1``: below that every unit sells and
-    cheapening lets the head of the queue take more each, at ``rho = 0.25``
-    1.250 units per production buyer against 1.004 at ``rho = 1``; above it
-    units go unsold, 2.4 at ``rho = 1.25`` rising to 83.6 at ``rho = 8``. Two
-    rationing regimes meeting where the median agent can just pay.
+    rations it on each side. The curve and the two rationing regimes are in
+    A5-1's detail, computed by ``opening_reading``.
     """
     spec = AssetSpec()
     low = grid[A5_2_LOW_RHO]["participation"]
     high = grid[A5_2_HIGH_RHO]["participation"]
     production = NetworkSpec().size - NetworkSpec().layer1_size
-    ceiling = sum(spec.units) / production
+    stock = sum(spec.units)
+    ceiling = stock / production
+    take = {r: float(opening[r]["financial_units"]) for r in RHO_GRID}
+    least, most = min(take, key=take.get), max(take, key=take.get)
+    left = (stock - take[A5_2_LOW_RHO]) / production
+    both = sorted(opening)
+    top = max(both, key=lambda r: opening[r]["holding_share"])
     return Criterion(
         "A5-2  the threshold sits where the definition puts it",
         False,
@@ -554,8 +839,13 @@ def a5_2(grid: dict[float, dict[str, float]]) -> Criterion:
         f"{production} production-layer nodes bounds entry at {ceiling:.1%}, "
         f"and that bound needs every unit to go to a different production node "
         f"with none to the financial layer, which heads the descending-claims "
-        f"walk and takes 36 to 50 units at every reachability on the grid. "
-        f"Measured peak over the whole grid: 30.0% near rho=1.1. Reported "
+        f"walk. At rho={A5_2_LOW_RHO} that layer takes "
+        f"{take[A5_2_LOW_RHO]:.1f} of the {stock}, which leaves the production "
+        f"layer at most {left:.1%} even at one unit each; across the grid its "
+        f"take runs from {take[least]:.1f} at rho={least:g} to "
+        f"{take[most]:.1f} at rho={most:g}. Highest entry read anywhere, "
+        f"registered and finer opening grid together: "
+        f"{opening[top]['holding_share']:.1%} at rho={top:g}. Reported "
         f"either way: at rho={A5_2_LOW_RHO} entry reads {low:.1%}; at "
         f"rho={A5_2_HIGH_RHO} it reads {high:.1%} against its registered "
         f"ceiling of {A5_2_HIGH_SHARE:.0%}, and that half was decidable.",
@@ -563,32 +853,64 @@ def a5_2(grid: dict[float, dict[str, float]]) -> Criterion:
     )
 
 
-def a5_3(grid: dict[float, dict[str, float]]) -> Criterion:
+def a5_3(grid: dict[float, dict[str, float]], a5_4_holds: bool) -> Criterion:
     benign = grid[A5_3_BENIGN]
     hostile = grid[A5_3_HOSTILE]
     rose = benign["share_end"] > benign["share_start"]
     fell = hostile["share_end"] < hostile["share_start"]
-    # Void 2026-08-24. **This criterion and A5-4 are one question carrying
-    # two registered signs, and they cannot both hold.** A5-3 needs the
-    # benign side to end above where it started; A5-4 asks whether the
-    # benign side is an equilibrium at all and reads that it is not, crossed
-    # in 12 of 12 seeds with 0.0 percent of subsequent rounds back below
-    # one. Once that holds there is no benign end state for the share to
-    # rise to. **The pair was registered without noticing the exclusion**,
-    # which is the same shape `docs/MEASUREMENT.md` failure mode 28 records:
-    # a criterion whose other branch the design has already closed.
-    return Criterion(
-        "A5-3  the sign of the production layer's trend flips",
-        False,
+    # Void 2026-08-24, **in the configuration where A5-4 holds**. A5-3 needs
+    # the benign side to end above where it started; A5-4 asks whether the
+    # benign side is an equilibrium at all, and where it reads that it is
+    # not, there is no benign end state for the share to rise to. The pair
+    # was registered without noticing that, which is the shape
+    # `docs/MEASUREMENT.md` failure mode 28 records: a criterion whose other
+    # branch the design has already closed.
+    #
+    # **That is a reading of a configuration and not an identity.** The two
+    # read different statistics at different reachabilities: A5-3 the
+    # production layer's share of net worth, claims plus units at the market
+    # price summed over the layer, at the two ends of the grid; A5-4 the
+    # median production agent's claims against the price at one interior
+    # point. Neither is the negation of the other, and a configuration in
+    # which both fail exists: with the wage bill at four times its registered
+    # value the share falls at both ends on seed 0 while the configured
+    # rho=0.5 first reaches one at index 162 and is back below it in 97
+    # percent of the later rounds. So the void follows A5-4's verdict on the
+    # run instead of being written in, and when A5-4 does not hold this
+    # criterion is live and scored on its two signs.
+    reading = (
         f"net worth share at rho={A5_3_BENIGN}: "
         f"{benign['share_start']:.3f} -> {benign['share_end']:.3f}; at "
         f"rho={A5_3_HOSTILE}: {hostile['share_start']:.3f} -> "
-        f"{hostile['share_end']:.3f}. **Void: A5-4 is this criterion's "
-        f"complement and it holds.** A5-4 reads that the benign side is not "
-        f"an equilibrium, crossed in 12 of 12 seeds, so there is no benign "
-        f"end state for this share to rise to and the two cannot both pass. "
-        f"The numbers above are the reading; the verdict belongs to A5-4. "
-        f"Both regimes fall, which is the finding rather than a null.",
+        f"{hostile['share_end']:.3f}. "
+    )
+    if not a5_4_holds:
+        return Criterion(
+            "A5-3  the sign of the production layer's trend flips",
+            bool(rose and fell),
+            reading
+            + "A5-4 does not hold on this run, so this criterion is live and "
+            "is scored on its two signs: the benign side "
+            + ("rises" if rose else "does not rise")
+            + " and the hostile side "
+            + ("falls" if fell else "does not fall")
+            + ".",
+        )
+    return Criterion(
+        "A5-3  the sign of the production layer's trend flips",
+        False,
+        reading
+        + "**Void on this run, because A5-4 holds on it.** A5-4 reads that "
+        "the benign side is crossed and not returned to (its own line gives "
+        "the count), so in this configuration there is no benign end state "
+        "for the share to rise to. That is a reading of the configuration and "
+        "not an identity between the two criteria: this one reads the "
+        "production layer's share of net worth at the two ends of the grid, "
+        f"A5-4 the median production agent's claims against the price at "
+        f"rho={A5_4_START}, and a configuration in which both fail has been "
+        "read (the wage bill at four times its registered value, seed 0). "
+        "The numbers above are the reading. Both regimes fall, which is the "
+        "finding rather than a null.",
         void=True,
     )
 
@@ -677,7 +999,7 @@ def a5_5(seeds: range) -> Criterion:
     )
 
 
-def a5_6(seeds: range) -> Criterion:
+def a5_6(seeds: range, a5_7_holds: bool) -> Criterion:
     drifts = []
     for seed in seeds:
         series = rho_series(run(seed, A5_4_START, eta=0.0))
@@ -694,17 +1016,40 @@ def a5_6(seeds: range) -> Criterion:
     # region closes through the **denominator**, the median production-layer
     # agent's claims, and not through the price. A5-8 reads the same thing
     # over the whole grid, 72 of 72 cells.
+    #
+    # 2026-10-24: **the exclusion is a reading of the run, not an identity.**
+    # The two read different statistics: this one the largest move against
+    # the series' own first point, which carries no level; A5-7 the first
+    # index at or above one counted from rho_opening. On this run the frozen
+    # series starts below one, so a crossing forces a move far above 1%.
+    # With the wage bill at four times its registered value the frozen series
+    # drifts by tens of percent and never reaches one, and both fail. So the
+    # void follows A5-7's verdict, the way A5-3's follows A5-4's.
+    reading = (
+        f"largest relative move in rho with the price frozen: {worst:.2%} "
+        f"against {A5_6_DRIFT:.0%}. "
+    )
+    if not a5_7_holds:
+        return Criterion(
+            "A5-6  freeze the price and the drift disappears",
+            worst < A5_6_DRIFT,
+            reading
+            + "A5-7 does not hold on this run, so this criterion is live and "
+            "is scored on its own threshold.",
+        )
     return Criterion(
         "A5-6  freeze the price and the drift disappears",
         False,
-        f"largest relative move in rho with the price frozen: {worst:.2%} "
-        f"against {A5_6_DRIFT:.0%}. **Void: A5-7 is this criterion's "
-        f"complement on the same frozen-price arm and it holds**, crossing "
-        f"in 12 of 12 seeds. This number is that evidence with the sign of "
-        f"the claim reversed, so the two cannot both pass and the verdict "
-        f"belongs to A5-7. **The reachable region closes through the "
-        f"denominator and not through the price**, which A5-8 reads again "
-        f"over the whole grid.",
+        reading
+        + "**Void on this run, because A5-7 holds on it** (its own line gives "
+        "the count). The frozen series starts below one, so a crossing forces "
+        "a move far above the threshold, and this number is A5-7's evidence "
+        "with the sign of the claim reversed. That is a reading of the "
+        "configuration and not an identity: the two read different "
+        "statistics, and with the wage bill at four times its registered "
+        "value both fail. **The reachable region closes through the "
+        "denominator and not through the price**, which A5-8 reads again "
+        "over the whole grid.",
         void=True,
     )
 
@@ -766,9 +1111,9 @@ def a5_8(seeds: range) -> Criterion:
         fell == total,
         f"price frozen: median production-layer claims end below their "
         f"rho_opening value in {fell}/{total} cells across {len(RHO_GRID)} "
-        f"reachabilities and {len(seeds)} seeds, ratio {_spread(ratios)}. "
-        f"Reported without a threshold, the same ratio with the price live is "
-        f"{_spread(live_ratios)}: the two arms are two registered settings of "
+        f"reachabilities and {len(seeds)} seeds, median cell ratio "
+        f"{_spread(ratios)}. Reported without a threshold, the same median "
+        f"with the price live is {_spread(live_ratios)}: the two arms are two registered settings of "
         f"one switch and this line reports both rather than choosing one",
     )
 
@@ -786,16 +1131,32 @@ def main() -> int:
 
     print("A5: the reachability threshold\n")
     print(f"  sweeping rho over {RHO_GRID} at {args.seeds} seeds")
-    grid = sweep(seeds)
+    ends: dict[float, dict[str, float | None]] = {}
+    grid = sweep(seeds, ends)
+    opening = opening_table(
+        seeds, tuple(sorted(set(RHO_GRID) | set(OPENING_FINE_GRID)))
+    )
+    holding = who_stays(seeds, opening, ends)
+    # One quantity under two names has to be one number. Entry on the grid is
+    # read by ``entry_participation`` and again by ``holdings_now`` at the
+    # opening; survival by ``participation`` and again by ``holdings_now`` at
+    # the end. If either pair parts, one of the two readings has moved.
+    for rho in RHO_GRID:
+        if opening[rho]["holding_share"] != grid[rho]["participation"]:
+            raise AssertionError(f"entry read two ways differs at rho={rho}")
+        if ends[rho]["holding_share"] != grid[rho]["survival"]:
+            raise AssertionError(f"survival read two ways differs at rho={rho}")
 
+    a5_4_line = a5_4(seeds)
+    a5_7_line = a5_7(seeds)
     criteria = [
-        a5_1(grid),
-        a5_2(grid),
-        a5_3(grid),
-        a5_4(seeds),
+        a5_1(grid, opening),
+        a5_2(grid, opening),
+        a5_3(grid, a5_4_line.passed),
+        a5_4_line,
         a5_5(seeds),
-        a5_6(seeds),
-        a5_7(seeds),
+        a5_6(seeds, a5_7_line.passed),
+        a5_7_line,
         a5_8(seeds),
         a5_9(grid, seeds),
     ]
@@ -816,6 +1177,10 @@ def main() -> int:
         + (f", {n_void} void" if n_void else "")
         + (f", {n_diag} diagnostic" if n_diag else "")
     )
+
+    print("\nwho holds, and who is still holding (printed, not scored)")
+    for line in who_stays_lines(holding):
+        print(line)
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out = RESULTS / "a5_reachability.json"
@@ -841,6 +1206,11 @@ def main() -> int:
                     }
                     for c in criteria
                 ],
+                # Added 2026-10-10. The opening allocation behind A5-1's and
+                # A5-2's sentences, and who holds at the end with and without
+                # the cap. Printed readings; no criterion is scored on them.
+                "opening": {str(k): v for k, v in opening.items()},
+                "holding": holding,
             },
             indent=2,
         )

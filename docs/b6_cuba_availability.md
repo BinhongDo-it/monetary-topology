@@ -50,7 +50,8 @@ and from §5.2, the criterion that decides which object is in front of you:
 | what is observed | which object | what may be reported |
 |---|---|---|
 | both directions quoted, spread present | `H¹` with friction | `S − S'`, with `S + S'` beside it |
-| one direction only, for some class | `H⁰` | reachability, and Theorem 5's one-sided bound |
+| one direction only, for some class, and no directed path leads back | `H⁰` | reachability, and Theorem 5's one-sided bound |
+| one direction only, for some class, and a directed path leads back through other edges | one strong component; the split of that pair is still unavailable | reachability of the direct edge, and the two-sided interval of Theorem 5 that the return path gives |
 
 So the shopping list is: **two mid quotes on the same conversion on the same day
 for two classes of agent**, plus **two-sided quotes** wherever a friction column

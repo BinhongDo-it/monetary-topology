@@ -44,6 +44,7 @@ def one(g: float, cost: bool, seed: int) -> dict:
             "last_occupied_round": int(np.flatnonzero(occ)[-1]) if occ.any() else None,
             "location_rent_collected_total": round(float(loc[:, 3].sum()), 4),
             "location_rent_left_with_tenants_total": round(float(loc[:, 2].sum()), 4),
+            "commute_saved_total": r["commute_saved_total"],
             "pool_end": round(float(m.pool), 4),
             "prod_share": r["prod_share"], "top_decile": r["top_decile"]}
 

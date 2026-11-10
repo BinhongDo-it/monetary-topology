@@ -502,8 +502,11 @@ def f1_audit(tickers: list[str]) -> dict:
                         if continuous:
                             cum /= k2
             factor[i] = cum
-        # shares expressed in post-split units throughout, so a change is a
-        # change in the fund's size and never an artefact of the unit
+        # shares expressed in the unit before the first split throughout (each
+        # count is divided by the cumulative split factor), so a change is a
+        # change in the fund's size and never an artefact of the unit. One
+        # creation unit in force on day i reads CREATION_UNIT_SHARES / factor[i]
+        # here: after a 2-for-1 split a real 50,000-share creation is 25,000.
         shares = [None if s is None else s / factor[i]
                   for i, s in enumerate(raw_shares)]
 
@@ -551,17 +554,27 @@ def f1_audit(tickers: list[str]) -> dict:
         # nothing about the unit in force in 2025. Whether τ can be earned from
         # behaviour depends on this block, not on the one above.
         cand_set = set(candidates)
-        w_pairs = [(d, delta[i]) for i, d in enumerate(days) if d in cand_set]
-        w_delta = [x for _, x in w_pairs]
+        w_pairs = [(i, d, delta[i]) for i, d in enumerate(days) if d in cand_set]
+        w_delta = [x for _, _, x in w_pairs]
         w_nz = sorted(x for x in w_delta if x not in (None, 0))
-        # **Name the exceptions.** Eleven funds show every in-window change as a
-        # multiple of the creation unit; five show exactly one change that is
-        # not, and that single value is what drags their gcd to 25, 200, 1, 80
-        # and 4. One row per fund is small enough to print and too structured to
-        # sweep into a residual.
-        w_odd = [{"date": d, "delta": int(x), "shares_after": None}
-                 for d, x in w_pairs
-                 if x not in (None, 0) and int(x) % 50_000 != 0]
+        # **Name the exceptions.** On the current files every in-window change
+        # in all sixteen funds is a multiple of the creation unit in force, so
+        # the list is empty; any row it prints is a change that is not. The
+        # in-window gcd reads 25,000 in the five funds that split on 2025-12-05,
+        # because their counts are in the earlier unit. For the same reason SPAB
+        # and SPEM (2-for-1 on 2017-10-16) read 50,000 and JNK (1-for-3 on
+        # 2019-05-06) reads 600,000; in the unit in force those are 50,000,
+        # 100,000, 100,000 and 200,000. `cleared_by_threshold` compares changes
+        # in this earlier unit as well.
+        # The unit is the creation unit in force on that day, expressed in the
+        # counts' unit: comparing a post-split change with 50,000 would list
+        # every post-split creation as an exception.
+        def cu_here(i):
+            return round(CREATION_UNIT_SHARES / factor[i])
+        w_odd = [{"date": d, "delta": int(x), "shares_after": None,
+                  "creation_unit_in_these_units": cu_here(i)}
+                 for i, d, x in w_pairs
+                 if x not in (None, 0) and int(x) % cu_here(i) != 0]
         for o in w_odd:
             i = idx_of = days.index(o["date"])
             o["shares_after"] = shares[i]
@@ -576,12 +589,19 @@ def f1_audit(tickers: list[str]) -> dict:
             "zero_share": round(w_zero / w_known, 6) if w_known else None,
             "gcd": w_g,
             "smallest_nonzero": [int(x) for x in w_nz[:5]],
-            "multiples_of_50k": sum(1 for x in w_nz if int(x) % 50_000 == 0),
+            "multiples_of_creation_unit": sum(
+                1 for i, _, x in w_pairs
+                if x not in (None, 0) and int(x) % cu_here(i) == 0),
             "nonzero_total": len(w_nz),
             "non_multiple_rows": w_odd,
         }
 
         rec = {
+            "share_unit": ("every share count and change is in the unit before "
+                           "the fund's first detected split (divided by the "
+                           "cumulative split factor); the creation unit in force "
+                           "reads 50,000 / factor on each day, 25,000 after a "
+                           "2-for-1"),
             "navhist_rows": len(nav), "candidates": len(candidates),
             "splits_detected": splits,
             "in_window": in_window,
@@ -603,15 +623,15 @@ def f1_audit(tickers: list[str]) -> dict:
             f"τ>{k}:{v}" for k, v in scan.items()))
         w = in_window
         print(f"   in-window: gcd={w['gcd']} zero={w['zero']}/{w['known']} "
-              f"({w['zero_share']}) multiples-of-50k "
-              f"{w['multiples_of_50k']}/{w['nonzero_total']} "
+              f"({w['zero_share']}) multiples-of-creation-unit "
+              f"{w['multiples_of_creation_unit']}/{w['nonzero_total']} "
               f"smallest={w['smallest_nonzero'][:3]}")
         for s in splits:
             print(f"   split {s['date']}: factor {s['factor']}, "
                   f"nav ratio {s['nav_ratio']}, assets ratio {s['tna_ratio']}, "
                   f"assets {'continuous' if s['assets_continuous'] else '**NOT continuous, not adjusted**'}")
         for o in w_odd:
-            print(f"   **not a multiple of 50,000 after split adjustment**: "
+            print(f"   **not a multiple of the creation unit in force**: "
                   f"{o['date']} Δ={o['delta']:,} shares, "
                   f"{o['shares_before']:,.0f} -> {o['shares_after']:,.0f}")
         if nz:
@@ -708,9 +728,60 @@ def read_spread_table() -> dict:
     return out
 
 
+def comparable_navs(navs: list) -> list:
+    """NAV per share in one unit throughout, for returns and for nothing else.
+
+    A share split is a change of unit. A 2-for-1 halves the NAV per share and
+    doubles the shares, and the fund is worth what it was: the log return of
+    the raw NAV across that day reads about ``-log 2`` where the fund moved by
+    a fraction of a per cent. Detected by the rule the share counts already
+    use in this file: a day-over-day NAV ratio within 2 per cent of an integer
+    ``k >= 2`` is a ``k``-for-1 split, and within 2 per cent of ``1/k`` a
+    reverse one. Every NAV from the split on is multiplied back into the
+    earlier unit.
+
+    **Only the volatility reads this series.** The premium, the price, the
+    disclosed NAV in the fee divisor and in ``F_m``, and the F1 sample all
+    stay on the published numbers, which are the ones a quote was made
+    against.
+    """
+    out, cum = [], 1.0
+    for i, b in enumerate(navs):
+        if i:
+            a = navs[i - 1]
+            if a and b and a > 0 and b > 0:
+                r = a / b
+                k = round(r)
+                if k >= 2 and abs(r - k) / k < 0.02:
+                    cum *= k
+                elif r < 0.6:
+                    k2 = round(1.0 / r)
+                    if k2 >= 2 and abs(1.0 / r - k2) / k2 < 0.02:
+                        cum /= k2
+        out.append(None if b is None else b * cum)
+    return out
+
+
+def stress_vol(navs: list, window: int = STRESS_WINDOW) -> list:
+    """§6's stress measure on the published NAV series: ``realised_vol`` of the
+    split-comparable series.
+
+    **Until 2026-10-10 the four callers passed the raw series.** Five main-arm
+    funds split 2-for-1 on 2025-12-05, and one return of ``-log 2`` sat in each
+    of their sixty-day windows for sixty days: every one of those days read as
+    stress, and the fund's own median, which is the line between calm and
+    stress over the whole window, moved with them. The stress label on 504
+    fund-days was the split and not the market.
+    """
+    return realised_vol(comparable_navs(navs), window)
+
+
 def realised_vol(navs: list, window: int = STRESS_WINDOW) -> list:
     """Trailing realised volatility of the NAV log return, §6's stress measure.
-    Returns one value per input day, `None` until the window is full."""
+    Returns one value per input day, `None` until the window is full.
+
+    Takes the series it is given. A caller holding published NAVs wants
+    ``stress_vol``, which removes share splits first."""
     rets = [None]
     for i in range(1, len(navs)):
         a, b = navs[i - 1], navs[i]
@@ -747,7 +818,7 @@ def inputs(tickers: list[str]) -> dict:
         pd_days = {d[0] for d in split_rows(pd_rows, 1)["dated"]}
         days = [r[0] for r in nav]
         navs = [r[1] for r in nav]
-        vol = realised_vol(navs)
+        vol = stress_vol(navs)
         in_win = [i for i, d in enumerate(days) if d in pd_days]
         wv = [vol[i] for i in in_win if vol[i] is not None]
         med = sorted(wv)[len(wv) // 2] if wv else None
@@ -1011,7 +1082,10 @@ def a1(tickers: list[str]) -> dict:
         days = [r[0] for r in nav]
         navs = [r[1] for r in nav]
 
-        # split adjustment, §16.3, same rule as the F1 audit
+        # split adjustment, §16.3: forward splits only. The F1 audit also
+        # adjusts reverse splits; the one in the sample (JNK, 2019-05-06)
+        # precedes the 404-day window, and the admitted fund-days are the same
+        # 6,201 either way and also with changes read in the unit in force.
         cum, factor = 1.0, [1.0] * len(days)
         for i in range(1, len(days)):
             a, b = navs[i - 1], navs[i]
@@ -1027,7 +1101,7 @@ def a1(tickers: list[str]) -> dict:
                           else abs(round(shares[i] - shares[i - 1]))
                           for i in range(1, len(shares))]
 
-        vol = realised_vol(navs)
+        vol = stress_vol(navs)
         idx = {d: i for i, d in enumerate(days)}
         cand = [d for d in days if d in pdh]
         wv = [vol[idx[d]] for d in cand if vol[idx[d]] is not None]
@@ -1204,7 +1278,7 @@ def a2(tickers: list[str]) -> dict:
                           else abs(round(shares[i] - shares[i - 1]))
                           for i in range(1, len(shares))]
 
-        vol = realised_vol(navs)
+        vol = stress_vol(navs)
         idx = {d: i for i, d in enumerate(days)}
         cand = [d for d in days if d in pdh]
         wv = [vol[idx[d]] for d in cand if vol[idx[d]] is not None]
@@ -1402,7 +1476,7 @@ def lambda_series(t: str, spreads: dict) -> dict:
     delta = [None] + [None if (shares[i] is None or shares[i - 1] is None)
                       else abs(round(shares[i] - shares[i - 1]))
                       for i in range(1, len(shares))]
-    vol = realised_vol(navs)
+    vol = stress_vol(navs)
     idx = {d: i for i, d in enumerate(days)}
     cand = [d for d in days if d in pdh]
     wv = [vol[idx[d]] for d in cand if vol[idx[d]] is not None]
@@ -2047,6 +2121,34 @@ def selftest() -> int:
     check("vol is higher for the noisy series than the smooth one",
           vn[-1] > v[-1])
 
+    # A share split is a unit and not a return. Planted: the same smooth
+    # series, quoted in half-size shares from day 120 on.
+    split = [x if i < 120 else x / 2.0 for i, x in enumerate(geo)]
+    raw_v, adj_v = realised_vol(split), stress_vol(split)
+    check("on the raw series a 2-for-1 split reads as a volatility of several "
+          "per cent a day for the whole window",
+          all(raw_v[i] is not None and raw_v[i] > 0.05
+              for i in range(120, 120 + STRESS_WINDOW)),
+          f"{raw_v[150]:.4f}")
+    check("and one day after the window has passed it is gone, so the label "
+          "it put on those days was the split",
+          raw_v[120 + STRESS_WINDOW] < 1e-12, f"{raw_v[120 + STRESS_WINDOW]:.2e}")
+    check("stress_vol reads the split series as the smooth series it is",
+          all(a is None and b is None or abs(a - b) < 1e-12
+              for a, b in zip(adj_v, v)), f"{max(x for x in adj_v if x is not None):.2e}")
+    check("comparable_navs returns the earlier unit: the split series comes "
+          "back as the unsplit one",
+          all(abs(a - b) < 1e-9 for a, b in zip(comparable_navs(split), geo)))
+    rev = [x if i < 120 else x * 4.0 for i, x in enumerate(geo)]
+    check("a 1-for-4 reverse split is a unit too",
+          all(abs(a - b) < 1e-9 for a, b in zip(comparable_navs(rev), geo)))
+    crash = [x if i < 120 else x * 0.70 for i, x in enumerate(geo)]
+    check("a one-day fall of thirty per cent is NOT a split and stays in the "
+          "volatility", comparable_navs(crash) == crash
+          and stress_vol(crash)[150] > 0.02, f"{stress_vol(crash)[150]:.4f}")
+    check("a series with no split is passed through untouched",
+          comparable_navs(noisy) == noisy and stress_vol(noisy) == vn)
+
     print("§17's rectangle")
     check("a percent string becomes a fraction",
           spread_to_fraction("0.02%") == (0.0002, "percent_string"))
@@ -2093,9 +2195,11 @@ def selftest() -> int:
           abs(floor_measurement(50.0) / floor_measurement(50.0, "sd")
               - math.sqrt(12)) < 1e-12,
           f"{floor_measurement(50.0) / floor_measurement(50.0, 'sd'):.4f}")
-    check("XLRE's 1.050 and XLK's 5.083 both clear 1 on the sd floor too",
-          1.050 * math.sqrt(12) > 3.6 and 5.083 * math.sqrt(12) > 17.6,
-          f"{1.050 * math.sqrt(12):.2f} to {5.083 * math.sqrt(12):.2f}")
+    # The ends are the current record's: XLRE 1.050 and XLV 4.974 on the
+    # split-comparable stress label (XLK read 5.083 on the raw-NAV label).
+    check("XLRE's 1.050 and XLV's 4.974 both clear 1 on the sd floor too",
+          1.050 * math.sqrt(12) > 3.6 and 4.974 * math.sqrt(12) > 17.2,
+          f"{1.050 * math.sqrt(12):.2f} to {4.974 * math.sqrt(12):.2f}")
     check("the measurement floor falls when the price rises, as a floor must",
           floor_measurement(200.0) < floor_measurement(50.0))
     # §24.3's logic, made into an assertion rather than a paragraph
@@ -2333,7 +2437,9 @@ def selftest() -> int:
     # it: on the real pair counts the two divisors differ by `39%`, which is
     # the whole of the correction. **They say nothing about the data**, and
     # §49's lesson is that a check whose only property is being true is not a
-    # check, so what they are is written here rather than implied.
+    # check, so what they are is written here rather than implied. The three
+    # constants are the 2026-08-18 pair counts and point estimate, frozen; the
+    # current reading (0.07 of the standard error) is in b9_decomp.json.
     _SE_C, _SE_S, _D = 1.0 / math.sqrt(209), 1.0 / math.sqrt(194), 0.069132
     check("the difference's se is the root sum of squares, not either end's",
           abs(_se_of_difference(_SE_C, _SE_S)
@@ -2886,6 +2992,10 @@ def decomp(tickers: list[str]) -> dict:
     # per regime `se_diff = sqrt(2/n)`, hence `n = 8 / d^2` pairs per regime and
     # twice that in trading days. On `d = 0.0691` that is about `1,674` and
     # `3,348`, against the `837` and `1,600` the single-end divisor implied.
+    # Those are the 2026-08-18 numbers, on the raw-NAV stress label. Since
+    # 2026-10-10 the label is split-comparable, the pairs are 202 and 201,
+    # `d` is 0.0071 and 0.07 of its own standard error, and the day count is
+    # not read: the record's `d_rho_c_over_own_se` is false.
     se_d_rho = _se_of_difference(head["calm"]["se_rho_c"],
                                  head["stress"]["se_rho_c"])
     d_rho_in_se = (None if (d_rho is None or not se_d_rho)

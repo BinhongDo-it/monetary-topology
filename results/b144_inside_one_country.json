@@ -1,0 +1,658 @@
+{
+ "config": {
+  "fetched_by": "experiments/b144_fetch.py --only us",
+  "knobs": {
+   "base": [
+    "every employer",
+    "private employers"
+   ],
+   "weight": [
+    "each area once",
+    "by employment"
+   ],
+   "year": [
+    2024,
+    2023
+   ]
+  },
+  "lines": {
+   "1": "all items",
+   "2": "goods",
+   "3": "housing",
+   "4": "utilities",
+   "5": "other services"
+  },
+  "n_boot": 1000,
+  "raw": "data/raw/b144/us",
+  "seeds": [
+   20261012,
+   20261013
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "387 areas carry a housing parity in 2024, 387 join the wage file with all five lines; annual pay over 52 weekly wages, median 1.0000; industries with a disclosed wage in 193 to 339 areas; the definition file calls line 3 a level of tenant rents. United States row of the other lines in 2024: goods 99.6, housing 100.6, utilities 98.4, other services 100.1",
+   "kind": "instrument",
+   "name": "B144-A6",
+   "passed": true,
+   "statement": "The two official sources parse, join, and say what their columns are."
+  },
+  {
+   "detail": "rent against the area's average wage: 1.226 (0.975 to 1.230 over 8 knob points; area resamples 1.105 to 1.397), 387 areas -> unread. Same areas: goods 0.080, other services 0.055, utilities 0.458, all items 0.261",
+   "kind": "own_reading",
+   "name": "B144-A7",
+   "passed": null,
+   "statement": "Inside one country the rent of a position responds to the area's average wage more than one for one."
+  },
+  {
+   "detail": "wage of the industry against the area's average wage: personal care services 0.265 (0.118 to 0.326, 260 areas); restaurants and other eating places 0.554 (0.456 to 0.577, 289 areas); services to buildings and dwellings 0.460 (0.376 to 0.484, 328 areas); building equipment contractors 0.670 (0.551 to 0.701, 339 areas); automotive repair and maintenance 0.435 (0.240 to 0.435, 293 areas); child day care services 0.523 (0.453 to 0.544, 239 areas); drycleaning and laundry services 0.313 (0.164 to 0.412, 193 areas); residential building construction 0.691 (0.338 to 0.728, 237 areas); grocery stores 0.374 (0.284 to 0.400, 240 areas). Below one at every knob point: 9 of 9",
+   "kind": "own_reading",
+   "name": "B144-A8",
+   "passed": true,
+   "statement": "The wage in industries that supply local services responds to the area's average wage less than one for one."
+  },
+  {
+   "detail": "personal care services rent 1.187 against wage 0.265, gap +0.921 (+0.744 to +0.968; area resamples +0.803 to +1.067); restaurants and other eating places rent 1.163 against wage 0.554, gap +0.609 (+0.396 to +0.609; area resamples +0.529 to +0.719); services to buildings and dwellings rent 1.210 against wage 0.460, gap +0.751 (+0.563 to +0.751; area resamples +0.633 to +0.910); building equipment contractors rent 1.223 against wage 0.670, gap +0.553 (+0.387 to +0.553; area resamples +0.404 to +0.744); automotive repair and maintenance rent 1.176 against wage 0.435, gap +0.741 (+0.608 to +0.797; area resamples +0.624 to +0.890); child day care services rent 1.167 against wage 0.523, gap +0.644 (+0.372 to +0.714; area resamples +0.516 to +0.833); drycleaning and laundry services rent 1.226 against wage 0.313, gap +0.913 (+0.621 to +0.913; area resamples +0.674 to +1.299); residential building construction rent 1.156 against wage 0.691, gap +0.465 (+0.374 to +0.568; area resamples +0.324 to +0.601); grocery stores rent 1.168 against wage 0.374, gap +0.794 (+0.546 to +0.832; area resamples +0.659 to +1.000). Rent steeper at every knob point: 9 of 9",
+   "kind": "own_reading",
+   "name": "B144-A9",
+   "passed": true,
+   "statement": "Rent responds to the area's average wage more than the wage of those who supply local services does."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "mapping": {
+  "states": {
+   "above one": "more than one for one at every knob point",
+   "below one": "less than one for one at every knob point",
+   "unread": "the side of one changes somewhere on the knob grid, or a slope is undefined"
+  },
+  "states_of_the_gap": {
+   "rent steeper": "rent responds more than the industry's wage at every knob point",
+   "unread": "the order changes somewhere on the knob grid, or a slope is undefined",
+   "wage steeper": "the industry's wage responds more than rent at every knob point"
+  },
+  "verdict": "true when every state is on the stated side, false when none is and none is unread, null otherwise"
+ },
+ "objects": {
+  "area_resamples": [
+   {
+    "gap": {
+     "2361": [
+      0.324,
+      0.6008
+     ],
+     "2382": [
+      0.4045,
+      0.7444
+     ],
+     "4451": [
+      0.6586,
+      1.0
+     ],
+     "5617": [
+      0.6327,
+      0.9101
+     ],
+     "6244": [
+      0.5158,
+      0.8332
+     ],
+     "7225": [
+      0.5287,
+      0.7192
+     ],
+     "8111": [
+      0.6243,
+      0.8898
+     ],
+     "8121": [
+      0.803,
+      1.0665
+     ],
+     "8123": [
+      0.6741,
+      1.2994
+     ]
+    },
+    "industry": {
+     "2361": [
+      0.5445,
+      0.8954
+     ],
+     "2382": [
+      0.5925,
+      0.7443
+     ],
+     "4451": [
+      0.2938,
+      0.4668
+     ],
+     "5617": [
+      0.3706,
+      0.5713
+     ],
+     "6244": [
+      0.4352,
+      0.6319
+     ],
+     "7225": [
+      0.4782,
+      0.645
+     ],
+     "8111": [
+      0.3573,
+      0.5434
+     ],
+     "8121": [
+      0.1711,
+      0.3973
+     ],
+     "8123": [
+      0.13,
+      0.5013
+     ]
+    },
+    "rent": [
+     1.1047,
+     1.3966
+    ]
+   },
+   {
+    "gap": {
+     "2361": [
+      0.33,
+      0.6023
+     ],
+     "2382": [
+      0.3909,
+      0.754
+     ],
+     "4451": [
+      0.6518,
+      0.9811
+     ],
+     "5617": [
+      0.6295,
+      0.9195
+     ],
+     "6244": [
+      0.5145,
+      0.8282
+     ],
+     "7225": [
+      0.5284,
+      0.7248
+     ],
+     "8111": [
+      0.6313,
+      0.876
+     ],
+     "8121": [
+      0.8086,
+      1.0754
+     ],
+     "8123": [
+      0.6872,
+      1.2563
+     ]
+    },
+    "industry": {
+     "2361": [
+      0.5535,
+      0.9034
+     ],
+     "2382": [
+      0.5801,
+      0.7485
+     ],
+     "4451": [
+      0.2923,
+      0.4726
+     ],
+     "5617": [
+      0.376,
+      0.5757
+     ],
+     "6244": [
+      0.4325,
+      0.6209
+     ],
+     "7225": [
+      0.4763,
+      0.6533
+     ],
+     "8111": [
+      0.3558,
+      0.5521
+     ],
+     "8121": [
+      0.1692,
+      0.3869
+     ],
+     "8123": [
+      0.1337,
+      0.4906
+     ]
+    },
+    "rent": [
+     1.095,
+     1.3888
+    ]
+   }
+  ],
+  "industries": {
+   "2361": "residential building construction",
+   "2382": "building equipment contractors",
+   "4451": "grocery stores",
+   "5617": "services to buildings and dwellings",
+   "6244": "child day care services",
+   "7225": "restaurants and other eating places",
+   "8111": "automotive repair and maintenance",
+   "8121": "personal care services",
+   "8123": "drycleaning and laundry services"
+  },
+  "knob_grid": [
+   {
+    "areas": 387,
+    "base": "every employer",
+    "industry": {
+     "2361": 0.6912,
+     "2382": 0.67,
+     "4451": 0.3742,
+     "5617": 0.4597,
+     "6244": 0.5229,
+     "7225": 0.5536,
+     "8111": 0.4348,
+     "8121": 0.2654,
+     "8123": 0.3132
+    },
+    "industry_areas": {
+     "2361": 237,
+     "2382": 339,
+     "4451": 240,
+     "5617": 328,
+     "6244": 239,
+     "7225": 289,
+     "8111": 293,
+     "8121": 260,
+     "8123": 193
+    },
+    "parities": {
+     "all items": 0.2607,
+     "goods": 0.0797,
+     "housing": 1.2264,
+     "other services": 0.0546,
+     "utilities": 0.4578
+    },
+    "rent_same_areas": {
+     "2361": 1.1562,
+     "2382": 1.2231,
+     "4451": 1.1682,
+     "5617": 1.2104,
+     "6244": 1.1666,
+     "7225": 1.1626,
+     "8111": 1.1763,
+     "8121": 1.1867,
+     "8123": 1.2264
+    },
+    "weight": "each area once",
+    "year": 2024
+   },
+   {
+    "areas": 387,
+    "base": "every employer",
+    "industry": {
+     "2361": 0.3599,
+     "2382": 0.5951,
+     "4451": 0.3341,
+     "5617": 0.4138,
+     "6244": 0.5155,
+     "7225": 0.5369,
+     "8111": 0.2618,
+     "8121": 0.1239,
+     "8123": 0.182
+    },
+    "industry_areas": {
+     "2361": 237,
+     "2382": 339,
+     "4451": 240,
+     "5617": 328,
+     "6244": 239,
+     "7225": 289,
+     "8111": 293,
+     "8121": 260,
+     "8123": 193
+    },
+    "parities": {
+     "all items": 0.2573,
+     "goods": 0.1456,
+     "housing": 1.0859,
+     "other services": 0.0902,
+     "utilities": 0.5182
+    },
+    "rent_same_areas": {
+     "2361": 0.9276,
+     "2382": 1.0427,
+     "4451": 0.9364,
+     "5617": 1.0463,
+     "6244": 0.9344,
+     "7225": 0.9805,
+     "8111": 1.0039,
+     "8121": 0.9664,
+     "8123": 0.9037
+    },
+    "weight": "by employment",
+    "year": 2024
+   },
+   {
+    "areas": 367,
+    "base": "every employer",
+    "industry": {
+     "2361": 0.7285,
+     "2382": 0.7012,
+     "4451": 0.3997,
+     "5617": 0.4835,
+     "6244": 0.5436,
+     "7225": 0.5728,
+     "8111": 0.4268,
+     "8121": 0.3257,
+     "8123": 0.4059
+    },
+    "industry_areas": {
+     "2361": 278,
+     "2382": 344,
+     "4451": 294,
+     "5617": 328,
+     "6244": 299,
+     "7225": 318,
+     "8111": 309,
+     "8121": 288,
+     "8123": 255
+    },
+    "parities": {
+     "all items": 0.2638,
+     "goods": 0.0906,
+     "housing": 1.2304,
+     "other services": 0.0647,
+     "utilities": 0.4149
+    },
+    "rent_same_areas": {
+     "2361": 1.2013,
+     "2382": 1.2415,
+     "4451": 1.2313,
+     "5617": 1.2345,
+     "6244": 1.2578,
+     "7225": 1.18,
+     "8111": 1.1958,
+     "8121": 1.2478,
+     "8123": 1.2186
+    },
+    "weight": "each area once",
+    "year": 2023
+   },
+   {
+    "areas": 367,
+    "base": "every employer",
+    "industry": {
+     "2361": 0.5161,
+     "2382": 0.6039,
+     "4451": 0.3726,
+     "5617": 0.4258,
+     "6244": 0.5434,
+     "7225": 0.5769,
+     "8111": 0.2889,
+     "8121": 0.1177,
+     "8123": 0.245
+    },
+    "industry_areas": {
+     "2361": 278,
+     "2382": 344,
+     "4451": 294,
+     "5617": 328,
+     "6244": 299,
+     "7225": 318,
+     "8111": 309,
+     "8121": 288,
+     "8123": 255
+    },
+    "parities": {
+     "all items": 0.2807,
+     "goods": 0.1673,
+     "housing": 1.1336,
+     "other services": 0.1108,
+     "utilities": 0.4876
+    },
+    "rent_same_areas": {
+     "2361": 1.0589,
+     "2382": 1.1103,
+     "4451": 1.0931,
+     "5617": 1.1061,
+     "6244": 1.0905,
+     "7225": 1.0808,
+     "8111": 1.0854,
+     "8121": 1.0855,
+     "8123": 1.0724
+    },
+    "weight": "by employment",
+    "year": 2023
+   },
+   {
+    "areas": 386,
+    "base": "private employers",
+    "industry": {
+     "2361": 0.6203,
+     "2382": 0.6044,
+     "4451": 0.2838,
+     "5617": 0.4032,
+     "6244": 0.4529,
+     "7225": 0.4557,
+     "8111": 0.3904,
+     "8121": 0.2394,
+     "8123": 0.298
+    },
+    "industry_areas": {
+     "2361": 237,
+     "2382": 338,
+     "4451": 240,
+     "5617": 327,
+     "6244": 239,
+     "7225": 289,
+     "8111": 293,
+     "8121": 260,
+     "8123": 192
+    },
+    "parities": {
+     "all items": 0.2157,
+     "goods": 0.0554,
+     "housing": 1.0354,
+     "other services": 0.045,
+     "utilities": 0.334
+    },
+    "rent_same_areas": {
+     "2361": 0.9961,
+     "2382": 1.043,
+     "4451": 0.9903,
+     "5617": 1.0261,
+     "6244": 1.0033,
+     "7225": 0.9826,
+     "8111": 0.9988,
+     "8121": 1.021,
+     "8123": 1.0687
+    },
+    "weight": "each area once",
+    "year": 2024
+   },
+   {
+    "areas": 386,
+    "base": "private employers",
+    "industry": {
+     "2361": 0.3382,
+     "2382": 0.551,
+     "4451": 0.2904,
+     "5617": 0.3758,
+     "6244": 0.4616,
+     "7225": 0.4782,
+     "8111": 0.2397,
+     "8121": 0.1207,
+     "8123": 0.1637
+    },
+    "industry_areas": {
+     "2361": 237,
+     "2382": 338,
+     "4451": 240,
+     "5617": 327,
+     "6244": 239,
+     "7225": 289,
+     "8111": 293,
+     "8121": 260,
+     "8123": 192
+    },
+    "parities": {
+     "all items": 0.2289,
+     "goods": 0.1287,
+     "housing": 0.9751,
+     "other services": 0.0805,
+     "utilities": 0.4406
+    },
+    "rent_same_areas": {
+     "2361": 0.8279,
+     "2382": 0.9376,
+     "4451": 0.836,
+     "5617": 0.9392,
+     "6244": 0.8341,
+     "7225": 0.8741,
+     "8111": 0.8977,
+     "8121": 0.865,
+     "8123": 0.8115
+    },
+    "weight": "by employment",
+    "year": 2024
+   },
+   {
+    "areas": 364,
+    "base": "private employers",
+    "industry": {
+     "2361": 0.652,
+     "2382": 0.6352,
+     "4451": 0.3178,
+     "5617": 0.416,
+     "6244": 0.4599,
+     "7225": 0.4756,
+     "8111": 0.3738,
+     "8121": 0.2984,
+     "8123": 0.4119
+    },
+    "industry_areas": {
+     "2361": 276,
+     "2382": 341,
+     "4451": 292,
+     "5617": 325,
+     "6244": 297,
+     "7225": 315,
+     "8111": 307,
+     "8121": 286,
+     "8123": 253
+    },
+    "parities": {
+     "all items": 0.215,
+     "goods": 0.066,
+     "housing": 1.0401,
+     "other services": 0.0466,
+     "utilities": 0.2997
+    },
+    "rent_same_areas": {
+     "2361": 1.0257,
+     "2382": 1.0562,
+     "4451": 1.0406,
+     "5617": 1.0482,
+     "6244": 1.0723,
+     "7225": 1.0004,
+     "8111": 1.0143,
+     "8121": 1.064,
+     "8123": 1.0333
+    },
+    "weight": "each area once",
+    "year": 2023
+   },
+   {
+    "areas": 364,
+    "base": "private employers",
+    "industry": {
+     "2361": 0.4898,
+     "2382": 0.5606,
+     "4451": 0.3282,
+     "5617": 0.3965,
+     "6244": 0.4922,
+     "7225": 0.5171,
+     "8111": 0.2653,
+     "8121": 0.1203,
+     "8123": 0.2303
+    },
+    "industry_areas": {
+     "2361": 276,
+     "2382": 341,
+     "4451": 292,
+     "5617": 325,
+     "6244": 297,
+     "7225": 315,
+     "8111": 307,
+     "8121": 286,
+     "8123": 253
+    },
+    "parities": {
+     "all items": 0.2507,
+     "goods": 0.1497,
+     "housing": 1.0221,
+     "other services": 0.0982,
+     "utilities": 0.4197
+    },
+    "rent_same_areas": {
+     "2361": 0.9475,
+     "2382": 1.0019,
+     "4451": 0.9846,
+     "5617": 0.9974,
+     "6244": 0.9799,
+     "7225": 0.9673,
+     "8111": 0.9788,
+     "8121": 0.9765,
+     "8123": 0.9561
+    },
+    "weight": "by employment",
+    "year": 2023
+   }
+  ],
+  "states": {
+   "B144-A7": {
+    "state": "unread"
+   },
+   "B144-A8": {
+    "states": {
+     "2361": "below one",
+     "2382": "below one",
+     "4451": "below one",
+     "5617": "below one",
+     "6244": "below one",
+     "7225": "below one",
+     "8111": "below one",
+     "8121": "below one",
+     "8123": "below one"
+    }
+   },
+   "B144-A9": {
+    "states": {
+     "2361": "rent steeper",
+     "2382": "rent steeper",
+     "4451": "rent steeper",
+     "5617": "rent steeper",
+     "6244": "rent steeper",
+     "7225": "rent steeper",
+     "8111": "rent steeper",
+     "8121": "rent steeper",
+     "8123": "rent steeper"
+    }
+   }
+  }
+ },
+ "stage": "B144"
+}

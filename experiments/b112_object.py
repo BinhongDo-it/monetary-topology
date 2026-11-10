@@ -14,8 +14,9 @@ Nothing here is a criterion. Each block prints an object and says in one line wh
   5  how much of each banking system's payments cross a border: TARGET payments sent inside the
      national component and to other components against average reserves, per year, and the
      cross-border share of interbank loans and deposits
-  6  the same-month share of a refinancing dose that stays in the borrowing country, by the rate
-     rule in force, with each country's month-to-month noise beside it
+  6  the month's change in the borrowing country's reserves, and in its TARGET balance, per unit
+     of a refinancing dose, by the rate terms in force, with each country's month-to-month noise
+     beside it
 
 The class is the national component: minimum reserves are held "with the relevant NCBs in each
 euro area Member State in which they are established" (Regulation (EU) 2021/378, Article
@@ -29,6 +30,7 @@ euro area Member State in which they are established" (Regulation (EU) 2021/378,
 from __future__ import annotations
 
 import argparse
+import calendar
 import csv
 import io
 import json
@@ -87,6 +89,8 @@ class Store:
     def __init__(self, root: Path):
         self.series: dict[str, dict[str, float]] = {}
         self.meta: dict[str, dict] = {}
+        # one balance sheet lookup per (country, item): the store does not change once loaded
+        self.ilm_found: dict[tuple[str, str], dict[str, float]] = {}
         for meta_path in sorted(root.glob("*.meta.csv")):
             data_path = meta_path.with_name(meta_path.name.replace(".meta.csv", ".csv"))
             if not data_path.exists():
@@ -117,8 +121,11 @@ class Store:
 
 
 def ilm(st: Store, c: str, item: str) -> dict[str, float]:
-    got = [s for k, s in st.find(**{"0": "ILM", "1": "M", "2": c, "4": item}).items()]
-    return got[0] if len(got) == 1 else {}
+    key = (c, item)
+    if key not in st.ilm_found:
+        got = [s for k, s in st.find(**{"0": "ILM", "1": "M", "2": c, "4": item}).items()]
+        st.ilm_found[key] = got[0] if len(got) == 1 else {}
+    return st.ilm_found[key]
 
 
 def reserves(st: Store, c: str) -> dict[str, float]:
@@ -240,8 +247,8 @@ def block2(st: Store) -> None:
 
 
 def block3(st: Store, top: int = 8) -> None:
-    print("\n== 3. refinancing doses, euro billions. Look at: whether reserves keep the dose in the"
-          " borrowing country in the months after, or the TARGET balance gives it away")
+    print("\n== 3. refinancing doses, euro billions. Look at: whether the borrowing country's"
+          " reserves stay higher by the dose in the months after, or its TARGET balance falls by it")
     allm = sorted({m for c in COUNTRIES for m in ilm(st, c, "A050200")})
     net = []
     for m in allm[1:]:
@@ -294,9 +301,9 @@ def pss_values(st: Store, c: str) -> tuple[dict[str, float], dict[str, float]]:
 
 
 def block5(st: Store) -> None:
-    print("\n== 5. how much of each banking system's payments cross a border. Look at: days a unit"
-          " of reserves sits before it is paid to another country, against days before it is paid"
-          " at home")
+    print("\n== 5. how much of each banking system's payments cross a border. Look at: how many"
+          " days of payments to other components a country's average reserves come to, against"
+          " how many days of payments at home. A stock-to-flow ratio, not the time one unit stays")
     years = sorted({y for c in COUNTRIES for y in pss_values(st, c)[0]})
     for y in years[-3:]:
         print(f"\n{y}: inside and across are euro billions sent in the year; avg R from month-end"
@@ -328,17 +335,31 @@ def block5(st: Store) -> None:
 # The rate on longer-term refinancing against the rate on holding reserves, by date. Each boundary
 # is copied from the ECB text named beside it; the regime a month falls in is the one in force at
 # the end of that month, because the balance sheets are end-of-month.
+#
+# The 10 bp spread announced on 2019-06-06 was never charged: the press release of 2019-09-12 says
+# it "will no longer be applied", as of the first operation, allotted on 2019-09-19. The special
+# rate period ended on 2022-06-23, so the balance sheet of 2022-06-30 is already past it and the
+# months to 2022-10 are a regime of their own. The same balance sheet item also carries the
+# pandemic emergency operations (PELTROs), first settled 2020-05-21 at 25 bp below the average MRO
+# rate (press release 2020-04-30); the regimes are dated by the targeted operations and the bridge
+# operations into them.
 REGIMES = (
     ("2016-06", "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment"
                 " for banks that meet the lending benchmark", "press release 2016-03-10"),
-    ("2019-09", "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the"
-                " average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the"
-                " average deposit facility rate", "press releases 2019-06-06 and 2020-03-12"),
-    ("2020-06", "special rate period from 2020-06-24: as low as 50 bp below the average deposit"
-                " facility rate, extended to 2022-06-23", "press releases 2020-04-30 and 2020-12-10"),
+    ("2019-09", "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO"
+                " rate over the life, as low as the average deposit facility rate; also bridge LTROs"
+                " at the average deposit facility rate, first settled 2020-03-18",
+     "press releases 2019-09-12 and 2020-03-12"),
+    ("2020-06", "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average"
+                " deposit facility rate over the period, and not higher than -1%",
+     "press releases 2020-04-30 and 2020-12-10"),
+    ("2022-06", "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average"
+                " deposit facility rate over the life of the operation",
+     "press releases 2020-12-10 and 2022-10-27"),
     ("2022-11", "rate indexed to the average key rates from 2022-11-23, repayments",
      "press release 2022-10-27"),
 )
+END_DATE = re.compile(r" to (\d{4})-(\d{2})-(\d{2})")
 
 
 def regime_of(month: str) -> str:
@@ -347,6 +368,29 @@ def regime_of(month: str) -> str:
         if month >= start:
             name = text
     return name
+
+
+def regime_overruns(regimes=None) -> list[str]:
+    """Regimes whose boundary disagrees with the end date their own text gives.
+
+    A month belongs to the terms in force at its end. A period that ends before the last day of a
+    month is over at that month's end, so the next regime starts in that month; one that ends on
+    the last day gives way the month after.
+    """
+    regimes = REGIMES if regimes is None else regimes
+    out = []
+    for i, (start, text, _) in enumerate(regimes):
+        found = END_DATE.search(text)
+        if not found:
+            continue
+        y, mo, d = (int(x) for x in found.groups())
+        month = f"{y:04d}-{mo:02d}"
+        over_in = shift(month, 1) if d == calendar.monthrange(y, mo)[1] else month
+        nxt = regimes[i + 1][0] if i + 1 < len(regimes) else None
+        if nxt != over_in:
+            out.append(f"the regime from {start} ends on {y:04d}-{mo:02d}-{d:02d}, so the next one"
+                       f" starts in {over_in}; the table starts it in {nxt}")
+    return out
 
 
 def quiet_sd(st: Store, c: str, net: dict[str, float]) -> float | None:
@@ -359,8 +403,11 @@ def quiet_sd(st: Store, c: str, net: dict[str, float]) -> float | None:
 
 
 def block6(st: Store) -> None:
-    print("\n== 6. same-month retention of a refinancing dose, by the rate rule in force. Look at: the"
-          " median retention in each regime, and which cells clear three times their noise")
+    print("\n== 6. the month's change in reserves per unit of a refinancing dose, by the rate terms in"
+          " force. Look at: the median in each regime beside the fall in the TARGET balance per unit"
+          " of dose, and which cells clear three times their noise. dR = dose + dT + other, so"
+          " dR/dose = 1 - (-dT/dose) + other/dose: a balance ratio, above 1 when the rest of the"
+          " balance sheet adds reserves in the month")
     allm = sorted({m for c in COUNTRIES for m in ilm(st, c, "A050200")})
     net = {}
     for m in allm[1:]:
@@ -379,15 +426,17 @@ def block6(st: Store) -> None:
                 dR, dT = delta(reserves(st, c), m), delta(tgb(st, c), m)
                 if None in (dose, dR, dT) or sd[c] is None or abs(dose) < 3 * sd[c]:
                     continue
-                cells.append((m, c, dose, dR / dose, -dT / dose, dose / sd[c]))
+                cells.append((m, c, dose, dR / dose, -dT / dose, dose / sd[c], (dR - dose - dT) / dose))
         print(f"\nfrom {start}: {text} ({source})")
         if not cells:
             print("  no cell clears three times its noise")
             continue
-        print(f"  {len(cells)} cells; median retention {statistics.median(r[3] for r in cells):.2f},"
-              f" median leak through TARGET {statistics.median(r[4] for r in cells):.2f}")
-        for m, c, dose, ret, leak, z in cells:
-            print(f"    {m} {c}  dose {dose:+7.1f} ({z:+5.1f} sd)  retention {ret:5.2f}  leak {leak:5.2f}")
+        print(f"  {len(cells)} cells; median dR/dose {statistics.median(r[3] for r in cells):.2f},"
+              f" median -dT/dose {statistics.median(r[4] for r in cells):.2f},"
+              f" median other/dose {statistics.median(r[6] for r in cells):.2f}")
+        for m, c, dose, ret, leak, z, other in cells:
+            print(f"    {m} {c}  dose {dose:+7.1f} ({z:+5.1f} sd)  dR/dose {ret:5.2f}  -dT/dose {leak:5.2f}"
+                  f"  other/dose {other:5.2f}")
 
 
 BLOCKS = {0: block0, 1: block1, 2: block2, 3: block3, 4: block4, 5: block5, 6: block6}
@@ -435,10 +484,12 @@ def monthly_sd(series: dict[str, float], net: dict[str, float], cut: float) -> f
     return statistics.pstdev(ch) if len(ch) > 10 else None
 
 
-def share_sd(st: Store, c: str, net: dict[str, float], cut: float) -> float | None:
+def share_sd(st: Store, c: str, net: dict[str, float], cut: float, year_end: bool = False) -> float | None:
+    """Noise of one country's share of reserves over quiet months: December and January left out,
+    or, with `year_end`, those two months alone."""
     ch = []
     for m, n in net.items():
-        if abs(n) >= cut or m.endswith(("-12", "-01")):
+        if abs(n) >= cut or m.endswith(("-12", "-01")) != year_end:
             continue
         prev = shift(m, -1)
         among = members(st, [prev, m])
@@ -459,21 +510,49 @@ def retention_cells(st: Store, net: dict[str, float], k: float, cut: float) -> l
             dR, dT = delta(reserves(st, c), m), delta(tgb(st, c), m)
             if None in (dose, dR, dT) or sd[c] is None or abs(dose) < k * sd[c]:
                 continue
+            other = dR - dose - dT
             cells.append({"regime": regime_of(m), "month": m, "country": c, "dose": r4(dose),
-                          "dR": r4(dR), "dT": r4(dT), "sd": r4(sd[c]),
-                          "retention": r4(dR / dose), "leak": r4(-dT / dose)})
+                          "dR": r4(dR), "dT": r4(dT), "other": r4(other), "sd": r4(sd[c]),
+                          "retention": r4(dR / dose), "leak": r4(-dT / dose),
+                          "other_per_dose": r4(other / dose)})
     return cells
+
+
+MEDIANS = (("median_retention", "retention"), ("median_leak", "leak"),
+           ("median_other_per_dose", "other_per_dose"))
 
 
 def regime_medians(cells: list[dict]) -> dict[str, dict]:
     out = {}
     for _, text, _ in REGIMES:
-        rets = [x["retention"] for x in cells if x["regime"] == text]
-        out[text] = {"n": len(rets), "median_retention": r4(statistics.median(rets)) if rets else None}
+        got = [x for x in cells if x["regime"] == text]
+        out[text] = {"n": len(got)}
+        for name, key in MEDIANS:
+            out[text][name] = r4(statistics.median(x[key] for x in got)) if got else None
     return out
 
 
-SPECIAL, FIRST = REGIMES[2][1], REGIMES[1][1]
+SPECIAL, FIRST, AFTER = REGIMES[2][1], REGIMES[1][1], REGIMES[3][1]
+
+# What each printed quantity is. The ratios compare one month's changes on one balance sheet;
+# none of them follows a tagged unit.
+DEFINITIONS = {
+    "dose": "the month's change in the country's longer-term refinancing (A050200), euro billions",
+    "dR": "the month's change in the country's reserves (L020000), euro billions",
+    "dT": "the month's change in the country's TARGET balance, euro billions",
+    "other": "dR - dose - dT, euro billions: everything else on the central bank's balance sheet that"
+             " moved reserves in the month (its own purchases, banknotes, deposits of other"
+             " residents, main refinancing operations)",
+    "retention": "dR / dose, the change in reserves per unit of the dose. It equals"
+                 " 1 - leak + other_per_dose, and stands above 1 when the rest of the balance sheet"
+                 " adds reserves in the same month",
+    "leak": "-dT / dose, the fall in the TARGET balance per unit of the dose",
+    "other_per_dose": "other / dose",
+    "days_home, days_abroad": "365 x the year's average month-end reserves / the year's TARGET"
+                              " payments sent inside the national component, or to other"
+                              " components: the days of such payments the average balance comes to."
+                              " A stock-to-flow ratio, not the time one unit stays",
+}
 
 
 def criterion_data(checked: list[tuple[str, list[str]]]) -> dict:
@@ -539,8 +618,8 @@ def criterion_known(rows: list[dict]) -> dict:
                                 else f"{x['object']} {x['country']} {x['state']}" for x in rows)}
 
 
-RETENTION_MAPPING = {"special rate period above first terms at every scan point": "PASS",
-                     "special rate period below first terms at every scan point": "FAIL",
+RETENTION_MAPPING = {"special rate period above the terms before it at every scan point": "PASS",
+                     "special rate period below the terms before it at every scan point": "FAIL",
                      "mixed, or a regime without a cell at some scan point": "no verdict"}
 
 
@@ -559,21 +638,30 @@ def criterion_retention(scan: list[dict]) -> dict:
         sp, fi = point["medians"][SPECIAL]["median_retention"], point["medians"][FIRST]["median_retention"]
         signs.append(None if sp is None or fi is None else (sp > fi) - (sp < fi))
     if signs and all(s == 1 for s in signs):
-        passed, state = True, "special rate period above first terms at every scan point"
+        passed, state = True, "special rate period above the terms before it at every scan point"
     elif signs and all(s == -1 for s in signs):
-        passed, state = False, "special rate period below first terms at every scan point"
+        passed, state = False, "special rate period below the terms before it at every scan point"
     else:
         passed, state = None, "mixed, or a regime without a cell at some scan point"
     base = next(p for p in scan if p["noise_multiple"] == NOISE_MULTIPLE and p["quiet_cut"] == QUIET_CUT)
+    sp, fi = base["medians"][SPECIAL], base["medians"][FIRST]
+    # The TARGET column beside it: at how many scan points the balance fell by more of the dose
+    # under the terms before the special rate period. Printed, and no part of the verdict.
+    leaks = [(p["medians"][FIRST].get("median_leak"), p["medians"][SPECIAL].get("median_leak"))
+             for p in scan]
+    read = [(a, b) for a, b in leaks if a is not None and b is not None]
     return {"name": "B112-3", "kind": "own_reading", "passed": passed,
-            "statement": "the same-month share of a refinancing dose that stays in the borrowing country"
-                         " is higher while holding it pays (TLTRO III special rate period, from"
-                         " 2020-06-24) than under the first TLTRO III terms",
+            "statement": "the month's change in the borrowing country's reserves per unit of a"
+                         " refinancing dose is higher in the TLTRO III special rate period"
+                         " (2020-06-24 to 2022-06-23), when holding the borrowed reserves paid, than"
+                         " under the TLTRO III terms before it",
             "detail": f"{state}; at {NOISE_MULTIPLE} sd and quiet below {QUIET_CUT:.0f} bn: special"
-                      f" {base['medians'][SPECIAL]['median_retention']} over"
-                      f" {base['medians'][SPECIAL]['n']} cells, first terms"
-                      f" {base['medians'][FIRST]['median_retention']} over"
-                      f" {base['medians'][FIRST]['n']} cells"}
+                      f" {sp['median_retention']} over {sp['n']} cells, the terms before it"
+                      f" {fi['median_retention']} over {fi['n']} cells; the fall in the TARGET balance"
+                      f" per unit of dose {sp.get('median_leak')} against {fi.get('median_leak')},"
+                      f" larger under the terms before it at {sum(1 for a, b in read if a > b)} of"
+                      f" {len(read)} scan points read; the rest of the balance sheet per unit of dose"
+                      f" {sp.get('median_other_per_dose')} against {fi.get('median_other_per_dose')}"}
 
 
 def criterion_sources(rules=None, regimes=None) -> dict:
@@ -581,11 +669,15 @@ def criterion_sources(rules=None, regimes=None) -> dict:
     regimes = REGIMES if regimes is None else regimes
     unsourced = [m for m, text in rules if not SOURCE_PATTERN.search(text)]
     unsourced += [m for m, _, src in regimes if not SOURCE_PATTERN.search(src)]
-    return {"name": "B112-4", "kind": "bookkeeping", "passed": not unsourced,
+    overruns = regime_overruns(regimes)
+    return {"name": "B112-4", "kind": "bookkeeping", "passed": not unsourced and not overruns,
             "statement": "every rule date and every regime boundary names the dated ECB text it was"
-                         " copied from",
+                         " copied from, and each boundary agrees with the end date in its regime's"
+                         " own text",
             "detail": f"{len(rules) + len(regimes)} dates, "
-                      + ("all sourced" if not unsourced else "unsourced: " + ", ".join(unsourced))}
+                      + ("all sourced" if not unsourced else "unsourced: " + ", ".join(unsourced))
+                      + ("; every stated end date agrees with the next boundary" if not overruns
+                         else "; " + "; ".join(overruns))}
 
 
 def clock_rows(st: Store) -> list[dict]:
@@ -621,6 +713,9 @@ def build_record(st: Store, checked: list[tuple[str, list[str]]]) -> dict:
         shares_at[month] = {m: {c: r4(100 * v) for c, v in shares(st, m, among).items()} for m in cols}
     criteria = [criterion_data(checked), criterion_known(known), criterion_retention(scan),
                 criterion_sources()]
+
+    def pp(x: float | None) -> float | None:
+        return None if x is None else r4(100 * x)
     return {
         "stage": "B112",
         "config": {"noise_multiple": NOISE_MULTIPLE, "quiet_cut_bn": QUIET_CUT,
@@ -631,10 +726,14 @@ def build_record(st: Store, checked: list[tuple[str, list[str]]]) -> dict:
         "rules": [{"month": m, "text": text} for m, text in RULES],
         "regimes": [{"from": m, "text": text, "source": src} for m, text, src in REGIMES],
         "mapping": {"B112-2": KNOWN_MAPPING, "B112-3": RETENTION_MAPPING},
+        "definitions": DEFINITIONS,
         "objects": {"retention_cells": cells, "retention_by_regime": regime_medians(cells),
                     "retention_scan": scan, "known_answer_rows": known, "shares_at_rules": shares_at,
                     "clocks": clock_rows(st),
-                    "noise_sd_bn": {c: r4(monthly_sd(reserves(st, c), net, QUIET_CUT)) for c in COUNTRIES}},
+                    "noise_sd_bn": {c: r4(monthly_sd(reserves(st, c), net, QUIET_CUT)) for c in COUNTRIES},
+                    "share_noise_pp": {c: pp(share_sd(st, c, net, QUIET_CUT)) for c in COUNTRIES},
+                    "share_noise_year_end_pp": {c: pp(share_sd(st, c, net, QUIET_CUT, year_end=True))
+                                                for c in COUNTRIES}},
         "criteria": criteria,
     }
 
@@ -764,6 +863,84 @@ def cmd_selftest() -> int:
             checks["known answer: a jump in the Italian share reads as stated"] = it_row["state"] == "as stated"
             checks["known answer: a fall in the German TARGET average reads as stated"] = de_row["state"] == "as stated"
             checks["known answer: the absent countries read as no object"] = rows[("reserve share", "GR")]["state"] == "no object"
+            quiet = net_refinancing(st)
+            checks["share noise: the other months give a figure and four year-end months give none"] = (
+                share_sd(st, "IT", quiet, QUIET_CUT) is not None
+                and share_sd(st, "IT", quiet, QUIET_CUT, year_end=True) is None)
+        finally:
+            COUNTRIES = saved
+    # the regime table: boundaries by the month-end rule, and the table as it stood before the
+    # special rate period was given its end
+    old_table = REGIMES[:2] + (
+        ("2020-06", "special rate period from 2020-06-24, extended to 2022-06-23",
+         "press release 2020-12-10"), REGIMES[4])
+    leap = ("x, 2020-01-01 to 2020-02-29", "press release 2020-01-01")
+    checks.update({
+        "2019-08 is still TLTRO II and 2019-09 is TLTRO III": regime_of("2019-08") == REGIMES[0][1]
+        and regime_of("2019-09") == FIRST,
+        "2020-05 is before the special rate period and 2020-06 is in it": regime_of("2020-05") == FIRST
+        and regime_of("2020-06") == SPECIAL,
+        "2022-05 is the last month end inside the special rate period": regime_of("2022-05") == SPECIAL
+        and regime_of("2022-06") == AFTER,
+        "2022-10 is after the special rate period and 2022-11 is indexed": regime_of("2022-10") == AFTER
+        and regime_of("2022-11") == REGIMES[4][1],
+        "the three names point at the regimes they say": "special rate period, 2020-06-24" in SPECIAL
+        and FIRST.startswith("TLTRO III before the special rate period")
+        and AFTER.startswith("after the special rate period"),
+        "every stated end date in the table agrees with the next boundary": regime_overruns() == [],
+        "the two periods that end carry their end dates in their own text":
+            [x.groups() if x else None for x in (END_DATE.search(SPECIAL), END_DATE.search(AFTER))]
+            == [("2022", "06", "23"), ("2022", "11", "22")],
+        "a special rate period kept until 2022-11 is reported": len(regime_overruns(old_table)) == 1,
+        "B112-4 fails on that table": criterion_sources(regimes=old_table)["passed"] is False,
+        "a period that ends on a month's last day gives way the month after":
+            regime_overruns((("2020-01",) + leap, ("2020-03", "y", "press release 2020-01-01"))) == []
+            and len(regime_overruns((("2020-01",) + leap, ("2020-02", "y", "press release 2020-01-01")))) == 1,
+        "a regime with an end date and nothing after it is reported":
+            len(regime_overruns((("2020-01",) + leap,))) == 1,
+    })
+    # the decomposition end to end: two years of quiet months, then two doses worked by hand
+    with tempfile.TemporaryDirectory() as d:
+        root = Path(d)
+        ilm_rows, tgb_rows = [], []
+        level, refin, target = 1000e3, 10e3, 500e3
+        for i, m in enumerate(months("2017-10", "2022-07")):
+            if m == "2020-06":      # borrows 100: reserves +120, TARGET -10, so the rest added 30
+                refin, level, target = refin + 100e3, level + 120e3, target - 10e3
+            elif m == "2022-06":    # repays 50: reserves -40, TARGET +5, so the rest added 5
+                refin, level, target = refin - 50e3, level - 40e3, target + 5e3
+            else:                   # a quiet month moves reserves by 2 bn one way or the other
+                level += 2e3 if i % 2 else -2e3
+            ilm_rows += [("ILM.M.DE.N.L020000.U2.EUR", m, level), ("ILM.M.DE.N.A050200.U2.EUR", m, refin)]
+            tgb_rows.append(("TGB.M.DE.N.A094T.U2.EUR.E", m, target))
+        units = ("EUR", 6)
+        _write(root, "ilm", ilm_rows, {k: units for k, _, _ in ilm_rows})
+        _write(root, "tgb", tgb_rows, {"TGB.M.DE.N.A094T.U2.EUR.E": units})
+        COUNTRIES = ("DE", "IT")
+        try:
+            st = Store(root)
+            cells = {x["month"]: x for x in retention_cells(st, net_refinancing(st), NOISE_MULTIPLE, QUIET_CUT)}
+            a, b = cells.get("2020-06", {}), cells.get("2022-06", {})
+            med = regime_medians(list(cells.values()))
+            checks.update({
+                "decomposition: the two doses clear the noise and no quiet month does":
+                    sorted(cells) == ["2020-06", "2022-06"],
+                "decomposition: dose 100, reserves +120, TARGET -10 leaves 30 for the rest":
+                    (a.get("dose"), a.get("dR"), a.get("dT"), a.get("other")) == (100.0, 120.0, -10.0, 30.0),
+                "decomposition: the ratios read 1.2, 0.1 and 0.3, and 1.2 = 1 - 0.1 + 0.3":
+                    (a.get("retention"), a.get("leak"), a.get("other_per_dose")) == (1.2, 0.1, 0.3),
+                "decomposition: repaying 50 with reserves -40 and TARGET +5 reads 0.8, 0.1 and -0.1":
+                    (b.get("retention"), b.get("leak"), b.get("other_per_dose"), b.get("other"))
+                    == (0.8, 0.1, -0.1, 5.0),
+                "decomposition: June 2020 is in the special rate period and June 2022 is after it":
+                    a.get("regime") == SPECIAL and b.get("regime") == AFTER,
+                "regime medians carry the three columns, and an empty regime carries none":
+                    med[SPECIAL] == {"n": 1, "median_retention": 1.2, "median_leak": 0.1,
+                                     "median_other_per_dose": 0.3}
+                    and med[AFTER]["median_other_per_dose"] == -0.1
+                    and med[FIRST] == {"n": 0, "median_retention": None, "median_leak": None,
+                                       "median_other_per_dose": None},
+            })
         finally:
             COUNTRIES = saved
     for name, good in checks.items():

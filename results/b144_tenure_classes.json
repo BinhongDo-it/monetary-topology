@@ -1,0 +1,563 @@
+{
+ "config": {
+  "aggregates_left_out": [
+   "EU27_2020",
+   "EA20",
+   "EA21"
+  ],
+  "classes": {
+   "OWN_L": "owners with a mortgage",
+   "OWN_NL": "owners without a mortgage",
+   "RENT_FR": "tenants at a reduced price or free",
+   "RENT_MKT": "tenants at the market price"
+  },
+  "fetched_by": "experiments/b144_fetch.py --only eurostat",
+  "min_countries": 25,
+  "raw": "data/raw/b144/eurostat",
+  "reliability": [
+   "every cell",
+   "without cells flagged of low reliability"
+  ],
+  "years": [
+   "2023",
+   "2024",
+   "2025"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "34 countries; with every class: 2023 33, 2024 32, 2025 29; 0 cells flagged of low reliability; unit and classes as expected",
+   "kind": "instrument",
+   "name": "B144-H0",
+   "passed": true,
+   "statement": "The two tables say what the reading takes them to say."
+  },
+  {
+   "detail": "2025, 29 countries: median rate by class owners without a mortgage 2.9%, owners with a mortgage 3.0%, tenants at the market price 23.2%, tenants at a reduced price or free 7.7%; Union as a whole owners without a mortgage 3.8%, owners with a mortgage 5.0%, tenants at the market price 18.6%, tenants at a reduced price or free 9.2%. Spread across the four classes inside a country 8.5 points at the median, spread of the total rate across countries 4.4; over the years and both reliability settings 7.8 to 9.6 against 4.4 to 4.9. Median equivalised income in the Union, owners 23,750 and tenants 19,938 in purchasing power standards -> class larger",
+   "kind": "own_reading",
+   "name": "B144-H1",
+   "passed": true,
+   "statement": "Inside one country the tenure class moves the housing cost overburden rate more than the country moves it."
+  },
+  {
+   "detail": "tenants at the market price less tenants at a reduced price, median over countries +16.7 points in 2025 (lower in 28 of 29 countries); over the years and both reliability settings +16.6 to +18.1 -> reduced lower",
+   "kind": "own_reading",
+   "name": "B144-H2",
+   "passed": true,
+   "statement": "Tenants at a reduced price are overburdened less than tenants at the market price."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "objects": {
+  "median_income_pps_last_year": {
+   "AT": {
+    "OWN": 35743.0,
+    "RENT": 27094.0,
+    "TOTAL": 32385.0
+   },
+   "BE": {
+    "OWN": 29396.0,
+    "RENT": 21016.0,
+    "TOTAL": 26860.0
+   },
+   "BG": {
+    "OWN": 14836.0,
+    "RENT": 14958.0,
+    "TOTAL": 14843.0
+   },
+   "CY": {
+    "OWN": 24407.0,
+    "RENT": 19866.0,
+    "TOTAL": 23782.0
+   },
+   "CZ": {
+    "OWN": 17807.0,
+    "RENT": 14020.0,
+    "TOTAL": 17190.0
+   },
+   "DE": {
+    "OWN": 30426.0,
+    "RENT": 22946.0,
+    "TOTAL": 26633.0
+   },
+   "DK": {
+    "OWN": 28568.0,
+    "RENT": 20799.0,
+    "TOTAL": 25309.0
+   },
+   "EA20": {
+    "OWN": 25783.0,
+    "RENT": 20213.0,
+    "TOTAL": 23946.0
+   },
+   "EA21": {
+    "OWN": 25506.0,
+    "RENT": 20201.0,
+    "TOTAL": 23779.0
+   },
+   "EE": {
+    "OWN": 17512.0,
+    "RENT": 13648.0,
+    "TOTAL": 17147.0
+   },
+   "EL": {
+    "OWN": 13668.0,
+    "RENT": 13388.0,
+    "TOTAL": 13612.0
+   },
+   "ES": {
+    "OWN": 24070.0,
+    "RENT": 17042.0,
+    "TOTAL": 22408.0
+   },
+   "EU27_2020": {
+    "OWN": 23750.0,
+    "RENT": 19938.0,
+    "TOTAL": 22640.0
+   },
+   "FI": {
+    "OWN": 26918.0,
+    "RENT": 18089.0,
+    "TOTAL": 24091.0
+   },
+   "FR": {
+    "OWN": 27124.0,
+    "RENT": 18278.0,
+    "TOTAL": 23792.0
+   },
+   "HR": {
+    "OWN": 19745.0,
+    "RENT": 19182.0,
+    "TOTAL": 19745.0
+   },
+   "HU": {
+    "OWN": 12030.0,
+    "RENT": 11092.0,
+    "TOTAL": 11958.0
+   },
+   "IE": {
+    "OWN": 27990.0,
+    "RENT": 20044.0,
+    "TOTAL": 25574.0
+   },
+   "IT": {
+    "OWN": 23968.0,
+    "RENT": 17078.0,
+    "TOTAL": 22624.0
+   },
+   "LT": {
+    "OWN": 17297.0,
+    "RENT": 14311.0,
+    "TOTAL": 17136.0
+   },
+   "LU": {
+    "OWN": 42850.0,
+    "RENT": 29199.0,
+    "TOTAL": 37673.0
+   },
+   "LV": {
+    "OWN": 17566.0,
+    "RENT": 14097.0,
+    "TOTAL": 17118.0
+   },
+   "MT": {
+    "OWN": 25834.0,
+    "RENT": 19988.0,
+    "TOTAL": 24054.0
+   },
+   "NL": {
+    "OWN": 33272.0,
+    "RENT": 22227.0,
+    "TOTAL": 29714.0
+   },
+   "NO": {
+    "OWN": 36075.0,
+    "RENT": 22906.0,
+    "TOTAL": 33801.0
+   },
+   "PL": {
+    "OWN": 20010.0,
+    "RENT": 18067.0,
+    "TOTAL": 19925.0
+   },
+   "PT": {
+    "OWN": 17619.0,
+    "RENT": 13208.0,
+    "TOTAL": 16634.0
+   },
+   "RO": {
+    "OWN": 12822.0,
+    "RENT": 13866.0,
+    "TOTAL": 12861.0
+   },
+   "RS": {
+    "OWN": 11616.0,
+    "RENT": 10480.0,
+    "TOTAL": 11570.0
+   },
+   "SE": {
+    "OWN": 28586.0,
+    "RENT": 18677.0,
+    "TOTAL": 24852.0
+   },
+   "SI": {
+    "OWN": 23430.0,
+    "RENT": 17244.0,
+    "TOTAL": 22635.0
+   },
+   "SK": {
+    "OWN": 15499.0,
+    "RENT": 11070.0,
+    "TOTAL": 15333.0
+   },
+   "TR": {
+    "OWN": 11060.0,
+    "RENT": 12147.0,
+    "TOTAL": 11403.0
+   }
+  },
+  "rates_last_year": {
+   "AT": {
+    "OWN_L": 2.4,
+    "OWN_NL": 1.6,
+    "RENT_FR": 4.2,
+    "RENT_MKT": 14.5,
+    "TOTAL": 6.1
+   },
+   "BE": {
+    "OWN_L": 0.9,
+    "OWN_NL": 1.6,
+    "RENT_FR": 7.4,
+    "RENT_MKT": 25.4,
+    "TOTAL": 6.7
+   },
+   "BG": {
+    "OWN_L": 18.6,
+    "OWN_NL": 5.8,
+    "RENT_FR": 8.4,
+    "RENT_MKT": 31.7,
+    "TOTAL": 6.9
+   },
+   "CY": {
+    "OWN_L": 0.4,
+    "OWN_NL": 0.2,
+    "RENT_FR": 1.7,
+    "RENT_MKT": 13.4,
+    "TOTAL": 2.4
+   },
+   "CZ": {
+    "OWN_L": 4.3,
+    "OWN_NL": 3.6,
+    "RENT_FR": 7.7,
+    "RENT_MKT": 26.0,
+    "TOTAL": 8.2
+   },
+   "DE": {
+    "OWN_L": 13.0,
+    "OWN_NL": 5.8,
+    "RENT_FR": 9.2,
+    "RENT_MKT": 13.2,
+    "TOTAL": 11.2
+   },
+   "DK": {
+    "OWN_L": 25.4,
+    "OWN_NL": 19.1,
+    "RENT_MKT": 23.6,
+    "TOTAL": 23.4
+   },
+   "EA20": {
+    "OWN_L": 4.5,
+    "OWN_NL": 3.6,
+    "RENT_FR": 9.5,
+    "RENT_MKT": 18.0,
+    "TOTAL": 7.9
+   },
+   "EA21": {
+    "OWN_L": 4.5,
+    "OWN_NL": 3.7,
+    "RENT_FR": 9.5,
+    "RENT_MKT": 18.0,
+    "TOTAL": 7.8
+   },
+   "EE": {
+    "OWN_L": 5.6,
+    "OWN_NL": 4.8,
+    "RENT_FR": 14.1,
+    "RENT_MKT": 37.0,
+    "TOTAL": 8.8
+   },
+   "EL": {
+    "OWN_L": 22.2,
+    "OWN_NL": 26.2,
+    "RENT_FR": 36.2,
+    "RENT_MKT": 26.0,
+    "TOTAL": 26.4
+   },
+   "ES": {
+    "OWN_L": 3.4,
+    "OWN_NL": 1.9,
+    "RENT_FR": 8.4,
+    "RENT_MKT": 26.8,
+    "TOTAL": 7.2
+   },
+   "EU27_2020": {
+    "OWN_L": 5.0,
+    "OWN_NL": 3.8,
+    "RENT_FR": 9.2,
+    "RENT_MKT": 18.6,
+    "TOTAL": 7.7
+   },
+   "FI": {
+    "OWN_L": 1.8,
+    "OWN_NL": 1.4,
+    "RENT_FR": 8.8,
+    "RENT_MKT": 12.3,
+    "TOTAL": 4.7
+   },
+   "FR": {
+    "OWN_L": 1.1,
+    "OWN_NL": 1.6,
+    "RENT_FR": 10.7,
+    "RENT_MKT": 18.7,
+    "TOTAL": 6.4
+   },
+   "HR": {
+    "OWN_L": 2.5,
+    "OWN_NL": 2.9,
+    "RENT_FR": 3.1,
+    "RENT_MKT": 19.8,
+    "TOTAL": 3.2
+   },
+   "HU": {
+    "OWN_L": 1.7,
+    "OWN_NL": 3.5,
+    "RENT_FR": 13.3,
+    "RENT_MKT": 38.4,
+    "TOTAL": 5.3
+   },
+   "IE": {
+    "OWN_L": 0.8,
+    "OWN_NL": 0.8,
+    "RENT_FR": 9.1,
+    "RENT_MKT": 24.0,
+    "TOTAL": 5.4
+   },
+   "IT": {
+    "OWN_L": 1.3,
+    "OWN_NL": 2.1,
+    "RENT_FR": 6.0,
+    "RENT_MKT": 22.3,
+    "TOTAL": 5.0
+   },
+   "LT": {
+    "OWN_L": 3.8,
+    "OWN_NL": 4.5,
+    "RENT_FR": 9.5,
+    "RENT_MKT": 27.4,
+    "TOTAL": 5.7
+   },
+   "LU": {
+    "OWN_L": 2.2,
+    "OWN_NL": 1.3,
+    "RENT_FR": 10.6,
+    "RENT_MKT": 23.2,
+    "TOTAL": 8.1
+   },
+   "LV": {
+    "OWN_L": 4.9,
+    "OWN_NL": 4.6,
+    "RENT_FR": 6.3,
+    "RENT_MKT": 18.1,
+    "TOTAL": 5.7
+   },
+   "MT": {
+    "OWN_L": 2.1,
+    "OWN_NL": 1.4,
+    "RENT_FR": 4.0,
+    "RENT_MKT": 21.5,
+    "TOTAL": 6.0
+   },
+   "NL": {
+    "OWN_L": 1.1,
+    "OWN_NL": 3.0,
+    "RENT_FR": 12.9,
+    "RENT_MKT": 39.5,
+    "TOTAL": 6.5
+   },
+   "NO": {
+    "OWN_L": 13.1,
+    "OWN_NL": 5.8,
+    "RENT_FR": 6.7,
+    "RENT_MKT": 23.0,
+    "TOTAL": 13.5
+   },
+   "PL": {
+    "OWN_L": 8.0,
+    "OWN_NL": 3.3,
+    "RENT_FR": 4.4,
+    "RENT_MKT": 14.4,
+    "TOTAL": 4.1
+   },
+   "PT": {
+    "OWN_L": 3.0,
+    "OWN_NL": 1.3,
+    "RENT_FR": 2.8,
+    "RENT_MKT": 27.2,
+    "TOTAL": 6.2
+   },
+   "RO": {
+    "OWN_L": 4.3,
+    "OWN_NL": 3.4,
+    "RENT_FR": 11.7,
+    "RENT_MKT": 56.0,
+    "TOTAL": 5.0
+   },
+   "RS": {
+    "OWN_L": 5.8,
+    "OWN_NL": 7.2,
+    "RENT_FR": 8.6,
+    "RENT_MKT": 33.3,
+    "TOTAL": 7.9
+   },
+   "SE": {
+    "OWN_L": 4.6,
+    "OWN_NL": 14.0,
+    "RENT_FR": 0.0,
+    "RENT_MKT": 18.4,
+    "TOTAL": 10.8
+   },
+   "SI": {
+    "OWN_L": 2.3,
+    "OWN_NL": 1.5,
+    "RENT_FR": 4.4,
+    "RENT_MKT": 19.7,
+    "TOTAL": 3.5
+   },
+   "SK": {
+    "OWN_L": 9.4,
+    "OWN_NL": 0.5,
+    "RENT_FR": 6.6,
+    "RENT_MKT": 16.8,
+    "TOTAL": 3.5
+   },
+   "TR": {
+    "OWN_L": 2.3,
+    "OWN_NL": 0.7,
+    "RENT_FR": 1.0,
+    "RENT_MKT": 34.4,
+    "TOTAL": 10.0
+   }
+  },
+  "spreads": [
+   {
+    "between": 4.9287,
+    "class_medians": {
+     "OWN_L": 4.1,
+     "OWN_NL": 4.3,
+     "RENT_FR": 8.9,
+     "RENT_MKT": 27.4,
+     "TOTAL": 7.3
+    },
+    "countries": 33,
+    "reduced_gap_median": 18.1,
+    "reduced_lower_in": 32,
+    "reliability": "every cell",
+    "within_median": 9.6242,
+    "year": "2023"
+   },
+   {
+    "between": 4.9287,
+    "class_medians": {
+     "OWN_L": 4.1,
+     "OWN_NL": 4.3,
+     "RENT_FR": 8.9,
+     "RENT_MKT": 27.4,
+     "TOTAL": 7.3
+    },
+    "countries": 33,
+    "reduced_gap_median": 18.1,
+    "reduced_lower_in": 32,
+    "reliability": "without cells flagged of low reliability",
+    "within_median": 9.6242,
+    "year": "2023"
+   },
+   {
+    "between": 4.891,
+    "class_medians": {
+     "OWN_L": 3.8,
+     "OWN_NL": 3.95,
+     "RENT_FR": 8.8,
+     "RENT_MKT": 25.25,
+     "TOTAL": 6.9
+    },
+    "countries": 32,
+    "reduced_gap_median": 16.65,
+    "reduced_lower_in": 31,
+    "reliability": "every cell",
+    "within_median": 7.8421,
+    "year": "2024"
+   },
+   {
+    "between": 4.891,
+    "class_medians": {
+     "OWN_L": 3.8,
+     "OWN_NL": 3.95,
+     "RENT_FR": 8.8,
+     "RENT_MKT": 25.25,
+     "TOTAL": 6.9
+    },
+    "countries": 32,
+    "reduced_gap_median": 16.65,
+    "reduced_lower_in": 31,
+    "reliability": "without cells flagged of low reliability",
+    "within_median": 7.8421,
+    "year": "2024"
+   },
+   {
+    "between": 4.3878,
+    "class_medians": {
+     "OWN_L": 3.0,
+     "OWN_NL": 2.9,
+     "RENT_FR": 7.7,
+     "RENT_MKT": 23.2,
+     "TOTAL": 6.2
+    },
+    "countries": 29,
+    "reduced_gap_median": 16.7,
+    "reduced_lower_in": 28,
+    "reliability": "every cell",
+    "within_median": 8.4877,
+    "year": "2025"
+   },
+   {
+    "between": 4.3878,
+    "class_medians": {
+     "OWN_L": 3.0,
+     "OWN_NL": 2.9,
+     "RENT_FR": 7.7,
+     "RENT_MKT": 23.2,
+     "TOTAL": 6.2
+    },
+    "countries": 29,
+    "reduced_gap_median": 16.7,
+    "reduced_lower_in": 28,
+    "reliability": "without cells flagged of low reliability",
+    "within_median": 8.4877,
+    "year": "2025"
+   }
+  ],
+  "states": {
+   "B144-H0": {
+    "problems": []
+   },
+   "B144-H1": {
+    "state": "class larger"
+   },
+   "B144-H2": {
+    "state": "reduced lower"
+   }
+  }
+ },
+ "stage": "B144"
+}

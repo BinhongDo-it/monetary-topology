@@ -46,7 +46,7 @@ measurement work.
 
 | carrier | what the readings ask | stations | what is inside it |
 |---|---|---|---|
-| One exchange's implied and directly quoted spread markets | the zero domain, where the framework predicts zero | B13, B18 | 81,968 states over nine products and three channels |
+| One exchange's implied and directly quoted spread markets | the zero domain, where the framework predicts zero | B13, B18 | 81,968 bid and offer readings over eight products and three channels |
 | An exchange-traded fund's creation and redemption triangle | loop sum against a scalar field's zero | B9 | the published fee schedule plus the venue quotes on both legs |
 | A dated, symmetric tick-size change and its control group | loop sum against a scalar field's zero | B14, L2 | two rounds, 618 and 2,110 symbols, read on the symbols they share |
 | Dual-listed A and H share pairs | loop sum against a scalar field's zero | B21, B24 | 62 pairs, 465 same-bell pairings, 4,226 leg-years |
@@ -114,7 +114,7 @@ measurement work.
 | A value added tax law's input deduction by buyer class | loop sum against a scalar field's zero | B122 | three rates by three buyer classes, nine squares, four independent |
 | A consumption tax's invoice transition schedule by seller class | loop sum against a scalar field's zero | B122 | one loop read as a dose over five dated steps |
 | An island resident air fare discount and the statute that sets its base | loop sum against a scalar field's zero | B125 | a share of the fare with three airport charges taken out of the base, and its dated history |
-| A city's rent cap statute and the rent index its table was derived from | the counting law on written class values | B129 | twelve values for one kind of dwelling, each an index median times one factor |
+| A city's rent cap statute and the rent index its table was derived from | the counting law on written class values | B129 | twelve values for one kind of dwelling, each a 2013 rent-index base times one factor |
 
 ## Official statistics and administrative panels
 

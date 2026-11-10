@@ -1,0 +1,8033 @@
+{
+ "B159_1": {
+  "files": [
+   {
+    "bytes": 364099,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/Definity_Q2-2026-News-Release.pdf",
+    "sha256": "470b2976ccec36d04f74d2fc93246910c251ef1107cd8081fdc6072cc8e9c7f5",
+    "url": "https://s28.q4cdn.com/441925426/files/doc_financials/2026/Q2/Q2-2026-News-Release.pdf"
+   },
+   {
+    "bytes": 450578,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NBIB_2026_07_13_Definity_PPV_RFG-1_Decision_E.pdf",
+    "sha256": "c2dd7fad95ac02778f73d858884db9f2580eb909a7dafd33cee1309a12ff17cd",
+    "url": "https://www.nbib-canb.org/assets/files/hearings/recent/2026_Definity_PPV/2026_07_13%20Definity%20PPV%20RFG-1%20Decision%20E.pdf"
+   },
+   {
+    "bytes": 131199,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12606.pdf",
+    "sha256": "4890af3acecf19d01476717e854f7d0fac5dc546fcde47adc9a26674c8b5c9f6",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20Board%20Decision%20-%20Definity%20Insurance%20Company%20M12606.pdf"
+   },
+   {
+    "bytes": 128406,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12629.pdf",
+    "sha256": "35e0a1a97d66c409e41fe2680cb5658cbafa049f6925eae4a35d9f6613c2a83f",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20Board%20Decision%20-%20Definity%20Insurance%20Company%20M12629.pdf"
+   },
+   {
+    "bytes": 157779,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12803.pdf",
+    "sha256": "3d810327eb8216d2ebba2ff0a919f416594f9cca09debe79735c5b8ad80ce33c",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20Board%20Decision%20-%20Definity%20Insurance%20Company%20%28M12803%29.pdf"
+   },
+   {
+    "bytes": 215819,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Decision_Dominion_M12284.pdf",
+    "sha256": "aad5a45764383847c5c07962d5ff5882458d17ae53ac10bfbac4f1a768eee96e",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20Decision%20-%20The%20Dominion%20of%20Canada%20General%20Insurance%20Company%20M12284.pdf"
+   },
+   {
+    "bytes": 149729,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Decision_Dominion_M12431.pdf",
+    "sha256": "2e8fc2b5b18bcdf37ca8c904f262242322cf16d169489adb3c5cea748bbc56b5",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20Board%20Decision%20-%20The%20Dominion%20of%20Canada%20General%20Insurance%20Company%20%28M12431%29.pdf"
+   },
+   {
+    "bytes": 1012682,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Section_155G_Prior_Approval_Minor_Revised_2025.pdf",
+    "sha256": "42bbd1ca788d83f3e6237eabe83e22009a9358ab40522eedbd1e264865b24e54",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20-%20Section_155G_Prior_Approval-Minor%20-%20REVISED%202025.pdf"
+   },
+   {
+    "bytes": 1228694,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSRAB_Section_155G_Prior_Approval_Revised_2025.pdf",
+    "sha256": "746b1a05772b11b5587f228c8ba7178411890cecc9b9005b9b2455b78c663742",
+    "url": "https://nserbt.ca/sites/default/files/NSRAB%20Section%20155G%20-%20Prior%20Approval%20-%20Revised%202025.pdf"
+   },
+   {
+    "bytes": 504468,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSUARB_2021_NSUARB_28_Intact_M09990.pdf",
+    "sha256": "e51479075b7c9dc0e4f393942915610f5b6aeeb84cb94dbb60578f1298da9466",
+    "url": "https://nserbt.ca/sites/default/files/M09990%20Intact%20Decision.pdf"
+   },
+   {
+    "bytes": 174085,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSUARB_2023_NSUARB_11_Intact_Trafalgar_M10813_M10861.pdf",
+    "sha256": "a0ac9bfcc58853ba09ab680d80c328ab49e9ff45df3f74f6e8cf0b38feaf4e4d",
+    "url": "https://nserbt.ca/sites/default/files/Intact-Trafalgar%20Decision%20M10813-M10861.pdf"
+   },
+   {
+    "bytes": 168136,
+    "derived_from": "",
+    "match": true,
+    "path": "pdf/NSUARB_2025_NSUARB_25_Hartford_M12044.pdf",
+    "sha256": "811a01e7a80e1bbbaef0d0a8b167714a4227ab4032d22ee13335af9f5937edab",
+    "url": "https://nsuarb.novascotia.ca/sites/default/files/NSUARB%20Board%20Decision%20and%20Order%20-%20Hartford%20Fire%20Insurance%20Company%20-%20M12044.pdf"
+   },
+   {
+    "bytes": 40649,
+    "derived_from": "pdf/Definity_Q2-2026-News-Release.pdf",
+    "match": true,
+    "path": "txt/Definity_Q2-2026-News-Release.txt",
+    "sha256": "fe79bedf78fea4f5200f507206d98aa1436133f23e76b64dd88f01348df6c409",
+    "url": ""
+   },
+   {
+    "bytes": 18418,
+    "derived_from": "uarb15/M12161_98121_Board_Decision.pdf",
+    "match": true,
+    "path": "txt/M12161_98121_Board_Decision.txt",
+    "sha256": "2dbb2f84fcd6ad7ef984a0615abe70f7c028c0856875b7c0d8cad39e86a03f5b",
+    "url": ""
+   },
+   {
+    "bytes": 1115,
+    "derived_from": "uarb15/M12161_99051_Amended_Order.pdf",
+    "match": true,
+    "path": "txt/M12161_99051_Amended_Order.txt",
+    "sha256": "310ef01da7772b7d5e9437b6328da3812cf3d45b68366e1193ddaca1cf604f5b",
+    "url": ""
+   },
+   {
+    "bytes": 110113,
+    "derived_from": "uarb15/M12284_T-6.pdf",
+    "match": true,
+    "path": "txt/M12284_T-6.txt",
+    "sha256": "8e71587a633fe2e46297eb0aefca05ed5831094a5e130d031fb98e6eb67fad0b",
+    "url": ""
+   },
+   {
+    "bytes": 1696,
+    "derived_from": "uarb15/M12466_99256_Cover_Letter.pdf",
+    "match": true,
+    "path": "txt/M12466_99256_Cover_Letter.txt",
+    "sha256": "9c7e498166c5f7ed6251171174a7849291ebd68d605eedef371c8c2307613fb2",
+    "url": ""
+   },
+   {
+    "bytes": 2315,
+    "derived_from": "uarb15/M12466_99287_Board_Decision_Letter.pdf",
+    "match": true,
+    "path": "txt/M12466_99287_Board_Decision_Letter.txt",
+    "sha256": "700fe42071e92aa24e8e3351923afed17374ff7acbb2e121cfa6b8a5c3e89e70",
+    "url": ""
+   },
+   {
+    "bytes": 997,
+    "derived_from": "uarb15/M12606_101357_Amending_Order.pdf",
+    "match": true,
+    "path": "txt/M12606_101357_Amending_Order.txt",
+    "sha256": "60bb51a698894c40962d1fafc2e4538dcfc944a9fb3fdea0a748ab080531ba29",
+    "url": ""
+   },
+   {
+    "bytes": 1218,
+    "derived_from": "uarb15/M12606_103078_Board_Letter_re_directive.pdf",
+    "match": true,
+    "path": "txt/M12606_103078_Board_Letter_re_directive.txt",
+    "sha256": "5b421223305cc01362b4ef7801f2ff6e0ad2710084044164985dade1dc02b285",
+    "url": ""
+   },
+   {
+    "bytes": 5735,
+    "derived_from": "uarb15/M12606_D-1_Part1_NonConfidential.pdf",
+    "match": true,
+    "path": "txt/M12606_D-1_Part1_NonConfidential.txt",
+    "sha256": "ef205d869756b1720afa551fa678c22c045cc31bba7adfc8aa66762972b00916",
+    "url": ""
+   },
+   {
+    "bytes": 1145,
+    "derived_from": "uarb15/M12803_103778_Amended_Board_Order.pdf",
+    "match": true,
+    "path": "txt/M12803_103778_Amended_Board_Order.txt",
+    "sha256": "1dca4ea9742d20f54330999d4607bdf21a0e56ed6edc022298ec440f9c5c8e68",
+    "url": ""
+   },
+   {
+    "bytes": 96948,
+    "derived_from": "uarb15/M12803_D-1_Part1_NonConfidential.pdf",
+    "match": true,
+    "path": "txt/M12803_D-1_Part1_NonConfidential.txt",
+    "sha256": "a32ebb0ef474a9ac71ec6217fadb4b467dab1aa9eed948fcd9fb6f0be2c5cdff",
+    "url": ""
+   },
+   {
+    "bytes": 38564,
+    "derived_from": "pdf/NBIB_2026_07_13_Definity_PPV_RFG-1_Decision_E.pdf",
+    "match": true,
+    "path": "txt/NBIB_2026_07_13_Definity_PPV_RFG-1_Decision_E.txt",
+    "sha256": "5cd36ac8e9cbccdd8569bc08d03b1b2561ee0bf83e05304f9720616ab7f68829",
+    "url": ""
+   },
+   {
+    "bytes": 8761,
+    "derived_from": "pdf/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12606.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12606.txt",
+    "sha256": "96d66326bc1328db618bba0f0cd421dfa752cdf8cebdec140366e7171305063b",
+    "url": ""
+   },
+   {
+    "bytes": 6346,
+    "derived_from": "pdf/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12629.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12629.txt",
+    "sha256": "fd56c01a66e2940bed444ff6da3c1a2697939b6398ca8f62393b6a65a13354ba",
+    "url": ""
+   },
+   {
+    "bytes": 19252,
+    "derived_from": "pdf/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12803.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Board_Decision_-_Definity_Insurance_Company_M12803.txt",
+    "sha256": "b7c0bdca629175a73d220fbaf003154f65bc40bf5f11f8bf0796812e64072f62",
+    "url": ""
+   },
+   {
+    "bytes": 19256,
+    "derived_from": "pdf/NSRAB_Decision_Dominion_M12284.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Decision_Dominion_M12284.txt",
+    "sha256": "9c7498c293981c0d37c0885cf39a82869ea04e68e2699346f14775bf0ae39e57",
+    "url": ""
+   },
+   {
+    "bytes": 4165,
+    "derived_from": "pdf/NSRAB_Decision_Dominion_M12431.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Decision_Dominion_M12431.txt",
+    "sha256": "03d00eac8e243b54dc871c5192766c0a3295a0b0afb1ca5f6764df17b010d804",
+    "url": ""
+   },
+   {
+    "bytes": 37944,
+    "derived_from": "pdf/NSRAB_Section_155G_Prior_Approval_Minor_Revised_2025.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Section_155G_Prior_Approval_Minor_Revised_2025.txt",
+    "sha256": "eb7af7a8a2ecab7aa949cd6f71005fe25b8df3b602515313f429f5b8298df0aa",
+    "url": ""
+   },
+   {
+    "bytes": 115069,
+    "derived_from": "pdf/NSRAB_Section_155G_Prior_Approval_Revised_2025.pdf",
+    "match": true,
+    "path": "txt/NSRAB_Section_155G_Prior_Approval_Revised_2025.txt",
+    "sha256": "ef65a8f118e40513101f67012077ca6eddce4574718ea32fbb20f3777c97129f",
+    "url": ""
+   },
+   {
+    "bytes": 5634,
+    "derived_from": "pdf/NSUARB_2021_NSUARB_28_Intact_M09990.pdf",
+    "match": true,
+    "path": "txt/NSUARB_2021_NSUARB_28_Intact_M09990.txt",
+    "sha256": "9f3f4bfb7e9fa734c04ee3ce7c0481285c29a634448e268959ae96e610ec76a3",
+    "url": ""
+   },
+   {
+    "bytes": 27529,
+    "derived_from": "pdf/NSUARB_2023_NSUARB_11_Intact_Trafalgar_M10813_M10861.pdf",
+    "match": true,
+    "path": "txt/NSUARB_2023_NSUARB_11_Intact_Trafalgar_M10813_M10861.txt",
+    "sha256": "a2c3d300074e6fc8b6f1e0cb405ad2731c6d2d1c43f8573092777377674586ee",
+    "url": ""
+   },
+   {
+    "bytes": 1456,
+    "derived_from": "pdf/NSUARB_2025_NSUARB_25_Hartford_M12044.pdf",
+    "match": true,
+    "path": "txt/NSUARB_2025_NSUARB_25_Hartford_M12044.txt",
+    "sha256": "625adfdda10b946b6e812b4bbe6f9b0131b15b6b1bbdcb35ecabe905687be8fe",
+    "url": ""
+   },
+   {
+    "bytes": 185228,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12161_98121_Board_Decision.pdf",
+    "sha256": "9d2a3ca46135f4bdf1e1b54b44ce493da09d60a0d6a3965a5c35344d50e9ee78",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 150798,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12161_99051_Amended_Order.pdf",
+    "sha256": "1673e1700115000f97139744e03f5ee8402c44f7e3c49cb9d7023eb87859b938",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 342653,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12161_D-2_Rating_Profiles.xlsx",
+    "sha256": "9731226e8dce6d2161d4646a92d66921fce727c76ee5bbe076048f4c02fadcce",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 293664,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12284_T-3.xlsx",
+    "sha256": "898154040cfcb6b235d45cf6f64a7c744312c8e07beb470e2eed0124bef02519",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 958207,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12284_T-6.pdf",
+    "sha256": "d5593c160153a3f5594cc33b60ce01363cc27b3bf9d45208e48ffe18ba01c878",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 361919,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12284_T-8.xlsx",
+    "sha256": "a5173b4ee4ee83115a60ed566ff96f3d2319335f3a1402e1ab01f89938fc9185",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 312647,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12466_99256_Cover_Letter.pdf",
+    "sha256": "775d4397d8a099a9e6f76ef2cb90b43a596bf8ea6069a3b5cd1813ad7c31bcca",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 176736,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12466_99287_Board_Decision_Letter.pdf",
+    "sha256": "a047c9d9d4988a2b25f6ee21b00a9a6b104db3b47c34d1c39aa2180a91d68fa9",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 152578,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12606_101357_Amending_Order.pdf",
+    "sha256": "8919e0910f8110113578c5861df6fe9ea2757e0a23c1b8ac7c6b42b62d0654f8",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 156795,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12606_103078_Board_Letter_re_directive.pdf",
+    "sha256": "8c41311ccf129d26e16287d867906497f362984c20ebb9257ff1c6c58ccc66c8",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 739530,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12606_D-1_Part1_NonConfidential.pdf",
+    "sha256": "01e5b4bbabb147a56ecbb14914c8b4bd3d8622adb6a365e832a78458aa21ccdc",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 133049,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12803_103778_Amended_Board_Order.pdf",
+    "sha256": "367e1250c584ab8a2031cc99e1f19074ccbcd5634fb2e41dc99d4268f2b8ae54",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 1699294,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12803_D-1_Part1_NonConfidential.pdf",
+    "sha256": "9d6110e875e03c46ed1fa073f33c6382ace09e2a0c8627c08c969e0a4d5f93bb",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 359431,
+    "derived_from": "",
+    "match": true,
+    "path": "uarb15/M12803_D-3_Rating_Profiles.xlsx",
+    "sha256": "6b6893dde1abeccc612eaba1bcfee0423dbc0073a895b2517932e78709d033b6",
+    "url": "https://uarb.novascotia.ca/fmi/webd/UARB15"
+   },
+   {
+    "bytes": 335321,
+    "derived_from": "",
+    "match": true,
+    "path": "xlsx/PPV_Rating_Profiles_2026_CARR_NS.xlsx",
+    "sha256": "532276e787b2cca13e0056b22b55560d1d2927f3cd772e05afef884b2d1c0686",
+    "url": "https://nserbt.ca/sites/default/files/PPV%20Rating%20Profiles%20-%202026%20-%20CARR%20NS_1.XLSX"
+   },
+   {
+    "bytes": 202388,
+    "derived_from": "",
+    "match": true,
+    "path": "xlsx/S155G_PAMajor_Summ_of_Info_2021.xlsx",
+    "sha256": "a745d09117c90ba0875879a02cd1e57d2769615f0dd7ab926077ccd389ee7c20",
+    "url": "https://nsuarb.novascotia.ca/sites/default/files/Appendix%20A%20-%20S155G%20PAMajor%20Summ%20of%20Info%20%282021%29.XLSX"
+   }
+  ],
+  "missing": [],
+  "quotes": [
+   {
+    "found": true,
+    "id": "ppv_acquired",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_renew_into_A",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_window",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_differ",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_large",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_manual",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "cv_renew_into_A",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_window",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_differ",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_manual",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_uncapped",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_capped",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "ppv_update",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "conf8",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "conf_routine",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "conf_part2",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "conf_c2",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "conf_c5",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "dislocation_merger",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "nc_part1",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "nc_n5",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "profiles_current_proposed",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "two_cycles",
+    "source": "S155G"
+   },
+   {
+    "found": true,
+    "id": "b_clear_version",
+    "source": "M12284"
+   },
+   {
+    "found": true,
+    "id": "b_clear_2025",
+    "source": "M12284"
+   },
+   {
+    "found": true,
+    "id": "a_clear_version",
+    "source": "M12803"
+   },
+   {
+    "found": true,
+    "id": "a_clear_dates",
+    "source": "M12803"
+   },
+   {
+    "found": true,
+    "id": "ppv_cap_up",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_cap_claim",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_cap_down",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_cap_differs",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_cap_span",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_ccs",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "ppv_collector",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "cv_cap_up",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_cap_claim",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_cap_down",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "cv_own_none",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "rsa_caps",
+    "source": "INTACT2023"
+   },
+   {
+    "found": true,
+    "id": "intact_own_35",
+    "source": "INTACT2023"
+   },
+   {
+    "found": true,
+    "id": "intact_own_45",
+    "source": "INTACT2023"
+   },
+   {
+    "found": true,
+    "id": "rsa_removed",
+    "source": "INTACT2023"
+   },
+   {
+    "found": true,
+    "id": "rsa_all_renewed",
+    "source": "INTACT2023"
+   },
+   {
+    "found": true,
+    "id": "a_rates_dates",
+    "source": "M12803"
+   },
+   {
+    "found": true,
+    "id": "a_rates_overall",
+    "source": "M12803"
+   },
+   {
+    "found": true,
+    "id": "manual_no_caps",
+    "source": "M12629"
+   },
+   {
+    "found": true,
+    "id": "manual_no_renewal_discount",
+    "source": "M12803"
+   },
+   {
+    "found": true,
+    "id": "staff_report",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "nb_merger",
+    "source": "NBIB2026"
+   },
+   {
+    "found": true,
+    "id": "renewal_discount",
+    "source": "M12803"
+   },
+   {
+    "found": true,
+    "id": "dfy_q2_retention",
+    "source": "DFY_Q2"
+   },
+   {
+    "found": true,
+    "id": "cites_8",
+    "source": "M12606"
+   },
+   {
+    "found": true,
+    "id": "m12284_8",
+    "source": "M12284"
+   },
+   {
+    "found": true,
+    "id": "m12284_cite",
+    "source": "M12284"
+   },
+   {
+    "found": true,
+    "id": "m12284_ppv",
+    "source": "M12284"
+   },
+   {
+    "found": true,
+    "id": "m12044_cite",
+    "source": "M12044"
+   },
+   {
+    "found": true,
+    "id": "m12044_who",
+    "source": "M12044"
+   },
+   {
+    "found": true,
+    "id": "m12044_what",
+    "source": "M12044"
+   },
+   {
+    "found": true,
+    "id": "ppv_window_amended",
+    "source": "M12606_AMEND"
+   },
+   {
+    "found": true,
+    "id": "update_received",
+    "source": "M12606_LETTER"
+   },
+   {
+    "found": true,
+    "id": "negative_capping_confirmed",
+    "source": "M12606_LETTER"
+   },
+   {
+    "found": true,
+    "id": "a_clear_dates_amended",
+    "source": "M12803_AMEND"
+   },
+   {
+    "found": true,
+    "id": "a2025_approved",
+    "source": "M12161"
+   },
+   {
+    "found": true,
+    "id": "a2025_territories",
+    "source": "M12161"
+   },
+   {
+    "found": true,
+    "id": "a2025_dates",
+    "source": "M12161_AMEND"
+   },
+   {
+    "found": true,
+    "id": "b2025_dates",
+    "source": "M12284"
+   },
+   {
+    "found": true,
+    "id": "b_theft_dates",
+    "source": "M12466"
+   },
+   {
+    "found": true,
+    "id": "b_filings_confidential",
+    "source": "M12466_COVER"
+   },
+   {
+    "found": true,
+    "id": "minor_no_profiles",
+    "source": "S155G_MINOR"
+   }
+  ],
+  "quotes_found": 69,
+  "quotes_total": 69,
+  "withheld": [
+   {
+    "bytes": 9223168,
+    "path": "uarb15/M12284_T-10.xlsx",
+    "present_under_readable_name": false,
+    "renamed_to": "uarb15/M12284_T-10.xlsx.expired",
+    "sha256": "10a69da284a9ac5a9eb6e41847823188755d7917eaaa7b224efbb7d5cf7d3818"
+   }
+  ]
+ },
+ "B159_10": {
+  "direct_positions_off_floor": 117,
+  "excluded_sheets": {
+   "unpriced_blocks": 116
+  },
+  "independent_squares_b1": 125,
+  "largest_square": {
+   "floor": "0.00530",
+   "times_floor": "235.9",
+   "value": "1.2495",
+   "x": "10.1 | Antigonish (B2G)",
+   "y": "Combined 1.1 | North Sydney (B2A)"
+  },
+  "log_ratio_min_median_max": [
+   "-0.6735",
+   "0.0005",
+   "0.5760"
+  ],
+  "pairs": 7875,
+  "pairs_above_floor": 7612,
+  "per_profile_change_min_max": {
+   "10.1": [
+    "+0.4528",
+    "+0.7789"
+   ],
+   "3.2": [
+    "-0.1174",
+    "+0.0407"
+   ],
+   "3.3": [
+    "+0.0671",
+    "+0.3573"
+   ],
+   "5.1": [
+    "-0.4705",
+    "-0.2005"
+   ],
+   "6.2": [
+    "-0.1365",
+    "+0.0238"
+   ],
+   "6.3": [
+    "-0.1719",
+    "+0.0571"
+   ],
+   "8.1": [
+    "-0.1447",
+    "+0.0459"
+   ],
+   "9.1": [
+    "+0.2363",
+    "+0.5602"
+   ],
+   "Combined 1.1": [
+    "-0.4901",
+    "-0.3505"
+   ],
+   "Combined 2.1": [
+    "-0.1210",
+    "+0.1315"
+   ],
+   "Combined 3.1": [
+    "-0.0330",
+    "+0.1653"
+   ],
+   "Combined 4.1": [
+    "-0.2325",
+    "-0.0107"
+   ],
+   "Combined 6.1": [
+    "-0.1539",
+    "+0.0393"
+   ],
+   "Combined 7.1": [
+    "-0.1920",
+    "+0.0883"
+   ]
+  },
+  "position_floor_min_median_max": [
+   "0.00164",
+   "0.00400",
+   "0.00635"
+  ],
+  "positions": 126,
+  "profiles": [
+   "10.1",
+   "3.2",
+   "3.3",
+   "5.1",
+   "6.2",
+   "6.3",
+   "8.1",
+   "9.1",
+   "Combined 1.1",
+   "Combined 2.1",
+   "Combined 3.1",
+   "Combined 4.1",
+   "Combined 6.1",
+   "Combined 7.1"
+  ],
+  "star_reference": "3.2 | Dartmouth (B3A)",
+  "star_squares": 125,
+  "star_squares_above_floor": 115,
+  "table": [
+   {
+    "A_coverages": [
+     1117.0,
+     0.0,
+     440.0,
+     365.0,
+     8.0,
+     1930.0,
+     18.0,
+     818.0,
+     404.0,
+     1240.0,
+     3170.0
+    ],
+    "A_total": 3170.0,
+    "B_coverages": [
+     500.0,
+     11.0,
+     357.0,
+     115.0,
+     13.0,
+     996.0,
+     12.0,
+     458.0,
+     402.0,
+     872.0,
+     1868.0
+    ],
+    "B_total": 1868.0,
+    "floor": "0.00325",
+    "log_A_over_B": "0.5289",
+    "profile": "10.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     1117.0,
+     0.0,
+     440.0,
+     365.0,
+     8.0,
+     1930.0,
+     18.0,
+     818.0,
+     404.0,
+     1240.0,
+     3170.0
+    ],
+    "A_total": 3170.0,
+    "B_coverages": [
+     425.0,
+     11.0,
+     303.0,
+     98.0,
+     13.0,
+     850.0,
+     12.0,
+     458.0,
+     462.0,
+     932.0,
+     1782.0
+    ],
+    "B_total": 1782.0,
+    "floor": "0.00335",
+    "log_A_over_B": "0.5760",
+    "profile": "10.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     1417.0,
+     0.0,
+     820.0,
+     680.0,
+     8.0,
+     2925.0,
+     18.0,
+     921.0,
+     200.0,
+     1139.0,
+     4064.0
+    ],
+    "A_total": 4064.0,
+    "B_coverages": [
+     758.0,
+     17.0,
+     499.0,
+     183.0,
+     13.0,
+     1470.0,
+     12.0,
+     473.0,
+     425.0,
+     910.0,
+     2380.0
+    ],
+    "B_total": 2380.0,
+    "floor": "0.00254",
+    "log_A_over_B": "0.5351",
+    "profile": "10.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     1417.0,
+     0.0,
+     820.0,
+     680.0,
+     8.0,
+     2925.0,
+     18.0,
+     921.0,
+     200.0,
+     1139.0,
+     4064.0
+    ],
+    "A_total": 4064.0,
+    "B_coverages": [
+     758.0,
+     17.0,
+     499.0,
+     183.0,
+     13.0,
+     1470.0,
+     12.0,
+     473.0,
+     425.0,
+     910.0,
+     2380.0
+    ],
+    "B_total": 2380.0,
+    "floor": "0.00254",
+    "log_A_over_B": "0.5351",
+    "profile": "10.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     1016.0,
+     0.0,
+     410.0,
+     428.0,
+     8.0,
+     1862.0,
+     18.0,
+     747.0,
+     420.0,
+     1185.0,
+     3047.0
+    ],
+    "A_total": 3047.0,
+    "B_coverages": [
+     443.0,
+     10.0,
+     335.0,
+     100.0,
+     13.0,
+     901.0,
+     12.0,
+     446.0,
+     437.0,
+     895.0,
+     1796.0
+    ],
+    "B_total": 1796.0,
+    "floor": "0.00338",
+    "log_A_over_B": "0.5286",
+    "profile": "10.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     1117.0,
+     0.0,
+     440.0,
+     365.0,
+     8.0,
+     1930.0,
+     18.0,
+     818.0,
+     404.0,
+     1240.0,
+     3170.0
+    ],
+    "A_total": 3170.0,
+    "B_coverages": [
+     425.0,
+     11.0,
+     303.0,
+     98.0,
+     13.0,
+     850.0,
+     12.0,
+     458.0,
+     462.0,
+     932.0,
+     1782.0
+    ],
+    "B_total": 1782.0,
+    "floor": "0.00335",
+    "log_A_over_B": "0.5760",
+    "profile": "10.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     1073.0,
+     0.0,
+     592.0,
+     528.0,
+     8.0,
+     2201.0,
+     18.0,
+     958.0,
+     349.0,
+     1325.0,
+     3526.0
+    ],
+    "A_total": 3526.0,
+    "B_coverages": [
+     810.0,
+     19.0,
+     562.0,
+     127.0,
+     13.0,
+     1531.0,
+     12.0,
+     451.0,
+     433.0,
+     896.0,
+     2427.0
+    ],
+    "B_total": 2427.0,
+    "floor": "0.00264",
+    "log_A_over_B": "0.3735",
+    "profile": "10.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     1073.0,
+     0.0,
+     592.0,
+     528.0,
+     8.0,
+     2201.0,
+     18.0,
+     958.0,
+     349.0,
+     1325.0,
+     3526.0
+    ],
+    "A_total": 3526.0,
+    "B_coverages": [
+     810.0,
+     19.0,
+     562.0,
+     127.0,
+     13.0,
+     1531.0,
+     12.0,
+     451.0,
+     433.0,
+     896.0,
+     2427.0
+    ],
+    "B_total": 2427.0,
+    "floor": "0.00264",
+    "log_A_over_B": "0.3735",
+    "profile": "10.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     1016.0,
+     0.0,
+     410.0,
+     428.0,
+     8.0,
+     1862.0,
+     18.0,
+     747.0,
+     420.0,
+     1185.0,
+     3047.0
+    ],
+    "A_total": 3047.0,
+    "B_coverages": [
+     444.0,
+     10.0,
+     339.0,
+     92.0,
+     13.0,
+     898.0,
+     12.0,
+     418.0,
+     462.0,
+     892.0,
+     1790.0
+    ],
+    "B_total": 1790.0,
+    "floor": "0.00339",
+    "log_A_over_B": "0.5319",
+    "profile": "10.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     651.0,
+     0.0,
+     253.0,
+     71.0,
+     8.0,
+     983.0,
+     18.0,
+     378.0,
+     334.0,
+     730.0,
+     1713.0
+    ],
+    "A_total": 1713.0,
+    "B_coverages": [
+     383.0,
+     9.0,
+     210.0,
+     63.0,
+     13.0,
+     678.0,
+     12.0,
+     474.0,
+     505.0,
+     991.0,
+     1669.0
+    ],
+    "B_total": 1669.0,
+    "floor": "0.00444",
+    "log_A_over_B": "0.0260",
+    "profile": "3.2",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     651.0,
+     0.0,
+     253.0,
+     71.0,
+     8.0,
+     983.0,
+     18.0,
+     378.0,
+     334.0,
+     730.0,
+     1713.0
+    ],
+    "A_total": 1713.0,
+    "B_coverages": [
+     325.0,
+     9.0,
+     179.0,
+     53.0,
+     13.0,
+     579.0,
+     12.0,
+     474.0,
+     581.0,
+     1067.0,
+     1646.0
+    ],
+    "B_total": 1646.0,
+    "floor": "0.00448",
+    "log_A_over_B": "0.0399",
+    "profile": "3.2",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     815.0,
+     0.0,
+     471.0,
+     132.0,
+     8.0,
+     1426.0,
+     18.0,
+     426.0,
+     166.0,
+     610.0,
+     2036.0
+    ],
+    "A_total": 2036.0,
+    "B_coverages": [
+     580.0,
+     13.0,
+     294.0,
+     100.0,
+     13.0,
+     1000.0,
+     12.0,
+     490.0,
+     533.0,
+     1035.0,
+     2035.0
+    ],
+    "B_total": 2035.0,
+    "floor": "0.00369",
+    "log_A_over_B": "0.0005",
+    "profile": "3.2",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     815.0,
+     0.0,
+     471.0,
+     132.0,
+     8.0,
+     1426.0,
+     18.0,
+     426.0,
+     166.0,
+     610.0,
+     2036.0
+    ],
+    "A_total": 2036.0,
+    "B_coverages": [
+     580.0,
+     13.0,
+     294.0,
+     100.0,
+     13.0,
+     1000.0,
+     12.0,
+     490.0,
+     533.0,
+     1035.0,
+     2035.0
+    ],
+    "B_total": 2035.0,
+    "floor": "0.00369",
+    "log_A_over_B": "0.0005",
+    "profile": "3.2",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     596.0,
+     0.0,
+     235.0,
+     83.0,
+     8.0,
+     922.0,
+     18.0,
+     345.0,
+     348.0,
+     711.0,
+     1633.0
+    ],
+    "A_total": 1633.0,
+    "B_coverages": [
+     339.0,
+     8.0,
+     198.0,
+     55.0,
+     13.0,
+     613.0,
+     12.0,
+     461.0,
+     549.0,
+     1022.0,
+     1635.0
+    ],
+    "B_total": 1635.0,
+    "floor": "0.00460",
+    "log_A_over_B": "-0.0012",
+    "profile": "3.2",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     651.0,
+     0.0,
+     253.0,
+     71.0,
+     8.0,
+     983.0,
+     18.0,
+     378.0,
+     334.0,
+     730.0,
+     1713.0
+    ],
+    "A_total": 1713.0,
+    "B_coverages": [
+     325.0,
+     9.0,
+     179.0,
+     53.0,
+     13.0,
+     579.0,
+     12.0,
+     474.0,
+     581.0,
+     1067.0,
+     1646.0
+    ],
+    "B_total": 1646.0,
+    "floor": "0.00448",
+    "log_A_over_B": "0.0399",
+    "profile": "3.2",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     627.0,
+     0.0,
+     339.0,
+     103.0,
+     8.0,
+     1077.0,
+     18.0,
+     443.0,
+     289.0,
+     750.0,
+     1827.0
+    ],
+    "A_total": 1827.0,
+    "B_coverages": [
+     620.0,
+     14.0,
+     331.0,
+     69.0,
+     13.0,
+     1047.0,
+     12.0,
+     467.0,
+     544.0,
+     1023.0,
+     2070.0
+    ],
+    "B_total": 2070.0,
+    "floor": "0.00385",
+    "log_A_over_B": "-0.1249",
+    "profile": "3.2",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     627.0,
+     0.0,
+     339.0,
+     103.0,
+     8.0,
+     1077.0,
+     18.0,
+     443.0,
+     289.0,
+     750.0,
+     1827.0
+    ],
+    "A_total": 1827.0,
+    "B_coverages": [
+     620.0,
+     14.0,
+     331.0,
+     69.0,
+     13.0,
+     1047.0,
+     12.0,
+     467.0,
+     544.0,
+     1023.0,
+     2070.0
+    ],
+    "B_total": 2070.0,
+    "floor": "0.00385",
+    "log_A_over_B": "-0.1249",
+    "profile": "3.2",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     596.0,
+     0.0,
+     235.0,
+     83.0,
+     8.0,
+     922.0,
+     18.0,
+     345.0,
+     348.0,
+     711.0,
+     1633.0
+    ],
+    "A_total": 1633.0,
+    "B_coverages": [
+     340.0,
+     8.0,
+     200.0,
+     50.0,
+     13.0,
+     611.0,
+     12.0,
+     432.0,
+     581.0,
+     1025.0,
+     1636.0
+    ],
+    "B_total": 1636.0,
+    "floor": "0.00459",
+    "log_A_over_B": "-0.0018",
+    "profile": "3.2",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     708.0,
+     0.0,
+     205.0,
+     247.0,
+     8.0,
+     1168.0,
+     18.0,
+     337.0,
+     148.0,
+     503.0,
+     1671.0
+    ],
+    "A_total": 1671.0,
+    "B_coverages": [
+     400.0,
+     9.0,
+     237.0,
+     96.0,
+     13.0,
+     755.0,
+     12.0,
+     284.0,
+     276.0,
+     572.0,
+     1327.0
+    ],
+    "B_total": 1327.0,
+    "floor": "0.00512",
+    "log_A_over_B": "0.2305",
+    "profile": "3.3",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     708.0,
+     0.0,
+     205.0,
+     247.0,
+     8.0,
+     1168.0,
+     18.0,
+     337.0,
+     148.0,
+     503.0,
+     1671.0
+    ],
+    "A_total": 1671.0,
+    "B_coverages": [
+     340.0,
+     9.0,
+     201.0,
+     82.0,
+     13.0,
+     645.0,
+     12.0,
+     284.0,
+     317.0,
+     613.0,
+     1258.0
+    ],
+    "B_total": 1258.0,
+    "floor": "0.00528",
+    "log_A_over_B": "0.2839",
+    "profile": "3.3",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     915.0,
+     0.0,
+     383.0,
+     460.0,
+     8.0,
+     1766.0,
+     18.0,
+     379.0,
+     73.0,
+     470.0,
+     2236.0
+    ],
+    "A_total": 2236.0,
+    "B_coverages": [
+     606.0,
+     14.0,
+     331.0,
+     152.0,
+     13.0,
+     1116.0,
+     12.0,
+     294.0,
+     291.0,
+     597.0,
+     1713.0
+    ],
+    "B_total": 1713.0,
+    "floor": "0.00390",
+    "log_A_over_B": "0.2664",
+    "profile": "3.3",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     1004.0,
+     0.0,
+     383.0,
+     460.0,
+     8.0,
+     1855.0,
+     18.0,
+     379.0,
+     73.0,
+     470.0,
+     2325.0
+    ],
+    "A_total": 2325.0,
+    "B_coverages": [
+     606.0,
+     14.0,
+     331.0,
+     152.0,
+     13.0,
+     1116.0,
+     12.0,
+     294.0,
+     291.0,
+     597.0,
+     1713.0
+    ],
+    "B_total": 1713.0,
+    "floor": "0.00384",
+    "log_A_over_B": "0.3055",
+    "profile": "3.3",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     639.0,
+     0.0,
+     191.0,
+     289.0,
+     8.0,
+     1127.0,
+     18.0,
+     307.0,
+     154.0,
+     479.0,
+     1606.0
+    ],
+    "A_total": 1606.0,
+    "B_coverages": [
+     354.0,
+     8.0,
+     222.0,
+     83.0,
+     13.0,
+     680.0,
+     12.0,
+     277.0,
+     299.0,
+     588.0,
+     1268.0
+    ],
+    "B_total": 1268.0,
+    "floor": "0.00534",
+    "log_A_over_B": "0.2363",
+    "profile": "3.3",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     708.0,
+     0.0,
+     205.0,
+     247.0,
+     8.0,
+     1168.0,
+     18.0,
+     337.0,
+     148.0,
+     503.0,
+     1671.0
+    ],
+    "A_total": 1671.0,
+    "B_coverages": [
+     340.0,
+     9.0,
+     201.0,
+     82.0,
+     13.0,
+     645.0,
+     12.0,
+     284.0,
+     317.0,
+     613.0,
+     1258.0
+    ],
+    "B_total": 1258.0,
+    "floor": "0.00528",
+    "log_A_over_B": "0.2839",
+    "profile": "3.3",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     679.0,
+     0.0,
+     276.0,
+     357.0,
+     8.0,
+     1320.0,
+     18.0,
+     394.0,
+     128.0,
+     540.0,
+     1860.0
+    ],
+    "A_total": 1860.0,
+    "B_coverages": [
+     648.0,
+     15.0,
+     372.0,
+     106.0,
+     13.0,
+     1154.0,
+     12.0,
+     280.0,
+     297.0,
+     589.0,
+     1743.0
+    ],
+    "B_total": 1743.0,
+    "floor": "0.00418",
+    "log_A_over_B": "0.0650",
+    "profile": "3.3",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     679.0,
+     0.0,
+     276.0,
+     357.0,
+     8.0,
+     1320.0,
+     18.0,
+     394.0,
+     128.0,
+     540.0,
+     1860.0
+    ],
+    "A_total": 1860.0,
+    "B_coverages": [
+     648.0,
+     15.0,
+     372.0,
+     106.0,
+     13.0,
+     1154.0,
+     12.0,
+     280.0,
+     297.0,
+     589.0,
+     1743.0
+    ],
+    "B_total": 1743.0,
+    "floor": "0.00418",
+    "log_A_over_B": "0.0650",
+    "profile": "3.3",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     639.0,
+     0.0,
+     191.0,
+     289.0,
+     8.0,
+     1127.0,
+     18.0,
+     307.0,
+     154.0,
+     479.0,
+     1606.0
+    ],
+    "A_total": 1606.0,
+    "B_coverages": [
+     355.0,
+     8.0,
+     225.0,
+     76.0,
+     13.0,
+     677.0,
+     12.0,
+     259.0,
+     317.0,
+     588.0,
+     1265.0
+    ],
+    "B_total": 1265.0,
+    "floor": "0.00535",
+    "log_A_over_B": "0.2387",
+    "profile": "3.3",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     1931.0,
+     0.0,
+     240.0,
+     144.0,
+     9.0,
+     2324.0,
+     18.0,
+     429.0,
+     184.0,
+     631.0,
+     2955.0
+    ],
+    "A_total": 2955.0,
+    "B_coverages": [
+     2166.0,
+     50.0,
+     549.0,
+     161.0,
+     13.0,
+     2939.0,
+     12.0,
+     956.0,
+     193.0,
+     1161.0,
+     4100.0
+    ],
+    "B_total": 4100.0,
+    "floor": "0.00216",
+    "log_A_over_B": "-0.3275",
+    "profile": "5.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     1931.0,
+     0.0,
+     240.0,
+     144.0,
+     9.0,
+     2324.0,
+     18.0,
+     429.0,
+     184.0,
+     631.0,
+     2955.0
+    ],
+    "A_total": 2955.0,
+    "B_coverages": [
+     1840.0,
+     50.0,
+     466.0,
+     137.0,
+     13.0,
+     2506.0,
+     12.0,
+     956.0,
+     222.0,
+     1190.0,
+     3696.0
+    ],
+    "B_total": 3696.0,
+    "floor": "0.00227",
+    "log_A_over_B": "-0.2238",
+    "profile": "5.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     2469.0,
+     0.0,
+     448.0,
+     268.0,
+     9.0,
+     3194.0,
+     18.0,
+     483.0,
+     91.0,
+     592.0,
+     3786.0
+    ],
+    "A_total": 3786.0,
+    "B_coverages": [
+     3285.0,
+     75.0,
+     767.0,
+     256.0,
+     13.0,
+     4396.0,
+     12.0,
+     989.0,
+     204.0,
+     1205.0,
+     5601.0
+    ],
+    "B_total": 5601.0,
+    "floor": "0.00164",
+    "log_A_over_B": "-0.3916",
+    "profile": "5.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     2469.0,
+     0.0,
+     448.0,
+     268.0,
+     9.0,
+     3194.0,
+     18.0,
+     483.0,
+     91.0,
+     592.0,
+     3786.0
+    ],
+    "A_total": 3786.0,
+    "B_coverages": [
+     3285.0,
+     75.0,
+     767.0,
+     256.0,
+     13.0,
+     4396.0,
+     12.0,
+     989.0,
+     204.0,
+     1205.0,
+     5601.0
+    ],
+    "B_total": 5601.0,
+    "floor": "0.00164",
+    "log_A_over_B": "-0.3916",
+    "profile": "5.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     1751.0,
+     0.0,
+     224.0,
+     169.0,
+     9.0,
+     2153.0,
+     18.0,
+     392.0,
+     191.0,
+     601.0,
+     2754.0
+    ],
+    "A_total": 2754.0,
+    "B_coverages": [
+     1920.0,
+     44.0,
+     515.0,
+     140.0,
+     13.0,
+     2632.0,
+     12.0,
+     931.0,
+     210.0,
+     1153.0,
+     3785.0
+    ],
+    "B_total": 3785.0,
+    "floor": "0.00233",
+    "log_A_over_B": "-0.3180",
+    "profile": "5.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     1931.0,
+     0.0,
+     240.0,
+     144.0,
+     9.0,
+     2324.0,
+     18.0,
+     429.0,
+     184.0,
+     631.0,
+     2955.0
+    ],
+    "A_total": 2955.0,
+    "B_coverages": [
+     1840.0,
+     50.0,
+     466.0,
+     137.0,
+     13.0,
+     2506.0,
+     12.0,
+     956.0,
+     222.0,
+     1190.0,
+     3696.0
+    ],
+    "B_total": 3696.0,
+    "floor": "0.00227",
+    "log_A_over_B": "-0.2238",
+    "profile": "5.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     1854.0,
+     0.0,
+     323.0,
+     208.0,
+     9.0,
+     2394.0,
+     18.0,
+     502.0,
+     159.0,
+     679.0,
+     3073.0
+    ],
+    "A_total": 3073.0,
+    "B_coverages": [
+     3508.0,
+     80.0,
+     863.0,
+     177.0,
+     13.0,
+     4641.0,
+     12.0,
+     943.0,
+     208.0,
+     1163.0,
+     5804.0
+    ],
+    "B_total": 5804.0,
+    "floor": "0.00183",
+    "log_A_over_B": "-0.6359",
+    "profile": "5.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     1854.0,
+     0.0,
+     323.0,
+     208.0,
+     9.0,
+     2394.0,
+     18.0,
+     502.0,
+     159.0,
+     679.0,
+     3073.0
+    ],
+    "A_total": 3073.0,
+    "B_coverages": [
+     3508.0,
+     80.0,
+     863.0,
+     177.0,
+     13.0,
+     4641.0,
+     12.0,
+     943.0,
+     208.0,
+     1163.0,
+     5804.0
+    ],
+    "B_total": 5804.0,
+    "floor": "0.00183",
+    "log_A_over_B": "-0.6359",
+    "profile": "5.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     1751.0,
+     0.0,
+     224.0,
+     169.0,
+     9.0,
+     2153.0,
+     18.0,
+     392.0,
+     191.0,
+     601.0,
+     2754.0
+    ],
+    "A_total": 2754.0,
+    "B_coverages": [
+     1923.0,
+     44.0,
+     520.0,
+     128.0,
+     13.0,
+     2628.0,
+     12.0,
+     873.0,
+     222.0,
+     1107.0,
+     3735.0
+    ],
+    "B_total": 3735.0,
+    "floor": "0.00234",
+    "log_A_over_B": "-0.3047",
+    "profile": "5.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     617.0,
+     0.0,
+     215.0,
+     45.0,
+     8.0,
+     885.0,
+     18.0,
+     331.0,
+     355.0,
+     704.0,
+     1589.0
+    ],
+    "A_total": 1589.0,
+    "B_coverages": [
+     327.0,
+     7.0,
+     218.0,
+     53.0,
+     13.0,
+     618.0,
+     12.0,
+     351.0,
+     575.0,
+     938.0,
+     1556.0
+    ],
+    "B_total": 1556.0,
+    "floor": "0.00478",
+    "log_A_over_B": "0.0210",
+    "profile": "6.2",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     617.0,
+     0.0,
+     215.0,
+     45.0,
+     8.0,
+     885.0,
+     18.0,
+     331.0,
+     355.0,
+     704.0,
+     1589.0
+    ],
+    "A_total": 1589.0,
+    "B_coverages": [
+     278.0,
+     7.0,
+     185.0,
+     45.0,
+     13.0,
+     528.0,
+     12.0,
+     351.0,
+     661.0,
+     1024.0,
+     1552.0
+    ],
+    "B_total": 1552.0,
+    "floor": "0.00479",
+    "log_A_over_B": "0.0236",
+    "profile": "6.2",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     771.0,
+     0.0,
+     400.0,
+     84.0,
+     8.0,
+     1263.0,
+     18.0,
+     374.0,
+     176.0,
+     568.0,
+     1831.0
+    ],
+    "A_total": 1831.0,
+    "B_coverages": [
+     496.0,
+     11.0,
+     304.0,
+     85.0,
+     13.0,
+     909.0,
+     12.0,
+     363.0,
+     607.0,
+     982.0,
+     1891.0
+    ],
+    "B_total": 1891.0,
+    "floor": "0.00403",
+    "log_A_over_B": "-0.0322",
+    "profile": "6.2",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     771.0,
+     0.0,
+     400.0,
+     84.0,
+     8.0,
+     1263.0,
+     18.0,
+     374.0,
+     176.0,
+     568.0,
+     1831.0
+    ],
+    "A_total": 1831.0,
+    "B_coverages": [
+     496.0,
+     11.0,
+     304.0,
+     85.0,
+     13.0,
+     909.0,
+     12.0,
+     363.0,
+     607.0,
+     982.0,
+     1891.0
+    ],
+    "B_total": 1891.0,
+    "floor": "0.00403",
+    "log_A_over_B": "-0.0322",
+    "profile": "6.2",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     565.0,
+     0.0,
+     200.0,
+     53.0,
+     8.0,
+     826.0,
+     18.0,
+     303.0,
+     369.0,
+     690.0,
+     1516.0
+    ],
+    "A_total": 1516.0,
+    "B_coverages": [
+     290.0,
+     7.0,
+     205.0,
+     46.0,
+     13.0,
+     561.0,
+     12.0,
+     342.0,
+     624.0,
+     978.0,
+     1539.0
+    ],
+    "B_total": 1539.0,
+    "floor": "0.00491",
+    "log_A_over_B": "-0.0151",
+    "profile": "6.2",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     617.0,
+     0.0,
+     215.0,
+     45.0,
+     8.0,
+     885.0,
+     18.0,
+     331.0,
+     355.0,
+     704.0,
+     1589.0
+    ],
+    "A_total": 1589.0,
+    "B_coverages": [
+     278.0,
+     7.0,
+     185.0,
+     45.0,
+     13.0,
+     528.0,
+     12.0,
+     351.0,
+     661.0,
+     1024.0,
+     1552.0
+    ],
+    "B_total": 1552.0,
+    "floor": "0.00479",
+    "log_A_over_B": "0.0236",
+    "profile": "6.2",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     595.0,
+     0.0,
+     289.0,
+     65.0,
+     8.0,
+     957.0,
+     18.0,
+     388.0,
+     307.0,
+     713.0,
+     1670.0
+    ],
+    "A_total": 1670.0,
+    "B_coverages": [
+     530.0,
+     12.0,
+     343.0,
+     59.0,
+     13.0,
+     957.0,
+     12.0,
+     346.0,
+     619.0,
+     977.0,
+     1934.0
+    ],
+    "B_total": 1934.0,
+    "floor": "0.00417",
+    "log_A_over_B": "-0.1468",
+    "profile": "6.2",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     595.0,
+     0.0,
+     289.0,
+     65.0,
+     8.0,
+     957.0,
+     18.0,
+     388.0,
+     307.0,
+     713.0,
+     1670.0
+    ],
+    "A_total": 1670.0,
+    "B_coverages": [
+     530.0,
+     12.0,
+     343.0,
+     59.0,
+     13.0,
+     957.0,
+     12.0,
+     346.0,
+     619.0,
+     977.0,
+     1934.0
+    ],
+    "B_total": 1934.0,
+    "floor": "0.00417",
+    "log_A_over_B": "-0.1468",
+    "profile": "6.2",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     565.0,
+     0.0,
+     200.0,
+     53.0,
+     8.0,
+     826.0,
+     18.0,
+     303.0,
+     369.0,
+     690.0,
+     1516.0
+    ],
+    "A_total": 1516.0,
+    "B_coverages": [
+     291.0,
+     7.0,
+     207.0,
+     43.0,
+     13.0,
+     561.0,
+     12.0,
+     320.0,
+     661.0,
+     993.0,
+     1554.0
+    ],
+    "B_total": 1554.0,
+    "floor": "0.00489",
+    "log_A_over_B": "-0.0248",
+    "profile": "6.2",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     600.0,
+     0.0,
+     194.0,
+     127.0,
+     8.0,
+     929.0,
+     18.0,
+     288.0,
+     191.0,
+     497.0,
+     1426.0
+    ],
+    "A_total": 1426.0,
+    "B_coverages": [
+     400.0,
+     9.0,
+     283.0,
+     116.0,
+     13.0,
+     821.0,
+     12.0,
+     319.0,
+     276.0,
+     607.0,
+     1428.0
+    ],
+    "B_total": 1428.0,
+    "floor": "0.00526",
+    "log_A_over_B": "-0.0014",
+    "profile": "6.3",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     600.0,
+     0.0,
+     194.0,
+     127.0,
+     8.0,
+     929.0,
+     18.0,
+     288.0,
+     191.0,
+     497.0,
+     1426.0
+    ],
+    "A_total": 1426.0,
+    "B_coverages": [
+     340.0,
+     9.0,
+     240.0,
+     99.0,
+     13.0,
+     701.0,
+     12.0,
+     319.0,
+     317.0,
+     648.0,
+     1349.0
+    ],
+    "B_total": 1349.0,
+    "floor": "0.00543",
+    "log_A_over_B": "0.0555",
+    "profile": "6.3",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     750.0,
+     0.0,
+     361.0,
+     236.0,
+     8.0,
+     1355.0,
+     18.0,
+     324.0,
+     95.0,
+     437.0,
+     1792.0
+    ],
+    "A_total": 1792.0,
+    "B_coverages": [
+     607.0,
+     14.0,
+     395.0,
+     184.0,
+     13.0,
+     1213.0,
+     12.0,
+     330.0,
+     291.0,
+     633.0,
+     1846.0
+    ],
+    "B_total": 1846.0,
+    "floor": "0.00412",
+    "log_A_over_B": "-0.0297",
+    "profile": "6.3",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     750.0,
+     0.0,
+     361.0,
+     236.0,
+     8.0,
+     1355.0,
+     18.0,
+     324.0,
+     95.0,
+     437.0,
+     1792.0
+    ],
+    "A_total": 1792.0,
+    "B_coverages": [
+     607.0,
+     14.0,
+     395.0,
+     184.0,
+     13.0,
+     1213.0,
+     12.0,
+     330.0,
+     291.0,
+     633.0,
+     1846.0
+    ],
+    "B_total": 1846.0,
+    "floor": "0.00412",
+    "log_A_over_B": "-0.0297",
+    "profile": "6.3",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     550.0,
+     0.0,
+     180.0,
+     148.0,
+     8.0,
+     886.0,
+     18.0,
+     263.0,
+     199.0,
+     480.0,
+     1366.0
+    ],
+    "A_total": 1366.0,
+    "B_coverages": [
+     355.0,
+     8.0,
+     266.0,
+     101.0,
+     13.0,
+     743.0,
+     12.0,
+     310.0,
+     300.0,
+     622.0,
+     1365.0
+    ],
+    "B_total": 1365.0,
+    "floor": "0.00550",
+    "log_A_over_B": "0.0007",
+    "profile": "6.3",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     600.0,
+     0.0,
+     194.0,
+     127.0,
+     8.0,
+     929.0,
+     18.0,
+     288.0,
+     191.0,
+     497.0,
+     1426.0
+    ],
+    "A_total": 1426.0,
+    "B_coverages": [
+     340.0,
+     9.0,
+     240.0,
+     99.0,
+     13.0,
+     701.0,
+     12.0,
+     319.0,
+     317.0,
+     648.0,
+     1349.0
+    ],
+    "B_total": 1349.0,
+    "floor": "0.00543",
+    "log_A_over_B": "0.0555",
+    "profile": "6.3",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     579.0,
+     0.0,
+     261.0,
+     183.0,
+     8.0,
+     1031.0,
+     18.0,
+     337.0,
+     165.0,
+     520.0,
+     1551.0
+    ],
+    "A_total": 1551.0,
+    "B_coverages": [
+     649.0,
+     15.0,
+     445.0,
+     128.0,
+     13.0,
+     1250.0,
+     12.0,
+     314.0,
+     297.0,
+     623.0,
+     1873.0
+    ],
+    "B_total": 1873.0,
+    "floor": "0.00440",
+    "log_A_over_B": "-0.1886",
+    "profile": "6.3",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     579.0,
+     0.0,
+     261.0,
+     183.0,
+     8.0,
+     1031.0,
+     18.0,
+     337.0,
+     165.0,
+     520.0,
+     1551.0
+    ],
+    "A_total": 1551.0,
+    "B_coverages": [
+     649.0,
+     15.0,
+     445.0,
+     128.0,
+     13.0,
+     1250.0,
+     12.0,
+     314.0,
+     297.0,
+     623.0,
+     1873.0
+    ],
+    "B_total": 1873.0,
+    "floor": "0.00440",
+    "log_A_over_B": "-0.1886",
+    "profile": "6.3",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     550.0,
+     0.0,
+     180.0,
+     148.0,
+     8.0,
+     886.0,
+     18.0,
+     263.0,
+     199.0,
+     480.0,
+     1366.0
+    ],
+    "A_total": 1366.0,
+    "B_coverages": [
+     356.0,
+     8.0,
+     268.0,
+     92.0,
+     13.0,
+     737.0,
+     12.0,
+     291.0,
+     317.0,
+     620.0,
+     1357.0
+    ],
+    "B_total": 1357.0,
+    "floor": "0.00552",
+    "log_A_over_B": "0.0066",
+    "profile": "6.3",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     647.0,
+     0.0,
+     182.0,
+     117.0,
+     8.0,
+     954.0,
+     18.0,
+     328.0,
+     205.0,
+     551.0,
+     1505.0
+    ],
+    "A_total": 1505.0,
+    "B_coverages": [
+     382.0,
+     9.0,
+     227.0,
+     128.0,
+     13.0,
+     759.0,
+     12.0,
+     294.0,
+     421.0,
+     727.0,
+     1486.0
+    ],
+    "B_total": 1486.0,
+    "floor": "0.00502",
+    "log_A_over_B": "0.0127",
+    "profile": "8.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     647.0,
+     0.0,
+     182.0,
+     117.0,
+     8.0,
+     954.0,
+     18.0,
+     328.0,
+     205.0,
+     551.0,
+     1505.0
+    ],
+    "A_total": 1505.0,
+    "B_coverages": [
+     325.0,
+     9.0,
+     193.0,
+     109.0,
+     13.0,
+     649.0,
+     12.0,
+     294.0,
+     484.0,
+     790.0,
+     1439.0
+    ],
+    "B_total": 1439.0,
+    "floor": "0.00511",
+    "log_A_over_B": "0.0448",
+    "profile": "8.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     810.0,
+     0.0,
+     340.0,
+     218.0,
+     8.0,
+     1376.0,
+     18.0,
+     369.0,
+     101.0,
+     488.0,
+     1864.0
+    ],
+    "A_total": 1864.0,
+    "B_coverages": [
+     580.0,
+     13.0,
+     317.0,
+     203.0,
+     13.0,
+     1126.0,
+     12.0,
+     304.0,
+     445.0,
+     761.0,
+     1887.0
+    ],
+    "B_total": 1887.0,
+    "floor": "0.00400",
+    "log_A_over_B": "-0.0123",
+    "profile": "8.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     810.0,
+     0.0,
+     340.0,
+     218.0,
+     8.0,
+     1376.0,
+     18.0,
+     369.0,
+     101.0,
+     488.0,
+     1864.0
+    ],
+    "A_total": 1864.0,
+    "B_coverages": [
+     580.0,
+     13.0,
+     317.0,
+     203.0,
+     13.0,
+     1126.0,
+     12.0,
+     304.0,
+     445.0,
+     761.0,
+     1887.0
+    ],
+    "B_total": 1887.0,
+    "floor": "0.00400",
+    "log_A_over_B": "-0.0123",
+    "profile": "8.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     592.0,
+     0.0,
+     170.0,
+     137.0,
+     8.0,
+     907.0,
+     18.0,
+     299.0,
+     213.0,
+     530.0,
+     1437.0
+    ],
+    "A_total": 1437.0,
+    "B_coverages": [
+     339.0,
+     8.0,
+     213.0,
+     111.0,
+     13.0,
+     684.0,
+     12.0,
+     286.0,
+     458.0,
+     756.0,
+     1440.0
+    ],
+    "B_total": 1440.0,
+    "floor": "0.00522",
+    "log_A_over_B": "-0.0021",
+    "profile": "8.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     647.0,
+     0.0,
+     182.0,
+     117.0,
+     8.0,
+     954.0,
+     18.0,
+     328.0,
+     205.0,
+     551.0,
+     1505.0
+    ],
+    "A_total": 1505.0,
+    "B_coverages": [
+     325.0,
+     9.0,
+     193.0,
+     109.0,
+     13.0,
+     649.0,
+     12.0,
+     294.0,
+     484.0,
+     790.0,
+     1439.0
+    ],
+    "B_total": 1439.0,
+    "floor": "0.00511",
+    "log_A_over_B": "0.0448",
+    "profile": "8.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     624.0,
+     0.0,
+     245.0,
+     170.0,
+     8.0,
+     1047.0,
+     18.0,
+     384.0,
+     177.0,
+     579.0,
+     1626.0
+    ],
+    "A_total": 1626.0,
+    "B_coverages": [
+     620.0,
+     14.0,
+     357.0,
+     141.0,
+     13.0,
+     1145.0,
+     12.0,
+     290.0,
+     454.0,
+     756.0,
+     1901.0
+    ],
+    "B_total": 1901.0,
+    "floor": "0.00426",
+    "log_A_over_B": "-0.1563",
+    "profile": "8.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     624.0,
+     0.0,
+     245.0,
+     170.0,
+     8.0,
+     1047.0,
+     18.0,
+     384.0,
+     177.0,
+     579.0,
+     1626.0
+    ],
+    "A_total": 1626.0,
+    "B_coverages": [
+     620.0,
+     14.0,
+     357.0,
+     141.0,
+     13.0,
+     1145.0,
+     12.0,
+     290.0,
+     454.0,
+     756.0,
+     1901.0
+    ],
+    "B_total": 1901.0,
+    "floor": "0.00426",
+    "log_A_over_B": "-0.1563",
+    "profile": "8.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     592.0,
+     0.0,
+     170.0,
+     137.0,
+     8.0,
+     907.0,
+     18.0,
+     299.0,
+     213.0,
+     530.0,
+     1437.0
+    ],
+    "A_total": 1437.0,
+    "B_coverages": [
+     340.0,
+     8.0,
+     215.0,
+     102.0,
+     13.0,
+     678.0,
+     12.0,
+     268.0,
+     484.0,
+     764.0,
+     1442.0
+    ],
+    "B_total": 1442.0,
+    "floor": "0.00522",
+    "log_A_over_B": "-0.0035",
+    "profile": "8.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     961.0,
+     0.0,
+     318.0,
+     186.0,
+     8.0,
+     1473.0,
+     18.0,
+     631.0,
+     237.0,
+     886.0,
+     2359.0
+    ],
+    "A_total": 2359.0,
+    "B_coverages": [
+     515.0,
+     12.0,
+     250.0,
+     108.0,
+     13.0,
+     898.0,
+     12.0,
+     378.0,
+     309.0,
+     699.0,
+     1597.0
+    ],
+    "B_total": 1597.0,
+    "floor": "0.00399",
+    "log_A_over_B": "0.3901",
+    "profile": "9.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     961.0,
+     0.0,
+     318.0,
+     186.0,
+     8.0,
+     1473.0,
+     18.0,
+     631.0,
+     237.0,
+     886.0,
+     2359.0
+    ],
+    "A_total": 2359.0,
+    "B_coverages": [
+     438.0,
+     12.0,
+     212.0,
+     92.0,
+     13.0,
+     767.0,
+     12.0,
+     378.0,
+     355.0,
+     745.0,
+     1512.0
+    ],
+    "B_total": 1512.0,
+    "floor": "0.00413",
+    "log_A_over_B": "0.4448",
+    "profile": "9.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     1216.0,
+     0.0,
+     592.0,
+     346.0,
+     8.0,
+     2162.0,
+     18.0,
+     711.0,
+     117.0,
+     846.0,
+     3008.0
+    ],
+    "A_total": 3008.0,
+    "B_coverages": [
+     781.0,
+     18.0,
+     350.0,
+     171.0,
+     13.0,
+     1333.0,
+     12.0,
+     391.0,
+     326.0,
+     729.0,
+     2062.0
+    ],
+    "B_total": 2062.0,
+    "floor": "0.00311",
+    "log_A_over_B": "0.3776",
+    "profile": "9.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     1216.0,
+     0.0,
+     592.0,
+     346.0,
+     8.0,
+     2162.0,
+     18.0,
+     711.0,
+     117.0,
+     846.0,
+     3008.0
+    ],
+    "A_total": 3008.0,
+    "B_coverages": [
+     781.0,
+     18.0,
+     350.0,
+     171.0,
+     13.0,
+     1333.0,
+     12.0,
+     391.0,
+     326.0,
+     729.0,
+     2062.0
+    ],
+    "B_total": 2062.0,
+    "floor": "0.00311",
+    "log_A_over_B": "0.3776",
+    "profile": "9.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     876.0,
+     0.0,
+     296.0,
+     218.0,
+     8.0,
+     1398.0,
+     18.0,
+     576.0,
+     246.0,
+     840.0,
+     2238.0
+    ],
+    "A_total": 2238.0,
+    "B_coverages": [
+     456.0,
+     10.0,
+     235.0,
+     94.0,
+     13.0,
+     808.0,
+     12.0,
+     368.0,
+     335.0,
+     715.0,
+     1523.0
+    ],
+    "B_total": 1523.0,
+    "floor": "0.00419",
+    "log_A_over_B": "0.3849",
+    "profile": "9.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     961.0,
+     0.0,
+     318.0,
+     186.0,
+     8.0,
+     1473.0,
+     18.0,
+     631.0,
+     237.0,
+     886.0,
+     2359.0
+    ],
+    "A_total": 2359.0,
+    "B_coverages": [
+     438.0,
+     12.0,
+     212.0,
+     92.0,
+     13.0,
+     767.0,
+     12.0,
+     378.0,
+     355.0,
+     745.0,
+     1512.0
+    ],
+    "B_total": 1512.0,
+    "floor": "0.00413",
+    "log_A_over_B": "0.4448",
+    "profile": "9.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     924.0,
+     0.0,
+     427.0,
+     269.0,
+     8.0,
+     1628.0,
+     18.0,
+     739.0,
+     205.0,
+     962.0,
+     2590.0
+    ],
+    "A_total": 2590.0,
+    "B_coverages": [
+     834.0,
+     19.0,
+     393.0,
+     119.0,
+     13.0,
+     1378.0,
+     12.0,
+     373.0,
+     332.0,
+     717.0,
+     2095.0
+    ],
+    "B_total": 2095.0,
+    "floor": "0.00326",
+    "log_A_over_B": "0.2121",
+    "profile": "9.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     924.0,
+     0.0,
+     427.0,
+     269.0,
+     8.0,
+     1628.0,
+     18.0,
+     739.0,
+     205.0,
+     962.0,
+     2590.0
+    ],
+    "A_total": 2590.0,
+    "B_coverages": [
+     834.0,
+     19.0,
+     393.0,
+     119.0,
+     13.0,
+     1378.0,
+     12.0,
+     373.0,
+     332.0,
+     717.0,
+     2095.0
+    ],
+    "B_total": 2095.0,
+    "floor": "0.00326",
+    "log_A_over_B": "0.2121",
+    "profile": "9.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     876.0,
+     0.0,
+     296.0,
+     218.0,
+     8.0,
+     1398.0,
+     18.0,
+     576.0,
+     246.0,
+     840.0,
+     2238.0
+    ],
+    "A_total": 2238.0,
+    "B_coverages": [
+     457.0,
+     10.0,
+     237.0,
+     86.0,
+     13.0,
+     803.0,
+     12.0,
+     345.0,
+     355.0,
+     712.0,
+     1515.0
+    ],
+    "B_total": 1515.0,
+    "floor": "0.00421",
+    "log_A_over_B": "0.3902",
+    "profile": "9.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     1156.0,
+     0.0,
+     305.0,
+     132.0,
+     16.0,
+     1609.0,
+     36.0,
+     540.0,
+     524.0,
+     1100.0,
+     2709.0
+    ],
+    "A_total": 2709.0,
+    "B_coverages": [
+     1428.0,
+     34.0,
+     521.0,
+     137.0,
+     13.0,
+     2133.0,
+     12.0,
+     694.0,
+     1431.0,
+     2137.0,
+     4270.0
+    ],
+    "B_total": 4270.0,
+    "floor": "0.00223",
+    "log_A_over_B": "-0.4550",
+    "profile": "Combined 1.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     1156.0,
+     0.0,
+     305.0,
+     132.0,
+     16.0,
+     1609.0,
+     36.0,
+     540.0,
+     524.0,
+     1100.0,
+     2709.0
+    ],
+    "A_total": 2709.0,
+    "B_coverages": [
+     1214.0,
+     34.0,
+     442.0,
+     117.0,
+     13.0,
+     1820.0,
+     12.0,
+     694.0,
+     1645.0,
+     2351.0,
+     4171.0
+    ],
+    "B_total": 4171.0,
+    "floor": "0.00225",
+    "log_A_over_B": "-0.4316",
+    "profile": "Combined 1.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     1467.0,
+     0.0,
+     569.0,
+     245.0,
+     16.0,
+     2297.0,
+     36.0,
+     609.0,
+     259.0,
+     904.0,
+     3201.0
+    ],
+    "A_total": 3201.0,
+    "B_coverages": [
+     2167.0,
+     51.0,
+     728.0,
+     218.0,
+     13.0,
+     3177.0,
+     12.0,
+     718.0,
+     1510.0,
+     2240.0,
+     5417.0
+    ],
+    "B_total": 5417.0,
+    "floor": "0.00183",
+    "log_A_over_B": "-0.5261",
+    "profile": "Combined 1.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     1467.0,
+     0.0,
+     569.0,
+     245.0,
+     16.0,
+     2297.0,
+     36.0,
+     609.0,
+     259.0,
+     904.0,
+     3201.0
+    ],
+    "A_total": 3201.0,
+    "B_coverages": [
+     2167.0,
+     51.0,
+     728.0,
+     218.0,
+     13.0,
+     3177.0,
+     12.0,
+     718.0,
+     1510.0,
+     2240.0,
+     5417.0
+    ],
+    "B_total": 5417.0,
+    "floor": "0.00183",
+    "log_A_over_B": "-0.5261",
+    "profile": "Combined 1.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     1052.0,
+     0.0,
+     284.0,
+     154.0,
+     16.0,
+     1506.0,
+     36.0,
+     494.0,
+     544.0,
+     1074.0,
+     2580.0
+    ],
+    "A_total": 2580.0,
+    "B_coverages": [
+     1266.0,
+     30.0,
+     489.0,
+     119.0,
+     13.0,
+     1917.0,
+     12.0,
+     676.0,
+     1554.0,
+     2242.0,
+     4159.0
+    ],
+    "B_total": 4159.0,
+    "floor": "0.00232",
+    "log_A_over_B": "-0.4775",
+    "profile": "Combined 1.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     1156.0,
+     0.0,
+     305.0,
+     132.0,
+     16.0,
+     1609.0,
+     36.0,
+     540.0,
+     524.0,
+     1100.0,
+     2709.0
+    ],
+    "A_total": 2709.0,
+    "B_coverages": [
+     1214.0,
+     34.0,
+     442.0,
+     117.0,
+     13.0,
+     1820.0,
+     12.0,
+     694.0,
+     1645.0,
+     2351.0,
+     4171.0
+    ],
+    "B_total": 4171.0,
+    "floor": "0.00225",
+    "log_A_over_B": "-0.4316",
+    "profile": "Combined 1.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     1111.0,
+     0.0,
+     410.0,
+     191.0,
+     16.0,
+     1728.0,
+     36.0,
+     633.0,
+     453.0,
+     1122.0,
+     2850.0
+    ],
+    "A_total": 2850.0,
+    "B_coverages": [
+     2314.0,
+     54.0,
+     819.0,
+     151.0,
+     13.0,
+     3351.0,
+     12.0,
+     685.0,
+     1541.0,
+     2238.0,
+     5589.0
+    ],
+    "B_total": 5589.0,
+    "floor": "0.00194",
+    "log_A_over_B": "-0.6735",
+    "profile": "Combined 1.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     1111.0,
+     0.0,
+     410.0,
+     191.0,
+     16.0,
+     1728.0,
+     36.0,
+     633.0,
+     453.0,
+     1122.0,
+     2850.0
+    ],
+    "A_total": 2850.0,
+    "B_coverages": [
+     2314.0,
+     54.0,
+     819.0,
+     151.0,
+     13.0,
+     3351.0,
+     12.0,
+     685.0,
+     1541.0,
+     2238.0,
+     5589.0
+    ],
+    "B_total": 5589.0,
+    "floor": "0.00194",
+    "log_A_over_B": "-0.6735",
+    "profile": "Combined 1.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     1052.0,
+     0.0,
+     284.0,
+     154.0,
+     16.0,
+     1506.0,
+     36.0,
+     494.0,
+     544.0,
+     1074.0,
+     2580.0
+    ],
+    "A_total": 2580.0,
+    "B_coverages": [
+     1269.0,
+     30.0,
+     494.0,
+     109.0,
+     13.0,
+     1915.0,
+     12.0,
+     634.0,
+     1645.0,
+     2291.0,
+     4206.0
+    ],
+    "B_total": 4206.0,
+    "floor": "0.00231",
+    "log_A_over_B": "-0.4887",
+    "profile": "Combined 1.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     769.0,
+     0.0,
+     232.0,
+     99.0,
+     8.0,
+     1108.0,
+     18.0,
+     400.0,
+     212.0,
+     630.0,
+     1738.0
+    ],
+    "A_total": 1738.0,
+    "B_coverages": [
+     501.0,
+     11.0,
+     270.0,
+     137.0,
+     13.0,
+     932.0,
+     12.0,
+     368.0,
+     313.0,
+     693.0,
+     1625.0
+    ],
+    "B_total": 1625.0,
+    "floor": "0.00448",
+    "log_A_over_B": "0.0672",
+    "profile": "Combined 2.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     769.0,
+     0.0,
+     232.0,
+     99.0,
+     8.0,
+     1108.0,
+     18.0,
+     400.0,
+     212.0,
+     630.0,
+     1738.0
+    ],
+    "A_total": 1738.0,
+    "B_coverages": [
+     426.0,
+     11.0,
+     230.0,
+     117.0,
+     13.0,
+     797.0,
+     12.0,
+     368.0,
+     359.0,
+     739.0,
+     1536.0
+    ],
+    "B_total": 1536.0,
+    "floor": "0.00462",
+    "log_A_over_B": "0.1236",
+    "profile": "Combined 2.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     967.0,
+     0.0,
+     433.0,
+     185.0,
+     8.0,
+     1593.0,
+     18.0,
+     451.0,
+     105.0,
+     574.0,
+     2167.0
+    ],
+    "A_total": 2167.0,
+    "B_coverages": [
+     760.0,
+     17.0,
+     378.0,
+     218.0,
+     13.0,
+     1386.0,
+     12.0,
+     381.0,
+     330.0,
+     723.0,
+     2109.0
+    ],
+    "B_total": 2109.0,
+    "floor": "0.00351",
+    "log_A_over_B": "0.0271",
+    "profile": "Combined 2.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     967.0,
+     0.0,
+     433.0,
+     185.0,
+     8.0,
+     1593.0,
+     18.0,
+     451.0,
+     105.0,
+     574.0,
+     2167.0
+    ],
+    "A_total": 2167.0,
+    "B_coverages": [
+     760.0,
+     17.0,
+     378.0,
+     218.0,
+     13.0,
+     1386.0,
+     12.0,
+     381.0,
+     330.0,
+     723.0,
+     2109.0
+    ],
+    "B_total": 2109.0,
+    "floor": "0.00351",
+    "log_A_over_B": "0.0271",
+    "profile": "Combined 2.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     702.0,
+     0.0,
+     216.0,
+     116.0,
+     8.0,
+     1042.0,
+     18.0,
+     365.0,
+     220.0,
+     603.0,
+     1645.0
+    ],
+    "A_total": 1645.0,
+    "B_coverages": [
+     444.0,
+     10.0,
+     254.0,
+     119.0,
+     13.0,
+     840.0,
+     12.0,
+     359.0,
+     340.0,
+     711.0,
+     1551.0
+    ],
+    "B_total": 1551.0,
+    "floor": "0.00471",
+    "log_A_over_B": "0.0588",
+    "profile": "Combined 2.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     769.0,
+     0.0,
+     232.0,
+     99.0,
+     8.0,
+     1108.0,
+     18.0,
+     400.0,
+     212.0,
+     630.0,
+     1738.0
+    ],
+    "A_total": 1738.0,
+    "B_coverages": [
+     426.0,
+     11.0,
+     230.0,
+     117.0,
+     13.0,
+     797.0,
+     12.0,
+     368.0,
+     359.0,
+     739.0,
+     1536.0
+    ],
+    "B_total": 1536.0,
+    "floor": "0.00462",
+    "log_A_over_B": "0.1236",
+    "profile": "Combined 2.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     740.0,
+     0.0,
+     312.0,
+     144.0,
+     8.0,
+     1204.0,
+     18.0,
+     469.0,
+     183.0,
+     670.0,
+     1874.0
+    ],
+    "A_total": 1874.0,
+    "B_coverages": [
+     812.0,
+     19.0,
+     425.0,
+     151.0,
+     13.0,
+     1420.0,
+     12.0,
+     363.0,
+     337.0,
+     712.0,
+     2132.0
+    ],
+    "B_total": 2132.0,
+    "floor": "0.00375",
+    "log_A_over_B": "-0.1290",
+    "profile": "Combined 2.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     740.0,
+     0.0,
+     312.0,
+     144.0,
+     8.0,
+     1204.0,
+     18.0,
+     469.0,
+     183.0,
+     670.0,
+     1874.0
+    ],
+    "A_total": 1874.0,
+    "B_coverages": [
+     812.0,
+     19.0,
+     425.0,
+     151.0,
+     13.0,
+     1420.0,
+     12.0,
+     363.0,
+     337.0,
+     712.0,
+     2132.0
+    ],
+    "B_total": 2132.0,
+    "floor": "0.00375",
+    "log_A_over_B": "-0.1290",
+    "profile": "Combined 2.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     702.0,
+     0.0,
+     216.0,
+     116.0,
+     8.0,
+     1042.0,
+     18.0,
+     365.0,
+     220.0,
+     603.0,
+     1645.0
+    ],
+    "A_total": 1645.0,
+    "B_coverages": [
+     445.0,
+     10.0,
+     256.0,
+     109.0,
+     13.0,
+     833.0,
+     12.0,
+     336.0,
+     359.0,
+     707.0,
+     1540.0
+    ],
+    "B_total": 1540.0,
+    "floor": "0.00473",
+    "log_A_over_B": "0.0660",
+    "profile": "Combined 2.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     1359.0,
+     0.0,
+     458.0,
+     318.0,
+     16.0,
+     2151.0,
+     36.0,
+     715.0,
+     482.0,
+     1233.0,
+     3384.0
+    ],
+    "A_total": 3384.0,
+    "B_coverages": [
+     783.0,
+     18.0,
+     447.0,
+     159.0,
+     26.0,
+     1433.0,
+     24.0,
+     758.0,
+     781.0,
+     1563.0,
+     2996.0
+    ],
+    "B_total": 2996.0,
+    "floor": "0.00237",
+    "log_A_over_B": "0.1218",
+    "profile": "Combined 3.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     1359.0,
+     0.0,
+     458.0,
+     318.0,
+     16.0,
+     2151.0,
+     36.0,
+     715.0,
+     482.0,
+     1233.0,
+     3384.0
+    ],
+    "A_total": 3384.0,
+    "B_coverages": [
+     665.0,
+     18.0,
+     380.0,
+     135.0,
+     26.0,
+     1224.0,
+     24.0,
+     758.0,
+     898.0,
+     1680.0,
+     2904.0
+    ],
+    "B_total": 2904.0,
+    "floor": "0.00241",
+    "log_A_over_B": "0.1530",
+    "profile": "Combined 3.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     1730.0,
+     0.0,
+     854.0,
+     592.0,
+     16.0,
+     3192.0,
+     36.0,
+     805.0,
+     239.0,
+     1080.0,
+     4272.0
+    ],
+    "A_total": 4272.0,
+    "B_coverages": [
+     1186.0,
+     27.0,
+     625.0,
+     252.0,
+     26.0,
+     2116.0,
+     24.0,
+     784.0,
+     824.0,
+     1632.0,
+     3748.0
+    ],
+    "B_total": 3748.0,
+    "floor": "0.00189",
+    "log_A_over_B": "0.1309",
+    "profile": "Combined 3.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     1819.0,
+     0.0,
+     854.0,
+     592.0,
+     16.0,
+     3281.0,
+     36.0,
+     805.0,
+     239.0,
+     1080.0,
+     4361.0
+    ],
+    "A_total": 4361.0,
+    "B_coverages": [
+     1186.0,
+     27.0,
+     625.0,
+     252.0,
+     26.0,
+     2116.0,
+     24.0,
+     784.0,
+     824.0,
+     1632.0,
+     3748.0
+    ],
+    "B_total": 3748.0,
+    "floor": "0.00187",
+    "log_A_over_B": "0.1515",
+    "profile": "Combined 3.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     1235.0,
+     0.0,
+     426.0,
+     372.0,
+     16.0,
+     2049.0,
+     36.0,
+     652.0,
+     502.0,
+     1190.0,
+     3239.0
+    ],
+    "A_total": 3239.0,
+    "B_coverages": [
+     693.0,
+     16.0,
+     420.0,
+     138.0,
+     26.0,
+     1293.0,
+     24.0,
+     738.0,
+     848.0,
+     1610.0,
+     2903.0
+    ],
+    "B_total": 2903.0,
+    "floor": "0.00246",
+    "log_A_over_B": "0.1095",
+    "profile": "Combined 3.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     1359.0,
+     0.0,
+     458.0,
+     318.0,
+     16.0,
+     2151.0,
+     36.0,
+     715.0,
+     482.0,
+     1233.0,
+     3384.0
+    ],
+    "A_total": 3384.0,
+    "B_coverages": [
+     665.0,
+     18.0,
+     380.0,
+     135.0,
+     26.0,
+     1224.0,
+     24.0,
+     758.0,
+     898.0,
+     1680.0,
+     2904.0
+    ],
+    "B_total": 2904.0,
+    "floor": "0.00241",
+    "log_A_over_B": "0.1530",
+    "profile": "Combined 3.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     1306.0,
+     0.0,
+     615.0,
+     460.0,
+     16.0,
+     2397.0,
+     36.0,
+     837.0,
+     417.0,
+     1290.0,
+     3687.0
+    ],
+    "A_total": 3687.0,
+    "B_coverages": [
+     1268.0,
+     29.0,
+     703.0,
+     175.0,
+     26.0,
+     2201.0,
+     24.0,
+     747.0,
+     841.0,
+     1612.0,
+     3813.0
+    ],
+    "B_total": 3813.0,
+    "floor": "0.00200",
+    "log_A_over_B": "-0.0336",
+    "profile": "Combined 3.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     1306.0,
+     0.0,
+     615.0,
+     460.0,
+     16.0,
+     2397.0,
+     36.0,
+     837.0,
+     417.0,
+     1290.0,
+     3687.0
+    ],
+    "A_total": 3687.0,
+    "B_coverages": [
+     1268.0,
+     29.0,
+     703.0,
+     175.0,
+     26.0,
+     2201.0,
+     24.0,
+     747.0,
+     841.0,
+     1612.0,
+     3813.0
+    ],
+    "B_total": 3813.0,
+    "floor": "0.00200",
+    "log_A_over_B": "-0.0336",
+    "profile": "Combined 3.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     1235.0,
+     0.0,
+     426.0,
+     372.0,
+     16.0,
+     2049.0,
+     36.0,
+     652.0,
+     502.0,
+     1190.0,
+     3239.0
+    ],
+    "A_total": 3239.0,
+    "B_coverages": [
+     695.0,
+     16.0,
+     425.0,
+     126.0,
+     26.0,
+     1288.0,
+     24.0,
+     691.0,
+     898.0,
+     1613.0,
+     2901.0
+    ],
+    "B_total": 2901.0,
+    "floor": "0.00246",
+    "log_A_over_B": "0.1102",
+    "profile": "Combined 3.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     652.0,
+     0.0,
+     192.0,
+     112.0,
+     8.0,
+     964.0,
+     18.0,
+     350.0,
+     143.0,
+     511.0,
+     1475.0
+    ],
+    "A_total": 1475.0,
+    "B_coverages": [
+     515.0,
+     12.0,
+     257.0,
+     162.0,
+     13.0,
+     959.0,
+     12.0,
+     293.0,
+     319.0,
+     624.0,
+     1583.0
+    ],
+    "B_total": 1583.0,
+    "floor": "0.00491",
+    "log_A_over_B": "-0.0707",
+    "profile": "Combined 4.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     652.0,
+     0.0,
+     192.0,
+     112.0,
+     8.0,
+     964.0,
+     18.0,
+     350.0,
+     143.0,
+     511.0,
+     1475.0
+    ],
+    "A_total": 1475.0,
+    "B_coverages": [
+     438.0,
+     12.0,
+     218.0,
+     138.0,
+     13.0,
+     819.0,
+     12.0,
+     293.0,
+     367.0,
+     672.0,
+     1491.0
+    ],
+    "B_total": 1491.0,
+    "floor": "0.00506",
+    "log_A_over_B": "-0.0108",
+    "profile": "Combined 4.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     817.0,
+     0.0,
+     358.0,
+     208.0,
+     8.0,
+     1391.0,
+     18.0,
+     394.0,
+     71.0,
+     483.0,
+     1874.0
+    ],
+    "A_total": 1874.0,
+    "B_coverages": [
+     782.0,
+     18.0,
+     359.0,
+     257.0,
+     13.0,
+     1429.0,
+     12.0,
+     303.0,
+     337.0,
+     652.0,
+     2081.0
+    ],
+    "B_total": 2081.0,
+    "floor": "0.00379",
+    "log_A_over_B": "-0.1048",
+    "profile": "Combined 4.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     817.0,
+     0.0,
+     358.0,
+     208.0,
+     8.0,
+     1391.0,
+     18.0,
+     394.0,
+     71.0,
+     483.0,
+     1874.0
+    ],
+    "A_total": 1874.0,
+    "B_coverages": [
+     782.0,
+     18.0,
+     359.0,
+     257.0,
+     13.0,
+     1429.0,
+     12.0,
+     303.0,
+     337.0,
+     652.0,
+     2081.0
+    ],
+    "B_total": 2081.0,
+    "floor": "0.00379",
+    "log_A_over_B": "-0.1048",
+    "profile": "Combined 4.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     597.0,
+     0.0,
+     179.0,
+     131.0,
+     8.0,
+     915.0,
+     18.0,
+     320.0,
+     149.0,
+     487.0,
+     1402.0
+    ],
+    "A_total": 1402.0,
+    "B_coverages": [
+     457.0,
+     10.0,
+     241.0,
+     141.0,
+     13.0,
+     862.0,
+     12.0,
+     286.0,
+     347.0,
+     645.0,
+     1507.0
+    ],
+    "B_total": 1507.0,
+    "floor": "0.00516",
+    "log_A_over_B": "-0.0722",
+    "profile": "Combined 4.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     652.0,
+     0.0,
+     192.0,
+     112.0,
+     8.0,
+     964.0,
+     18.0,
+     350.0,
+     143.0,
+     511.0,
+     1475.0
+    ],
+    "A_total": 1475.0,
+    "B_coverages": [
+     438.0,
+     12.0,
+     218.0,
+     138.0,
+     13.0,
+     819.0,
+     12.0,
+     293.0,
+     367.0,
+     672.0,
+     1491.0
+    ],
+    "B_total": 1491.0,
+    "floor": "0.00506",
+    "log_A_over_B": "-0.0108",
+    "profile": "Combined 4.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     629.0,
+     0.0,
+     258.0,
+     161.0,
+     8.0,
+     1056.0,
+     18.0,
+     410.0,
+     124.0,
+     552.0,
+     1608.0
+    ],
+    "A_total": 1608.0,
+    "B_coverages": [
+     835.0,
+     19.0,
+     404.0,
+     179.0,
+     13.0,
+     1450.0,
+     12.0,
+     289.0,
+     344.0,
+     645.0,
+     2095.0
+    ],
+    "B_total": 2095.0,
+    "floor": "0.00409",
+    "log_A_over_B": "-0.2646",
+    "profile": "Combined 4.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     629.0,
+     0.0,
+     258.0,
+     161.0,
+     8.0,
+     1056.0,
+     18.0,
+     410.0,
+     124.0,
+     552.0,
+     1608.0
+    ],
+    "A_total": 1608.0,
+    "B_coverages": [
+     835.0,
+     19.0,
+     404.0,
+     179.0,
+     13.0,
+     1450.0,
+     12.0,
+     289.0,
+     344.0,
+     645.0,
+     2095.0
+    ],
+    "B_total": 2095.0,
+    "floor": "0.00409",
+    "log_A_over_B": "-0.2646",
+    "profile": "Combined 4.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     597.0,
+     0.0,
+     179.0,
+     131.0,
+     8.0,
+     915.0,
+     18.0,
+     320.0,
+     149.0,
+     487.0,
+     1402.0
+    ],
+    "A_total": 1402.0,
+    "B_coverages": [
+     458.0,
+     10.0,
+     244.0,
+     129.0,
+     13.0,
+     854.0,
+     12.0,
+     268.0,
+     367.0,
+     647.0,
+     1501.0
+    ],
+    "B_total": 1501.0,
+    "floor": "0.00517",
+    "log_A_over_B": "-0.0682",
+    "profile": "Combined 4.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     1217.0,
+     0.0,
+     409.0,
+     172.0,
+     16.0,
+     1814.0,
+     36.0,
+     619.0,
+     546.0,
+     1201.0,
+     3015.0
+    ],
+    "A_total": 3015.0,
+    "B_coverages": [
+     727.0,
+     16.0,
+     501.0,
+     169.0,
+     26.0,
+     1439.0,
+     24.0,
+     670.0,
+     851.0,
+     1545.0,
+     2984.0
+    ],
+    "B_total": 2984.0,
+    "floor": "0.00250",
+    "log_A_over_B": "0.0103",
+    "profile": "Combined 6.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     1217.0,
+     0.0,
+     409.0,
+     172.0,
+     16.0,
+     1814.0,
+     36.0,
+     619.0,
+     546.0,
+     1201.0,
+     3015.0
+    ],
+    "A_total": 3015.0,
+    "B_coverages": [
+     618.0,
+     16.0,
+     425.0,
+     144.0,
+     26.0,
+     1229.0,
+     24.0,
+     670.0,
+     978.0,
+     1672.0,
+     2901.0
+    ],
+    "B_total": 2901.0,
+    "floor": "0.00254",
+    "log_A_over_B": "0.0385",
+    "profile": "Combined 6.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     1521.0,
+     0.0,
+     761.0,
+     320.0,
+     16.0,
+     2618.0,
+     36.0,
+     698.0,
+     271.0,
+     1005.0,
+     3623.0
+    ],
+    "A_total": 3623.0,
+    "B_coverages": [
+     1103.0,
+     25.0,
+     699.0,
+     269.0,
+     26.0,
+     2122.0,
+     24.0,
+     693.0,
+     898.0,
+     1615.0,
+     3737.0
+    ],
+    "B_total": 3737.0,
+    "floor": "0.00204",
+    "log_A_over_B": "-0.0310",
+    "profile": "Combined 6.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     1521.0,
+     0.0,
+     761.0,
+     320.0,
+     16.0,
+     2618.0,
+     36.0,
+     698.0,
+     271.0,
+     1005.0,
+     3623.0
+    ],
+    "A_total": 3623.0,
+    "B_coverages": [
+     1103.0,
+     25.0,
+     699.0,
+     269.0,
+     26.0,
+     2122.0,
+     24.0,
+     693.0,
+     898.0,
+     1615.0,
+     3737.0
+    ],
+    "B_total": 3737.0,
+    "floor": "0.00204",
+    "log_A_over_B": "-0.0310",
+    "profile": "Combined 6.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     1115.0,
+     0.0,
+     380.0,
+     201.0,
+     16.0,
+     1712.0,
+     36.0,
+     566.0,
+     568.0,
+     1170.0,
+     2882.0
+    ],
+    "A_total": 2882.0,
+    "B_coverages": [
+     645.0,
+     15.0,
+     471.0,
+     147.0,
+     26.0,
+     1304.0,
+     24.0,
+     652.0,
+     924.0,
+     1600.0,
+     2904.0
+    ],
+    "B_total": 2904.0,
+    "floor": "0.00259",
+    "log_A_over_B": "-0.0076",
+    "profile": "Combined 6.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     1217.0,
+     0.0,
+     409.0,
+     172.0,
+     16.0,
+     1814.0,
+     36.0,
+     619.0,
+     546.0,
+     1201.0,
+     3015.0
+    ],
+    "A_total": 3015.0,
+    "B_coverages": [
+     618.0,
+     16.0,
+     425.0,
+     144.0,
+     26.0,
+     1229.0,
+     24.0,
+     670.0,
+     978.0,
+     1672.0,
+     2901.0
+    ],
+    "B_total": 2901.0,
+    "floor": "0.00254",
+    "log_A_over_B": "0.0385",
+    "profile": "Combined 6.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     1174.0,
+     0.0,
+     550.0,
+     248.0,
+     16.0,
+     1988.0,
+     36.0,
+     725.0,
+     472.0,
+     1233.0,
+     3221.0
+    ],
+    "A_total": 3221.0,
+    "B_coverages": [
+     1179.0,
+     27.0,
+     788.0,
+     187.0,
+     26.0,
+     2207.0,
+     24.0,
+     660.0,
+     916.0,
+     1600.0,
+     3807.0
+    ],
+    "B_total": 3807.0,
+    "floor": "0.00214",
+    "log_A_over_B": "-0.1671",
+    "profile": "Combined 6.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     1174.0,
+     0.0,
+     550.0,
+     248.0,
+     16.0,
+     1988.0,
+     36.0,
+     725.0,
+     472.0,
+     1233.0,
+     3221.0
+    ],
+    "A_total": 3221.0,
+    "B_coverages": [
+     1179.0,
+     27.0,
+     788.0,
+     187.0,
+     26.0,
+     2207.0,
+     24.0,
+     660.0,
+     916.0,
+     1600.0,
+     3807.0
+    ],
+    "B_total": 3807.0,
+    "floor": "0.00214",
+    "log_A_over_B": "-0.1671",
+    "profile": "Combined 6.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     1115.0,
+     0.0,
+     380.0,
+     201.0,
+     16.0,
+     1712.0,
+     36.0,
+     566.0,
+     568.0,
+     1170.0,
+     2882.0
+    ],
+    "A_total": 2882.0,
+    "B_coverages": [
+     647.0,
+     15.0,
+     475.0,
+     135.0,
+     26.0,
+     1298.0,
+     24.0,
+     611.0,
+     978.0,
+     1613.0,
+     2911.0
+    ],
+    "B_total": 2911.0,
+    "floor": "0.00259",
+    "log_A_over_B": "-0.0100",
+    "profile": "Combined 6.1",
+    "territory": "Yarmouth (B5A)"
+   },
+   {
+    "A_coverages": [
+     620.0,
+     0.0,
+     172.0,
+     55.0,
+     8.0,
+     855.0,
+     18.0,
+     306.0,
+     90.0,
+     414.0,
+     1269.0
+    ],
+    "A_total": 1269.0,
+    "B_coverages": [
+     486.0,
+     11.0,
+     198.0,
+     91.0,
+     13.0,
+     799.0,
+     12.0,
+     290.0,
+     158.0,
+     460.0,
+     1259.0
+    ],
+    "B_total": 1259.0,
+    "floor": "0.00594",
+    "log_A_over_B": "0.0079",
+    "profile": "Combined 7.1",
+    "territory": "Amherst (B4H)"
+   },
+   {
+    "A_coverages": [
+     620.0,
+     0.0,
+     172.0,
+     55.0,
+     8.0,
+     855.0,
+     18.0,
+     306.0,
+     90.0,
+     414.0,
+     1269.0
+    ],
+    "A_total": 1269.0,
+    "B_coverages": [
+     413.0,
+     11.0,
+     168.0,
+     77.0,
+     13.0,
+     682.0,
+     12.0,
+     290.0,
+     182.0,
+     484.0,
+     1166.0
+    ],
+    "B_total": 1166.0,
+    "floor": "0.00620",
+    "log_A_over_B": "0.0847",
+    "profile": "Combined 7.1",
+    "territory": "Antigonish (B2G)"
+   },
+   {
+    "A_coverages": [
+     775.0,
+     0.0,
+     321.0,
+     103.0,
+     8.0,
+     1207.0,
+     18.0,
+     345.0,
+     45.0,
+     408.0,
+     1615.0
+    ],
+    "A_total": 1615.0,
+    "B_coverages": [
+     738.0,
+     17.0,
+     277.0,
+     144.0,
+     13.0,
+     1189.0,
+     12.0,
+     300.0,
+     167.0,
+     479.0,
+     1668.0
+    ],
+    "B_total": 1668.0,
+    "floor": "0.00457",
+    "log_A_over_B": "-0.0323",
+    "profile": "Combined 7.1",
+    "territory": "Dartmouth (B3A)"
+   },
+   {
+    "A_coverages": [
+     775.0,
+     0.0,
+     321.0,
+     103.0,
+     8.0,
+     1207.0,
+     18.0,
+     345.0,
+     45.0,
+     408.0,
+     1615.0
+    ],
+    "A_total": 1615.0,
+    "B_coverages": [
+     738.0,
+     17.0,
+     277.0,
+     144.0,
+     13.0,
+     1189.0,
+     12.0,
+     300.0,
+     167.0,
+     479.0,
+     1668.0
+    ],
+    "B_total": 1668.0,
+    "floor": "0.00457",
+    "log_A_over_B": "-0.0323",
+    "profile": "Combined 7.1",
+    "territory": "Halifax (B3H)"
+   },
+   {
+    "A_coverages": [
+     568.0,
+     0.0,
+     160.0,
+     65.0,
+     8.0,
+     801.0,
+     18.0,
+     280.0,
+     94.0,
+     392.0,
+     1193.0
+    ],
+    "A_total": 1193.0,
+    "B_coverages": [
+     431.0,
+     10.0,
+     186.0,
+     79.0,
+     13.0,
+     719.0,
+     12.0,
+     283.0,
+     172.0,
+     467.0,
+     1186.0
+    ],
+    "B_total": 1186.0,
+    "floor": "0.00632",
+    "log_A_over_B": "0.0059",
+    "profile": "Combined 7.1",
+    "territory": "Kentville (B4N)"
+   },
+   {
+    "A_coverages": [
+     620.0,
+     0.0,
+     172.0,
+     55.0,
+     8.0,
+     855.0,
+     18.0,
+     306.0,
+     90.0,
+     414.0,
+     1269.0
+    ],
+    "A_total": 1269.0,
+    "B_coverages": [
+     413.0,
+     11.0,
+     168.0,
+     77.0,
+     13.0,
+     682.0,
+     12.0,
+     290.0,
+     182.0,
+     484.0,
+     1166.0
+    ],
+    "B_total": 1166.0,
+    "floor": "0.00620",
+    "log_A_over_B": "0.0847",
+    "profile": "Combined 7.1",
+    "territory": "New Glasgow (B2H)"
+   },
+   {
+    "A_coverages": [
+     598.0,
+     0.0,
+     231.0,
+     80.0,
+     8.0,
+     917.0,
+     18.0,
+     359.0,
+     78.0,
+     455.0,
+     1372.0
+    ],
+    "A_total": 1372.0,
+    "B_coverages": [
+     788.0,
+     18.0,
+     311.0,
+     100.0,
+     13.0,
+     1230.0,
+     12.0,
+     286.0,
+     170.0,
+     468.0,
+     1698.0
+    ],
+    "B_total": 1698.0,
+    "floor": "0.00491",
+    "log_A_over_B": "-0.2132",
+    "profile": "Combined 7.1",
+    "territory": "North Sydney (B2A)"
+   },
+   {
+    "A_coverages": [
+     598.0,
+     0.0,
+     231.0,
+     80.0,
+     8.0,
+     917.0,
+     18.0,
+     359.0,
+     78.0,
+     455.0,
+     1372.0
+    ],
+    "A_total": 1372.0,
+    "B_coverages": [
+     788.0,
+     18.0,
+     311.0,
+     100.0,
+     13.0,
+     1230.0,
+     12.0,
+     286.0,
+     170.0,
+     468.0,
+     1698.0
+    ],
+    "B_total": 1698.0,
+    "floor": "0.00491",
+    "log_A_over_B": "-0.2132",
+    "profile": "Combined 7.1",
+    "territory": "Sydney (B1R)"
+   },
+   {
+    "A_coverages": [
+     568.0,
+     0.0,
+     160.0,
+     65.0,
+     8.0,
+     801.0,
+     18.0,
+     280.0,
+     94.0,
+     392.0,
+     1193.0
+    ],
+    "A_total": 1193.0,
+    "B_coverages": [
+     432.0,
+     10.0,
+     188.0,
+     72.0,
+     13.0,
+     715.0,
+     12.0,
+     265.0,
+     182.0,
+     459.0,
+     1174.0
+    ],
+    "B_total": 1174.0,
+    "floor": "0.00635",
+    "log_A_over_B": "0.0161",
+    "profile": "Combined 7.1",
+    "territory": "Yarmouth (B5A)"
+   }
+  ],
+  "workbooks": {
+   "A": {
+    "Company Name": "Economical Mutual Insurance Company",
+    "New Business": "July 1, 2025",
+    "Renewal Business": "September 4, 2025",
+    "Status of Profiles": "Original filed on March 25 2025 March 25, 2025",
+    "file": "M12161_D-2_Rating_Profiles.xlsx",
+    "profile_version": "using Canadian Automobile Insurance Rate Regulators (\"CARR\") Association harmonized profiles (2022version)"
+   },
+   "B": {
+    "Company Name": "The Dominion of Canada General Insurance Company",
+    "New Business": "November 18, 2025",
+    "Renewal Business": "December 21, 2025",
+    "Status of Profiles": "Amendment filed on June 26 2025 June 26, 2025",
+    "file": "M12284_T-8.xlsx",
+    "profile_version": "using Canadian Automobile Insurance Rate Regulators (\"CARR\") Association harmonized profiles (2022version)"
+   }
+  }
+ },
+ "B159_11": {
+  "A_next_step_on_2025_profiles": {
+   "change_min_median_max": [
+    "+0.0057",
+    "+0.0553",
+    "+0.2315"
+   ],
+   "positions": 135,
+   "workbook": "M12803_D-3_Rating_Profiles.xlsx"
+  },
+  "above_cap_up": 28,
+  "below_cap_down": 39,
+  "board_letter_found": true,
+  "inside_caps": 59,
+  "note": "positions are the Board's standard profiles, one each; the Board's letter is about the book, weighted by its policies. The two are different objects and are printed side by side, not compared",
+  "positions": 126,
+  "rows": [
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Amherst (B4H)",
+    "uncapped": "+0.6970"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Antigonish (B2G)",
+    "uncapped": "+0.7789"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Dartmouth (B3A)",
+    "uncapped": "+0.7076"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Halifax (B3H)",
+    "uncapped": "+0.7076"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Kentville (B4N)",
+    "uncapped": "+0.6965"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | New Glasgow (B2H)",
+    "uncapped": "+0.7789"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | North Sydney (B2A)",
+    "uncapped": "+0.4528"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Sydney (B1R)",
+    "uncapped": "+0.4528"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "10.1 | Yarmouth (B5A)",
+    "uncapped": "+0.7022"
+   },
+   {
+    "capped": "+0.0264",
+    "position": "3.2 | Amherst (B4H)",
+    "uncapped": "+0.0264"
+   },
+   {
+    "capped": "+0.0407",
+    "position": "3.2 | Antigonish (B2G)",
+    "uncapped": "+0.0407"
+   },
+   {
+    "capped": "+0.0005",
+    "position": "3.2 | Dartmouth (B3A)",
+    "uncapped": "+0.0005"
+   },
+   {
+    "capped": "+0.0005",
+    "position": "3.2 | Halifax (B3H)",
+    "uncapped": "+0.0005"
+   },
+   {
+    "capped": "-0.0012",
+    "position": "3.2 | Kentville (B4N)",
+    "uncapped": "-0.0012"
+   },
+   {
+    "capped": "+0.0407",
+    "position": "3.2 | New Glasgow (B2H)",
+    "uncapped": "+0.0407"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "3.2 | North Sydney (B2A)",
+    "uncapped": "-0.1174"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "3.2 | Sydney (B1R)",
+    "uncapped": "-0.1174"
+   },
+   {
+    "capped": "-0.0018",
+    "position": "3.2 | Yarmouth (B5A)",
+    "uncapped": "-0.0018"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | Amherst (B4H)",
+    "uncapped": "+0.2592"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | Antigonish (B2G)",
+    "uncapped": "+0.3283"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | Dartmouth (B3A)",
+    "uncapped": "+0.3053"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | Halifax (B3H)",
+    "uncapped": "+0.3573"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | Kentville (B4N)",
+    "uncapped": "+0.2666"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | New Glasgow (B2H)",
+    "uncapped": "+0.3283"
+   },
+   {
+    "capped": "+0.0671",
+    "position": "3.3 | North Sydney (B2A)",
+    "uncapped": "+0.0671"
+   },
+   {
+    "capped": "+0.0671",
+    "position": "3.3 | Sydney (B1R)",
+    "uncapped": "+0.0671"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "3.3 | Yarmouth (B5A)",
+    "uncapped": "+0.2696"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Amherst (B4H)",
+    "uncapped": "-0.2793"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Antigonish (B2G)",
+    "uncapped": "-0.2005"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Dartmouth (B3A)",
+    "uncapped": "-0.3240"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Halifax (B3H)",
+    "uncapped": "-0.3240"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Kentville (B4N)",
+    "uncapped": "-0.2724"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | New Glasgow (B2H)",
+    "uncapped": "-0.2005"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | North Sydney (B2A)",
+    "uncapped": "-0.4705"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Sydney (B1R)",
+    "uncapped": "-0.4705"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "5.1 | Yarmouth (B5A)",
+    "uncapped": "-0.2627"
+   },
+   {
+    "capped": "+0.0212",
+    "position": "6.2 | Amherst (B4H)",
+    "uncapped": "+0.0212"
+   },
+   {
+    "capped": "+0.0238",
+    "position": "6.2 | Antigonish (B2G)",
+    "uncapped": "+0.0238"
+   },
+   {
+    "capped": "-0.0317",
+    "position": "6.2 | Dartmouth (B3A)",
+    "uncapped": "-0.0317"
+   },
+   {
+    "capped": "-0.0317",
+    "position": "6.2 | Halifax (B3H)",
+    "uncapped": "-0.0317"
+   },
+   {
+    "capped": "-0.0149",
+    "position": "6.2 | Kentville (B4N)",
+    "uncapped": "-0.0149"
+   },
+   {
+    "capped": "+0.0238",
+    "position": "6.2 | New Glasgow (B2H)",
+    "uncapped": "+0.0238"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "6.2 | North Sydney (B2A)",
+    "uncapped": "-0.1365"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "6.2 | Sydney (B1R)",
+    "uncapped": "-0.1365"
+   },
+   {
+    "capped": "-0.0245",
+    "position": "6.2 | Yarmouth (B5A)",
+    "uncapped": "-0.0245"
+   },
+   {
+    "capped": "-0.0014",
+    "position": "6.3 | Amherst (B4H)",
+    "uncapped": "-0.0014"
+   },
+   {
+    "capped": "+0.0571",
+    "position": "6.3 | Antigonish (B2G)",
+    "uncapped": "+0.0571"
+   },
+   {
+    "capped": "-0.0293",
+    "position": "6.3 | Dartmouth (B3A)",
+    "uncapped": "-0.0293"
+   },
+   {
+    "capped": "-0.0293",
+    "position": "6.3 | Halifax (B3H)",
+    "uncapped": "-0.0293"
+   },
+   {
+    "capped": "+0.0007",
+    "position": "6.3 | Kentville (B4N)",
+    "uncapped": "+0.0007"
+   },
+   {
+    "capped": "+0.0571",
+    "position": "6.3 | New Glasgow (B2H)",
+    "uncapped": "+0.0571"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "6.3 | North Sydney (B2A)",
+    "uncapped": "-0.1719"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "6.3 | Sydney (B1R)",
+    "uncapped": "-0.1719"
+   },
+   {
+    "capped": "+0.0066",
+    "position": "6.3 | Yarmouth (B5A)",
+    "uncapped": "+0.0066"
+   },
+   {
+    "capped": "+0.0128",
+    "position": "8.1 | Amherst (B4H)",
+    "uncapped": "+0.0128"
+   },
+   {
+    "capped": "+0.0459",
+    "position": "8.1 | Antigonish (B2G)",
+    "uncapped": "+0.0459"
+   },
+   {
+    "capped": "-0.0122",
+    "position": "8.1 | Dartmouth (B3A)",
+    "uncapped": "-0.0122"
+   },
+   {
+    "capped": "-0.0122",
+    "position": "8.1 | Halifax (B3H)",
+    "uncapped": "-0.0122"
+   },
+   {
+    "capped": "-0.0021",
+    "position": "8.1 | Kentville (B4N)",
+    "uncapped": "-0.0021"
+   },
+   {
+    "capped": "+0.0459",
+    "position": "8.1 | New Glasgow (B2H)",
+    "uncapped": "+0.0459"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "8.1 | North Sydney (B2A)",
+    "uncapped": "-0.1447"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "8.1 | Sydney (B1R)",
+    "uncapped": "-0.1447"
+   },
+   {
+    "capped": "-0.0035",
+    "position": "8.1 | Yarmouth (B5A)",
+    "uncapped": "-0.0035"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Amherst (B4H)",
+    "uncapped": "+0.4771"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Antigonish (B2G)",
+    "uncapped": "+0.5602"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Dartmouth (B3A)",
+    "uncapped": "+0.4588"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Halifax (B3H)",
+    "uncapped": "+0.4588"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Kentville (B4N)",
+    "uncapped": "+0.4695"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | New Glasgow (B2H)",
+    "uncapped": "+0.5602"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | North Sydney (B2A)",
+    "uncapped": "+0.2363"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Sydney (B1R)",
+    "uncapped": "+0.2363"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "9.1 | Yarmouth (B5A)",
+    "uncapped": "+0.4772"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Amherst (B4H)",
+    "uncapped": "-0.3656"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Antigonish (B2G)",
+    "uncapped": "-0.3505"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Dartmouth (B3A)",
+    "uncapped": "-0.4091"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Halifax (B3H)",
+    "uncapped": "-0.4091"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Kentville (B4N)",
+    "uncapped": "-0.3797"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | New Glasgow (B2H)",
+    "uncapped": "-0.3505"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | North Sydney (B2A)",
+    "uncapped": "-0.4901"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Sydney (B1R)",
+    "uncapped": "-0.4901"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 1.1 | Yarmouth (B5A)",
+    "uncapped": "-0.3866"
+   },
+   {
+    "capped": "+0.0695",
+    "position": "Combined 2.1 | Amherst (B4H)",
+    "uncapped": "+0.0695"
+   },
+   {
+    "capped": "+0.1315",
+    "position": "Combined 2.1 | Antigonish (B2G)",
+    "uncapped": "+0.1315"
+   },
+   {
+    "capped": "+0.0275",
+    "position": "Combined 2.1 | Dartmouth (B3A)",
+    "uncapped": "+0.0275"
+   },
+   {
+    "capped": "+0.0275",
+    "position": "Combined 2.1 | Halifax (B3H)",
+    "uncapped": "+0.0275"
+   },
+   {
+    "capped": "+0.0606",
+    "position": "Combined 2.1 | Kentville (B4N)",
+    "uncapped": "+0.0606"
+   },
+   {
+    "capped": "+0.1315",
+    "position": "Combined 2.1 | New Glasgow (B2H)",
+    "uncapped": "+0.1315"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 2.1 | North Sydney (B2A)",
+    "uncapped": "-0.1210"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 2.1 | Sydney (B1R)",
+    "uncapped": "-0.1210"
+   },
+   {
+    "capped": "+0.0682",
+    "position": "Combined 2.1 | Yarmouth (B5A)",
+    "uncapped": "+0.0682"
+   },
+   {
+    "capped": "+0.1295",
+    "position": "Combined 3.1 | Amherst (B4H)",
+    "uncapped": "+0.1295"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "Combined 3.1 | Antigonish (B2G)",
+    "uncapped": "+0.1653"
+   },
+   {
+    "capped": "+0.1398",
+    "position": "Combined 3.1 | Dartmouth (B3A)",
+    "uncapped": "+0.1398"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "Combined 3.1 | Halifax (B3H)",
+    "uncapped": "+0.1636"
+   },
+   {
+    "capped": "+0.1157",
+    "position": "Combined 3.1 | Kentville (B4N)",
+    "uncapped": "+0.1157"
+   },
+   {
+    "capped": "+0.1500",
+    "position": "Combined 3.1 | New Glasgow (B2H)",
+    "uncapped": "+0.1653"
+   },
+   {
+    "capped": "-0.0330",
+    "position": "Combined 3.1 | North Sydney (B2A)",
+    "uncapped": "-0.0330"
+   },
+   {
+    "capped": "-0.0330",
+    "position": "Combined 3.1 | Sydney (B1R)",
+    "uncapped": "-0.0330"
+   },
+   {
+    "capped": "+0.1165",
+    "position": "Combined 3.1 | Yarmouth (B5A)",
+    "uncapped": "+0.1165"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | Amherst (B4H)",
+    "uncapped": "-0.0682"
+   },
+   {
+    "capped": "-0.0107",
+    "position": "Combined 4.1 | Antigonish (B2G)",
+    "uncapped": "-0.0107"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | Dartmouth (B3A)",
+    "uncapped": "-0.0995"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | Halifax (B3H)",
+    "uncapped": "-0.0995"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | Kentville (B4N)",
+    "uncapped": "-0.0697"
+   },
+   {
+    "capped": "-0.0107",
+    "position": "Combined 4.1 | New Glasgow (B2H)",
+    "uncapped": "-0.0107"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | North Sydney (B2A)",
+    "uncapped": "-0.2325"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | Sydney (B1R)",
+    "uncapped": "-0.2325"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 4.1 | Yarmouth (B5A)",
+    "uncapped": "-0.0660"
+   },
+   {
+    "capped": "+0.0104",
+    "position": "Combined 6.1 | Amherst (B4H)",
+    "uncapped": "+0.0104"
+   },
+   {
+    "capped": "+0.0393",
+    "position": "Combined 6.1 | Antigonish (B2G)",
+    "uncapped": "+0.0393"
+   },
+   {
+    "capped": "-0.0305",
+    "position": "Combined 6.1 | Dartmouth (B3A)",
+    "uncapped": "-0.0305"
+   },
+   {
+    "capped": "-0.0305",
+    "position": "Combined 6.1 | Halifax (B3H)",
+    "uncapped": "-0.0305"
+   },
+   {
+    "capped": "-0.0076",
+    "position": "Combined 6.1 | Kentville (B4N)",
+    "uncapped": "-0.0076"
+   },
+   {
+    "capped": "+0.0393",
+    "position": "Combined 6.1 | New Glasgow (B2H)",
+    "uncapped": "+0.0393"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 6.1 | North Sydney (B2A)",
+    "uncapped": "-0.1539"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 6.1 | Sydney (B1R)",
+    "uncapped": "-0.1539"
+   },
+   {
+    "capped": "-0.0100",
+    "position": "Combined 6.1 | Yarmouth (B5A)",
+    "uncapped": "-0.0100"
+   },
+   {
+    "capped": "+0.0079",
+    "position": "Combined 7.1 | Amherst (B4H)",
+    "uncapped": "+0.0079"
+   },
+   {
+    "capped": "+0.0883",
+    "position": "Combined 7.1 | Antigonish (B2G)",
+    "uncapped": "+0.0883"
+   },
+   {
+    "capped": "-0.0318",
+    "position": "Combined 7.1 | Dartmouth (B3A)",
+    "uncapped": "-0.0318"
+   },
+   {
+    "capped": "-0.0318",
+    "position": "Combined 7.1 | Halifax (B3H)",
+    "uncapped": "-0.0318"
+   },
+   {
+    "capped": "+0.0059",
+    "position": "Combined 7.1 | Kentville (B4N)",
+    "uncapped": "+0.0059"
+   },
+   {
+    "capped": "+0.0883",
+    "position": "Combined 7.1 | New Glasgow (B2H)",
+    "uncapped": "+0.0883"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 7.1 | North Sydney (B2A)",
+    "uncapped": "-0.1920"
+   },
+   {
+    "capped": "-0.0500",
+    "position": "Combined 7.1 | Sydney (B1R)",
+    "uncapped": "-0.1920"
+   },
+   {
+    "capped": "+0.0162",
+    "position": "Combined 7.1 | Yarmouth (B5A)",
+    "uncapped": "+0.0162"
+   }
+  ],
+  "uncapped_min_median_max": [
+   "-0.4901",
+   "+0.0005",
+   "+0.7789"
+  ],
+  "unweighted_extra_collected": "31150",
+  "unweighted_premium_foregone": "15391"
+ },
+ "B159_12": {
+  "per_profile": [
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "10.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "3.2"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)"
+     ],
+     [
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 5,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": false,
+    "differ": true,
+    "profile": "3.3"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "5.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "6.2"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "6.3"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "8.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "9.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "Combined 1.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "Combined 2.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)"
+     ],
+     [
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 5,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": false,
+    "differ": true,
+    "profile": "Combined 3.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "Combined 4.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "Combined 6.1"
+   },
+   {
+    "A_blocks": [
+     [
+      "Amherst (B4H)",
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)",
+      "Yarmouth (B5A)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ]
+    ],
+    "A_levels": 4,
+    "A_refines_B": false,
+    "B_blocks": [
+     [
+      "Amherst (B4H)"
+     ],
+     [
+      "Antigonish (B2G)",
+      "New Glasgow (B2H)"
+     ],
+     [
+      "Dartmouth (B3A)",
+      "Halifax (B3H)"
+     ],
+     [
+      "Kentville (B4N)"
+     ],
+     [
+      "North Sydney (B2A)",
+      "Sydney (B1R)"
+     ],
+     [
+      "Yarmouth (B5A)"
+     ]
+    ],
+    "B_levels": 6,
+    "B_refines_A": true,
+    "differ": true,
+    "profile": "Combined 7.1"
+   }
+  ],
+  "profiles": 14,
+  "profiles_where_A_splits_halifax": 2,
+  "profiles_where_B_strictly_refines_A": 12,
+  "profiles_where_neither_refines": 2,
+  "profiles_where_partitions_differ": 14
+ },
+ "B159_2": {
+  "commercial": {
+   "citation": "2026 NSRAB 8",
+   "decision": "M12629",
+   "elements": {
+    "cv_differ": true,
+    "cv_manual": true,
+    "cv_renew_into_A": true,
+    "cv_window": true
+   },
+   "window_days": 365,
+   "window_end": "2027-06-30",
+   "window_start": "2026-07-01",
+   "window_start_in_order": "2026-07-01"
+  },
+  "private_passenger": {
+   "citation": "2026 NSRAB 20",
+   "decision": "M12606",
+   "elements": {
+    "ppv_differ": true,
+    "ppv_large": true,
+    "ppv_manual": true,
+    "ppv_renew_into_A": true,
+    "ppv_window": true
+   },
+   "window_days": 355,
+   "window_end": "2027-06-30",
+   "window_start": "2026-07-11",
+   "window_start_in_order": "2026-07-01"
+  }
+ },
+ "B159_3": {
+  "aggregate_sentences": [
+   "[9] Definity notes that renewing the Travelers’ policies into Definity without the capping mechanism would see the Travelers’ portfolio rate increase by 4.2%."
+  ],
+  "capped_pct": 4.2,
+  "distribution_sentences": [],
+  "state": "aggregate",
+  "uncapped_pct": 4.2
+ },
+ "B159_4": {
+  "aggregate_sentences": [],
+  "capped_pct": null,
+  "distribution_sentences": [],
+  "state": "none",
+  "uncapped_pct": null,
+  "update_ordered": true
+ },
+ "B159_5": {
+  "conversion_pairing": {
+   "B2025_separated_to_A2025_combined": [
+    {
+     "collision": [
+      32,
+      35
+     ],
+     "comprehensive": [
+      62,
+      62
+     ],
+     "dcpd": [
+      38,
+      35
+     ],
+     "vehicle": "2018 Honda CR-V EX 4DR AWD"
+    },
+    {
+     "collision": [
+      51,
+      54
+     ],
+     "comprehensive": [
+      67,
+      67
+     ],
+     "dcpd": [
+      57,
+      54
+     ],
+     "vehicle": "2023 Tesla Model Y 75D LONG RANGE 4DR AWD"
+    },
+    {
+     "collision": [
+      32,
+      34
+     ],
+     "comprehensive": [
+      22,
+      22
+     ],
+     "dcpd": [
+      35,
+      34
+     ],
+     "vehicle": "2016 Dodge Grand Caravan SE"
+    },
+    {
+     "collision": [
+      39,
+      41
+     ],
+     "comprehensive": [
+      27,
+      27
+     ],
+     "dcpd": [
+      42,
+      41
+     ],
+     "vehicle": "2018 Nissan Rogue S 4DR AWD"
+    },
+    {
+     "collision": [
+      37,
+      37
+     ],
+     "comprehensive": [
+      22,
+      22
+     ],
+     "dcpd": [
+      37,
+      37
+     ],
+     "vehicle": "2016 Toyota Corolla LE 4DR"
+    },
+    {
+     "collision": [
+      40,
+      39
+     ],
+     "comprehensive": [
+      46,
+      46
+     ],
+     "dcpd": [
+      38,
+      39
+     ],
+     "vehicle": "2018 Ford F150 XLT Supercrew 4WD"
+    },
+    {
+     "collision": [
+      27,
+      30
+     ],
+     "comprehensive": [
+      15,
+      15
+     ],
+     "dcpd": [
+      32,
+      30
+     ],
+     "vehicle": "2014 Honda Civic DX 4DR"
+    },
+    {
+     "collision": [
+      11,
+      16
+     ],
+     "comprehensive": [
+      7,
+      7
+     ],
+     "dcpd": [
+      18,
+      16
+     ],
+     "vehicle": "2000 Nissan Altima GXE 4DR"
+    },
+    {
+     "collision": [
+      24,
+      23
+     ],
+     "comprehensive": [
+      21,
+      21
+     ],
+     "dcpd": [
+      22,
+      23
+     ],
+     "vehicle": "2012 Chevrolet Corvette 2DR Coupe"
+    }
+   ],
+   "B2025_separated_to_A2026_combined": [
+    {
+     "collision": [
+      32,
+      34
+     ],
+     "comprehensive": [
+      62,
+      74
+     ],
+     "dcpd": [
+      38,
+      34
+     ],
+     "vehicle": "2018 Honda CR-V EX 4DR AWD"
+    },
+    {
+     "collision": [
+      51,
+      59
+     ],
+     "comprehensive": [
+      67,
+      58
+     ],
+     "dcpd": [
+      57,
+      59
+     ],
+     "vehicle": "2023 Tesla Model Y 75D LONG RANGE 4DR AWD"
+    },
+    {
+     "collision": [
+      32,
+      31
+     ],
+     "comprehensive": [
+      22,
+      21
+     ],
+     "dcpd": [
+      35,
+      31
+     ],
+     "vehicle": "2016 Dodge Grand Caravan SE"
+    },
+    {
+     "collision": [
+      39,
+      38
+     ],
+     "comprehensive": [
+      27,
+      27
+     ],
+     "dcpd": [
+      42,
+      38
+     ],
+     "vehicle": "2018 Nissan Rogue S 4DR AWD"
+    },
+    {
+     "collision": [
+      37,
+      35
+     ],
+     "comprehensive": [
+      22,
+      18
+     ],
+     "dcpd": [
+      37,
+      35
+     ],
+     "vehicle": "2016 Toyota Corolla LE 4DR"
+    },
+    {
+     "collision": [
+      40,
+      37
+     ],
+     "comprehensive": [
+      46,
+      45
+     ],
+     "dcpd": [
+      38,
+      37
+     ],
+     "vehicle": "2018 Ford F150 XLT Supercrew 4WD"
+    },
+    {
+     "collision": [
+      27,
+      28
+     ],
+     "comprehensive": [
+      15,
+      12
+     ],
+     "dcpd": [
+      32,
+      28
+     ],
+     "vehicle": "2014 Honda Civic DX 4DR"
+    },
+    {
+     "collision": [
+      11,
+      20
+     ],
+     "comprehensive": [
+      7,
+      7
+     ],
+     "dcpd": [
+      18,
+      20
+     ],
+     "vehicle": "2000 Nissan Altima GXE 4DR"
+    },
+    {
+     "collision": [
+      24,
+      21
+     ],
+     "comprehensive": [
+      21,
+      17
+     ],
+     "dcpd": [
+      22,
+      21
+     ],
+     "vehicle": "2012 Chevrolet Corvette 2DR Coupe"
+    }
+   ]
+  },
+  "per_year": {
+   "2024": {
+    "coll_dcpd_differ_under_B": 9,
+    "distinct_vehicles": 9,
+    "footer": "Using 2024 CLEAR Tables published by the IBC",
+    "profiles": 15,
+    "tab": "Profile RGs - 2024 (21 year)",
+    "vehicles": [
+     {
+      "A_collDCPD_comp": [
+       34,
+       59
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       31,
+       59,
+       37
+      ],
+      "B_distinct_values": 3,
+      "code": "0271-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Honda CR-V EX 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       56,
+       56
+      ],
+      "A_distinct_values": 1,
+      "B_coll_comp_dcpd": [
+       53,
+       56,
+       60
+      ],
+      "B_distinct_values": 3,
+      "code": "4024-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2023 Tesla Model Y 75D LONG RANGE 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       35,
+       26
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       34,
+       26,
+       35
+      ],
+      "B_distinct_values": 3,
+      "code": "2662-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2016 Dodge Grand Caravan SE"
+     },
+     {
+      "A_collDCPD_comp": [
+       40,
+       30
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       38,
+       30,
+       42
+      ],
+      "B_distinct_values": 3,
+      "code": "1478-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Nissan Rogue S 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       37,
+       26
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       38,
+       26,
+       36
+      ],
+      "B_distinct_values": 3,
+      "code": "0458-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2016 Toyota Corolla LE 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       38,
+       51
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       39,
+       51,
+       37
+      ],
+      "B_distinct_values": 3,
+      "code": "3558-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Ford F150 XLT Supercrew 4WD"
+     },
+     {
+      "A_collDCPD_comp": [
+       30,
+       18
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       28,
+       18,
+       32
+      ],
+      "B_distinct_values": 3,
+      "code": "0210-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2014 Honda Civic DX 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       15,
+       8
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       12,
+       8,
+       16
+      ],
+      "B_distinct_values": 3,
+      "code": "0910-02",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2000 Nissan Altima GXE 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       23,
+       25
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       27,
+       25,
+       20
+      ],
+      "B_distinct_values": 3,
+      "code": "5507-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2012 Chevrolet Corvette 2DR Coupe"
+     }
+    ]
+   },
+   "2025": {
+    "coll_dcpd_differ_under_B": 8,
+    "distinct_vehicles": 9,
+    "footer": "Using 2025 CLEAR Tables published by the IBC",
+    "profiles": 15,
+    "tab": "Profile RGs - 2025 (21 year)",
+    "vehicles": [
+     {
+      "A_collDCPD_comp": [
+       35,
+       62
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       32,
+       62,
+       38
+      ],
+      "B_distinct_values": 3,
+      "code": "0271-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Honda CR-V EX 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       54,
+       67
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       51,
+       67,
+       57
+      ],
+      "B_distinct_values": 3,
+      "code": "4024-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2023 Tesla Model Y 75D LONG RANGE 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       34,
+       22
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       32,
+       22,
+       35
+      ],
+      "B_distinct_values": 3,
+      "code": "2662-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2016 Dodge Grand Caravan SE"
+     },
+     {
+      "A_collDCPD_comp": [
+       41,
+       27
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       39,
+       27,
+       42
+      ],
+      "B_distinct_values": 3,
+      "code": "1478-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Nissan Rogue S 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       37,
+       22
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       37,
+       22,
+       37
+      ],
+      "B_distinct_values": 2,
+      "code": "0458-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2016 Toyota Corolla LE 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       39,
+       46
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       40,
+       46,
+       38
+      ],
+      "B_distinct_values": 3,
+      "code": "3558-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Ford F150 XLT Supercrew 4WD"
+     },
+     {
+      "A_collDCPD_comp": [
+       30,
+       15
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       27,
+       15,
+       32
+      ],
+      "B_distinct_values": 3,
+      "code": "0210-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2014 Honda Civic DX 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       16,
+       7
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       11,
+       7,
+       18
+      ],
+      "B_distinct_values": 3,
+      "code": "0910-02",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2000 Nissan Altima GXE 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       23,
+       21
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       24,
+       21,
+       22
+      ],
+      "B_distinct_values": 3,
+      "code": "5507-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2012 Chevrolet Corvette 2DR Coupe"
+     }
+    ]
+   },
+   "2026": {
+    "coll_dcpd_differ_under_B": 7,
+    "distinct_vehicles": 9,
+    "footer": "Using 2025 CLEAR Tables published by the IBC",
+    "profiles": 15,
+    "tab": "Profile RGs - 2026 (21 year)",
+    "vehicles": [
+     {
+      "A_collDCPD_comp": [
+       34,
+       74
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       30,
+       74,
+       37
+      ],
+      "B_distinct_values": 3,
+      "code": "0271-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Honda CR-V EX 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       59,
+       58
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       56,
+       58,
+       62
+      ],
+      "B_distinct_values": 3,
+      "code": "4024-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2023 Tesla Model Y 75D LONG RANGE 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       31,
+       21
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       30,
+       21,
+       32
+      ],
+      "B_distinct_values": 3,
+      "code": "2662-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2016 Dodge Grand Caravan SE"
+     },
+     {
+      "A_collDCPD_comp": [
+       38,
+       27
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       36,
+       27,
+       40
+      ],
+      "B_distinct_values": 3,
+      "code": "1478-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Nissan Rogue S 4DR AWD"
+     },
+     {
+      "A_collDCPD_comp": [
+       35,
+       18
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       34,
+       18,
+       35
+      ],
+      "B_distinct_values": 3,
+      "code": "0458-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2016 Toyota Corolla LE 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       37,
+       45
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       37,
+       45,
+       37
+      ],
+      "B_distinct_values": 2,
+      "code": "3558-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2018 Ford F150 XLT Supercrew 4WD"
+     },
+     {
+      "A_collDCPD_comp": [
+       28,
+       12
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       24,
+       12,
+       30
+      ],
+      "B_distinct_values": 3,
+      "code": "0210-01",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2014 Honda Civic DX 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       20,
+       7
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       17,
+       7,
+       21
+      ],
+      "B_distinct_values": 3,
+      "code": "0910-02",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2000 Nissan Altima GXE 4DR"
+     },
+     {
+      "A_collDCPD_comp": [
+       21,
+       17
+      ],
+      "A_distinct_values": 2,
+      "B_coll_comp_dcpd": [
+       21,
+       17,
+       21
+      ],
+      "B_distinct_values": 2,
+      "code": "5507-00",
+      "comp_equal": true,
+      "merged_between": true,
+      "vehicle": "2012 Chevrolet Corvette 2DR Coupe"
+     }
+    ]
+   }
+  },
+  "tab2026_vehicles_differing_from_tab2025": 9,
+  "vehicle_years": 27,
+  "versions": {
+   "a_2026_dates": true,
+   "a_combined": true,
+   "b_2025": true,
+   "b_separated": true
+  }
+ },
+ "B159_6": {
+  "events": [
+   {
+    "acquirer_own": [],
+    "event": "Definity <- Travelers, commercial (M12629)",
+    "own_note": "Definity applies no capping mechanism to its own renewing commercial policies",
+    "provenance": [
+     -5.0,
+     15.0,
+     25.0
+    ],
+    "verdict": true
+   },
+   {
+    "acquirer_own": null,
+    "event": "Definity <- Travelers, private passenger (M12606)",
+    "own_note": "the decision says the mechanism differs from Definity's own approved one; the own values are not printed",
+    "provenance": [
+     -5.0,
+     15.0,
+     25.0
+    ],
+    "verdict": null
+   },
+   {
+    "acquirer_own": [
+     35.0,
+     45.0
+    ],
+    "event": "Intact <- RSA, private passenger (2023 NSUARB 11 [58])",
+    "own_note": "Intact and Trafalgar as of the application decided 2023-01-24; no cap on decreases",
+    "provenance": [
+     -14.0,
+     5.0
+    ],
+    "provenance_line_removed": true,
+    "verdict": true
+   }
+  ],
+  "temporary_lines_private_passenger": {
+   "cap_span_two_renewals": true,
+   "collector_car_no_algorithm": true,
+   "conversion_credit_score_relativity": true
+  }
+ },
+ "B159_7": {
+  "amended_dates": {
+   "clear_renewal": [
+    "2026-12-30",
+    "2027-01-27"
+   ],
+   "start": [
+    "2026-07-01",
+    "2026-07-11"
+   ]
+  },
+  "note": "calendar shares, not shares of policies: the renewal-date distribution of the book is not public",
+  "segments": [
+   {
+    "calendar_days": 102,
+    "calendar_share": "0.2873",
+    "from": "2026-07-11",
+    "program": "Definity program of M12161 (2025 NSRAB 38; M12606 changed no rate), 2025 CLEAR combined version",
+    "to_inclusive": "2026-10-20"
+   },
+   {
+    "calendar_days": 98,
+    "calendar_share": "0.2761",
+    "from": "2026-10-21",
+    "program": "Definity program of M12803 (overall +7%), 2025 CLEAR",
+    "to_inclusive": "2027-01-26"
+   },
+   {
+    "calendar_days": 155,
+    "calendar_share": "0.4366",
+    "from": "2027-01-27",
+    "program": "Definity program of M12803, 2026 CLEAR",
+    "to_inclusive": "2027-06-30"
+   }
+  ],
+  "window": [
+   "2026-07-11",
+   "2027-06-30"
+  ],
+  "window_days": 355
+ },
+ "B159_8": {
+  "counts": {
+   "case_file_not_opened": 0,
+   "confidential_by_rule": 3,
+   "matter_listing_absent": 2,
+   "not_found_public": 3,
+   "not_in_manual": 2,
+   "not_required_by_rule": 1,
+   "public_marked_confidential": 1,
+   "read": 10
+  },
+  "objects": [
+   {
+    "note": "the swap, the caps, the credit relativity",
+    "object": "M12606 decision text (6 pages)",
+    "ok": true,
+    "quotes": {
+     "ppv_differ": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "carries the only number for the swap",
+    "object": "M12629 decision text, commercial vehicles",
+    "ok": true,
+    "quotes": {
+     "cv_differ": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "changes A's program inside the window",
+    "object": "M12803 decision text, Definity's next private passenger program",
+    "ok": true,
+    "quotes": {
+     "a_rates_dates": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "8.0% overall; Optima, credit score, theft table",
+    "object": "M12284 decision text, the Travelers side's last private passenger program",
+    "ok": true,
+    "quotes": {
+     "m12284_8": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "the form exists and the filing must fill it; its numbers sit in Part 2",
+    "object": "Policy-level displacement distribution, uncapped (CONF-8: 17 percent bins and 17 dollar bins, mandatory and optional coverages)",
+    "ok": true,
+    "quotes": {
+     "conf8": true,
+     "conf_c2": true,
+     "conf_part2": true,
+     "conf_routine": true
+    },
+    "state": "confidential_by_rule",
+    "state_reads": "in Part 2 of a filing, which the Board's filing requirements say is routinely kept confidential"
+   },
+   {
+    "note": "same Part 2 pages",
+    "object": "Policy-level displacement distribution, capped (CONF-9), and premium foregone against extra premium collected",
+    "ok": true,
+    "quotes": {
+     "conf_c2": true,
+     "conf_part2": true,
+     "conf_routine": true
+    },
+    "state": "confidential_by_rule",
+    "state_reads": "in Part 2 of a filing, which the Board's filing requirements say is routinely kept confidential"
+   },
+   {
+    "note": "the relativities that make the two programs' prices",
+    "object": "Rating-variable differentials and final rates of either company (C-5)",
+    "ok": true,
+    "quotes": {
+     "conf_c5": true,
+     "conf_part2": true,
+     "conf_routine": true
+    },
+    "state": "confidential_by_rule",
+    "state_reads": "in Part 2 of a filing, which the Board's filing requirements say is routinely kept confidential"
+   },
+   {
+    "note": "a simplified filing that changes no rates; its Part 1 (exhibit D-1) is the three certificate pages",
+    "object": "Rating profiles in M12606",
+    "ok": true,
+    "quotes": {
+     "minor_no_profiles": true,
+     "ppv_manual": true
+    },
+    "state": "not_required_by_rule",
+    "state_reads": "the filing type does not require it, by the Board's filing requirements"
+   },
+   {
+    "note": "the B program in force at the swap",
+    "object": "Rating profiles, Dominion (Travelers Canada), M12284 exhibit T-8, CARR 2022 version",
+    "ok": true,
+    "quotes": {
+     "b2025_dates": true,
+     "nc_n5": true,
+     "profiles_current_proposed": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "the A program in force at the swap; same profiles as T-8",
+    "object": "Rating profiles, Definity, M12161 exhibit D-2, CARR 2022 version",
+    "ok": true,
+    "quotes": {
+     "a2025_approved": true,
+     "a2025_dates": true,
+     "nc_n5": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "A's next program; the Travelers side never filed 2025-version profiles, so it pairs with nothing",
+    "object": "Rating profiles, Definity, M12803 exhibit D-3, CARR 2025 version",
+    "ok": true,
+    "quotes": {
+     "a_rates_dates": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "not used",
+    "object": "Dominion exhibit T-10 'Proposed Rating Profiles' (its cover: Confidential, Exhibit Sec C-5.c, base rates and differentials)",
+    "ok": true,
+    "quotes": {
+     "b_filings_confidential": true
+    },
+    "state": "public_marked_confidential",
+    "state_reads": "listed Public in UARB15, marked Confidential by the filer; opened only to identify it, used for no reading"
+   },
+   {
+    "note": "the decision says they exist; the public listing of M12606 has 3 exhibits (D-1 public, D-2 and D-3 confidential) and 4 Board documents",
+    "object": "Staff Report and Information Request responses, M12606",
+    "ok": true,
+    "quotes": {
+     "staff_report": true
+    },
+    "state": "matter_listing_absent",
+    "state_reads": "the matter's public document listing in UARB15 was read; the item is not in it"
+   },
+   {
+    "note": "received 2026-08-05 per the Board's letter; the company's correspondence is not in the public listing",
+    "object": "Definity's six-month negative-capping update, M12606",
+    "ok": true,
+    "quotes": {
+     "ppv_update": true,
+     "update_received": true
+    },
+    "state": "matter_listing_absent",
+    "state_reads": "the matter's public document listing in UARB15 was read; the item is not in it"
+   },
+   {
+    "note": "states the sign of foregone minus collected premium, not its size",
+    "object": "The Board's letter acknowledging that update, M12606 document 103078",
+    "ok": true,
+    "quotes": {
+     "negative_capping_confirmed": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "",
+    "object": "Capping values in Definity's Automobile Insurance Manual",
+    "ok": true,
+    "quotes": {
+     "manual_no_caps": true
+    },
+    "state": "not_in_manual",
+    "state_reads": "the Board's decision says the company's manual does not carry it"
+   },
+   {
+    "note": "whether Travelers tenure counts toward Definity's three-year discount is not stated in any decision read",
+    "object": "Renewal discount amount in Definity's Automobile Insurance Manual",
+    "ok": true,
+    "quotes": {
+     "manual_no_renewal_discount": true
+    },
+    "state": "not_in_manual",
+    "state_reads": "the Board's decision says the company's manual does not carry it"
+   },
+   {
+    "note": "not a field of the public filing forms read",
+    "object": "Renewal-date distribution of the Nova Scotia Travelers book (maps the D53 dose to the calendar)",
+    "ok": true,
+    "quotes": {},
+    "state": "not_found_public",
+    "state_reads": "searched for on the public pages, not found"
+   },
+   {
+    "note": "trade press dates it 2021-07-28; the Board's site search and public decision pages did not return it",
+    "object": "The 2021 Nova Scotia decision converting RSA policies into Intact",
+    "ok": true,
+    "quotes": {},
+    "state": "not_found_public",
+    "state_reads": "searched for on the public pages, not found"
+   },
+   {
+    "note": "approved, outside the hearing record",
+    "object": "New Brunswick merger filing for the same conversion",
+    "ok": true,
+    "quotes": {
+     "nb_merger": true
+    },
+    "state": "not_found_public",
+    "state_reads": "searched for on the public pages, not found"
+   },
+   {
+    "note": "national figures, no provincial displacement",
+    "object": "Definity 2026 Q2 news release",
+    "ok": true,
+    "quotes": {
+     "dfy_q2_retention": true
+    },
+    "state": "read",
+    "state_reads": "in hand, read"
+   },
+   {
+    "note": "from the Board's profile workbook",
+    "object": "CLEAR rate groups of the profile vehicles, 2024-2026 tables, separated and combined versions",
+    "ok": true,
+    "quotes": {},
+    "state": "read",
+    "state_reads": "in hand, read"
+   }
+  ]
+ },
+ "B159_9": {
+  "cited_decision_is": "2025 NSUARB 25 is Hartford Fire Insurance Company adopting IAO rates for commercial vehicles (M12044)",
+  "cites_8": true,
+  "m12044_cite": true,
+  "m12044_what": true,
+  "m12044_who": true,
+  "m12284_8": true,
+  "m12284_cite": true,
+  "m12284_ppv": true
+ },
+ "config": {
+  "a_table_years_on_ramp": [
+   2025,
+   2026
+  ],
+  "b_table_year": 2025,
+  "caps_first_renewal": [
+   -0.05,
+   0.15
+  ],
+  "conversion_window": [
+   "2026-07-11",
+   "2027-06-30"
+  ],
+  "profile_column": "proposed",
+  "profile_workbook": "PPV_Rating_Profiles_2026_CARR_NS.xlsx",
+  "profiles_A": "uarb15/M12161_D-2_Rating_Profiles.xlsx",
+  "profiles_A_next": "uarb15/M12803_D-3_Rating_Profiles.xlsx",
+  "profiles_B": "uarb15/M12284_T-8.xlsx",
+  "rate_group_tabs": {
+   "2024": "Profile RGs - 2024 (21 year)",
+   "2025": "Profile RGs - 2025 (21 year)",
+   "2026": "Profile RGs - 2026 (21 year)"
+  },
+  "source_manifest": "data/raw/b159/b159_manifest.json"
+ },
+ "criteria": [
+  {
+   "detail": "50 of 50 files match the SHA-256 in data/raw/b159/b159_manifest.json; 1 withheld file(s) are absent under their readable names and never opened; 69 of 69 quotes are found in the whitespace-collapsed text snapshots with page furniture removed.",
+   "kind": "bookkeeping",
+   "name": "B159-1",
+   "passed": true
+  },
+  {
+   "detail": "The Board writes the swap for both rating programs. Private passenger (2026 NSRAB 20): each Travelers Canada policy renews on its renewal date into a Definity policy, from 2026-07-11 to 2027-06-30 (the order said 2026-07-01; the Amending Order of 2026-03-25 moved the first renewal for internal system constraints); 'Travelers Canada rates and risk-classification systems are different from those used by Definity.' 'A straight transfer of the Travelers Canada policies into Definity policies, without any mitigating factors, would result in large premium increases for many customers.' Definity's manual is unchanged. Commercial (2026 NSRAB 8): 'Because the rates and risk-classification system for Travelers differ from those used by Definity, a straight renewal of the Travelers’ policies into Definity policies without any mitigating factors would result in many customers seeing large premium changes.' Same customers and vehicles, a different pricing procedure, different prices. The risk-pricing reading (one risk, one premium whoever runs the procedure) predicts no change at the policy level; the regulator's text records many large changes. No rival criterion is registered (the framework gives no opposite point prediction on the direction).",
+   "kind": "own_reading",
+   "name": "B159-2",
+   "passed": true
+  },
+  {
+   "detail": "Commercial vehicles: renewing the Travelers book into Definity's program moves the portfolio rate by +4.2% uncapped and +4.2% capped (caps +15%, +25% after a new claim or conviction, -5% on decreases). The book's risks are those of the Travelers portfolio; the +4.2% is the average move from the procedure alone. Only the average is public; the spread around it is in the confidential pages (B159-8).",
+   "kind": "own_reading",
+   "name": "B159-3",
+   "passed": true
+  },
+  {
+   "detail": "Private passenger: the public decision carries no portfolio or distribution figure for the swap (state 'none'). The Board ordered an update within six months of the order (order dated 2026-02-05) on whether the capping keeps premium foregone at or above extra premium collected. Definity filed it on 2026-08-05; the company's correspondence is not in the matter's public listing, and the Board's letter of the same day (document 103078) gives the sign only: 'confirms that the capping mechanism complies with the Board requirement for the use of negative capping (i.e., the premium foregone on the cap on increases exceeds the extra premium collected from the cap on decrease).' The distribution exists: the filing requirements make every company fill CONF-8 (uncapped) and CONF-9 (capped) with exposure counts in 17 percent bins and 17 dollar bins; those pages are routinely kept confidential. Undetermined, not zero; the profile-resolution counterpart is B159-11.",
+   "kind": "own_reading",
+   "name": "B159-4",
+   "passed": null
+  },
+  {
+   "detail": "Same vehicles, two table versions. The Travelers side rates on the CLEAR table with collision, DCPD and comprehensive separated (three physical-damage rate groups per vehicle); Definity on the version with collision and DCPD combined (two). Conversion pairing, 2025 separated to 2025 combined, collision and DCPD rate groups: 2018 Honda CR-V EX 4DR AWD COLL 32->35, DCPD 38->35; 2023 Tesla Model Y 75D LONG RANGE 4DR AWD COLL 51->54, DCPD 57->54; 2016 Dodge Grand Caravan SE COLL 32->34, DCPD 35->34; 2018 Nissan Rogue S 4DR AWD COLL 39->41, DCPD 42->41; 2016 Toyota Corolla LE 4DR COLL 37->37, DCPD 37->37; 2018 Ford F150 XLT Supercrew 4WD COLL 40->39, DCPD 38->39; 2014 Honda Civic DX 4DR COLL 27->30, DCPD 32->30; 2000 Nissan Altima GXE 4DR COLL 11->16, DCPD 18->16; 2012 Chevrolet Corvette 2DR Coupe COLL 24->23, DCPD 22->23. In all 27 vehicle-years (9 distinct vehicles, 2024-2026 tables) the merged rate group lies between the two separated ones; comprehensive is the same in both versions. The Board's 2026 tab carries a footer naming the 2025 tables while its numbers differ from the 2025 tab in 9 of 9 vehicles; read as 2026. Rate groups are classes, not prices: the relativities that turn them into premiums are confidential.",
+   "kind": "own_reading",
+   "name": "B159-5",
+   "passed": true
+  },
+  {
+   "detail": "Both Nova Scotia acquisition conversions add class lines keyed on the policy's provenance. Definity <- Travelers, commercial (M12629): provenance caps [-5.0, 15.0, 25.0], acquirer's own []; Definity <- Travelers, private passenger (M12606): provenance caps [-5.0, 15.0, 25.0], acquirer's own not printed; Intact <- RSA, private passenger (2023 NSUARB 11 [58]): provenance caps [-14.0, 5.0], acquirer's own [35.0, 45.0]. The RSA line was removed in 2023 once all RSA clients had renewed onto Intact's system. Private passenger also carries a temporary Conversion Credit Score relativity until the first renewal as a Definity policy, and Travelers collector cars are renewed as private passenger vehicles because Definity has no collector car algorithm (a class line deleted).",
+   "kind": "own_reading",
+   "name": "B159-6",
+   "passed": true
+  },
+  {
+   "detail": "The reading's index is the share of the book already converted (D53), not a date. Inside the window Definity's own program changes twice: 2026-07-11 to 2026-10-20 (102 days): Definity program of M12161 (2025 NSRAB 38; M12606 changed no rate), 2025 CLEAR combined version; 2026-10-21 to 2027-01-26 (98 days): Definity program of M12803 (overall +7%), 2025 CLEAR; 2027-01-27 to 2027-06-30 (155 days): Definity program of M12803, 2026 CLEAR. Two amending orders moved two of the cut dates: the first renewal from 2026-07-01 to 2026-07-11 (order of 2026-03-25) and the 2026 CLEAR table's renewal date from 2026-12-30 to 2027-01-27 (order of 2026-10-02). Calendar shares only; the renewal-date distribution of the book is not public, so the dose cannot be mapped to dates from public material. The conversion caps run for two renewals, the Board's two-cycle limit.",
+   "kind": "instrument",
+   "name": "B159-7",
+   "passed": true
+  },
+  {
+   "detail": "Availability of every wanted object, one state each: read 10; case_file_not_opened 0; confidential_by_rule 3; not_found_public 3; not_in_manual 2; not_required_by_rule 1; matter_listing_absent 2; public_marked_confidential 1. The policy-level displacement and both companies' relativities are confidential by the Board's filing requirements. The rating profiles are public in the matter files and were read (B159-10 to B159-12); M12606 itself carries none, because a filing that changes no rate does not require them. Staff Report, information-request responses and Definity's six-month update are not in the public listings. One Dominion exhibit listed Public carries a 'Confidential' cover with base rates and differentials; it was opened only to identify it and is used for no reading.",
+   "kind": "bookkeeping",
+   "name": "B159-8",
+   "passed": true
+  },
+  {
+   "detail": "M12606 [3] cites the Travelers side's overall 8% increase to 2025 NSUARB 25; that citation is Hartford Fire Insurance Company adopting IAO rates for commercial vehicles (M12044). The 8.0% private passenger increase for Dominion of Canada (Travelers Canada) is 2025 NSRAB 65 (M12284, decided 2025-08-07).",
+   "kind": "known_answer",
+   "name": "B159-9",
+   "passed": true
+  },
+  {
+   "detail": "Same standard risk, two programs, two prices. 126 positions (14 CARR profiles x 9 Board territories) priced by both companies on identical written profiles: Dominion of Canada (Travelers Canada) M12284 exhibit T-8 and Definity M12161 exhibit D-2, both 2022-version workbooks, 'proposed' columns, in force for Travelers renewals from 2025-12-21 and Definity renewals from 2025-11-21 to 2026-10-20, so both stand at the first renewal into Definity (2026-07-11). Class = program, position = profile x territory. Log of A/B over positions runs ['-0.6735', '0.0005', '0.5760'] (min, median, max). The floor is the printed rounding: whole-dollar components, half a dollar each, summed into the printed total; per position it runs ['0.00164', '0.00400', '0.00635'] in log. The scalar-field reading (one position, one price, whichever program) is off its floor at 117 of 126 positions. The weaker separable reading (A = constant x B) makes every square zero; the 125 independent squares (a star around the median position, 3.2 | Dartmouth (B3A)) stand above their floor in 115, and all pairs in 7612 of 7875. Largest square 1.2495 (10.1 | Antigonish (B2G) against Combined 1.1 | North Sydney (B2A)), 235.9 times its floor. The move runs along driver age and experience; A/B - 1 (min, max over the nine territories) for the 19-year-old male (5.1) ['-0.4705', '-0.2005'], the 52-year-old with a 21-year-old occasional driver (Combined 1.1) ['-0.4901', '-0.3505'], the 70-year-old (9.1) ['+0.2363', '+0.5602'], the 35-year-old commuter (10.1) ['+0.4528', '+0.7789']. Not paired: Dominion's 2025-12-21 high-theft list update (M12466) post-dates its profile workbook; Definity's charged premium passes its expected loss cost through a proprietary formula (2025 NSRAB 38 [19]); the profiles are new business, the conversion carries tenure.",
+   "kind": "own_reading",
+   "name": "B159-10",
+   "passed": true
+  },
+  {
+   "detail": "The swap at profile resolution. A/B - 1 over the 126 positions runs ['-0.4901', '+0.0005', '+0.7789'] (min, median, max); 28 positions sit above the +15% cap, 39 below the -5% floor, 59 inside. Unweighted over positions, premium foregone above the cap is 15391 dollars and extra premium collected below the floor 31150. The Board's letter of 2026-08-05 states for the book, weighted by its policies, that foregone exceeds collected; the profiles are one each and unweighted, a different object, printed beside it. Definity's next step on its own 2025-version profiles (M12803 exhibit D-3, renewals from 2026-10-21) moves ['+0.0057', '+0.0553', '+0.2315'] over 135 positions; the Travelers side filed no 2025-version profiles, so the later segments of the window have no B to pair with.",
+   "kind": "own_reading",
+   "name": "B159-11",
+   "passed": true
+  },
+  {
+   "detail": "Territory class lines. On each of the 14 paired profiles the nine Board territories are grouped by identical printed coverage vectors. Dominion: Amherst / Antigonish+New Glasgow / Dartmouth+Halifax / Kentville / North Sydney+Sydney / Yarmouth. Definity: Amherst+Antigonish+New Glasgow / Dartmouth / Halifax / Kentville+Yarmouth / North Sydney+Sydney; Amherst+Antigonish+New Glasgow / Dartmouth+Halifax / Kentville+Yarmouth / North Sydney+Sydney. The partitions differ on 14 of 14 profiles: on 12 Dominion's grouping strictly refines Definity's, on 2 neither refines the other. Dominion splits Amherst from New Glasgow and Antigonish and Kentville from Yarmouth, which Definity joins; Definity splits Halifax from Dartmouth on 2 profiles, which Dominion joins. The swap moves a policy across territory lines as well as rate levels. Definity's territories were unchanged in 2025 NSRAB 38.",
+   "kind": "own_reading",
+   "name": "B159-12",
+   "passed": true
+  }
+ ],
+ "mapping_11c": [
+  {
+   "criterion": "B159-3",
+   "state": "two numbers parsed, capped <= uncapped",
+   "verdict": true
+  },
+  {
+   "criterion": "B159-3",
+   "state": "two numbers parsed, capped > uncapped",
+   "verdict": false
+  },
+  {
+   "criterion": "B159-3",
+   "state": "numbers not in the text",
+   "verdict": null
+  },
+  {
+   "criterion": "B159-4",
+   "state": "distribution or aggregate in the public text",
+   "verdict": true
+  },
+  {
+   "criterion": "B159-4",
+   "state": "neither in the public text",
+   "verdict": null
+  },
+  {
+   "criterion": "B159-6",
+   "state": "event with the acquirer's own values printed, provenance set differs",
+   "verdict": true
+  },
+  {
+   "criterion": "B159-6",
+   "state": "event with the acquirer's own values printed, provenance set equal or empty",
+   "verdict": false
+  },
+  {
+   "criterion": "B159-6",
+   "state": "event whose acquirer's own values are not printed",
+   "verdict": null
+  },
+  {
+   "criterion": "B159-10",
+   "state": "at least one star square above its printed-rounding floor",
+   "verdict": true
+  },
+  {
+   "criterion": "B159-10",
+   "state": "every star square within its floor (the A/B ratio is one constant at this resolution)",
+   "verdict": false
+  },
+  {
+   "criterion": "B159-10",
+   "state": "no position priced by both programs on the same written profile",
+   "verdict": null
+  },
+  {
+   "criterion": "B159-12",
+   "state": "the two programs group the nine territories differently on at least one profile",
+   "verdict": true
+  },
+  {
+   "criterion": "B159-12",
+   "state": "identical territory partitions on every paired profile",
+   "verdict": false
+  },
+  {
+   "criterion": "B159-12",
+   "state": "no paired profile",
+   "verdict": null
+  }
+ ],
+ "selftest": [
+  {
+   "check": "B159-1 passes on the real files",
+   "ok": true
+  },
+  {
+   "check": "B159-1 fails on a quote not in its source",
+   "ok": true
+  },
+  {
+   "check": "B159-1 fails on a hash that does not match",
+   "ok": true
+  },
+  {
+   "check": "the manifest names at least one withheld file",
+   "ok": true
+  },
+  {
+   "check": "B159-1 fails when a withheld file is present under a readable name",
+   "ok": true
+  },
+  {
+   "check": "B159-2 passes on the real texts",
+   "ok": true
+  },
+  {
+   "check": "B159-2 fails when the commercial decision lacks 'differ'",
+   "ok": true
+  },
+  {
+   "check": "B159-2 fails on a window whose start is after its end",
+   "ok": true
+  },
+  {
+   "check": "B159-3 passes on the real text",
+   "ok": true
+  },
+  {
+   "check": "B159-3 fails when capped exceeds uncapped",
+   "ok": true
+  },
+  {
+   "check": "B159-3 goes to the third state when the numbers are gone",
+   "ok": true
+  },
+  {
+   "check": "B159-4 is undetermined on the real private passenger text",
+   "ok": true
+  },
+  {
+   "check": "B159-4 reads an aggregate when one is planted",
+   "ok": true
+  },
+  {
+   "check": "B159-5 passes on the real workbook",
+   "ok": true
+  },
+  {
+   "check": "B159-5 fails when a merged rate group lies outside the separated pair",
+   "ok": true
+  },
+  {
+   "check": "B159-5 fails when A's table version is not confirmed",
+   "ok": true
+  },
+  {
+   "check": "B159-6 passes on the real texts",
+   "ok": true
+  },
+  {
+   "check": "B159-6 fails when the acquirer's own cap set equals the provenance set",
+   "ok": true
+  },
+  {
+   "check": "B159-6 fails when the RSA line's removal is not found",
+   "ok": true
+  },
+  {
+   "check": "B159-7 passes on the real dates",
+   "ok": true
+  },
+  {
+   "check": "B159-7 fails on cut dates out of order",
+   "ok": true
+  },
+  {
+   "check": "B159-7 fails on cut dates past the window",
+   "ok": true
+  },
+  {
+   "check": "B159-8 passes on the real table",
+   "ok": true
+  },
+  {
+   "check": "B159-8 fails on a state outside the set",
+   "ok": true
+  },
+  {
+   "check": "B159-8 fails on a confidentiality claim without a filing-requirements quote",
+   "ok": true
+  },
+  {
+   "check": "B159-9 passes on the real texts",
+   "ok": true
+  },
+  {
+   "check": "B159-9 fails when the 8.0% is not in the Dominion decision",
+   "ok": true
+  },
+  {
+   "check": "B159-2 takes the private passenger start from the Amending Order",
+   "ok": true
+  },
+  {
+   "check": "B159-2 falls back to the order's start when the Amending Order is absent",
+   "ok": true
+  },
+  {
+   "check": "B159-7 uses both amended dates",
+   "ok": true
+  },
+  {
+   "check": "B159-7 falls back to the CLEAR date of the decision when the amended order is absent",
+   "ok": true
+  },
+  {
+   "check": "B159-10 reads squares above the floor on the real profiles",
+   "ok": true
+  },
+  {
+   "check": "B159-10 is False when A is B scaled by one constant and rounded",
+   "ok": true
+  },
+  {
+   "check": "B159-10 goes to the third state when no profile description matches",
+   "ok": true
+  },
+  {
+   "check": "B159-11 passes on the real profiles and letter",
+   "ok": true
+  },
+  {
+   "check": "B159-11 fails when the Board's negative-capping sentence is not found",
+   "ok": true
+  },
+  {
+   "check": "B159-11 fails when no position is paired",
+   "ok": true
+  },
+  {
+   "check": "B159-12 finds differing territory partitions on the real profiles",
+   "ok": true
+  },
+  {
+   "check": "B159-12 is False when A carries B's own vectors",
+   "ok": true
+  }
+ ],
+ "stage": "B159",
+ "title": "Definity takes over Travelers Canada: the same policies renew into the acquirer's rating program"
+}

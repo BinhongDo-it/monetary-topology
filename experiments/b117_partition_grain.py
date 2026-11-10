@@ -5,9 +5,12 @@ What this is for. B114 (experiments/b114_sarafu.py) follows each month's new Sar
 entered and reads the share still in that area week by week. A chain in which every wallet spends
 at its own quarterly speed and pays its own counterparts reads that share back; the same chain run
 on whole areas reads it low, at 52 weeks by up to about 62 points. This script runs the chain on
-classes between those two ends. The state stays wallet by wallet. A wallet's spending speed, and
-where its payments land, are taken from its class: what a class pays on lands across classes by
-the class's own payment mix, and within a class by what each wallet of it receives. With areas as
+classes between those two ends. A wallet's spending speed, and where its payments land, are taken
+from its class: what a class pays on lands across classes by the class's own payment mix, and
+within a class by what each wallet of it receives. With each wallet's own speed, or classes that
+cross areas, the state is kept wallet by wallet; with the class's speed and classes inside areas
+every wallet of a class moves alike, so the chain runs on class balances as a sparse K x K step,
+which the wallet state summed into classes equals (block 0 checks it). With areas as
 the classes the chain is B114's area chain; with single wallets it is B114's wallet chain; both are
 checked against B114 to the last digit before anything else is read.
 
@@ -402,7 +405,7 @@ def split_within(part, key, s):
 
 
 # ---------------------------------------------------------------------------
-# The chain on classes, with the state wallet by wallet
+# The chain on classes: the state wallet by wallet, or on class balances where the two are equal
 # ---------------------------------------------------------------------------
 
 def partition_operator(panel, k, part, K, speed):
@@ -490,15 +493,21 @@ def cohort_starts(res, pw, min_cohort):
     return out
 
 
-def chain_rows_one(res, panel, part, K, speed, min_cohort=S.MIN_COHORT, start_at="mid", window="quarter"):
+def chain_rows_one(res, panel, part, K, speed, min_cohort=S.MIN_COHORT, start_at="mid", window="quarter", state="auto"):
     """For one partition and speed, and each entry area: the share of the cohorts' chain mass still in
-    the entry area among the mass in circulation, pooled over cohorts as B114 pools them, at each age."""
+    the entry area among the mass in circulation, pooled over cohorts as B114 pools them, at each age.
+    state "auto": with the class's speed and classes inside areas the chain runs on class balances
+    (class_chain_rows); otherwise, or with state "wallet", wallet by wallet."""
     import numpy as np
     classes, times = res["classes"], res["snap_times"]
     pw = S.panel_window(res, panel, window)
     C, wclass = len(classes), pw["wclass"]
     if part.shape != (pw["N"],) or (part.size and (part.min() < 0 or part.max() >= K)):
         raise ValueError("the partition does not number every wallet with a class below K")
+    if state not in ("auto", "wallet"):
+        raise ValueError(state)
+    if state == "auto" and speed == "class" and refines(part, wclass):
+        return class_chain_rows(res, panel, part, K, min_cohort, start_at, window, with_masses=True)
     qk = {q: k for k, q in enumerate(pw["quarters"])}
     acc = defaultdict(lambda: defaultdict(lambda: [0.0, 0.0]))
     ops = {}
@@ -530,10 +539,23 @@ def chain_rows_one(res, panel, part, K, speed, min_cohort=S.MIN_COHORT, start_at
     return shares, masses
 
 
-def class_chain_rows(res, panel, part, K, min_cohort=S.MIN_COHORT, start_at="mid", window="quarter"):
+def class_step(op):
+    """The class-speed day step of partition_operator as a K x K sparse matrix on class balances (one
+    column per cohort): class a keeps stay_k[a] of its balance and pays circ_k[a] of it on, spread
+    over destination classes by its payment mix d. What leaves circulation is in neither term."""
+    from scipy import sparse
+    K = op["K"]
+    pay = sparse.coo_matrix((op["circ_k"][op["ea"]] * op["d"], (op["eb"], op["ea"])), shape=(K, K))
+    return (pay + sparse.diags(op["stay_k"])).tocsr()
+
+
+def class_chain_rows(res, panel, part, K, min_cohort=S.MIN_COHORT, start_at="mid", window="quarter", with_masses=False):
     """The class-speed chain run on K class balances instead of wallet balances, for classes that do not
-    mix areas (so the entry area's share can be read off the classes). It must equal chain_rows_one."""
+    mix areas (so the entry area's share can be read off the classes). With the class's speed every
+    wallet of a class keeps and pays on the same fractions, so the class balances follow a closed K x K
+    step; it must equal chain_rows_one with state "wallet" summed into classes."""
     import numpy as np
+    from scipy import sparse
     classes, times = res["classes"], res["snap_times"]
     pw = S.panel_window(res, panel, window)
     C, wclass = len(classes), pw["wclass"]
@@ -541,13 +563,14 @@ def class_chain_rows(res, panel, part, K, min_cohort=S.MIN_COHORT, start_at="mid
         raise ValueError("the partition mixes areas")
     area_of = np.zeros(K, dtype=np.int64)
     area_of[part] = wclass
+    to_area = sparse.csr_matrix((np.ones(K), (area_of, np.arange(K))), shape=(C, K))
     qk = {q: k for k, q in enumerate(pw["quarters"])}
     acc = defaultdict(lambda: defaultdict(lambda: [0.0, 0.0]))
-    ops = {}
+    steps = {}
     for rows, V0, end in cohort_starts(res, pw, min_cohort):
         n = len(rows)
-        x = np.bincount((np.arange(n)[:, None] * K + part[None, :]).ravel(), weights=V0.ravel(),
-                        minlength=n * K).reshape(n, K)
+        x = np.bincount((part[:, None] * n + np.arange(n)[None, :]).ravel(), weights=V0.T.ravel(),
+                        minlength=K * n).reshape(K, n)
         first = bisect.bisect_left(times, end)
         day = S.chain_start(end, start_at)
         ages_left = sorted(S.AGES)
@@ -557,27 +580,31 @@ def class_chain_rows(res, panel, part, K, min_cohort=S.MIN_COHORT, start_at="mid
                 k = qk.get(S.period_key(day, window))
                 if k is None:
                     break
-                if k not in ops:
-                    ops[k] = partition_operator(pw, k, part, K, "class")
-                op = ops[k]
-                if op is None:
+                if k not in steps:
+                    op = partition_operator(pw, k, part, K, "class")
+                    steps[k] = None if op is None else class_step(op)
+                if steps[k] is None:
                     break
-                paid = x * op["circ_k"][None, :]
-                land = np.zeros((n, K))
-                if op["d"].size:
-                    flat = (np.arange(n)[:, None] * K + op["eb"][None, :]).ravel()
-                    land = np.bincount(flat, weights=(paid[:, op["ea"]] * op["d"][None, :]).ravel(),
-                                       minlength=n * K).reshape(n, K)
-                x = x * op["stay_k"][None, :] + land
+                x = steps[k] @ x
                 day += dt.timedelta(days=1)
             age = ages_left.pop(0)
-            tot = np.bincount((np.arange(n)[:, None] * C + area_of[None, :]).ravel(), weights=x.ravel(),
-                              minlength=n * C).reshape(n, C)
+            tot = to_area @ x
             for r, c in enumerate(rows):
-                if tot[r].sum() > 0:
-                    acc[classes[c]][age][0] += tot[r, c]
-                    acc[classes[c]][age][1] += tot[r].sum()
-    return {cl: {g: v[0] / v[1] for g, v in by.items() if v[1] > 0} for cl, by in acc.items()}
+                if tot[:, r].sum() > 0:
+                    acc[classes[c]][age][0] += tot[c, r]
+                    acc[classes[c]][age][1] += tot[:, r].sum()
+    shares = {cl: {g: v[0] / v[1] for g, v in by.items() if v[1] > 0} for cl, by in acc.items()}
+    if not with_masses:
+        return shares
+    return shares, {cl: {g: v[1] for g, v in by.items()} for cl, by in acc.items()}
+
+
+def lump_gap(res, panel, part, K, cache_dir=None, archive_digest=None, log=None):
+    """The chain on class balances against the class-speed chain kept wallet by wallet and summed into
+    classes: (largest difference, same cells). The wallet side is forced, so the two are two paths."""
+    on_wallets = chain_rows(res, panel, [("wallets", part, K, "class")], cache_dir=cache_dir, archive_digest=archive_digest,
+                            log=log, state="wallet")["wallets"]
+    return worst_gap(on_wallets, class_chain_rows(res, panel, part, K))
 
 
 # ---------------------------------------------------------------------------
@@ -587,16 +614,16 @@ def class_chain_rows(res, panel, part, K, min_cohort=S.MIN_COHORT, start_at="mid
 def code_key() -> str:
     """The source of everything a chain result depends on in this file, and all of B114's."""
     h = hashlib.sha256()
-    for fn in (partition_operator, partition_step, cohort_starts, chain_rows_one):
+    for fn in (partition_operator, partition_step, cohort_starts, chain_rows_one, class_step, class_chain_rows):
         h.update(inspect.getsource(fn).encode("utf-8"))
     h.update(Path(S.__file__).read_bytes())
     return h.hexdigest()
 
 
-def cache_key(archive_digest, part, K, speed, min_cohort, start_at, window) -> str:
+def cache_key(archive_digest, part, K, speed, min_cohort, start_at, window, state="auto") -> str:
     import numpy as np
     h = hashlib.sha256()
-    h.update(json.dumps([archive_digest, code_key(), int(K), speed, float(min_cohort), start_at, window]).encode("utf-8"))
+    h.update(json.dumps([archive_digest, code_key(), int(K), speed, float(min_cohort), start_at, window, state]).encode("utf-8"))
     h.update(np.ascontiguousarray(part, dtype="<i8").tobytes())
     return h.hexdigest()
 
@@ -614,30 +641,31 @@ def _write_cache(path, shares, masses):
 
 
 def _run_one(job):
-    name, part, K, speed, min_cohort, start_at, window, path = job
+    name, part, K, speed, min_cohort, start_at, window, state, path = job
     t0 = time.time()
-    shares, masses = chain_rows_one(_SHARED["res"], _SHARED["panel"], part, K, speed, min_cohort, start_at, window)
+    shares, masses = chain_rows_one(_SHARED["res"], _SHARED["panel"], part, K, speed, min_cohort, start_at, window, state)
     if path is not None:
         _write_cache(path, shares, masses)
     return name, shares, time.time() - t0
 
 
 def chain_rows(res, panel, variants, cache_dir=None, archive_digest=None, min_cohort=S.MIN_COHORT,
-               start_at="mid", window="quarter", log=None, jobs=1):
+               start_at="mid", window="quarter", log=None, jobs=1, state="auto"):
     """variants: [(name, part, K, speed)] -> {name: shares}. Cached when cache_dir and archive_digest are given;
-    with jobs > 1 the variants not in the cache run in forked worker processes where the platform forks."""
+    with jobs > 1 the variants not in the cache run in forked worker processes where the platform forks.
+    state "wallet" keeps every variant wallet by wallet (the check the class-balance chain is read against)."""
     out, todo = {}, []
     for name, part, K, speed in variants:
         path = None
         if cache_dir is not None and archive_digest is not None:
-            path = Path(cache_dir) / f"{cache_key(archive_digest, part, K, speed, min_cohort, start_at, window)[:32]}.json"
+            path = Path(cache_dir) / f"{cache_key(archive_digest, part, K, speed, min_cohort, start_at, window, state)[:32]}.json"
             if path.exists():
                 raw = json.loads(path.read_text(encoding="utf-8"))
                 out[name] = {cl: {int(g): v for g, v in by.items()} for cl, by in raw["shares"].items()}
                 if log:
                     log(f"   {name} ({speed} speed): cached")
                 continue
-        todo.append((name, part, K, speed, min_cohort, start_at, window, path))
+        todo.append((name, part, K, speed, min_cohort, start_at, window, state, path))
     _SHARED.update(res=res, panel=panel)
     try:
         if jobs > 1 and len(todo) > 1 and "fork" in multiprocessing.get_all_start_methods():
@@ -712,12 +740,10 @@ def block0(a, res, rows, panel, digest, log=print, jobs=1):
     print(f"   {'areas, class speed':30s} against B114's block-5 area chain: largest difference {gap:.1e}, same cells {same}")
     parts = first_partitions(a, res, panel)
     bt, k_bt = parts["area x business type"]
-    wallet_run = chain_rows(res, panel, [("area x business type", bt, k_bt, "class")], cache_dir=CACHE, archive_digest=digest, log=log)
     t0 = time.time()
-    on_classes = class_chain_rows(res, panel, bt, k_bt)
-    gap, same = worst_gap(wallet_run["area x business type"], on_classes)
-    print(f"   area x business type ({k_bt} classes), class speed: on class balances ({time.time() - t0:.1f} s) against"
-          f" wallet by wallet summed: largest difference {gap:.1e}, same cells {same}")
+    gap, same = lump_gap(res, panel, bt, k_bt, cache_dir=CACHE, archive_digest=digest, log=log)
+    print(f"   area x business type ({k_bt} classes), class speed: on class balances against wallet by wallet summed"
+          f" ({time.time() - t0:.1f} s): largest difference {gap:.1e}, same cells {same}")
 
 
 FAMILIES = (("area", "area"), ("area x business type", "area x business type"),
@@ -1225,8 +1251,7 @@ def instrument_data(res, rows, panel, parts, digest, log=None, jobs=1):
         ends.append({"setting": f"{setting['min_cohort']:g} / {setting['start_at']} / {setting['window']}",
                      "areas": gaps["areas"], "single wallets": gaps["single wallets"], "same cells": same})
     bt, k_bt = parts["area x business type"]
-    on_wallets = chain_rows(res, panel, [("bt", bt, k_bt, "class")], cache_dir=CACHE, archive_digest=digest, log=log)["bt"]
-    gap, same = worst_gap(on_wallets, class_chain_rows(res, panel, bt, k_bt))
+    gap, same = lump_gap(res, panel, bt, k_bt, cache_dir=CACHE, archive_digest=digest, log=log)
     inside = all(refines(p_, wc) for p_, _ in parts.values())
     sizes = all(class_sizes_by_area(parts[f"random, circle sizes, seed {s}"][0], wc) == class_sizes_by_area(parts[f"circles, seed {s}"][0], wc)
                 for s in CRITERIA_SEEDS)
@@ -1458,7 +1483,44 @@ def cmd_selftest() -> int:
         parts = first_partitions(a, res, panel)
         bt, k_bt = parts["area x business type"]
         mixed = renumber(np.array([0 if order[i] in (x1, x3) else 1 if order[i] in (x2, x4) else 2 for i in range(N)]))
-        run = chain_rows(res, panel, [("bt", bt, k_bt, "class"), ("mixed", mixed, 3, "class")])
+        run = chain_rows(res, panel, [("bt", bt, k_bt, "class"), ("mixed", mixed, 3, "class")], state="wallet")
+        whole = np.zeros(N, dtype=np.int64)
+        # On a toy this small the two paths agree to the last bit, so which one ran is read off the calls.
+        calls = {"step": 0, "cls": 0}
+        real_step, real_cls = globals()["partition_step"], globals()["class_chain_rows"]
+
+        def spy_step(V, op):
+            calls["step"] += 1
+            return real_step(V, op)
+
+        def spy_cls(*args_, **kw_):
+            calls["cls"] += 1
+            return real_cls(*args_, **kw_)
+
+        seen = {}
+        globals()["partition_step"], globals()["class_chain_rows"] = spy_step, spy_cls
+        try:
+            for label, fn in (("auto, inside areas", lambda: chain_rows(res, panel, [("bt", bt, k_bt, "class")])),
+                              ("auto, across areas", lambda: chain_rows(res, panel, [("whole", whole, 1, "class")])),
+                              ("auto, own speed", lambda: chain_rows(res, panel, [("bt", bt, k_bt, "own")])),
+                              ("lump", lambda: lump_gap(res, panel, bt, k_bt))):
+                calls.update(step=0, cls=0)
+                seen[label] = (fn(), dict(calls))
+        finally:
+            globals()["partition_step"], globals()["class_chain_rows"] = real_step, real_cls
+        g_lump, same_lump = seen["lump"][0]
+        checks["toy: class speed inside areas runs on class balances; across areas, own speed and the lump check wallet by wallet"] = (
+            not refines(whole, wc)
+            and seen["auto, inside areas"][1] == {"step": 0, "cls": 1}
+            and seen["auto, across areas"][1]["cls"] == 0 and seen["auto, across areas"][1]["step"] > 0
+            and seen["auto, own speed"][1]["cls"] == 0 and seen["auto, own speed"][1]["step"] > 0
+            and seen["lump"][1]["cls"] == 1 and seen["lump"][1]["step"] > 0
+            and g_lump < 1e-12 and same_lump and worst_gap(seen["auto, inside areas"][0]["bt"], run["bt"])[0] < 1e-12)
+        try:
+            class_chain_rows(res, panel, whole, 1)
+            checks["toy: the class-balance chain refuses classes that cross areas"] = False
+        except ValueError:
+            checks["toy: the class-balance chain refuses classes that cross areas"] = True
         obs = rows["Misc Nairobi"]["observed"]
         bt_m, mx_m, ar_m = run["bt"]["Misc Nairobi"], run["mixed"]["Misc Nairobi"], mine["areas class"]["Misc Nairobi"]
         checks["toy: the tagged money never leaves the food circle, and the business-type classes keep all of it"] = (
@@ -1503,7 +1565,7 @@ def cmd_selftest() -> int:
         ends = [worst_gap(mine[m_], b114[t_]) for m_, t_ in (("areas class", "area speed, area payees"), ("areas own", "own speed, area payees"),
                                                           ("single class", "own speed, own payees"), ("single own", "own speed, own payees"))]
         bt_l, k_l, _ = from_keys([(int(wc[i]), a.users[w]["business_type"]) for i, w in enumerate(circulation_order(a, res))])
-        run_l = chain_rows(res, panel, [("bt", bt_l, k_l, "class")])["bt"]
+        run_l = chain_rows(res, panel, [("bt", bt_l, k_l, "class")], state="wallet")["bt"]
         g_l, same_l = worst_gap(run_l, class_chain_rows(res, panel, bt_l, k_l))
         checks["toy where new money leaves at once: the chain on class balances equals the wallet chain summed"] = (
             k_l == 3 and g_l < 1e-12 and same_l and any(v < 0.9 for v in run_l.get("Kilifi", {}).values()))

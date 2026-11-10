@@ -315,8 +315,41 @@ def max_dispersion(mean: float, concentration: float = MIN_CONCENTRATION
     return ((1.0 - mean) / (mean * (concentration + 1.0))) ** 0.5
 
 
+def needed_concentration(mean: float, dispersion: float) -> float:
+    """The Beta concentration a mean and a coefficient of variation require.
+
+    ``var = m(1 - m) / (k + 1)`` gives ``k = (1 - m) / (m cv^2) - 1``. Any positive
+    value is a proper Beta; the value is zero at the largest dispersion the mean
+    admits and negative past it, where no Beta exists.
+    """
+    return (1.0 - mean) / (dispersion ** 2 * mean) - 1.0
+
+
+def degenerate_reason(mean: float, dispersion: float) -> str:
+    """Why a draw is refused, said for what it is.
+
+    A dispersion that needs a concentration between zero and the floor is a
+    proper Beta that this model declines to draw from. It is two point masses
+    only in the limit of concentration zero, and the message keeps the two apart.
+    """
+    needed = needed_concentration(mean, dispersion)
+    limit = max_dispersion(mean)
+    if needed > 0.0:
+        why = (f"at that mean a dispersion of {dispersion:.3f} needs a Beta "
+               f"concentration of {needed:.3f}, below the floor of "
+               f"{MIN_CONCENTRATION:g} this model registers. The model does "
+               "not draw below this registered floor")
+    else:
+        why = (f"a dispersion of {dispersion:.3f} is past what any Beta with "
+               f"that mean can have")
+    return (why + ". A Beta with that mean reaches two point masses at zero "
+            "and one only in the limit as the concentration goes to zero. The "
+            f"largest dispersion this mean supports at the floor is {limit:.3f}")
+
+
 class DrawDegenerate(ValueError):
-    """The requested spread turns the service share into a coin flip.
+    """The requested spread needs a Beta concentration below the registered
+    floor of 2, or is past what any Beta with that mean can have.
 
     Raised rather than clamped. Clamping would silently replace a registered
     parameter with a different one and the results would be reported under the
@@ -549,6 +582,12 @@ class Household:
     buffer: float
     balances: dict[Obligation, float]
     due: dict[Obligation, float]
+    #: What the household pays every period on obligations the model has no
+    #: rung for. It comes out of the cash in hand before the rungs are settled
+    #: and is never missed, so it can take the cash below zero, and a shortfall
+    #: then comes out of the next period's cash. A shock to income does not
+    #: scale it. Zero by default, which is every construction before 2026-10-17.
+    outflow: float = 0.0
     missed: dict[Obligation, int] = field(default_factory=dict)
     ever_missed: dict[Obligation, bool] = field(default_factory=dict)
     #: What was owed and not paid, carried forward. A missed payment does not
@@ -839,13 +878,8 @@ def build_population(
             if spec.dispersion > limit:
                 raise DrawDegenerate(
                     f"stratum {stratum}, {tenure.value.lower()}: the published "
-                    f"debt takes {mean_share:.3f} of the disposable, and a "
-                    f"Beta with that mean cannot carry a dispersion of "
-                    f"{spec.dispersion:.3f}. Its concentration would fall to "
-                    f"{max((1.0 - mean_share) / (spec.dispersion ** 2 * mean_share) - 1.0, 0.0):.3f}, "
-                    f"which is two point masses at zero and one rather than a "
-                    f"spread. The largest dispersion this mean supports is "
-                    f"{limit:.3f}"
+                    f"debt takes {mean_share:.3f} of the disposable, and "
+                    + degenerate_reason(mean_share, spec.dispersion)
                 )
             share = _beta(rng, mean_share, spec.dispersion)
             service = share * disposable
@@ -956,7 +990,9 @@ class AllocationProblem(ValueError):
 
 @dataclass(frozen=True)
 class HouseholdRecord:
-    """One published household, every figure measured on the same respondent.
+    """One published household. Every field but the basket is taken from the
+    same respondent, and the payment fields are the publisher's columns: the
+    comments on the card and vehicle fields say how those two are built.
 
     ``docs/a1b_prereg.md`` §2. This is the alternative to :class:`StratumInputs`
     and it exists because the stratum route could not say how debt and income
@@ -984,37 +1020,59 @@ class HouseholdRecord:
     #: building the population twice.
     income_group: int
     income_monthly: float
-    #: The one quantity not measured on this respondent. The SCF collects food
+    #: The one field taken from outside this respondent. The SCF collects food
     #: at home and neither utilities, healthcare nor commuting, so the basket is
-    #: the CEX's, assigned by income rank. ``docs/a1b_prereg.md`` §2.2.
+    #: the CEX's, assigned by income rank. ``docs/a1b_prereg.md`` §2.2. The
+    #: card payment is a rule the publisher applies to the card balance, and the
+    #: vehicle payment is the extract's own or one sixtieth of the balance
+    #: (see those fields).
     basket_monthly: float
     tenure: Tenure
     rent_monthly: float
+    #: The payment the mortgage rung stands on. A1b's default sets it to the
+    #: payments on the loans ``NH_MORT`` counts (``PAYMORT1`` to ``PAYMORT3``);
+    #: the registered construction set it to the whole ``MORTPAY``, which adds
+    #: other residential property, land contracts and the home-equity lines the
+    #: primary residence secures.
     mortgage_payment_monthly: float
     mortgage_balance: float
     card_balance: float
-    #: Measured, not a rate applied to the balance. The published revolving
-    #: payment is 3.7% of the revolving balance a month against the 2% minimum
-    #: this project cited from practice, and the difference is a doubling of the
-    #: card rung's service.
+    #: The payment the card rung stands on. A1b's default sets it to the
+    #: publisher's 2.5% of the card balance, the card part of the published
+    #: revolving payment ``REVPAY``. The registered construction set it to the
+    #: whole ``REVPAY``, which the Federal Reserve's macro builds as that 2.5%,
+    #: plus 33% of buy-now-pay-later balances, plus the payments on lines of
+    #: credit not secured by the residence; on the households that hold a card
+    #: it comes to 3.7% of the card balance a month. Neither is a payment the
+    #: household reported.
     card_payment_monthly: float
-    #: The vehicle payment is **not** separately published: the extract's
-    #: instalment payment covers vehicles, education and other together. So this
-    #: leg keeps the literature rate of one sixtieth on a measured balance, and
-    #: it is the only payment rate in A1b that is not measured. The check is in
-    #: the experiment: apportioning the published instalment payment by balance
-    #: gives 117 a month against this rule's 123.
+    #: The car-loan rung's stock. Its payment is
+    #: :attr:`vehicle_payment_published` where a construction sets it: A1b's
+    #: default reads the vehicle payments the extract carries loan by loan
+    #: (``PAYVEH1`` to ``PAYVEH4``, ``PAYVEHM``, ``PAYVEO1``, ``PAYVEO2``,
+    #: ``PAYVEOM``). Otherwise it is the literature rate of one sixtieth of this
+    #: balance, which is the registered construction.
     vehicle_balance: float
     #: Liquid assets, the measured cushion of ``docs/a1d_prereg.md`` §3.
-    #: Checking, savings, money market and call accounts. **Zero by default**,
+    #: Checking, savings, money market and call accounts and prepaid cards, with
+    #: the publisher's one dollar on a household that has an account and no
+    #: balance (``LIQ = max(HLIQ, ...)``). **Zero by default**,
     #: which is what A1b's population carries, and a stage asking for a measured
     #: cushion has to say so: :func:`build_from_records` refuses
     #: ``Cushion.MEASURED`` on records that all read zero, because a population
     #: with no cushion anywhere is the shape a forgotten column makes.
     liquid: float = 0.0
+    #: The vehicle payment the extract carries loan by loan, where a
+    #: construction reads it. ``None`` keeps the one sixtieth of the balance.
+    vehicle_payment_published: float | None = None
+    #: The respondent's published payments that sit on no rung of this model,
+    #: carried as :attr:`Household.outflow`. Zero by default.
+    outflow_monthly: float = 0.0
 
     @property
     def vehicle_payment_monthly(self) -> float:
+        if self.vehicle_payment_published is not None:
+            return self.vehicle_payment_published
         return self.vehicle_balance * PAYMENT_RATE[Obligation.AUTO]
 
 
@@ -1135,8 +1193,10 @@ def build_from_records(
         due = {k: v for k, v in due.items() if k in balances}
 
         scheduled = sum(due.values())
+        # One month of everything the household pays, the payments on no rung
+        # included, so the scheduled cushion covers the bills it is built from.
         buffer = (record.liquid if cushion is Cushion.MEASURED
-                  else scheduled * buffer_months)
+                  else (scheduled + record.outflow_monthly) * buffer_months)
         for _ in range(copies):
             out.append(Household(
                 stratum=record.group,
@@ -1147,6 +1207,7 @@ def build_from_records(
                 buffer=buffer,
                 balances=dict(balances),
                 due=dict(due),
+                outflow=record.outflow_monthly,
             ))
     if not out:
         raise AllocationProblem(
@@ -1164,7 +1225,8 @@ def baseline_stress(households: list[Household]) -> dict[str, object]:
     finally has its scope, because these are published households.
     """
     n_strata = max((h.stratum for h in households), default=-1) + 1
-    stressed = [h for h in households if sum(h.due.values()) > h.income]
+    stressed = [h for h in households
+                if sum(h.due.values()) + h.outflow > h.income]
     return {
         "households": len(households),
         "stressed": len(stressed),
@@ -1263,11 +1325,15 @@ class CascadeResult:
     #: populations by the same number. The manuscript's cascade is stated about
     #: tenants, so the rent rung has to be read inside the tenancy.
     first_default_counts_by_tenure: dict[str, dict[str, int]]
-    #: How many households of each starting tenure carry each obligation at all.
-    #: The denominator the counts above need: a first-default share is decided
-    #: both by how hard a rung is and by how many households are standing on it,
-    #: and dividing every rung by the same head count folds the second into the
-    #: first. A renter without a car loan cannot default on one.
+    #: How many households of each starting tenure still carry each obligation
+    #: when the run ends. Displacement removes the shelter rung, so for rent and
+    #: the mortgage this is fewer than carried it at the start, and the
+    #: denominator for the first-default counts above is the carriers at the
+    #: start, which a caller reads before the run (``starting_state`` in
+    #: ``experiments/a1b_default_cascade.py``). A rung needs a denominator of its
+    #: own because a first-default share is decided both by how hard a rung is
+    #: and by how many households stand on it: a renter without a car loan
+    #: cannot default on one.
     exposure_by_tenure: dict[str, dict[str, int]]
     defaulting_households: int
     displaced: int
@@ -1330,6 +1396,8 @@ class CascadeModel:
             available = house.buffer
             if not self.spec.income_arrives_after_due:
                 available += arriving
+            # The payments on no rung are settled first and never missed.
+            available -= house.outflow
 
             held = [k for k in Obligation if k in house.due]
             owed_of = {k: house.due[k] + house.arrears[k] for k in held}

@@ -32,7 +32,7 @@ uncheckable.**
 strongest, at `1.07e+05` to `4.18e+06` times its own floor across six vintages in
 the same direction, with a within-cell permutation null of 0 of 999 in every
 cohort. Cross-currency funding cycles that never touch one issuer run 30.9 to
-45.6 basis points. The ETF creation triangle stands at 1.05 to 5.08 times the
+45.6 basis points. The ETF creation triangle stands at 1.05 to 4.97 times the
 measurement floor, on 11 of 11. China's domestic price against its own border
 price clears the printed-precision floor on 106 of 106 squares, at a median of
 51.7 times it, with 54 of the 106 independent. European household energy against
@@ -46,7 +46,8 @@ whose loop product is exactly 1 is zero**, at a median of 1.4150 and a largest o
 **Two, the same point prediction read on a different object.** Hold census tract,
 year, lien position, loan purpose, occupancy and dwelling type fixed, and the
 dispersion that remains inside those cells is `0.7831` where a single price vector
-predicts zero. One central bank's own table carries a one-sided bound that its law
+predicts zero. Read with the dwelling as the position, the same figure is a square
+reading instead, and [`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) §5 keeps both. One central bank's own table carries a one-sided bound that its law
 grants, that is posted, and that nobody walks, on 207 of 207 publication days.
 Fifteen independent orderings of the same universities admit no common refinement
 on **any of 105 province pairs**, in either of two disjoint cohorts. The rank of
@@ -64,8 +65,8 @@ schedule carries 45 distinct figures in 104 cells.
 **One carrier returns both a zero and a non-zero from the same apparatus on the
 same feed on the same day**, which is the only place in the record where the
 framework named which side would be which before anyone looked: implied spread
-quotes are never worse than their own two-leg derivation over 81,968 states, exact
-on six of nine products, while the directly quoted member of the same family is
+quotes are never worse than their own two-leg derivation over 81,968 bid and offer readings, exact
+on six of eight products, while the directly quoted member of the same family is
 non-zero in 65 to 96 per cent of states.
 
 **One track reads a directed cycle rather than an undirected one**, where the
@@ -197,9 +198,13 @@ this programme built against itself, and the counterexample is the more useful
 result, because it bounds what that carrier can support.
 
 **What the finding licenses.** It is a statement about the arithmetic of a price
-field and nothing else: these prices do not come from one consistent schedule.
-Whether that is good, bad, or anyone's fault is a separate question this
-programme does not take up, and
+field: these prices do not come from one consistent schedule. Where the terms are
+the classes' effective marginal terms, the same inequality also shows that the
+allocation is not Pareto optimal, since two classes that face different terms on
+one transition can swap at terms between theirs and both gain
+([`docs/b0b_aggregation_and_the_potential.md`](docs/b0b_aggregation_and_the_potential.md)
+section 8.2a). Whether the outcome is good or bad by a criterion someone chooses,
+or anyone's fault, is a separate question this programme does not take up, and
 [`docs/b0_claim_scope.md`](docs/b0_claim_scope.md) draws that line explicitly
 before anyone reads the rest.
 
@@ -398,8 +403,11 @@ happens across the full range. That comparison is the deliverable of this stage.
   then `1 - propensity`, which is what the source means by a rate of exit from
   cross-layer circulation rather than a hoarding rate.
 - The production layer's outflow exceeds its downward inflow, by 2.214x under the
-  source preset and 2.368x under the DFA one. **This is a parameter, not a
-  result.** The stage traces what follows from a drained layer and does not claim
+  source preset and 2.368x under the DFA one. These are `flow_balance`, a
+  shorthand on means: the two production strata's propensities and upward shares
+  are averaged and applied to their pooled holdings at t=0. Weighting each
+  stratum's own holdings, propensity and upward share instead gives 2.275x and
+  2.401x. **This is a parameter, not a result.** The stage traces what follows from a drained layer and does not claim
   to derive the shortfall. The wage bill that sets it is not calibrated under
   either preset; it is swept instead.
 - The derived-demand elasticity is a free parameter swept from 0 to 1.2, and the
@@ -454,8 +462,9 @@ model does take is the income-expenditure spiral of Volume One section 12, given
 an absorbing threshold and put on a graph rather than on an aggregate.
 Stage A16 then adds one liability on purpose, carried by the highest-degree
 nodes and pointing three ways in turn, and measures what it buys: the closing
-count below the line moves by single digits on a base of 76 to 154. The cascade
-is a function of the debt structure, and a flat one.
+count below the line moves by single digits against a debt-free control that
+already closes with 75 to 173 nodes below it. The cascade is a function of the
+debt structure, and a flat one.
 
 **A threshold in the subsistence level with nothing on either side of it, stages A15 and A16.**
 What a departure costs the rest of the economy depends on what the departing
@@ -470,21 +479,27 @@ are redistribution among those still trading; on the deep side they freeze
 holding ninety-four per cent, and every concentration measure moves with that
 accumulation rather than with anything else.
 
-**A control arm that separates a mechanism from the graph, stage A15.** Three inequality
-measures moving three ways at once, the top percentile falling while the top
-decile and the Gini rise, is a pattern with a standard name and a standard
-explanation in terms of who leaves the sample. This model produces it. It also
-produces it in the arm with **every mechanism switched off and no node leaving
-at all**, within a digit of the arms that carry a floor: closing Gini 0.8812
-against 0.8813, top percentile 0.1480 against 0.1480, top decile 0.8171 against
-0.8172. The pattern therefore belongs to the particular graph draw rather than
-to any mechanism here, and what the mechanisms do to it is remove it. The four
-arms of fourteen that do not produce it are the three carrying a fiscal transfer
-and the one combining the absorbing floor with the write-off, each of which
-moves the closing Gini far enough to bury it. **The reading is available because
-the arm exists.** An arm with every switch off is the cheapest configuration in
-the design and the only one that can tell a mechanism's effect from the graph's
-own drift.
+**A control arm that separates a mechanism from the graph, stages A15 and A57.** Three
+inequality measures moving three ways at once, the top percentile falling while the top
+decile and the Gini rise, is a pattern with a standard name and a standard explanation in
+terms of who leaves the sample. This model produces it. It also produces it in the arm with
+**every mechanism switched off and no node leaving at all**, within a digit of the arms that
+carry a floor: closing Gini 0.8812 against 0.8813, top percentile 0.1480 against 0.1480, top
+decile 0.8171 against 0.8172. What the mechanisms do to it is remove it: the three arms of
+fourteen that do not produce it are the three carrying a fiscal transfer, each of which moves
+the closing Gini far enough to bury it. **A57 reads what produces it.** On 1,000 seeds the arm
+with no mechanism shows the shape on 190. The financial layer as a whole keeps drawing from
+the production side, so the top decile and the Gini rise in every run, while the layer's two
+largest holders hand share to the rest of it. That runs through the edges from the financial
+layer into the intermediate block: with three or fewer of them it never happens in 4,000 runs,
+with 30 it happens on about a fifth of seeds, with 40 to 44 on about a third. Money paid out along
+those edges comes back through the households' upward edges, which point at the most central
+nodes, so the top two lose share only when they and the other financial nodes both have an
+outlet: one for the two hubs alone gives 1 fall in 1,000 seeds, one for the other eighteen
+alone gives 10. Taking issuance off the top node, or switching it off, changes nothing. **The
+reading is available because the arm exists.** An arm with every switch off is the cheapest
+configuration in the design and the only one that can tell a mechanism's effect from the
+graph's own drift.
 
 ---
 
@@ -667,7 +682,7 @@ easily got wrong.** Explanations of *why* a loop sum is not zero, in terms of sp
 fees, execution cost or constrained capital, are not the rival here. They concede the
 non-zero and then argue about its source, which is a later argument and a different one.
 Treating them as the rival moves results out of B and into A, and this repository did
-exactly that with seven carriers before correcting it.
+exactly that with its own carriers before correcting it.
 
 ## Scope
 
@@ -855,7 +870,7 @@ they are entered rather than fitted: the bottom half of the distribution holds
 
 **The asset channel is where compounding enters, and that is why it is a stage of
 its own.** Stages A0 to A2c measure claim circulation and report levels: a layer
-drains, a support set contracts, loops stop being traversed. None of them can
+drains, effective support contracts, loops drop out of the realized graph. None of them can
 produce a widening gap between agents who began level, because none of them has an
 asset whose value responds to where claims accumulate. Claims pile up in the
 financial layer, that layer bids on assets, holders gain and non-holders are

@@ -114,9 +114,62 @@ class Criterion:
     name: str
     passed: bool
     detail: str
+    #: Added 2026-10-27. Rows that are not the registered grid leave nothing
+    #: to read, and that is the third state, not a FAIL.
+    void: bool = False
 
     def as_dict(self) -> dict:
-        return {"name": self.name, "passed": self.passed, "detail": self.detail}
+        out = {"name": self.name, "passed": self.passed, "detail": self.detail}
+        if self.void:
+            out["void"] = True
+        return out
+
+    @property
+    def mark(self) -> str:
+        return "VOID" if self.void else ("PASS" if self.passed else "FAIL")
+
+
+def coverage(rows: list, cfgs, needs, seeds) -> dict:
+    """Which registered (orientation, rate, hubs, need, seed) cells are present."""
+    want = {((o or "off"), float(rt), int(hb), float(nd), int(sd))
+            for (o, rt, hb) in cfgs for nd in needs for sd in seeds}
+    got: dict = {}
+    for x in rows:
+        k = (x["orientation"], x["rate"], x["hubs"], x["need_multiple"], x["seed"])
+        got[k] = got.get(k, 0) + 1
+    missing = sorted(want - set(got))
+    extra = sorted(set(got) - want)
+    doubled = sorted(k for k, n in got.items() if n > 1)
+    return {"cells": len(want), "rows": len(rows), "missing": missing,
+            "extra": extra, "doubled": doubled,
+            "complete": not missing and not extra and not doubled}
+
+
+def _coverage_line(cov: dict) -> str:
+    return ("coverage %d rows over %d registered cells, missing %d, foreign %d, "
+            "doubled %d" % (cov["rows"], cov["cells"], len(cov["missing"]),
+                            len(cov["extra"]), len(cov["doubled"])))
+
+
+def _sg(a, b):
+    return (a > b) - (a < b)
+
+
+def hit_1929(x: dict, window: str = "open-close") -> bool:
+    """The 1929 shape on one row, over one window.
+
+    ``open-close`` is the registered window: ``holdings[0]``, the state after
+    round one, to ``holdings[-1]``. ``init-post`` starts from the claims before
+    round one; on this model ``post`` equals ``close``, there being no fiscal
+    step after the last history write.
+    """
+    if window == "open-close":
+        return (_sg(x["top1_close"], x["top1_open"]) < 0
+                and _sg(x["top10_close"], x["top10_open"]) > 0
+                and _sg(x["gini_close"], x["gini_open"]) > 0)
+    return (_sg(x["top1_post"], x["top1_init"]) < 0
+            and _sg(x["top10_post"], x["top10_init"]) > 0
+            and _sg(x["gini_post"], x["gini_init"]) > 0)
 
 
 def gini(v: np.ndarray) -> float:
@@ -155,7 +208,9 @@ def one_run(orientation: str | None, rate: float, hubs: int,
     hd = (HubDebtSpec() if orientation is None
           else HubDebtSpec(hubs=hubs, orientation=orientation, rate=rate))
     net = Network(dataclasses.replace(base_config(seed, need_mult), hub_debt=hd))
+    held_init = np.asarray(net.holdings, dtype=float).copy()
     h = net.run()
+    held_post = np.asarray(net.holdings, dtype=float).copy()
     n = h.holdings.shape[1]
     m = np.asarray(h.holdings, dtype=float).sum(axis=1)
     support = np.asarray(h.effective_support, dtype=float)
@@ -185,6 +240,11 @@ def one_run(orientation: str | None, rate: float, hubs: int,
         "debt_paid": r(net._hub_debt_paid),
         "debt_share_of_volume": r(net._hub_debt_paid / volume) if volume > 0 else 0.0,
         "debt_blocked_rounds": int(net._hub_debt_blocked),
+        # Added 2026-10-27. A switch that is on and moves nothing is the
+        # control under another name: with two hubs and no edge between them,
+        # ``mutual`` pays zero in every round and the run is the off arm bit
+        # for bit. The row says which one it is.
+        "debt_flowed": bool(net._hub_debt_paid > 0.0),
         # The mechanism variable for the floor scan. ``frozen_holdings`` is the
         # stock held by nodes that have left, and the whole difference between
         # the two regimes is whether that stock is negligible or dominant: at a
@@ -204,6 +264,13 @@ def one_run(orientation: str | None, rate: float, hubs: int,
         "m_ratio": r(m[-1] / m[0]),
         "support_ratio": r(float(support[-TAIL:].mean() / support[0])),
         "claims_conserved": True,
+        # Added 2026-10-27: the claims before round one, and after the run.
+        "gini_init": r(gini(held_init)),
+        "top1_init": r(top_share(held_init, max(1, n // 100))),
+        "top10_init": r(top_share(held_init, max(1, n // 10))),
+        "gini_post": r(gini(held_post)),
+        "top1_post": r(top_share(held_post, max(1, n // 100))),
+        "top10_post": r(top_share(held_post, max(1, n // 10))),
     }
 
 
@@ -261,21 +328,18 @@ def criterion_a16_8(rows: list) -> Criterion:
     arm present. **No line is drawn on the frozen share**, which is printed per
     cell because it is the object.
     """
-    def sg(a, b):
-        return (a > b) - (a < b)
+    name = "A16-8  where along the floor the composition effect lives"
+    cov = coverage(rows, SCAN_ARMS, NEED_SCAN, SEEDS)
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
     ok = True
-    parts = []
+    parts = [_coverage_line(cov)]
     needs = sorted({x["need_multiple"] for x in rows})
     orients = sorted({x["orientation"] for x in rows})
     for need in needs:
         cells = [x for x in rows if x["need_multiple"] == need]
-        if "off" not in {x["orientation"] for x in cells}:
-            ok = False
-            parts.append("need=%.3f has no control arm" % need)
-        hits = [x for x in cells
-                if sg(x["top1_close"], x["top1_open"]) < 0
-                and sg(x["top10_close"], x["top10_open"]) > 0
-                and sg(x["gini_close"], x["gini_open"]) > 0]
+        hits = [x for x in cells if hit_1929(x)]
         parts.append(
             "need=%.3f: 1929 shape %d/%d | frozen share at close %s | starved %s"
             % (need, len(hits), len(cells),
@@ -286,25 +350,46 @@ def criterion_a16_8(rows: list) -> Criterion:
         for need in needs:
             cells = [x for x in rows if x["need_multiple"] == need
                      and x["orientation"] == o]
-            hits = sum(1 for x in cells
-                       if sg(x["top1_close"], x["top1_open"]) < 0
-                       and sg(x["top10_close"], x["top10_open"]) > 0
-                       and sg(x["gini_close"], x["gini_open"]) > 0)
-            per.append((need, hits, len(cells)))
+            per.append((need, sum(1 for x in cells if hit_1929(x)), len(cells)))
         parts.append("%s by depth: %s" % (o, per))
-    return Criterion("A16-8  where along the floor the composition effect lives",
-                     ok, " | ".join(parts))
+    init = [(need, sum(1 for x in rows if x["need_multiple"] == need
+                       and hit_1929(x, "init-post")),
+             sum(1 for x in rows if x["need_multiple"] == need)) for need in needs]
+    parts.append("from the claims before round one to the close, 1929 shape by "
+                 "depth: %s; arms hit %s"
+                 % (init, sorted({x["orientation"] for x in rows
+                                  if hit_1929(x, "init-post")}) or "none"))
+    # The frozen-share boundary is its own object and need not sit where the
+    # shape boundary does, so it is printed per seed and per arm.
+    for sd in SEEDS:
+        enter = {}
+        for o in orients:
+            hi = [x["need_multiple"] for x in rows if x["seed"] == sd
+                  and x["orientation"] == o and x["frozen_share_close"] > 0.5]
+            enter[o] = min(hi) if hi else None
+        parts.append("seed %d, first depth with frozen share above one half: %s"
+                     % (sd, sorted(enter.items())))
+    return Criterion(name, ok, " | ".join(parts))
 
 
 def plan() -> dict:
     cfgs = configurations()
+    main_runs = len(cfgs) * len(NEED_MULTIPLES) * len(SEEDS)
+    scan_runs = len(SCAN_ARMS) * len(NEED_SCAN) * len(SEEDS)
+    shared = len({((o or "off"), rt, hb, nd, sd)
+                  for (o, rt, hb) in cfgs for nd in NEED_MULTIPLES for sd in SEEDS}
+                 & {((o or "off"), rt, hb, nd, sd)
+                    for (o, rt, hb) in SCAN_ARMS for nd in NEED_SCAN for sd in SEEDS})
     return {
         "configurations": len(cfgs),
         "need_multiples": list(NEED_MULTIPLES),
         "seeds": list(SEEDS),
         "rounds": ROUNDS,
         "f2i": F2I,
-        "runs_total": len(cfgs) * len(NEED_MULTIPLES) * len(SEEDS),
+        "runs_total": main_runs,
+        "need_scan_runs": scan_runs,
+        "cells_in_both": shared,
+        "distinct_models": main_runs + scan_runs - shared,
         "carrier": "the stratified carrier. The complete graph is excluded: "
                    "in-degree there takes one value so the hub set is not "
                    "defined, and the one reading that moved was the identity "
@@ -331,6 +416,10 @@ def criterion_a16_1(rows: list) -> Criterion:
     to the last bit, and a disagreement means this stage's harness is not the
     one that produced the record it is going to be read beside.
     """
+    cov = coverage(rows, configurations(), NEED_MULTIPLES, SEEDS)
+    if not cov["complete"]:
+        return Criterion("A16-1  the control arm is A12's floor arm", False,
+                         "not evaluated: " + _coverage_line(cov), void=True)
     path = RESULTS / "a12_mechanisms.json"
     if not path.exists():
         return Criterion("A16-1  the control arm is A12's floor arm", False,
@@ -372,11 +461,32 @@ def criterion_a16_2(rows: list) -> Criterion:
     that is gets printed. A count whose cut lands on a tie is named and its rows
     are not read for the hub-count question.
     """
-    parts, ok = [], True
-    for hubs in sorted({x["hubs"] for x in rows if x["orientation"] != "off"}):
-        cells = [x for x in rows if x["hubs"] == hubs and x["orientation"] != "off"]
-        if not cells:
-            continue
+    name = "A16-2  the hub set, and how much of it is degree"
+    cov = coverage(rows, configurations(), NEED_MULTIPLES, SEEDS)
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
+    parts, ok = [_coverage_line(cov)], True
+    # Every row is read, per (hubs, seed): one graph draw per seed, so one hub
+    # set, and a row whose set or in-degree differs from its cell's is named.
+    active = [x for x in rows if x["orientation"] != "off"]
+    for hubs in sorted({x["hubs"] for x in active}):
+        for sd in SEEDS:
+            cell = [x for x in active if x["hubs"] == hubs and x["seed"] == sd]
+            sets = {tuple(x["hub_nodes"]) for x in cell}
+            flat = [x for x in cell if x["in_degree_values"] <= 1]
+            if len(sets) != 1 or flat:
+                ok = False
+                parts.append("hubs=%d seed=%d: %d distinct hub sets over %d rows, "
+                             "%d rows with one in-degree value"
+                             % (hubs, sd, len(sets), len(cell), len(flat)))
+        ties = sorted({x["seed"] for x in active if x["hubs"] == hubs
+                       and x["in_degree_at_k"] == x["in_degree_at_k_plus_1"]})
+        parts.append("hubs=%d: rows read %d, seeds whose cut is a tie %s"
+                     % (hubs, sum(1 for x in active if x["hubs"] == hubs),
+                        ties or "none"))
+    for hubs in sorted({x["hubs"] for x in active}):
+        cells = [x for x in active if x["hubs"] == hubs]
         x = cells[0]
         tie = x["in_degree_at_k"] == x["in_degree_at_k_plus_1"]
         # How much of the set sits strictly above the first excluded node. That
@@ -397,8 +507,7 @@ def criterion_a16_2(rows: list) -> Criterion:
             ok = False
             parts.append("hubs=%d: in-degree takes one value, so the set is "
                          "index order and names nothing" % hubs)
-    return Criterion("A16-2  the hub set, and how much of it is degree",
-                     ok, " | ".join(parts))
+    return Criterion(name, ok, " | ".join(parts))
 
 
 def criterion_a16_6(rows: list) -> Criterion:
@@ -410,6 +519,10 @@ def criterion_a16_6(rows: list) -> Criterion:
     the set equality is a fact about one run and the count of such runs is the
     object.
     """
+    cov = coverage(rows, configurations(), NEED_MULTIPLES, SEEDS)
+    if not cov["complete"]:
+        return Criterion("A16-6  do the survivors turn out to be the hub set",
+                         False, "not evaluated: " + _coverage_line(cov), void=True)
     hits = [x for x in rows if x["survivors_are_the_hubs"]]
     near = [x for x in rows if not x["survivors_are_the_hubs"]
             and x["survivors"] == x["hubs"]]
@@ -442,8 +555,13 @@ def criterion_a16_4(rows: list) -> Criterion:
     **No line is drawn on the counts.** They are printed per cell against the
     control at the same floor and seed, and the reading is the spread.
     """
+    name = "A16-4  does the cascade become a function of the debt"
+    cov = coverage(rows, configurations(), NEED_MULTIPLES, SEEDS)
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
     ctl = {_key(x): x for x in rows if x["orientation"] == "off"}
-    parts, moved = [], {}
+    parts, moved = [_coverage_line(cov)], {}
     for o in HUB_DEBT_ORIENTATIONS:
         for rate in sorted({x["rate"] for x in rows
                             if x["orientation"] == o and x["hubs"] == PIVOT_HUBS}):
@@ -460,8 +578,12 @@ def criterion_a16_4(rows: list) -> Criterion:
     ever = {o for o, seq in moved.items() if any(lo or hi for _rt, lo, hi in seq)}
     parts.append("orientations that move the count at any rate: %s"
                  % (sorted(ever) or "none"))
-    return Criterion("A16-4  does the cascade become a function of the debt",
-                     True, " | ".join(parts))
+    # The control already cascades partially on this carrier: printed, so the
+    # paired deltas above are read as what the obligation adds to that.
+    off = sorted(x["starved_close"] for x in ctl.values())
+    parts.append("the control's own closing starved count, over its %d cells: "
+                 "%d to %d" % (len(off), off[0], off[-1]))
+    return Criterion(name, True, " | ".join(parts))
 
 
 def criterion_a16_5(rows: list) -> Criterion:
@@ -471,32 +593,43 @@ def criterion_a16_5(rows: list) -> Criterion:
     obligation moved almost nothing, and those are the ones that say whether a
     reading elsewhere is the mechanism or the floor.
     """
-    parts = []
+    name = "A16-5  every cell, and the thinnest three"
+    cov = coverage(rows, configurations(), NEED_MULTIPLES, SEEDS)
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
+    parts = [_coverage_line(cov)]
     for need in sorted({x["need_multiple"] for x in rows}):
-        for o in ["off"] + list(HUB_DEBT_ORIENTATIONS):
-            for rate in sorted({x["rate"] for x in rows if x["orientation"] == o
-                                and x["hubs"] == PIVOT_HUBS}):
-                cells = [x for x in rows if x["need_multiple"] == need
-                         and x["orientation"] == o and x["rate"] == rate
-                         and x["hubs"] == PIVOT_HUBS]
-                if not cells:
-                    continue
+        for (o, rate, hubs) in configurations():
+            o = o or "off"
+            cells = [x for x in rows if x["need_multiple"] == need
+                     and x["orientation"] == o and x["rate"] == rate
+                     and x["hubs"] == hubs]
+            if cells:
                 parts.append(
-                    "need=%.2f %s rate=%.2f: starved close %s peak %s, debt share "
-                    "of volume %s, blocked rounds %s, m_ratio %s, support %s"
-                    % (need, o, rate,
+                    "need=%.2f %s rate=%.2f hubs=%d: starved close %s peak %s, "
+                    "debt share of volume %s, blocked rounds %s, m_ratio %s, "
+                    "support %s"
+                    % (need, o, rate, hubs,
                        sorted(x["starved_close"] for x in cells),
                        sorted(x["starved_peak"] for x in cells),
                        sorted(x["debt_share_of_volume"] for x in cells),
                        sorted(x["debt_blocked_rounds"] for x in cells),
                        sorted(x["m_ratio"] for x in cells),
                        sorted(x["support_ratio"] for x in cells)))
-    thin = sorted(rows, key=lambda x: x["debt_share_of_volume"])[:3]
-    parts.append("the three cells where the obligation moved the least: %s"
+    on = [x for x in rows if x["orientation"] != "off"]
+    dry = [x for x in on if not x["debt_flowed"]]
+    parts.append("cells with the switch on and zero paid over the run: %d of %d: %s"
+                 % (len(dry), len(on),
+                    sorted({(x["orientation"], x["rate"], x["hubs"],
+                             x["need_multiple"], x["seed"]) for x in dry})))
+    thin = sorted((x for x in on if x["debt_flowed"]),
+                  key=lambda x: x["debt_share_of_volume"])[:3]
+    parts.append("the three cells where the obligation moved the least, among "
+                 "those where it moved anything: %s"
                  % [(x["orientation"], x["rate"], x["hubs"], x["need_multiple"],
                      x["seed"], x["debt_share_of_volume"]) for x in thin])
-    return Criterion("A16-5  every cell, and the thinnest three", True,
-                     " | ".join(parts))
+    return Criterion(name, True, " | ".join(parts))
 
 
 def criterion_a16_7(rows: list) -> Criterion:
@@ -509,8 +642,12 @@ def criterion_a16_7(rows: list) -> Criterion:
     **This prints the same decomposition on this stage's rows**, so the answer
     is a count and not an impression.
     """
-    def sg(a, b):
-        return (a > b) - (a < b)
+    name = "A16-7  does the obligation add a second concentration process"
+    cov = coverage(rows, configurations(), NEED_MULTIPLES, SEEDS)
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
+    sg = _sg
     tri = [{"gini": sg(x["gini_close"], x["gini_open"]),
             "top1": sg(x["top1_close"], x["top1_open"]),
             "top10": sg(x["top10_close"], x["top10_open"]),
@@ -522,14 +659,28 @@ def criterion_a16_7(rows: list) -> Criterion:
     three = [v for v in tri if len({v["gini"], v["top1"], v["top10"]}) == 3]
     target = [v for v in tri if v["top1"] < 0 and v["top10"] > 0 and v["gini"] > 0]
     pair = sum(1 for v in tri if v["top1"] < 0 and v["gini"] > 0)
+    init_hits = [x for x in rows if hit_1929(x, "init-post")]
+    changed = sum(1 for x in rows
+                  if (sg(x["gini_close"], x["gini_open"]),
+                      sg(x["top1_close"], x["top1_open"]),
+                      sg(x["top10_close"], x["top10_open"]))
+                  != (sg(x["gini_post"], x["gini_init"]),
+                      sg(x["top1_post"], x["top1_init"]),
+                      sg(x["top10_post"], x["top10_init"])))
     return Criterion(
-        "A16-7  does the obligation add a second concentration process", True,
-        "%d rows | sign triples (gini, top1, top10) that occur: %s | three ways "
+        name, True,
+        "%s | window: after round one to the close | %d rows | sign triples "
+        "(gini, top1, top10) that occur: %s | three ways "
         "%d, 1929 shape %d, and the pair the shape needs, top1 down with gini "
-        "up: %d | orientations producing either: %s"
-        % (len(tri), sorted(hist.items(), key=lambda kv: -kv[1]),
+        "up: %d | orientations producing either: %s | from the claims before "
+        "round one: 1929 shape %d, by orientation %s; rows whose triple differs "
+        "between the two windows %d"
+        % (_coverage_line(cov), len(tri),
+           sorted(hist.items(), key=lambda kv: -kv[1]),
            len(three), len(target), pair,
-           sorted({v["o"] for v in three + target}) or "none"))
+           sorted({v["o"] for v in three + target}) or "none",
+           len(init_hits),
+           sorted({x["orientation"] for x in init_hits}) or "none", changed))
 
 
 def main() -> int:
@@ -565,10 +716,11 @@ def main() -> int:
                  criterion_a16_4(rows), criterion_a16_5(rows), criterion_a16_7(rows)]
         print("stage A16: a bilateral obligation on the highest-degree nodes\n")
     for c in crits:
-        print("  [%s] %s" % ("PASS" if c.passed else "FAIL", c.name))
+        print("  [%s] %s" % (c.mark, c.name))
         print("        %s" % c.detail)
-    passed = sum(1 for c in crits if c.passed)
-    print("\n  %d/%d" % (passed, len(crits)))
+    passed = sum(1 for c in crits if c.passed and not c.void)
+    voids = sum(1 for c in crits if c.void)
+    print("\n  %d/%d%s" % (passed, len(crits), ", %d VOID" % voids if voids else ""))
     if args.no_write:
         return 0 if passed == len(crits) else 1
 
@@ -580,9 +732,14 @@ def main() -> int:
         out.parent.mkdir(exist_ok=True)
     record = {
         "stage": "A16",
-        "diagnostic_only": True,
-        "diagnostic_reason": "the station is not closed",
         "carrier": plan()["carrier"],
+        "clocks": {
+            "open": "holdings[0], after round one",
+            "close": "holdings[-1], the claims after the last round",
+            "init": "the claims before round one",
+            "post": "the claims after the run; equal to close on this model",
+            "registered": "open-close; init-post is printed beside it",
+        },
         "f2i": F2I,
         "rounds": ROUNDS,
         "elasticity": ELASTICITY,

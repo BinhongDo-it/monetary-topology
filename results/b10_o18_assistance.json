@@ -163,17 +163,17 @@
   "step": "o18_assistance",
   "trial_window_months": 12,
   "two_by_two_age_code": {
-    "a_lt8_code": 7417,
+    "a_lt8_code": 5660,
     "age_split": 8,
-    "b_ge8_code": 183813,
-    "c_lt8_nocode": 4893951,
-    "d_ge8_nocode": 3778406,
+    "b_ge8_code": 185570,
+    "c_lt8_nocode": 4830636,
+    "d_ge8_nocode": 3841721,
     "frozen_total": 8863587,
     "pairs_by_age": {
-      "ge8": 62321303,
-      "lt8": 10247131
+      "ge8": 63576604,
+      "lt8": 8991830
     },
-    "residue": 3778406,
-    "union": 5085181
+    "residue": 3841721,
+    "union": 5021866
   }
 }

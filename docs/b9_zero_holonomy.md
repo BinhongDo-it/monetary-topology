@@ -2,6 +2,8 @@
 
 **Status: pre-registration. No data retrieved.** Registered 2026-08-16.
 
+**Status since 2026-08-17: measured.** The readings are in the later sections. Section 58 (2026-10-10) carries two corrections to the instrument, and every earlier section whose figures it changes opens with a pointer to it.
+
 Sibling of [`b3_cip_slice.md`](b3_cip_slice.md) and [`b8_fannie_slice.md`](b8_fannie_slice.md).
 Defines `π`, the statistic registered as this project's cross-domain
 currency, and calibrates it on real data rather than on a construction.
@@ -769,6 +771,15 @@ changes with **100% of changes a multiple of it**; SPDW and SPEM show 100,000,
 SPAB 100,000, JNK 200,000. The five apparent exceptions are §16.3's split and
 nothing else.
 
+**Restated 2026-10-26.** In the creation unit in force on each day the count is
+twelve of sixteen at exactly 50,000 (the eleven main-arm funds and SPY), SPDW,
+SPEM and SPAB at 100,000 and JNK at 200,000, with no exception left.
+`results/b9_f1.json` keeps share counts in each fund's unit before its first
+split, so its `in_window.gcd` prints 25,000 for the five funds that split on
+2025-12-05, 50,000 for SPAB and SPEM (2-for-1 on 2017-10-16) and 600,000 for JNK
+(1-for-3 on 2019-05-06). In the sweep below, 100,000 leaves every count where it
+is and 500,000 is the first value that moves one.
+
 **And the ruling is free, which is the reportable part.** The threshold was
 scanned over `0, 1, 1000, 25000, 50000, 100000, 500000, 1000000` and the cleared
 count is **identical at `τ = 0` and `τ = 50,000` for every one of the sixteen
@@ -1221,6 +1232,8 @@ discriminators and their predictions before this run.
 
 ## 20.1 The readings
 
+**[2026-10-10, §58.1]** On the split-comparable stress label D1 rises in 8 of 11 (medians `+0.0441` calm, `+0.1184` stress) and D2 shifts toward discount in 10 of 11 (`0.4631` to `0.5025`). The tables below are on the raw-NAV label.
+
 **D1, persistence of signed `λ`, main arm:**
 
 | | median across the eleven | funds with stress above calm |
@@ -1327,6 +1340,8 @@ moves.
 203 calm and 200 stress lag-one pairs per fund, **no pair skipped for a gap**.
 
 ## 21.1 The decomposition
+
+**[2026-10-10, §58.1]** On the split-comparable stress label D1 rises in 8 of 11 and D1b in 3 of 11 (`+0.0889` calm, `−0.0383` stress). The figures below are on the raw-NAV label.
 
 | | calm, median | stress, median | funds rising |
 |---|---|---|---|
@@ -1792,6 +1807,8 @@ floor does not.** The tick does not fall, and that is what gave it away.
 
 ## 25.1 B9-A-1: `λ` is resolvably non-zero
 
+**[2026-10-10, §58.1]** On the split-comparable stress label the eleven read `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1, and XLK reads `4.891`. The conservative corner holds in 6 of 11 (XLB at `0.986`). B9-A-2 is 9 of 11, with XLB in and XLE out. The tables below are on the raw-NAV label.
+
 Median over calm, F1-cleared fund-days, main arm:
 
 | | value | funds above 1 |
@@ -1842,6 +1859,8 @@ manufacture one**, which is the opposite of §18.6's fee trap and is why both
 columns are reported.
 
 ## 25.4 What B9-A now reads
+
+**[2026-10-10, §58.1]** On the split-comparable stress label the range `1.05` to `5.08` in this section reads `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1. The text below is kept as it was written.
 
 > **`λ` on this carrier is a resolvable non-zero of about `1.2` to `1.7` basis
 > points, standing `1.05` to `5.08` times above the instrument's own resolution,
@@ -2023,6 +2042,12 @@ reading of theirs.
 threshold moves with the price**, so a rally disqualifies nodes mechanically, and
 §6.4d's collapse from `5.80` to `0.00` in twenty rounds is that mechanism running.
 
+(Restated 2026-10-20: the threshold that moves with the price in A3 is resale
+affordability, `claims ≥ γ_pay · P_q(t)`, which is what §6.4d counts; the gate
+`γ^gate · P_q(0)` is read once, at the opening allocation. A price-endogenous
+threshold is still what A3 has and the AP gate lacks, so the contrast in this
+section stands.)
+
 **Authorized Participant status is a contract.** It does not tighten when the
 market moves. **The creation leg is a hole all the time and the same hole**, which
 is exactly why §2 could call it institutional and B9-A-3 reports rather than
@@ -2072,6 +2097,8 @@ are a requirement and not a plan:
 threshold is a hole that does.** §26's test needs the second kind.
 
 ## 27.6 The chain, answered straight
+
+**[2026-10-10, §58.1]** On the split-comparable stress label the range `1.05` to `5.08` in this section reads `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1. The text below is kept as it was written.
 
 The chain being aimed at is `formal object → real carrier → measurable non-zero →
 economic state dependence`.
@@ -2278,6 +2305,8 @@ they could reach. There is no price at which the edge appears.
 §26.1 and §27.4 forbade adding it to `λ`. `λ` is the curl; this is the hole.
 
 ## 29.3 The size of the wedge, taken from readings already made
+
+**[2026-10-10, §58.1]** On the split-comparable stress label the range `1.05` to `5.08` in this section reads `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1. The text below is kept as it was written.
 
 A non-AP holding shares on a day when the fund trades away from NAV faces
 `λ` and has no route that closes it.
@@ -2627,6 +2656,8 @@ something.**
 
 ## 32.1 The registered verdict
 
+**[2026-10-10, §58.1]** On the split-comparable stress label `Δρ_c` is `+0.0071`, 0.07 of its own standard error; `V_c` rises `2.389×` and `V_e` `1.910×`. The cell stays both and now rests on a sign that is not resolved. The figures below are on the raw-NAV label.
+
 | | calm | stress |
 |---|---|---|
 | `ρ_c` | `+0.0457` | `+0.1148` (se `0.0718`) |
@@ -2876,6 +2907,8 @@ possibilities is withdrawn.
 
 ## 33.6 What does not change
 
+**[2026-10-10, §58.1]** On the split-comparable stress label `Δρ_c` is `+0.0071`, 0.07 of its own standard error; `V_c` rises `2.389×` and `V_e` `1.910×`. The cell stays both and now rests on a sign that is not resolved. The figures below are on the raw-NAV label.
+
 **`V_e` rising `2.13×`, `V_c` rising `2.52×`, and `ρ_c` rising `0.0691` are
 direct measurements and do not depend on the cross term at all.** §32.1 stands
 in full. **§21.2 stays open**, and after §33 it will be open with a reason
@@ -2965,6 +2998,8 @@ not close**, and building it would be work spent to move `0/22` to `0/22`.
 
 ## 34.5 What §31.5's table keeps and what it loses
 
+**[2026-10-10, §58.1]** On the split-comparable stress label `Δρ_c` is `+0.0071`, 0.07 of its own standard error; `V_c` rises `2.389×` and `V_e` `1.910×`. The cell stays both and now rests on a sign that is not resolved. The figures below are on the raw-NAV label.
+
 **Loses**: the claim that the four cells are forced by §31.1's identity. The
 identity has a fourth term whether or not that term is distinguishable from
 zero, and **row 4's impossibility argument in particular does not survive** it.
@@ -2975,6 +3010,8 @@ the cell the measured signs land in**, and with the cross term at zero the
 decomposition is a valid orthogonal split, so the cell means what it says.
 
 ## 34.6 §21.2's disposition, and why it is a clean answer
+
+**[2026-10-10, §58.1]** On the split-comparable stress label `Δρ_c` is `+0.0071`, 0.07 of its own standard error; `V_c` rises `2.389×` and `V_e` `1.910×`. The cell stays both and now rests on a sign that is not resolved. The figures below are on the raw-NAV label.
 
 > **§21.2 stays open, and after §33 it is open because `Δρ_c = 0.0691` is `0.96`
 > standard errors, not because the instrument is wrong.**
@@ -3366,6 +3403,19 @@ as having unlocked less than was hoped, or a passing one as having unlocked more
 | crossed or locked at the mark | **`2` of `6,178`** |
 | Nasdaq spread of one tick at the mark | `0.5783` |
 
+**[2026-10-26]** The two crossed-or-locked fund-days are not crossed books. Each
+is the vendor's undefined-price sentinel (`2^63 − 1` in the fixed-point bid
+field) taken as a price, on XLB 2025-07-03 and XLI 2025-12-24, two of the
+early-close days of §58.2. A third, on the ask side (JNK, 2025-07-03), is in the
+`6,178` as a non-match. Nasdaq showed no crossed or locked book at the mark.
+
+**Restated 2026-10-27.** The sentinel is now treated as a missing quote and this
+record was rerun: exact-match `0.5258` of `6,175` (`3,247` exact), calm `0.5538`,
+stress `0.4965`, crossed or locked `0` of `6,175`, one-tick spread `0.5786`,
+never compared `26`. The calm and stress rates in the table were on the raw-NAV
+stress label; on the split-comparable label of §58.1 they read `0.5537` and
+`0.4962` before the filter. The step shares below are unchanged to one decimal.
+
 **Half-cent steps, pooled**: `0` step `52.6%`, `1` step `26.6%`, `2` steps
 `12.0%`, `3` or more `8.8%`.
 
@@ -3477,7 +3527,10 @@ word was wrong.** A rate equal everywhere and a rate spiking at zero both leave
 zero as the best offset, and they say different things: the first would say the
 instrument cannot see the instant, the second says it sees it to the second.
 **The drop to the neighbour is what separates them and is now reported as
-`peak_sharpness`.** Here it is `+0.0965`.
+`peak_sharpness`.** Here it is `+0.0965`. **Restated 2026-10-27.** With the undefined-price sentinel
+treated as missing (§38.1) the sweep reads `0.5258` at `0 s` and `0.4293` at
+`+1 s` (`−2 s` `0.3393`, `−1 s` `0.3853`, `+2 s` `0.4245`); `peak_sharpness` is
+still `+0.0965` and zero is still the best offset.
 
 **So the DST arithmetic, the epoch-nanosecond mark and the NAV-strike reading are
 all confirmed by the data rather than by their selftests.** §38.1's venue verdict
@@ -3536,6 +3589,11 @@ offer by definition.
 > price on `6,178` fund-days of ground truth. **If it does, it works; if it does
 > not, no argument about its formal status would save it.**
 
+**Restated 2026-11-08.** With the undefined-price sentinel treated as a missing
+quote (§38.1), the ground truth reads `6,175` fund-days on Nasdaq alone
+(`results/b9_nbbo_overlap_XNAS_ITCH.json`) and `6,185` for the four-venue
+combination (`results/b9_nbbo_combined.json`).
+
 **This is why the `404`-day overlap was the design and not a nicety**: it turns a
 question about definitions into a question with an answer.
 
@@ -3559,12 +3617,23 @@ recorded that more data measures the same quantities better.
 
 ## 40.1 The reading, and it is a failure as registered
 
+**[2026-10-10, §58.2]** On three early-close days (2025-07-03, 2025-11-28, 2025-12-24) the core session closed at 13:00 and the 16:00 capture holds the late session. Without those days the Arca rate is `0.9006` of 6,154, and the unfiltered gate is reported as unread. At round-lot size, on Nasdaq and on the combined book it fails either way.
+
 | | Nasdaq (§38) | **NYSE Arca** |
 |---|---|---|
 | exact-match rate | `0.5256` | **`0.8975`** |
 | `\|discrepancy\|` 90th percentile | `1.21` bp | **`0.074` bp** |
 | crossed at the mark | `2` | `0` |
 | calm / stress | `0.545` / `0.505` | `0.903` / `0.892` |
+
+**[2026-10-26]** Nasdaq's `2` crossed fund-days are the undefined-price sentinel
+(§38.1). **Restated 2026-10-26.** Arca's count at three or more steps is `68` in
+`results/b9_nbbo_overlap_ARCX_PILLAR.json`, and the four counts below then sum to
+the `6,176`. The `50` was read off a printout that stopped at seven steps; `19`
+of the `68` sit at eight steps or more. **Restated 2026-10-27.** With the
+sentinel treated as missing, Nasdaq reads `0.5258`, 90th percentile `1.21` bp,
+crossed at the mark `0` (§38.1). Arca had no sentinel and its column is
+unchanged.
 
 Half-cent steps: `0` step `5,543`, `1` step `440`, `2` steps `125`, `3` or more
 `50`, **with a thin tail of genuine outliers** reaching `227` steps, about
@@ -3653,6 +3722,13 @@ declared, not a cleaning step.
 Half-cent steps for the combination: `0` step `3,443`, `1` step `1,779`, `2`
 steps `545`, tail beyond.
 
+**Restated 2026-10-27.** With the undefined-price sentinel treated as missing
+(§38.1), the combination reads `0.5567` of `6,185` (`3,443` exact) and Nasdaq
+alone `0.5258`; the combination's `1`-step count is `1,780` of `2,742` misses.
+It still fails and the combining still stops. The `1,779`, `0.5564` and `6,188`
+quoted in §41 to §43 are the counts before the filter, and no reading drawn
+from them moves.
+
 > **Adding three venues to the listing venue destroyed thirty-four points of
 > agreement.** §39.3's stopping rule fires and the combining stops here.
 
@@ -3712,6 +3788,10 @@ worse because it is unmeasured."
 and the difference is the whole design: **here the construction's error was
 measured, against `6,188` fund-days of ground truth, and it failed.** The
 objection in §36.2 was to an unmeasured construction.
+
+**Restated 2026-11-08.** With the undefined-price sentinel treated as a missing
+quote (§38.1), the combination is measured against `6,185` fund-days
+(`results/b9_nbbo_combined.json`), and it still fails.
 
 > **The refused thing, done under measurement, is a different act.** And the
 > measurement said no, which is what the ground truth was for.
@@ -3779,6 +3859,11 @@ that venue's best bid or ask.
 3. **The listing venue best among singles**, because its round-lot depth at the
    inside is deepest and least often displaced by an odd lot. Observed.
 
+**Restated 2026-11-08.** With the undefined-price sentinel treated as a missing
+quote (§38.1), the four-venue record reads `1,780` of `2,742` misses at one
+step and an exact rate of `0.5567` (`results/b9_nbbo_combined.json`). The
+`0.8975` is the Arca record, which carries no sentinel and did not move.
+
 **Three predictions, all already satisfied by readings taken before the account
 was written.** That is not proof and it is better than the account §41.2 gave.
 
@@ -3832,6 +3917,17 @@ as the consequence and is not started here.**
 
 ## 43.1 The reading
 
+**Restated 2026-10-26.** On the full histograms in the two records the
+three-or-more column is `68` for Arca without a size filter and `267` with the
+round-lot filter (`182` at three to seven steps, `85` beyond). The `48` and `≈150`
+below came from a printout that stopped at seven steps. The rise is larger than
+written, and the reading of it, staleness and not correction, stands.
+
+**Restated 2026-11-08.** With the undefined-price sentinel treated as a missing
+quote (§38.1), the four-venue `sz0` row reads `0.5567`, `3,443` and `1,780`
+(`results/b9_nbbo_combined.json`). The two Arca rows and the four-venue `sz100`
+row carry no sentinel and are unchanged.
+
 **The `1`-step errors nearly halve and do not become exact.** Zero-step falls by
 `22`, three-or-more rises from `48` to about `150`, and the sample shrinks by
 only `19`. **The half-tick errors became multi-tick errors.**
@@ -3875,6 +3971,8 @@ does not depend on it.
 differing in the price and in nothing else.**
 
 ## 44.1 The reading
+
+**[2026-10-10, §58.2]** This reading is superseded. What separated the two arms was three early-close days on which the capture did not hold the close. On the remaining 401 days both arms read both (`Δρ_c` `+0.00294` disclosed, `+0.00471` reconstructed), and the half-tick mechanism this section attaches is not needed.
 
 | | control | recon | |
 |---|---|---|---|
@@ -3924,6 +4022,8 @@ to.** A gate on price fidelity would have passed this reconstruction into the
 extension and the extension would have measured the reconstruction.
 
 ## 44.4 D2 survives, and §40.3's third row came out reversed
+
+**[2026-10-10, §58.2]** On the 401 days without the three early-close days the reconstructed D2 shift keeps 88 per cent of the disclosed one (`0.0373` against `0.0423`).
 
 | | control | recon |
 |---|---|---|
@@ -4451,6 +4551,11 @@ was then implemented as a tautology.**
 `off-grid = 0.000`, the tick comparison at `15.8×` against `1.42×`, `ρ_c`,
 D1, D1b, D2, the `0.8975` and the `0.5564` all stand.
 
+**Restated 2026-11-08.** The four-venue rate reads `0.5567` since the
+undefined-price sentinel was treated as a missing quote (§38.1,
+`results/b9_nbbo_combined.json`); it still fails, and none of the other
+quantities listed here reads that record.
+
 **Three claims are relabelled:**
 
 | was | is |
@@ -4916,6 +5021,8 @@ number is §18.5, §24 or §25.1.**
 
 ## 55.1 Two zeros, and §24's discriminator is what separates them
 
+**[2026-10-10, §58.1]** On the split-comparable stress label the range `1.05` to `5.08` in this section reads `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1. The text below is kept as it was written.
+
 | | the statement | this stage |
 |---|---|---|
 | **mathematical zero** | `λ ≡ 0` on every cycle: `ω` is exact, a potential exists, closed walks cancel | **no.** `1.05` to `5.08` times `F_m`, `11/11` at `f = 0` (§25.1) |
@@ -4980,6 +5087,8 @@ claim it.**
 
 ## 55.4 Standing prohibition
 
+**[2026-10-10, §58.1]** On the split-comparable stress label the range `1.05` to `5.08` in this section reads `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1. The text below is kept as it was written.
+
 **The wedge may not be reported as a found zero.** A reading of `1.05` to `5.08`
 against `F_m` is a non-zero, and calling it zero is reading it against the wrong
 floor — **the error §24 charged this stage for once and §33 charged it for a
@@ -5029,6 +5138,8 @@ entirely in the friction part and **cancels exactly out of the index part**.
 > a friction reading was never the claim.**
 
 ## 56.3 Consequence: §25.1's two ends are mislabelled, and the correction runs in this stage's favour
+
+**[2026-10-10, §58.1]** On the split-comparable stress label the range `1.05` to `5.08` in this section reads `1.050` (XLRE) to `4.974` (XLV), still 11 of 11 above 1. The text below is kept as it was written.
 
 §25.1 reports `|λ| / F_m` at two ends of §16.4's fee interval and calls them a generous corner and a
 conservative corner. **That framing is wrong on B4's decomposition.**
@@ -5175,9 +5286,9 @@ document's own prescription and is two orders of magnitude larger.
 
 | | where | what is zero | what it is paired with | size |
 |---|---|---|---|---|
-| **B track, market** | **B13**, the exchange's published implied spread against the two-leg derivation | §55.3's derived leg, exactly: the implied price is computed from the outrights and is never worse than them, and on six of nine products it is equal bit for bit | **B13-3**, the directly quoted member of the same family, non-zero in `65%` to `96%` of states | **`81,968` states**, 9 products, 3 channels |
+| **B track, market** | **B13**, the exchange's published implied spread against the two-leg derivation | §55.3's derived leg, exactly: the implied price is computed from the outrights and is never worse than them, and on six of eight products it is equal bit for bit | **B13-3**, the directly quoted member of the same family, non-zero in `65%` to `96%` of states | **`81,968` bid and offer readings**, 8 products, 3 channels |
 | **B track, publisher** | **B6**'s derived channel columns | a publisher's arithmetic identity | the floating segment against the street rate, same table | 238 publication days |
-| **A track, model** | **A3**'s gate channel, `A3k` | `γ_gate` is `H⁰`, so on a star its holonomy share is zero by Theorem 2 | the terms channel `γ_pay`, same run, same code path | 57 pooled points, 8 of them with the gate mechanically active |
+| **A track, model** | **A3**'s gate channel, `A3k` | `γ_gate` is `H⁰`, so on a star its holonomy share is zero by Theorem 2 | the terms channel `γ_pay`, which in this model also admits the bidder pool that prices a tier, same run, same code path | 57 pooled points, 8 of them with the gate mechanically active |
 
 > **B13 is the one §55.3 asked for.** That section said a mathematical zero lives
 > where one leg is derived rather than quoted against the others, said this
@@ -5293,3 +5404,144 @@ already in.
 | **usable** | as an **instrument check on external data**, the only one in the programme; and as a labelled **illustration** of §55.3's structural condition |
 | **not usable** | as a finding at `2.2e-16` (identity residue); as a calibration for `λ` (different class of cycle); as O11's zero domain (fails the realisability requirement) |
 | **still open** | **O11's zero domain**, with the carrier requirement now written out in §57.4 |
+
+
+---
+
+# 58. Two corrections to the instrument: the stress label across a share split, and the close on an early-close day (2026-10-10)
+
+Neither is a new reading of the world. Each is a place where the instrument was
+pointed at something other than what the section using it says, and each is fixed
+at the source. No registered reading changes side. The headline loses its largest
+fund and keeps all eleven.
+
+## 58.1 The stress label read a share split as volatility
+
+§6 labels a fund-day calm or stressed by the fund's own trailing sixty-day
+realised volatility of the NAV, against the fund's own median over the window.
+The volatility was computed on the raw NAV per share. On 2025-12-05 five main-arm
+funds split 2-for-1 (XLB, XLE, XLK, XLU, XLY): NAV per share halved, shares doubled,
+total net assets continuous. §16.3 had already taken the split out of the share
+counts. It was still in the return, as one day at `−log 2`, and that day sat in
+every sixty-day window that contained it. Every fund-day from the split to sixty
+trading days after it read as stress in those five funds, and the median that
+separates the two regimes over the whole window moved with them.
+
+`stress_vol` now takes the volatility on the split-comparable series. Nothing
+else reads that series: the premium, the price, the published NAV in the fee
+divisor and in `F_m`, and the F1 sample are on the published numbers. The stress
+label changes on 504 fund-days in the five funds, and the count of days on which
+at least six of the eleven are stressed goes from 194 to 201.
+
+| fund | `\|λ\|/F_m`, calm median, before | after | |
+|---|---|---|---|
+| XLB | 2.109 | 1.949 | split 2-for-1 on 2025-12-05 |
+| XLC | 2.967 | 2.967 | |
+| XLE | 2.097 | 2.040 | split 2-for-1 on 2025-12-05 |
+| XLF | 1.476 | 1.476 | |
+| XLI | 3.766 | 3.766 | |
+| XLK | 5.083 | 4.891 | split 2-for-1 on 2025-12-05 |
+| XLP | 1.804 | 1.804 | |
+| XLRE | 1.050 | 1.050 | |
+| XLU | 1.385 | 1.332 | split 2-for-1 on 2025-12-05 |
+| XLV | 4.974 | 4.974 | |
+| XLY | 3.870 | 3.372 | split 2-for-1 on 2025-12-05 |
+
+| reading | before | after |
+|---|---|---|
+| B9-A-1, `\|λ\|/F_m` over the eleven | 1.050 to 5.083, 11 of 11 above 1 | **1.050 to 4.974, 11 of 11 above 1** |
+| the same on the standard-deviation floor | 3.64 to 17.61 | 3.64 to 17.23 |
+| above 1 at the conservative corner | 7 of 11 | 6 of 11 (XLB at 0.986) |
+| B9-A-2, funds rising at `f = 0` | 9 of 11, range 0.881 to 1.365 | 9 of 11 (XLB in, XLE out), range 0.881 to 1.547 |
+| D1, funds whose autocorrelation rises | 10 of 11, medians +0.0762 and +0.1211 | 8 of 11, medians +0.0441 and +0.1184 |
+| D1b, the same after the daily mean is removed | 3 of 11, +0.0882 and −0.0094 | 3 of 11, +0.0889 and -0.0383 |
+| D2, discount share | 10 of 11, 0.4532 to 0.5075 | 10 of 11, 0.4631 to 0.5025 |
+| §31 `V_c` ratio, stress over calm | 2.518 | 2.389 |
+| §31 `V_e` ratio | 2.130 | 1.910 |
+| §31 `Δρ_c` | +0.0691, 0.69 of its own standard error | **+0.0071, 0.07 of its own standard error** |
+| §31.5 cell | both | both |
+| §31.6 circular-shift null, cells above their 95th percentile | 0 of 22 | 0 of 22 |
+| mean pairwise Jaccard of the funds' stress-day sets | 0.558 | 0.665 |
+
+**What this does to the readings that lean on stress.** The gradient, the
+discount share and the two variance ratios keep their direction and most of
+their size. **`Δρ_c` does not keep its size**: nine tenths of the rise in the
+common component's persistence was the split. It was already recorded as
+unresolved at 0.69 of a standard error, and at 0.07 it is indistinguishable
+from no change. §31.5's cell is decided by `V_e` rising and by the sign of
+`Δρ_c`, so the label is unchanged, and it now rests on a sign that is not
+resolved. The day count this document gave for reaching two standard errors was
+an extrapolation that divides by the point estimate; it is not quoted any more.
+
+`nav_calm_over_stress`, which §24 prints as the mechanical part of the floor's
+movement, was the split itself in two of the five funds: 1.749 to
+1.067 for XLU and 1.824 to 1.131 for XLY.
+
+## 58.2 On an early-close day the capture does not hold the close
+
+§36.2 fixed the mark at 16:00 Eastern and every capture is ten seconds around
+it. In this sample the NYSE core session closed at 13:00 on three days:
+2025-07-03, 2025-11-28 and 2025-12-24. On those days the record at the mark is
+from the late session, three hours after the price the published premium is
+struck against. The listing venue matches the disclosed price on 1 of 22
+fund-days there, and the other 25 have no record at the mark at all.
+
+**§40.3's reconstruction now leaves those days absent**, counted apart from the
+venue's own gaps, of which there turn out to be none: outside the three days it
+covers 6,154 fund-days of 6,154.
+
+**§44's reading is withdrawn in the form it was written.** It read the
+reconstructed price as unusable, on `Δρ_c` going from +0.06942 to +0.00010 and
+the cell changing from both to pinning, and it attributed that to a fixed
+half-tick error doing its damage in the calm regime. On the 401 days that
+remain, with the corrected stress label:
+
+| arm | days | `V_c` ratio | `V_e` ratio | `Δρ_c` | cell |
+|---|---|---|---|---|---|
+| disclosed price | 401 | 2.370 | 1.941 | +0.00294 | both |
+| reconstructed price | 401 | 2.335 | 1.972 | +0.00471 | both |
+
+The two arms agree. The discount share keeps 88 per cent of its move on the
+reconstructed price (0.0423 against 0.0373). What separated the arms
+before was three days, and the mechanism offered for it is not needed.
+
+**§36.5's gate on the listing venue, which §40.1 recorded as a failure, is unread; at round-lot size it fails.**
+
+| venue, size filter | all captured fund-days | without the three days | cell, all | cell, without |
+|---|---|---|---|---|
+| ARCX.PILLAR, none | 0.8975 of 6,176 | 0.9006 of 6,154 | fails | passes_on_subtest |
+| ARCX.PILLAR, round lot | 0.8967 of 6,157 | 0.8980 of 6,147 | fails | fails |
+| XNAS.ITCH, none | 0.5256 of 6,178 | 0.5276 of 6,154 | fails | fails |
+| four venues combined, none | 0.5564 of 6,188 | 0.5593 | fails_and_stops | fails_and_stops |
+
+The registered line is 0.90 and the listing venue sits on it: under with the three
+days, over without them, and in the sub-test cell because its stress rate is 1.6
+points under its calm rate where the rule asks for more than two. **A cell that
+turns on 22 fund-days on which the capture did not hold the close is reported
+as unread.** It is not a failure of the venue and it is not a pass. Reading it
+would need the 13:00 quotes for those three days, which this station has not
+bought. The other three rows fail either way and their status stands.
+
+The all-days column of the Nasdaq row and of the four-venue row also counts
+fund-days whose record at the mark is the vendor's undefined-price sentinel
+(`2^63 − 1`) taken as a price: 3 on Nasdaq and 5 on the combination, all on the
+three early-close days, and 4 of the 1,866 the combination counts as crossed
+are these. The without column holds none, and both rows fail with or without them.
+
+**Restated 2026-10-27.** The sentinel is now treated as a missing quote and both
+rows were rerun: Nasdaq `0.5258` of `6,175`, the combination `0.5567` of `6,185`,
+crossed counts `0` and `1,862`. The without columns (`0.5276` of `6,154`,
+`0.5593`) are unchanged and every cell is as in the table.
+
+## 58.3 What is unchanged
+
+B9-0, the F1 audit and its 6,201 admitted fund-days, the half-cent grid, the
+quantisation test (the tick spans 15.83 times while the reading spans 1.42), the
+fee readings of §56, and the gate-speed test's direction: the share of
+zero-change days still falls in 10 of 11, and the intensive margin now rises in
+9 of 11.
+
+The F1 audit's share counts are in each fund's unit before its first split. Its list
+of in-window changes that are not a whole creation unit compares each day with the
+unit in force, 25,000 in that unit after a 2-for-1, and is empty in all sixteen funds.
+The 6,201 admitted fund-days are the same with changes read in the unit in force.

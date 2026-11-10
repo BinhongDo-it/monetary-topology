@@ -39,9 +39,398 @@
       "identical_in_net_worth": false
     }
   ],
+  "paths": {
+    "auction_pre_a3b": [
+      {
+        "seed": 0,
+        "production_layer_empty_from_round": 111,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 25,
+        "rounds_ending_with_more_holders": 22,
+        "rounds_ending_with_more_financial_holders": 22,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 1,
+        "production_layer_empty_from_round": 105,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 23,
+        "rounds_ending_with_more_holders": 17,
+        "rounds_ending_with_more_financial_holders": 19,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 2,
+        "production_layer_empty_from_round": 100,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 21,
+        "rounds_ending_with_more_holders": 17,
+        "rounds_ending_with_more_financial_holders": 18,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 3,
+        "production_layer_empty_from_round": 73,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 1,
+        "financial_returns_after_selling_out": 22,
+        "rounds_ending_with_more_holders": 17,
+        "rounds_ending_with_more_financial_holders": 18,
+        "rounds_ending_with_more_production_holders": 1
+      },
+      {
+        "seed": 4,
+        "production_layer_empty_from_round": 56,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 11,
+        "rounds_ending_with_more_holders": 10,
+        "rounds_ending_with_more_financial_holders": 10,
+        "rounds_ending_with_more_production_holders": 0
+      }
+    ],
+    "auction": [
+      {
+        "seed": 0,
+        "production_layer_empty_from_round": 90,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 14,
+        "rounds_ending_with_more_holders": 11,
+        "rounds_ending_with_more_financial_holders": 12,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 1,
+        "production_layer_empty_from_round": 93,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 4,
+        "rounds_ending_with_more_holders": 4,
+        "rounds_ending_with_more_financial_holders": 4,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 2,
+        "production_layer_empty_from_round": 61,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 11,
+        "rounds_ending_with_more_holders": 9,
+        "rounds_ending_with_more_financial_holders": 9,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 3,
+        "production_layer_empty_from_round": 75,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 3,
+        "rounds_ending_with_more_holders": 3,
+        "rounds_ending_with_more_financial_holders": 3,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 4,
+        "production_layer_empty_from_round": 52,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 0,
+        "rounds_ending_with_more_holders": 0,
+        "rounds_ending_with_more_financial_holders": 0,
+        "rounds_ending_with_more_production_holders": 0
+      }
+    ],
+    "continuous": [
+      {
+        "seed": 0,
+        "production_layer_empty_from_round": 90,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 14,
+        "rounds_ending_with_more_holders": 11,
+        "rounds_ending_with_more_financial_holders": 12,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 1,
+        "production_layer_empty_from_round": 93,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 4,
+        "rounds_ending_with_more_holders": 4,
+        "rounds_ending_with_more_financial_holders": 4,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 2,
+        "production_layer_empty_from_round": 61,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 11,
+        "rounds_ending_with_more_holders": 9,
+        "rounds_ending_with_more_financial_holders": 9,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 3,
+        "production_layer_empty_from_round": 75,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 3,
+        "rounds_ending_with_more_holders": 3,
+        "rounds_ending_with_more_financial_holders": 3,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 4,
+        "production_layer_empty_from_round": 52,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 0,
+        "rounds_ending_with_more_holders": 0,
+        "rounds_ending_with_more_financial_holders": 0,
+        "rounds_ending_with_more_production_holders": 0
+      }
+    ],
+    "occupancy": [
+      {
+        "seed": 0,
+        "production_layer_empty_from_round": 132,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 2,
+        "rounds_ending_with_more_holders": 1,
+        "rounds_ending_with_more_financial_holders": 2,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 1,
+        "production_layer_empty_from_round": 128,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 1,
+        "rounds_ending_with_more_holders": 1,
+        "rounds_ending_with_more_financial_holders": 1,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 2,
+        "production_layer_empty_from_round": 132,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 2,
+        "rounds_ending_with_more_holders": 2,
+        "rounds_ending_with_more_financial_holders": 2,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 3,
+        "production_layer_empty_from_round": 187,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 2,
+        "rounds_ending_with_more_holders": 2,
+        "rounds_ending_with_more_financial_holders": 2,
+        "rounds_ending_with_more_production_holders": 0
+      },
+      {
+        "seed": 4,
+        "production_layer_empty_from_round": 122,
+        "production_holder_after_it_emptied": false,
+        "production_returns_after_selling_out": 0,
+        "financial_returns_after_selling_out": 4,
+        "rounds_ending_with_more_holders": 4,
+        "rounds_ending_with_more_financial_holders": 4,
+        "rounds_ending_with_more_production_holders": 0
+      }
+    ]
+  },
+  "occupancy_transfer": [
+    {
+      "seed": 0,
+      "drawn": 140,
+      "drawn_in_the_production_layer": 127,
+      "low_tier_units": 132,
+      "drawn_past_the_low_tier": 8,
+      "they_hold_one_unit_of_the_next_tier_and_nothing_else": true,
+      "they_are_in_the_production_layer": 8,
+      "drawn_holding_the_next_tier_and_no_low_unit": 8
+    },
+    {
+      "seed": 1,
+      "drawn": 140,
+      "drawn_in_the_production_layer": 126,
+      "low_tier_units": 132,
+      "drawn_past_the_low_tier": 8,
+      "they_hold_one_unit_of_the_next_tier_and_nothing_else": true,
+      "they_are_in_the_production_layer": 8,
+      "drawn_holding_the_next_tier_and_no_low_unit": 8
+    },
+    {
+      "seed": 2,
+      "drawn": 140,
+      "drawn_in_the_production_layer": 128,
+      "low_tier_units": 132,
+      "drawn_past_the_low_tier": 8,
+      "they_hold_one_unit_of_the_next_tier_and_nothing_else": true,
+      "they_are_in_the_production_layer": 8,
+      "drawn_holding_the_next_tier_and_no_low_unit": 8
+    },
+    {
+      "seed": 3,
+      "drawn": 140,
+      "drawn_in_the_production_layer": 128,
+      "low_tier_units": 132,
+      "drawn_past_the_low_tier": 8,
+      "they_hold_one_unit_of_the_next_tier_and_nothing_else": true,
+      "they_are_in_the_production_layer": 8,
+      "drawn_holding_the_next_tier_and_no_low_unit": 8
+    },
+    {
+      "seed": 4,
+      "drawn": 140,
+      "drawn_in_the_production_layer": 124,
+      "low_tier_units": 132,
+      "drawn_past_the_low_tier": 8,
+      "they_hold_one_unit_of_the_next_tier_and_nothing_else": true,
+      "they_are_in_the_production_layer": 8,
+      "drawn_holding_the_next_tier_and_no_low_unit": 8
+    }
+  ],
+  "a3_4_by_construction": {
+    "auction_pre_a3b": {
+      "void": false,
+      "ledger": 0.3653613417,
+      "graph": 0.3768622047,
+      "relative_error": 0.03051742,
+      "within_the_registered_tolerance": true,
+      "tier_mix_term": -0.011500863,
+      "the_gap_is_the_tier_mix_term": true,
+      "trades_better_worse_by_seed": [
+        [
+          102,
+          17
+        ],
+        [
+          156,
+          35
+        ],
+        [
+          71,
+          25
+        ],
+        [
+          101,
+          11
+        ],
+        [
+          152,
+          23
+        ]
+      ]
+    },
+    "auction": {
+      "void": false,
+      "ledger": 0.2883066028,
+      "graph": 0.3365549727,
+      "relative_error": 0.14335955,
+      "within_the_registered_tolerance": true,
+      "tier_mix_term": -0.0482483699,
+      "the_gap_is_the_tier_mix_term": true,
+      "trades_better_worse_by_seed": [
+        [
+          298,
+          30
+        ],
+        [
+          284,
+          29
+        ],
+        [
+          233,
+          38
+        ],
+        [
+          260,
+          7
+        ],
+        [
+          273,
+          36
+        ]
+      ]
+    },
+    "continuous": {
+      "void": false,
+      "ledger": 0.2883066028,
+      "graph": 0.3365549727,
+      "relative_error": 0.14335955,
+      "within_the_registered_tolerance": true,
+      "tier_mix_term": -0.0482483699,
+      "the_gap_is_the_tier_mix_term": true,
+      "trades_better_worse_by_seed": [
+        [
+          298,
+          30
+        ],
+        [
+          284,
+          29
+        ],
+        [
+          233,
+          38
+        ],
+        [
+          260,
+          7
+        ],
+        [
+          273,
+          36
+        ]
+      ]
+    },
+    "occupancy": {
+      "void": true,
+      "reason": "one of the two groups completed no round trip whose purchase is dated after round zero, the trades A3-4 reads",
+      "trades_better_worse_by_seed": [
+        [
+          423,
+          0
+        ],
+        [
+          388,
+          0
+        ],
+        [
+          407,
+          0
+        ],
+        [
+          409,
+          0
+        ],
+        [
+          370,
+          0
+        ]
+      ]
+    }
+  },
   "results": {
     "auction": {
       "supply": 220,
+      "opening": {
+        "ownership": 0.21899999999999994,
+        "prod_holders": 23.8,
+        "prod_units": 23.8,
+        "total_units": 220.0
+      },
       "ownership": {
         "1": 0.213,
         "25": 0.14,
@@ -78,6 +467,12 @@
     },
     "continuous": {
       "supply": 220,
+      "opening": {
+        "ownership": 0.21899999999999994,
+        "prod_holders": 23.8,
+        "prod_units": 23.8,
+        "total_units": 220.0
+      },
       "ownership": {
         "1": 0.213,
         "25": 0.14,
@@ -114,6 +509,12 @@
     },
     "occupancy": {
       "supply": 220,
+      "opening": {
+        "ownership": 0.744,
+        "prod_holders": 128.8,
+        "prod_units": 129.2,
+        "total_units": 220.0
+      },
       "ownership": {
         "1": 0.72,
         "25": 0.33799999999999997,
@@ -150,6 +551,12 @@
     },
     "auction_pre_a3b": {
       "supply": 100,
+      "opening": {
+        "ownership": 0.21899999999999994,
+        "prod_holders": 23.8,
+        "prod_units": 23.8,
+        "total_units": 60.6
+      },
       "ownership": {
         "1": 0.21200000000000002,
         "25": 0.13699999999999998,

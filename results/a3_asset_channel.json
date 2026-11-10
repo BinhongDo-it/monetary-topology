@@ -4,7 +4,297 @@
   "rounds": 300,
   "registered_rent_rate": 0.05,
   "deviations": [],
-  "rent_sweep": null,
+  "rent_sweep": {
+    "elasticity": 0.0,
+    "rates": [
+      0.0,
+      0.002,
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "dropped_from_paired_population": 0,
+    "zero_calibration_ok": true,
+    "per_rate": {
+      "0": {
+        "renter_delta_median": 0.0,
+        "renter_delta_worst": 0.0,
+        "landlord_delta_median": 0.0,
+        "landlord_n": 0.2,
+        "financial_delta_median": 0.0,
+        "financial_n": 16.2,
+        "rent_per_round_share": 0.0,
+        "rent_cumulative_share": 0.0,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            1,
+            0,
+            0,
+            179
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.8,
+        "seeds": 5,
+        "landlord_seeds": 1,
+        "financial_seeds": 5
+      },
+      "0.002": {
+        "renter_delta_median": -0.02013760167356792,
+        "renter_delta_worst": -0.1145801653512352,
+        "landlord_delta_median": -0.5620636469260751,
+        "landlord_n": 0.2,
+        "financial_delta_median": 0.5500488455583501,
+        "financial_n": 16.2,
+        "rent_per_round_share": 0.0015875257699712471,
+        "rent_cumulative_share": 0.47625773099137414,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            1,
+            0,
+            179
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.8,
+        "seeds": 5,
+        "landlord_seeds": 1,
+        "financial_seeds": 5
+      },
+      "0.005": {
+        "renter_delta_median": -0.03382892037030978,
+        "renter_delta_worst": -0.14384522749603196,
+        "landlord_delta_median": -0.5795414128750156,
+        "landlord_n": 0.2,
+        "financial_delta_median": 1.5864790467723409,
+        "financial_n": 16.2,
+        "rent_per_round_share": 0.00383169767542601,
+        "rent_cumulative_share": 1.1495093026278034,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            1,
+            0,
+            179
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.8,
+        "seeds": 5,
+        "landlord_seeds": 1,
+        "financial_seeds": 5
+      },
+      "0.01": {
+        "renter_delta_median": -0.0561831069704156,
+        "renter_delta_worst": -0.22959775544088717,
+        "landlord_delta_median": -0.6342988009216441,
+        "landlord_n": 0.2,
+        "financial_delta_median": 3.2187790379134533,
+        "financial_n": 16.2,
+        "rent_per_round_share": 0.007401198078210143,
+        "rent_cumulative_share": 2.220359423463043,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            1,
+            0,
+            179
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.8,
+        "seeds": 5,
+        "landlord_seeds": 1,
+        "financial_seeds": 5
+      },
+      "0.02": {
+        "renter_delta_median": -0.09859749777201834,
+        "renter_delta_worst": -0.38570713922926503,
+        "landlord_delta_median": -0.6790272829587982,
+        "landlord_n": 0.2,
+        "financial_delta_median": 6.379655464857402,
+        "financial_n": 16.2,
+        "rent_per_round_share": 0.013879728791318944,
+        "rent_cumulative_share": 4.163918637395684,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            1,
+            0,
+            179
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.8,
+        "seeds": 5,
+        "landlord_seeds": 1,
+        "financial_seeds": 5
+      },
+      "0.05": {
+        "renter_delta_median": -0.217752015135369,
+        "renter_delta_worst": -0.856235824410669,
+        "landlord_delta_median": -0.8744404512794287,
+        "landlord_n": 0.2,
+        "financial_delta_median": 13.868297652927321,
+        "financial_n": 16.2,
+        "rent_per_round_share": 0.028882043398879974,
+        "rent_cumulative_share": 8.664613019663992,
+        "transition": [
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ],
+          [
+            0,
+            1,
+            0,
+            179
+          ],
+          [
+            0,
+            0,
+            0,
+            180
+          ]
+        ],
+        "renters": 179.8,
+        "seeds": 5,
+        "landlord_seeds": 1,
+        "financial_seeds": 5
+      }
+    }
+  },
   "sweep": {
     "baseline": {
       "A3-2  a gap opens between agents who started level": "diag",
@@ -33,10 +323,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 12.9 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 229 nodes with four or more: 2.11e-16. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.33396 against a holonomy of +0.33547 from the product graph, relative error 0.45% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 6.11e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 229 (seed, node, tier) cells with four or more, on 93 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.33396 against a holonomy of +0.33547 from the product graph, relative error 0.45% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 7.8% of the transfer after 40 rounds against 50% required, and **0% of 84 holders clear the threshold**; a non-holder retains 0.0%, against 0.00% on the A2 carrier. **The holding population is 16.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 16.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 7.8% after 40 rounds against 50% required, and **0 of 84 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 0 of 84 clear it above their own baseline, 0 of 84 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 7.8%. One non-holder per seed, with its sign: +0.005%, -0.016%, +0.013%, +0.001%, -0.003%; against 0.00% on the A2 carrier. **The holding population is 16.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 16.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -58,10 +348,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 1.4 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 226 nodes with four or more: 2.42e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.31149 against a holonomy of +0.33774 from the product graph, relative error 7.77% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 2.22e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 226 (seed, node, tier) cells with four or more, on 93 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.31149 against a holonomy of +0.33774 from the product graph, relative error 7.77% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 11.1% of the transfer after 40 rounds against 50% required, and **1% of 84 holders clear the threshold**; a non-holder retains 0.4%, against 0.00% on the A2 carrier. **The holding population is 16.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 16.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 11.1% after 40 rounds against 50% required, and **1 of 84 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 0 of 84 clear it above their own baseline, 14 of 84 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 7.3%. One non-holder per seed, with its sign: +0.675%, +0.041%, +1.106%, +0.002%, -0.235%; against 0.00% on the A2 carrier. **The holding population is 16.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 16.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -85,10 +375,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio inf against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 61 nodes with four or more: 1.98e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.34245 against a holonomy of +0.34245 from the product graph, relative error 0.00% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 1.78e-15",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 61 (seed, node, tier) cells with four or more, on 61 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.34245 against a holonomy of +0.34245 from the product graph, relative error 0.00% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 45.9% of the transfer after 40 rounds against 50% required, and **44% of 105 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 21.0 nodes of 200, of which 1.6 are in the production layer.** So A4's domain is 21.0 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 45.9% after 40 rounds against 50% required, and **46 of 105 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 46 of 105 clear it above their own baseline, 3 of 105 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 45.9%. One non-holder per seed, with its sign: +0.000%, +0.000%, +0.423%, +0.070%, no gap in the landing round; against 0.00% on the A2 carrier. **The holding population is 21.0 nodes of 200, of which 1.6 are in the production layer.** So A4's domain is 21.0 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 80%, [100,200): 0%, [200,300): 0% of seeds. One window only would be a repricing"
         }
       },
@@ -113,10 +403,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 5.0 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 50 nodes with four or more: 1.56e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36324 against a holonomy of +0.37271 from the product graph, relative error 2.54% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 5.00e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 50 (seed, node, tier) cells with four or more, on 46 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36324 against a holonomy of +0.37271 from the product graph, relative error 2.54% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +98.46, low tier open +104.48, high tier open +98.46, against the registered split at 50% of shut, +49.23. Ratios for continuity with the runs recorded before the rescale: shut 133.79, low 139.83, high 133.79 frozen; low 328.22, high 2.07 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 19.6% of the transfer after 40 rounds against 50% required, and **6% of 84 holders clear the threshold**; a non-holder retains 0.0%, against 0.00% on the A2 carrier. **The holding population is 16.8 nodes of 200, of which 1.4 are in the production layer.** So A4's domain is 16.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 19.6% after 40 rounds against 50% required, and **5 of 84 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 3 of 84 clear it above their own baseline, 4 of 84 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 19.4%. One non-holder per seed, with its sign: +0.000%, +0.000%, +0.000%, +0.009%, +0.024%; against 0.00% on the A2 carrier. **The holding population is 16.8 nodes of 200, of which 1.4 are in the production layer.** So A4's domain is 16.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 80%, [100,200): 100%, [200,300): 80% of seeds. One window only would be a repricing"
         }
       },
@@ -139,10 +429,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 2.6 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 106 nodes with four or more: 3.30e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.35519 against a holonomy of +0.36623 from the product graph, relative error 3.01% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 8.88e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 106 (seed, node, tier) cells with four or more, on 88 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.35519 against a holonomy of +0.36623 from the product graph, relative error 3.01% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +77.72, low tier open +95.05, high tier open +77.72, against the registered split at 50% of shut, +38.86. Ratios for continuity with the runs recorded before the rescale: shut 140.92, low 258.80, high 140.92 frozen; low 2.96, high 3.65 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 13.0% of the transfer after 40 rounds against 50% required, and **4% of 72 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 14.4 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 14.4 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.0% after 40 rounds against 50% required, and **3 of 72 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 72 clear it above their own baseline, 2 of 72 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 12.0%. One non-holder per seed, with its sign: +0.002%, -0.416%, +0.008%, +0.019%, +0.009%; against 0.00% on the A2 carrier. **The holding population is 14.4 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 14.4 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -165,10 +455,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.107%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -191,10 +481,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.107%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -217,10 +507,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36536 against a holonomy of +0.37686 from the product graph, relative error 3.05% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +112.41, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 137.57, low 450.15, high 137.57 frozen; low 4.74, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.186%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -244,10 +534,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.5 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 47 nodes with four or more: 2.80e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.35338 against a holonomy of +0.35449 from the product graph, relative error 0.31% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 47 (seed, node, tier) cells with four or more, on 40 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.35338 against a holonomy of +0.35449 from the product graph, relative error 0.31% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +11.66, low tier open +81.00, high tier open +34.50, against the registered split at 50% of shut, +5.83. Ratios for continuity with the runs recorded before the rescale: shut 0.72, low 362.35, high 0.61 frozen; low 30.27, high 3.94 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 19.1% of the transfer after 40 rounds against 50% required, and **0% of 55 holders clear the threshold**; a non-holder retains 0.0%, against 0.00% on the A2 carrier. **The holding population is 11.0 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 11.0 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 19.1% after 40 rounds against 50% required, and **0 of 55 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 0 of 55 clear it above their own baseline, 1 of 55 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 18.4%. One non-holder per seed, with its sign: +0.000%, +0.004%, +0.000%, +0.000%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 11.0 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 11.0 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 20%, [100,200): 0%, [200,300): 0% of seeds. One window only would be a repricing"
         }
       },
@@ -269,10 +559,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 4.9 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 76 nodes with four or more: 3.63e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36077 against a holonomy of +0.36995 from the product graph, relative error 2.48% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 4.44e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 76 (seed, node, tier) cells with four or more, on 67 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.36077 against a holonomy of +0.36995 from the product graph, relative error 2.48% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut -8.64, low tier open +93.65, high tier open -8.64, against the registered split at 50% of shut, -4.32. Ratios for continuity with the runs recorded before the rescale: shut 0.49, low 2.36, high 0.49 frozen; low 7.12, high 1.46 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 17.3% of the transfer after 40 rounds against 50% required, and **6% of 67 holders clear the threshold**; a non-holder retains 1.6%, against 0.00% on the A2 carrier. **The holding population is 13.4 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 13.4 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 17.3% after 40 rounds against 50% required, and **4 of 67 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 2 of 67 clear it above their own baseline, 5 of 67 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 16.3%. One non-holder per seed, with its sign: +0.000%, +7.835%, no gap in the landing round, +0.007%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 13.4 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 13.4 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -296,10 +586,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 21.5 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 156 nodes with four or more: 1.81e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.26261 against a holonomy of +0.28161 from the product graph, relative error 6.75% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 6.66e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 156 (seed, node, tier) cells with four or more, on 88 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.26261 against a holonomy of +0.28161 from the product graph, relative error 6.75% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +101.07, low tier open +115.84, high tier open +101.07, against the registered split at 50% of shut, +50.53. Ratios for continuity with the runs recorded before the rescale: shut 360.92, low 555.46, high 360.92 frozen; low 627.60, high 158.19 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 14.2% of the transfer after 40 rounds against 50% required, and **2% of 87 holders clear the threshold**; a non-holder retains 0.0%, against 0.00% on the A2 carrier. **The holding population is 17.4 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 17.4 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 14.2% after 40 rounds against 50% required, and **2 of 87 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 87 clear it above their own baseline, 5 of 87 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 12.9%. One non-holder per seed, with its sign: +0.000%, +0.108%, -0.040%, +0.000%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 17.4 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 17.4 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 60%, [100,200): 80%, [200,300): 80% of seeds. One window only would be a repricing"
         }
       },
@@ -321,10 +611,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.31047 against a holonomy of +0.32059 from the product graph, relative error 3.16% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 8.88e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.31047 against a holonomy of +0.32059 from the product graph, relative error 3.16% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.107%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -346,10 +636,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 9.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.44e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.48144 against a holonomy of +0.49924 from the product graph, relative error 3.57% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 6.66e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.48144 against a holonomy of +0.49924 from the product graph, relative error 3.57% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +107.30, low tier open +130.89, high tier open +107.30, against the registered split at 50% of shut, +53.65. Ratios for continuity with the runs recorded before the rescale: shut 12.85, low 870.62, high 12.85 frozen; low 4.00, high 178.31 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.107%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       },
@@ -371,10 +661,10 @@
         "deviations": [],
         "details": {
           "A3-2  a gap opens between agents who started level": "entry pair, 5 either side of the allocation boundary: mean net worth ratio 3.1 against a floor of 2.0. **A floor and not a criterion**, demoted in \u00a75.1: this is owning against not owning, which is a gap produced by owning rather than by the terms of owning, and it can be orders of magnitude wide while the loop sum is exactly zero",
-          "A3-3  the gap compounds rather than levelling off": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: 1.14e-15. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
-          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.35715 against a holonomy of +0.36798 from the product graph, relative error 2.94% against 20%. Price cancellation observed, not assumed: largest holonomy shift under unrelated prices 8.88e-16",
+          "A3-3  the gap compounds rather than levelling off": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken",
+          "A3-4  the realised terms differential is the loop sum": "mean cell-adjusted return, better group minus worse: +0.35715 against a holonomy of +0.36798 from the product graph, relative error 2.94% against 20%. Price cancellation observed, not assumed: the largest holonomy shift under unrelated prices is at machine precision, below `1e-10`",
           "A3-5  the gate binds at the high tier, not at ownership": "price frozen, so opening a tier is a gate change and nothing else. Gap as a difference of growth multiples, each node against its own opening claims: gates shut +106.79, low tier open +106.46, high tier open +106.79, against the registered split at 50% of shut, +53.39. Ratios for continuity with the runs recorded before the rescale: shut 13.66, low 323.07, high 13.66 frozen; low 4.03, high 178.39 with the price free. VOID per \u00a76.3: opening the high tier is a bitwise no-op, because open_tiers never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it even at the soft gate. At the high tier the exclusion is a price wall and not a hole, so there is nothing there for a gate criterion to measure",
-          "A3-6  a stock exists, and A4's domain is exactly who holds it": "median holder retains 12.9% of the transfer after 40 rounds against 50% required, and **4% of 78 holders clear the threshold**; a non-holder retains 0.0%, against 0.00% on the A2 carrier. **The holding population is 15.6 nodes of 200, of which 0.2 are in the production layer.** So A4's domain is 15.6 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring",
+          "A3-6  a stock exists, and A4's domain is exactly who holds it": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 12.9% after 40 rounds against 50% required, and **3 of 78 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 78 clear it above their own baseline, 4 of 78 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 12.6%. One non-holder per seed, with its sign: +0.106%, +0.003%, no gap in the landing round, -0.107%, +0.012%; against 0.00% on the A2 carrier. **The holding population is 15.6 nodes of 200, of which 0.2 are in the production layer.** So A4's domain is 15.6 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain",
           "A3-7  non-overlapping windows agree in sign": "better terms beat worse in [0,100): 100%, [100,200): 100%, [200,300): 100% of seeds. One window only would be a repricing"
         }
       }
@@ -391,8 +681,7 @@
       "arm=forced forced_sale_floor=0.1"
     ],
     "live_cells": 12,
-    "passed": false,
-    "from_an_earlier_run": true
+    "passed": false
   },
   "market": {
     "sales": [
@@ -417,6 +706,580 @@
       23
     ]
   },
+  "round_zero_resales": {
+    "per_seed": [
+      {
+        "seed": 0,
+        "ledger_rows": 225,
+        "rows_dated_round_zero": 54,
+        "of_which_bought_on_resale": 2
+      },
+      {
+        "seed": 1,
+        "ledger_rows": 268,
+        "rows_dated_round_zero": 63,
+        "of_which_bought_on_resale": 2
+      },
+      {
+        "seed": 2,
+        "ledger_rows": 172,
+        "rows_dated_round_zero": 46,
+        "of_which_bought_on_resale": 2
+      },
+      {
+        "seed": 3,
+        "ledger_rows": 206,
+        "rows_dated_round_zero": 50,
+        "of_which_bought_on_resale": 4
+      },
+      {
+        "seed": 4,
+        "ledger_rows": 246,
+        "rows_dated_round_zero": 64,
+        "of_which_bought_on_resale": 2
+      }
+    ],
+    "bought_on_resale_in_round_zero": 12,
+    "they_paid_gamma_times_the_reference_price": true,
+    "a3_4_as_scored": {
+      "ledger": 0.3653613417,
+      "graph": 0.3768622047,
+      "relative_error": 0.03051742
+    },
+    "a3_4_with_them": {
+      "ledger": 0.3656568687,
+      "graph": 0.3771706539,
+      "relative_error": 0.03052673
+    },
+    "a3_7_as_scored": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "a3_7_with_them": [
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "shock_response": {
+    "statistic": "deviation of the target's net worth from its own untransferred path, at the horizon over the landing round; `response` keeps the sign, the criterion scores its size",
+    "horizon": 40,
+    "shock_round": 150,
+    "holders": [
+      {
+        "seed": 0,
+        "node": 0,
+        "landing": 278.811358,
+        "response": 0.04997985
+      },
+      {
+        "seed": 0,
+        "node": 1,
+        "landing": 412.467895,
+        "response": 0.16407833
+      },
+      {
+        "seed": 0,
+        "node": 2,
+        "landing": 267.481684,
+        "response": 0.02412396
+      },
+      {
+        "seed": 0,
+        "node": 3,
+        "landing": 269.69607,
+        "response": 0.02620901
+      },
+      {
+        "seed": 0,
+        "node": 4,
+        "landing": 268.311184,
+        "response": -0.24368096
+      },
+      {
+        "seed": 0,
+        "node": 5,
+        "landing": 380.691759,
+        "response": 0.17451542
+      },
+      {
+        "seed": 0,
+        "node": 6,
+        "landing": 377.972032,
+        "response": 0.45759593
+      },
+      {
+        "seed": 0,
+        "node": 7,
+        "landing": 374.589798,
+        "response": 0.16454092
+      },
+      {
+        "seed": 0,
+        "node": 8,
+        "landing": 265.830344,
+        "response": 0.14217486
+      },
+      {
+        "seed": 0,
+        "node": 9,
+        "landing": 376.986144,
+        "response": 0.15358872
+      },
+      {
+        "seed": 0,
+        "node": 11,
+        "landing": 376.139676,
+        "response": 0.23636674
+      },
+      {
+        "seed": 0,
+        "node": 12,
+        "landing": 379.43829,
+        "response": 0.15402783
+      },
+      {
+        "seed": 0,
+        "node": 13,
+        "landing": 266.571501,
+        "response": 0.04767177
+      },
+      {
+        "seed": 0,
+        "node": 15,
+        "landing": 376.704422,
+        "response": 0.16681211
+      },
+      {
+        "seed": 0,
+        "node": 16,
+        "landing": 265.545101,
+        "response": 0.0221566
+      },
+      {
+        "seed": 0,
+        "node": 17,
+        "landing": 265.470363,
+        "response": 0.02989222
+      },
+      {
+        "seed": 0,
+        "node": 18,
+        "landing": 1144.41242,
+        "response": 0.36537284
+      },
+      {
+        "seed": 0,
+        "node": 19,
+        "landing": 262.835606,
+        "response": 0.02866397
+      },
+      {
+        "seed": 1,
+        "node": 0,
+        "landing": 251.71042,
+        "response": 0.03176989
+      },
+      {
+        "seed": 1,
+        "node": 1,
+        "landing": 251.716509,
+        "response": 0.01646365
+      },
+      {
+        "seed": 1,
+        "node": 2,
+        "landing": 250.708798,
+        "response": 0.03684439
+      },
+      {
+        "seed": 1,
+        "node": 3,
+        "landing": 315.890406,
+        "response": 0.13389447
+      },
+      {
+        "seed": 1,
+        "node": 4,
+        "landing": 374.778319,
+        "response": 0.23142943
+      },
+      {
+        "seed": 1,
+        "node": 5,
+        "landing": 662.841893,
+        "response": 0.3089522
+      },
+      {
+        "seed": 1,
+        "node": 6,
+        "landing": 253.650254,
+        "response": 0.02111313
+      },
+      {
+        "seed": 1,
+        "node": 8,
+        "landing": 546.933964,
+        "response": 0.245382
+      },
+      {
+        "seed": 1,
+        "node": 9,
+        "landing": 332.956654,
+        "response": 0.29402608
+      },
+      {
+        "seed": 1,
+        "node": 10,
+        "landing": 249.22652,
+        "response": 0.05097762
+      },
+      {
+        "seed": 1,
+        "node": 13,
+        "landing": 274.953355,
+        "response": 0.05666756
+      },
+      {
+        "seed": 1,
+        "node": 14,
+        "landing": 308.147068,
+        "response": 0.14547905
+      },
+      {
+        "seed": 1,
+        "node": 15,
+        "landing": 250.749437,
+        "response": 0.0416722
+      },
+      {
+        "seed": 1,
+        "node": 16,
+        "landing": 249.09952,
+        "response": 0.03385015
+      },
+      {
+        "seed": 1,
+        "node": 17,
+        "landing": 309.302443,
+        "response": 0.14187844
+      },
+      {
+        "seed": 1,
+        "node": 18,
+        "landing": 263.113088,
+        "response": 0.02826126
+      },
+      {
+        "seed": 1,
+        "node": 19,
+        "landing": 314.325648,
+        "response": 0.13914295
+      },
+      {
+        "seed": 2,
+        "node": 0,
+        "landing": 370.294512,
+        "response": 0.18490767
+      },
+      {
+        "seed": 2,
+        "node": 2,
+        "landing": 369.233972,
+        "response": 0.20698206
+      },
+      {
+        "seed": 2,
+        "node": 3,
+        "landing": 372.604686,
+        "response": 0.16849844
+      },
+      {
+        "seed": 2,
+        "node": 5,
+        "landing": 258.046948,
+        "response": 0.02818838
+      },
+      {
+        "seed": 2,
+        "node": 6,
+        "landing": 372.172061,
+        "response": 0.17647024
+      },
+      {
+        "seed": 2,
+        "node": 7,
+        "landing": 268.247733,
+        "response": 0.05552869
+      },
+      {
+        "seed": 2,
+        "node": 9,
+        "landing": 1213.679969,
+        "response": 0.39776298
+      },
+      {
+        "seed": 2,
+        "node": 11,
+        "landing": 266.054433,
+        "response": 0.04692799
+      },
+      {
+        "seed": 2,
+        "node": 12,
+        "landing": 375.666224,
+        "response": 0.19658769
+      },
+      {
+        "seed": 2,
+        "node": 13,
+        "landing": 257.804306,
+        "response": 0.0235188
+      },
+      {
+        "seed": 2,
+        "node": 14,
+        "landing": 371.226101,
+        "response": 0.19634141
+      },
+      {
+        "seed": 2,
+        "node": 16,
+        "landing": 374.791404,
+        "response": 0.20363018
+      },
+      {
+        "seed": 2,
+        "node": 17,
+        "landing": 371.01383,
+        "response": 0.20457922
+      },
+      {
+        "seed": 2,
+        "node": 18,
+        "landing": 257.981056,
+        "response": 0.03283806
+      },
+      {
+        "seed": 2,
+        "node": 19,
+        "landing": 369.878867,
+        "response": 0.18344556
+      },
+      {
+        "seed": 3,
+        "node": 1,
+        "landing": 328.193469,
+        "response": -0.06825049
+      },
+      {
+        "seed": 3,
+        "node": 2,
+        "landing": 325.888506,
+        "response": 0.15314951
+      },
+      {
+        "seed": 3,
+        "node": 3,
+        "landing": 243.952963,
+        "response": 0.0197758
+      },
+      {
+        "seed": 3,
+        "node": 4,
+        "landing": 249.58075,
+        "response": -0.14467817
+      },
+      {
+        "seed": 3,
+        "node": 6,
+        "landing": 241.079224,
+        "response": 0.35974652
+      },
+      {
+        "seed": 3,
+        "node": 7,
+        "landing": 323.411807,
+        "response": 0.16577719
+      },
+      {
+        "seed": 3,
+        "node": 8,
+        "landing": 249.713519,
+        "response": 0.0548698
+      },
+      {
+        "seed": 3,
+        "node": 9,
+        "landing": 332.199743,
+        "response": 0.17007254
+      },
+      {
+        "seed": 3,
+        "node": 11,
+        "landing": 325.995922,
+        "response": 0.16148972
+      },
+      {
+        "seed": 3,
+        "node": 12,
+        "landing": 725.85286,
+        "response": 1.77199722
+      },
+      {
+        "seed": 3,
+        "node": 13,
+        "landing": 325.249513,
+        "response": 0.16258602
+      },
+      {
+        "seed": 3,
+        "node": 14,
+        "landing": 462.281539,
+        "response": 0.25725667
+      },
+      {
+        "seed": 3,
+        "node": 16,
+        "landing": 243.309746,
+        "response": 0.05249386
+      },
+      {
+        "seed": 3,
+        "node": 18,
+        "landing": 239.186739,
+        "response": 0.03741594
+      },
+      {
+        "seed": 3,
+        "node": 19,
+        "landing": 499.45875,
+        "response": -0.63709477
+      },
+      {
+        "seed": 4,
+        "node": 3,
+        "landing": 400.985095,
+        "response": 0.24787364
+      },
+      {
+        "seed": 4,
+        "node": 4,
+        "landing": 332.961084,
+        "response": 0.13663007
+      },
+      {
+        "seed": 4,
+        "node": 5,
+        "landing": 261.379056,
+        "response": 0.02140961
+      },
+      {
+        "seed": 4,
+        "node": 6,
+        "landing": 260.981289,
+        "response": 0.05717861
+      },
+      {
+        "seed": 4,
+        "node": 8,
+        "landing": 262.826435,
+        "response": 0.05065471
+      },
+      {
+        "seed": 4,
+        "node": 9,
+        "landing": 390.735241,
+        "response": 0.21609899
+      },
+      {
+        "seed": 4,
+        "node": 10,
+        "landing": 265.753435,
+        "response": 0.03498879
+      },
+      {
+        "seed": 4,
+        "node": 11,
+        "landing": 397.939585,
+        "response": 0.14245072
+      },
+      {
+        "seed": 4,
+        "node": 12,
+        "landing": 316.735118,
+        "response": 0.13987718
+      },
+      {
+        "seed": 4,
+        "node": 13,
+        "landing": 713.320468,
+        "response": 0.33091314
+      },
+      {
+        "seed": 4,
+        "node": 14,
+        "landing": 265.86124,
+        "response": 0.02117246
+      },
+      {
+        "seed": 4,
+        "node": 15,
+        "landing": 319.725695,
+        "response": 0.10936793
+      },
+      {
+        "seed": 4,
+        "node": 18,
+        "landing": 318.229815,
+        "response": 0.14980848
+      },
+      {
+        "seed": 4,
+        "node": 19,
+        "landing": 282.61504,
+        "response": 0.12950526
+      }
+    ],
+    "holders_clearing_on_size": 2,
+    "holders_clearing_above_baseline": 1,
+    "holders_below_baseline_at_horizon": 4,
+    "median_of_sizes_mean_over_seeds": 0.13769576,
+    "median_with_sign_mean_over_seeds": 0.13484242,
+    "nonholders_one_per_seed": [
+      {
+        "seed": 0,
+        "node": 109,
+        "landing": 63.881839,
+        "response": -0.00177441
+      },
+      {
+        "seed": 1,
+        "node": 108,
+        "landing": 58.233148,
+        "response": 2.706e-05
+      },
+      {
+        "seed": 2,
+        "node": 107,
+        "landing": 0.0,
+        "response": null
+      },
+      {
+        "seed": 3,
+        "node": 107,
+        "landing": 30.740061,
+        "response": -0.00107291
+      },
+      {
+        "seed": 4,
+        "node": 107,
+        "landing": 13.307511,
+        "response": 0.0
+      }
+    ]
+  },
   "criteria": [
     {
       "name": "A3-1  the closed channel reproduces A2 bitwise",
@@ -437,7 +1300,7 @@
       "passed": true,
       "void": false,
       "diagnostic": true,
-      "detail": "largest drift between a node's first and second half of trades, over 101 nodes with four or more: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken"
+      "detail": "largest drift between the first and second half of the trades one node makes in one tier, over 101 (seed, node, tier) cells with four or more, on 86 nodes counted once per seed: at machine precision, below `1e-10` against a threshold of `0.05`. **An assertion and not a criterion**, demoted in \u00a75.1: `adjusted return = -log gamma` holds by construction, so this is a machine-precision reading of an identity and belongs in the test suite. It is printed because a non-zero value here would mean the identity had been broken"
     },
     {
       "name": "A3-4  the realised terms differential is the loop sum",
@@ -458,7 +1321,7 @@
       "passed": false,
       "void": false,
       "diagnostic": false,
-      "detail": "median holder retains 13.8% of the transfer after 40 rounds against 50% required, and **3% of 79 holders clear the threshold**; a non-holder retains 0.1%, against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. Threshold carried over from the median-node version, disclosed in the docstring"
+      "detail": "holder median of the gap from its own untransferred path, as a share of its gap in the round the transfer lands, taken per seed and averaged over the 5 seeds: 13.8% after 40 rounds against 50% required, and **2 of 79 holders clear the threshold**. The statistic is the size of the gap whichever way it points. With its sign: 1 of 79 clear it above their own baseline, 4 of 79 stand below their own baseline at that round, and the per-seed median averaged over the seeds is 13.5%. One non-holder per seed, with its sign: -0.177%, +0.003%, no gap in the landing round, -0.107%, +0.000%; against 0.00% on the A2 carrier. **The holding population is 15.8 nodes of 200, of which 0.0 are in the production layer.** So A4's domain is 15.8 nodes and they are upstairs, which is a constraint on A4 and not a licence: four competitors that act on wealth, measured where the wealth is, describe stratification *within* that set and not the economy's. The threshold is the one registered for the median-node version, applied unchanged to the holder domain"
     },
     {
       "name": "A3-7  non-overlapping windows agree in sign",

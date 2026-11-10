@@ -218,12 +218,16 @@ two potentials come are read on `u`, which does not scale with `D`.
 | `B104-2` `own_reading` | the block the action creates, and what hangs off it | on every action the block of the graph after the action that holds the new edge has exactly the vertices of the blocks on the path. `126,156` and `14,144` vertices lie outside it; every part outside meets it in one vertex, and every vertex outside moves with that vertex to `4.7e-14`. So `162,876` pairs of the enumeration (`5.76%`) and `19,583` of the random graphs (`0.74%`) cannot move under the action they face |
 | `B104-3` `own_reading` | the rewrite shared along the path | the path crosses two blocks or more on `96,315` and `849` actions, at most five, and `134,418` of `310,934` and `1,025` of `4,034` blocks on the paths are a single edge. On every block the potential rises from its gateway toward `i` to its gateway toward `j` by the block's own resistance, computed on its edges alone, to `2.0e-14` of `R`, and no vertex of a block lies outside its gateways. Inside a block the closest vertex stays clear of both gateways by `7.25e-6` of `R` in the enumeration and `1.24e-4` on the random graphs. With `B104-2`, this carries the direction in (3) |
 
+Figures below `1e-11` in this table are what the run printed on the build that first wrote the
+record; the record carries the tolerance only. A Windows build writes the same record byte for
+byte and prints `3.5e-14`, `3.9e-14` and `1.9e-14` for the three.
+
 **Part (4) is printed and not judged**, because a tolerance cannot tell a set of measure zero
 from a small gap. Distinct vertices of the block an action creates come no closer in potential
 than `9.85e-8` of `R` in the enumeration and `1.8e-8` on the random graphs.
 
-**Each criterion has seeded failures in `--selftest`, and the self-test asserts that each seed
-landed.** The block machinery is checked on hand fixtures: a path with a pendant chain, a bowtie
+**Each criterion has seeded failures in `--selftest`, and wherever a seed could land on
+nothing the self-test asserts that it landed.** The block machinery is checked on hand fixtures: a path with a pendant chain, a bowtie
 split at its cut vertex, the block path with its gateways, and a part meeting a wrong path in two
 vertices. `B104-1` fails with the attaining pairs taken as the joined pair alone, with the joined
 pair's move read at half its size, and with the action left out of the fit after it; a pair one
@@ -237,11 +241,11 @@ between the first block's gateways, and with the inner vertices read one `R` abo
 ## 4. Two things the checks found that the statement did not contain
 
 **The frame an action leaves untouched is common and made of small pieces.** On the random graphs
-`2,786` of `3,000` actions leave some positions outside the block they create, `12.6%` of the
-positions on average, and yet only `0.74%` of pairs cannot move. The positions outside hang from
+`2,786` of `3,000` actions leave some positions outside the block they create, `12.6%` of all the
+positions across the `3,000`, and yet only `0.74%` of pairs cannot move. The positions outside hang from
 many different gateways and shift against one another; the rigid pieces are the parts that hang
 from one gateway each. In the enumeration `82,416` of `189,587` actions leave positions outside,
-`11.1%` of the positions, and `5.76%` of pairs cannot move.
+`11.1%` of all the positions, and `5.76%` of pairs cannot move.
 
 **A count of the pairs that move depends on `D`, and the potential gaps do not.** Counting the
 pairs whose move, read from the two fits, exceeds `1e-9` gives exactly the pairs that hang from

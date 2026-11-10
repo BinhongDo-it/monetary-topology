@@ -31,7 +31,7 @@ TAKEUP_FILE = ROOT / "data" / "raw" / "b128" / "eba_pgs_volumes.csv"
 TAKEUP_Q = {"2020-12": "Dec-20", "2021-03": "Mar-21", "2021-06": "Jun-21"}
 # ECB Occasional Paper 257, tables A.3 and A.4, EUR billions; CY lists no scheme
 ENVELOPE = {"AT": 15, "BE": 50, "CY": 0, "DE": 822, "EE": 1.8, "ES": 100, "FI": 12, "FR": 300, "GR": 2, "IE": 2,
-            "IT": 307, "LU": 2.5, "LT": 0.7, "LV": 0.25, "MT": 0.35, "NL": 12.8, "PT": 4.2, "SK": 4.51, "SI": 2}
+            "IT": 307, "LU": 2.5, "LT": 0.7, "LV": 0.25, "MT": 0.35, "NL": 12.8, "PT": 4.2, "SK": 4.5, "SI": 2}
 NFC = ("A2A_F_R_2_2240", "A2A_F_R_3_2240", "A2A_F_R_1_2240")
 OBJECTS = {"eligible minus house": tl.ELIGIBLE, "corporate minus house": NFC}
 STATE_MAP = {"b_G negative past the floor in every setting": "pass",

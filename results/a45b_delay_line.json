@@ -1,0 +1,440 @@
+{
+  "carriers": [
+    {
+      "K": {
+        "earners": 0.0702516679,
+        "l1": 1.1950975477,
+        "mid": 0.8008809158
+      },
+      "conserve_err": {
+        "at_most": 1e-12
+      },
+      "d_K": {
+        "at_most": 1e-12
+      },
+      "d_split": {
+        "at_most": 1e-12
+      },
+      "entry_spread": {
+        "at_most": 1e-12
+      },
+      "line_mass": {
+        "1": 0.2380136082,
+        "2": 0.4760272165,
+        "20": 4.7602721648,
+        "3": 0.7140408247,
+        "6": 1.4280816495
+      },
+      "mass_err": {
+        "at_most": 1e-12
+      },
+      "nonlinearity": {
+        "at_most": 1e-12
+      },
+      "seed": 0,
+      "slope": {
+        "earners": -0.0018625068,
+        "l1": -0.0077932621,
+        "mid": 0.0096557689
+      },
+      "slope_by_entry": {
+        "earners": {
+          "earners": -0.0018625068,
+          "l1": -0.0018625068,
+          "mid": -0.0018625068
+        },
+        "l1": {
+          "earners": -0.0077932621,
+          "l1": -0.0077932621,
+          "mid": -0.0077932621
+        },
+        "mid": {
+          "earners": 0.0096557689,
+          "l1": 0.0096557689,
+          "mid": 0.0096557689
+        }
+      },
+      "slope_sum": {
+        "at_most": 1e-12
+      },
+      "split": {
+        "earners": 0.0022709302,
+        "l1": 0.7461188179,
+        "mid": 0.2516102519
+      },
+      "stationary_err": {
+        "at_most": 1e-12
+      },
+      "wall": 0.0
+    },
+    {
+      "K": {
+        "earners": 0.0687364221,
+        "l1": 1.1606655085,
+        "mid": 0.7962986117
+      },
+      "conserve_err": {
+        "at_most": 1e-12
+      },
+      "d_K": {
+        "at_most": 1e-12
+      },
+      "d_split": {
+        "at_most": 1e-12
+      },
+      "entry_spread": {
+        "at_most": 1e-12
+      },
+      "line_mass": {
+        "1": 0.2399747018,
+        "2": 0.4799494035,
+        "20": 4.7994940353,
+        "3": 0.7199241053,
+        "6": 1.4398482106
+      },
+      "mass_err": {
+        "at_most": 1e-12
+      },
+      "nonlinearity": {
+        "at_most": 1e-12
+      },
+      "seed": 1,
+      "slope": {
+        "earners": -0.0017651707,
+        "l1": -0.0085335556,
+        "mid": 0.0102987263
+      },
+      "slope_by_entry": {
+        "earners": {
+          "earners": -0.0017651707,
+          "l1": -0.0017651707,
+          "mid": -0.0017651707
+        },
+        "l1": {
+          "earners": -0.0085335556,
+          "l1": -0.0085335556,
+          "mid": -0.0085335556
+        },
+        "mid": {
+          "earners": 0.0102987263,
+          "l1": 0.0102987263,
+          "mid": 0.0102987263
+        }
+      },
+      "slope_sum": {
+        "at_most": 1e-12
+      },
+      "split": {
+        "earners": 0.0021850848,
+        "l1": 0.7440269848,
+        "mid": 0.2537879304
+      },
+      "stationary_err": {
+        "at_most": 1e-12
+      },
+      "wall": 0.0
+    },
+    {
+      "K": {
+        "earners": 0.0719193822,
+        "l1": 1.2164199089,
+        "mid": 0.7898782467
+      },
+      "conserve_err": {
+        "at_most": 1e-12
+      },
+      "d_K": {
+        "at_most": 1e-12
+      },
+      "d_split": {
+        "at_most": 1e-12
+      },
+      "entry_spread": {
+        "at_most": 1e-12
+      },
+      "line_mass": {
+        "1": 0.2384765731,
+        "2": 0.4769531462,
+        "20": 4.7695314621,
+        "3": 0.7154297193,
+        "6": 1.4308594386
+      },
+      "mass_err": {
+        "at_most": 1e-12
+      },
+      "nonlinearity": {
+        "at_most": 1e-12
+      },
+      "seed": 2,
+      "slope": {
+        "earners": -0.0019405584,
+        "l1": -0.0068280342,
+        "mid": 0.0087685926
+      },
+      "slope_by_entry": {
+        "earners": {
+          "earners": -0.0019405584,
+          "l1": -0.0019405584,
+          "mid": -0.0019405584
+        },
+        "l1": {
+          "earners": -0.0068280342,
+          "l1": -0.0068280342,
+          "mid": -0.0068280342
+        },
+        "mid": {
+          "earners": 0.0087685926,
+          "l1": 0.0087685926,
+          "mid": 0.0087685926
+        }
+      },
+      "slope_sum": {
+        "at_most": 1e-12
+      },
+      "split": {
+        "earners": 0.0021305692,
+        "l1": 0.7456249887,
+        "mid": 0.2522444421
+      },
+      "stationary_err": {
+        "at_most": 1e-12
+      },
+      "wall": 0.0
+    },
+    {
+      "K": {
+        "earners": 0.0723833423,
+        "l1": 1.1748651285,
+        "mid": 0.8237362827
+      },
+      "conserve_err": {
+        "at_most": 1e-12
+      },
+      "d_K": {
+        "at_most": 1e-12
+      },
+      "d_split": {
+        "at_most": 1e-12
+      },
+      "entry_spread": {
+        "at_most": 1e-12
+      },
+      "line_mass": {
+        "1": 0.2326891453,
+        "2": 0.4653782906,
+        "20": 4.6537829064,
+        "3": 0.698067436,
+        "6": 1.3961348719
+      },
+      "mass_err": {
+        "at_most": 1e-12
+      },
+      "nonlinearity": {
+        "at_most": 1e-12
+      },
+      "seed": 3,
+      "slope": {
+        "earners": -0.0019195796,
+        "l1": -0.0088655344,
+        "mid": 0.010785114
+      },
+      "slope_by_entry": {
+        "earners": {
+          "earners": -0.0019195796,
+          "l1": -0.0019195796,
+          "mid": -0.0019195796
+        },
+        "l1": {
+          "earners": -0.0088655344,
+          "l1": -0.0088655344,
+          "mid": -0.0088655344
+        },
+        "mid": {
+          "earners": 0.010785114,
+          "l1": 0.010785114,
+          "mid": 0.010785114
+        }
+      },
+      "slope_sum": {
+        "at_most": 1e-12
+      },
+      "split": {
+        "earners": 0.002135502,
+        "l1": 0.751798245,
+        "mid": 0.246066253
+      },
+      "stationary_err": {
+        "at_most": 1e-12
+      },
+      "wall": 0.0
+    },
+    {
+      "K": {
+        "earners": 0.0690174515,
+        "l1": 1.1270599599,
+        "mid": 0.8017216022
+      },
+      "conserve_err": {
+        "at_most": 1e-12
+      },
+      "d_K": {
+        "at_most": 1e-12
+      },
+      "d_split": {
+        "at_most": 1e-12
+      },
+      "entry_spread": {
+        "at_most": 1e-12
+      },
+      "line_mass": {
+        "1": 0.2420519202,
+        "2": 0.4841038404,
+        "20": 4.8410384037,
+        "3": 0.7261557606,
+        "6": 1.4523115211
+      },
+      "mass_err": {
+        "at_most": 1e-12
+      },
+      "nonlinearity": {
+        "at_most": 1e-12
+      },
+      "seed": 4,
+      "slope": {
+        "earners": -0.0018321699,
+        "l1": -0.0094558813,
+        "mid": 0.0112880511
+      },
+      "slope_by_entry": {
+        "earners": {
+          "earners": -0.0018321699,
+          "l1": -0.0018321699,
+          "mid": -0.0018321699
+        },
+        "l1": {
+          "earners": -0.0094558813,
+          "l1": -0.0094558813,
+          "mid": -0.0094558813
+        },
+        "mid": {
+          "earners": 0.0112880511,
+          "l1": 0.0112880511,
+          "mid": 0.0112880511
+        }
+      },
+      "slope_sum": {
+        "at_most": 1e-12
+      },
+      "split": {
+        "earners": 0.0021293593,
+        "l1": 0.7418112851,
+        "mid": 0.2560593555
+      },
+      "stationary_err": {
+        "at_most": 1e-12
+      },
+      "wall": 0.0
+    }
+  ],
+  "config": {
+    "carrier": "A45's rebuilt mean field on A44's control runs (a17_edge_cut.base_config)",
+    "decimals": 10,
+    "delay_line": "the spending state stretched into L cells: the newest cell takes the round's spending row and the bill's own spending, the line shifts by one each round, the bill column reads the oldest cell",
+    "entry_term": "A45's entry_terms on the deviation matrix D = (B - P) Z",
+    "extra_term": "class c's deviation term for claims entering t at L, less the same at L = 1; slope = its value at the largest L over L - 1",
+    "lags": [
+      1,
+      2,
+      3,
+      6,
+      20
+    ],
+    "mass_functional": "one on trading nodes, zero on every cell of the line",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "tolerance": 1e-12,
+    "wall": 0.0
+  },
+  "criteria": [
+    {
+      "detail": "On 5 carriers the L = 1 block equals A45's bitwise; at L in [2, 3, 6, 20] the bill column sits on the oldest cell, the newest cell holds the spending row and the line shifts by one.",
+      "kind": "instrument",
+      "name": "A45b-0  the delay line at L = 1 is A45's block, and at L > 1 the bill reads the oldest cell",
+      "passed": true
+    },
+    {
+      "detail": "On 5 carriers and L in [1, 2, 3, 6, 20]: the stationary vector solves the map, every column conserves the mass functional and the stationary mass adds to one, each within 1e-12.",
+      "kind": "instrument",
+      "name": "A45b-1  the stationary vector solves each delay-line map, which conserves the mass functional",
+      "passed": true
+    },
+    {
+      "detail": "On 5 carriers and L in [1, 2, 3, 6, 20]: every class's stationary share and entry term is within 1e-12 of its value at L = 1.",
+      "kind": "own_reading",
+      "name": "A45b-2  the lag moves no stationary share and no entry term",
+      "passed": true
+    },
+    {
+      "detail": "On 5 carriers: the extra term is within 1e-12 of a line in L - 1 and of the same value for every entry class. Slopes per round of lag and unit injected, medians over carriers: l1 -0.0085, mid +0.0103, earners -0.0019.",
+      "kind": "own_reading",
+      "name": "A45b-3  the extra term is linear in the added rounds and the same for every entry class",
+      "passed": true
+    }
+  ],
+  "layout": [
+    {
+      "equal_at_1": true,
+      "placed": true,
+      "seed": 0
+    },
+    {
+      "equal_at_1": true,
+      "placed": true,
+      "seed": 1
+    },
+    {
+      "equal_at_1": true,
+      "placed": true,
+      "seed": 2
+    },
+    {
+      "equal_at_1": true,
+      "placed": true,
+      "seed": 3
+    },
+    {
+      "equal_at_1": true,
+      "placed": true,
+      "seed": 4
+    }
+  ],
+  "medians": {
+    "K": {
+      "earners": 0.0702516679,
+      "l1": 1.1748651285,
+      "mid": 0.8008809158
+    },
+    "payers_gain": {
+      "from_earners_median_of_ratios": 0.1779841739,
+      "from_earners_ratio_of_medians": 0.1808482627,
+      "from_financial_median_of_ratios": 0.8220158261,
+      "from_financial_ratio_of_medians": 0.8286030086
+    },
+    "slope": {
+      "earners": -0.0018625068,
+      "l1": -0.0085335556,
+      "mid": 0.0102987263
+    },
+    "split": {
+      "earners": 0.002135502,
+      "l1": 0.7456249887,
+      "mid": 0.2522444421
+    }
+  },
+  "stage": "A45b"
+}

@@ -64,11 +64,15 @@ def block1_regression() -> tuple[bool, list[str]]:
 
 def fund_check(m) -> tuple[bool, dict]:
     C = m.pf_contrib_employee + m.pf_contrib_employer
-    acc_res = float(m.account.sum()) - (C - m.pf_spent_from_accounts)
-    cash_res = m.pf_cash - (C - m.pf_spent_from_accounts - m.pf_out + m.pf_in)
+    # accounts: paid in, less spent, plus what the fund owes on a unit it took and could not pay
+    acc_res = float(m.account.sum()) - (C - m.pf_spent_from_accounts + m.pf_owed_on_foreclosure)
+    # cash: paid in, less spent from accounts and lent, plus repaid and the rent on its units
+    cash_res = m.pf_cash - (C - m.pf_spent_from_accounts - m.pf_out + m.pf_in + m.pf_rent)
     scale = max(1.0, C)
     ok = abs(acc_res) <= 1e-9 * scale and abs(cash_res) <= 1e-9 * scale
-    ok &= (m.account >= -1e-12).all() and m.pf_cash >= -1e-9
+    # the cash is never negative, at the end or in any round
+    ok &= (m.account >= -1e-12).all() and m.pf_cash >= -1e-9 and m.pf_cash_min >= -1e-9
+    ok &= bool((m.pf_units <= m.landlord_units + 1e-9).all())
     if m.rules.loan_lender == "provident":
         ok &= all(m.contributed[x[1]] > 0.0 for x in m.loan_log)
     ok &= book_check(m)[0]
@@ -77,7 +81,10 @@ def fund_check(m) -> tuple[bool, dict]:
                       "spent_from_accounts": round(m.pf_spent_from_accounts, 4),
                       "accounts_end": round(float(m.account.sum()), 4), "pf_cash_end": round(m.pf_cash, 4),
                       "pf_surplus_end": round(m.pf_surplus(), 4), "account_residual": acc_res,
-                      "cash_residual": cash_res}
+                      "cash_residual": cash_res, "pf_cash_min": round(m.pf_cash_min, 6),
+                      "pf_rent": round(m.pf_rent, 4), "pf_units_end": float(m.pf_units.sum()),
+                      "pf_units_value_end": round(float(m.pf_units @ m.price), 4),
+                      "pf_owed_on_foreclosure": round(m.pf_owed_on_foreclosure, 4)}
 
 
 def selftest() -> None:
@@ -88,6 +95,14 @@ def selftest() -> None:
     m, _ = a47_block3.run(ARMS["bound, provident c 0.05 r 0"], rounds=80)
     m.pf_cash += 0.01
     assert not fund_check(m)[0], "A49-7 must catch fund cash that does not add up"
+    m, _ = a47_block3.run(ARMS["bound, provident c 0.05 r 0"], rounds=80)
+    m.pf_cash_min = -0.5
+    assert not fund_check(m)[0], "A49-7 must catch fund cash that went negative in some round"
+    m, _ = a47_block3.run(ARMS["unbound, provident c 0.12 r 0.0285"], rounds=300)
+    assert fund_check(m)[0] and m.pf_units.sum() > 0 and m.pf_rent > 0.0, \
+        "the unbound provident arm must take units, collect their rent and balance"
+    m.pf_rent += 0.01
+    assert not fund_check(m)[0], "A49-7 must catch rent on the fund's units that did not reach the fund"
     m, _ = a47_block3.run(ARMS["bound, provident c 0.05 r 0"], rounds=80)
     m.contributed[m.loan_log[0][1]] = 0.0
     assert not fund_check(m)[0], "A49-7 must catch a borrower who never contributed"

@@ -1,7 +1,7 @@
 {
   "criteria": [
     {
-      "detail": "27/27 cells. The construction's own cell is n=200, fraction=0.10, arm fixed, where the two degree arms coincide by definition: fixed reads 0.222923 and scaled reads 0.222923.",
+      "detail": "27/27 cells. The construction's own cell is n=200, fraction=0.10, arm fixed, where the two degree arms coincide by definition: fixed reads 0.222923 and scaled reads 0.222923. Every cell carries seeds 0-4. The two arms agree row for row on all 16 fields other than the arm label.",
       "name": "A14-1  every cell ran, and the construction's own cell reproduces",
       "passed": true,
       "void": false
@@ -43,9 +43,507 @@
       "void": false
     }
   ],
+  "definitions": {
+    "direction_by_fraction": "A14-3's comparison of the two degree arms, made for all six of its quantities at each core share on claims_recorded: the path of the five-seed mean over the sizes, how many seeds are higher at the largest size than at the smallest, and how many of the pairs of one run at each of those two sizes are. Printed, not scored; A14-3 itself is registered at 0.10.",
+    "top1_wealth, top01_wealth, gini": "claims_recorded: shares and Gini of the last history row (NetworkHistory.holdings[-1]), written after the last round's network step and before its asset step. On the registered carrier nothing follows that row and claims are the whole of what a node holds."
+  },
   "density_l1": 0.315789,
   "density_l2": 0.01676,
   "density_up": 0.1,
+  "direction_by_fraction": {
+    "0.05": {
+      "gini": {
+        "fixed": {
+          "change": 0.015511,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            0.95663,
+            0.96856,
+            0.972141
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.003921,
+          "pairs": 25,
+          "pairs_rising": 4,
+          "path": [
+            0.967992,
+            0.961926,
+            0.964071
+          ],
+          "seeds": 5,
+          "seeds_rising": 1
+        }
+      },
+      "mr_close": {
+        "fixed": {
+          "change": -0.15703,
+          "pairs": 25,
+          "pairs_rising": 10,
+          "path": [
+            33.524607,
+            33.551273,
+            33.367577
+          ],
+          "seeds": 5,
+          "seeds_rising": 2
+        },
+        "reversed": true,
+        "scaled": {
+          "change": 4.440851,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            25.825953,
+            24.061784,
+            30.266804
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "support_close": {
+        "fixed": {
+          "change": 20.021662,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            9.292571,
+            17.066835,
+            29.314233
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": false,
+        "scaled": {
+          "change": 31.644895,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            6.58709,
+            19.674543,
+            38.231985
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "support_ratio": {
+        "fixed": {
+          "change": -0.022103,
+          "pairs": 25,
+          "pairs_rising": 0,
+          "path": [
+            0.413399,
+            0.393955,
+            0.391296
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        },
+        "reversed": true,
+        "scaled": {
+          "change": 0.030254,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            0.316378,
+            0.322106,
+            0.346632
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "top1_wealth": {
+        "fixed": {
+          "change": 0.212874,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            0.266411,
+            0.407668,
+            0.479285
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.028797,
+          "pairs": 25,
+          "pairs_rising": 5,
+          "path": [
+            0.399187,
+            0.359121,
+            0.37039
+          ],
+          "seeds": 5,
+          "seeds_rising": 1
+        }
+      },
+      "volume_ratio": {
+        "fixed": {
+          "change": -0.092428,
+          "pairs": 25,
+          "pairs_rising": 10,
+          "path": [
+            22.376334,
+            22.40469,
+            22.283906
+          ],
+          "seeds": 5,
+          "seeds_rising": 2
+        },
+        "reversed": true,
+        "scaled": {
+          "change": 2.918499,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            17.341779,
+            16.184125,
+            20.260278
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      }
+    },
+    "0.1": {
+      "gini": {
+        "fixed": {
+          "change": 0.016503,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            0.93673,
+            0.945462,
+            0.953233
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.009259,
+          "pairs": 25,
+          "pairs_rising": 0,
+          "path": [
+            0.93673,
+            0.932156,
+            0.927471
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        }
+      },
+      "mr_close": {
+        "fixed": {
+          "change": 0.353388,
+          "pairs": 25,
+          "pairs_rising": 16,
+          "path": [
+            33.132214,
+            33.28276,
+            33.485602
+          ],
+          "seeds": 5,
+          "seeds_rising": 4
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.205147,
+          "pairs": 25,
+          "pairs_rising": 9,
+          "path": [
+            33.132214,
+            33.360417,
+            32.927067
+          ],
+          "seeds": 5,
+          "seeds_rising": 2
+        }
+      },
+      "support_close": {
+        "fixed": {
+          "change": 34.369911,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            13.980667,
+            29.345683,
+            48.350578
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": false,
+        "scaled": {
+          "change": 67.105009,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            13.980667,
+            37.849415,
+            81.085676
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "support_ratio": {
+        "fixed": {
+          "change": -0.030436,
+          "pairs": 25,
+          "pairs_rising": 1,
+          "path": [
+            0.412621,
+            0.407234,
+            0.382185
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        },
+        "reversed": true,
+        "scaled": {
+          "change": 0.02967,
+          "pairs": 25,
+          "pairs_rising": 23,
+          "path": [
+            0.412621,
+            0.42094,
+            0.442291
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "top1_wealth": {
+        "fixed": {
+          "change": 0.118959,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            0.222923,
+            0.288264,
+            0.341882
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.035486,
+          "pairs": 25,
+          "pairs_rising": 1,
+          "path": [
+            0.222923,
+            0.203827,
+            0.187437
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        }
+      },
+      "volume_ratio": {
+        "fixed": {
+          "change": 0.235639,
+          "pairs": 25,
+          "pairs_rising": 17,
+          "path": [
+            22.13458,
+            22.236188,
+            22.370219
+          ],
+          "seeds": 5,
+          "seeds_rising": 4
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.138618,
+          "pairs": 25,
+          "pairs_rising": 9,
+          "path": [
+            22.13458,
+            22.286235,
+            21.995962
+          ],
+          "seeds": 5,
+          "seeds_rising": 2
+        }
+      }
+    },
+    "0.2": {
+      "gini": {
+        "fixed": {
+          "change": 0.01559,
+          "pairs": 25,
+          "pairs_rising": 21,
+          "path": [
+            0.893587,
+            0.90764,
+            0.909177
+          ],
+          "seeds": 5,
+          "seeds_rising": 4
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.00778,
+          "pairs": 25,
+          "pairs_rising": 0,
+          "path": [
+            0.862089,
+            0.856816,
+            0.854309
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        }
+      },
+      "mr_close": {
+        "fixed": {
+          "change": -0.010316,
+          "pairs": 25,
+          "pairs_rising": 11,
+          "path": [
+            33.121361,
+            32.882626,
+            33.111045
+          ],
+          "seeds": 5,
+          "seeds_rising": 2
+        },
+        "reversed": false,
+        "scaled": {
+          "change": -3.165243,
+          "pairs": 25,
+          "pairs_rising": 0,
+          "path": [
+            29.308591,
+            27.632365,
+            26.143348
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        }
+      },
+      "support_close": {
+        "fixed": {
+          "change": 69.991576,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            23.170737,
+            48.340256,
+            93.162313
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        },
+        "reversed": false,
+        "scaled": {
+          "change": 133.925827,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            31.141983,
+            80.996643,
+            165.06781
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "support_ratio": {
+        "fixed": {
+          "change": -0.027047,
+          "pairs": 25,
+          "pairs_rising": 2,
+          "path": [
+            0.423932,
+            0.397388,
+            0.396885
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        },
+        "reversed": true,
+        "scaled": {
+          "change": 0.03503,
+          "pairs": 25,
+          "pairs_rising": 25,
+          "path": [
+            0.528477,
+            0.547581,
+            0.563507
+          ],
+          "seeds": 5,
+          "seeds_rising": 5
+        }
+      },
+      "top1_wealth": {
+        "fixed": {
+          "change": 0.05456,
+          "pairs": 25,
+          "pairs_rising": 21,
+          "path": [
+            0.159962,
+            0.196854,
+            0.214522
+          ],
+          "seeds": 5,
+          "seeds_rising": 4
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -0.004931,
+          "pairs": 25,
+          "pairs_rising": 5,
+          "path": [
+            0.101527,
+            0.101238,
+            0.096596
+          ],
+          "seeds": 5,
+          "seeds_rising": 1
+        }
+      },
+      "volume_ratio": {
+        "fixed": {
+          "change": 0.005874,
+          "pairs": 25,
+          "pairs_rising": 11,
+          "path": [
+            22.115621,
+            21.960331,
+            22.121495
+          ],
+          "seeds": 5,
+          "seeds_rising": 2
+        },
+        "reversed": true,
+        "scaled": {
+          "change": -2.085217,
+          "pairs": 25,
+          "pairs_rising": 0,
+          "path": [
+            19.564739,
+            18.457904,
+            17.479522
+          ],
+          "seeds": 5,
+          "seeds_rising": 0
+        }
+      }
+    }
+  },
   "fractions": [
     0.05,
     0.1,

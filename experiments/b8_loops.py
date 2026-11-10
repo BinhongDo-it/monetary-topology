@@ -178,7 +178,7 @@ def find_loops(c: K.Core) -> dict:
     loan = c.loan_of_row()
     n = c.n_rows
 
-    known = dv <= 98
+    known = dv <= K.DELINQ_KNOWN_MAX
     is_cur = known & (dv == 0)
     is_del = known & (dv != 0)
     is_unk = ~known                     # 253 odd length, 254 XX, 255 blank
@@ -512,6 +512,15 @@ CASES = {
         ("01", "N", 0, 1), ("XX", "N", 0, 1), ("02", "Y", 0, 1),
         ("00", "Y", 0, 1),
     ],
+    # status 99 inside the window. It is the top of the months-delinquent
+    # count and a delinquent row like any other, **not** an unknown one: the
+    # census below must still count exactly one window with an unknown status,
+    # which is the case above. Compared against 98 it counted two.
+    "status_99_inside": [
+        ("00", "N", 0, 0), ("00", "N", 0, 1), ("00", "N", 0, 1),
+        ("01", "N", 0, 1), ("99", "N", 0, 1), ("02", "Y", 0, 1),
+        ("00", "Y", 0, 1),
+    ],
 }
 
 #: What each case must produce. **Written from §17, before the run.**
@@ -531,6 +540,7 @@ EXPECT = {
     "clean_cure_rate_blip": ("none", None),
     "departure_zero_upb": ("drop", "vertex_upb_zero"),
     "unknown_inside": ("loop", ARM_MOD),
+    "status_99_inside": ("loop", ARM_MOD),
 }
 
 

@@ -1,0 +1,90 @@
+  carrier: data/cache/b13/two_classes_ch382.tsv
+
+  the tick is the gcd of every printed magnitude, read off the data
+
+  spread            n   tick  fric min  fric max   idx max   rho max
+  CLQ3-CLV3     10883  1e+09         3         8         3    0.6000
+  CLQ3-CLX3      7687  1e+09         3        12         5    0.6667
+  CLZ3-CLZ4      7094  1e+09         4        10         4    0.6667
+  CLU3-CLX3      6614  1e+09         3        12         5    0.6667
+  CLU3-CLV3      5159  1e+09         2         4         1    0.3333
+  CLV3-CLM4      3947  1e+09         4        12         5    0.6667
+  RBU3-RBX3      3944  1e+09        14       129        64    0.8205
+  RBU3-RBV3      3788  1e+09         6        29        17    0.7895
+
+  UPPER TAIL, share of states at or above each cut
+  spread           0.50     0.60     0.70     0.80     0.90     0.95     0.99     1.00
+  CLQ3-CLV3     7.7736%  0.8913%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+  CLQ3-CLX3     2.0814%  1.0407%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+  CLZ3-CLZ4     1.0290%  0.8740%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+  CLU3-CLX3     5.8059%  2.7064%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+  CLU3-CLV3     0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+  CLV3-CLM4     1.5455%  0.5320%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+  RBU3-RBX3    42.0892% 33.7475% 14.1227%  0.3296%  0.0000%  0.0000%  0.0000%  0.0000%
+  RBU3-RBV3    47.8617% 23.4161%  2.4815%  0.0000%  0.0000%  0.0000%  0.0000%  0.0000%
+
+  THE GRID. Both halves are whole ticks on one grid, so the index has
+  the friction count's parity and, strictly inside the band, stops at
+  k - 2. States that break either, and states on the knife edge:
+  spread         parity above k-2 index = k
+  CLQ3-CLV3           0         0         0
+  CLQ3-CLX3           0         0         0
+  CLZ3-CLZ4           0         0         0
+  CLU3-CLX3           0         0         0
+  CLU3-CLV3           0         0         0
+  CLV3-CLM4           0         0         0
+  RBU3-RBX3           0         0         0
+  RBU3-RBV3           0         0         0
+
+  REACHABILITY. Given each state's own friction count k, the largest
+  rho the grid can produce for it strictly inside the band is (k-2)/k,
+  and k/k = 1 is the knife edge. So the tail at cut c is representable
+  for a state only if (k-2)/k >= c, compared in integers.
+  spread          med k share of states whose k allows the cut
+                             0.50     0.60     0.70     0.80     0.90     0.95     0.99
+  CLQ3-CLV3           5     99.2%    71.0%     3.1%     0.0%     0.0%     0.0%     0.0%
+  CLQ3-CLX3           6    100.0%    95.6%    33.9%     0.3%     0.0%     0.0%     0.0%
+  CLZ3-CLZ4           7    100.0%    99.7%    74.7%     0.4%     0.0%     0.0%     0.0%
+  CLU3-CLX3           6     99.7%    87.8%    24.3%     0.3%     0.0%     0.0%     0.0%
+  CLU3-CLV3           3     12.4%     0.0%     0.0%     0.0%     0.0%     0.0%     0.0%
+  CLV3-CLM4           7    100.0%    99.7%    79.4%     1.5%     0.0%     0.0%     0.0%
+  RBU3-RBX3          75    100.0%   100.0%   100.0%   100.0%    97.9%    79.6%     0.0%
+  RBU3-RBV3          15    100.0%   100.0%   100.0%    97.1%     6.7%     0.0%     0.0%
+
+  THE THREE BRANCHES, per instrument and cut: states in the tail over
+  states whose k can represent it.  A approached   E empty, reachable
+  X not representable, reads nothing
+  spread                 0.50           0.60           0.70           0.80           0.90           0.95           0.99
+  CLQ3-CLV3       846/10794 A      97/7730 A        0/340 E          0/0 X          0/0 X          0/0 X          0/0 X
+  CLQ3-CLX3        160/7685 A      80/7348 A       0/2609 E         0/21 E          0/0 X          0/0 X          0/0 X
+  CLZ3-CLZ4         73/7094 A      62/7075 A       0/5296 E         0/26 E          0/0 X          0/0 X          0/0 X
+  CLU3-CLX3        384/6597 A     179/5808 A       0/1606 E         0/22 E          0/0 X          0/0 X          0/0 X
+  CLU3-CLV3           0/641 E          0/0 X          0/0 X          0/0 X          0/0 X          0/0 X          0/0 X
+  CLV3-CLM4         61/3947 A      21/3934 A       0/3134 E         0/59 E          0/0 X          0/0 X          0/0 X
+  RBU3-RBX3       1660/3944 A    1331/3944 A     557/3944 A      13/3944 A       0/3863 E       0/3141 E          0/0 X
+  RBU3-RBV3       1813/3788 A     887/3788 A      94/3787 A       0/3679 E        0/252 E          0/0 X          0/0 X
+
+  THE OBJECT: joint distribution of (friction ticks, index ticks),
+  the two busiest instruments, counts
+
+    CLQ3-CLV3   rows = friction ticks, cols = index ticks
+                    0       1       2       3
+           3        0      89       0       0
+           4     2315       0     749       0
+           5        0    5140       0      97
+           6     1606       0     547       0
+           7        0     338       0       0
+           8        2       0       0       0
+
+    CLQ3-CLX3   rows = friction ticks, cols = index ticks
+                    0       1       2       3       4       5
+           3        0       2       0       0       0       0
+           4      276       0      61       0       0       0
+           5        0    1720       0      56       0       0
+           6     1805       0    1134       0      24       0
+           7        0    1705       0     100       0       0
+           8      425       0     280       0      19       0
+           9        0      57       0       2       0       0
+          10        5       0       0       0       0       0
+          11        0       0       0       0       0       5
+          12        0       0       0       0      11       0

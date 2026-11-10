@@ -77,10 +77,14 @@ MODFLAG_MOD = ("Y", "P")
 
 #: §39.1's age split. §11.3 measured that Current Actual UPB is rounded to the
 #: nearest $1,000 for ages 0 to 6 and reported to the cent from age 7, and §38.1
-#: measured that those months carry **55.3% of every frozen month** at a rate of
-#: 47.83%. Crossing the assistance code against that split turns §38.3's
+#: measured that those months carry **54.6% of every frozen month** at a rate of
+#: 53.79%. Crossing the assistance code against that split turns §38.3's
 #: "about 41.8%" from an upper bound into an exact residue, and prints the
 #: overlap `a` that §38.3 never computed.
+#:
+#: A pair counts as old when both sides are cent-reported: the earlier side at
+#: age >= AGE_SPLIT - 1 and the later at age >= AGE_SPLIT, so 7 -> 8 is old.
+#: The same population `b10_o18_position.py --min-age 8` reads.
 AGE_SPLIT = 8
 
 #: §32.1's appearance filter. Enumerates, never picks.
@@ -202,7 +206,14 @@ def scan(vintage: int, candidates=None) -> dict:
             out["seen_cols"] = len(rows[0])
         per = [int(r[P_PERIOD]) for r in rows]
         modrow = [r[P_MODFLAG].strip() in MODFLAG_MOD for r in rows]
-        # index of the first modification at or after each row, for anchor one
+        # index of the first modification at or after each row, for anchor one.
+        # **What "soon" counts is wider than "a modification follows"**: the
+        # distance may be zero, and the modification flag stays set on later
+        # rows of a modified loan, so a row that is already modified counts as
+        # a hit. On the 28 archives 1,138,675 of 1,358,542 hits (83.8%) are
+        # rows already carrying a modification flag; the strictly-later,
+        # not-yet-modified hits are 219,867. Re-read on the first observed
+        # modification only, the trial code `T` still wins anchor one.
         nxt_mod = [None] * n
         last = None
         for i in range(n - 1, -1, -1):
@@ -247,7 +258,7 @@ def scan(vintage: int, candidates=None) -> dict:
             win = window_of(per[i])
             out["pairs_by_window"][win] += 1
             try:
-                ages = ("ge8" if (int(rows[i - 1][P_AGE]) >= AGE_SPLIT
+                ages = ("ge8" if (int(rows[i - 1][P_AGE]) >= AGE_SPLIT - 1
                                   and int(rows[i][P_AGE]) >= AGE_SPLIT)
                         else "lt8")
             except ValueError:
@@ -371,6 +382,11 @@ def anchor_covid(acc: dict, cands) -> list:
 #: thousands of rows, and the appearance step picks nothing anyway (§32.1). The
 #: first version looped all thirty-five columns over every one of 74.94M rows
 #: and did not finish a single vintage inside a minute.
+#:
+#: **The prefix is the first 1999 archive, and its candidate set is not the
+#: full one**: 200,043 rows give columns 7, 22, 23, 24, 28, 29, 34, while the
+#: whole file gives 7, 23, 24, 28, 29 (22 and 34 fail the filter on the full
+#: domain, nothing is missing). The earned column, 29, is the same on both.
 PROFILE_ROWS = 200_000
 
 

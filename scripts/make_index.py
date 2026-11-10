@@ -80,7 +80,7 @@ STORY = [
         "Index numbers, and what an aggregation hides",
         "An index is a projection. These read the projection itself rather than the "
         "number it returns.",
-        "B79, B81, B83, B84, B101",
+        "B79, B81, B83, B84, B101, B131, B132, B133, B134",
     ),
     (
         "Cutting a relation, and what it rewrites",
@@ -91,7 +91,14 @@ STORY = [
     (
         "Where new claims go, and how long they stay",
         "New money enters somewhere. These stations ask where it is a round later.",
-        "A41, A44, A45, B112, B114, B117",
+        "A41, A44, A45, A52, B112, B114, B117",
+    ),
+    (
+        "Housing: residence binding, rent caps, and who keeps the location value",
+        "Location demand on the asset carrier. These stations read what a rule tying "
+        "ownership, credit or rent to residence does to who stays and who ends up "
+        "with the premium.",
+        "A47, A48, A49, A50, A51, B129, B130",
     ),
     (
         "The stratified economy: support sets, position and circulation",
@@ -171,6 +178,16 @@ _put(NET, "A0 A0b A2 A2c A2d A2e A5 A7 A8 A12 A13 A14 A15 A16 A17 A19 A20 "
 _put(METR, "B30 B30-5 D14 FAIL")
 _put(HIST, "B40 B44 B46 B47 B64")
 _put(ADMIN, "C1 C2 C3 E1")
+_put(THEORY, "B29 B124")
+_put(MICRO, "B20 B126 B127")
+_put(HH, "A47 A48 A49 A51 B130")
+_put(INTL, "B37")
+_put(MACRO, "A50 A52 B121 B128")
+_put(PAY, "B123")
+_put(PUBFIN, "B25 B26 B28 B99 B122 B125 B129")
+_put(INDEXNO, "B131 B132 B133 B134")
+_put(HIST, "B32")
+_put(ADMIN, "B27")
 
 HEAD = """# Index
 

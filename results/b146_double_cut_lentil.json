@@ -1,0 +1,11096 @@
+{
+ "B146-6": [],
+ "B146-7": [],
+ "B146-8": {
+  "AS-2014-flood": {
+   "arrivals_cross_section": null,
+   "by_reference": {
+    "h_change_by_unit": {
+     "Goalpara / Goalpara": {
+      "all_clear_the_grid": true,
+      "definitions": 1,
+      "h_change_inside_by_reference": {
+       "all varieties": -0.057452
+      },
+      "own_variety": "Masur Dal",
+      "same_sign": true,
+      "state": "unread",
+      "window_days": 4,
+      "window_long_enough": false
+     },
+     "Kamrup / P.O. Uparhali Guwahati": {
+      "all_clear_the_grid": true,
+      "definitions": 1,
+      "h_change_inside_by_reference": {
+       "all varieties": -0.030448
+      },
+      "own_variety": "Masur Dal",
+      "same_sign": true,
+      "state": "unread",
+      "window_days": 4,
+      "window_long_enough": false
+     }
+    },
+    "references": {
+     "all varieties": {
+      "after": 8.527095,
+      "before": 8.422883,
+      "fixed_composition": {
+       "before_to_inside": null,
+       "inside_to_after": null,
+       "series": 0
+      },
+      "inside": 8.474071,
+      "move_after": 0.053023,
+      "move_inside": 0.051189,
+      "states": null,
+      "units": {
+       "Goalpara / Goalpara": {
+        "h_after": 0.242386,
+        "h_before": 0.198527,
+        "h_change_inside": -0.057452,
+        "h_inside": 0.141075
+       },
+       "Kamrup / P.O. Uparhali Guwahati": {
+        "h_after": 0.373612,
+        "h_before": 0.506404,
+        "h_change_inside": -0.030448,
+        "h_inside": 0.475956
+       }
+      }
+     }
+    }
+   },
+   "dispersion_before": null,
+   "dispersion_inside": null,
+   "dispersion_weekly": [],
+   "expected_units": [
+    "Goalpara / Goalpara",
+    "Kamrup / P.O. Uparhali Guwahati"
+   ],
+   "grid": {
+    "median_step": 0.030421,
+    "series": 2,
+    "smallest_step": 0.005403
+   },
+   "nationwide_events_inside_window": [],
+   "placebo": null,
+   "reference_after": 8.527095,
+   "reference_before": 8.422883,
+   "reference_daily_move": {
+    "all varieties": {
+     "day_pairs": 3,
+     "max": 0.021053,
+     "median": 0.007513,
+     "p90": 0.021053
+    }
+   },
+   "reference_inside": 8.474071,
+   "units": {
+    "Goalpara / Goalpara": {
+     "arrivals": {
+      "filings_after": 40,
+      "filings_before": 33,
+      "filings_inside": 1,
+      "jump_between": [
+       "2014-08-05",
+       "2014-08-06"
+      ],
+      "jump_day_values": [
+       2.0,
+       1.6
+      ],
+      "jump_days_after_start": -47,
+      "jump_left": 1.9,
+      "jump_right": 1.6,
+      "median_after": 2.95,
+      "median_before": 1.7,
+      "median_inside": 3.0
+     },
+     "filings_inside": 1,
+     "h_after": 0.242386,
+     "h_before": 0.198527,
+     "h_inside": 0.141075,
+     "h_weekly": [
+      [
+       "2014-07-21",
+       0.23148,
+       7
+      ],
+      [
+       "2014-07-28",
+       0.217867,
+       7
+      ],
+      [
+       "2014-08-04",
+       0.221619,
+       4
+      ],
+      [
+       "2014-08-11",
+       0.213405,
+       3
+      ],
+      [
+       "2014-09-01",
+       0.230023,
+       4
+      ],
+      [
+       "2014-09-08",
+       0.176292,
+       7
+      ],
+      [
+       "2014-09-15",
+       0.099,
+       4
+      ],
+      [
+       "2014-09-22",
+       0.141075,
+       3
+      ],
+      [
+       "2014-09-29",
+       0.324743,
+       2
+      ],
+      [
+       "2014-10-06",
+       0.242075,
+       4
+      ],
+      [
+       "2014-10-13",
+       0.228267,
+       7
+      ],
+      [
+       "2014-10-20",
+       0.056486,
+       7
+      ],
+      [
+       "2014-10-27",
+       0.229351,
+       4
+      ],
+      [
+       "2014-11-03",
+       0.213156,
+       2
+      ],
+      [
+       "2014-11-10",
+       0.314497,
+       6
+      ],
+      [
+       "2014-11-17",
+       0.305297,
+       6
+      ],
+      [
+       "2014-11-24",
+       0.267604,
+       5
+      ]
+     ],
+     "price_after": 6500.0,
+     "price_before": 5500.0,
+     "price_inside": 5400.0,
+     "price_steps_inside": -0.5,
+     "rupee_step": 200.0
+    },
+    "Kamrup / P.O. Uparhali Guwahati": {
+     "arrivals": {
+      "filings_after": 45,
+      "filings_before": 43,
+      "filings_inside": 4,
+      "jump_between": [
+       "2014-08-30",
+       "2014-09-01"
+      ],
+      "jump_day_values": [
+       56.0,
+       86.0
+      ],
+      "jump_days_after_start": -21,
+      "jump_left": 65.0,
+      "jump_right": 94.0,
+      "median_after": 78.0,
+      "median_before": 70.0,
+      "median_inside": 93.0
+     },
+     "filings_inside": 4,
+     "h_after": 0.373612,
+     "h_before": 0.506404,
+     "h_inside": 0.475956,
+     "h_weekly": [
+      [
+       "2014-07-21",
+       0.564893,
+       1
+      ],
+      [
+       "2014-07-28",
+       0.539054,
+       4
+      ],
+      [
+       "2014-08-04",
+       0.579353,
+       7
+      ],
+      [
+       "2014-08-11",
+       0.528983,
+       6
+      ],
+      [
+       "2014-08-18",
+       0.444765,
+       5
+      ],
+      [
+       "2014-08-25",
+       0.502903,
+       6
+      ],
+      [
+       "2014-09-01",
+       0.443511,
+       6
+      ],
+      [
+       "2014-09-08",
+       0.483946,
+       4
+      ],
+      [
+       "2014-09-15",
+       0.470226,
+       5
+      ],
+      [
+       "2014-09-22",
+       0.475956,
+       5
+      ],
+      [
+       "2014-10-06",
+       0.429827,
+       4
+      ],
+      [
+       "2014-10-13",
+       0.405413,
+       6
+      ],
+      [
+       "2014-10-20",
+       0.220527,
+       6
+      ],
+      [
+       "2014-10-27",
+       0.422613,
+       6
+      ],
+      [
+       "2014-11-03",
+       0.171721,
+       7
+      ],
+      [
+       "2014-11-10",
+       0.425918,
+       7
+      ],
+      [
+       "2014-11-17",
+       0.447334,
+       7
+      ],
+      [
+       "2014-11-24",
+       0.465546,
+       5
+      ]
+     ],
+     "price_after": 7800.0,
+     "price_before": 7500.0,
+     "price_inside": 7650.0,
+     "price_steps_inside": 0.428571,
+     "rupee_step": 350.0
+    }
+   },
+   "window": [
+    "2014-09-22",
+    "2014-09-25"
+   ]
+  },
+  "MN-2016-blockade": {
+   "arrivals_cross_section": {
+    "same_window": {
+     "at_or_below_event_ratio": {
+      "Bishnupur / Bishenpur": {
+       "by_state": {
+        "Assam": 6,
+        "Chattisgarh": 2,
+        "Jharkhand": 1,
+        "Madhya Pradesh": 28,
+        "Maharashtra": 2,
+        "Uttar Pradesh": 15,
+        "West Bengal": 5
+       },
+       "event_ratio": 1.0,
+       "markets": 59,
+       "share": 0.572816
+      },
+      "Imphal East / Lamlong Bazaar": {
+       "by_state": {
+        "Madhya Pradesh": 18,
+        "Uttar Pradesh": 8,
+        "West Bengal": 1
+       },
+       "event_ratio": 0.8,
+       "markets": 27,
+       "share": 0.262136
+      },
+      "Imphal West / Imphal": {
+       "by_state": {
+        "Madhya Pradesh": 9,
+        "Uttar Pradesh": 3
+       },
+       "event_ratio": 0.517241,
+       "markets": 12,
+       "share": 0.116505
+      },
+      "Thoubal / Thoubal": {
+       "by_state": {
+        "Assam": 1,
+        "Jharkhand": 1,
+        "Madhya Pradesh": 20,
+        "Uttar Pradesh": 9,
+        "West Bengal": 2
+       },
+       "event_ratio": 0.833333,
+       "markets": 33,
+       "share": 0.320388
+      }
+     },
+     "markets": 103,
+     "markets_by_state": {
+      "Assam": 9,
+      "Chattisgarh": 3,
+      "Jharkhand": 1,
+      "Madhya Pradesh": 55,
+      "Maharashtra": 3,
+      "Rajasthan": 1,
+      "Uttar Pradesh": 24,
+      "West Bengal": 7
+     },
+     "median_ratio": 1.0,
+     "p10_ratio": 0.5
+    },
+    "same_window_a_year_earlier": {
+     "at_or_below_event_ratio": {
+      "Bishnupur / Bishenpur": {
+       "by_state": {
+        "Assam": 7,
+        "Jharkhand": 1,
+        "Madhya Pradesh": 12,
+        "Maharashtra": 3,
+        "Uttar Pradesh": 9,
+        "West Bengal": 4
+       },
+       "event_ratio": 1.0,
+       "markets": 36,
+       "share": 0.461538
+      },
+      "Imphal East / Lamlong Bazaar": {
+       "by_state": {
+        "Assam": 2,
+        "Madhya Pradesh": 7,
+        "Maharashtra": 1,
+        "Uttar Pradesh": 6
+       },
+       "event_ratio": 0.8,
+       "markets": 16,
+       "share": 0.205128
+      },
+      "Imphal West / Imphal": {
+       "by_state": {
+        "Madhya Pradesh": 2,
+        "Uttar Pradesh": 4
+       },
+       "event_ratio": 0.517241,
+       "markets": 6,
+       "share": 0.076923
+      },
+      "Thoubal / Thoubal": {
+       "by_state": {
+        "Assam": 2,
+        "Madhya Pradesh": 8,
+        "Maharashtra": 1,
+        "Uttar Pradesh": 6
+       },
+       "event_ratio": 0.833333,
+       "markets": 17,
+       "share": 0.217949
+      }
+     },
+     "markets": 78,
+     "markets_by_state": {
+      "Assam": 14,
+      "Chattisgarh": 3,
+      "Jharkhand": 1,
+      "Madhya Pradesh": 33,
+      "Maharashtra": 3,
+      "Rajasthan": 2,
+      "Uttar Pradesh": 17,
+      "West Bengal": 5
+     },
+     "median_ratio": 1.091667,
+     "p10_ratio": 0.55
+    }
+   },
+   "by_reference": {
+    "h_change_by_unit": {
+     "Bishnupur / Bishenpur": {
+      "all_clear_the_grid": false,
+      "definitions": 4,
+      "h_change_inside_by_reference": {
+       "Masoor Gola": 0.036854,
+       "Masur Dal": -0.02006,
+       "Other": 0.096075,
+       "all varieties": 0.087943
+      },
+      "own_variety": "Other",
+      "same_sign": false,
+      "state": "unread",
+      "window_days": 139,
+      "window_long_enough": true
+     },
+     "Imphal East / Lamlong Bazaar": {
+      "all_clear_the_grid": true,
+      "definitions": 4,
+      "h_change_inside_by_reference": {
+       "Masoor Gola": 0.175136,
+       "Masur Dal": 0.096094,
+       "Other": 0.208955,
+       "all varieties": 0.205455
+      },
+      "own_variety": "Other",
+      "same_sign": true,
+      "state": "read",
+      "window_days": 139,
+      "window_long_enough": true
+     },
+     "Imphal West / Imphal": {
+      "all_clear_the_grid": false,
+      "definitions": 4,
+      "h_change_inside_by_reference": {
+       "Masoor Gola": 0.133227,
+       "Masur Dal": 0.069124,
+       "Other": 0.178142,
+       "all varieties": 0.162803
+      },
+      "own_variety": "Other",
+      "same_sign": true,
+      "state": "unread",
+      "window_days": 139,
+      "window_long_enough": true
+     },
+     "Thoubal / Thoubal": {
+      "all_clear_the_grid": false,
+      "definitions": 4,
+      "h_change_inside_by_reference": {
+       "Masoor Gola": 0.157854,
+       "Masur Dal": 0.066163,
+       "Other": 0.189439,
+       "all varieties": 0.189423
+      },
+      "own_variety": "Other",
+      "same_sign": true,
+      "state": "unread",
+      "window_days": 139,
+      "window_long_enough": true
+     }
+    },
+    "references": {
+     "Masoor Gola": {
+      "after": 8.393997,
+      "before": 8.714198,
+      "fixed_composition": {
+       "before_to_inside": -0.169206,
+       "inside_to_after": -0.091551,
+       "series": 18
+      },
+      "inside": 8.605596,
+      "move_after": -0.211599,
+      "move_inside": -0.108601,
+      "states": {
+       "Chattisgarh": 109,
+       "Madhya Pradesh": 713,
+       "Uttar Pradesh": 828
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "h_after": 0.893722,
+        "h_before": 0.756323,
+        "h_change_inside": 0.036854,
+        "h_inside": 0.793177
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "h_after": 0.81446,
+        "h_before": 0.519943,
+        "h_change_inside": 0.175136,
+        "h_inside": 0.695079
+       },
+       "Imphal West / Imphal": {
+        "h_after": 0.780671,
+        "h_before": 0.589324,
+        "h_change_inside": 0.133227,
+        "h_inside": 0.722551
+       },
+       "Thoubal / Thoubal": {
+        "h_after": 0.872087,
+        "h_before": 0.635193,
+        "h_change_inside": 0.157854,
+        "h_inside": 0.793047
+       }
+      }
+     },
+     "Masur Dal": {
+      "after": 8.96155,
+      "before": 9.126959,
+      "fixed_composition": {
+       "before_to_inside": -0.032088,
+       "inside_to_after": -0.076373,
+       "series": 13
+      },
+      "inside": 9.076401,
+      "move_after": -0.11485,
+      "move_inside": -0.050558,
+      "states": {
+       "Assam": 701,
+       "Chattisgarh": 1,
+       "Jharkhand": 147,
+       "Kerala": 13,
+       "West Bengal": 478
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "h_after": 0.315776,
+        "h_before": 0.296147,
+        "h_change_inside": -0.02006,
+        "h_inside": 0.276087
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "h_after": 0.232977,
+        "h_before": 0.077399,
+        "h_change_inside": 0.096094,
+        "h_inside": 0.173493
+       },
+       "Imphal West / Imphal": {
+        "h_after": 0.198997,
+        "h_before": 0.133402,
+        "h_change_inside": 0.069124,
+        "h_inside": 0.202526
+       },
+       "Thoubal / Thoubal": {
+        "h_after": 0.294141,
+        "h_before": 0.200665,
+        "h_change_inside": 0.066163,
+        "h_inside": 0.266828
+       }
+      }
+     },
+     "Other": {
+      "after": 8.251721,
+      "before": 8.548692,
+      "fixed_composition": {
+       "before_to_inside": -0.173864,
+       "inside_to_after": -0.085122,
+       "series": 64
+      },
+      "inside": 8.387085,
+      "move_after": -0.135364,
+      "move_inside": -0.161607,
+      "states": {
+       "Assam": 70,
+       "Chattisgarh": 80,
+       "Madhya Pradesh": 3391,
+       "Maharashtra": 221,
+       "Rajasthan": 365,
+       "Telangana": 3,
+       "Uttar Pradesh": 1019,
+       "Uttrakhand": 9,
+       "West Bengal": 424
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "h_after": 1.012872,
+        "h_before": 0.870661,
+        "h_change_inside": 0.096075,
+        "h_inside": 0.966736
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "h_after": 0.930189,
+        "h_before": 0.651731,
+        "h_change_inside": 0.208955,
+        "h_inside": 0.860687
+       },
+       "Imphal West / Imphal": {
+        "h_after": 0.903372,
+        "h_before": 0.713356,
+        "h_change_inside": 0.178142,
+        "h_inside": 0.891498
+       },
+       "Thoubal / Thoubal": {
+        "h_after": 0.991237,
+        "h_before": 0.771151,
+        "h_change_inside": 0.189439,
+        "h_inside": 0.96059
+       }
+      }
+     },
+     "all varieties": {
+      "after": 8.287,
+      "before": 8.571965,
+      "fixed_composition": {
+       "before_to_inside": -0.166619,
+       "inside_to_after": -0.084337,
+       "series": 100
+      },
+      "inside": 8.422883,
+      "move_after": -0.135882,
+      "move_inside": -0.149083,
+      "states": null,
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "h_after": 0.991683,
+        "h_before": 0.824299,
+        "h_change_inside": 0.087943,
+        "h_inside": 0.912242
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "h_after": 0.909715,
+        "h_before": 0.602445,
+        "h_change_inside": 0.205455,
+        "h_inside": 0.8079
+       },
+       "Imphal West / Imphal": {
+        "h_after": 0.886742,
+        "h_before": 0.669808,
+        "h_change_inside": 0.162803,
+        "h_inside": 0.832611
+       },
+       "Thoubal / Thoubal": {
+        "h_after": 0.970048,
+        "h_before": 0.722022,
+        "h_change_inside": 0.189423,
+        "h_inside": 0.911445
+       }
+      }
+     }
+    }
+   },
+   "dispersion_before": 0.087177,
+   "dispersion_inside": 0.041691,
+   "dispersion_weekly": [
+    [
+     "2016-08-29",
+     0.041691,
+     4
+    ],
+    [
+     "2016-09-05",
+     0.0,
+     4
+    ],
+    [
+     "2016-09-12",
+     0.087177,
+     4
+    ],
+    [
+     "2016-09-19",
+     0.087177,
+     4
+    ],
+    [
+     "2016-09-26",
+     0.087177,
+     4
+    ],
+    [
+     "2016-10-03",
+     0.087177,
+     4
+    ],
+    [
+     "2016-10-10",
+     0.050042,
+     4
+    ],
+    [
+     "2016-10-17",
+     0.087177,
+     4
+    ],
+    [
+     "2016-10-24",
+     0.045486,
+     4
+    ],
+    [
+     "2016-10-31",
+     0.045486,
+     4
+    ],
+    [
+     "2016-11-07",
+     0.045486,
+     4
+    ],
+    [
+     "2016-11-14",
+     0.041691,
+     4
+    ],
+    [
+     "2016-11-21",
+     0.0,
+     4
+    ],
+    [
+     "2016-11-28",
+     0.080171,
+     4
+    ],
+    [
+     "2016-12-05",
+     0.080171,
+     4
+    ],
+    [
+     "2016-12-12",
+     0.041691,
+     4
+    ],
+    [
+     "2016-12-26",
+     0.045486,
+     4
+    ],
+    [
+     "2017-01-02",
+     0.0,
+     4
+    ],
+    [
+     "2017-01-09",
+     0.0,
+     4
+    ],
+    [
+     "2017-01-16",
+     0.0,
+     4
+    ],
+    [
+     "2017-01-23",
+     0.0,
+     4
+    ],
+    [
+     "2017-01-30",
+     0.0,
+     4
+    ],
+    [
+     "2017-02-06",
+     0.0,
+     4
+    ],
+    [
+     "2017-02-13",
+     0.0,
+     4
+    ],
+    [
+     "2017-02-20",
+     0.045486,
+     4
+    ],
+    [
+     "2017-02-27",
+     0.045486,
+     4
+    ],
+    [
+     "2017-03-06",
+     0.045486,
+     4
+    ],
+    [
+     "2017-03-13",
+     0.045486,
+     4
+    ]
+   ],
+   "expected_units": [
+    "Bishnupur / Bishenpur",
+    "Imphal East / Lamlong Bazaar",
+    "Imphal West / Imphal",
+    "Thoubal / Thoubal"
+   ],
+   "grid": {
+    "median_step": 0.090972,
+    "series": 4,
+    "smallest_step": 0.004348
+   },
+   "nationwide_events_inside_window": [
+    {
+     "date": "2016-11-08",
+     "days_after_window_start": 7,
+     "what": "large notes withdrawn nationwide on the evening of 8 Nov 2016"
+    }
+   ],
+   "placebo": {
+    "summary": {
+     "Bishnupur / Bishenpur": {
+      "arrivals_ratio_event": 1.0,
+      "arrivals_ratio_placebo_median": 1.0,
+      "arrivals_ratio_placebo_min": 0.428571,
+      "event_window_steps": -1.0,
+      "of_those_price_unmoved": 2,
+      "of_those_price_within_one_step": 4,
+      "placebo_windows_with_arrivals_ratio_at_or_below_event": 4,
+      "windows": 7,
+      "windows_reference_moved_a_grid_step": 5
+     },
+     "Imphal East / Lamlong Bazaar": {
+      "arrivals_ratio_event": 0.8,
+      "arrivals_ratio_placebo_median": 1.0,
+      "arrivals_ratio_placebo_min": 0.5,
+      "event_window_steps": 1.0,
+      "of_those_price_unmoved": 4,
+      "of_those_price_within_one_step": 5,
+      "placebo_windows_with_arrivals_ratio_at_or_below_event": 1,
+      "windows": 10,
+      "windows_reference_moved_a_grid_step": 6
+     },
+     "Imphal West / Imphal": {
+      "arrivals_ratio_event": 0.517241,
+      "arrivals_ratio_placebo_median": 1.044643,
+      "arrivals_ratio_placebo_min": 0.949153,
+      "event_window_steps": 0.0,
+      "of_those_price_unmoved": 7,
+      "of_those_price_within_one_step": 9,
+      "placebo_windows_with_arrivals_ratio_at_or_below_event": 0,
+      "windows": 21,
+      "windows_reference_moved_a_grid_step": 11
+     },
+     "Thoubal / Thoubal": {
+      "arrivals_ratio_event": 0.833333,
+      "arrivals_ratio_placebo_median": 0.9,
+      "arrivals_ratio_placebo_min": 0.642857,
+      "event_window_steps": 0.0,
+      "of_those_price_unmoved": 2,
+      "of_those_price_within_one_step": 5,
+      "placebo_windows_with_arrivals_ratio_at_or_below_event": 4,
+      "windows": 8,
+      "windows_reference_moved_a_grid_step": 5
+     }
+    },
+    "windows": [
+     {
+      "reference_move_all": 0.035764,
+      "reference_move_own_variety": {
+       "Other": 0.008523
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11500.0,
+        "price_inside": 9500.0,
+        "steps": -2.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.7,
+        "arrivals_inside": 5.8,
+        "price_before": 11500.0,
+        "price_inside": 10500.0,
+        "steps": -1.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       }
+      },
+      "window": [
+       "2016-06-04",
+       "2016-10-20"
+      ]
+     },
+     {
+      "reference_move_all": 0.053408,
+      "reference_move_own_variety": {
+       "Other": 0.032485
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.6,
+        "arrivals_inside": 5.85,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.5,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       }
+      },
+      "window": [
+       "2016-05-05",
+       "2016-09-20"
+      ]
+     },
+     {
+      "reference_move_all": 0.122218,
+      "reference_move_own_variety": {
+       "Other": 0.162161
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.3,
+        "arrivals_inside": 0.4,
+        "price_before": 12500.0,
+        "price_inside": 12500.0,
+        "steps": 0.0
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.5,
+        "arrivals_inside": 5.8,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.5,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       }
+      },
+      "window": [
+       "2016-04-05",
+       "2016-08-21"
+      ]
+     },
+     {
+      "reference_move_all": -0.119383,
+      "reference_move_own_variety": {
+       "Other": 0.174437
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.6,
+        "arrivals_inside": 5.7,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       }
+      },
+      "window": [
+       "2016-03-06",
+       "2016-07-22"
+      ]
+     },
+     {
+      "reference_move_all": -0.228681,
+      "reference_move_own_variety": {
+       "Other": -0.036586
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.3,
+        "price_before": 12500.0,
+        "price_inside": 12500.0,
+        "steps": 0.0
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.6,
+        "arrivals_inside": 5.65,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.5,
+        "price_before": 11600.0,
+        "price_inside": 11500.0,
+        "steps": -0.1
+       }
+      },
+      "window": [
+       "2016-02-05",
+       "2016-06-22"
+      ]
+     },
+     {
+      "reference_move_all": -0.199695,
+      "reference_move_own_variety": {
+       "Other": -0.068691
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.3,
+        "price_before": 11500.0,
+        "price_inside": 12500.0,
+        "steps": 1.0
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.5,
+        "arrivals_inside": 5.6,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.5,
+        "arrivals_inside": 0.4,
+        "price_before": 12500.0,
+        "price_inside": 11500.0,
+        "steps": -1.0
+       }
+      },
+      "window": [
+       "2016-01-06",
+       "2016-05-23"
+      ]
+     },
+     {
+      "reference_move_all": -0.126024,
+      "reference_move_own_variety": {
+       "Other": -0.180156
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 12500.0,
+        "steps": 1.0
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11600.0,
+        "price_inside": 11500.0,
+        "steps": -0.1
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.6,
+        "arrivals_inside": 5.5,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.7,
+        "arrivals_inside": 0.45,
+        "price_before": 12500.0,
+        "price_inside": 11500.0,
+        "steps": -1.0
+       }
+      },
+      "window": [
+       "2015-12-07",
+       "2016-04-23"
+      ]
+     },
+     {
+      "reference_move_all": -0.076027,
+      "reference_move_own_variety": {
+       "Other": -0.172843
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.3,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 12500.0,
+        "steps": 1.0
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.2,
+        "price_before": 11600.0,
+        "price_inside": 11500.0,
+        "steps": -0.1
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.6,
+        "arrivals_inside": 5.5,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": {
+        "arrivals_before": 0.4,
+        "arrivals_inside": 0.5,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       }
+      },
+      "window": [
+       "2015-11-07",
+       "2016-03-24"
+      ]
+     },
+     {
+      "reference_move_all": 0.025281,
+      "reference_move_own_variety": {
+       "Other": -0.134398
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.3,
+        "arrivals_inside": 0.4,
+        "price_before": 11500.0,
+        "price_inside": 12500.0,
+        "steps": 1.0
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.15,
+        "arrivals_inside": 0.2,
+        "price_before": 11600.0,
+        "price_inside": 11500.0,
+        "steps": -0.1
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.6,
+        "arrivals_inside": 5.6,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-10-08",
+       "2016-02-23"
+      ]
+     },
+     {
+      "reference_move_all": 0.060937,
+      "reference_move_own_variety": {
+       "Other": -0.064292
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-09-08",
+       "2016-01-24"
+      ]
+     },
+     {
+      "reference_move_all": 0.07531,
+      "reference_move_own_variety": {
+       "Other": 0.056956
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.9,
+        "arrivals_inside": 5.6,
+        "price_before": 10500.0,
+        "price_inside": 11500.0,
+        "steps": 1.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-08-09",
+       "2015-12-25"
+      ]
+     },
+     {
+      "reference_move_all": 0.100764,
+      "reference_move_own_variety": {
+       "Other": 0.070787
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.9,
+        "arrivals_inside": 5.6,
+        "price_before": 11500.0,
+        "price_inside": 11500.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-07-10",
+       "2015-11-25"
+      ]
+     },
+     {
+      "reference_move_all": 0.09844,
+      "reference_move_own_variety": {
+       "Other": 0.082754
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.7,
+        "arrivals_inside": 5.8,
+        "price_before": 9500.0,
+        "price_inside": 11500.0,
+        "steps": 2.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-06-10",
+       "2015-10-26"
+      ]
+     },
+     {
+      "reference_move_all": 0.212618,
+      "reference_move_own_variety": {
+       "Other": 0.189909
+      },
+      "units": {
+       "Bishnupur / Bishenpur": {
+        "arrivals_before": 0.7,
+        "arrivals_inside": 0.3,
+        "price_before": 8100.0,
+        "price_inside": 10500.0,
+        "steps": 2.4
+       },
+       "Imphal East / Lamlong Bazaar": {
+        "arrivals_before": 0.2,
+        "arrivals_inside": 0.1,
+        "price_before": 9600.0,
+        "price_inside": 11600.0,
+        "steps": 2.0
+       },
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.5,
+        "arrivals_inside": 5.9,
+        "price_before": 9500.0,
+        "price_inside": 11500.0,
+        "steps": 2.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-05-11",
+       "2015-09-26"
+      ]
+     },
+     {
+      "reference_move_all": 0.241776,
+      "reference_move_own_variety": {
+       "Other": 0.254508
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.4,
+        "arrivals_inside": 5.8,
+        "price_before": 9500.0,
+        "price_inside": 10500.0,
+        "steps": 1.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-04-11",
+       "2015-08-27"
+      ]
+     },
+     {
+      "reference_move_all": 0.108887,
+      "reference_move_own_variety": {
+       "Other": 0.159047
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 5.4,
+        "arrivals_inside": 5.7,
+        "price_before": 9500.0,
+        "price_inside": 10500.0,
+        "steps": 1.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-03-12",
+       "2015-07-28"
+      ]
+     },
+     {
+      "reference_move_all": 0.011517,
+      "reference_move_own_variety": {
+       "Other": 0.011379
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 4.5,
+        "arrivals_inside": 5.6,
+        "price_before": 8600.0,
+        "price_inside": 9600.0,
+        "steps": 1.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-02-10",
+       "2015-06-28"
+      ]
+     },
+     {
+      "reference_move_all": -0.003261,
+      "reference_move_own_variety": {
+       "Other": -0.006636
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 1.6,
+        "arrivals_inside": 5.5,
+        "price_before": 8200.0,
+        "price_inside": 9500.0,
+        "steps": 1.3
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2015-01-11",
+       "2015-05-29"
+      ]
+     },
+     {
+      "reference_move_all": -0.012295,
+      "reference_move_own_variety": {
+       "Other": -0.007589
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 1.4,
+        "arrivals_inside": 5.4,
+        "price_before": 8200.0,
+        "price_inside": 9500.0,
+        "steps": 1.3
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-12-12",
+       "2015-04-29"
+      ]
+     },
+     {
+      "reference_move_all": 0.010168,
+      "reference_move_own_variety": {
+       "Other": -0.013448
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 1.4,
+        "arrivals_inside": 4.15,
+        "price_before": 8200.0,
+        "price_inside": 9000.0,
+        "steps": 0.8
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-11-12",
+       "2015-03-30"
+      ]
+     },
+     {
+      "reference_move_all": 0.066314,
+      "reference_move_own_variety": {
+       "Other": 0.036942
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 1.3,
+        "arrivals_inside": 1.6,
+        "price_before": 8200.0,
+        "price_inside": 8200.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-10-13",
+       "2015-02-28"
+      ]
+     },
+     {
+      "reference_move_all": 0.112332,
+      "reference_move_own_variety": {
+       "Other": 0.098784
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": {
+        "arrivals_before": 1.4,
+        "arrivals_inside": 1.5,
+        "price_before": 8200.0,
+        "price_inside": 8200.0,
+        "steps": 0.0
+       },
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-09-13",
+       "2015-01-29"
+      ]
+     },
+     {
+      "reference_move_all": 0.13616,
+      "reference_move_own_variety": {
+       "Other": 0.115571
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-08-14",
+       "2014-12-30"
+      ]
+     },
+     {
+      "reference_move_all": 0.150857,
+      "reference_move_own_variety": {
+       "Other": 0.114254
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-07-15",
+       "2014-11-30"
+      ]
+     },
+     {
+      "reference_move_all": 0.096796,
+      "reference_move_own_variety": {
+       "Other": 0.060506
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-06-15",
+       "2014-10-31"
+      ]
+     },
+     {
+      "reference_move_all": 0.05421,
+      "reference_move_own_variety": {
+       "Other": 0.031863
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-05-16",
+       "2014-10-01"
+      ]
+     },
+     {
+      "reference_move_all": 0.067733,
+      "reference_move_own_variety": {
+       "Other": 0.06431
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-04-16",
+       "2014-09-01"
+      ]
+     },
+     {
+      "reference_move_all": 0.072321,
+      "reference_move_own_variety": {
+       "Other": 0.072321
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-03-17",
+       "2014-08-02"
+      ]
+     },
+     {
+      "reference_move_all": 0.079827,
+      "reference_move_own_variety": {
+       "Other": 0.079827
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-02-15",
+       "2014-07-03"
+      ]
+     },
+     {
+      "reference_move_all": 0.081023,
+      "reference_move_own_variety": {
+       "Other": 0.081023
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2014-01-16",
+       "2014-06-03"
+      ]
+     },
+     {
+      "reference_move_all": 0.057158,
+      "reference_move_own_variety": {
+       "Other": 0.057158
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2013-12-17",
+       "2014-05-04"
+      ]
+     },
+     {
+      "reference_move_all": 0.019273,
+      "reference_move_own_variety": {
+       "Other": 0.019273
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2013-11-17",
+       "2014-04-04"
+      ]
+     },
+     {
+      "reference_move_all": -0.018669,
+      "reference_move_own_variety": {
+       "Other": -0.018669
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2013-10-18",
+       "2014-03-05"
+      ]
+     },
+     {
+      "reference_move_all": -0.013032,
+      "reference_move_own_variety": {
+       "Other": -0.013032
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2013-09-18",
+       "2014-02-03"
+      ]
+     },
+     {
+      "reference_move_all": 0.000508,
+      "reference_move_own_variety": {
+       "Other": 0.000508
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2013-08-19",
+       "2014-01-04"
+      ]
+     },
+     {
+      "reference_move_all": -0.01233,
+      "reference_move_own_variety": {
+       "Other": -0.01233
+      },
+      "units": {
+       "Bishnupur / Bishenpur": null,
+       "Imphal East / Lamlong Bazaar": null,
+       "Imphal West / Imphal": null,
+       "Thoubal / Thoubal": null
+      },
+      "window": [
+       "2013-07-20",
+       "2013-12-05"
+      ]
+     }
+    ]
+   },
+   "reference_after": 8.287,
+   "reference_before": 8.571965,
+   "reference_daily_move": {
+    "Masoor Gola": {
+     "day_pairs": 138,
+     "max": 0.493866,
+     "median": 0.05557,
+     "p90": 0.359501
+    },
+    "Masur Dal": {
+     "day_pairs": 138,
+     "max": 0.259789,
+     "median": 0.028579,
+     "p90": 0.114504
+    },
+    "Other": {
+     "day_pairs": 138,
+     "max": 0.729961,
+     "median": 0.019979,
+     "p90": 0.200671
+    },
+    "all varieties": {
+     "day_pairs": 138,
+     "max": 0.729337,
+     "median": 0.027065,
+     "p90": 0.356675
+    }
+   },
+   "reference_inside": 8.422883,
+   "units": {
+    "Bishnupur / Bishenpur": {
+     "arrivals": {
+      "filings_after": 45,
+      "filings_before": 42,
+      "filings_inside": 93,
+      "jump_between": [
+       "2017-01-11",
+       "2017-01-12"
+      ],
+      "jump_day_values": [
+       0.4,
+       0.5
+      ],
+      "jump_days_after_start": 72,
+      "jump_left": 0.4,
+      "jump_right": 0.5,
+      "median_after": 0.6,
+      "median_before": 0.4,
+      "median_inside": 0.4
+     },
+     "filings_inside": 93,
+     "h_after": 0.991683,
+     "h_before": 0.824299,
+     "h_inside": 0.912242,
+     "h_weekly": [
+      [
+       "2016-08-29",
+       0.827419,
+       5
+      ],
+      [
+       "2016-09-05",
+       0.843004,
+       4
+      ],
+      [
+       "2016-09-12",
+       0.834388,
+       5
+      ],
+      [
+       "2016-09-19",
+       0.865957,
+       5
+      ],
+      [
+       "2016-09-26",
+       0.833557,
+       4
+      ],
+      [
+       "2016-10-03",
+       0.864932,
+       5
+      ],
+      [
+       "2016-10-10",
+       0.723835,
+       5
+      ],
+      [
+       "2016-10-17",
+       0.889668,
+       6
+      ],
+      [
+       "2016-10-24",
+       0.73593,
+       5
+      ],
+      [
+       "2016-10-31",
+       0.711681,
+       5
+      ],
+      [
+       "2016-11-07",
+       0.668067,
+       4
+      ],
+      [
+       "2016-11-14",
+       0.544348,
+       5
+      ],
+      [
+       "2016-11-21",
+       0.784123,
+       6
+      ],
+      [
+       "2016-11-28",
+       0.976755,
+       5
+      ],
+      [
+       "2016-12-05",
+       0.803335,
+       5
+      ],
+      [
+       "2016-12-12",
+       1.058222,
+       5
+      ],
+      [
+       "2016-12-19",
+       0.914253,
+       3
+      ],
+      [
+       "2016-12-26",
+       0.923275,
+       6
+      ],
+      [
+       "2017-01-02",
+       0.864594,
+       5
+      ],
+      [
+       "2017-01-09",
+       0.962644,
+       3
+      ],
+      [
+       "2017-01-16",
+       0.927236,
+       5
+      ],
+      [
+       "2017-01-23",
+       0.841756,
+       5
+      ],
+      [
+       "2017-01-30",
+       1.003066,
+       5
+      ],
+      [
+       "2017-02-06",
+       0.983545,
+       5
+      ],
+      [
+       "2017-02-13",
+       1.080849,
+       5
+      ],
+      [
+       "2017-02-20",
+       1.023946,
+       6
+      ],
+      [
+       "2017-02-27",
+       1.12492,
+       4
+      ],
+      [
+       "2017-03-06",
+       1.06876,
+       5
+      ],
+      [
+       "2017-03-13",
+       0.979455,
+       2
+      ],
+      [
+       "2017-03-20",
+       0.953831,
+       6
+      ],
+      [
+       "2017-03-27",
+       0.95808,
+       5
+      ],
+      [
+       "2017-04-03",
+       0.937598,
+       5
+      ],
+      [
+       "2017-04-10",
+       0.974358,
+       5
+      ],
+      [
+       "2017-04-17",
+       0.997873,
+       6
+      ],
+      [
+       "2017-04-24",
+       0.98464,
+       5
+      ],
+      [
+       "2017-05-01",
+       1.037525,
+       5
+      ],
+      [
+       "2017-05-08",
+       1.027987,
+       4
+      ],
+      [
+       "2017-05-15",
+       1.053252,
+       6
+      ]
+     ],
+     "price_after": 10500.0,
+     "price_before": 12500.0,
+     "price_inside": 11500.0,
+     "price_steps_inside": -1.0,
+     "rupee_step": 1000.0
+    },
+    "Imphal East / Lamlong Bazaar": {
+     "arrivals": {
+      "filings_after": 46,
+      "filings_before": 36,
+      "filings_inside": 92,
+      "jump_between": [
+       "2017-01-12",
+       "2017-01-13"
+      ],
+      "jump_day_values": [
+       0.2,
+       0.3
+      ],
+      "jump_days_after_start": 73,
+      "jump_left": 0.2,
+      "jump_right": 0.3,
+      "median_after": 0.4,
+      "median_before": 0.25,
+      "median_inside": 0.2
+     },
+     "filings_inside": 92,
+     "h_after": 0.909715,
+     "h_before": 0.602445,
+     "h_inside": 0.8079,
+     "h_weekly": [
+      [
+       "2016-08-29",
+       0.754991,
+       5
+      ],
+      [
+       "2016-09-05",
+       0.719924,
+       3
+      ],
+      [
+       "2016-09-12",
+       0.626974,
+       4
+      ],
+      [
+       "2016-09-19",
+       0.575131,
+       1
+      ],
+      [
+       "2016-09-26",
+       0.561561,
+       4
+      ],
+      [
+       "2016-10-03",
+       0.590495,
+       5
+      ],
+      [
+       "2016-10-10",
+       0.449398,
+       5
+      ],
+      [
+       "2016-10-17",
+       0.615232,
+       6
+      ],
+      [
+       "2016-10-24",
+       0.528302,
+       6
+      ],
+      [
+       "2016-10-31",
+       0.520626,
+       5
+      ],
+      [
+       "2016-11-07",
+       0.52784,
+       4
+      ],
+      [
+       "2016-11-14",
+       0.350016,
+       6
+      ],
+      [
+       "2016-11-21",
+       0.593068,
+       6
+      ],
+      [
+       "2016-11-28",
+       0.633527,
+       6
+      ],
+      [
+       "2016-12-05",
+       0.726471,
+       4
+      ],
+      [
+       "2016-12-12",
+       0.749745,
+       3
+      ],
+      [
+       "2016-12-26",
+       0.65143,
+       7
+      ],
+      [
+       "2017-01-02",
+       0.860973,
+       6
+      ],
+      [
+       "2017-01-09",
+       0.962644,
+       3
+      ],
+      [
+       "2017-01-16",
+       0.929075,
+       6
+      ],
+      [
+       "2017-01-23",
+       0.841756,
+       5
+      ],
+      [
+       "2017-01-30",
+       1.003765,
+       6
+      ],
+      [
+       "2017-02-06",
+       0.983545,
+       5
+      ],
+      [
+       "2017-02-13",
+       1.080849,
+       5
+      ],
+      [
+       "2017-02-20",
+       0.989071,
+       5
+      ],
+      [
+       "2017-02-27",
+       1.033948,
+       4
+      ],
+      [
+       "2017-03-06",
+       0.977789,
+       5
+      ],
+      [
+       "2017-03-13",
+       0.933969,
+       2
+      ],
+      [
+       "2017-03-20",
+       0.862859,
+       6
+      ],
+      [
+       "2017-03-27",
+       0.867108,
+       5
+      ],
+      [
+       "2017-04-03",
+       0.846627,
+       5
+      ],
+      [
+       "2017-04-10",
+       0.937969,
+       5
+      ],
+      [
+       "2017-04-17",
+       0.964512,
+       6
+      ],
+      [
+       "2017-04-24",
+       0.889846,
+       6
+      ],
+      [
+       "2017-05-01",
+       0.937441,
+       5
+      ],
+      [
+       "2017-05-08",
+       0.927904,
+       4
+      ],
+      [
+       "2017-05-15",
+       0.953169,
+       6
+      ]
+     ],
+     "price_after": 10500.0,
+     "price_before": 9500.0,
+     "price_inside": 10500.0,
+     "price_steps_inside": 1.0,
+     "rupee_step": 1000.0
+    },
+    "Imphal West / Imphal": {
+     "arrivals": {
+      "filings_after": 41,
+      "filings_before": 38,
+      "filings_inside": 89,
+      "jump_between": [
+       "2016-11-29",
+       "2016-11-30"
+      ],
+      "jump_day_values": [
+       5.5,
+       2.8
+      ],
+      "jump_days_after_start": 29,
+      "jump_left": 5.7,
+      "jump_right": 2.9,
+      "median_after": 3.9,
+      "median_before": 5.8,
+      "median_inside": 3.0
+     },
+     "filings_inside": 89,
+     "h_after": 0.886742,
+     "h_before": 0.669808,
+     "h_inside": 0.832611,
+     "h_weekly": [
+      [
+       "2016-08-29",
+       0.736797,
+       5
+      ],
+      [
+       "2016-09-05",
+       0.659276,
+       3
+      ],
+      [
+       "2016-09-12",
+       0.663346,
+       4
+      ],
+      [
+       "2016-09-19",
+       0.691603,
+       5
+      ],
+      [
+       "2016-09-26",
+       0.669958,
+       4
+      ],
+      [
+       "2016-10-03",
+       0.684545,
+       4
+      ],
+      [
+       "2016-10-10",
+       0.57905,
+       4
+      ],
+      [
+       "2016-10-17",
+       0.715315,
+       6
+      ],
+      [
+       "2016-10-24",
+       0.628385,
+       6
+      ],
+      [
+       "2016-10-31",
+       0.620709,
+       5
+      ],
+      [
+       "2016-11-07",
+       0.586551,
+       4
+      ],
+      [
+       "2016-11-14",
+       0.510732,
+       5
+      ],
+      [
+       "2016-11-21",
+       0.784123,
+       6
+      ],
+      [
+       "2016-11-28",
+       0.824583,
+       6
+      ],
+      [
+       "2016-12-05",
+       0.912149,
+       4
+      ],
+      [
+       "2016-12-12",
+       0.9408,
+       3
+      ],
+      [
+       "2016-12-19",
+       0.726466,
+       2
+      ],
+      [
+       "2016-12-26",
+       0.796837,
+       6
+      ],
+      [
+       "2017-01-02",
+       0.785163,
+       6
+      ],
+      [
+       "2017-01-09",
+       0.901996,
+       3
+      ],
+      [
+       "2017-01-16",
+       0.898751,
+       6
+      ],
+      [
+       "2017-01-23",
+       0.750784,
+       5
+      ],
+      [
+       "2017-01-30",
+       0.906566,
+       4
+      ],
+      [
+       "2017-02-06",
+       0.837455,
+       3
+      ],
+      [
+       "2017-02-13",
+       0.989877,
+       5
+      ],
+      [
+       "2017-02-20",
+       0.932974,
+       6
+      ],
+      [
+       "2017-02-27",
+       1.033948,
+       4
+      ],
+      [
+       "2017-03-06",
+       0.977789,
+       5
+      ],
+      [
+       "2017-03-13",
+       0.933969,
+       2
+      ],
+      [
+       "2017-03-20",
+       0.862859,
+       6
+      ],
+      [
+       "2017-03-27",
+       0.787042,
+       5
+      ],
+      [
+       "2017-04-10",
+       0.837886,
+       5
+      ],
+      [
+       "2017-04-17",
+       0.897789,
+       6
+      ],
+      [
+       "2017-04-24",
+       0.889846,
+       6
+      ],
+      [
+       "2017-05-01",
+       0.937441,
+       5
+      ],
+      [
+       "2017-05-08",
+       0.927904,
+       4
+      ],
+      [
+       "2017-05-15",
+       0.953169,
+       6
+      ]
+     ],
+     "price_after": 9500.0,
+     "price_before": 10500.0,
+     "price_inside": 10500.0,
+     "price_steps_inside": 0.0,
+     "rupee_step": 1000.0
+    },
+    "Thoubal / Thoubal": {
+     "arrivals": {
+      "filings_after": 45,
+      "filings_before": 37,
+      "filings_inside": 87,
+      "jump_between": [
+       "2016-09-24",
+       "2016-09-26"
+      ],
+      "jump_day_values": [
+       0.3,
+       0.6
+      ],
+      "jump_days_after_start": -36,
+      "jump_left": 0.25,
+      "jump_right": 0.5,
+      "median_after": 0.7,
+      "median_before": 0.6,
+      "median_inside": 0.5
+     },
+     "filings_inside": 87,
+     "h_after": 0.970048,
+     "h_before": 0.722022,
+     "h_inside": 0.911445,
+     "h_weekly": [
+      [
+       "2016-08-29",
+       0.748692,
+       5
+      ],
+      [
+       "2016-09-05",
+       0.719924,
+       3
+      ],
+      [
+       "2016-09-12",
+       0.720224,
+       4
+      ],
+      [
+       "2016-09-19",
+       0.766186,
+       1
+      ],
+      [
+       "2016-09-26",
+       0.750176,
+       4
+      ],
+      [
+       "2016-10-03",
+       0.78155,
+       5
+      ],
+      [
+       "2016-10-10",
+       0.622259,
+       5
+      ],
+      [
+       "2016-10-17",
+       0.745639,
+       6
+      ],
+      [
+       "2016-10-24",
+       0.643547,
+       6
+      ],
+      [
+       "2016-10-31",
+       0.693487,
+       5
+      ],
+      [
+       "2016-11-07",
+       0.725753,
+       3
+      ],
+      [
+       "2016-11-14",
+       0.582762,
+       6
+      ],
+      [
+       "2016-11-21",
+       0.784123,
+       6
+      ],
+      [
+       "2016-11-28",
+       0.824583,
+       6
+      ],
+      [
+       "2016-12-05",
+       0.912149,
+       4
+      ],
+      [
+       "2016-12-12",
+       0.9408,
+       3
+      ],
+      [
+       "2016-12-26",
+       0.932745,
+       2
+      ],
+      [
+       "2017-01-02",
+       0.876135,
+       6
+      ],
+      [
+       "2017-01-09",
+       0.962644,
+       3
+      ],
+      [
+       "2017-01-16",
+       0.929075,
+       6
+      ],
+      [
+       "2017-01-23",
+       0.841756,
+       5
+      ],
+      [
+       "2017-01-30",
+       1.003765,
+       6
+      ],
+      [
+       "2017-02-06",
+       0.983545,
+       5
+      ],
+      [
+       "2017-02-13",
+       1.080849,
+       5
+      ],
+      [
+       "2017-02-20",
+       1.024669,
+       6
+      ],
+      [
+       "2017-02-27",
+       1.12492,
+       4
+      ],
+      [
+       "2017-03-06",
+       1.06876,
+       5
+      ],
+      [
+       "2017-03-13",
+       1.024941,
+       2
+      ],
+      [
+       "2017-03-20",
+       0.953831,
+       6
+      ],
+      [
+       "2017-03-27",
+       0.95808,
+       5
+      ],
+      [
+       "2017-04-03",
+       0.90121,
+       5
+      ],
+      [
+       "2017-04-10",
+       1.010747,
+       5
+      ],
+      [
+       "2017-04-17",
+       1.043359,
+       6
+      ],
+      [
+       "2017-04-24",
+       0.98464,
+       5
+      ],
+      [
+       "2017-05-01",
+       0.997491,
+       5
+      ],
+      [
+       "2017-05-08",
+       0.927904,
+       4
+      ],
+      [
+       "2017-05-15",
+       0.953169,
+       6
+      ]
+     ],
+     "price_after": 10500.0,
+     "price_before": 11500.0,
+     "price_inside": 11500.0,
+     "price_steps_inside": 0.0,
+     "rupee_step": 1000.0
+    }
+   },
+   "window": [
+    "2016-11-01",
+    "2017-03-19"
+   ]
+  },
+  "RJ-2015-blockade": {
+   "arrivals_cross_section": null,
+   "by_reference": {
+    "h_change_by_unit": {
+     "Tonk / Deoli": {
+      "all_clear_the_grid": true,
+      "definitions": 1,
+      "h_change_inside_by_reference": {
+       "all varieties": 0.048697
+      },
+      "own_variety": "Other",
+      "same_sign": true,
+      "state": "unread",
+      "window_days": 8,
+      "window_long_enough": false
+     }
+    },
+    "references": {
+     "all varieties": {
+      "after": 8.690092,
+      "before": 8.543831,
+      "fixed_composition": {
+       "before_to_inside": null,
+       "inside_to_after": null,
+       "series": 0
+      },
+      "inside": 8.669566,
+      "move_after": 0.020526,
+      "move_inside": 0.125735,
+      "states": null,
+      "units": {
+       "Tonk / Deoli": {
+        "h_after": -0.019002,
+        "h_before": 0.011435,
+        "h_change_inside": 0.048697,
+        "h_inside": 0.060132
+       }
+      }
+     }
+    }
+   },
+   "dispersion_before": null,
+   "dispersion_inside": null,
+   "dispersion_weekly": [],
+   "expected_units": [
+    "Tonk / Deoli"
+   ],
+   "grid": {
+    "median_step": 0.01716,
+    "series": 1,
+    "smallest_step": 0.00016
+   },
+   "nationwide_events_inside_window": [],
+   "placebo": null,
+   "reference_after": 8.690092,
+   "reference_before": 8.543831,
+   "reference_daily_move": {
+    "all varieties": {
+     "day_pairs": 7,
+     "max": 0.029717,
+     "median": 0.005147,
+     "p90": 0.029717
+    }
+   },
+   "reference_inside": 8.669566,
+   "units": {
+    "Tonk / Deoli": {
+     "arrivals": {
+      "filings_after": 14,
+      "filings_before": 42,
+      "filings_inside": 3,
+      "jump_between": [
+       "2015-04-04",
+       "2015-04-05"
+      ],
+      "jump_day_values": [
+       1.1,
+       1.4
+      ],
+      "jump_days_after_start": -46,
+      "jump_left": 7.65,
+      "jump_right": 2.0,
+      "median_after": 0.45,
+      "median_before": 2.75,
+      "median_inside": 1.1
+     },
+     "filings_inside": 3,
+     "h_after": -0.019002,
+     "h_before": 0.011435,
+     "h_inside": 0.060132,
+     "h_weekly": [
+      [
+       "2015-03-16",
+       0.028276,
+       5
+      ],
+      [
+       "2015-03-23",
+       -0.014626,
+       6
+      ],
+      [
+       "2015-03-30",
+       -0.003303,
+       4
+      ],
+      [
+       "2015-04-06",
+       -0.008072,
+       6
+      ],
+      [
+       "2015-04-13",
+       0.008427,
+       6
+      ],
+      [
+       "2015-04-20",
+       -0.045281,
+       3
+      ],
+      [
+       "2015-04-27",
+       0.026768,
+       5
+      ],
+      [
+       "2015-05-04",
+       0.050958,
+       5
+      ],
+      [
+       "2015-05-11",
+       0.059768,
+       4
+      ],
+      [
+       "2015-05-18",
+       0.052823,
+       4
+      ],
+      [
+       "2015-05-25",
+       0.06744,
+       3
+      ],
+      [
+       "2015-06-01",
+       0.03266,
+       2
+      ],
+      [
+       "2015-06-08",
+       0.01318,
+       3
+      ],
+      [
+       "2015-06-15",
+       -0.003523,
+       2
+      ],
+      [
+       "2015-06-22",
+       0.012515,
+       1
+      ],
+      [
+       "2015-06-29",
+       0.008584,
+       1
+      ],
+      [
+       "2015-07-06",
+       -0.014107,
+       2
+      ],
+      [
+       "2015-07-20",
+       -0.182322,
+       1
+      ]
+     ],
+     "price_after": 5937.5,
+     "price_before": 5150.0,
+     "price_inside": 6200.0,
+     "price_steps_inside": 10.5,
+     "rupee_step": 100.0
+    }
+   },
+   "window": [
+    "2015-05-21",
+    "2015-05-28"
+   ]
+  }
+ },
+ "cells": {
+  "T_cut_I_open": 7,
+  "T_open_I_cut": 0,
+  "both_cut_edges_only": 0,
+  "both_cut_read_inside": 0,
+  "object_absent": 65,
+  "ordinary": 127,
+  "unverified": 0
+ },
+ "cells_by_event": {
+  "AS-2014-flood": {
+   "T_cut_I_open": 2,
+   "ordinary": 10
+  },
+  "MN-2016-blockade": {
+   "T_cut_I_open": 4
+  },
+  "MP-2016-cash": {
+   "object_absent": 30,
+   "ordinary": 37
+  },
+  "MP-2017-strike": {
+   "object_absent": 35,
+   "ordinary": 66
+  },
+  "RJ-2015-blockade": {
+   "T_cut_I_open": 1,
+   "ordinary": 7
+  },
+  "WB-2017-hills": {
+   "ordinary": 7
+  }
+ },
+ "closure_readback": {
+  "cells": 28,
+  "cells_below_neighbours": 28,
+  "ratio": 0.219409,
+  "shifted_calendars_compared": [
+   -40,
+   -20,
+   -10,
+   10,
+   20,
+   40
+  ],
+  "shifted_cells": {
+   "-10": 28,
+   "-20": 27,
+   "-40": 27,
+   "10": 28,
+   "20": 28,
+   "40": 28
+  },
+  "shifted_cells_below": {
+   "-10": 7,
+   "-20": 13,
+   "-40": 13,
+   "10": 18,
+   "20": 12,
+   "40": 14
+  },
+  "shifted_ratios": {
+   "-10": 1.034856,
+   "-20": 0.936416,
+   "-40": 0.867157,
+   "10": 0.794679,
+   "20": 0.90372,
+   "40": 0.89959
+  }
+ },
+ "commodity": "Lentil (Masur)",
+ "config": {
+  "closure_placebo": {
+   "min_units": 10,
+   "step_days": 7
+  },
+  "cross_section_year_back_days": 364,
+  "early_last_filing_days": 2,
+  "edge_days": 7,
+  "events": [
+   "MN-2016-blockade",
+   "MP-2017-strike",
+   "AS-2014-flood",
+   "RJ-2015-blockade",
+   "WB-2017-hills",
+   "MP-2016-cash",
+   "UK-2013-flood",
+   "GJ-2015-mobile",
+   "HR-2016-blockade",
+   "TR-2016-road"
+  ],
+  "fixed_composition_min_filings": 10,
+  "full_cut_kinds": [
+   "all"
+  ],
+  "h_read_min_definitions": 2,
+  "h_read_min_window_days": 30,
+  "h_segments": "whole Monday-to-Sunday weeks; the segment before the window starts on the Monday of the week that holds the day pre_days before it",
+  "knobs": {
+   "cluster_window": 3,
+   "prior_floor": 5,
+   "stop_floor": 8
+  },
+  "min_markets": 3,
+  "min_segment": 10,
+  "nationwide_events": [
+   {
+    "date": "2016-11-08",
+    "what": "large notes withdrawn nationwide on the evening of 8 Nov 2016"
+   }
+  ],
+  "placebo": {
+   "max_windows": 36,
+   "min_length_days": 30,
+   "step_days": 30
+  },
+  "pre_days": 60,
+  "price_per_market": "the variety with most filings in that market",
+  "prior_window_days": 30,
+  "reference": "median log modal price on the day over series outside the event's state; B146-8 repeats it per variety and with the set of series held fixed",
+  "reference_min_obs": 500,
+  "reference_slack_days": 3,
+  "shifts": [
+   -40,
+   -20,
+   -10,
+   10,
+   20,
+   40
+  ],
+  "source": "data/agmark/Lentil (Masur)/*.csv",
+  "sweep": {
+   "cluster_window": [
+    3,
+    7
+   ],
+   "prior_floor": [
+    5,
+    10,
+    15
+   ],
+   "stop_floor": [
+    8,
+    15
+   ]
+  },
+  "wide_cut_kinds": [
+   "all",
+   "all_internet"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "files 10, lines 115905, short 0, undated 0, kept 115905; markets 388, states 19, 2008-01-01 to 2017-06-22",
+   "kind": "instrument",
+   "name": "B146-1",
+   "passed": true
+  },
+  {
+   "detail": "markets filing on three fixed closure days against the median of the 14 neighbouring days: pooled ratio 0.219, 28 of 28 cells below; the same on calendars shifted by -40/-20/-10/10/20/40 days: 0.867 / 0.936 / 1.035 / 0.795 / 0.904 / 0.900, cells below 13 of 27 / 13 of 27 / 7 of 28 / 18 of 28 / 12 of 28 / 14 of 28",
+   "kind": "known_answer",
+   "name": "B146-2",
+   "passed": true
+  },
+  {
+   "detail": "10 event rows, 6 checked against a source, 4 not; rows with every field: 10; units of an unchecked row sitting in a cell that reads: 0",
+   "kind": "bookkeeping",
+   "name": "B146-3",
+   "passed": true
+  },
+  {
+   "detail": "units covered by a checked transport document and a checked full information cut, active before the event: 0. With every data service stopped and voice up counted as a cut: 0. With any information order at all: 2 (MN-2016-blockade: Imphal East / Lamlong Bazaar; MN-2016-blockade: Imphal West / Imphal). Events carrying both documents: MN-2016-blockade (mobile_data): 4 active in the state, 2 in both documents by district, 2 after the markets the orders leave out; WB-2017-hills (all_internet): 7 active in the state, 1 in both documents by district, 0 after the markets the orders leave out",
+   "kind": "premise",
+   "name": "B146-4",
+   "passed": false
+  },
+  {
+   "detail": "199 units, one cell each: unverified 0, ordinary 127, T_cut_I_open 7, T_open_I_cut 0, object_absent 65, both_cut_read_inside 0, both_cut_edges_only 0. Units a closure document covers, that filed nothing, and that sit in a both-cut cell: 0. MP-2017-strike: object_absent 35 of 101 (0.347); the same documents moved back a week at a time, 403 windows: median share 0.077, 90th percentile 0.171, highest 0.333, at or above the event's share 0; last filing more than 2 days before the closure began: 14 of 35. MP-2016-cash: object_absent 30 of 67 (0.448); the same documents moved back a week at a time, 377 windows: median share 0.061, 90th percentile 0.152, highest 0.304, at or above the event's share 0; last filing more than 2 days before the closure began: 11 of 30",
+   "kind": "own_reading",
+   "name": "B146-5",
+   "passed": true
+  },
+  {
+   "detail": "both edges cut and still filing: 0 event groups; states unread. No unit in the cell, so there is nothing to read; the cell is not scored.",
+   "kind": "own_reading",
+   "name": "B146-6",
+   "passed": null,
+   "state": "unread"
+  },
+  {
+   "detail": "both edges cut and not filing: 0 units, 0 with a step that can be read. No unit in the cell; not scored.",
+   "kind": "own_reading",
+   "name": "B146-7",
+   "passed": null,
+   "state": "unread"
+  },
+  {
+   "detail": "transport cut, information open: 7 units in 3 events. AS-2014-flood: 2 markets, weekly dispersion n/a before and n/a inside against a price grid of 0.0304; MN-2016-blockade: 4 markets, weekly dispersion 0.0872 before and 0.0417 inside against a price grid of 0.0910; RJ-2015-blockade: 1 markets, weekly dispersion n/a before and n/a inside against a price grid of 0.0172 Change in h inside the window, by definition of the outside reference: Goalpara / Goalpara unread (all varieties -0.057); Kamrup / P.O. Uparhali Guwahati unread (all varieties -0.030); Bishnupur / Bishenpur unread (all varieties +0.088, Masoor Gola +0.037, Masur Dal -0.020, Other +0.096); Imphal East / Lamlong Bazaar read (all varieties +0.205, Masoor Gola +0.175, Masur Dal +0.096, Other +0.209); Imphal West / Imphal unread (all varieties +0.163, Masoor Gola +0.133, Masur Dal +0.069, Other +0.178); Thoubal / Thoubal unread (all varieties +0.189, Masoor Gola +0.158, Masur Dal +0.066, Other +0.189); Tonk / Deoli unread (all varieties +0.049). MN-2016-blockade, arrivals inside the window over arrivals before, same calendar window at markets outside the state: 103 markets, median ratio 1.000; at or below each unit's own ratio: Bishnupur / Bishenpur (1.000) 59, Imphal East / Lamlong Bazaar (0.800) 27, Imphal West / Imphal (0.517) 12, Thoubal / Thoubal (0.833) 33; nationwide events inside the window: 2016-11-08, day 7",
+   "kind": "own_reading",
+   "name": "B146-8",
+   "passed": true
+  },
+  {
+   "detail": "12 of 12 knob points run (prior floor 5/10/15, stop floor 8/15, cluster window 3/7; the flag counts the points and checks that they are distinct); units that change cell somewhere on the sweep: 4; both-cut units at each point: 0 0 0 0 0 0 0 0 0 0 0 0",
+   "kind": "instrument",
+   "name": "B146-9",
+   "passed": true
+  },
+  {
+   "detail": "events with at least one unit: 6; units: 199; per event: AS-2014-flood 12, MN-2016-blockade 4, MP-2016-cash 67, MP-2017-strike 101, RJ-2015-blockade 8, WB-2017-hills 7",
+   "kind": "bookkeeping",
+   "name": "B146-10",
+   "passed": true
+  }
+ ],
+ "events": [
+  {
+   "checked": true,
+   "closures": [
+    {
+     "districts": [
+      "Imphal East",
+      "Imphal West"
+     ],
+     "end": "2016-12-18",
+     "start": "2016-12-18",
+     "what": "curfew reported on that day; relaxation dates not found, so the documented span is the one day"
+    }
+   ],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 47,
+     "from": "2016-11-01",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2016-12-17"
+    },
+    {
+     "days": 1,
+     "from": "2016-12-18",
+     "in_force": [
+      "transport",
+      "info:mobile_data",
+      "closure1"
+     ],
+     "to": "2016-12-18"
+    },
+    {
+     "days": 12,
+     "from": "2016-12-19",
+     "in_force": [
+      "transport",
+      "info:mobile_data"
+     ],
+     "to": "2016-12-30"
+    },
+    {
+     "days": 79,
+     "from": "2016-12-31",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2017-03-19"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 3,
+   "grade": 3,
+   "id": "MN-2016-blockade",
+   "info": {
+    "districts": [
+     "Imphal East",
+     "Imphal West"
+    ],
+    "end": "2016-12-30",
+    "kind": "mobile_data",
+    "start": "2016-12-18",
+    "what": "district magistrates' order to disconnect mobile internet"
+   },
+   "label": "highway blockade, Manipur",
+   "sources": [
+    "https://internetshutdowns.in/india-shutdowns/960/manipur-2016/",
+    "https://www.thequint.com/india/2016/12/20/economic-blockade-to-attack-on-civilians-manipur-crisis-with-nagaland-districts-violence-all-you-need-to-know-",
+    "https://english.madhyamam.com/national/2016/dec/18/manipur-22-vehicles-torched-near-imphal-violence-spreads-curfew-imposed",
+    "https://swarajyamag.com/amp/story/insta%2F130-day-naga-economic-blockade-in-manipur-to-be-lifted-tonight"
+   ],
+   "state": "Manipur",
+   "transport": {
+    "districts": null,
+    "end": "2017-03-19",
+    "start": "2016-11-01",
+    "what": "National Highways 2 and 37 blockaded; lifted 19 Mar 2017"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [
+    {
+     "districts": null,
+     "end": "2017-06-10",
+     "start": "2017-06-01",
+     "what": "ten-day strike called by farmers' bodies: no produce brought to market"
+    },
+    {
+     "districts": [
+      "Mandsaur"
+     ],
+     "end": "2017-06-10",
+     "start": "2017-06-06",
+     "what": "curfew after the 6 Jun firing; relaxed 10 Jun"
+    }
+   ],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 5,
+     "from": "2017-06-01",
+     "in_force": [
+      "closure1"
+     ],
+     "to": "2017-06-05"
+    },
+    {
+     "days": 5,
+     "from": "2017-06-06",
+     "in_force": [
+      "info:mobile_data",
+      "closure1",
+      "closure2"
+     ],
+     "to": "2017-06-10"
+    },
+    {
+     "days": 1,
+     "from": "2017-06-11",
+     "in_force": [
+      "info:mobile_data"
+     ],
+     "to": "2017-06-11"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 3,
+   "grade": 3,
+   "id": "MP-2017-strike",
+   "info": {
+    "districts": [
+     "Mandsaur",
+     "Ratlam",
+     "Ujjain",
+     "Neemuch",
+     "Indore",
+     "Dewas"
+    ],
+    "end": "2017-06-11",
+    "kind": "mobile_data",
+    "start": "2017-06-06",
+    "what": "mobile internet suspended; one report gives 5 Jun as the start"
+   },
+   "label": "farmers' strike, Madhya Pradesh",
+   "sources": [
+    "https://internetshutdowns.in/india-shutdowns/737/madhya-pradesh-2017/",
+    "https://www.millenniumpost.in/big-stories/big-stories-245862",
+    "https://www.millenniumpost.in/nation/nation-246460",
+    "https://www.business-standard.com/article/pti-stories/farmers-stir-violence-arson-in-western-mp-govt-announces-117060701377_1.html"
+   ],
+   "state": "Madhya Pradesh",
+   "transport": null
+  },
+  {
+   "checked": true,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 4,
+     "from": "2014-09-22",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2014-09-25"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": 3,
+   "id": "AS-2014-flood",
+   "info": null,
+   "label": "flood, lower Assam",
+   "sources": [
+    "https://assamtribune.com/goalpara-hatsingimari-hit-by-garo-hills-water",
+    "https://indiaenvironmentportal.org.in/news-clippings/state-flood-toll-rises-to-36",
+    "https://www.millenniumpost.in/after-jk-assam-flooded-39565"
+   ],
+   "state": "Assam",
+   "transport": {
+    "districts": [
+     "Goalpara",
+     "Kamrup"
+    ],
+    "end": "2014-09-25",
+    "start": "2014-09-22",
+    "what": "National Highway 37 under water, Goalpara cut off from Guwahati; 25 Sep is the last dated report of the closure, a lower bound"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 8,
+     "from": "2015-05-21",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2015-05-28"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": 3,
+   "id": "RJ-2015-blockade",
+   "info": null,
+   "label": "rail and road blockade, eastern Rajasthan",
+   "sources": [
+    "https://www.tribuneindia.com/news/archive/nation/after-failed-talks-gujjars-intensify-stir-in-rajasthan-84980",
+    "https://www.moneylife.in/article/gujjars-call-off-agitation-as-rajasthan-agrees-to-quota/42019.html",
+    "https://www.business-standard.com/article/pti-stories/gujjar-stir-wr-losing-rs-15-cr-daily-due-to-train-cancellation-115052600410_1.html"
+   ],
+   "state": "Rajasthan",
+   "transport": {
+    "districts": [
+     "Bharatpur",
+     "Dausa",
+     "Sawai Madhopur",
+     "Karauli",
+     "Tonk"
+    ],
+    "end": "2015-05-28",
+    "start": "2015-05-21",
+    "what": "sit-in on the Delhi-Mumbai line from 21 May, highways from 24 May; called off 28 May"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 5,
+     "from": "2017-06-15",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2017-06-19"
+    },
+    {
+     "days": 3,
+     "from": "2017-06-20",
+     "in_force": [
+      "transport",
+      "info:all_internet"
+     ],
+     "to": "2017-06-22"
+    }
+   ],
+   "excluded_markets": [
+    "Siliguri"
+   ],
+   "execution_steps": 2,
+   "grade": 3,
+   "id": "WB-2017-hills",
+   "info": {
+    "districts": [
+     "Darjeeling"
+    ],
+    "end": "2017-06-22",
+    "kind": "all_internet",
+    "start": "2017-06-20",
+    "what": "mobile internet blocked 18 Jun; on 20 Jun the district magistrate ordered providers to stop all internet service in the hills"
+   },
+   "label": "hills shutdown, Darjeeling",
+   "sources": [
+    "https://internetshutdowns.in/india-shutdowns/902/west-bengal-2017/",
+    "https://sflc.in/darjeeling-internet-ban-completes-two-months/",
+    "https://www.business-standard.com/article/pti-stories/wb-internet-still-suspended-gjm-activists-take-out-protest-117061900693_1.html"
+   ],
+   "state": "West Bengal",
+   "transport": {
+    "districts": [
+     "Darjeeling"
+    ],
+    "end": "2017-06-22",
+    "start": "2017-06-15",
+    "what": "indefinite general shutdown in the hills (19 Jun reported as its fifth day); still on when the panel ends on 22 Jun"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [
+    {
+     "districts": null,
+     "end": "2016-11-22",
+     "start": "2016-11-09",
+     "what": "large notes withdrawn on the evening of 8 Nov 2016; markets reported shut for want of cash for five days to a fortnight"
+    }
+   ],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 14,
+     "from": "2016-11-09",
+     "in_force": [
+      "closure1"
+     ],
+     "to": "2016-11-22"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": 3,
+   "id": "MP-2016-cash",
+   "info": null,
+   "label": "largest cluster of stops on the panel, Madhya Pradesh",
+   "sources": [
+    "https://newsbits.in/demonetization-crushes-rural-economy-mp-villagers-are-cashless-getting-fleeced",
+    "https://culanth.org/fieldsights/trading-notes",
+    "https://www.ideasforindia.in/topics/money-finance/what-did-demonetisation-do-to-domestic-agricultural-markets.html"
+   ],
+   "state": "Madhya Pradesh",
+   "transport": null
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 15,
+     "from": "2013-06-16",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2013-06-30"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": null,
+   "id": "UK-2013-flood",
+   "info": null,
+   "label": "flood, Uttarakhand (unchecked)",
+   "sources": [],
+   "state": "Uttrakhand",
+   "transport": {
+    "districts": null,
+    "end": "2013-06-30",
+    "start": "2013-06-16",
+    "what": "unchecked"
+   }
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 8,
+     "from": "2015-08-26",
+     "in_force": [
+      "info:mobile_data"
+     ],
+     "to": "2015-09-02"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": null,
+   "id": "GJ-2015-mobile",
+   "info": {
+    "districts": null,
+    "end": "2015-09-02",
+    "kind": "mobile_data",
+    "start": "2015-08-26",
+    "what": "unchecked"
+   },
+   "label": "statewide mobile-data stop, Gujarat (unchecked)",
+   "sources": [],
+   "state": "Gujarat",
+   "transport": null
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 5,
+     "from": "2016-02-19",
+     "in_force": [
+      "transport",
+      "info:mobile_data"
+     ],
+     "to": "2016-02-23"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 2,
+   "grade": null,
+   "id": "HR-2016-blockade",
+   "info": {
+    "districts": null,
+    "end": "2016-02-23",
+    "kind": "mobile_data",
+    "start": "2016-02-19",
+    "what": "unchecked"
+   },
+   "label": "road blockade, Haryana (unchecked)",
+   "sources": [],
+   "state": "Haryana",
+   "transport": {
+    "districts": null,
+    "end": "2016-02-23",
+    "start": "2016-02-19",
+    "what": "unchecked"
+   }
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 47,
+     "from": "2016-06-15",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2016-07-31"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": null,
+   "id": "TR-2016-road",
+   "info": null,
+   "label": "highway failure, Tripura (unchecked)",
+   "sources": [],
+   "state": "Tripura",
+   "transport": {
+    "districts": null,
+    "end": "2016-07-31",
+    "start": "2016-06-15",
+    "what": "unchecked"
+   }
+  }
+ ],
+ "independent_units": {
+  "events_with_units": 6,
+  "per_event": {
+   "AS-2014-flood": 12,
+   "MN-2016-blockade": 4,
+   "MP-2016-cash": 67,
+   "MP-2017-strike": 101,
+   "RJ-2015-blockade": 8,
+   "WB-2017-hills": 7
+  },
+  "units": 199
+ },
+ "knob_sweep": [
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 65,
+    "ordinary": 127
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 2,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 49,
+    "MP-2017-strike": 31,
+    "RJ-2015-blockade": 2,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 8,
+   "units": 199
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 65,
+    "ordinary": 127
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 7,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 59,
+    "MP-2017-strike": 48,
+    "RJ-2015-blockade": 3,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 8,
+   "units": 199
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 61,
+    "ordinary": 131
+   },
+   "changed_cell": [
+    "MP-2017-strike: Ashoknagar / Shadora  object_absent -> ordinary",
+    "MP-2017-strike: Neemuch / Neemuch  object_absent -> ordinary",
+    "MP-2017-strike: Rewa / Baikunthpur  object_absent -> ordinary",
+    "MP-2017-strike: Shivpuri / Pohari  object_absent -> ordinary"
+   ],
+   "cluster_sizes": {
+    "AS-2014-flood": 1,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 23,
+    "MP-2017-strike": 21,
+    "RJ-2015-blockade": 1,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 15,
+   "units": 199
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 61,
+    "ordinary": 131
+   },
+   "changed_cell": [
+    "MP-2017-strike: Ashoknagar / Shadora  object_absent -> ordinary",
+    "MP-2017-strike: Neemuch / Neemuch  object_absent -> ordinary",
+    "MP-2017-strike: Rewa / Baikunthpur  object_absent -> ordinary",
+    "MP-2017-strike: Shivpuri / Pohari  object_absent -> ordinary"
+   ],
+   "cluster_sizes": {
+    "AS-2014-flood": 1,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 33,
+    "MP-2017-strike": 34,
+    "RJ-2015-blockade": 2,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 15,
+   "units": 199
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 41,
+    "ordinary": 106
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 2,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 39,
+    "MP-2017-strike": 27,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 45,
+   "prior_floor": 10,
+   "stop_floor": 8,
+   "units": 154
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 41,
+    "ordinary": 106
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 6,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 44,
+    "MP-2017-strike": 39,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 45,
+   "prior_floor": 10,
+   "stop_floor": 8,
+   "units": 154
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 40,
+    "ordinary": 107
+   },
+   "changed_cell": [
+    "MP-2017-strike: Neemuch / Neemuch  object_absent -> ordinary"
+   ],
+   "cluster_sizes": {
+    "AS-2014-flood": 1,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 15,
+    "MP-2017-strike": 21,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 45,
+   "prior_floor": 10,
+   "stop_floor": 15,
+   "units": 154
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 40,
+    "ordinary": 107
+   },
+   "changed_cell": [
+    "MP-2017-strike: Neemuch / Neemuch  object_absent -> ordinary"
+   ],
+   "cluster_sizes": {
+    "AS-2014-flood": 1,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 20,
+    "MP-2017-strike": 29,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 45,
+   "prior_floor": 10,
+   "stop_floor": 15,
+   "units": 154
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 27,
+    "ordinary": 78
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 1,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 25,
+    "MP-2017-strike": 23,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 87,
+   "prior_floor": 15,
+   "stop_floor": 8,
+   "units": 112
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 27,
+    "ordinary": 78
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 3,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 26,
+    "MP-2017-strike": 29,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 87,
+   "prior_floor": 15,
+   "stop_floor": 8,
+   "units": 112
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 26,
+    "ordinary": 79
+   },
+   "changed_cell": [
+    "MP-2017-strike: Neemuch / Neemuch  object_absent -> ordinary"
+   ],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 8,
+    "MP-2017-strike": 19,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 87,
+   "prior_floor": 15,
+   "stop_floor": 15,
+   "units": 112
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "T_cut_I_open": 7,
+    "object_absent": 26,
+    "ordinary": 79
+   },
+   "changed_cell": [
+    "MP-2017-strike: Neemuch / Neemuch  object_absent -> ordinary"
+   ],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 9,
+    "MP-2017-strike": 23,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 87,
+   "prior_floor": 15,
+   "stop_floor": 15,
+   "units": 112
+  }
+ ],
+ "mapping": {
+  "T_cut_I_open": {
+   "feeds": "B146-8",
+   "rule": "transport document covers it; no full information cut does (a mobile-data-only order is a thinner edge, not a cut one)",
+   "verdict": "printed"
+  },
+  "T_open_I_cut": {
+   "feeds": "counted, dispersion printed",
+   "rule": "full information cut covers it; no transport document does",
+   "verdict": "printed"
+  },
+  "both_cut_edges_only": {
+   "feeds": "B146-7",
+   "rule": "both documents cover it, it filed nothing inside the window, no closure",
+   "verdict": "read"
+  },
+  "both_cut_read_inside": {
+   "feeds": "B146-6",
+   "rule": "both documents cover it, it filed inside the window, no closure",
+   "verdict": "read"
+  },
+  "object_absent": {
+   "feeds": "nothing",
+   "rule": "a closure, curfew or strike document covers it and it filed nothing in its window, or every filing in the window has zero arrivals: what is missing is the price itself, and no edge is described",
+   "verdict": null
+  },
+  "ordinary": {
+   "feeds": "counted, not read",
+   "rule": "neither edge document covers the market",
+   "verdict": "counted"
+  },
+  "unverified": {
+   "feeds": "nothing",
+   "rule": "an edge document of the event is not checked against a source",
+   "verdict": null
+  }
+ },
+ "mapping_B146-6": {
+  "did_not_grow": {
+   "rule": "it does not: the copies stayed where the cut left them, and the registered consequent does not hold on this unit",
+   "verdict": false
+  },
+  "grew": {
+   "rule": "dispersion at the end of the window exceeds dispersion at the cut by more than one grid step: the registered consequent holds",
+   "verdict": true
+  },
+  "unread": {
+   "rule": "fewer than three markets of one variety, or the premise is false, or the count of both-cut units moves on the knob sweep: no verdict",
+   "verdict": null
+  }
+ },
+ "mapping_B146-7": {
+  "did_not_move": "printed",
+  "moved_against_reference": "printed",
+  "moved_with_reference": "printed",
+  "unread": null
+ },
+ "object_absent_against_shifted_closures": {
+  "MP-2016-cash": {
+   "event": {
+    "object_absent": 30,
+    "share": 0.447761,
+    "units": 67
+   },
+   "expected_in_cell_at_median_share": 4.060606,
+   "rows": [
+    [
+     "2016-10-26",
+     2,
+     63
+    ],
+    [
+     "2016-10-19",
+     1,
+     54
+    ],
+    [
+     "2016-10-12",
+     1,
+     47
+    ],
+    [
+     "2016-10-05",
+     3,
+     48
+    ],
+    [
+     "2016-09-28",
+     2,
+     44
+    ],
+    [
+     "2016-09-21",
+     1,
+     45
+    ],
+    [
+     "2016-09-14",
+     1,
+     41
+    ],
+    [
+     "2016-09-07",
+     0,
+     42
+    ],
+    [
+     "2016-08-31",
+     1,
+     45
+    ],
+    [
+     "2016-08-24",
+     7,
+     51
+    ],
+    [
+     "2016-08-17",
+     5,
+     58
+    ],
+    [
+     "2016-08-10",
+     9,
+     66
+    ],
+    [
+     "2016-08-03",
+     3,
+     64
+    ],
+    [
+     "2016-07-27",
+     6,
+     75
+    ],
+    [
+     "2016-07-20",
+     4,
+     77
+    ],
+    [
+     "2016-07-13",
+     8,
+     82
+    ],
+    [
+     "2016-07-06",
+     12,
+     82
+    ],
+    [
+     "2016-06-29",
+     9,
+     87
+    ],
+    [
+     "2016-06-22",
+     7,
+     91
+    ],
+    [
+     "2016-06-15",
+     4,
+     92
+    ],
+    [
+     "2016-06-08",
+     4,
+     95
+    ],
+    [
+     "2016-06-01",
+     1,
+     94
+    ],
+    [
+     "2016-05-25",
+     4,
+     96
+    ],
+    [
+     "2016-05-18",
+     4,
+     97
+    ],
+    [
+     "2016-05-11",
+     1,
+     95
+    ],
+    [
+     "2016-05-04",
+     2,
+     95
+    ],
+    [
+     "2016-04-27",
+     3,
+     96
+    ],
+    [
+     "2016-04-20",
+     5,
+     96
+    ],
+    [
+     "2016-04-13",
+     4,
+     92
+    ],
+    [
+     "2016-04-06",
+     1,
+     89
+    ],
+    [
+     "2016-03-30",
+     2,
+     86
+    ],
+    [
+     "2016-03-23",
+     3,
+     83
+    ],
+    [
+     "2016-03-16",
+     3,
+     74
+    ],
+    [
+     "2016-03-09",
+     0,
+     69
+    ],
+    [
+     "2016-03-02",
+     0,
+     53
+    ],
+    [
+     "2016-02-24",
+     0,
+     41
+    ],
+    [
+     "2016-02-17",
+     2,
+     33
+    ],
+    [
+     "2016-02-10",
+     1,
+     26
+    ],
+    [
+     "2016-02-03",
+     0,
+     26
+    ],
+    [
+     "2016-01-27",
+     1,
+     24
+    ],
+    [
+     "2016-01-20",
+     2,
+     26
+    ],
+    [
+     "2016-01-13",
+     5,
+     29
+    ],
+    [
+     "2016-01-06",
+     5,
+     30
+    ],
+    [
+     "2015-12-30",
+     4,
+     33
+    ],
+    [
+     "2015-12-23",
+     8,
+     38
+    ],
+    [
+     "2015-12-16",
+     4,
+     38
+    ],
+    [
+     "2015-12-09",
+     1,
+     36
+    ],
+    [
+     "2015-12-02",
+     3,
+     39
+    ],
+    [
+     "2015-11-25",
+     2,
+     38
+    ],
+    [
+     "2015-11-18",
+     0,
+     29
+    ],
+    [
+     "2015-11-11",
+     2,
+     30
+    ],
+    [
+     "2015-11-04",
+     7,
+     36
+    ],
+    [
+     "2015-10-28",
+     5,
+     36
+    ],
+    [
+     "2015-10-21",
+     6,
+     38
+    ],
+    [
+     "2015-10-14",
+     4,
+     40
+    ],
+    [
+     "2015-10-07",
+     3,
+     39
+    ],
+    [
+     "2015-09-30",
+     2,
+     39
+    ],
+    [
+     "2015-09-23",
+     3,
+     37
+    ],
+    [
+     "2015-09-16",
+     3,
+     41
+    ],
+    [
+     "2015-09-09",
+     4,
+     41
+    ],
+    [
+     "2015-09-02",
+     4,
+     44
+    ],
+    [
+     "2015-08-26",
+     5,
+     50
+    ],
+    [
+     "2015-08-19",
+     4,
+     46
+    ],
+    [
+     "2015-08-12",
+     4,
+     43
+    ],
+    [
+     "2015-08-05",
+     4,
+     48
+    ],
+    [
+     "2015-07-29",
+     5,
+     50
+    ],
+    [
+     "2015-07-22",
+     3,
+     50
+    ],
+    [
+     "2015-07-15",
+     7,
+     57
+    ],
+    [
+     "2015-07-08",
+     8,
+     59
+    ],
+    [
+     "2015-07-01",
+     7,
+     60
+    ],
+    [
+     "2015-06-24",
+     11,
+     67
+    ],
+    [
+     "2015-06-17",
+     8,
+     68
+    ],
+    [
+     "2015-06-10",
+     14,
+     75
+    ],
+    [
+     "2015-06-03",
+     7,
+     77
+    ],
+    [
+     "2015-05-27",
+     3,
+     75
+    ],
+    [
+     "2015-05-20",
+     7,
+     77
+    ],
+    [
+     "2015-05-13",
+     5,
+     81
+    ],
+    [
+     "2015-05-06",
+     3,
+     84
+    ],
+    [
+     "2015-04-29",
+     4,
+     82
+    ],
+    [
+     "2015-04-22",
+     4,
+     80
+    ],
+    [
+     "2015-04-15",
+     4,
+     82
+    ],
+    [
+     "2015-04-08",
+     5,
+     80
+    ],
+    [
+     "2015-04-01",
+     3,
+     70
+    ],
+    [
+     "2015-03-25",
+     2,
+     63
+    ],
+    [
+     "2015-03-18",
+     0,
+     53
+    ],
+    [
+     "2015-03-11",
+     0,
+     40
+    ],
+    [
+     "2015-03-04",
+     0,
+     37
+    ],
+    [
+     "2015-02-25",
+     0,
+     22
+    ],
+    [
+     "2015-02-18",
+     1,
+     18
+    ],
+    [
+     "2015-02-11",
+     2,
+     21
+    ],
+    [
+     "2015-02-04",
+     1,
+     23
+    ],
+    [
+     "2015-01-28",
+     3,
+     28
+    ],
+    [
+     "2015-01-21",
+     3,
+     28
+    ],
+    [
+     "2015-01-14",
+     5,
+     33
+    ],
+    [
+     "2015-01-07",
+     4,
+     35
+    ],
+    [
+     "2014-12-31",
+     6,
+     36
+    ],
+    [
+     "2014-12-24",
+     3,
+     35
+    ],
+    [
+     "2014-12-17",
+     2,
+     36
+    ],
+    [
+     "2014-12-10",
+     2,
+     36
+    ],
+    [
+     "2014-12-03",
+     1,
+     34
+    ],
+    [
+     "2014-11-26",
+     4,
+     37
+    ],
+    [
+     "2014-11-19",
+     2,
+     33
+    ],
+    [
+     "2014-11-12",
+     1,
+     33
+    ],
+    [
+     "2014-11-05",
+     2,
+     32
+    ],
+    [
+     "2014-10-29",
+     0,
+     30
+    ],
+    [
+     "2014-10-22",
+     2,
+     33
+    ],
+    [
+     "2014-10-15",
+     4,
+     34
+    ],
+    [
+     "2014-10-08",
+     1,
+     34
+    ],
+    [
+     "2014-10-01",
+     4,
+     38
+    ],
+    [
+     "2014-09-24",
+     5,
+     41
+    ],
+    [
+     "2014-09-17",
+     1,
+     42
+    ],
+    [
+     "2014-09-10",
+     1,
+     38
+    ],
+    [
+     "2014-09-03",
+     1,
+     39
+    ],
+    [
+     "2014-08-27",
+     4,
+     41
+    ],
+    [
+     "2014-08-20",
+     0,
+     34
+    ],
+    [
+     "2014-08-13",
+     1,
+     33
+    ],
+    [
+     "2014-08-06",
+     1,
+     34
+    ],
+    [
+     "2014-07-30",
+     3,
+     31
+    ],
+    [
+     "2014-07-23",
+     9,
+     33
+    ],
+    [
+     "2014-07-16",
+     8,
+     31
+    ],
+    [
+     "2014-07-09",
+     2,
+     32
+    ],
+    [
+     "2014-07-02",
+     3,
+     35
+    ],
+    [
+     "2014-06-25",
+     3,
+     33
+    ],
+    [
+     "2014-06-18",
+     4,
+     34
+    ],
+    [
+     "2014-06-11",
+     3,
+     33
+    ],
+    [
+     "2014-06-04",
+     3,
+     32
+    ],
+    [
+     "2014-05-28",
+     1,
+     32
+    ],
+    [
+     "2014-05-21",
+     1,
+     32
+    ],
+    [
+     "2014-05-14",
+     1,
+     33
+    ],
+    [
+     "2014-05-07",
+     1,
+     31
+    ],
+    [
+     "2014-04-30",
+     1,
+     32
+    ],
+    [
+     "2014-04-23",
+     0,
+     33
+    ],
+    [
+     "2014-04-16",
+     2,
+     34
+    ],
+    [
+     "2014-04-09",
+     2,
+     33
+    ],
+    [
+     "2014-04-02",
+     2,
+     33
+    ],
+    [
+     "2014-03-26",
+     1,
+     31
+    ],
+    [
+     "2014-03-19",
+     0,
+     27
+    ],
+    [
+     "2014-03-12",
+     0,
+     26
+    ],
+    [
+     "2014-03-05",
+     0,
+     24
+    ],
+    [
+     "2014-02-26",
+     1,
+     22
+    ],
+    [
+     "2014-02-19",
+     0,
+     22
+    ],
+    [
+     "2014-02-12",
+     0,
+     18
+    ],
+    [
+     "2014-02-05",
+     3,
+     19
+    ],
+    [
+     "2014-01-29",
+     0,
+     19
+    ],
+    [
+     "2014-01-22",
+     0,
+     17
+    ],
+    [
+     "2014-01-15",
+     1,
+     17
+    ],
+    [
+     "2014-01-08",
+     0,
+     18
+    ],
+    [
+     "2014-01-01",
+     0,
+     17
+    ],
+    [
+     "2013-12-25",
+     0,
+     19
+    ],
+    [
+     "2013-12-18",
+     5,
+     21
+    ],
+    [
+     "2013-12-11",
+     3,
+     20
+    ],
+    [
+     "2013-12-04",
+     4,
+     20
+    ],
+    [
+     "2013-11-27",
+     0,
+     16
+    ],
+    [
+     "2013-11-20",
+     1,
+     19
+    ],
+    [
+     "2013-11-13",
+     3,
+     20
+    ],
+    [
+     "2013-11-06",
+     3,
+     18
+    ],
+    [
+     "2013-10-30",
+     2,
+     18
+    ],
+    [
+     "2013-10-23",
+     0,
+     17
+    ],
+    [
+     "2013-10-16",
+     3,
+     20
+    ],
+    [
+     "2013-10-09",
+     7,
+     23
+    ],
+    [
+     "2013-10-02",
+     5,
+     25
+    ],
+    [
+     "2013-09-25",
+     4,
+     24
+    ],
+    [
+     "2013-09-18",
+     2,
+     23
+    ],
+    [
+     "2013-09-11",
+     0,
+     24
+    ],
+    [
+     "2013-09-04",
+     0,
+     23
+    ],
+    [
+     "2013-08-28",
+     0,
+     22
+    ],
+    [
+     "2013-08-21",
+     0,
+     22
+    ],
+    [
+     "2013-08-14",
+     2,
+     24
+    ],
+    [
+     "2013-08-07",
+     6,
+     28
+    ],
+    [
+     "2013-07-31",
+     5,
+     32
+    ],
+    [
+     "2013-07-24",
+     3,
+     32
+    ],
+    [
+     "2013-07-17",
+     1,
+     32
+    ],
+    [
+     "2013-07-10",
+     1,
+     32
+    ],
+    [
+     "2013-07-03",
+     2,
+     31
+    ],
+    [
+     "2013-06-26",
+     3,
+     32
+    ],
+    [
+     "2013-06-19",
+     3,
+     32
+    ],
+    [
+     "2013-06-12",
+     4,
+     32
+    ],
+    [
+     "2013-06-05",
+     2,
+     34
+    ],
+    [
+     "2013-05-29",
+     3,
+     35
+    ],
+    [
+     "2013-05-22",
+     2,
+     36
+    ],
+    [
+     "2013-05-15",
+     1,
+     37
+    ],
+    [
+     "2013-05-08",
+     3,
+     37
+    ],
+    [
+     "2013-05-01",
+     1,
+     36
+    ],
+    [
+     "2013-04-24",
+     1,
+     35
+    ],
+    [
+     "2013-04-17",
+     1,
+     36
+    ],
+    [
+     "2013-04-10",
+     0,
+     32
+    ],
+    [
+     "2013-04-03",
+     2,
+     33
+    ],
+    [
+     "2013-03-27",
+     2,
+     34
+    ],
+    [
+     "2013-03-20",
+     4,
+     34
+    ],
+    [
+     "2013-03-13",
+     4,
+     32
+    ],
+    [
+     "2013-03-06",
+     2,
+     26
+    ],
+    [
+     "2013-02-27",
+     0,
+     24
+    ],
+    [
+     "2013-02-20",
+     0,
+     22
+    ],
+    [
+     "2013-02-13",
+     1,
+     21
+    ],
+    [
+     "2013-02-06",
+     1,
+     22
+    ],
+    [
+     "2013-01-30",
+     1,
+     22
+    ],
+    [
+     "2013-01-23",
+     1,
+     22
+    ],
+    [
+     "2013-01-16",
+     2,
+     24
+    ],
+    [
+     "2013-01-09",
+     2,
+     26
+    ],
+    [
+     "2013-01-02",
+     1,
+     24
+    ],
+    [
+     "2012-12-26",
+     0,
+     24
+    ],
+    [
+     "2012-12-19",
+     3,
+     27
+    ],
+    [
+     "2012-12-12",
+     1,
+     26
+    ],
+    [
+     "2012-12-05",
+     4,
+     29
+    ],
+    [
+     "2012-11-28",
+     4,
+     30
+    ],
+    [
+     "2012-11-21",
+     3,
+     30
+    ],
+    [
+     "2012-11-14",
+     1,
+     31
+    ],
+    [
+     "2012-11-07",
+     3,
+     32
+    ],
+    [
+     "2012-10-31",
+     1,
+     26
+    ],
+    [
+     "2012-10-24",
+     0,
+     26
+    ],
+    [
+     "2012-10-17",
+     1,
+     26
+    ],
+    [
+     "2012-10-10",
+     1,
+     25
+    ],
+    [
+     "2012-10-03",
+     1,
+     24
+    ],
+    [
+     "2012-09-26",
+     0,
+     23
+    ],
+    [
+     "2012-09-19",
+     0,
+     25
+    ],
+    [
+     "2012-09-12",
+     3,
+     27
+    ],
+    [
+     "2012-09-05",
+     2,
+     26
+    ],
+    [
+     "2012-08-29",
+     1,
+     25
+    ],
+    [
+     "2012-08-22",
+     5,
+     29
+    ],
+    [
+     "2012-08-15",
+     3,
+     32
+    ],
+    [
+     "2012-08-08",
+     3,
+     34
+    ],
+    [
+     "2012-08-01",
+     3,
+     34
+    ],
+    [
+     "2012-07-25",
+     6,
+     36
+    ],
+    [
+     "2012-07-18",
+     5,
+     37
+    ],
+    [
+     "2012-07-11",
+     2,
+     36
+    ],
+    [
+     "2012-07-04",
+     2,
+     33
+    ],
+    [
+     "2012-06-27",
+     1,
+     35
+    ],
+    [
+     "2012-06-20",
+     0,
+     34
+    ],
+    [
+     "2012-06-13",
+     1,
+     37
+    ],
+    [
+     "2012-06-06",
+     2,
+     36
+    ],
+    [
+     "2012-05-30",
+     1,
+     37
+    ],
+    [
+     "2012-05-23",
+     2,
+     37
+    ],
+    [
+     "2012-05-16",
+     3,
+     38
+    ],
+    [
+     "2012-05-09",
+     1,
+     36
+    ],
+    [
+     "2012-05-02",
+     1,
+     34
+    ],
+    [
+     "2012-04-25",
+     0,
+     33
+    ],
+    [
+     "2012-04-18",
+     1,
+     33
+    ],
+    [
+     "2012-04-11",
+     1,
+     32
+    ],
+    [
+     "2012-04-04",
+     1,
+     31
+    ],
+    [
+     "2012-03-28",
+     0,
+     31
+    ],
+    [
+     "2012-03-21",
+     0,
+     31
+    ],
+    [
+     "2012-03-14",
+     0,
+     30
+    ],
+    [
+     "2012-03-07",
+     1,
+     29
+    ],
+    [
+     "2012-02-29",
+     1,
+     29
+    ],
+    [
+     "2012-02-22",
+     2,
+     28
+    ],
+    [
+     "2012-02-15",
+     4,
+     29
+    ],
+    [
+     "2012-02-08",
+     3,
+     26
+    ],
+    [
+     "2012-02-01",
+     1,
+     25
+    ],
+    [
+     "2012-01-25",
+     1,
+     26
+    ],
+    [
+     "2012-01-18",
+     1,
+     26
+    ],
+    [
+     "2012-01-11",
+     1,
+     26
+    ],
+    [
+     "2012-01-04",
+     2,
+     28
+    ],
+    [
+     "2011-12-28",
+     5,
+     32
+    ],
+    [
+     "2011-12-21",
+     4,
+     33
+    ],
+    [
+     "2011-12-14",
+     6,
+     34
+    ],
+    [
+     "2011-12-07",
+     2,
+     33
+    ],
+    [
+     "2011-11-30",
+     3,
+     35
+    ],
+    [
+     "2011-11-23",
+     2,
+     35
+    ],
+    [
+     "2011-11-16",
+     2,
+     36
+    ],
+    [
+     "2011-11-09",
+     2,
+     34
+    ],
+    [
+     "2011-11-02",
+     2,
+     35
+    ],
+    [
+     "2011-10-26",
+     1,
+     31
+    ],
+    [
+     "2011-10-19",
+     2,
+     31
+    ],
+    [
+     "2011-10-12",
+     2,
+     31
+    ],
+    [
+     "2011-10-05",
+     3,
+     31
+    ],
+    [
+     "2011-09-28",
+     1,
+     31
+    ],
+    [
+     "2011-09-21",
+     1,
+     31
+    ],
+    [
+     "2011-09-14",
+     2,
+     30
+    ],
+    [
+     "2011-09-07",
+     1,
+     29
+    ],
+    [
+     "2011-08-31",
+     1,
+     29
+    ],
+    [
+     "2011-08-24",
+     1,
+     29
+    ],
+    [
+     "2011-08-17",
+     1,
+     27
+    ],
+    [
+     "2011-08-10",
+     2,
+     29
+    ],
+    [
+     "2011-08-03",
+     3,
+     29
+    ],
+    [
+     "2011-07-27",
+     2,
+     29
+    ],
+    [
+     "2011-07-20",
+     3,
+     30
+    ],
+    [
+     "2011-07-13",
+     5,
+     31
+    ],
+    [
+     "2011-07-06",
+     4,
+     32
+    ],
+    [
+     "2011-06-29",
+     2,
+     32
+    ],
+    [
+     "2011-06-22",
+     1,
+     31
+    ],
+    [
+     "2011-06-15",
+     3,
+     33
+    ],
+    [
+     "2011-06-08",
+     1,
+     32
+    ],
+    [
+     "2011-06-01",
+     1,
+     29
+    ],
+    [
+     "2011-05-25",
+     0,
+     30
+    ],
+    [
+     "2011-05-18",
+     2,
+     31
+    ],
+    [
+     "2011-05-11",
+     2,
+     30
+    ],
+    [
+     "2011-05-04",
+     0,
+     29
+    ],
+    [
+     "2011-04-27",
+     0,
+     28
+    ],
+    [
+     "2011-04-20",
+     0,
+     29
+    ],
+    [
+     "2011-04-13",
+     2,
+     31
+    ],
+    [
+     "2011-04-06",
+     2,
+     29
+    ],
+    [
+     "2011-03-30",
+     3,
+     29
+    ],
+    [
+     "2011-03-23",
+     0,
+     30
+    ],
+    [
+     "2011-03-16",
+     1,
+     30
+    ],
+    [
+     "2011-03-09",
+     2,
+     29
+    ],
+    [
+     "2011-03-02",
+     3,
+     29
+    ],
+    [
+     "2011-02-23",
+     2,
+     27
+    ],
+    [
+     "2011-02-16",
+     4,
+     26
+    ],
+    [
+     "2011-02-09",
+     3,
+     25
+    ],
+    [
+     "2011-02-02",
+     2,
+     26
+    ],
+    [
+     "2011-01-26",
+     3,
+     28
+    ],
+    [
+     "2011-01-19",
+     2,
+     30
+    ],
+    [
+     "2011-01-12",
+     3,
+     30
+    ],
+    [
+     "2011-01-05",
+     1,
+     28
+    ],
+    [
+     "2010-12-29",
+     1,
+     28
+    ],
+    [
+     "2010-12-22",
+     1,
+     26
+    ],
+    [
+     "2010-12-15",
+     2,
+     27
+    ],
+    [
+     "2010-12-08",
+     2,
+     25
+    ],
+    [
+     "2010-12-01",
+     1,
+     25
+    ],
+    [
+     "2010-11-24",
+     1,
+     26
+    ],
+    [
+     "2010-11-17",
+     2,
+     28
+    ],
+    [
+     "2010-11-10",
+     3,
+     27
+    ],
+    [
+     "2010-11-03",
+     4,
+     27
+    ],
+    [
+     "2010-10-27",
+     1,
+     23
+    ],
+    [
+     "2010-10-20",
+     0,
+     21
+    ],
+    [
+     "2010-10-13",
+     1,
+     21
+    ],
+    [
+     "2010-10-06",
+     2,
+     19
+    ],
+    [
+     "2010-09-29",
+     2,
+     18
+    ],
+    [
+     "2010-09-22",
+     1,
+     17
+    ],
+    [
+     "2010-09-15",
+     0,
+     18
+    ],
+    [
+     "2010-09-08",
+     0,
+     17
+    ],
+    [
+     "2010-09-01",
+     1,
+     17
+    ],
+    [
+     "2010-08-25",
+     2,
+     18
+    ],
+    [
+     "2010-08-18",
+     4,
+     21
+    ],
+    [
+     "2010-08-11",
+     5,
+     22
+    ],
+    [
+     "2010-08-04",
+     4,
+     21
+    ],
+    [
+     "2010-07-28",
+     1,
+     21
+    ],
+    [
+     "2010-07-21",
+     0,
+     22
+    ],
+    [
+     "2010-07-14",
+     0,
+     22
+    ],
+    [
+     "2010-07-07",
+     0,
+     22
+    ],
+    [
+     "2010-06-30",
+     1,
+     22
+    ],
+    [
+     "2010-06-23",
+     2,
+     22
+    ],
+    [
+     "2010-06-16",
+     1,
+     22
+    ],
+    [
+     "2010-06-09",
+     0,
+     22
+    ],
+    [
+     "2010-06-02",
+     0,
+     21
+    ],
+    [
+     "2010-05-26",
+     2,
+     23
+    ],
+    [
+     "2010-05-19",
+     1,
+     24
+    ],
+    [
+     "2010-05-12",
+     2,
+     23
+    ],
+    [
+     "2010-05-05",
+     1,
+     21
+    ],
+    [
+     "2010-04-28",
+     3,
+     22
+    ],
+    [
+     "2010-04-21",
+     2,
+     24
+    ],
+    [
+     "2010-04-14",
+     4,
+     25
+    ],
+    [
+     "2010-04-07",
+     5,
+     25
+    ],
+    [
+     "2010-03-31",
+     4,
+     25
+    ],
+    [
+     "2010-03-24",
+     4,
+     26
+    ],
+    [
+     "2010-03-17",
+     4,
+     28
+    ],
+    [
+     "2010-03-10",
+     2,
+     25
+    ],
+    [
+     "2010-03-03",
+     3,
+     22
+    ],
+    [
+     "2010-02-24",
+     2,
+     21
+    ],
+    [
+     "2010-02-17",
+     1,
+     16
+    ],
+    [
+     "2010-02-10",
+     1,
+     14
+    ],
+    [
+     "2010-02-03",
+     1,
+     15
+    ],
+    [
+     "2010-01-27",
+     1,
+     15
+    ],
+    [
+     "2010-01-20",
+     2,
+     15
+    ],
+    [
+     "2010-01-13",
+     0,
+     17
+    ],
+    [
+     "2010-01-06",
+     2,
+     18
+    ],
+    [
+     "2009-12-30",
+     4,
+     20
+    ],
+    [
+     "2009-12-23",
+     3,
+     20
+    ],
+    [
+     "2009-12-16",
+     6,
+     22
+    ],
+    [
+     "2009-12-09",
+     4,
+     24
+    ],
+    [
+     "2009-12-02",
+     4,
+     26
+    ],
+    [
+     "2009-11-25",
+     5,
+     28
+    ],
+    [
+     "2009-11-18",
+     4,
+     30
+    ],
+    [
+     "2009-11-11",
+     2,
+     27
+    ],
+    [
+     "2009-11-04",
+     0,
+     26
+    ],
+    [
+     "2009-10-28",
+     0,
+     25
+    ],
+    [
+     "2009-10-21",
+     2,
+     24
+    ],
+    [
+     "2009-10-14",
+     0,
+     23
+    ],
+    [
+     "2009-10-07",
+     1,
+     24
+    ],
+    [
+     "2009-09-30",
+     1,
+     26
+    ],
+    [
+     "2009-09-23",
+     2,
+     27
+    ],
+    [
+     "2009-09-16",
+     3,
+     25
+    ],
+    [
+     "2009-09-09",
+     3,
+     25
+    ],
+    [
+     "2009-09-02",
+     3,
+     23
+    ],
+    [
+     "2009-08-26",
+     0,
+     20
+    ],
+    [
+     "2009-08-19",
+     0,
+     18
+    ],
+    [
+     "2009-08-12",
+     2,
+     16
+    ]
+   ],
+   "share_max": 0.304348,
+   "share_median": 0.060606,
+   "share_p90": 0.151515,
+   "skipped_fewer_active_markets_than_floor": 79,
+   "skipped_overlapping_a_closure_document": 1,
+   "windows": 377,
+   "windows_at_or_above_event_share": 0
+  },
+  "MP-2017-strike": {
+   "event": {
+    "object_absent": 35,
+    "share": 0.346535,
+    "units": 101
+   },
+   "expected_in_cell_at_median_share": 7.769231,
+   "rows": [
+    [
+     "2017-05-18",
+     10,
+     105
+    ],
+    [
+     "2017-05-11",
+     6,
+     105
+    ],
+    [
+     "2017-05-04",
+     3,
+     101
+    ],
+    [
+     "2017-04-27",
+     9,
+     102
+    ],
+    [
+     "2017-04-20",
+     9,
+     109
+    ],
+    [
+     "2017-04-13",
+     5,
+     107
+    ],
+    [
+     "2017-04-06",
+     8,
+     102
+    ],
+    [
+     "2017-03-30",
+     6,
+     104
+    ],
+    [
+     "2017-03-23",
+     9,
+     96
+    ],
+    [
+     "2017-03-16",
+     5,
+     86
+    ],
+    [
+     "2017-03-09",
+     5,
+     81
+    ],
+    [
+     "2017-03-02",
+     1,
+     73
+    ],
+    [
+     "2017-02-23",
+     1,
+     67
+    ],
+    [
+     "2017-02-16",
+     1,
+     60
+    ],
+    [
+     "2017-02-09",
+     0,
+     53
+    ],
+    [
+     "2017-02-02",
+     5,
+     55
+    ],
+    [
+     "2017-01-26",
+     9,
+     59
+    ],
+    [
+     "2017-01-19",
+     4,
+     55
+    ],
+    [
+     "2017-01-12",
+     6,
+     61
+    ],
+    [
+     "2017-01-05",
+     5,
+     62
+    ],
+    [
+     "2016-12-29",
+     6,
+     59
+    ],
+    [
+     "2016-12-22",
+     9,
+     57
+    ],
+    [
+     "2016-12-15",
+     1,
+     51
+    ],
+    [
+     "2016-12-08",
+     2,
+     49
+    ],
+    [
+     "2016-12-01",
+     2,
+     52
+    ],
+    [
+     "2016-11-24",
+     3,
+     52
+    ],
+    [
+     "2016-10-27",
+     3,
+     62
+    ],
+    [
+     "2016-10-20",
+     3,
+     58
+    ],
+    [
+     "2016-10-13",
+     1,
+     46
+    ],
+    [
+     "2016-10-06",
+     5,
+     49
+    ],
+    [
+     "2016-09-29",
+     4,
+     45
+    ],
+    [
+     "2016-09-22",
+     2,
+     45
+    ],
+    [
+     "2016-09-15",
+     3,
+     44
+    ],
+    [
+     "2016-09-08",
+     0,
+     41
+    ],
+    [
+     "2016-09-01",
+     1,
+     44
+    ],
+    [
+     "2016-08-25",
+     7,
+     50
+    ],
+    [
+     "2016-08-18",
+     11,
+     56
+    ],
+    [
+     "2016-08-11",
+     16,
+     68
+    ],
+    [
+     "2016-08-04",
+     6,
+     63
+    ],
+    [
+     "2016-07-28",
+     6,
+     73
+    ],
+    [
+     "2016-07-21",
+     7,
+     76
+    ],
+    [
+     "2016-07-14",
+     13,
+     80
+    ],
+    [
+     "2016-07-07",
+     14,
+     83
+    ],
+    [
+     "2016-06-30",
+     10,
+     86
+    ],
+    [
+     "2016-06-23",
+     10,
+     91
+    ],
+    [
+     "2016-06-16",
+     8,
+     93
+    ],
+    [
+     "2016-06-09",
+     6,
+     96
+    ],
+    [
+     "2016-06-02",
+     4,
+     94
+    ],
+    [
+     "2016-05-26",
+     7,
+     96
+    ],
+    [
+     "2016-05-19",
+     6,
+     96
+    ],
+    [
+     "2016-05-12",
+     2,
+     95
+    ],
+    [
+     "2016-05-05",
+     2,
+     96
+    ],
+    [
+     "2016-04-28",
+     7,
+     97
+    ],
+    [
+     "2016-04-21",
+     6,
+     95
+    ],
+    [
+     "2016-04-14",
+     4,
+     93
+    ],
+    [
+     "2016-04-07",
+     4,
+     92
+    ],
+    [
+     "2016-03-31",
+     3,
+     88
+    ],
+    [
+     "2016-03-24",
+     5,
+     84
+    ],
+    [
+     "2016-03-17",
+     7,
+     76
+    ],
+    [
+     "2016-03-10",
+     1,
+     71
+    ],
+    [
+     "2016-03-03",
+     0,
+     57
+    ],
+    [
+     "2016-02-25",
+     0,
+     43
+    ],
+    [
+     "2016-02-18",
+     2,
+     36
+    ],
+    [
+     "2016-02-11",
+     2,
+     26
+    ],
+    [
+     "2016-02-04",
+     0,
+     27
+    ],
+    [
+     "2016-01-28",
+     1,
+     22
+    ],
+    [
+     "2016-01-21",
+     3,
+     26
+    ],
+    [
+     "2016-01-14",
+     6,
+     27
+    ],
+    [
+     "2016-01-07",
+     6,
+     30
+    ],
+    [
+     "2015-12-31",
+     4,
+     33
+    ],
+    [
+     "2015-12-24",
+     10,
+     38
+    ],
+    [
+     "2015-12-17",
+     5,
+     39
+    ],
+    [
+     "2015-12-10",
+     2,
+     37
+    ],
+    [
+     "2015-12-03",
+     3,
+     38
+    ],
+    [
+     "2015-11-26",
+     1,
+     38
+    ],
+    [
+     "2015-11-19",
+     1,
+     31
+    ],
+    [
+     "2015-11-12",
+     4,
+     30
+    ],
+    [
+     "2015-11-05",
+     11,
+     36
+    ],
+    [
+     "2015-10-29",
+     6,
+     38
+    ],
+    [
+     "2015-10-22",
+     11,
+     39
+    ],
+    [
+     "2015-10-15",
+     5,
+     40
+    ],
+    [
+     "2015-10-08",
+     4,
+     40
+    ],
+    [
+     "2015-10-01",
+     2,
+     40
+    ],
+    [
+     "2015-09-24",
+     6,
+     39
+    ],
+    [
+     "2015-09-17",
+     3,
+     40
+    ],
+    [
+     "2015-09-10",
+     7,
+     41
+    ],
+    [
+     "2015-09-03",
+     4,
+     44
+    ],
+    [
+     "2015-08-27",
+     9,
+     50
+    ],
+    [
+     "2015-08-20",
+     4,
+     46
+    ],
+    [
+     "2015-08-13",
+     5,
+     44
+    ],
+    [
+     "2015-08-06",
+     5,
+     48
+    ],
+    [
+     "2015-07-30",
+     6,
+     50
+    ],
+    [
+     "2015-07-23",
+     4,
+     50
+    ],
+    [
+     "2015-07-16",
+     12,
+     56
+    ],
+    [
+     "2015-07-09",
+     11,
+     59
+    ],
+    [
+     "2015-07-02",
+     9,
+     60
+    ],
+    [
+     "2015-06-25",
+     11,
+     65
+    ],
+    [
+     "2015-06-18",
+     11,
+     69
+    ],
+    [
+     "2015-06-11",
+     16,
+     76
+    ],
+    [
+     "2015-06-04",
+     8,
+     77
+    ],
+    [
+     "2015-05-28",
+     7,
+     76
+    ],
+    [
+     "2015-05-21",
+     7,
+     77
+    ],
+    [
+     "2015-05-14",
+     9,
+     83
+    ],
+    [
+     "2015-05-07",
+     8,
+     84
+    ],
+    [
+     "2015-04-30",
+     6,
+     82
+    ],
+    [
+     "2015-04-23",
+     7,
+     80
+    ],
+    [
+     "2015-04-16",
+     5,
+     82
+    ],
+    [
+     "2015-04-09",
+     6,
+     83
+    ],
+    [
+     "2015-04-02",
+     4,
+     72
+    ],
+    [
+     "2015-03-26",
+     6,
+     65
+    ],
+    [
+     "2015-03-19",
+     1,
+     56
+    ],
+    [
+     "2015-03-12",
+     2,
+     43
+    ],
+    [
+     "2015-03-05",
+     0,
+     38
+    ],
+    [
+     "2015-02-26",
+     0,
+     25
+    ],
+    [
+     "2015-02-19",
+     1,
+     20
+    ],
+    [
+     "2015-02-12",
+     2,
+     20
+    ],
+    [
+     "2015-02-05",
+     1,
+     24
+    ],
+    [
+     "2015-01-29",
+     4,
+     26
+    ],
+    [
+     "2015-01-22",
+     3,
+     29
+    ],
+    [
+     "2015-01-15",
+     6,
+     33
+    ],
+    [
+     "2015-01-08",
+     5,
+     35
+    ],
+    [
+     "2015-01-01",
+     7,
+     36
+    ],
+    [
+     "2014-12-25",
+     3,
+     35
+    ],
+    [
+     "2014-12-18",
+     3,
+     35
+    ],
+    [
+     "2014-12-11",
+     2,
+     35
+    ],
+    [
+     "2014-12-04",
+     3,
+     36
+    ],
+    [
+     "2014-11-27",
+     4,
+     37
+    ],
+    [
+     "2014-11-20",
+     2,
+     33
+    ],
+    [
+     "2014-11-13",
+     2,
+     34
+    ],
+    [
+     "2014-11-06",
+     2,
+     33
+    ],
+    [
+     "2014-10-30",
+     0,
+     29
+    ],
+    [
+     "2014-10-23",
+     3,
+     31
+    ],
+    [
+     "2014-10-16",
+     5,
+     33
+    ],
+    [
+     "2014-10-09",
+     1,
+     33
+    ],
+    [
+     "2014-10-02",
+     5,
+     37
+    ],
+    [
+     "2014-09-25",
+     6,
+     41
+    ],
+    [
+     "2014-09-18",
+     4,
+     42
+    ],
+    [
+     "2014-09-11",
+     3,
+     39
+    ],
+    [
+     "2014-09-04",
+     3,
+     38
+    ],
+    [
+     "2014-08-28",
+     5,
+     40
+    ],
+    [
+     "2014-08-21",
+     2,
+     36
+    ],
+    [
+     "2014-08-14",
+     2,
+     33
+    ],
+    [
+     "2014-08-07",
+     1,
+     34
+    ],
+    [
+     "2014-07-31",
+     3,
+     31
+    ],
+    [
+     "2014-07-24",
+     10,
+     34
+    ],
+    [
+     "2014-07-17",
+     9,
+     32
+    ],
+    [
+     "2014-07-10",
+     6,
+     32
+    ],
+    [
+     "2014-07-03",
+     5,
+     35
+    ],
+    [
+     "2014-06-26",
+     5,
+     33
+    ],
+    [
+     "2014-06-19",
+     4,
+     34
+    ],
+    [
+     "2014-06-12",
+     3,
+     34
+    ],
+    [
+     "2014-06-05",
+     2,
+     31
+    ],
+    [
+     "2014-05-29",
+     1,
+     32
+    ],
+    [
+     "2014-05-22",
+     1,
+     32
+    ],
+    [
+     "2014-05-15",
+     2,
+     33
+    ],
+    [
+     "2014-05-08",
+     2,
+     32
+    ],
+    [
+     "2014-05-01",
+     1,
+     32
+    ],
+    [
+     "2014-04-24",
+     1,
+     33
+    ],
+    [
+     "2014-04-17",
+     2,
+     34
+    ],
+    [
+     "2014-04-10",
+     3,
+     33
+    ],
+    [
+     "2014-04-03",
+     2,
+     33
+    ],
+    [
+     "2014-03-27",
+     2,
+     32
+    ],
+    [
+     "2014-03-20",
+     1,
+     27
+    ],
+    [
+     "2014-03-13",
+     0,
+     26
+    ],
+    [
+     "2014-03-06",
+     0,
+     25
+    ],
+    [
+     "2014-02-27",
+     1,
+     24
+    ],
+    [
+     "2014-02-20",
+     0,
+     22
+    ],
+    [
+     "2014-02-13",
+     0,
+     18
+    ],
+    [
+     "2014-02-06",
+     3,
+     19
+    ],
+    [
+     "2014-01-30",
+     1,
+     20
+    ],
+    [
+     "2014-01-23",
+     0,
+     18
+    ],
+    [
+     "2014-01-16",
+     1,
+     17
+    ],
+    [
+     "2014-01-09",
+     0,
+     17
+    ],
+    [
+     "2014-01-02",
+     0,
+     17
+    ],
+    [
+     "2013-12-26",
+     1,
+     19
+    ],
+    [
+     "2013-12-19",
+     7,
+     21
+    ],
+    [
+     "2013-12-12",
+     3,
+     20
+    ],
+    [
+     "2013-12-05",
+     5,
+     20
+    ],
+    [
+     "2013-11-28",
+     0,
+     18
+    ],
+    [
+     "2013-11-21",
+     1,
+     18
+    ],
+    [
+     "2013-11-14",
+     3,
+     20
+    ],
+    [
+     "2013-11-07",
+     3,
+     18
+    ],
+    [
+     "2013-10-31",
+     4,
+     18
+    ],
+    [
+     "2013-10-24",
+     0,
+     18
+    ],
+    [
+     "2013-10-17",
+     3,
+     20
+    ],
+    [
+     "2013-10-10",
+     7,
+     23
+    ],
+    [
+     "2013-10-03",
+     6,
+     25
+    ],
+    [
+     "2013-09-26",
+     6,
+     24
+    ],
+    [
+     "2013-09-19",
+     3,
+     23
+    ],
+    [
+     "2013-09-12",
+     1,
+     24
+    ],
+    [
+     "2013-09-05",
+     0,
+     23
+    ],
+    [
+     "2013-08-29",
+     1,
+     22
+    ],
+    [
+     "2013-08-22",
+     0,
+     22
+    ],
+    [
+     "2013-08-15",
+     2,
+     24
+    ],
+    [
+     "2013-08-08",
+     5,
+     27
+    ],
+    [
+     "2013-08-01",
+     7,
+     31
+    ],
+    [
+     "2013-07-25",
+     5,
+     31
+    ],
+    [
+     "2013-07-18",
+     4,
+     32
+    ],
+    [
+     "2013-07-11",
+     0,
+     31
+    ],
+    [
+     "2013-07-04",
+     2,
+     31
+    ],
+    [
+     "2013-06-27",
+     3,
+     32
+    ],
+    [
+     "2013-06-20",
+     5,
+     32
+    ],
+    [
+     "2013-06-13",
+     4,
+     32
+    ],
+    [
+     "2013-06-06",
+     3,
+     34
+    ],
+    [
+     "2013-05-30",
+     3,
+     35
+    ],
+    [
+     "2013-05-23",
+     3,
+     36
+    ],
+    [
+     "2013-05-16",
+     2,
+     37
+    ],
+    [
+     "2013-05-09",
+     3,
+     37
+    ],
+    [
+     "2013-05-02",
+     1,
+     36
+    ],
+    [
+     "2013-04-25",
+     1,
+     35
+    ],
+    [
+     "2013-04-18",
+     1,
+     36
+    ],
+    [
+     "2013-04-11",
+     1,
+     32
+    ],
+    [
+     "2013-04-04",
+     2,
+     33
+    ],
+    [
+     "2013-03-28",
+     2,
+     34
+    ],
+    [
+     "2013-03-21",
+     7,
+     34
+    ],
+    [
+     "2013-03-14",
+     4,
+     32
+    ],
+    [
+     "2013-03-07",
+     2,
+     29
+    ],
+    [
+     "2013-02-28",
+     0,
+     25
+    ],
+    [
+     "2013-02-21",
+     0,
+     23
+    ],
+    [
+     "2013-02-14",
+     1,
+     21
+    ],
+    [
+     "2013-02-07",
+     1,
+     22
+    ],
+    [
+     "2013-01-31",
+     2,
+     22
+    ],
+    [
+     "2013-01-24",
+     1,
+     22
+    ],
+    [
+     "2013-01-17",
+     2,
+     24
+    ],
+    [
+     "2013-01-10",
+     2,
+     25
+    ],
+    [
+     "2013-01-03",
+     2,
+     24
+    ],
+    [
+     "2012-12-27",
+     0,
+     24
+    ],
+    [
+     "2012-12-20",
+     4,
+     27
+    ],
+    [
+     "2012-12-13",
+     2,
+     26
+    ],
+    [
+     "2012-12-06",
+     4,
+     29
+    ],
+    [
+     "2012-11-29",
+     6,
+     30
+    ],
+    [
+     "2012-11-22",
+     3,
+     29
+    ],
+    [
+     "2012-11-15",
+     1,
+     31
+    ],
+    [
+     "2012-11-08",
+     4,
+     32
+    ],
+    [
+     "2012-11-01",
+     2,
+     28
+    ],
+    [
+     "2012-10-25",
+     1,
+     26
+    ],
+    [
+     "2012-10-18",
+     1,
+     26
+    ],
+    [
+     "2012-10-11",
+     1,
+     25
+    ],
+    [
+     "2012-10-04",
+     2,
+     24
+    ],
+    [
+     "2012-09-27",
+     0,
+     24
+    ],
+    [
+     "2012-09-20",
+     0,
+     25
+    ],
+    [
+     "2012-09-13",
+     1,
+     25
+    ],
+    [
+     "2012-09-06",
+     3,
+     26
+    ],
+    [
+     "2012-08-30",
+     1,
+     25
+    ],
+    [
+     "2012-08-23",
+     4,
+     27
+    ],
+    [
+     "2012-08-16",
+     2,
+     30
+    ],
+    [
+     "2012-08-09",
+     2,
+     33
+    ],
+    [
+     "2012-08-02",
+     4,
+     34
+    ],
+    [
+     "2012-07-26",
+     6,
+     36
+    ],
+    [
+     "2012-07-19",
+     6,
+     38
+    ],
+    [
+     "2012-07-12",
+     2,
+     36
+    ],
+    [
+     "2012-07-05",
+     2,
+     33
+    ],
+    [
+     "2012-06-28",
+     2,
+     35
+    ],
+    [
+     "2012-06-21",
+     0,
+     34
+    ],
+    [
+     "2012-06-14",
+     1,
+     36
+    ],
+    [
+     "2012-06-07",
+     2,
+     36
+    ],
+    [
+     "2012-05-31",
+     2,
+     37
+    ],
+    [
+     "2012-05-24",
+     2,
+     36
+    ],
+    [
+     "2012-05-17",
+     3,
+     37
+    ],
+    [
+     "2012-05-10",
+     1,
+     36
+    ],
+    [
+     "2012-05-03",
+     1,
+     34
+    ],
+    [
+     "2012-04-26",
+     0,
+     33
+    ],
+    [
+     "2012-04-19",
+     1,
+     33
+    ],
+    [
+     "2012-04-12",
+     1,
+     32
+    ],
+    [
+     "2012-04-05",
+     3,
+     31
+    ],
+    [
+     "2012-03-29",
+     1,
+     31
+    ],
+    [
+     "2012-03-22",
+     0,
+     31
+    ],
+    [
+     "2012-03-15",
+     0,
+     30
+    ],
+    [
+     "2012-03-08",
+     1,
+     29
+    ],
+    [
+     "2012-03-01",
+     3,
+     29
+    ],
+    [
+     "2012-02-23",
+     2,
+     28
+    ],
+    [
+     "2012-02-16",
+     4,
+     29
+    ],
+    [
+     "2012-02-09",
+     3,
+     27
+    ],
+    [
+     "2012-02-02",
+     2,
+     26
+    ],
+    [
+     "2012-01-26",
+     2,
+     26
+    ],
+    [
+     "2012-01-19",
+     0,
+     24
+    ],
+    [
+     "2012-01-12",
+     2,
+     26
+    ],
+    [
+     "2012-01-05",
+     2,
+     28
+    ],
+    [
+     "2011-12-29",
+     5,
+     30
+    ],
+    [
+     "2011-12-22",
+     6,
+     33
+    ],
+    [
+     "2011-12-15",
+     6,
+     33
+    ],
+    [
+     "2011-12-08",
+     5,
+     33
+    ],
+    [
+     "2011-12-01",
+     2,
+     35
+    ],
+    [
+     "2011-11-24",
+     5,
+     35
+    ],
+    [
+     "2011-11-17",
+     2,
+     36
+    ],
+    [
+     "2011-11-10",
+     2,
+     35
+    ],
+    [
+     "2011-11-03",
+     2,
+     35
+    ],
+    [
+     "2011-10-27",
+     1,
+     31
+    ],
+    [
+     "2011-10-20",
+     3,
+     30
+    ],
+    [
+     "2011-10-13",
+     2,
+     31
+    ],
+    [
+     "2011-10-06",
+     3,
+     31
+    ],
+    [
+     "2011-09-29",
+     2,
+     31
+    ],
+    [
+     "2011-09-22",
+     1,
+     31
+    ],
+    [
+     "2011-09-15",
+     2,
+     30
+    ],
+    [
+     "2011-09-08",
+     1,
+     29
+    ],
+    [
+     "2011-09-01",
+     1,
+     29
+    ],
+    [
+     "2011-08-25",
+     3,
+     28
+    ],
+    [
+     "2011-08-18",
+     1,
+     27
+    ],
+    [
+     "2011-08-11",
+     2,
+     30
+    ],
+    [
+     "2011-08-04",
+     4,
+     29
+    ],
+    [
+     "2011-07-28",
+     2,
+     29
+    ],
+    [
+     "2011-07-21",
+     3,
+     28
+    ],
+    [
+     "2011-07-14",
+     6,
+     31
+    ],
+    [
+     "2011-07-07",
+     4,
+     32
+    ],
+    [
+     "2011-06-30",
+     3,
+     32
+    ],
+    [
+     "2011-06-23",
+     2,
+     31
+    ],
+    [
+     "2011-06-16",
+     5,
+     33
+    ],
+    [
+     "2011-06-09",
+     1,
+     32
+    ],
+    [
+     "2011-06-02",
+     2,
+     29
+    ],
+    [
+     "2011-05-26",
+     2,
+     31
+    ],
+    [
+     "2011-05-19",
+     3,
+     31
+    ],
+    [
+     "2011-05-12",
+     2,
+     30
+    ],
+    [
+     "2011-05-05",
+     0,
+     29
+    ],
+    [
+     "2011-04-28",
+     1,
+     28
+    ],
+    [
+     "2011-04-21",
+     0,
+     29
+    ],
+    [
+     "2011-04-14",
+     2,
+     31
+    ],
+    [
+     "2011-04-07",
+     3,
+     30
+    ],
+    [
+     "2011-03-31",
+     4,
+     29
+    ],
+    [
+     "2011-03-24",
+     3,
+     30
+    ],
+    [
+     "2011-03-17",
+     1,
+     30
+    ],
+    [
+     "2011-03-10",
+     2,
+     29
+    ],
+    [
+     "2011-03-03",
+     3,
+     29
+    ],
+    [
+     "2011-02-24",
+     3,
+     27
+    ],
+    [
+     "2011-02-17",
+     4,
+     26
+    ],
+    [
+     "2011-02-10",
+     4,
+     25
+    ],
+    [
+     "2011-02-03",
+     1,
+     25
+    ],
+    [
+     "2011-01-27",
+     4,
+     27
+    ],
+    [
+     "2011-01-20",
+     5,
+     30
+    ],
+    [
+     "2011-01-13",
+     4,
+     30
+    ],
+    [
+     "2011-01-06",
+     2,
+     28
+    ],
+    [
+     "2010-12-30",
+     1,
+     28
+    ],
+    [
+     "2010-12-23",
+     2,
+     26
+    ],
+    [
+     "2010-12-16",
+     2,
+     26
+    ],
+    [
+     "2010-12-09",
+     2,
+     25
+    ],
+    [
+     "2010-12-02",
+     1,
+     25
+    ],
+    [
+     "2010-11-25",
+     1,
+     27
+    ],
+    [
+     "2010-11-18",
+     1,
+     27
+    ],
+    [
+     "2010-11-11",
+     4,
+     28
+    ],
+    [
+     "2010-11-04",
+     5,
+     27
+    ],
+    [
+     "2010-10-28",
+     1,
+     24
+    ],
+    [
+     "2010-10-21",
+     0,
+     22
+    ],
+    [
+     "2010-10-14",
+     1,
+     21
+    ],
+    [
+     "2010-10-07",
+     2,
+     20
+    ],
+    [
+     "2010-09-30",
+     2,
+     19
+    ],
+    [
+     "2010-09-23",
+     1,
+     18
+    ],
+    [
+     "2010-09-16",
+     2,
+     17
+    ],
+    [
+     "2010-09-09",
+     0,
+     17
+    ],
+    [
+     "2010-09-02",
+     2,
+     17
+    ],
+    [
+     "2010-08-26",
+     2,
+     18
+    ],
+    [
+     "2010-08-19",
+     5,
+     21
+    ],
+    [
+     "2010-08-12",
+     5,
+     22
+    ],
+    [
+     "2010-08-05",
+     4,
+     21
+    ],
+    [
+     "2010-07-29",
+     1,
+     21
+    ],
+    [
+     "2010-07-22",
+     0,
+     22
+    ],
+    [
+     "2010-07-15",
+     0,
+     22
+    ],
+    [
+     "2010-07-08",
+     1,
+     22
+    ],
+    [
+     "2010-07-01",
+     1,
+     22
+    ],
+    [
+     "2010-06-24",
+     2,
+     22
+    ],
+    [
+     "2010-06-17",
+     1,
+     22
+    ],
+    [
+     "2010-06-10",
+     0,
+     22
+    ],
+    [
+     "2010-06-03",
+     0,
+     21
+    ],
+    [
+     "2010-05-27",
+     2,
+     23
+    ],
+    [
+     "2010-05-20",
+     2,
+     24
+    ],
+    [
+     "2010-05-13",
+     2,
+     24
+    ],
+    [
+     "2010-05-06",
+     2,
+     21
+    ],
+    [
+     "2010-04-29",
+     3,
+     22
+    ],
+    [
+     "2010-04-22",
+     2,
+     24
+    ],
+    [
+     "2010-04-15",
+     4,
+     25
+    ],
+    [
+     "2010-04-08",
+     4,
+     23
+    ],
+    [
+     "2010-04-01",
+     6,
+     25
+    ],
+    [
+     "2010-03-25",
+     4,
+     26
+    ],
+    [
+     "2010-03-18",
+     4,
+     28
+    ],
+    [
+     "2010-03-11",
+     3,
+     27
+    ],
+    [
+     "2010-03-04",
+     3,
+     24
+    ],
+    [
+     "2010-02-25",
+     2,
+     21
+    ],
+    [
+     "2010-02-18",
+     2,
+     16
+    ],
+    [
+     "2010-02-11",
+     1,
+     14
+    ],
+    [
+     "2010-02-04",
+     1,
+     15
+    ],
+    [
+     "2010-01-28",
+     2,
+     15
+    ],
+    [
+     "2010-01-21",
+     1,
+     14
+    ],
+    [
+     "2010-01-14",
+     1,
+     17
+    ],
+    [
+     "2010-01-07",
+     2,
+     17
+    ],
+    [
+     "2009-12-31",
+     3,
+     19
+    ],
+    [
+     "2009-12-24",
+     5,
+     22
+    ],
+    [
+     "2009-12-17",
+     7,
+     22
+    ],
+    [
+     "2009-12-10",
+     4,
+     22
+    ],
+    [
+     "2009-12-03",
+     6,
+     26
+    ],
+    [
+     "2009-11-26",
+     6,
+     27
+    ],
+    [
+     "2009-11-19",
+     5,
+     30
+    ],
+    [
+     "2009-11-12",
+     3,
+     28
+    ],
+    [
+     "2009-11-05",
+     0,
+     26
+    ],
+    [
+     "2009-10-29",
+     1,
+     25
+    ],
+    [
+     "2009-10-22",
+     2,
+     24
+    ],
+    [
+     "2009-10-15",
+     1,
+     23
+    ],
+    [
+     "2009-10-08",
+     2,
+     25
+    ],
+    [
+     "2009-10-01",
+     1,
+     26
+    ],
+    [
+     "2009-09-24",
+     2,
+     27
+    ],
+    [
+     "2009-09-17",
+     4,
+     26
+    ],
+    [
+     "2009-09-10",
+     3,
+     25
+    ],
+    [
+     "2009-09-03",
+     3,
+     23
+    ],
+    [
+     "2009-08-27",
+     2,
+     21
+    ],
+    [
+     "2009-08-20",
+     1,
+     19
+    ],
+    [
+     "2009-08-13",
+     2,
+     16
+    ]
+   ],
+   "share_max": 0.333333,
+   "share_median": 0.076923,
+   "share_p90": 0.170732,
+   "skipped_fewer_active_markets_than_floor": 80,
+   "skipped_overlapping_a_closure_document": 4,
+   "windows": 403,
+   "windows_at_or_above_event_share": 0
+  }
+ },
+ "object_absent_units": {
+  "MP-2016-cash": {
+   "closure_first_day": "2016-11-09",
+   "last_filing_dates": {
+    "2016-10-20": 1,
+    "2016-10-23": 1,
+    "2016-10-27": 1,
+    "2016-10-29": 1,
+    "2016-11-02": 1,
+    "2016-11-03": 2,
+    "2016-11-04": 3,
+    "2016-11-05": 1,
+    "2016-11-07": 8,
+    "2016-11-08": 11
+   },
+   "last_filing_more_than_2_days_before_the_closure": 11,
+   "last_filing_within_2_days_of_the_closure": 19,
+   "never_filed_again": 0,
+   "units": [
+    [
+     "Ashoknagar / Mungawali",
+     "2016-11-07",
+     "2016-11-30"
+    ],
+    [
+     "Bhind / Alampur",
+     "2016-11-07",
+     "2017-01-16"
+    ],
+    [
+     "Bhind / Gohad",
+     "2016-10-27",
+     "2016-12-13"
+    ],
+    [
+     "Chhindwara / Chaurai",
+     "2016-11-08",
+     "2016-12-01"
+    ],
+    [
+     "Damoh / Damoh",
+     "2016-11-07",
+     "2016-11-30"
+    ],
+    [
+     "Datia / Datia",
+     "2016-11-07",
+     "2016-12-09"
+    ],
+    [
+     "Jabalpur / Shahpura(Jabalpur)",
+     "2016-11-08",
+     "2016-11-30"
+    ],
+    [
+     "Panna / Devandranagar",
+     "2016-10-20",
+     "2017-03-10"
+    ],
+    [
+     "Panna / Panna",
+     "2016-11-07",
+     "2016-11-27"
+    ],
+    [
+     "Raisen / Bareli",
+     "2016-11-04",
+     "2016-11-23"
+    ],
+    [
+     "Raisen / Gairatganj",
+     "2016-11-08",
+     "2016-11-26"
+    ],
+    [
+     "Raisen / Raisen",
+     "2016-11-07",
+     "2016-12-31"
+    ],
+    [
+     "Rajgarh / Jeerapur",
+     "2016-10-23",
+     "2016-12-01"
+    ],
+    [
+     "Rajgarh / Kurawar",
+     "2016-11-02",
+     "2016-12-11"
+    ],
+    [
+     "Sagar / Bamora",
+     "2016-11-08",
+     "2016-11-25"
+    ],
+    [
+     "Sagar / Banda",
+     "2016-11-03",
+     "2016-12-10"
+    ],
+    [
+     "Sagar / Bina",
+     "2016-11-08",
+     "2016-11-24"
+    ],
+    [
+     "Sagar / Garhakota",
+     "2016-11-04",
+     "2016-12-01"
+    ],
+    [
+     "Sagar / Khurai",
+     "2016-11-07",
+     "2016-11-25"
+    ],
+    [
+     "Sagar / Rahatgarh",
+     "2016-10-29",
+     "2016-12-03"
+    ],
+    [
+     "Satna / Nagod",
+     "2016-11-03",
+     "2016-11-23"
+    ],
+    [
+     "Sehore / Ichhawar",
+     "2016-11-08",
+     "2016-11-30"
+    ],
+    [
+     "Shajapur / Agar",
+     "2016-11-08",
+     "2016-11-23"
+    ],
+    [
+     "Shajapur / Nalkehda",
+     "2016-11-07",
+     "2016-11-24"
+    ],
+    [
+     "Shajapur / Shajapur",
+     "2016-11-08",
+     "2016-11-24"
+    ],
+    [
+     "Shajapur / Shujalpur",
+     "2016-11-08",
+     "2016-11-28"
+    ],
+    [
+     "Shivpuri / Kolaras",
+     "2016-11-08",
+     "2016-12-06"
+    ],
+    [
+     "Vidisha / Kurwai",
+     "2016-11-08",
+     "2016-11-29"
+    ],
+    [
+     "Vidisha / Lateri",
+     "2016-11-05",
+     "2016-11-28"
+    ],
+    [
+     "Vidisha / Sironj",
+     "2016-11-04",
+     "2016-11-30"
+    ]
+   ]
+  },
+  "MP-2017-strike": {
+   "closure_first_day": "2017-06-01",
+   "last_filing_dates": {
+    "2017-05-18": 1,
+    "2017-05-19": 1,
+    "2017-05-20": 1,
+    "2017-05-21": 1,
+    "2017-05-22": 1,
+    "2017-05-24": 2,
+    "2017-05-26": 4,
+    "2017-05-27": 3,
+    "2017-05-30": 9,
+    "2017-05-31": 12
+   },
+   "last_filing_more_than_2_days_before_the_closure": 14,
+   "last_filing_within_2_days_of_the_closure": 21,
+   "never_filed_again": 23,
+   "units": [
+    [
+     "Ashoknagar / Piprai",
+     "2017-05-24",
+     null
+    ],
+    [
+     "Ashoknagar / Shadora",
+     "2017-05-30",
+     "2017-06-13"
+    ],
+    [
+     "Bhind / Mow",
+     "2017-05-20",
+     "2017-06-11"
+    ],
+    [
+     "Chhindwara / Chhindwara",
+     "2017-05-19",
+     null
+    ],
+    [
+     "Dewas / Dewas",
+     "2017-05-31",
+     "2017-06-19"
+    ],
+    [
+     "Dhar / Badnawar",
+     "2017-05-18",
+     null
+    ],
+    [
+     "Dhar / Dhar",
+     "2017-05-31",
+     "2017-06-19"
+    ],
+    [
+     "Dindori / Dindori",
+     "2017-05-21",
+     "2017-06-18"
+    ],
+    [
+     "Mandsaur / Mandsaur",
+     "2017-05-31",
+     "2017-06-19"
+    ],
+    [
+     "Mandsaur / Piplya",
+     "2017-05-22",
+     null
+    ],
+    [
+     "Mandsaur / Shamgarh",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Narsinghpur / Tendukheda",
+     "2017-05-27",
+     "2017-06-13"
+    ],
+    [
+     "Neemuch / Manasa",
+     "2017-05-24",
+     null
+    ],
+    [
+     "Neemuch / Neemuch",
+     "2017-05-30",
+     "2017-06-13"
+    ],
+    [
+     "Rajgarh / Biaora",
+     "2017-05-30",
+     null
+    ],
+    [
+     "Rajgarh / Jeerapur",
+     "2017-05-30",
+     null
+    ],
+    [
+     "Rajgarh / Khujner",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Rajgarh / Pachaur",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Rajgarh / Sarangpur",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Ratlam / Sailana",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Rewa / Baikunthpur",
+     "2017-05-30",
+     "2017-06-13"
+    ],
+    [
+     "Satna / Ramnagar",
+     "2017-05-26",
+     "2017-06-13"
+    ],
+    [
+     "Sehore / Ashta",
+     "2017-05-30",
+     null
+    ],
+    [
+     "Sehore / Ichhawar",
+     "2017-05-30",
+     null
+    ],
+    [
+     "Sehore / Sehore",
+     "2017-05-30",
+     null
+    ],
+    [
+     "Shajapur / Akodia",
+     "2017-05-27",
+     null
+    ],
+    [
+     "Shajapur / Kalapipal",
+     "2017-05-26",
+     null
+    ],
+    [
+     "Shajapur / Nalkehda",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Shajapur / Shajapur",
+     "2017-05-26",
+     null
+    ],
+    [
+     "Shajapur / Shujalpur",
+     "2017-05-31",
+     null
+    ],
+    [
+     "Shajapur / Soyatkalan",
+     "2017-05-27",
+     null
+    ],
+    [
+     "Shivpuri / Pohari",
+     "2017-05-31",
+     "2017-06-13"
+    ],
+    [
+     "Sidhi / Sidhi",
+     "2017-05-26",
+     null
+    ],
+    [
+     "Ujjain / Badnagar",
+     "2017-05-30",
+     "2017-06-19"
+    ],
+    [
+     "Ujjain / Ujjain",
+     "2017-05-31",
+     null
+    ]
+   ]
+  }
+ },
+ "parse": {
+  "dated_share": 1.0,
+  "files": 10,
+  "first_day": "2008-01-01",
+  "kept": 115905,
+  "last_day": "2017-06-22",
+  "lines": 115905,
+  "markets": 388,
+  "short": 0,
+  "states": 19,
+  "undated": 0
+ },
+ "physical_outage_screen": [
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "OR-2013-cyclone",
+   "label": "cyclone, Odisha coast",
+   "start": "2013-10-12",
+   "state": "Orissa"
+  },
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "AP-2014-cyclone",
+   "label": "cyclone, north Andhra coast",
+   "start": "2014-10-12",
+   "state": "Andhra Pradesh"
+  },
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "TN-2015-flood",
+   "label": "flood, Chennai and the north coast",
+   "start": "2015-12-01",
+   "state": "Tamil Nadu"
+  },
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "TN-2016-cyclone",
+   "label": "cyclone, Chennai",
+   "start": "2016-12-12",
+   "state": "Tamil Nadu"
+  }
+ ],
+ "premise": {
+  "any_order_units": [
+   "MN-2016-blockade: Imphal East / Lamlong Bazaar",
+   "MN-2016-blockade: Imphal West / Imphal"
+  ],
+  "units_T_and_all_data_cut": 0,
+  "units_T_and_any_information_order": 2,
+  "units_T_and_full_cut": 0
+ },
+ "premise_by_event": {
+  "MN-2016-blockade": {
+   "active_units_in_state": 4,
+   "after_named_exclusions": 2,
+   "excluded_markets": [],
+   "in_both_documents_by_district": 2,
+   "information_kind": "mobile_data"
+  },
+  "WB-2017-hills": {
+   "active_units_in_state": 7,
+   "after_named_exclusions": 0,
+   "excluded_markets": [
+    "Siliguri"
+   ],
+   "in_both_documents_by_district": 1,
+   "information_kind": "all_internet"
+  }
+ },
+ "reference_daily_move_by_event": {
+  "AS-2014-flood": {
+   "day_pairs": 63,
+   "max": 0.120467,
+   "median": 0.021053,
+   "p90": 0.057778
+  },
+  "MN-2016-blockade": {
+   "day_pairs": 198,
+   "max": 0.729337,
+   "median": 0.028666,
+   "p90": 0.324562
+  },
+  "MP-2017-strike": {
+   "day_pairs": 70,
+   "max": 0.268098,
+   "median": 0.024836,
+   "p90": 0.09531
+  },
+  "RJ-2015-blockade": {
+   "day_pairs": 67,
+   "max": 0.111473,
+   "median": 0.011665,
+   "p90": 0.051293
+  },
+  "WB-2017-hills": {
+   "day_pairs": 67,
+   "max": 0.274437,
+   "median": 0.015484,
+   "p90": 0.06291
+  }
+ },
+ "stage": "B146",
+ "steps_across_stops_under_information_orders": [
+  {
+   "cell": "T_cut_I_open",
+   "event": "MN-2016-blockade",
+   "last": "2016-12-15",
+   "market": "Imphal East / Lamlong Bazaar",
+   "next": "2016-12-26",
+   "price_last": 9500.0,
+   "price_next": 9500.0,
+   "reference_daily_move_median": 0.028666,
+   "reference_daily_move_p90": 0.324562,
+   "reference_move": 0.016709,
+   "reference_move_exceeds_it": false,
+   "reference_move_exceeds_p90": false,
+   "step": 0.0
+  },
+  {
+   "cell": "T_cut_I_open",
+   "event": "MN-2016-blockade",
+   "last": "2016-12-15",
+   "market": "Imphal West / Imphal",
+   "next": "2016-12-23",
+   "price_last": 11500.0,
+   "price_next": 10500.0,
+   "reference_daily_move_median": 0.028666,
+   "reference_daily_move_p90": 0.324562,
+   "reference_move": -0.028753,
+   "reference_move_exceeds_it": true,
+   "reference_move_exceeds_p90": false,
+   "step": -0.090972
+  },
+  {
+   "cell": "T_cut_I_open",
+   "event": "MN-2016-blockade",
+   "last": "2016-12-24",
+   "market": "Imphal West / Imphal",
+   "next": "2016-12-26",
+   "price_last": 10500.0,
+   "price_next": 10500.0,
+   "reference_daily_move_median": 0.028666,
+   "reference_daily_move_p90": 0.324562,
+   "reference_move": -0.287126,
+   "reference_move_exceeds_it": true,
+   "reference_move_exceeds_p90": false,
+   "step": 0.0
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-31",
+   "market": "Dewas / Dewas",
+   "next": "2017-06-19",
+   "price_last": 3325.0,
+   "price_next": 3950.0,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": -0.023879,
+   "reference_move_exceeds_it": false,
+   "reference_move_exceeds_p90": false,
+   "step": 0.172246
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-31",
+   "market": "Mandsaur / Mandsaur",
+   "next": "2017-06-19",
+   "price_last": 3150.0,
+   "price_next": 3250.0,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": -0.023879,
+   "reference_move_exceeds_it": false,
+   "reference_move_exceeds_p90": false,
+   "step": 0.031253
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-22",
+   "market": "Mandsaur / Piplya",
+   "next": null,
+   "price_last": 3615.0,
+   "price_next": null,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": null,
+   "reference_move_exceeds_it": null,
+   "reference_move_exceeds_p90": null,
+   "step": null
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-31",
+   "market": "Mandsaur / Shamgarh",
+   "next": null,
+   "price_last": 4120.0,
+   "price_next": null,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": null,
+   "reference_move_exceeds_it": null,
+   "reference_move_exceeds_p90": null,
+   "step": null
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-24",
+   "market": "Neemuch / Manasa",
+   "next": null,
+   "price_last": 3200.0,
+   "price_next": null,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": null,
+   "reference_move_exceeds_it": null,
+   "reference_move_exceeds_p90": null,
+   "step": null
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-30",
+   "market": "Neemuch / Neemuch",
+   "next": "2017-06-13",
+   "price_last": null,
+   "price_next": null,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": -0.028035,
+   "reference_move_exceeds_it": true,
+   "reference_move_exceeds_p90": false,
+   "step": null
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-31",
+   "market": "Ratlam / Sailana",
+   "next": null,
+   "price_last": 3399.0,
+   "price_next": null,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": null,
+   "reference_move_exceeds_it": null,
+   "reference_move_exceeds_p90": null,
+   "step": null
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-30",
+   "market": "Ujjain / Badnagar",
+   "next": "2017-06-19",
+   "price_last": 3017.0,
+   "price_next": 2960.0,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": -0.013448,
+   "reference_move_exceeds_it": false,
+   "reference_move_exceeds_p90": false,
+   "step": -0.019074
+  },
+  {
+   "cell": "object_absent",
+   "event": "MP-2017-strike",
+   "last": "2017-05-31",
+   "market": "Ujjain / Ujjain",
+   "next": null,
+   "price_last": null,
+   "price_next": null,
+   "reference_daily_move_median": 0.024836,
+   "reference_daily_move_p90": 0.09531,
+   "reference_move": null,
+   "reference_move_exceeds_it": null,
+   "reference_move_exceeds_p90": null,
+   "step": null
+  }
+ ],
+ "units": [
+  {
+   "I": false,
+   "I_thin": false,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": false,
+   "event": "MN-2016-blockade",
+   "filed_in_window": 93,
+   "market": "Bishnupur / Bishenpur",
+   "prior": 22,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": true,
+   "event": "MN-2016-blockade",
+   "filed_in_window": 92,
+   "market": "Imphal East / Lamlong Bazaar",
+   "prior": 23,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": true,
+   "event": "MN-2016-blockade",
+   "filed_in_window": 89,
+   "market": "Imphal West / Imphal",
+   "prior": 21,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": false,
+   "event": "MN-2016-blockade",
+   "filed_in_window": 87,
+   "market": "Thoubal / Thoubal",
+   "prior": 23,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Anupur / Anuppur",
+   "prior": 10,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Ashoknagar",
+   "prior": 22,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Isagarh",
+   "prior": 16,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Mungawali",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Piprai",
+   "prior": 7,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Shadora",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Betul / Betul",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Bhind / Alampur",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Bhind / Gohad",
+   "prior": 25,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Bhind / Lahar",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Bhind / Mow",
+   "prior": 7,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Bhopal / Berasia",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Bhopal / Bhopal",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Chhatarpur / LavKush Nagar(Laundi)",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Chhindwara / Chaurai",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Chhindwara / Chhindwara",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Damoh / Damoh",
+   "prior": 10,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Damoh / Hata",
+   "prior": 9,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Datia / Bhander",
+   "prior": 5,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Datia / Datia",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Dewas / Dewas",
+   "prior": 19,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Dhar / Badnawar",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Dhar / Dhar",
+   "prior": 21,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Dindori / Dindori",
+   "prior": 10,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Dindori / Gorakhpur",
+   "prior": 9,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Guna / Aron",
+   "prior": 22,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Guna / Guna",
+   "prior": 24,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Guna / Maksudangarh",
+   "prior": 7,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Gwalior / Dabra",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Gwalior / Lashkar",
+   "prior": 12,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Hoshangabad / Pipariya",
+   "prior": 22,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Jabalpur / Jabalpur",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Jabalpur / Shahpura(Jabalpur)",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Katni / Katni",
+   "prior": 25,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Mandla / Bichhiya",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Mandla / Mandla",
+   "prior": 14,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Mandsaur / Mandsaur",
+   "prior": 19,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Mandsaur / Piplya",
+   "prior": 5,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Mandsaur / Shamgarh",
+   "prior": 21,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Gadarwada",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Gotegaon",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Kareli",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Narsinghpur",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Tendukheda",
+   "prior": 14,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Neemuch / Manasa",
+   "prior": 16,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Neemuch / Neemuch",
+   "prior": 24,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Panna / Devandranagar",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Panna / Panna",
+   "prior": 11,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Raisen / Bareli",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Raisen / Gairatganj",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Raisen / Obedullaganj",
+   "prior": 7,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Raisen / Raisen",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Biaora",
+   "prior": 16,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Chhapiheda",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Jeerapur",
+   "prior": 22,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Khilchipur",
+   "prior": 26,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Khujner",
+   "prior": 23,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Narsinghgarh",
+   "prior": 16,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Pachaur",
+   "prior": 18,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rajgarh / Sarangpur",
+   "prior": 21,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ratlam / Sailana",
+   "prior": 12,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rewa / Baikunthpur",
+   "prior": 9,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Rewa / Rewa",
+   "prior": 13,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Bamora",
+   "prior": 13,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Banda",
+   "prior": 9,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Bina",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Deori",
+   "prior": 8,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Garhakota",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Khurai",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Rahatgarh",
+   "prior": 13,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sagar / Sagar",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Satna / Nagod",
+   "prior": 5,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Satna / Ramnagar",
+   "prior": 8,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Satna / Satna",
+   "prior": 25,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sehore / Ashta",
+   "prior": 22,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sehore / Ichhawar",
+   "prior": 20,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sehore / Sehore",
+   "prior": 19,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Seoni / Seoni",
+   "prior": 10,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Agar",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Akodia",
+   "prior": 19,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Badod",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Kalapipal",
+   "prior": 19,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Momanbadodiya",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Nalkehda",
+   "prior": 21,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Shajapur",
+   "prior": 14,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Shujalpur",
+   "prior": 19,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Soyatkalan",
+   "prior": 14,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shajapur / Susner",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shivpuri / Badarwas",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shivpuri / Khatora",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shivpuri / Kolaras",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shivpuri / Pohari",
+   "prior": 7,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Shivpuri / Shivpuri",
+   "prior": 14,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Sidhi / Sidhi",
+   "prior": 8,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ujjain / Badnagar",
+   "prior": 18,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": true,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Ujjain / Ujjain",
+   "prior": 11,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Vidisha / Ganjbasoda",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Vidisha / Kurwai",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Vidisha / Lateri",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Vidisha / Sironj",
+   "prior": 6,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2017-strike",
+   "filed_in_window": null,
+   "market": "Vidisha / Vidisha",
+   "prior": 10,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Barpeta / Bohorihat",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Barpeta / Howly",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Cachar / Cachar",
+   "prior": 12,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Dhemaji / Silapathar",
+   "prior": 10,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": 1,
+   "market": "Goalpara / Goalpara",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Golaghat / Golaghat",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Hailakandi / Hailakandi",
+   "prior": 8,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Jorhat / Jorhat",
+   "prior": 12,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": 4,
+   "market": "Kamrup / P.O. Uparhali Guwahati",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Nagaon / Lanka",
+   "prior": 11,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Nalbari / Nalbari",
+   "prior": 11,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "AS-2014-flood",
+   "filed_in_window": null,
+   "market": "Sibsagar / Sivasagar",
+   "prior": 10,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Bhilwara / Bhilwara",
+   "prior": 7,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Bundi / Bundi",
+   "prior": 22,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Bundi / DEI(Bundi)",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Bundi / Sumerganj",
+   "prior": 6,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Chittorgarh / Pratapgarh",
+   "prior": 21,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Jaipur / Jaipur(Grain)(Chandpole)",
+   "prior": 5,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Jhalawar / Jhalarapatan",
+   "prior": 7,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": true,
+   "cell": "T_cut_I_open",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": 3,
+   "market": "Tonk / Deoli",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Burdwan / Asansol",
+   "prior": 30,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Burdwan / Durgapur",
+   "prior": 30,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Darjeeling / Siliguri",
+   "prior": 25,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Malda / English Bazar",
+   "prior": 25,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Malda / Gajol",
+   "prior": 25,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Medinipur(W) / Medinipur(West)",
+   "prior": 23,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "WB-2017-hills",
+   "filed_in_window": null,
+   "market": "Puruliya / Kasipur",
+   "prior": 22,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Ashoknagar",
+   "prior": 14,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Ashoknagar / Mungawali",
+   "prior": 10,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Bhind / Alampur",
+   "prior": 5,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Bhind / Gohad",
+   "prior": 9,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Bhopal / Bhopal",
+   "prior": 6,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Chhindwara / Chaurai",
+   "prior": 5,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Damoh / Damoh",
+   "prior": 11,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Damoh / Hata",
+   "prior": 5,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Datia / Datia",
+   "prior": 9,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Dewas / Dewas",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Dhar / Badnawar",
+   "prior": 14,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Dhar / Dhar",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Dindori / Gorakhpur",
+   "prior": 7,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Guna / Guna",
+   "prior": 13,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Hoshangabad / Pipariya",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Jabalpur / Jabalpur",
+   "prior": 20,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Jabalpur / Shahpura(Jabalpur)",
+   "prior": 21,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Katni / Katni",
+   "prior": 14,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Mandla / Mandla",
+   "prior": 7,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Mandsaur / Mandsaur",
+   "prior": 16,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Mandsaur / Shamgarh",
+   "prior": 11,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Gadarwada",
+   "prior": 16,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Gotegaon",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Kareli",
+   "prior": 16,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Narsinghpur / Narsinghpur",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Neemuch / Manasa",
+   "prior": 8,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Neemuch / Neemuch",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Panna / Devandranagar",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Panna / Panna",
+   "prior": 12,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Raisen / Bareli",
+   "prior": 8,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Raisen / Gairatganj",
+   "prior": 14,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Raisen / Raisen",
+   "prior": 7,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rajgarh / Biaora",
+   "prior": 11,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rajgarh / Jeerapur",
+   "prior": 7,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rajgarh / Khujner",
+   "prior": 13,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rajgarh / Kurawar",
+   "prior": 8,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rajgarh / Pachaur",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rajgarh / Sarangpur",
+   "prior": 12,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Ratlam / Ratlam",
+   "prior": 9,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rewa / Baikunthpur",
+   "prior": 12,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Rewa / Rewa",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Bamora",
+   "prior": 16,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Banda",
+   "prior": 5,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Bina",
+   "prior": 16,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Garhakota",
+   "prior": 14,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Khurai",
+   "prior": 13,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Rahatgarh",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sagar / Sagar",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Satna / Nagod",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Satna / Satna",
+   "prior": 17,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sehore / Ashta",
+   "prior": 15,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sehore / Ichhawar",
+   "prior": 17,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shajapur / Agar",
+   "prior": 17,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shajapur / Akodia",
+   "prior": 14,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shajapur / Kalapipal",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shajapur / Nalkehda",
+   "prior": 8,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shajapur / Shajapur",
+   "prior": 6,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shajapur / Shujalpur",
+   "prior": 17,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Shivpuri / Kolaras",
+   "prior": 15,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Sidhi / Sidhi",
+   "prior": 5,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Ujjain / Badnagar",
+   "prior": 16,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Ujjain / Ujjain",
+   "prior": 13,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Vidisha / Ganjbasoda",
+   "prior": 18,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Vidisha / Kurwai",
+   "prior": 12,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Vidisha / Lateri",
+   "prior": 11,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "object_absent",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Vidisha / Sironj",
+   "prior": 15,
+   "stopped": true,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": true,
+   "event": "MP-2016-cash",
+   "filed_in_window": null,
+   "market": "Vidisha / Vidisha",
+   "prior": 19,
+   "stopped": false,
+   "zero_arrivals": false
+  }
+ ]
+}

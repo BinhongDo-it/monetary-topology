@@ -58,7 +58,7 @@
           "verdict": "indistinguishable_from_random_cut"
         }
       },
-      "distinct_partitions": 45760,
+      "distinct_partitions": 64,
       "fibre_shape": [
         63,
         1,

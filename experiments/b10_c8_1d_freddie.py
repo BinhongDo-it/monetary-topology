@@ -107,13 +107,26 @@ VINTAGES = tuple(range(1999, 2027))
 # ---------------------------------------------------------------------------
 P_SEQ, P_PERIOD, P_UPB, P_DELINQ, P_AGE, P_REM = 0, 1, 2, 3, 4, 5
 P_MODFLAG, P_ZEROBAL, P_RATE = 7, 8, 10
+#: Zero-based field indices. Counted from one, `O_AMORT` is the 16th field and
+#: `O_TERM` the 22nd; the design notes that call them "column 15" and "column
+#: 21" are using the zero-based number.
 O_UPB, O_RATE, O_AMORT, O_SEQ, O_TERM = 10, 12, 15, 19, 21
 
 ORIG_FIELDS, PERF_FIELDS = 31, 35
 
-#: §12.3. The first usable monthly difference is age 7 -> 8, because age <= 6 is
-#: on the $1,000 grid and the 6 -> 7 step mixes a rounded side with an exact one.
+#: §12.3. Age <= 6 is on the $1,000 grid and the 6 -> 7 step mixes a rounded
+#: side with an exact one, so the registration's first usable difference is
+#: age 7 -> 8: `P(t)` is read from age `MIN_AGE` on, and the age-7 month enters
+#: only as the opening balance of a segment (`SEGMENT_START_AGE`). An earlier
+#: version dropped the age-7 month as well, so its first difference was 8 -> 9
+#: and 1,219,589 quiet, calendar-consecutive, same-rate 7 -> 8 pairs over the
+#: 28 archives were left out. The records were rerun on the registered domain
+#: on 2026-10-28; `--selftest` check 3b fails on the old domain.
 MIN_AGE = 8
+
+#: The youngest month `quiet_segments` admits. It can only open a segment: a
+#: month of this age never extends one, so no segment carries a 6 -> 7 step.
+SEGMENT_START_AGE = MIN_AGE - 1
 
 #: §12.2's gate. Half of the disclosure grid: `orig U0` is `U0` rounded to the
 #: nearest $1,000, so an exact back-out must land within half a grid step. This
@@ -257,7 +270,9 @@ def quiet_segments(records, tally=None):
     month before it: the periods are calendar-consecutive, both sides read
     delinquency ``00``, neither carries a modification flag, neither carries a
     zero-balance code, the balance is positive, the rate is unchanged, and the
-    age is at least ``MIN_AGE``. Anything else closes the segment.
+    age is at least ``MIN_AGE``. Anything else closes the segment. A month of
+    age ``SEGMENT_START_AGE`` (7) is admitted as a segment's first month only,
+    so the first difference a segment carries is 7 -> 8 (§12.3).
 
     Returns a list of ``(rate_pct, [(age, rem, upb), ...])``.
     """
@@ -279,8 +294,8 @@ def quiet_segments(records, tally=None):
     for rec in parsed:
         period, upb, delinq, age, rem, mod, zbal, rate = rec
         ok = True
-        if age < MIN_AGE:
-            bump("dropped_age_lt_8"); ok = False
+        if age < SEGMENT_START_AGE:
+            bump(f"dropped_age_lt_{SEGMENT_START_AGE}"); ok = False
         elif delinq != "00":
             bump("dropped_delinquent"); ok = False
         elif mod != "":
@@ -295,7 +310,8 @@ def quiet_segments(records, tally=None):
                 segments.append((cur[0][7], [(c[3], c[4], c[1]) for c in cur]))
             cur = []
             continue
-        if prev is not None and period == next_period(prev[0]) and rate == prev[7]:
+        if (prev is not None and age >= MIN_AGE
+                and period == next_period(prev[0]) and rate == prev[7]):
             cur.append(rec)
         else:
             if len(cur) >= 2:
@@ -435,6 +451,41 @@ def cmd_selftest() -> int:
           "     is on a 50 and its ratio is not 1; cell three has a round positive\n"
           "     diff. Three distinguishable shapes, so §12.4's cells are reachable\n"
           "     and the arm is an arm (纪律 15).")
+
+    # 3b. the segment domain is the registered one: the first difference is
+    # 7 -> 8. A quiet loan reported from age 5 to 14 must come back as one
+    # segment opening at age 7; the domain that dropped the age-7 month opens
+    # at 8, and running the same seed on that domain must be caught here.
+    print("\n  3b. segment domain: a quiet loan from age 5 to 14 opens at age 7")
+    u0b, rateb, termb = 237_000.0, 6.5, 360
+    ib = rateb / 1200.0
+    seedb, perb = [], 200_001
+    for k in range(5, 15):
+        f = [""] * PERF_FIELDS
+        f[P_SEQ], f[P_PERIOD] = "D0001", str(perb)
+        f[P_UPB] = f"{sched_balance(u0b, ib, termb, k):.2f}"
+        f[P_DELINQ], f[P_AGE], f[P_REM] = "00", str(k), str(termb - k)
+        f[P_RATE] = f"{rateb}"
+        seedb.append(f)
+        perb = next_period(perb)
+
+    def _ages(segs):
+        return [[a for a, _, _ in months] for _, months in segs]
+
+    got_b = _ages(quiet_segments(seedb))
+    want_b = [list(range(SEGMENT_START_AGE, 15))]
+    keep_b = globals()["SEGMENT_START_AGE"]
+    globals()["SEGMENT_START_AGE"] = MIN_AGE           # the old domain
+    try:
+        old_b = _ages(quiet_segments(seedb))
+    finally:
+        globals()["SEGMENT_START_AGE"] = keep_b
+    print(f"     segment ages {got_b}")
+    print(f"     same seed on the old domain {old_b}")
+    if got_b != want_b:
+        fails.append(f"segment domain reads {got_b}, registered {want_b}")
+    if old_b == want_b:
+        fails.append("check 3b does not tell the old domain from the registered one")
 
     # 4. --grid-k's whole path, on a carrier built so the grid's effect is known
     print("\n  4. --grid-k on constructed loans: reporting rounded to $1,000\n"
@@ -1603,7 +1654,7 @@ def cmd_selftest() -> int:
             "FOURTH BRANCH", "neither is near zero")
 
     print("\n  " + ("FAILED: " + "; ".join(fails) if fails else
-                    "all fifteen pass."))
+                    "all pass."))
     return 1 if fails else 0
 
 
@@ -1676,7 +1727,8 @@ def cmd_depth(only) -> int:
     print("\n  rows that left the domain, summed over the vintages above:")
     for k, n in sorted(totals.items()):
         print(f"    {k:<32} {n:>12,d}")
-    print("\n  Read: `dropped_age_lt_8` is §11.5's rule doing its job and it is\n"
+    print(f"\n  Read: `dropped_age_lt_{SEGMENT_START_AGE}` is §11.5's rule doing "
+          "its job and it is\n"
           "  printed rather than silent. `segment_failed_u0_gate` is §12.2: a\n"
           "  curtailment before the segment's first month, which the amortisation\n"
           "  identity cannot see past. Nothing here is a threshold; the shortest\n"
@@ -1693,7 +1745,8 @@ def cmd_depth(only) -> int:
              "B8-1 has not been run on Fannie, so this stage's readings serve "
              "only the payment model decision in b8_omega.py and carry no omega "
              "claim. the B10 availability register §12.0.",
-         "min_age": MIN_AGE, "u0_half_grid": U0_HALF_GRID,
+         "min_age": MIN_AGE, "segment_start_age": SEGMENT_START_AGE,
+         "u0_half_grid": U0_HALF_GRID,
          "vintages": rows, "drops_total": dict(sorted(totals.items()))},
         indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(f"\n  wrote {out.relative_to(ROOT)}")
@@ -1839,7 +1892,8 @@ def _write_run(summary) -> int:
              "B8-1 has not been run on Fannie, so this stage's readings serve "
              "only the payment model decision in b8_omega.py and carry no omega "
              "claim. the B10 availability register §12.0.",
-         "min_age": MIN_AGE, "u0_half_grid": U0_HALF_GRID,
+         "min_age": MIN_AGE, "segment_start_age": SEGMENT_START_AGE,
+         "u0_half_grid": U0_HALF_GRID,
          "moduli": list(MODULI), "arms": summary},
         indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(f"\n  wrote {out.relative_to(ROOT)}")
@@ -1956,7 +2010,7 @@ def grid_k_absorb(acc: dict, recs, meta) -> None:
                 frozen = (u_prev == upb)
                 # §10·4's population predicate, replicated bit for bit from
                 # b10_o18_null.py so the cross-check is a cross-check.
-                if not (a0 >= 8 and age >= 8):
+                if not (a0 >= 7 and age >= 8):
                     acc["o18_pairs"] += 1
                     acc["o18_frozen"] += 1 if frozen else 0
                 if age in GRID_AGES_SET:
@@ -2082,8 +2136,8 @@ def print_grid_k(payload: dict) -> None:
           "b10_o18_null.py")
     print(f"     age<8 pairs {n:,}   frozen {f:,}   "
           f"rate {(f / n * 100 if n else float('nan')):.4f}%")
-    print("     §10·4 prints 10,247,131 pairs and 4,901,368 frozen "
-          "(47.8315%). Equal to the digit or the pair definitions differ,\n"
+    print("     §10·4 prints 8,991,830 pairs and 4,836,296 frozen "
+          "(53.7854%). Equal to the digit or the pair definitions differ,\n"
           "     and if they differ this check is not a cross-check.")
 
     e = payload["u0_rel_error_mean"]
@@ -2185,6 +2239,8 @@ def zero_upb_absorb(acc: dict, recs, orig_upb) -> None:
         if age == 0 and first is None:
             first = f
         elif first is not None:
+            # `gap` counts the non-positive rows **after** the age-0 zero, so a
+            # loan whose next row is positive reads 0: one zero row, one month.
             if upb > 0:
                 later_positive = True
             elif not later_positive:
@@ -2232,6 +2288,10 @@ def print_zero_upb(acc: dict) -> None:
           f"   of those perf == 0.00: {acc['zero']:,}")
     print("     §5·2 prints 1,192,198 / 144,719 / 975. Equal to the digit, or the"
           " populations differ\n     and nothing below may be quoted.")
+    print("     §5·2's three numbers have no producer on disk, so this gate cannot"
+          " be judged.\n     B to D below are read on this instrument's own"
+          " population (an age-0 perf row\n     and a parsable orig row) and are"
+          " not a reproduction of §5·2.")
 
     print("\n  B. §5·4·1, partitioned on the zero-balance code")
     tot = max(acc["zero"], 1)
@@ -2257,7 +2317,7 @@ def print_zero_upb(acc: dict) -> None:
         print(f"     n {n:,}   min {min(h)}   p50 {p50}   p90 {p90}   max {max(h)}"
               f"   (60 = clipped)")
     if acc["gap_len"]:
-        print(f"     reporting-gap length: "
+        print(f"     reporting-gap length (zero rows after the age-0 row): "
               + ", ".join(f"{k}:{v:,}" for k, v in sorted(acc["gap_len"].items())))
 
     print("\n  D. per vintage")
@@ -2335,6 +2395,14 @@ OFFSETS = (0.0, 0.25, 0.50, 0.75, 1.00)
 
 #: §5·5·6's independent target, and its producer, named per failure mode 18:
 #: results/b10_zero_upb.json, 144,761 / 1,192,244, from `--zero-upb`.
+#:
+#: **The target and the simulated share are read on two populations.** The
+#: target is over loans with an observed age-0 row; the simulated share is over
+#: every loan `phase_absorb` backs out (1,271,629), and 159,387 of those have no
+#: observed age-0 row while 80,002 loans with one are never backed out. On the
+#: 1,112,242 loans in both, the observed share is 0.1194 and the simulated
+#: curve runs 0.262 to 0.479 across the five offsets, so no offset reaches the
+#: target there either, the same branch as on the published populations.
 AGE0_MISMATCH_TARGET = 0.121420
 
 
@@ -2348,6 +2416,12 @@ def reported(u0: float, rate_pct: float, term: int, k: float,
     months further along. §5·5·6."""
     i = rate_pct / 1200.0
     bal = sched_balance(u0, i, term, k + theta)
+    #: The back-out and the forward run are floating point, so a balance that
+    #: is exactly a half-thousand or a half-cent can come back a few 1e-11 to
+    #: either side and round the other way. On the 28 archives this happens on
+    #: nine anchor rows (each a 1,000 difference in the simulated report) and
+    #: moves four printed fields of `b10_phase.json` in the sixth decimal
+    #: (age 6, offset 1.0, both arms); no sign or branch moves.
     if k < CENT_FROM_AGE:
         return round(bal / GRID_STEP) * GRID_STEP
     return round(bal, 2)
@@ -2405,6 +2479,10 @@ def phase_absorb(acc: dict, recs, meta) -> None:
             if abs(reported(u0, rate, term, 0, th) - orig_upb) >= ROUND_TOL:
                 acc["age0_diff"][arm][th] += 1
 
+    #: Pairs are formed on the file's age field, first positive row per age,
+    #: and the calendar period is not consulted. On 2,207 pairs over the 28
+    #: archives the two rows are not adjacent calendar months; keeping only
+    #: calendar-adjacent pairs leaves every sign and alignment branch as is.
     by_age = {}
     for age, upb in rows:
         if age not in by_age:
@@ -2534,7 +2612,8 @@ def print_phase(pl: dict) -> None:
           "    age 1's gap. Under the closed form it was the lone positive at\n"
           "    +3.26. If it now sits on the same side as the rest, that outlier\n"
           "    was phase; if it is still alone, it was not.\n"
-          "  Both arms must agree in sign before the first branch is claimed (§5·5·4).")
+          "  The main arm is the all-loans arm; its branch stands unless the gated arm\n"
+          "    reads the opposite sign, in which case the branch is not claimed (§5·5·5).")
 
 
 def cmd_phase(only) -> int:
@@ -2583,7 +2662,10 @@ def cmd_phase(only) -> int:
 
 #: orig column 15's neighbours, printed together because this station has been
 #: burnt twice on column identity (§25: LTV cut one column high; a distinct
-#: count capped by `most_common(5)`). No cap here.
+#: count capped by `most_common(5)`). No cap here. **The numbers are
+#: zero-based**, and so are the keys in `b10_amort.json` and the printed
+#: labels: 14, 15, 16 are the 15th, 16th and 17th fields, which read the
+#: N/Y flag, `FRM`, and the state code.
 AMORT_COLS = (14, 15, 16)
 
 
@@ -4504,6 +4586,19 @@ def balid_absorb(acc: dict, recs, orig, vintage: int) -> None:
     §8·18·2's population: a quiet month with a deferral outstanding and
     unmoved, on a loan that has **never** been modified — because `P` is the
     original contract payment and one re-cut replaces it.
+
+    **What the filters below actually keep is wider than §6·1's quiet month**,
+    which §8·18·2 incorporates: neither delinquency status nor loan age is
+    checked. Of the 422,102 pairs kept, 46,570 have a status other than `00`
+    on at least one side and 367 an age below 8 or unparsed (the two counts
+    overlap). On the 375,211 pairs that meet both conditions the medians read
+    `|resid_H1|` 1.2384 against `|resid_H2|` 42.1430, so H1 is still the
+    smaller; on all 422,102 they read 1.4216 against 47.5377.
+
+    `P` is taken at the **origination** rate, where §8·18·1 wrote the current
+    rate. On this population (FRM, never modified) the two rates differ on 48
+    pairs, by at most 157.03 in payment, and at the current rate the medians
+    read 1.4215 against 47.5377. Recounted from the archives 2026-10-27.
     """
     acc["loans"] += 1
     acc["rows"] += len(recs)
@@ -4575,6 +4670,10 @@ def balid_absorb(acc: dict, recs, orig, vintage: int) -> None:
             acc["sample_capped"] = True
         v = acc["by_vintage"].setdefault(vintage, {"n": 0, "h1": [], "h2": []})
         v["n"] += 1
+        #: The per-vintage medians are taken on the first 20,000 kept pairs in
+        #: file order, while `n` counts every kept pair. Nine vintages pass the
+        #: cap (2012 to 2020); on their full populations H1 is still the
+        #: smaller in every one (recounted 2026-10-27).
         if len(v["h1"]) < 20_000:
             v["h1"].append(r1)
             v["h2"].append(r2)

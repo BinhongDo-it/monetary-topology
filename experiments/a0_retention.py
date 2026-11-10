@@ -61,7 +61,7 @@ class Criterion:
 
 
 # ---------------------------------------------------------------------------
-# figure 1: the production layer drains to the payroll floor
+# figure 1: the production layer drains to the level its payroll edge sustains
 # ---------------------------------------------------------------------------
 
 
@@ -86,7 +86,7 @@ def figure_1(base: EconomyConfig) -> tuple[Path, History]:
     annotate(
         ax_top,
         "Log scale. Layers start at 40 and 60.\n"
-        "Issuance is credited to Layer 1 every round.",
+        "Issuance goes to the top stratum from round 2.",
         loc="upper left",
     )
 
@@ -104,7 +104,7 @@ def figure_1(base: EconomyConfig) -> tuple[Path, History]:
     ax_bot.set_xlabel("round")
     ax_bot.set_ylabel("claims per round")
     ax_bot.set_ylim(0, float(h.active_claims.max()) * 1.12)
-    ax_bot.set_title("Inflow converges to the payroll edge, not to zero")
+    ax_bot.set_title("Inflow settles above the payroll edge, not at zero")
     ax_bot.legend(loc="upper right")
     annotate(
         ax_bot,
@@ -255,7 +255,7 @@ def figure_3(base: EconomyConfig) -> tuple[Path, dict[str, list[float]]]:
     ax_q.legend(handles, [h.get_label() for h in handles], loc="upper center")
     annotate(
         ax_q,
-        "Blue is flat to floating-point equality above 0.05.\n"
+        "Blue is flat to floating-point equality from 0.05 up.\n"
         "Below it the intermediate stratum cannot fund payroll,\n"
         "so the wage edge narrows and inflow falls. More spending\n"
         "never helps beyond that threshold.",
@@ -409,7 +409,8 @@ def evaluate(
     settled = h1.tail_mean("active_claims", TAIL)
     out.append(
         Criterion(
-            "A0-8  production layer settles at the payroll edge rather than zero",
+            "A0-8  production layer inflow settles above the net payroll edge "
+            "rather than at zero",
             settled > floor,
             f"settled inflow = {settled:.4f} against net downward wage flow "
             f"{floor:.4f}",
@@ -422,7 +423,7 @@ def evaluate(
             "A0-9  issuance accumulates in the layer it was issued to",
             l1_share > 0.9,
             f"Layer 1 holds {l1_share:.4f} of all claims at steady state, "
-            f"from {h2.layer1_share[0]:.4f} at t=0",
+            f"from {h2.layer1_share[0]:.4f} at the end of round 0",
         )
     )
 
@@ -448,7 +449,10 @@ def main() -> int:
     print(
         f"  retention rates sigma = {[round(s, 3) for s in base.spend.retention_rate]}"
     )
-    print(f"  Layer 2 outflow / downward inflow = {base.flow_balance():.3f}")
+    print(
+        "  Layer 2 outflow / downward inflow, shorthand on Layer 2 means = "
+        f"{base.flow_balance():.3f}"
+    )
     print(f"  net downward wage flow = {base.wages.net_downward():.3f}")
     print()
 

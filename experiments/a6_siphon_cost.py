@@ -9,29 +9,51 @@ Usage::
     python experiments/a6_siphon_cost.py --seeds 5 --rounds 300
     python experiments/a6_siphon_cost.py --skip-long   # omit A6-5's 2000 rounds
 
-Writes ``results/a6_siphon_cost.json``.
+Writes ``results/a6_siphon_cost.json``, and only the full registered run does:
+five seeds, three hundred rounds, A6-5 scored over two thousand. A run that
+skips the long horizon or scores it on another one writes beside that file
+under a name that says which.
 
 The stage asks one question with a unit attached. **Issuance is off in every
 cell**, so the levy is the only thing holding the economy open, and `R*` — the
-smallest rate that keeps the support set from contracting — is the price of the
-siphon in tax points rather than a statement about the monetary authority.
+smallest rate on the fifteen-point scan grid at which ``contracted`` returns
+false — is the price of the siphon in tax points rather than a statement about
+the monetary authority. ``contracted`` calls the support set contracted when it
+ends more than one percent below where it started, or when its slope over the
+last hundred and fifty rounds is below minus ``1e-4`` of its opening value.
 
-Three things this file is built to make visible.
+Five things this file is built to make visible.
 
 **Every headline is reported per seed.** `R*` is found by a grid scan per seed
-and the whole set is printed, not just its median. A comparison whose ordering
-flips across seeds is refused rather than averaged, which is the rule adopted
-after `a3c_load_bearing.py` quoted a share that one seed contradicted.
+and the whole set is printed, not just its median, which is the rule adopted
+after `a3c_load_bearing.py` quoted a share that one seed contradicted. A6-4 is
+scored seed by seed: every seed's ratio has to clear the line. A6-3 compares
+the two cells' medians, with every seed printed beside them, so a seed that
+reversed the order would show in the table but would not by itself fail the
+criterion.
 
 **Landing on the grid's smallest non-zero point is a bound, not a value.** If
 `R*` comes back at the first non-zero rate the scan can see, all that has been
-established is `R* ≤` that rate, and the ratio built from it is a bound in the
-direction that favours the framework. Flagged wherever it happens.
+established is `R* ≤` that rate, and the ratio built from it is an upper bound:
+the true ratio is no larger, so a pass read on the bound holds for the value.
+Flagged wherever it happens. The cell flag ``at_grid_floor`` is also true where
+every seed returns `R* = 0`, the grid's lowest point; there the scan has found
+the value itself, and the table prints it as zero rather than as a bound. Only
+arm I's access cells feed the ratio's bound flag.
 
 **The uniform-access, fair-retention cell is the zero calibration.** It is also
 half of A6-3's prediction, and that is not a coincidence: the criterion is that
 a flat graph with flat propensities needs no redistribution at all. If it comes
 back needing some, the measurement is wrong before any other cell is read.
+
+**The factorial has six distinct cells and the tables print eight.** On the
+flat graph both layers already share one spending-propensity range, so the retention
+switch has nothing to flatten there and the stratified cell is the fair cell
+run a second time. The run checks that on the built models and marks the twin.
+
+**The top decile in the Palma ratio is a ranking, not the layer.** It is the
+twenty nodes with the most claims, whichever layer they sit in. How many of
+them are financial-layer nodes is printed beside the ratio.
 """
 
 from __future__ import annotations
@@ -55,6 +77,7 @@ from monetary_topology.network import (  # noqa: E402
 )
 from monetary_topology.redistribution import (  # noqa: E402
     A6Config,
+    A6Model,
     FiscalSpec,
     contracted,
     find_rate,
@@ -78,6 +101,100 @@ A6_5_DRIFT = 0.10
 #: The scan grid `find_rate` uses. Repeated here only so the smallest non-zero
 #: point can be recognised when `R*` lands on it.
 FIRST_NONZERO = 0.005
+
+
+def record_name(
+    seeds: int, rounds: int, long_rounds: int, skip_long: bool
+) -> str:
+    """The file a run writes. Only the full registered run gets the registered name.
+
+    ``--skip-long`` leaves A6-5 out of the record and ``--long`` scores it over
+    another horizon. Either is a different record from the registered one, and
+    written over it would replace five scored criteria by four, or A6-5 at two
+    thousand rounds by A6-5 at some other length, with a file name that says
+    nothing changed.
+    """
+    registered = (
+        seeds == REGISTERED_SEEDS
+        and rounds == REGISTERED_ROUNDS
+        and long_rounds == REGISTERED_LONG
+        and not skip_long
+    )
+    if registered:
+        return "a6_siphon_cost.json"
+    if skip_long:
+        tail = "_nolong"
+    elif long_rounds != REGISTERED_LONG:
+        tail = f"_long{long_rounds}"
+    else:
+        tail = ""
+    return f"a6_siphon_cost.offparam_{seeds}x{rounds}{tail}.json"
+
+
+def retention_reach(seed: int, rounds: int) -> dict:
+    """Whether the retention switch changes anything, on each graph.
+
+    Fair retention replaces each end of the two layers' propensity ranges by
+    its claim-weighted mean. ``uniform_access`` has already made them one range,
+    so on the flat graph there is nothing left to replace. Read off a built
+    model, fair against stratified, on each graph: if the two propensity
+    vectors are the same arrays the two cells are one model.
+    """
+    out = {}
+    for access in (True, False):
+        fair = A6Model(config_for(seed, rounds, access, True, "transfer"))
+        kept = A6Model(config_for(seed, rounds, access, False, "transfer"))
+        moved = not (
+            np.array_equal(fair._p_low, kept._p_low)
+            and np.array_equal(fair._p_high, kept._p_high)
+        )
+        out["access" if access else "flat"] = {
+            "the_switch_changes_the_propensities": bool(moved),
+            "stratified_low": [round(float(kept._p_low.min()), 6),
+                               round(float(kept._p_low.max()), 6)],
+            "stratified_high": [round(float(kept._p_high.min()), 6),
+                                round(float(kept._p_high.max()), 6)],
+            "fair_low": round(float(fair._p_low[0]), 6),
+            "fair_high": round(float(fair._p_high[0]), 6),
+        }
+    return out
+
+
+def mark_twins(cells: dict, reach: dict) -> int:
+    """Name, on each stratified cell, the fair cell it is the same model as.
+
+    Returns the number of distinct cells. A cell is a twin when the retention
+    switch reaches nothing on its graph; ``same_rates`` then says whether the
+    two came back with the same rates, which they must.
+    """
+    distinct = 0
+    for key, cell in cells.items():
+        graph, retention, channel = key.split("/")
+        twin = None
+        if (
+            retention == "stratified"
+            and not reach[graph]["the_switch_changes_the_propensities"]
+        ):
+            twin = f"{graph}/fair/{channel}"
+        cell["same_model_as"] = twin
+        cell["same_rates"] = (
+            None if twin is None else cell["rates"] == cells[twin]["rates"]
+        )
+        distinct += twin is None
+    return distinct
+
+
+def financial_in_top_decile(holdings: np.ndarray, layer: np.ndarray) -> int:
+    """How many of the nodes ranked in the top decile are financial-layer nodes.
+
+    ``palma`` takes the top decile off a sort of all nodes' claims. With twenty
+    financial-layer nodes in two hundred the decile has the layer's size; it
+    is the layer only while those twenty are the twenty richest.
+    """
+    x = np.asarray(holdings, dtype=float)
+    size = x.size - int(0.9 * x.size)
+    top = np.argsort(x, kind="stable")[-size:]
+    return int(np.isin(top, np.asarray(layer, dtype=int)).sum())
 
 
 def config_for(
@@ -123,6 +240,9 @@ def cell_rates(
         "monotone_above": bool(all(monotone)),
         # Landing on the grid's first non-zero point establishes an upper bound
         # and nothing finer. Reported so a ratio built on it is read as a bound.
+        # The test is "at or below", so a cell where every seed returns 0, the
+        # grid's lowest point and an exact value, carries it too; the table
+        # prints those cells as zero, and only arm I's access cells feed A6-4.
         "at_grid_floor": bool(found and max(found) <= FIRST_NONZERO),
     }
 
@@ -155,20 +275,23 @@ def long_run(seeds: range, rate: float, rounds: int) -> dict:
     Three hundred rounds is enough to find `R*` and not enough to claim
     "forever", which is why the document registers this separately.
     """
-    trends, drifts, ratios, collapsed = [], [], [], []
+    trends, drifts, ratios, collapsed, top = [], [], [], [], []
     for seed in seeds:
         cfg = config_for(seed, rounds, access=True, fair=True,
                          channel="infrastructure")
         cfg = replace(cfg, fiscal=replace(cfg.fiscal, rate=rate))
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            _, h = run_a6(cfg)
+            m, h = run_a6(cfg)
+        held = np.asarray(h.holdings, dtype=float)
+        top.append([financial_in_top_decile(held[0], m._l1),
+                    financial_in_top_decile(held[-1], m._l1)])
         y = np.asarray(h.effective_support, dtype=float)
         trends.append(support_trend(y, last=500))
         mid = y[500] if y.size > 500 else y[0]
         drifts.append(abs(float(y[-1] - mid)) / max(abs(float(mid)), 1e-12))
         # The registered band is symmetric, so it cannot tell "grew by two
-        # thirds" from "collapsed to a fifteenth". Both fail it and they are
+        # thirds" from "fell to 0.07 of where it began". Both fail it and they are
         # opposite outcomes, so the direction is reported beside the verdict.
         ratios.append(float(y[-1] / y[0]) if y[0] else float("nan"))
         collapsed.append(bool(y[0] and y[-1] < y[0]))
@@ -180,6 +303,9 @@ def long_run(seeds: range, rate: float, rounds: int) -> dict:
         "end_over_start": [float(r) for r in ratios],
         "seeds_collapsed": int(sum(collapsed)),
         "seeds": len(ratios),
+        # First and last period, by seed: of the twenty richest nodes, how many
+        # are financial-layer nodes.
+        "financial_nodes_in_the_top_decile": top,
         "stationary": bool(
             all(t >= 0 for t in trends) and all(d <= A6_5_DRIFT for d in drifts)
         ),
@@ -197,14 +323,17 @@ def palma_track(seeds: range, rounds: int, rate: float) -> dict:
     economy that stays reachable is not a closed economy that stays equal**, and
     conflating the two is what makes the first look impossible.
     """
-    first, last = [], []
+    first, last, top = [], [], []
     for seed in seeds:
         cfg = config_for(seed, rounds, access=True, fair=True,
                          channel="infrastructure")
         cfg = replace(cfg, fiscal=replace(cfg.fiscal, rate=rate))
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
-            m, _ = run_a6(cfg)
+            m, h = run_a6(cfg)
+        held = np.asarray(h.holdings, dtype=float)
+        top.append([financial_in_top_decile(held[0], m._l1),
+                    financial_in_top_decile(held[-1], m._l1)])
         track = np.asarray(m.palma_history, dtype=float)
         first.append(float(track[0]))
         last.append(float(track[-1]))
@@ -214,6 +343,9 @@ def palma_track(seeds: range, rounds: int, rate: float) -> dict:
         "per_seed": [
             [float(a), float(b)] for a, b in zip(first, last, strict=True)
         ],
+        # The ratio's top decile is the twenty richest nodes. First and last
+        # period, by seed: how many of those are financial-layer nodes.
+        "financial_nodes_in_the_top_decile": top,
         # Both directions are tested. Reporting only "rose" would leave a fall
         # and a mixed result indistinguishable, and the two mean different
         # things: one is a finding, the other is noise.
@@ -260,12 +392,34 @@ def main() -> int:
                 cells[key] = cell_rates(seeds, args.rounds, access, fair,
                                         channel)
 
+    reach = retention_reach(seeds[0] if len(seeds) else 0, args.rounds)
+    distinct = mark_twins(cells, reach)
+
     print("\n  R* by cell (grid scan, per seed)")
     print("    cell                        median   per seed")
     for key, c in cells.items():
-        mark = "  <= grid floor" if c["at_grid_floor"] else ""
+        if c["at_grid_floor"] and all(r == 0.0 for r in c["rates"]):
+            mark = "  = 0, the grid's lowest point"
+        elif c["at_grid_floor"]:
+            mark = "  <= grid floor"
+        else:
+            mark = ""
         print(f"    {key:26s}  {_fmt(c['median']):>6s}   "
               f"{[_fmt(r) for r in c['rates']]}{mark}")
+
+    twins = {k: c["same_model_as"] for k, c in cells.items()
+             if c["same_model_as"]}
+    if twins:
+        print(f"    {distinct} distinct cells of {len(cells)}: on the flat "
+              f"graph both layers already share one propensity range "
+              f"({reach['flat']['fair_low']:g} and "
+              f"{reach['flat']['fair_high']:g}), so the retention switch "
+              f"reaches nothing there and "
+              + ", ".join(f"{k} is {v}" for k, v in twins.items())
+              + " run a second time")
+        if not all(cells[k]["same_rates"] for k in twins):
+            print("    ** a twin cell did not return its twin's rates, so the "
+                  "two are not one model after all")
 
     a6_2 = all(c["unsolved_seeds"] == 0 for c in cells.values())
     print(f"\n  A6-2  R* exists: {'pass' if a6_2 else 'FAIL'} -- "
@@ -353,20 +507,23 @@ def main() -> int:
               f"set open and holding the distribution still are two questions, "
               f"and this cell answers both at once rather than trading one off "
               f"against the other")
+        inside = palma_result["financial_nodes_in_the_top_decile"]
+        print(f"      the top decile is the twenty richest nodes, not the "
+              f"financial layer: of the twenty, "
+              f"{[a for a, _b in inside]} are financial-layer nodes in the "
+              f"first period and {[b for _a, b in inside]} in the last, by "
+              f"seed")
+        if long_result is not None:
+            print(f"      and at the end of the long run "
+                  f"{[b for _a, b in long_result['financial_nodes_in_the_top_decile']]}")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
-    registered = (
-        args.seeds == REGISTERED_SEEDS and args.rounds == REGISTERED_ROUNDS
-    )
-    out = RESULTS / (
-        "a6_siphon_cost.json"
-        if registered
-        else f"a6_siphon_cost.offparam_{args.seeds}x{args.rounds}.json"
-    )
-    if not registered:
-        print(f"\n  off-parameter run against the registered "
-              f"{REGISTERED_SEEDS}x{REGISTERED_ROUNDS}: writing beside the "
-              f"registered result, not over it")
+    name = record_name(args.seeds, args.rounds, args.long, args.skip_long)
+    out = RESULTS / name
+    if name != "a6_siphon_cost.json":
+        print(f"\n  not the registered run ({REGISTERED_SEEDS} seeds, "
+              f"{REGISTERED_ROUNDS} rounds, A6-5 over {REGISTERED_LONG}): "
+              f"writing {name} beside the registered result, not over it")
     verdicts = {
         "A6-1": a6_1, "A6-2": a6_2, "A6-3": a6_3, "A6-4": a6_4,
         "A6-5": None if long_result is None else long_result["stationary"],
@@ -386,6 +543,12 @@ def main() -> int:
             f"{n_cells} cells, all seeds. The four that do are the access "
             f"cells and the four that do not are the flat ones, which is what "
             f"A6-3 predicts; the criterion's scope is what is wrong"
+            + (
+                f". The eight are {distinct} distinct cells: on the flat graph "
+                f"the retention switch reaches nothing, so its stratified "
+                f"cells are its fair cells run a second time"
+                if distinct != len(cells) else ""
+            )
         ),
         "A6-2": (
             f"{sum(c['unsolved_seeds'] for c in cells.values())} seed-cells "
@@ -443,6 +606,8 @@ def main() -> int:
                     "A6-5 drift": A6_5_DRIFT,
                 },
                 "zero_levy": floor,
+                "retention_axis": reach,
+                "distinct_cells": distinct,
                 "cells": cells,
                 "ratios": ratios,
                 "long_run": long_result,

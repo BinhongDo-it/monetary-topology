@@ -88,7 +88,7 @@
     {
       "name": "B4-4  Theorem 5: strong connectivity bounds the polytope",
       "passed": true,
-      "detail": "24 strongly connected graphs; every proper subset breaks (smallest breach 1.000e+06); every coordinate interval is finite, non-empty and contains the returned potential, widest 2.055"
+      "detail": "24 strongly connected graphs; a random proper subset of each size 1, n//2 and n-1 breaks in every graph (smallest breach 1.000e+06); every coordinate interval is finite, non-empty and contains the returned potential, widest 2.055"
     },
     {
       "name": "B4-5  Theorem 6(1): the symmetric part is non-positive",

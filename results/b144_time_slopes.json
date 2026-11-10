@@ -1,0 +1,223 @@
+{
+ "config": {
+  "across_from": [
+   "results/b144_wage_coordinates.json",
+   "results/b144_one_basket.json"
+  ],
+  "classes": {
+   "food at home": {
+    "CUUR0000SAF11": "food at home"
+   },
+   "goods with global writers": {
+    "CUUR0000SAA": "apparel",
+    "CUUR0000SERA01": "televisions",
+    "CUUR0000SETA01": "new vehicles"
+   },
+   "position": {
+    "CUUR0000SEHA": "rent of primary residence",
+    "CUUR0000SEHC": "owners' equivalent rent"
+   },
+   "services sold on the spot": {
+    "CUUR0000SEEB03": "day care and preschool",
+    "CUUR0000SEFV": "food away from home",
+    "CUUR0000SEGD": "personal care services",
+    "CUUR0000SETD": "motor vehicle maintenance and repair"
+   },
+   "written by one institution": {
+    "CUUR0000SEEB01": "college tuition and fees",
+    "CUUR0000SEHG": "water and sewer and trash collection",
+    "CUUR0000SEMC01": "physicians' services",
+    "CUUR0000SEMD": "hospital and related services"
+   }
+  },
+  "ends": [
+   2019,
+   2024
+  ],
+  "fetched_by": "experiments/b144_fetch.py --only bls",
+  "raw": "data/raw/b144/bls",
+  "starts": [
+   1991,
+   2000
+  ],
+  "wage": "CEU0500000008"
+ },
+ "criteria": [
+  {
+   "detail": "16 series; wage 10.51 in 1991 and 30.12 in 2024 an hour; series without a full start year at some knob point: ['CUUR0000SEHG']; every class has members at every knob point",
+   "kind": "instrument",
+   "name": "B144-I0",
+   "passed": true,
+   "statement": "The series are all there, with twelve months in every year read."
+  },
+  {
+   "detail": "1991 to 2019, wage up 2.24 times: new vehicles +0.19; apparel -0.05; televisions -4.75; food at home +0.72; food away from home +0.90; personal care services +1.21; day care and preschool +1.34; motor vehicle maintenance and repair +0.97; rent of primary residence +1.04; owners' equivalent rent +0.96; college tuition and fees +1.87; hospital and related services +1.87; physicians' services +1.01; all items +0.78. Class medians over the knob grid: goods with global writers -0.08 to +0.02; food at home +0.70 to +0.79; services sold on the spot +1.06 to +1.09; position +0.99 to +1.05; written by one institution +1.36 to +1.87 -> global below",
+   "kind": "own_reading",
+   "name": "B144-I1",
+   "passed": true,
+   "statement": "Along time, goods with global writers fall behind the wage more than services sold on the spot."
+  },
+  {
+   "detail": "median elasticity of the four rows one institution writes +1.36 to +1.87 over 4 knob points; position +0.99 to +1.05 -> faster than the wage",
+   "kind": "own_reading",
+   "name": "B144-I2",
+   "passed": true,
+   "statement": "Prices one institution writes for a whole country rise faster than the wage."
+  },
+  {
+   "detail": "services sold on the spot follow the wage by +1.06 to +1.09 along time; across between countries +0.405; across regions of one country +0.443 -> time steeper",
+   "kind": "own_reading",
+   "name": "B144-I3",
+   "passed": true,
+   "statement": "Services sold on the spot follow the wage along time more than they follow it across places."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "objects": {
+  "across_places": {
+   "across regions of one country": 0.4433,
+   "between countries": 0.4047
+  },
+  "grid": [
+   {
+    "all_items": 0.7825,
+    "class_median": {
+     "food at home": 0.7163,
+     "goods with global writers": -0.0458,
+     "position": 1.0001,
+     "services sold on the spot": 1.0907,
+     "written by one institution": 1.8657
+    },
+    "elasticity": {
+     "CUUR0000SAA": -0.0458,
+     "CUUR0000SAF11": 0.7163,
+     "CUUR0000SEEB01": 1.8657,
+     "CUUR0000SEEB03": 1.3395,
+     "CUUR0000SEFV": 0.8993,
+     "CUUR0000SEGD": 1.215,
+     "CUUR0000SEHA": 1.0405,
+     "CUUR0000SEHC": 0.9596,
+     "CUUR0000SEHG": null,
+     "CUUR0000SEMC01": 1.0066,
+     "CUUR0000SEMD": 1.8727,
+     "CUUR0000SERA01": -4.7531,
+     "CUUR0000SETA01": 0.1903,
+     "CUUR0000SETD": 0.9665
+    },
+    "end": 2019,
+    "start": 1991,
+    "wage_growth": 2.2363
+   },
+   {
+    "all_items": 0.7926,
+    "class_median": {
+     "food at home": 0.7731,
+     "goods with global writers": 0.0203,
+     "position": 0.9888,
+     "services sold on the spot": 1.0871,
+     "written by one institution": 1.5023
+    },
+    "elasticity": {
+     "CUUR0000SAA": 0.0203,
+     "CUUR0000SAF11": 0.7731,
+     "CUUR0000SEEB01": 1.5023,
+     "CUUR0000SEEB03": 1.2068,
+     "CUUR0000SEFV": 0.9342,
+     "CUUR0000SEGD": 1.1322,
+     "CUUR0000SEHA": 1.0215,
+     "CUUR0000SEHC": 0.9561,
+     "CUUR0000SEHG": null,
+     "CUUR0000SEMC01": 0.8519,
+     "CUUR0000SEMD": 1.629,
+     "CUUR0000SERA01": -4.0071,
+     "CUUR0000SETA01": 0.3277,
+     "CUUR0000SETD": 1.042
+    },
+    "end": 2024,
+    "start": 1991,
+    "wage_growth": 2.8654
+   },
+   {
+    "all_items": 0.7636,
+    "class_median": {
+     "food at home": 0.7048,
+     "goods with global writers": -0.0842,
+     "position": 1.0456,
+     "services sold on the spot": 1.0597,
+     "written by one institution": 1.7292
+    },
+    "elasticity": {
+     "CUUR0000SAA": -0.0842,
+     "CUUR0000SAF11": 0.7048,
+     "CUUR0000SEEB01": 1.852,
+     "CUUR0000SEEB03": 1.2815,
+     "CUUR0000SEFV": 1.006,
+     "CUUR0000SEGD": 1.1134,
+     "CUUR0000SEHA": 1.1362,
+     "CUUR0000SEHC": 0.955,
+     "CUUR0000SEHG": 1.6064,
+     "CUUR0000SEMC01": 0.8672,
+     "CUUR0000SEMD": 1.9831,
+     "CUUR0000SERA01": -6.6605,
+     "CUUR0000SETA01": 0.0545,
+     "CUUR0000SETD": 0.9902
+    },
+    "end": 2019,
+    "start": 2000,
+    "wage_growth": 1.6778
+   },
+   {
+    "all_items": 0.7836,
+    "class_median": {
+     "food at home": 0.7866,
+     "goods with global writers": 0.0191,
+     "position": 1.0153,
+     "services sold on the spot": 1.0595,
+     "written by one institution": 1.3598
+    },
+    "elasticity": {
+     "CUUR0000SAA": 0.0191,
+     "CUUR0000SAF11": 0.7866,
+     "CUUR0000SEEB01": 1.3565,
+     "CUUR0000SEEB03": 1.1177,
+     "CUUR0000SEFV": 1.0195,
+     "CUUR0000SEGD": 1.0325,
+     "CUUR0000SEHA": 1.079,
+     "CUUR0000SEHC": 0.9516,
+     "CUUR0000SEHG": 1.3631,
+     "CUUR0000SEMC01": 0.6996,
+     "CUUR0000SEMD": 1.6122,
+     "CUUR0000SERA01": -5.0167,
+     "CUUR0000SETA01": 0.2875,
+     "CUUR0000SETD": 1.0865
+    },
+    "end": 2024,
+    "start": 2000,
+    "wage_growth": 2.1498
+   }
+  ],
+  "states": {
+   "B144-I0": {
+    "problems": [],
+    "short": [
+     "CUUR0000SEHG"
+    ]
+   },
+   "B144-I1": {
+    "state": "global below"
+   },
+   "B144-I2": {
+    "state": "faster than the wage"
+   },
+   "B144-I3": {
+    "across": {
+     "across regions of one country": 0.4433,
+     "between countries": 0.4047
+    },
+    "state": "time steeper"
+   }
+  }
+ },
+ "stage": "B144"
+}

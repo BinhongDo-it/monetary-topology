@@ -5,7 +5,8 @@ was read. Two things change from A1b and the criteria are arranged so the two
 can be told apart afterwards:
 
 * **the cushion**, from one month of a household's own bills to its measured
-  liquid assets with no floor (§3);
+  liquid assets as published, the publisher's one-dollar floor included, with
+  no floor added (§3);
 * **the window**, from "ever missed over sixty periods" to "sixty days behind
   inside a twelve-month window" (§4).
 
@@ -80,10 +81,16 @@ from experiments.a1b_default_cascade import (  # noqa: E402
     SELECTION,
     SWEEP_MONTHS_PER_ROUND,
     SWEEP_SEEDS,
+    TENURE_RATE_DEFINITIONS,
     ZERO_PERIODS,
+    EXPECTED_EVENT_FLOOR,
+    IMPLICATES,
+    PAIR_SIGMA,
+    TARGET_COUNT_DEFINITIONS,
     Criterion,
     InputProblem,
     _monotone,
+    _touched,
     a1_2,
     a1_3,
     a1_6,
@@ -92,11 +99,18 @@ from experiments.a1b_default_cascade import (  # noqa: E402
     a1b_0,
     basket_by_decile,
     default_jobs,
+    displaced_by_tenure,
+    distinct_families,
     first_default_shares,
+    first_default_shares_by_tenure,
     flat_path,
     late60_by_group,
     ordering,
+    refused_pairs,
     relieved,
+    scorable_pairs,
+    starting_state,
+    target_with_counts,
     to_records,
 )
 
@@ -113,20 +127,8 @@ DEFAULT_HOUSEHOLDS = 100_000
 #: the floor of five. At 50,000 the same group gives about 10.4.
 DEFAULT_SWEEP_HOUSEHOLDS = 50_000
 
-#: §5, model side. A group producing fewer than this many expected events under
-#: the target's own rate has produced a rounding rather than a rate.
-EXPECTED_EVENT_FLOOR = 5.0
-
-#: §5, target side. Two standard errors of the adjacent difference, the standard
-#: error naive binomial on the family count. Naive is the conservative direction
-#: here: it ignores the SCF's design effect, so it admits **more** pairs than a
-#: design-corrected rule would and is therefore harder on the model.
-PAIR_SIGMA = 2.0
-
-#: The extract carries five implicates of each family, so a count of rows is
-#: five times a count of families and a standard error taken on rows would be
-#: the sampling error of an imputation rather than of a survey.
-IMPLICATES = 5
+#: §5. The resolution rule, its floor ``EXPECTED_EVENT_FLOOR``, its ``PAIR_SIGMA``
+#: and ``IMPLICATES`` are A1b's, imported above: A1b-1 scores on the same rule.
 
 #: §4. The scored window is the run's last twelve periods.
 WINDOW_MONTHS = 12
@@ -189,73 +191,35 @@ def ever_missed_by_group(households: list, classes,
     return [b / t if t else 0.0 for b, t in zip(behind, total, strict=True)]
 
 
-# ---------------------------------------------------------------------------
-# §5. The resolution rule
-# ---------------------------------------------------------------------------
-def target_with_counts(respondents: list[Respondent]) -> dict[str, list]:
-    """``LATE60`` by net-worth group, with the sample behind each figure.
+def liquid_composition(respondents: list[Respondent]) -> dict[str, object]:
+    """What ``LIQ`` is made of, on the rows of the file.
 
-    The rate alone cannot say whether an adjacent pair is resolvable, and A1b-1
-    failed on a pair separated by four basis points and eleven households
-    against five. The counts travel with the rates from here on.
+    The Federal Reserve's macro sets ``LIQ`` to checking, savings, money market
+    and call accounts plus prepaid cards, and then to ``max(HLIQ, LIQ)``, which
+    leaves one dollar on a household that has an account and nothing in it. A
+    cushion of zero in this stage therefore means no transaction account and no
+    positive prepaid balance. ``LIQ`` leaves out certificates of deposit, funds,
+    stocks and retirement accounts, which a household at zero can still hold.
     """
-    groups = rank_groups(respondents, "networth")
-    weight = [0.0] * len(GROUPS)
-    behind = [0.0] * len(GROUPS)
-    rows = [0] * len(GROUPS)
-    reporting = [0] * len(GROUPS)
-    for person, group in zip(respondents, groups, strict=True):
-        weight[group] += person.weight
-        behind[group] += person.weight * person.extra.get("LATE60", 0.0)
-        rows[group] += 1
-        if person.extra.get("LATE60", 0.0) > 0.0:
-            reporting[group] += 1
-    rate = [b / w if w else 0.0 for b, w in zip(behind, weight, strict=True)]
-    families = [n / IMPLICATES for n in rows]
+    parts = ("CHECKING", "SAVING", "MMA", "CALL", "PREPAID")
+    if not respondents or any(c not in respondents[0].extra for c in parts):
+        return {}
+
+    def five(r) -> float:
+        return sum(r.extra[c] for c in parts)
+
     return {
-        "rate": rate,
-        "families": families,
-        "rows": rows,
-        "reporting_rows": reporting,
-        "standard_error": [
-            math.sqrt(p * (1.0 - p) / f) if f > 0 else float("inf")
-            for p, f in zip(rate, families, strict=True)
-        ],
+        "rows": len(respondents),
+        "rows_with_a_prepaid_card_balance": sum(
+            1 for r in respondents if r.extra["PREPAID"] > 0.0),
+        "rows_where_the_floor_of_one_dollar_binds": sum(
+            1 for r in respondents if r.liquid - five(r) > 0.005),
+        "rows_with_zero_published": sum(1 for r in respondents if r.liquid <= 0.0),
+        "rows_with_zero_in_the_five_components": sum(
+            1 for r in respondents if five(r) <= 0.0),
+        "rows_with_zero_in_the_four_accounts": sum(
+            1 for r in respondents if five(r) - r.extra["PREPAID"] <= 0.0),
     }
-
-
-def scorable_pairs(target: dict[str, list],
-                   sizes: list[int]) -> tuple[list[int], list[dict]]:
-    """Which adjacent pairs both sides can resolve. ``docs/a1d_prereg.md`` §5.
-
-    Returns the indices of the admitted pairs and a row per pair saying why it
-    was admitted or not. A pair the source cannot resolve is not evidence about
-    the model, and gating on one is `MEASUREMENT.md` checklist item 8: a guard
-    that would say the same thing if the thing it guards were broken.
-    """
-    admitted: list[int] = []
-    rows: list[dict] = []
-    n = len(target["rate"])
-    for i in range(n - 1):
-        gap = target["rate"][i] - target["rate"][i + 1]
-        sigma = math.hypot(target["standard_error"][i],
-                           target["standard_error"][i + 1])
-        sigmas = abs(gap) / sigma if sigma > 0 else 0.0
-        expected = [sizes[j] * target["rate"][j] for j in (i, i + 1)]
-        source_ok = sigmas >= PAIR_SIGMA
-        model_ok = min(expected) >= EXPECTED_EVENT_FLOOR
-        if source_ok and model_ok:
-            admitted.append(i)
-        rows.append({
-            "pair": f"{GROUPS[i]}/{GROUPS[i + 1]}",
-            "gap": gap,
-            "sigmas": sigmas,
-            "expected_events": expected,
-            "source_resolves": source_ok,
-            "model_resolves": model_ok,
-            "scored": source_ok and model_ok,
-        })
-    return admitted, rows
 
 
 def a1d_1(respondents: list[Respondent], sweep: list[dict],
@@ -280,6 +244,21 @@ def a1d_1(respondents: list[Respondent], sweep: list[dict],
         ), {"target": target, "cells": [], "pairs": [], "group_sizes": sizes}
 
     admitted, pair_rows = scorable_pairs(target, sizes)
+    refused = refused_pairs(pair_rows)
+    if refused:
+        return Criterion(
+            "A1d-1 the delinquency gradient, matched window", False,
+            f"{households:,} households is refused as a size for this criterion: "
+            + "; ".join(f"the source resolves {r['pair']} at {r['sigmas']:.2f} "
+                        f"sigma and the model would expect "
+                        f"{min(r['expected_events']):.1f} events in its thinner "
+                        f"group, under the floor of {EXPECTED_EVENT_FLOOR}"
+                        for r in refused)
+            + ". Scoring the remaining pairs would let the population size "
+              "choose the comparisons. Run at a size that clears the floor",
+            True,
+        ), {"target": target, "cells": [], "pairs": pair_rows,
+            "group_sizes": sizes}
     if not admitted:
         return Criterion(
             "A1d-1 the delinquency gradient, matched window", False,
@@ -320,8 +299,9 @@ def a1d_1(respondents: list[Respondent], sweep: list[dict],
         "LATE60 by net worth: "
         + ", ".join(
             f"{GROUPS[g]} {target['rate'][g]:.4f} "
-            f"({target['reporting_rows'][g]} of {target['families'][g]:,.0f} "
-            f"families)"
+            f"({target['reporting_rows'][g]:,} of {target['rows'][g]:,} "
+            f"implicate rows, {target['family_equivalents'][g]:,.1f} "
+            f"family equivalents)"
             for g in range(len(GROUPS))
         )
         + ". Scored pairs: "
@@ -360,16 +340,6 @@ def a1d_1(respondents: list[Respondent], sweep: list[dict],
     }
 
 
-def _touched(admitted: list[int]) -> list[int]:
-    """The groups the admitted pairs speak about, in order and without repeats."""
-    out: list[int] = []
-    for i in admitted:
-        for g in (i, i + 1):
-            if g not in out:
-                out.append(g)
-    return out
-
-
 # ---------------------------------------------------------------------------
 # §6.4. A1d-2. The rent gradient, on net worth alone
 # ---------------------------------------------------------------------------
@@ -402,9 +372,9 @@ def renter_families(records: list[HouseholdRecord], households: int,
     ``docs/a1d_prereg.md`` §10, 2026-08-16, ruling C. Reported and never
     scored. ``RENTER_FLOOR`` counts model households, which are copies twice
     over: the extract carries five implicates of each family, and the allocation
-    then hands weight-proportional copies to each implicate. A cell of 37 model
-    renters can be seven families, and a floor that cannot see the difference is
-    not doing the job a floor is for.
+    then hands weight-proportional copies to each implicate. The cell of 37
+    model renters at the top is six families, and a floor that cannot see the
+    difference is not doing the job a floor is for.
 
     A family is the implicate block a record sits in, which is its index over
     :data:`IMPLICATES`, the same divisor the standard errors in §5 use.
@@ -551,13 +521,18 @@ def _task(job: dict) -> dict:
                                     cushion=Cushion.MEASURED)
     if job["kind"] == "relieved":
         households = relieved(households, cost)
+    start = starting_state(households)
     result = CascadeModel(households, cost).run(job["path"])
 
-    out: dict = {"kind": job["kind"], "result": result}
+    out: dict = {"kind": job["kind"], "result": result,
+                 "carriers_at_start": start["carriers"],
+                 "displaced_by_tenure": displaced_by_tenure(households)}
     if job["kind"] == "scored":
         out["renter_families"] = renter_families(records, job["households"],
                                                  households)
-        short = [sum(h.due.values()) > h.income for h in households]
+        # read before the run: displacement removes the shelter bill, and a
+        # household short at baseline would otherwise read as never short
+        short = start["short"]
         clear = [h for h, s in zip(households, short, strict=True) if not s]
         defaulting = [h for h in clear if h.first_default is not None]
         if defaulting:
@@ -622,10 +597,12 @@ def print_cushion(records: list[HouseholdRecord], built: list) -> dict:
         g = house.stratum
         total[g] += 1
         cushion[g] += house.buffer
-        scheduled[g] += sum(house.due.values())
+        scheduled[g] += sum(house.due.values()) + house.outflow
         if house.buffer <= 0.0:
             zero[g] += 1
-    print("\nthe cushion, measured. docs/a1d_prereg.md section 3: no floor")
+    print("\nthe cushion, measured. docs/a1d_prereg.md section 3: LIQ as "
+          "published, the publisher's one-dollar floor included, no floor "
+          "added")
     print(f"    {'group':<10}{'n':>9}{'zero':>9}{'zero share':>12}"
           f"{'mean cushion':>15}{'months of bills':>17}")
     rows = []
@@ -639,8 +616,9 @@ def print_cushion(records: list[HouseholdRecord], built: list) -> dict:
         rows.append({"group": GROUPS[g], "households": total[g],
                      "zero": zero[g], "zero_share": zero[g] / total[g],
                      "mean_cushion": mean, "months_of_bills": months})
-    print("    'months of bills' is the cushion against one month of scheduled "
-          "obligations, which is exactly what A1b handed every household")
+    print("    'months of bills' is the cushion against one month of everything "
+          "the household pays, its payments on no rung included, which is "
+          "what A1b's scheduled cushion hands every household")
     return {"by_group": rows}
 
 
@@ -756,8 +734,41 @@ def main() -> int:
     print(f"\nbaseline with no shock, {reference['periods']} periods: "
           + ", ".join(f"{k} {v:.4f}"
                       for k, v in reference["final"].items() if v > 0.0))
-    print(f"    {reference['displaced']:,} of {reference['renters']:,} renters "
-          f"displaced with no shock at all")
+    moved = by_kind["baseline"]["displaced_by_tenure"]
+    held = by_kind["baseline"]["carriers_at_start"]
+    began = {"RENTER": held["RENTER"]["RENT"],
+             "MORTGAGED": held["MORTGAGED"]["MORTGAGE"]}
+    reference["displaced_by_tenure"] = moved
+    reference["shelter_carriers_at_start"] = began
+    print(f"    {reference['displaced_all_tenures']:,} households displaced with "
+          f"no shock at "
+          f"all: {moved['RENTER']:,} of {began['RENTER']:,} renters and "
+          f"{moved['MORTGAGED']:,} of {began['MORTGAGED']:,} mortgaged")
+
+    # The starting carriers are read before the run, because displacement
+    # removes the shelter rung (A1b's first_default_shares_by_tenure).
+    by_tenure = first_default_shares_by_tenure(
+        scored, by_kind["scored"]["carriers_at_start"])
+    print("\nfirst defaults per household that carried the rung at the start")
+    for tenure, row in by_tenure.items():
+        cells = [f"{kind} {row[f'per_carrier_at_start_{kind}']:.4f} "
+                 f"({row[f'carriers_at_start_{kind}']:,})"
+                 for kind in ("card", "auto", "rent", "mortgage", "basket")
+                 if row.get(f"per_carrier_at_start_{kind}") is not None]
+        print(f"    {tenure:<10}" + ", ".join(cells))
+
+    composition = liquid_composition(respondents)
+    if composition:
+        print(f"\nthe published liquid column: {composition['rows_with_a_prepaid_card_balance']:,} "
+              f"of {composition['rows']:,} implicate rows carry a prepaid card "
+              f"balance inside it, and the publisher's floor of one dollar "
+              f"binds on {composition['rows_where_the_floor_of_one_dollar_binds']:,}. "
+              f"Rows reading zero: {composition['rows_with_zero_published']:,} "
+              f"as published, "
+              f"{composition['rows_with_zero_in_the_five_components']:,} on the "
+              f"five components without the floor, "
+              f"{composition['rows_with_zero_in_the_four_accounts']:,} on the "
+              f"four accounts alone")
 
     print("\ncriteria")
     for c in criteria:
@@ -775,7 +786,8 @@ def main() -> int:
                 "complete": True,
                 "not_yet_written": list(NOT_YET_WRITTEN),
                 "cushion": {
-                    "rule": "LIQ, measured, no floor",
+                    "rule": ("LIQ as published (the publisher's one-dollar "
+                             "floor included), no floor added"),
                     "source": selection.liquid_column,
                     **cushion_report,
                 },
@@ -789,6 +801,7 @@ def main() -> int:
                 "seeds": "none; the population is a deterministic allocation",
                 "baseline_stress": stress,
                 "baseline_no_shock": reference,
+                "liquid_composition": composition,
                 "workers": workers,
                 "path": {
                     "source": "A0 retention, terminating claims by stratum",
@@ -805,6 +818,8 @@ def main() -> int:
                     "by_group": family_rows,
                 },
                 "first_default_shares": first_default_shares(scored),
+                "first_default_shares_by_tenure": {
+                    "_definitions": TENURE_RATE_DEFINITIONS, **by_tenure},
                 "scored_final": {
                     k.value: scored.delinquent_share[k.value][-1]
                     for k in Obligation

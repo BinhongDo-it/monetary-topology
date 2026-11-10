@@ -104,6 +104,28 @@ def known_answer_arm(old_rules, new_rules) -> tuple[bool, list[str]]:
     return not d, d
 
 
+def whole_run(m) -> dict:
+    """Readings over all rounds: the last-50-round window says nothing about how the core emptied."""
+    loc = np.asarray(m.location_history, dtype=float)
+    ch = np.asarray(m.core_choice_history, dtype=float)
+    occ = np.flatnonzero(loc[:, 0] > 0)
+    dear = np.flatnonzero(ch[:, 3] > 0)
+    return {
+        "core_tenant_rounds": int(loc[:, 0].sum()),
+        "core_employed_tenant_rounds": int(loc[:, 1].sum()),
+        "core_last_occupied_round": int(occ[-1]) if occ.size else None,
+        "location_rent_collected_total": round(float(loc[:, 3].sum()), 4),
+        "location_rent_left_with_tenants_total": round(float(loc[:, 2].sum()), 4),
+        "commute_saved_total": round(float(np.sum(m.commute_saved_history)), 4),
+        "core_choices": int(ch[:, 0].sum()),
+        "core_choices_plain_full": int(ch[:, 1].sum()),
+        "core_choices_no_wage": int(ch[:, 2].sum()),
+        "core_choices_dear": int(ch[:, 3].sum()),
+        "core_choices_dear_plain_full": int(ch[:, 4].sum()),
+        "first_dear_core_choice_round": int(dear[0]) if dear.size else None,
+    }
+
+
 def preview_row(m) -> dict:
     loc = np.asarray(m.location_history[-50:], dtype=float)
     ten = np.asarray(m.match_state["is_renter"])
@@ -121,6 +143,11 @@ def preview_row(m) -> dict:
         "employed_share_of_renters_end": round(renters_emp, 4),
         "location_rent_left_with_tenants_per_round": round(float(loc[:, 2].mean()), 4) if loc.size else None,
         "location_rent_collected_per_round": round(float(loc[:, 3].mean()), 4) if loc.size else None,
+        "commute_saved_per_round": round(float(np.mean(m.commute_saved_history[-50:])), 4)
+        if m.commute_saved_history else None,
+        "core_tenant_rounds_last50": int(loc[:, 0].sum()) if loc.size else 0,
+        "core_employed_tenant_rounds_last50": int(loc[:, 1].sum()) if loc.size else 0,
+        **whole_run(m),
         "core_households_end": round(float(m.core_household_history[-1]), 4),
         "locks": len(m.lock_events),
         "prod_share": r["net_worth_production_layer_share"],
@@ -141,6 +168,12 @@ def selftest() -> None:
     t, i = m.location_choices[0][:2]
     m.location_choices.append((t, i, 0, 0.0, 0.0))
     assert not structure_check(m)[0], "A51-2 must catch a renter placed twice in a round"
+    m, _ = run("listed 0.271", 0.005, S_HIGH, 0.1, rounds=80)
+    w = whole_run(m)
+    assert w["core_choices"] == sum(1 for c in m.location_choices if c[2] == m._core_q), \
+        "the per-round count of core choices must be the choices that took the core"
+    assert w["core_choices_dear_plain_full"] <= min(w["core_choices_dear"], w["core_choices_plain_full"])
+    assert w["commute_saved_total"] > 0.0 and w["core_employed_tenant_rounds"] <= w["core_tenant_rounds"]
     for bad in (dict(location_s=0.05, tenant_tier=False), dict(location_s=-0.1),
                 dict(location_s=0.05, commit_loan=True)):
         try:
@@ -182,7 +215,10 @@ def main() -> int:
           f"one unit per renter, every choice the cheapest affordable ({len(arms)} arms)")
     keys = ["core_tenants_last50", "core_rental_slots_end", "employed_share_of_core_tenants",
             "employed_share_of_renters_end", "location_rent_left_with_tenants_per_round",
-            "location_rent_collected_per_round", "core_households_end", "locks", "prod_share", "top_decile"]
+            "location_rent_collected_per_round", "commute_saved_per_round", "core_tenant_rounds",
+            "core_last_occupied_round", "core_choices", "core_choices_plain_full", "core_choices_no_wage",
+            "core_choices_dear", "core_choices_dear_plain_full", "first_dear_core_choice_round",
+            "core_households_end", "locks", "prod_share", "top_decile"]
     print("\none seed (0), 300 rounds, R0 1.16, tau_o 0.02:")
     for name, r in arms.items():
         print(f"  {name}\n    " + ", ".join(f"{k} {r.get(k)}" for k in keys))

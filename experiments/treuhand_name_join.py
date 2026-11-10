@@ -7,15 +7,16 @@ changed with the transfer. This script joins those firms by name instead.
 
 A name join has no external key to verify it, and the register dump holds no
 pre-1995 founding dates that could, so the instrument is calibrated first on the
-firms whose answer is already known: the 2,594 whose register number resolved to
+firms whose answer is already known: those whose register number resolved to
 exactly one company. Precision and recall are printed, and they are what licenses
 the readings below. The join runs afterwards on the merged-court firms.
 
 Criteria, printed objects with a reading fixed in advance:
   B40-N1 calibration: precision when the name join returns exactly one candidate.
-  N2 recall against the register-number hit rate; both are limited by the same
-     2005 window, so they should be close, and a large gap would mean the name
-     normalisation, not the window, is doing the work.
+  N2 recall. Every calibration firm is in the dump by construction, since its
+     register number resolved there, so the dump's 2005 window does not explain a
+     miss among them. The misses are split by whether the dump holds any name for
+     the true company at these courts, and a few are printed.
   B40-N3 the two margins recomputed with the newly joined firms folded in, printed
      beside the old ones. The reading is whether either margin moves.
 """
@@ -53,18 +54,20 @@ def build_index(db, courts):
          "JOIN ReferenceNumbers r ON r.companyId = n.companyId "
          "WHERE r.courtName IN (%s)" % ",".join("?" * len(courts)))
     idx = collections.defaultdict(set)
+    names_of = collections.defaultdict(set)     # company -> the normalised names the dump holds
     rows = 0
     for court, name, cid in con.execute(q, tuple(sorted(courts))):
         k = norm(name)
         if k:
             idx[(court, k)].add(cid)
+            names_of[cid].add(k)
             rows += 1
     diss = {}
     for cid, d, first, last in con.execute(
             "SELECT companyId, dissolutionDate, firstSeenDate, lastSeenDate FROM Companies"):
         diss[cid] = (d or '', first or '', last or '')
     con.close()
-    return idx, diss, rows
+    return idx, diss, rows, names_of
 
 
 def lookup(idx, court, row):
@@ -74,6 +77,34 @@ def lookup(idx, court, row):
         if k:
             hits |= idx.get((court, k), set())
     return sorted(hits)
+
+
+def miss_kind(on_file):
+    """Why a firm known to be in the dump got no candidate by name."""
+    return ('no match, the dump holds names for the true company' if on_file
+            else 'no match, the dump holds no name for the true company at these courts')
+
+
+def selftest():
+    idx = collections.defaultdict(set)
+    idx[('Potsdam', norm('Fördertechnik Freital GmbH'))].add('A')
+    idx[('Potsdam', norm('VEB Fördertechnik'))].add('B')
+    row = {'name': 'Foerdertechnik Freital mbH', 'altname': 'VEB Fördertechnik'}
+    checks = [
+        ('umlauts, legal forms and case do not separate a name',
+         norm('Fördertechnik Freital GmbH') == norm('FOERDERTECHNIK FREITAL mbH') == 'foerdertechnik freital'),
+        ('each umlaut and the sharp s fold to two letters',
+         norm('Bäckerei Mühle Köthen Straße') == 'baeckerei muehle koethen strasse'),
+        ('a firm is looked up under its name and its predecessor name',
+         lookup(idx, 'Potsdam', row) == ['A', 'B']),
+        ('and only at the court asked for', lookup(idx, 'Dresden', row) == []),
+        ('a miss with names on file is told from a miss with none',
+         miss_kind({'x'}) != miss_kind(set()) and 'holds names' in miss_kind({'x'})),
+    ]
+    for label, ok in checks:
+        print('  %s  %s' % ('ok   ' if ok else 'WRONG', label))
+    print('selftest: %d of %d' % (sum(1 for _l, ok in checks if ok), len(checks)))
+    return 0 if all(ok for _l, ok in checks) else 1
 
 
 def margins(rows, joined_ok):
@@ -103,6 +134,8 @@ def show(tag, m):
 
 
 def main():
+    if '--selftest' in sys.argv:
+        sys.exit(selftest())
     raw = 'data/raw/Treuhand'
     proc = 'data/processed/treuhand'
     db = os.path.join(raw, 'handelsregister.db')
@@ -115,13 +148,14 @@ def main():
     rec = {'stage': 'DE-NAME', 'criteria': [], 'tables': {}}
 
     courts = sorted(set(COURTMAP.values()) | set(MERGED_INTO.values()))
-    idx, diss, nrows = build_index(db, courts)
+    idx, diss, nrows, names_of = build_index(db, courts)
     print('indexed %d name rows into %d (court, normalised name) keys across %d courts'
           % (nrows, len(idx), len(courts)))
 
     # ---- B40-N1/N2 calibration on firms whose answer the register number already gave
     truth = [r for r in rows if r['match'] == 'unique' and r['company_id']]
     cal = collections.Counter()
+    miss_examples = []
     for r in truth:
         court = COURTMAP.get(r['register_ort'])
         if not court:
@@ -130,6 +164,12 @@ def main():
         hits = lookup(idx, court, r)
         if not hits:
             cal['no match'] += 1
+            on_file = names_of.get(r['company_id'], set())
+            cal[miss_kind(on_file)] += 1
+            if on_file and len(miss_examples) < 5:
+                miss_examples.append({'firma': r['firma'], 'status': r['status'],
+                                      'released_name': r['name'], 'released_predecessor': r['altname'],
+                                      'names_in_the_dump': sorted(on_file)[:3]})
         elif len(hits) > 1:
             cal['several'] += 1
             cal['several incl truth'] += 1 if r['company_id'] in hits else 0
@@ -141,12 +181,18 @@ def main():
     precision = cal['one correct'] / float(one) if one else 0.0
     recall = cal['one correct'] / float(len(truth)) if truth else 0.0
     print('\nN1/N2  calibration on %d firms whose register number resolved uniquely' % len(truth))
-    for k in ['one correct', 'one wrong', 'several', 'several incl truth', 'no match', 'court missing']:
+    for k in ['one correct', 'one wrong', 'several', 'several incl truth', 'no match',
+              miss_kind({'x'}), miss_kind(set()), 'court missing']:
         if cal[k]:
-            print('   %-22s %5d  %5.1f%%' % (k, cal[k], 100.0 * cal[k] / len(truth)))
+            print('   %-72s %5d  %5.1f%%' % (k, cal[k], 100.0 * cal[k] / len(truth)))
+    for x in miss_examples:
+        print('     e.g. %s %s: released as %r (formerly %r); the dump holds %s'
+              % (x['status'], x['firma'], x['released_name'], x['released_predecessor'],
+                 x['names_in_the_dump']))
     print('   precision when it returns one: %d/%d = %.1f%%' % (cal['one correct'], one, 100 * precision))
     print('   recall: %.1f%%' % (100 * recall))
     rec['tables']['calibration'] = dict(cal, n=len(truth), precision=precision, recall=recall)
+    rec['tables']['calibration_miss_examples'] = miss_examples
     rec['criteria'].append({'name': 'B40-N1 name join precision, measured not assumed',
                             'passed': precision >= 0.90,
                             'detail': 'returns exactly one candidate for %d of %d known firms and is '
@@ -240,15 +286,21 @@ def main():
     print('\nwrote %s (%d rows)' % (out, len(rows)))
     os.makedirs('results', exist_ok=True)
     # Closed 2026-09-02. The two things named here are measured properties of the instrument,
-    # printed with the readings, and neither is a step anyone can finish: recall is held back
-    # by the register's 2005 window, which is the same wall the register-number key hits.
+    # printed with the readings. Recall is measured on firms that are in the dump, so the
+    # dump's 2005 window does not explain the misses there; what the dump holds for a missed
+    # firm is counted in the calibration table.
     rec['diagnostic_only'] = False
-    rec['scope_note'] = ('the join was calibrated before use and carries a measured 2.4% '
-                         'false-positive rate at 48.0% recall, and it reaches only the two '
+    rec['scope_note'] = ('the join was calibrated before use and carries a measured %.1f%% '
+                         'false-positive rate at %.1f%% recall, and it reaches only the two '
                          'Laender whose courts were merged. Both are printed beside the '
-                         'readings. Recall is capped by the register dump 2005 window, the '
-                         'same wall the register-number key hits, so it is a property of the '
-                         'source and not an unfinished step.')
+                         'readings. Recall is measured on firms whose register number already '
+                         'resolved in the dump, so every one of them is inside its 2005 window: '
+                         'of the %d the name key misses outright, the dump holds names for the '
+                         'true company in %d, none of them equal to a released name. That the '
+                         'recall sits near the register-number hit rate, which has a different '
+                         'denominator, is not evidence of one mechanism.'
+                         % (100 * (1 - precision), 100 * recall, cal['no match'],
+                            cal[miss_kind({'x'})]))
     with open('results/treuhand_name_join.json', 'w', encoding='utf-8', newline='\n') as fh:
         json.dump(rec, fh, ensure_ascii=False, indent=1, sort_keys=True)
     print('wrote results/treuhand_name_join.json')

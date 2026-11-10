@@ -2,8 +2,9 @@
 """Are the implied book and the directly quoted book two agent classes in the
 sense of `docs/b4_directed_edges.md` section 5.1?
 
-Pre-registered, criteria fixed before the code and none rewritten after. B13
-section 5.1 hands over an
+The criteria are written in this script, and every quantity the run
+produces is printed.
+`docs/b4_directed_edges.md` section 5.1 hands over an
 operational criterion for its own question:
 
     S - S'  is zero exactly when the two classes face the same antisymmetric
@@ -12,7 +13,8 @@ operational criterion for its own question:
 so "are these two classes" is the measurable question "is S - S' identically
 zero, and if not, does the non-zero carry a persistent sign".
 
-A bound that travels with it, and which this repository had not written down.
+A bound that travels with it, written down here first and since stated as
+Theorem 6(4) of `docs/b4_directed_edges.md`.
 `S` and `S'` are each a directed four-cycle, so Theorem 4 forces **each** of
 them below zero and not merely their sum. From `S <= 0` and `S' <= 0`,
 `-4 S S' <= 0`, hence `(S - S')^2 <= (S + S')^2`:
@@ -214,7 +216,7 @@ def analyse(path):
     print("    %d states, %d violations" % (len(allrows), viol))
     if viol:
         print("    **the bound is a theorem, so this is a code error and every "
-              "reading below is void (design file section 14.3 R1)**")
+              "reading below is void (R1)**")
         return 1
     print("    zero violations, so the readings below stand\n")
 
@@ -272,16 +274,15 @@ def analyse(path):
             r, tot = same_sign_rate(signs, L)
             cells.append("   -    " if r is None else "%.4f  " % r)
         print("    %-14s %8.4f %8.4f %s" % (name, p, null, "".join(cells)))
-    print("\n    read per design file section 14.3 R4: no threshold, the curve is "
-          "the reading. **Declared on reading, 2026-08-19: this null absorbs the "
+    print("\n    R4 has no threshold; the curve is "
+          "the reading. **This null absorbs the "
           "very thing R5 measures.** p is the whole-sample marginal, so a constant "
           "one-sided wedge raises the null by exactly as much as it raises the "
           "agreement rate. R4 therefore tests for structure *in excess of* a "
           "constant wedge and does not bear on whether there is a wedge. R5 and "
           "R6 are the readings that do.\n")
 
-    print("R6  parity control (post hoc, declared 2026-08-19, not in the "
-          "pre-registration)")
+    print("R6  parity control")
     print("    All four tops are integers on the instrument's tick grid, and")
     print("      index = (db+da) - (eb+ef),   friction = -[(da-db) + (ef-eb)]")
     print("    both reduce mod 2 to db+da+eb+ef, so **index and friction always "
@@ -318,7 +319,7 @@ def analyse(path):
     print("\n    where parity allowed a zero, the index is zero in %.4f of states; "
           "over the whole sample it is zero in %.4f"
           % (tot[3] / tot[2], tot[3] / tot[0]))
-    print("    read per design file section 14: the verdict is **per position "
+    print("    the verdict is **per position "
           "edge**, because section 5.1's construction is about one edge (i, j) "
           "and not about the two mechanisms in general.")
     return 0

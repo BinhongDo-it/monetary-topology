@@ -113,7 +113,12 @@ chosen with the answer visible is recorded here rather than argued away.
 > dollars. **No floor and no addition.** A household reporting zero liquid
 > assets starts with a cushion of zero.
 
-`LIQ` is checking, savings, money market and call accounts. It excludes
+`LIQ` is checking, savings, money market and call accounts and prepaid cards, and
+the publisher then takes `max(HLIQ, LIQ)`, which leaves one dollar on a household that
+has an account and nothing in it (read against the Federal Reserve's macro on
+2026-10-10: 3,482 of the 22,975 implicate rows carry a prepaid balance and the floor
+binds on 235). A cushion of zero therefore means no transaction account and no
+positive prepaid balance. It excludes
 retirement balances, which the extract carries separately as `RETQLIQ`, and it
 excludes every non-financial asset.
 
@@ -189,7 +194,7 @@ An ordinal criterion across four groups is four ranks and three adjacent pairs.
 
 **Target side.** The pair is admitted when the target's adjacent difference
 exceeds **two standard errors of that difference**, the standard error taken as
-naive binomial on the **family count**, which is rows divided by five because
+naive binomial on the **family equivalents**, which is rows divided by five because
 the extract carries five implicates of each family. Naive is stated as the
 conservative choice in the direction that matters: it ignores the SCF's design
 effect, which on a list-sample-heavy top cell inflates the variance, so this
@@ -212,7 +217,9 @@ setting. At `20,000` households the `next9` group holds about `1,895`, giving
 `1,895 × 0.0022 ≈ 4.2` expected events, under the floor. **The sweep therefore
 runs at `50,000`**, where the same group gives about `10.4`. The code refuses
 any size at which a group admitted by the target-side test falls under the
-model-side floor, rather than quietly scoring it.
+model-side floor, rather than quietly scoring it. (Until 2026-10-10 the code dropped
+such a pair and scored the rest; it now does what this paragraph says and the
+criterion is void at such a size. The registered 50,000 was never affected.)
 
 ---
 
@@ -434,7 +441,8 @@ Five of the 37 `top1` model renters reach sixty days. Their state:
 
 **Reported income of exactly zero.** The measured cushion carried them thirty
 months, which is §3's channel doing precisely what §3 said it would, and then it
-ran out. No finite cushion survives sixty months of nothing.
+ran out. A household with no income lasts the run only if its cushion covers sixty
+months of its bills, and this one's covers thirty. (Changed 2026-10-10.)
 
 **And the five are one household.** Records `20760` to `20764` are the five
 implicates of a single SCF family: same `LIQ` of `98,000`, same rent, same zero
@@ -502,3 +510,52 @@ scripts under `experiments/` and nothing has required it to be complete since th
 record ratchet was retired on 2026-08-21, so **whether this stage has a job there
 says nothing about whether it has run**. A stage is run by its own file and its
 record is in `results/`; `RESULTS.md` is the index. Nothing above is withdrawn.
+
+### 2026-10-15, what three counts are made of, and A1-2's status
+
+**What had been seen when this was written**: the record rerun on the current
+code at 100,000 households with the sweep at 50,000, every number in it
+unchanged, and the extract's rows counted by family.
+
+- **A1-2 is void.** §6.1's expectation that A1-2 fails again, and the
+  2026-08-16 entry's "A1-2 failed as §6.1 said it would", are the readings of
+  their dates. A1-2 is now scored VOID as registered, in this stage as in A1b,
+  and its detail gives the reason. The tenure split and the per-carrier-at-start
+  rates its detail points to are in the record under
+  `first_default_shares_by_tenure`.
+- **The counts beside `LATE60` in §2.** The families `1,857 / 1,475 / 694 / 569`
+  are family equivalents, implicate rows over five, and the households
+  reporting `886 / 155 / 11 / 5` are implicate rows with `LATE60` above zero.
+  Counted by family, the four groups hold `1,908 / 1,571 / 753 / 595` distinct
+  SCF families, and `195 / 38 / 4 / 2` of them report a payment sixty days or
+  more late on at least one implicate;
+  a family whose implicates rank into more than one group is counted in each.
+  §5's standard errors stay on the family equivalents, and §5 now names them so.
+  The record carries both counts.
+- **§1.1's 90 SCF respondents are implicate rows**, eighteen family
+  equivalents. They are the file's `top1` renter rows, and the income mix and
+  median net worth in §1.1 describe them. 25 of them receive a copy at 100,000
+  households: the 37 `top1` model renters are copies of those 25 implicate rows,
+  which are six distinct SCF families, the six in the 2026-08-16 table on A1d-2.
+- **§3's zero cushion** now reads as no transaction account and no positive
+  prepaid balance. The account flag the publisher's one-dollar floor reads is
+  set by a checking, savings, money market or call account, or by a balance
+  above zero; holding a prepaid card with nothing on it does not set it. On
+  this file all 338 rows reading zero have no account flag and no prepaid
+  balance.
+- The sentence on a household with no income in the 2026-08-16 entry on A1d-2
+  was changed on 2026-10-10 and now carries that date.
+
+### 2026-10-17, A1b's payment carriers
+
+A1d builds on A1b's records with the measured cushion, and A1b now puts each rung on the
+payment of its own stock, with every other published payment paid on no rung (A1b's
+registration, entry of that date). On the measured cushion that payment comes out of
+the cash each period like the rest, and the months of bills a cushion covers now count
+it: 2.63 / 15.06 / 52.92 / 151.43 by net-worth group. Rerun at 100,000 households with
+the 50,000 sweep, the count is as before, seven of eight live with one void. A1-3 reads
+mortgage 0.0100 < auto 0.1208 < card 0.2016. A1-6's ratio is x1.84. A1d-1 passes, both
+scored pairs decreasing and in the survey's order in every cell. A1d-2 fails as before:
+bottom50 0.6141, next40 0.3286, next9 0.0000, top1 0.1351 by net worth. The defaulting
+households not short at baseline are 34,828, and the no-shock baseline displaces 7,479
+of 32,098 renters and 1,380 of 40,894 mortgaged households.

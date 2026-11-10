@@ -228,6 +228,15 @@ def one_run(label: str, mode: str, wspec: WriteOffSpec, auth: str,
         # Whether the series only ever goes one way. The gate reads this.
         d = np.diff(path)
         row["%s_monotone" % name] = bool((d >= -1e-12).all() or (d <= 1e-12).all())
+    # The record keeps per-series summaries, not the 300-round arrays. Two of
+    # the series are per-round flows, and a closing value of a flow is the last
+    # round's amount: written_off_close can read 0 after more than a thousand
+    # claims were destroyed earlier. So the run totals go in beside them.
+    wo = np.asarray(h.written_off, dtype=float)
+    iss = np.asarray(h.issuance, dtype=float)
+    row["written_off_total"] = r(float(wo.sum()))
+    row["issuance_total"] = r(float(iss.sum()))
+    row["issuance_rounds"] = int((iss > 1e-12).sum())
     return row
 
 
@@ -303,7 +312,16 @@ def criterion_a18_2(rows: list) -> Criterion:
     monotone under one mode and not under the other.
     """
     parts = []
-    ok = True
+    # Both modes, on the same set of (policy suffix, floor, seed) keys. Without
+    # this a record holding only one mode, or none, would pass: the loop below
+    # skips a missing mode and only constrains the exit cells that exist.
+    keys = {m: sorted((x["policy"].split("/", 1)[1], x["need_multiple"],
+                       x["seed"]) for x in rows if x["mode"] == m)
+            for m in ("exit", "drawdown")}
+    ok = bool(keys["exit"]) and keys["exit"] == keys["drawdown"]
+    if not ok:
+        parts.append("the two modes do not cover the same cells: %d exit, %d "
+                     "drawdown" % (len(keys["exit"]), len(keys["drawdown"])))
     for mode in ("exit", "drawdown"):
         cells = [x for x in rows if x["mode"] == mode]
         if not cells:
@@ -346,10 +364,11 @@ def criterion_a18_6(rows: list) -> Criterion:
             ratios = sorted(r(x["total_ratio_close"] / x["total_ratio_open"])
                             for x in cells)
             destroyed = sorted(x["written_off_close"] for x in cells)
+            total = sorted(x["written_off_total"] for x in cells)
             parts.append(
                 "floor %.2f, losses %s: M/R over its opening %s | claims "
-                "destroyed in the closing round %s"
-                % (need, label, ratios, destroyed))
+                "destroyed over the run %s | in the closing round %s"
+                % (need, label, ratios, total, destroyed))
     return Criterion("A18-6  does not recognising a loss accumulate anything",
                      True, " | ".join(parts))
 
@@ -384,9 +403,19 @@ def criterion_a18_3(rows: list) -> Criterion:
             if not cells:
                 continue
             for name in ("total_ratio", "total_volume"):
-                later = sorted(x["%s_first_move" % name]
-                               - ctl[x["seed"]]["%s_first_move" % name]
-                               for x in cells)
+                # -1 means the series never left its opening value, so it is
+                # a state and not a round: subtracting it from a round gives a
+                # number that is neither. The lag is read only where both
+                # series moved, and the other two states are counted.
+                k = "%s_first_move" % name
+                both = [x for x in cells if x[k] >= 0
+                        and ctl[x["seed"]][k] >= 0]
+                later = sorted(x[k] - ctl[x["seed"]][k] for x in both)
+                still = sum(1 for x in cells if x[k] < 0
+                            and ctl[x["seed"]][k] >= 0)
+                neither = sum(1 for x in cells if x[k] < 0
+                              and ctl[x["seed"]][k] < 0)
+                later = "%s, on the %d seeds where both moved; this arm never "                         "moved while the control did on %d, neither moved on "                         "%d" % (later, len(both), still, neither)
                 bigger = sorted(r(x["%s_jump_size" % name]
                                   - ctl[x["seed"]]["%s_jump_size" % name])
                                 for x in cells)
@@ -400,7 +429,11 @@ def criterion_a18_3(rows: list) -> Criterion:
 
 
 def criterion_a18_4(rows: list) -> Criterion:
-    """The paths themselves, sampled, rather than any summary of them."""
+    """The paths themselves, sampled at five rounds, every seed.
+
+    The record holds these samples and per-series summaries, not the full
+    three-hundred-round arrays.
+    """
     parts = ["sampled at rounds %s" % (QUANTILE_ROUNDS,)]
     for need in sorted({x["need_multiple"] for x in rows}):
         for label in sorted({x["policy"] for x in rows}):
@@ -411,7 +444,7 @@ def criterion_a18_4(rows: list) -> Criterion:
             for name in ("total_ratio", "total_volume"):
                 parts.append("floor %.2f %s %s: %s"
                              % (need, label, name,
-                                [x["%s_at" % name] for x in cells[:2]]))
+                                [x["%s_at" % name] for x in cells]))
     return Criterion("A18-4  the paths, sampled", True, " | ".join(parts))
 
 
@@ -469,8 +502,11 @@ FUNDING_ARMS: tuple[str, ...] = RESUPPLY_FUNDING
 #: recapitalised set for it to act on and ``exit`` carries no criterion.
 #:
 #: **The levels are where the probe found something, not a round grid.**
-#: Measured before this was written: the count below the line is flat from
-#: `0.00` all the way to `0.95` and only moves at total withdrawal, while
+#: Re-measured 2026-10-20 on seeds 0, 1 and 2 at floor 0.50, rate 2.0: the count
+#: below the line reads [75, 75, 75] at 0.00, [75, 77, 75] at 0.90,
+#: [75, 151, 75] at 0.95 and [129, 120, 120] at 1.00, so two seeds hold flat to
+#: 0.95 and one turns there. The first probe recorded no seed ids and read it
+#: as flat from 0.00 to 0.95 on all three. Over the same span
 #: `M/R` climbs the whole way, from about 5 to about 32 over the same span and
 #: roughly doubling per `0.1` past `0.7`. So the levels bracket a flat stretch,
 #: the steep part of the price, and the one point where the count turns.
@@ -568,6 +604,9 @@ def resupply_run(mode: str, need_mult: float, rate: float, seed: int,
         "written_off_total": r(float(np.asarray(h.written_off,
                                                 dtype=float).sum())),
         "gini_close": r(_gini(hold)),
+        # Only that the closing holdings are finite. Per-round conservation is
+        # asserted inside Network.run; this field does not measure it, and it
+        # reads True while the claim stock grows thirty-fold under issuance.
         "claims_conserved": bool(np.isfinite(hold).all()),
     }
     if control is None:
@@ -934,7 +973,8 @@ def criterion_a18_b6(scan: list) -> Criterion:
     # whichever field is nearest zero, which here is `frozen_close` at the
     # deepest floor: it reads `0.30`, so a movement of `0.42` in relative terms
     # is a ratio of two small numbers and not a statement about a reading.
-    # A17-8 hit the same shape and refused the same kind of number.
+    # A17-8's support statistic is not this shape: the effective support does
+    # not move when the flow is scaled, so a thin flow leaves it a reading.
     READ = ("below_close", "resupplied", "resupply_asked", "funded_share",
             "support_close", "volume_total", "mr_close", "gini_close",
             "payer_holdings_delta", "recapitalised")
@@ -1602,38 +1642,58 @@ def criterion_a18_d2(rows: list) -> Criterion:
 def criterion_a18_d3(rows: list) -> Criterion:
     """Is the best repayment rate one of the ends, or inside.
 
-    **Read as a position on the grid, not as a size.** For each cell the rate
-    with the fewest below the line is named; the criterion is which of the
-    three states the collection of those positions falls into, and no
-    difference is measured against any threshold.
+    **Read as a position on the grid, not as a size.** For each cell the whole
+    set of rates that reach the fewest below the line is taken, because the
+    counts are integers and ties are common: a cell reading
+    ``[113, 108, 104, 104, 104]`` is best at 0.2, 0.5 and 1.0 alike, and naming
+    only the first of them would call it an interior optimum. The first
+    version did that, through ``min``, and its counts are printed beside these
+    so the two can be compared.
     """
     judged = _judged_d(rows)
     keys = sorted({(x["need_multiple"], x["rate"], x["seed"]) for x in judged})
-    at_zero, at_one, inside = [], [], []
+    flat, inside_only, with_one, with_zero, first_pick = [], [], [], [], []
     for k in keys:
         series = sorted((x for x in judged
                          if (x["need_multiple"], x["rate"], x["seed"]) == k),
                         key=lambda x: x["repay"])
         if len(series) < 3:
             continue
-        best = min(series, key=lambda x: x["below_close"])["repay"]
-        row = (k, best, [x["below_close"] for x in series])
-        (at_zero if best == series[0]["repay"]
-         else at_one if best == series[-1]["repay"] else inside).append(row)
-    total = len(at_zero) + len(at_one) + len(inside)
-    if inside and not at_one:
-        state = ("first: the best repayment rate is never the largest one on "
-                 "the grid, and it is strictly inside in %d cells" % len(inside))
-    elif not inside:
-        state = "third: the best rate is always an endpoint"
+        counts = [x["below_close"] for x in series]
+        low = min(counts)
+        best = [x["repay"] for x in series if x["below_close"] == low]
+        row = (k, best, counts)
+        lo, hi = series[0]["repay"], series[-1]["repay"]
+        first = best[0]
+        first_pick.append("zero" if first == lo else "largest" if first == hi
+                          else "inside")
+        if len(best) == len(series):
+            flat.append(row)
+            continue
+        if lo in best:
+            with_zero.append(row)
+        if hi in best:
+            with_one.append(row)
+        if lo not in best and hi not in best:
+            inside_only.append(row)
+    total = len(first_pick)
+    if inside_only and not with_one:
+        state = ("first: the largest rate is never among the best, and the "
+                 "best are all inside in %d cells" % len(inside_only))
+    elif not inside_only:
+        state = "third: every best set reaches an endpoint"
     else:
-        state = ("second: strictly inside in %d cells, at zero in %d, at the "
-                 "largest in %d" % (len(inside), len(at_zero), len(at_one)))
+        state = ("second: the best set is all inside in %d cells, includes the "
+                 "largest rate in %d, includes zero in %d, and all five rates "
+                 "tie in %d" % (len(inside_only), len(with_one),
+                                len(with_zero), len(flat)))
+    picks = {t: first_pick.count(t) for t in ("inside", "zero", "largest")}
     return Criterion(
-        "A18_D3  where the best repayment rate sits", True,
-        "levels %s | %s | %d cells | inside cells, as ((floor, rate, seed), "
-        "best, counts): %s"
-        % (list(REPAY_LEVELS), state, total, inside[:8]))
+        "A18_D3  where the best repayment rate sits", bool(total),
+        "levels %s | %s | %d cells | the first-minimum pick the first version "
+        "used: %s | cells whose best set is all inside, as ((floor, rate, "
+        "seed), best set, counts): %s"
+        % (list(REPAY_LEVELS), state, total, picks, inside_only[:8]))
 
 
 def criterion_a18_d4(rows: list) -> Criterion:
@@ -1677,13 +1737,15 @@ def criterion_a18_d5(rows: list) -> Criterion:
     return Criterion(
         "A18_D5  a debtor whose creditors have left", True,
         "printed and not judged | the branch fired in %d of %d exit rows and "
-        "in %d of %d drawdown rows | **two different reasons, and only the "
-        "first is about the mode**: under drawdown `_alive` is never set false "
-        "at all, so every creditor is live forever and the branch cannot fire; "
-        "under exit it can, and does not, because the creditors are by "
-        "construction the solvent in-neighbours of whoever was below the line, "
-        "so they are the last nodes to leave. A count of zero here is a "
-        "statement about who lends, not about how many rows were run | "
+        "in %d of %d drawdown rows | **the reason is the debtor, in both "
+        "modes**: under drawdown `_alive` is never set false, so every "
+        "creditor is live and there is nobody whose creditors have left; under "
+        "exit the rescue goes to nodes that have already exited, the exit is "
+        "not reversible, and the repayment step zeroes what a debtor that is "
+        "not alive pays before it ever looks for a live creditor, so no loan "
+        "written on this grid reaches the branch. The branch itself works on a "
+        "live debtor owing a departed creditor. A count of zero here is a "
+        "statement about who borrows, not about how many rows were run | "
         "(floor, repay, mean count, mean outstanding, blocked): %s"
         % (len(fired), len(ex), len(dr_fired), len(dr), summary))
 
@@ -1824,7 +1886,9 @@ def park_plan() -> dict:
         "rates": [1.0, 2.0, 4.0],
         "seeds": list(SEEDS),
         "rounds": ROUNDS,
-        "funding": "issuance throughout, drawdown throughout",
+        "funding": "issuance on the park, retention and target grids; "
+                   "creditors on the E5 sub-grid, 150 rows, where repayment is "
+                   "crossed with parking; drawdown throughout",
         "why_it_exists": "two separate correspondences ended on the same limit: "
                          "retaining and holding something outside the trading "
                          "system are one state when there is no outside",
@@ -1852,8 +1916,12 @@ def criterion_a18_e1(rows: list) -> Criterion:
     if not parked_arm:
         return Criterion("A18_E1  a stock that does not circulate", False,
                          "no parking cells")
+    # Both halves of the discrimination, not only the retention half: a
+    # parking arm whose parked stock had collapsed to zero would leave the two
+    # mechanisms indistinguishable and must not pass.
     return Criterion(
-        "A18_E1  a stock that does not circulate", not bad,
+        "A18_E1  a stock that does not circulate",
+        not bad and len(split) == len(parked_arm),
         "under retention the parked stock is zero in %d of %d cells, which is "
         "by construction and is the point | under parking it is above zero in "
         "%d of %d | %s"
@@ -1872,6 +1940,12 @@ def criterion_a18_e2(rows: list) -> Criterion:
     half in opposite directions, and if they do not then parking adds nothing.
     """
     out = []
+    # The park and retention grids only: issuance funding, no repayment, the
+    # default parking target. The E5 sub-grid also sits at rate 2.0 and parks
+    # at 0.5 under creditors funding; letting it in blends two funding routes
+    # into one mean and weights rate 2.0 more heavily than the other rates.
+    rows = [x for x in rows if x["funding"] == "issuance"
+            and x["repay"] == 0.0 and x["target"] == "financial"]
     keys = sorted({(x["need_multiple"], x["rate"]) for x in rows})
     for need, rate in keys:
         g = [x for x in rows if x["need_multiple"] == need and x["rate"] == rate]
@@ -1906,8 +1980,12 @@ def criterion_a18_e3(rows: list) -> Criterion:
     """How far the circulating half can be pushed, printed against the stock."""
     out = []
     for pk in PARK_LEVELS:
+        # Same restriction as A18_E2, for the same reason: without it the
+        # parking rates the E5 sub-grid also uses carry 50 creditors-funded
+        # rows each and 0.05 carries none, so the rungs are not like for like.
         g = [x for x in rows if x["park"] == pk and x["retain"] == 0.0
-             and x["target"] == "financial"]
+             and x["target"] == "financial" and x["funding"] == "issuance"
+             and x["repay"] == 0.0]
         if g:
             out.append((pk,
                         r(float(np.mean([x["stock_close"] for x in g]))),
@@ -1918,7 +1996,9 @@ def criterion_a18_e3(rows: list) -> Criterion:
     return Criterion(
         "A18_E3  how far the circulating half moves", True,
         "(park, mean stock, mean circulating, mean parked, mean count below, "
-        "mean flow), averaged over every floor, rate and seed: %s" % (out,))
+        "mean flow), issuance funding, averaged over every floor, rate and "
+        "seed: %s | the circulating mean is a closing value, and the opening "
+        "holding is about 100 in every cell" % (out,))
 
 
 def criterion_a18_e4(rows: list) -> Criterion:
@@ -1982,11 +2062,17 @@ def criterion_a18_e5(rows: list) -> Criterion:
                 if rr <= r0:
                     continue
                 m = r((v - v0) / (rr - r0))
-                out.append((need, pk, rp, m))
+                # Total flow counts the repayment itself, so a unit repaid adds
+                # exactly one unit to the numerator before anything else moves.
+                # The second number takes that unit out and is what the rest of
+                # the economy's claim turnover does per unit repaid. Neither is
+                # output: the model has no production quantity.
+                out.append((need, pk, rp, m, r(m - 1.0)))
                 signs.add((pk, m > 0))
-    by_park = {}
-    for need, pk, rp, m in out:
+    by_park, other = {}, {}
+    for need, pk, rp, m, m1 in out:
         by_park.setdefault(pk, []).append(m)
+        other.setdefault(pk, []).append(m1)
     pos = sorted(pk for pk, v in by_park.items() if all(x > 0 for x in v))
     neg = sorted(pk for pk, v in by_park.items() if all(x < 0 for x in v))
     mixed = sorted(pk for pk, v in by_park.items()
@@ -2004,10 +2090,15 @@ def criterion_a18_e5(rows: list) -> Criterion:
         state = ("second: no parking rate has one sign throughout; positive "
                  "at %s, negative at %s, mixed at %s" % (pos, neg, mixed))
     ranges = {pk: (r(min(v)), r(max(v))) for pk, v in sorted(by_park.items())}
+    ranges_other = {pk: (r(min(v)), r(max(v)))
+                    for pk, v in sorted(other.items())}
     return Criterion(
-        "A18_E5  output per unit repaid, at each parking rate", True,
-        "%s | ranges by parking rate: %s | every cell as (floor, park, repay, "
-        "multiplier): %s" % (state, ranges, out[:12]))
+        "A18_E5  claim turnover per unit repaid, at each parking rate",
+        bool(out),
+        "%s | ranges by parking rate, total flow per unit repaid: %s | the "
+        "same with the repayment's own unit taken out: %s | every cell as "
+        "(floor, park, repay, per unit, per unit less the repayment): %s"
+        % (state, ranges, ranges_other, out[:12]))
 
 
 # ---------------------------------------------------------------------------
@@ -2159,17 +2250,21 @@ def criterion_a18_f1(rows: list) -> Criterion:
                     if str(q) in x.get("parked_share_at", {})]
             row.append(r(float(np.mean(vals))) if vals else None)
         table.append(tuple(row))
+    # Both registered conditions are in the flag: monotone, and every series
+    # brackets one third. The first version checked only the first.
     return Criterion(
-        "A18_F1  the dial is monotone and spans the region", not bad,
+        "A18_F1  the dial is monotone and spans the region",
+        bool(spans) and not bad and len(brackets) == len(spans),
         "parked share from lowest to highest parking rate, as (floor, route, "
         "smallest, largest): %s | %d of %d series bracket one third | %s | "
-        "**the share has no steady state**, because parking is one way and the "
-        "stock only accumulates, so the table is indexed by rate and horizon "
-        "together: (parking rate, then share at rounds %s): %s"
+        "the parked stock only accumulates, while new issuance can still pull "
+        "the share down in a round, so the share is read at named horizons "
+        "and nothing is claimed about its limit: (parking rate, then share at "
+        "history indices %s, which are rounds %s completed): %s"
         % (spans, len(brackets), len(spans),
            "monotone everywhere" if not bad
            else "NOT MONOTONE: %s" % (bad[:3],),
-           list(PARK_HORIZONS), table))
+           list(PARK_HORIZONS), [h + 1 for h in PARK_HORIZONS], table))
 
 
 def criterion_a18_f2(rows: list) -> Criterion:

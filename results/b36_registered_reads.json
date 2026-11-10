@@ -1,0 +1,160 @@
+{
+ "config": {
+  "controls": [
+   "chile",
+   "egypt"
+  ],
+  "july_registered_t": 82714.0,
+  "june_us_t": 1152.0,
+  "published_rule": "world total for the month and heading on disk and not empty",
+  "season_low_ratio": 0.876,
+  "season_low_t": 72417.0,
+  "us_destination": "5700",
+  "us_headings": [
+   "0201",
+   "0202"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "August 2026 not on disk for the China lane",
+   "kind": "own_reading",
+   "name": "B36-R26-1a",
+   "passed": null,
+   "statement": "August 2026 Brazil-to-China beef at or below July's 82,714 t."
+  },
+  {
+   "detail": "August 2026 not on disk for the China lane",
+   "kind": "own_reading",
+   "name": "B36-R26-1b",
+   "passed": null,
+   "statement": "August 2026 below 72,417 t, the low edge of the lane's own August/July band applied to July."
+  },
+  {
+   "detail": "chile: August or July not on disk; egypt: August or July not on disk",
+   "kind": "own_reading",
+   "name": "B36-R26-2",
+   "passed": null,
+   "statement": "The control destinations do not fall with the China lane in August: each holds at or above 0.876 August/July."
+  },
+  {
+   "detail": "September or August 2026 not on disk for the China lane",
+   "kind": "own_reading",
+   "name": "B36-R26-3",
+   "passed": null,
+   "statement": "September 2026 lower than August."
+  },
+  {
+   "detail": "2 of 6 months published, months [9, 10, 11, 12] not yet; the mean is at least 716.5 t; it clears the June 2026 month 1,152.0 t if the remaining months sum to more than 2,613 t",
+   "kind": "own_reading",
+   "name": "B36-R15-a",
+   "passed": null,
+   "statement": "The July-December 2026 monthly mean of US beef to China is above the June 2026 month."
+  },
+  {
+   "detail": "2 of 6 months published (2,026, 2,273 t); the mean is at least 716.5 t whatever the rest are, above the July-December 2025 mean 709.6 t",
+   "kind": "own_reading",
+   "name": "B36-R15-b",
+   "passed": true,
+   "statement": "The July-December 2026 monthly mean of US beef to China is above the July-December 2025 mean."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the R26 clauses are unread: the Comex Stat 2026 file is not on disk at this run; R15 is read as far as the published months bound it",
+ "report": {
+  "brazil_china_2026": {
+   "1": 119876.28,
+   "2": 103521.522,
+   "3": 101990.285,
+   "4": 135527.915,
+   "5": 154695.722,
+   "6": 158377.39,
+   "7": 82713.846
+  },
+  "controls_2026": {
+   "chile": {
+    "1": 9892.4,
+    "2": 13590.62,
+    "3": 15066.219,
+    "4": 10208.797,
+    "5": 8313.038,
+    "6": 12688.088,
+    "7": 19112.347
+   },
+   "egypt": {
+    "1": 6472.927,
+    "2": 7266.354,
+    "3": 5686.897,
+    "4": 4864.529,
+    "5": 4580.227,
+    "6": 3650.825,
+    "7": 5542.987
+   }
+  },
+  "us_china_h2_2025": [
+   {
+    "month": 7,
+    "published": true,
+    "tonnes": 934.6
+   },
+   {
+    "month": 8,
+    "published": true,
+    "tonnes": 745.1
+   },
+   {
+    "month": 9,
+    "published": true,
+    "tonnes": 486.5
+   },
+   {
+    "month": 10,
+    "published": true,
+    "tonnes": 559.8
+   },
+   {
+    "month": 11,
+    "published": true,
+    "tonnes": 589.2
+   },
+   {
+    "month": 12,
+    "published": true,
+    "tonnes": 942.5
+   }
+  ],
+  "us_china_h2_2026": [
+   {
+    "month": 7,
+    "published": true,
+    "tonnes": 2025.9
+   },
+   {
+    "month": 8,
+    "published": true,
+    "tonnes": 2272.8
+   },
+   {
+    "month": 9,
+    "published": false,
+    "tonnes": 0.0
+   },
+   {
+    "month": 10,
+    "published": false,
+    "tonnes": 0.0
+   },
+   {
+    "month": 11,
+    "published": false,
+    "tonnes": 0.0
+   },
+   {
+    "month": 12,
+    "published": false,
+    "tonnes": 0.0
+   }
+  ]
+ },
+ "stage": "B36"
+}

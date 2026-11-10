@@ -43,6 +43,35 @@
       "seeds_contracting": 0
     }
   },
+  "retention_axis": {
+    "access": {
+      "the_switch_changes_the_propensities": true,
+      "stratified_low": [
+        0.5,
+        0.875
+      ],
+      "stratified_high": [
+        0.5,
+        1.0
+      ],
+      "fair_low": 0.620375,
+      "fair_high": 0.6605
+    },
+    "flat": {
+      "the_switch_changes_the_propensities": false,
+      "stratified_low": [
+        0.620375,
+        0.620375
+      ],
+      "stratified_high": [
+        0.6605,
+        0.6605
+      ],
+      "fair_low": 0.620375,
+      "fair_high": 0.6605
+    }
+  },
+  "distinct_cells": 6,
   "cells": {
     "access/fair/T": {
       "access": true,
@@ -58,7 +87,9 @@
       "median": 0.06,
       "unsolved_seeds": 0,
       "monotone_above": true,
-      "at_grid_floor": false
+      "at_grid_floor": false,
+      "same_model_as": null,
+      "same_rates": null
     },
     "access/fair/I": {
       "access": true,
@@ -74,7 +105,9 @@
       "median": 0.005,
       "unsolved_seeds": 0,
       "monotone_above": false,
-      "at_grid_floor": true
+      "at_grid_floor": true,
+      "same_model_as": null,
+      "same_rates": null
     },
     "access/stratified/T": {
       "access": true,
@@ -90,7 +123,9 @@
       "median": 0.16,
       "unsolved_seeds": 0,
       "monotone_above": true,
-      "at_grid_floor": false
+      "at_grid_floor": false,
+      "same_model_as": null,
+      "same_rates": null
     },
     "access/stratified/I": {
       "access": true,
@@ -106,7 +141,9 @@
       "median": 0.005,
       "unsolved_seeds": 0,
       "monotone_above": false,
-      "at_grid_floor": true
+      "at_grid_floor": true,
+      "same_model_as": null,
+      "same_rates": null
     },
     "flat/fair/T": {
       "access": false,
@@ -122,7 +159,9 @@
       "median": 0.0,
       "unsolved_seeds": 0,
       "monotone_above": true,
-      "at_grid_floor": true
+      "at_grid_floor": true,
+      "same_model_as": null,
+      "same_rates": null
     },
     "flat/fair/I": {
       "access": false,
@@ -138,7 +177,9 @@
       "median": 0.0,
       "unsolved_seeds": 0,
       "monotone_above": false,
-      "at_grid_floor": true
+      "at_grid_floor": true,
+      "same_model_as": null,
+      "same_rates": null
     },
     "flat/stratified/T": {
       "access": false,
@@ -154,7 +195,9 @@
       "median": 0.0,
       "unsolved_seeds": 0,
       "monotone_above": true,
-      "at_grid_floor": true
+      "at_grid_floor": true,
+      "same_model_as": "flat/fair/T",
+      "same_rates": true
     },
     "flat/stratified/I": {
       "access": false,
@@ -170,7 +213,9 @@
       "median": 0.0,
       "unsolved_seeds": 0,
       "monotone_above": false,
-      "at_grid_floor": true
+      "at_grid_floor": true,
+      "same_model_as": "flat/fair/I",
+      "same_rates": true
     }
   },
   "ratios": {
@@ -225,6 +270,28 @@
     ],
     "seeds_collapsed": 2,
     "seeds": 5,
+    "financial_nodes_in_the_top_decile": [
+      [
+        19,
+        0
+      ],
+      [
+        18,
+        0
+      ],
+      [
+        19,
+        0
+      ],
+      [
+        17,
+        0
+      ],
+      [
+        17,
+        0
+      ]
+    ],
     "stationary": false,
     "open_in_every_seed": false
   },
@@ -253,6 +320,28 @@
         14.41349477530956
       ]
     ],
+    "financial_nodes_in_the_top_decile": [
+      [
+        19,
+        7
+      ],
+      [
+        18,
+        6
+      ],
+      [
+        19,
+        5
+      ],
+      [
+        17,
+        4
+      ],
+      [
+        17,
+        3
+      ]
+    ],
     "rose_in_every_seed": false,
     "fell_in_every_seed": false
   },
@@ -267,7 +356,7 @@
     {
       "name": "A6-1",
       "passed": false,
-      "detail": "the support set contracts at R=0 in 4 of 8 cells, all seeds. The four that do are the access cells and the four that do not are the flat ones, which is what A6-3 predicts; the criterion's scope is what is wrong"
+      "detail": "the support set contracts at R=0 in 4 of 8 cells, all seeds. The four that do are the access cells and the four that do not are the flat ones, which is what A6-3 predicts; the criterion's scope is what is wrong. The eight are 6 distinct cells: on the flat graph the retention switch reaches nothing, so its stratified cells are its fair cells run a second time"
     },
     {
       "name": "A6-2",

@@ -19,9 +19,10 @@ graph and a flow on it, both exactly computable, neither requiring a price.
 
 The distinction that makes this worth doing is the same one stage A2 rests on.
 The **potential** graph is fixed: no edge is ever deleted and no transaction is
-ever forbidden. The **realized** graph, the edges actually carrying claims, is
-not. If its cycle rank falls while nothing is prohibited, then circulation is
-losing independent loops without anything being closed.
+ever forbidden. The **realized** graph, the edges whose flow in a round exceeds
+a cutoff ``epsilon`` (see ``realized_adjacency``), is not. If its cycle rank
+falls while nothing is prohibited, then circulation is losing independent
+loops without anything being closed.
 
 Three things are deliberately avoided
 -------------------------------------
@@ -34,9 +35,9 @@ Volume II is about the second; this module measures the first, and is an analogu
 rather than an instance.
 
 **No holes punched by hand.** Deleting edges and observing that the cycle rank
-changes verifies ``E - V + C``, not economics. Holes here appear because flow
-stops traversing edges, which is endogenous. The hand-punched version is kept
-only as a self-check on the code and is labelled as such.
+changes verifies ``E - V + C``, not economics. Holes here appear because the
+flow on edges decays below the cutoff, which is endogenous. The hand-punched
+version is kept only as a self-check on the code and is labelled as such.
 
 **No claim that this motivates the theorem beyond illustration.** A universal
 non-existence statement is not supported by instances of it.
@@ -240,10 +241,13 @@ def hodge_decomposition(
 
 
 def realized_adjacency(flow: np.ndarray, epsilon: float) -> np.ndarray:
-    """Edges actually carrying claims this round.
+    """Edges whose flow this round exceeds ``epsilon``.
 
     The potential graph is what the economy permits; this is what it does. No
     edge is deleted here, and nothing is forbidden: an edge is absent from the
-    realized graph only because nothing traversed it.
+    realized graph only because nothing above ``epsilon`` traversed it. Stage
+    A2c records what lies below the cutoff in each of its runs: the band of
+    cutoffs that read the same graph, and the count over every strictly positive
+    flow, which reaches the count at the cutoff when the run is continued.
     """
     return (flow > epsilon).astype(float)

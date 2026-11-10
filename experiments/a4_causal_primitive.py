@@ -391,6 +391,7 @@ def measure(
         finals = [
             np.asarray(r.history.holdings, dtype=float)[-1] for r in results
         ]
+        settled = [np.asarray(r.settled_final, dtype=float) for r in results]
         k = base.spec.layer1_size
         out[name] = {
             "gini": np.array([r.gini_final for r in results], dtype=float),
@@ -423,8 +424,29 @@ def measure(
             # and the two have to be separable before a criterion built on a
             # summary can be read.
             "shares": np.array([_shares(f) for f in finals], dtype=float),
+            # The same four measures once the last round's returns and household
+            # pooling have settled. `history` is written after a round's flows
+            # and before that settlement, so the registered reading above is one
+            # settlement behind these. Both are kept; the criteria score the
+            # registered one and are printed again on this one.
+            "settled": {
+                "gini": np.array([gini(f) for f in settled], dtype=float),
+                "holders": np.array(
+                    [_effective_holders(f) for f in settled], dtype=float
+                ),
+                "gini_prod": np.array([gini(f[k:]) for f in settled], dtype=float),
+                "holders_prod": np.array(
+                    [_effective_holders(f[k:]) for f in settled], dtype=float
+                ),
+                "shares": np.array([_shares(f) for f in settled], dtype=float),
+            },
         }
     return out
+
+
+def settled_rows(rows: dict[str, dict]) -> dict[str, dict]:
+    """The same cells with the four measures and the shares read on the settled state."""
+    return {name: {**r, **r["settled"]} for name, r in rows.items()}
 
 
 def _shares(final: np.ndarray) -> np.ndarray:
@@ -785,21 +807,53 @@ def evaluate(
                 f"{LETTER[name]}|{a['base']} = {a['pooled']:.1f}"
                 f" (denominator {a['denominator']:+.5f})"
             )
+    rs = readable_set(table)
+    sole_both = sorted(
+        LETTER[name]
+        for name, base in contrasts()
+        if base is None
+        and ("C=1", "null", name, "gini") in rs
+        and ("C=0", "null", name, "gini") in rs
+    )
+    based_both = []
+    for name, base in contrasts():
+        if base is None:
+            continue
+        b = LETTER[base]
+        if ("C=1", b, name, "gini") in rs and ("C=0", b, name, "gini") in rs:
+            sd = {
+                r["arm"]: r["gini"]["ratio"]
+                for r in table
+                if r["competitor"] == name and r["base"] == b
+            }
+            a = amplification(rows, "gini", name, base)
+            based_both.append(
+                f"{LETTER[name]}|{b} ({sd['C=1']:.1f} and {sd['C=0']:.2f}"
+                f" control-cell sd"
+                + (
+                    f", pooled ratio {a['pooled']:.1f}"
+                    if a["quotable"]
+                    else ", per-seed signs differ"
+                )
+                + ")"
+            )
     out.append(
         Criterion(
             "A4-4 connectivity is upstream",
             False,
-            f"**Void on two independent grounds and not evaluated.** §7's"
-            f" table: A4-3 fails for {len(strawmen)} of four competitors, and a"
-            f" failed strawman floor makes that competitor's comparison void"
-            f" rather than favourable. §11.8's rule: A(X) is a ratio across the"
-            f" two arms and no competitor is readable in both, so one of its"
-            f" two terms is a reading of the graph draw in every case. Readable"
-            f" Gini cells: {', '.join(live_cells) or 'none'}. Ratios whose"
-            f" per-seed sign happens to agree: {'; '.join(quotable) or 'none'},"
-            f" and each rests on a denominator inside two control-cell sd, so"
-            f" the agreement is five draws landing the same way rather than a"
-            f" quantity.",
+            f"**Void and not evaluated.** §7's table: A4-3 fails for"
+            f" {len(strawmen)} of four competitors, and a failed strawman floor"
+            f" makes that competitor's comparison void rather than favourable;"
+            f" that ground carries the void on its own. §11.8's rule is about"
+            f" the comparisons against the null: A(X) is a ratio across the two"
+            f" arms, and of those the competitors readable on Gini in both arms"
+            f" are {', '.join(sole_both) or 'none'}. On a base, §11.5's"
+            f" A(X|G), the registered one-sd rule reads in both arms:"
+            f" {'; '.join(based_both) or 'none'}. Such a ratio has a domain and"
+            f" is one comparison on one base; it is not the four competitors"
+            f" together, which is what this criterion asked. Readable Gini"
+            f" cells: {', '.join(live_cells) or 'none'}. Ratios whose per-seed"
+            f" sign agrees: {'; '.join(quotable) or 'none'}.",
             void=True,
         )
     )
@@ -823,10 +877,11 @@ def evaluate(
     # Ground two, the ceiling. `A(X)` compares a competitor's effect across the
     # two arms, and the C=1 control sits at a Gini near 0.935, leaving 0.065 of
     # room against the C=0 arm's 0.99. Section 11.3 records this as a defect in
-    # the discriminant. Gini is bounded above by one; the effective support,
-    # 1/HHI, is not, and stage A7 measured the same comparison at 15.81 on Gini
-    # against 2.00 on log(1/HHI). A4-4b reads the amplification on the unbounded
-    # measure.
+    # the discriminant. Gini is bounded above by one. The effective support,
+    # 1/HHI, runs from 1 to the number of nodes, and the two arms sit at
+    # different places in that range; stage A7 measured the same comparison at
+    # 15.81 on Gini against 2.00 on log(1/HHI). A4-4b reads the amplification on
+    # that measure.
     sd_bits = []
     sd_clear = []
     for name in COMPETITORS:
@@ -853,16 +908,18 @@ def evaluate(
         )
     )
 
-    # The unbounded measure was registered from the start: `holders` is 1/HHI
-    # and it is already in `SCORED_MEASURES`. A4-4 simply never read it, taking
-    # its ratio on Gini alone. So this is not a new measure, it is the one this
-    # station already records, read where the bounded one could not be.
-    unbounded = []
+    # This measure was registered from the start: `holders` is 1/HHI and it is
+    # already in `SCORED_MEASURES`. A4-4 simply never read it, taking its ratio
+    # on Gini alone. So this is not a new measure, it is the one this station
+    # already records. It has a ceiling too, the number of nodes, and the C=0
+    # control sits just under it; a ratio on it can still be large because the
+    # C=0 difference in its denominator is close to zero.
+    holders_quotable = []
     for key in ("holders", "holders_prod"):
         for name, base in contrasts():
             a = amplification(rows, key, name, base)
             if a["quotable"]:
-                unbounded.append(
+                holders_quotable.append(
                     f"{key} {LETTER[name]}|{a['base']} = {a['pooled']:.2f}"
                     f" (denominator {a['denominator']:+.5f})"
                 )
@@ -871,21 +928,29 @@ def evaluate(
         for arm, base, comp, key in readable_set(table)
         if key in ("holders", "holders_prod")
     )
+    n_all = int(rows["C0_none"]["shares"].shape[1])
     out.append(
         Criterion(
-            "A4-4b the amplification on a measure with no ceiling",
-            bool(unbounded),
+            "A4-4b the amplification on the effective number of holders",
+            bool(holders_quotable),
             f"1/HHI cells readable in both arms:"
             f" {', '.join(live_sup) or 'none'}. Amplification ratios:"
-            f" {'; '.join(unbounded) or 'none'}. The Gini form is bounded above"
+            f" {'; '.join(holders_quotable) or 'none'}. The Gini form is bounded above"
             f" by one and the C=1 control sits near 0.935, leaving 0.065 of room"
             f" against 0.99 on the other arm, which section 11.3 records as a"
             f" defect in the discriminant; stage A7 measured the same comparison"
-            f" at 15.81 on Gini against 2.00 on log(1/HHI). `holders` was in"
-            f" SCORED_MEASURES from the start; A4-4 took its ratio on Gini alone."
-            f" Read: this reports whether the ceiling was the binding problem."
-            f" A4-4 stays void as registered.",
-            void=not unbounded,
+            f" at 15.81 on Gini against 2.00 on log(1/HHI). 1/HHI has a ceiling"
+            f" of its own, the number of nodes: it lies between 1 and {n_all}"
+            f" in aggregate, and the C=0 control sits at"
+            f" {float(rows['C0_none']['holders'].mean()):.4f}, while the C=1"
+            f" control sits at {float(rows['C1_none']['holders'].mean()):.4f};"
+            f" the two arms are at opposite ends of its range, and a ratio on"
+            f" it is large where the C=0 difference in its denominator is close"
+            f" to zero. `holders` was in SCORED_MEASURES from the start; A4-4"
+            f" took its ratio on Gini alone. Read: this reports the same"
+            f" comparison on a measure whose two arms sit elsewhere in their"
+            f" range. A4-4 stays void as registered.",
+            void=not holders_quotable,
         )
     )
 
@@ -929,8 +994,10 @@ def evaluate(
             f" This criterion passes when both arms have something readable,"
             f" which is the only way their disjointness could be an artefact of"
             f" a dead instrument rather than a fact about the design. Read: an"
-            f" empty intersection means A(X) has no domain, because a ratio"
-            f" across arms needs a competitor with an effect in both. Section 1"
+            f" empty intersection means A(X), the comparison against the null,"
+            f" has no domain on this ordering, because a ratio across arms needs"
+            f" a competitor with an effect in both; comparisons on a base are"
+            f" A4-4's detail. Section 1"
             f" put the alternatives as C parallel, the others near full strength"
             f" with C off, against C upstream, the others attenuated. An"
             f" exchange is neither.",
@@ -1116,11 +1183,34 @@ def _round(value: float, places: int = 6) -> float:
     return float(f"{value:.{places}f}")
 
 
+def _resolution_record(table: list[dict]) -> list[dict]:
+    """The resolution table as written to the record, one row per contrast."""
+    return [
+        {
+            "arm": r["arm"],
+            "base": r["base"],
+            "competitor": r["competitor"],
+            "stock_moved": _round(r["tv"]),
+        }
+        | {
+            key: {
+                "effect": _round(r[key]["effect"]),
+                "floor": _round(r[key]["floor"]),
+                "sd": _round(r[key]["ratio"], 2),
+                "sign_stable": bool(r[key]["sign_stable"]),
+            }
+            for key, _ in SCORED_MEASURES
+        }
+        for r in table
+    ]
+
+
 def record(
     rows: dict[str, dict],
     table: list[dict],
     criteria: list[Criterion],
     args,
+    settled: dict | None = None,
 ) -> dict:
     return {
         "stage": "A4",
@@ -1144,24 +1234,7 @@ def record(
                if not np.isnan(r["cross_layer"]).all() else None}
             for name, r in rows.items()
         },
-        "resolution": [
-            {
-                "arm": r["arm"],
-                "base": r["base"],
-                "competitor": r["competitor"],
-                "stock_moved": _round(r["tv"]),
-            }
-            | {
-                key: {
-                    "effect": _round(r[key]["effect"]),
-                    "floor": _round(r[key]["floor"]),
-                    "sd": _round(r[key]["ratio"], 2),
-                    "sign_stable": bool(r[key]["sign_stable"]),
-                }
-                for key, _ in SCORED_MEASURES
-            }
-            for r in table
-        ],
+        "resolution": _resolution_record(table),
         "criteria": [
             {
                 "name": c.name,
@@ -1172,7 +1245,7 @@ def record(
             }
             for c in criteria
         ],
-    }
+    } | ({} if settled is None else {"settled": settled})
 
 
 def main() -> int:
@@ -1298,11 +1371,74 @@ def main() -> int:
     n_void = sum(c.void for c in criteria)
     print(f"\n  {n_pass}/{len(live)} live criteria passed, {n_void} void")
 
+    # The registered reading is taken after the last round's flows and before
+    # that round's returns and household pooling settle. The same tables and the
+    # same criteria are read once more on the settled state and printed beside.
+    s_rows = settled_rows(rows)
+    s_table = resolution(s_rows)
+    s_orders = {
+        label: (settled_rows(alt), resolution(settled_rows(alt)))
+        for label, (alt, _t) in order_runs.items()
+    }
+    s_criteria = evaluate(s_rows, s_table, s_orders)
+    changed = {"registered order": len(readable_set(table) ^ readable_set(s_table))}
+    for label, (_alt, t) in sorted(order_runs.items()):
+        changed[label] = len(readable_set(t) ^ readable_set(s_orders[label][1]))
+    objects = len(table) * len(SCORED_MEASURES)
+
+    def mark(c: Criterion) -> str:
+        return "diag" if c.diagnostic else "VOID" if c.void else "pass" if c.passed else "FAIL"
+
+    def sole(t: list[dict]) -> dict[str, list[str]]:
+        d: dict[str, set[str]] = {"C=0": set(), "C=1": set()}
+        for arm, base_, comp, _key in readable_set(t):
+            if base_ == "null":
+                d[arm].add(LETTER[comp])
+        return {k: sorted(v) for k, v in d.items()}
+
+    print(
+        "\n  The same reading once the last round's returns and household pooling"
+        "\n  have settled (the registered reading is one settlement earlier)\n"
+    )
+    print("    cell          Gini agg, registered -> settled")
+    for name, r in rows.items():
+        print(
+            f"    {name:12s}  {float(r['gini'].mean()):.5f} ->"
+            f" {float(r['settled']['gini'].mean()):.5f}"
+        )
+    print(
+        f"\n    readable objects that change, of {objects} per ordering: "
+        + "; ".join(f"{k} {v}" for k, v in changed.items())
+    )
+    print(
+        f"    sets readable alone against the null: registered {sole(table)},"
+        f" settled {sole(s_table)}"
+    )
+    for c, s in zip(criteria, s_criteria, strict=True):
+        print(f"    {mark(c)} -> {mark(s)}  {c.name}")
+    settled = {
+        "reading": "holdings after the last round's returns and household"
+        " pooling have settled; the registered measures above are read after"
+        " that round's flows and before this settlement",
+        "cells": {
+            name: {key: _round(float(r["settled"][key].mean())) for key, _ in SCORED_MEASURES}
+            for name, r in rows.items()
+        },
+        "resolution": _resolution_record(s_table),
+        "readable_objects_per_ordering": objects,
+        "readable_objects_changed": changed,
+        "sole_sets": {"registered": sole(table), "settled": sole(s_table)},
+        "criteria": [
+            {"name": s.name, "registered": mark(c), "settled": mark(s)}
+            for c, s in zip(criteria, s_criteria, strict=True)
+        ],
+    }
+
     if args.json:
         RESULTS.mkdir(exist_ok=True)
         out = RESULTS / args.json
         out.write_text(
-            json.dumps(record(rows, table, criteria, args), indent=2) + "\n",
+            json.dumps(record(rows, table, criteria, args, settled), indent=2) + "\n",
             encoding="utf-8",
             newline="\n",
         )

@@ -540,8 +540,8 @@
   "diagnostic_reason": "Precondition for the compatibility spec handed to B8. Counts and a schedule identity only; no omega, no B8 prediction, and nothing here transfers to Fannie (\u00a710\u00b79\u00b76).",
   "grid_step": 1000.0,
   "loans": 1362490,
-  "o18_frozen": 4901368,
-  "o18_pairs": 10247131,
+  "o18_frozen": 4836296,
+  "o18_pairs": 8991830,
   "stage": "B10",
   "step": "grid_k",
   "u0_rel_error_mean": 0.0034214649983638746

@@ -1,0 +1,330 @@
+{
+ "config": {
+  "dfr": "month-end level, FM.B.U2.EUR.4F.KR.DFR.LEV",
+  "fit": [
+   "2022-06",
+   "2026-05"
+  ],
+  "lags": [
+   0,
+   12
+  ],
+  "lines": [
+   0.05,
+   0.1
+  ],
+  "product": "L21_A_R_A_2250",
+  "rates_read_to": "2026-05",
+  "tick": 0.01
+ },
+ "criteria": [
+  {
+   "detail": "line 0.05 BE: lags [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]; line 0.05 FR: lags [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; line 0.1 NL: lags [6, 7, 8, 9, 10, 11, 12]; line 0.1 SI: lags [0, 1, 2, 3, 4]; 4 of 4 fitted by the fixed model",
+   "kind": "own_reading",
+   "name": "B128-16",
+   "passed": null,
+   "state": "registered, second round not read",
+   "state_map": {
+    "no exit yet and some pair not yet due": "not yet readable",
+    "no feasible pair in the first round": "the fixed model does not fit this country's first round",
+    "observed exit after every pair's month, or on the line when every pair is off": "threshold moved up",
+    "observed exit before every pair's month": "threshold moved down",
+    "observed exit inside the pairs' months": "consistent with a fixed threshold and lag"
+   },
+   "statement": "the second exit from zero of each country that went back to zero in the 2024-26 cuts, read against the dates a threshold and a lag fixed by its first round give for the policy path as published"
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "Registration: the second round is read from 2027-03-15 (design, read dates).",
+ "reading": "second exit from zero against a fixed threshold and lag",
+ "reads": [
+  {
+   "line": 0.05,
+   "rows": [
+    {
+     "country": "BE",
+     "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+     ],
+     "lags_only_on_line_months_out": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "left_zero": "2023-03",
+     "line": 0.05,
+     "months_read": 30,
+     "pairs": [
+      {
+       "lag": 0,
+       "t_high": 2.25,
+       "t_low": 0.75
+      },
+      {
+       "lag": 1,
+       "t_high": 2.5,
+       "t_low": 0.75
+      },
+      {
+       "lag": 2,
+       "t_high": 2.5,
+       "t_low": 0.0
+      },
+      {
+       "lag": 3,
+       "t_high": 2.0,
+       "t_low": 0.0
+      },
+      {
+       "lag": 4,
+       "t_high": 2.0,
+       "t_low": -0.5
+      },
+      {
+       "lag": 5,
+       "t_high": 1.5,
+       "t_low": -0.5
+      },
+      {
+       "lag": 6,
+       "t_high": 0.75,
+       "t_low": -0.5
+      },
+      {
+       "lag": 7,
+       "t_high": 0.75,
+       "t_low": -0.5
+      },
+      {
+       "lag": 8,
+       "t_high": 0.0,
+       "t_low": -0.5
+      },
+      {
+       "lag": 9,
+       "t_high": 0.0,
+       "t_low": -0.5
+      }
+     ],
+     "returned": "2025-09"
+    },
+    {
+     "country": "FR",
+     "lags": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "lags_only_on_line_months_out": [
+      3,
+      4,
+      5
+     ],
+     "left_zero": "2023-08",
+     "line": 0.05,
+     "months_read": 18,
+     "pairs": [
+      {
+       "lag": 0,
+       "t_high": 3.5,
+       "t_low": 3.0
+      },
+      {
+       "lag": 1,
+       "t_high": 3.75,
+       "t_low": 2.5
+      },
+      {
+       "lag": 2,
+       "t_high": 3.75,
+       "t_low": 2.0
+      },
+      {
+       "lag": 3,
+       "t_high": 3.75,
+       "t_low": 2.0
+      },
+      {
+       "lag": 4,
+       "t_high": 4.0,
+       "t_low": 1.5
+      },
+      {
+       "lag": 5,
+       "t_high": 4.0,
+       "t_low": 0.75
+      },
+      {
+       "lag": 6,
+       "t_high": 3.75,
+       "t_low": 0.75
+      },
+      {
+       "lag": 7,
+       "t_high": 3.5,
+       "t_low": 0.0
+      },
+      {
+       "lag": 8,
+       "t_high": 3.5,
+       "t_low": 0.0
+      },
+      {
+       "lag": 9,
+       "t_high": 3.25,
+       "t_low": -0.5
+      },
+      {
+       "lag": 10,
+       "t_high": 3.0,
+       "t_low": -0.5
+      },
+      {
+       "lag": 11,
+       "t_high": 3.0,
+       "t_low": -0.5
+      },
+      {
+       "lag": 12,
+       "t_high": 2.5,
+       "t_low": -0.5
+      }
+     ],
+     "returned": "2025-03"
+    }
+   ]
+  },
+  {
+   "line": 0.1,
+   "rows": [
+    {
+     "country": "NL",
+     "lags": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+     ],
+     "lags_only_on_line_months_out": [],
+     "left_zero": "2023-08",
+     "line": 0.1,
+     "months_read": 37,
+     "pairs": [
+      {
+       "lag": 6,
+       "t_high": 2.0,
+       "t_low": 1.5
+      },
+      {
+       "lag": 7,
+       "t_high": 2.0,
+       "t_low": 0.75
+      },
+      {
+       "lag": 8,
+       "t_high": 2.0,
+       "t_low": 0.75
+      },
+      {
+       "lag": 9,
+       "t_high": 2.0,
+       "t_low": 0.0
+      },
+      {
+       "lag": 10,
+       "t_high": 1.5,
+       "t_low": 0.0
+      },
+      {
+       "lag": 11,
+       "t_high": 0.75,
+       "t_low": -0.5
+      },
+      {
+       "lag": 12,
+       "t_high": 0.75,
+       "t_low": -0.5
+      }
+     ],
+     "returned": "2025-07"
+    },
+    {
+     "country": "SI",
+     "lags": [
+      0,
+      1,
+      2,
+      3,
+      4
+     ],
+     "lags_only_on_line_months_out": [
+      1
+     ],
+     "left_zero": "2023-07",
+     "line": 0.1,
+     "months_read": 36,
+     "pairs": [
+      {
+       "lag": 0,
+       "t_high": 3.0,
+       "t_low": 2.0
+      },
+      {
+       "lag": 1,
+       "t_high": 3.25,
+       "t_low": 2.0
+      },
+      {
+       "lag": 2,
+       "t_high": 3.25,
+       "t_low": 2.25
+      },
+      {
+       "lag": 3,
+       "t_high": 3.0,
+       "t_low": 2.25
+      },
+      {
+       "lag": 4,
+       "t_high": 3.0,
+       "t_low": 2.5
+      }
+     ],
+     "returned": "2025-01"
+    }
+   ]
+  }
+ ],
+ "source": {
+  "dfr": "data/raw/b128/fm_keyrates.csv",
+  "rates": "data/raw/b128/mir_B_L21_A_R_A_2250_EUR_N.csv"
+ },
+ "stage": "B128"
+}

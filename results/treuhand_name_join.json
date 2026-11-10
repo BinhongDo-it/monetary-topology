@@ -1,18 +1,18 @@
 {
  "criteria": [
   {
-   "detail": "returns exactly one candidate for 1275 of 2594 known firms and is right on 1244 of those: precision 97.6%. The failures look like a later company of the same name at a much higher register number.",
+   "detail": "returns exactly one candidate for 1276 of 2595 known firms and is right on 1245 of those: precision 97.6%. The failures look like a later company of the same name at a much higher register number.",
    "name": "B40-N1 name join precision, measured not assumed",
    "passed": true
   },
   {
-   "detail": "R unique 341 -> 470, V 2030 -> 2594. Dissolved share R 51.0% vs V 51.3% before, R 50.9% vs V 50.3% after.",
+   "detail": "R unique 341 -> 470, V 2031 -> 2595. Dissolved share R 51.0% vs V 51.3% before, R 50.9% vs V 50.3% after.",
    "name": "B40-N3 do the two margins move once the merged courts are folded in",
    "passed": true
   }
  ],
  "diagnostic_only": false,
- "scope_note": "the join was calibrated before use and carries a measured 2.4% false-positive rate at 48.0% recall, and it reaches only the two Laender whose courts were merged. Both are printed beside the readings. Recall is capped by the register dump 2005 window, the same wall the register-number key hits, so it is a property of the source and not an unfinished step.",
+ "scope_note": "the join was calibrated before use and carries a measured 2.4% false-positive rate at 48.0% recall, and it reaches only the two Laender whose courts were merged. Both are printed beside the readings. Recall is measured on firms whose register number already resolved in the dump, so every one of them is inside its 2005 window: of the 1294 the name key misses outright, the dump holds names for the true company in 949, none of them equal to a released name. That the recall sits near the register-number hit rate, which has a different denominator, is not evidence of one mechanism.",
  "stage": "DE-NAME",
  "tables": {
   "by_land": {
@@ -30,31 +30,80 @@
    }
   },
   "calibration": {
-   "n": 2594,
+   "n": 2595,
    "no match": 1294,
-   "one correct": 1244,
+   "no match, the dump holds names for the true company": 949,
+   "no match, the dump holds no name for the true company at these courts": 345,
+   "one correct": 1245,
    "one wrong": 31,
-   "precision": 0.9756862745098039,
-   "recall": 0.47956823438704704,
+   "precision": 0.975705329153605,
+   "recall": 0.4797687861271676,
    "several": 25,
    "several incl truth": 24
   },
+  "calibration_miss_examples": [
+   {
+    "firma": "10",
+    "names_in_the_dump": [
+     "ewu immobilien verwaltungs entwicklungsgesellschaft"
+    ],
+    "released_name": "EWU Engineering GmbH, Energiewirtschaft, Wärmeversorgung, Umwelttechnik",
+    "released_predecessor": "VEB Ingenieurbetrieb der Energieversorgung",
+    "status": "V"
+   },
+   {
+    "firma": "30",
+    "names_in_the_dump": [
+     "geomin erzgebirgische kalkwerke"
+    ],
+    "released_name": "Erzgebirgische Kalkwerke GmbH",
+    "released_predecessor": "VEB Zuschlagstoffe Karl-Marx-Stadt",
+    "status": "V"
+   },
+   {
+    "firma": "36",
+    "names_in_the_dump": [
+     "onus oderlaender naturerden substrate"
+    ],
+    "released_name": "Oderländer Naturerden und Substrate GmbH",
+    "released_predecessor": "VEB Organische Düngestoffe Frankfurt/Oder",
+    "status": "V"
+   },
+   {
+    "firma": "88",
+    "names_in_the_dump": [
+     "fotopapier dresden vermoegensverwaltung"
+    ],
+    "released_name": "Fotopapier GmbH Dresden",
+    "released_predecessor": "VEB Fotopapierwerk Dresden",
+    "status": "V"
+   },
+   {
+    "firma": "96",
+    "names_in_the_dump": [
+     "baufeld mineraloelraffinerie"
+    ],
+    "released_name": "Motimol Mineralöl GmbH",
+    "released_predecessor": "VEB Hydrierwerk Zeitz",
+    "status": "V"
+   }
+  ],
   "dissolved_gap": {
    "after": {
-    "diff": 0.005426598205351185,
-    "mde_pp": 4.122795903744475,
+    "diff": 0.005620464887467702,
+    "mde_pp": 4.122675488486326,
     "r_n": 470,
-    "se": 0.025062589080513526,
-    "se_units": 0.21652185206876462,
-    "v_n": 2594
+    "se": 0.025061857072865203,
+    "se_units": 0.2242637036484041,
+    "v_n": 2595
    },
    "before": {
-    "diff": -0.003036562992069114,
-    "mde_pp": 4.812558357644481,
+    "diff": -0.002783830105505425,
+    "mde_pp": 4.8123972187570905,
     "r_n": 341,
-    "se": 0.029255673906653384,
-    "se_units": -0.10379398545929693,
-    "v_n": 2030
+    "se": 0.029254694338948877,
+    "se_units": -0.09515840682700663,
+    "v_n": 2031
    }
   },
   "margins_after": {
@@ -102,10 +151,10 @@
    },
    "V": {
     "dissolved": 1305,
-    "dissolved_rate": 0.5030840400925212,
+    "dissolved_rate": 0.5028901734104047,
     "n": 6388,
-    "unique": 2594,
-    "unique_rate": 0.4060738885410144
+    "unique": 2595,
+    "unique_rate": 0.4062304320601127
    }
   },
   "margins_before": {
@@ -153,10 +202,10 @@
    },
    "V": {
     "dissolved": 1042,
-    "dissolved_rate": 0.5133004926108374,
+    "dissolved_rate": 0.5130477597242737,
     "n": 4154,
-    "unique": 2030,
-    "unique_rate": 0.4886856042368801
+    "unique": 2031,
+    "unique_rate": 0.48892633606162733
    }
   }
  }

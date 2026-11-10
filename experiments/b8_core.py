@@ -150,12 +150,29 @@ def as_code(v: bytes) -> int:
     return v[0] if v else U8_NA
 
 
+#: The largest value of field 40 that is a delinquency status. Field 40 counts
+#: months delinquent in two digits and ``99`` is where the count tops out, not
+#: a missing code. It behaves like the top of a count: of the 4,820 rows that
+#: carry it in the six archives, 4,792 follow a month at ``98`` or ``99``. The
+#: codes above it, 253 to 255, are ``as_delinq``'s own for a digit string of
+#: the wrong length, ``XX`` and blank, and those are the unknown ones.
+#:
+#: Three stations compared against 98 until 2026-10-10 and so filed the 99
+#: rows with the unknown ones. Measured, that mislabelled 12 windows as holding
+#: an unknown status and kept one loan out of B8-5's deepest entry rung; no
+#: loop anchor, loop count or triangle moved.
+DELINQ_KNOWN_MAX = 99
+
+
 def as_delinq(v: bytes) -> int:
     """Delinquency status. Field 40 is two characters and its leading digit is
     not the value, so this cannot use ``as_code``.
 
-    ``00``-``98`` map to the integer, ``XX`` and anything unrecognised to 254,
-    blank to 255. **A digit string of any length other than two maps to 253**
+    ``00``-``99`` map to the integer, ``XX`` and anything unrecognised to 254,
+    blank to 255. ``99`` is the top of the months-delinquent count, ninety-nine
+    months or more, and is a status like the ones below it
+    (``DELINQ_KNOWN_MAX``). **A digit string of any length other than two maps
+    to 253**
     rather than to its integer value, so that ``delinq == 0`` is exactly the
     predicate ``field.strip() == b"00"`` the hand-written filters used, and an
     off-convention field shows up as a distinct code instead of silently joining

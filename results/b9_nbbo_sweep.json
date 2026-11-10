@@ -1,67 +1,69 @@
 {
   "best_offset": 0,
-  "best_rate": 0.5255746196179993,
+  "best_rate": 0.52582995951417,
   "by_offset": {
     "-1": {
       "exact": 2379,
-      "n": 6178,
-      "rate": 0.3850760764001295
+      "n": 6175,
+      "rate": 0.38526315789473686
     },
     "-2": {
       "exact": 2095,
-      "n": 6177,
-      "rate": 0.3391614052128865
+      "n": 6174,
+      "rate": 0.33932620667314545
     },
     "-3": {
       "exact": 1740,
-      "n": 6043,
-      "rate": 0.28793645540294555
+      "n": 6040,
+      "rate": 0.28807947019867547
     },
     "-4": {
       "exact": 1631,
-      "n": 6034,
-      "rate": 0.2703016241299304
+      "n": 6031,
+      "rate": 0.2704360802520312
     },
     "-5": {
       "exact": 1464,
-      "n": 5995,
-      "rate": 0.24420350291909926
+      "n": 5992,
+      "rate": 0.24432576769025366
     },
     "0": {
       "exact": 3247,
-      "n": 6178,
-      "rate": 0.5255746196179993
+      "n": 6175,
+      "rate": 0.52582995951417
     },
     "1": {
       "exact": 2651,
-      "n": 6178,
-      "rate": 0.42910326966655876
+      "n": 6175,
+      "rate": 0.42931174089068824
     },
     "2": {
       "exact": 2621,
-      "n": 6178,
-      "rate": 0.4242473292327614
+      "n": 6175,
+      "rate": 0.4244534412955466
     },
     "3": {
-      "exact": 2580,
-      "n": 6178,
-      "rate": 0.4176108773065717
+      "exact": 2581,
+      "n": 6175,
+      "rate": 0.4179757085020243
     },
     "4": {
-      "exact": 2567,
-      "n": 6178,
-      "rate": 0.4155066364519262
+      "exact": 2569,
+      "n": 6175,
+      "rate": 0.41603238866396763
     },
     "5": {
-      "exact": 2567,
-      "n": 6178,
-      "rate": 0.4155066364519262
+      "exact": 2569,
+      "n": 6175,
+      "rate": 0.41603238866396763
     }
   },
   "dataset": "XNAS.ITCH",
   "diagnostic_only": true,
   "diagnostic_reason": "§38.4(a). A sweep of the sampling instant: the rate at each offset and where the peak is. That is the input to whether §38.1's venue verdict has to be re-run at the peak, and not a reading of its own.",
-  "flat": true,
-  "rate_at_zero": 0.5255746196179993,
-  "stage": "B9 §38.4(a) sampling-instant sweep"
+  "neighbour_best": 0.42931174089068824,
+  "peak_sharpness": 0.09651821862348176,
+  "rate_at_zero": 0.52582995951417,
+  "stage": "B9 §38.4(a) sampling-instant sweep",
+  "zero_is_best": true
 }

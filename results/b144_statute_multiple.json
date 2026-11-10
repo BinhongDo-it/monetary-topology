@@ -1,0 +1,1650 @@
+{
+ "config": {
+  "aliases": {
+   "Czech Republic": "Czechia"
+  },
+  "fetched_by": "experiments/b144_fetch.py --only oecd, --only cuts",
+  "household": "S_C0",
+  "levels": [
+   "AW100",
+   "AW67",
+   "AW167"
+  ],
+  "measure": "MR_TW_PE",
+  "no_vat_row": [
+   "USA"
+  ],
+  "pages": "data/raw/b144/law_labour",
+  "raw": "data/raw/b144/oecd",
+  "row_kinds": [
+   "credit to the buyer",
+   "exemption below an amount",
+   "reduced rate allowed",
+   "a separate class of provider"
+  ],
+  "vat_year": "2023",
+  "years": [
+   "2023",
+   "2024",
+   "2025"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "38 countries in the labour-tax table, 38 with every year and level; VAT table 'Annex Table 2.A.1. VAT rates1' with 37 rows, last year 2023; the United Kingdom at two thirds of the average wage in 2025: 1.9167 against 1.9167 from the government's rate pages; units and names as expected",
+   "kind": "instrument",
+   "name": "B144-E0",
+   "passed": true,
+   "statement": "The OECD's two files say what the reading takes them to say, and the United Kingdom's row returns the multiple computed from the government's own rate pages."
+  },
+  {
+   "detail": "38 countries at the average wage in 2023: lowest Colombia 1.19, median 2.21, highest Belgium 3.46; United States 1.68, United Kingdom 1.99, Japan 1.76, Korea 1.60, Germany 2.85, France 2.87, Sweden 2.42, Belgium 3.46. Spread of the log multiple between countries 0.247, across the three levels of pay inside a country 0.068 at the median and 0.211 at most; over the years between 0.243 to 0.258, within 0.059 to 0.068 -> between larger",
+   "kind": "own_reading",
+   "name": "B144-E1",
+   "passed": true,
+   "statement": "The statute-only multiple differs between sovereigns by more than it moves with the level of pay inside one."
+  },
+  {
+   "detail": "10 rows, 16 passages, 10 cached pages; every passage is on its page and every page carries a row. Kinds: credit to the buyer 4, exemption below an amount 1, reduced rate allowed 1, a separate class of provider 4",
+   "kind": "bookkeeping",
+   "name": "B144-E2",
+   "passed": true,
+   "statement": "Every row has its words on a cached page and every cached page carries a row."
+  },
+  {
+   "detail": "Germany writes back 20% to the buyer: 2.85 to 2.28 (rank 6 of 38 before); France writes back 50% to the buyer: 2.87 to 1.43 (rank 5 of 38 before); Sweden writes back 50% to the buyer: 2.42 to 1.21 (rank 15 of 38 before); United Kingdom writes back 20% to the buyer: 1.99 to 1.59 (rank 27 of 38 before). Lowered by every credit read: 4 of 4. Hong Kong writes two floors for work in a household: 43.1 an hour, and 5100 a month for a helper who lives in; the monthly floor equals the hourly one at 118 hours a month",
+   "kind": "own_reading",
+   "name": "B144-E3",
+   "passed": true,
+   "statement": "Every credit to the buyer that was read lowers the multiple of the sovereign that wrote it."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "mapping": {
+  "states": {
+   "between larger": "the spread between sovereigns is the larger one in every year",
+   "unread": "the order changes with the year, or a spread is undefined",
+   "within larger": "the spread across levels of pay inside a sovereign is the larger one in every year"
+  },
+  "verdict": "true for 'between larger', false for 'within larger', null for 'unread'"
+ },
+ "objects": {
+  "marginal_wedge_percent": {
+   "Australia": {
+    "2023": {
+     "AW100": 38.2205,
+     "AW167": 42.4649,
+     "AW67": 38.2205
+    },
+    "2024": {
+     "AW100": 38.2364,
+     "AW167": 42.4797,
+     "AW67": 38.2364
+    },
+    "2025": {
+     "AW100": 35.8955,
+     "AW167": 42.4945,
+     "AW67": 35.8955
+    }
+   },
+   "Austria": {
+    "2023": {
+     "AW100": 58.8453,
+     "AW167": 45.642,
+     "AW67": 52.7978
+    },
+    "2024": {
+     "AW100": 58.2538,
+     "AW167": 45.642,
+     "AW67": 52.7506
+    },
+    "2025": {
+     "AW100": 58.2538,
+     "AW167": 45.642,
+     "AW67": 56.9637
+    }
+   },
+   "Belgium": {
+    "2023": {
+     "AW100": 65.0327,
+     "AW167": 67.762,
+     "AW67": 68.5037
+    },
+    "2024": {
+     "AW100": 64.9387,
+     "AW167": 67.6579,
+     "AW67": 68.4192
+    },
+    "2025": {
+     "AW100": 64.9883,
+     "AW167": 67.7037,
+     "AW67": 68.4595
+    }
+   },
+   "Canada": {
+    "2023": {
+     "AW100": 31.8578,
+     "AW167": 44.492,
+     "AW67": 42.2404
+    },
+    "2024": {
+     "AW100": 31.8512,
+     "AW167": 46.0222,
+     "AW67": 42.2785
+    },
+    "2025": {
+     "AW100": 31.8116,
+     "AW167": 46.0222,
+     "AW67": 42.2481
+    }
+   },
+   "Chile": {
+    "2023": {
+     "AW100": 7.0,
+     "AW167": 10.25,
+     "AW67": 7.0
+    },
+    "2024": {
+     "AW100": 7.0,
+     "AW167": 10.25,
+     "AW67": 7.0
+    },
+    "2025": {
+     "AW100": 10.5853,
+     "AW167": 10.5853,
+     "AW67": 7.3474
+    }
+   },
+   "Colombia": {
+    "2023": {
+     "AW100": 0.0,
+     "AW167": 0.0,
+     "AW67": 0.0
+    },
+    "2024": {
+     "AW100": 0.0,
+     "AW167": 0.0,
+     "AW67": 0.0
+    },
+    "2025": {
+     "AW100": 0.0,
+     "AW167": 0.0,
+     "AW67": 0.0
+    }
+   },
+   "Costa Rica": {
+    "2023": {
+     "AW100": 27.6586,
+     "AW167": 35.0658,
+     "AW67": 27.6586
+    },
+    "2024": {
+     "AW100": 27.6586,
+     "AW167": 35.0658,
+     "AW67": 27.6586
+    },
+    "2025": {
+     "AW100": 27.6586,
+     "AW167": 35.0658,
+     "AW67": 27.6586
+    }
+   },
+   "Czechia": {
+    "2023": {
+     "AW100": 44.6936,
+     "AW167": 44.6936,
+     "AW67": 44.6936
+    },
+    "2024": {
+     "AW100": 45.142,
+     "AW167": 45.142,
+     "AW67": 45.142
+    },
+    "2025": {
+     "AW100": 45.142,
+     "AW167": 45.142,
+     "AW67": 45.142
+    }
+   },
+   "Denmark": {
+    "2023": {
+     "AW100": 41.6985,
+     "AW167": 55.9044,
+     "AW67": 38.6354
+    },
+    "2024": {
+     "AW100": 41.6962,
+     "AW167": 55.9044,
+     "AW67": 38.6267
+    },
+    "2025": {
+     "AW100": 41.6942,
+     "AW167": 55.9044,
+     "AW67": 38.1457
+    }
+   },
+   "Estonia": {
+    "2023": {
+     "AW100": 52.0279,
+     "AW167": 41.1659,
+     "AW67": 52.0279
+    },
+    "2024": {
+     "AW100": 52.0279,
+     "AW167": 41.1659,
+     "AW67": 52.0279
+    },
+    "2025": {
+     "AW100": 42.6368,
+     "AW167": 42.6368,
+     "AW67": 54.585
+    }
+   },
+   "Finland": {
+    "2023": {
+     "AW100": 57.2306,
+     "AW167": 59.4776,
+     "AW67": 48.4599
+    },
+    "2024": {
+     "AW100": 56.2311,
+     "AW167": 58.5347,
+     "AW67": 47.2696
+    },
+    "2025": {
+     "AW100": 56.4475,
+     "AW167": 59.2935,
+     "AW67": 55.4347
+    }
+   },
+   "France": {
+    "2023": {
+     "AW100": 58.1663,
+     "AW167": 59.4525,
+     "AW67": 64.5707
+    },
+    "2024": {
+     "AW100": 58.1817,
+     "AW167": 59.9721,
+     "AW67": 64.5893
+    },
+    "2025": {
+     "AW100": 58.1817,
+     "AW167": 59.9721,
+     "AW67": 64.5862
+    }
+   },
+   "Germany": {
+    "2023": {
+     "AW100": 58.2307,
+     "AW167": 46.998,
+     "AW67": 54.0589
+    },
+    "2024": {
+     "AW100": 48.4485,
+     "AW167": 46.998,
+     "AW67": 54.2274
+    },
+    "2025": {
+     "AW100": 48.8991,
+     "AW167": 46.998,
+     "AW67": 55.0078
+    }
+   },
+   "Greece": {
+    "2023": {
+     "AW100": 50.6983,
+     "AW167": 56.3328,
+     "AW67": 46.4725
+    },
+    "2024": {
+     "AW100": 50.6983,
+     "AW167": 56.3328,
+     "AW67": 46.4725
+    },
+    "2025": {
+     "AW100": 50.2086,
+     "AW167": 55.899,
+     "AW67": 45.9407
+    }
+   },
+   "Hungary": {
+    "2023": {
+     "AW100": 41.1504,
+     "AW167": 41.1504,
+     "AW67": 41.1504
+    },
+    "2024": {
+     "AW100": 41.1504,
+     "AW167": 41.1504,
+     "AW67": 41.1504
+    },
+    "2025": {
+     "AW100": 41.1504,
+     "AW167": 41.1504,
+     "AW67": 41.1504
+    }
+   },
+   "Iceland": {
+    "2023": {
+     "AW100": 40.2276,
+     "AW167": 47.7198,
+     "AW67": 40.2276
+    },
+    "2024": {
+     "AW100": 40.2546,
+     "AW167": 47.7469,
+     "AW67": 40.2546
+    },
+    "2025": {
+     "AW100": 40.2637,
+     "AW167": 47.7559,
+     "AW67": 40.2637
+    }
+   },
+   "Ireland": {
+    "2023": {
+     "AW100": 53.6245,
+     "AW167": 56.7762,
+     "AW67": 35.6146
+    },
+    "2024": {
+     "AW100": 53.1968,
+     "AW167": 56.7987,
+     "AW67": 35.1869
+    },
+    "2025": {
+     "AW100": 52.4174,
+     "AW167": 56.9148,
+     "AW67": 34.4277
+    }
+   },
+   "Israel": {
+    "2023": {
+     "AW100": 47.026,
+     "AW167": 50.7435,
+     "AW67": 36.803
+    },
+    "2024": {
+     "AW100": 47.026,
+     "AW167": 50.7435,
+     "AW67": 36.803
+    },
+    "2025": {
+     "AW100": 47.184,
+     "AW167": 50.9015,
+     "AW67": 36.961
+    }
+   },
+   "Italy": {
+    "2023": {
+     "AW100": 62.6475,
+     "AW167": 64.1021,
+     "AW67": 55.3467
+    },
+    "2024": {
+     "AW100": 64.1701,
+     "AW167": 64.1021,
+     "AW67": 53.1163
+    },
+    "2025": {
+     "AW100": 72.7685,
+     "AW167": 64.1021,
+     "AW67": 56.2403
+    }
+   },
+   "Japan": {
+    "2023": {
+     "AW100": 37.5982,
+     "AW167": 38.2368,
+     "AW67": 33.4059
+    },
+    "2024": {
+     "AW100": 37.721,
+     "AW167": 38.3601,
+     "AW67": 34.8423
+    },
+    "2025": {
+     "AW100": 37.6596,
+     "AW167": 38.2985,
+     "AW67": 34.7774
+    }
+   },
+   "Korea": {
+    "2023": {
+     "AW100": 31.1511,
+     "AW167": 33.088,
+     "AW67": 30.4579
+    },
+    "2024": {
+     "AW100": 31.1827,
+     "AW167": 33.1196,
+     "AW67": 30.4898
+    },
+    "2025": {
+     "AW100": 31.1455,
+     "AW167": 33.082,
+     "AW67": 30.4522
+    }
+   },
+   "Latvia": {
+    "2023": {
+     "AW100": 48.2906,
+     "AW167": 44.4939,
+     "AW67": 48.2906
+    },
+    "2024": {
+     "AW100": 48.2906,
+     "AW167": 44.4939,
+     "AW67": 48.2906
+    },
+    "2025": {
+     "AW100": 46.0494,
+     "AW167": 46.0494,
+     "AW67": 46.0494
+    }
+   },
+   "Lithuania": {
+    "2023": {
+     "AW100": 44.1006,
+     "AW167": 40.5639,
+     "AW67": 48.8162
+    },
+    "2024": {
+     "AW100": 50.3881,
+     "AW167": 40.5639,
+     "AW67": 50.3881
+    },
+    "2025": {
+     "AW100": 50.1916,
+     "AW167": 40.5639,
+     "AW67": 50.1916
+    }
+   },
+   "Luxembourg": {
+    "2023": {
+     "AW100": 57.8542,
+     "AW167": 56.536,
+     "AW67": 54.6998
+    },
+    "2024": {
+     "AW100": 56.8866,
+     "AW167": 56.0261,
+     "AW67": 50.9656
+    },
+    "2025": {
+     "AW100": 57.3681,
+     "AW167": 55.6259,
+     "AW67": 51.5059
+    }
+   },
+   "Mexico": {
+    "2023": {
+     "AW100": 28.4333,
+     "AW167": 28.4333,
+     "AW67": 18.6084
+    },
+    "2024": {
+     "AW100": 28.4511,
+     "AW167": 28.4511,
+     "AW67": 23.3477
+    },
+    "2025": {
+     "AW100": 28.4511,
+     "AW167": 28.4511,
+     "AW67": 23.3477
+    }
+   },
+   "Netherlands": {
+    "2023": {
+     "AW100": 52.3675,
+     "AW167": 52.7278,
+     "AW67": 52.3675
+    },
+    "2024": {
+     "AW100": 52.7592,
+     "AW167": 52.5766,
+     "AW67": 52.7592
+    },
+    "2025": {
+     "AW100": 53.0326,
+     "AW167": 52.543,
+     "AW67": 53.0326
+    }
+   },
+   "New Zealand": {
+    "2023": {
+     "AW100": 33.0,
+     "AW167": 33.0,
+     "AW67": 30.0
+    },
+    "2024": {
+     "AW100": 33.0,
+     "AW167": 33.0,
+     "AW67": 30.0
+    },
+    "2025": {
+     "AW100": 33.0,
+     "AW167": 33.0,
+     "AW67": 30.0
+    }
+   },
+   "Norway": {
+    "2023": {
+     "AW100": 49.9115,
+     "AW167": 54.5763,
+     "AW67": 41.5044
+    },
+    "2024": {
+     "AW100": 49.9115,
+     "AW167": 54.5763,
+     "AW67": 41.4159
+    },
+    "2025": {
+     "AW100": 49.9115,
+     "AW167": 52.5664,
+     "AW67": 41.3274
+    }
+   },
+   "Poland": {
+    "2023": {
+     "AW100": 38.2783,
+     "AW167": 53.1098,
+     "AW67": 38.2783
+    },
+    "2024": {
+     "AW100": 38.2755,
+     "AW167": 53.1077,
+     "AW67": 38.2755
+    },
+    "2025": {
+     "AW100": 38.2464,
+     "AW167": 53.0856,
+     "AW67": 38.2464
+    }
+   },
+   "Portugal": {
+    "2023": {
+     "AW100": 51.1111,
+     "AW167": 57.9798,
+     "AW67": 45.0505
+    },
+    "2024": {
+     "AW100": 48.2828,
+     "AW167": 56.7677,
+     "AW67": 41.4141
+    },
+    "2025": {
+     "AW100": 47.798,
+     "AW167": 56.2828,
+     "AW67": 41.0101
+    }
+   },
+   "Slovak Republic": {
+    "2023": {
+     "AW100": 45.9167,
+     "AW167": 49.0883,
+     "AW67": 45.9167
+    },
+    "2024": {
+     "AW100": 46.9395,
+     "AW167": 50.0511,
+     "AW67": 46.9395
+    },
+    "2025": {
+     "AW100": 46.9395,
+     "AW167": 50.0511,
+     "AW67": 46.9395
+    }
+   },
+   "Slovenia": {
+    "2023": {
+     "AW100": 50.348,
+     "AW167": 55.0448,
+     "AW67": 43.6382
+    },
+    "2024": {
+     "AW100": 50.348,
+     "AW167": 55.0448,
+     "AW67": 50.348
+    },
+    "2025": {
+     "AW100": 50.8782,
+     "AW167": 55.5249,
+     "AW67": 50.8782
+    }
+   },
+   "Spain": {
+    "2023": {
+     "AW100": 49.3731,
+     "AW167": 54.8521,
+     "AW67": 64.5889
+    },
+    "2024": {
+     "AW100": 49.4149,
+     "AW167": 54.8894,
+     "AW67": 64.6182
+    },
+    "2025": {
+     "AW100": 49.655,
+     "AW167": 54.966,
+     "AW67": 45.4245
+    }
+   },
+   "Sweden": {
+    "2023": {
+     "AW100": 48.4401,
+     "AW167": 65.9413,
+     "AW67": 45.3
+    },
+    "2024": {
+     "AW100": 48.539,
+     "AW167": 66.0402,
+     "AW67": 44.4922
+    },
+    "2025": {
+     "AW100": 48.5695,
+     "AW167": 63.7879,
+     "AW67": 43.6619
+    }
+   },
+   "Switzerland": {
+    "2023": {
+     "AW100": 32.4595,
+     "AW167": 35.2933,
+     "AW67": 26.4493
+    },
+    "2024": {
+     "AW100": 32.4164,
+     "AW167": 37.0587,
+     "AW67": 26.4114
+    },
+    "2025": {
+     "AW100": 32.4041,
+     "AW167": 35.2283,
+     "AW67": 26.403
+    }
+   },
+   "Türkiye": {
+    "2023": {
+     "AW100": 47.8374,
+     "AW167": 47.8374,
+     "AW67": 47.8374
+    },
+    "2024": {
+     "AW100": 47.9482,
+     "AW167": 47.9482,
+     "AW67": 47.9482
+    },
+    "2025": {
+     "AW100": 48.2864,
+     "AW167": 48.2864,
+     "AW67": 48.2864
+    }
+   },
+   "United Kingdom": {
+    "2023": {
+     "AW100": 39.7803,
+     "AW167": 49.0334,
+     "AW67": 39.7803
+    },
+    "2024": {
+     "AW100": 49.0334,
+     "AW167": 49.0334,
+     "AW67": 36.7311
+    },
+    "2025": {
+     "AW100": 49.5652,
+     "AW167": 49.5652,
+     "AW67": 37.3913
+    }
+   },
+   "United States": {
+    "2023": {
+     "AW100": 40.641,
+     "AW167": 42.4988,
+     "AW67": 31.3516
+    },
+    "2024": {
+     "AW100": 40.8268,
+     "AW167": 42.6846,
+     "AW67": 31.5374
+    },
+    "2025": {
+     "AW100": 40.8268,
+     "AW167": 42.6846,
+     "AW67": 31.5374
+    }
+   }
+  },
+  "multiple": {
+   "Australia": {
+    "2023": {
+     "AW100": 1.7805,
+     "AW167": 1.9119,
+     "AW67": 1.7805
+    },
+    "2024": {
+     "AW100": 1.781,
+     "AW167": 1.9124,
+     "AW67": 1.781
+    },
+    "2025": {
+     "AW100": 1.7159,
+     "AW167": 1.9129,
+     "AW67": 1.7159
+    }
+   },
+   "Austria": {
+    "2023": {
+     "AW100": 2.9158,
+     "AW167": 2.2076,
+     "AW67": 2.5423
+    },
+    "2024": {
+     "AW100": 2.8745,
+     "AW167": 2.2076,
+     "AW67": 2.5397
+    },
+    "2025": {
+     "AW100": 2.8745,
+     "AW167": 2.2076,
+     "AW67": 2.7883
+    }
+   },
+   "Belgium": {
+    "2023": {
+     "AW100": 3.4604,
+     "AW167": 3.7533,
+     "AW67": 3.8417
+    },
+    "2024": {
+     "AW100": 3.4511,
+     "AW167": 3.7413,
+     "AW67": 3.8314
+    },
+    "2025": {
+     "AW100": 3.456,
+     "AW167": 3.7466,
+     "AW67": 3.8363
+    }
+   },
+   "Canada": {
+    "2023": {
+     "AW100": 1.5409,
+     "AW167": 1.8916,
+     "AW67": 1.8179
+    },
+    "2024": {
+     "AW100": 1.5407,
+     "AW167": 1.9452,
+     "AW67": 1.8191
+    },
+    "2025": {
+     "AW100": 1.5399,
+     "AW167": 1.9452,
+     "AW67": 1.8181
+    }
+   },
+   "Chile": {
+    "2023": {
+     "AW100": 1.2796,
+     "AW167": 1.3259,
+     "AW67": 1.2796
+    },
+    "2024": {
+     "AW100": 1.2796,
+     "AW167": 1.3259,
+     "AW67": 1.2796
+    },
+    "2025": {
+     "AW100": 1.3309,
+     "AW167": 1.3309,
+     "AW67": 1.2844
+    }
+   },
+   "Colombia": {
+    "2023": {
+     "AW100": 1.19,
+     "AW167": 1.19,
+     "AW67": 1.19
+    },
+    "2024": {
+     "AW100": 1.19,
+     "AW167": 1.19,
+     "AW67": 1.19
+    },
+    "2025": {
+     "AW100": 1.19,
+     "AW167": 1.19,
+     "AW67": 1.19
+    }
+   },
+   "Costa Rica": {
+    "2023": {
+     "AW100": 1.562,
+     "AW167": 1.7402,
+     "AW67": 1.562
+    },
+    "2024": {
+     "AW100": 1.562,
+     "AW167": 1.7402,
+     "AW67": 1.562
+    },
+    "2025": {
+     "AW100": 1.562,
+     "AW167": 1.7402,
+     "AW67": 1.562
+    }
+   },
+   "Czechia": {
+    "2023": {
+     "AW100": 2.1878,
+     "AW167": 2.1878,
+     "AW67": 2.1878
+    },
+    "2024": {
+     "AW100": 2.2057,
+     "AW167": 2.2057,
+     "AW67": 2.2057
+    },
+    "2025": {
+     "AW100": 2.2057,
+     "AW167": 2.2057,
+     "AW67": 2.2057
+    }
+   },
+   "Denmark": {
+    "2023": {
+     "AW100": 2.144,
+     "AW167": 2.8347,
+     "AW67": 2.037
+    },
+    "2024": {
+     "AW100": 2.1439,
+     "AW167": 2.8347,
+     "AW67": 2.0367
+    },
+    "2025": {
+     "AW100": 2.1439,
+     "AW167": 2.8347,
+     "AW67": 2.0209
+    }
+   },
+   "Estonia": {
+    "2023": {
+     "AW100": 2.5015,
+     "AW167": 2.0396,
+     "AW67": 2.5015
+    },
+    "2024": {
+     "AW100": 2.5015,
+     "AW167": 2.0396,
+     "AW67": 2.5015
+    },
+    "2025": {
+     "AW100": 2.0919,
+     "AW167": 2.0919,
+     "AW67": 2.6423
+    }
+   },
+   "Finland": {
+    "2023": {
+     "AW100": 2.8993,
+     "AW167": 3.06,
+     "AW67": 2.4059
+    },
+    "2024": {
+     "AW100": 2.8331,
+     "AW167": 2.9905,
+     "AW67": 2.3516
+    },
+    "2025": {
+     "AW100": 2.8471,
+     "AW167": 3.0462,
+     "AW67": 2.7824
+    }
+   },
+   "France": {
+    "2023": {
+     "AW100": 2.8685,
+     "AW167": 2.9595,
+     "AW67": 3.387
+    },
+    "2024": {
+     "AW100": 2.8696,
+     "AW167": 2.9979,
+     "AW67": 3.3888
+    },
+    "2025": {
+     "AW100": 2.8696,
+     "AW167": 2.9979,
+     "AW67": 3.3885
+    }
+   },
+   "Germany": {
+    "2023": {
+     "AW100": 2.849,
+     "AW167": 2.2452,
+     "AW67": 2.5903
+    },
+    "2024": {
+     "AW100": 2.3084,
+     "AW167": 2.2452,
+     "AW67": 2.5998
+    },
+    "2025": {
+     "AW100": 2.3287,
+     "AW167": 2.2452,
+     "AW67": 2.6449
+    }
+   },
+   "Greece": {
+    "2023": {
+     "AW100": 2.5151,
+     "AW167": 2.8397,
+     "AW67": 2.3166
+    },
+    "2024": {
+     "AW100": 2.5151,
+     "AW167": 2.8397,
+     "AW67": 2.3166
+    },
+    "2025": {
+     "AW100": 2.4904,
+     "AW167": 2.8117,
+     "AW67": 2.2938
+    }
+   },
+   "Hungary": {
+    "2023": {
+     "AW100": 2.158,
+     "AW167": 2.158,
+     "AW67": 2.158
+    },
+    "2024": {
+     "AW100": 2.158,
+     "AW167": 2.158,
+     "AW67": 2.158
+    },
+    "2025": {
+     "AW100": 2.158,
+     "AW167": 2.158,
+     "AW67": 2.158
+    }
+   },
+   "Iceland": {
+    "2023": {
+     "AW100": 2.0745,
+     "AW167": 2.3718,
+     "AW67": 2.0745
+    },
+    "2024": {
+     "AW100": 2.0755,
+     "AW167": 2.3731,
+     "AW67": 2.0755
+    },
+    "2025": {
+     "AW100": 2.0758,
+     "AW167": 2.3735,
+     "AW67": 2.0758
+    }
+   },
+   "Ireland": {
+    "2023": {
+     "AW100": 2.6523,
+     "AW167": 2.8457,
+     "AW67": 1.9104
+    },
+    "2024": {
+     "AW100": 2.628,
+     "AW167": 2.8471,
+     "AW67": 1.8978
+    },
+    "2025": {
+     "AW100": 2.585,
+     "AW167": 2.8548,
+     "AW67": 1.8758
+    }
+   },
+   "Israel": {
+    "2023": {
+     "AW100": 2.2086,
+     "AW167": 2.3753,
+     "AW67": 1.8514
+    },
+    "2024": {
+     "AW100": 2.2086,
+     "AW167": 2.3753,
+     "AW67": 1.8514
+    },
+    "2025": {
+     "AW100": 2.2152,
+     "AW167": 2.383,
+     "AW67": 1.856
+    }
+   },
+   "Italy": {
+    "2023": {
+     "AW100": 3.2662,
+     "AW167": 3.3985,
+     "AW67": 2.7322
+    },
+    "2024": {
+     "AW100": 3.405,
+     "AW167": 3.3985,
+     "AW67": 2.6022
+    },
+    "2025": {
+     "AW100": 4.4801,
+     "AW167": 3.3985,
+     "AW67": 2.788
+    }
+   },
+   "Japan": {
+    "2023": {
+     "AW100": 1.7628,
+     "AW167": 1.781,
+     "AW67": 1.6518
+    },
+    "2024": {
+     "AW100": 1.7662,
+     "AW167": 1.7846,
+     "AW67": 1.6882
+    },
+    "2025": {
+     "AW100": 1.7645,
+     "AW167": 1.7828,
+     "AW67": 1.6865
+    }
+   },
+   "Korea": {
+    "2023": {
+     "AW100": 1.5977,
+     "AW167": 1.6439,
+     "AW67": 1.5818
+    },
+    "2024": {
+     "AW100": 1.5984,
+     "AW167": 1.6447,
+     "AW67": 1.5825
+    },
+    "2025": {
+     "AW100": 1.5976,
+     "AW167": 1.6438,
+     "AW67": 1.5816
+    }
+   },
+   "Latvia": {
+    "2023": {
+     "AW100": 2.34,
+     "AW167": 2.1799,
+     "AW67": 2.34
+    },
+    "2024": {
+     "AW100": 2.34,
+     "AW167": 2.1799,
+     "AW67": 2.34
+    },
+    "2025": {
+     "AW100": 2.2428,
+     "AW167": 2.2428,
+     "AW67": 2.2428
+    }
+   },
+   "Lithuania": {
+    "2023": {
+     "AW100": 2.1646,
+     "AW167": 2.0358,
+     "AW67": 2.364
+    },
+    "2024": {
+     "AW100": 2.4389,
+     "AW167": 2.0358,
+     "AW67": 2.4389
+    },
+    "2025": {
+     "AW100": 2.4293,
+     "AW167": 2.0358,
+     "AW67": 2.4293
+    }
+   },
+   "Luxembourg": {
+    "2023": {
+     "AW100": 2.7761,
+     "AW167": 2.6919,
+     "AW67": 2.5828
+    },
+    "2024": {
+     "AW100": 2.7138,
+     "AW167": 2.6607,
+     "AW67": 2.3861
+    },
+    "2025": {
+     "AW100": 2.7444,
+     "AW167": 2.6367,
+     "AW67": 2.4127
+    }
+   },
+   "Mexico": {
+    "2023": {
+     "AW100": 1.6209,
+     "AW167": 1.6209,
+     "AW67": 1.4252
+    },
+    "2024": {
+     "AW100": 1.6213,
+     "AW167": 1.6213,
+     "AW67": 1.5133
+    },
+    "2025": {
+     "AW100": 1.6213,
+     "AW167": 1.6213,
+     "AW67": 1.5133
+    }
+   },
+   "Netherlands": {
+    "2023": {
+     "AW100": 2.5403,
+     "AW167": 2.5596,
+     "AW67": 2.5403
+    },
+    "2024": {
+     "AW100": 2.5613,
+     "AW167": 2.5515,
+     "AW67": 2.5613
+    },
+    "2025": {
+     "AW100": 2.5763,
+     "AW167": 2.5497,
+     "AW67": 2.5763
+    }
+   },
+   "New Zealand": {
+    "2023": {
+     "AW100": 1.7164,
+     "AW167": 1.7164,
+     "AW67": 1.6429
+    },
+    "2024": {
+     "AW100": 1.7164,
+     "AW167": 1.7164,
+     "AW67": 1.6429
+    },
+    "2025": {
+     "AW100": 1.7164,
+     "AW167": 1.7164,
+     "AW67": 1.6429
+    }
+   },
+   "Norway": {
+    "2023": {
+     "AW100": 2.4956,
+     "AW167": 2.7519,
+     "AW67": 2.1369
+    },
+    "2024": {
+     "AW100": 2.4956,
+     "AW167": 2.7519,
+     "AW67": 2.1337
+    },
+    "2025": {
+     "AW100": 2.4956,
+     "AW167": 2.6353,
+     "AW67": 2.1305
+    }
+   },
+   "Poland": {
+    "2023": {
+     "AW100": 1.9928,
+     "AW167": 2.6232,
+     "AW67": 1.9928
+    },
+    "2024": {
+     "AW100": 1.9927,
+     "AW167": 2.623,
+     "AW67": 1.9927
+    },
+    "2025": {
+     "AW100": 1.9918,
+     "AW167": 2.6218,
+     "AW67": 1.9918
+    }
+   },
+   "Portugal": {
+    "2023": {
+     "AW100": 2.5159,
+     "AW167": 2.9272,
+     "AW67": 2.2384
+    },
+    "2024": {
+     "AW100": 2.3783,
+     "AW167": 2.8451,
+     "AW67": 2.0995
+    },
+    "2025": {
+     "AW100": 2.3562,
+     "AW167": 2.8135,
+     "AW67": 2.0851
+    }
+   },
+   "Slovak Republic": {
+    "2023": {
+     "AW100": 2.2188,
+     "AW167": 2.357,
+     "AW67": 2.2188
+    },
+    "2024": {
+     "AW100": 2.2616,
+     "AW167": 2.4025,
+     "AW67": 2.2616
+    },
+    "2025": {
+     "AW100": 2.2616,
+     "AW167": 2.4025,
+     "AW67": 2.2616
+    }
+   },
+   "Slovenia": {
+    "2023": {
+     "AW100": 2.4571,
+     "AW167": 2.7138,
+     "AW67": 2.1646
+    },
+    "2024": {
+     "AW100": 2.4571,
+     "AW167": 2.7138,
+     "AW67": 2.4571
+    },
+    "2025": {
+     "AW100": 2.4836,
+     "AW167": 2.7431,
+     "AW67": 2.4836
+    }
+   },
+   "Spain": {
+    "2023": {
+     "AW100": 2.39,
+     "AW167": 2.6801,
+     "AW67": 3.417
+    },
+    "2024": {
+     "AW100": 2.392,
+     "AW167": 2.6823,
+     "AW67": 3.4198
+    },
+    "2025": {
+     "AW100": 2.4034,
+     "AW167": 2.6869,
+     "AW67": 2.2171
+    }
+   },
+   "Sweden": {
+    "2023": {
+     "AW100": 2.4244,
+     "AW167": 3.6701,
+     "AW67": 2.2852
+    },
+    "2024": {
+     "AW100": 2.429,
+     "AW167": 3.6808,
+     "AW67": 2.2519
+    },
+    "2025": {
+     "AW100": 2.4305,
+     "AW167": 3.4519,
+     "AW67": 2.2187
+    }
+   },
+   "Switzerland": {
+    "2023": {
+     "AW100": 1.5946,
+     "AW167": 1.6644,
+     "AW67": 1.4643
+    },
+    "2024": {
+     "AW100": 1.5936,
+     "AW167": 1.7111,
+     "AW67": 1.4635
+    },
+    "2025": {
+     "AW100": 1.5933,
+     "AW167": 1.6628,
+     "AW67": 1.4634
+    }
+   },
+   "Türkiye": {
+    "2023": {
+     "AW100": 2.3005,
+     "AW167": 2.3005,
+     "AW67": 2.3005
+    },
+    "2024": {
+     "AW100": 2.3054,
+     "AW167": 2.3054,
+     "AW67": 2.3054
+    },
+    "2025": {
+     "AW100": 2.3205,
+     "AW167": 2.3205,
+     "AW67": 2.3205
+    }
+   },
+   "United Kingdom": {
+    "2023": {
+     "AW100": 1.9927,
+     "AW167": 2.3545,
+     "AW67": 1.9927
+    },
+    "2024": {
+     "AW100": 2.3545,
+     "AW167": 2.3545,
+     "AW67": 1.8967
+    },
+    "2025": {
+     "AW100": 2.3793,
+     "AW167": 2.3793,
+     "AW67": 1.9167
+    }
+   },
+   "United States": {
+    "2023": {
+     "AW100": 1.6847,
+     "AW167": 1.7391,
+     "AW67": 1.4567
+    },
+    "2024": {
+     "AW100": 1.69,
+     "AW167": 1.7447,
+     "AW67": 1.4607
+    },
+    "2025": {
+     "AW100": 1.69,
+     "AW167": 1.7447,
+     "AW67": 1.4607
+    }
+   }
+  },
+  "states": {
+   "B144-E0": {
+    "from_rate_pages": 1.9167,
+    "problems": [],
+    "uk": 1.9167
+   },
+   "B144-E1": {
+    "order": [
+     "COL",
+     "CHL",
+     "CAN",
+     "CRI",
+     "CHE",
+     "KOR",
+     "MEX",
+     "USA",
+     "NZL",
+     "JPN",
+     "AUS",
+     "GBR",
+     "POL",
+     "ISL",
+     "DNK",
+     "HUN",
+     "LTU",
+     "CZE",
+     "ISR",
+     "SVK",
+     "TUR",
+     "LVA",
+     "ESP",
+     "SWE",
+     "SVN",
+     "NOR",
+     "EST",
+     "GRC",
+     "PRT",
+     "NLD",
+     "IRL",
+     "LUX",
+     "DEU",
+     "FRA",
+     "FIN",
+     "AUT",
+     "ITA",
+     "BEL"
+    ],
+    "spreads": [
+     {
+      "between": 0.2471,
+      "within_max": 0.2108,
+      "within_median": 0.0676,
+      "year": "2023"
+     },
+     {
+      "between": 0.2434,
+      "within_max": 0.216,
+      "within_median": 0.0637,
+      "year": "2024"
+     },
+     {
+      "between": 0.2583,
+      "within_max": 0.1945,
+      "within_median": 0.0585,
+      "year": "2025"
+     }
+    ],
+    "state": "between larger"
+   },
+   "B144-E2": {
+    "faults": []
+   },
+   "B144-E3": {
+    "credits": [
+     {
+      "after": 2.2792,
+      "before": 2.849,
+      "cut": 0.2,
+      "id": "DE-1",
+      "rank": 6,
+      "where": "Germany"
+     },
+     {
+      "after": 1.4343,
+      "before": 2.8685,
+      "cut": 0.5,
+      "id": "FR-1",
+      "rank": 5,
+      "where": "France"
+     },
+     {
+      "after": 1.2122,
+      "before": 2.4244,
+      "cut": 0.5,
+      "id": "SE-1",
+      "rank": 15,
+      "where": "Sweden"
+     },
+     {
+      "after": 1.5942,
+      "before": 1.9927,
+      "cut": 0.2,
+      "id": "UK-1",
+      "rank": 27,
+      "where": "United Kingdom"
+     }
+    ],
+    "hong_kong_hours_at_which_the_floors_meet": 118.3295
+   }
+  },
+  "vat_percent": {
+   "Australia": 10.0,
+   "Austria": 20.0,
+   "Belgium": 21.0,
+   "Canada": 5.0,
+   "Chile": 19.0,
+   "Colombia": 19.0,
+   "Costa Rica": 13.0,
+   "Czechia": 21.0,
+   "Denmark": 25.0,
+   "Estonia": 20.0,
+   "Finland": 24.0,
+   "France": 20.0,
+   "Germany": 19.0,
+   "Greece": 24.0,
+   "Hungary": 27.0,
+   "Iceland": 24.0,
+   "Ireland": 23.0,
+   "Israel": 17.0,
+   "Italy": 22.0,
+   "Japan": 10.0,
+   "Korea": 10.0,
+   "Latvia": 21.0,
+   "Lithuania": 21.0,
+   "Luxembourg": 17.0,
+   "Mexico": 16.0,
+   "Netherlands": 21.0,
+   "New Zealand": 15.0,
+   "Norway": 25.0,
+   "Poland": 23.0,
+   "Portugal": 23.0,
+   "Slovak Republic": 20.0,
+   "Slovenia": 22.0,
+   "Spain": 21.0,
+   "Sweden": 25.0,
+   "Switzerland": 7.7,
+   "Türkiye": 20.0,
+   "United Kingdom": 20.0,
+   "United States": 0.0
+  }
+ },
+ "rows": [
+  {
+   "code": "DEU",
+   "cut": 0.2,
+   "id": "DE-1",
+   "kind": "credit to the buyer",
+   "level": "official text",
+   "page": "de_estg_35a.html",
+   "what": "Income Tax Act section 35a: household services and tradesmen's work in the taxpayer's household",
+   "where": "Germany",
+   "words": [
+    "um 20 Prozent, höchstens 4 000 Euro, der Aufwendungen des Steuerpflichtigen",
+    "um 20 Prozent der Aufwendungen des Steuerpflichtigen, höchstens jedoch um 1 200 Euro"
+   ]
+  },
+  {
+   "code": "FRA",
+   "cut": 0.5,
+   "id": "FR-1",
+   "kind": "credit to the buyer",
+   "level": "official description",
+   "page": "fr_f12.html",
+   "what": "tax credit for employing someone at home",
+   "where": "France",
+   "words": [
+    "s'élève à 50 % des dépenses supportées dans l'année"
+   ]
+  },
+  {
+   "code": "SWE",
+   "cut": 0.5,
+   "id": "SE-1",
+   "kind": "credit to the buyer",
+   "level": "official text",
+   "page": "se_inkomstskattelag.html",
+   "what": "Income Tax Act chapter 67 section 19: reduction for household work",
+   "where": "Sweden",
+   "words": [
+    "50 procent av underlaget enligt 18 § första stycket 2 till den del det avser sådant hushållsarbete som anges i 13 § och 30 procent av underlaget till den del det avser annat hushållsarbete",
+    "Den sammanlagda skattereduktionen får uppgå till högst 75 000 kronor för ett beskattningsår"
+   ]
+  },
+  {
+   "code": "GBR",
+   "cut": 0.2,
+   "id": "UK-1",
+   "kind": "credit to the buyer",
+   "level": "official description",
+   "page": "uk_tax_free_childcare.html",
+   "what": "Tax-Free Childcare, for childcare only",
+   "where": "United Kingdom",
+   "words": [
+    "For every £8 you pay into the account, the government will top it up by £2"
+   ]
+  },
+  {
+   "code": "USA",
+   "id": "US-1",
+   "kind": "exemption below an amount",
+   "level": "official description",
+   "page": "us_tc756.html",
+   "what": "employment taxes for household employees",
+   "where": "United States",
+   "words": [
+    "If you pay cash wages of $3,000 or more for 2026 (this threshold can change from year to year) to any one household employee, you generally must withhold 6.2% for Social Security tax"
+   ]
+  },
+  {
+   "id": "EU-1",
+   "kind": "reduced rate allowed",
+   "level": "official text",
+   "page": "eu_vat_annex3.html",
+   "what": "VAT Directive 2006/112/EC, Annex III: supplies to which reduced rates may be applied",
+   "where": "European Union",
+   "words": [
+    "window-cleaning and cleaning in private households",
+    "domestic care services such as home help and care of young, elderly, sick or disabled",
+    "hairdressing"
+   ]
+  },
+  {
+   "id": "SG-1",
+   "kind": "a separate class of provider",
+   "level": "official description",
+   "page": "sg_fdw_levy.html",
+   "what": "monthly levy on a foreign domestic worker",
+   "where": "Singapore",
+   "words": [
+    "Normal (1 st helper) $300 $9.87",
+    "Concessionary $60 $1.98",
+    "The concessionary rate applies to families with a young child, elderly member or person with disability"
+   ]
+  },
+  {
+   "floor_per_hour": 43.1,
+   "id": "HK-1",
+   "kind": "a separate class of provider",
+   "level": "official description",
+   "page": "hk_smw.html",
+   "what": "statutory minimum wage, an hourly floor",
+   "where": "Hong Kong",
+   "words": [
+    "The SMW rate is raised to $43.1 per hour with effect from 1 May 2026"
+   ]
+  },
+  {
+   "id": "HK-2",
+   "kind": "a separate class of provider",
+   "level": "official description",
+   "page": "hk_smw_guideline.pdf",
+   "what": "whom the hourly floor does not cover: live-in domestic workers",
+   "where": "Hong Kong",
+   "words": [
+    "who dwell free of charge in their employing household, irrespective of their sex, race or nationality"
+   ]
+  },
+  {
+   "floor_per_month": 5100.0,
+   "id": "HK-3",
+   "kind": "a separate class of provider",
+   "level": "official text",
+   "page": "hk_maw_2025.html",
+   "what": "minimum allowable wage of foreign domestic helpers, a monthly floor",
+   "where": "Hong Kong",
+   "words": [
+    "from $4,990 to $5,100 per month"
+   ]
+  }
+ ],
+ "stage": "B144"
+}

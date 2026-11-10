@@ -176,14 +176,14 @@
       "detail": "sequence = [17.701, 35.436, 36.281, 37.706, 39.047, 40.386, 42.928, 45.846, 48.392]"
     },
     {
-      "name": "A0-8  production layer settles at the payroll edge rather than zero",
+      "name": "A0-8  production layer inflow settles above the net payroll edge rather than at zero",
       "passed": true,
       "detail": "settled inflow = 17.7007 against net downward wage flow 7.2000"
     },
     {
       "name": "A0-9  issuance accumulates in the layer it was issued to",
       "passed": true,
-      "detail": "Layer 1 holds 0.9982 of all claims at steady state, from 0.7291 at t=0"
+      "detail": "Layer 1 holds 0.9982 of all claims at steady state, from 0.7291 at the end of round 0"
     }
   ]
 }

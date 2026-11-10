@@ -2,15 +2,16 @@
   "diagnostic_only": true,
   "diagnostic_reason": "B8-1 has not been run on Fannie, so this stage's readings serve only the payment model decision in b8_omega.py and carry no omega claim. the B10 availability register \u00a712.0.",
   "drops_total": {
-    "dropped_age_lt_8": 10393345,
-    "dropped_delinquent": 2061543,
-    "dropped_modified": 741830,
-    "dropped_upb_nonpositive": 140,
-    "dropped_zero_balance_code": 903491,
-    "segment_failed_u0_gate": 456828,
+    "dropped_age_lt_7": 9107116,
+    "dropped_delinquent": 2077988,
+    "dropped_modified": 756323,
+    "dropped_upb_nonpositive": 144,
+    "dropped_zero_balance_code": 916506,
+    "segment_failed_u0_gate": 448424,
     "unparsed_rows": 349
   },
   "min_age": 8,
+  "segment_start_age": 7,
   "stage": "B10",
   "step": "c8_1d_depth",
   "u0_half_grid": 500.0,
@@ -18,34 +19,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 351548,
-        "dropped_delinquent": 68200,
-        "dropped_modified": 8165,
+        "dropped_age_lt_7": 305691,
+        "dropped_delinquent": 68743,
+        "dropped_modified": 8323,
         "dropped_upb_nonpositive": 44,
-        "dropped_zero_balance_code": 46533,
-        "segment_failed_u0_gate": 15488
+        "dropped_zero_balance_code": 46711,
+        "segment_failed_u0_gate": 15063
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.7467418853732319,
+      "gate_pass_share": 0.7554945946823362,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 37948,
+      "loans_with_a_gated_segment": 38641,
       "orig_fields": 31,
-      "segments_all": 61155,
+      "segments_all": 61606,
       "segments_by_length_all": {
-        "1-7": 11309,
-        "13-24": 13787,
-        "25-60": 23668,
-        "61+": 6561,
-        "8-12": 5830
+        "1-7": 11054,
+        "13-24": 13770,
+        "25-60": 24295,
+        "61+": 6709,
+        "8-12": 5778
       },
       "segments_by_length_gate_pass": {
-        "1-7": 7996,
-        "13-24": 10446,
-        "25-60": 17945,
-        "61+": 4922,
-        "8-12": 4358
+        "1-7": 7823,
+        "13-24": 10570,
+        "25-60": 18681,
+        "61+": 5109,
+        "8-12": 4360
       },
-      "segments_gate_pass": 45667,
+      "segments_gate_pass": 46543,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -56,35 +57,35 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 366304,
-        "dropped_delinquent": 65519,
-        "dropped_modified": 7535,
+        "dropped_age_lt_7": 320447,
+        "dropped_delinquent": 66390,
+        "dropped_modified": 7678,
         "dropped_upb_nonpositive": 43,
-        "dropped_zero_balance_code": 43154,
-        "segment_failed_u0_gate": 11190,
+        "dropped_zero_balance_code": 44213,
+        "segment_failed_u0_gate": 11031,
         "unparsed_rows": 170
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.7825072886297376,
+      "gate_pass_share": 0.7923732801294961,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 34678,
+      "loans_with_a_gated_segment": 36313,
       "orig_fields": 31,
-      "segments_all": 51450,
+      "segments_all": 53129,
       "segments_by_length_all": {
-        "1-7": 20038,
-        "13-24": 13225,
-        "25-60": 7018,
-        "61+": 2305,
-        "8-12": 8864
+        "1-7": 20106,
+        "13-24": 13924,
+        "25-60": 7657,
+        "61+": 2336,
+        "8-12": 9106
       },
       "segments_by_length_gate_pass": {
-        "1-7": 15497,
-        "13-24": 10483,
-        "25-60": 5502,
-        "61+": 1803,
-        "8-12": 6975
+        "1-7": 15699,
+        "13-24": 11195,
+        "25-60": 6070,
+        "61+": 1851,
+        "8-12": 7283
       },
-      "segments_gate_pass": 40260,
+      "segments_gate_pass": 42098,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -95,34 +96,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 376816,
-        "dropped_delinquent": 62791,
-        "dropped_modified": 10766,
-        "dropped_upb_nonpositive": 42,
-        "dropped_zero_balance_code": 45448,
-        "segment_failed_u0_gate": 13911
+        "dropped_age_lt_7": 328784,
+        "dropped_delinquent": 63491,
+        "dropped_modified": 10963,
+        "dropped_upb_nonpositive": 46,
+        "dropped_zero_balance_code": 45987,
+        "segment_failed_u0_gate": 13514
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.749184140778537,
+      "gate_pass_share": 0.7605216990661161,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 35880,
+      "loans_with_a_gated_segment": 37045,
       "orig_fields": 31,
-      "segments_all": 55463,
+      "segments_all": 56431,
       "segments_by_length_all": {
-        "1-7": 15775,
-        "13-24": 13600,
-        "25-60": 7483,
-        "61+": 6470,
-        "8-12": 12135
+        "1-7": 14849,
+        "13-24": 15132,
+        "25-60": 7822,
+        "61+": 6542,
+        "8-12": 12086
       },
       "segments_by_length_gate_pass": {
-        "1-7": 11598,
-        "13-24": 10351,
-        "25-60": 5571,
-        "61+": 4876,
-        "8-12": 9156
+        "1-7": 11011,
+        "13-24": 11722,
+        "25-60": 5937,
+        "61+": 4980,
+        "8-12": 9267
       },
-      "segments_gate_pass": 41552,
+      "segments_gate_pass": 42917,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -133,34 +134,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 375527,
-        "dropped_delinquent": 69178,
-        "dropped_modified": 15896,
+        "dropped_age_lt_7": 329678,
+        "dropped_delinquent": 69841,
+        "dropped_modified": 16158,
         "dropped_upb_nonpositive": 2,
-        "dropped_zero_balance_code": 42239,
-        "segment_failed_u0_gate": 14323
+        "dropped_zero_balance_code": 43715,
+        "segment_failed_u0_gate": 14285
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.7168975945288873,
+      "gate_pass_share": 0.7283394188346265,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 30995,
+      "loans_with_a_gated_segment": 32868,
       "orig_fields": 31,
-      "segments_all": 50593,
+      "segments_all": 52584,
       "segments_by_length_all": {
-        "1-7": 16860,
-        "13-24": 7305,
-        "25-60": 8184,
-        "61+": 12680,
-        "8-12": 5564
+        "1-7": 17526,
+        "13-24": 7576,
+        "25-60": 8436,
+        "61+": 12801,
+        "8-12": 6245
       },
       "segments_by_length_gate_pass": {
-        "1-7": 11855,
-        "13-24": 5287,
-        "25-60": 5813,
-        "61+": 9274,
-        "8-12": 4041
+        "1-7": 12475,
+        "13-24": 5565,
+        "25-60": 6130,
+        "61+": 9501,
+        "8-12": 4628
       },
-      "segments_gate_pass": 36270,
+      "segments_gate_pass": 38299,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -171,34 +172,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 376158,
-        "dropped_delinquent": 83447,
-        "dropped_modified": 28083,
+        "dropped_age_lt_7": 328429,
+        "dropped_delinquent": 83924,
+        "dropped_modified": 28538,
         "dropped_upb_nonpositive": 3,
-        "dropped_zero_balance_code": 44784,
-        "segment_failed_u0_gate": 18641
+        "dropped_zero_balance_code": 45118,
+        "segment_failed_u0_gate": 18109
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6871843063549865,
+      "gate_pass_share": 0.6987055769998669,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 34700,
+      "loans_with_a_gated_segment": 35629,
       "orig_fields": 31,
-      "segments_all": 59591,
+      "segments_all": 60104,
       "segments_by_length_all": {
-        "1-7": 10751,
-        "13-24": 7035,
-        "25-60": 11770,
-        "61+": 25931,
-        "8-12": 4104
+        "1-7": 10724,
+        "13-24": 7263,
+        "25-60": 11750,
+        "61+": 26265,
+        "8-12": 4102
       },
       "segments_by_length_gate_pass": {
-        "1-7": 6707,
-        "13-24": 4822,
-        "25-60": 8003,
-        "61+": 18659,
-        "8-12": 2759
+        "1-7": 6746,
+        "13-24": 5070,
+        "25-60": 8122,
+        "61+": 19253,
+        "8-12": 2804
       },
-      "segments_gate_pass": 40950,
+      "segments_gate_pass": 41995,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -209,34 +210,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 384995,
-        "dropped_delinquent": 143951,
-        "dropped_modified": 51434,
+        "dropped_age_lt_7": 336390,
+        "dropped_delinquent": 144675,
+        "dropped_modified": 52283,
         "dropped_upb_nonpositive": 2,
-        "dropped_zero_balance_code": 43472,
-        "segment_failed_u0_gate": 19360
+        "dropped_zero_balance_code": 43869,
+        "segment_failed_u0_gate": 18832
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6998914896915207,
+      "gate_pass_share": 0.7109883364027011,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 36087,
+      "loans_with_a_gated_segment": 37119,
       "orig_fields": 31,
-      "segments_all": 64510,
+      "segments_all": 65160,
       "segments_by_length_all": {
-        "1-7": 14078,
-        "13-24": 7245,
-        "25-60": 15506,
-        "61+": 23210,
-        "8-12": 4471
+        "1-7": 14138,
+        "13-24": 7300,
+        "25-60": 15504,
+        "61+": 23591,
+        "8-12": 4627
       },
       "segments_by_length_gate_pass": {
-        "1-7": 8883,
-        "13-24": 4977,
-        "25-60": 11026,
-        "61+": 17291,
-        "8-12": 2973
+        "1-7": 8988,
+        "13-24": 5066,
+        "25-60": 11280,
+        "61+": 17859,
+        "8-12": 3135
       },
-      "segments_gate_pass": 45150,
+      "segments_gate_pass": 46328,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -247,34 +248,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 392951,
-        "dropped_delinquent": 203737,
-        "dropped_modified": 95752,
+        "dropped_age_lt_7": 343036,
+        "dropped_delinquent": 204735,
+        "dropped_modified": 97337,
         "dropped_upb_nonpositive": 1,
-        "dropped_zero_balance_code": 42088,
-        "segment_failed_u0_gate": 18475
+        "dropped_zero_balance_code": 42356,
+        "segment_failed_u0_gate": 17979
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.7215187965391456,
+      "gate_pass_share": 0.7310425299564678,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 38115,
+      "loans_with_a_gated_segment": 38923,
       "orig_fields": 31,
-      "segments_all": 66342,
+      "segments_all": 66847,
       "segments_by_length_all": {
-        "1-7": 13807,
-        "13-24": 7505,
-        "25-60": 20710,
-        "61+": 19838,
-        "8-12": 4482
+        "1-7": 13817,
+        "13-24": 7606,
+        "25-60": 20663,
+        "61+": 20237,
+        "8-12": 4524
       },
       "segments_by_length_gate_pass": {
-        "1-7": 8459,
-        "13-24": 5303,
-        "25-60": 15421,
-        "61+": 15557,
-        "8-12": 3127
+        "1-7": 8505,
+        "13-24": 5457,
+        "25-60": 15643,
+        "61+": 16077,
+        "8-12": 3186
       },
-      "segments_gate_pass": 47867,
+      "segments_gate_pass": 48868,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -285,33 +286,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 389317,
-        "dropped_delinquent": 255760,
-        "dropped_modified": 134464,
-        "dropped_zero_balance_code": 40342,
-        "segment_failed_u0_gate": 16310
+        "dropped_age_lt_7": 339433,
+        "dropped_delinquent": 257145,
+        "dropped_modified": 136702,
+        "dropped_zero_balance_code": 40640,
+        "segment_failed_u0_gate": 15906
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.750980960960044,
+      "gate_pass_share": 0.7593791601113397,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 38580,
+      "loans_with_a_gated_segment": 39378,
       "orig_fields": 31,
-      "segments_all": 65497,
+      "segments_all": 66104,
       "segments_by_length_all": {
-        "1-7": 15083,
-        "13-24": 11453,
-        "25-60": 21439,
-        "61+": 11874,
-        "8-12": 5648
+        "1-7": 15027,
+        "13-24": 11224,
+        "25-60": 21925,
+        "61+": 12238,
+        "8-12": 5690
       },
       "segments_by_length_gate_pass": {
-        "1-7": 10143,
-        "13-24": 8659,
-        "25-60": 16802,
-        "61+": 9469,
-        "8-12": 4114
+        "1-7": 10156,
+        "13-24": 8548,
+        "25-60": 17431,
+        "61+": 9868,
+        "8-12": 4195
       },
-      "segments_gate_pass": 49187,
+      "segments_gate_pass": 50198,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -322,34 +323,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 394721,
-        "dropped_delinquent": 282981,
-        "dropped_modified": 156119,
-        "dropped_zero_balance_code": 38754,
-        "segment_failed_u0_gate": 16257,
+        "dropped_age_lt_7": 344130,
+        "dropped_delinquent": 284790,
+        "dropped_modified": 158700,
+        "dropped_zero_balance_code": 39152,
+        "segment_failed_u0_gate": 15935,
         "unparsed_rows": 63
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.7483514442277329,
+      "gate_pass_share": 0.7560546217200943,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 37602,
+      "loans_with_a_gated_segment": 38470,
       "orig_fields": 31,
-      "segments_all": 64602,
+      "segments_all": 65322,
       "segments_by_length_all": {
-        "1-7": 16108,
-        "13-24": 12738,
-        "25-60": 19513,
-        "61+": 9158,
-        "8-12": 7085
+        "1-7": 15909,
+        "13-24": 13013,
+        "25-60": 19829,
+        "61+": 9502,
+        "8-12": 7069
       },
       "segments_by_length_gate_pass": {
-        "1-7": 10986,
-        "13-24": 9612,
-        "25-60": 15227,
-        "61+": 7264,
-        "8-12": 5256
+        "1-7": 10852,
+        "13-24": 9958,
+        "25-60": 15636,
+        "61+": 7634,
+        "8-12": 5307
       },
-      "segments_gate_pass": 48345,
+      "segments_gate_pass": 49387,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -360,35 +361,35 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 395302,
-        "dropped_delinquent": 154426,
-        "dropped_modified": 86407,
+        "dropped_age_lt_7": 347029,
+        "dropped_delinquent": 155690,
+        "dropped_modified": 87862,
         "dropped_upb_nonpositive": 1,
-        "dropped_zero_balance_code": 40252,
-        "segment_failed_u0_gate": 14381,
+        "dropped_zero_balance_code": 41125,
+        "segment_failed_u0_gate": 14154,
         "unparsed_rows": 71
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.7407520911450822,
+      "gate_pass_share": 0.7497215001856665,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 34137,
+      "loans_with_a_gated_segment": 35307,
       "orig_fields": 31,
-      "segments_all": 55472,
+      "segments_all": 56553,
       "segments_by_length_all": {
-        "1-7": 14249,
-        "13-24": 11475,
-        "25-60": 16932,
-        "61+": 6910,
-        "8-12": 5906
+        "1-7": 14489,
+        "13-24": 11761,
+        "25-60": 17434,
+        "61+": 7053,
+        "8-12": 5816
       },
       "segments_by_length_gate_pass": {
-        "1-7": 9999,
-        "13-24": 8604,
-        "25-60": 12918,
-        "61+": 5342,
-        "8-12": 4228
+        "1-7": 10275,
+        "13-24": 8905,
+        "25-60": 13480,
+        "61+": 5529,
+        "8-12": 4210
       },
-      "segments_gate_pass": 41091,
+      "segments_gate_pass": 42399,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -399,33 +400,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 394631,
-        "dropped_delinquent": 51044,
-        "dropped_modified": 17644,
-        "dropped_zero_balance_code": 45472,
-        "segment_failed_u0_gate": 17351
+        "dropped_age_lt_7": 345062,
+        "dropped_delinquent": 51397,
+        "dropped_modified": 18014,
+        "dropped_zero_balance_code": 45716,
+        "segment_failed_u0_gate": 16845
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6864938115457584,
+      "gate_pass_share": 0.6981399182854275,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 34661,
+      "loans_with_a_gated_segment": 35550,
       "orig_fields": 31,
-      "segments_all": 55345,
+      "segments_all": 55804,
       "segments_by_length_all": {
-        "1-7": 7390,
-        "13-24": 10019,
-        "25-60": 19225,
-        "61+": 14555,
-        "8-12": 4156
+        "1-7": 7209,
+        "13-24": 9697,
+        "25-60": 19796,
+        "61+": 14874,
+        "8-12": 4228
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4530,
-        "13-24": 6626,
-        "25-60": 13477,
-        "61+": 10709,
-        "8-12": 2652
+        "1-7": 4455,
+        "13-24": 6524,
+        "25-60": 14108,
+        "61+": 11123,
+        "8-12": 2749
       },
-      "segments_gate_pass": 37994,
+      "segments_gate_pass": 38959,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -436,33 +437,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 390920,
-        "dropped_delinquent": 48070,
-        "dropped_modified": 16223,
-        "dropped_zero_balance_code": 43914,
-        "segment_failed_u0_gate": 17734
+        "dropped_age_lt_7": 342154,
+        "dropped_delinquent": 48335,
+        "dropped_modified": 16599,
+        "dropped_zero_balance_code": 44224,
+        "segment_failed_u0_gate": 17212
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6766641748865024,
+      "gate_pass_share": 0.6885607787789961,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 33773,
+      "loans_with_a_gated_segment": 34653,
       "orig_fields": 31,
-      "segments_all": 54847,
+      "segments_all": 55266,
       "segments_by_length_all": {
-        "1-7": 7098,
-        "13-24": 10933,
-        "25-60": 13965,
-        "61+": 18366,
-        "8-12": 4485
+        "1-7": 6841,
+        "13-24": 11077,
+        "25-60": 14347,
+        "61+": 18646,
+        "8-12": 4355
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4239,
-        "13-24": 7346,
-        "25-60": 9450,
-        "61+": 13183,
-        "8-12": 2895
+        "1-7": 4108,
+        "13-24": 7563,
+        "25-60": 9903,
+        "61+": 13616,
+        "8-12": 2864
       },
-      "segments_gate_pass": 37113,
+      "segments_gate_pass": 38054,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -473,34 +474,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 388096,
-        "dropped_delinquent": 44307,
-        "dropped_modified": 12673,
+        "dropped_age_lt_7": 339977,
+        "dropped_delinquent": 44606,
+        "dropped_modified": 12995,
         "dropped_upb_nonpositive": 1,
-        "dropped_zero_balance_code": 41912,
-        "segment_failed_u0_gate": 18242
+        "dropped_zero_balance_code": 42524,
+        "segment_failed_u0_gate": 17782
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6601713859910581,
+      "gate_pass_share": 0.673088943633489,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 32393,
+      "loans_with_a_gated_segment": 33484,
       "orig_fields": 31,
-      "segments_all": 53680,
+      "segments_all": 54394,
       "segments_by_length_all": {
-        "1-7": 8520,
-        "13-24": 6181,
-        "25-60": 13749,
-        "61+": 20810,
-        "8-12": 4420
+        "1-7": 8487,
+        "13-24": 6538,
+        "25-60": 13782,
+        "61+": 21093,
+        "8-12": 4494
       },
       "segments_by_length_gate_pass": {
-        "1-7": 5102,
-        "13-24": 3895,
-        "25-60": 9099,
-        "61+": 14506,
-        "8-12": 2836
+        "1-7": 5157,
+        "13-24": 4229,
+        "25-60": 9321,
+        "61+": 14969,
+        "8-12": 2936
       },
-      "segments_gate_pass": 35438,
+      "segments_gate_pass": 36612,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -511,33 +512,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 385777,
-        "dropped_delinquent": 44340,
-        "dropped_modified": 10677,
-        "dropped_zero_balance_code": 38275,
-        "segment_failed_u0_gate": 19425
+        "dropped_age_lt_7": 337266,
+        "dropped_delinquent": 44634,
+        "dropped_modified": 10986,
+        "dropped_zero_balance_code": 38597,
+        "segment_failed_u0_gate": 19012
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6528832579832383,
+      "gate_pass_share": 0.66257875587896,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 33480,
+      "loans_with_a_gated_segment": 34248,
       "orig_fields": 31,
-      "segments_all": 55961,
+      "segments_all": 56345,
       "segments_by_length_all": {
-        "1-7": 5399,
-        "13-24": 4829,
-        "25-60": 14233,
-        "61+": 29396,
-        "8-12": 2104
+        "1-7": 5497,
+        "13-24": 4742,
+        "25-60": 14334,
+        "61+": 29621,
+        "8-12": 2151
       },
       "segments_by_length_gate_pass": {
-        "1-7": 2823,
-        "13-24": 2992,
-        "25-60": 9074,
-        "61+": 20454,
-        "8-12": 1193
+        "1-7": 2920,
+        "13-24": 2973,
+        "25-60": 9314,
+        "61+": 20890,
+        "8-12": 1236
       },
-      "segments_gate_pass": 36536,
+      "segments_gate_pass": 37333,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -548,33 +549,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 383014,
-        "dropped_delinquent": 50850,
-        "dropped_modified": 11383,
-        "dropped_zero_balance_code": 37878,
-        "segment_failed_u0_gate": 19179
+        "dropped_age_lt_7": 334671,
+        "dropped_delinquent": 51142,
+        "dropped_modified": 11713,
+        "dropped_zero_balance_code": 38036,
+        "segment_failed_u0_gate": 18742
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6746012894468951,
+      "gate_pass_share": 0.6836152469698504,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 35468,
+      "loans_with_a_gated_segment": 36170,
       "orig_fields": 31,
-      "segments_all": 58940,
+      "segments_all": 59238,
       "segments_by_length_all": {
-        "1-7": 7035,
-        "13-24": 6442,
-        "25-60": 14468,
-        "61+": 27698,
-        "8-12": 3297
+        "1-7": 6901,
+        "13-24": 6396,
+        "25-60": 14631,
+        "61+": 27977,
+        "8-12": 3333
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4037,
-        "13-24": 4262,
-        "25-60": 9744,
-        "61+": 19634,
-        "8-12": 2084
+        "1-7": 3965,
+        "13-24": 4269,
+        "25-60": 9993,
+        "61+": 20139,
+        "8-12": 2130
       },
-      "segments_gate_pass": 39761,
+      "segments_gate_pass": 40496,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -585,33 +586,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 383222,
-        "dropped_delinquent": 53071,
-        "dropped_modified": 11911,
-        "dropped_zero_balance_code": 38594,
-        "segment_failed_u0_gate": 17711
+        "dropped_age_lt_7": 335300,
+        "dropped_delinquent": 53401,
+        "dropped_modified": 12247,
+        "dropped_zero_balance_code": 39073,
+        "segment_failed_u0_gate": 17278
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6888549242823513,
+      "gate_pass_share": 0.6993247946540443,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 35050,
+      "loans_with_a_gated_segment": 35957,
       "orig_fields": 31,
-      "segments_all": 56922,
+      "segments_all": 57464,
       "segments_by_length_all": {
-        "1-7": 8178,
-        "13-24": 8840,
-        "25-60": 15411,
-        "61+": 20493,
-        "8-12": 4000
+        "1-7": 8161,
+        "13-24": 8929,
+        "25-60": 15330,
+        "61+": 21070,
+        "8-12": 3974
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4901,
-        "13-24": 6049,
-        "25-60": 10754,
-        "61+": 14874,
-        "8-12": 2633
+        "1-7": 4902,
+        "13-24": 6214,
+        "25-60": 10864,
+        "61+": 15536,
+        "8-12": 2670
       },
-      "segments_gate_pass": 39211,
+      "segments_gate_pass": 40186,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -622,34 +623,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 382614,
-        "dropped_delinquent": 50074,
-        "dropped_modified": 11835,
+        "dropped_age_lt_7": 334520,
+        "dropped_delinquent": 50332,
+        "dropped_modified": 12192,
         "dropped_upb_nonpositive": 1,
-        "dropped_zero_balance_code": 36707,
-        "segment_failed_u0_gate": 18627
+        "dropped_zero_balance_code": 37055,
+        "segment_failed_u0_gate": 18207
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6742392444910807,
+      "gate_pass_share": 0.6840488668309443,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 34735,
+      "loans_with_a_gated_segment": 35525,
       "orig_fields": 31,
-      "segments_all": 57180,
+      "segments_all": 57626,
       "segments_by_length_all": {
-        "1-7": 7520,
-        "13-24": 6927,
-        "25-60": 20783,
-        "61+": 18380,
-        "8-12": 3570
+        "1-7": 7457,
+        "13-24": 7021,
+        "25-60": 20655,
+        "61+": 18886,
+        "8-12": 3607
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4418,
-        "13-24": 4516,
-        "25-60": 14460,
-        "61+": 12952,
-        "8-12": 2207
+        "1-7": 4382,
+        "13-24": 4668,
+        "25-60": 14593,
+        "61+": 13524,
+        "8-12": 2252
       },
-      "segments_gate_pass": 38553,
+      "segments_gate_pass": 39419,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -660,34 +661,34 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 390451,
-        "dropped_delinquent": 51930,
-        "dropped_modified": 13710,
-        "dropped_zero_balance_code": 34290,
-        "segment_failed_u0_gate": 18560,
+        "dropped_age_lt_7": 341301,
+        "dropped_delinquent": 52240,
+        "dropped_modified": 14102,
+        "dropped_zero_balance_code": 34586,
+        "segment_failed_u0_gate": 18031,
         "unparsed_rows": 4
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6779287486768355,
+      "gate_pass_share": 0.6892385646823619,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 35278,
+      "loans_with_a_gated_segment": 36121,
       "orig_fields": 31,
-      "segments_all": 57627,
+      "segments_all": 58022,
       "segments_by_length_all": {
-        "1-7": 6576,
-        "13-24": 6255,
-        "25-60": 24981,
-        "61+": 16729,
-        "8-12": 3086
+        "1-7": 6592,
+        "13-24": 6180,
+        "25-60": 25183,
+        "61+": 16962,
+        "8-12": 3105
       },
       "segments_by_length_gate_pass": {
-        "1-7": 3748,
-        "13-24": 4140,
-        "25-60": 17469,
-        "61+": 11769,
-        "8-12": 1941
+        "1-7": 3773,
+        "13-24": 4153,
+        "25-60": 17918,
+        "61+": 12175,
+        "8-12": 1972
       },
-      "segments_gate_pass": 39067,
+      "segments_gate_pass": 39991,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -698,33 +699,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 391495,
-        "dropped_delinquent": 61755,
-        "dropped_modified": 14190,
-        "dropped_zero_balance_code": 35803,
-        "segment_failed_u0_gate": 17772
+        "dropped_age_lt_7": 342497,
+        "dropped_delinquent": 62279,
+        "dropped_modified": 14634,
+        "dropped_zero_balance_code": 36077,
+        "segment_failed_u0_gate": 17312
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.691066803414049,
+      "gate_pass_share": 0.7010688446462797,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 35688,
+      "loans_with_a_gated_segment": 36443,
       "orig_fields": 31,
-      "segments_all": 57527,
+      "segments_all": 57913,
       "segments_by_length_all": {
-        "1-7": 7012,
-        "13-24": 11809,
-        "25-60": 22259,
-        "61+": 12921,
-        "8-12": 3526
+        "1-7": 7001,
+        "13-24": 11101,
+        "25-60": 23323,
+        "61+": 13040,
+        "8-12": 3448
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4052,
-        "13-24": 8432,
-        "25-60": 15813,
-        "61+": 9202,
-        "8-12": 2256
+        "1-7": 4083,
+        "13-24": 8031,
+        "25-60": 16846,
+        "61+": 9433,
+        "8-12": 2208
       },
-      "segments_gate_pass": 39755,
+      "segments_gate_pass": 40601,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -735,33 +736,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 388225,
-        "dropped_delinquent": 55387,
-        "dropped_modified": 12213,
-        "dropped_zero_balance_code": 37900,
-        "segment_failed_u0_gate": 17668
+        "dropped_age_lt_7": 339446,
+        "dropped_delinquent": 55789,
+        "dropped_modified": 12615,
+        "dropped_zero_balance_code": 38442,
+        "segment_failed_u0_gate": 17122
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6777382580939353,
+      "gate_pass_share": 0.6923712673829459,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 33763,
+      "loans_with_a_gated_segment": 35047,
       "orig_fields": 31,
-      "segments_all": 54825,
+      "segments_all": 55658,
       "segments_by_length_all": {
-        "1-7": 11577,
-        "13-24": 15805,
-        "25-60": 10135,
-        "61+": 9167,
-        "8-12": 8141
+        "1-7": 11118,
+        "13-24": 16399,
+        "25-60": 10849,
+        "61+": 9235,
+        "8-12": 8057
       },
       "segments_by_length_gate_pass": {
-        "1-7": 7234,
-        "13-24": 11124,
-        "25-60": 6726,
-        "61+": 6538,
-        "8-12": 5535
+        "1-7": 7018,
+        "13-24": 11841,
+        "25-60": 7419,
+        "61+": 6702,
+        "8-12": 5556
       },
-      "segments_gate_pass": 37157,
+      "segments_gate_pass": 38536,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -772,33 +773,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 391378,
-        "dropped_delinquent": 46495,
-        "dropped_modified": 8115,
-        "dropped_zero_balance_code": 32257,
-        "segment_failed_u0_gate": 18536
+        "dropped_age_lt_7": 343263,
+        "dropped_delinquent": 47521,
+        "dropped_modified": 8412,
+        "dropped_zero_balance_code": 33362,
+        "segment_failed_u0_gate": 18517
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6291761693274117,
+      "gate_pass_share": 0.6403278752209467,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 29038,
+      "loans_with_a_gated_segment": 30453,
       "orig_fields": 31,
-      "segments_all": 49986,
+      "segments_all": 51483,
       "segments_by_length_all": {
-        "1-7": 15830,
-        "13-24": 8584,
-        "25-60": 5933,
-        "61+": 12656,
-        "8-12": 6983
+        "1-7": 15737,
+        "13-24": 9392,
+        "25-60": 6130,
+        "61+": 12751,
+        "8-12": 7473
       },
       "segments_by_length_gate_pass": {
-        "1-7": 9690,
-        "13-24": 5547,
-        "25-60": 3355,
-        "61+": 8409,
-        "8-12": 4449
+        "1-7": 9803,
+        "13-24": 6181,
+        "25-60": 3577,
+        "61+": 8592,
+        "8-12": 4813
       },
-      "segments_gate_pass": 31450,
+      "segments_gate_pass": 32966,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -809,33 +810,33 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 394693,
-        "dropped_delinquent": 19950,
-        "dropped_modified": 2671,
-        "dropped_zero_balance_code": 16503,
-        "segment_failed_u0_gate": 20695
+        "dropped_age_lt_7": 346691,
+        "dropped_delinquent": 20493,
+        "dropped_modified": 2797,
+        "dropped_zero_balance_code": 17332,
+        "segment_failed_u0_gate": 20677
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.5829638884410769,
+      "gate_pass_share": 0.5913232532858979,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 26882,
+      "loans_with_a_gated_segment": 27837,
       "orig_fields": 31,
-      "segments_all": 49624,
+      "segments_all": 50595,
       "segments_by_length_all": {
-        "1-7": 7920,
-        "13-24": 3843,
-        "25-60": 26351,
-        "61+": 8311,
-        "8-12": 3199
+        "1-7": 8163,
+        "13-24": 4070,
+        "25-60": 23790,
+        "61+": 11045,
+        "8-12": 3527
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4671,
-        "13-24": 2235,
-        "25-60": 15030,
-        "61+": 5054,
-        "8-12": 1939
+        "1-7": 4883,
+        "13-24": 2423,
+        "25-60": 13776,
+        "61+": 6685,
+        "8-12": 2151
       },
-      "segments_gate_pass": 28929,
+      "segments_gate_pass": 29918,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -846,31 +847,31 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 396334,
-        "dropped_delinquent": 25536,
-        "dropped_modified": 1402,
-        "dropped_zero_balance_code": 8313,
-        "segment_failed_u0_gate": 20988
+        "dropped_age_lt_7": 347188,
+        "dropped_delinquent": 25937,
+        "dropped_modified": 1534,
+        "dropped_zero_balance_code": 8628,
+        "segment_failed_u0_gate": 20710
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6088779560574719,
+      "gate_pass_share": 0.6169354838709677,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 29695,
+      "loans_with_a_gated_segment": 30307,
       "orig_fields": 31,
-      "segments_all": 53661,
+      "segments_all": 54064,
       "segments_by_length_all": {
-        "1-7": 5186,
-        "13-24": 3946,
-        "25-60": 42475,
-        "8-12": 2054
+        "1-7": 5298,
+        "13-24": 3976,
+        "25-60": 42680,
+        "8-12": 2110
       },
       "segments_by_length_gate_pass": {
-        "1-7": 3172,
-        "13-24": 2441,
-        "25-60": 25776,
-        "8-12": 1284
+        "1-7": 3268,
+        "13-24": 2478,
+        "25-60": 26262,
+        "8-12": 1346
       },
-      "segments_gate_pass": 32673,
+      "segments_gate_pass": 33354,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -881,31 +882,31 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 397907,
-        "dropped_delinquent": 37305,
-        "dropped_modified": 2201,
-        "dropped_zero_balance_code": 8652,
-        "segment_failed_u0_gate": 17624
+        "dropped_age_lt_7": 348498,
+        "dropped_delinquent": 37924,
+        "dropped_modified": 2474,
+        "dropped_zero_balance_code": 8872,
+        "segment_failed_u0_gate": 17349
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6775704354189536,
+      "gate_pass_share": 0.6850446590661535,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 33226,
+      "loans_with_a_gated_segment": 33787,
       "orig_fields": 31,
-      "segments_all": 54660,
+      "segments_all": 55084,
       "segments_by_length_all": {
-        "1-7": 6677,
-        "13-24": 5963,
-        "25-60": 39176,
-        "8-12": 2844
+        "1-7": 6730,
+        "13-24": 6006,
+        "25-60": 39539,
+        "8-12": 2809
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4447,
-        "13-24": 4083,
-        "25-60": 26595,
-        "8-12": 1911
+        "1-7": 4526,
+        "13-24": 4156,
+        "25-60": 27128,
+        "8-12": 1925
       },
-      "segments_gate_pass": 37036,
+      "segments_gate_pass": 37735,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -916,31 +917,31 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 394058,
-        "dropped_delinquent": 22411,
-        "dropped_modified": 347,
-        "dropped_zero_balance_code": 11537,
-        "segment_failed_u0_gate": 16057
+        "dropped_age_lt_7": 345290,
+        "dropped_delinquent": 22919,
+        "dropped_modified": 439,
+        "dropped_zero_balance_code": 11810,
+        "segment_failed_u0_gate": 15748
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6823666719417629,
+      "gate_pass_share": 0.692054987387317,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 32456,
+      "loans_with_a_gated_segment": 33236,
       "orig_fields": 31,
-      "segments_all": 50552,
+      "segments_all": 51139,
       "segments_by_length_all": {
-        "1-7": 6612,
-        "13-24": 25745,
-        "25-60": 14874,
-        "8-12": 3321
+        "1-7": 6617,
+        "13-24": 22840,
+        "25-60": 18332,
+        "8-12": 3350
       },
       "segments_by_length_gate_pass": {
-        "1-7": 4519,
-        "13-24": 17627,
-        "25-60": 10113,
-        "8-12": 2236
+        "1-7": 4558,
+        "13-24": 15889,
+        "25-60": 12658,
+        "8-12": 2286
       },
-      "segments_gate_pass": 34495,
+      "segments_gate_pass": 35391,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -951,29 +952,29 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 392851,
-        "dropped_delinquent": 8390,
-        "dropped_modified": 14,
-        "dropped_zero_balance_code": 7352,
-        "segment_failed_u0_gate": 15819
+        "dropped_age_lt_7": 344436,
+        "dropped_delinquent": 8818,
+        "dropped_modified": 26,
+        "dropped_zero_balance_code": 7768,
+        "segment_failed_u0_gate": 15440
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6693076344175934,
+      "gate_pass_share": 0.6808268733850129,
       "loans_seen": 50000,
-      "loans_with_a_gated_segment": 31356,
+      "loans_with_a_gated_segment": 32213,
       "orig_fields": 31,
-      "segments_all": 47836,
+      "segments_all": 48375,
       "segments_by_length_all": {
-        "1-7": 11863,
-        "13-24": 15862,
-        "8-12": 20111
+        "1-7": 8773,
+        "13-24": 19129,
+        "8-12": 20473
       },
       "segments_by_length_gate_pass": {
-        "1-7": 7965,
-        "13-24": 10783,
-        "8-12": 13269
+        "1-7": 5961,
+        "13-24": 13245,
+        "8-12": 13729
       },
-      "segments_gate_pass": 32017,
+      "segments_gate_pass": 32935,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -984,25 +985,25 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 326398,
-        "dropped_delinquent": 638,
-        "dropped_zero_balance_code": 1066,
-        "segment_failed_u0_gate": 6504,
+        "dropped_age_lt_7": 298867,
+        "dropped_delinquent": 797,
+        "dropped_zero_balance_code": 1518,
+        "segment_failed_u0_gate": 7632,
         "unparsed_rows": 35
       },
       "frm_loans": 50000,
-      "gate_pass_share": 0.6541161455009572,
+      "gate_pass_share": 0.6674799581735796,
       "loans_seen": 49995,
-      "loans_with_a_gated_segment": 12293,
+      "loans_with_a_gated_segment": 15297,
       "orig_fields": 31,
-      "segments_all": 18804,
+      "segments_all": 22952,
       "segments_by_length_all": {
-        "1-7": 18804
+        "1-7": 22952
       },
       "segments_by_length_gate_pass": {
-        "1-7": 12300
+        "1-7": 15320
       },
-      "segments_gate_pass": 12300,
+      "segments_gate_pass": 15320,
       "shortest_three_gate_pass": [
         1,
         1,
@@ -1013,7 +1014,7 @@
     {
       "arm_or_other": 0,
       "drops": {
-        "dropped_age_lt_8": 17642,
+        "dropped_age_lt_7": 17642,
         "unparsed_rows": 6
       },
       "frm_loans": 12500,

@@ -509,7 +509,8 @@ A 3500 did in B5.
 ### 3.4 What `H⁰` means operationally here
 
 `b4` §5.2's rule assigns the type from what is observed: both directions quoted
-implies `H¹` with friction; one direction only, for some class, implies `H⁰`.
+implies `H¹` with friction; one direction only, for some class, with no directed
+path leading back through other edges, implies `H⁰`.
 
 **For segments I and II the second row applies, and the ground is the
 regulation, not a gap in the file.** The rate is attached to designated

@@ -102,7 +102,7 @@
  },
  "criteria": [
   {
-   "detail": "10000 / mid / quarter: areas 4.8e-10, single wallets 5.0e-10, same cells True; 5000 / start / half: areas 4.9e-10, single wallets 5.0e-10, same cells True; 20000 / end / half: areas 4.9e-10, single wallets 4.8e-10, same cells True; tolerance 1e-08; class balances against wallets 4.1e-15 (tolerance 1e-12), same cells True; partitions inside their areas True, random sizes kept True; tagged value conserved to 1.39e-07",
+   "detail": "10000 / mid / quarter: areas 4.8e-10, single wallets 5.0e-10, same cells True; 5000 / start / half: areas 4.9e-10, single wallets 5.0e-10, same cells True; 20000 / end / half: areas 4.9e-10, single wallets 4.8e-10, same cells True; tolerance 1e-08; class balances against wallets 4.4e-15 (tolerance 1e-12), same cells True; partitions inside their areas True, random sizes kept True; tagged value conserved to 1.39e-07",
    "kind": "instrument",
    "name": "B117-1",
    "passed": true,
@@ -68137,26 +68137,26 @@
    "b114_record_sha256": "2f4414b8334ea01a7a8900e8fb07d3d191fdf904bbbdbc70361bd27872d20fe4",
    "ends": [
     {
-     "areas": 4.79718154e-10,
+     "areas": 4.79717932e-10,
      "same cells": true,
      "setting": "10000 / mid / quarter",
      "single wallets": 4.95967933e-10
     },
     {
-     "areas": 4.88309837e-10,
+     "areas": 4.88307839e-10,
      "same cells": true,
      "setting": "5000 / start / half",
-     "single wallets": 4.98608821e-10
+     "single wallets": 4.98609043e-10
     },
     {
-     "areas": 4.91555352e-10,
+     "areas": 4.91556573e-10,
      "same cells": true,
      "setting": "20000 / end / half",
      "single wallets": 4.81869211e-10
     }
    ],
    "lump": {
-    "gap": 4.13558077e-15,
+    "gap": 4.35762537e-15,
     "same cells": true
    },
    "partitions": {

@@ -4,12 +4,16 @@ Five files, each named in FILES with the URL it came from.
 
   - nama_10_co3_p3.json: Eurostat household final consumption expenditure by purpose (COICOP 1999),
     total, actual rentals (CP041), imputed rentals (CP042), financial services n.e.c. (CP126, where
-    household FISIM is recorded), current prices and chain-linked volumes (2020), million euro, every
-    country and year published. Current price over volume is the implicit deflator.
+    household FISIM is recorded), current prices and chain-linked volumes (2020), in million euro and
+    in million units of national currency, every country and year published. Current price over
+    volume is the implicit deflator.
   - nama_10_cp18.json: the same account by COICOP 2018, which carries the years after 2022: total,
     actual rentals (CP041), imputed rentals (CP042), financial services (CP122, household FISIM
-    included), current prices and previous-year prices (PYP), million euro. Current over
-    previous-year price is each year's deflator change, and the differences add up exactly.
+    included), current prices and previous-year prices (PYP), in million euro and in million units
+    of national currency. Current over previous-year price is each year's deflator change, and the
+    differences add up exactly. A country's own price change is read in national currency: its euro
+    series is converted at each year's exchange rate, so its euro deflator carries the exchange
+    rate's move as well. Aggregates exist in euro only.
     The COICOP 1999 file above stops in 2022 for most countries and is kept as a cross-check.
   - prc_hicp_aind.json: HICP annual average index (2015 = 100), all items (CP00), actual rentals
     (CP041), financial services n.e.c. (CP126). The HICP has no imputed rentals, and its CP126 holds
@@ -52,16 +56,21 @@ API = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"
 
 FILES = {
     "nama_10_co3_p3.json": API + "nama_10_co3_p3?coicop=TOTAL&coicop=CP041&coicop=CP042"
-                           "&coicop=CP126&unit=CP_MEUR&unit=CLV20_MEUR&format=JSON&lang=EN",
+                           "&coicop=CP126&unit=CP_MEUR&unit=CLV20_MEUR&unit=CP_MNAC&unit=CLV20_MNAC"
+                           "&format=JSON&lang=EN",
     "nama_10_cp18.json": API + "nama_10_cp18?coicop18=TOTAL&coicop18=CP041&coicop18=CP042"
-                         "&coicop18=CP122&unit=CP_MEUR&unit=PYP_MEUR&format=JSON&lang=EN",
+                         "&coicop18=CP122&unit=CP_MEUR&unit=PYP_MEUR&unit=CP_MNAC&unit=PYP_MNAC"
+                         "&format=JSON&lang=EN",
     "prc_hicp_aind.json": API + "prc_hicp_aind?coicop=CP00&coicop=CP041&coicop=CP126"
                           "&unit=INX_A_AVG&format=JSON&lang=EN",
     "prc_hicp_inw.json": API + "prc_hicp_inw?coicop=CP00&coicop=CP041&coicop=CP126"
                          "&format=JSON&lang=EN",
     "insee_premiere_2002.html": "https://www.insee.fr/fr/statistiques/8210847",
 }
-MIN_VALUES = {"nama_10_co3_p3.json": 5000, "nama_10_cp18.json": 3000, "prc_hicp_aind.json": 2000, "prc_hicp_inw.json": 2000}
+MIN_VALUES = {"nama_10_co3_p3.json": 10000, "nama_10_cp18.json": 6000, "prc_hicp_aind.json": 2000, "prc_hicp_inw.json": 2000}
+#: Units a national-accounts file must carry; a reply without the national-currency pair is not whole.
+NEED_UNITS = {"nama_10_co3_p3.json": ("CP_MEUR", "CLV20_MEUR", "CP_MNAC", "CLV20_MNAC"),
+              "nama_10_cp18.json": ("CP_MEUR", "PYP_MEUR", "CP_MNAC", "PYP_MNAC")}
 MIN_ROWS = {}
 MARKER = {"insee_premiere_2002.html": "Sifim"}
 
@@ -79,6 +88,11 @@ def check_bytes(name: str, data: bytes) -> str | None:
             return "no value or dimension block"
         if len(d["value"]) < MIN_VALUES[name]:
             return f"{len(d['value'])} values, fewer than {MIN_VALUES[name]}"
+        if name in NEED_UNITS:
+            have = set(d["dimension"].get("unit", {}).get("category", {}).get("index", {}))
+            missing = [u for u in NEED_UNITS[name] if u not in have]
+            if missing:
+                return f"units missing: {missing}"
         return None
     if name.endswith(".csv"):
         text = data.decode("utf-8", "replace")
@@ -131,6 +145,8 @@ def fetch() -> int:
         path.write_bytes(data)
         manifest[name] = {"url": url, "bytes": len(data),
                           "sha256": hashlib.sha256(data).hexdigest()}
+        if name.endswith(".json"):
+            manifest[name]["source_updated"] = json.loads(data.decode("utf-8")).get("updated")
         time.sleep(PAUSE)
     MANIFEST.write_text(json.dumps(manifest, indent=1, sort_keys=True) + "\n",
                         encoding="utf-8", newline="\n")
@@ -148,8 +164,12 @@ def check() -> int:
 
 
 def selftest() -> None:
-    good = json.dumps({"value": {str(i): 1 for i in range(6000)}, "dimension": {}}).encode()
+    units = {"unit": {"category": {"index": {u: i for i, u in enumerate(NEED_UNITS["nama_10_co3_p3.json"])}}}}
+    good = json.dumps({"value": {str(i): 1 for i in range(12000)}, "dimension": units}).encode()
     assert check_bytes("nama_10_co3_p3.json", good) is None
+    euro_only = json.dumps({"value": {str(i): 1 for i in range(12000)},
+                            "dimension": {"unit": {"category": {"index": {"CP_MEUR": 0, "CLV20_MEUR": 1}}}}}).encode()
+    assert check_bytes("nama_10_co3_p3.json", euro_only) is not None, "a reply in euro only must fail"
     assert check_bytes("nama_10_co3_p3.json", good[:-40]) is not None, "a cut JSON must fail"
     assert check_bytes("nama_10_co3_p3.json", json.dumps(
         {"error": {"status": 413}}).encode()) is not None, "a source error must fail"
@@ -160,7 +180,7 @@ def selftest() -> None:
         p.write_bytes(b"1")
         set_aside(p)
         assert (Path(tmp) / "a.json.bad_1").exists() and not p.exists()
-    print("selftest ok: cut, error and thin files fail; set_aside renames")
+    print("selftest ok: cut, error, thin and euro-only files fail; set_aside renames")
 
 
 if __name__ == "__main__":

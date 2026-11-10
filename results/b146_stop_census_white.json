@@ -1,0 +1,291 @@
+{
+ "clusters": {
+  "district_stop15_prior10": [],
+  "district_stop8_prior10": [],
+  "state_stop15_prior10": [],
+  "state_stop8_prior10": []
+ },
+ "clusters_against_documents": {
+  "district_stop15_prior10": {
+   "clusters": 0,
+   "largest_not_looked_up": null,
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 0,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 0,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 0,
+   "ranks_put_against_a_document": []
+  },
+  "district_stop8_prior10": {
+   "clusters": 0,
+   "largest_not_looked_up": null,
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 0,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 0,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 0,
+   "ranks_put_against_a_document": []
+  },
+  "state_stop15_prior10": {
+   "clusters": 0,
+   "largest_not_looked_up": null,
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 0,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 0,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 0,
+   "ranks_put_against_a_document": []
+  },
+  "state_stop8_prior10": {
+   "clusters": 0,
+   "largest_not_looked_up": null,
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 0,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 0,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 0,
+   "ranks_put_against_a_document": []
+  }
+ },
+ "commodity": "White Peas",
+ "config": {
+  "cluster_min_markets": 3,
+  "cluster_settings": [
+   [
+    "state",
+    8,
+    10
+   ],
+   [
+    "state",
+    15,
+    10
+   ],
+   [
+    "district",
+    8,
+    10
+   ],
+   [
+    "district",
+    15,
+    10
+   ]
+  ],
+  "cluster_window_days": 3,
+  "gap_floors": [
+   8,
+   15,
+   31,
+   61,
+   91,
+   181
+  ],
+  "match_lead_days": 7,
+  "prior_floors": [
+   5,
+   10,
+   15,
+   20
+  ],
+  "prior_window_days": 30,
+  "source": "data/agmark/White Peas/*.csv"
+ },
+ "days_with_no_row": {
+  "count": 145,
+  "longest_run": 4,
+  "sundays": 112
+ },
+ "fixed_closures": [
+  {
+   "day": "26 Jan",
+   "filing": 1,
+   "neighbour_median": 2.0,
+   "year": 2015
+  },
+  {
+   "day": "26 Jan",
+   "filing": 1,
+   "neighbour_median": 2.5,
+   "year": 2016
+  },
+  {
+   "day": "26 Jan",
+   "filing": 1,
+   "neighbour_median": 4.5,
+   "year": 2017
+  },
+  {
+   "day": "15 Aug",
+   "filing": 0,
+   "neighbour_median": 0.5,
+   "year": 2014
+  },
+  {
+   "day": "15 Aug",
+   "filing": 2,
+   "neighbour_median": 4.5,
+   "year": 2015
+  },
+  {
+   "day": "15 Aug",
+   "filing": 1,
+   "neighbour_median": 4.5,
+   "year": 2016
+  },
+  {
+   "day": "2 Oct",
+   "filing": 2,
+   "neighbour_median": 2.0,
+   "year": 2014
+  },
+  {
+   "day": "2 Oct",
+   "filing": 2,
+   "neighbour_median": 3.5,
+   "year": 2015
+  },
+  {
+   "day": "2 Oct",
+   "filing": 0,
+   "neighbour_median": 3.0,
+   "year": 2016
+  }
+ ],
+ "stage": "B146",
+ "stops_at_least_8_days": 207,
+ "unit_grid": [
+  {
+   "prior_floor": 5,
+   "stop_floor": 8,
+   "units": 87
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 8,
+   "units": 51
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 8,
+   "units": 27
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 8,
+   "units": 13
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 15,
+   "units": 34
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 15,
+   "units": 14
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 15,
+   "units": 5
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 15,
+   "units": 1
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 31,
+   "units": 14
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 31,
+   "units": 6
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 31,
+   "units": 3
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 31,
+   "units": 0
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 61,
+   "units": 7
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 61,
+   "units": 4
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 61,
+   "units": 2
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 61,
+   "units": 0
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 91,
+   "units": 7
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 91,
+   "units": 4
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 91,
+   "units": 2
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 91,
+   "units": 0
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 181,
+   "units": 0
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 181,
+   "units": 0
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 181,
+   "units": 0
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 181,
+   "units": 0
+  }
+ ]
+}

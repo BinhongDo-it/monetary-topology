@@ -51,6 +51,9 @@ Three knobs, and all three are needed
 ``gate_spread = 1.0``  pinned, because ``None`` ties admission to what is paid
                        and one switch would then move both H1 and H0. That is
                        the failure this project has already paid for twice.
+                       The pin holds the opening allocation. The bidder pool
+                       that prices a tier is admitted on the payment terms, so
+                       the treatment still levels it.
 
 Usage::
 
@@ -140,7 +143,8 @@ def arm(seed: int, rounds: int, *, treated: bool) -> dict:
             "terms_spread": KAPPA_FLAT,
             "hold_mean_cost": True,
             "mean_cost_reference": KAPPA_REF,
-            # Pinned so the treatment moves what is paid and not who may enter.
+            # Pinned so the treatment leaves the opening allocation alone; the
+            # pricing pool still follows the payment terms and levels with them.
             "gate_spread": KAPPA_REF,
         }
     model, h = go(seed, rounds, **kw)

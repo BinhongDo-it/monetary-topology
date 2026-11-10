@@ -17,21 +17,24 @@ Two supports, and they come apart.
     ever deleted, no price is ever refused.
 
 ``realized_support``
-    Nodes reachable from the injection point along edges that actually carried
-    claims this round. This is the source framework's central functional,
-    circulation reachability, made computable.
+    Nodes reachable from the injection point along edges whose flow this round
+    exceeds the cutoff ``epsilon``. This is the source framework's central
+    functional, circulation reachability, made computable.
 
 The edges in the second set are a subset of the first not because anything
-blocked them but because nothing traversed them. That gap is exactly the
-framework's distinction between a hole and a high price: a hole is not a state
-the price system can express, and an edge with no flow is invisible to any
-statistic built from flows.
+blocked them but because nothing above the cutoff traversed them. That gap is
+exactly the framework's distinction between a hole and a high price: a hole is
+not a state the price system can express, and an edge with no flow is invisible
+to any statistic built from flows.
 
 Why the headline measure has no threshold
 -----------------------------------------
 Proportional claim dynamics on a fixed graph have a positive stationary
-distribution. Nothing ever reaches exactly zero, so any measure of the form
-"count the nodes above a cutoff" is reporting the cutoff as much as the economy.
+distribution on the set reachable from the injection point. Nothing there ever
+reaches exactly zero (nodes outside it receive nothing and spend down; in the
+two-layer runs of A2's seed 0 they are all at exactly zero from round 254), so any
+measure of the form "count the nodes above a cutoff" is reporting the cutoff as
+much as the economy.
 Adding a minimum operating scale so that nodes exit would fix that, but it would
 also import the mechanism stage A1 exists to study, and it would invite the fair
 objection that a threshold was inserted in order to make nodes disappear.
@@ -49,9 +52,10 @@ circulation rather than to market share. It equals the node count under a
 perfectly even spread, falls as flow concentrates, needs no cutoff, and moves
 continuously.
 
-The cutoff-based reachability measure is retained as a secondary series and its
-cutoff is swept, so a reader can check that the qualitative result does not live
-in the choice of epsilon.
+The cutoff-based reachability measure is retained as a secondary series. The
+cutoff feeds only that series and its two companions (``realized_support``,
+``active_nodes``, ``layer2_reached``); total volume and effective support do
+not read it, so the volume-against-support result does not depend on epsilon.
 
 The differential claim
 ----------------------
@@ -83,11 +87,29 @@ channel runs short of claims to pay with.
 
 **H2, the stronger one.** With an intermediary funding payroll out of its own
 revenue, and that revenue coming from the very layer payroll pays, the autonomous
-component of the downward flow is gone by construction. Stage A0b found that a
-positive steady state survives only in proportion to that autonomous component and
-vanishes at unit elasticity. So the prediction is that a three-layer economy sits
-on the A0b collapse boundary **with its elasticity parameter set to zero**, having
-been placed there by structure rather than by choice.
+component of the downward flow is gone by construction. In stage A0b that
+component is a term of the two-layer wage rule ``W_t = W0 [(1 - e) + e S_{t-1} /
+S0]``: ``W0 (1 - e)`` is the part of payroll that does not move with the
+production layer's spending, and above unit elasticity a contractual floor,
+``floor_share * W0``, is the only such part. Stage A0b found that a positive
+steady state needs it. Above the boundary the steady-state level is exactly
+proportional to the floor (criterion A0b-5: a line through the origin whose slope
+is the ``e = 0`` level), and with no floor there is none. Below the boundary, with
+no binding floor and each spending propensity held at the midpoint of its
+declared range, the level is the fixed point ``K W0 (1 - e) / (1 - r e)``, where
+``K`` is the steady-state multiplier of the wage bill on Layer 2 spending, ``S0``
+the opening spending and ``r = K W0 / S0`` below one under both presets. It falls
+monotonically and reaches zero linearly as ``e`` approaches one, and it is not
+proportional to ``(1 - e)``.
+
+The three-layer graph has no wage elasticity and no floor. Its counterpart of that
+component is the share of the intermediate block's opening inflow that comes from
+the financial layer above (``autonomous_share``), the intermediary's autonomous
+revenue. The two correspond because each is the part of the payer's funding that
+does not depend on the households its payroll pays. So the prediction is that a
+three-layer economy sits on the A0b collapse boundary **with its elasticity
+parameter set to zero**, having been placed there by structure rather than by
+choice.
 
 The falsifiable form: a three-layer run at ``elasticity = 0`` should resemble a
 two-layer run at ``elasticity ≈ 1``, not a two-layer run at zero.
@@ -123,8 +145,9 @@ from .config import LAYER_1, LAYER_2, MonetaryAuthority, SpendRule, WageChannel
 
 #: A realized edge is one carrying flow above this fraction of the mean edge
 #: flow in round zero. Relative rather than absolute so the threshold does not
-#: silently depend on the scale of the initial claim stock. Swept for robustness
-#: in the experiment; the qualitative result must not depend on its value.
+#: silently depend on the scale of the initial claim stock. It feeds the
+#: reachability readouts only and no flow; total volume and effective support
+#: do not read it.
 DEFAULT_EPSILON = 1e-4
 
 #: How the opening holdings are set in the arm where ``uniform_access`` is on.
@@ -325,9 +348,11 @@ class NetworkSpec:
     #: hardest on the smallest firms.
     #:
     #: With a uniform out-degree instead, every production node has an identical
-    #: leakage ratio, the whole layer drains in proportion, and the support set
-    #: cannot contract because nothing dies before anything else. That version is
-    #: available via ``uniform_degree`` and is run as the control.
+    #: leakage ratio. That version is available via ``uniform_degree`` and is run
+    #: as the control, and effective support contracts there as well, by about as
+    #: much (``test_degree_heterogeneity_is_not_load_bearing``): what carries the
+    #: contraction is the layer structure together with the injection point, and
+    #: the heterogeneity of degree is not.
     layer2_out_degree: int = 3
 
     #: Edges from the production layer up into the financial layer, per node.
@@ -352,8 +377,13 @@ class NetworkSpec:
     #: Edges from the financial layer down into the intermediate block: business
     #: sold to the layer above rather than to households. This is the
     #: intermediary's *autonomous* revenue, the part that does not depend on the
-    #: households its own payroll pays. Stage A0b predicts survival should be
-    #: linear in it, so it is swept rather than set.
+    #: households its own payroll pays. It is this model's counterpart of stage
+    #: A0b's object, the part of payroll that does not move with the production
+    #: layer's spending: ``W0 (1 - e)`` in A0b's wage rule below unit elasticity,
+    #: a contractual floor above it. A0b found a positive steady state only while
+    #: that part is non-zero, so this is swept rather than set. The count stands
+    #: in for a share; ``autonomous_share`` reads the share and says why it
+    #: corresponds.
     financial_to_intermediate_edges: int = 0
 
     #: Total edges from the financial layer down into the production layer.
@@ -375,8 +405,9 @@ class NetworkSpec:
     #:
     #: 1. the adjacency becomes complete,
     #: 2. every node both funds and receives payroll,
-    #: 3. every node draws the same spending propensity, the node-count-weighted
-    #:    mean of the two layers' values, so aggregate propensity is unchanged,
+    #: 3. every node draws the same spending propensity, the mean of the two
+    #:    layers' values weighted by each layer's share of the opening claim
+    #:    stock, so the aggregate spending flow at the opening is unchanged,
     #: 4. initial holdings are uniform, since the in-degree weighting that sets
     #:    them has nothing left to weight by.
     #:
@@ -879,9 +910,15 @@ class SubsistenceSpec:
         operation, which is what this actually does.
 
         **Which of the two booleans carries the difference is measured, not
-        assumed.** On A12's carrier ``cut_payroll`` moves closing gini by 0.32
-        and ``reversible`` moves it by 0.0005, so the separation between this
-        and ``payroll_kept_reversible`` is carried by the payroll switch alone.
+        assumed.** On A12's carrier ``cut_payroll`` moves the median closing
+        gini by 0.32 and ``reversible`` moves it by 0.0005, so the separation
+        between this and ``payroll_kept_reversible`` is carried by the payroll
+        switch alone. **The 0.0005 is a median.** Cell by cell ``reversible``
+        brings nodes back: 375 returns over that grid, 4 of 45 cells closing
+        with a different number of nodes in the graph, and a closing-gini gap
+        of 0.27 at f2i 30, elasticity 0 (49 nodes in the graph against 125).
+        The edge sets carrying A8's four surfaces do not move. A12's record
+        carries the cell-by-cell reading as ``reversible_switch``.
         The two remaining corners of the pair have not been run.
         """
         return cls(need=need, grace=grace, cut_payroll=True, reversible=False)
@@ -906,10 +943,11 @@ class SubsistenceSpec:
         invisible because nobody is visibly destitute.
 
         **Read the caveat in ``payroll_severed`` before using this as a regime.**
-        Its ``reversible`` boolean is the one measured to move nothing, so on the
-        carrier tested this differs from a plain ``SubsistenceSpec(need=...)`` by
-        0.0005 in closing gini. It is a named corner of a two-boolean square, not
-        an established second regime.
+        Its ``reversible`` boolean leaves A8's edge sets where they were and the
+        median closing gini within 0.0005 of a plain ``SubsistenceSpec(need=...)``
+        on the carrier tested, while it brings nodes back cell by cell (the
+        caveat in ``payroll_severed`` has the counts). It is a named corner of a
+        two-boolean square, not an established second regime.
         """
         return cls(need=need, grace=grace, cut_payroll=False, reversible=True)
 
@@ -956,12 +994,29 @@ class RewireSpec:
     node keeps all of its core edges or none of them, at a rate near one third.
 
     **Demotion redirects rather than deletes.** A node that leaves the core is
-    not a sink; it trades with the production layer instead. Out-degree is
-    conserved on that side so the change is in targets rather than in density,
-    which matters because density moves the terminal distribution far more than
-    anything behavioural does. ``conserve_degree`` extends the same discipline
-    to acquisition, and False is available precisely so the density confound can
-    be measured rather than assumed away.
+    not a sink; it trades with the production layer instead. As many
+    replacement targets are drawn as core edges are cut, so the change is in
+    targets, and the edge count stays where it was unless a replacement lands
+    on a node this one already points at, which leaves it one edge short. That
+    matters because density moves the terminal distribution far more than
+    anything behavioural does.
+
+    **With ``conserve_degree`` every exchange of edges is exact.** A promoted
+    node gives up exactly as many edges as it gains: its stage-one target if
+    that is new, and when the cluster fires as many further core members as it
+    has edges outside the targets to give up, never more. A demoted node's
+    replacements are drawn without replacement from outside nodes it does not
+    already point at. So in an arm that only exchanges edges no node's
+    out-degree moves in any round; the payroll hand-over and the inbound cut
+    still move it, and are meant to. False gives up nothing on acquisition and
+    keeps the original demotion draw, which is the arm A24 reads.
+
+    Exact since 2026-10-14. Before that the conserving path gave up
+    ``min(targets, edges held)`` edges and then pointed the node at every
+    target, so a fired cluster took a node from 5 out-edges to the whole core
+    of 20, and a demotion replacement could land on a node already pointed at.
+    A13's grid read position and density together until it was rerun on this
+    rule; its record prints the edge count of every run at open and close.
 
     Off by default. Off leaves ``_rewire`` unreachable rather than running a
     no-op version of it, so the bit-for-bit reproduction is by construction.
@@ -1044,8 +1099,13 @@ class RewireSpec:
     #: two channels, not between two dates.
     demote_cuts_inbound: bool = False
 
-    #: Whether acquisition redirects an existing edge (True, out-degree fixed)
-    #: or adds a new one (False, out-degree rises and density moves with it).
+    #: Whether every exchange of edges holds out-degree exactly (True) or
+    #: acquisition gives up nothing (False, out-degree rises and density moves
+    #: with it). True: a promoted node gives up one edge outside its targets for
+    #: each new target, and a fired cluster reaches as many core members as the
+    #: node has such edges, its stage-one target first and the rest drawn
+    #: uniformly; demotion replacements avoid nodes already pointed at. Exact
+    #: since 2026-10-14; the class docstring says what it did before.
     conserve_degree: bool = True
 
     #: Rounds between rewires. One is every round.
@@ -3860,16 +3920,26 @@ class Network:
             for i in falling:
                 if rng.random() < spec.retain_rate:
                     continue
-                # Redirect this node's core edges at the production layer. Out-
-                # degree is conserved, so what changes is targets and not
-                # density.
+                # Redirect this node's core edges at the production layer.
                 targets = np.flatnonzero(self.adjacency[i] > 0) if outside.size else np.array([], int)
                 targets = targets[self._in_core[targets]]
                 if not targets.size:
                     continue
                 self.adjacency[i, targets] = 0.0
-                pick = rng.choice(outside, size=targets.size, replace=targets.size > outside.size)
-                self.adjacency[i, np.atleast_1d(pick)] = 1.0
+                if spec.conserve_degree:
+                    # Replacements come from outside nodes this one does not
+                    # already point at, so as many land as were cut.
+                    free = outside[(self.adjacency[i, outside] == 0) & (outside != i)]
+                    k = min(targets.size, free.size)
+                    if k:
+                        pick = rng.choice(free, size=k, replace=False)
+                        self.adjacency[i, np.atleast_1d(pick)] = 1.0
+                else:
+                    # The original draw, kept for the arm that does not
+                    # conserve degree: one that lands on a node already
+                    # pointed at leaves it an edge short.
+                    pick = rng.choice(outside, size=targets.size, replace=targets.size > outside.size)
+                    self.adjacency[i, np.atleast_1d(pick)] = 1.0
                 if spec.demote_cuts_inbound:
                     # What the core sends this node, which is the channel the
                     # published estimates find permanently reduced. Deleted
@@ -3913,12 +3983,34 @@ class Network:
                     # everyone, which is the whole content of the second draw.
                     if rng.random() < spec.cluster_rate:
                         new_targets = list(core)
-                    held = np.flatnonzero(self.adjacency[i] > 0)
-                    if spec.conserve_degree and held.size:
-                        drop = rng.choice(held, size=min(len(new_targets), held.size),
-                                          replace=False)
-                        self.adjacency[i, np.atleast_1d(drop)] = 0.0
-                    self.adjacency[i, new_targets] = 1.0
+                    if spec.conserve_degree:
+                        # As many edges given up as gained. A target already
+                        # pointed at needs no edge; each new one takes the
+                        # place of a held edge outside the targets. A cluster
+                        # wider than that is cut to it, the stage-one target
+                        # first when it is new.
+                        tg = np.asarray(new_targets, dtype=int)
+                        tg = tg[tg != i]
+                        held = np.flatnonzero(self.adjacency[i] > 0)
+                        new = tg[self.adjacency[i, tg] == 0]
+                        give = held[~np.isin(held, tg)]
+                        k = min(new.size, give.size)
+                        if k:
+                            if new.size == k:
+                                add = new
+                            else:
+                                rest = new[new != first]
+                                if first in new:
+                                    more = (rng.choice(rest, size=k - 1, replace=False)
+                                            if k > 1 else np.array([], int))
+                                    add = np.concatenate([[first], more]).astype(int)
+                                else:
+                                    add = rng.choice(new, size=k, replace=False)
+                            drop = rng.choice(give, size=k, replace=False)
+                            self.adjacency[i, np.atleast_1d(drop)] = 0.0
+                            self.adjacency[i, np.atleast_1d(add)] = 1.0
+                    else:
+                        self.adjacency[i, new_targets] = 1.0
                     self._in_core[i] = True
                     if spec.transfer_propensity:
                         self._p_low[i], self._p_high[i] = self._p_core
@@ -5215,11 +5307,18 @@ _AUTONOMOUS_SHARE_MEMO: dict[tuple[int, int, int, int, int], float] = {}
 def autonomous_share(config: NetworkConfig) -> float:
     """What share of the intermediate block's opening inflow comes from above.
 
-    ``financial_to_intermediate_edges`` is an edge count, and stage A0b's
-    registered prediction is about a **share**: survival is linear in the
-    autonomous share, the part of the intermediary's revenue that does not come
-    from the households its own payroll pays. The two are the same parameter
-    only at one graph size. At 200 nodes with a core of 20 and a block of 30,
+    ``financial_to_intermediate_edges`` is an edge count, and the quantity it
+    stands in for is a **share**. Stage A0b's object was a term of the two-layer
+    wage rule: ``W0 (1 - e)``, the part of payroll that does not move with the
+    production layer's spending, and above unit elasticity the contractual floor
+    that plays the same role, to which the steady-state level is exactly
+    proportional. The three-layer graph has no such term, and it carries the
+    object over as this share: the part of the intermediary's revenue that comes
+    from the financial layer above rather than from the households its own
+    payroll pays. It corresponds because it is the part of the payer's funding
+    that does not depend on those households, which is what ``W0 (1 - e)`` is in
+    A0b. The count and the share are the same parameter only at one graph
+    size. At 200 nodes with a core of 20 and a block of 30,
     thirty edges buy a share of ``0.3111``; at 1000 nodes with a core of 100 and
     a block of 150 the same thirty edges buy ``0.1600``. Neither the node ratio
     nor the possible-edge ratio converts one into the other, because the share
@@ -5287,14 +5386,19 @@ def scaled_carrier(
     Sizes scale by the node ratio, which is a choice and a plain one: the three
     blocks keep their shares of the population. The **edge grid does not scale
     that way and cannot**, because ``financial_to_intermediate_edges`` is a
-    count while stage A0b's registered prediction is about the autonomous
-    share, and the share is not linear in the count. Solved instead, one
+    count while the quantity it stands for is the intermediary's opening-inflow
+    share from above, this model's counterpart of stage A0b's autonomous wage
+    component (``autonomous_share`` says why), and the share is not linear in
+    the count. Solved instead, one
     bisection per grid point, so each returned count reproduces its original
     share at the new size.
 
     Measured, 200 to 1000 nodes: the registered grid
     ``(0, 1, 2, 3, 5, 8, 12, 20, 30)`` becomes ``(0, 2, 5, 8, 15, 28, 45, 72,
-    128)`` and every share lands within a thousandth of its original. Neither
+    128)``. Each count is the integer whose share is nearest the original, and
+    the nearest integer is not always within a thousandth: the first three
+    non-zero points land 0.0011, 0.0013 and 0.0012 away, the other five within
+    0.0006. Neither
     the node ratio of 5 nor the possible-edge ratio of 25 produces that
     sequence; the implied multiplier runs from 2 at the bottom to 4.3 at the
     top.
@@ -5355,8 +5459,8 @@ def f2i_for_share(target: float, config: NetworkConfig, cap: int = 100_000) -> i
     ``cap`` bounds the search at the number of edges the two blocks admit.
     A target above what this size can reach returns that bound rather than
     running away, so **callers should read the share they actually got** rather
-    than assuming the target was met. The registered grid's top does not
-    transfer: 0.3111 at 200 nodes needs more than 130 edges at 1000.
+    than assuming the target was met. The registered grid's top is within
+    reach: 0.3111 at 200 nodes lands on 128 edges at 1000, at 0.3105.
     """
     hi = min(cap, config.spec.layer1_size * config.spec.intermediate_size)
 

@@ -17,8 +17,9 @@ the distribution sits at rho >= 0.8, 0.9, 0.95.
 
 AND THE THIRD BRANCH, which is the whole reason this file is more than one line
 =============================================================================
-In B13 both halves are integer counts of the instrument's tick, friction from
-about 3 to 18 ticks and the index half from 0 to a few. So rho lives on a
+In B13 both halves are integer counts of the instrument's tick: on ch382 the
+friction runs from 2 to 12 ticks on the CL spreads and up to 129 on RB, and
+the index half from 0 to 5 on CL and up to 64 on RB. So rho lives on a
 COARSE GRID, and a high rho needs the index count to come close to the friction
 count. If the grid cannot represent the tail, an empty tail says nothing about
 the world.
@@ -30,6 +31,23 @@ the world.
                                     nothing. D15: a criterion with one reachable
                                     branch carries no information
 
+WHAT THE GRID CAN SHOW, WITH THE PARITY IN IT
+=============================================
+Both orientations are whole ticks on one grid. With both strictly inside the
+band, S and S' are negative integers, the friction count is k = -(S + S') and
+the index is i = S - S'. Then k + i = -2S' and k - i = -2S, so
+
+    the index has the friction count's parity, and |i| <= k - 2
+
+and the largest rho a state with friction count k can show is (k-2)/k. The tail
+at cut c is representable for that state only if (k-2)/k >= c. Until 2026-10-10
+this file printed (k-1)/k, a value the grid does not contain, and compared k
+with the float 1/(1-c), which at c = 0.8 is a hair above 5 and so dropped k = 5
+from its own count. Both made an empty tail look reachable where it is not:
+CLQ3-CLV3 at 0.8 read 2,493 states able to show the cut and has none. The
+comparison is now in integers and the three branches are printed per
+instrument and per cut.
+
 Registered before the cache was opened. The object printed is the joint
 distribution of the two integer counts, per instrument, not a summary of it.
 """
@@ -39,6 +57,7 @@ import io
 import os
 import sys
 from collections import Counter, defaultdict
+from fractions import Fraction
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -48,6 +67,57 @@ ROOT = os.path.dirname(HERE)
 #: second look at the first.
 TSV = os.path.join(ROOT, "data", "cache", "b13", "two_classes_ch382.tsv")
 CUTS = (0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.99, 1.0)
+
+
+def exact(cut):
+    """The cut as the decimal fraction it was written as, not as a float."""
+    return Fraction(str(cut))
+
+
+def interior_top(k):
+    """Largest |index| at friction count ``k`` with both orientations strictly
+    inside the band: the index has k's parity and stops two short of it."""
+    return k - 2
+
+
+def reaches(k, cut):
+    """Can a state with friction count ``k`` show rho >= cut strictly inside?
+
+    (k - 2)/k >= cut, cross-multiplied, so nothing is decided by a float.
+    """
+    c = exact(cut)
+    return k >= 2 and interior_top(k) * c.denominator >= c.numerator * k
+
+
+def in_tail(friction, index, cut):
+    """rho >= cut for one state, on the two integers it is made of."""
+    c = exact(cut)
+    return index * c.denominator >= c.numerator * friction
+
+
+def branch(tail, reachable):
+    """Which of the three registered branches a cell is in.
+
+    A state in the tail whose own friction count cannot represent the cut
+    contradicts the grid the count is made on, so that combination is refused
+    and not given a letter.
+    """
+    if tail > reachable:
+        raise ValueError(
+            "%d states sit in a tail only %d could represent: the two halves "
+            "are not whole ticks on one grid here" % (tail, reachable))
+    if tail > 0:
+        return "approached"
+    return "empty, reachable" if reachable > 0 else "not representable"
+
+
+def grid_breaks(fr, ix):
+    """States that are off the grid the reachability is computed on:
+    wrong parity, and an index above k - 2 (the knife edge is index == k)."""
+    parity = sum(1 for k, i in zip(fr, ix) if (k - i) % 2)
+    beyond = sum(1 for k, i in zip(fr, ix) if i > interior_top(k) and i != k)
+    edge = sum(1 for k, i in zip(fr, ix) if i == k)
+    return parity, beyond, edge
 
 
 def load(path=None):
@@ -80,7 +150,8 @@ def load(path=None):
 
 
 def run(path=None):
-    print("  carrier: %s\n" % os.path.relpath(path or TSV, ROOT))
+    print("  carrier: %s\n"
+          % os.path.relpath(path or TSV, ROOT).replace(os.sep, "/"))
     rows, tick = load(path)
     print("  the tick is the gcd of every printed magnitude, read off the data\n")
     print("  %-11s %7s %6s %9s %9s %9s %9s"
@@ -102,13 +173,22 @@ def run(path=None):
         v, t, fr, ix, rho = per[nm]
         n = len(rho)
         print("  %-11s %s"
-              % (nm, "".join("%8.4f%%" % (100.0 * sum(1 for r in rho if r >= c) / n)
+              % (nm, "".join("%8.4f%%"
+                             % (100.0 * sum(1 for a, b in v if in_tail(a, b, c)) / n)
                              for c in CUTS)))
 
+    print("\n  THE GRID. Both halves are whole ticks on one grid, so the index has")
+    print("  the friction count's parity and, strictly inside the band, stops at")
+    print("  k - 2. States that break either, and states on the knife edge:")
+    print("  %-11s %9s %9s %9s" % ("spread", "parity", "above k-2", "index = k"))
+    for nm in per:
+        v, t, fr, ix, rho = per[nm]
+        print("  %-11s %9d %9d %9d" % ((nm,) + grid_breaks(fr, ix)))
+
     print("\n  REACHABILITY. Given each state's own friction count k, the largest")
-    print("  rho the grid can produce for it is (k-1)/k when the index must stay")
-    print("  strictly inside, and k/k = 1 at the knife edge. So the tail at cut c")
-    print("  is representable for a state only if (k-1)/k >= c, i.e. k >= 1/(1-c).")
+    print("  rho the grid can produce for it strictly inside the band is (k-2)/k,")
+    print("  and k/k = 1 is the knife edge. So the tail at cut c is representable")
+    print("  for a state only if (k-2)/k >= c, compared in integers.")
     print("  %-11s %9s %s" % ("spread", "med k", "share of states whose k allows the cut"))
     print("  %-11s %9s %s" % ("", "", "".join("%9.2f" % c for c in CUTS[:-1])))
     for nm in per:
@@ -117,9 +197,22 @@ def run(path=None):
         s = sorted(fr)
         line = ""
         for c in CUTS[:-1]:
-            need = 1.0 / (1.0 - c)
-            line += "%8.1f%%" % (100.0 * sum(1 for k in fr if k >= need) / n)
+            line += "%8.1f%%" % (100.0 * sum(1 for k in fr if reaches(k, c)) / n)
         print("  %-11s %9d %s" % (nm, s[n // 2], line))
+
+    print("\n  THE THREE BRANCHES, per instrument and cut: states in the tail over")
+    print("  states whose k can represent it.  A approached   E empty, reachable")
+    print("  X not representable, reads nothing")
+    print("  %-11s %s" % ("spread", "".join("%15.2f" % c for c in CUTS[:-1])))
+    letters = {"approached": "A", "empty, reachable": "E", "not representable": "X"}
+    for nm in per:
+        v, t, fr, ix, rho = per[nm]
+        line = ""
+        for c in CUTS[:-1]:
+            tail = sum(1 for a, b in v if in_tail(a, b, c))
+            can = sum(1 for k in fr if reaches(k, c))
+            line += "%15s" % ("%d/%d %s" % (tail, can, letters[branch(tail, can)]))
+        print("  %-11s %s" % (nm, line))
 
     print("\n  THE OBJECT: joint distribution of (friction ticks, index ticks),")
     print("  the two busiest instruments, counts")
@@ -299,7 +392,67 @@ def selftest():
         not [n for n in ast.walk(tree) if isinstance(n, ast.Call)
              and getattr(n.func, "attr", getattr(n.func, "id", "")) in
              ("remove", "rmtree", "unlink", "rmdir")])
-    print("\n  %d/5" % (5 - len(fails)))
+
+    # 6  the bound is what the grid contains, by enumeration and not by algebra:
+    #    every pair of negative integers S, S' with S + S' = -k
+    worst = None
+    for k in range(2, 141):
+        idx = [abs(s - (-k - s)) for s in range(-k + 1, 0)]
+        if max(idx) != interior_top(k) or any((k - i) % 2 for i in idx):
+            worst = k
+            break
+    chk("6  enumerating both orientations for k = 2..140, the largest interior "
+        "index is k - 2 and every index has k's parity", worst is None)
+
+    # 7  the comparison is in integers. k = 5 at cut 0.8 is where the float
+    #    form went wrong: 1/(1 - 0.8) is a hair above 5
+    chk("7  reaches() is exact at the cut: k=10 shows 0.8 and k=9 does not, "
+        "k=5 shows 0.6 and not 0.8, k=20 shows 0.9 and k=19 does not; and the "
+        "float 1/(1-0.8) is above 5 (%r)" % (1.0 / (1.0 - 0.8)),
+        reaches(10, 0.8) and not reaches(9, 0.8) and reaches(5, 0.6)
+        and not reaches(5, 0.8) and reaches(20, 0.9) and not reaches(19, 0.9)
+        and 1.0 / (1.0 - 0.8) > 5)
+
+    # 8  the three branches map as registered, and the impossible cell is
+    #    refused instead of being given a letter
+    refused = False
+    try:
+        branch(3, 2)
+    except ValueError:
+        refused = True
+    chk("8  branch(): tail>0 approached, tail=0 with reachable>0 empty and "
+        "reachable, reachable=0 not representable; a tail larger than what "
+        "could represent it is refused",
+        branch(1, 5) == "approached" and branch(0, 5) == "empty, reachable"
+        and branch(0, 0) == "not representable" and refused)
+
+    # 9  the cache is on the grid the reachability assumes, and a planted
+    #    off-grid state is counted
+    fr_all, ix_all = [], []
+    for nm, v in rows.items():
+        t = tick[nm]
+        fr_all += [a // t for a, _ in v]
+        ix_all += [b // t for _, b in v]
+    parity, beyond, edge = grid_breaks(fr_all, ix_all)
+    planted = grid_breaks(fr_all + [5, 6], ix_all + [4, 5])
+    chk("9  every loaded state has the friction count's parity and an index "
+        "of at most k - 2 (parity breaks %d, above k-2 %d, on the knife edge "
+        "%d); two planted off-grid states are counted" % (parity, beyond, edge),
+        parity == 0 and beyond == 0 and planted[0] == parity + 2)
+
+    # 10 the three cells this file got wrong, as known answers on the default
+    #    carrier: states whose k can represent the cut
+    def can(nm, cut):
+        t = tick[nm]
+        return sum(1 for a, _ in rows[nm] if reaches(a // t, cut))
+
+    known = (("CLQ3-CLV3", 0.8, 0), ("CLU3-CLV3", 0.6, 0), ("RBU3-RBV3", 0.9, 252))
+    got = [(nm, cut, can(nm, cut)) for nm, cut, _ in known if nm in rows]
+    chk("10 on the default carrier the cut is representable for %s"
+        % ", ".join("%s at %.1f: %d states" % g for g in got),
+        os.path.basename(TSV) != "two_classes_ch382.tsv"
+        or got == list(known))
+    print("\n  %d/10" % (10 - len(fails)))
     return 1 if fails else 0
 
 

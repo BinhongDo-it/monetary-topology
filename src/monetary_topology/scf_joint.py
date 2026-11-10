@@ -34,8 +34,10 @@ What this module reads instead
 --------------------------------
 The Survey of Consumer Finances summary extract carries, for the same household
 and with one weight: income, net worth, housing tenure, whether a mortgage is
-outstanding, the mortgage balance and payment, the rent paid, credit card
-balances and vehicle instalment debt. That is a joint distribution rather than
+outstanding, the mortgage balance on the primary residence net of its
+home-equity lines, a mortgage payment that also covers those lines, other
+residential property and land contracts, the rent paid, credit card balances
+and vehicle instalment debt. That is a joint distribution rather than
 two margins, so the debt a low-income household in a high-wealth group carries
 is **measured** rather than assumed to be its group's average.
 
@@ -128,6 +130,11 @@ class JointSelection:
     #: tenure, because an owner without a mortgage is a third tenure and the
     #: whole shelter rung turns on the distinction.
     mortgage_debt_column: str
+    #: The monthly mortgage payment (``MORTPAY`` in the 2022 selection). It is
+    #: wider than ``mortgage_debt_column``: it pays the primary-residence loans
+    #: that debt counts and also other residential property, land contracts
+    #: and the home-equity lines the primary residence secures, which that
+    #: debt is net of.
     mortgage_payment_column: str
     rent_column: str
     #: The two consumer-credit legs the cascade models. Student debt is a third
@@ -136,21 +143,24 @@ class JointSelection:
     #: charge households a payment on an obligation the model never gives them.
     card_column: str
     vehicle_column: str
-    #: The **measured** monthly payments. The extract publishes what each class
-    #: is actually paid, so the card rung needs no minimum-payment rate: the
-    #: published revolving payment is 3.7% of the revolving balance a month
-    #: against the 2% this project cited from practice.
+    #: The extract's published monthly payments. The revolving one is built by
+    #: the publisher and not reported by the household: 2.5% of the card balance,
+    #: plus 33% of buy-now-pay-later balances, plus payments on lines of credit
+    #: not secured by the residence. On card holders it is 3.7% of the card
+    #: balance a month, against the 2% this project cited from practice.
     card_payment_column: str
-    #: Vehicles, education and other together. The vehicle leg cannot be split
-    #: out of it, so that one payment keeps a literature rate on a measured
-    #: balance; this column is read to check that rate rather than to apply it.
+    #: Vehicles, education and other together. The registered vehicle leg keeps
+    #: a literature rate on a measured balance and this column is read to check
+    #: that rate. The extract also carries the vehicle payments loan by loan;
+    #: they are read through ``extra_columns`` as an arm beside the rate.
     instalment_payment_column: str
     #: The sum of the three, published separately. Reading it costs nothing and
     #: buys the one anchor that pins every payment to the same unit and period:
     #: revolving plus instalment plus mortgage must equal it, exactly.
     total_payment_column: str
     #: Liquid assets, the model's cushion under ``docs/a1d_prereg.md`` §3.
-    #: Checking, savings, money market and call accounts, and nothing else:
+    #: Checking, savings, money market and call accounts and prepaid cards, and
+    #: the publisher's one dollar where an account exists with no balance:
     #: retirement is a separate column and is registered as unreachable inside
     #: a month, and no non-financial asset is in it. **Optional on the
     #: selection**, because A1b was built and scored without it and a stage

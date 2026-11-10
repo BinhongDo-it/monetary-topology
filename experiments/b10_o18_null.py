@@ -22,8 +22,8 @@ delinquent" cannot answer "was this month paid". The difference can:
 
 Where the main table runs
 -------------------------
-§40 已 assigned 55.3% of frozen months to the $1,000 disclosure grid at ages 0
-to 6 and 2.07% to the assistance codes. **What has no name is the 3,778,406
+§40 assigned 54.6% of frozen months to the $1,000 disclosure grid at ages 0
+to 6 and 2.09% to the assistance codes. **What has no name is the 3,841,721
 months at age >= 8 carrying no code**, so the main table runs there and the
 whole-population table prints beside it as a control.
 
@@ -63,7 +63,9 @@ P_ASSIST = 29
 ASSIST_CODES = ("F", "R", "T")
 
 #: §40's split, unchanged. §11.3 measured the grid at ages 0 to 6 and §13 set
-#: the first usable difference at 7 -> 8 for the same reason.
+#: the first usable difference at 7 -> 8 for the same reason, so a pair is old
+#: when its earlier side is at age >= AGE_SPLIT - 1 and its later side at
+#: age >= AGE_SPLIT.
 AGE_SPLIT = 8
 
 #: §26.0's `digits` reading, settled against §3 on twenty-seven vintages: a
@@ -133,7 +135,7 @@ def scan_vintage(v: int) -> Counter:
                     p0, u0, a0, d0, _, raw0 = prev
                     if per == next_period(p0) and u0 > 0 and upb > 0:
                         frozen = "frozen" if u0 == upb else "moving"
-                        pop = population_of(a0 >= AGE_SPLIT and age >= AGE_SPLIT,
+                        pop = population_of(a0 >= AGE_SPLIT - 1 and age >= AGE_SPLIT,
                                             code in ASSIST_CODES)
                         if d0 is None or dq is None:
                             # §41.1 registered "`RA` and blanks counted apart"
@@ -202,7 +204,12 @@ def cmd_run(only) -> int:
 
     res = table(acc, "residue", "frozen")
     s = res["shares"]
-    if s["+1"] > 0.5:
+    #: An empty main table has NaN shares, every comparison below is False,
+    #: and it used to land on row three. Seen on a single-vintage 2026 run.
+    if not res["n"]:
+        v = ("no referent: the main table is empty in this run, so no row "
+             "of §41.3 is read.")
+    elif s["+1"] > 0.5:
         v = ("§41.3 row one: **the null holds.** The residue is mostly a "
              "missed instalment. §32-§40's\n      numbers do not change and "
              "their wording does: they ran without this ruled out.")
@@ -241,7 +248,12 @@ def cmd_run(only) -> int:
           "Nothing here transfers to Fannie.")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
-    p = RESULTS / "b10_o18_null.json"
+    #: A subset run writes its own name, `b10_o18_null.<v>_<v>.json`, so a
+    #: debugging run over one vintage cannot replace the 28-archive record
+    #: under the plain name (the scheme `b10_cohort_width.partial_name` uses).
+    p = RESULTS / ("b10_o18_null.json" if not only else
+                   "b10_o18_null." + "_".join(sorted(str(v) for v in vs))
+                   + ".json")
     p.write_text(json.dumps(
         {"stage": "B10", "step": "o18_null", "diagnostic_only": True,
          "diagnostic_reason":

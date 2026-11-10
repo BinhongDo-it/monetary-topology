@@ -355,8 +355,10 @@ def analyse(name: str, cache_root=None, pos=None, tab=None) -> dict:
         # sum is not noise: it is `loop_residual_ideal`, a deterministic
         # function of `(B0, i, P, k)` that P4 proved non-zero.** What is left
         # after removing it has a median absolute deviation of 2.7e-8 to
-        # 5.2e-8, which on the floor arm's median balance of about 165,000 is
-        # **half a cent** -- the quantisation of field 12 itself.
+        # 5.2e-8. Half a cent over each archive's median floor balance
+        # (85,447 in 2002Q1 to 164,620 in 2019Q1) is 3.0e-8 to 5.9e-8, and each
+        # archive's MAD sits 10 to 15 per cent under its own value: **half a
+        # cent** -- the quantisation of field 12 itself.
         n_raw = flo["omega"][fm]
         n_om = (flo["omega"] - closed)[fm]
         a["N"] = {"loops": int(fm.size), "measurable": int(fm.sum()),
@@ -730,9 +732,10 @@ def render(rows: list[dict]) -> str:
       "`+1.0000` on five archives and `+0.9993` on the sixth, and the two "
       "median absolute values agree to four significant figures. **The clean "
       "cure's loop sum IS `loop_residual_ideal`.** What is left after removing "
-      "it has a median absolute deviation of 2.7e-8 to 5.2e-8; on this arm's "
-      "median balance of about 165,000 **half a cent is 3.0e-8**. The floor of "
-      "this construction is the cent the balance is reported to.\n")
+      "it has a median absolute deviation of 2.7e-8 to 5.2e-8; **half a cent "
+      "over each archive's median balance is 3.0e-8 to 5.9e-8** (last column "
+      "below), and each archive's figure sits 10 to 15 per cent under its own. "
+      "The floor of this construction is the cent the balance is reported to.\n")
     A("**So `N` is now the residual** and the raw loop sum is `legacy` (R01). "
       "This is also the strongest check the `omega` construction has had: the "
       "full pipeline, curve and balloon and §17 windows included, reproduces a "

@@ -1,0 +1,848 @@
+{
+ "B158_1": {
+  "begins": 402695,
+  "begins_in_quarter_start_months": 373922,
+  "cache_rows": 402695,
+  "earliest_begin": "1995-08-07",
+  "earliest_termination": "2016-10-03",
+  "participating": {
+   "FALSE": 64108,
+   "TRUE": 338587
+  },
+  "sheet_data_rows": 402695
+ },
+ "B158_2": {
+  "quarters": [
+   {
+    "begins": 5730,
+    "quarter": "2019Q1",
+    "terminations": 2203
+   },
+   {
+    "begins": 6931,
+    "quarter": "2019Q2",
+    "terminations": 3109
+   },
+   {
+    "begins": 7713,
+    "quarter": "2019Q3",
+    "terminations": 2672
+   },
+   {
+    "begins": 7609,
+    "quarter": "2019Q4",
+    "terminations": 2580
+   },
+   {
+    "begins": 14685,
+    "quarter": "2020Q1",
+    "terminations": 3043
+   },
+   {
+    "begins": 10381,
+    "quarter": "2020Q2",
+    "terminations": 2946
+   },
+   {
+    "begins": 10570,
+    "quarter": "2020Q3",
+    "terminations": 2610
+   },
+   {
+    "begins": 10854,
+    "quarter": "2020Q4",
+    "terminations": 2777
+   },
+   {
+    "begins": 10279,
+    "quarter": "2021Q1",
+    "terminations": 2421
+   },
+   {
+    "begins": 6963,
+    "quarter": "2021Q2",
+    "terminations": 2735
+   },
+   {
+    "begins": 9611,
+    "quarter": "2021Q3",
+    "terminations": 2472
+   },
+   {
+    "begins": 8802,
+    "quarter": "2021Q4",
+    "terminations": 3659
+   },
+   {
+    "begins": 11481,
+    "quarter": "2022Q1",
+    "terminations": 3457
+   },
+   {
+    "begins": 10974,
+    "quarter": "2022Q2",
+    "terminations": 3658
+   },
+   {
+    "begins": 9691,
+    "quarter": "2022Q3",
+    "terminations": 4003
+   },
+   {
+    "begins": 9771,
+    "quarter": "2022Q4",
+    "terminations": 3641
+   }
+  ],
+  "termination_comments": [
+   {
+    "comment": "01/25/2013 - public health emergency declared in the state o",
+    "n": 13
+   },
+   {
+    "comment": "11/07/2012 - public health emergency declared in the state o",
+    "n": 12
+   },
+   {
+    "comment": "04/12/2013 - public health emergency declared in the state o",
+    "n": 5
+   },
+   {
+    "comment": "12/14/2005 - CORRECTION IN CONTRACT BEGIN DATE, INCORRECTLY ",
+    "n": 4
+   },
+   {
+    "comment": "OPA ADMINISTRATIVE ERROR",
+    "n": 4
+   },
+   {
+    "comment": "12/03/2012 - public health emergency declared in the state o",
+    "n": 3
+   },
+   {
+    "comment": "07/14/09 - PHARMACY ADDRESS CHANGED FROM 10 POWERHOUSE RD, R",
+    "n": 3
+   },
+   {
+    "comment": "9/28/12 entity and associated contracts terminated this day ",
+    "n": 3
+   },
+   {
+    "comment": "04/15/2013 - public health emergency declared in the state o",
+    "n": 3
+   },
+   {
+    "comment": "04/03/2013 - public health emergency declared in the state o",
+    "n": 3
+   }
+  ]
+ },
+ "B158_3": {
+  "rule_123": {
+   "after": 1689,
+   "before": 11,
+   "effective": "2022-09-30",
+   "per_quarter": [
+    {
+     "begins": 66,
+     "out_of_state": 1,
+     "quarter": "2020Q3",
+     "top_pharmacy": "ARKANSAS CVS PHARMACY, L.L.C. / JONESBORO",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 42,
+     "out_of_state": 0,
+     "quarter": "2020Q4",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 101,
+     "out_of_state": 1,
+     "quarter": "2021Q1",
+     "top_pharmacy": "WALGREEN CO. / WEST MEMPHIS",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 22,
+     "out_of_state": 0,
+     "quarter": "2021Q2",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 34,
+     "out_of_state": 1,
+     "quarter": "2021Q3",
+     "top_pharmacy": "CORAM ALTERNATE SITE SERVICES, INC. / LITTLE ROCK",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 48,
+     "out_of_state": 2,
+     "quarter": "2021Q4",
+     "top_pharmacy": "WAL-MART PHARMACY 10-0011 / MOUNTAIN HOME",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 41,
+     "out_of_state": 6,
+     "quarter": "2022Q1",
+     "top_pharmacy": "INFINITY COMPOUNDING SOLUTIONS, LLC / BENTONVILLE",
+     "top_pharmacy_n": 2
+    },
+    {
+     "begins": 39,
+     "out_of_state": 0,
+     "quarter": "2022Q2",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 23,
+     "out_of_state": 0,
+     "quarter": "2022Q3",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 25,
+     "out_of_state": 2,
+     "quarter": "2022Q4",
+     "top_pharmacy": "WAL-MART PHARMACY 10-0004 / SILOAM SPRINGS",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 64,
+     "out_of_state": 30,
+     "quarter": "2023Q1",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 23
+    },
+    {
+     "begins": 569,
+     "out_of_state": 476,
+     "quarter": "2023Q2",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 463
+    },
+    {
+     "begins": 554,
+     "out_of_state": 523,
+     "quarter": "2023Q3",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 516
+    },
+    {
+     "begins": 241,
+     "out_of_state": 205,
+     "quarter": "2023Q4",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 202
+    },
+    {
+     "begins": 433,
+     "out_of_state": 299,
+     "quarter": "2024Q1",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 270
+    },
+    {
+     "begins": 163,
+     "out_of_state": 154,
+     "quarter": "2024Q2",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 137
+    }
+   ],
+   "quarter": "2022Q3",
+   "window_inside_snapshot": true
+  },
+  "statute": {
+   "after": 517,
+   "before": 9,
+   "effective": "2021-07-28",
+   "per_quarter": [
+    {
+     "begins": 69,
+     "out_of_state": 3,
+     "quarter": "2019Q3",
+     "top_pharmacy": "STANLEY AND TURNER DRUG COMPANY / SEARCY",
+     "top_pharmacy_n": 2
+    },
+    {
+     "begins": 62,
+     "out_of_state": 0,
+     "quarter": "2019Q4",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 33,
+     "out_of_state": 2,
+     "quarter": "2020Q1",
+     "top_pharmacy": "WAL-MART PHARMACY 10-0070 / WEST MEMPHIS",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 59,
+     "out_of_state": 2,
+     "quarter": "2020Q2",
+     "top_pharmacy": "MIDSOUTH MEDICAL SPECIALTIES, LLC / HOT SPRINGS",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 66,
+     "out_of_state": 1,
+     "quarter": "2020Q3",
+     "top_pharmacy": "ARKANSAS CVS PHARMACY, L.L.C. / JONESBORO",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 42,
+     "out_of_state": 0,
+     "quarter": "2020Q4",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 101,
+     "out_of_state": 1,
+     "quarter": "2021Q1",
+     "top_pharmacy": "WALGREEN CO. / WEST MEMPHIS",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 22,
+     "out_of_state": 0,
+     "quarter": "2021Q2",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 34,
+     "out_of_state": 1,
+     "quarter": "2021Q3",
+     "top_pharmacy": "CORAM ALTERNATE SITE SERVICES, INC. / LITTLE ROCK",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 48,
+     "out_of_state": 2,
+     "quarter": "2021Q4",
+     "top_pharmacy": "WAL-MART PHARMACY 10-0011 / MOUNTAIN HOME",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 41,
+     "out_of_state": 6,
+     "quarter": "2022Q1",
+     "top_pharmacy": "INFINITY COMPOUNDING SOLUTIONS, LLC / BENTONVILLE",
+     "top_pharmacy_n": 2
+    },
+    {
+     "begins": 39,
+     "out_of_state": 0,
+     "quarter": "2022Q2",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 23,
+     "out_of_state": 0,
+     "quarter": "2022Q3",
+     "top_pharmacy": "",
+     "top_pharmacy_n": 0
+    },
+    {
+     "begins": 25,
+     "out_of_state": 2,
+     "quarter": "2022Q4",
+     "top_pharmacy": "WAL-MART PHARMACY 10-0004 / SILOAM SPRINGS",
+     "top_pharmacy_n": 1
+    },
+    {
+     "begins": 64,
+     "out_of_state": 30,
+     "quarter": "2023Q1",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 23
+    },
+    {
+     "begins": 569,
+     "out_of_state": 476,
+     "quarter": "2023Q2",
+     "top_pharmacy": "WALMART PHARMACY 10-5169 / ROGERS",
+     "top_pharmacy_n": 463
+    }
+   ],
+   "quarter": "2021Q3",
+   "window_inside_snapshot": true
+  }
+ },
+ "B158_4": {
+  "arrangements": 2408,
+  "begins_between_licence_and_rule": 0,
+  "begins_by_quarter": {
+   "2023Q1": 23,
+   "2023Q2": 480,
+   "2023Q3": 525,
+   "2023Q4": 206,
+   "2024Q1": 272,
+   "2024Q2": 138,
+   "2024Q3": 115,
+   "2024Q4": 88,
+   "2025Q1": 57,
+   "2025Q2": 71,
+   "2025Q3": 58,
+   "2025Q4": 100,
+   "2026Q1": 109,
+   "2026Q2": 45,
+   "2026Q3": 42,
+   "2026Q4": 52,
+   "2027Q1": 27
+  },
+  "entities": 2343,
+  "first_begin": "2023-01-01",
+  "licensed": "2020-03-23",
+  "rule": "2022-09-30",
+  "spring_cells": {
+   "Spring ended after the Rogers begin": 442,
+   "Spring ended before or on the Rogers begin": 20,
+   "Spring still active": 1788,
+   "no Spring arrangement": 93
+  }
+ },
+ "B158_5": {
+  "states": [
+   {
+    "after": 1689,
+    "before": 11,
+    "effective": "2022-09-30",
+    "group": "pharmacy",
+    "note": "Act 1103; statute 2021-07-28, Rule 123 2022-09-30; never enjoined",
+    "reach": "pharmacy",
+    "state": "AR",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 383,
+    "before": 372,
+    "effective": "2023-08-01",
+    "group": "pharmacy",
+    "note": "Act 358; the pharmacy must serve patients physically in the state",
+    "reach": "pharmacy",
+    "state": "LA",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 225,
+    "before": 191,
+    "effective": "2024-07-01",
+    "group": "open text, effective 2024 or later",
+    "note": "HB 728",
+    "reach": "open",
+    "state": "MS",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 145,
+    "before": 257,
+    "effective": "2024-07-01",
+    "group": "open text, effective 2024 or later",
+    "note": "HB 1056",
+    "reach": "open",
+    "state": "MD",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 49,
+    "before": 106,
+    "effective": "2024-06-06",
+    "group": "open text, effective 2024 or later",
+    "note": "SB 325; preliminary injunction 2024-12-17",
+    "reach": "open",
+    "state": "WV",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 134,
+    "before": 118,
+    "effective": "2024-08-01",
+    "group": "entity",
+    "note": "HF 4757; the state concedes out-of-state pharmacies are not covered; sunset 2027-07-01",
+    "reach": "entity",
+    "state": "MN",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 698,
+    "before": 729,
+    "effective": "2024-08-28",
+    "group": "entity",
+    "note": "SB 751; 8th Cir. 2026-07-01 reads both entity and pharmacy in the state",
+    "reach": "entity",
+    "state": "MO",
+    "verdict": null,
+    "window_inside_snapshot": true
+   },
+   {
+    "after": 120,
+    "before": 21,
+    "effective": "2025-04-09",
+    "group": "open text, effective 2024 or later",
+    "note": "LB 168",
+    "reach": "open",
+    "state": "NE",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 1527,
+    "before": 1680,
+    "effective": "2025-05-05",
+    "group": "open text, effective 2024 or later",
+    "note": "SB 1414; reaches restrictions added after 2025-06-01",
+    "reach": "open",
+    "state": "TN",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 58,
+    "before": 56,
+    "effective": "2025-05-07",
+    "group": "entity",
+    "note": "SB 69; D. Utah 2025-11-19 reads entities and pharmacies in Utah",
+    "reach": "entity",
+    "state": "UT",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 4,
+    "before": 64,
+    "effective": "2025-06-11",
+    "group": "pharmacy",
+    "note": "H.266; pharmacy licensed in Vermont",
+    "reach": "pharmacy",
+    "state": "VT",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 55,
+    "before": 232,
+    "effective": "2025-07-01",
+    "group": "open text, effective 2024 or later",
+    "note": "HB 712",
+    "reach": "open",
+    "state": "HI",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 3,
+    "before": 0,
+    "effective": "2025-07-01",
+    "group": "pharmacy",
+    "note": "SB 154; pharmacy licensed by the state board and serving residents",
+    "reach": "pharmacy",
+    "state": "SD",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 12,
+    "before": 7,
+    "effective": "2025-08-01",
+    "group": "open text, effective 2024 or later",
+    "note": "HB 1473; struck by D.N.D. 2026-04-27",
+    "reach": "open",
+    "state": "ND",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 27,
+    "before": 43,
+    "effective": "2025-08-06",
+    "group": "open text, effective 2024 or later",
+    "note": "SB25-071",
+    "reach": "open",
+    "state": "CO",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 35,
+    "before": 31,
+    "effective": "2025-09-24",
+    "group": "open text, effective 2024 or later",
+    "note": "P.L. 2025 c. 388 Part P",
+    "reach": "open",
+    "state": "ME",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 24,
+    "before": 78,
+    "effective": "2025-09-26",
+    "group": "entity",
+    "note": "HB 2385; covered entity in the state",
+    "reach": "entity",
+    "state": "OR",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 6,
+    "before": 24,
+    "effective": "2025-10-01",
+    "group": "open text, effective 2024 or later",
+    "note": "S 0114 / H 5634",
+    "reach": "open",
+    "state": "RI",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 13,
+    "before": 39,
+    "effective": "2025-11-01",
+    "group": "pharmacy",
+    "note": "HB 2048; enjoined for the plaintiffs 2025-10-31",
+    "reach": "pharmacy",
+    "state": "OK",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 2,
+    "before": 2,
+    "effective": "2026-01-01",
+    "group": "open text, effective 2024 or later",
+    "note": "HB 78; FQHCs only",
+    "reach": "open",
+    "state": "NM",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 231,
+    "before": 377,
+    "effective": "2026-06-11",
+    "group": "pharmacy",
+    "note": "SB 5981; pharmacy licensed in Washington",
+    "reach": "pharmacy",
+    "state": "WA",
+    "verdict": null,
+    "window_inside_snapshot": false
+   },
+   {
+    "after": 401,
+    "before": 1189,
+    "effective": "2026-08-07",
+    "group": "entity",
+    "note": "HB 2371; entity in Illinois",
+    "reach": "entity",
+    "state": "IL",
+    "verdict": null,
+    "window_inside_snapshot": false
+   }
+  ]
+ },
+ "B158_6": {
+  "addresses_2010": 1067,
+  "addresses_2017": 19546,
+  "gao_2010": 1300,
+  "gao_2017": 20000,
+  "ratio_2017": "0.977",
+  "year_end_addresses": {
+   "2015": 14962,
+   "2016": 17282,
+   "2019": 24658,
+   "2022": 31541,
+   "2023": 31752,
+   "2024": 31456,
+   "2025": 30648
+  }
+ },
+ "config": {
+  "ar_rule_123": "2022-09-30",
+  "ar_statute": "2021-07-28",
+  "open_late_from": "2024-01-01",
+  "rogers_licensed": "2020-03-23",
+  "snapshot_exported": "2026-10-14",
+  "window_quarters": 8,
+  "workbook": "340B_ContractPharmacy_Daily_20261014_140816.xlsx"
+ },
+ "criteria": [
+  {
+   "detail": "Cache rows 402695, workbook data rows 402695. Earliest begin 1995-08-07, earliest termination 2016-10-03: arrangements that ended before that date are not in the export, so stocks before 2016 count survivors only. 373922 of 402695 begin dates fall in January, April, July or October; the registry moves in quarterly windows.",
+   "kind": "instrument",
+   "name": "B158-1",
+   "passed": true
+  },
+  {
+   "detail": "Begins/terminations by quarter: 2019Q1 5730/2203, 2019Q2 6931/3109, 2019Q3 7713/2672, 2019Q4 7609/2580, 2020Q1 14685/3043, 2020Q2 10381/2946, 2020Q3 10570/2610, 2020Q4 10854/2777, 2021Q1 10279/2421, 2021Q2 6963/2735, 2021Q3 9611/2472, 2021Q4 8802/3659, 2022Q1 11481/3457, 2022Q2 10974/3658, 2022Q3 9691/4003, 2022Q4 9771/3641. Manufacturer restrictions start in 2020-07; terminations show no cluster after it and begins stay high. A restriction cuts the price, not the listing, so the registry does not record the closing side. No termination reason column exists; the comment field names none.",
+   "kind": "own_reading",
+   "name": "B158-2",
+   "passed": true
+  },
+  {
+   "detail": "Arkansas pharmacies, new arrangements from covered entities in other states: 11 in the eight quarters before Rule 123 (effective 2022-09-30), 1689 in the eight from it. Around the statute date (2021-07-28): 9 and 517. Top pharmacy in the quarters after: 2022Q4 WAL-MART PHARMACY 10-0004 / SILOAM SPRINGS x1; 2023Q1 WALMART PHARMACY 10-5169 / ROGERS x23; 2023Q2 WALMART PHARMACY 10-5169 / ROGERS x463; 2023Q3 WALMART PHARMACY 10-5169 / ROGERS x516; 2023Q4 WALMART PHARMACY 10-5169 / ROGERS x202; 2024Q1 WALMART PHARMACY 10-5169 / ROGERS x270; 2024Q2 WALMART PHARMACY 10-5169 / ROGERS x137. These are registrations; whether manufacturers honoured the price on them is not read.",
+   "kind": "own_reading",
+   "name": "B158-3",
+   "passed": true
+  },
+  {
+   "detail": "The Rogers pharmacy (10-5169) holds Arkansas retail licence AR20927 issued 2020-03-23. Arrangements naming it between that date and 2022-09-30: 0; first begin 2023-01-01; 2408 arrangements from 2343 entities. The same entities at the chain's Texas central fill site (10-2670): Spring still active 1788; Spring ended before or on the Rogers begin 20; Spring ended after the Rogers begin 442; no Spring arrangement 93. The jump lines up with the rule date, not with the licence.",
+   "kind": "own_reading",
+   "name": "B158-4",
+   "passed": true
+  },
+  {
+   "detail": "Twenty-two laws, out-of-state begins eight quarters before and after the effective date, by the reach of the text: entity: 5 states, 2170 before, 1315 after; open text, effective 2024 or later: 11 states, 2594 before, 2203 after; pharmacy: 6 states, 863 before, 2323 after. Rows: AR 11->1689; LA 372->383; MS 191->225; MD 257->145; WV 106->49; MN 118->134; MO 729->698; NE 21->120; TN 1680->1527; UT 56->58; VT 64->4; HI 232->55; SD 0->3; ND 7->12; CO 43->27; ME 31->35; OR 78->24; RI 24->6; OK 39->13; NM 2->2; WA 377->231; IL 1189->401. No row carries a verdict. Open-text laws effective 2024 or later meet a manufacturer practice that already required both entity and pharmacy in the state.",
+   "kind": "own_reading",
+   "name": "B158-5",
+   "passed": true
+  },
+  {
+   "detail": "Distinct pharmacy addresses active at year end: 2010 1067 (GAO about 1300; survivors only, so at most that); 2017 19546 (GAO nearly 20000, ratio 0.977).",
+   "kind": "known_answer",
+   "name": "B158-6",
+   "passed": true
+  }
+ ],
+ "mapping_11c": [
+  {
+   "criterion": "B158-3",
+   "state": "after window holds more out-of-state begins than the before window",
+   "verdict": true
+  },
+  {
+   "criterion": "B158-3",
+   "state": "it does not",
+   "verdict": false
+  },
+  {
+   "criterion": "B158-3",
+   "state": "a window reaches past the snapshot",
+   "verdict": null
+  },
+  {
+   "criterion": "B158-4",
+   "state": "no arrangement at the Rogers pharmacy between its licence and the rule date",
+   "verdict": true
+  },
+  {
+   "criterion": "B158-4",
+   "state": "one or more",
+   "verdict": false
+  },
+  {
+   "criterion": "B158-4",
+   "state": "no licence date on the roster",
+   "verdict": null
+  },
+  {
+   "criterion": "B158-5",
+   "state": "every state row printed with its reach; no row carries a verdict",
+   "verdict": true
+  },
+  {
+   "criterion": "B158-5",
+   "state": "a row missing",
+   "verdict": false
+  }
+ ],
+ "selftest": [
+  {
+   "check": "B158-1 passes when the cache holds every sheet row",
+   "ok": true
+  },
+  {
+   "check": "B158-1 fails when a row is missing from the cache",
+   "ok": true
+  },
+  {
+   "check": "B158-1 fails without the sheet row count",
+   "ok": true
+  },
+  {
+   "check": "B158-2 passes with every quarter present",
+   "ok": true
+  },
+  {
+   "check": "B158-2 fails when a quarter is empty",
+   "ok": true
+  },
+  {
+   "check": "B158-3 passes on a jump after the rule date",
+   "ok": true
+  },
+  {
+   "check": "B158-3 fails when the before window holds more",
+   "ok": true
+  },
+  {
+   "check": "B158-3 fails when the jump comes from in-state entities only",
+   "ok": true
+  },
+  {
+   "check": "B158-3 carries no verdict when the window reaches past the snapshot",
+   "ok": true
+  },
+  {
+   "check": "B158-4 passes with no Rogers arrangement between licence and rule",
+   "ok": true
+  },
+  {
+   "check": "B158-4 fails on a Rogers arrangement before the rule date",
+   "ok": true
+  },
+  {
+   "check": "B158-4 carries no verdict without a licence date",
+   "ok": true
+  },
+  {
+   "check": "B158-4 places an entity holding both sites in the still-active cell",
+   "ok": true
+  },
+  {
+   "check": "B158-5 passes with all twenty-two states printed",
+   "ok": true
+  },
+  {
+   "check": "B158-5 fails when a state is missing",
+   "ok": true
+  },
+  {
+   "check": "B158-6 passes when the 2010 survivors are under the GAO count",
+   "ok": true
+  },
+  {
+   "check": "B158-6 leaves arrangements ended before the year end out of the stock",
+   "ok": true
+  },
+  {
+   "check": "B158-6 fails when 2010 survivors exceed the GAO count",
+   "ok": true
+  },
+  {
+   "check": "every third state maps to no verdict",
+   "ok": true
+  }
+ ],
+ "stage": "B158",
+ "title": "340B contract pharmacies: a state law reopens the class line where its text reaches"
+}

@@ -28,13 +28,17 @@ non-integrability.
 **Why the split was needed.** ``γ`` was doing two jobs, the premium paid and the
 admission threshold, so ``terms_spread = 0`` zeroed the loop sum *and* levelled
 the gate. One switch, two things: `MEASUREMENT.md` rule 4. ``gate_spread``
-separates them.
+separates them at the opening allocation and nowhere after it. The bidder pool
+that prices a tier is admitted on the payment terms every round, so
+``terms_spread = 0`` still levels that pool together with the loop sum.
+``GatePooled`` below is the same model with the pool admitted on the gate
+terms; its four cells are printed beside the registered ones and not scored.
 
 **The trap this file has to avoid.** Lowering the payment dispersion also lowers
 the **mean** acquisition cost, so the flat cell would also be the cheap cell.
 ``hold_mean_cost`` rescales the base terms to hold the cross-sectional mean at
-the registered ``κ``, and the run reports the realised mean cost per cell so a
-reader can see the hold worked rather than trust that it did.
+the registered ``κ``, and the run reports that mean per cell, over every node
+and tier at opening prices, so a reader can see the hold worked rather than trust that it did.
 """
 
 from __future__ import annotations
@@ -58,6 +62,9 @@ from monetary_topology.asset import (  # noqa: E402
     A3Model,
     AssetSpec,
     DesignDeviation,
+    bidder_pool,
+    price_at,
+    soft_gate,
 )
 from monetary_topology.network import (  # noqa: E402
     NetworkConfig,
@@ -113,6 +120,57 @@ if _COLLIDING_FIELDS:
     )
 
 
+class GatePooled(A3Model):
+    """The registered model with one method changed: who is in the bidder pool.
+
+    The registered model admits a node to the pool that prices a tier on its
+    **payment** terms. This admits it on its **gate** terms, which is the rule
+    the split in ``docs/a3_restated.md`` §4.2 describes: the gate terms decide
+    who is in the market, the payment terms decide what is paid and nothing
+    else. Nothing else differs, and with the two terms tied the two models are
+    one model.
+
+    It exists so that a question about the registered cells is answered by a
+    run and not by an argument. Levelling the payment terms removes the loop
+    sum and, in the registered model, levels the pricing pool with it. Here
+    the same cell removes the loop sum and leaves the pool dispersed.
+    """
+
+    def _admitted_at_opening(self) -> np.ndarray:
+        admitted, _ = soft_gate(
+            self.holdings,
+            self.terms_gate,
+            np.asarray(self.a3.asset.initial_price, dtype=float),
+            self.a3.asset.stretch,
+            self.a3.asset.open_tiers,
+        )
+        return admitted
+
+
+def construct(
+    seed: int, rounds: int, *, _model: type[A3Model] = A3Model, **kw
+) -> A3Model:
+    """``build`` without the run: the model as the opening allocation leaves it.
+
+    The opening allocation happens in the constructor, so ``holdings`` on what
+    this returns are the claims the first bidder pool was formed from.
+
+    ``_model`` is the class to build. It is keyword-only and underscored so
+    that it cannot collide with a field of either dataclass, and every caller
+    that does not name it gets the registered model.
+    """
+    net_kw = {k: v for k, v in kw.items() if k in _NETWORK_FIELDS}
+    asset_kw = {k: v for k, v in kw.items() if k not in _NETWORK_FIELDS}
+    return _model(
+        A3Config(
+            asset=AssetSpec(**asset_kw),
+            network=NetworkConfig(
+                spec=NetworkSpec(seed=seed, **net_kw), seed=seed, rounds=rounds
+            ),
+        )
+    )
+
+
 def build(seed: int, rounds: int, **kw) -> A3Model:
     """One model. Keywords are routed by which dataclass declares them.
 
@@ -132,18 +190,127 @@ def build(seed: int, rounds: int, **kw) -> A3Model:
     ``tests/test_a7_kwarg_routing.py`` instead, where it can fail if a later
     signature change makes it reachable.
     """
-    net_kw = {k: v for k, v in kw.items() if k in _NETWORK_FIELDS}
-    asset_kw = {k: v for k, v in kw.items() if k not in _NETWORK_FIELDS}
-    model = A3Model(
-        A3Config(
-            asset=AssetSpec(**asset_kw),
-            network=NetworkConfig(
-                spec=NetworkSpec(seed=seed, **net_kw), seed=seed, rounds=rounds
-            ),
-        )
-    )
+    model = construct(seed, rounds, **kw)
     model.run()
     return model
+
+
+def pricing_pool(model: A3Model, opening_claims: np.ndarray) -> dict:
+    """Where the pool that priced this run parts from the gate-terms pool.
+
+    A tier's price follows the claims of the nodes in its bidder pool. The
+    model admits a node to that pool on its **payment** terms, read again every
+    round against current claims at opening prices. The gate terms decide the
+    opening allocation and are read nowhere after it. With the two terms tied
+    the pools are one pool. In a cell that levels one and not the other they
+    part, and this counts where.
+
+    ``node_tier_rounds`` is how many (node, tier, round) admissions the two
+    disagree on over the run, ``rounds`` how many rounds have at least one,
+    and ``opening_node_tiers`` the same count on the claims the opening
+    allocation leaves. The price figure is the largest relative gap between
+    the price as run and the price the gate-terms pool gives **from the same
+    balances**. It sizes the pricing input that moved. It is not a run of the
+    other economy, whose balances would differ from the first round on.
+
+    The two ``as_run`` flags are the instrument's own check: the pool and the
+    prices rebuilt here from the payment terms have to be the ones the model
+    recorded, or the comparison is against something the run never did.
+    """
+    spec = model.a3.asset
+    p0 = np.asarray(spec.initial_price, dtype=float)
+
+    def admitted(claims: np.ndarray, terms: np.ndarray) -> np.ndarray:
+        return soft_gate(claims, terms, p0, spec.stretch, spec.open_tiers)[0]
+
+    as_run_0 = admitted(opening_claims, model.terms)
+    by_gate_0 = admitted(opening_claims, model.terms_gate)
+    pool_run_0 = bidder_pool(opening_claims, as_run_0)
+    pool_gate_0 = bidder_pool(opening_claims, by_gate_0)
+    rounds = cells = 0
+    widest = 0.0
+    prices_match = True
+    for claims, price in zip(
+        model.claims_history, model.price_history, strict=True
+    ):
+        as_run = admitted(claims, model.terms)
+        by_gate = admitted(claims, model.terms_gate)
+        differ = int((as_run != by_gate).sum())
+        cells += differ
+        rounds += int(differ > 0)
+        rebuilt = price_at(
+            p0, bidder_pool(claims, as_run), pool_run_0, spec.elasticity
+        )
+        prices_match = prices_match and bool(
+            np.allclose(rebuilt, price, rtol=0.0, atol=1e-9)
+        )
+        other = price_at(
+            p0, bidder_pool(claims, by_gate), pool_gate_0, spec.elasticity
+        )
+        widest = max(widest, float(np.max(np.abs(other - price) / price)))
+    return {
+        "opening_node_tiers": int((as_run_0 != by_gate_0).sum()),
+        "rounds": rounds,
+        "node_tier_rounds": cells,
+        "largest_relative_price_gap": round(widest, 8),
+        "as_run_reproduces_the_recorded_pool": bool(
+            np.allclose(pool_run_0, model._pool_0, rtol=0.0, atol=1e-9)
+        ),
+        "as_run_reproduces_the_recorded_prices": prices_match,
+    }
+
+
+def pricing_pools(seeds: range, rounds: int, models: dict, **extra) -> dict:
+    """``pricing_pool`` for every cell and seed, and the single-channel total.
+
+    The two single-channel cells are the ones that level one set of terms and
+    not the other, so they are where an intervention on ``k_pay`` and one on
+    ``k_gate`` can be told apart, and where the pool's admission matters to
+    what each cell removed.
+    """
+    fixed = {**FIXED, **extra}
+    by_cell: dict[str, dict] = {}
+    for name, kw in CELLS.items():
+        rows = []
+        for seed in seeds:
+            opening = construct(seed, rounds, **fixed, **kw).holdings.copy()
+            rows.append({"seed": int(seed),
+                         **pricing_pool(models[(name, seed)], opening)})
+        by_cell[name] = {
+            "by_seed": rows,
+            "rounds": sum(r["rounds"] for r in rows),
+            "node_tier_rounds": sum(r["node_tier_rounds"] for r in rows),
+            "opening_node_tiers": sum(r["opening_node_tiers"] for r in rows),
+            "largest_relative_price_gap": max(
+                r["largest_relative_price_gap"] for r in rows
+            ),
+        }
+    single = [by_cell[n] for n in ("H1_only", "H0_only")]
+    worst = max(
+        ((r["largest_relative_price_gap"], n, r["seed"])
+         for n in ("H1_only", "H0_only") for r in by_cell[n]["by_seed"]),
+    )
+    return {
+        "admitted_on": (
+            "the payment terms, at opening prices, against current claims, "
+            "every round"
+        ),
+        "gate_terms_reach": "the opening allocation and nothing after it",
+        "by_cell": by_cell,
+        "single_channel_cells": {
+            "runs": sum(len(c["by_seed"]) for c in single),
+            "rounds": sum(c["rounds"] for c in single),
+            "node_tier_rounds": sum(c["node_tier_rounds"] for c in single),
+            "opening_node_tiers": sum(c["opening_node_tiers"] for c in single),
+            "largest_relative_price_gap": worst[0],
+            "largest_at": {"cell": worst[1], "seed": worst[2]},
+        },
+        "instrument_reproduces_the_run": all(
+            r["as_run_reproduces_the_recorded_pool"]
+            and r["as_run_reproduces_the_recorded_prices"]
+            for c in by_cell.values() for r in c["by_seed"]
+        ),
+    }
 
 
 def terciles(
@@ -226,9 +393,10 @@ def gap_net_of_stretch(
 ) -> float:
     """The same gap with the stretch write-off deducted from both sides.
 
-    Most of the paired population entered by stretching — 35 to 37 of about 42 —
-    and their ``uncounted_cost`` averages around nine tenths of their opening
-    claims. The registered document says of that quantity that ``net_worth``
+    Most of the paired population entered by stretching, 32 to 43 of 38 to 44
+    nodes depending on cell and seed, and their ``uncounted_cost`` averages
+    about 1.07 times their opening claims (per-seed means 0.93 to 1.22 across
+    the four cells). The registered document says of that quantity that ``net_worth``
     overstates a stretcher's position **by exactly** it, so deducting it is the
     intended use rather than a correction invented here.
 
@@ -285,9 +453,98 @@ def _unused_gap_v2(model: A3Model) -> tuple[float, float, float]:
 
 
 def mean_cost(model: A3Model) -> float:
-    """Realised mean acquisition cost, to show the hold in §4.4 worked."""
+    """Mean posted acquisition cost, ``terms * P(0)`` averaged over every node
+    and tier.
+
+    This is the quantity the rescaling in §4.4 holds, so its equality across
+    cells checks that arithmetic. It is not a transaction-weighted cost: it
+    says nothing about what the nodes that actually buy pay per unit.
+    """
     p = np.asarray(model.a3.asset.initial_price, dtype=float)
     return float((model.terms * p[None, :]).mean())
+
+
+def _on_the_gate_terms(model: A3Model, opening_claims: np.ndarray) -> bool:
+    """Whether ``model``'s opening pool is the one its gate terms admit."""
+    spec = model.a3.asset
+    p0 = np.asarray(spec.initial_price, dtype=float)
+    admitted = soft_gate(
+        opening_claims, model.terms_gate, p0, spec.stretch, spec.open_tiers
+    )[0]
+    return bool(
+        np.allclose(
+            bidder_pool(opening_claims, admitted), model._pool_0,
+            rtol=0.0, atol=1e-9,
+        )
+    )
+
+
+def pool_on_gate_terms(seeds: range, rounds: int, registered: dict) -> dict:
+    """The four cells again, with the bidder pool admitted on the gate terms.
+
+    Printed and not scored; A3-8 is read from the registered cells and not
+    from these. The same factorial, the same separately built null, the same
+    paired population rule, on ``GatePooled``.
+
+    ``registered`` is the registered arm's cell summaries. In the two cells
+    whose terms are tied the two models are the same model. Their gaps are
+    read on the paired population, which is intersected over all four cells,
+    so they come out identical seed by seed only if the two arms' paired
+    populations also coincide; at the registered point they do, at every
+    seed. The flag says whether the gaps did. The second flag checks that
+    each run's opening pool is the one its gate terms admit. That is the only
+    pool it compares, so it tells the two admission rules apart only where
+    they differ at the opening: over the registered seeds, ``H1_only`` at
+    seeds 1, 3 and 4, and never in ``H0_only``. Every later round goes
+    through the same overridden method by construction.
+    """
+    models, population, devset = build_all(seeds, rounds, _model=GatePooled)
+    dropped = next(
+        int(d.split("__")[-1]) for d in devset if d.startswith("__dropped__")
+    )
+    devs = {d for d in devset if not d.startswith("__dropped__")}
+    baseline, base_devs = build_baseline(seeds, rounds, _model=GatePooled)
+    devs |= base_devs
+    cells = {
+        n: summarise(n, kw, seeds, models, baseline, population)
+        for n, kw in CELLS.items()
+    }
+    reading = evaluate(cells)
+    on_gate = all(
+        _on_the_gate_terms(
+            models[(name, seed)],
+            construct(
+                seed, rounds, _model=GatePooled, **FIXED, **kw
+            ).holdings.copy(),
+        )
+        for name, kw in CELLS.items()
+        for seed in seeds
+    )
+    return {
+        "rule": (
+            "the bidder pool admitted on the gate terms; everything else as "
+            "registered"
+        ),
+        "state": reading["state"] if reading["finite"] else "nonfinite",
+        "unstable_channels": reading["unstable_channels"],
+        "dropped_to_intersect": dropped,
+        "deviations": sorted(devs),
+        "tied_cells_reproduce_the_registered_run": all(
+            cells[n]["gap_by_seed"] == registered[n]["gap_by_seed"]
+            for n in ("both", "null")
+        ),
+        "pool_is_on_the_gate_terms": on_gate,
+        "cells": {
+            n: {
+                "gap_mean": round(c["gap_mean"], 6),
+                "gap_net_of_stretch": round(c["gap_net_of_stretch"], 6),
+                "gap_by_seed": [round(x, 6) for x in c["gap_by_seed"]],
+                "same_sign_across_seeds": c["same_sign_across_seeds"],
+                "paired_population": c["paired_population"],
+            }
+            for n, c in cells.items()
+        },
+    }
 
 
 def build_all(seeds: range, rounds: int, **extra) -> tuple[dict, dict, set[str]]:
@@ -456,7 +713,11 @@ def evaluate(cells: dict) -> dict:
             if not cells[n]["same_sign_across_seeds"]
         ]
         for n in unstable:
-            channel = "loop sum" if n == "H1_only" else "gate"
+            channel = (
+                "loop sum (pricing pool on the payment terms)"
+                if n == "H1_only"
+                else "gate (opening allocation)"
+            )
             notes.append(
                 f"the {channel} channel's gap changes sign across seeds, so "
                 f"its contribution is NOT DISTINGUISHABLE FROM ZERO and no "
@@ -720,18 +981,20 @@ def main() -> int:
     if reading["state"] != "void":
         print(f"    both channels on: gap {g['both']:+.4f}")
         print(f"    loop sum removed: gap {g['H0_only']:+.4f}  -- what is left "
-              f"is H0")
+              f"is H0 at the opening allocation; the pricing pool is "
+              f"levelled with the payment terms")
         print(f"    gate removed:     gap {g['H1_only']:+.4f}  -- what is left "
-              f"is H1")
+              f"is H1, with the pricing pool still admitted on the payment "
+              f"terms")
         for n in ("both", "H1_only", "H0_only"):
             c = cells[n]
             mark = "same sign" if c["same_sign_across_seeds"] else "SIGN FLIPS"
             print(f"      {n:9s} across seeds: {mark}, range "
                   f"[{c['gap_range'][0]:+.2f}, {c['gap_range'][1]:+.2f}]")
         if reading["share_h1"] is not None:
-            print(f"    attributable to H1 (loop sum): "
+            print(f"    attributable to H1 (loop sum, with the pricing pool): "
                   f"{reading['share_h1']:+.1%};"
-                  f"  to H0 (gate): {reading['share_h0']:+.1%}")
+                  f"  to H0 (gate at the opening allocation): {reading['share_h0']:+.1%}")
     if not reading["finite"]:
         print("    ** the gaps are not finite, so the state above is not a "
               "reading of anything: the paired population is empty")
@@ -743,6 +1006,52 @@ def main() -> int:
         print("\n  deviations reported by the model:")
         for d in devs:
             print(f"    {d}")
+
+    pools = pricing_pools(seeds, args.rounds, models)
+    single = pools["single_channel_cells"]
+    print("\n  the bidder pool that prices a tier is admitted on the payment "
+          "terms, so k_pay\n  moves it with the loop sum and k_gate reaches "
+          "the opening allocation alone.\n  Where the pool as run parts from "
+          "the pool the gate terms give:")
+    print("  cell         opening node-tiers  rounds  node-tier-rounds  "
+          "largest price gap, same balances")
+    for n, c in pools["by_cell"].items():
+        print(f"  {n:11s}  {c['opening_node_tiers']:18d}  {c['rounds']:6d}  "
+              f"{c['node_tier_rounds']:16d}  "
+              f"{c['largest_relative_price_gap']:10.4%}")
+    print(f"  the {single['runs']} single-channel runs together: "
+          f"{single['node_tier_rounds']:,} node-tier-rounds in "
+          f"{single['rounds']:,} rounds, {single['opening_node_tiers']} "
+          f"node-tiers at the opening, largest price gap "
+          f"{single['largest_relative_price_gap']:.4%} in "
+          f"{single['largest_at']['cell']} seed {single['largest_at']['seed']}")
+    if not pools["instrument_reproduces_the_run"]:
+        print("  ** the pool or the prices rebuilt from the payment terms are "
+              "not the ones the run recorded, so the table above compares "
+              "against something the run did not do")
+
+    other = pool_on_gate_terms(seeds, args.rounds, cells)
+    print("\n  the same four cells with the pool admitted on the gate terms, "
+          "so that removing\n  the loop sum leaves the pricing pool dispersed. "
+          "Printed, not scored:")
+    print("  cell         as registered   pool on gate terms   across seeds, "
+          "pool on gate terms")
+    for n, c in other["cells"].items():
+        mark = "same sign" if c["same_sign_across_seeds"] else "sign flips"
+        if n == "null":
+            mark = "zero calibration"
+        print(f"  {n:11s}  {cells[n]['gap_mean']:+13.4f}   "
+              f"{c['gap_mean']:+18.4f}   {mark}, "
+              f"[{min(c['gap_by_seed']):+.2f}, {max(c['gap_by_seed']):+.2f}]")
+    print(f"  state on that arm: {other['state']}; "
+          f"{other['dropped_to_intersect']} dropped to form its paired "
+          f"population")
+    if not other["tied_cells_reproduce_the_registered_run"]:
+        print("  ** the two cells with tied terms did not reproduce the "
+              "registered run: either the paired population moved or this "
+              "arm differs by more than the pool")
+    if not other["pool_is_on_the_gate_terms"]:
+        print("  ** a run on this arm was not priced from the gate-terms pool")
 
     grid = None
     if args.sweep:
@@ -763,7 +1072,8 @@ def main() -> int:
         if grid["share_h1_range"]:
             lo1, hi1 = grid["share_h1_range"]
             lo0, hi0 = grid["share_h0_range"]
-            print(f"    across the cells where a share was quotable, H1 ran "
+            print(f"    across the cells where a share was quotable, H1 (with the "
+                  f"pricing pool) ran "
                   f"{lo1:+.1%} to {hi1:+.1%} and H0 ran {lo0:+.1%} to "
                   f"{hi0:+.1%}. No threshold is registered for either, so the "
                   f"range is reported and not judged")
@@ -833,7 +1143,11 @@ def main() -> int:
                             f"sum only {reading['gaps']['H1_only']:+.4f}, gate "
                             f"only {reading['gaps']['H0_only']:+.4f}, null "
                             f"{reading['gaps']['null']:+.3e}. Mean-cost drift "
-                            f"at machine precision, below `1e-10`. "
+                            + (
+                                "at machine precision, below `1e-10`. "
+                                if reading["cost_drift"] < 1e-10
+                                else f"{reading['cost_drift']:.2e}, relative. "
+                            )
                             + (
                                 "Indistinguishable from zero across seeds: "
                                 + ", ".join(reading["unstable_channels"])
@@ -847,9 +1161,36 @@ def main() -> int:
                                      f"{reading['share_h1']:+.1%}, to H0 "
                                      f"{reading['share_h0']:+.1%}"
                             )
+                            + (
+                                f". The bidder pool that prices a tier is "
+                                f"admitted on the payment terms, so `k_pay` "
+                                f"moves it together with the loop sum and "
+                                f"`k_gate` reaches the opening allocation "
+                                f"alone: over the {single['runs']} "
+                                f"single-channel runs the pool as run and the "
+                                f"pool the gate terms give disagree on "
+                                f"{single['node_tier_rounds']:,} "
+                                f"node-tier-rounds in {single['rounds']:,} "
+                                f"rounds, a price gap of at most "
+                                f"{single['largest_relative_price_gap']:.2%} "
+                                f"from the same balances. Run again with the "
+                                f"pool admitted on the gate terms, so that "
+                                f"removing the loop sum leaves the pool "
+                                f"dispersed, the four gaps are both "
+                                f"{other['cells']['both']['gap_mean']:+.4f}, "
+                                f"loop sum only "
+                                f"{other['cells']['H1_only']['gap_mean']:+.4f}, "
+                                f"gate only "
+                                f"{other['cells']['H0_only']['gap_mean']:+.4f}, "
+                                f"null "
+                                f"{other['cells']['null']['gap_mean']:+.3e}, "
+                                f"state {other['state']}"
+                            )
                         ),
                     }
                 ],
+                "pricing_pool": pools,
+                "pool_on_gate_terms": other,
                 "sweep": grid if grid is not None else prior,
                 "cells": cells,
             },

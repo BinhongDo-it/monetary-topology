@@ -14,13 +14,21 @@ changes **which loops are the same loop**, not what any of them sums to. So
 "recompute omega on a coarser grid" has no referent, and this file does not do
 it. What it measures is
 
-    the same loops, how many distinguishable cycle classes they fall into at
-    each grid, and whether `omega` differs between those classes.
+    the measurable loops, how many distinct reduced path words they fall into
+    at each grid, and whether `omega` differs between those words.
 
-`b1` counts the dimension of the cycle space. This counts **how many of those
-directions the observed loops actually occupy, and whether the reading is the
-same number along each.** Two quantities on one ladder, which is what makes
-them comparable.
+`b1` counts the dimension of the cycle space. This counts **distinct reduced
+words**, which is a different object: a word is a closed walk, and many words
+can lie in the span of a few cycles. On 2019Q1 at `g0m` the modification arm
+has 431 words and the deferral arm 503, while the graph those same words walk
+has a cycle space of dimension 172 and 170; at `g2` each arm has two words, the
+two orientations of one triangle, in a space of dimension one. So the class
+count is a count of path words and not a count of independent directions, and
+setting it beside `b1` compares two different quantities on one ladder.
+
+A loop enters a grid's reading only if its reduced path is still a cycle at
+that grid, so the population can differ from grid to grid: a path that
+reduces to a point at `g2` drops out there and stays in at `g0m`.
 
 Nothing is recomputed here
 --------------------------
@@ -324,6 +332,15 @@ def g2_case_table(c, lp, paths, meas) -> dict:
     sit on the diagonal. Anything off it is a defect in **this** file: it means
     the reduction or the ``j = t_M - (t_A + 1)`` arithmetic disagrees with the
     window it claims to be reading.
+
+    **Scope with `--name99-node` on.** The prefix sums read ``dv != 0``, so a
+    `delinq == 99` row counts as delinquent here, while the paths keep it as
+    its own `D99` vertex. The table is then a three-label prediction compared
+    with four-label paths. On the six-archive run the off-diagonal reads 1, 4
+    and 5 on 2002Q1, 2006Q1 and 2007Q1 and 0 elsewhere, and every one of those
+    ten loops passes through `D99`; with `D99` projected into `delinquent` they
+    sit on the diagonal. Those ten are a mismatch between the check and the
+    `D99` vertex, not a defect in the reduction.
     """
     dq = np.asarray(c.row["delinq"])
     p = np.concatenate(([0], np.cumsum((dq != 0).astype(np.int64))))
@@ -1724,7 +1741,14 @@ def r2_null(codes, om, rng, n_perm: int = N_PERM) -> list:
 
 
 def variance_of(name: str) -> dict:
-    """Per (grid, arm): observed R^2, its permutation null, and E = obs - median."""
+    """Per (grid, arm): observed R^2, its permutation null, and E = obs - median.
+
+    The cell's population is the arm's measurable loops whose reduced path is
+    a cycle at this grid, so it differs across grids (2019Q1 modification arm:
+    3,767 loops at `g2`, 3,869 at `g0m`). With the `g2` loop set held fixed at
+    every grid, and the same seed rule, all twelve `E(g0m) - E(g2)` stay
+    positive and no `E` moves by more than 0.0162.
+    """
     pos, tab = LO.curve_table()
     c = K.Core(name, cols=LO.COLS)
     try:

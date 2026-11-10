@@ -8,23 +8,23 @@
       "passed": true
     },
     {
-      "detail": "first: in every cell retention and parking move the circulating half in opposite directions | (floor, rate) then (stock, circulating) for off, retention 1.0, and parking at 0.50: [(0.05, 1.0, (101.451763, 101.451763), (114.802508, 114.802508), (5247.873578, 22.910398)), (0.05, 2.0, (102.609349, 102.609349), (115.234523, 115.234523), (5240.283802, 22.922362)), (0.05, 4.0, (104.77314, 104.77314), (117.022866, 117.022866), (5219.610591, 22.951408)), (0.2, 1.0, (130.258281, 130.258281), (3092.027457, 3092.027457), (4269.793696, 23.936922)), (0.2, 2.0, (110.006855, 110.006855), (3037.290893, 3037.290893), (4080.514651, 19.301202)), (0.2, 4.0, (199.656842, 199.656842), (3485.438, 3485.438), (2837.626956, 30.504017))]",
+      "detail": "first: in every cell retention and parking move the circulating half in opposite directions | (floor, rate) then (stock, circulating) for off, retention 1.0, and parking at 0.50: [(0.05, 1.0, (101.451763, 101.451763), (114.802508, 114.802508), (5247.873578, 22.910398)), (0.05, 2.0, (102.609349, 102.609349), (115.234523, 115.234523), (5240.283802, 22.922362)), (0.05, 4.0, (104.77314, 104.77314), (117.022866, 117.022866), (5219.610591, 22.951408)), (0.2, 1.0, (130.258281, 130.258281), (3092.027457, 3092.027457), (4269.793696, 23.936922)), (0.2, 2.0, (159.374626, 159.374626), (3037.290893, 3037.290893), (3881.689028, 25.833028)), (0.2, 4.0, (199.656842, 199.656842), (3485.438, 3485.438), (2837.626956, 30.504017))]",
       "name": "A18_E2  the two halves under each mechanism",
       "passed": true
     },
     {
-      "detail": "(park, mean stock, mean circulating, mean parked, mean count below, mean flow), averaged over every floor, rate and seed: [(0.0, 185.146714, 185.146714, 0.0, 86.705263, 36794.020358), (0.05, 1925.894742, 171.310232, 1754.58451, 104.133333, 34731.644439), (0.2, 2724.999705, 56.883416, 2668.11629, 112.347368, 14856.477736), (0.5, 4127.04389, 28.242511, 4098.801379, 134.957895, 9188.047532)]",
+      "detail": "(park, mean stock, mean circulating, mean parked, mean count below, mean flow), issuance funding, averaged over every floor, rate and seed: [(0.0, 279.680118, 279.680118, 0.0, 79.088889, 50692.486371), (0.05, 1925.894742, 171.310232, 1754.58451, 104.133333, 34731.644439), (0.2, 3442.400188, 79.5834, 3362.816789, 101.977778, 19428.647017), (0.5, 4642.167302, 41.106227, 4601.061076, 106.666667, 12385.881571)] | the circulating mean is a closing value, and the opening holding is about 100 in every cell",
       "name": "A18_E3  how far the circulating half moves",
-      "passed": true
-    },
-    {
-      "detail": "first: the sign depends on the parking rate, positive throughout at [0.0, 0.5] and negative throughout at [0.2] | ranges by parking rate: {0.0: (1.078915, 1.499136), 0.2: (-0.58242, -0.370989), 0.5: (0.240025, 0.490836)} | every cell as (floor, park, repay, multiplier): [(0.2, 0.0, 0.05, 1.499136), (0.2, 0.0, 0.2, 1.468317), (0.2, 0.0, 0.5, 1.372016), (0.2, 0.0, 1.0, 1.078915), (0.2, 0.2, 0.05, -0.58242), (0.2, 0.2, 0.2, -0.574566), (0.2, 0.2, 0.5, -0.568853), (0.2, 0.2, 1.0, -0.559499), (0.2, 0.5, 0.05, 0.476646), (0.2, 0.5, 0.2, 0.490245), (0.2, 0.5, 0.5, 0.490836), (0.2, 0.5, 1.0, 0.486955)]",
-      "name": "A18_E5  output per unit repaid, at each parking rate",
       "passed": true
     },
     {
       "detail": "printed and not judged, because the three sets are different sizes and a difference between them is partly that | floor 0.50, rate 2.0, park 0.20 | (target, stock, circulating, count below, flow): [('financial', 3688.506199, 100.618318, 110.6, 26664.903109), ('all', 4233.483876, 55.50727, 119.8, 17538.709349), ('recapitalised', 3597.226933, 234.311475, 106.2, 47333.651509)]",
       "name": "A18_E4  who parks",
+      "passed": true
+    },
+    {
+      "detail": "first: the sign depends on the parking rate, positive throughout at [0.0, 0.5] and negative throughout at [0.2] | ranges by parking rate, total flow per unit repaid: {0.0: (1.078915, 1.499136), 0.2: (-0.58242, -0.370989), 0.5: (0.240025, 0.490836)} | the same with the repayment's own unit taken out: {0.0: (0.078915, 0.499136), 0.2: (-1.58242, -1.370989), 0.5: (-0.759975, -0.509164)} | every cell as (floor, park, repay, per unit, per unit less the repayment): [(0.2, 0.0, 0.05, 1.499136, 0.499136), (0.2, 0.0, 0.2, 1.468317, 0.468317), (0.2, 0.0, 0.5, 1.372016, 0.372016), (0.2, 0.0, 1.0, 1.078915, 0.078915), (0.2, 0.2, 0.05, -0.58242, -1.58242), (0.2, 0.2, 0.2, -0.574566, -1.574566), (0.2, 0.2, 0.5, -0.568853, -1.568853), (0.2, 0.2, 1.0, -0.559499, -1.559499), (0.2, 0.5, 0.05, 0.476646, -0.523354), (0.2, 0.5, 0.2, 0.490245, -0.509755), (0.2, 0.5, 0.5, 0.490836, -0.509164), (0.2, 0.5, 1.0, 0.486955, -0.513045)]",
+      "name": "A18_E5  claim turnover per unit repaid, at each parking rate",
       "passed": true
     }
   ],
@@ -33,7 +33,7 @@
   "f2i": 30,
   "plan": {
     "arm": "E",
-    "funding": "issuance throughout, drawdown throughout",
+    "funding": "issuance on the park, retention and target grids; creditors on the E5 sub-grid, 150 rows, where repayment is crossed with parking; drawdown throughout",
     "need_multiples": [
       0.05,
       0.2,

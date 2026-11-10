@@ -1,0 +1,400 @@
+{
+ "config": {
+  "edges": [
+   "buy",
+   "hold",
+   "sell",
+   "rent"
+  ],
+  "fetched_by": "experiments/b144_fetch.py --only law",
+  "levels": [
+   "official text",
+   "official description",
+   "relay of an official notice",
+   "third-party copy of a statute"
+  ],
+  "pages": "data/raw/b144/law",
+  "vocabulary": [
+   "status",
+   "standing",
+   "depth",
+   "household",
+   "vintage",
+   "legal_person",
+   "position"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "11 rows, 22 passages, 11 cached pages; every passage is on its page and every page carries a row. Levels: official text 6, relay of an official notice 1, third-party copy of a statute 3, official description 1",
+   "kind": "bookkeeping",
+   "name": "B144-C0",
+   "passed": true,
+   "statement": "Every row has its words on a cached page and every cached page carries a row."
+  },
+  {
+   "detail": "6 provisions on the buy, hold and sell edges in 6 jurisdictions: Singapore: depth, legal_person, status; China: depth, household; Shanghai: depth, household, standing, status; Korea: depth, legal_person; United States: status; California: vintage. Provisions drawing on each: status 3, standing 1, depth 4, household 2, vintage 1, legal_person 2, position 3",
+   "kind": "own_reading",
+   "name": "B144-C1",
+   "passed": true,
+   "statement": "On the buy, hold and sell edges every jurisdiction read draws a line on the person or on what the person already holds."
+  },
+  {
+   "detail": "SG-1 Singapore: 8 classes named, 7 different values (0, 20, 30, 5, 30, 35, 60, 65 percent); CN-1 China: 4 classes named, 3 different values (1, 1.5, 1, 2 percent); US-1 United States: 2 classes named, 2 different values (15, 0 percent)",
+   "kind": "own_reading",
+   "name": "B144-C2",
+   "passed": true,
+   "statement": "A provision that writes numbers writes more than one for one dwelling."
+  },
+  {
+   "detail": "5 provisions on the rent edge in 3 jurisdictions; 5 bind the landlord toward the tenant already in (KR-2, KR-3, DE-1, DE-2, JP-1); 2 let the landlord's own household take the dwelling back",
+   "kind": "own_reading",
+   "name": "B144-C3",
+   "passed": true,
+   "statement": "On the rent edge the rules bind the landlord toward the tenant already in, which is a class by date of entry."
+  },
+  {
+   "detail": "8 of 8 seeded faults named",
+   "kind": "instrument",
+   "name": "B144-C4",
+   "passed": true,
+   "statement": "The reader of rows names every seeded fault."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "objects": {
+  "B144-C0": {
+   "faults": []
+  },
+  "B144-C1": {
+   "by_jurisdiction": {
+    "California": [
+     "vintage"
+    ],
+    "China": [
+     "depth",
+     "household"
+    ],
+    "Korea": [
+     "depth",
+     "legal_person"
+    ],
+    "Shanghai": [
+     "depth",
+     "household",
+     "standing",
+     "status"
+    ],
+    "Singapore": [
+     "depth",
+     "legal_person",
+     "status"
+    ],
+    "United States": [
+     "status"
+    ]
+   },
+   "tally": {
+    "depth": 4,
+    "household": 2,
+    "legal_person": 2,
+    "position": 3,
+    "standing": 1,
+    "status": 3,
+    "vintage": 1
+   }
+  },
+  "B144-C2": {
+   "provisions": [
+    {
+     "classes": 8,
+     "distinct_values": 7,
+     "id": "SG-1",
+     "values": [
+      0,
+      20,
+      30,
+      5,
+      30,
+      35,
+      60,
+      65
+     ],
+     "where": "Singapore"
+    },
+    {
+     "classes": 4,
+     "distinct_values": 3,
+     "id": "CN-1",
+     "values": [
+      1,
+      1.5,
+      1,
+      2
+     ],
+     "where": "China"
+    },
+    {
+     "classes": 2,
+     "distinct_values": 2,
+     "id": "US-1",
+     "values": [
+      15,
+      0
+     ],
+     "where": "United States"
+    }
+   ]
+  },
+  "B144-C3": {
+   "rent_rows": [
+    "KR-2",
+    "KR-3",
+    "DE-1",
+    "DE-2",
+    "JP-1"
+   ],
+   "sitting": [
+    "KR-2",
+    "KR-3",
+    "DE-1",
+    "DE-2",
+    "JP-1"
+   ]
+  },
+  "B144-C4": {
+   "plants": {
+    "a letter changed in a passage": true,
+    "a page gone from the cache": true,
+    "a page with no row": true,
+    "a row with no passage": true,
+    "a word outside the vocabulary": true,
+    "an edge that is not one": true,
+    "an id used twice": true,
+    "classes without values": true
+   }
+  }
+ },
+ "rows": [
+  {
+   "classes": [
+    "citizen, first",
+    "citizen, second",
+    "citizen, third and more",
+    "permanent resident, first",
+    "permanent resident, second",
+    "permanent resident, third and more",
+    "foreigner",
+    "entity"
+   ],
+   "drawn_on": [
+    "status",
+    "depth",
+    "legal_person"
+   ],
+   "edge": "buy",
+   "id": "SG-1",
+   "level": "official text",
+   "page": "sg_absd.html",
+   "values": [
+    0,
+    20,
+    30,
+    5,
+    30,
+    35,
+    60,
+    65
+   ],
+   "what": "Additional Buyer's Stamp Duty, rates on or after 27 Apr 2023",
+   "where": "Singapore",
+   "words": [
+    "SC buying second residential property 1 17% 20%",
+    "Singapore Permanent Residents (SPR) buying first residential property 1 5% 5%",
+    "Foreigners (FR) buying any residential property 1 30% 60%",
+    "Entities 2 buying any residential property 1 35% 65%"
+   ]
+  },
+  {
+   "classes": [
+    "only dwelling of the family, 140 m2 or less",
+    "only dwelling, above 140 m2",
+    "second dwelling, 140 m2 or less",
+    "second dwelling, above 140 m2"
+   ],
+   "drawn_on": [
+    "depth",
+    "household",
+    "position"
+   ],
+   "edge": "buy",
+   "id": "CN-1",
+   "level": "official text",
+   "page": "cn_deedtax.html",
+   "values": [
+    1,
+    1.5,
+    1,
+    2
+   ],
+   "what": "deed tax, announcement 16 of 2024, in force 2024-12-01",
+   "where": "China",
+   "words": [
+    "对个人购买家庭唯一住房（家庭成员范围包括购房人、配偶以及未成年子女，下同），面积为140平方米及以下的，减按1%的税率征收契税",
+    "对个人购买家庭第二套住房，面积为140平方米及以下的，减按1%的税率征收契税；面积为140平方米以上的，减按2%的税率征收契税"
+   ]
+  },
+  {
+   "drawn_on": [
+    "status",
+    "standing",
+    "depth",
+    "household",
+    "position"
+   ],
+   "edge": "buy",
+   "id": "CN-2",
+   "level": "relay of an official notice",
+   "page": "cn_sh_xinhua.html",
+   "what": "purchase limits, notice of 2025-08-25",
+   "where": "Shanghai",
+   "words": [
+    "上海户籍居民家庭、在上海市连续缴纳社会保险或个人所得税满1年及以上的非沪籍居民家庭，在外环外购买住房不限套数",
+    "成年单身人士按照居民家庭执行住房限购政策",
+    "非沪籍居民家庭和非沪籍成年单身人士，自购房之日前在上海市连续缴纳社会保险或个人所得税满3年及以上的，在外环内限购1套住房"
+   ]
+  },
+  {
+   "drawn_on": [
+    "depth",
+    "legal_person",
+    "position"
+   ],
+   "edge": "buy",
+   "id": "KR-1",
+   "level": "third-party copy of a statute",
+   "page": "kr_localtax_13_2.html",
+   "what": "Local Tax Act art. 13-2, heavier acquisition tax",
+   "where": "Korea",
+   "words": [
+    "1세대 3주택 이상에 해당하는 주택으로서 조정대상지역에 있는 주택을 취득하는 경우",
+    "중과기준세율의 100분의 400을 합한 세율"
+   ]
+  },
+  {
+   "classes": [
+    "foreign person",
+    "any other seller"
+   ],
+   "drawn_on": [
+    "status"
+   ],
+   "edge": "sell",
+   "id": "US-1",
+   "level": "official text",
+   "page": "us_1445.html",
+   "values": [
+    15,
+    0
+   ],
+   "what": "26 U.S.C. 1445(a), withholding on a disposition",
+   "where": "United States",
+   "words": [
+    "the transferee shall be required to deduct and withhold a tax equal to 15 percent of the amount realized on the disposition"
+   ]
+  },
+  {
+   "drawn_on": [
+    "vintage"
+   ],
+   "edge": "hold",
+   "id": "US-2",
+   "level": "official description",
+   "page": "us_boe_pub29.pdf",
+   "what": "Proposition 13 as the tax board describes it",
+   "where": "California",
+   "words": [
+    "properties are reassessed to current market value only upon a change in ownership or completion of new construction",
+    "to no more than 2 percent"
+   ]
+  },
+  {
+   "drawn_on": [
+    "vintage",
+    "household"
+   ],
+   "edge": "rent",
+   "id": "KR-2",
+   "level": "third-party copy of a statute",
+   "page": "kr_lease_6_3.html",
+   "what": "Housing Lease Protection Act art. 6-3, renewal",
+   "where": "Korea",
+   "words": [
+    "임차인은 제1항에 따른 계약갱신요구권을 1회에 한하여 행사할 수 있다. 이 경우 갱신되는 임대차의 존속기간은 2년으로 본다.",
+    "임대인(임대인의 직계존속ㆍ직계비속을 포함한다)이 목적 주택에 실제 거주하려는 경우"
+   ]
+  },
+  {
+   "drawn_on": [
+    "vintage"
+   ],
+   "edge": "rent",
+   "id": "KR-3",
+   "level": "third-party copy of a statute",
+   "page": "kr_lease_7.html",
+   "what": "Housing Lease Protection Act art. 7, increase",
+   "where": "Korea",
+   "words": [
+    "증액청구는 약정한 차임이나 보증금의 20분의 1의 금액을 초과하지 못한다"
+   ]
+  },
+  {
+   "drawn_on": [
+    "vintage",
+    "household"
+   ],
+   "edge": "rent",
+   "id": "DE-1",
+   "level": "official text",
+   "page": "de_bgb_573.html",
+   "what": "BGB 573, ordinary termination by the landlord",
+   "where": "Germany",
+   "words": [
+    "Vermieter kann nur kündigen, wenn er ein berechtigtes Interesse an der Beendigung des Mietverhältnisses hat. Die Kündigung zum Zwecke der Mieterhöhung ist ausgeschlossen.",
+    "der Vermieter die Räume als Wohnung für sich, seine Familienangehörigen oder Angehörige seines Haushalts benötigt"
+   ]
+  },
+  {
+   "drawn_on": [
+    "vintage",
+    "position"
+   ],
+   "edge": "rent",
+   "id": "DE-2",
+   "level": "official text",
+   "page": "de_bgb_558.html",
+   "what": "BGB 558, increase up to the local comparative rent",
+   "where": "Germany",
+   "words": [
+    "nicht um mehr als 20 vom Hundert erhöhen (Kappungsgrenze)",
+    "Der Prozentsatz nach Satz 1 beträgt 15 vom Hundert"
+   ]
+  },
+  {
+   "drawn_on": [
+    "vintage"
+   ],
+   "edge": "rent",
+   "id": "JP-1",
+   "level": "official text",
+   "page": "jp_shakuchi_28.xml",
+   "what": "Act on Land and Building Leases art. 28",
+   "where": "Japan",
+   "words": [
+    "正当の事由があると認められる場合でなければ、することができない"
+   ]
+  }
+ ],
+ "stage": "B144"
+}

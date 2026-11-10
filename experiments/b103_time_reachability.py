@@ -116,7 +116,8 @@ def fit(n, edges, w, omega):
     The potential and the pseudoinverse come from the singular value decomposition of the
     weighted incidence matrix, whose condition number the Laplacian squares. On B103-3's
     bridge ladder, at its weakest rung, the two are about 9e2 and 7e5, and D reads constant
-    across the ladder to about 4e-11 through the Laplacian and to about 5e-12 this way.
+    across the ladder to about 4e-11 through the Laplacian and to about 5e-12 this way on the
+    build that first wrote the record, and to 1.5e-10 and 2.0e-12 on a Windows build.
     """
     B = incidence(n, edges)
     w = np.asarray(w, dtype=float)
@@ -148,7 +149,7 @@ def pinned(L, Lp, b):
 
 
 def closed_form(Lp, phi, n, i, j, we, oe, mutate=None):
-    """Proposition 2. `mutate` names a seeded error the self-test must catch."""
+    """Theorem 41 (2) in closed form. `mutate` names a seeded error the self-test must catch."""
     b = unit(n, i, j)
     u = Lp @ b
     R = float(b @ u)
@@ -281,10 +282,11 @@ def limits(rng, theta_fn=identity):
     """Walk R up across a bridge and down inside a dense block, and measure what moves.
 
     The fraction of D absorbed into the ends' relative level is measured from the two fits,
-    not read off Proposition 2, so the walk says something the closed form has not already
+    not read off Theorem 41 (2), so the walk says something the closed form has not already
     said. `theta_fn` is applied to that measurement; the self-test plants an inverted one.
-    Each walk's term on the new edge is set one to three units away from the pre-action
-    difference, so no seed can make D small enough to blur the measured fraction.
+    Each walk's term on the new edge is set at least one unit away from the pre-action
+    difference (one plus the absolute value of a standard normal draw), so no seed can make
+    D small enough to blur the measured fraction.
     """
     size = 6
     ea, _ = random_connected(rng, size, 0.5)

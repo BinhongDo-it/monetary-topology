@@ -716,7 +716,7 @@ Z / N  >  4
 ```
 
 the same factor B3-3 used. **`Z` and `N` are computed on the same set of dates
-and with the same aggregation.** A6's noise floor was once computed on
+and with the same aggregation.** B3's noise floor was once computed on
 2012–2025 while its signal was computed on 2000–2025, **and a noise floor
 computed on a different population from the signal is a defect of its own**.
 
@@ -1336,7 +1336,10 @@ component, so the position is **not priced** rather than badly priced, and it is
 `H⁰`.
 
 **This stage does not measure that, and no single cross-section can.** The
-observable for `H⁰` is **the absence of a quote**, and absence is
+observable for `H⁰` starts from **the absence of a quote**, and it is `H⁰`
+only when no directed path leads back through other edges (`b4` §5.2); on this
+carrier such a path would run through the MEP, CCL or informal legs, which were
+not traced. Absence is
 indistinguishable in data from an incomplete dataset. The only way to fill it is
 prohibited by `b4` §5.2: another class's quote, a lagged quote, or a nominal
 official rate at which no transaction is possible fills the gap with exactly the

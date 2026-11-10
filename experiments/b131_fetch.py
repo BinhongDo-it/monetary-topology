@@ -1,7 +1,7 @@
 """Fetch the B131 sources: interest before and after FISIM allocation by sector, deposit and
 loan stocks by sector, the ESA 2010 chapter that defines FISIM, and one ECB box.
 
-Nine files, each named in FILES with the URL it came from.
+Ten files, each named in FILES with the URL it came from.
 
   - nasa_10_nf_tr_d41.json: Eurostat annual non-financial sector accounts, items D41
     (interest) and D41G (total interest before FISIM allocation), sectors S14_S15 and S11,
@@ -12,8 +12,12 @@ Nine files, each named in FILES with the URL it came from.
     assets and liabilities, non-consolidated, million euro.
   - nasa_10_nf_tr_b6g_p3.json: household disposable income (B6G) and final consumption
     expenditure (P3), S14_S15, current prices, million euro; the denominators for the ECB box.
-  - nasa_10_nf_tr_s1.json: total economy (S1) GDP (B1GQ), exports (P62F) and imports (P72F) of
-    FISIM, current prices, million euro.
+  - nasa_10_nf_tr_s1.json: total economy (S1) GDP (B1GQ), current prices, million euro. The
+    request also names exports (P62F) and imports (P72F) of FISIM; the source lists both items
+    and carries no value for either under S1.
+  - nasa_10_nf_tr_fisim_trade.json: exports (P62F) and imports (P72F) of FISIM, rest of the
+    world (S2), paid and received, current prices, million euro. Exports sit under S2 paid,
+    imports under S2 received.
   - mir_outstanding.csv: ECB MIR, outstanding amounts, monthly, every reference area: loans (A20) and
     deposits with agreed maturity (L22), all maturities, to non-financial corporations (2240) and
     households (2250), percent per annum. Overnight deposit rates are the same series for new
@@ -31,8 +35,10 @@ Nine files, each named in FILES with the URL it came from.
 Rules this obeys:
   - resumable: a file on disk that passes its check is skipped
   - never deletes: a file that fails its check is renamed .bad_<n> and fetched again
-  - checks: HTTP 200; a JSON file parses, carries "value" and "dimension", no "error", and
-    at least MIN_VALUES values; an HTML file is over 20 KB and holds its marker phrase
+  - checks: HTTP 200; a JSON file parses, carries "value" and "dimension", no "error", at
+    least MIN_VALUES values, and at least MIN_ITEM values for each item named there (a reply
+    can list an item in its dimensions and carry nothing for it); an HTML file is over 20 KB
+    and holds its marker phrase
   - measured cost only (`D38`): each request prints its seconds and bytes
 
 Run from the repo root:
@@ -70,6 +76,8 @@ FILES = {
                                  "&unit=CP_MEUR&format=JSON&lang=EN",
     "nasa_10_nf_tr_s1.json": API + "nasa_10_nf_tr?na_item=B1GQ&na_item=P62F&na_item=P72F"
                              "&sector=S1&unit=CP_MEUR&format=JSON&lang=EN",
+    "nasa_10_nf_tr_fisim_trade.json": API + "nasa_10_nf_tr?na_item=P62F&na_item=P72F"
+                                      "&sector=S2&unit=CP_MEUR&format=JSON&lang=EN",
     "mir_outstanding.csv": "https://data-api.ecb.europa.eu/service/data/MIR/"
                            "M..B.A20+L22.A.R.A.2240+2250.EUR.O?format=csvdata",
     "mir_notice.csv": "https://data-api.ecb.europa.eu/service/data/MIR/"
@@ -81,7 +89,11 @@ FILES = {
                                "ecb.ebbox202308_05~68f551afd4.en.html",
 }
 MIN_VALUES = {"nasa_10_nf_tr_d41.json": 5000, "nasa_10_f_bs_dep_loans.json": 5000,
-              "nasa_10_nf_tr_b6g_p3.json": 1000, "nasa_10_nf_tr_s1.json": 1500}
+              "nasa_10_nf_tr_b6g_p3.json": 1000, "nasa_10_nf_tr_s1.json": 1500,
+              "nasa_10_nf_tr_fisim_trade.json": 400}
+# values per na_item, for the files whose items are read one by one
+MIN_ITEM = {"nasa_10_nf_tr_s1.json": {"B1GQ": 1500},
+            "nasa_10_nf_tr_fisim_trade.json": {"P62F": 200, "P72F": 200}}
 MIN_ROWS = {"mir_outstanding.csv": 5000, "mir_notice.csv": 2000, "bsi_stocks.csv": 20000}
 MARKER = {"esa2010_ch14.html": "reference rate", "ecb_eb_2023_8_box5.html": "FISIM"}
 
@@ -99,6 +111,10 @@ def check_bytes(name: str, data: bytes) -> str | None:
             return "no value or dimension block"
         if len(d["value"]) < MIN_VALUES[name]:
             return f"{len(d['value'])} values, fewer than {MIN_VALUES[name]}"
+        counts = item_counts(d)
+        thin = {it: counts.get(it, 0) for it, least in MIN_ITEM.get(name, {}).items() if counts.get(it, 0) < least}
+        if thin:
+            return "items with too few values: " + ", ".join(f"{it} {n}" for it, n in thin.items())
         return None
     if name.endswith(".csv"):
         text = data.decode("utf-8", "replace")
@@ -115,6 +131,23 @@ def check_bytes(name: str, data: bytes) -> str | None:
     if MARKER[name].lower() not in data.decode("utf-8", "replace").lower():
         return f"marker {MARKER[name]!r} absent"
     return None
+
+
+def item_counts(d: dict) -> dict:
+    """Values per na_item in a JSON-stat reply, read off the flat index."""
+    ids, size = d.get("id", []), d.get("size", [])
+    if "na_item" not in ids:
+        return {}
+    k = ids.index("na_item")
+    stride = 1
+    for s in size[k + 1:]:
+        stride *= s
+    code = {i: c for c, i in d["dimension"]["na_item"]["category"]["index"].items()}
+    out = {}
+    for flat in d["value"]:
+        it = code[(int(flat) // stride) % size[k]]
+        out[it] = out.get(it, 0) + 1
+    return out
 
 
 def set_aside(path: Path) -> None:
@@ -175,6 +208,21 @@ def selftest() -> None:
         {"error": {"status": 413}}).encode()) is not None, "a source error must fail"
     assert check_bytes("nasa_10_nf_tr_d41.json", json.dumps(
         {"value": {"0": 1}, "dimension": {}}).encode()) is not None, "a thin reply must fail"
+    # a reply that lists an item and carries nothing for it: GDP alone must not pass for GDP and trade
+    def stat(per_item):
+        items = list(per_item)
+        n = max(per_item.values()) or 1
+        value = {str(i * n + j): 1.0 for i, it in enumerate(items) for j in range(per_item[it])}
+        return json.dumps({"id": ["na_item", "time"], "size": [len(items), n], "value": value,
+                           "dimension": {"na_item": {"category": {"index": {it: i for i, it in enumerate(items)}}},
+                                         "time": {"category": {"index": {str(j): j for j in range(n)}}}}}).encode()
+    assert item_counts(json.loads(stat({"B1GQ": 3, "P62F": 0, "P72F": 2}))) == {"B1GQ": 3, "P72F": 2}
+    assert check_bytes("nasa_10_nf_tr_s1.json", stat({"B1GQ": 2000, "P62F": 0, "P72F": 0})) is None
+    assert check_bytes("nasa_10_nf_tr_s1.json", stat({"B1GQ": 1400, "P62F": 300, "P72F": 300})) is not None, \
+        "GDP too thin must fail even when the file has enough values in all"
+    assert check_bytes("nasa_10_nf_tr_fisim_trade.json", stat({"P62F": 600, "P72F": 0})) is not None, \
+        "a trade file with no imports must fail"
+    assert check_bytes("nasa_10_nf_tr_fisim_trade.json", stat({"P62F": 600, "P72F": 600})) is None
     csv = "\n".join(["KEY,OBS_VALUE"] + ["k,1"] * 6000).encode()
     assert check_bytes("mir_outstanding.csv", csv) is None
     assert check_bytes("mir_outstanding.csv", b"KEY,OBS_VALUE\nk,1\n") is not None, "thin CSV must fail"
@@ -187,7 +235,7 @@ def selftest() -> None:
         p.write_bytes(b"1")
         set_aside(p)
         assert (Path(tmp) / "a.json.bad_1").exists() and not p.exists()
-    print("selftest ok: cut, error, thin and marker-less files fail; set_aside renames")
+    print("selftest ok: cut, error, thin, item-empty and marker-less files fail; set_aside renames")
 
 
 if __name__ == "__main__":

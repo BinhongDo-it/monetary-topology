@@ -5,7 +5,12 @@ the price of those that have not?
 The position is overnight borrowing by a depository institution, and its price is the size
 arm's RC-K reading (`experiments/b59_size_spread.py`: the quarter's expense on fed funds
 purchased and repo sold over their quarterly average, where repo is absent at both quarter
-ends). The posted price is the primary credit rate, which 12 CFR 201.4(a) offers "as a backup
+ends). That reading is a quarter's average rate on one filed line. The form lets the average
+be taken over daily or over Wednesday closes, and repo inside the quarter is not seen, so it
+is the overnight fed funds price where the balance was fed funds throughout and the filed
+average is the balance the expense accrued on. Wherever this file says a filer paid above the
+rate, it means that reading stands above the quarter's mean primary credit rate; `DEFINITIONS`
+puts the same words in each record. The posted price is the primary credit rate, which 12 CFR 201.4(a) offers "as a backup
 source of funding to a depository institution that is in generally sound financial condition
 in the judgment of the Reserve Bank", secured under 201.3(a)(2).
 
@@ -338,6 +343,28 @@ RIVAL_ENTAILMENT = ("if every sound institution can borrow at the posted rate, n
                     "institution has borrowed at the window; so inside a size band, quarter and asset bin the "
                     "share paying above the rate is the same outside the class and inside it, a difference of zero")
 
+#: What the words in the two records mean. The price is an indicator built from two filed lines, and
+#: "paying above the rate" is shorthand for where that indicator stands.
+DEFINITIONS = {
+    "price": "the RC-K indicator of experiments/b59_size_spread.py, percent a year: the quarter's expense on federal "
+             "funds purchased and securities sold under agreements to repurchase (RIAD 4180, year to date, differenced) "
+             "over the quarterly average of the same two liabilities together (RC-K 3353), read only where repo is zero "
+             "at both quarter ends. It is a quarter's average rate on that line. The form lets the average be taken over "
+             "daily or over Wednesday closes, and repo inside the quarter is not seen, so it is the price of overnight "
+             "federal funds where the balance was federal funds throughout and the filed average is the balance the "
+             "expense accrued on",
+    "paying above the rate": "a filer-quarter whose price, so defined, stands above the quarter's mean primary credit "
+                             "rate; a share paying above the rate is a share of filer-quarters",
+    "class difference": "outside minus inside the class, of that share or of its log odds, inside a size band, quarter "
+                        "and asset bin, weighted and pooled as the configuration says. The rival's zero rests on the "
+                        "indicator's departures from the price paid not differing by class inside a bin",
+    "crossed difference": "the class difference at one height in the span when the primary credit rate stood there, "
+                          "minus the same in the other span. A share above a height is not linear in the level of "
+                          "prices, and the readings kept change with the height, so a move of both classes' prices "
+                          "between the spans enters it. It describes the two spans at the two heights; by itself it "
+                          "does not isolate what the rate's height adds",
+}
+
 #: state of every verdict reading at once -> (passed, grid) for a rival criterion, and -> passed for the change
 RIVAL_MAP = {"above": (True, "B"), "below": (True, "both_unmet"), "unread": (None, "unread")}
 CHANGE_MAP = {"above": True, "below": False, "unread": None}
@@ -608,6 +635,7 @@ def run_record(draws: int, seeds: list, out=print) -> dict:
                     "near": [wn["near"], wn["quarter"]]}
     return {
         "stage": "B113",
+        "definitions": DEFINITIONS,
         "config": {
             "loans_cache": "data/cache/b113_dw_loans.json", "loans_cache_sha256": s59.sha256_of(dwl.CACHE),
             "call_report_cache": "data/cache/b59_call_report.json", "call_report_cache_sha256": s59.sha256_of(drv.CACHE),
@@ -1452,7 +1480,8 @@ def run_after_2020(draws: int, seeds: list, out=print) -> dict:
     _years, effr_q = s59.load_effr()
     qrows = s59.quarter_rows(panel, "2010Q1", "2026Q2")
     timing = lambda q: edge_timing(q, by_q)  # noqa: E731
-    rec = {"stage": "B113", "part": "after 2020Q1", "objects": {}, "timing_objects": {}, "readings": {},
+    rec = {"stage": "B113", "part": "after 2020Q1", "definitions": DEFINITIONS,
+           "objects": {}, "timing_objects": {}, "readings": {},
            "rate_moved_inside": sorted(q for q, (_m, low, high) in pcr.items() if high > low and "2010Q1" <= q <= "2026Q2")}
     obs_all = arm_obs(qrows, "all", secondary)
     for label, spans in (("stretches", CROSSING_SPANS), ("years", YEAR_SPANS)):

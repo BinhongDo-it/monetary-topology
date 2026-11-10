@@ -11,7 +11,7 @@ edges; moving a position between classes carries no price, so the form is zero o
 every agent edge. Write ``wbar`` for the mean of the ``w_a`` and ``u_a`` for the
 deviations.
 
-The claim, checked below three independent ways::
+The claim, checked below by four routes (brute force, mode by mode, closed form, projector)::
 
     dist(omega, im d0)^2
         = sum_a ||w_a||^2  -  sum_{k, lam>0} <v_lam, delta_G what_k>^2 / (lam + mu_k)
@@ -35,8 +35,8 @@ The two readings this file exists to establish:
    uncoupled) recovers ``A`` separate one-index theories; sending ``mu -> inf``
    (classes perfectly comparable) leaves the deviation standing in full. Hence
    ``rho * D^2 <= R <= D^2`` with ``rho = mu_1 / (lam_max + mu_1)`` and
-   ``D^2 = sum_a ||u_a||^2``, both endpoints fixed by the two graphs, not by the
-   prices.
+   ``D^2 = sum_a ||u_a||^2``; the two multipliers, ``rho`` and one, are fixed by the
+   two graphs and not by the prices.
 
 Usage::
 
@@ -106,7 +106,7 @@ def assemble(adj_g: np.ndarray, adj_h: np.ndarray, w: np.ndarray) -> np.ndarray:
 
 
 # --------------------------------------------------------------------------
-# the three routes to the same number
+# the four routes to the same number
 # --------------------------------------------------------------------------
 
 
@@ -134,12 +134,15 @@ def residual_bruteforce(
 def residual_projector(
     adj_g: np.ndarray, adj_h: np.ndarray, w: np.ndarray, t: float = 1.0
 ) -> float:
-    """A fourth route that shares no code with the other three.
+    """A fourth route, independent of the spectral algebra of the other three.
 
     Builds ``L_Gamma`` from the product graph directly, inverts it on its own
     eigenbasis, and never touches the mode transform, the Kronecker structure or
-    ``lstsq``. If the product structure were being assumed rather than used, this
-    is the route that would disagree.
+    ``lstsq``. It shares the graph construction (``box_product``,
+    ``incidence_matrix``, ``assemble``, ``_weights``) with the brute-force route,
+    so its agreement with that route checks the spectral algebra and not the
+    construction; R-6 covers the construction. If the product structure were
+    being assumed rather than used, this is the route that would disagree.
     """
     box = box_product(adj_g, adj_h)
     d0 = incidence_matrix(box)
@@ -291,7 +294,7 @@ def run(seed: int, trials: int) -> int:
     bad += abs(got) > 1e-9
 
     print()
-    print("R-5  what the damping does, one shape, mu swept by rewiring H")
+    print("R-5  what the damping does, one shape, mu swept by rewiring H (printed only, no assertion)")
     adj_g = random_connected(5, 2, rng)
     e_g = len(undirected_pairs(adj_g))
     w = rng.normal(size=(4, e_g))
@@ -421,6 +424,7 @@ def run(seed: int, trials: int) -> int:
     print("R-11  stress: 300 random shapes, all four routes")
     worst = 0.0
     worst_shape = None
+    bound_fail = 0
     for _ in range(300):
         n = int(rng.integers(3, 13))
         m = int(rng.integers(2, 9))
@@ -439,10 +443,12 @@ def run(seed: int, trials: int) -> int:
         if rel > worst:
             worst, worst_shape = rel, (n, eg, m, eh)
         _, r, dev2, rho = split(adj_g, adj_h, w)
-        bad += not (rho * dev2 - 1e-8 <= r <= dev2 + 1e-8)
+        out = not (rho * dev2 - 1e-8 <= r <= dev2 + 1e-8)
+        bound_fail += out
+        bad += out
     print(f"  worst relative spread across four routes: {worst:.2e}"
           f"   at (n, b1G, m, b1H) = {worst_shape}")
-    print("  bounds of Corollary 5.3 held on all 300")
+    print(f"  bounds of Corollary 5.3 held on {300 - bound_fail} of 300")
     bad += worst > 1e-8
 
     print()

@@ -31,8 +31,11 @@ from experiments.a1d_measured_cushion import (  # noqa: E402
     PAIR_SIGMA,
     _touched,
     behind_in_window,
+    distinct_families,
     ever_missed_by_group,
     free_list,
+    liquid_composition,
+    refused_pairs,
     scorable_pairs,
 )
 
@@ -153,7 +156,7 @@ def target(rate, families) -> dict:
 
     return {
         "rate": list(rate),
-        "families": list(families),
+        "family_equivalents": list(families),
         "rows": [f * IMPLICATES for f in families],
         "reporting_rows": [round(p * f) for p, f in zip(rate, families)],
         "standard_error": [math.sqrt(p * (1 - p) / f) if f else float("inf")
@@ -169,7 +172,8 @@ def test_a_well_separated_pair_is_scored() -> None:
 
 
 def test_a_pair_the_source_cannot_resolve_is_not_scored() -> None:
-    """The A1b-1 defect. Eleven households against five, four basis points."""
+    """The A1b-1 defect. Eleven reporting implicate rows against five, four
+    basis points."""
     admitted, rows = scorable_pairs(target((0.0022, 0.0026), (694, 569)),
                                     [500_000, 500_000])
     assert admitted == []
@@ -204,6 +208,61 @@ def test_the_rule_admits_each_pair_on_its_own_merits() -> None:
     assert len(rows) == 2 and rows[1]["scored"] is False
 
 
+def test_a_size_the_source_outruns_is_refused_and_not_trimmed() -> None:
+    """§5 registers a refusal: a pair the source resolves and the population
+    cannot is not dropped so that the rest can be scored. A pair the source
+    itself cannot resolve is a different thing and refuses nothing."""
+    def row(pair, source, model):
+        return {"pair": pair, "source_resolves": source, "model_resolves": model,
+                "sigmas": 3.7, "expected_events": [40.0, 4.2]}
+
+    fine = [row("a/b", True, True), row("b/c", True, True), row("c/d", False, False)]
+    assert refused_pairs(fine) == []
+    thin = [row("a/b", True, True), row("b/c", True, False), row("c/d", False, True)]
+    assert [r["pair"] for r in refused_pairs(thin)] == ["b/c"]
+    # a pair neither side resolves is reported, and refuses nothing
+    assert refused_pairs([row("c/d", False, False)]) == []
+
+
+def test_the_liquid_column_is_counted_by_what_it_is_made_of() -> None:
+    from types import SimpleNamespace
+
+    def resp(liquid, **parts):
+        base = dict.fromkeys(("CHECKING", "SAVING", "MMA", "CALL", "PREPAID"), 0.0)
+        base.update(parts)
+        return SimpleNamespace(liquid=liquid, extra=base)
+
+    people = [
+        resp(0.0),                              # no transaction account, no prepaid balance
+        resp(1.0),                              # an account with nothing in it
+        resp(250.0, PREPAID=250.0),             # a prepaid card and no account balance
+        resp(900.0, CHECKING=400.0, SAVING=500.0),
+    ]
+    got = liquid_composition(people)
+    assert got["rows"] == 4
+    assert got["rows_with_a_prepaid_card_balance"] == 1
+    assert got["rows_where_the_floor_of_one_dollar_binds"] == 1
+    assert got["rows_with_zero_published"] == 1
+    assert got["rows_with_zero_in_the_five_components"] == 2
+    assert got["rows_with_zero_in_the_four_accounts"] == 3
+    assert liquid_composition([SimpleNamespace(liquid=1.0, extra={})]) == {}
+
+
+def test_a_family_is_counted_once_in_each_group_its_implicates_reach() -> None:
+    """Rows over five are family equivalents; the distinct count is a set.
+
+    Family 0 ranks three implicates into group 0 and two into group 1, and
+    one of those two is late. Family 1 sits whole in group 1, late on two.
+    """
+    groups = [0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
+    late = [False, False, False, True, False, True, True, False, False, False]
+    distinct, reporting = distinct_families(groups, late, 2)
+    assert distinct == [1, 2]
+    assert reporting == [0, 2]
+    # group 1 holds 7 rows, 1.4 family equivalents, and two families
+    assert groups.count(1) / IMPLICATES < distinct[1]
+
+
 def test_the_touched_groups_are_in_order_and_without_repeats() -> None:
     assert _touched([0, 1]) == [0, 1, 2]
     assert _touched([1]) == [1, 2]
@@ -217,3 +276,12 @@ def test_buffer_months_is_not_in_a1ds_free_list() -> None:
     names = [n for n, _ in free_list(CostRule())]
     assert "population.buffer_months" not in names
     assert len(names) == 4
+
+def test_rows_out_of_blocks_of_five_are_refused() -> None:
+    """A row index over five names a family only when no row is missing.
+
+    Six rows cannot be whole families, and counting them would put the sixth
+    row in a family of its own without saying so.
+    """
+    with pytest.raises(ValueError, match="blocks of"):
+        distinct_families([0] * 6, [False] * 6, 1)

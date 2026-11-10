@@ -13,14 +13,24 @@ Grid: regime x public building x private building x rent cap, five seeds.
 
 Readings, every run printed into the record (印全):
   production-layer and top-decile shares of net worth, low-tier price end over start,
-  sales, owners at the end, mean unhoused, private and public rent, the state's top-up over
+  sales, owners at the end, mean unhoused, rent received by node landlords, by the public
+  landlord and by the listed landlord, what left the graph as dividends, the state's top-up over
   the levy, public units built, unfunded maintenance, regulated rent paid over uncapped at
   the end, and B129's square (log of new rent per unit over regulated, 50 rounds after the
   cap against 50 before) with the sale price at rounds 149 and 199.
+  Beside the net-worth share, its parts: the production layer's share of the nodes' cash,
+  its share of cash plus the housing nodes hold directly (the listed landlord's stock left
+  out), and the landlord's stock at market. Net worth counts the listed landlord's stock to
+  its owners, the financial layer, and the public landlord's stock to no node; the parts
+  show how much of a gap between the two arms is who holds the rental stock and how much is
+  where cash went.
 
 Comparisons read off the grid (own readings, no thresholds; signs across seeds are printed):
   K1  bound self-maintaining public minus unbound: production-layer net worth share
-  K2  bound public minus bound listed 0.271: the same
+  K2  bound public minus bound listed 0.271: the same, and the same gap in the two parts
+  Each comparison names both cells in full. K1 and K2 as registered compare policy mixes
+  (the public arm builds public housing, the other arm does not); K1a and K2a are the same
+  two regimes at equal public building (0.002 both for K1a, 0 both for K2a).
   K3  unbound with public building minus without: the same
   K4  under the wage cap, regulated rent paid over uncapped
   K5  B129: under the wage cap with private building, the square, and the sale price at 199
@@ -108,8 +118,11 @@ def one(args):
         "price_ratio": r["price_ratio_end_to_start_low_tier"],
         "sales": r["sales_total"], "owners_end": r["owners_end"],
         "unhoused_mean": round(float(unh.mean()), 3),
-        "rent_private": round(float(m.rent_collected - m.landlord_rent), 3),
-        "rent_public": round(float(m.landlord_rent), 3),
+        "rent_node_landlords": round(float(m.rent_collected - m.landlord_rent), 3) + 0.0,
+        "rent_public_landlord": round(float(m.landlord_rent), 3) if m.rules.landlord == "public" else 0.0,
+        "rent_listed_landlord": round(float(m.landlord_rent), 3) if m.rules.landlord == "listed" else 0.0,
+        "exited": round(float(m.exited), 3),
+        **parts(m),
         "topup_over_levy": round(m.topup_total / m.levied, 5) if m.levied else None,
         "public_built": float(m.public_built.sum()), "private_built": float(m.built.sum()),
         "maintenance_unfunded": round(m.maintenance_unfunded, 4),
@@ -118,6 +131,17 @@ def one(args):
         "sale_r149": round(float(ph[149, 0]), 6), "sale_r199": round(float(ph[199, 0]), 6),
         **{k: v for k, v in a47_block3.square(m).items()},
     }
+
+
+def parts(m) -> dict:
+    """The production layer's share of the nodes' cash, and of cash plus directly held
+    housing at market; the landlord's stock at market."""
+    prod = m._is_production
+    cash = np.asarray(m.holdings, dtype=float)
+    direct = cash + m.units @ m.price
+    return {"prod_share_cash": round(float(cash[prod].sum() / cash.sum()), 5),
+            "prod_share_cash_and_own_housing": round(float(direct[prod].sum() / direct.sum()), 5),
+            "landlord_stock_value": round(float(m.landlord_units @ m.price), 3)}
 
 
 def grid_jobs():
@@ -132,7 +156,8 @@ def knob_jobs():
     """K1-K5's cells, every knob value one at a time."""
     cells = [("unbound", 0.0, 0.002, None), ("unbound", 0.002, 0.002, None),
              ("unbound", 0.0, 0.002, "wage"), ("bound public", 0.002, 0.002, None),
-             ("bound listed 0.271", 0.0, 0.002, None), ("bound public", 0.002, 0.002, "wage")]
+             ("bound listed 0.271", 0.0, 0.002, None), ("bound public", 0.002, 0.002, "wage"),
+             ("bound public", 0.0, 0.002, None)]
     jobs = []
     for knob, values in KNOBS.items():
         for v in values:
@@ -155,17 +180,31 @@ def comparisons(rows) -> dict:
     bp = pick(rows, regime="bound public", public=0.002, cap=None, **base)
     bl = pick(rows, regime="bound listed 0.271", public=0.0, cap=None, **base)
     ucap = pick(rows, regime="unbound", public=0.0, cap="wage", **base)
+    bp0 = pick(rows, regime="bound public", public=0.0, cap=None, **base)
+
+    def diff(a, b, k="prod_share", nd=4):
+        return [round(a[s][k] - b[s][k], nd) for s in SEEDS]
     if ub and bp:
-        out["K1 bound public - unbound, prod share"] = [round(bp[s]["prod_share"] - ub[s]["prod_share"], 4) for s in SEEDS]
+        out["K1 bound public (pub 0.002, priv 0.002) - unbound (pub 0, priv 0.002), prod share"] = diff(bp, ub)
+    if ubp and bp:
+        out["K1a bound public - unbound, both pub 0.002 priv 0.002, prod share"] = diff(bp, ubp)
     if bp and bl:
-        out["K2 bound public - bound listed, prod share"] = [round(bp[s]["prod_share"] - bl[s]["prod_share"], 4) for s in SEEDS]
+        k2 = "K2 bound public (pub 0.002, priv 0.002) - bound listed 0.271 (pub 0, priv 0.002)"
+        out[f"{k2}, prod share"] = diff(bp, bl)
+        out[f"{k2}, prod share of cash and own housing"] = diff(bp, bl, "prod_share_cash_and_own_housing", 5)
+        out[f"{k2}, prod share of cash"] = diff(bp, bl, "prod_share_cash", 5)
+    if bp0 and bl:
+        k2a = "K2a bound public - bound listed 0.271, both pub 0 priv 0.002"
+        out[f"{k2a}, prod share"] = diff(bp0, bl)
+        out[f"{k2a}, prod share of cash and own housing"] = diff(bp0, bl, "prod_share_cash_and_own_housing", 5)
+        out[f"{k2a}, prod share of cash"] = diff(bp0, bl, "prod_share_cash", 5)
     if ub and ubp:
-        out["K3 unbound public building - none, prod share"] = [round(ubp[s]["prod_share"] - ub[s]["prod_share"], 4) for s in SEEDS]
+        out["K3 unbound, pub 0.002 - pub 0, both priv 0.002, prod share"] = diff(ubp, ub)
     if ucap:
-        out["K4 regulated paid / uncapped (unbound, wage cap)"] = [ucap[s]["reg_over_uncapped_end"] for s in SEEDS]
-        out["K5 square (unbound, wage cap)"] = [ucap[s].get("square") for s in SEEDS]
+        out["K4 regulated paid / uncapped (unbound, pub 0, priv 0.002, wage cap)"] = [ucap[s]["reg_over_uncapped_end"] for s in SEEDS]
+        out["K5 square (unbound, pub 0, priv 0.002, wage cap)"] = [ucap[s].get("square") for s in SEEDS]
         if ub:
-            out["K5 sale price r199, capped / uncapped - 1"] = [
+            out["K5 sale price r199, capped / uncapped - 1 (unbound, pub 0, priv 0.002)"] = [
                 round(ucap[s]["sale_r199"] / ub[s]["sale_r199"] - 1, 5) for s in SEEDS]
     return out
 
@@ -200,13 +239,24 @@ def main() -> int:
             v = [r[k] for r in rs if r[k] is not None]
             return (round(float(np.mean(v)), 4), round(min(v), 4), round(max(v), 4)) if v else None
         key = f"{regime} | pub {public} | priv {private} | cap {cap}"
-        summary[key] = {k: f(k) for k in ("prod_share", "top_decile", "price_ratio", "owners_end",
+        summary[key] = {k: f(k) for k in ("prod_share", "prod_share_cash_and_own_housing",
+                                          "prod_share_cash", "top_decile", "price_ratio", "owners_end",
                                           "unhoused_mean", "public_built", "topup_over_levy",
-                                          "reg_over_uncapped_end")}
+                                          "reg_over_uncapped_end", "rent_node_landlords",
+                                          "rent_public_landlord", "rent_listed_landlord", "exited",
+                                          "landlord_stock_value")}
         s = summary[key]
         print(f"  {key:52s} {s['prod_share']} | {s['top_decile']} | {s['price_ratio']} | "
               f"{s['owners_end'][0]} | {s['unhoused_mean'][0]} | {s['public_built'][0]} | "
               f"{s['topup_over_levy'][0] if s['topup_over_levy'] else None}")
+
+    # the parts read the right object: with no listed stock in net worth, the share of cash
+    # plus own housing is the net-worth share (both rounded, 4 and 5 places)
+    gap = max(abs(r["prod_share"] - r["prod_share_cash_and_own_housing"]) for r in rows
+              if r["regime"].startswith("bound public"))
+    parts_ok = gap <= 6e-5
+    print(f"\n{'PASS' if parts_ok else 'FAIL'} parts check: bound public, net-worth share vs cash "
+          f"and own housing share, largest gap {gap:.1e}")
 
     comp = comparisons(rows)
     print("\ncomparisons, per seed:")
@@ -238,12 +288,13 @@ def main() -> int:
               "carrier": "A3 network + levy 0.20 + 1.1 units/node, residual owner + tenancy + cost floor",
               "grid_rows": rows, "knob_rows": krows, "cell_summary": summary,
               "comparisons": comp, "knob_signs": knob_signs, "unread": unread,
+              "parts_check": {"passed": parts_ok, "largest_gap_bound_public": gap},
               "config": {"seeds": list(SEEDS), "cap_start": CAP_START, "public": PUBLIC,
                          "private": PRIVATE, "regimes": REGIMES, "knobs": KNOBS}}
     OUT.write_text(json.dumps(record, indent=1, sort_keys=True, ensure_ascii=False, default=str) + "\n",
                    encoding="utf-8", newline="\n")
     print(f"\nwrote {OUT.relative_to(ROOT)}")
-    return 0
+    return 0 if parts_ok else 1
 
 
 if __name__ == "__main__":

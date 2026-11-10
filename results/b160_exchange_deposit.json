@@ -1,0 +1,407 @@
+{
+ "B160_1": {
+  "rows": [
+   {
+    "exchange_plus_deposits": 544571,
+    "release": "pr38643",
+    "residue": 0,
+    "total": 544571,
+    "upto": "2016-11-18"
+   },
+   {
+    "exchange_plus_deposits": 844981,
+    "release": "pr38727",
+    "residue": 1,
+    "total": 844982,
+    "upto": "2016-11-27"
+   }
+  ]
+ },
+ "B160_2": {
+  "phrases": [
+   {
+    "found": true,
+    "phrase": "Exchanged in Cash",
+    "source": "c10698"
+   },
+   {
+    "found": true,
+    "phrase": "Deposits into Account",
+    "source": "c10698"
+   },
+   {
+    "found": true,
+    "phrase": "exchange amounted to",
+    "source": "pr38643"
+   },
+   {
+    "found": true,
+    "phrase": "deposits amounted to",
+    "source": "pr38727"
+   }
+  ],
+  "releases_name_both_counters": true
+ },
+ "B160_3": {
+  "carry_split": [
+   38643,
+   38727
+  ],
+  "circulars_read": 110,
+  "pages_read": 850,
+  "press_releases_read": 740,
+  "sbn_related": 78
+ },
+ "B160_5": {
+  "events_first_segment_at_least_crore": "7.3347",
+  "events_first_segment_at_most_crore": "66.0120",
+  "events_ratio_at_least": "3.8931",
+  "events_ratio_if_at_cap": [
+   "15.5725",
+   "17.5191"
+  ],
+  "events_second_segment_at_least_crore": "0.4710",
+  "events_second_segment_at_most_crore": "1.8840",
+  "flow_ratio": "35.0382",
+  "flow_ratio_floor_range": [
+   "35.0191",
+   "35.0574"
+  ],
+  "largest_amount_ratio": "9.0000"
+ },
+ "B160_6": {
+  "deposits_daily_ratio_second_over_first": "0.5854",
+  "exchange_if_it_fell_like_deposits": "19321.6",
+  "share_first": "0.060609",
+  "share_second": "0.003136",
+  "shortfall": "18379.6",
+  "shortfall_over_second_deposits": "0.061374",
+  "withdrawn_first": 103316,
+  "withdrawn_second": 113301
+ },
+ "config": {
+  "crore_floor": 1,
+  "index": "b160_scan_index.json",
+  "rbi_counters_after_close": 2000,
+  "smallest_note": 500,
+  "snapshot": "b160_text_snapshot.json",
+  "split_releases": [
+   "pr38643",
+   "pr38727"
+  ],
+  "start": "2016-11-10",
+  "steps": [
+   {
+    "date": "2016-11-10",
+    "kind": "cap",
+    "note": "exchange up to 4,000 per person with proof of identity",
+    "source": "c10684",
+    "value": 4000
+   },
+   {
+    "date": "2016-11-13",
+    "kind": "cap",
+    "note": "limit raised to 4,500, immediate effect; separate queues",
+    "source": "c10706",
+    "value": 4500
+   },
+   {
+    "date": "2016-11-15",
+    "kind": "ink",
+    "note": "indelible ink on the right index finger, metro cities first",
+    "source": "c10713",
+    "value": null
+   },
+   {
+    "date": "2016-11-18",
+    "kind": "cap",
+    "note": "limit 2,000, once per person",
+    "source": "c10719",
+    "value": 2000
+   },
+   {
+    "date": "2016-11-25",
+    "kind": "cap",
+    "note": "no exchange at bank counters after midnight of 2016-11-24",
+    "source": "c10740",
+    "value": null
+   }
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "Stated total against exchange plus deposits: up to 2016-11-18 total 544571, parts 544571, residue 0; up to 2016-11-27 total 844982, parts 844981, residue 1 (crore). Each figure is rounded to a crore, so a residue of one is the format.",
+   "kind": "instrument",
+   "name": "B160-1",
+   "passed": true
+  },
+  {
+   "detail": "The banks' daily report (circular DCM 1264, 2016-11-11, Annex 6 and 6A) has the rows 'Exchanged in Cash' and 'Deposits into Account'; the two releases print 'exchange amounted to' and 'deposits amounted to' and name the counters of the Reserve Bank and the banks. The release words are the report rows. Phrases: c10698 'Exchanged in Cash' True, c10698 'Deposits into Account' True, pr38643 'exchange amounted to' True, pr38727 'deposits amounted to' True.",
+   "kind": "instrument",
+   "name": "B160-2",
+   "passed": true
+  },
+  {
+   "detail": "Pages read: 740 press releases (prid 38520-39259, 2016-11-08 to 2017-01) and 110 circulars (Id 10670-10779); 78 concern the withdrawn notes; those that print exchange and deposits apart: [38643, 38727]. Later releases print other objects: pr38839 2016-12-08 activity at banks, 2016-11-10 to 12-07: issuance only; pr38886 2016-12-13 deputy governors' briefing: notes returned to RBI and chests; pr38980 2016-12-21 distribution of banknotes: issuance only; pr39163 2017-01-05 clarification: periodic SBN figures are chest accounting entries. The banks reported daily (Annex 6A); only two cumulative points were published, so the daily shape is not readable and the reading is two segments.",
+   "kind": "premise",
+   "name": "B160-3",
+   "passed": true
+  },
+  {
+   "detail": "2016-11-10 to 2016-11-18 (9 days): exchange 33006 crore (3667.3 a day), deposits 511565 crore (56840.6 a day); days by regime: 3 under cap 4000, no ink, bank and Reserve Bank counters, 2 under cap 4500, no ink, bank and Reserve Bank counters, 3 under cap 4500, ink, bank and Reserve Bank counters, 1 under cap 2000, ink, bank and Reserve Bank counters | 2016-11-19 to 2016-11-27 (9 days): exchange 942 crore (104.7 a day), deposits 299468 crore (33274.2 a day); days by regime: 6 under cap 2000, ink, bank and Reserve Bank counters, 3 under cap 2000, ink, Reserve Bank counters only. The cap moved in four steps and the ink came in between; both segments hold more than one regime, so the fall belongs to the steps together and is not split among them.",
+   "kind": "own_reading",
+   "name": "B160-4",
+   "passed": true
+  },
+  {
+   "detail": "Daily exchange fell by a factor 35.0382 (crore rounding moves it within 35.0191 to 35.0574). The amount per counter event can fall at most from the first segment's top cap (4500) to one 500 note, a factor 9.0000; so the number of counter events fell at least 3.8931-fold. If everyone exchanged the cap in force and the first segment's flow came on its 4,000 and 4,500 days, events fell 15.5725 to 17.5191-fold. Events: first segment 7.3347 to 66.0120 crore, second 0.4710 to 1.8840 crore. The narrowing worked mainly on who got through, not on how much each one carried.",
+   "kind": "own_reading",
+   "name": "B160-5",
+   "passed": true
+  },
+  {
+   "detail": "Exchange share of notes tendered: 0.060609 then 0.003136. Deposits' own daily flow fell too (second over first 0.5854): cumulative deposits rose, the flow did not. Had exchange fallen like deposits it would have been 19321.6 crore; the shortfall 18379.6 crore is 0.061374 of second-segment deposits. Whether that shortfall went into deposits cannot be separated from the general slowing of tenders. Withdrawals: 103316 then 113301 crore.",
+   "kind": "own_reading",
+   "name": "B160-6",
+   "passed": true
+  }
+ ],
+ "mapping_11c": [
+  {
+   "criterion": "B160-1",
+   "state": "every residue within the crore floor",
+   "verdict": true
+  },
+  {
+   "criterion": "B160-1",
+   "state": "a residue beyond the crore floor",
+   "verdict": false
+  },
+  {
+   "criterion": "B160-2",
+   "state": "all four phrases found",
+   "verdict": true
+  },
+  {
+   "criterion": "B160-2",
+   "state": "a phrase missing",
+   "verdict": false
+  },
+  {
+   "criterion": "B160-3",
+   "state": "two or more releases carry the split",
+   "verdict": true
+  },
+  {
+   "criterion": "B160-3",
+   "state": "one release carries the split: no segment to compare",
+   "verdict": null
+  },
+  {
+   "criterion": "B160-3",
+   "state": "no release carries the split: no object",
+   "verdict": false
+  },
+  {
+   "criterion": "B160-4",
+   "state": "second segment's daily exchange below the first's",
+   "verdict": true
+  },
+  {
+   "criterion": "B160-4",
+   "state": "not below",
+   "verdict": false
+  },
+  {
+   "criterion": "B160-4",
+   "state": "fewer than two segments",
+   "verdict": null
+  },
+  {
+   "criterion": "B160-5",
+   "state": "flow ratio above the largest per-event amount ratio",
+   "verdict": true
+  },
+  {
+   "criterion": "B160-5",
+   "state": "flow ratio at or below it",
+   "verdict": false
+  },
+  {
+   "criterion": "B160-5",
+   "state": "fewer than two segments",
+   "verdict": null
+  },
+  {
+   "criterion": "B160-6",
+   "state": "exchange share lower in the second segment",
+   "verdict": true
+  },
+  {
+   "criterion": "B160-6",
+   "state": "not lower",
+   "verdict": false
+  },
+  {
+   "criterion": "B160-6",
+   "state": "fewer than two segments",
+   "verdict": null
+  }
+ ],
+ "releases": [
+  {
+   "deposits": 511565,
+   "exchange": 33006,
+   "from": "2016-11-10",
+   "key": "pr38643",
+   "total": 544571,
+   "upto": "2016-11-18",
+   "withdrawn": 103316
+  },
+  {
+   "deposits": 811033,
+   "exchange": 33948,
+   "from": "2016-11-10",
+   "key": "pr38727",
+   "total": 844982,
+   "upto": "2016-11-27",
+   "withdrawn": 216617
+  }
+ ],
+ "segments": [
+  {
+   "day_weighted_cap": "4055.6",
+   "days": 9,
+   "deposits": 511565,
+   "deposits_per_day": "56840.6",
+   "exchange": 33006,
+   "exchange_per_day": "3667.3",
+   "exchange_share": "0.060609",
+   "from": "2016-11-10",
+   "max_cap": 4500,
+   "regime_days": {
+    "cap 2000, ink, bank and Reserve Bank counters": 1,
+    "cap 4000, no ink, bank and Reserve Bank counters": 3,
+    "cap 4500, ink, bank and Reserve Bank counters": 3,
+    "cap 4500, no ink, bank and Reserve Bank counters": 2
+   },
+   "total": 544571,
+   "upto": "2016-11-18",
+   "withdrawn": 103316
+  },
+  {
+   "day_weighted_cap": "2000.0",
+   "days": 9,
+   "deposits": 299468,
+   "deposits_per_day": "33274.2",
+   "exchange": 942,
+   "exchange_per_day": "104.7",
+   "exchange_share": "0.003136",
+   "from": "2016-11-19",
+   "max_cap": 2000,
+   "regime_days": {
+    "cap 2000, ink, Reserve Bank counters only": 3,
+    "cap 2000, ink, bank and Reserve Bank counters": 6
+   },
+   "total": 300411,
+   "upto": "2016-11-27",
+   "withdrawn": 113301
+  }
+ ],
+ "selftest": [
+  {
+   "check": "parser reads both releases and their figures",
+   "ok": true
+  },
+  {
+   "check": "B160-1 passes when the parts add to the total",
+   "ok": true
+  },
+  {
+   "check": "B160-1 fails on a residue of three crore",
+   "ok": true
+  },
+  {
+   "check": "B160-1 fails when no release parses",
+   "ok": true
+  },
+  {
+   "check": "B160-2 passes with all phrases present",
+   "ok": true
+  },
+  {
+   "check": "B160-2 fails when the report row names are missing",
+   "ok": true
+  },
+  {
+   "check": "B160-2 fails when a release does not name both kinds of counter",
+   "ok": true
+  },
+  {
+   "check": "B160-3 passes with two releases carrying the split",
+   "ok": true
+  },
+  {
+   "check": "B160-3 carries no verdict with one release",
+   "ok": true
+  },
+  {
+   "check": "B160-3 fails with none",
+   "ok": true
+  },
+  {
+   "check": "segments are nine days each",
+   "ok": true
+  },
+  {
+   "check": "the 4,500 days split at the ink date",
+   "ok": true
+  },
+  {
+   "check": "the last three days are Reserve Bank counters only",
+   "ok": true
+  },
+  {
+   "check": "B160-4 passes when daily exchange falls",
+   "ok": true
+  },
+  {
+   "check": "B160-4 fails when daily exchange rises",
+   "ok": true
+  },
+  {
+   "check": "B160-4 carries no verdict with one segment",
+   "ok": true
+  },
+  {
+   "check": "B160-5 passes at a flow ratio of 10 against 9",
+   "ok": true
+  },
+  {
+   "check": "B160-5 fails at a flow ratio of 9",
+   "ok": true
+  },
+  {
+   "check": "B160-5 carries no verdict with one segment",
+   "ok": true
+  },
+  {
+   "check": "B160-6 passes when the exchange share falls",
+   "ok": true
+  },
+  {
+   "check": "B160-6 fails when the exchange share holds",
+   "ok": true
+  },
+  {
+   "check": "regime dates follow the circulars",
+   "ok": true
+  },
+  {
+   "check": "every third state maps to no verdict",
+   "ok": true
+  }
+ ],
+ "stage": "B160",
+ "title": "India 2016: exchange and deposit paths for withdrawn notes, the exchange cap in steps"
+}

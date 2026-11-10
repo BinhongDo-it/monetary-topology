@@ -18,7 +18,10 @@ by quotation is deleted rather than softened.
 
 ## 1. The disagreement is one line long
 
-**Every member of the New Keynesian family has `H¹ = 0` identically, by construction.**
+**Every member of the New Keynesian family that writes one set of terms for every
+transacting class, which covers every member surveyed in section 2, has `D = 0`
+identically, by construction: no square in `Γ` carries a non-zero index part. The members
+that write class-specific terms have adopted this framework's index (section 4.2).**
 
 ### 1.1 The index-set argument
 
@@ -29,8 +32,9 @@ position `i` to position `j`,
 w_a(i, j)  =  log of the rate at which class a can convert i into j
 ```
 
-Every New Keynesian model, in every variant, writes down a scalar on positions, `p_i(t)`,
-together with one intertemporal rate common to all agents. Its edge field is therefore
+The New Keynesian models surveyed in section 2 write down a scalar on positions,
+`p_i(t)`, together with one schedule of intertemporal terms faced by every agent. Their
+frictionless edge field is therefore
 
 ```
 w(i, j)  =  φ(j) − φ(i),        φ(i) = log p_i
@@ -40,15 +44,25 @@ The same expression for **every** agent. That is the image of `d: C⁰(G) → C�
 exact form sums to zero on every cycle as an arithmetic identity rather than as a model
 prediction. So:
 
-> **For any New Keynesian model, any friction specification, and any shock process,
-> `∮ω ≡ 0`.**
+> **For any such model, any shock process and any friction common to all agents, `D = 0`:
+> every square in `Γ` has a zero index part, `S − S′ = 0` in the notation of
+> [`b4_directed_edges.md`](b4_directed_edges.md) section 5.1. On the frictionless members
+> every cycle sums to zero. A friction on direction faced by every household, such as a
+> borrowing wedge, enters only the friction part `S + S′`, so the ratio of that file's
+> Theorem 6(4) is zero on every square, and on every cycle wherever the friction is the
+> same on both legs of each edge (its Corollary 6.1).**
 
-**This is Corollary 5.5 of [`b1_theorem.md`](b1_theorem.md)**, added 2026-08-29, whose
+Here `D` is the disagreement between classes of Theorem 5 in [`b1_theorem.md`](b1_theorem.md),
+`D² = Σ_a ‖w_a − w̄‖²`, zero exactly when every class faces the same terms on every
+transition.
+
+**The frictionless case is Corollary 5.5 of [`b1_theorem.md`](b1_theorem.md)**, added 2026-08-29, whose
 proof is one line: the hypothesis is Theorem 1's condition (4) written out, since each
 `w_a` is exact because it is a coboundary and all the `w_a` coincide because none of them
-carries the index `a`.
+carries the index `a`. The square statement uses only the second half of (4), and the
+direction case is Theorem 6(4) of `b4_directed_edges.md` read on the square.
 
-The non-zero readings on seven carriers are therefore not evidence that some model fits
+The non-zero readings on the carriers of [`CARRIERS.md`](../CARRIERS.md) are therefore not evidence that some model fits
 badly. They are direct readings of a quantity this account predicts to be **exactly zero**.
 That form of disagreement does not require anyone to concede a fit.
 
@@ -273,10 +287,10 @@ the misallocation literature carry the index `τ_ij`, an **edge** index; and pri
 stated as "producer i sets a price pi = µiCi/Ai", one price per producer, common to every
 purchaser. **Generality on the edge index does not produce an agent index.**
 
-#### 2.4.1 The four questions, put to that branch
+#### 2.4.1 The setup questions, put to that branch
 
 [`b0b_aggregation_and_the_potential.md`](b0b_aggregation_and_the_potential.md) section 6
-states the push against its own section 2.3 in executable form: four questions, to be
+puts its own section 2.3's index argument in executable form: four questions, to be
 answered by quoting setups rather than by characterising a literature. Below they are put
 to the two papers that place the adjacency matrix at the centre. The misallocation
 framework's answers are already quoted in B0b section 2.3.
@@ -290,13 +304,14 @@ framework's answers are already quoted in B0b section 2.3.
 
 **The heterogeneity in both is on the seller side and inside the node**, which is the first
 branch of B0b section 2.3 rather than an answer to it. A continuum of firms indexed by `k`
-still posts one price per variety to every buyer of that variety, so the field stays inside
-`C⁰(G)` and Corollary 5.5 applies to both unchanged.
+still posts one price per variety to every buyer of that variety, so neither paper carries
+a class index: `D = 0` and every square closes, with the node-indexed `τ_i` sitting on `G`.
 
 **This is the branch's strongest position, and it is worth putting that way rather than
-weaker.** These are the two papers that make the network the object, so if an agent index
-were going to appear anywhere in this literature it would appear here. The four questions
-are answered by quotation, and it does not appear.
+weaker.** These are the two papers that make the network the object, and the four
+questions are answered by quotation: no agent index appears. Where one does appear in this
+family, it arrives as a class-specific cost paid in one direction of a shared transition,
+and section 4.2 names two instances.
 
 #### 2.4.2 The measurable form of the disagreement was run, and what it returned
 
@@ -380,13 +395,18 @@ This is the one proposition in this document that has to be argued rather than p
 
 Write `Γ = G □ H` for the product of the position graph with the agent-class graph. The
 object here is a field `w_a(i, j)` on `C¹(Γ)`. Every member of the New Keynesian family
-sits inside
+that writes one set of terms for every transacting class, which covers every member
+surveyed in section 2, sits inside
 
 ```
-{ ω ∈ C¹(Γ)  :  ω = dφ,  φ ∈ C⁰(G),  φ constant along H }
+{ ω ∈ C¹(Γ)  :  w_a = w_b for all classes a, b,  agent edges at weight 0 }      so  D = 0
 ```
 
-Thirty years of development land in three places, and none of them changes that inclusion:
+and its frictionless members sit inside the smaller set
+`{ ω = dφ,  φ ∈ C⁰(G),  φ constant along H }`.
+
+For those members, thirty years of development land in three places, and none of them
+changes that inclusion:
 
 1. **the time dynamics of `φ`**: staggered contracts, quadratic adjustment, indexation,
    information frictions, behavioural discounting;
@@ -409,16 +429,27 @@ heterogeneity lives in the portfolio weights, which are a quantity index.** A sq
 only when `a` and `b` face different terms on the **same** transition, which is what
 Corollary 1 of Theorem 1 decides with a single edge.
 
-No member of the frontier crosses that line. HANK's sufficient statistic is two aggregates,
+No member surveyed in section 2 crosses that line. HANK's sufficient statistic is two aggregates,
 and its dimension does not grow with the number of agent classes. That is a direct answer
 to the fourth of the four questions
 [`b0b_aggregation_and_the_potential.md`](b0b_aggregation_and_the_potential.md) section 6
 puts in executable form, and the answer is that it does not grow, so the second branch of
 that document's section 2.3 table stays shut.
 
+**The members that do cross it do so by writing a class-specific cost paid in one
+direction of a shared transition.** Chen, Cúrdia and Ferrero (2012) take "a standard medium-scale DSGE model" and
+add segmented bond markets: unrestricted households "pay a transaction cost ζt per-unit of
+long-term bond purchased", while restricted households "pay no transaction costs". Gertler
+and Karadi (2011), whose core framework is the same medium-scale model, let the central bank
+lend to firms at the market lending rate with "an efficiency cost of τ per unit supplied", a
+cost the private bankers' lending on that transition does not carry. Each has written the
+index `a` on a transition two classes both make, so each model's own field carries a non-zero square there (Corollary 1 of Theorem 1),
+and `D ≠ 0` on the shared edges. They sit on the second branch of B0b section 2.3, and the object they write is the one this record
+measures.
+
 ### 4.3 Consequence
 
-> **They change `φ`. The quantity measured here is `ω − dφ`.**
+> **The three places of section 4.1 change `φ`. The quantity measured here is `ω − dφ`.**
 
 That also explains the absence of any real exchange between the two: these are not two
 estimates of one quantity. They are two objects, one of which is identically zero in the
@@ -434,7 +465,7 @@ Impose three restrictions on the framework:
 
 1. **single index**: `w` depends on the position pair only, and is constant along `H`;
 2. **exactness**: `ω = dφ`, equivalently every cycle in `Γ` sums to zero, equivalently
-   `H¹(Γ) = 0`;
+   `[ω] = 0` in `H¹(Γ)`;
 3. **heterogeneity enters the measure, not the field.**
 
 Under these, every statement here degenerates to the corresponding New Keynesian statement,
@@ -489,10 +520,17 @@ cannot: a premise about behaviour rather than a restriction on the field.
 which readings go with it. The terms differential is set to zero, which is the only value at
 which that carrier's field is a gradient, with the mean acquisition cost and the admission
 threshold both held at their registered values so that the treatment moves what is paid and
-not who may enter. Across five seeds the holonomy goes to exactly zero while the support-set
+not who is admitted at the opening allocation. Across five seeds the holonomy goes to exactly zero while the support-set
 contraction survives: **74.43 points of contraction under the registered field against 73.44
 under the exact one**, so the field carries **1.33 per cent** of it and the graph carries the
 rest. Volume rises while support falls in five seeds of five on both arms.
+
+(Restated 2026-10-20: pinning the gate holds the opening allocation only. In
+A3's model the bidder pool that prices a tier is admitted on the payment terms,
+so the treatment also levels that pool, and resale eligibility follows the
+payment terms as well. With the pool admitted on the pinned gate terms the
+treated arm contracts 73.49 points and the field's part is 1.26 per cent. Both
+admission rules were run, and the reading did not change.)
 
 **The half that could have failed is the second one.** The zero is an identity: at zero
 dispersion the cycle is a difference of two equal terms, and the treated square is degenerate
@@ -501,25 +539,31 @@ the two arms are separate runs rather than one run read twice, which the opening
 settles at 56.605 against 53.889 on the first seed.
 
 **A3k is the weakest of this record's three zero domains and is reported as such**: it is a
-model agreeing with its own theorem, which is a different object from B13's 81,968 states
+model agreeing with its own theorem, which is a different object from B13's 81,968 bid and offer readings
 of a derived book against a quoted one, or B6's arithmetic identity in a published table.
 What it does show is that when the topology is trivial the framework's own quantity goes to
 zero and the standard reading is recovered.
 
 ### 5.3 What the embedding buys, and what it costs
 
-**Buys.** No argument about frictions has to be won, because frictions are dynamics of `φ`
-and nothing here disputes them. Every empirical result of the New Keynesian literature
+**Buys.** No argument about frictions has to be won, because frictions common to all agents
+are dynamics of `φ` or common direction terms (zero index part on every square, b4
+Theorem 6(4)), and nothing here disputes them. Every empirical result of the New Keynesian literature
 survives unchanged on the subspace. And the dispute moves from which model fits better to
 whether the subspace is the world, which is decided by cycle sums against an exact zero.
 
-**Costs.** The normative closure has to go. The quadratic loss function comes from a
+**Costs.** The quadratic loss function has to go. It comes from a
 second-order expansion of a representative household's utility around an efficient steady
-state, which requires the allocation to be the argmax of something. That is B0b section
-2.2's envelope argument again: with no potential there is no function to envelope, and the
-loss function is not wrong but undefined. [`b0_claim_scope.md`](b0_claim_scope.md) already
-fixes this record's normative position at issuing no welfare criterion, so the two are
-consistent.
+state, and a representative household is constructed over one price vector faced by every
+household. Corollary 1 excludes that on any carrier where two classes face different terms
+on the same transition, so the loss function has no application to that carrier (B0b
+section 8.4). **What stands in its place on such a carrier rests on less.** Where B0b
+section 8.2a's conditions hold, the allocation is not Pareto optimal: a swap between the two
+classes at terms strictly between theirs leaves both better off, and that verdict needs no
+loss function, no representative household, no interpersonal comparison and no social
+welfare function. [`b0_claim_scope.md`](b0_claim_scope.md) fixes this record's normative
+position at issuing no welfare criterion that someone has to choose, and the Pareto
+criterion is not one, so the two are consistent.
 
 ---
 
@@ -528,15 +572,15 @@ consistent.
 ### 6.1 One cell already matched, on the other side's own ground
 
 **F13, in the empirical arm.** Controlling for the standard credit benchmark, the five-year
-cumulative asset-to-wage wedge enters crisis prediction at `a = +0.1697`, one-sided
-country-block bootstrap `p = 0.017`, lifting AUC from **0.677 to 0.705**. The line worth
-recording separately: **the wedge alone reaches AUC 0.676 against the credit benchmark's
-0.677.** A quantity derived from the framework and constructed without reference to credit
+cumulative asset-to-wage wedge enters crisis prediction at `a = +0.1614`, one-sided
+country-block bootstrap `p = 0.028`, lifting AUC from **0.684 to 0.708**. The line worth
+recording separately: **the wedge alone reaches AUC 0.685 against the credit benchmark's
+0.684.** A quantity derived from the framework and constructed without reference to credit
 matches the workhorse indicator by one part in a thousand, and broad money growth becomes
-insignificant once the wedge is controlled (`p = 0.263`).
+insignificant once the wedge is controlled (`p = 0.179`).
 
-**That cell carries its own limits and they travel with it**: AUC 0.705 is moderate
-discrimination in absolute terms and the gain of 0.027 is not large. What it supports is a
+**That cell carries its own limits and they travel with it**: AUC 0.708 is moderate
+discrimination in absolute terms and the gain of 0.023 is not large. What it supports is a
 match on fewer proxies. It does not support a claim of better crisis prediction.
 
 **F12b** is the same line upstream: across 18 countries and 881 country-years, 1970 to
@@ -555,9 +599,12 @@ and this one does not. That cell is empty and is not to be written as a match.
 configuration and nothing is dated forward, which is stated in the repository's scope note.
 Impulse responses are not produced.
 
-**Normative closure.** Section 5.3 gives the reason this is declined rather than missing. A
-framework that issues no ranking over policies pays for that in the rooms where policy is
-ranked, and the payment is deliberate.
+**A complete normative closure.** The New Keynesian loss function ranks every pair of
+policies. This record ranks two allocations where one Pareto-dominates the other,
+which B0b section 8.2a establishes under stated conditions, and it issues no complete
+ranking over policies; section 5.3 gives the reason the complete ranking is declined. A
+framework that issues no complete ranking over policies pays for that in the rooms where
+policy is ranked, and the payment is deliberate.
 
 The empirical arm scores itself against this framework's own four-part standard and reports
 portability as FAIL and prediction as empty. Until the first of the three cells above is
@@ -571,23 +618,26 @@ representation has no slot for.
 | carrier | reading |
 |---|---|
 | B2, mortgage origination terms | 78 per cent of variance retained inside cells over 20,071,740 loans; the registered placebo moves in the predicted direction by 130 times a gap known to be zero |
-| B8, mortgage modification | the strongest of the seven: 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans |
+| B8, mortgage modification | the strongest of these: 49,649 modification loops and 35,659 deferral loops over 2,942,295 loans |
 | B3, cross-currency funding | 30.9 to 45.6 basis points against a measurement floor of 2.8 to 3.7, on nine of nine tenors over eighteen years |
-| B9, the ETF creation triangle | 1.2 to 1.7 basis points at 1.05 to 5.08 times the floor; tick size varies by 15.8 times across the sample while the loop sum varies by 1.42 |
+| B9, the ETF creation triangle | 1.2 to 1.7 basis points at 1.05 to 4.97 times the floor; tick size varies by 15.8 times across the sample while the loop sum varies by 1.42 |
 | B5 and B17, Argentina's legal conversion tracks | squares 5 of 5 over 1,457 dates |
 | B6 and B15, a central bank's own table | Cuba on 207 publication days, with Bolivia read at 21 of 52 under the same sealed register |
-| B13, CME calendar spreads | the zero domain: 81,968 states with no violation, while the directly quoted member of the same family is non-zero in 65 to 96 per cent |
+| B13, CME calendar spreads | the zero domain: 81,968 bid and offer readings with no violation, while the directly quoted member of the same family is non-zero in 65 to 96 per cent |
 | B21, B23, B24, withholding and dual listings | 14.8 and 30.5 basis points a year over 4,226 leg-years, zero on none; 16.4 basis points median where the two listings can be exchanged, 196 times that where they cannot |
 
 And on the structural side, inside the mechanism models:
 
-- **A2.** With issuance, transaction volume rises 44.87 times while the support set
-  contracts to 0.402 times and the production layer falls to 0.51 per cent of all
-  circulation. Aggregate volume carries no information about who is reached, and aggregate
-  demand has no notion of reach.
-- **A2c.** Gross flow rises 97.1 times while net displacement stays flat within 1.62 times;
-  realised cycle rank collapses to 0.029 of potential **with no edge deleted**, and one
-  autonomous edge restores it to 0.783.
+- **A2.** With issuance, transaction volume rises 44.87 times while effective support
+  (the inverse Herfindahl of inflow) contracts to 0.402 times, every node still reached along edges above a fixed cutoff,
+  and the production layer falls to 0.51 per cent of all circulation. Aggregate volume
+  carries no information about how the flow is spread over the nodes it reaches, and
+  aggregate demand has no notion of reach.
+- **A2c.** Circulation, the norm of net flow per edge, rises 97.1 times while net
+  displacement stays flat within 1.62 times; realised cycle rank collapses to 0.029 of
+  potential **with no edge deleted**, and one autonomous edge restores it to 0.783.
+  The realised graph is the edges whose flow exceeds a fixed cutoff, and every cutoff
+  across 145 decades reads the same graph.
 - **A4.** Switching on nothing but the access structure takes the Gini from `0.00711` to
   `0.93673`, sign holding at 5 of 5 seeds (A4-2). The four standard competitors acting
   alone move it by `+0.00007`, `+0.00932`, `+0.00080` and `−0.00006`. **Those four numbers
@@ -601,8 +651,11 @@ And on the structural side, inside the mechanism models:
   182 nodes leave circulation holding 39.5 per cent of the claims outstanding. An economy
   that has moved most of its population out of circulation reports a better Gini.
 - **A7.** Adding 350 edges to 1,039 removes 98 per cent of the compounding divergence, and
-  **21 of the 350 point downward** against a specification in which that count is zero. Any
-  statement that the gap closes as connectivity rises needs that count beside it.
+  **21 of the 350 point downward** against a specification in which that count is zero
+  (the first seed's graph; across twenty seeds 337 to 436 edges, 21 to 47 of them
+  downward). The same count placed inside the production layer or pointing upward does
+  not remove the gap. Any statement that the gap closes as connectivity rises needs that
+  count beside it.
 
 ---
 
@@ -662,25 +715,23 @@ sides.
 
 ---
 
-## 9. Where a critic should push
+## 9. The tests, and where each stands
 
-**Not at Theorem 1**, for B0b section 6's reason.
+Theorem 1 is an equivalence with no economic assumptions in it (B0b section 6).
 
-**The push specific to this document is at section 4.1.** Breaking it means producing a
-member of this family whose price field takes different values for different agents on the
-same transition, and whose sufficient statistic does not grow in dimension with the number
-of agent classes. **Section 2.4.1 puts B0b section 6's four questions to the two papers
-where such a member would most likely be found, and answers them by quotation.** The rest
-of the literature has not been put through the same four questions, and a survey is not a
-proof, so a nominated paper is a real push. The executable form is the same four questions
-applied verbatim: do the producers inside one node face the same input price; what index set
+**The first test is at section 4.1.** A member of this family whose price field takes
+different values for different agents on the same transition answers it only by writing the
+class index, which is the second branch of B0b section 2.3 and concedes the non-zero square;
+section 4.2 names two in the core lineage. **Section 2.4.1 puts B0b section 6's four
+questions to the two papers that make the network the object, and answers them by
+quotation.** A further nominated paper is put through the same four questions verbatim: do the producers inside one node face the same input price; what index set
 does the wedge carry; are households heterogeneous in the terms they face rather than only
 in their holdings; does the sufficient statistic's dimension grow with the number of agents.
 **Quote the setup rather than characterising the literature**, which is the standard B0b
 section 6 sets and the reason section 2.4.1 is a table of quotations.
 
-**The second push is not at section 5.1's statement, which is a corollary with a one-line
-proof, but at section 5.2's evidential weight.** A3k is a model agreeing with its own
+**The second test is at section 5.2's evidential weight; section 5.1's statement is a
+corollary with a one-line proof.** A3k is a model agreeing with its own
 theorem, and this record says so in its own scope note. What the corollary settles is the
 algebra: an account of that form returns zero. What it does not settle is whether this
 framework's own readings separate the way the corollary implies they must, into a part
@@ -699,7 +750,7 @@ carrier that does carry them is where the same question goes next.
 
 ## 10. Citation status
 
-**Every quotation in sections 2 and 3 was taken from a retrieved copy and must be checked
+**Every quotation in sections 2, 3 and 4.2 was taken from a retrieved copy and must be checked
 against the version of record, with section or equation numbers attached, before it is
 quoted in a manuscript.** This is B0b section 7's standard, and it applies to this document
 at least as strongly.
@@ -723,6 +774,12 @@ Sources to be checked:
 - La'O, J., Tahbaz-Salehi, A., *Optimal Monetary Policy in Production Networks*.
   **Section 2.4.1 quotes the NBER working-paper setup, and the same substitution is
   required.**
+- Chen, H., Cúrdia, V., Ferrero, A., *The Macroeconomic Effects of Large-Scale Asset
+  Purchase Programmes*, Economic Journal 122 (2012). **Section 4.2 quotes the Federal
+  Reserve Bank of New York Staff Report 527 setup (December 2011), and the published setup
+  must be substituted, with the equation numbers attached.**
+- Gertler, M., Karadi, P., *A Model of Unconventional Monetary Policy*, Journal of Monetary
+  Economics 58 (2011), 17-34.
 - Storm, S., *The Art of Paradigm Maintenance*, INET working paper 214. A heterodox
   commentary, used here only to count patches and carrying no structural claim.
 

@@ -13,10 +13,12 @@ which close, rather than registering a story and scoring it.
 
 **What it deliberately does not do.** It does not force the field exact. A22
 did that on A3's carrier and found the whole holonomy carries `1.33%` of the
-support contraction, the graph carrying the rest, so the split between the two
-channels is a real question here too. It is registered and not run: A22's
-construction is on a different carrier and joining them is its own piece of
-work, not a flag on this one.
+support contraction, the graph carrying the rest (`1.26%` with the bidder pool
+that prices a tier admitted on the gate terms rather than the payment terms;
+A22 ran both admission rules and the reading did not change), so the split
+between the two channels is a real question here too. It is registered and not
+run: A22's construction is on a different carrier and joining them is its own
+piece of work, not a flag on this one.
 
     python experiments/a40_two_graph_catchup.py --selftest
     python experiments/a40_two_graph_catchup.py --run
@@ -263,7 +265,9 @@ def run(write=True):
         "A40-3  what is registered and not run", "bookkeeping", True,
         "the field-exact arm. A22 forced w = d phi on A3's carrier and read that the "
         "whole holonomy carries 1.33% of the support contraction there, the graph "
-        "carrying the rest. Whether catch-up splits the same way between the two "
+        "carrying the rest (1.26% with the bidder pool admitted on the gate terms; "
+        "A22 ran both admission rules and the reading did not change). Whether "
+        "catch-up splits the same way between the two "
         "channels is the question this station opens and does not answer: A22's "
         "construction sits on a different carrier and joining the two is its own piece "
         "of work. Registered here so the next session does not re-derive the need."))

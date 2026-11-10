@@ -11,7 +11,8 @@ Criteria, each with a `kind` (11d):
   B129-4 own_reading   the month the scalar index moves after each legal date
   B129-5 own_reading   which of the index's two age classes falls more at the reduction step,
                        predicted from the cap table and the 2019 Mietspiegel before it is read
-  B129-6 own_reading   the third class written by two statutes' different exemption dates
+  B129-6 own_reading   the third class written by two statutes' exemptions on two different events: outside
+                       the cap (first ready from 2014-01-01) and inside the Bremse (first let by 2014-10-01)
 
 Every criterion's flag is computed from its object, and --selftest feeds each one an input
 that must make it fail (11f).
@@ -48,13 +49,36 @@ CAP_TABLE = [
     (9, "1965 bis 1972", "und", 5.95), (10, "1973 bis 1990", "und", 6.04),
     (11, "1991 bis 2002", "und", 8.13), (12, "2003 bis 2013", "und", 9.80),
 ]
-#: Drucksache 18/2347, Begruendung to §6 (p. 34 of the PDF): each cap is the 2013
-#: Mietspiegel median (Mittelwert) of its row times the real wage index carried forward,
-#: 104.9/94.2 = 1.114 for 2012-2018 and one more year at the geometric mean 1.018,
-#: 1.114 * 1.018 = 1.134. (row -> 2013 median, EUR per m2)
-MS2013_MEDIAN = {1: 5.69, 2: 4.41, 3: 3.46, 4: 5.53, 5: 4.60, 6: 4.05, 7: 5.36, 8: 4.96,
+#: Drucksache 18/2347, Begruendung to §6 (p. 34 of the PDF): each cap is a 2013 source-group base
+#: times the real wage index carried forward, 104.9/94.2 = 1.114 for 2012-2018 and one more year at
+#: the geometric mean 1.018, 1.114 * 1.018 = 1.134. The bases are built from the 2013 Mietspiegel's
+#: Mittelwerte in four ways the page prints: the value itself; a full-equipment value less the
+#: published equipment difference; West and East weighted by dwelling counts; a value plus the
+#: new-build supplement. (row -> derivation; bases in EUR per m2)
+BASE_DERIVATION = {
+    1: ("printed", 5.69), 2: ("less", 1, 1.28), 3: ("less", 1, 2.23),
+    4: ("printed", 5.53), 5: ("less", 4, 0.93), 6: ("less", 4, 1.48),
+    7: ("printed", 5.36), 8: ("less", 7, 0.40), 9: ("printed", 5.25),
+    10: ("weighted", ((6.63, 33_500), (5.12, 204_200))),        # 1973-1990 West and East
+    11: ("printed", 7.17), 12: ("plus", 11, 1.47),               # 2003-2013: 1991-2002 plus 1.47
+}
+CAP_BASE_2013 = {1: 5.69, 2: 4.41, 3: 3.46, 4: 5.53, 5: 4.60, 6: 4.05, 7: 5.36, 8: 4.96,
                  9: 5.25, 10: 5.33, 11: 7.17, 12: 8.64}
 REAL_WAGE_FACTOR = 1.134
+
+
+def derive_base(n: int, rules=BASE_DERIVATION) -> float:
+    """A row's 2013 base from the derivation the bill prints for it, to the cent."""
+    r = rules[n]
+    if r[0] == "printed":
+        return r[1]
+    if r[0] == "less":
+        return round(derive_base(r[1], rules) - r[2], 2)
+    if r[0] == "plus":
+        return round(derive_base(r[1], rules) + r[2], 2)
+    if r[0] == "weighted":
+        return round(sum(v * w for v, w in r[1]) / sum(w for _, w in r[1]), 2)
+    raise ValueError(r)
 LABEL = {"und": "mit Sammelheizung und mit Bad", "oder": "mit Sammelheizung oder mit Bad",
          "ohne": "ohne Sammelheizung und ohne Bad"}
 #: §6 Abs. 2: +10 % in buildings with at most two dwellings. §6 Abs. 3: +1 EUR, modern.
@@ -214,16 +238,26 @@ def b129_1(table, enacted_text: str) -> tuple[bool | None, str, dict]:
                 + (f"; missing rows {miss}" if miss else "")), {"rows_found": sum(found)}
 
 
-def b129_1b(table, medians, factor) -> tuple[bool | None, str, dict]:
-    """Each cap equals its 2013 median times the real wage factor, to the cent."""
-    rows = {n: (medians.get(n), v, round(medians[n] * factor, 2) if n in medians else None)
-            for n, _, _, v in table}
-    off = [n for n, (_, cap, derived) in rows.items() if derived is None or abs(derived - cap) > 0.005]
-    ok = bool(rows) and not off
-    return ok, (f"{len(rows) - len(off)}/{len(rows)} caps equal 2013 median x {factor} to the cent"
-                + (f"; off: rows {off}" if off else "")), {
-        "rows": {str(n): {"median_2013": m, "cap": c, "median_x_factor": d}
-                 for n, (m, c, d) in rows.items()}}
+def b129_1b(table, bases, factor, rules=BASE_DERIVATION) -> tuple[bool | None, str, dict]:
+    """Each row's 2013 base follows from the derivation the bill prints for it, and each cap equals
+    that base times the real wage factor, both to the cent."""
+    rows = {}
+    for n, _, _, cap in table:
+        base = bases.get(n)
+        derived = derive_base(n, rules) if n in rules else None
+        rows[n] = {"derivation": rules.get(n, ("none",))[0], "base_2013": base, "base_from_derivation": derived,
+                   "cap": cap, "base_x_factor": None if base is None else round(base * factor, 2)}
+    bad_base = [n for n, r in rows.items() if r["base_from_derivation"] is None or r["base_2013"] is None
+                or abs(r["base_from_derivation"] - r["base_2013"]) > 0.005]
+    bad_cap = [n for n, r in rows.items() if r["base_x_factor"] is None or abs(r["base_x_factor"] - r["cap"]) > 0.005]
+    ok = bool(rows) and not bad_base and not bad_cap
+    kinds = {k: sum(r["derivation"] == k for r in rows.values()) for k in ("printed", "less", "weighted", "plus")}
+    return ok, (f"{len(rows) - len(bad_base)}/{len(rows)} 2013 bases follow from their printed derivation "
+                f"({kinds['printed']} as printed, {kinds['less']} less an equipment difference, {kinds['weighted']} "
+                f"weighted West and East, {kinds['plus']} plus the new-build supplement); "
+                f"{len(rows) - len(bad_cap)}/{len(rows)} caps equal base x {factor} to the cent"
+                + (f"; off: bases {bad_base}, caps {bad_cap}" if bad_base or bad_cap else "")), {
+        "rows": {str(n): r for n, r in rows.items()}}
 
 
 def class_values(table) -> dict[str, int]:
@@ -341,11 +375,11 @@ def b129_4(series, dates, pre_end="2019-06") -> tuple[bool | None, str, dict]:
 #: read with and without. 2 summaries x 2 column sets = 4 variants (11f).
 #:
 #: The cell median was a declared statistic in the first run (§R1) and split the vote 2 of 4.
-#: Removed 2026-09-23 by ruling (§R2): the caps are themselves 2013 Mietspiegel medians
-#: scaled by the real wage index (Drucksache 18/2347, Begruendung to §6), so a cell's median
-#: over its cap reads how far that cell's median grew since 2012 against real wages, and the
-#: §5 line cuts rents above 120 % of that, which the median of a cell reaches only where the
-#: whole cell has moved. The object the reduction acts on is the tail.
+#: Removed 2026-09-23 by ruling (§R2): the §5 line cuts rents above 120 % of the cap, which the
+#: median of a cell reaches only where the whole cell has moved. The object the reduction acts on
+#: is the tail. (The caps are 2013 source-group bases scaled by the real wage index, and the 2019
+#: cells are cut by size and location as well, so a cell's median over its cap is not that cell's
+#: own growth since 2012; the ruling rests on the tail, not on that reading.)
 VARIANTS = [(stat, summ, col8) for stat in ("upper",) for summ in ("mean_ratio", "share_above")
             for col8 in (True, False)]
 
@@ -367,10 +401,17 @@ def prediction_from_mietspiegel(grid, table) -> dict:
         for cls in ("bis 1948", "ab 1949"):
             r = [c[f"{stat}_ratio"] for c in cells if c["class"] == cls and (col8 or c["col"] != 8)]
             vals[cls] = (statistics.fmean(r) if summ == "mean_ratio" else sum(x > 1 for x in r) / len(r)) if r else None
-        old_more = None if None in vals.values() else vals["bis 1948"] > vals["ab 1949"]
+        # compared at the four decimals printed; equal is a third outcome, not a vote for either class
+        if None in vals.values():
+            direction = None
+        else:
+            o, n = round(vals["bis 1948"], 4), round(vals["ab 1949"], 4)
+            direction = "old" if o > n else "new" if o < n else "equal"
         variants.append({"statistic": stat, "summary": summ, "column_8": col8,
-                         "bis 1948": round(vals["bis 1948"], 4), "ab 1949": round(vals["ab 1949"], 4),
-                         "old_further_above": old_more})
+                         "bis 1948": None if vals["bis 1948"] is None else round(vals["bis 1948"], 4),
+                         "ab 1949": None if vals["ab 1949"] is None else round(vals["ab 1949"], 4),
+                         "direction": direction,
+                         "old_further_above": {"old": True, "new": False}.get(direction)})
     return {"variants": variants, "cells": cells}
 
 
@@ -380,46 +421,74 @@ B129_5_MAP = {"old falls more": True, "new falls more": False, "equal within 0.1
 
 def b129_5(pred, series, step=("2021-01", "2021-03")) -> tuple[bool | None, str, dict]:
     vs = pred["variants"]
-    if not vs or any(v["old_further_above"] is None for v in vs):
+    if not vs or any(v.get("direction") is None for v in vs):
         return None, "no Mietspiegel cells", {}
+    dirs = [v["direction"] for v in vs]
     votes = [v["old_further_above"] for v in vs]
-    if len(set(votes)) > 1:
-        predicted_old = None
-    else:
-        predicted_old = votes[0]
+    # the prediction is read only if every declared variant points the same way (11f); a tie points nowhere
+    predicted_old = {"old": True, "new": False}.get(dirs[0]) if len(set(dirs)) == 1 else None
     a, b = step
-    drop = {k: round(series[b][k] - series[a][k], 1) for k in ("bis 1948", "ab 1949")}
+    # the index is published to one decimal: compare in whole tenths of a point, not in floating point
+    tenths = {k: round(series[b][k] * 10) - round(series[a][k] * 10) for k in ("bis 1948", "ab 1949")}
+    drop = {k: t / 10 for k, t in tenths.items()}
     pct = {k: round(100 * (series[b][k] / series[a][k] - 1), 2) for k in drop}
-    if abs(drop["bis 1948"] - drop["ab 1949"]) <= 0.1:
+    if abs(tenths["bis 1948"] - tenths["ab 1949"]) <= 1:
         branch = "equal within 0.1 point"
     else:
-        branch = "old falls more" if drop["bis 1948"] < drop["ab 1949"] else "new falls more"
+        branch = "old falls more" if tenths["bis 1948"] < tenths["ab 1949"] else "new falls more"
     verdict = B129_5_MAP[branch]
-    # the prediction is read only if all declared variants agree (11f); else no verdict
     ok = None if (verdict is None or predicted_old is None) else (verdict == predicted_old)
-    n_old = sum(votes)
-    pred_txt = ("undecided: the declared variants split "
-                f"{n_old} for 'bis 1948 further above' vs {len(votes) - n_old} against"
+    n_old, n_eq = dirs.count("old"), dirs.count("equal")
+    pred_txt = ("undecided: the declared variants give "
+                f"{n_old} 'bis 1948 further above', {dirs.count('new')} 'ab 1949 further above', {n_eq} equal"
                 if predicted_old is None else
                 f"{'bis 1948' if predicted_old else 'ab 1949'} further above the line in all "
                 f"{len(votes)} variants")
     return ok, (f"prediction {pred_txt}; read {a} -> {b}: bis 1948 {drop['bis 1948']:+.1f} "
                 f"({pct['bis 1948']:+.2f} %), ab 1949 {drop['ab 1949']:+.1f} "
                 f"({pct['ab 1949']:+.2f} %); branch '{branch}'"), {
-        "predicted_old_falls_more": predicted_old, "variant_votes": votes,
+        "predicted_old_falls_more": predicted_old, "variant_votes": votes, "variant_directions": dirs,
         "drop_points": drop, "drop_pct": pct, "branch": branch,
         "mapping": {k: v for k, v in B129_5_MAP.items()}}
 
 
-def b129_6(deckel_from: str, bremse_after: str, bgb_text: str) -> tuple[bool | None, str, dict]:
-    """A third class exists iff the two exemption lines differ and both are in the texts."""
-    in_bgb = "nach dem 1. Oktober 2014" in bgb_text
-    ok = in_bgb and deckel_from < bremse_after
-    return ok, (f"Deckel exempts first ready from {deckel_from}; Bremse exempts first used "
-                f"and let after {bremse_after} (BGB §556f text {'found' if in_bgb else 'NOT found'}); "
-                f"dwellings first ready in [{deckel_from}, {bremse_after}] sit outside the cap "
-                f"and inside the Bremse" if ok else "no third class"), {
-        "deckel_exempt_from": deckel_from, "bremse_exempt_after": bremse_after}
+#: The two statutes date two different events. MietenWoG Bln §1 Nr. 3: first ready for occupation
+#: (bezugsfertig) from 1.1.2014. BGB §556f: first used and let (genutzt und vermietet) after 1.10.2014.
+DECKEL_TEXT = r"ab dem 1\. Januar 2014 erstmalig bezugs\s*fertig"
+BREMSE_TEXT = r"nach dem 1\. Oktober 2014 erstmals genutzt und vermietet"
+#: Two dwellings with the same ready date (the independent audit of 2026-09-28): the first is let before
+#: the Bremse line and falls in the third class, the second is let after it and is exempt from both.
+B129_6_EXAMPLES = (("2014-06-01", "2014-09-01"), ("2014-06-01", "2015-02-01"))
+
+
+def third_class(ready: str, first_let: str, deckel_from: str = DECKEL_EXEMPT_FROM,
+                bremse_after: str = BREMSE_EXEMPT_AFTER) -> bool:
+    """Outside the cap (ready on or after the Deckel line) and inside the Bremse (first let on or before its line).
+    Each statute on its own event; a dwelling is let no earlier than it is ready."""
+    if first_let < ready:
+        raise ValueError("a dwelling is first let no earlier than it is first ready")
+    return ready >= deckel_from and not first_let > bremse_after
+
+
+def b129_6(deckel_from: str, bremse_after: str, enacted_text: str, bgb_text: str) -> tuple[bool | None, str, dict]:
+    """A third class exists iff both exemptions are in the texts and some dwelling meets the one and not the other:
+    the earliest witness is ready and let on the Deckel line itself."""
+    in_deckel = re.search(DECKEL_TEXT, normalise(enacted_text)) is not None
+    in_bgb = re.search(BREMSE_TEXT, normalise(re.sub(r"<[^>]+>", " ", bgb_text))) is not None
+    exists = deckel_from <= bremse_after and third_class(deckel_from, deckel_from, deckel_from, bremse_after)
+    examples = [{"first_ready": r, "first_let": l, "third_class": third_class(r, l, deckel_from, bremse_after)}
+                for r, l in B129_6_EXAMPLES]
+    ok = in_deckel and in_bgb and exists
+    ex = "; ".join(f"ready {e['first_ready']} let {e['first_let']}: {'in' if e['third_class'] else 'not in'}"
+                   for e in examples)
+    return ok, (f"the cap exempts dwellings first ready from {deckel_from} (MietenWoG §1 Nr. 3, "
+                f"{'found' if in_deckel else 'NOT found'}); the Bremse exempts dwellings first used and let after "
+                f"{bremse_after} (BGB §556f, {'found' if in_bgb else 'NOT found'}); the third class is a dwelling "
+                f"first ready on or after {deckel_from} and first let on or before {bremse_after}, "
+                f"{'which exists' if exists else 'which is empty'}; {ex}"), {
+        "deckel_exempt_from": deckel_from, "bremse_exempt_after": bremse_after,
+        "deckel_event": "first ready (erstmalig bezugsfertig)", "bremse_event": "first used and let (erstmals genutzt und vermietet)",
+        "examples": examples}
 
 
 # ---------------------------------------------------------------------------------------
@@ -428,12 +497,12 @@ def build(enacted, series, grid, bgb) -> list[dict]:
     pred = prediction_from_mietspiegel(grid, CAP_TABLE)
     rows = [
         ("B129-1", "instrument", b129_1(CAP_TABLE, enacted)),
-        ("B129-1b", "instrument", b129_1b(CAP_TABLE, MS2013_MEDIAN, REAL_WAGE_FACTOR)),
+        ("B129-1b", "instrument", b129_1b(CAP_TABLE, CAP_BASE_2013, REAL_WAGE_FACTOR)),
         ("B129-2", "own_reading", b129_2(CAP_TABLE)),
         ("B129-3", "rival", b129_3(HAHN_T5, HAHN_T6, ANNOUNCEMENT_MONTH)),
         ("B129-4", "own_reading", b129_4(series, DATES)),
         ("B129-5", "own_reading", b129_5(pred, series)),
-        ("B129-6", "own_reading", b129_6(DECKEL_EXEMPT_FROM, BREMSE_EXEMPT_AFTER, bgb)),
+        ("B129-6", "own_reading", b129_6(DECKEL_EXEMPT_FROM, BREMSE_EXEMPT_AFTER, enacted, bgb)),
     ]
     out = []
     for name, kind, (passed, detail, obj) in rows:
@@ -493,8 +562,13 @@ def selftest() -> None:
     assert b129_1(CAP_TABLE, enacted)[0] is True
     assert b129_1(bad, enacted)[0] is False, "B129-1 must catch a wrong cap"
     # B129-1b: a wrong factor must fail
-    assert b129_1b(CAP_TABLE, MS2013_MEDIAN, REAL_WAGE_FACTOR)[0] is True
-    assert b129_1b(CAP_TABLE, MS2013_MEDIAN, 1.114)[0] is False, "B129-1b must catch a wrong factor"
+    assert b129_1b(CAP_TABLE, CAP_BASE_2013, REAL_WAGE_FACTOR)[0] is True
+    assert b129_1b(CAP_TABLE, CAP_BASE_2013, 1.114)[0] is False, "B129-1b must catch a wrong factor"
+    #          the bases are read against their printed derivation: a wrong equipment difference, the
+    #          1973-1990 row as a plain mean of West and East, or the new-build supplement dropped must fail
+    for n, wrong in ((2, ("less", 1, 1.18)), (10, ("weighted", ((6.63, 1), (5.12, 1)))), (12, ("printed", 7.17))):
+        assert b129_1b(CAP_TABLE, CAP_BASE_2013, REAL_WAGE_FACTOR, {**BASE_DERIVATION, n: wrong})[0] is False, n
+    assert derive_base(10) == 5.33 and derive_base(12) == 8.64 and derive_base(3) == 3.46
     # B129-2: an empty table must fail
     assert b129_2([])[0] is False
     # B129-3: inflate one pre-announcement month above the reading, rival no longer wrong
@@ -516,12 +590,47 @@ def selftest() -> None:
     same = {k: {**v, "ab 1949": v["bis 1948"]} for k, v in series.items()}
     assert b129_5(unanimous, same)[0] is None
     #        and variants that split give no verdict whatever the index does
+    flip = {"old": "new", "new": "old"}
     split = {**pred, "variants": unanimous["variants"] + [{**unanimous["variants"][0],
+             "direction": flip[unanimous["variants"][0]["direction"]],
              "old_further_above": not unanimous["variants"][0]["old_further_above"]}]}
     assert b129_5(split, series)[0] is None
-    # B129-6: equal lines, or the BGB text missing, leave no third class
-    assert b129_6("2014-01-01", "2014-01-01", "nach dem 1. Oktober 2014")[0] is False
-    assert b129_6("2014-01-01", "2014-10-01", "")[0] is False
+    #        the audit's tie: every cell's upper end at twice its line, so both classes read the same
+    #        in all four variants; a tie predicts no direction and must not read as 'ab 1949 higher'
+    doubled = {r: {c: (med, lo, 2 * OVERAGE * (dict((n, v) for n, _, _, v in CAP_TABLE)[MS_TO_CAP[c]]
+                                                 + LOCATION[MS_LOCATION[r]])) for c, (med, lo, hi) in cols.items()}
+               for r, cols in grid.items()}
+    tie = prediction_from_mietspiegel(doubled, CAP_TABLE)
+    tie = {**tie, "variants": [v for v in tie["variants"] if v["statistic"] == "upper"]}
+    assert {v["direction"] for v in tie["variants"]} == {"equal"}, [v["direction"] for v in tie["variants"]]
+    new_falls = {k: {**v, "bis 1948": 100.0, "ab 1949": 100.0 if k < "2021-03" else 97.0} for k, v in series.items()}
+    assert b129_5(tie, new_falls)[0] is None, "a tie in the prediction must give no verdict"
+    #        the 0.1 point cell at the published decimal: 2.0 against 1.9 and 1.9 against 2.0 are both undecided,
+    #        2.0 against 1.8 is not
+    def path(old_b, new_b):
+        return {**series, "2021-01": {**series["2021-01"], "bis 1948": 108.7, "ab 1949": 108.7},
+                "2021-03": {**series["2021-03"], "bis 1948": old_b, "ab 1949": new_b}}
+    assert b129_5(unanimous, path(106.7, 106.8))[2]["branch"] == "equal within 0.1 point"
+    assert b129_5(unanimous, path(106.8, 106.7))[2]["branch"] == "equal within 0.1 point"
+    assert b129_5(unanimous, path(106.7, 106.9))[2]["branch"] == "old falls more"
+    assert b129_5(unanimous, path(106.9, 106.7))[2]["branch"] == "new falls more"
+    # B129-6: each statute on its own event
+    bgb = (RAW / "bgb_556f.html").read_text(encoding="utf-8", errors="replace")
+    ok6, _, obj6 = b129_6(DECKEL_EXEMPT_FROM, BREMSE_EXEMPT_AFTER, enacted, bgb)
+    assert ok6 is True
+    assert [e["third_class"] for e in obj6["examples"]] == [True, False], \
+        "same ready date: let before the Bremse line is in the class, let after it is exempt from both"
+    assert third_class("2013-06-01", "2014-03-01") is False                  # ready before the Deckel line: capped
+    assert third_class("2014-10-01", "2014-10-01") is True                   # the Bremse line itself: 'after' excludes it
+    #        a Deckel line after the Bremse line leaves no third class; so does either text missing
+    assert b129_6("2014-11-01", "2014-10-01", enacted, bgb)[0] is False
+    assert b129_6(DECKEL_EXEMPT_FROM, BREMSE_EXEMPT_AFTER, enacted, "")[0] is False
+    assert b129_6(DECKEL_EXEMPT_FROM, BREMSE_EXEMPT_AFTER, "", bgb)[0] is False
+    try:
+        third_class("2014-06-01", "2014-03-01")
+        raise AssertionError("a dwelling let before it is ready must be refused")
+    except ValueError:
+        pass
     # the Mietspiegel reader: the empty cells are where the page leaves them
     assert set(grid["A"]) == {1, 2, 3, 4, 5, 6} and 3 not in grid["J"], "empty cells moved"
     assert all(lo <= med <= hi for cols in grid.values() for med, lo, hi in cols.values()), \

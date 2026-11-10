@@ -1,0 +1,9594 @@
+{
+ "clusters": {
+  "district_stop15_prior10": [
+   {
+    "active": 9,
+    "districts": 1,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 3,
+      "members_in_scope_by_district": {
+       "closure": 3,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-05",
+    "last_last_filing": "2016-11-08",
+    "markets": 3,
+    "median_resume": "2016-11-23",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Shajapur",
+      "Agar",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-11-05"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 1,
+    "share": 0.3333,
+    "where": "Madhya Pradesh / Shajapur"
+   },
+   {
+    "active": 9,
+    "districts": 1,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 3,
+      "members_in_scope_by_district": {
+       "closure": 3,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-08",
+    "last_last_filing": "2016-11-09",
+    "markets": 3,
+    "median_resume": "2016-11-25",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Sagar",
+      "Bamora",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-11-09"
+     ]
+    ],
+    "rank": 2,
+    "share": 0.3333,
+    "where": "Madhya Pradesh / Sagar"
+   }
+  ],
+  "district_stop8_prior10": [
+   {
+    "active": 5,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2012-04-07",
+    "last_last_filing": "2012-04-07",
+    "markets": 4,
+    "median_resume": "2012-04-16",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Shamshabad",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2012-04-07"
+     ]
+    ],
+    "rank": 1,
+    "share": 0.8,
+    "where": "Madhya Pradesh / Vidisha"
+   },
+   {
+    "active": 5,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2016-03-19",
+    "last_last_filing": "2016-03-22",
+    "markets": 4,
+    "median_resume": "2016-04-01",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2016-03-22"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2016-03-19"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2016-03-21"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2016-03-19"
+     ]
+    ],
+    "rank": 2,
+    "share": 0.8,
+    "where": "Madhya Pradesh / Narsinghpur"
+   },
+   {
+    "active": 9,
+    "districts": 1,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 4,
+      "members_in_scope_by_district": {
+       "closure": 4,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-05",
+    "last_last_filing": "2016-11-08",
+    "markets": 4,
+    "median_resume": "2016-11-22",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Shajapur",
+      "Agar",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-11-05"
+     ],
+     [
+      "Shajapur",
+      "Kalapipal",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 3,
+    "share": 0.4444,
+    "where": "Madhya Pradesh / Shajapur"
+   },
+   {
+    "active": 5,
+    "districts": 1,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 4,
+      "members_in_scope_by_district": {
+       "closure": 4,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-08",
+    "last_last_filing": "2016-11-08",
+    "markets": 4,
+    "median_resume": "2016-11-16",
+    "median_stop_days": 8.5,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2016-11-08"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2016-11-08"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2016-11-08"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 4,
+    "share": 0.8,
+    "where": "Madhya Pradesh / Narsinghpur"
+   },
+   {
+    "active": 7,
+    "districts": 1,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 4,
+      "members_in_scope_by_district": {
+       "closure": 4,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-08",
+    "last_last_filing": "2016-11-08",
+    "markets": 4,
+    "median_resume": "2016-11-22",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Biaora",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 5,
+    "share": 0.5714,
+    "where": "Madhya Pradesh / Rajgarh"
+   },
+   {
+    "active": 10,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-24",
+    "last_last_filing": "2017-03-27",
+    "markets": 4,
+    "median_resume": "2017-04-03",
+    "median_stop_days": 9.5,
+    "members": [
+     [
+      "Sagar",
+      "Bamora",
+      "2017-03-24"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2017-03-24"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2017-03-27"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2017-03-25"
+     ]
+    ],
+    "rank": 6,
+    "share": 0.4,
+    "where": "Madhya Pradesh / Sagar"
+   },
+   {
+    "active": 3,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2010-06-24",
+    "last_last_filing": "2010-06-25",
+    "markets": 3,
+    "median_resume": "2010-07-06",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Raisen",
+      "Bareli",
+      "2010-06-25"
+     ],
+     [
+      "Raisen",
+      "Begamganj",
+      "2010-06-25"
+     ],
+     [
+      "Raisen",
+      "Udaipura",
+      "2010-06-24"
+     ]
+    ],
+    "rank": 7,
+    "share": 1.0,
+    "where": "Madhya Pradesh / Raisen"
+   },
+   {
+    "active": 5,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2011-08-07",
+    "last_last_filing": "2011-08-10",
+    "markets": 3,
+    "median_resume": "2011-08-25",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Jalaun (Orai)",
+      "Ait",
+      "2011-08-09"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Jalaun",
+      "2011-08-10"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2011-08-07"
+     ]
+    ],
+    "rank": 8,
+    "share": 0.6,
+    "where": "Uttar Pradesh / Jalaun (Orai)"
+   },
+   {
+    "active": 4,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2013-03-24",
+    "last_last_filing": "2013-03-26",
+    "markets": 3,
+    "median_resume": "2013-04-03",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Shajapur",
+      "Akodia",
+      "2013-03-26"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2013-03-24"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2013-03-26"
+     ]
+    ],
+    "rank": 9,
+    "share": 0.75,
+    "where": "Madhya Pradesh / Shajapur"
+   },
+   {
+    "active": 9,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-24",
+    "last_last_filing": "2015-03-27",
+    "markets": 3,
+    "median_resume": "2015-04-04",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2015-03-26"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2015-03-24"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2015-03-27"
+     ]
+    ],
+    "rank": 10,
+    "share": 0.3333,
+    "where": "Madhya Pradesh / Rajgarh"
+   },
+   {
+    "active": 9,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-25",
+    "last_last_filing": "2015-03-27",
+    "markets": 3,
+    "median_resume": "2015-04-06",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Sagar",
+      "Bamora",
+      "2015-03-27"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2015-03-26"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2015-03-25"
+     ]
+    ],
+    "rank": 11,
+    "share": 0.3333,
+    "where": "Madhya Pradesh / Sagar"
+   },
+   {
+    "active": 6,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-25",
+    "last_last_filing": "2015-03-27",
+    "markets": 3,
+    "median_resume": "2015-04-06",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Vidisha",
+      "Lateri",
+      "2015-03-27"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2015-03-25"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2015-03-26"
+     ]
+    ],
+    "rank": 12,
+    "share": 0.5,
+    "where": "Madhya Pradesh / Vidisha"
+   },
+   {
+    "active": 5,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2015-10-17",
+    "last_last_filing": "2015-10-17",
+    "markets": 3,
+    "median_resume": "2015-10-29",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2015-10-17"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2015-10-17"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2015-10-17"
+     ]
+    ],
+    "rank": 13,
+    "share": 0.6,
+    "where": "Madhya Pradesh / Narsinghpur"
+   },
+   {
+    "active": 10,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-10",
+    "last_last_filing": "2016-06-13",
+    "markets": 3,
+    "median_resume": "2016-06-21",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2016-06-13"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2016-06-12"
+     ],
+     [
+      "Rajgarh",
+      "Machalpur",
+      "2016-06-10"
+     ]
+    ],
+    "rank": 14,
+    "share": 0.3,
+    "where": "Madhya Pradesh / Rajgarh"
+   },
+   {
+    "active": 10,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-28",
+    "last_last_filing": "2016-07-01",
+    "markets": 3,
+    "median_resume": "2016-10-19",
+    "median_stop_days": 110.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2016-07-01"
+     ]
+    ],
+    "rank": 15,
+    "share": 0.3,
+    "where": "Madhya Pradesh / Rajgarh"
+   },
+   {
+    "active": 4,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-02",
+    "last_last_filing": "2016-07-04",
+    "markets": 3,
+    "median_resume": "2016-07-18",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Raisen",
+      "Bareli",
+      "2016-07-02"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2016-07-04"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2016-07-02"
+     ]
+    ],
+    "rank": 16,
+    "share": 0.75,
+    "where": "Madhya Pradesh / Raisen"
+   },
+   {
+    "active": 8,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-10",
+    "last_last_filing": "2016-08-12",
+    "markets": 3,
+    "median_resume": "2016-08-30",
+    "median_stop_days": 20.0,
+    "members": [
+     [
+      "Sagar",
+      "Deori",
+      "2016-08-10"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-08-12"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2016-08-12"
+     ]
+    ],
+    "rank": 17,
+    "share": 0.375,
+    "where": "Madhya Pradesh / Sagar"
+   },
+   {
+    "active": 9,
+    "districts": 1,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 3,
+      "members_in_scope_by_district": {
+       "closure": 3,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-08",
+    "last_last_filing": "2016-11-09",
+    "markets": 3,
+    "median_resume": "2016-11-25",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Sagar",
+      "Bamora",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-11-09"
+     ]
+    ],
+    "rank": 18,
+    "share": 0.3333,
+    "where": "Madhya Pradesh / Sagar"
+   }
+  ],
+  "state_stop15_prior10": [
+   {
+    "active": 97,
+    "districts": 11,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 15,
+      "members_in_scope_by_district": {
+       "closure": 15,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-06",
+    "last_last_filing": "2016-11-09",
+    "markets": 15,
+    "median_resume": "2016-11-28",
+    "median_stop_days": 20.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2016-11-07"
+     ],
+     [
+      "Damoh",
+      "Damoh",
+      "2016-11-07"
+     ],
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2016-11-08"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2016-11-06"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2016-11-07"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2016-11-07"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-11-09"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Agar",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-11-08"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2016-11-08"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 1,
+    "share": 0.1546,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-02",
+    "last_last_filing": "2016-07-05",
+    "markets": 6,
+    "median_resume": "2016-07-26",
+    "median_stop_days": 22.5,
+    "members": [
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2016-07-05"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2016-07-04"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2016-07-02"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2016-07-05"
+     ],
+     [
+      "Shivpuri",
+      "Badarwas",
+      "2016-07-04"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2016-07-02"
+     ]
+    ],
+    "rank": 2,
+    "share": 0.0531,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 96,
+    "districts": 5,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 6,
+      "members_in_scope_by_district": {
+       "closure": 6,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-02",
+    "last_last_filing": "2016-11-05",
+    "markets": 6,
+    "median_resume": "2016-11-29",
+    "median_stop_days": 24.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2016-11-04"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-11-02"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-11-04"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-11-05"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2016-11-05"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-11-04"
+     ]
+    ],
+    "rank": 3,
+    "share": 0.0625,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 98,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-27",
+    "last_last_filing": "2015-05-30",
+    "markets": 5,
+    "median_resume": "2015-07-01",
+    "median_stop_days": 33.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2015-05-30"
+     ],
+     [
+      "Dindori",
+      "Shahpura",
+      "2015-05-27"
+     ],
+     [
+      "Gwalior",
+      "Lashkar",
+      "2015-05-29"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-05-29"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2015-05-30"
+     ]
+    ],
+    "rank": 4,
+    "share": 0.051,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 92,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-05",
+    "last_last_filing": "2015-06-08",
+    "markets": 5,
+    "median_resume": "2015-07-22",
+    "median_stop_days": 47.0,
+    "members": [
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2015-06-08"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2015-06-05"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2015-06-08"
+     ],
+     [
+      "Shajapur",
+      "Momanbadodiya",
+      "2015-06-07"
+     ],
+     [
+      "Shajapur",
+      "Susner",
+      "2015-06-08"
+     ]
+    ],
+    "rank": 5,
+    "share": 0.0543,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 97,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-20",
+    "last_last_filing": "2015-06-23",
+    "markets": 5,
+    "median_resume": "2015-07-21",
+    "median_stop_days": 28.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2015-06-23"
+     ],
+     [
+      "Rajgarh",
+      "Biaora",
+      "2015-06-23"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2015-06-23"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2015-06-23"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2015-06-20"
+     ]
+    ],
+    "rank": 6,
+    "share": 0.0515,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 119,
+    "districts": 4,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure",
+       "information"
+      ],
+      "event": "MP-2017-strike",
+      "members": 5,
+      "members_in_scope_by_district": {
+       "closure": 5,
+       "full_information_cut": 0,
+       "information": 2,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2017-05-31",
+    "last_last_filing": "2017-06-03",
+    "markets": 5,
+    "median_resume": "2017-06-19",
+    "median_stop_days": 19.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2017-05-31"
+     ],
+     [
+      "Dhar",
+      "Dhar",
+      "2017-05-31"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2017-05-31"
+     ],
+     [
+      "Shajapur",
+      "Agar",
+      "2017-06-03"
+     ],
+     [
+      "Shajapur",
+      "Susner",
+      "2017-06-02"
+     ]
+    ],
+    "rank": 7,
+    "share": 0.042,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2013-07-17",
+    "last_last_filing": "2013-07-19",
+    "markets": 4,
+    "median_resume": "2013-08-02",
+    "median_stop_days": 16.5,
+    "members": [
+     [
+      "Mandla",
+      "Bichhiya",
+      "2013-07-19"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2013-07-17"
+     ],
+     [
+      "Raisen",
+      "Begamganj",
+      "2013-07-17"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2013-07-17"
+     ]
+    ],
+    "rank": 8,
+    "share": 0.0952,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-28",
+    "last_last_filing": "2016-07-01",
+    "markets": 4,
+    "median_resume": "2016-09-01",
+    "median_stop_days": 64.0,
+    "members": [
+     [
+      "Datia",
+      "Datia",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2016-07-01"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2016-06-29"
+     ]
+    ],
+    "rank": 9,
+    "share": 0.0354,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-11-08",
+    "last_last_filing": "2016-11-11",
+    "markets": 4,
+    "median_resume": "2016-12-04",
+    "median_stop_days": 25.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2016-11-11"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2016-11-08"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2016-11-09"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 10,
+    "share": 0.1081,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 89,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-12-16",
+    "last_last_filing": "2016-12-19",
+    "markets": 4,
+    "median_resume": "2017-01-03",
+    "median_stop_days": 17.5,
+    "members": [
+     [
+      "Mandla",
+      "Mandla",
+      "2016-12-18"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2016-12-19"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2016-12-16"
+     ],
+     [
+      "Ratlam",
+      "Ratlam",
+      "2016-12-19"
+     ]
+    ],
+    "rank": 11,
+    "share": 0.0449,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 121,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-27",
+    "last_last_filing": "2017-03-30",
+    "markets": 4,
+    "median_resume": "2017-04-20",
+    "median_stop_days": 22.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Isagarh",
+      "2017-03-28"
+     ],
+     [
+      "Damoh",
+      "Damoh",
+      "2017-03-30"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2017-03-27"
+     ],
+     [
+      "Shivpuri",
+      "Shivpuri",
+      "2017-03-29"
+     ]
+    ],
+    "rank": 12,
+    "share": 0.0331,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-03-23",
+    "last_last_filing": "2011-03-25",
+    "markets": 3,
+    "median_resume": "2011-04-19",
+    "median_stop_days": 25.0,
+    "members": [
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2011-03-25"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2011-03-25"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2011-03-23"
+     ]
+    ],
+    "rank": 13,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-06-27",
+    "last_last_filing": "2011-06-30",
+    "markets": 3,
+    "median_resume": "2011-10-13",
+    "median_stop_days": 108.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2011-06-27"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2011-06-30"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2011-06-28"
+     ]
+    ],
+    "rank": 14,
+    "share": 0.0811,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 16,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2011-12-30",
+    "last_last_filing": "2011-12-31",
+    "markets": 3,
+    "median_resume": "2012-07-04",
+    "median_stop_days": 186.0,
+    "members": [
+     [
+      "Banda",
+      "Atarra",
+      "2011-12-31"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Kalpi",
+      "2011-12-31"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2011-12-30"
+     ]
+    ],
+    "rank": 15,
+    "share": 0.1875,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-06-11",
+    "last_last_filing": "2013-06-14",
+    "markets": 3,
+    "median_resume": "2014-02-03",
+    "median_stop_days": 237.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2013-06-11"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2013-06-11"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2013-06-14"
+     ]
+    ],
+    "rank": 16,
+    "share": 0.0811,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 13,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2013-06-27",
+    "last_last_filing": "2013-06-29",
+    "markets": 3,
+    "median_resume": "2014-11-14",
+    "median_stop_days": 503.0,
+    "members": [
+     [
+      "Jalaun (Orai)",
+      "Orai",
+      "2013-06-27"
+     ],
+     [
+      "Jhansi",
+      "Chirgaon",
+      "2013-06-29"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2013-06-29"
+     ]
+    ],
+    "rank": 17,
+    "share": 0.2308,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-07-26",
+    "last_last_filing": "2013-07-27",
+    "markets": 3,
+    "median_resume": "2013-09-14",
+    "median_stop_days": 50.0,
+    "members": [
+     [
+      "Seoni",
+      "Seoni",
+      "2013-07-26"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2013-07-26"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2013-07-27"
+     ]
+    ],
+    "rank": 18,
+    "share": 0.0714,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 39,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2014-07-09",
+    "last_last_filing": "2014-07-10",
+    "markets": 3,
+    "median_resume": "2014-09-23",
+    "median_stop_days": 75.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2014-07-10"
+     ],
+     [
+      "Damoh",
+      "Patharia",
+      "2014-07-10"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2014-07-09"
+     ]
+    ],
+    "rank": 19,
+    "share": 0.0769,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 97,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-05",
+    "last_last_filing": "2015-04-08",
+    "markets": 3,
+    "median_resume": "2015-06-16",
+    "median_stop_days": 72.0,
+    "members": [
+     [
+      "Bhind",
+      "Gohad",
+      "2015-04-06"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2015-04-05"
+     ],
+     [
+      "Satna",
+      "Nagod",
+      "2015-04-08"
+     ]
+    ],
+    "rank": 20,
+    "share": 0.0309,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 104,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-16",
+    "last_last_filing": "2015-04-16",
+    "markets": 3,
+    "median_resume": "2015-05-12",
+    "median_stop_days": 26.0,
+    "members": [
+     [
+      "Dhar",
+      "Dhar",
+      "2015-04-16"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2015-04-16"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2015-04-16"
+     ]
+    ],
+    "rank": 21,
+    "share": 0.0288,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 107,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-23",
+    "last_last_filing": "2015-04-25",
+    "markets": 3,
+    "median_resume": "2015-05-16",
+    "median_stop_days": 23.0,
+    "members": [
+     [
+      "Gwalior",
+      "Dabra",
+      "2015-04-25"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2015-04-23"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2015-04-25"
+     ]
+    ],
+    "rank": 22,
+    "share": 0.028,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 103,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-13",
+    "last_last_filing": "2015-05-16",
+    "markets": 3,
+    "median_resume": "2015-06-05",
+    "median_stop_days": 22.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2015-05-13"
+     ],
+     [
+      "Damoh",
+      "Hata",
+      "2015-05-14"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2015-05-16"
+     ]
+    ],
+    "rank": 23,
+    "share": 0.0291,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 93,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-16",
+    "last_last_filing": "2015-06-18",
+    "markets": 3,
+    "median_resume": "2015-09-07",
+    "median_stop_days": 83.0,
+    "members": [
+     [
+      "Bhopal",
+      "Berasia",
+      "2015-06-17"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2015-06-16"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2015-06-18"
+     ]
+    ],
+    "rank": 24,
+    "share": 0.0323,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 26,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-07-03",
+    "last_last_filing": "2015-07-06",
+    "markets": 3,
+    "median_resume": "2015-07-22",
+    "median_stop_days": 18.0,
+    "members": [
+     [
+      "Banda",
+      "Atarra",
+      "2015-07-06"
+     ],
+     [
+      "Chitrakut",
+      "Karvi",
+      "2015-07-05"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2015-07-03"
+     ]
+    ],
+    "rank": 25,
+    "share": 0.1154,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 115,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-04-11",
+    "last_last_filing": "2016-04-11",
+    "markets": 3,
+    "median_resume": "2016-05-10",
+    "median_stop_days": 29.0,
+    "members": [
+     [
+      "Mandla",
+      "Mandla",
+      "2016-04-11"
+     ],
+     [
+      "Morena",
+      "Morena",
+      "2016-04-11"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2016-04-11"
+     ]
+    ],
+    "rank": 26,
+    "share": 0.0261,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 114,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-05-16",
+    "last_last_filing": "2016-05-19",
+    "markets": 3,
+    "median_resume": "2016-06-12",
+    "median_stop_days": 25.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2016-05-16"
+     ],
+     [
+      "Damoh",
+      "Hata",
+      "2016-05-18"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2016-05-19"
+     ]
+    ],
+    "rank": 27,
+    "share": 0.0263,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 112,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-13",
+    "last_last_filing": "2016-06-16",
+    "markets": 3,
+    "median_resume": "2016-08-16",
+    "median_stop_days": 64.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2016-06-13"
+     ],
+     [
+      "Shivpuri",
+      "Pohari",
+      "2016-06-16"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2016-06-13"
+     ]
+    ],
+    "rank": 28,
+    "share": 0.0268,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 109,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-13",
+    "last_last_filing": "2016-07-16",
+    "markets": 3,
+    "median_resume": "2016-08-01",
+    "median_stop_days": 19.0,
+    "members": [
+     [
+      "Damoh",
+      "Hata",
+      "2016-07-16"
+     ],
+     [
+      "Guna",
+      "Aron",
+      "2016-07-13"
+     ],
+     [
+      "Rajgarh",
+      "Narsinghgarh",
+      "2016-07-13"
+     ]
+    ],
+    "rank": 29,
+    "share": 0.0275,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 96,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-10",
+    "last_last_filing": "2016-08-12",
+    "markets": 3,
+    "median_resume": "2016-08-30",
+    "median_stop_days": 20.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2016-08-10"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2016-08-10"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-08-12"
+     ]
+    ],
+    "rank": 30,
+    "share": 0.0312,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 3,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-11-07",
+    "last_last_filing": "2016-11-10",
+    "markets": 3,
+    "median_resume": "2016-12-03",
+    "median_stop_days": 26.0,
+    "members": [
+     [
+      "Bilaspur",
+      "Munguli",
+      "2016-11-07"
+     ],
+     [
+      "Raipur",
+      "Bhatapara",
+      "2016-11-10"
+     ],
+     [
+      "Rajnandgaon",
+      "Rajnandgaon",
+      "2016-11-09"
+     ]
+    ],
+    "rank": 31,
+    "share": 1.0,
+    "where": "Chattisgarh"
+   }
+  ],
+  "state_stop8_prior10": [
+   {
+    "active": 97,
+    "districts": 21,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 39,
+      "members_in_scope_by_district": {
+       "closure": 39,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-06",
+    "last_last_filing": "2016-11-09",
+    "markets": 39,
+    "median_resume": "2016-11-21",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2016-11-07"
+     ],
+     [
+      "Damoh",
+      "Damoh",
+      "2016-11-07"
+     ],
+     [
+      "Dewas",
+      "Dewas",
+      "2016-11-08"
+     ],
+     [
+      "Dhar",
+      "Badnawar",
+      "2016-11-08"
+     ],
+     [
+      "Dhar",
+      "Dhar",
+      "2016-11-08"
+     ],
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2016-11-08"
+     ],
+     [
+      "Jabalpur",
+      "Jabalpur",
+      "2016-11-08"
+     ],
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2016-11-08"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2016-11-08"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2016-11-08"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2016-11-06"
+     ],
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2016-11-08"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2016-11-08"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2016-11-08"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2016-11-08"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2016-11-08"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2016-11-07"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Biaora",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2016-11-08"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2016-11-08"
+     ],
+     [
+      "Rewa",
+      "Baikunthpur",
+      "2016-11-08"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-11-08"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2016-11-07"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-11-09"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2016-11-07"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2016-11-08"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Agar",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Kalapipal",
+      "2016-11-08"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-11-08"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2016-11-08"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2016-11-08"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2016-11-08"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2016-11-08"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 1,
+    "share": 0.4021,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 91,
+    "districts": 12,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-24",
+    "last_last_filing": "2015-03-27",
+    "markets": 21,
+    "median_resume": "2015-04-06",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Dhar",
+      "Dhar",
+      "2015-03-27"
+     ],
+     [
+      "Guna",
+      "Aron",
+      "2015-03-26"
+     ],
+     [
+      "Guna",
+      "Guna",
+      "2015-03-27"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-03-26"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2015-03-24"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2015-03-26"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2015-03-26"
+     ],
+     [
+      "Raisen",
+      "Obedullaganj",
+      "2015-03-27"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2015-03-26"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2015-03-24"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2015-03-27"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2015-03-27"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2015-03-26"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2015-03-25"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2015-03-25"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2015-03-24"
+     ],
+     [
+      "Shivpuri",
+      "Badarwas",
+      "2015-03-27"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2015-03-26"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2015-03-27"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2015-03-25"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2015-03-26"
+     ]
+    ],
+    "rank": 2,
+    "share": 0.2308,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 38,
+    "districts": 11,
+    "events_on_it": [],
+    "first_last_filing": "2012-04-05",
+    "last_last_filing": "2012-04-08",
+    "markets": 17,
+    "median_resume": "2012-04-16",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2012-04-07"
+     ],
+     [
+      "Damoh",
+      "Damoh",
+      "2012-04-05"
+     ],
+     [
+      "Jabalpur",
+      "Jabalpur",
+      "2012-04-07"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2012-04-07"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2012-04-07"
+     ],
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2012-04-05"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2012-04-07"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2012-04-07"
+     ],
+     [
+      "Raisen",
+      "Begamganj",
+      "2012-04-07"
+     ],
+     [
+      "Raisen",
+      "Udaipura",
+      "2012-04-07"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2012-04-08"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2012-04-06"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Shamshabad",
+      "2012-04-07"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2012-04-07"
+     ]
+    ],
+    "rank": 3,
+    "share": 0.4474,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 12,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-02",
+    "last_last_filing": "2016-07-05",
+    "markets": 17,
+    "median_resume": "2016-07-14",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2016-07-02"
+     ],
+     [
+      "Betul",
+      "Betul",
+      "2016-07-05"
+     ],
+     [
+      "Bhopal",
+      "Berasia",
+      "2016-07-04"
+     ],
+     [
+      "Guna",
+      "Aron",
+      "2016-07-04"
+     ],
+     [
+      "Guna",
+      "Guna",
+      "2016-07-02"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2016-07-05"
+     ],
+     [
+      "Neemuch",
+      "Manasa",
+      "2016-07-05"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2016-07-02"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2016-07-04"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2016-07-02"
+     ],
+     [
+      "Sagar",
+      "Rahatgarh",
+      "2016-07-04"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2016-07-05"
+     ],
+     [
+      "Shajapur",
+      "Soyatkalan",
+      "2016-07-03"
+     ],
+     [
+      "Shivpuri",
+      "Badarwas",
+      "2016-07-04"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2016-07-02"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2016-07-02"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2016-07-05"
+     ]
+    ],
+    "rank": 4,
+    "share": 0.1504,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 109,
+    "districts": 11,
+    "events_on_it": [],
+    "first_last_filing": "2016-03-19",
+    "last_last_filing": "2016-03-22",
+    "markets": 16,
+    "median_resume": "2016-04-02",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2016-03-19"
+     ],
+     [
+      "Bhopal",
+      "Bhopal",
+      "2016-03-21"
+     ],
+     [
+      "Guna",
+      "Aron",
+      "2016-03-22"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2016-03-21"
+     ],
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2016-03-22"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2016-03-19"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2016-03-21"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2016-03-19"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-03-19"
+     ],
+     [
+      "Ratlam",
+      "Ratlam",
+      "2016-03-21"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-03-22"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2016-03-22"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2016-03-21"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2016-03-21"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-03-19"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2016-03-21"
+     ]
+    ],
+    "rank": 5,
+    "share": 0.1468,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 121,
+    "districts": 9,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-27",
+    "last_last_filing": "2017-03-30",
+    "markets": 9,
+    "median_resume": "2017-04-07",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Isagarh",
+      "2017-03-28"
+     ],
+     [
+      "Bhopal",
+      "Bhopal",
+      "2017-03-27"
+     ],
+     [
+      "Damoh",
+      "Damoh",
+      "2017-03-30"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2017-03-28"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2017-03-28"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2017-03-27"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2017-03-27"
+     ],
+     [
+      "Shivpuri",
+      "Shivpuri",
+      "2017-03-29"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2017-03-27"
+     ]
+    ],
+    "rank": 6,
+    "share": 0.0744,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 73,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2015-10-15",
+    "last_last_filing": "2015-10-17",
+    "markets": 8,
+    "median_resume": "2015-10-28",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Chhatarpur",
+      "LavKush Nagar(Laundi)",
+      "2015-10-17"
+     ],
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2015-10-16"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2015-10-17"
+     ],
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2015-10-17"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2015-10-17"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2015-10-17"
+     ],
+     [
+      "Rewa",
+      "Baikunthpur",
+      "2015-10-16"
+     ],
+     [
+      "Shajapur",
+      "Kalapipal",
+      "2015-10-15"
+     ]
+    ],
+    "rank": 7,
+    "share": 0.1096,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 74,
+    "districts": 7,
+    "events_on_it": [],
+    "first_last_filing": "2015-11-05",
+    "last_last_filing": "2015-11-07",
+    "markets": 8,
+    "median_resume": "2015-11-16",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2015-11-07"
+     ],
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2015-11-06"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2015-11-05"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2015-11-07"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-11-07"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2015-11-05"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2015-11-05"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2015-11-06"
+     ]
+    ],
+    "rank": 8,
+    "share": 0.1081,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 109,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-03-24",
+    "last_last_filing": "2016-03-27",
+    "markets": 8,
+    "median_resume": "2016-04-03",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2016-03-24"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2016-03-24"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2016-03-24"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-03-27"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-03-24"
+     ],
+     [
+      "Shajapur",
+      "Badod",
+      "2016-03-25"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2016-03-24"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2016-03-24"
+     ]
+    ],
+    "rank": 9,
+    "share": 0.0734,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 114,
+    "districts": 7,
+    "events_on_it": [],
+    "first_last_filing": "2016-04-09",
+    "last_last_filing": "2016-04-12",
+    "markets": 8,
+    "median_resume": "2016-04-20",
+    "median_stop_days": 10.5,
+    "members": [
+     [
+      "Mandla",
+      "Mandla",
+      "2016-04-11"
+     ],
+     [
+      "Morena",
+      "Morena",
+      "2016-04-11"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2016-04-11"
+     ],
+     [
+      "Panna",
+      "Devandranagar",
+      "2016-04-09"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2016-04-10"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2016-04-11"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-04-09"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2016-04-12"
+     ]
+    ],
+    "rank": 10,
+    "share": 0.0702,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-28",
+    "last_last_filing": "2016-07-01",
+    "markets": 8,
+    "median_resume": "2016-07-13",
+    "median_stop_days": 13.5,
+    "members": [
+     [
+      "Damoh",
+      "Hata",
+      "2016-06-29"
+     ],
+     [
+      "Datia",
+      "Datia",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2016-06-28"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2016-07-01"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2016-06-29"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2016-06-29"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-06-30"
+     ]
+    ],
+    "rank": 11,
+    "share": 0.0708,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 119,
+    "districts": 7,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure",
+       "information"
+      ],
+      "event": "MP-2017-strike",
+      "members": 8,
+      "members_in_scope_by_district": {
+       "closure": 8,
+       "full_information_cut": 0,
+       "information": 2,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2017-05-31",
+    "last_last_filing": "2017-06-03",
+    "markets": 8,
+    "median_resume": "2017-06-18",
+    "median_stop_days": 15.5,
+    "members": [
+     [
+      "Bhopal",
+      "Berasia",
+      "2017-06-01"
+     ],
+     [
+      "Dewas",
+      "Dewas",
+      "2017-05-31"
+     ],
+     [
+      "Dhar",
+      "Dhar",
+      "2017-05-31"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2017-05-31"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2017-06-01"
+     ],
+     [
+      "Shajapur",
+      "Agar",
+      "2017-06-03"
+     ],
+     [
+      "Shajapur",
+      "Susner",
+      "2017-06-02"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2017-06-03"
+     ]
+    ],
+    "rank": 12,
+    "share": 0.0672,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 99,
+    "districts": 7,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-08",
+    "last_last_filing": "2015-04-09",
+    "markets": 7,
+    "median_resume": "2015-04-23",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2015-04-09"
+     ],
+     [
+      "Guna",
+      "Aron",
+      "2015-04-09"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2015-04-09"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2015-04-09"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2015-04-09"
+     ],
+     [
+      "Satna",
+      "Nagod",
+      "2015-04-08"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2015-04-08"
+     ]
+    ],
+    "rank": 13,
+    "share": 0.0707,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 100,
+    "districts": 7,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-14",
+    "last_last_filing": "2015-04-16",
+    "markets": 7,
+    "median_resume": "2015-04-29",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Damoh",
+      "Hata",
+      "2015-04-14"
+     ],
+     [
+      "Dhar",
+      "Dhar",
+      "2015-04-16"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2015-04-16"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2015-04-16"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2015-04-15"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2015-04-16"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2015-04-16"
+     ]
+    ],
+    "rank": 14,
+    "share": 0.07,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 99,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-25",
+    "last_last_filing": "2015-05-28",
+    "markets": 7,
+    "median_resume": "2015-06-05",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Dindori",
+      "Shahpura",
+      "2015-05-27"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2015-05-26"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2015-05-28"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2015-05-26"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2015-05-26"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2015-05-25"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2015-05-27"
+     ]
+    ],
+    "rank": 15,
+    "share": 0.0707,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 97,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-20",
+    "last_last_filing": "2015-06-23",
+    "markets": 7,
+    "median_resume": "2015-07-08",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2015-06-23"
+     ],
+     [
+      "Betul",
+      "Betul",
+      "2015-06-23"
+     ],
+     [
+      "Bhopal",
+      "Bhopal",
+      "2015-06-23"
+     ],
+     [
+      "Rajgarh",
+      "Biaora",
+      "2015-06-23"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2015-06-23"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2015-06-23"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2015-06-20"
+     ]
+    ],
+    "rank": 16,
+    "share": 0.0722,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 114,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2016-05-16",
+    "last_last_filing": "2016-05-19",
+    "markets": 7,
+    "median_resume": "2016-06-01",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2016-05-16"
+     ],
+     [
+      "Damoh",
+      "Hata",
+      "2016-05-18"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2016-05-19"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2016-05-18"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2016-05-19"
+     ],
+     [
+      "Shivpuri",
+      "Shivpuri",
+      "2016-05-17"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2016-05-19"
+     ]
+    ],
+    "rank": 17,
+    "share": 0.0614,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 94,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-08",
+    "last_last_filing": "2016-08-11",
+    "markets": 7,
+    "median_resume": "2016-08-22",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2016-08-11"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2016-08-10"
+     ],
+     [
+      "Rewa",
+      "Baikunthpur",
+      "2016-08-11"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2016-08-11"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2016-08-10"
+     ],
+     [
+      "Satna",
+      "Nagod",
+      "2016-08-11"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-08-08"
+     ]
+    ],
+    "rank": 18,
+    "share": 0.0745,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 118,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-23",
+    "last_last_filing": "2017-03-25",
+    "markets": 7,
+    "median_resume": "2017-04-03",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2017-03-25"
+     ],
+     [
+      "Raisen",
+      "Obedullaganj",
+      "2017-03-23"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2017-03-25"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2017-03-24"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2017-03-24"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2017-03-25"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2017-03-24"
+     ]
+    ],
+    "rank": 19,
+    "share": 0.0593,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 13,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2014-09-29",
+    "last_last_filing": "2014-09-30",
+    "markets": 6,
+    "median_resume": "2014-10-08",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Cachar",
+      "Cachar",
+      "2014-09-30"
+     ],
+     [
+      "Dhemaji",
+      "Silapathar",
+      "2014-09-30"
+     ],
+     [
+      "Goalpara",
+      "Goalpara",
+      "2014-09-30"
+     ],
+     [
+      "Golaghat",
+      "Golaghat",
+      "2014-09-29"
+     ],
+     [
+      "Jorhat",
+      "Jorhat",
+      "2014-09-29"
+     ],
+     [
+      "Nagaon",
+      "Lanka",
+      "2014-09-30"
+     ]
+    ],
+    "rank": 20,
+    "share": 0.4615,
+    "where": "Assam"
+   },
+   {
+    "active": 63,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2014-10-17",
+    "last_last_filing": "2014-10-20",
+    "markets": 6,
+    "median_resume": "2014-10-31",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Bhind",
+      "Gohad",
+      "2014-10-17"
+     ],
+     [
+      "Datia",
+      "Datia",
+      "2014-10-18"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2014-10-18"
+     ],
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2014-10-18"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2014-10-20"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2014-10-19"
+     ]
+    ],
+    "rank": 21,
+    "share": 0.0952,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 103,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-13",
+    "last_last_filing": "2015-05-16",
+    "markets": 6,
+    "median_resume": "2015-05-31",
+    "median_stop_days": 16.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2015-05-13"
+     ],
+     [
+      "Damoh",
+      "Hata",
+      "2015-05-14"
+     ],
+     [
+      "Morena",
+      "Morena",
+      "2015-05-13"
+     ],
+     [
+      "Rajgarh",
+      "Narsinghgarh",
+      "2015-05-14"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2015-05-16"
+     ],
+     [
+      "Shajapur",
+      "Badod",
+      "2015-05-15"
+     ]
+    ],
+    "rank": 22,
+    "share": 0.0583,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 96,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-29",
+    "last_last_filing": "2015-05-30",
+    "markets": 6,
+    "median_resume": "2015-06-22",
+    "median_stop_days": 23.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2015-05-30"
+     ],
+     [
+      "Gwalior",
+      "Dabra",
+      "2015-05-29"
+     ],
+     [
+      "Gwalior",
+      "Lashkar",
+      "2015-05-29"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2015-05-30"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-05-29"
+     ],
+     [
+      "Raisen",
+      "Gairatganj",
+      "2015-05-30"
+     ]
+    ],
+    "rank": 23,
+    "share": 0.0625,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 94,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-07-02",
+    "last_last_filing": "2015-07-04",
+    "markets": 6,
+    "median_resume": "2015-07-14",
+    "median_stop_days": 10.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2015-07-03"
+     ],
+     [
+      "Mandla",
+      "Mandla",
+      "2015-07-02"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2015-07-04"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2015-07-03"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2015-07-04"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2015-07-04"
+     ]
+    ],
+    "rank": 24,
+    "share": 0.0638,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 87,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-07-12",
+    "last_last_filing": "2015-07-15",
+    "markets": 6,
+    "median_resume": "2015-07-26",
+    "median_stop_days": 11.5,
+    "members": [
+     [
+      "Dindori",
+      "Dindori",
+      "2015-07-14"
+     ],
+     [
+      "Guna",
+      "Guna",
+      "2015-07-13"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2015-07-14"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2015-07-12"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2015-07-15"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2015-07-13"
+     ]
+    ],
+    "rank": 25,
+    "share": 0.069,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 14,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2015-10-16",
+    "last_last_filing": "2015-10-19",
+    "markets": 6,
+    "median_resume": "2015-10-26",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Barpeta",
+      "Howly",
+      "2015-10-17"
+     ],
+     [
+      "Cachar",
+      "Cachar",
+      "2015-10-19"
+     ],
+     [
+      "Hailakandi",
+      "Hailakandi",
+      "2015-10-19"
+     ],
+     [
+      "Jorhat",
+      "Jorhat",
+      "2015-10-17"
+     ],
+     [
+      "Kamrup",
+      "P.O. Uparhali Guwahati",
+      "2015-10-17"
+     ],
+     [
+      "Nagaon",
+      "Lanka",
+      "2015-10-16"
+     ]
+    ],
+    "rank": 26,
+    "share": 0.4286,
+    "where": "Assam"
+   },
+   {
+    "active": 66,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2015-12-09",
+    "last_last_filing": "2015-12-11",
+    "markets": 6,
+    "median_resume": "2015-12-19",
+    "median_stop_days": 9.5,
+    "members": [
+     [
+      "Betul",
+      "Betul",
+      "2015-12-11"
+     ],
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2015-12-10"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2015-12-09"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2015-12-11"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2015-12-09"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2015-12-09"
+     ]
+    ],
+    "rank": 27,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 62,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-01-11",
+    "last_last_filing": "2016-01-14",
+    "markets": 6,
+    "median_resume": "2016-01-25",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2016-01-13"
+     ],
+     [
+      "Guna",
+      "Guna",
+      "2016-01-11"
+     ],
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2016-01-13"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2016-01-14"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-01-13"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2016-01-12"
+     ]
+    ],
+    "rank": 28,
+    "share": 0.0968,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 102,
+    "districts": 6,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-25",
+    "last_last_filing": "2016-07-28",
+    "markets": 6,
+    "median_resume": "2016-08-04",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2016-07-27"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2016-07-25"
+     ],
+     [
+      "Ratlam",
+      "Sailana",
+      "2016-07-25"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2016-07-25"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2016-07-28"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-07-26"
+     ]
+    ],
+    "rank": 29,
+    "share": 0.0588,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 96,
+    "districts": 5,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure"
+      ],
+      "event": "MP-2016-cash",
+      "members": 6,
+      "members_in_scope_by_district": {
+       "closure": 6,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2016-11-02",
+    "last_last_filing": "2016-11-05",
+    "markets": 6,
+    "median_resume": "2016-11-29",
+    "median_stop_days": 24.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2016-11-04"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-11-02"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-11-04"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-11-05"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2016-11-05"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-11-04"
+     ]
+    ],
+    "rank": 30,
+    "share": 0.0625,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-11-08",
+    "last_last_filing": "2016-11-11",
+    "markets": 6,
+    "median_resume": "2016-11-26",
+    "median_stop_days": 16.5,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2016-11-11"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Jalaun",
+      "2016-11-11"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2016-11-08"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2016-11-09"
+     ],
+     [
+      "Jhansi",
+      "Mauranipur",
+      "2016-11-09"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2016-11-08"
+     ]
+    ],
+    "rank": 31,
+    "share": 0.1622,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 117,
+    "districts": 6,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure",
+       "information"
+      ],
+      "event": "MP-2017-strike",
+      "members": 6,
+      "members_in_scope_by_district": {
+       "closure": 6,
+       "full_information_cut": 0,
+       "information": 2,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2017-05-27",
+    "last_last_filing": "2017-05-30",
+    "markets": 6,
+    "median_resume": "2017-06-11",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Anupur",
+      "Anuppur",
+      "2017-05-29"
+     ],
+     [
+      "Gwalior",
+      "Lashkar",
+      "2017-05-28"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2017-05-27"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2017-05-30"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2017-05-29"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2017-05-30"
+     ]
+    ],
+    "rank": 32,
+    "share": 0.0513,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 24,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-06-22",
+    "last_last_filing": "2010-06-25",
+    "markets": 5,
+    "median_resume": "2010-07-08",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Raisen",
+      "Bareli",
+      "2010-06-25"
+     ],
+     [
+      "Raisen",
+      "Begamganj",
+      "2010-06-25"
+     ],
+     [
+      "Raisen",
+      "Udaipura",
+      "2010-06-24"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2010-06-22"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2010-06-24"
+     ]
+    ],
+    "rank": 33,
+    "share": 0.2083,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2011-03-23",
+    "last_last_filing": "2011-03-25",
+    "markets": 5,
+    "median_resume": "2011-04-15",
+    "median_stop_days": 23.0,
+    "members": [
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2011-03-25"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2011-03-25"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2011-03-23"
+     ],
+     [
+      "Shajapur",
+      "Sajapur",
+      "2011-03-23"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2011-03-23"
+     ]
+    ],
+    "rank": 34,
+    "share": 0.1515,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 41,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2011-10-18",
+    "last_last_filing": "2011-10-21",
+    "markets": 5,
+    "median_resume": "2011-10-31",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Mandla",
+      "Bichhiya",
+      "2011-10-20"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2011-10-20"
+     ],
+     [
+      "Morena",
+      "Morena",
+      "2011-10-21"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2011-10-20"
+     ],
+     [
+      "Raisen",
+      "Udaipura",
+      "2011-10-18"
+     ]
+    ],
+    "rank": 35,
+    "share": 0.122,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2013-03-25",
+    "last_last_filing": "2013-03-26",
+    "markets": 5,
+    "median_resume": "2013-04-03",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Damoh",
+      "Patharia",
+      "2013-03-26"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2013-03-25"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2013-03-26"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2013-03-26"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2013-03-25"
+     ]
+    ],
+    "rank": 36,
+    "share": 0.1351,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2013-07-17",
+    "last_last_filing": "2013-07-19",
+    "markets": 5,
+    "median_resume": "2013-08-01",
+    "median_stop_days": 15.0,
+    "members": [
+     [
+      "Gwalior",
+      "Dabra",
+      "2013-07-19"
+     ],
+     [
+      "Mandla",
+      "Bichhiya",
+      "2013-07-19"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2013-07-17"
+     ],
+     [
+      "Raisen",
+      "Begamganj",
+      "2013-07-17"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2013-07-17"
+     ]
+    ],
+    "rank": 37,
+    "share": 0.119,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 31,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2014-01-18",
+    "last_last_filing": "2014-01-21",
+    "markets": 5,
+    "median_resume": "2014-01-29",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2014-01-18"
+     ],
+     [
+      "Dewas",
+      "Dewas",
+      "2014-01-18"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2014-01-21"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2014-01-19"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2014-01-21"
+     ]
+    ],
+    "rank": 38,
+    "share": 0.1613,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 107,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-22",
+    "last_last_filing": "2015-04-25",
+    "markets": 5,
+    "median_resume": "2015-05-12",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Bhopal",
+      "Berasia",
+      "2015-04-22"
+     ],
+     [
+      "Dindori",
+      "Shahpura",
+      "2015-04-23"
+     ],
+     [
+      "Gwalior",
+      "Dabra",
+      "2015-04-25"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2015-04-23"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2015-04-25"
+     ]
+    ],
+    "rank": 39,
+    "share": 0.0467,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 92,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-08",
+    "last_last_filing": "2015-06-10",
+    "markets": 5,
+    "median_resume": "2015-06-23",
+    "median_stop_days": 15.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2015-06-08"
+     ],
+     [
+      "Dindori",
+      "Dindori",
+      "2015-06-10"
+     ],
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2015-06-08"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2015-06-08"
+     ],
+     [
+      "Shajapur",
+      "Susner",
+      "2015-06-08"
+     ]
+    ],
+    "rank": 40,
+    "share": 0.0543,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 93,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-16",
+    "last_last_filing": "2015-06-18",
+    "markets": 5,
+    "median_resume": "2015-07-02",
+    "median_stop_days": 15.0,
+    "members": [
+     [
+      "Bhopal",
+      "Berasia",
+      "2015-06-17"
+     ],
+     [
+      "Gwalior",
+      "Dabra",
+      "2015-06-18"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2015-06-17"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2015-06-16"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2015-06-18"
+     ]
+    ],
+    "rank": 41,
+    "share": 0.0538,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 86,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2015-08-07",
+    "last_last_filing": "2015-08-10",
+    "markets": 5,
+    "median_resume": "2015-08-18",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2015-08-10"
+     ],
+     [
+      "Dindori",
+      "Shahpura",
+      "2015-08-09"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2015-08-08"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2015-08-07"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2015-08-08"
+     ]
+    ],
+    "rank": 42,
+    "share": 0.0581,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 105,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-03-15",
+    "last_last_filing": "2016-03-17",
+    "markets": 5,
+    "median_resume": "2016-03-28",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Panna",
+      "Panna",
+      "2016-03-17"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2016-03-15"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2016-03-17"
+     ],
+     [
+      "Shivpuri",
+      "Kolaras",
+      "2016-03-16"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2016-03-15"
+     ]
+    ],
+    "rank": 43,
+    "share": 0.0476,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 30,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-03-17",
+    "last_last_filing": "2016-03-20",
+    "markets": 5,
+    "median_resume": "2016-03-28",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Banda",
+      "Atarra",
+      "2016-03-17"
+     ],
+     [
+      "Jhansi",
+      "Gurusarai",
+      "2016-03-18"
+     ],
+     [
+      "Jhansi",
+      "Mauranipur",
+      "2016-03-18"
+     ],
+     [
+      "Lakhimpur",
+      "Lakhimpur",
+      "2016-03-20"
+     ],
+     [
+      "Muzaffarnagar",
+      "Muzzafarnagar",
+      "2016-03-18"
+     ]
+    ],
+    "rank": 44,
+    "share": 0.1667,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 111,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-05-30",
+    "last_last_filing": "2016-06-02",
+    "markets": 5,
+    "median_resume": "2016-06-09",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Mandsaur",
+      "Piplya",
+      "2016-06-01"
+     ],
+     [
+      "Panna",
+      "Devandranagar",
+      "2016-05-31"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2016-06-02"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2016-05-30"
+     ],
+     [
+      "Shivpuri",
+      "Shivpuri",
+      "2016-06-02"
+     ]
+    ],
+    "rank": 45,
+    "share": 0.045,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-24",
+    "last_last_filing": "2016-06-27",
+    "markets": 5,
+    "median_resume": "2016-07-05",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Chhindwara",
+      "Chaurai",
+      "2016-06-27"
+     ],
+     [
+      "Ratlam",
+      "Ratlam",
+      "2016-06-24"
+     ],
+     [
+      "Sehore",
+      "Ichhawar",
+      "2016-06-27"
+     ],
+     [
+      "Shajapur",
+      "Soyatkalan",
+      "2016-06-25"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2016-06-24"
+     ]
+    ],
+    "rank": 46,
+    "share": 0.0442,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 109,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-13",
+    "last_last_filing": "2016-07-16",
+    "markets": 5,
+    "median_resume": "2016-07-28",
+    "median_stop_days": 15.0,
+    "members": [
+     [
+      "Bhind",
+      "Gohad",
+      "2016-07-16"
+     ],
+     [
+      "Damoh",
+      "Hata",
+      "2016-07-16"
+     ],
+     [
+      "Guna",
+      "Aron",
+      "2016-07-13"
+     ],
+     [
+      "Mandla",
+      "Mandla",
+      "2016-07-14"
+     ],
+     [
+      "Rajgarh",
+      "Narsinghgarh",
+      "2016-07-13"
+     ]
+    ],
+    "rank": 47,
+    "share": 0.0459,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 105,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-18",
+    "last_last_filing": "2016-07-21",
+    "markets": 5,
+    "median_resume": "2016-08-01",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Bhind",
+      "Alampur",
+      "2016-07-21"
+     ],
+     [
+      "Dindori",
+      "Dindori",
+      "2016-07-21"
+     ],
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2016-07-21"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2016-07-18"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2016-07-20"
+     ]
+    ],
+    "rank": 48,
+    "share": 0.0476,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 101,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-07-30",
+    "last_last_filing": "2016-08-01",
+    "markets": 5,
+    "median_resume": "2016-08-12",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2016-07-30"
+     ],
+     [
+      "Mandla",
+      "Mandla",
+      "2016-08-01"
+     ],
+     [
+      "Rajgarh",
+      "Biaora",
+      "2016-07-30"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2016-07-30"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2016-07-31"
+     ]
+    ],
+    "rank": 49,
+    "share": 0.0495,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 91,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-10-05",
+    "last_last_filing": "2016-10-08",
+    "markets": 5,
+    "median_resume": "2016-10-15",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2016-10-05"
+     ],
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2016-10-05"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2016-10-05"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2016-10-08"
+     ],
+     [
+      "Neemuch",
+      "Manasa",
+      "2016-10-07"
+     ]
+    ],
+    "rank": 50,
+    "share": 0.0549,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 94,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-10-24",
+    "last_last_filing": "2016-10-27",
+    "markets": 5,
+    "median_resume": "2016-11-05",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Bhind",
+      "Gohad",
+      "2016-10-27"
+     ],
+     [
+      "Datia",
+      "Datia",
+      "2016-10-27"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2016-10-24"
+     ],
+     [
+      "Sehore",
+      "Ashta",
+      "2016-10-25"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2016-10-27"
+     ]
+    ],
+    "rank": 51,
+    "share": 0.0532,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 89,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-12-18",
+    "last_last_filing": "2016-12-20",
+    "markets": 5,
+    "median_resume": "2017-01-03",
+    "median_stop_days": 15.0,
+    "members": [
+     [
+      "Mandla",
+      "Mandla",
+      "2016-12-18"
+     ],
+     [
+      "Rajgarh",
+      "Biaora",
+      "2016-12-20"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2016-12-19"
+     ],
+     [
+      "Ratlam",
+      "Ratlam",
+      "2016-12-19"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2016-12-19"
+     ]
+    ],
+    "rank": 52,
+    "share": 0.0562,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 90,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2016-12-22",
+    "last_last_filing": "2016-12-24",
+    "markets": 5,
+    "median_resume": "2017-01-03",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2016-12-22"
+     ],
+     [
+      "Guna",
+      "Guna",
+      "2016-12-23"
+     ],
+     [
+      "Rajgarh",
+      "Khujner",
+      "2016-12-24"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-12-22"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2016-12-24"
+     ]
+    ],
+    "rank": 53,
+    "share": 0.0556,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 121,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2017-04-24",
+    "last_last_filing": "2017-04-26",
+    "markets": 5,
+    "median_resume": "2017-05-04",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Shadora",
+      "2017-04-25"
+     ],
+     [
+      "Bhind",
+      "Lahar",
+      "2017-04-25"
+     ],
+     [
+      "Gwalior",
+      "Lashkar",
+      "2017-04-26"
+     ],
+     [
+      "Morena",
+      "Morena",
+      "2017-04-25"
+     ],
+     [
+      "Sagar",
+      "Rahatgarh",
+      "2017-04-24"
+     ]
+    ],
+    "rank": 54,
+    "share": 0.0413,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 121,
+    "districts": 5,
+    "events_on_it": [],
+    "first_last_filing": "2017-05-02",
+    "last_last_filing": "2017-05-05",
+    "markets": 5,
+    "median_resume": "2017-05-11",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Bhind",
+      "Alampur",
+      "2017-05-03"
+     ],
+     [
+      "Dhar",
+      "Badnawar",
+      "2017-05-03"
+     ],
+     [
+      "Sagar",
+      "Banda",
+      "2017-05-05"
+     ],
+     [
+      "Satna",
+      "Ramnagar",
+      "2017-05-02"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2017-05-03"
+     ]
+    ],
+    "rank": 55,
+    "share": 0.0413,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 120,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-05-15",
+    "last_last_filing": "2017-05-18",
+    "markets": 5,
+    "median_resume": "2017-05-29",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Anupur",
+      "Anuppur",
+      "2017-05-15"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2017-05-18"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2017-05-15"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2017-05-17"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2017-05-18"
+     ]
+    ],
+    "rank": 56,
+    "share": 0.0417,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 118,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2017-05-19",
+    "last_last_filing": "2017-05-22",
+    "markets": 5,
+    "median_resume": "2017-05-30",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2017-05-22"
+     ],
+     [
+      "Dindori",
+      "Dindori",
+      "2017-05-21"
+     ],
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2017-05-20"
+     ],
+     [
+      "Rewa",
+      "Baikunthpur",
+      "2017-05-19"
+     ],
+     [
+      "Shivpuri",
+      "Shivpuri",
+      "2017-05-19"
+     ]
+    ],
+    "rank": 57,
+    "share": 0.0424,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 120,
+    "districts": 4,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure",
+       "information"
+      ],
+      "event": "MP-2017-strike",
+      "members": 5,
+      "members_in_scope_by_district": {
+       "closure": 5,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2017-06-05",
+    "last_last_filing": "2017-06-08",
+    "markets": 5,
+    "median_resume": "2017-06-16",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2017-06-08"
+     ],
+     [
+      "Damoh",
+      "Hata",
+      "2017-06-07"
+     ],
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2017-06-05"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2017-06-06"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2017-06-05"
+     ]
+    ],
+    "rank": 58,
+    "share": 0.0417,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-06-26",
+    "last_last_filing": "2011-06-28",
+    "markets": 4,
+    "median_resume": "2011-08-25",
+    "median_stop_days": 60.0,
+    "members": [
+     [
+      "Raisen",
+      "Begamganj",
+      "2011-06-27"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2011-06-27"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2011-06-26"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2011-06-28"
+     ]
+    ],
+    "rank": 59,
+    "share": 0.1081,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2011-07-25",
+    "last_last_filing": "2011-07-28",
+    "markets": 4,
+    "median_resume": "2011-08-13",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Gwalior",
+      "Dabra",
+      "2011-07-28"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2011-07-28"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2011-07-28"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2011-07-25"
+     ]
+    ],
+    "rank": 60,
+    "share": 0.1081,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 16,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2011-12-30",
+    "last_last_filing": "2011-12-31",
+    "markets": 4,
+    "median_resume": "2012-06-06",
+    "median_stop_days": 158.5,
+    "members": [
+     [
+      "Banda",
+      "Atarra",
+      "2011-12-31"
+     ],
+     [
+      "Banda",
+      "Banda",
+      "2011-12-30"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Kalpi",
+      "2011-12-31"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2011-12-30"
+     ]
+    ],
+    "rank": 61,
+    "share": 0.25,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 44,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2012-07-12",
+    "last_last_filing": "2012-07-15",
+    "markets": 4,
+    "median_resume": "2012-07-25",
+    "median_stop_days": 10.5,
+    "members": [
+     [
+      "Damoh",
+      "Patharia",
+      "2012-07-15"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2012-07-14"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2012-07-12"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2012-07-15"
+     ]
+    ],
+    "rank": 62,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 40,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2012-10-17",
+    "last_last_filing": "2012-10-20",
+    "markets": 4,
+    "median_resume": "2012-10-31",
+    "median_stop_days": 13.5,
+    "members": [
+     [
+      "Katni",
+      "Katni",
+      "2012-10-17"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2012-10-20"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2012-10-18"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2012-10-19"
+     ]
+    ],
+    "rank": 63,
+    "share": 0.1,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 39,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2012-11-07",
+    "last_last_filing": "2012-11-10",
+    "markets": 4,
+    "median_resume": "2012-11-19",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2012-11-07"
+     ],
+     [
+      "Dewas",
+      "Dewas",
+      "2012-11-10"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2012-11-09"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2012-11-10"
+     ]
+    ],
+    "rank": 64,
+    "share": 0.1026,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2013-07-26",
+    "last_last_filing": "2013-07-27",
+    "markets": 4,
+    "median_resume": "2013-08-28",
+    "median_stop_days": 33.0,
+    "members": [
+     [
+      "Seoni",
+      "Seoni",
+      "2013-07-26"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2013-07-26"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2013-07-27"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2013-07-27"
+     ]
+    ],
+    "rank": 65,
+    "share": 0.0952,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 38,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-04-04",
+    "last_last_filing": "2014-04-04",
+    "markets": 4,
+    "median_resume": "2014-04-15",
+    "median_stop_days": 11.5,
+    "members": [
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2014-04-04"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2014-04-04"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2014-04-04"
+     ],
+     [
+      "Seoni",
+      "Lakhnadon",
+      "2014-04-04"
+     ]
+    ],
+    "rank": 66,
+    "share": 0.1053,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2014-07-02",
+    "last_last_filing": "2014-07-05",
+    "markets": 4,
+    "median_resume": "2014-07-21",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Gwalior",
+      "Dabra",
+      "2014-07-02"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2014-07-05"
+     ],
+     [
+      "Neemuch",
+      "Manasa",
+      "2014-07-05"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2014-07-04"
+     ]
+    ],
+    "rank": 67,
+    "share": 0.1081,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 39,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-07-08",
+    "last_last_filing": "2014-07-10",
+    "markets": 4,
+    "median_resume": "2014-09-02",
+    "median_stop_days": 55.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2014-07-10"
+     ],
+     [
+      "Damoh",
+      "Patharia",
+      "2014-07-10"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2014-07-08"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2014-07-09"
+     ]
+    ],
+    "rank": 68,
+    "share": 0.1026,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 62,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2014-08-20",
+    "last_last_filing": "2014-08-23",
+    "markets": 4,
+    "median_resume": "2014-09-03",
+    "median_stop_days": 11.5,
+    "members": [
+     [
+      "Betul",
+      "Betul",
+      "2014-08-23"
+     ],
+     [
+      "Datia",
+      "Datia",
+      "2014-08-22"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2014-08-20"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2014-08-20"
+     ]
+    ],
+    "rank": 69,
+    "share": 0.0645,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 59,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2014-09-05",
+    "last_last_filing": "2014-09-06",
+    "markets": 4,
+    "median_resume": "2014-09-20",
+    "median_stop_days": 14.5,
+    "members": [
+     [
+      "Betul",
+      "Betul",
+      "2014-09-06"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2014-09-05"
+     ],
+     [
+      "Shajapur",
+      "Kalapipal",
+      "2014-09-05"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2014-09-06"
+     ]
+    ],
+    "rank": 70,
+    "share": 0.0678,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 68,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2014-09-30",
+    "last_last_filing": "2014-10-01",
+    "markets": 4,
+    "median_resume": "2014-10-09",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2014-10-01"
+     ],
+     [
+      "Hoshangabad",
+      "Pipariya",
+      "2014-10-01"
+     ],
+     [
+      "Shajapur",
+      "Agar",
+      "2014-10-01"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2014-09-30"
+     ]
+    ],
+    "rank": 71,
+    "share": 0.0588,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 60,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2014-12-26",
+    "last_last_filing": "2014-12-29",
+    "markets": 4,
+    "median_resume": "2015-01-09",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2014-12-29"
+     ],
+     [
+      "Betul",
+      "Betul",
+      "2014-12-26"
+     ],
+     [
+      "Mandla",
+      "Mandla",
+      "2014-12-29"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2014-12-29"
+     ]
+    ],
+    "rank": 72,
+    "share": 0.0667,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 59,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-01-17",
+    "last_last_filing": "2015-01-19",
+    "markets": 4,
+    "median_resume": "2015-01-27",
+    "median_stop_days": 9.5,
+    "members": [
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2015-01-17"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2015-01-19"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2015-01-17"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2015-01-18"
+     ]
+    ],
+    "rank": 73,
+    "share": 0.0678,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 50,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-01-28",
+    "last_last_filing": "2015-01-30",
+    "markets": 4,
+    "median_resume": "2015-02-05",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Betul",
+      "Betul",
+      "2015-01-30"
+     ],
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2015-01-28"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2015-01-28"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2015-01-28"
+     ]
+    ],
+    "rank": 74,
+    "share": 0.08,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 97,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-04",
+    "last_last_filing": "2015-04-06",
+    "markets": 4,
+    "median_resume": "2015-04-18",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Bhind",
+      "Gohad",
+      "2015-04-06"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2015-04-05"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2015-04-04"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2015-04-06"
+     ]
+    ],
+    "rank": 75,
+    "share": 0.0412,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 23,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-18",
+    "last_last_filing": "2015-04-21",
+    "markets": 4,
+    "median_resume": "2015-05-06",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2015-04-18"
+     ],
+     [
+      "Hathras",
+      "Haathras",
+      "2015-04-21"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2015-04-18"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2015-04-18"
+     ]
+    ],
+    "rank": 76,
+    "share": 0.1739,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 106,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-30",
+    "last_last_filing": "2015-05-01",
+    "markets": 4,
+    "median_resume": "2015-05-13",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2015-05-01"
+     ],
+     [
+      "Betul",
+      "Betul",
+      "2015-04-30"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-04-30"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2015-04-30"
+     ]
+    ],
+    "rank": 77,
+    "share": 0.0377,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 105,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-09",
+    "last_last_filing": "2015-05-11",
+    "markets": 4,
+    "median_resume": "2015-05-26",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Chhatarpur",
+      "LavKush Nagar(Laundi)",
+      "2015-05-11"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-05-09"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2015-05-11"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2015-05-09"
+     ]
+    ],
+    "rank": 78,
+    "share": 0.0381,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 101,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-05-18",
+    "last_last_filing": "2015-05-20",
+    "markets": 4,
+    "median_resume": "2015-05-29",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Dindori",
+      "Dindori",
+      "2015-05-19"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2015-05-18"
+     ],
+     [
+      "Raisen",
+      "Raisen",
+      "2015-05-18"
+     ],
+     [
+      "Shajapur",
+      "Susner",
+      "2015-05-20"
+     ]
+    ],
+    "rank": 79,
+    "share": 0.0396,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 26,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-12",
+    "last_last_filing": "2015-06-15",
+    "markets": 4,
+    "median_resume": "2015-07-01",
+    "median_stop_days": 18.0,
+    "members": [
+     [
+      "Banda",
+      "Baberu",
+      "2015-06-12"
+     ],
+     [
+      "Hathras",
+      "Haathras",
+      "2015-06-12"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2015-06-15"
+     ],
+     [
+      "Muzaffarnagar",
+      "Muzzafarnagar",
+      "2015-06-15"
+     ]
+    ],
+    "rank": 80,
+    "share": 0.1538,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 85,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-08-03",
+    "last_last_filing": "2015-08-06",
+    "markets": 4,
+    "median_resume": "2015-08-17",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Mandla",
+      "Mandla",
+      "2015-08-04"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2015-08-06"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2015-08-05"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2015-08-03"
+     ]
+    ],
+    "rank": 81,
+    "share": 0.0471,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 71,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2015-10-19",
+    "last_last_filing": "2015-10-21",
+    "markets": 4,
+    "median_resume": "2015-10-31",
+    "median_stop_days": 11.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Ashoknagar",
+      "2015-10-19"
+     ],
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2015-10-19"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2015-10-21"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2015-10-20"
+     ]
+    ],
+    "rank": 82,
+    "share": 0.0563,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 65,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-12-18",
+    "last_last_filing": "2015-12-21",
+    "markets": 4,
+    "median_resume": "2015-12-31",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2015-12-21"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2015-12-21"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2015-12-18"
+     ],
+     [
+      "Shajapur",
+      "Kalapipal",
+      "2015-12-21"
+     ]
+    ],
+    "rank": 83,
+    "share": 0.0615,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 63,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-01-04",
+    "last_last_filing": "2016-01-07",
+    "markets": 4,
+    "median_resume": "2016-01-17",
+    "median_stop_days": 11.5,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2016-01-04"
+     ],
+     [
+      "Shajapur",
+      "Agar",
+      "2016-01-07"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2016-01-04"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-01-05"
+     ]
+    ],
+    "rank": 84,
+    "share": 0.0635,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-04-04",
+    "last_last_filing": "2016-04-07",
+    "markets": 4,
+    "median_resume": "2016-04-15",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2016-04-06"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2016-04-05"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2016-04-07"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-04-04"
+     ]
+    ],
+    "rank": 85,
+    "share": 0.0354,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-05-22",
+    "last_last_filing": "2016-05-25",
+    "markets": 4,
+    "median_resume": "2016-06-02",
+    "median_stop_days": 9.5,
+    "members": [
+     [
+      "Bhind",
+      "Mehgaon",
+      "2016-05-23"
+     ],
+     [
+      "Gwalior",
+      "Lashkar",
+      "2016-05-22"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2016-05-23"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-05-25"
+     ]
+    ],
+    "rank": 86,
+    "share": 0.0354,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 111,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-07",
+    "last_last_filing": "2016-06-10",
+    "markets": 4,
+    "median_resume": "2016-06-21",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Bhind",
+      "Mehgaon",
+      "2016-06-07"
+     ],
+     [
+      "Rajgarh",
+      "Machalpur",
+      "2016-06-10"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2016-06-09"
+     ],
+     [
+      "Shajapur",
+      "Badod",
+      "2016-06-08"
+     ]
+    ],
+    "rank": 87,
+    "share": 0.036,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-12",
+    "last_last_filing": "2016-06-14",
+    "markets": 4,
+    "median_resume": "2016-06-27",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2016-06-13"
+     ],
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2016-06-12"
+     ],
+     [
+      "Ratlam",
+      "Ratlam",
+      "2016-06-14"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2016-06-13"
+     ]
+    ],
+    "rank": 88,
+    "share": 0.0354,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 35,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-08",
+    "last_last_filing": "2016-08-11",
+    "markets": 4,
+    "median_resume": "2016-08-21",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Bharuasumerpur",
+      "2016-08-08"
+     ],
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2016-08-10"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2016-08-11"
+     ],
+     [
+      "Muradabad",
+      "Muradabad",
+      "2016-08-08"
+     ]
+    ],
+    "rank": 89,
+    "share": 0.1143,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 96,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-12",
+    "last_last_filing": "2016-08-12",
+    "markets": 4,
+    "median_resume": "2016-08-24",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Bhind",
+      "Gohad",
+      "2016-08-12"
+     ],
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-08-12"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2016-08-12"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2016-08-12"
+     ]
+    ],
+    "rank": 90,
+    "share": 0.0417,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 32,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2016-10-04",
+    "last_last_filing": "2016-10-06",
+    "markets": 4,
+    "median_resume": "2016-10-16",
+    "median_stop_days": 11.5,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2016-10-04"
+     ],
+     [
+      "Hathras",
+      "Haathras",
+      "2016-10-05"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2016-10-05"
+     ],
+     [
+      "Maharajganj",
+      "Partaval",
+      "2016-10-06"
+     ]
+    ],
+    "rank": 91,
+    "share": 0.125,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 120,
+    "districts": 4,
+    "events_on_it": [],
+    "first_last_filing": "2017-04-19",
+    "last_last_filing": "2017-04-22",
+    "markets": 4,
+    "median_resume": "2017-05-02",
+    "median_stop_days": 12.5,
+    "members": [
+     [
+      "Ashoknagar",
+      "Mungawali",
+      "2017-04-21"
+     ],
+     [
+      "Guna",
+      "Maksudangarh",
+      "2017-04-19"
+     ],
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2017-04-20"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2017-04-22"
+     ]
+    ],
+    "rank": 92,
+    "share": 0.0333,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 40,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2009-08-27",
+    "last_last_filing": "2009-08-29",
+    "markets": 3,
+    "median_resume": "2009-09-18",
+    "median_stop_days": 20.0,
+    "members": [
+     [
+      "Raisen",
+      "Bareli",
+      "2009-08-27"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2009-08-27"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2009-08-29"
+     ]
+    ],
+    "rank": 93,
+    "share": 0.075,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 40,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2009-09-13",
+    "last_last_filing": "2009-09-16",
+    "markets": 3,
+    "median_resume": "2009-10-01",
+    "median_stop_days": 18.0,
+    "members": [
+     [
+      "Bhopal",
+      "Berasia",
+      "2009-09-16"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2009-09-13"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2009-09-16"
+     ]
+    ],
+    "rank": 94,
+    "share": 0.075,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 38,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2009-10-12",
+    "last_last_filing": "2009-10-14",
+    "markets": 3,
+    "median_resume": "2009-10-22",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Neemuch",
+      "Neemuch",
+      "2009-10-12"
+     ],
+     [
+      "Raisen",
+      "Obedullaganj",
+      "2009-10-14"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2009-10-14"
+     ]
+    ],
+    "rank": 95,
+    "share": 0.0789,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2009-11-10",
+    "last_last_filing": "2009-11-13",
+    "markets": 3,
+    "median_resume": "2009-12-09",
+    "median_stop_days": 29.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2009-11-10"
+     ],
+     [
+      "Sagar",
+      "Bina",
+      "2009-11-13"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2009-11-13"
+     ]
+    ],
+    "rank": 96,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2009-11-18",
+    "last_last_filing": "2009-11-20",
+    "markets": 3,
+    "median_resume": "2009-12-11",
+    "median_stop_days": 23.0,
+    "members": [
+     [
+      "Damoh",
+      "Patharia",
+      "2009-11-20"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2009-11-18"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2009-11-20"
+     ]
+    ],
+    "rank": 97,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2009-11-24",
+    "last_last_filing": "2009-11-27",
+    "markets": 3,
+    "median_resume": "2009-12-08",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2009-11-25"
+     ],
+     [
+      "Raisen",
+      "Obedullaganj",
+      "2009-11-24"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2009-11-27"
+     ]
+    ],
+    "rank": 98,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2009-12-02",
+    "last_last_filing": "2009-12-04",
+    "markets": 3,
+    "median_resume": "2010-02-20",
+    "median_stop_days": 80.0,
+    "members": [
+     [
+      "Damoh",
+      "Patharia",
+      "2009-12-03"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2009-12-04"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2009-12-02"
+     ]
+    ],
+    "rank": 99,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 27,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-01-19",
+    "last_last_filing": "2010-01-21",
+    "markets": 3,
+    "median_resume": "2010-02-08",
+    "median_stop_days": 20.0,
+    "members": [
+     [
+      "Raisen",
+      "Bareli",
+      "2010-01-21"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2010-01-19"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2010-01-20"
+     ]
+    ],
+    "rank": 100,
+    "share": 0.1111,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 13,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-07-13",
+    "last_last_filing": "2010-07-16",
+    "markets": 3,
+    "median_resume": "2010-07-25",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Jalaun (Orai)",
+      "Orai",
+      "2010-07-15"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2010-07-16"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2010-07-13"
+     ]
+    ],
+    "rank": 101,
+    "share": 0.2308,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 24,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-07-27",
+    "last_last_filing": "2010-07-30",
+    "markets": 3,
+    "median_resume": "2010-09-27",
+    "median_stop_days": 62.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2010-07-27"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2010-07-27"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2010-07-30"
+     ]
+    ],
+    "rank": 102,
+    "share": 0.125,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 32,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-10-30",
+    "last_last_filing": "2010-11-01",
+    "markets": 3,
+    "median_resume": "2010-11-15",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Morena",
+      "Morena",
+      "2010-11-01"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2010-10-30"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2010-11-01"
+     ]
+    ],
+    "rank": 103,
+    "share": 0.0938,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-11-16",
+    "last_last_filing": "2010-11-19",
+    "markets": 3,
+    "median_resume": "2010-12-02",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Gwalior",
+      "Dabra",
+      "2010-11-16"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2010-11-19"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2010-11-19"
+     ]
+    ],
+    "rank": 104,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 36,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2010-12-27",
+    "last_last_filing": "2010-12-30",
+    "markets": 3,
+    "median_resume": "2011-01-06",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Damoh",
+      "Patharia",
+      "2010-12-28"
+     ],
+     [
+      "Jabalpur",
+      "Jabalpur",
+      "2010-12-27"
+     ],
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2010-12-30"
+     ]
+    ],
+    "rank": 105,
+    "share": 0.0833,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 15,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-05-19",
+    "last_last_filing": "2011-05-21",
+    "markets": 3,
+    "median_resume": "2011-06-03",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Banda",
+      "Atarra",
+      "2011-05-19"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Orai",
+      "2011-05-21"
+     ],
+     [
+      "Jhansi",
+      "Moth",
+      "2011-05-20"
+     ]
+    ],
+    "rank": 106,
+    "share": 0.2,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-06-16",
+    "last_last_filing": "2011-06-19",
+    "markets": 3,
+    "median_resume": "2011-06-27",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2011-06-17"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2011-06-16"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2011-06-19"
+     ]
+    ],
+    "rank": 107,
+    "share": 0.0811,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 36,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-07-05",
+    "last_last_filing": "2011-07-08",
+    "markets": 3,
+    "median_resume": "2011-07-30",
+    "median_stop_days": 22.0,
+    "members": [
+     [
+      "Panna",
+      "Panna",
+      "2011-07-05"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2011-07-08"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2011-07-05"
+     ]
+    ],
+    "rank": 108,
+    "share": 0.0833,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 36,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-07-16",
+    "last_last_filing": "2011-07-18",
+    "markets": 3,
+    "median_resume": "2011-08-02",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Mandla",
+      "Bichhiya",
+      "2011-07-17"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2011-07-16"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2011-07-18"
+     ]
+    ],
+    "rank": 109,
+    "share": 0.0833,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 14,
+    "districts": 1,
+    "events_on_it": [],
+    "first_last_filing": "2011-08-07",
+    "last_last_filing": "2011-08-10",
+    "markets": 3,
+    "median_resume": "2011-08-25",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Jalaun (Orai)",
+      "Ait",
+      "2011-08-09"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Jalaun",
+      "2011-08-10"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2011-08-07"
+     ]
+    ],
+    "rank": 110,
+    "share": 0.2143,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 17,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-10-21",
+    "last_last_filing": "2011-10-24",
+    "markets": 3,
+    "median_resume": "2011-11-01",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2011-10-22"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2011-10-24"
+     ],
+     [
+      "Padrauna(Kusinagar)",
+      "Tamkuhi Road",
+      "2011-10-21"
+     ]
+    ],
+    "rank": 111,
+    "share": 0.1765,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-10-22",
+    "last_last_filing": "2011-10-24",
+    "markets": 3,
+    "median_resume": "2011-11-01",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2011-10-22"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2011-10-22"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2011-10-24"
+     ]
+    ],
+    "rank": 112,
+    "share": 0.0714,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-12-02",
+    "last_last_filing": "2011-12-05",
+    "markets": 3,
+    "median_resume": "2011-12-14",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2011-12-02"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2011-12-02"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2011-12-05"
+     ]
+    ],
+    "rank": 113,
+    "share": 0.0714,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 43,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2011-12-15",
+    "last_last_filing": "2011-12-17",
+    "markets": 3,
+    "median_resume": "2011-12-28",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2011-12-17"
+     ],
+     [
+      "Satna",
+      "Nagod",
+      "2011-12-15"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2011-12-17"
+     ]
+    ],
+    "rank": 114,
+    "share": 0.0698,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 40,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2011-12-28",
+    "last_last_filing": "2011-12-30",
+    "markets": 3,
+    "median_resume": "2012-01-10",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2011-12-29"
+     ],
+     [
+      "Rajgarh",
+      "Pachaur",
+      "2011-12-30"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2011-12-28"
+     ]
+    ],
+    "rank": 115,
+    "share": 0.075,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 36,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2012-03-26",
+    "last_last_filing": "2012-03-29",
+    "markets": 3,
+    "median_resume": "2012-04-07",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Kareli",
+      "2012-03-29"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2012-03-27"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2012-03-26"
+     ]
+    ],
+    "rank": 116,
+    "share": 0.0833,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 39,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2012-04-28",
+    "last_last_filing": "2012-04-30",
+    "markets": 3,
+    "median_resume": "2012-05-08",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Morena",
+      "Morena",
+      "2012-04-28"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2012-04-29"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2012-04-30"
+     ]
+    ],
+    "rank": 117,
+    "share": 0.0769,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 8,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2012-04-30",
+    "last_last_filing": "2012-04-30",
+    "markets": 3,
+    "median_resume": "2012-05-14",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Banda",
+      "Banda",
+      "2012-04-30"
+     ],
+     [
+      "Chitrakut",
+      "Karvi",
+      "2012-04-30"
+     ],
+     [
+      "Jhansi",
+      "Moth",
+      "2012-04-30"
+     ]
+    ],
+    "rank": 118,
+    "share": 0.375,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 45,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2012-07-26",
+    "last_last_filing": "2012-07-29",
+    "markets": 3,
+    "median_resume": "2012-08-07",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2012-07-26"
+     ],
+     [
+      "Damoh",
+      "Patharia",
+      "2012-07-29"
+     ],
+     [
+      "Katni",
+      "Katni",
+      "2012-07-27"
+     ]
+    ],
+    "rank": 119,
+    "share": 0.0667,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 43,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2012-08-04",
+    "last_last_filing": "2012-08-06",
+    "markets": 3,
+    "median_resume": "2012-08-13",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Damoh",
+      "Javera",
+      "2012-08-06"
+     ],
+     [
+      "Datia",
+      "Bhander",
+      "2012-08-04"
+     ],
+     [
+      "Raisen",
+      "Bareli",
+      "2012-08-04"
+     ]
+    ],
+    "rank": 120,
+    "share": 0.0698,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 35,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2012-11-24",
+    "last_last_filing": "2012-11-27",
+    "markets": 3,
+    "median_resume": "2012-12-11",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2012-11-27"
+     ],
+     [
+      "Mandsaur",
+      "Mandsaur",
+      "2012-11-24"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2012-11-24"
+     ]
+    ],
+    "rank": 121,
+    "share": 0.0857,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-01-10",
+    "last_last_filing": "2013-01-12",
+    "markets": 3,
+    "median_resume": "2013-01-22",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2013-01-11"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2013-01-12"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2013-01-10"
+     ]
+    ],
+    "rank": 122,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-01-23",
+    "last_last_filing": "2013-01-24",
+    "markets": 3,
+    "median_resume": "2013-02-02",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2013-01-23"
+     ],
+     [
+      "Datia",
+      "Bhander",
+      "2013-01-23"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2013-01-24"
+     ]
+    ],
+    "rank": 123,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 14,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-02-06",
+    "last_last_filing": "2013-02-08",
+    "markets": 3,
+    "median_resume": "2013-04-02",
+    "median_stop_days": 55.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2013-02-06"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Jalaun",
+      "2013-02-08"
+     ],
+     [
+      "Jhansi",
+      "Chirgaon",
+      "2013-02-06"
+     ]
+    ],
+    "rank": 124,
+    "share": 0.2143,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 36,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-03-09",
+    "last_last_filing": "2013-03-09",
+    "markets": 3,
+    "median_resume": "2013-03-23",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2013-03-09"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2013-03-09"
+     ],
+     [
+      "Vidisha",
+      "Ganjbasoda",
+      "2013-03-09"
+     ]
+    ],
+    "rank": 125,
+    "share": 0.0833,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-03-21",
+    "last_last_filing": "2013-03-24",
+    "markets": 3,
+    "median_resume": "2013-04-02",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2013-03-22"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2013-03-24"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2013-03-21"
+     ]
+    ],
+    "rank": 126,
+    "share": 0.0811,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-05-04",
+    "last_last_filing": "2013-05-06",
+    "markets": 3,
+    "median_resume": "2013-05-18",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2013-05-06"
+     ],
+     [
+      "Seoni",
+      "Lakhnadon(F&V)",
+      "2013-05-04"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2013-05-05"
+     ]
+    ],
+    "rank": 127,
+    "share": 0.0714,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-06-11",
+    "last_last_filing": "2013-06-14",
+    "markets": 3,
+    "median_resume": "2014-02-03",
+    "median_stop_days": 237.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2013-06-11"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2013-06-11"
+     ],
+     [
+      "Shivpuri",
+      "Khatora",
+      "2013-06-14"
+     ]
+    ],
+    "rank": 128,
+    "share": 0.0811,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 38,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-06-15",
+    "last_last_filing": "2013-06-15",
+    "markets": 3,
+    "median_resume": "2013-06-27",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Bhopal",
+      "Berasia",
+      "2013-06-15"
+     ],
+     [
+      "Mandla",
+      "Mandla",
+      "2013-06-15"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2013-06-15"
+     ]
+    ],
+    "rank": 129,
+    "share": 0.0789,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 13,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2013-06-27",
+    "last_last_filing": "2013-06-29",
+    "markets": 3,
+    "median_resume": "2014-11-14",
+    "median_stop_days": 503.0,
+    "members": [
+     [
+      "Jalaun (Orai)",
+      "Orai",
+      "2013-06-27"
+     ],
+     [
+      "Jhansi",
+      "Chirgaon",
+      "2013-06-29"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2013-06-29"
+     ]
+    ],
+    "rank": 130,
+    "share": 0.2308,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 40,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-07-01",
+    "last_last_filing": "2013-07-04",
+    "markets": 3,
+    "median_resume": "2013-07-13",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Shajapur",
+      "Momanbadodiya",
+      "2013-07-04"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2013-07-01"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2013-07-01"
+     ]
+    ],
+    "rank": 131,
+    "share": 0.075,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 42,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-07-22",
+    "last_last_filing": "2013-07-25",
+    "markets": 3,
+    "median_resume": "2013-10-20",
+    "median_stop_days": 90.0,
+    "members": [
+     [
+      "Katni",
+      "Katni",
+      "2013-07-25"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2013-07-24"
+     ],
+     [
+      "Shajapur",
+      "Momanbadodiya",
+      "2013-07-22"
+     ]
+    ],
+    "rank": 132,
+    "share": 0.0714,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 31,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2013-10-28",
+    "last_last_filing": "2013-10-31",
+    "markets": 3,
+    "median_resume": "2013-11-10",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2013-10-31"
+     ],
+     [
+      "Narsinghpur",
+      "Narsinghpur",
+      "2013-10-28"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2013-10-29"
+     ]
+    ],
+    "rank": 133,
+    "share": 0.0968,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-03-20",
+    "last_last_filing": "2014-03-22",
+    "markets": 3,
+    "median_resume": "2014-04-02",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Damoh",
+      "Damoh",
+      "2014-03-22"
+     ],
+     [
+      "Mandsaur",
+      "Shamgarh",
+      "2014-03-20"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2014-03-20"
+     ]
+    ],
+    "rank": 134,
+    "share": 0.0909,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-04-09",
+    "last_last_filing": "2014-04-11",
+    "markets": 3,
+    "median_resume": "2014-04-20",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Damoh",
+      "Patharia",
+      "2014-04-11"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2014-04-10"
+     ],
+     [
+      "Sagar",
+      "Sagar",
+      "2014-04-09"
+     ]
+    ],
+    "rank": 135,
+    "share": 0.0811,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 34,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-05-05",
+    "last_last_filing": "2014-05-08",
+    "markets": 3,
+    "median_resume": "2014-05-19",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2014-05-08"
+     ],
+     [
+      "Datia",
+      "Bhander",
+      "2014-05-08"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2014-05-05"
+     ]
+    ],
+    "rank": 136,
+    "share": 0.0882,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 38,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-06-17",
+    "last_last_filing": "2014-06-19",
+    "markets": 3,
+    "median_resume": "2014-06-28",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Dindori",
+      "Dindori",
+      "2014-06-19"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2014-06-17"
+     ],
+     [
+      "Vidisha",
+      "Lateri",
+      "2014-06-19"
+     ]
+    ],
+    "rank": 137,
+    "share": 0.0789,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 39,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-07-12",
+    "last_last_filing": "2014-07-15",
+    "markets": 3,
+    "median_resume": "2014-07-25",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Neemuch",
+      "Neemuch",
+      "2014-07-12"
+     ],
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2014-07-15"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2014-07-15"
+     ]
+    ],
+    "rank": 138,
+    "share": 0.0769,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 14,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-08-13",
+    "last_last_filing": "2014-08-14",
+    "markets": 3,
+    "median_resume": "2014-08-29",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Dhemaji",
+      "Silapathar",
+      "2014-08-13"
+     ],
+     [
+      "Goalpara",
+      "Goalpara",
+      "2014-08-14"
+     ],
+     [
+      "Golaghat",
+      "Golaghat",
+      "2014-08-13"
+     ]
+    ],
+    "rank": 139,
+    "share": 0.2143,
+    "where": "Assam"
+   },
+   {
+    "active": 62,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-08-25",
+    "last_last_filing": "2014-08-27",
+    "markets": 3,
+    "median_resume": "2014-09-09",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Bhind",
+      "Mehgaon",
+      "2014-08-25"
+     ],
+     [
+      "Mandsaur",
+      "Piplya",
+      "2014-08-27"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2014-08-26"
+     ]
+    ],
+    "rank": 140,
+    "share": 0.0484,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 13,
+    "districts": 3,
+    "events_on_it": [
+     {
+      "documents": [
+       "transport"
+      ],
+      "event": "AS-2014-flood",
+      "members": 3,
+      "members_in_scope_by_district": {
+       "closure": 0,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 1
+      },
+      "members_under_transport_document_filings_in_its_window": [
+       [
+        "Kamrup / P.O. Uparhali Guwahati",
+        4,
+        4
+       ]
+      ]
+     }
+    ],
+    "first_last_filing": "2014-09-25",
+    "last_last_filing": "2014-09-26",
+    "markets": 3,
+    "median_resume": "2014-10-08",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Barpeta",
+      "Howly",
+      "2014-09-25"
+     ],
+     [
+      "Kamrup",
+      "P.O. Uparhali Guwahati",
+      "2014-09-26"
+     ],
+     [
+      "Nalbari",
+      "Nalbari",
+      "2014-09-26"
+     ]
+    ],
+    "rank": 141,
+    "share": 0.2308,
+    "where": "Assam"
+   },
+   {
+    "active": 68,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-09-25",
+    "last_last_filing": "2014-09-27",
+    "markets": 3,
+    "median_resume": "2014-10-11",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Tendukheda",
+      "2014-09-25"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2014-09-27"
+     ],
+     [
+      "Vidisha",
+      "Vidisha",
+      "2014-09-26"
+     ]
+    ],
+    "rank": 142,
+    "share": 0.0441,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 67,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-11-25",
+    "last_last_filing": "2014-11-27",
+    "markets": 3,
+    "median_resume": "2014-12-05",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Mandla",
+      "Mandla",
+      "2014-11-27"
+     ],
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2014-11-27"
+     ],
+     [
+      "Shajapur",
+      "Shujalpur",
+      "2014-11-25"
+     ]
+    ],
+    "rank": 143,
+    "share": 0.0448,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 61,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-12-11",
+    "last_last_filing": "2014-12-13",
+    "markets": 3,
+    "median_resume": "2014-12-22",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2014-12-12"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2014-12-13"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2014-12-11"
+     ]
+    ],
+    "rank": 144,
+    "share": 0.0492,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 60,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2014-12-22",
+    "last_last_filing": "2014-12-25",
+    "markets": 3,
+    "median_resume": "2014-12-31",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2014-12-22"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2014-12-22"
+     ],
+     [
+      "Sidhi",
+      "Sidhi",
+      "2014-12-25"
+     ]
+    ],
+    "rank": 145,
+    "share": 0.05,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 63,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-01-05",
+    "last_last_filing": "2015-01-08",
+    "markets": 3,
+    "median_resume": "2015-01-16",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Dewas",
+      "Dewas",
+      "2015-01-05"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2015-01-05"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2015-01-08"
+     ]
+    ],
+    "rank": 146,
+    "share": 0.0476,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 57,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-01-22",
+    "last_last_filing": "2015-01-25",
+    "markets": 3,
+    "median_resume": "2015-02-04",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gadarwada",
+      "2015-01-22"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2015-01-22"
+     ],
+     [
+      "Satna",
+      "Nagod",
+      "2015-01-25"
+     ]
+    ],
+    "rank": 147,
+    "share": 0.0526,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 22,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-24",
+    "last_last_filing": "2015-03-27",
+    "markets": 3,
+    "median_resume": "2015-04-06",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Banda",
+      "Banda",
+      "2015-03-24"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2015-03-27"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2015-03-27"
+     ]
+    ],
+    "rank": 148,
+    "share": 0.1364,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 8,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-25",
+    "last_last_filing": "2015-03-26",
+    "markets": 3,
+    "median_resume": "2015-04-06",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Bundi",
+      "Sumerganj",
+      "2015-03-25"
+     ],
+     [
+      "Chittorgarh",
+      "Pratapgarh",
+      "2015-03-26"
+     ],
+     [
+      "Jhalawar",
+      "Jhalarapatan",
+      "2015-03-26"
+     ]
+    ],
+    "rank": 149,
+    "share": 0.375,
+    "where": "Rajasthan"
+   },
+   {
+    "active": 95,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-03-30",
+    "last_last_filing": "2015-04-02",
+    "markets": 3,
+    "median_resume": "2015-04-12",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Narsinghpur",
+      "Gotegaon",
+      "2015-03-31"
+     ],
+     [
+      "Rewa",
+      "Rewa",
+      "2015-03-30"
+     ],
+     [
+      "Seoni",
+      "Lakhnadon",
+      "2015-04-02"
+     ]
+    ],
+    "rank": 150,
+    "share": 0.0316,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 106,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-04-26",
+    "last_last_filing": "2015-04-28",
+    "markets": 3,
+    "median_resume": "2015-05-06",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2015-04-27"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2015-04-26"
+     ],
+     [
+      "Shajapur",
+      "Akodia",
+      "2015-04-28"
+     ]
+    ],
+    "rank": 151,
+    "share": 0.0283,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 92,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-04",
+    "last_last_filing": "2015-06-07",
+    "markets": 3,
+    "median_resume": "2015-06-24",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Khilchipur",
+      "2015-06-05"
+     ],
+     [
+      "Satna",
+      "Satna",
+      "2015-06-04"
+     ],
+     [
+      "Shajapur",
+      "Momanbadodiya",
+      "2015-06-07"
+     ]
+    ],
+    "rank": 152,
+    "share": 0.0326,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 26,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-06-27",
+    "last_last_filing": "2015-06-30",
+    "markets": 3,
+    "median_resume": "2015-07-12",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Badaun",
+      "Badayoun",
+      "2015-06-27"
+     ],
+     [
+      "Banda",
+      "Banda",
+      "2015-06-29"
+     ],
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2015-06-30"
+     ]
+    ],
+    "rank": 153,
+    "share": 0.1154,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 26,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-07-02",
+    "last_last_filing": "2015-07-05",
+    "markets": 3,
+    "median_resume": "2015-07-21",
+    "median_stop_days": 17.0,
+    "members": [
+     [
+      "Chitrakut",
+      "Karvi",
+      "2015-07-05"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Orai",
+      "2015-07-02"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2015-07-03"
+     ]
+    ],
+    "rank": 154,
+    "share": 0.1154,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 86,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-07-22",
+    "last_last_filing": "2015-07-24",
+    "markets": 3,
+    "median_resume": "2015-08-03",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Damoh",
+      "Hata",
+      "2015-07-24"
+     ],
+     [
+      "Ujjain",
+      "Badnagar",
+      "2015-07-23"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2015-07-22"
+     ]
+    ],
+    "rank": 155,
+    "share": 0.0349,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 88,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-08-17",
+    "last_last_filing": "2015-08-20",
+    "markets": 3,
+    "median_resume": "2015-09-08",
+    "median_stop_days": 19.0,
+    "members": [
+     [
+      "Dindori",
+      "Shahpura",
+      "2015-08-20"
+     ],
+     [
+      "Jabalpur",
+      "Shahpura(Jabalpur)",
+      "2015-08-20"
+     ],
+     [
+      "Panna",
+      "Panna",
+      "2015-08-17"
+     ]
+    ],
+    "rank": 156,
+    "share": 0.0341,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 26,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-08-19",
+    "last_last_filing": "2015-08-22",
+    "markets": 3,
+    "median_resume": "2015-08-31",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Bharuasumerpur",
+      "2015-08-19"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2015-08-22"
+     ],
+     [
+      "Muradabad",
+      "Muradabad",
+      "2015-08-22"
+     ]
+    ],
+    "rank": 157,
+    "share": 0.1154,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 85,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-08-23",
+    "last_last_filing": "2015-08-25",
+    "markets": 3,
+    "median_resume": "2015-09-05",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Dindori",
+      "Gorakhpur",
+      "2015-08-25"
+     ],
+     [
+      "Rewa",
+      "Hanumana",
+      "2015-08-25"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2015-08-23"
+     ]
+    ],
+    "rank": 158,
+    "share": 0.0353,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 78,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-09-23",
+    "last_last_filing": "2015-09-24",
+    "markets": 3,
+    "median_resume": "2015-10-06",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Guna",
+      "Guna",
+      "2015-09-23"
+     ],
+     [
+      "Neemuch",
+      "Neemuch",
+      "2015-09-24"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2015-09-23"
+     ]
+    ],
+    "rank": 159,
+    "share": 0.0385,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 7,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2015-10-16",
+    "last_last_filing": "2015-10-18",
+    "markets": 3,
+    "median_resume": "2015-10-27",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Burdwan",
+      "Durgapur",
+      "2015-10-17"
+     ],
+     [
+      "Puruliya",
+      "Balarampur",
+      "2015-10-16"
+     ],
+     [
+      "Puruliya",
+      "Kasipur",
+      "2015-10-18"
+     ]
+    ],
+    "rank": 160,
+    "share": 0.4286,
+    "where": "West Bengal"
+   },
+   {
+    "active": 27,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-11-27",
+    "last_last_filing": "2015-11-30",
+    "markets": 3,
+    "median_resume": "2015-12-11",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Hardoi",
+      "Madhoganj",
+      "2015-11-27"
+     ],
+     [
+      "Lalitpur",
+      "Lalitpur",
+      "2015-11-27"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2015-11-30"
+     ]
+    ],
+    "rank": 161,
+    "share": 0.1111,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 27,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2015-12-10",
+    "last_last_filing": "2015-12-11",
+    "markets": 3,
+    "median_resume": "2015-12-19",
+    "median_stop_days": 8.0,
+    "members": [
+     [
+      "Banda",
+      "Banda",
+      "2015-12-10"
+     ],
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2015-12-11"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2015-12-11"
+     ]
+    ],
+    "rank": 162,
+    "share": 0.1111,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 30,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-02-20",
+    "last_last_filing": "2016-02-22",
+    "markets": 3,
+    "median_resume": "2016-03-04",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Maudaha",
+      "2016-02-22"
+     ],
+     [
+      "Mahoba",
+      "Mahoba",
+      "2016-02-22"
+     ],
+     [
+      "Padrauna(Kusinagar)",
+      "Tamkuhi Road",
+      "2016-02-20"
+     ]
+    ],
+    "rank": 163,
+    "share": 0.1,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 15,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-03-28",
+    "last_last_filing": "2016-03-30",
+    "markets": 3,
+    "median_resume": "2016-04-06",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Bhilwara",
+      "Bhilwara",
+      "2016-03-28"
+     ],
+     [
+      "Bundi",
+      "DEI(Bundi)",
+      "2016-03-30"
+     ],
+     [
+      "Chittorgarh",
+      "Pratapgarh",
+      "2016-03-28"
+     ]
+    ],
+    "rank": 164,
+    "share": 0.2,
+    "where": "Rajasthan"
+   },
+   {
+    "active": 33,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-04-11",
+    "last_last_filing": "2016-04-12",
+    "markets": 3,
+    "median_resume": "2016-04-25",
+    "median_stop_days": 14.0,
+    "members": [
+     [
+      "Faizabad",
+      "Faizabad",
+      "2016-04-12"
+     ],
+     [
+      "Muzaffarnagar",
+      "Muzzafarnagar",
+      "2016-04-12"
+     ],
+     [
+      "Padrauna(Kusinagar)",
+      "Tamkuhi Road",
+      "2016-04-11"
+     ]
+    ],
+    "rank": 165,
+    "share": 0.0909,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 114,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-04-18",
+    "last_last_filing": "2016-04-21",
+    "markets": 3,
+    "median_resume": "2016-04-29",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2016-04-21"
+     ],
+     [
+      "Seoni",
+      "Seoni",
+      "2016-04-21"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-04-18"
+     ]
+    ],
+    "rank": 166,
+    "share": 0.0263,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 115,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-04-23",
+    "last_last_filing": "2016-04-25",
+    "markets": 3,
+    "median_resume": "2016-05-03",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Bhind",
+      "Alampur",
+      "2016-04-23"
+     ],
+     [
+      "Bhopal",
+      "Berasia",
+      "2016-04-25"
+     ],
+     [
+      "Datia",
+      "Bhander",
+      "2016-04-25"
+     ]
+    ],
+    "rank": 167,
+    "share": 0.0261,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 115,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-05-07",
+    "last_last_filing": "2016-05-07",
+    "markets": 3,
+    "median_resume": "2016-05-17",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Isagarh",
+      "2016-05-07"
+     ],
+     [
+      "Panna",
+      "Devandranagar",
+      "2016-05-07"
+     ],
+     [
+      "Shajapur",
+      "Soyatkalan",
+      "2016-05-07"
+     ]
+    ],
+    "rank": 168,
+    "share": 0.0261,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 114,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2016-05-12",
+    "last_last_filing": "2016-05-14",
+    "markets": 3,
+    "median_resume": "2016-05-25",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Sagar",
+      "Garhakota",
+      "2016-05-14"
+     ],
+     [
+      "Shajapur",
+      "Badod",
+      "2016-05-14"
+     ],
+     [
+      "Shajapur",
+      "Momanbadodiya",
+      "2016-05-12"
+     ]
+    ],
+    "rank": 169,
+    "share": 0.0263,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 112,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-03",
+    "last_last_filing": "2016-06-03",
+    "markets": 3,
+    "median_resume": "2016-06-14",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Bhopal",
+      "Bhopal",
+      "2016-06-03"
+     ],
+     [
+      "Sagar",
+      "Khurai",
+      "2016-06-03"
+     ],
+     [
+      "Shivpuri",
+      "Pohari",
+      "2016-06-03"
+     ]
+    ],
+    "rank": 170,
+    "share": 0.0268,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-16",
+    "last_last_filing": "2016-06-18",
+    "markets": 3,
+    "median_resume": "2016-07-27",
+    "median_stop_days": 40.0,
+    "members": [
+     [
+      "Dhar",
+      "Dhar",
+      "2016-06-18"
+     ],
+     [
+      "Panna",
+      "Devandranagar",
+      "2016-06-17"
+     ],
+     [
+      "Shivpuri",
+      "Pohari",
+      "2016-06-16"
+     ]
+    ],
+    "rank": 171,
+    "share": 0.0265,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 113,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-20",
+    "last_last_filing": "2016-06-22",
+    "markets": 3,
+    "median_resume": "2016-08-20",
+    "median_stop_days": 59.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-06-22"
+     ],
+     [
+      "Rajgarh",
+      "Machalpur",
+      "2016-06-22"
+     ],
+     [
+      "Shajapur",
+      "Susner",
+      "2016-06-20"
+     ]
+    ],
+    "rank": 172,
+    "share": 0.0265,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 32,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-06-30",
+    "last_last_filing": "2016-06-30",
+    "markets": 3,
+    "median_resume": "2016-07-12",
+    "median_stop_days": 12.0,
+    "members": [
+     [
+      "Hamirpur",
+      "Raath",
+      "2016-06-30"
+     ],
+     [
+      "Jalaun (Orai)",
+      "Konch",
+      "2016-06-30"
+     ],
+     [
+      "Shahjahanpur",
+      "Shahjahanpur",
+      "2016-06-30"
+     ]
+    ],
+    "rank": 173,
+    "share": 0.0938,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 96,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-03",
+    "last_last_filing": "2016-08-06",
+    "markets": 3,
+    "median_resume": "2016-08-22",
+    "median_stop_days": 18.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-08-06"
+     ],
+     [
+      "Sagar",
+      "Bamora",
+      "2016-08-04"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-08-03"
+     ]
+    ],
+    "rank": 174,
+    "share": 0.0312,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 95,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2016-08-16",
+    "last_last_filing": "2016-08-17",
+    "markets": 3,
+    "median_resume": "2016-08-27",
+    "median_stop_days": 10.0,
+    "members": [
+     [
+      "Dhar",
+      "Dhar",
+      "2016-08-17"
+     ],
+     [
+      "Shajapur",
+      "Kalapipal",
+      "2016-08-16"
+     ],
+     [
+      "Shajapur",
+      "Shajapur",
+      "2016-08-17"
+     ]
+    ],
+    "rank": 175,
+    "share": 0.0316,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 32,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-09-14",
+    "last_last_filing": "2016-09-17",
+    "markets": 3,
+    "median_resume": "2016-10-02",
+    "median_stop_days": 16.0,
+    "members": [
+     [
+      "Chitrakut",
+      "Karvi",
+      "2016-09-14"
+     ],
+     [
+      "Hardoi",
+      "Madhoganj",
+      "2016-09-16"
+     ],
+     [
+      "Maharajganj",
+      "Partaval",
+      "2016-09-17"
+     ]
+    ],
+    "rank": 176,
+    "share": 0.0938,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 32,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-09-18",
+    "last_last_filing": "2016-09-21",
+    "markets": 3,
+    "median_resume": "2016-09-28",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Banda",
+      "Banda",
+      "2016-09-19"
+     ],
+     [
+      "Jhansi",
+      "Jhansi",
+      "2016-09-21"
+     ],
+     [
+      "Lakhimpur",
+      "Lakhimpur",
+      "2016-09-18"
+     ]
+    ],
+    "rank": 177,
+    "share": 0.0938,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 97,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2016-10-20",
+    "last_last_filing": "2016-10-23",
+    "markets": 3,
+    "median_resume": "2016-12-01",
+    "median_stop_days": 39.0,
+    "members": [
+     [
+      "Panna",
+      "Devandranagar",
+      "2016-10-20"
+     ],
+     [
+      "Rajgarh",
+      "Jeerapur",
+      "2016-10-23"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2016-10-23"
+     ]
+    ],
+    "rank": 178,
+    "share": 0.0309,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 3,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-11-07",
+    "last_last_filing": "2016-11-10",
+    "markets": 3,
+    "median_resume": "2016-12-03",
+    "median_stop_days": 26.0,
+    "members": [
+     [
+      "Bilaspur",
+      "Munguli",
+      "2016-11-07"
+     ],
+     [
+      "Raipur",
+      "Bhatapara",
+      "2016-11-10"
+     ],
+     [
+      "Rajnandgaon",
+      "Rajnandgaon",
+      "2016-11-09"
+     ]
+    ],
+    "rank": 179,
+    "share": 1.0,
+    "where": "Chattisgarh"
+   },
+   {
+    "active": 37,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2016-11-19",
+    "last_last_filing": "2016-11-21",
+    "markets": 3,
+    "median_resume": "2016-12-02",
+    "median_stop_days": 13.0,
+    "members": [
+     [
+      "Banda",
+      "Banda",
+      "2016-11-21"
+     ],
+     [
+      "Muradabad",
+      "Chandausi",
+      "2016-11-19"
+     ],
+     [
+      "Varanasi",
+      "Varanasi(Grain)",
+      "2016-11-19"
+     ]
+    ],
+    "rank": 180,
+    "share": 0.0811,
+    "where": "Uttar Pradesh"
+   },
+   {
+    "active": 4,
+    "districts": 3,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure",
+       "information",
+       "transport"
+      ],
+      "event": "MN-2016-blockade",
+      "members": 3,
+      "members_in_scope_by_district": {
+       "closure": 2,
+       "full_information_cut": 0,
+       "information": 2,
+       "transport": 3
+      },
+      "members_under_transport_document_filings_in_its_window": [
+       [
+        "Imphal East / Lamlong Bazaar",
+        92,
+        139
+       ],
+       [
+        "Imphal West / Imphal",
+        89,
+        139
+       ],
+       [
+        "Thoubal / Thoubal",
+        87,
+        139
+       ]
+      ]
+     }
+    ],
+    "first_last_filing": "2016-12-15",
+    "last_last_filing": "2016-12-15",
+    "markets": 3,
+    "median_resume": "2016-12-26",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Imphal East",
+      "Lamlong Bazaar",
+      "2016-12-15"
+     ],
+     [
+      "Imphal West",
+      "Imphal",
+      "2016-12-15"
+     ],
+     [
+      "Thoubal",
+      "Thoubal",
+      "2016-12-15"
+     ]
+    ],
+    "rank": 181,
+    "share": 0.75,
+    "where": "Manipur"
+   },
+   {
+    "active": 90,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2016-12-26",
+    "last_last_filing": "2016-12-27",
+    "markets": 3,
+    "median_resume": "2017-01-06",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Sarangpur",
+      "2016-12-26"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2016-12-27"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2016-12-27"
+     ]
+    ],
+    "rank": 182,
+    "share": 0.0333,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 93,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-02-18",
+    "last_last_filing": "2017-02-21",
+    "markets": 3,
+    "median_resume": "2017-02-27",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2017-02-19"
+     ],
+     [
+      "Rewa",
+      "Baikunthpur",
+      "2017-02-18"
+     ],
+     [
+      "Shajapur",
+      "Badod",
+      "2017-02-21"
+     ]
+    ],
+    "rank": 183,
+    "share": 0.0323,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 105,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-03",
+    "last_last_filing": "2017-03-06",
+    "markets": 3,
+    "median_resume": "2017-03-14",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Neemuch",
+      "Manasa",
+      "2017-03-03"
+     ],
+     [
+      "Rajgarh",
+      "Kurawar",
+      "2017-03-03"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2017-03-06"
+     ]
+    ],
+    "rank": 184,
+    "share": 0.0286,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 111,
+    "districts": 2,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-14",
+    "last_last_filing": "2017-03-15",
+    "markets": 3,
+    "median_resume": "2017-04-06",
+    "median_stop_days": 23.0,
+    "members": [
+     [
+      "Shajapur",
+      "Agar",
+      "2017-03-15"
+     ],
+     [
+      "Shajapur",
+      "Nalkehda",
+      "2017-03-14"
+     ],
+     [
+      "Vidisha",
+      "Kurwai",
+      "2017-03-14"
+     ]
+    ],
+    "rank": 185,
+    "share": 0.027,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 118,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-19",
+    "last_last_filing": "2017-03-21",
+    "markets": 3,
+    "median_resume": "2017-04-10",
+    "median_stop_days": 22.0,
+    "members": [
+     [
+      "Rajgarh",
+      "Machalpur",
+      "2017-03-21"
+     ],
+     [
+      "Sagar",
+      "Deori",
+      "2017-03-19"
+     ],
+     [
+      "Sehore",
+      "Sehore",
+      "2017-03-20"
+     ]
+    ],
+    "rank": 186,
+    "share": 0.0254,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 13,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-03-24",
+    "last_last_filing": "2017-03-25",
+    "markets": 3,
+    "median_resume": "2017-04-03",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Chittorgarh",
+      "Pratapgarh",
+      "2017-03-24"
+     ],
+     [
+      "Jhalawar",
+      "Jhalarapatan",
+      "2017-03-25"
+     ],
+     [
+      "Kota",
+      "Ramaganj Mandi",
+      "2017-03-25"
+     ]
+    ],
+    "rank": 187,
+    "share": 0.2308,
+    "where": "Rajasthan"
+   },
+   {
+    "active": 118,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-04-07",
+    "last_last_filing": "2017-04-08",
+    "markets": 3,
+    "median_resume": "2017-04-19",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Sagar",
+      "Bamora",
+      "2017-04-07"
+     ],
+     [
+      "Satna",
+      "Mehar",
+      "2017-04-07"
+     ],
+     [
+      "Tikamgarh",
+      "Tikamgarh",
+      "2017-04-08"
+     ]
+    ],
+    "rank": 188,
+    "share": 0.0254,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 121,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-04-28",
+    "last_last_filing": "2017-05-01",
+    "markets": 3,
+    "median_resume": "2017-05-10",
+    "median_stop_days": 11.0,
+    "members": [
+     [
+      "Datia",
+      "Bhander",
+      "2017-05-01"
+     ],
+     [
+      "Dindori",
+      "Shahpura",
+      "2017-04-28"
+     ],
+     [
+      "Ujjain",
+      "Ujjain",
+      "2017-04-28"
+     ]
+    ],
+    "rank": 189,
+    "share": 0.0248,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 122,
+    "districts": 3,
+    "events_on_it": [],
+    "first_last_filing": "2017-05-06",
+    "last_last_filing": "2017-05-09",
+    "markets": 3,
+    "median_resume": "2017-05-17",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Ashoknagar",
+      "Piprai",
+      "2017-05-08"
+     ],
+     [
+      "Morena",
+      "Morena",
+      "2017-05-09"
+     ],
+     [
+      "Vidisha",
+      "Sironj",
+      "2017-05-06"
+     ]
+    ],
+    "rank": 190,
+    "share": 0.0246,
+    "where": "Madhya Pradesh"
+   },
+   {
+    "active": 120,
+    "districts": 3,
+    "events_on_it": [
+     {
+      "documents": [
+       "closure",
+       "information"
+      ],
+      "event": "MP-2017-strike",
+      "members": 3,
+      "members_in_scope_by_district": {
+       "closure": 3,
+       "full_information_cut": 0,
+       "information": 0,
+       "transport": 0
+      },
+      "members_under_transport_document_filings_in_its_window": []
+     }
+    ],
+    "first_last_filing": "2017-06-10",
+    "last_last_filing": "2017-06-10",
+    "markets": 3,
+    "median_resume": "2017-06-19",
+    "median_stop_days": 9.0,
+    "members": [
+     [
+      "Betul",
+      "Betul",
+      "2017-06-10"
+     ],
+     [
+      "Panna",
+      "Devandranagar",
+      "2017-06-10"
+     ],
+     [
+      "Rajgarh",
+      "Chhapiheda",
+      "2017-06-10"
+     ]
+    ],
+    "rank": 191,
+    "share": 0.025,
+    "where": "Madhya Pradesh"
+   }
+  ]
+ },
+ "clusters_against_documents": {
+  "district_stop15_prior10": {
+   "clusters": 2,
+   "largest_not_looked_up": null,
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 2,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 2,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 2,
+   "ranks_put_against_a_document": [
+    1,
+    2
+   ]
+  },
+  "district_stop8_prior10": {
+   "clusters": 18,
+   "largest_not_looked_up": {
+    "first_last_filing": "2012-04-07",
+    "markets": 4,
+    "rank": 1,
+    "where": "Madhya Pradesh / Vidisha"
+   },
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 4,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 4,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 4,
+   "ranks_put_against_a_document": [
+    3,
+    4,
+    5,
+    18
+   ]
+  },
+  "state_stop15_prior10": {
+   "clusters": 31,
+   "largest_not_looked_up": {
+    "first_last_filing": "2016-07-02",
+    "markets": 6,
+    "rank": 2,
+    "where": "Madhya Pradesh"
+   },
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 3,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 0,
+   "of_those_with_a_closure_document": 3,
+   "of_those_with_only_edge_documents": 0,
+   "put_against_a_document": 3,
+   "ranks_put_against_a_document": [
+    1,
+    3,
+    7
+   ]
+  },
+  "state_stop8_prior10": {
+   "clusters": 191,
+   "largest_not_looked_up": {
+    "first_last_filing": "2015-03-24",
+    "markets": 21,
+    "rank": 2,
+    "where": "Madhya Pradesh"
+   },
+   "match": "state and dates; member counts per document are by district",
+   "of_those_a_closure_document_covers_a_member": 7,
+   "of_those_a_full_information_cut_covers_a_member": 0,
+   "of_those_no_document_covers_a_member": 0,
+   "of_those_only_edge_documents_cover_a_member": 1,
+   "of_those_with_a_closure_document": 7,
+   "of_those_with_only_edge_documents": 1,
+   "put_against_a_document": 8,
+   "ranks_put_against_a_document": [
+    1,
+    12,
+    30,
+    32,
+    58,
+    141,
+    181,
+    191
+   ]
+  }
+ },
+ "commodity": "Lentil (Masur)",
+ "config": {
+  "cluster_min_markets": 3,
+  "cluster_settings": [
+   [
+    "state",
+    8,
+    10
+   ],
+   [
+    "state",
+    15,
+    10
+   ],
+   [
+    "district",
+    8,
+    10
+   ],
+   [
+    "district",
+    15,
+    10
+   ]
+  ],
+  "cluster_window_days": 3,
+  "gap_floors": [
+   8,
+   15,
+   31,
+   61,
+   91,
+   181
+  ],
+  "match_lead_days": 7,
+  "prior_floors": [
+   5,
+   10,
+   15,
+   20
+  ],
+  "prior_window_days": 30,
+  "source": "data/agmark/Lentil (Masur)/*.csv"
+ },
+ "days_with_no_row": {
+  "count": 13,
+  "longest_run": 2,
+  "sundays": 2
+ },
+ "fixed_closures": [
+  {
+   "day": "26 Jan",
+   "filing": 2,
+   "neighbour_median": 8.0,
+   "year": 2008
+  },
+  {
+   "day": "26 Jan",
+   "filing": 1,
+   "neighbour_median": 12.0,
+   "year": 2009
+  },
+  {
+   "day": "26 Jan",
+   "filing": 1,
+   "neighbour_median": 16.0,
+   "year": 2010
+  },
+  {
+   "day": "26 Jan",
+   "filing": 8,
+   "neighbour_median": 32.5,
+   "year": 2011
+  },
+  {
+   "day": "26 Jan",
+   "filing": 2,
+   "neighbour_median": 26.5,
+   "year": 2012
+  },
+  {
+   "day": "26 Jan",
+   "filing": 6,
+   "neighbour_median": 27.5,
+   "year": 2013
+  },
+  {
+   "day": "26 Jan",
+   "filing": 1,
+   "neighbour_median": 17.0,
+   "year": 2014
+  },
+  {
+   "day": "26 Jan",
+   "filing": 8,
+   "neighbour_median": 36.0,
+   "year": 2015
+  },
+  {
+   "day": "26 Jan",
+   "filing": 10,
+   "neighbour_median": 49.0,
+   "year": 2016
+  },
+  {
+   "day": "26 Jan",
+   "filing": 15,
+   "neighbour_median": 74.0,
+   "year": 2017
+  },
+  {
+   "day": "15 Aug",
+   "filing": 0,
+   "neighbour_median": 5.0,
+   "year": 2008
+  },
+  {
+   "day": "15 Aug",
+   "filing": 0,
+   "neighbour_median": 22.5,
+   "year": 2009
+  },
+  {
+   "day": "15 Aug",
+   "filing": 5,
+   "neighbour_median": 23.0,
+   "year": 2010
+  },
+  {
+   "day": "15 Aug",
+   "filing": 4,
+   "neighbour_median": 25.5,
+   "year": 2011
+  },
+  {
+   "day": "15 Aug",
+   "filing": 5,
+   "neighbour_median": 25.0,
+   "year": 2012
+  },
+  {
+   "day": "15 Aug",
+   "filing": 1,
+   "neighbour_median": 17.0,
+   "year": 2013
+  },
+  {
+   "day": "15 Aug",
+   "filing": 3,
+   "neighbour_median": 32.5,
+   "year": 2014
+  },
+  {
+   "day": "15 Aug",
+   "filing": 10,
+   "neighbour_median": 51.5,
+   "year": 2015
+  },
+  {
+   "day": "15 Aug",
+   "filing": 10,
+   "neighbour_median": 58.0,
+   "year": 2016
+  },
+  {
+   "day": "2 Oct",
+   "filing": 2,
+   "neighbour_median": 7.0,
+   "year": 2008
+  },
+  {
+   "day": "2 Oct",
+   "filing": 4,
+   "neighbour_median": 25.0,
+   "year": 2009
+  },
+  {
+   "day": "2 Oct",
+   "filing": 8,
+   "neighbour_median": 20.5,
+   "year": 2010
+  },
+  {
+   "day": "2 Oct",
+   "filing": 15,
+   "neighbour_median": 28.0,
+   "year": 2011
+  },
+  {
+   "day": "2 Oct",
+   "filing": 11,
+   "neighbour_median": 29.0,
+   "year": 2012
+  },
+  {
+   "day": "2 Oct",
+   "filing": 6,
+   "neighbour_median": 18.5,
+   "year": 2013
+  },
+  {
+   "day": "2 Oct",
+   "filing": 10,
+   "neighbour_median": 27.0,
+   "year": 2014
+  },
+  {
+   "day": "2 Oct",
+   "filing": 19,
+   "neighbour_median": 53.0,
+   "year": 2015
+  },
+  {
+   "day": "2 Oct",
+   "filing": 15,
+   "neighbour_median": 63.0,
+   "year": 2016
+  }
+ ],
+ "stage": "B146",
+ "stops_at_least_8_days": 5877,
+ "unit_grid": [
+  {
+   "prior_floor": 5,
+   "stop_floor": 8,
+   "units": 3277
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 8,
+   "units": 1823
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 8,
+   "units": 1000
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 8,
+   "units": 353
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 15,
+   "units": 1268
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 15,
+   "units": 627
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 15,
+   "units": 350
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 15,
+   "units": 141
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 31,
+   "units": 503
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 31,
+   "units": 254
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 31,
+   "units": 153
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 31,
+   "units": 76
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 61,
+   "units": 270
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 61,
+   "units": 150
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 61,
+   "units": 97
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 61,
+   "units": 50
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 91,
+   "units": 186
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 91,
+   "units": 107
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 91,
+   "units": 71
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 91,
+   "units": 37
+  },
+  {
+   "prior_floor": 5,
+   "stop_floor": 181,
+   "units": 103
+  },
+  {
+   "prior_floor": 10,
+   "stop_floor": 181,
+   "units": 60
+  },
+  {
+   "prior_floor": 15,
+   "stop_floor": 181,
+   "units": 40
+  },
+  {
+   "prior_floor": 20,
+   "stop_floor": 181,
+   "units": 21
+  }
+ ]
+}

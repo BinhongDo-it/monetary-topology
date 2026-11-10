@@ -18,7 +18,9 @@ down, ask up), recompute rho, and ask how much of the inside/outside gap that
 projection closes.
 
 Part b, Theorem 6(5). S - S' splits exactly into a midpoint term and a spread
-term, and the spread term is friction, not index. Both are reported.
+term. The spread term sits inside the index: at a fixed arithmetic mid, unequal
+relative spreads move each class's antisymmetric term through the geometric
+mid. Both terms are reported.
 
 Reads the cache only. Nothing is bought and nothing is written to the cache.
 

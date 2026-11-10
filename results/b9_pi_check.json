@@ -1,6 +1,6 @@
 {
   "diagnostic_only": true,
-  "diagnostic_reason": "§22.4：本跑检验 §22.2 的推导，不检验世界。",
+  "diagnostic_reason": "section 22.4: this run tests the derivation in section 22.2, not the world.",
   "funds": {
     "JNK": {
       "f0": {

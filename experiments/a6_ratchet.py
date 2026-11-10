@@ -5,8 +5,7 @@ Registered in ``docs/a6_siphon_cost.md``, sections 13, 14.7, 15, 18, 19
 and 20.
 
 This file evaluates and does not design. Every threshold, grid and scope
-decision it compares against is written in that document, before any of this
-ran.
+decision it compares against is written in that document.
 
 Usage::
 
@@ -808,6 +807,10 @@ def three_valued(
     A6-16 and A6-19 ask the same question of two different bases and share this
     rule, so it lives in one place and neither can drift from the other.
 
+    A cell is closed when it is not open in every seed: at least one seed
+    ends below the floor. It does not mean every seed closed, and the
+    closing seeds are listed in each cell's ``closed_at_round``.
+
     - both judged cells closed: the registered prediction holds
     - a judged cell open with ``x`` settled: the prediction is wrong there
     - a judged cell open with ``x`` still climbing: **no verdict.** The horizon
@@ -1068,8 +1071,11 @@ def rebase_curve(seeds: range, progress: bool, smoke: bool = False) -> dict:
         cells: dict[str, dict] = {}
         for absorption in lambdas:
             rounds = 300 if smoke else a6_21_rounds(absorption)
-            # Section 20.4. `scaled` puts the policy at each lambda's own
-            # critical strength, which section 19.5 measured at `R* = lambda`.
+            # Section 20.4. `scaled` sets `R = lambda`, the critical ratio
+            # section 19.5 measured on the layer levy and layer rebate for
+            # lambda from 1e-3 to 1e-2. These columns run the threshold levy
+            # and rebate, where the critical rate itself was not measured,
+            # and lambda up to 1e-1, past the measured decade.
             rate = absorption if scaled else A6_9_RATE
             started = time.time()
             cells[f"lambda={absorption:g}"] = lambda_cell(
@@ -1126,12 +1132,13 @@ def _nearest_rho(value: float) -> float:
     return min(RHO_GRID, key=lambda r: abs(r - value))
 
 
-#: A6-20's cells. The corrected rebate is only reachable under the threshold
-#: levy: under the layer levy the payers are the financial layer and the
-#: recipients the production layer, which are already disjoint, so there is
-#: nothing for the correction to remove and the cell would pass by not asking.
-#: Both levy bases are run anyway, precisely so that the layer row shows the
-#: overlap at zero for a reason that has nothing to do with the fix.
+#: A6-20's cells. The corrected rebate removes an overlap only under the
+#: threshold levy. Under the layer levy with the layer rebate the payers are
+#: the financial layer and the recipients the production layer, disjoint by
+#: construction, so that cell reads zero for a reason that has nothing to do
+#: with the fix. Under the layer levy with the threshold rebate a
+#: financial-layer node below the threshold is levied and paid in the same
+#: round, the same mismatch mirrored. All four pairings are run.
 A6_20_CELLS: tuple[tuple[str, str], ...] = (
     ("layer", "layer"),
     ("layer", "threshold"),
@@ -1143,6 +1150,83 @@ A6_20_CELLS: tuple[tuple[str, str], ...] = (
 #: the two sides of the instrument disagree; short enough to sit inside the
 #: default run rather than behind ``--slow``.
 A6_20_ROUNDS = 20000
+
+
+def overlap_stats(both: np.ndarray) -> dict:
+    """One run's count of nodes on both sides of the transfer, round by round.
+
+    A6-20 is stated on the largest count over the run. That is the right
+    quantity for the matched pairs, where the largest being zero means every
+    round is zero. For the mismatched pairs it says the overlap occurs, and
+    it does not say the overlap occurs in every round, so the rounds with
+    nobody on both sides are counted beside it.
+    """
+    both = np.asarray(both)
+    if both.size == 0:
+        return {"most": 0, "fewest": 0, "rounds_with_none": 0, "rounds": 0}
+    return {
+        "most": int(both.max()),
+        "fewest": int(both.min()),
+        "rounds_with_none": int((both == 0).sum()),
+        "rounds": int(both.size),
+    }
+
+
+#: Below this size a float in a recorded block is written as the phrase and
+#: not as its digits. It is a residual or a level that has collapsed, and its
+#: digits belong to the machine that produced them.
+RECORD_FLOOR = 1e-12
+
+
+def recordable(obj):
+    """A computed block in the form it is written to the record.
+
+    Ten significant digits for every float, so that a difference in the last
+    digit between two BLAS builds does not surface as a difference between two
+    records that say the same thing. A non-zero size below ``RECORD_FLOOR`` is
+    written as ``"below 1e-12"`` and a non-finite value by its name, because a
+    record that prints ``3.1e-85`` is printing what the arithmetic left behind.
+    Integers, booleans and exact zeros pass through.
+    """
+    if isinstance(obj, dict):
+        return {str(k): recordable(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [recordable(v) for v in obj]
+    if isinstance(obj, (bool, np.bool_)):
+        return bool(obj)
+    if isinstance(obj, (int, np.integer)):
+        return int(obj)
+    if isinstance(obj, (float, np.floating)):
+        x = float(obj)
+        if math.isnan(x):
+            return "nan"
+        if math.isinf(x):
+            return "inf" if x > 0 else "-inf"
+        if x != 0.0 and abs(x) < RECORD_FLOOR:
+            return f"below {RECORD_FLOOR:g}"
+        return float(f"{x:.10g}")
+    return obj
+
+
+def sides_for_record(sides: dict) -> dict:
+    """``rebate_sides`` as recorded: the drift as a bound it is under or not.
+
+    The claim drift is a residual against conservation. What the criterion
+    asks of it is whether it is under the registered bound, and that is what
+    the record says.
+    """
+    out = recordable(sides)
+    out["claim_drift_bound"] = A6_20_DRIFT
+    out["claim_drift_under_the_bound"] = bool(
+        sides["worst_claim_drift"] < A6_20_DRIFT
+    )
+    del out["worst_claim_drift"]
+    for key, row in out["cells"].items():
+        row["claim_drift_under_the_bound"] = bool(
+            sides["cells"][key]["worst_claim_drift"] < A6_20_DRIFT
+        )
+        del row["worst_claim_drift"]
+    return out
 
 
 def rebate_sides(seeds: range, rounds: int, rate: float) -> dict:
@@ -1158,7 +1242,10 @@ def rebate_sides(seeds: range, rounds: int, rate: float) -> dict:
       ``threshold/threshold`` because above ``θ`` pays and below ``θ`` receives
       and both are read off one measurement. Either being non-zero means the
       within-round ordering is wrong.
-    * **Mismatched pairs put somebody on both sides.** ``threshold/layer`` is
+    * **Mismatched pairs put somebody on both sides, in some round.** The test
+      is on the largest count over the run. It does not require the overlap in
+      every round, and it does not occur in every round: the rounds with nobody
+      on both sides are counted per seed and reported. ``threshold/layer`` is
       the defect section 18 records: the payers move with the distribution and
       the recipients do not, so a production-layer node above ``θ`` pays and
       receives. ``layer/threshold`` is the same error mirrored: a
@@ -1169,25 +1256,23 @@ def rebate_sides(seeds: range, rounds: int, rate: float) -> dict:
     * **Claims are conserved and the empty-recipient fallback did not fire
       silently.** Both checked in every cell.
 
-    **The first draft of this criterion quantified over all four cells and
-    demanded zero everywhere.** It failed on the two mismatched cells, which is
-    what it should do: those cells are supposed to overlap and the criterion had
-    the wrong scope. Recorded here rather than silently corrected because the
-    scope changed after a run, and it is only legitimate because **nothing had
-    been registered yet**: A6-20 reaches ``docs/a6_siphon_cost.md`` §18 in the
-    corrected form, and the first form never left this file. A criterion already
-    on the page would have been left failing, as A6-1 is.
+    **Zero is required in the two matched cells only.** A form quantifying over
+    all four cells and demanding zero everywhere fails on the two mismatched
+    cells, which is what it should do: those cells are supposed to overlap, so
+    that form has the wrong scope.
 
     The comparison of *outcomes* between the two rebates is deliberately not
-    judged here. No threshold for it is registered, it belongs with the
-    re-measurement of A6-9 and A6-15 on the corrected instrument, and inventing
-    a bound for it now would be choosing one after seeing the run.
+    judged here. No threshold for it is registered; it belongs with the
+    re-measurement of A6-9 and A6-15 on the corrected instrument.
     """
     rows: dict[str, dict] = {}
     for levy_base, rebate_base in A6_20_CELLS:
         key = f"levy={levy_base}/rebate={rebate_base}"
-        overlap, drift, fallbacks, payees = [], [], [], []
+        overlap, drift, fallbacks, payees, by_seed = [], [], [], [], []
         for seed in seeds:
+            # The stratified graph with stratified retention (``fair`` is
+            # False), infrastructure arm. A6-9 to A6-19 read the access /
+            # fair cell; A6-20's four cells are the levy and rebate bases.
             cfg = config_for(
                 seed,
                 rounds,
@@ -1203,6 +1288,7 @@ def rebate_sides(seeds: range, rounds: int, rate: float) -> dict:
             both = np.asarray(model.both_sides_history)
             pc = np.asarray(model.payee_count_history)
             overlap.append(int(both.max()) if both.size else 0)
+            by_seed.append({"seed": int(seed), **overlap_stats(both)})
             drift.append(
                 abs(float(model.holdings.sum()) - model._opening_claims)
             )
@@ -1215,6 +1301,12 @@ def rebate_sides(seeds: range, rounds: int, rate: float) -> dict:
             "worst_claim_drift": max(drift),
             "fallback_rounds": max(fallbacks),
             "payee_range": [min(p[0] for p in payees), max(p[1] for p in payees)],
+            # Round by round, per seed. ``worst_both_sides`` is the largest of
+            # the ``most``; the criterion is stated on it.
+            "both_sides_by_seed": by_seed,
+            "fewest_both_sides": min(s["fewest"] for s in by_seed),
+            "rounds_with_none": sum(s["rounds_with_none"] for s in by_seed),
+            "rounds_counted": sum(s["rounds"] for s in by_seed),
         }
     matched = [
         r for r in rows.values() if r["levy_base"] == r["rebate_base"]
@@ -1697,10 +1789,10 @@ def main() -> int:
           f"headline would rest on the tail of g rather than on lambda")
 
     # Every number in a detail string goes through an explicit format spec.
-    # RESULTS.md is rendered from this file and diffed byte for byte in CI, so
-    # a value printed through ``repr`` would turn that check red on a
-    # last-digit difference between two BLAS builds rather than on a change to
-    # the model.
+    # The record is compared between machines, so a value printed through
+    # ``repr`` would show a last-digit difference between two BLAS builds as
+    # a change to the record when the model did not change. RESULTS.md is
+    # kept by hand and is not rendered from this file.
     band = curve["bands"][SHAPE_DEFAULT]
     judged = scan["judged_cells"]
     details = {
@@ -1712,7 +1804,7 @@ def main() -> int:
         ),
         # The project's engineering rule 6. The relative error is a residual against a closed
         # form, so it sits at machine precision and its digits come from the
-        # BLAS build; `a6_ratchet.py` line 1499 already prints it to the job
+        # BLAS build; the A6-8 line printed above already puts it in the job
         # log, which is where a per-machine value belongs. Written here it
         # makes the record differ between machines on content that asserts the
         # same thing, and a spurious diff buries a real one.
@@ -1783,6 +1875,10 @@ def main() -> int:
             )
         ),
         "A6-16": "not run" if horizon is None else horizon["reason"],
+        # Each number is the smallest over the seeds, the final round and the
+        # first round taken separately, so the two can come from different
+        # seeds. A6-18's test is on the smallest final-round levy of each
+        # threshold cell; the layer cells are printed beside them.
         "A6-18": (
             "not run"
             if horizon is None
@@ -1802,6 +1898,14 @@ def main() -> int:
             "seeds: "
             + "; ".join(
                 f"{k} {c['worst_both_sides']}" for k, c in sides["cells"].items()
+            )
+            + ". The test on the mismatched pairs is that the overlap occurs "
+            + "in the run, not that it occurs in every round; rounds with "
+            + "nobody on both sides, of the rounds counted over all seeds: "
+            + "; ".join(
+                f"{k} {c['rounds_with_none']} of {c['rounds_counted']}"
+                for k, c in sides["cells"].items()
+                if c["levy_base"] != c["rebate_base"]
             )
             # The project's engineering rule 6, as for A6-8 above. The drift is a residual
             # against conservation and sits at machine precision. The counts
@@ -1908,6 +2012,17 @@ def main() -> int:
                 "long_horizon": horizon,
                 "rescan": scan,
                 "shape_agreement": agreement,
+                # A6-20 to A6-23 are scored from these three blocks. They were
+                # computed and printed and not written until 2026-10-10, so the
+                # four verdicts had no numbers behind them in the record.
+                "rebate_sides": sides_for_record(sides),
+                "rho_scaling": recordable(slope),
+                "rebase_curve": recordable(rebase),
+                "recorded_float_convention": (
+                    "in rebate_sides, rho_scaling and rebase_curve: ten "
+                    f"significant digits; a non-zero size below {RECORD_FLOOR:g} "
+                    "is written as that phrase"
+                ),
                 "criteria": criteria,
                 "skipped": skipped,
             },

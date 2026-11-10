@@ -31,12 +31,12 @@
    "passed": true
   },
   {
-   "detail": "rated R n=20 against V n=387. The grades run 1 best to 6 worst: R means 3.550, V means 3.463, a difference of +0.087 at 0.3 se. What this subset can do is bound: it resolves 0.511 grade points at two standard errors, 10% of a scale five wide, so it excludes a quality gap larger than that and says nothing about smaller ones. Two limits travel with it. The rated firms are selected, so the bound holds on the rated subset and not on the arm. And n=20 is not a sample that could be enlarged: it is every rated restituted firm in the file, which is why B40-9 asks why that number is what it is. The criterion as registered asked for N and the resolution to be printed; both are printed. An earlier version recorded this as failed, which marked the answer rather than the criterion.",
+   "detail": "rated R n=20 against V n=387. The grades run 1 best to 6 worst: R means 3.550, V means 3.463, a difference of +0.087 at 0.3 se. What this subset can do is bound: it resolves 0.511 grade points at two standard errors, 10% of a scale five wide, and two standard errors either side of the difference run from -0.424 to +0.598, so a gap outside that range is excluded and one inside it is not. Two limits travel with it. The rated firms are selected, so the bound holds on the rated subset and not on the arm. And n=20 is not a sample that could be enlarged: it is every rated restituted firm in the file, which is why B40-9 asks why that number is what it is. The criterion as registered asked for N and the resolution to be printed; both are printed. An earlier version recorded this as failed, which marked the answer rather than the criterion.",
    "name": "B40-5 size story on the rated subset: what it excludes",
    "passed": true
   },
   {
-   "detail": "the committee grade is an input to the agency own disposal decision, so the statuses the agency decided should carry ratings and one decided elsewhere should not. Restitution is the least covered of the seven at 1.03%, against 5.59% for sold and 7.21% for liquidated, a ratio of 5.43 to sold and 12.7 se. That is the identifying premise measured rather than assumed: restitution did not pass through the process that produced the grades. Liquidation being the best covered fixes the direction of the appendix sentence that grades are not awarded to firms already being privatized, municipalized or liquidated: it is about the state at the meeting, not the eventual outcome, and it does not name restitution at all, so it does not by itself account for this gap.",
+   "detail": "the committee grade is an input to the agency own disposal decision, so the statuses the agency decided should carry ratings and one decided elsewhere should not. Restitution is the least covered of the seven at 1.03%, against 5.59% for sold and 7.21% for liquidated, a ratio of 5.43 to sold and 12.7 se. That is the identifying premise measured rather than assumed: restitution did not pass through the process that produced the grades. Best covered first, the seven run GV 8.10%, F 7.92%, L 7.21%, V 5.59%, SP 2.78%, IL 1.52%, R 1.03%. Liquidated firms carry a grade more often than sold ones, which fixes the direction of the appendix sentence that grades are not awarded to firms already being privatized, municipalized or liquidated: it is about the state at the meeting, not the eventual outcome, and it does not name restitution at all, so it does not by itself account for this gap.",
    "name": "B40-9 rating coverage by disposal status, seven cells printed",
    "passed": true
   },
@@ -46,14 +46,27 @@
    "passed": true
   }
  ],
+ "definitions": {
+  "founded 1990-07-01": "GRUEND_DAT is the day on which section 11(2) of the Treuhandgesetz made the state enterprises it covered stock corporations or limited companies by statute; section 15(1) orders each entered in the commercial register ex officio. Such a company exists before any entry, so for it a missing court is a missing entry and not a missing legal person.",
+  "no_registry": "REGISTER_ORT is empty, a dash, or says in words that no entry exists or that none is required: the released file names no register court for the firm. It is the field of the file and not by itself a finding that no entry was ever made. The table no_court_cell counts the rows that still carry a register number or a registration date and reads the contrast again without them."
+ },
  "diagnostic_only": false,
  "n_rows": 13378,
- "scope_note": "two limits travel with every reading here and neither is an open step. About half of each arm never joins the register, and non-match is mixed with dying before 2005, so the later margin is read only among firms that did join. And the rated subset bounds the quality story at 0.51 grade points on a scale five wide, no finer, on the rated firms alone. Splitting the sold arm into West and East German buyers is a further measurement and not an unfinished one. Six source categories were checked for that column: the commercial firm register the published paper used, the agency own contract system at the federal archive (confidential, reached through an institutional cooperation), a research institute micro database that turns out to carry no acquirer information at all and only manufacturing, the public replication repository, this register dump, and the archive file series. This register dump cannot supply it: every dated table in it begins after 2000, and officer residence would in any case be conditional on surviving to be published, which is the outcome. What is open is the archive file series, at the cost of per-firm document work.",
+ "scope_note": "two limits travel with every reading here. About half of each arm never joins the register, and non-match is mixed with dying before 2005, so the later margin is read only among firms that did join. And the rated subset resolves the quality story at 0.51 grade points on a scale five wide, no finer, on the rated firms alone. The positional reading is registered over three disposal classes and this station scores two, returned against sold as a whole. The two-class reading is necessary for the three-class one and not sufficient, and the sold arm has not been split by buyer origin here. Six source categories were checked for that column: the commercial firm register the published paper used, the agency own contract system at the federal archive (confidential, reached through an institutional cooperation), a research institute micro database that turns out to carry no acquirer information at all and only manufacturing, the public replication repository, this register dump, and the archive file series. This register dump cannot supply it: every dated table in it begins after 2000, and officer residence would in any case be conditional on surviving to be published, which is the outcome. What is open is the archive file series, at the cost of per-firm document work.",
  "stage": "DE-REG",
  "tables": {
   "b40_9_rating_coverage": {
    "R_vs_V_ratio": 5.434420551306104,
    "R_vs_V_se_units": 12.719901127156048,
+   "best_covered_first": [
+    "GV",
+    "F",
+    "L",
+    "V",
+    "SP",
+    "IL",
+    "R"
+   ],
    "by_status": {
     "F": {
      "n": 732,
@@ -92,6 +105,102 @@
     }
    },
    "least_covered": "R"
+  },
+  "by_founding_date": {
+   "a founding date other than 1980-01-01": {
+    "a_k": 338,
+    "a_n": 1424,
+    "a_p": 0.23735955056179775,
+    "b_k": 93,
+    "b_n": 6373,
+    "b_p": 0.014592813431664835,
+    "ratio": 16.265509846562765,
+    "se": 0.011374407906743888,
+    "se_units": 19.584908415149634
+   },
+   "another founding date": {
+    "a_k": 236,
+    "a_n": 960,
+    "a_p": 0.24583333333333332,
+    "b_k": 83,
+    "b_n": 4853,
+    "b_p": 0.017102822996084895,
+    "ratio": 14.373845381526104,
+    "se": 0.014020990643592779,
+    "se_units": 16.31343434650762
+   },
+   "dated 1980-01-01": {
+    "a_k": 221,
+    "a_n": 294,
+    "a_p": 0.7517006802721088,
+    "b_k": 200,
+    "b_n": 261,
+    "b_p": 0.7662835249042146,
+    "ratio": 0.9809693877551019,
+    "se": 0.03634602248825245,
+    "se_units": -0.4012225722035796
+   },
+   "dated_1980_or_undated": {
+    "R": 429,
+    "V": 289,
+    "east_rows": 898,
+    "with_the_VT_prefix": 484
+   },
+   "founded 1990-07-01": {
+    "a_k": 102,
+    "a_n": 464,
+    "a_p": 0.21982758620689655,
+    "b_k": 10,
+    "b_n": 1520,
+    "b_p": 0.006578947368421052,
+    "ratio": 33.41379310344828,
+    "se": 0.019336990872821154,
+    "se_units": 11.028015694944772
+   },
+   "founded 1990-07-01, NAME says GmbH": {
+    "a_k": 39,
+    "a_n": 342,
+    "a_p": 0.11403508771929824,
+    "b_k": 4,
+    "b_n": 1358,
+    "b_p": 0.0029455081001472753,
+    "ratio": 38.71491228070175,
+    "se": 0.017250366641401865,
+    "se_units": 6.439838754066225
+   },
+   "no founding date": {
+    "a_k": 128,
+    "a_n": 135,
+    "a_p": 0.9481481481481482,
+    "b_k": 27,
+    "b_n": 28,
+    "b_p": 0.9642857142857143,
+    "ratio": 0.9832647462277092,
+    "se": 0.03992653749643285,
+    "se_units": -0.4041814579841263
+   },
+   "no_court_cell_by_founding_date": {
+    "R": {
+     "another founding date": 236,
+     "dated 1980-01-01": 221,
+     "founded 1990-07-01": 102,
+     "n": 687,
+     "no founding date": 128
+    },
+    "V": {
+     "another founding date": 83,
+     "dated 1980-01-01": 200,
+     "founded 1990-07-01": 10,
+     "n": 320,
+     "no founding date": 27
+    }
+   },
+   "rows_per_class_east": {
+    "another founding date": 7863,
+    "dated 1980-01-01": 678,
+    "founded 1990-07-01": 4113,
+    "no founding date": 220
+   }
   },
   "c1_column_fill": {
    "GV/has_court": {
@@ -301,9 +410,13 @@
     "V_mean": 3.462532299741602,
     "V_n": 387,
     "diff": 0.08746770025839767,
-    "resolves_2se": 0.5110167254564507,
+    "resolves_2se": 0.5110167254564504,
     "scale_width": 5,
-    "se": 0.25550836272822536
+    "se": 0.2555083627282252,
+    "two_se_either_side": [
+     -0.4235490251980527,
+     0.5984844257148481
+    ]
    },
    "matched_rows": 728
   },
@@ -347,7 +460,7 @@
   },
   "c7_industry": {
    "all rows with a description": {
-    "cosine": 0.956225905245967,
+    "cosine": 0.9562259052459503,
     "largest_gaps": [
      {
       "r": 0.054645354645354645,
@@ -385,7 +498,7 @@
     "v_n": 6349
    },
    "has_court rows only": {
-    "cosine": 0.9577367294876019,
+    "cosine": 0.957736729487583,
     "largest_gaps": [
      {
       "r": 0.05452111476207862,
@@ -425,6 +538,8 @@
   },
   "c8_industry_groups": {
    "altname only (pre-1990, exogenous to disposal)": {
+    "cells_where_R_is_not_above_V": [],
+    "cells_with_both_arms": 17,
     "classified": 5258,
     "flips": [],
     "groups": {
@@ -453,7 +568,9 @@
       "se_units": 5.468881477720187
      },
      "Bergbau/Steine": {
+      "a_k": 1,
       "a_n": 1,
+      "b_k": 1,
       "b_n": 20,
       "judged": false
      },
@@ -518,7 +635,9 @@
       "se_units": 4.077674830607411
      },
      "Handel": {
+      "a_k": 1,
       "a_n": 2,
+      "b_k": 5,
       "b_n": 87,
       "judged": false
      },
@@ -625,6 +744,8 @@
     "ratio_min": 2.751572327044025
    },
    "name+altname": {
+    "cells_where_R_is_not_above_V": [],
+    "cells_with_both_arms": 17,
     "classified": 7935,
     "flips": [],
     "groups": {
@@ -653,7 +774,9 @@
       "se_units": 7.011354146901168
      },
      "Bergbau/Steine": {
+      "a_k": 3,
       "a_n": 8,
+      "b_k": 1,
       "b_n": 51,
       "judged": false
      },
@@ -832,6 +955,8 @@
     "ratio_min": 3.1380208333333335
    },
    "name+altname+gegenstand": {
+    "cells_where_R_is_not_above_V": [],
+    "cells_with_both_arms": 17,
     "classified": 10488,
     "flips": [],
     "groups": {
@@ -1045,6 +1170,207 @@
     "ratio_max": 51.261538461538464,
     "ratio_min": 2.6857638888888884
    }
+  },
+  "no_court_cell": {
+   "by_status": {
+    "GV": {
+     "court_column": {
+      "empty": 45,
+      "says an entry is not required": 1,
+      "says no entry exists": 1
+     },
+     "n": 47,
+     "number_or_date": 0,
+     "number_with_a_digit": 0,
+     "registration_date": 0
+    },
+    "L": {
+     "court_column": {
+      "a dash": 9,
+      "empty": 117,
+      "says an entry is not required": 3,
+      "says no entry exists": 97
+     },
+     "n": 226,
+     "number_or_date": 7,
+     "number_with_a_digit": 7,
+     "registration_date": 1
+    },
+    "R": {
+     "court_column": {
+      "a dash": 22,
+      "empty": 623,
+      "says an entry is not required": 15,
+      "says no entry exists": 27
+     },
+     "n": 687,
+     "number_or_date": 6,
+     "number_with_a_digit": 6,
+     "registration_date": 3
+    },
+    "V": {
+     "court_column": {
+      "a dash": 12,
+      "empty": 267,
+      "says an entry is not required": 4,
+      "says no entry exists": 37
+     },
+     "n": 320,
+     "number_or_date": 11,
+     "number_with_a_digit": 11,
+     "registration_date": 3
+    }
+   },
+   "narrow_reading": {
+    "a_k": 681,
+    "a_n": 1853,
+    "a_p": 0.3675121424716676,
+    "b_k": 309,
+    "b_n": 6662,
+    "b_p": 0.046382467727409185,
+    "ratio": 7.923514217301778,
+    "se": 0.01149273271108557,
+    "se_units": 27.941977144783475
+   },
+   "narrow_reading_flips": [],
+   "rows_with_a_number_or_date": [
+    [
+     "R",
+     "16343",
+     "Wohnbau Gesellschaft mit beschränkter Haftung",
+     "",
+     "HRB 11",
+     "1936-10-15"
+    ],
+    [
+     "R",
+     "16480",
+     "VEB(K) Betonwerk Nienburg",
+     "",
+     "110-08-957",
+     "1972-05-25"
+    ],
+    [
+     "R",
+     "17866",
+     "Opherden & Co. GmbH",
+     "Dresden bisher kein Eintrag ins R-HR",
+     "1995-12-11 00:00:00",
+     ""
+    ],
+    [
+     "R",
+     "18196",
+     "Kraus & Co OHG Maschinenfabrik und Eisengießerei",
+     "Dresden bisher kein Eintrag ins R-HR",
+     "1995-12-11 00:00:00",
+     ""
+    ],
+    [
+     "R",
+     "19067",
+     "Martin Köberlein KG",
+     "",
+     "HRA 640",
+     "1969-06-23"
+    ],
+    [
+     "R",
+     "88186",
+     "VT Berliner Strickmoden GmbH & Co. KG",
+     "",
+     "110-15-1390",
+     ""
+    ],
+    [
+     "V",
+     "3244",
+     "Ingenieurbüro Wasser und Umwelt GmbH-Berlin",
+     "Berlin-Charlottenburg kein Eintrag R-HR",
+     "1995-10-31 00:00:00",
+     ""
+    ],
+    [
+     "V",
+     "3295",
+     "Ingenieurbüro Wasserwirtschaft und Umweltschutz GmbH Mecklenburg/Vorpommern",
+     "Stralsund - kein Eintrag ins R-HR",
+     "1995-09-20 00:00:00",
+     ""
+    ],
+    [
+     "V",
+     "7303",
+     "Büro für Rechts- und Wirtschaftsberatung GmbH",
+     "Berlin-Charlottenburg kein Eintrag R-HR",
+     "1995-10-24 00:00:00",
+     ""
+    ],
+    [
+     "V",
+     "8213",
+     "DBG Dresdner Bauplanung GmbH",
+     "Dresden kein Eintrag ins R-HR",
+     "1995-12-11 00:00:00",
+     ""
+    ],
+    [
+     "V",
+     "9149",
+     "VT Gestüt Görlsdorf",
+     "lt. AG bisher keine Eintragung ins R-HR",
+     "1995-09-29 00:00:00",
+     ""
+    ],
+    [
+     "V",
+     "16374",
+     "Gemeinnützige städtische Siedlungs- und Wohnungsbau Gesellschaft GmbH Zehdenick",
+     "-",
+     "HRB 52",
+     "1939-10-19"
+    ],
+    [
+     "V",
+     "18009",
+     "GFA Gesellschaft für Arbeitsförderung Thale mbH",
+     "",
+     "HRB 3284",
+     "1992-02-27"
+    ],
+    [
+     "V",
+     "19110",
+     "Merseburger Verpackung GmbH",
+     "",
+     "HRB 3010",
+     "1992-01-06"
+    ],
+    [
+     "V",
+     "19186",
+     "Piepenbrock Dienstleistungen Neuruppin GmbH",
+     "",
+     "HRB 1067",
+     ""
+    ],
+    [
+     "V",
+     "19850",
+     "AVS Automobil GmbH Wittenberge, Verkauf und Service",
+     "lt. AG bisher keine Eintragung ins R-HR",
+     "1995-09-18 00:00:00",
+     ""
+    ],
+    [
+     "V",
+     "19898",
+     "Bauträgergesellschaft CBF mbH i.G.",
+     "lt. AG Chemnitz kein Eintrag",
+     "1995-09-21 00:00:00",
+     ""
+    ]
+   ]
   },
   "no_registry_by_status_east": {
    "F": {

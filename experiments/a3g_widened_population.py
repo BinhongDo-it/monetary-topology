@@ -15,12 +15,15 @@ cannot enter the holonomy at all. **The theorem gives the ordering; it does not
 give a level**, which is why the shares are reported rather than scored.
 
 **What blocked it was the population, not the criterion.** At the registered
-point the measured set is 41.6 nodes sitting at the 87th to 100th centrality
-percentile of the production layer, and ``gate_spread`` disperses admission
-*along* centrality. In a band that narrow the treatment barely varies, so the
-gate must read zero whatever the mechanism does. **That zero carries no
-information about the mechanism**, which is the discipline this stage exists to
-respect rather than to work around.
+point the measured set is 41.6 nodes: all twenty financial-layer nodes per seed,
+plus 21.6 production-layer nodes sitting at the 87th to 100th centrality
+percentile of that layer, and ``gate_spread`` disperses admission *along*
+centrality. This file was built on the reading that in a band that narrow the
+gate must read zero whatever the mechanism does. ``a3h_gate_acts.py`` later
+measured it: between cells that differ only in the gate, the total change in
+cycle counts is 74.0, against 85.6 for the payment terms (86%), a figure
+that also counts the pricing pool those terms admit, so the gate is not
+inert and that reading is retired.
 
 **How the population is widened, and the trap in doing it.** ``stretch`` admits
 nodes that could not otherwise reach the asset, so raising it widens the

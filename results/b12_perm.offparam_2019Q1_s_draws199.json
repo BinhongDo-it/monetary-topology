@@ -58,7 +58,7 @@
           "verdict": "real_cut_is_special"
         }
       },
-      "distinct_partitions": 45760,
+      "distinct_partitions": 9223372036854775807,
       "fibre_shape": [
         63,
         1,

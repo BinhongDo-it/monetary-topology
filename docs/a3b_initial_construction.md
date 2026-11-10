@@ -50,6 +50,11 @@ Both large marketised economies sit in the same narrow place:
 | United States | 146.7M units / 132.7M households = **1.11** | 2024 |
 | Urban China | 套户比 (*dwelling-to-household ratio*) **1.09** (0.8 in 1978) | 2020 |
 
+The two rows are different kinds of object. The US row is a count from the 2024
+American Community Survey. The urban China `1.09` is an estimate of the housing
+stock under stated assumptions (Ren Zeping's 2021 housing-stock report), not a
+census count.
+
 **Registered: `units_per_node = 1.1`**, tier shape unchanged at `6 : 3 : 1`, so
 `units = (132, 66, 22)`. One number changes, not four. The tier ratio is left
 alone precisely so that the supply change and any tier-structure change cannot
@@ -57,6 +62,11 @@ be confounded later.
 
 The surplus over one per node is vacancy and multiple holding, which is what the
 `1.1` is: US vacancy runs about `10.3%` of inventory.
+
+**Restated 2026-10-26.** The 2024 American Community Survey that gives the
+table's 146.7M units and 132.7M households counts 14.0M vacant units: 9.5% of
+inventory, 10.6% of occupied units. The `10.3%` above is neither ratio from that
+survey.
 
 ---
 
@@ -75,11 +85,13 @@ transferred to **sitting tenants**, ranked by occupancy and tenure rather than
 by means.
 
 - **China, 1998.** The State Council ended in-kind allocation of housing;
-  public housing was sold to its existing occupants at deep discounts. By 2019
-  about **70%** of urban residents lived in owner-occupied housing, about 20%
-  rented.
+  public housing was sold to its existing occupants at deep discounts. A 2019
+  estimate built on the 2010 census puts about **70%** of urban residents in
+  owner-occupied housing (65.9% in 2010, 71.1% leaving out students), about 20%
+  renting.
 - **Russia, 1992.** Transfer to sitting tenants, effectively free. Individual
-  ownership of the stock went from **26.4% in 1990 to 58.2% by 2000**.
+  ownership of the stock went from **26.4% in 1990 to 58.2% by 2000** (as cited
+  in the housing-privatisation literature).
 - **United Kingdom, 1980.** Right to Buy sold **1.9 million** council homes in
   England to their tenants at an average discount of **44%** (33% at three
   years' tenure rising to 50% at twenty), raising owner-occupation by roughly
@@ -88,6 +100,8 @@ by means.
 **In the model**: ownership at `t = 0` is uncorrelated with claims within the
 production layer. A registered share of nodes each receive one unit by draw
 rather than by rank; the stock above one per node goes to the financial layer.
+
+**Restated 2026-10-27.** The stock left after the transfer is not handed to the financial layer directly. It goes through the market pass, high tier first, in allocation order (the drawn set first, each block in descending claims), to whoever clears the gate, production-layer nodes included; only what does not sell is held by the financial layer, in proportion to opening claims (§9.1).
 
 ### 3.2 `continuous` — no opening event, ownership already tracks wealth
 
@@ -153,6 +167,14 @@ acquires a calibration target that exists in the world: the US ownership rate
 falling 69.2% → 65.3%, and Chinese urban ownership concentrating into fewer
 households at an unchanged stock.
 
+**Restated 2026-10-26.** Under the current code the pre-A3b arm reads
+differently from the first sentence of the paragraph above. In seed 0 the 21 is
+the count at the end of round one (23 hold at the opening), one production-layer
+node still holds at round 100, and the layer holds nothing from round 111 on;
+across the five seeds it empties from round 56 to round 111, and in seed 3 a
+production-layer node that had sold out holds once more before the layer
+empties. The cross-construction reading is §10.
+
 **If the one-way exit appears under all three constructions**, it is the flow.
 **If it appears only under `auction`**, the result reported so far was the
 opening allocation talking, and that will be recorded as such.
@@ -171,7 +193,7 @@ opening allocation talking, and that will be recorded as such.
 | `ownership_rate` under `auction` | outcome, not a parameter | — |
 | opening discount under `occupancy` | `0.44` | UK Right to Buy average |
 | residual stock | held by the prior owner set, never ownerless | §1 |
-| sale proceeds | to the seller, in proportion to units sold | §1 |
+| sale proceeds | to the prior owner set, the financial layer, split in proportion to opening claims, the same weights that place the residual stock | §1 |
 | new construction | **none**. Supply is fixed | user's ruling: short-run flow is small against the stock outside an infrastructure boom |
 
 `construction = auction`, `ownership_rate` ignored, residual-ownership off and
@@ -192,6 +214,22 @@ generalisation — the same discipline as `elasticity = 0`.
   The holonomy is `log(γ_b/γ_a)`, which contains no initial condition at all. If
   A3-4's agreement moves when the construction changes, something is wrong that
   the current runs cannot see.
+
+  **Restated 2026-10-10: it had not been run, and it moves.** The driver's
+  header said this was checked; the entry did not compute it. It does now. Trade
+  by trade the identity is where it was. The aggregate comparison reads `3.05%`
+  on the pre-A3b arm, which is A3's own figure, `14.34%` on the fixed-stock
+  `auction` and `continuous` arms (`+0.28831` against `+0.33655`), inside the
+  registered `20%`, and has no reading on `occupancy`, where the worse-termed
+  third sells the units it was handed and never completes a round trip that
+  began with a purchase. The holonomy is not what moves. The ledger side is a
+  mean over trades and the graph side a mean over tiers, so the two differ by
+  how unevenly each group's trades fall across the tiers, and that tier-mix
+  term is the whole gap on every arm that has one (`−0.01150` and `−0.04825`).
+  The opening changes who holds which tier and so changes the mix. Nothing is
+  wrong that the runs could not see: the bullet above expected an aggregate to
+  be free of an initial condition that enters it through composition.
+  **Restated 2026-10-27.** On `occupancy`, the worse-termed third completes no round trip whose purchase is dated after round zero, which is the population A3-4 reads: every round trip it completes sells a unit it was handed at the opening, and those units, which the transfer charged for at the registered discount or at what the node held, are dated round zero and left out with the rest of that round. The graph side moves as well, from `+0.37686` to `+0.33655`: it reads which nodes form the two groups and how many round trips each completed, and the opening changes both. What does not move is the per-trade identity, which holds by construction because a resale pays `γ · P`.
 - **A3-5** stays void, and stays diagnosed in `a3_asset_channel.md` §6.3, "A3-5
   cannot be evaluated as registered, and the reason is a finding". The
   construction does not repair it; `open_tiers` not reaching resale is separate.
@@ -254,6 +292,23 @@ the rate of the claim stock and none outruns another. This is the distinction
 A3-7 was registered to enforce, showing up on the price side rather than the
 net-worth side.
 
+**Restated 2026-10-26.** Under the current code the same run (seed 0, three
+hundred rounds, the A3 defaults, which reproduce the claim-stock column
+exactly: 18.1×, 35.1×, 104.3×) gives a different spread from a different
+mechanism. The tiers reach 18.1×, 142.4× and 219.0× at round 50 and 104.3×,
+820.6× and 1265.6× at round 299, so against the claim stock they stand at
+1.0000, 7.8558 and 12.0825 at round 50, 0.9999, 7.8634 and 12.1283 at round 100,
+and 1.0000, 7.8639 and 12.1290 at rounds 200 and 299. The bidder pool is
+admitted at opening prices: at the opening 200 nodes clear the low tier, 11 the
+middle and 4 the high, holding 100%, 12.7% and 8.2% of claims, and by round 299
+each pool holds all claims, so each tier's price has grown with the claim stock
+times the inverse of its opening share. The spread is still a one-off
+repricing. Its size is set by how small a share of claims cleared a tier when
+it opened, not by the high tier's pool being the nodes whose claims grow
+fastest. On A3b's registered fixed-stock `auction` arm, same seed, the opening
+pools hold 77.4%, 77.4% and 74.3% of claims and the three ratios at round 299
+are 1.2919, 1.2919 and 1.3457, moving in the second decimal over the run.
+
 **Why it is nonetheless irrelevant to what A3 tests.** The loop sum is
 `log(γ_b/γ_a)` and **the price cancels out of it entirely** (`a3_asset_channel.md`
 §2). Tier appreciation, one-off or compounding, does not enter A3-4. It acts on
@@ -285,8 +340,10 @@ that means did not decide. Russia's transfer was free; the Chinese and British
 ones were discounted precisely so that tenure rather than income decided.
 
 The drawn set is now admitted regardless of claims and pays what it has. With
-the bypass, the registered `0.70` produces **72.0%**, the excess being financial
--layer nodes that also buy in the market pass.
+the bypass, the registered `0.70` produces **74.4%** at the opening and 72.0% a
+round later (restated 2026-10-10: this line used to give the second figure as
+the first), the excess over `0.70` being nodes outside the drawn set that buy
+in the market pass.
 
 **Two consequences had to be handled together, and neither is decoration.**
 
@@ -297,17 +354,25 @@ stock; the sitting tenants were living in ordinary dwellings.
 
 *The transfer gives one unit per node.* "The dwelling you occupy" is one. The
 uncapped rule belongs to the market pass, where accumulating more than one is
-the thing the stage measures. Measured: 124 production-layer holders holding
-exactly 124 units.
+the thing the stage measures. Measured on seed 0 at the opening: the 127 drawn
+production-layer nodes hold exactly one unit each (restated 2026-10-10: the 124
+this line used to give is the count of production-layer holders a round later).
 
-**This does not reintroduce means.** The tier follows the layer, not the claims,
-and the layer is the source manuscript's own structure. §3.1 registers the arm
-as uncorrelated with claims *within the production layer*, which is what it is.
+**This does not reintroduce means into who is in the transfer.** The draw does
+not consult claims, and §3.1 registers the arm as uncorrelated with claims
+*within the production layer*, which membership is. Which tier a drawn node is
+handed does depend on its claims (restated 2026-10-10: this paragraph used to
+say the tier follows the layer, and nothing in the transfer reads the layer).
+Inside the drawn set the walk is in descending claims, low tier first, one unit
+each, so the 132 low-tier units go to the front of the 140 and the eight with
+the least claims are handed the middle tier. In all five seeds those eight are
+production-layer nodes.
 
 ### 9.2 First cross-construction result: the one-way exit is the flow
 
 Seed 0, three hundred rounds, `units_per_node = 1.1`, residual owned, proceeds
-to the seller. **Production-layer holders, of 180:**
+to the seller (`proceeds = "seller"`: the financial layer, in proportion to
+opening claims, stands in for the prior owners). **Production-layer holders, of 180:**
 
 | round | `auction` | `continuous` | `occupancy` |
 |---|---|---|---|
@@ -333,6 +398,10 @@ therefore dead: put 124 of 180 production-layer nodes in on day one, each owning
 outright, and two hundred rounds later none of them owns anything and none has
 returned.
 
+**Restated 2026-10-10.** The first row of the table above is the end of round
+one, and "starting" and "day one" in this section mean that row. The opening
+itself, before any round has run, is in §10.
+
 ### 9.3 The middle of the axis collapsed onto an endpoint
 
 **`continuous` is bitwise identical to `auction` at this calibration**, in every
@@ -356,13 +425,14 @@ yet.
 ## 10. Result at the registered run, and what may be said from it
 
 Five seeds, three hundred rounds, `units_per_node = 1.1`, residual owned,
-proceeds to the seller. Means across seeds. §9.4's "one seed only" restriction
+proceeds to the seller (`proceeds = "seller"`, as in §9.2). Means across seeds. §9.4's "one seed only" restriction
 is discharged by this section.
 
 **Ownership rate — share of all nodes holding any unit**
 
 | round | `auction` | `continuous` | `occupancy` | `auction`, pre-A3b |
 |---|---|---|---|---|
+| opening | 21.9% | 21.9% | **74.4%** | 21.9% |
 | 1 | 21.3% | 21.3% | **72.0%** | 21.2% |
 | 25 | 14.0% | 14.0% | 33.8% | 13.7% |
 | 50 | 10.8% | 10.8% | 18.7% | 10.1% |
@@ -374,6 +444,7 @@ is discharged by this section.
 
 | round | `auction` | `continuous` | `occupancy` |
 |---|---|---|---|
+| opening | 23.8 | 23.8 | **128.8** |
 | 1 | 22.6 | 22.6 | **124.0** |
 | 25 | 8.6 | 8.6 | 49.2 |
 | 50 | 2.4 | 2.4 | 19.4 |
@@ -385,9 +456,11 @@ arm and seed. No arm reported a `DesignDeviation`.
 
 ### 10.1 One invariant, one variant, one collapse
 
-**Invariant — the endpoint.** Opening ownership of 21.3% and of 72.0% both end
-at **8.6% and 8.8%**, and the production layer reaches **zero** holders in every
-arm. The opening distribution does not survive the flow.
+**Invariant — the endpoint.** Ownership of 21.9% and of 74.4% at the opening
+(21.3% and 72.0% a round later; restated 2026-10-10, this sentence used to call
+the second pair the opening) both end at **8.6% and 8.8%**, and the production
+layer reaches **zero** holders in every arm. The opening distribution does not
+survive the flow.
 
 **Variant — the duration.** `auction` empties the production layer by round 100;
 `occupancy` takes twice as long, still holding 2.4 nodes at 100 and reaching zero
@@ -395,9 +468,13 @@ by 200. Starting broad buys time and nothing else.
 
 By §4's registered reading, the one-way exit is therefore a property of the flow
 topology rather than of the opening. The earlier concern that "21 in, 21 out"
-was an artefact of the soft threshold is settled: put 124 of 180 production-layer
-nodes in on day one, each owning outright, and two hundred rounds later none of
-them owns anything and none has returned.
+was an artefact of the soft threshold is settled: put 129 of 180 production-layer
+nodes in at the opening, each owning outright (124 still hold a round later),
+and two hundred rounds later none of them owns anything and none has returned.
+Read round by round, the production layer holds nothing from rounds
+52 to 93 on under `auction` and from rounds 122 to 187 on under `occupancy`, by
+seed, and in none of the fifteen fixed-stock runs does a production-layer node
+that sold out hold again.
 
 **Collapse — `continuous` is not a third point.** It is identical to `auction`
 to the last digit on all three reported measures at all six checkpoints, though
@@ -406,6 +483,12 @@ holds anything, which for a stage about access is a collapse. **The axis has two
 points and no run may be described as testing three constructions.** Whether a
 genuine middle point exists — a draw on a flatter function of claims than
 proportionality — is open and is not settled here.
+
+**Restated 2026-10-26.** The net-worth difference is at rounding level. Terminal
+net worth and claims are bitwise equal in seeds 0, 1 and 3; in seeds 2 and 4
+net worth differs by at most `1.1e-13` and `4.5e-13` on values of order `10^3`,
+and units held are identical in every seed. The false `identical_in_net_worth`
+flag is that rounding-level difference, not claims moved between nodes.
 
 ### 10.2 Scope: the three constructions are an inspiration, not an analysis
 
@@ -440,12 +523,13 @@ roughly flat while the same stock came to be held by fewer households. Urban
 China is the case that discriminates: the stock per household has been
 approximately unchanged at `1.09`, headline ownership has not fallen, and the
 multiple-holding distribution has moved — 31.0% of urban households holding two
-dwellings and 10.5% three or more as of 2019. A rival account in which
+dwellings and 10.5% three or more as of 2019 (the central bank's 2019 urban
+household survey, as cited in the literature). A rival account in which
 affordability alone drives outcomes predicts movement in the rate; this one
 predicts movement in the distribution at an unchanged rate.
 
 **Two. A broad start delays rather than prevents.** The model's `occupancy` arm
-begins at 72% and converges to the same place as an arm beginning at 21%, taking
+begins at 74% and converges to the same place as an arm beginning at 22%, taking
 about twice as long. If that carried over, the prediction for post-transfer
 economies is not that they avoid concentration but that their concentration
 arrives later and from a higher base, and that the informative series is the
@@ -463,6 +547,18 @@ rise in these four economies came from outside the price system, is a
 correspondence worth recording — and it is also exactly the kind of
 correspondence that is cheap to over-read, since a model containing no policy
 actor cannot fail to lack one.
+
+**Restated 2026-10-10: that statement is about the production layer.** The count
+of holders in the whole population is not monotone. Financial-layer nodes sell
+out and buy back: a financial-layer node that had sold out holds again
+32 times across the five `auction` runs and 11 times across the five
+`occupancy` runs, the holder count ends a round higher than the one before in
+up to eleven rounds of a run, and the table above itself goes from 8.0% at round
+200 to 8.6% at round 300. What never happens in the fifteen fixed-stock runs is
+a production-layer node that sold out holding again. So what the model lacks is
+a mechanism that returns the asset to the production layer once it has left,
+and "no mechanism capable of producing a rise in ownership" should be read with
+that scope.
 
 ### 10.4 The level does not transfer
 

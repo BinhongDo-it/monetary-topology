@@ -2,8 +2,8 @@
 
 Pre-registered in the B10 availability register §34, **before this file
 was written**, and §34.0 voids one branch of §33.4's own reading first, for a
-reason known before any number: Freddie's firm name sits on the origination
-side, one value per loan, and servicing transfers. Attributing a 2015 frozen
+reason known before any number: the firm name this file reads sits on the
+origination side, one value per loan, and servicing transfers. Attributing a 2015 frozen
 month to the firm named at origination is wrong on every transferred loan, and
 **attribution noise only pushes differences toward zero**. So the test can
 confirm and cannot refute, and §33.4's "spread is ordinary, therefore the firm
@@ -35,6 +35,17 @@ Usage::
     python experiments/b10_o18_servicer.py --run
 
 Writes ``results/b10_o18_servicer.json``, ``diagnostic_only``.
+
+What the run actually measured
+------------------------------
+The firm column the anchor earned is orig field 23 (zero-based; the 24th
+field), the **seller** at acquisition, fixed for the life of the loan. The
+performance file of the release on disk does carry a monthly current-servicer
+name, field 33 zero-based (the 34th), readable on every row, so "this carrier
+cannot see servicing transfers" is not true of the data; it is true of this
+file, which never reads that field. The servicing reading is void in any case:
+in all five windows the first-payment-month placebo spreads wider than the
+seller column (see the gate printed after the tables).
 """
 
 from __future__ import annotations
@@ -341,9 +352,10 @@ def firm_table(shares: dict, win: str, col: int) -> dict:
 
 
 #: How many columns the anchor may hand on. §34.4 says run every column that
-#: shows the shape, and Freddie publishes a seller name and a servicer name, so
-#: two is the expected answer. More than this means the anchor did not
-#: discriminate and the run stops rather than measuring eleven columns.
+#: shows the shape, and two was the expected answer. **What the code does is a
+#: slice, not a stop**: the columns that pass are taken in the anchor's own
+#: ranking and the first three are run. On the 28 archives five passed
+#: (1, 23, 3, 9, 12) and 9 and 12 were not run.
 MAX_FIRM_COLS = 3
 
 
@@ -362,6 +374,15 @@ def cmd_earn(only, verbose=True):
     rows = anchor_corporate(prof, cands, max(vs))
     won = [r["col"] for r in rows
            if r["n_cut_off"] > 0 and r["survivors"] > 0][:MAX_FIRM_COLS]
+    #: The firm / calendar label of each earned column, kept for the placebo
+    #: gate `cmd_run` prints after the tables.
+    by_col0 = {r["col"]: r for r in rows}
+    cmd_earn.kinds = {
+        c: ("placebo" if by_col0[c]["time_ordering"] == by_col0[c]["time_ordering"]
+            and by_col0[c]["time_ordering"] > 0.9
+            else "firm" if by_col0[c]["time_ordering"] == by_col0[c]["time_ordering"]
+            and by_col0[c]["time_ordering"] < 0.5 else "unclear")
+        for c in won}
     if verbose:
         print(f"§34.4, earning a firm-name column. {prof['rows']:,} orig rows, "
               f"vintages {vs[0]}..{vs[-1]}.")
@@ -430,7 +451,8 @@ def cmd_run(only) -> int:
                 continue
             zsd = t["z_sd"]
             verdict = ("no firms clear the floor" if t["firms_read"] < 2
-                       else "z spread NOT ordinary -> firms really do differ"
+                       else "z spread NOT ordinary; read against the placebo "
+                            "gate below before naming servicing"
                        if zsd and zsd > 3 else
                        "z spread near 1 -> **cannot refute** (§34.0), record "
                        "as unread")
@@ -447,6 +469,23 @@ def cmd_run(only) -> int:
                 print(f"       {r['firm']:<36} loans {r['loans']:>7,}  "
                       f"mean {r['mean']:.5f}  z {r['z']:>9.2f}")
 
+    kinds = getattr(cmd_earn, "kinds", {})
+    print("\n  §34.7's placebo gate: a firm column's spread is read as servicing")
+    print("  only where it is wider than every placebo column's in the same window.")
+    for name, _, _ in WINDOWS:
+        def zs(kind):
+            return [(c, out["windows"].get(f"col{c}|{name}", {}).get("z_sd"))
+                    for c in cols if kinds.get(c) == kind]
+        firms, placebos = zs("firm"), zs("placebo")
+        for c, z in firms:
+            pz = [x for _, x in placebos if x is not None]
+            if z is None or not pz:
+                print(f"    {name:<11} col {c}: no comparison")
+                continue
+            ok = z > max(pz)
+            print(f"    {name:<11} col {c} z sd {z}   widest placebo {max(pz)}"
+                  f"   -> {'passes' if ok else 'VOID: a placebo spreads as wide'}")
+
     print("\n  §34.2's three readings, written before these numbers:")
     print("    z sd far above 1   -> firms really differ; these months carry an "
           "accounting fingerprint\n                          and O18's 'why' "
@@ -457,9 +496,10 @@ def cmd_run(only) -> int:
     print("    one or two outliers-> that is those firms' practice, not a "
           "general one. Name them,\n                          report their "
           "share of the window, **do not generalise**")
-    print("\n  §34.5: this does not transfer to Fannie, and this file cannot "
-          "see servicing\n  transfers at all -- Freddie's standard performance "
-          "file carries no servicer column.")
+    print("\n  §34.5: this does not transfer to Fannie, and this file does not "
+          "see servicing\n  transfers: it reads the origination-side seller. "
+          "The performance file's\n  current-servicer field (33, zero-based) "
+          "is not read here.")
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     p = RESULTS / "b10_o18_servicer.json"

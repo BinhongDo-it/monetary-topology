@@ -111,7 +111,10 @@ alternatives.
 held by the public landlord (the pool). They exist with or without ``residence_bound``:
 without it, public rental stock sits beside private landlords' spare units and is
 offered to renters first, which is how building at a set rate widens the renters'
-choice. Public units are never sold.
+choice. Public units are never sold: they are counted in ``public_units``, a part of the
+landlord's stock that no sale offer draws from, so under ``residence_bound`` the landlord
+sells only the units it took in when owners had to leave, and on such a sale the new flag
+moves only within that sellable part (every public unit is new and stays so).
 
 ``public_rent_cost``. Rent on a public unit is ``rent_rate`` times the unit's cost price
 instead of its market price. Paid into the pool, outside the graph.
@@ -134,18 +137,22 @@ A48: a core location, and staying put when leaving means not getting back
 ``core_premium``. The top tier is the core location. After every other rule has set the
 price, the top tier's is multiplied by ``core_R0 * (1 + core_g) ** t``: an opening
 location premium and a relative rise per round, the core being finite and not extended.
-New building, private and public, goes to the other tiers only.
+The opening allocation already quotes the core at ``core_R0`` times its initial price, so
+the first buyers and round 0's trades pay the premium; the cost price stays on the initial
+price. New building, private and public, goes to the other tiers only.
 
 ``optional_move_rate`` (``tau_o``). A3's turnover ``tau`` is split: a unit drawn below
 ``tau - tau_o`` must be sold, as before; one drawn in ``[tau - tau_o, tau)`` is an optional
 move. An optional mover in the core tier sells only if it could come back: selling at the
-core price, buying a low-tier unit on its own terms, and buying the core again after
-``holding_period`` rounds at the core price carried forward by the premium's growth,
+core price, buying a low-tier unit on its own terms, and after ``holding_period`` rounds
+selling that unit (one unit per node, so it must) and buying the core again at the core
+price carried forward by the premium's growth; the low tier's resale is forecast at par,
 
-    gap = terms[i, core] * P_core * (1 + g) ** T - P_core + terms[i, low] * P_low,
+    gap = terms[i, core] * P_core * (1 + g) ** T - P_core + terms[i, low] * P_low - P_low,
 
 and a gap above its claims keeps it where it is, recorded as a lock. A budget, not a
-preference. The same one uniform draw per held unit as A3's decides both, so with
+preference. The same one uniform draw per positive holding as A3's decides both (a holding
+is one unit wherever the one-unit cap is on), so with
 ``tau_o = 0`` the random stream and the offers are A3's. A mover who does come back later
 is a new buyer: the model keeps no record of who lived where. Requires
 ``residence_bound``: without it a mover keeps the unit and lets it, and nothing is sold.
@@ -167,7 +174,7 @@ repays from the proceeds first.
 
 ``short_stay_share``. That share of the production layer, drawn once from its own stream,
 must move at ``short_stay_rate`` per round instead of the carrier's turnover, so it can make
-no commitment and gets no loan. The same single uniform draw per held unit decides it.
+no commitment and gets no loan. The same single uniform draw per positive holding decides it.
 
 A49 block 2: a provident fund as the third lender
 -------------------------------------------------
@@ -253,6 +260,7 @@ class HousingRules:
     #: Share of the listed landlord's rent receipts paid out as cash dividends to owners
     #: outside the graph. Vonovia fiscal 2024: cash dividend / rental Adjusted EBITDA
     #: = 0.271; all dividends / rental Adjusted EBITDA = 0.421 (A47 design, decisions).
+    #: Rent only: the landlord's sale proceeds go to its owners whole.
     dividend_exit: float = 0.0
     #: Share of the public pool passed back to the production layer each round.
     pool_pass_rate: float = 1.0
@@ -424,6 +432,8 @@ class A47Model(A3Model):
         #: Units held by the landlord, per tier, and how many of them are new.
         self.landlord_units = np.zeros(tiers)
         self.landlord_new = np.zeros(tiers)
+        #: Block 4: the part of ``landlord_units`` that is public rental stock, never sold.
+        self.public_units = np.zeros(tiers)
         #: Claims in the public pool, outside the graph.
         self.pool = 0.0
         #: Claims that have left the graph for good (listed dividends).
@@ -433,6 +443,16 @@ class A47Model(A3Model):
         self._wage0: float | None = None
         if config.rules.residence_bound and config.a3.asset.max_units != 1:
             raise ValueError("residence_bound requires AssetSpec.max_units == 1")
+        #: A48; A51 may move the core off the top tier. Set before A3's constructor, whose
+        #: opening allocation quotes the core with its opening premium.
+        if config.rules.core_tier >= tiers:
+            raise ValueError("core_tier must index an existing tier")
+        self._core_q = tiers - 1 if config.rules.core_tier < 0 else config.rules.core_tier
+        #: A51: the core premium factor inside the price rent is charged on this round.
+        self._core_factor_priced = 1.0
+        #: The core's quote at the opening allocation (None with the premium off).
+        self.opening_core_price: float | None = None
+        self.opening_core_buys: list[tuple[int, float, float, float, int]] = []
         super().__init__(config.a3)
         self.liquidation_shortfall = np.zeros(self._n)
         self.liquidations: list[int] = []
@@ -466,10 +486,6 @@ class A47Model(A3Model):
         self.maintenance_unfunded = 0.0
         self.public_build_paid = 0.0
         self.public_tenants_history: list[int] = []
-        #: A48; A51 may move the core off the top tier.
-        if config.rules.core_tier >= tiers:
-            raise ValueError("core_tier must index an existing tier")
-        self._core_q = tiers - 1 if config.rules.core_tier < 0 else config.rules.core_tier
         #: A51: per round (core tenants, of whom wage receivers, location rent the landlord left
         #: uncollected, location rent collected), and per round the renters' tier choices.
         self.location_history: list[tuple[int, int, float, float]] = []
@@ -481,9 +497,16 @@ class A47Model(A3Model):
         self.lease_who = np.full(self._n, -2)
         self.lease_rent = np.zeros(self._n)
         self.lease_log: list[tuple[int, int, int, int, float]] = []   # round, node, tier, lessor, rent paid due
+        #: Each lease as signed: round, node, tier, lessor, rent.
+        self.lease_signings: list[tuple[int, int, int, int, float]] = []
+        #: Per round, the renters who chose afresh and took the core: how many; of whom with no
+        #: open unit left in the plain tier; of whom without a wage; of whom paying more above the
+        #: plain tier's rent than their own commute; and of those last, with the plain tier full.
+        self.core_choice_history: list[tuple[int, int, int, int, int]] = []
         self.lease_evictions = 0
         self.raw_core_price_history: list[float] = []
         self.lock_events: list[tuple[int, int, float, float]] = []   # round, node, gap, claims
+        self.optional_core_passes: list[tuple[int, int, float, float]] = []   # the same, for movers
         self.optional_core_draws = 0
         self.optional_core_moved = 0
         self.optional_other_moved = 0
@@ -501,6 +524,11 @@ class A47Model(A3Model):
         self.loan_log: list[tuple[int, int, float, float, float, bool]] = []
         self.repaid_principal = 0.0
         self.interest_paid = 0.0
+        #: Interest a borrower could not pay in its round: owed until paid or written off,
+        #: with no interest on it. ``interest_accrued`` closes on paid + owed + written off.
+        self.interest_owed = np.zeros(n)
+        self.interest_accrued = 0.0
+        self.interest_written_off = 0.0
         self.written_off = 0.0
         self.foreclosure_credit = 0.0
         self.foreclosures: list[tuple[int, int, float, float]] = []   # round, node, debt, credited
@@ -508,6 +536,9 @@ class A47Model(A3Model):
         self.cleared_history: list[int] = []
         #: renters, of whom short-stayers, below the down payment, other
         self.renter_mix_history: list[tuple[int, int, int, int]] = []
+        #: long-stay renters whose own cash and account reach the down payment while what the
+        #: fund can pay out does not
+        self.renter_fund_short_history: list[int] = []
         #: A49 block 2: the provident fund.
         self.account = np.zeros(n)
         self.pf_cash = 0.0
@@ -515,6 +546,12 @@ class A47Model(A3Model):
         self.pf_contrib_employee = 0.0
         self.pf_contrib_employer = 0.0
         self.pf_spent_from_accounts = 0.0
+        #: Units the fund took for unpaid loans without residence binding. They sit in the
+        #: shared rental stock (``landlord_units``); their rent and their value are the fund's.
+        self.pf_units = np.zeros(tiers)
+        self.pf_rent = 0.0
+        self.pf_cash_min = 0.0
+        self.pf_owed_on_foreclosure = 0.0
         #: A50: employer contributions paid straight to the receivers' holdings.
         self.pf_returned = 0.0
         #: A50 block 4: issuance withheld because the authority saw the accounts.
@@ -526,6 +563,8 @@ class A47Model(A3Model):
         #: A50 block 6: what each round parked, per node, oldest first; and what went back.
         self._pf_vintages: list[np.ndarray] = []
         self.pf_released = 0.0
+        #: A51: what core tenants saved in commuting each round.
+        self.commute_saved_history: list[float] = []
         if (config.rules.provident_visible or config.rules.provident_in_target) and (
                 config.a3.network.withdraw.active or config.a3.network.authority.rule != "endogenous"
                                                or config.a3.network.writeoff.refill):
@@ -676,6 +715,7 @@ class A47Model(A3Model):
                     self.public_build_paid += paid
                     self.landlord_units += per_tier
                     self.landlord_new += per_tier
+                    self.public_units += per_tier
                     self.public_built += per_tier
 
     def _trade_price(self, q: int) -> float:
@@ -683,14 +723,21 @@ class A47Model(A3Model):
             return float(self.cost_price()[q])
         return float(self.price[q])
 
-    def _credit_landlord(self, amount: float) -> None:
-        """Money paid to the landlord: rent or sale proceeds."""
+    def _credit_landlord(self, amount: float, sale: bool = False, q: int | None = None) -> None:
+        """Money paid to the landlord: rent, or with ``sale`` the proceeds of a unit it sold.
+        ``dividend_exit`` applies to rent only. Rent on tier ``q`` goes to the provident fund
+        in the share of that tier's rental stock the fund holds."""
         if amount <= 0.0:
             return
+        if q is not None and not sale and self.pf_units[q] > 0.0:
+            to_fund = amount * float(self.pf_units[q] / self.landlord_units[q])
+            self.pf_cash += to_fund
+            self.pf_rent += to_fund
+            amount -= to_fund
         if self.rules.landlord == "public":
             self.pool += amount
             return
-        out = self.rules.dividend_exit * amount
+        out = 0.0 if sale else self.rules.dividend_exit * amount
         self.exited += out
         self.holdings += (amount - out) * self._prior_owner_weights()
 
@@ -727,7 +774,9 @@ class A47Model(A3Model):
     def _move_new(self, frm: int, to: int, q: int) -> None:
         """Move the new-flag share of one unit of tier q with the unit."""
         if frm == LANDLORD:
-            share = self.landlord_new[q] / self.landlord_units[q] if self.landlord_units[q] else 0.0
+            # Only the sellable part moves: public units are all new and never leave.
+            left = self.landlord_units[q] - self.public_units[q]
+            share = (self.landlord_new[q] - self.public_units[q]) / left if left else 0.0
             self.landlord_new[q] -= share
         else:
             share = self.new_units[frm, q] / self.units[frm, q] if self.units[frm, q] else 0.0
@@ -846,7 +895,10 @@ class A47Model(A3Model):
         commute = self._commute_cost()
         core = self._core_q
         n_core = n_core_emp = 0
-        left_with_tenants = collected = 0.0
+        left_with_tenants = collected = commute_saved = 0.0
+        fresh_core = fresh_full = fresh_no_wage = fresh_dear = fresh_dear_full = 0
+        plain = 0
+        plain_by_cost = self.rules.public_rent_cost and self.rules.landlord == "public"
         k = 0
         t_now = int(self._round)
         L = self.rules.lease_rounds
@@ -896,12 +948,23 @@ class A47Model(A3Model):
                 else:
                     q = min(open_q, key=lambda x: (rent[x], x))
                 self.location_choices.append((t_now, i, q, cost[q], min(cost[x] for x in ok) if ok else cost[q]))
+                if q == core and core != plain:
+                    plain_rent = rent[plain] if plain in rent else spec.rent_rate * float(
+                        (self.cost_price() if plain_by_cost else self.price)[plain])
+                    dear = rent[q] - plain_rent > float(commute[i])
+                    full = plain not in rent
+                    fresh_core += 1
+                    fresh_full += int(full)
+                    fresh_no_wage += int(commute[i] <= 0.0)
+                    fresh_dear += int(dear)
+                    fresh_dear_full += int(dear and full)
                 who = queue[q].pop(0)
                 if L > 1:
                     self.lease_until[i] = t_now + L - 1
                     self.lease_q[i] = q
                     self.lease_who[i] = who
                     self.lease_rent[i] = rent[q]
+                    self.lease_signings.append((t_now, i, q, who, float(rent[q])))
             self.tenancy[i] = q
             self.lessor[i] = who
             housed[q] += 1
@@ -910,14 +973,15 @@ class A47Model(A3Model):
             if q == core:
                 n_core += 1
                 n_core_emp += int(commute[i] > 0.0)
-                location = spec.rent_rate * float(self.price[q]) * (1.0 - 1.0 / self.core_factor())
+                commute_saved += float(commute[i])
+                location = spec.rent_rate * float(self.price[q]) * (1.0 - 1.0 / self._core_factor_priced)
                 if who == LANDLORD and self.rules.public_rent_cost:
                     left_with_tenants += spec.rent_rate * float(self.price[q]) - rent[q]
                 elif i in kept_set and self.rules.lease_rent_lock:
                     # a locked rent: what the landlord charges above the plain tier's rent now,
                     # and what the lock leaves with the tenant
                     market_now = spec.rent_rate * float(self.price[q])
-                    collected += max(0.0, rent[q] - market_now / self.core_factor())
+                    collected += max(0.0, rent[q] - market_now / self._core_factor_priced)
                     left_with_tenants += market_now - rent[q]
                 else:
                     collected += location
@@ -927,11 +991,13 @@ class A47Model(A3Model):
             self.holdings[i] -= pay
             total += pay
             if who == LANDLORD:
-                self._credit_landlord(pay)
+                self._credit_landlord(pay, q=q)
                 self.landlord_rent += pay
             else:
                 self.holdings[who] += pay
         self.location_history.append((n_core, n_core_emp, left_with_tenants, collected))
+        self.commute_saved_history.append(commute_saved)
+        self.core_choice_history.append((fresh_core, fresh_full, fresh_no_wage, fresh_dear, fresh_dear_full))
         self.unhoused_history.append(len(renters) - k)
         self.housed_history.append(housed)
         self.public_tenants_history.append(public_tenants)
@@ -953,8 +1019,13 @@ class A47Model(A3Model):
             gate = self.rules.loan_down * self.terms[:, 0] * float(self.price[0])
             r_idx = np.asarray(renters, dtype=int)
             n_short = int(self.short_stay[r_idx].sum()) if r_idx.size else 0
-            below = int((~self.short_stay[r_idx] & (self.holdings[r_idx] < gate[r_idx])).sum()) if r_idx.size else 0
+            can_pay = self._spendable()
+            below = int((~self.short_stay[r_idx] & (can_pay[r_idx] < gate[r_idx])).sum()) if r_idx.size else 0
             self.renter_mix_history.append((len(renters), n_short, below, len(renters) - n_short - below))
+            own = self._spendable(internal=True)
+            self.renter_fund_short_history.append(
+                int((~self.short_stay[r_idx] & (can_pay[r_idx] < gate[r_idx])
+                     & (own[r_idx] >= gate[r_idx])).sum()) if r_idx.size else 0)
         self.tenancy[:] = -1
         self.lessor[:] = -2
         k = 0
@@ -1007,7 +1078,7 @@ class A47Model(A3Model):
                 self.holdings[i] -= pay
                 total += pay
                 if who == LANDLORD:
-                    self._credit_landlord(pay)
+                    self._credit_landlord(pay, q=q)
                     self.landlord_rent += pay
                 else:
                     self.holdings[who] += pay
@@ -1021,6 +1092,27 @@ class A47Model(A3Model):
         self.rent_history.append(total)
 
     # -- overrides -----------------------------------------------------------
+
+    def _allocate_initial(self) -> None:
+        # The opening premium is in the core's quote from the first sale on: the opening
+        # allocation and round 0's trades pay it. The cost price stays on ``initial_price``.
+        if self.rules.core_premium:
+            q = self._core_q
+            self.price[q] = self.price[q] * self.rules.core_R0
+            self._core_factor_priced = self.rules.core_R0
+            self.opening_core_price = float(self.price[q])
+        before = self.holdings.copy()
+        super()._allocate_initial()
+        if self.rules.core_premium:
+            #: One row per opening buyer of the core: node, what it paid, the quote it paid on,
+            #: its claims before the opening allocation, and how many units it took in it (the
+            #: claims are what it had when it paid only where that count is one).
+            bought = {}
+            for (i, _), lots in self.basis.items():
+                bought[i] = bought.get(i, 0) + len(lots)
+            self.opening_core_buys = [(int(i), float(pay), float(ref), float(before[i]), int(bought[i]))
+                                      for (i, tier), lots in self.basis.items() if tier == self._core_q
+                                      for pay, _, ref in lots]
 
     def _settle_opening(self, paid_total: float, unsold: list[int]) -> None:
         if not self.rules.residence_bound:
@@ -1046,6 +1138,7 @@ class A47Model(A3Model):
             q = self._core_q
             self.raw_core_price_history.append(float(self.price[q]))
             self.price[q] = self.price[q] * self.core_factor()
+            self._core_factor_priced = self.core_factor()
 
     def _collect_rent(self) -> None:
         if self.rules.tenant_tier:
@@ -1090,11 +1183,16 @@ class A47Model(A3Model):
         return w / w.sum()
 
     def lock_gap(self, i: int) -> float:
+        """What the round trip costs an optional mover in the core beyond what it brings in:
+        sell the core, buy a low-tier unit on its own terms, sell that unit on returning and
+        buy the core back. The two later legs are forecast from today's quotes, the core
+        carried forward by the premium's growth over the holding period, the low tier at par."""
         spec = self.a3.asset
         q, low = self._core_q, 0
         grow = (1.0 + self.rules.core_g) ** spec.holding_period if self.rules.core_premium else 1.0
         p_core, p_low = float(self.price[q]), float(self.price[low])
-        return float(self.terms[i, q]) * p_core * grow - p_core + float(self.terms[i, low]) * p_low
+        return (float(self.terms[i, q]) * p_core * grow - p_core
+                + float(self.terms[i, low]) * p_low - p_low)
 
     # -- A49: the loan book ----------------------------------------------------
 
@@ -1107,21 +1205,41 @@ class A47Model(A3Model):
     def _pf(self) -> bool:
         return self.rules.provident_rate > 0.0
 
-    def _spendable(self) -> np.ndarray:
+    def _spendable(self, internal: bool = False) -> np.ndarray:
+        """Holdings plus what the node's fund account can pay. A payment that leaves the fund
+        is limited by the fund's cash; ``internal`` is a payment to the fund itself (loan
+        service to a provident lender), which needs none."""
         if self._pf() and self.rules.provident_spendable:
-            return self.holdings + self.account
+            if internal:
+                return self.holdings + self.account
+            return self.holdings + np.minimum(self.account, max(self.pf_cash, 0.0))
         return self.holdings
 
-    def _spend(self, i: int, amount: float) -> None:
-        """Pay ``amount`` for node ``i``: its fund account first when there is one."""
+    def _spend(self, i: int, amount: float, internal: bool = False) -> None:
+        """Pay ``amount`` for node ``i``: its fund account first when there is one, as far as
+        the fund has the cash (see ``_spendable``)."""
         if not (self._pf() and self.rules.provident_spendable):
             self.holdings[i] -= amount
             return
-        from_acc = min(amount, self.account[i])
+        room = self.account[i] if internal else min(self.account[i], max(self.pf_cash, 0.0))
+        from_acc = min(amount, room)
         self.account[i] -= from_acc
         self.pf_cash -= from_acc
         self.pf_spent_from_accounts += from_acc
+        self._use_vintages(i, from_acc)
         self.holdings[i] += from_acc - amount
+
+    def _use_vintages(self, i: int, amount: float) -> None:
+        """A50: money spent from an account is taken from the oldest parked amounts first, so a
+        later release pays back only what is still there of the round it releases."""
+        if amount <= 0.0 or not self._pf_vintages:
+            return
+        for v in self._pf_vintages:
+            take = min(float(v[i]), amount)
+            v[i] -= take
+            amount -= take
+            if amount <= 0.0:
+                return
 
     def _contribute(self) -> None:
         """Employee and employer contributions on this round's wages.
@@ -1158,6 +1276,16 @@ class A47Model(A3Model):
         if len(self._pf_vintages) <= self.rules.provident_release:
             return
         due = np.minimum(self._pf_vintages.pop(0), np.maximum(self.account, 0.0))
+        total = float(due.sum())
+        cash = max(self.pf_cash, 0.0)
+        if total > cash + 1e-12:
+            # the fund pays what it has, pro rata; the rest waits for the next release
+            late = due * (1.0 - cash / total)
+            due = due - late
+            if self._pf_vintages:
+                self._pf_vintages[0] = self._pf_vintages[0] + late
+            else:
+                self._pf_vintages.append(late)
         self.account -= due
         self.holdings += due
         got = float(due.sum())
@@ -1203,9 +1331,9 @@ class A47Model(A3Model):
         self.pf_contrib_employer += got
 
     def pf_surplus(self) -> float:
-        """Fund cash plus loans it holds, less what it owes its members."""
+        """Fund cash plus the loans and the units it holds, less what it owes its members."""
         lent = float(self.debt.sum()) if self.rules.loan_lender == "provident" else 0.0
-        return self.pf_cash + lent - float(self.account.sum())
+        return self.pf_cash + lent + float(self.pf_units @ self.price) - float(self.account.sum())
 
     def _lender_funds(self) -> float:
         if self.rules.loan_lender == "provident":
@@ -1247,6 +1375,10 @@ class A47Model(A3Model):
               & (self._spendable() >= d * cost) & ((1.0 - d) * cost <= funds + 1e-12))
         if self.rules.loan_lender == "provident":
             ok &= self.contributed > 0.0
+            if self.rules.provident_spendable:
+                # the down payment comes out of the same cash as far as the account pays it
+                from_acc = np.minimum(d * cost, np.minimum(self.account, max(self.pf_cash, 0.0)))
+                ok &= (1.0 - d) * cost + from_acc <= funds + 1e-12
         return ok
 
     def _originate(self, buyer: int, cost: float) -> None:
@@ -1262,22 +1394,28 @@ class A47Model(A3Model):
 
     def _repay_from(self, i: int) -> None:
         """A seller with a loan repays from what it holds, up to the balance."""
-        if self.debt[i] <= 0.0:
+        back = float(self.interest_owed[i])
+        if self.debt[i] <= 0.0 and back <= 0.0:
             return
-        pay = min(self.debt[i], max(float(self.holdings[i]), 0.0))
+        pay = min(self.debt[i] + back, max(float(self.holdings[i]), 0.0))
         self.holdings[i] -= pay
         self._lender_receives(pay)
-        self.debt[i] -= pay
-        self.repaid_principal += pay
+        to_back = min(pay, back)
+        self.interest_owed[i] = back - to_back
+        self.interest_paid += to_back
+        self.debt[i] -= pay - to_back
+        self.repaid_principal += pay - to_back
         if self.debt[i] <= 1e-15:
             self.debt[i] = 0.0
             self.instalment[i] = 0.0
-            self.arrears[i] = 0
+            if self.interest_owed[i] <= 1e-15:
+                self.arrears[i] = 0
 
     def _foreclose(self, i: int) -> None:
         q_held = np.flatnonzero(self.units[i] > 0)
         debt = float(self.debt[i])
-        credited = 0.0
+        back = float(self.interest_owed[i])
+        credited = back_paid = 0.0
         if q_held.size:
             q = int(q_held[0])
             price = self._trade_price(q)
@@ -1287,17 +1425,30 @@ class A47Model(A3Model):
                 self.landlord_units[q] += 1.0
                 self.holdings[i] += got
                 credited = min(got, debt)
-                self.holdings[i] -= credited
-                self._lender_receives(credited)
+                back_paid = min(got - credited, back)
+                self.holdings[i] -= credited + back_paid
+                self._lender_receives(credited + back_paid)
             else:
                 credited = min(price, debt)
-                surplus = price - credited
+                back_paid = min(price - credited, back)
+                surplus = price - credited - back_paid
                 if surplus > 0.0:
-                    self._lender_pays(surplus)
-                    self.holdings[i] += surplus
+                    if self.rules.loan_lender == "provident":
+                        # the fund pays the difference as far as it has cash and owes the rest
+                        # to the node's account
+                        cash = min(surplus, max(self.pf_cash, 0.0))
+                        self._lender_pays(cash)
+                        self.holdings[i] += cash
+                        self.account[i] += surplus - cash
+                        self.pf_owed_on_foreclosure += surplus - cash
+                    else:
+                        self._lender_pays(surplus)
+                        self.holdings[i] += surplus
                 if self.rules.loan_lender in ("public", "provident"):
                     self._move_new(i, LANDLORD, q)
                     self.landlord_units[q] += 1.0
+                    if self.rules.loan_lender == "provident":
+                        self.pf_units[q] += 1.0
                 else:
                     j = int(np.argmax(self._prior_owner_weights()))
                     self._move_new(i, j, q)
@@ -1306,6 +1457,9 @@ class A47Model(A3Model):
             self._close_cycle(i, q, price)
         self.foreclosure_credit += credited
         self.written_off += debt - credited
+        self.interest_paid += back_paid
+        self.interest_written_off += back - back_paid
+        self.interest_owed[i] = 0.0
         self.foreclosures.append((int(self._round), i, debt, credited))
         self.debt[i] = 0.0
         self.instalment[i] = 0.0
@@ -1314,23 +1468,30 @@ class A47Model(A3Model):
     def _service_loans(self) -> None:
         if not self.rules.commit_loan:
             return
-        for i in np.flatnonzero(self.debt > 0.0):
+        to_fund = self.rules.loan_lender == "provident"
+        for i in np.flatnonzero((self.debt > 0.0) | (self.interest_owed > 0.0)):
             i = int(i)
             interest = self.rules.loan_rate * self.debt[i]
+            self.interest_accrued += interest
             principal = min(self.instalment[i], self.debt[i])
-            due = interest + principal
-            pay = min(due, max(float(self._spendable()[i]), 0.0))
-            self._spend(i, pay)
+            back = float(self.interest_owed[i])
+            due = back + interest + principal
+            pay = min(due, max(float(self._spendable(internal=to_fund)[i]), 0.0))
+            self._spend(i, pay, internal=to_fund)
             self._lender_receives(pay)
-            to_interest = min(pay, interest)
-            self.interest_paid += to_interest
-            to_principal = pay - to_interest
+            to_back = min(pay, back)
+            to_interest = min(pay - to_back, interest)
+            self.interest_paid += to_back + to_interest
+            self.interest_owed[i] = back - to_back + (interest - to_interest)
+            to_principal = pay - to_back - to_interest
             self.debt[i] -= to_principal
             self.repaid_principal += to_principal
             self.arrears[i] = self.arrears[i] + 1 if pay + 1e-15 < due else 0
             if self.debt[i] <= 1e-15:
                 self.debt[i] = 0.0
                 self.instalment[i] = 0.0
+            if self.debt[i] <= 0.0 and self.interest_owed[i] <= 1e-15:
+                self.interest_owed[i] = 0.0
                 self.arrears[i] = 0
             elif self.arrears[i] >= self.rules.loan_arrears_k:
                 self._foreclose(i)
@@ -1341,7 +1502,7 @@ class A47Model(A3Model):
     def _household_offers(self) -> list[tuple[int, int]]:
         if self.rules.optional_move_rate <= 0.0 and self.rules.short_stay_share <= 0.0:
             return super()._offers()
-        # A3's ``_offers`` with its one draw per held unit split in two.
+        # A3's ``_offers`` with its one draw per positive holding split in two.
         spec = self.a3.asset
         held = np.argwhere(self.units > 0)
         if held.size == 0:
@@ -1366,6 +1527,7 @@ class A47Model(A3Model):
                         if gap > have:
                             self.lock_events.append((int(self._round), i, gap, have))
                             continue
+                        self.optional_core_passes.append((int(self._round), i, gap, have))
                         self.optional_core_moved += 1
                     else:
                         self.optional_other_moved += 1
@@ -1387,14 +1549,15 @@ class A47Model(A3Model):
             return out
         spec = self.a3.asset
         for q in range(spec.tiers):
-            k = int(self.landlord_units[q])
+            k = int(self.landlord_units[q] - self.public_units[q] + 1e-9)
             if k and spec.turnover > 0.0:
                 n_offer = int((self._asset_rng.random(k) < spec.turnover).sum())
                 out.extend([(LANDLORD, q)] * n_offer)
         return out
 
     def _settle(self, offers: list[tuple[int, int]]) -> None:
-        if not self.rules.residence_bound and self.rules.commit_loan:
+        if not self.rules.residence_bound and (
+                self.rules.commit_loan or (self._pf() and self.rules.provident_spendable)):
             before = self.units.copy()
             self._settle_unbound_with_loans(offers)
             if self.rules.new_supply_rate > 0.0:
@@ -1413,7 +1576,7 @@ class A47Model(A3Model):
         for seller, q in offers:
             if seller != LANDLORD and self.units[seller, q] <= 0:
                 continue
-            if seller == LANDLORD and self.landlord_units[q] < 1.0:
+            if seller == LANDLORD and self.landlord_units[q] - self.public_units[q] < 1.0:
                 continue
             price = self._trade_price(q)
             cost = self.terms[:, q] * price
@@ -1436,7 +1599,7 @@ class A47Model(A3Model):
                 self._move_new(seller, buyer, q)
                 if seller == LANDLORD:
                     self.landlord_units[q] -= 1.0
-                    self._credit_landlord(price)
+                    self._credit_landlord(price, sale=True)
                     ll_sold += 1
                 else:
                     self.holdings[seller] += price
@@ -1557,6 +1720,10 @@ class A47Model(A3Model):
         if abs(after - before) > TOL * max(1.0, abs(before)):
             raise AssertionError(
                 f"A47 stock-flow inconsistency at round {t}: {before!r} -> {after!r}")
+        if self._pf():
+            self.pf_cash_min = min(self.pf_cash_min, self.pf_cash)
+            if self.pf_cash < -TOL * max(1.0, abs(before)):
+                raise AssertionError(f"A49 provident fund cash negative at round {t}: {self.pf_cash!r}")
         self.pool_history.append(self.pool)
         self.exited_history.append(self.exited)
         if self.rules.treasury_backing:

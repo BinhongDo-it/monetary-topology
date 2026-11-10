@@ -1,4 +1,375 @@
 {
+  "accounts": {
+    "definitions": {
+      "claims_recorded": "claims per node in the last row of the run's history. The row is written after the round's flows and before that round's asset step, and held units are not in it, so on a carrier with an asset layer it is not the state the run ends in. Every top-level field of this record, and its criteria, are read on this account.",
+      "claims_settled": "claims per node after the last round's asset step: rent, stretch-debt service, resale settlement. The claims the run ends with. Present only when the carrier has an asset layer; on the plain carrier the recorded row is already the end state, and the record counts the runs in which it is.",
+      "net_worth": "claims_settled plus held units at each tier's closing price. The account revaluation is on. Present only with an asset layer."
+    },
+    "net_worth_against_claims": {
+      "cells": 53,
+      "cells_with_net_worth_top1_above": 53,
+      "held_units_share": {
+        "max": 0.900139,
+        "min": 0.573389
+      },
+      "runs": 265,
+      "runs_with_net_worth_top1_above": 264,
+      "top1_ratio_net_worth_over_claims_settled": {
+        "max": 2.955769,
+        "median": 2.01787,
+        "min": 1.147887
+      }
+    },
+    "readings": {
+      "claims_recorded": {
+        "entry_pairs": {
+          "endogenous": {
+            "abs_diff_of_means": 0.010207,
+            "se_across_seeds": 0.007113,
+            "seeds_below_the_on_off_gap": 4,
+            "seeds_negative": 3,
+            "seeds_positive": 2,
+            "top_node": 0.229288,
+            "top_node_minus_uniform_per_seed": [
+              -0.000125,
+              -0.019003,
+              0.000793,
+              0.001485,
+              -0.034187
+            ],
+            "uniform": 0.239495
+          },
+          "fixed": {
+            "abs_diff_of_means": 0.000634,
+            "se_across_seeds": 0.002409,
+            "seeds_below_the_on_off_gap": 5,
+            "seeds_negative": 2,
+            "seeds_positive": 3,
+            "top_node": 0.220691,
+            "top_node_minus_uniform_per_seed": [
+              -0.000246,
+              0.001384,
+              0.002895,
+              0.002793,
+              -0.009997
+            ],
+            "uniform": 0.221325
+          },
+          "none": {
+            "abs_diff_of_means": 0.0,
+            "se_across_seeds": 0.0,
+            "seeds_below_the_on_off_gap": 5,
+            "seeds_negative": 0,
+            "seeds_positive": 0,
+            "top_node": 0.194331,
+            "top_node_minus_uniform_per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "uniform": 0.194331
+          }
+        },
+        "highest_minus_lowest_financial_retention_per_seed": [
+          0.00892,
+          0.015285,
+          0.010014,
+          0.032205,
+          0.024939
+        ],
+        "off": [
+          0.194331,
+          0.194331
+        ],
+        "on": [
+          0.220691,
+          0.239495
+        ],
+        "on_off_gap": 0.02636,
+        "on_off_gap_per_seed": [
+          0.030134,
+          0.031424,
+          0.024086,
+          0.015969,
+          0.023116
+        ],
+        "seeds_with_gap_above_sigma_width": 2,
+        "seeds_with_gap_positive": 5,
+        "seeds_with_retention_lifting_top1": 5,
+        "seeds_with_structural_span_larger": 5,
+        "sigma": {
+          "max": 0.25241,
+          "min": 0.220537,
+          "width": 0.031873
+        },
+        "sigma_width_per_seed": [
+          0.013692,
+          0.042984,
+          0.012208,
+          0.05615,
+          0.057317
+        ],
+        "state_on_the_mean": "separated, but by less than sigma's span",
+        "state_seed_by_seed": "every seed separated",
+        "structural_over_sigma_width": 4.828758,
+        "structure": {
+          "max": 0.307687,
+          "min": 0.15378,
+          "width": 0.153907
+        },
+        "structure_width_per_seed": [
+          0.180737,
+          0.211091,
+          0.165958,
+          0.219688,
+          0.145752
+        ],
+        "top1_by_financial_retention": {
+          "0.2": 0.222678,
+          "0.3": 0.224441,
+          "0.38": 0.223776,
+          "0.5": 0.226533,
+          "0.65": 0.224016,
+          "0.8": 0.240951
+        }
+      },
+      "claims_settled": {
+        "entry_pairs": {
+          "endogenous": {
+            "abs_diff_of_means": 0.011461,
+            "se_across_seeds": 0.006662,
+            "seeds_below_the_on_off_gap": 3,
+            "seeds_negative": 3,
+            "seeds_positive": 2,
+            "top_node": 0.230777,
+            "top_node_minus_uniform_per_seed": [
+              0.000347,
+              -0.021369,
+              0.000482,
+              -0.004036,
+              -0.032726
+            ],
+            "uniform": 0.242238
+          },
+          "fixed": {
+            "abs_diff_of_means": 0.01187,
+            "se_across_seeds": 0.009771,
+            "seeds_below_the_on_off_gap": 4,
+            "seeds_negative": 1,
+            "seeds_positive": 4,
+            "top_node": 0.233696,
+            "top_node_minus_uniform_per_seed": [
+              -0.002167,
+              0.005399,
+              0.002211,
+              0.00327,
+              0.05064
+            ],
+            "uniform": 0.221826
+          },
+          "none": {
+            "abs_diff_of_means": 0.0,
+            "se_across_seeds": 0.0,
+            "seeds_below_the_on_off_gap": 5,
+            "seeds_negative": 0,
+            "seeds_positive": 0,
+            "top_node": 0.204192,
+            "top_node_minus_uniform_per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "uniform": 0.204192
+          }
+        },
+        "highest_minus_lowest_financial_retention_per_seed": [
+          0.008693,
+          0.012327,
+          0.008972,
+          0.032532,
+          0.026957
+        ],
+        "off": [
+          0.204192,
+          0.204192
+        ],
+        "on": [
+          0.221826,
+          0.242238
+        ],
+        "on_off_gap": 0.017634,
+        "on_off_gap_per_seed": [
+          0.020046,
+          0.018848,
+          0.015028,
+          0.00517,
+          0.026622
+        ],
+        "seeds_with_gap_above_sigma_width": 0,
+        "seeds_with_gap_positive": 5,
+        "seeds_with_retention_lifting_top1": 5,
+        "seeds_with_structural_span_larger": 5,
+        "sigma": {
+          "max": 0.252196,
+          "min": 0.220906,
+          "width": 0.03129
+        },
+        "sigma_width_per_seed": [
+          0.036446,
+          0.085417,
+          0.01619,
+          0.05747,
+          0.059276
+        ],
+        "state_on_the_mean": "separated, but by less than sigma's span",
+        "state_seed_by_seed": "every seed separated",
+        "structural_over_sigma_width": 4.927485,
+        "structure": {
+          "max": 0.308249,
+          "min": 0.154068,
+          "width": 0.154181
+        },
+        "structure_width_per_seed": [
+          0.180584,
+          0.211583,
+          0.184215,
+          0.21967,
+          0.145731
+        ],
+        "top1_by_financial_retention": {
+          "0.2": 0.226685,
+          "0.3": 0.226356,
+          "0.38": 0.228781,
+          "0.5": 0.229991,
+          "0.65": 0.227444,
+          "0.8": 0.244582
+        }
+      },
+      "net_worth": {
+        "entry_pairs": {
+          "endogenous": {
+            "abs_diff_of_means": 0.011523,
+            "se_across_seeds": 0.023172,
+            "seeds_below_the_on_off_gap": 1,
+            "seeds_negative": 2,
+            "seeds_positive": 3,
+            "top_node": 0.465678,
+            "top_node_minus_uniform_per_seed": [
+              -0.000606,
+              0.054326,
+              0.000861,
+              0.066502,
+              -0.063467
+            ],
+            "uniform": 0.454155
+          },
+          "fixed": {
+            "abs_diff_of_means": 0.04071,
+            "se_across_seeds": 0.021021,
+            "seeds_below_the_on_off_gap": 1,
+            "seeds_negative": 2,
+            "seeds_positive": 3,
+            "top_node": 0.463624,
+            "top_node_minus_uniform_per_seed": [
+              -0.00112,
+              0.111758,
+              -0.001684,
+              0.056123,
+              0.038473
+            ],
+            "uniform": 0.422914
+          },
+          "none": {
+            "abs_diff_of_means": 0.0,
+            "se_across_seeds": 0.0,
+            "seeds_below_the_on_off_gap": 2,
+            "seeds_negative": 0,
+            "seeds_positive": 0,
+            "top_node": 0.43256,
+            "top_node_minus_uniform_per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "uniform": 0.43256
+          }
+        },
+        "highest_minus_lowest_financial_retention_per_seed": [
+          0.096378,
+          0.272704,
+          0.025125,
+          0.115139,
+          0.005913
+        ],
+        "off": [
+          0.43256,
+          0.43256
+        ],
+        "on": [
+          0.422914,
+          0.465678
+        ],
+        "on_off_gap": -0.009646,
+        "on_off_gap_per_seed": [
+          0.006115,
+          -0.038536,
+          -0.001219,
+          -0.052563,
+          0.030507
+        ],
+        "seeds_with_gap_above_sigma_width": 0,
+        "seeds_with_gap_positive": 2,
+        "seeds_with_retention_lifting_top1": 5,
+        "seeds_with_structural_span_larger": 5,
+        "sigma": {
+          "max": 0.565021,
+          "min": 0.435547,
+          "width": 0.129474
+        },
+        "sigma_width_per_seed": [
+          0.104084,
+          0.364743,
+          0.052348,
+          0.168012,
+          0.205645
+        ],
+        "state_on_the_mean": "overlap: issuance does not separate",
+        "state_seed_by_seed": "not placed at 5 seeds: positive in 2",
+        "structural_over_sigma_width": 2.360852,
+        "structure": {
+          "max": 0.561525,
+          "min": 0.255856,
+          "width": 0.305669
+        },
+        "structure_width_per_seed": [
+          0.423966,
+          0.374718,
+          0.532367,
+          0.433389,
+          0.326877
+        ],
+        "top1_by_financial_retention": {
+          "0.2": 0.453352,
+          "0.3": 0.44796,
+          "0.38": 0.456453,
+          "0.5": 0.472545,
+          "0.65": 0.497427,
+          "0.8": 0.556404
+        }
+      }
+    },
+    "recorded_row_is_end_state_runs": [
+      0,
+      265
+    ],
+    "registered_fields_read": "claims_recorded"
+  },
   "criteria": [
     {
       "detail": "sigma 24/24, structure 23/23, issuance 6/6. The stock-flow identity is asserted inside the loop, so reaching here is also the claim that it held in every round of every cell.",
@@ -7,19 +378,19 @@
       "void": false
     },
     {
-      "detail": "sigma grid 0.220537-0.25241, width 0.031873. structure grid 0.15378-0.307687, width 0.153907. structural width is 4.828758x the sigma width. Read: the larger span names the knob that selects the terminal distribution. This criterion prints both and does not draw a line.",
+      "detail": "sigma grid 0.220537-0.25241, width 0.031873. structure grid 0.15378-0.307687, width 0.153907. structural width is 4.828758x the sigma width. Read: the larger span names the knob that selects the terminal distribution. This criterion prints both and does not draw a line. On this carrier the share is read on claims_recorded: claims in the last history row, written before that round's asset step, with held units left out. Settled claims and net worth are read under accounts.",
       "name": "A2d-2  sigma's span on terminal top1% wealth against the structural span",
       "passed": true,
       "void": false
     },
     {
-      "detail": "on 0.220691-0.239495, off 0.194331-0.194331, gap 0.02636 against sigma's span 0.031873. State: separated, but by less than sigma's span.",
+      "detail": "on 0.220691-0.239495, off 0.194331-0.194331, gap 0.02636 against sigma's span 0.031873. State: separated, but by less than sigma's span. On this carrier the share is read on claims_recorded: claims in the last history row, written before that round's asset step, with held units left out. Settled claims and net worth are read under accounts.",
       "name": "A2d-3  issuance on against issuance off",
       "passed": true,
       "void": false
     },
     {
-      "detail": "endogenous: top_node 0.229288 vs uniform 0.239495, |diff| 0.010207, issued 9845.768575 vs 6959.793773; fixed: top_node 0.220691 vs uniform 0.221325, |diff| 0.000634, issued 2990.0 vs 2990.0; none: top_node 0.194331 vs uniform 0.194331, |diff| 0.0, issued 0.0 vs 0.0. Largest |diff| 0.010207 against the on-off gap 0.02636. Read: an entry-point effect smaller than the on-off gap says the concentration is not attributable to where issuance lands. This criterion prints the pairs and does not draw a line.",
+      "detail": "endogenous: top_node 0.229288 vs uniform 0.239495, |diff| 0.010207, issued 9845.768575 vs 6959.793773; fixed: top_node 0.220691 vs uniform 0.221325, |diff| 0.000634, issued 2990.0 vs 2990.0; none: top_node 0.194331 vs uniform 0.194331, |diff| 0.0, issued 0.0 vs 0.0. Largest |diff| 0.010207 against the on-off gap 0.02636. Read: an entry-point effect smaller than the on-off gap says the concentration is not attributable to where issuance lands. This criterion prints the pairs and does not draw a line. On this carrier the share is read on claims_recorded: claims in the last history row, written before that round's asset step, with held units left out. Settled claims and net worth are read under accounts.",
       "name": "A2d-4  the entry point, at matched rule and matched sigma",
       "passed": true,
       "void": false
@@ -27,11 +398,910 @@
   ],
   "diagnostic_only": true,
   "diagnostic_reason": "read on A3's asset layer, which is not this station's registered carrier; the registered reading is results/a2d_terminal_selector.json",
+  "issuance_by_seed": {
+    "cells": [
+      {
+        "issued": 9885.54609,
+        "rule": "endogenous",
+        "target": "top_node",
+        "top1_per_seed": {
+          "claims_recorded": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055,
+            0.220797,
+            0.221254,
+            0.21468,
+            0.183896,
+            0.225879,
+            0.223393,
+            0.203012,
+            0.225464,
+            0.216605,
+            0.182913,
+            0.215359,
+            0.257002,
+            0.244547,
+            0.22357,
+            0.209108
+          ],
+          "claims_settled": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661,
+            0.287765,
+            0.221444,
+            0.215296,
+            0.18602,
+            0.226033,
+            0.223524,
+            0.203157,
+            0.226213,
+            0.34015,
+            0.183074,
+            0.21551,
+            0.296103,
+            0.244757,
+            0.223746,
+            0.20923
+          ],
+          "net_worth": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016,
+            0.480839,
+            0.488918,
+            0.51492,
+            0.469297,
+            0.439651,
+            0.421425,
+            0.456735,
+            0.489061,
+            0.48525,
+            0.471534,
+            0.487712,
+            0.598103,
+            0.534981,
+            0.535066,
+            0.432375
+          ]
+        }
+      },
+      {
+        "issued": 6956.932564,
+        "rule": "endogenous",
+        "target": "uniform",
+        "top1_per_seed": {
+          "claims_recorded": [
+            0.231632,
+            0.277861,
+            0.23388,
+            0.189367,
+            0.264737,
+            0.218839,
+            0.21734,
+            0.213871,
+            0.181089,
+            0.223744,
+            0.219443,
+            0.200249,
+            0.228976,
+            0.211331,
+            0.181165,
+            0.234726,
+            0.243828,
+            0.241207,
+            0.21973,
+            0.205947
+          ],
+          "claims_settled": [
+            0.232216,
+            0.281082,
+            0.234403,
+            0.1951,
+            0.268387,
+            0.224839,
+            0.218809,
+            0.214718,
+            0.182233,
+            0.224588,
+            0.22033,
+            0.201245,
+            0.23001,
+            0.217447,
+            0.181936,
+            0.23574,
+            0.244392,
+            0.243882,
+            0.220685,
+            0.207638
+          ],
+          "net_worth": [
+            0.485738,
+            0.400389,
+            0.472429,
+            0.429735,
+            0.482483,
+            0.413226,
+            0.437702,
+            0.515768,
+            0.423539,
+            0.442441,
+            0.298484,
+            0.454465,
+            0.446838,
+            0.391826,
+            0.473832,
+            0.384118,
+            0.542948,
+            0.495023,
+            0.478853,
+            0.449507
+          ]
+        }
+      },
+      {
+        "issued": 2990.0,
+        "rule": "fixed",
+        "target": "top_node",
+        "top1_per_seed": {
+          "claims_recorded": [
+            0.229311,
+            0.227251,
+            0.236254,
+            0.192006,
+            0.218632,
+            0.218482,
+            0.220154,
+            0.214484,
+            0.18476,
+            0.25668,
+            0.21996,
+            0.20351,
+            0.225472,
+            0.225883,
+            0.181568,
+            0.232241,
+            0.245866,
+            0.243597,
+            0.221607,
+            0.208838
+          ],
+          "claims_settled": [
+            0.230364,
+            0.227767,
+            0.236901,
+            0.193476,
+            0.279974,
+            0.218877,
+            0.220703,
+            0.215039,
+            0.185339,
+            0.257099,
+            0.285499,
+            0.209957,
+            0.225993,
+            0.226343,
+            0.182178,
+            0.235499,
+            0.2489,
+            0.24422,
+            0.222515,
+            0.211055
+          ],
+          "net_worth": [
+            0.489791,
+            0.505649,
+            0.4708,
+            0.451082,
+            0.400796,
+            0.432408,
+            0.442597,
+            0.555363,
+            0.473786,
+            0.441561,
+            0.413981,
+            0.459847,
+            0.490134,
+            0.43975,
+            0.511813,
+            0.458124,
+            0.428184,
+            0.491596,
+            0.524079,
+            0.431331
+          ]
+        }
+      },
+      {
+        "issued": 2990.0,
+        "rule": "fixed",
+        "target": "uniform",
+        "top1_per_seed": {
+          "claims_recorded": [
+            0.229557,
+            0.225867,
+            0.233359,
+            0.189213,
+            0.228629,
+            0.221972,
+            0.219023,
+            0.213429,
+            0.179343,
+            0.223118,
+            0.217103,
+            0.200172,
+            0.228364,
+            0.21344,
+            0.182097,
+            0.212168,
+            0.24329,
+            0.242404,
+            0.221794,
+            0.209429
+          ],
+          "claims_settled": [
+            0.232531,
+            0.222368,
+            0.23469,
+            0.190206,
+            0.229334,
+            0.227912,
+            0.214767,
+            0.214789,
+            0.185937,
+            0.228995,
+            0.246031,
+            0.201575,
+            0.229629,
+            0.213698,
+            0.183914,
+            0.212862,
+            0.243719,
+            0.244473,
+            0.222991,
+            0.215373
+          ],
+          "net_worth": [
+            0.490911,
+            0.393891,
+            0.472484,
+            0.394959,
+            0.362323,
+            0.386115,
+            0.441263,
+            0.513805,
+            0.425205,
+            0.447692,
+            0.314316,
+            0.460008,
+            0.446845,
+            0.361727,
+            0.471597,
+            0.330927,
+            0.555656,
+            0.491879,
+            0.47822,
+            0.431209
+          ]
+        }
+      },
+      {
+        "issued": 0.0,
+        "rule": "none",
+        "target": "top_node",
+        "top1_per_seed": {
+          "claims_recorded": [
+            0.199177,
+            0.194443,
+            0.209273,
+            0.173244,
+            0.195516,
+            0.189405,
+            0.197295,
+            0.185936,
+            0.1672,
+            0.202768,
+            0.187113,
+            0.172663,
+            0.204898,
+            0.186169,
+            0.161002,
+            0.194718,
+            0.218309,
+            0.216979,
+            0.197494,
+            0.183499
+          ],
+          "claims_settled": [
+            0.210318,
+            0.20352,
+            0.219375,
+            0.185036,
+            0.202712,
+            0.196002,
+            0.205869,
+            0.194444,
+            0.179183,
+            0.214264,
+            0.194023,
+            0.183189,
+            0.265803,
+            0.193896,
+            0.171569,
+            0.201577,
+            0.225938,
+            0.229268,
+            0.207834,
+            0.192919
+          ],
+          "net_worth": [
+            0.479017,
+            0.432427,
+            0.472019,
+            0.447522,
+            0.331816,
+            0.432807,
+            0.433786,
+            0.510492,
+            0.425487,
+            0.44192,
+            0.341944,
+            0.451471,
+            0.443638,
+            0.341165,
+            0.470904,
+            0.336627,
+            0.534158,
+            0.490046,
+            0.477714,
+            0.427819
+          ]
+        }
+      },
+      {
+        "issued": 0.0,
+        "rule": "none",
+        "target": "uniform",
+        "top1_per_seed": {
+          "claims_recorded": [
+            0.199177,
+            0.194443,
+            0.209273,
+            0.173244,
+            0.195516,
+            0.189405,
+            0.197295,
+            0.185936,
+            0.1672,
+            0.202768,
+            0.187113,
+            0.172663,
+            0.204898,
+            0.186169,
+            0.161002,
+            0.194718,
+            0.218309,
+            0.216979,
+            0.197494,
+            0.183499
+          ],
+          "claims_settled": [
+            0.210318,
+            0.20352,
+            0.219375,
+            0.185036,
+            0.202712,
+            0.196002,
+            0.205869,
+            0.194444,
+            0.179183,
+            0.214264,
+            0.194023,
+            0.183189,
+            0.265803,
+            0.193896,
+            0.171569,
+            0.201577,
+            0.225938,
+            0.229268,
+            0.207834,
+            0.192919
+          ],
+          "net_worth": [
+            0.479017,
+            0.432427,
+            0.472019,
+            0.447522,
+            0.331816,
+            0.432807,
+            0.433786,
+            0.510492,
+            0.425487,
+            0.44192,
+            0.341944,
+            0.451471,
+            0.443638,
+            0.341165,
+            0.470904,
+            0.336627,
+            0.534158,
+            0.490046,
+            0.477714,
+            0.427819
+          ]
+        }
+      }
+    ],
+    "first_seeds_equal_the_grid": true,
+    "last_asset_step": {
+      "endogenous/top_node": {
+        "mean": 0.000118,
+        "se_across_seeds": 0.007792,
+        "seeds_negative": 17,
+        "seeds_positive": 3
+      },
+      "endogenous/uniform": {
+        "mean": -0.009946,
+        "se_across_seeds": 0.002706,
+        "seeds_negative": 20,
+        "seeds_positive": 0
+      },
+      "fixed/top_node": {
+        "mean": -0.004425,
+        "se_across_seeds": 0.005354,
+        "seeds_negative": 18,
+        "seeds_positive": 2
+      },
+      "fixed/uniform": {
+        "mean": -0.008881,
+        "se_across_seeds": 0.003123,
+        "seeds_negative": 19,
+        "seeds_positive": 1
+      }
+    },
+    "readings": {
+      "claims_recorded": {
+        "minus_none": {
+          "endogenous/top_node": {
+            "mean": 0.028841,
+            "median": 0.026822,
+            "se_across_seeds": 0.002309,
+            "seeds_negative": 0,
+            "seeds_positive": 20
+          },
+          "endogenous/uniform": {
+            "mean": 0.030093,
+            "median": 0.024885,
+            "se_across_seeds": 0.003805,
+            "seeds_negative": 0,
+            "seeds_positive": 20
+          },
+          "fixed/top_node": {
+            "mean": 0.028473,
+            "median": 0.027269,
+            "se_across_seeds": 0.001875,
+            "seeds_negative": 0,
+            "seeds_positive": 20
+          },
+          "fixed/uniform": {
+            "mean": 0.024834,
+            "median": 0.025203,
+            "se_across_seeds": 0.001248,
+            "seeds_negative": 0,
+            "seeds_positive": 20
+          }
+        },
+        "none": 0.191855,
+        "on_off_gap_of_means": 0.024834,
+        "seeds_with_gap_positive": 20,
+        "top_node_minus_uniform": {
+          "endogenous": {
+            "mean": -0.001252,
+            "median": 0.002046,
+            "per_seed": [
+              -0.000125,
+              -0.019003,
+              0.000793,
+              0.001485,
+              -0.034187,
+              0.001958,
+              0.003914,
+              0.000809,
+              0.002807,
+              0.002135,
+              0.00395,
+              0.002763,
+              -0.003512,
+              0.005274,
+              0.001748,
+              -0.019367,
+              0.013174,
+              0.00334,
+              0.00384,
+              0.003161
+            ],
+            "se_across_seeds": 0.002398,
+            "seeds_below_the_on_off_gap": 18,
+            "seeds_negative": 5,
+            "seeds_positive": 15
+          },
+          "fixed": {
+            "mean": 0.003639,
+            "median": 0.001288,
+            "per_seed": [
+              -0.000246,
+              0.001384,
+              0.002895,
+              0.002793,
+              -0.009997,
+              -0.00349,
+              0.001131,
+              0.001055,
+              0.005417,
+              0.033562,
+              0.002857,
+              0.003338,
+              -0.002892,
+              0.012443,
+              -0.000529,
+              0.020073,
+              0.002576,
+              0.001193,
+              -0.000187,
+              -0.000591
+            ],
+            "se_across_seeds": 0.002063,
+            "seeds_below_the_on_off_gap": 18,
+            "seeds_negative": 7,
+            "seeds_positive": 13
+          },
+          "none": {
+            "mean": 0.0,
+            "median": 0.0,
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "se_across_seeds": 0.0,
+            "seeds_below_the_on_off_gap": 20,
+            "seeds_negative": 0,
+            "seeds_positive": 0
+          }
+        }
+      },
+      "claims_settled": {
+        "minus_none": {
+          "endogenous/top_node": {
+            "mean": 0.028958,
+            "median": 0.016112,
+            "se_across_seeds": 0.008547,
+            "seeds_negative": 1,
+            "seeds_positive": 19
+          },
+          "endogenous/uniform": {
+            "mean": 0.020147,
+            "median": 0.016542,
+            "se_across_seeds": 0.005028,
+            "seeds_negative": 1,
+            "seeds_positive": 19
+          },
+          "fixed/top_node": {
+            "mean": 0.024048,
+            "median": 0.020321,
+            "se_across_seeds": 0.00587,
+            "seeds_negative": 1,
+            "seeds_positive": 19
+          },
+          "fixed/uniform": {
+            "mean": 0.015953,
+            "median": 0.016548,
+            "se_across_seeds": 0.003557,
+            "seeds_negative": 1,
+            "seeds_positive": 19
+          }
+        },
+        "none": 0.203837,
+        "on_off_gap_of_means": 0.015953,
+        "seeds_with_gap_positive": 19,
+        "top_node_minus_uniform": {
+          "endogenous": {
+            "mean": 0.008811,
+            "median": 0.001292,
+            "per_seed": [
+              0.000347,
+              -0.021369,
+              0.000482,
+              -0.004036,
+              -0.032726,
+              0.062926,
+              0.002635,
+              0.000578,
+              0.003787,
+              0.001445,
+              0.003194,
+              0.001912,
+              -0.003797,
+              0.122703,
+              0.001138,
+              -0.02023,
+              0.051711,
+              0.000875,
+              0.003061,
+              0.001592
+            ],
+            "se_across_seeds": 0.007636,
+            "seeds_below_the_on_off_gap": 12,
+            "seeds_negative": 5,
+            "seeds_positive": 15
+          },
+          "fixed": {
+            "mean": 0.008095,
+            "median": 0.002741,
+            "per_seed": [
+              -0.002167,
+              0.005399,
+              0.002211,
+              0.00327,
+              0.05064,
+              -0.009035,
+              0.005936,
+              0.00025,
+              -0.000598,
+              0.028104,
+              0.039468,
+              0.008382,
+              -0.003636,
+              0.012645,
+              -0.001736,
+              0.022637,
+              0.005181,
+              -0.000253,
+              -0.000476,
+              -0.004318
+            ],
+            "se_across_seeds": 0.003469,
+            "seeds_below_the_on_off_gap": 15,
+            "seeds_negative": 8,
+            "seeds_positive": 12
+          },
+          "none": {
+            "mean": 0.0,
+            "median": 0.0,
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "se_across_seeds": 0.0,
+            "seeds_below_the_on_off_gap": 19,
+            "seeds_negative": 0,
+            "seeds_positive": 0
+          }
+        }
+      },
+      "net_worth": {
+        "minus_none": {
+          "endogenous/top_node": {
+            "mean": 0.045574,
+            "median": 0.045179,
+            "se_across_seeds": 0.009958,
+            "seeds_negative": 1,
+            "seeds_positive": 19
+          },
+          "endogenous/uniform": {
+            "mean": 0.009828,
+            "median": 0.003097,
+            "se_across_seeds": 0.00887,
+            "seeds_negative": 5,
+            "seeds_positive": 15
+          },
+          "fixed/top_node": {
+            "mean": 0.029495,
+            "median": 0.025841,
+            "se_across_seeds": 0.010791,
+            "seeds_negative": 4,
+            "seeds_positive": 16
+          },
+          "fixed/uniform": {
+            "mean": -0.002587,
+            "median": 0.00252,
+            "se_across_seeds": 0.004933,
+            "seeds_negative": 6,
+            "seeds_positive": 14
+          }
+        },
+        "none": 0.436139,
+        "on_off_gap_of_means": -0.002587,
+        "seeds_with_gap_positive": 11,
+        "top_node_minus_uniform": {
+          "endogenous": {
+            "mean": 0.035746,
+            "median": 0.043991,
+            "per_seed": [
+              -0.000606,
+              0.054326,
+              0.000861,
+              0.066502,
+              -0.063467,
+              0.067613,
+              0.051216,
+              -0.000848,
+              0.045758,
+              -0.00279,
+              0.122941,
+              0.00227,
+              0.042223,
+              0.093424,
+              -0.002298,
+              0.103594,
+              0.055155,
+              0.039958,
+              0.056213,
+              -0.017132
+            ],
+            "se_across_seeds": 0.010209,
+            "seeds_below_the_on_off_gap": 3,
+            "seeds_negative": 6,
+            "seeds_positive": 14
+          },
+          "fixed": {
+            "mean": 0.032082,
+            "median": 0.040887,
+            "per_seed": [
+              -0.00112,
+              0.111758,
+              -0.001684,
+              0.056123,
+              0.038473,
+              0.046293,
+              0.001334,
+              0.041558,
+              0.048581,
+              -0.006131,
+              0.099665,
+              -0.000161,
+              0.043289,
+              0.078023,
+              0.040216,
+              0.127197,
+              -0.127472,
+              -0.000283,
+              0.045859,
+              0.000122
+            ],
+            "se_across_seeds": 0.012232,
+            "seeds_below_the_on_off_gap": 5,
+            "seeds_negative": 6,
+            "seeds_positive": 14
+          },
+          "none": {
+            "mean": 0.0,
+            "median": 0.0,
+            "per_seed": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "se_across_seeds": 0.0,
+            "seeds_below_the_on_off_gap": 11,
+            "seeds_negative": 0,
+            "seeds_positive": 0
+          }
+        }
+      }
+    },
+    "scored": false,
+    "seeds": 20
+  },
   "issuance_grid": [
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "rule": "endogenous",
       "support": 13.793858,
       "target": "top_node",
@@ -39,9 +1309,54 @@
       "top1_wealth": 0.229288
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.93532,
+          "top1": 0.239495,
+          "top10": 0.99265,
+          "top1_per_seed": [
+            0.231632,
+            0.277861,
+            0.23388,
+            0.189367,
+            0.264737
+          ],
+          "total": 7059.793773
+        },
+        "claims_settled": {
+          "gini": 0.938932,
+          "top1": 0.242238,
+          "top10": 0.998722,
+          "top1_per_seed": [
+            0.232216,
+            0.281082,
+            0.234403,
+            0.1951,
+            0.268387
+          ],
+          "total": 7059.793773
+        },
+        "net_worth": {
+          "gini": 0.961874,
+          "top1": 0.454155,
+          "top10": 0.999696,
+          "top1_per_seed": [
+            0.485738,
+            0.400389,
+            0.472429,
+            0.429735,
+            0.482483
+          ],
+          "total": 32140.925981
+        }
+      },
       "claims_close": 7059.793773,
       "gini": 0.93532,
       "issued": 6959.793773,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "rule": "endogenous",
       "support": 13.877097,
       "target": "uniform",
@@ -49,9 +1364,54 @@
       "top1_wealth": 0.239495
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936995,
+          "top1": 0.220691,
+          "top10": 0.998087,
+          "top1_per_seed": [
+            0.229311,
+            0.227251,
+            0.236254,
+            0.192006,
+            0.218632
+          ],
+          "total": 3090.0
+        },
+        "claims_settled": {
+          "gini": 0.934967,
+          "top1": 0.233696,
+          "top10": 0.995884,
+          "top1_per_seed": [
+            0.230364,
+            0.227767,
+            0.236901,
+            0.193476,
+            0.279974
+          ],
+          "total": 3090.0
+        },
+        "net_worth": {
+          "gini": 0.961912,
+          "top1": 0.463624,
+          "top10": 0.998945,
+          "top1_per_seed": [
+            0.489791,
+            0.505649,
+            0.4708,
+            0.451082,
+            0.400796
+          ],
+          "total": 14020.488388
+        }
+      },
       "claims_close": 3090.0,
       "gini": 0.936995,
       "issued": 2990.0,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "rule": "fixed",
       "support": 13.964249,
       "target": "top_node",
@@ -59,9 +1419,54 @@
       "top1_wealth": 0.220691
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.935883,
+          "top1": 0.221325,
+          "top10": 0.996002,
+          "top1_per_seed": [
+            0.229557,
+            0.225867,
+            0.233359,
+            0.189213,
+            0.228629
+          ],
+          "total": 3090.0
+        },
+        "claims_settled": {
+          "gini": 0.937252,
+          "top1": 0.221826,
+          "top10": 0.998978,
+          "top1_per_seed": [
+            0.232531,
+            0.222368,
+            0.23469,
+            0.190206,
+            0.229334
+          ],
+          "total": 3090.0
+        },
+        "net_worth": {
+          "gini": 0.961033,
+          "top1": 0.422914,
+          "top10": 0.999755,
+          "top1_per_seed": [
+            0.490911,
+            0.393891,
+            0.472484,
+            0.394959,
+            0.362323
+          ],
+          "total": 14048.480547
+        }
+      },
       "claims_close": 3090.0,
       "gini": 0.935883,
       "issued": 2990.0,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "rule": "fixed",
       "support": 14.05958,
       "target": "uniform",
@@ -69,9 +1474,54 @@
       "top1_wealth": 0.221325
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.901427,
+          "top1": 0.194331,
+          "top10": 0.933836,
+          "top1_per_seed": [
+            0.199177,
+            0.194443,
+            0.209273,
+            0.173244,
+            0.195516
+          ],
+          "total": 100.0
+        },
+        "claims_settled": {
+          "gini": 0.921773,
+          "top1": 0.204192,
+          "top10": 0.961093,
+          "top1_per_seed": [
+            0.210318,
+            0.20352,
+            0.219375,
+            0.185036,
+            0.202712
+          ],
+          "total": 100.0
+        },
+        "net_worth": {
+          "gini": 0.957504,
+          "top1": 0.43256,
+          "top10": 0.991012,
+          "top1_per_seed": [
+            0.479017,
+            0.432427,
+            0.472019,
+            0.447522,
+            0.331816
+          ],
+          "total": 436.779667
+        }
+      },
       "claims_close": 100.0,
       "gini": 0.901427,
       "issued": 0.0,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "rule": "none",
       "support": 22.549194,
       "target": "top_node",
@@ -79,9 +1529,54 @@
       "top1_wealth": 0.194331
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.901427,
+          "top1": 0.194331,
+          "top10": 0.933836,
+          "top1_per_seed": [
+            0.199177,
+            0.194443,
+            0.209273,
+            0.173244,
+            0.195516
+          ],
+          "total": 100.0
+        },
+        "claims_settled": {
+          "gini": 0.921773,
+          "top1": 0.204192,
+          "top10": 0.961093,
+          "top1_per_seed": [
+            0.210318,
+            0.20352,
+            0.219375,
+            0.185036,
+            0.202712
+          ],
+          "total": 100.0
+        },
+        "net_worth": {
+          "gini": 0.957504,
+          "top1": 0.43256,
+          "top10": 0.991012,
+          "top1_per_seed": [
+            0.479017,
+            0.432427,
+            0.472019,
+            0.447522,
+            0.331816
+          ],
+          "total": 436.779667
+        }
+      },
       "claims_close": 100.0,
       "gini": 0.901427,
       "issued": 0.0,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "rule": "none",
       "support": 22.549194,
       "target": "uniform",
@@ -107,9 +1602,54 @@
   "seeds_tested": 5,
   "sigma_grid": [
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937704,
+          "top1": 0.224424,
+          "top10": 0.998283,
+          "top1_per_seed": [
+            0.230961,
+            0.228806,
+            0.233435,
+            0.191053,
+            0.237863
+          ],
+          "total": 10589.547292
+        },
+        "claims_settled": {
+          "gini": 0.937627,
+          "top1": 0.224748,
+          "top10": 0.998875,
+          "top1_per_seed": [
+            0.231166,
+            0.233956,
+            0.228606,
+            0.191578,
+            0.238435
+          ],
+          "total": 10589.547292
+        },
+        "net_worth": {
+          "gini": 0.962781,
+          "top1": 0.48236,
+          "top10": 0.99975,
+          "top1_per_seed": [
+            0.487656,
+            0.465289,
+            0.46857,
+            0.415189,
+            0.575098
+          ],
+          "total": 48327.296017
+        }
+      },
       "claims_close": 10589.547292,
       "gini": 0.937704,
       "issued": 10489.547292,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.2,
       "ret_l2": 0.0,
       "support": 13.668715,
@@ -117,9 +1657,54 @@
       "top1_wealth": 0.224424
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937404,
+          "top1": 0.223033,
+          "top10": 0.998677,
+          "top1_per_seed": [
+            0.230949,
+            0.22737,
+            0.232417,
+            0.18993,
+            0.234499
+          ],
+          "total": 9974.066934
+        },
+        "claims_settled": {
+          "gini": 0.937513,
+          "top1": 0.223405,
+          "top10": 0.999227,
+          "top1_per_seed": [
+            0.231175,
+            0.227534,
+            0.233268,
+            0.190028,
+            0.23502
+          ],
+          "total": 9974.066934
+        },
+        "net_worth": {
+          "gini": 0.962315,
+          "top1": 0.454905,
+          "top10": 0.999834,
+          "top1_per_seed": [
+            0.487657,
+            0.449828,
+            0.469546,
+            0.395394,
+            0.472099
+          ],
+          "total": 45504.030913
+        }
+      },
       "claims_close": 9974.066934,
       "gini": 0.937404,
       "issued": 9874.066934,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.2,
       "ret_l2": 0.0625,
       "support": 13.799761,
@@ -127,9 +1712,54 @@
       "top1_wealth": 0.223033
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937655,
+          "top1": 0.222719,
+          "top10": 0.998692,
+          "top1_per_seed": [
+            0.230704,
+            0.227716,
+            0.23388,
+            0.189965,
+            0.231331
+          ],
+          "total": 9031.673702
+        },
+        "claims_settled": {
+          "gini": 0.93801,
+          "top1": 0.223155,
+          "top10": 0.999503,
+          "top1_per_seed": [
+            0.230944,
+            0.228206,
+            0.235061,
+            0.190109,
+            0.231455
+          ],
+          "total": 9031.673702
+        },
+        "net_worth": {
+          "gini": 0.961682,
+          "top1": 0.435547,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.48875,
+            0.358757,
+            0.472414,
+            0.409809,
+            0.448003
+          ],
+          "total": 41162.875577
+        }
+      },
       "claims_close": 9031.673702,
       "gini": 0.937655,
       "issued": 8931.673702,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.2,
       "ret_l2": 0.15,
       "support": 13.717554,
@@ -137,9 +1767,54 @@
       "top1_wealth": 0.222719
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.935726,
+          "top1": 0.220537,
+          "top10": 0.996545,
+          "top1_per_seed": [
+            0.229115,
+            0.227927,
+            0.233341,
+            0.189864,
+            0.222437
+          ],
+          "total": 7511.996439
+        },
+        "claims_settled": {
+          "gini": 0.936745,
+          "top1": 0.235431,
+          "top10": 0.99722,
+          "top1_per_seed": [
+            0.230333,
+            0.296566,
+            0.23622,
+            0.190185,
+            0.223853
+          ],
+          "total": 7511.996439
+        },
+        "net_worth": {
+          "gini": 0.961293,
+          "top1": 0.440594,
+          "top10": 0.999288,
+          "top1_per_seed": [
+            0.487162,
+            0.382125,
+            0.471717,
+            0.418193,
+            0.443775
+          ],
+          "total": 34124.220325
+        }
+      },
       "claims_close": 7511.996439,
       "gini": 0.935726,
       "issued": 7411.996439,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.2,
       "ret_l2": 0.3,
       "support": 13.713322,
@@ -147,9 +1822,54 @@
       "top1_wealth": 0.220537
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.938012,
+          "top1": 0.223713,
+          "top10": 0.999211,
+          "top1_per_seed": [
+            0.231009,
+            0.228343,
+            0.233862,
+            0.193622,
+            0.231731
+          ],
+          "total": 10655.311747
+        },
+        "claims_settled": {
+          "gini": 0.937248,
+          "top1": 0.223966,
+          "top10": 0.998632,
+          "top1_per_seed": [
+            0.231156,
+            0.228435,
+            0.234023,
+            0.194298,
+            0.23192
+          ],
+          "total": 10655.311747
+        },
+        "net_worth": {
+          "gini": 0.962773,
+          "top1": 0.440959,
+          "top10": 0.999655,
+          "top1_per_seed": [
+            0.488587,
+            0.451942,
+            0.469503,
+            0.383962,
+            0.4108
+          ],
+          "total": 48544.328785
+        }
+      },
       "claims_close": 10655.311747,
       "gini": 0.938012,
       "issued": 10555.311747,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.3,
       "ret_l2": 0.0,
       "support": 13.741016,
@@ -157,9 +1877,54 @@
       "top1_wealth": 0.223713
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937545,
+          "top1": 0.220898,
+          "top10": 0.998615,
+          "top1_per_seed": [
+            0.231015,
+            0.229054,
+            0.232614,
+            0.191919,
+            0.219889
+          ],
+          "total": 9997.544644
+        },
+        "claims_settled": {
+          "gini": 0.937574,
+          "top1": 0.220906,
+          "top10": 0.999376,
+          "top1_per_seed": [
+            0.23118,
+            0.229919,
+            0.233465,
+            0.19196,
+            0.218005
+          ],
+          "total": 9997.544644
+        },
+        "net_worth": {
+          "gini": 0.962267,
+          "top1": 0.44522,
+          "top10": 0.999841,
+          "top1_per_seed": [
+            0.488594,
+            0.469866,
+            0.46969,
+            0.428498,
+            0.369453
+          ],
+          "total": 45583.710073
+        }
+      },
       "claims_close": 9997.544644,
       "gini": 0.937545,
       "issued": 9897.544644,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.3,
       "ret_l2": 0.0625,
       "support": 13.770146,
@@ -167,9 +1932,54 @@
       "top1_wealth": 0.220898
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936179,
+          "top1": 0.230412,
+          "top10": 0.994881,
+          "top1_per_seed": [
+            0.230202,
+            0.257238,
+            0.234058,
+            0.199733,
+            0.230829
+          ],
+          "total": 9108.866592
+        },
+        "claims_settled": {
+          "gini": 0.93772,
+          "top1": 0.236971,
+          "top10": 0.997689,
+          "top1_per_seed": [
+            0.230819,
+            0.26309,
+            0.234279,
+            0.201165,
+            0.255501
+          ],
+          "total": 9108.866592
+        },
+        "net_worth": {
+          "gini": 0.962986,
+          "top1": 0.454203,
+          "top10": 0.999411,
+          "top1_per_seed": [
+            0.484649,
+            0.481664,
+            0.470457,
+            0.429892,
+            0.404355
+          ],
+          "total": 41448.73351
+        }
+      },
       "claims_close": 9108.866592,
       "gini": 0.936179,
       "issued": 9008.866592,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.3,
       "ret_l2": 0.15,
       "support": 13.402541,
@@ -177,9 +1987,54 @@
       "top1_wealth": 0.230412
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936747,
+          "top1": 0.222741,
+          "top10": 0.997697,
+          "top1_per_seed": [
+            0.231141,
+            0.228947,
+            0.233888,
+            0.189286,
+            0.230444
+          ],
+          "total": 7504.921787
+        },
+        "claims_settled": {
+          "gini": 0.937951,
+          "top1": 0.223583,
+          "top10": 0.999617,
+          "top1_per_seed": [
+            0.231399,
+            0.229157,
+            0.236767,
+            0.18964,
+            0.230954
+          ],
+          "total": 7504.921787
+        },
+        "net_worth": {
+          "gini": 0.962463,
+          "top1": 0.451457,
+          "top10": 0.999894,
+          "top1_per_seed": [
+            0.483919,
+            0.496866,
+            0.471816,
+            0.41697,
+            0.387714
+          ],
+          "total": 34170.173662
+        }
+      },
       "claims_close": 7504.921787,
       "gini": 0.936747,
       "issued": 7404.921787,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.3,
       "ret_l2": 0.3,
       "support": 13.736804,
@@ -187,9 +2042,54 @@
       "top1_wealth": 0.222741
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937946,
+          "top1": 0.221488,
+          "top10": 0.999405,
+          "top1_per_seed": [
+            0.231343,
+            0.225321,
+            0.233235,
+            0.190719,
+            0.226824
+          ],
+          "total": 10565.430016
+        },
+        "claims_settled": {
+          "gini": 0.936005,
+          "top1": 0.221732,
+          "top10": 0.997789,
+          "top1_per_seed": [
+            0.231988,
+            0.225465,
+            0.233435,
+            0.190865,
+            0.226907
+          ],
+          "total": 10565.430016
+        },
+        "net_worth": {
+          "gini": 0.962512,
+          "top1": 0.457819,
+          "top10": 0.999516,
+          "top1_per_seed": [
+            0.488663,
+            0.446004,
+            0.469249,
+            0.430546,
+            0.454634
+          ],
+          "total": 48180.409582
+        }
+      },
       "claims_close": 10565.430016,
       "gini": 0.937946,
       "issued": 10465.430016,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.38,
       "ret_l2": 0.0,
       "support": 13.752386,
@@ -197,9 +2097,54 @@
       "top1_wealth": 0.221488
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937771,
+          "top1": 0.222464,
+          "top10": 0.998784,
+          "top1_per_seed": [
+            0.231898,
+            0.225375,
+            0.232941,
+            0.191051,
+            0.231053
+          ],
+          "total": 9997.186669
+        },
+        "claims_settled": {
+          "gini": 0.937436,
+          "top1": 0.22289,
+          "top10": 0.999035,
+          "top1_per_seed": [
+            0.232926,
+            0.225533,
+            0.233792,
+            0.191134,
+            0.231066
+          ],
+          "total": 9997.186669
+        },
+        "net_worth": {
+          "gini": 0.962202,
+          "top1": 0.465846,
+          "top10": 0.999785,
+          "top1_per_seed": [
+            0.486062,
+            0.446018,
+            0.469826,
+            0.451071,
+            0.476251
+          ],
+          "total": 45592.561029
+        }
+      },
       "claims_close": 9997.186669,
       "gini": 0.937771,
       "issued": 9897.186669,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.38,
       "ret_l2": 0.0625,
       "support": 13.769309,
@@ -207,9 +2152,54 @@
       "top1_wealth": 0.222464
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936627,
+          "top1": 0.225052,
+          "top10": 0.997057,
+          "top1_per_seed": [
+            0.232367,
+            0.23884,
+            0.23481,
+            0.189897,
+            0.229347
+          ],
+          "total": 9165.529721
+        },
+        "claims_settled": {
+          "gini": 0.938367,
+          "top1": 0.236505,
+          "top10": 0.99933,
+          "top1_per_seed": [
+            0.233483,
+            0.293951,
+            0.235032,
+            0.190459,
+            0.229601
+          ],
+          "total": 9165.529721
+        },
+        "net_worth": {
+          "gini": 0.963042,
+          "top1": 0.44524,
+          "top10": 0.999832,
+          "top1_per_seed": [
+            0.490234,
+            0.444913,
+            0.470594,
+            0.414746,
+            0.405711
+          ],
+          "total": 41775.231286
+        }
+      },
       "claims_close": 9165.529721,
       "gini": 0.936627,
       "issued": 9065.529721,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.38,
       "ret_l2": 0.15,
       "support": 13.842408,
@@ -217,9 +2207,54 @@
       "top1_wealth": 0.225052
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937804,
+          "top1": 0.226101,
+          "top10": 0.998656,
+          "top1_per_seed": [
+            0.231778,
+            0.241538,
+            0.234361,
+            0.190575,
+            0.232255
+          ],
+          "total": 7483.733255
+        },
+        "claims_settled": {
+          "gini": 0.928628,
+          "top1": 0.233997,
+          "top10": 0.989549,
+          "top1_per_seed": [
+            0.232493,
+            0.246764,
+            0.234637,
+            0.190906,
+            0.265185
+          ],
+          "total": 7483.733255
+        },
+        "net_worth": {
+          "gini": 0.96046,
+          "top1": 0.456906,
+          "top10": 0.997159,
+          "top1_per_seed": [
+            0.484134,
+            0.510226,
+            0.467731,
+            0.452681,
+            0.369756
+          ],
+          "total": 34059.754632
+        }
+      },
       "claims_close": 7483.733255,
       "gini": 0.937804,
       "issued": 7383.733255,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.38,
       "ret_l2": 0.3,
       "support": 13.651507,
@@ -227,9 +2262,54 @@
       "top1_wealth": 0.226101
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937039,
+          "top1": 0.22479,
+          "top10": 0.998174,
+          "top1_per_seed": [
+            0.231548,
+            0.224275,
+            0.234865,
+            0.201325,
+            0.231939
+          ],
+          "total": 10498.081943
+        },
+        "claims_settled": {
+          "gini": 0.935452,
+          "top1": 0.225417,
+          "top10": 0.997098,
+          "top1_per_seed": [
+            0.232541,
+            0.22446,
+            0.230572,
+            0.201476,
+            0.238035
+          ],
+          "total": 10498.081943
+        },
+        "net_worth": {
+          "gini": 0.962152,
+          "top1": 0.457241,
+          "top10": 0.999294,
+          "top1_per_seed": [
+            0.485128,
+            0.513392,
+            0.468325,
+            0.396221,
+            0.423138
+          ],
+          "total": 47831.727542
+        }
+      },
       "claims_close": 10498.081943,
       "gini": 0.937039,
       "issued": 10398.081943,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.5,
       "ret_l2": 0.0,
       "support": 13.899917,
@@ -237,9 +2317,54 @@
       "top1_wealth": 0.22479
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.5,
       "ret_l2": 0.0625,
       "support": 13.793858,
@@ -247,9 +2372,54 @@
       "top1_wealth": 0.229288
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937754,
+          "top1": 0.228162,
+          "top10": 0.998193,
+          "top1_per_seed": [
+            0.233831,
+            0.230378,
+            0.233927,
+            0.211171,
+            0.231501
+          ],
+          "total": 9150.955182
+        },
+        "claims_settled": {
+          "gini": 0.938041,
+          "top1": 0.239456,
+          "top10": 0.998061,
+          "top1_per_seed": [
+            0.234507,
+            0.283986,
+            0.235583,
+            0.211619,
+            0.231586
+          ],
+          "total": 9150.955182
+        },
+        "net_worth": {
+          "gini": 0.963456,
+          "top1": 0.492885,
+          "top10": 0.999569,
+          "top1_per_seed": [
+            0.486296,
+            0.613388,
+            0.468879,
+            0.44699,
+            0.448872
+          ],
+          "total": 41615.750367
+        }
+      },
       "claims_close": 9150.955182,
       "gini": 0.937754,
       "issued": 9050.955182,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.5,
       "ret_l2": 0.15,
       "support": 13.761619,
@@ -257,9 +2427,54 @@
       "top1_wealth": 0.228162
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937659,
+          "top1": 0.223892,
+          "top10": 0.998867,
+          "top1_per_seed": [
+            0.234725,
+            0.229606,
+            0.234971,
+            0.191321,
+            0.228836
+          ],
+          "total": 7595.318346
+        },
+        "claims_settled": {
+          "gini": 0.937647,
+          "top1": 0.224313,
+          "top10": 0.999112,
+          "top1_per_seed": [
+            0.235796,
+            0.229831,
+            0.235297,
+            0.191559,
+            0.229081
+          ],
+          "total": 7595.318346
+        },
+        "net_worth": {
+          "gini": 0.963532,
+          "top1": 0.474377,
+          "top10": 0.999826,
+          "top1_per_seed": [
+            0.48573,
+            0.535542,
+            0.470671,
+            0.447889,
+            0.432055
+          ],
+          "total": 34537.707369
+        }
+      },
       "claims_close": 7595.318346,
       "gini": 0.937659,
       "issued": 7495.318346,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.5,
       "ret_l2": 0.3,
       "support": 13.796164,
@@ -267,9 +2482,54 @@
       "top1_wealth": 0.223892
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.938215,
+          "top1": 0.225454,
+          "top10": 0.999531,
+          "top1_per_seed": [
+            0.235759,
+            0.231637,
+            0.237441,
+            0.1934,
+            0.229034
+          ],
+          "total": 10643.922666
+        },
+        "claims_settled": {
+          "gini": 0.937241,
+          "top1": 0.231748,
+          "top10": 0.998611,
+          "top1_per_seed": [
+            0.266779,
+            0.231751,
+            0.237599,
+            0.193551,
+            0.229058
+          ],
+          "total": 10643.922666
+        },
+        "net_worth": {
+          "gini": 0.964314,
+          "top1": 0.484193,
+          "top10": 0.999721,
+          "top1_per_seed": [
+            0.531343,
+            0.465446,
+            0.470152,
+            0.457674,
+            0.496352
+          ],
+          "total": 48550.687017
+        }
+      },
       "claims_close": 10643.922666,
       "gini": 0.938215,
       "issued": 10543.922666,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.65,
       "ret_l2": 0.0,
       "support": 13.783644,
@@ -277,9 +2537,54 @@
       "top1_wealth": 0.225454
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.93795,
+          "top1": 0.224613,
+          "top10": 0.99942,
+          "top1_per_seed": [
+            0.235721,
+            0.231644,
+            0.238351,
+            0.192169,
+            0.225182
+          ],
+          "total": 10081.033837
+        },
+        "claims_settled": {
+          "gini": 0.937069,
+          "top1": 0.230969,
+          "top10": 0.998611,
+          "top1_per_seed": [
+            0.266748,
+            0.23177,
+            0.238533,
+            0.192307,
+            0.225487
+          ],
+          "total": 10081.033837
+        },
+        "net_worth": {
+          "gini": 0.963685,
+          "top1": 0.482431,
+          "top10": 0.999721,
+          "top1_per_seed": [
+            0.531341,
+            0.465451,
+            0.470322,
+            0.437254,
+            0.507787
+          ],
+          "total": 45794.535878
+        }
+      },
       "claims_close": 10081.033837,
       "gini": 0.93795,
       "issued": 9981.033837,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.65,
       "ret_l2": 0.0625,
       "support": 13.789374,
@@ -287,9 +2592,54 @@
       "top1_wealth": 0.224613
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937505,
+          "top1": 0.223265,
+          "top10": 0.998835,
+          "top1_per_seed": [
+            0.237623,
+            0.22839,
+            0.237667,
+            0.192853,
+            0.219794
+          ],
+          "total": 9161.321753
+        },
+        "claims_settled": {
+          "gini": 0.93789,
+          "top1": 0.222457,
+          "top10": 0.999781,
+          "top1_per_seed": [
+            0.232445,
+            0.22868,
+            0.237868,
+            0.193076,
+            0.220216
+          ],
+          "total": 9161.321753
+        },
+        "net_worth": {
+          "gini": 0.965834,
+          "top1": 0.511137,
+          "top10": 0.999957,
+          "top1_per_seed": [
+            0.534765,
+            0.556185,
+            0.469293,
+            0.502714,
+            0.492727
+          ],
+          "total": 41769.815296
+        }
+      },
       "claims_close": 9161.321753,
       "gini": 0.937505,
       "issued": 9061.321753,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.65,
       "ret_l2": 0.15,
       "support": 13.882104,
@@ -297,9 +2647,54 @@
       "top1_wealth": 0.223265
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936838,
+          "top1": 0.222733,
+          "top10": 0.997629,
+          "top1_per_seed": [
+            0.234768,
+            0.215874,
+            0.237345,
+            0.193866,
+            0.23181
+          ],
+          "total": 7596.230942
+        },
+        "claims_settled": {
+          "gini": 0.937645,
+          "top1": 0.224603,
+          "top10": 0.998973,
+          "top1_per_seed": [
+            0.23608,
+            0.216967,
+            0.243244,
+            0.194051,
+            0.232674
+          ],
+          "total": 7596.230942
+        },
+        "net_worth": {
+          "gini": 0.965436,
+          "top1": 0.511948,
+          "top10": 0.999764,
+          "top1_per_seed": [
+            0.534561,
+            0.552276,
+            0.472924,
+            0.4297,
+            0.570281
+          ],
+          "total": 34545.230946
+        }
+      },
       "claims_close": 7596.230942,
       "gini": 0.936838,
       "issued": 7496.230942,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.65,
       "ret_l2": 0.3,
       "support": 13.860135,
@@ -307,9 +2702,54 @@
       "top1_wealth": 0.222733
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.938541,
+          "top1": 0.236366,
+          "top10": 0.998099,
+          "top1_per_seed": [
+            0.236687,
+            0.237434,
+            0.242524,
+            0.198124,
+            0.267061
+          ],
+          "total": 10544.441562
+        },
+        "claims_settled": {
+          "gini": 0.938771,
+          "top1": 0.235616,
+          "top10": 0.999385,
+          "top1_per_seed": [
+            0.236868,
+            0.237588,
+            0.242685,
+            0.193285,
+            0.267653
+          ],
+          "total": 10544.441562
+        },
+        "net_worth": {
+          "gini": 0.968078,
+          "top1": 0.554925,
+          "top10": 0.999846,
+          "top1_per_seed": [
+            0.583453,
+            0.659873,
+            0.472575,
+            0.537313,
+            0.521409
+          ],
+          "total": 48162.821193
+        }
+      },
       "claims_close": 10544.441562,
       "gini": 0.938541,
       "issued": 10444.441562,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.8,
       "ret_l2": 0.0,
       "support": 14.031197,
@@ -317,9 +2757,54 @@
       "top1_wealth": 0.236366
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.93847,
+          "top1": 0.238692,
+          "top10": 0.998855,
+          "top1_per_seed": [
+            0.238304,
+            0.237248,
+            0.244625,
+            0.245246,
+            0.228035
+          ],
+          "total": 10059.243814
+        },
+        "claims_settled": {
+          "gini": 0.938125,
+          "top1": 0.252196,
+          "top10": 0.99736,
+          "top1_per_seed": [
+            0.238506,
+            0.302384,
+            0.244796,
+            0.24711,
+            0.228183
+          ],
+          "total": 10059.243814
+        },
+        "net_worth": {
+          "gini": 0.967873,
+          "top1": 0.554498,
+          "top10": 0.999321,
+          "top1_per_seed": [
+            0.583776,
+            0.664288,
+            0.515628,
+            0.551974,
+            0.456824
+          ],
+          "total": 45785.357398
+        }
+      },
       "claims_close": 10059.243814,
       "gini": 0.93847,
       "issued": 9959.243814,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.8,
       "ret_l2": 0.0625,
       "support": 14.039687,
@@ -327,9 +2812,54 @@
       "top1_wealth": 0.238692
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.938715,
+          "top1": 0.236336,
+          "top10": 0.999408,
+          "top1_per_seed": [
+            0.242807,
+            0.241859,
+            0.242509,
+            0.200827,
+            0.25368
+          ],
+          "total": 9157.76609
+        },
+        "claims_settled": {
+          "gini": 0.937448,
+          "top1": 0.238462,
+          "top10": 0.997257,
+          "top1_per_seed": [
+            0.243039,
+            0.241914,
+            0.237751,
+            0.206129,
+            0.263476
+          ],
+          "total": 9157.76609
+        },
+        "net_worth": {
+          "gini": 0.967166,
+          "top1": 0.55117,
+          "top10": 0.999357,
+          "top1_per_seed": [
+            0.581505,
+            0.699154,
+            0.474466,
+            0.482291,
+            0.518433
+          ],
+          "total": 41675.716624
+        }
+      },
       "claims_close": 9157.76609,
       "gini": 0.938715,
       "issued": 9057.76609,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.8,
       "ret_l2": 0.15,
       "support": 13.849721,
@@ -337,9 +2867,54 @@
       "top1_wealth": 0.236336
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.9403,
+          "top1": 0.25241,
+          "top10": 0.999287,
+          "top1_per_seed": [
+            0.239612,
+            0.256417,
+            0.243473,
+            0.245436,
+            0.277111
+          ],
+          "total": 7550.80498
+        },
+        "claims_settled": {
+          "gini": 0.939581,
+          "top1": 0.252052,
+          "top10": 0.998956,
+          "top1_per_seed": [
+            0.239979,
+            0.253683,
+            0.243812,
+            0.245506,
+            0.277281
+          ],
+          "total": 7550.80498
+        },
+        "net_worth": {
+          "gini": 0.969284,
+          "top1": 0.565021,
+          "top10": 0.999755,
+          "top1_per_seed": [
+            0.588003,
+            0.7235,
+            0.520079,
+            0.527564,
+            0.465959
+          ],
+          "total": 34337.255399
+        }
+      },
       "claims_close": 7550.80498,
       "gini": 0.9403,
       "issued": 7450.80498,
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "ret_l1": 0.8,
       "ret_l2": 0.3,
       "support": 13.625043,
@@ -350,230 +2925,1265 @@
   "stage": "A2d",
   "structure_grid": [
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.953532,
+          "top1": 0.278134,
+          "top10": 0.991836,
+          "top1_per_seed": [
+            0.283024,
+            0.275423,
+            0.267794,
+            0.290193,
+            0.274238
+          ],
+          "total": 8347.439216
+        },
+        "claims_settled": {
+          "gini": 0.952836,
+          "top1": 0.292523,
+          "top10": 0.993148,
+          "top1_per_seed": [
+            0.292843,
+            0.279488,
+            0.320883,
+            0.294888,
+            0.274514
+          ],
+          "total": 8347.439216
+        },
+        "net_worth": {
+          "gini": 0.965348,
+          "top1": 0.440501,
+          "top10": 0.997021,
+          "top1_per_seed": [
+            0.330594,
+            0.628866,
+            0.41292,
+            0.431473,
+            0.398651
+          ],
+          "total": 19566.87605
+        }
+      },
       "claims_close": 8347.439216,
       "gini": 0.953532,
       "issued": 8247.439216,
       "knob": "layer1_size",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 9.342889,
       "top10_wealth": 0.991836,
       "top1_wealth": 0.278134,
       "value": 10
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.947691,
+          "top1": 0.240056,
+          "top10": 0.998968,
+          "top1_per_seed": [
+            0.21663,
+            0.271758,
+            0.248414,
+            0.221325,
+            0.242153
+          ],
+          "total": 9608.353433
+        },
+        "claims_settled": {
+          "gini": 0.948101,
+          "top1": 0.240379,
+          "top10": 0.999803,
+          "top1_per_seed": [
+            0.216967,
+            0.272537,
+            0.248578,
+            0.221453,
+            0.242361
+          ],
+          "total": 9608.353433
+        },
+        "net_worth": {
+          "gini": 0.968231,
+          "top1": 0.498366,
+          "top10": 0.999938,
+          "top1_per_seed": [
+            0.375076,
+            0.537262,
+            0.547718,
+            0.475795,
+            0.555977
+          ],
+          "total": 32318.589468
+        }
+      },
       "claims_close": 9608.353433,
       "gini": 0.947691,
       "issued": 9508.353433,
       "knob": "layer1_size",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 11.62519,
       "top10_wealth": 0.998968,
       "top1_wealth": 0.240056,
       "value": 15
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
       "knob": "layer1_size",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.793858,
       "top10_wealth": 0.998616,
       "top1_wealth": 0.229288,
       "value": 20
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.908035,
+          "top1": 0.15378,
+          "top10": 0.91337,
+          "top1_per_seed": [
+            0.139216,
+            0.166077,
+            0.154474,
+            0.168209,
+            0.140926
+          ],
+          "total": 8963.155885
+        },
+        "claims_settled": {
+          "gini": 0.907323,
+          "top1": 0.154068,
+          "top10": 0.912147,
+          "top1_per_seed": [
+            0.139654,
+            0.166506,
+            0.154578,
+            0.168521,
+            0.14108
+          ],
+          "total": 8963.155885
+        },
+        "net_worth": {
+          "gini": 0.949193,
+          "top1": 0.300038,
+          "top10": 0.987853,
+          "top1_per_seed": [
+            0.226489,
+            0.308388,
+            0.320819,
+            0.349383,
+            0.29511
+          ],
+          "total": 74117.600297
+        }
+      },
       "claims_close": 8963.155885,
       "gini": 0.908035,
       "issued": 8863.155885,
       "knob": "layer1_size",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 20.551376,
       "top10_wealth": 0.91337,
       "top1_wealth": 0.15378,
       "value": 30
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.894737,
+          "top1": 0.156234,
+          "top10": 0.842272,
+          "top1_per_seed": [
+            0.178052,
+            0.128129,
+            0.136613,
+            0.20989,
+            0.128486
+          ],
+          "total": 8110.252235
+        },
+        "claims_settled": {
+          "gini": 0.89371,
+          "top1": 0.160525,
+          "top10": 0.841331,
+          "top1_per_seed": [
+            0.193316,
+            0.128323,
+            0.136668,
+            0.215535,
+            0.128783
+          ],
+          "total": 8110.252235
+        },
+        "net_worth": {
+          "gini": 0.943746,
+          "top1": 0.272703,
+          "top10": 0.96087,
+          "top1_per_seed": [
+            0.223543,
+            0.297906,
+            0.218751,
+            0.321071,
+            0.302242
+          ],
+          "total": 81215.09364
+        }
+      },
       "claims_close": 8110.252235,
       "gini": 0.894737,
       "issued": 8010.252235,
       "knob": "layer1_size",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 22.857891,
       "top10_wealth": 0.842272,
       "top1_wealth": 0.156234,
       "value": 40
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.95112,
+          "top1": 0.307687,
+          "top10": 0.998479,
+          "top1_per_seed": [
+            0.238387,
+            0.33922,
+            0.302571,
+            0.385962,
+            0.272295
+          ],
+          "total": 9687.355532
+        },
+        "claims_settled": {
+          "gini": 0.950272,
+          "top1": 0.308249,
+          "top10": 0.998248,
+          "top1_per_seed": [
+            0.238604,
+            0.339906,
+            0.303658,
+            0.386162,
+            0.272913
+          ],
+          "total": 9687.355532
+        },
+        "net_worth": {
+          "gini": 0.968386,
+          "top1": 0.561525,
+          "top10": 0.999628,
+          "top1_per_seed": [
+            0.434886,
+            0.437886,
+            0.7054,
+            0.745377,
+            0.484076
+          ],
+          "total": 48224.787599
+        }
+      },
       "claims_close": 9687.355532,
       "gini": 0.95112,
       "issued": 9587.355532,
       "knob": "layer1_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 10.402235,
       "top10_wealth": 0.998479,
       "top1_wealth": 0.307687,
       "value": 3
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.95028,
+          "top1": 0.275566,
+          "top10": 0.998729,
+          "top1_per_seed": [
+            0.319953,
+            0.282085,
+            0.221381,
+            0.290393,
+            0.26402
+          ],
+          "total": 9639.735068
+        },
+        "claims_settled": {
+          "gini": 0.949858,
+          "top1": 0.275015,
+          "top10": 0.998665,
+          "top1_per_seed": [
+            0.320238,
+            0.282778,
+            0.221641,
+            0.286226,
+            0.26419
+          ],
+          "total": 9639.735068
+        },
+        "net_worth": {
+          "gini": 0.969472,
+          "top1": 0.544159,
+          "top10": 0.999662,
+          "top1_per_seed": [
+            0.570725,
+            0.586023,
+            0.35748,
+            0.659823,
+            0.546743
+          ],
+          "total": 40415.178925
+        }
+      },
       "claims_close": 9639.735068,
       "gini": 0.95028,
       "issued": 9539.735068,
       "knob": "layer1_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 10.885228,
       "top10_wealth": 0.998729,
       "top1_wealth": 0.275566,
       "value": 4
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
       "knob": "layer1_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.793858,
       "top10_wealth": 0.998616,
       "top1_wealth": 0.229288,
       "value": 6
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.930433,
+          "top1": 0.184981,
+          "top10": 0.99866,
+          "top1_per_seed": [
+            0.185672,
+            0.193327,
+            0.169871,
+            0.189632,
+            0.186404
+          ],
+          "total": 10062.965041
+        },
+        "claims_settled": {
+          "gini": 0.930347,
+          "top1": 0.18629,
+          "top10": 0.999103,
+          "top1_per_seed": [
+            0.185775,
+            0.1936,
+            0.175004,
+            0.190498,
+            0.186571
+          ],
+          "total": 10062.965041
+        },
+        "net_worth": {
+          "gini": 0.957869,
+          "top1": 0.412123,
+          "top10": 0.999836,
+          "top1_per_seed": [
+            0.477277,
+            0.318052,
+            0.463217,
+            0.333425,
+            0.468643
+          ],
+          "total": 50462.490727
+        }
+      },
       "claims_close": 10062.965041,
       "gini": 0.930433,
       "issued": 9962.965041,
       "knob": "layer1_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 15.582866,
       "top10_wealth": 0.99866,
       "top1_wealth": 0.184981,
       "value": 8
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.924818,
+          "top1": 0.163404,
+          "top10": 0.998789,
+          "top1_per_seed": [
+            0.151337,
+            0.165564,
+            0.168124,
+            0.166274,
+            0.165722
+          ],
+          "total": 10667.275787
+        },
+        "claims_settled": {
+          "gini": 0.925498,
+          "top1": 0.163775,
+          "top10": 0.999925,
+          "top1_per_seed": [
+            0.151483,
+            0.166749,
+            0.168283,
+            0.166492,
+            0.16587
+          ],
+          "total": 10667.275787
+        },
+        "net_worth": {
+          "gini": 0.960663,
+          "top1": 0.484081,
+          "top10": 0.999984,
+          "top1_per_seed": [
+            0.485582,
+            0.463434,
+            0.418781,
+            0.589967,
+            0.462643
+          ],
+          "total": 50865.444286
+        }
+      },
       "claims_close": 10667.275787,
       "gini": 0.924818,
       "issued": 10567.275787,
       "knob": "layer1_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 16.792566,
       "top10_wealth": 0.998789,
       "top1_wealth": 0.163404,
       "value": 10
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.93781,
+          "top1": 0.224554,
+          "top10": 0.998813,
+          "top1_per_seed": [
+            0.231851,
+            0.229774,
+            0.235791,
+            0.191716,
+            0.23364
+          ],
+          "total": 9043.86752
+        },
+        "claims_settled": {
+          "gini": 0.937838,
+          "top1": 0.224964,
+          "top10": 0.999348,
+          "top1_per_seed": [
+            0.231952,
+            0.229935,
+            0.2367,
+            0.191875,
+            0.234358
+          ],
+          "total": 9043.86752
+        },
+        "net_worth": {
+          "gini": 0.958166,
+          "top1": 0.446244,
+          "top10": 0.997699,
+          "top1_per_seed": [
+            0.301273,
+            0.451606,
+            0.516958,
+            0.490378,
+            0.471006
+          ],
+          "total": 46145.076151
+        }
+      },
       "claims_close": 9043.86752,
       "gini": 0.93781,
       "issued": 8943.86752,
       "knob": "layer2_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.795782,
       "top10_wealth": 0.998813,
       "top1_wealth": 0.224554,
       "value": 2
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
       "knob": "layer2_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.793858,
       "top10_wealth": 0.998616,
       "top1_wealth": 0.229288,
       "value": 3
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.938176,
+          "top1": 0.225079,
+          "top10": 0.999521,
+          "top1_per_seed": [
+            0.231707,
+            0.235636,
+            0.235479,
+            0.189645,
+            0.232928
+          ],
+          "total": 10912.426019
+        },
+        "claims_settled": {
+          "gini": 0.938443,
+          "top1": 0.225252,
+          "top10": 1.0,
+          "top1_per_seed": [
+            0.231909,
+            0.235761,
+            0.235703,
+            0.189787,
+            0.2331
+          ],
+          "total": 10912.426019
+        },
+        "net_worth": {
+          "gini": 0.962146,
+          "top1": 0.452287,
+          "top10": 1.0,
+          "top1_per_seed": [
+            0.510721,
+            0.376082,
+            0.498618,
+            0.446267,
+            0.429749
+          ],
+          "total": 48424.883826
+        }
+      },
       "claims_close": 10912.426019,
       "gini": 0.938176,
       "issued": 10812.426019,
       "knob": "layer2_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.752081,
       "top10_wealth": 0.999521,
       "top1_wealth": 0.225079,
       "value": 4
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937269,
+          "top1": 0.230545,
+          "top10": 0.997535,
+          "top1_per_seed": [
+            0.231604,
+            0.230329,
+            0.238238,
+            0.220313,
+            0.23224
+          ],
+          "total": 11236.868858
+        },
+        "claims_settled": {
+          "gini": 0.934302,
+          "top1": 0.24177,
+          "top10": 0.99482,
+          "top1_per_seed": [
+            0.231812,
+            0.283193,
+            0.238348,
+            0.223144,
+            0.232354
+          ],
+          "total": 11236.868858
+        },
+        "net_worth": {
+          "gini": 0.958861,
+          "top1": 0.402606,
+          "top10": 0.998962,
+          "top1_per_seed": [
+            0.413887,
+            0.301163,
+            0.389885,
+            0.353536,
+            0.554559
+          ],
+          "total": 51645.851269
+        }
+      },
       "claims_close": 11236.868858,
       "gini": 0.937269,
       "issued": 11136.868858,
       "knob": "layer2_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.831798,
       "top10_wealth": 0.997535,
       "top1_wealth": 0.230545,
       "value": 6
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936998,
+          "top1": 0.230266,
+          "top10": 0.99666,
+          "top1_per_seed": [
+            0.238392,
+            0.238448,
+            0.235408,
+            0.191401,
+            0.24768
+          ],
+          "total": 11835.555375
+        },
+        "claims_settled": {
+          "gini": 0.936866,
+          "top1": 0.234135,
+          "top10": 0.997682,
+          "top1_per_seed": [
+            0.238992,
+            0.242648,
+            0.235637,
+            0.191543,
+            0.261855
+          ],
+          "total": 11835.555375
+        },
+        "net_worth": {
+          "gini": 0.960383,
+          "top1": 0.418629,
+          "top10": 0.999366,
+          "top1_per_seed": [
+            0.475636,
+            0.422658,
+            0.473811,
+            0.314947,
+            0.406095
+          ],
+          "total": 51751.262837
+        }
+      },
       "claims_close": 11835.555375,
       "gini": 0.936998,
       "issued": 11735.555375,
       "knob": "upward_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.844311,
       "top10_wealth": 0.99666,
       "top1_wealth": 0.230266,
       "value": 1
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
       "knob": "upward_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.793858,
       "top10_wealth": 0.998616,
       "top1_wealth": 0.229288,
       "value": 2
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937885,
+          "top1": 0.225223,
+          "top10": 0.998721,
+          "top1_per_seed": [
+            0.232863,
+            0.229638,
+            0.235375,
+            0.195085,
+            0.233155
+          ],
+          "total": 8760.854083
+        },
+        "claims_settled": {
+          "gini": 0.937295,
+          "top1": 0.226663,
+          "top10": 0.998491,
+          "top1_per_seed": [
+            0.238088,
+            0.229848,
+            0.235552,
+            0.196284,
+            0.233543
+          ],
+          "total": 8760.854083
+        },
+        "net_worth": {
+          "gini": 0.962912,
+          "top1": 0.480265,
+          "top10": 0.999709,
+          "top1_per_seed": [
+            0.600609,
+            0.563179,
+            0.4548,
+            0.343947,
+            0.438792
+          ],
+          "total": 40327.054373
+        }
+      },
       "claims_close": 8760.854083,
       "gini": 0.937885,
       "issued": 8660.854083,
       "knob": "upward_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.802719,
       "top10_wealth": 0.998721,
       "top1_wealth": 0.225223,
       "value": 3
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937924,
+          "top1": 0.225253,
+          "top10": 0.99897,
+          "top1_per_seed": [
+            0.233752,
+            0.232592,
+            0.234513,
+            0.191943,
+            0.233467
+          ],
+          "total": 7732.82417
+        },
+        "claims_settled": {
+          "gini": 0.93758,
+          "top1": 0.224898,
+          "top10": 0.99906,
+          "top1_per_seed": [
+            0.234006,
+            0.233274,
+            0.231533,
+            0.19211,
+            0.233568
+          ],
+          "total": 7732.82417
+        },
+        "net_worth": {
+          "gini": 0.961502,
+          "top1": 0.439468,
+          "top10": 0.999798,
+          "top1_per_seed": [
+            0.476508,
+            0.554277,
+            0.456738,
+            0.323867,
+            0.385951
+          ],
+          "total": 34631.490237
+        }
+      },
       "claims_close": 7732.82417,
       "gini": 0.937924,
       "issued": 7632.82417,
       "knob": "upward_out_degree",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.775946,
       "top10_wealth": 0.99897,
       "top1_wealth": 0.225253,
       "value": 4
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937357,
+          "top1": 0.221531,
+          "top10": 0.998457,
+          "top1_per_seed": [
+            0.231961,
+            0.224742,
+            0.235216,
+            0.191035,
+            0.224699
+          ],
+          "total": 9182.106845
+        },
+        "claims_settled": {
+          "gini": 0.93694,
+          "top1": 0.222893,
+          "top10": 0.998446,
+          "top1_per_seed": [
+            0.232698,
+            0.230287,
+            0.235279,
+            0.19119,
+            0.225009
+          ],
+          "total": 9182.106845
+        },
+        "net_worth": {
+          "gini": 0.944122,
+          "top1": 0.255856,
+          "top10": 0.975846,
+          "top1_per_seed": [
+            0.311012,
+            0.254148,
+            0.173033,
+            0.311988,
+            0.2291
+          ],
+          "total": 88918.10341
+        }
+      },
       "claims_close": 9182.106845,
       "gini": 0.937357,
       "issued": 9082.106845,
       "knob": "layer1_initial_share",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.834851,
       "top10_wealth": 0.998457,
       "top1_wealth": 0.221531,
       "value": 0.5
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937742,
+          "top1": 0.221072,
+          "top10": 0.999215,
+          "top1_per_seed": [
+            0.2336,
+            0.215634,
+            0.235149,
+            0.190962,
+            0.230013
+          ],
+          "total": 10060.848234
+        },
+        "claims_settled": {
+          "gini": 0.93463,
+          "top1": 0.233457,
+          "top10": 0.995938,
+          "top1_per_seed": [
+            0.234608,
+            0.271009,
+            0.235333,
+            0.191131,
+            0.235204
+          ],
+          "total": 10060.848234
+        },
+        "net_worth": {
+          "gini": 0.953274,
+          "top1": 0.354867,
+          "top10": 0.997444,
+          "top1_per_seed": [
+            0.396311,
+            0.349156,
+            0.263724,
+            0.403874,
+            0.361271
+          ],
+          "total": 60659.655092
+        }
+      },
       "claims_close": 10060.848234,
       "gini": 0.937742,
       "issued": 9960.848234,
       "knob": "layer1_initial_share",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.804342,
       "top10_wealth": 0.999215,
       "top1_wealth": 0.221072,
       "value": 0.6
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937993,
+          "top1": 0.229288,
+          "top10": 0.998616,
+          "top1_per_seed": [
+            0.231507,
+            0.258858,
+            0.234673,
+            0.190852,
+            0.23055
+          ],
+          "total": 9945.768575
+        },
+        "claims_settled": {
+          "gini": 0.93822,
+          "top1": 0.230777,
+          "top10": 0.999397,
+          "top1_per_seed": [
+            0.232563,
+            0.259713,
+            0.234885,
+            0.191064,
+            0.235661
+          ],
+          "total": 9945.768575
+        },
+        "net_worth": {
+          "gini": 0.963157,
+          "top1": 0.465678,
+          "top10": 0.999864,
+          "top1_per_seed": [
+            0.485132,
+            0.454715,
+            0.47329,
+            0.496237,
+            0.419016
+          ],
+          "total": 45361.113043
+        }
+      },
       "claims_close": 9945.768575,
       "gini": 0.937993,
       "issued": 9845.768575,
       "knob": "layer1_initial_share",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.793858,
       "top10_wealth": 0.998616,
       "top1_wealth": 0.229288,
       "value": 0.679
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.937433,
+          "top1": 0.229563,
+          "top10": 0.997369,
+          "top1_per_seed": [
+            0.259857,
+            0.230249,
+            0.235323,
+            0.191511,
+            0.230874
+          ],
+          "total": 9730.016502
+        },
+        "claims_settled": {
+          "gini": 0.934353,
+          "top1": 0.246403,
+          "top10": 0.994149,
+          "top1_per_seed": [
+            0.263119,
+            0.266835,
+            0.235567,
+            0.235518,
+            0.230975
+          ],
+          "total": 9730.016502
+        },
+        "net_worth": {
+          "gini": 0.961706,
+          "top1": 0.473134,
+          "top10": 0.998261,
+          "top1_per_seed": [
+            0.460851,
+            0.454191,
+            0.527059,
+            0.390787,
+            0.532784
+          ],
+          "total": 36225.555173
+        }
+      },
       "claims_close": 9730.016502,
       "gini": 0.937433,
       "issued": 9630.016502,
       "knob": "layer1_initial_share",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.707782,
       "top10_wealth": 0.997369,
       "top1_wealth": 0.229563,
       "value": 0.75
     },
     {
+      "accounts": {
+        "claims_recorded": {
+          "gini": 0.936528,
+          "top1": 0.230259,
+          "top10": 0.996649,
+          "top1_per_seed": [
+            0.233483,
+            0.230168,
+            0.242583,
+            0.191984,
+            0.253075
+          ],
+          "total": 8207.488025
+        },
+        "claims_settled": {
+          "gini": 0.935597,
+          "top1": 0.230112,
+          "top10": 0.996861,
+          "top1_per_seed": [
+            0.233793,
+            0.230348,
+            0.244358,
+            0.192152,
+            0.249909
+          ],
+          "total": 8207.488025
+        },
+        "net_worth": {
+          "gini": 0.963946,
+          "top1": 0.528676,
+          "top10": 0.998777,
+          "top1_per_seed": [
+            0.647509,
+            0.43749,
+            0.683571,
+            0.504643,
+            0.370167
+          ],
+          "total": 21618.45236
+        }
+      },
       "claims_close": 8207.488025,
       "gini": 0.936528,
       "issued": 8107.488025,
       "knob": "layer1_initial_share",
+      "recorded_row_is_end_state_runs": [
+        0,
+        5
+      ],
       "support": 13.976353,
       "top10_wealth": 0.996649,
       "top1_wealth": 0.230259,

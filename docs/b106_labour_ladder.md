@@ -5,7 +5,9 @@
 B2A reads dispersion at a position: two loans in the same cell at different
 rates, a within-cell share of `0.7831`. That is an `H0` statement. Its borrowers
 carry no labels, so there is no "the same class at another position" to compare
-against, and a square cannot be formed.
+against, and a square cannot be formed. This is the dispersion reading, with the cell as
+the position; [`b0_claim_scope.md`](b0_claim_scope.md) §5 keeps it beside the square
+reading, which takes the dwelling as the position under A1.
 
 The labour accounts module of EU KLEMS labels them. At every position (country,
 industry, year) it reports, for each of 3 education by 3 age by 2 gender cells,
@@ -73,7 +75,7 @@ The broken pairing answers the statistic itself. Neither is the source.
 
 Residual standard deviation by the class's own employment share, thinnest decile
 to thickest: `0.6894, 0.3987, 0.3419, 0.3177, 0.2845, 0.2666, 0.2505, 0.2558,
-0.2496, 0.2265`. A fall of `3.04` times across a span of at least `22` times in
+0.2496, 0.2265`. A fall of `3.04` times across a span of at least `21.7` times in
 share, where sampling error alone would fall about `5` times, and it stops
 falling after the fifth decile. Thin cells carry noise; the `0.23` in the thick
 ones is not noise.

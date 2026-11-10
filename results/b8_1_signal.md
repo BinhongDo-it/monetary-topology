@@ -69,6 +69,8 @@ Not part of §5's B8-1, which names the modification triangle. Printed because i
 
 ## 5. The verdict
 
+**§21.4's third row fired, not its first.** Leg 1 is not equal to its closed form loop by loop (the best archive matches 12.0% of loops), so the flat-delinquency assumption does not hold on the real file and **that is a registered unexplained reading**, resolved in `docs/b8_fannie_slice.md` §21.6 as a month count and not a proportion. It does not endanger what follows: the quantity section 3 subtracts is **larger** than the measured leg 1, so more than the artefact was removed and the ratio held. **Every citation of B8-1 carries this sentence.**
+
 | archives | net ratio above 1 | min | max | **B8-1 necessary condition** |
 |---|---|---|---|---|
 | 6 | 6 | 2,135,051.8 | 6,632,538.5 | **holds** |

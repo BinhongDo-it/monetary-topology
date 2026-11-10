@@ -18,70 +18,94 @@
    "passed": true
   },
   {
-   "detail": "12/12 caps equal 2013 median x 1.134 to the cent",
+   "detail": "12/12 2013 bases follow from their printed derivation (5 as printed, 5 less an equipment difference, 1 weighted West and East, 1 plus the new-build supplement); 12/12 caps equal base x 1.134 to the cent",
    "kind": "instrument",
    "name": "B129-1b",
    "object": {
     "rows": {
      "1": {
+      "base_2013": 5.69,
+      "base_from_derivation": 5.69,
+      "base_x_factor": 6.45,
       "cap": 6.45,
-      "median_2013": 5.69,
-      "median_x_factor": 6.45
+      "derivation": "printed"
      },
      "10": {
+      "base_2013": 5.33,
+      "base_from_derivation": 5.33,
+      "base_x_factor": 6.04,
       "cap": 6.04,
-      "median_2013": 5.33,
-      "median_x_factor": 6.04
+      "derivation": "weighted"
      },
      "11": {
+      "base_2013": 7.17,
+      "base_from_derivation": 7.17,
+      "base_x_factor": 8.13,
       "cap": 8.13,
-      "median_2013": 7.17,
-      "median_x_factor": 8.13
+      "derivation": "printed"
      },
      "12": {
+      "base_2013": 8.64,
+      "base_from_derivation": 8.64,
+      "base_x_factor": 9.8,
       "cap": 9.8,
-      "median_2013": 8.64,
-      "median_x_factor": 9.8
+      "derivation": "plus"
      },
      "2": {
+      "base_2013": 4.41,
+      "base_from_derivation": 4.41,
+      "base_x_factor": 5.0,
       "cap": 5.0,
-      "median_2013": 4.41,
-      "median_x_factor": 5.0
+      "derivation": "less"
      },
      "3": {
+      "base_2013": 3.46,
+      "base_from_derivation": 3.46,
+      "base_x_factor": 3.92,
       "cap": 3.92,
-      "median_2013": 3.46,
-      "median_x_factor": 3.92
+      "derivation": "less"
      },
      "4": {
+      "base_2013": 5.53,
+      "base_from_derivation": 5.53,
+      "base_x_factor": 6.27,
       "cap": 6.27,
-      "median_2013": 5.53,
-      "median_x_factor": 6.27
+      "derivation": "printed"
      },
      "5": {
+      "base_2013": 4.6,
+      "base_from_derivation": 4.6,
+      "base_x_factor": 5.22,
       "cap": 5.22,
-      "median_2013": 4.6,
-      "median_x_factor": 5.22
+      "derivation": "less"
      },
      "6": {
+      "base_2013": 4.05,
+      "base_from_derivation": 4.05,
+      "base_x_factor": 4.59,
       "cap": 4.59,
-      "median_2013": 4.05,
-      "median_x_factor": 4.59
+      "derivation": "less"
      },
      "7": {
+      "base_2013": 5.36,
+      "base_from_derivation": 5.36,
+      "base_x_factor": 6.08,
       "cap": 6.08,
-      "median_2013": 5.36,
-      "median_x_factor": 6.08
+      "derivation": "printed"
      },
      "8": {
+      "base_2013": 4.96,
+      "base_from_derivation": 4.96,
+      "base_x_factor": 5.62,
       "cap": 5.62,
-      "median_2013": 4.96,
-      "median_x_factor": 5.62
+      "derivation": "less"
      },
      "9": {
+      "base_2013": 5.25,
+      "base_from_derivation": 5.25,
+      "base_x_factor": 5.95,
       "cap": 5.95,
-      "median_2013": 5.25,
-      "median_x_factor": 5.95
+      "derivation": "printed"
      }
     }
    },
@@ -199,6 +223,12 @@
      "old falls more": true
     },
     "predicted_old_falls_more": true,
+    "variant_directions": [
+     "old",
+     "old",
+     "old",
+     "old"
+    ],
     "variant_votes": [
      true,
      true,
@@ -209,12 +239,26 @@
    "passed": true
   },
   {
-   "detail": "Deckel exempts first ready from 2014-01-01; Bremse exempts first used and let after 2014-10-01 (BGB §556f text found); dwellings first ready in [2014-01-01, 2014-10-01] sit outside the cap and inside the Bremse",
+   "detail": "the cap exempts dwellings first ready from 2014-01-01 (MietenWoG §1 Nr. 3, found); the Bremse exempts dwellings first used and let after 2014-10-01 (BGB §556f, found); the third class is a dwelling first ready on or after 2014-01-01 and first let on or before 2014-10-01, which exists; ready 2014-06-01 let 2014-09-01: in; ready 2014-06-01 let 2015-02-01: not in",
    "kind": "own_reading",
    "name": "B129-6",
    "object": {
+    "bremse_event": "first used and let (erstmals genutzt und vermietet)",
     "bremse_exempt_after": "2014-10-01",
-    "deckel_exempt_from": "2014-01-01"
+    "deckel_event": "first ready (erstmalig bezugsfertig)",
+    "deckel_exempt_from": "2014-01-01",
+    "examples": [
+     {
+      "first_let": "2014-09-01",
+      "first_ready": "2014-06-01",
+      "third_class": true
+     },
+     {
+      "first_let": "2015-02-01",
+      "first_ready": "2014-06-01",
+      "third_class": false
+     }
+    ]
    },
    "passed": true
   },
@@ -1209,6 +1253,7 @@
       "ab 1949": 1.0766,
       "bis 1948": 1.2364,
       "column_8": true,
+      "direction": "old",
       "old_further_above": true,
       "statistic": "upper",
       "summary": "mean_ratio"
@@ -1217,6 +1262,7 @@
       "ab 1949": 1.0697,
       "bis 1948": 1.2364,
       "column_8": false,
+      "direction": "old",
       "old_further_above": true,
       "statistic": "upper",
       "summary": "mean_ratio"
@@ -1225,6 +1271,7 @@
       "ab 1949": 0.6462,
       "bis 1948": 0.9167,
       "column_8": true,
+      "direction": "old",
       "old_further_above": true,
       "statistic": "upper",
       "summary": "share_above"
@@ -1233,6 +1280,7 @@
       "ab 1949": 0.6071,
       "bis 1948": 0.9167,
       "column_8": false,
+      "direction": "old",
       "old_further_above": true,
       "statistic": "upper",
       "summary": "share_above"

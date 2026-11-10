@@ -598,7 +598,7 @@ principal moved to the deferred balloon in `(63)`, anything forgiven in `(64)`. 
 and §3.2 already declared that in advance.
 
 **Leg 3, `modified → current`.** Nothing is re-contracted when a modified loan
-resumes performing; the delinquency status field simply returns to `00`. **The
+resumes performing; the delinquency status field simply returns to `00`. (The field counts months in two digits and tops out at `99`, ninety-nine months or more, which is a delinquent status and not a missing code; the unknown codes are `XX` and blank.) **The
 expectation is `ω₃ ≈ 0`, and it is measured rather than assumed**, because a HAMP
 trial period that converts to a permanent modification is a second re-contracting and
 would land here. If `ω₃` is materially non-zero in the HAMP window and near zero
@@ -1836,7 +1836,8 @@ agreeing to four significant figures.
 ```
 B8-0a(i): the clean-cure round trip returns `loop_residual_ideal(B0, i, P, k)`,
           within the quantile rounding of field 12 (half a cent over the balance,
-          about 3.0e-8). The gate's criterion is that error, not the loop sum.
+          3.0e-8 to 5.9e-8 by archive). The gate's criterion is that error, not
+          the loop sum.
 B8-0b:    `N = MAD(ω − closed)`, measured at 2.68e-08 to 5.22e-08.
 ```
 

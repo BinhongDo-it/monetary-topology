@@ -1,0 +1,1317 @@
+{
+ "config": {
+  "a_share_prefixes": [
+   "000",
+   "001",
+   "002",
+   "003",
+   "300",
+   "301",
+   "600",
+   "601",
+   "603",
+   "605",
+   "688",
+   "689"
+  ],
+  "bars_stocks": 2644,
+  "board_limits": "main 10%, ChiNext 10% then 20% from 2020-08-24, STAR 20%; main-board ST 5% on days the daily bar flags the stock, up to 2026-07-06; no bar that day: the board's limit",
+  "lift_lookback_days": 180,
+  "lock_class": "blocks matched to a five-per-cent holder's reduction stated as a block trade: a seller-side proxy. The six-month lock on the buyer also depends on where the shares came from (auction-bought shares are exempt), which the holder table does not carry",
+  "lock_years": 0.5,
+  "placebo_dates": 132,
+  "placebo_gap_days": 183,
+  "placebo_years": [
+   2012,
+   2025
+  ],
+  "remaining_years": [
+   0.5,
+   1.0,
+   3.0
+  ],
+  "sigma_windows": [
+   60,
+   120,
+   250
+  ],
+  "st_flag_stocks": 3970,
+  "tables": {
+   "rpt_data_blocktrade": "data/raw/b135/rpt_data_blocktrade/1990-01-01_2026-09-25_count_682649_ps500",
+   "rpt_executive_hold_details": "data/raw/b135/rpt_executive_hold_details/1990-01-01_2026-09-25_count_172171_ps500",
+   "rpt_share_holder_increase": "data/raw/b135/rpt_share_holder_increase/1990-01-01_2026-09-25_count_146688_ps500"
+  },
+  "unlocked_lookback_days": 365,
+  "windows_trading_days": [
+   20,
+   60,
+   120
+  ],
+  "yearbooks": "data/processed/b135_yearbooks.json"
+ },
+ "criteria": [
+  {
+   "detail": "332062 A-share blocks, largest ratio gap 5.0e-13; outside the day's limit 21 (13 on days the close itself is outside, 8 with the close inside); the day's ST flag is on disk for 125688 of them and takes out 998 more",
+   "kind": "instrument",
+   "name": "B135-1  the source's PREMIUM_RATIO is deal over close less one on every A-share block; blocks outside their board's price limit are named and left out",
+   "passed": true
+  },
+  {
+   "detail": "Shanghai 2011-2024, 14 years; outside the last printed digit in 12 ([2011, 2012, 2013, 2014, 2015, 2016, 2019, 2020, 2021, 2022, 2023, 2024]); trades differ by at most 22, amounts by at most 3.70 (100M yuan); Shenzhen source-missing every year",
+   "kind": "known_answer",
+   "name": "B135-2  yearly block trades against the exchange's own yearbook: Shanghai stocks, trades and amount; Shenzhen's fact books carry none",
+   "passed": false
+  },
+  {
+   "detail": "the windows disagree on sign or place; w 20: +0.0154, above 108 of 132 placebos; w 60: +0.0258, above 126 of 132 placebos; w 120: +0.0451, above 132 of 132 placebos",
+   "grid": "unread",
+   "grid_note": {
+    "B": "not claimed: the step is above every placebo on the 120-day window only",
+    "C": "not claimed: the step is positive on every window"
+   },
+   "kind": "rival",
+   "name": "B135-3  the 2017-05-27 step in the lock-buy proxy class's median discount, 20, 60 and 120 trading days, against the same statistic on every placebo month start",
+   "passed": null,
+   "rival_entailment": "a rule that changes only the buyer's class, not the stock, leaves the node's scalar where it was: no step in deal over close at 2017-05-27",
+   "rival_premise": "a scalar price on the node: one stock on one day is one position with one price, whoever buys",
+   "rival_shape": "point prediction (zero step)"
+  },
+  {
+   "detail": "15 steps, all finite",
+   "kind": "own_reading",
+   "name": "B135-4  the same step at 2016-01-09 and 2024-05-24 for both classes, and at 2017-05-27 for the unlocked class",
+   "passed": true
+  },
+  {
+   "detail": "30986 of 31962 usable blocks of the class have sigma on all three windows; above the bound: 60 days 159, 120 days 100, 250 days 17; the sign moves across windows on 204. From 2017-05-27, where a six-month lock exists: 25120 blocks, above the bound 60 days 158, 120 days 100, 250 days 16",
+   "kind": "own_reading",
+   "name": "B135-5  each block of the lock-buy proxy class: its discount against Longstaff's bound for six months, sigma over 60, 120 and 250 trading days, before and from the rule date apart",
+   "passed": true
+  },
+  {
+   "detail": "years 2012-2025; both exchanges read in 2012-2024; missing SSE 2025; the four valuations are parameter scenarios, one discount or one sigma for the whole amount: no stock's own locked value, sigma or remaining term enters them",
+   "kind": "own_reading",
+   "name": "B135-6  the borrowed amount: locked shares valued at the close, from the exchanges' own total and negotiable market values; and the same amount under four stated scenarios (the year's median lock-buy discount, or Longstaff's bound at the year's median sigma for half a year, one and three years, each applied to the whole amount)",
+   "passed": true
+  },
+  {
+   "detail": "682649 rows, keys unique; probe reproduction c1 same, c2 same, c2b same, c3 same",
+   "kind": "bookkeeping",
+   "name": "B135-7  every block one row, with its identity source and class; the array joins name the probe's blocks exactly on the probe snapshot",
+   "passed": true
+  }
+ ],
+ "objects": {
+  "B135-1": {
+   "kinds": {
+    "close also outside the limit": 13,
+    "close inside the limit": 8
+   },
+   "outside_limit": [
+    {
+     "CLOSE_PRICE": 4.88,
+     "DEAL_PRICE": 3.54,
+     "PRE_CLOSE_PRICE": 4.9,
+     "SECURITY_CODE": "601998",
+     "close_outside_limit": false,
+     "day": "2009-04-15"
+    },
+    {
+     "CLOSE_PRICE": 11.64,
+     "DEAL_PRICE": 10.2,
+     "PRE_CLOSE_PRICE": 11.45,
+     "SECURITY_CODE": "600410",
+     "close_outside_limit": false,
+     "day": "2009-08-26"
+    },
+    {
+     "CLOSE_PRICE": 21.11,
+     "DEAL_PRICE": 20.15,
+     "PRE_CLOSE_PRICE": 23.09,
+     "SECURITY_CODE": "000728",
+     "close_outside_limit": false,
+     "day": "2009-11-13"
+    },
+    {
+     "CLOSE_PRICE": 12.89,
+     "DEAL_PRICE": 11.36,
+     "PRE_CLOSE_PRICE": 12.9,
+     "SECURITY_CODE": "600674",
+     "close_outside_limit": false,
+     "day": "2012-03-22"
+    },
+    {
+     "CLOSE_PRICE": 12.89,
+     "DEAL_PRICE": 11.36,
+     "PRE_CLOSE_PRICE": 12.9,
+     "SECURITY_CODE": "600674",
+     "close_outside_limit": false,
+     "day": "2012-03-22"
+    },
+    {
+     "CLOSE_PRICE": 12.89,
+     "DEAL_PRICE": 11.36,
+     "PRE_CLOSE_PRICE": 12.9,
+     "SECURITY_CODE": "600674",
+     "close_outside_limit": false,
+     "day": "2012-03-22"
+    },
+    {
+     "CLOSE_PRICE": 12.89,
+     "DEAL_PRICE": 11.36,
+     "PRE_CLOSE_PRICE": 12.9,
+     "SECURITY_CODE": "600674",
+     "close_outside_limit": false,
+     "day": "2012-03-22"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.8,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.71,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.68,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.68,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.68,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.68,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.68,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 5.5,
+     "DEAL_PRICE": 2.68,
+     "PRE_CLOSE_PRICE": 3.82,
+     "SECURITY_CODE": "000757",
+     "close_outside_limit": true,
+     "day": "2013-02-08"
+    },
+    {
+     "CLOSE_PRICE": 4.55,
+     "DEAL_PRICE": 5.0,
+     "PRE_CLOSE_PRICE": 4.0,
+     "SECURITY_CODE": "601225",
+     "close_outside_limit": true,
+     "day": "2014-01-28"
+    },
+    {
+     "CLOSE_PRICE": 14.63,
+     "DEAL_PRICE": 12.19,
+     "PRE_CLOSE_PRICE": 10.16,
+     "SECURITY_CODE": "002715",
+     "close_outside_limit": true,
+     "day": "2014-02-19"
+    },
+    {
+     "CLOSE_PRICE": 10.17,
+     "DEAL_PRICE": 7.66,
+     "PRE_CLOSE_PRICE": 10.89,
+     "SECURITY_CODE": "600230",
+     "close_outside_limit": false,
+     "day": "2014-05-21"
+    },
+    {
+     "CLOSE_PRICE": 9.66,
+     "DEAL_PRICE": 5.0,
+     "PRE_CLOSE_PRICE": 3.88,
+     "SECURITY_CODE": "000751",
+     "close_outside_limit": true,
+     "day": "2014-08-06"
+    },
+    {
+     "CLOSE_PRICE": 35.9,
+     "DEAL_PRICE": 9.8,
+     "PRE_CLOSE_PRICE": 8.84,
+     "SECURITY_CODE": "000792",
+     "close_outside_limit": true,
+     "day": "2021-08-10"
+    },
+    {
+     "CLOSE_PRICE": 0.71,
+     "DEAL_PRICE": 1.28,
+     "PRE_CLOSE_PRICE": 1.73,
+     "SECURITY_CODE": "600291",
+     "close_outside_limit": true,
+     "day": "2022-05-17"
+    }
+   ],
+   "pinned_at_lower_limit": 67552,
+   "pinned_at_lower_limit_by_class": {
+    "lock": 9871,
+    "other": 30315,
+    "unlocked": 27366
+   },
+   "ratio_gap_max": 5.004885395e-13,
+   "st": {
+    "a_share_blocks": 332062,
+    "flagged_st": 2977,
+    "flagged_st_at_5pct": 2733,
+    "flagged_st_not_at_5pct": 244,
+    "made_usable_by_the_st_limit": 0,
+    "of_which_outside_the_5pct_limit": 0,
+    "of_which_pinned_at_the_5pct_limit": 998,
+    "taken_out_by_the_st_limit": {
+     "lock": 393,
+     "other": 75,
+     "unlocked": 530
+    },
+    "with_a_bar_that_day": 125688,
+    "without_a_bar_that_day": 206374
+   }
+  },
+  "B135-2": {
+   "outside_rounding": [
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+   ],
+   "sse": {
+    "2011": {
+     "ours_amount_a": 671.8719,
+     "ours_amount_b_as_stored": 4.7925,
+     "ours_trades": 2025,
+     "page": "volume 2013 page 25",
+     "sse_amount": 676.76,
+     "sse_trades": 2024
+    },
+    "2012": {
+     "ours_amount_a": 563.2737,
+     "ours_amount_b_as_stored": 1.9569,
+     "ours_trades": 1840,
+     "page": "volume 2013 page 25",
+     "sse_amount": 565.5,
+     "sse_trades": 1842
+    },
+    "2013": {
+     "ours_amount_a": 913.3951,
+     "ours_amount_b_as_stored": 0.6819,
+     "ours_trades": 2370,
+     "page": "volume 2015 page 25",
+     "sse_amount": 910.65,
+     "sse_trades": 2348
+    },
+    "2014": {
+     "ours_amount_a": 1366.2705,
+     "ours_amount_b_as_stored": 0.8978,
+     "ours_trades": 3207,
+     "page": "volume 2015 page 25",
+     "sse_amount": 1365.75,
+     "sse_trades": 3187
+    },
+    "2015": {
+     "ours_amount_a": 2895.3956,
+     "ours_amount_b_as_stored": 1.4541,
+     "ours_trades": 4150,
+     "page": "volume 2017 page 26",
+     "sse_amount": 2893.15,
+     "sse_trades": 4137
+    },
+    "2016": {
+     "ours_amount_a": 2699.4144,
+     "ours_amount_b_as_stored": 0.6722,
+     "ours_trades": 6279,
+     "page": "volume 2017 page 26",
+     "sse_amount": 2701.11,
+     "sse_trades": 6279
+    },
+    "2017": {
+     "ours_amount_a": 2082.7747,
+     "ours_amount_b_as_stored": 0.4686,
+     "ours_trades": 6169,
+     "page": "volume 2018 page 25",
+     "sse_amount": 2083.24,
+     "sse_trades": 6169
+    },
+    "2018": {
+     "ours_amount_a": 1593.2392,
+     "ours_amount_b_as_stored": 0.7123,
+     "ours_trades": 4531,
+     "page": "volume 2020 page 30",
+     "sse_amount": 1593.95,
+     "sse_trades": 4531
+    },
+    "2019": {
+     "ours_amount_a": 1727.5441,
+     "ours_amount_b_as_stored": 0.2937,
+     "ours_trades": 5319,
+     "page": "volume 2020 page 30",
+     "sse_amount": 1729.99,
+     "sse_trades": 5341
+    },
+    "2020": {
+     "ours_amount_a": 2410.5731,
+     "ours_amount_b_as_stored": 0.912,
+     "ours_trades": 10464,
+     "page": "volume 2021 page 30",
+     "sse_amount": 2411.83,
+     "sse_trades": 10462
+    },
+    "2021": {
+     "ours_amount_a": 3723.3624,
+     "ours_amount_b_as_stored": 0.0455,
+     "ours_trades": 16814,
+     "page": "volume 2023 page 29",
+     "sse_amount": 3724.47,
+     "sse_trades": 16817
+    },
+    "2022": {
+     "ours_amount_a": 3112.8632,
+     "ours_amount_b_as_stored": 0.041,
+     "ours_trades": 18336,
+     "page": "volume 2023 page 29",
+     "sse_amount": 3113.09,
+     "sse_trades": 18336
+    },
+    "2023": {
+     "ours_amount_a": 3100.2532,
+     "ours_amount_b_as_stored": 0.0337,
+     "ours_trades": 18535,
+     "page": "volume 2025 page 28",
+     "sse_amount": 3100.74,
+     "sse_trades": 18537
+    },
+    "2024": {
+     "ours_amount_a": 2066.9485,
+     "ours_amount_b_as_stored": 0.0799,
+     "ours_trades": 12661,
+     "page": "volume 2025 page 28",
+     "sse_amount": 2067.52,
+     "sse_trades": 12661
+    }
+   },
+   "szse": "source-missing"
+  },
+  "B135-3": {
+   "120": {
+    "above_all": true,
+    "below_all": false,
+    "first_after": "2017-05-31",
+    "median_after": 0.07489878543,
+    "median_before": 0.02984344423,
+    "n_after": 316,
+    "n_before": 674,
+    "placebo_max": 0.03396215133,
+    "placebo_min": -0.03132640175,
+    "placebo_n": 132,
+    "rank_above": 132,
+    "step": 0.0450553412
+   },
+   "20": {
+    "above_all": false,
+    "below_all": false,
+    "first_after": "2017-05-31",
+    "median_after": 0.04555605181,
+    "median_before": 0.03012820513,
+    "n_after": 12,
+    "n_before": 79,
+    "placebo_max": 0.09651190657,
+    "placebo_min": -0.061254194,
+    "placebo_n": 132,
+    "rank_above": 108,
+    "step": 0.01542784668
+   },
+   "60": {
+    "above_all": false,
+    "below_all": false,
+    "first_after": "2017-05-31",
+    "median_after": 0.05494505495,
+    "median_before": 0.02912621359,
+    "n_after": 98,
+    "n_before": 281,
+    "placebo_max": 0.04492278119,
+    "placebo_min": -0.02995293111,
+    "placebo_n": 132,
+    "rank_above": 126,
+    "step": 0.02581884135
+   }
+  },
+  "B135-4": {
+   "2016-01-09": {
+    "lock": {
+     "120": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2016-01-11",
+      "median_after": 0.039964737,
+      "median_before": 0.0350678733,
+      "n_after": 941,
+      "n_before": 31,
+      "placebo_max": 0.03396215133,
+      "placebo_min": -0.03132640175,
+      "placebo_n": 132,
+      "rank_above": 96,
+      "step": 0.004896863694
+     },
+     "20": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2016-01-11",
+      "median_after": 0.03037383178,
+      "median_before": 0.03512396694,
+      "n_after": 73,
+      "n_before": 16,
+      "placebo_max": 0.09651190657,
+      "placebo_min": -0.061254194,
+      "placebo_n": 132,
+      "rank_above": 52,
+      "step": -0.004750135166
+     },
+     "60": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2016-01-11",
+      "median_after": 0.03495630462,
+      "median_before": 0.03509496284,
+      "n_after": 297,
+      "n_before": 23,
+      "placebo_max": 0.04492278119,
+      "placebo_min": -0.02995293111,
+      "placebo_n": 132,
+      "rank_above": 73,
+      "step": -0.0001386582214
+     }
+    },
+    "unlocked": {
+     "120": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2016-01-11",
+      "median_after": 0.02998928954,
+      "median_before": 0.01946472019,
+      "n_after": 1947,
+      "n_before": 1159,
+      "placebo_max": 0.07090481317,
+      "placebo_min": -0.02096145103,
+      "placebo_n": 132,
+      "rank_above": 109,
+      "step": 0.01052456934
+     },
+     "20": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2016-01-11",
+      "median_after": 0.02002201842,
+      "median_before": 0.02485207101,
+      "n_after": 192,
+      "n_before": 195,
+      "placebo_max": 0.07576224207,
+      "placebo_min": -0.02977929134,
+      "placebo_n": 132,
+      "rank_above": 43,
+      "step": -0.004830052588
+     },
+     "60": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2016-01-11",
+      "median_after": 0.02992518703,
+      "median_before": 0.02490421456,
+      "n_after": 677,
+      "n_before": 690,
+      "placebo_max": 0.07086993852,
+      "placebo_min": -0.03500583431,
+      "placebo_n": 132,
+      "rank_above": 91,
+      "step": 0.005020972473
+     }
+    }
+   },
+   "2017-05-27": {
+    "unlocked": {
+     "120": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2017-05-31",
+      "median_after": 0.0002716653083,
+      "median_before": 0.01582835817,
+      "n_after": 2569,
+      "n_before": 3730,
+      "placebo_max": 0.07090481317,
+      "placebo_min": -0.02096145103,
+      "placebo_n": 132,
+      "rank_above": 6,
+      "step": -0.01555669286
+     },
+     "20": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2017-05-31",
+      "median_after": 0.005061440741,
+      "median_before": 0.0127388535,
+      "n_after": 462,
+      "n_before": 474,
+      "placebo_max": 0.07576224207,
+      "placebo_min": -0.02977929134,
+      "placebo_n": 132,
+      "rank_above": 33,
+      "step": -0.007677412762
+     },
+     "60": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2017-05-31",
+      "median_after": 0.002787904782,
+      "median_before": 0.01369863014,
+      "n_after": 1128,
+      "n_before": 1645,
+      "placebo_max": 0.07086993852,
+      "placebo_min": -0.03500583431,
+      "placebo_n": 132,
+      "rank_above": 13,
+      "step": -0.01091072535
+     }
+    }
+   },
+   "2024-05-24": {
+    "lock": {
+     "120": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2024-05-24",
+      "median_after": 0.07996099464,
+      "median_before": 0.08032955716,
+      "n_after": 646,
+      "n_before": 939,
+      "placebo_max": 0.03396215133,
+      "placebo_min": -0.03132640175,
+      "placebo_n": 132,
+      "rank_above": 70,
+      "step": -0.0003685625208
+     },
+     "20": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2024-05-24",
+      "median_after": 0.06998136935,
+      "median_before": 0.08595988539,
+      "n_after": 87,
+      "n_before": 91,
+      "placebo_max": 0.09651190657,
+      "placebo_min": -0.061254194,
+      "placebo_n": 132,
+      "rank_above": 18,
+      "step": -0.01597851603
+     },
+     "60": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2024-05-24",
+      "median_after": 0.06711409396,
+      "median_before": 0.07965967918,
+      "n_after": 219,
+      "n_before": 348,
+      "placebo_max": 0.04492278119,
+      "placebo_min": -0.02995293111,
+      "placebo_n": 132,
+      "rank_above": 12,
+      "step": -0.01254558522
+     }
+    },
+    "unlocked": {
+     "120": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2024-05-24",
+      "median_after": 0.003789929616,
+      "median_before": 0.0,
+      "n_after": 5360,
+      "n_before": 6976,
+      "placebo_max": 0.07090481317,
+      "placebo_min": -0.02096145103,
+      "placebo_n": 132,
+      "rank_above": 79,
+      "step": 0.003789929616
+     },
+     "20": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2024-05-24",
+      "median_after": 0.0,
+      "median_before": 0.0,
+      "n_after": 926,
+      "n_before": 920,
+      "placebo_max": 0.07576224207,
+      "placebo_min": -0.02977929134,
+      "placebo_n": 132,
+      "rank_above": 62,
+      "step": 0.0
+     },
+     "60": {
+      "above_all": false,
+      "below_all": false,
+      "first_after": "2024-05-24",
+      "median_after": 0.0,
+      "median_before": 0.0,
+      "n_after": 2411,
+      "n_before": 3163,
+      "placebo_max": 0.07086993852,
+      "placebo_min": -0.03500583431,
+      "placebo_n": 132,
+      "rank_above": 56,
+      "step": 0.0
+     }
+    }
+   }
+  },
+  "B135-5": {
+   "by_year": {
+    "2008": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 4
+    },
+    "2009": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 42
+    },
+    "2010": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 95
+    },
+    "2011": {
+     "120": 0,
+     "250": 0,
+     "60": 1,
+     "blocks": 116
+    },
+    "2012": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 271
+    },
+    "2013": {
+     "120": 0,
+     "250": 1,
+     "60": 0,
+     "blocks": 978
+    },
+    "2014": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 1062
+    },
+    "2015": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 993
+    },
+    "2016": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 1880
+    },
+    "2017": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 816
+    },
+    "2018": {
+     "120": 0,
+     "250": 0,
+     "60": 0,
+     "blocks": 660
+    },
+    "2019": {
+     "120": 0,
+     "250": 0,
+     "60": 1,
+     "blocks": 1093
+    },
+    "2020": {
+     "120": 2,
+     "250": 2,
+     "60": 4,
+     "blocks": 3410
+    },
+    "2021": {
+     "120": 0,
+     "250": 0,
+     "60": 1,
+     "blocks": 3830
+    },
+    "2022": {
+     "120": 5,
+     "250": 1,
+     "60": 16,
+     "blocks": 4071
+    },
+    "2023": {
+     "120": 57,
+     "250": 7,
+     "60": 70,
+     "blocks": 3820
+    },
+    "2024": {
+     "120": 2,
+     "250": 3,
+     "60": 4,
+     "blocks": 1445
+    },
+    "2025": {
+     "120": 32,
+     "250": 0,
+     "60": 58,
+     "blocks": 3364
+    },
+    "2026": {
+     "120": 2,
+     "250": 3,
+     "60": 4,
+     "blocks": 3036
+    }
+   },
+   "lock_blocks": 31962,
+   "over_bound": {
+    "120": 100,
+    "250": 17,
+    "60": 159
+   },
+   "over_on_every_window": [
+    {
+     "code": "688096",
+     "day": "2022-07-29",
+     "delta": 0.1792065663,
+     "excess_120": 0.00584959078,
+     "excess_250": 0.01269786708,
+     "excess_60": 0.055139344
+    },
+    {
+     "code": "301076",
+     "day": "2023-01-03",
+     "delta": 0.2959454339,
+     "excess_120": 0.03455354829,
+     "excess_250": 0.03201050718,
+     "excess_60": 0.101213096
+    },
+    {
+     "code": "300625",
+     "day": "2023-02-28",
+     "delta": 0.2144026187,
+     "excess_120": 0.02446988203,
+     "excess_250": 0.03907613735,
+     "excess_60": 0.1007395016
+    },
+    {
+     "code": "688289",
+     "day": "2023-11-03",
+     "delta": 0.1941923775,
+     "excess_120": 0.06782343171,
+     "excess_250": 0.02249494039,
+     "excess_60": 0.04165710458
+    },
+    {
+     "code": "688065",
+     "day": "2024-01-04",
+     "delta": 0.179946626,
+     "excess_120": 0.04505035842,
+     "excess_250": 0.006151284797,
+     "excess_60": 0.03442376951
+    },
+    {
+     "code": "688065",
+     "day": "2024-03-15",
+     "delta": 0.2040772067,
+     "excess_120": 0.04233387627,
+     "excess_250": 0.029360619,
+     "excess_60": 0.00850198174
+    }
+   ],
+   "periods": {
+    "before the rule": {
+     "over_bound": {
+      "120": 0,
+      "250": 1,
+      "60": 1
+     },
+     "sign_disagrees_across_windows": 2,
+     "usable_blocks": 6602,
+     "with_sigma_all_windows": 5866
+    },
+    "from the rule": {
+     "over_bound": {
+      "120": 100,
+      "250": 16,
+      "60": 158
+     },
+     "sign_disagrees_across_windows": 202,
+     "usable_blocks": 25360,
+     "with_sigma_all_windows": 25120
+    }
+   },
+   "rule_date": "2017-05-27",
+   "sign_disagrees_across_windows": 204,
+   "with_sigma_all_windows": 30986
+  },
+  "B135-6": {
+   "missing": [
+    "SSE 2025"
+   ],
+   "rows": {
+    "2012": {
+     "at_longstaff_0.5y_100m_yuan": 35531.59446,
+     "at_longstaff_1.0y_100m_yuan": 29331.99693,
+     "at_longstaff_3.0y_100m_yuan": 11761.82937,
+     "at_median_discount_100m_yuan": 46267.37386,
+     "lock_buy_median_discount": 0.05002908668,
+     "locked_both_100m_yuan": 48703.99,
+     "longstaff_0.5y": 0.2704582425,
+     "longstaff_1.0y": 0.3977496108,
+     "longstaff_3.0y": 0.7585037824,
+     "median_sigma_250": 0.4356124745,
+     "sse_locked_100m_yuan": 24403.99,
+     "sse_share_of_cap": 0.1537758657,
+     "szse_locked_100m_yuan": 24300.0,
+     "szse_share_of_cap": 0.3391013117
+    },
+    "2013": {
+     "at_longstaff_0.5y_100m_yuan": 29237.4089,
+     "at_longstaff_1.0y_100m_yuan": 24428.65024,
+     "at_longstaff_3.0y_100m_yuan": 10855.4286,
+     "at_median_discount_100m_yuan": 37728.93517,
+     "lock_buy_median_discount": 0.04481024234,
+     "locked_both_100m_yuan": 39498.89,
+     "longstaff_0.5y": 0.2597916321,
+     "longstaff_1.0y": 0.3815357788,
+     "longstaff_3.0y": 0.7251712997,
+     "median_sigma_250": 0.4198699088,
+     "sse_locked_100m_yuan": 14638.89,
+     "sse_share_of_cap": 0.09684029936,
+     "szse_locked_100m_yuan": 24860.0,
+     "szse_share_of_cap": 0.2827892162
+    },
+    "2014": {
+     "at_longstaff_0.5y_100m_yuan": 42873.68692,
+     "at_longstaff_1.0y_100m_yuan": 36327.25527,
+     "at_longstaff_3.0y_100m_yuan": 17942.29666,
+     "at_median_discount_100m_yuan": 54430.33682,
+     "lock_buy_median_discount": 0.04370860927,
+     "locked_both_100m_yuan": 56918.15,
+     "longstaff_0.5y": 0.2467484111,
+     "longstaff_1.0y": 0.3617632466,
+     "longstaff_3.0y": 0.6847702066,
+     "median_sigma_250": 0.4004792976,
+     "sse_locked_100m_yuan": 23478.15,
+     "sse_share_of_cap": 0.09623217259,
+     "szse_locked_100m_yuan": 33440.0,
+     "szse_share_of_cap": 0.2600917788
+    },
+    "2015": {
+     "at_longstaff_0.5y_100m_yuan": 82610.03447,
+     "at_longstaff_1.0y_100m_yuan": 68124.55905,
+     "at_longstaff_3.0y_100m_yuan": 27057.49256,
+     "at_median_discount_100m_yuan": 109226.9561,
+     "lock_buy_median_discount": 0.036598493,
+     "locked_both_100m_yuan": 113376.36,
+     "longstaff_0.5y": 0.2713645555,
+     "longstaff_1.0y": 0.3991290685,
+     "longstaff_3.0y": 0.7613480221,
+     "median_sigma_250": 0.4369453704,
+     "sse_locked_100m_yuan": 41066.36,
+     "sse_share_of_cap": 0.139116419,
+     "szse_locked_100m_yuan": 72310.0,
+     "szse_share_of_cap": 0.3062555588
+    },
+    "2016": {
+     "at_longstaff_0.5y_100m_yuan": 63110.52867,
+     "at_longstaff_1.0y_100m_yuan": 37404.22503,
+     "at_longstaff_3.0y_100m_yuan": 0.0,
+     "at_median_discount_100m_yuan": 110836.7382,
+     "lock_buy_median_discount": 0.03014184397,
+     "locked_both_100m_yuan": 114281.39,
+     "longstaff_0.5y": 0.4477619788,
+     "longstaff_1.0y": 0.6727006468,
+     "longstaff_3.0y": 1.3491763,
+     "median_sigma_250": 0.6834994683,
+     "sse_locked_100m_yuan": 44601.39,
+     "sse_share_of_cap": 0.1567118562,
+     "szse_locked_100m_yuan": 69680.0,
+     "szse_share_of_cap": 0.3123543124
+    },
+    "2017": {
+     "at_longstaff_0.5y_100m_yuan": 91109.07429,
+     "at_longstaff_1.0y_100m_yuan": 78777.61378,
+     "at_longstaff_3.0y_100m_yuan": 44422.72824,
+     "at_median_discount_100m_yuan": 113068.7608,
+     "lock_buy_median_discount": 0.04007490637,
+     "locked_both_100m_yuan": 117789.15,
+     "longstaff_0.5y": 0.2265070739,
+     "longstaff_1.0y": 0.3311980451,
+     "longstaff_3.0y": 0.6228623074,
+     "median_sigma_250": 0.3700749244,
+     "sse_locked_100m_yuan": 49959.15,
+     "sse_share_of_cap": 0.1507860172,
+     "szse_locked_100m_yuan": 67830.0,
+     "szse_share_of_cap": 0.2877078385
+    },
+    "2018": {
+     "at_longstaff_0.5y_100m_yuan": 61365.8614,
+     "at_longstaff_1.0y_100m_yuan": 52167.19129,
+     "at_longstaff_3.0y_100m_yuan": 26365.76696,
+     "at_median_discount_100m_yuan": 77818.95444,
+     "lock_buy_median_discount": 0.04076738609,
+     "locked_both_100m_yuan": 81126.26,
+     "longstaff_0.5y": 0.2435758607,
+     "longstaff_1.0y": 0.3569629453,
+     "longstaff_3.0y": 0.6750032978,
+     "median_sigma_250": 0.3957391702,
+     "sse_locked_100m_yuan": 36816.26,
+     "sse_share_of_cap": 0.1366018909,
+     "szse_locked_100m_yuan": 44310.0,
+     "szse_share_of_cap": 0.2678798138
+    },
+    "2019": {
+     "at_longstaff_0.5y_100m_yuan": 80778.61532,
+     "at_longstaff_1.0y_100m_yuan": 67323.03636,
+     "at_longstaff_3.0y_100m_yuan": 29310.26102,
+     "at_median_discount_100m_yuan": 102110.1214,
+     "lock_buy_median_discount": 0.06719085061,
+     "locked_both_100m_yuan": 109465.18,
+     "longstaff_0.5y": 0.2620610927,
+     "longstaff_1.0y": 0.3849821801,
+     "longstaff_3.0y": 0.7322412385,
+     "median_sigma_250": 0.4232279364,
+     "sse_locked_100m_yuan": 54265.18,
+     "sse_share_of_cap": 0.1526362112,
+     "szse_locked_100m_yuan": 55200.0,
+     "szse_share_of_cap": 0.2325091614
+    },
+    "2020": {
+     "at_longstaff_0.5y_100m_yuan": 108473.7302,
+     "at_longstaff_1.0y_100m_yuan": 87017.23144,
+     "at_longstaff_3.0y_100m_yuan": 25674.52143,
+     "at_median_discount_100m_yuan": 143570.9265,
+     "lock_buy_median_discount": 0.06552828175,
+     "locked_both_100m_yuan": 153638.6,
+     "longstaff_0.5y": 0.2939682459,
+     "longstaff_1.0y": 0.4336238977,
+     "longstaff_3.0y": 0.8328901628,
+     "median_sigma_250": 0.4699535761,
+     "sse_locked_100m_yuan": 75308.6,
+     "sse_share_of_cap": 0.1653965058,
+     "szse_locked_100m_yuan": 78330.0,
+     "szse_share_of_cap": 0.2290886757
+    },
+    "2021": {
+     "at_longstaff_0.5y_100m_yuan": 111331.5899,
+     "at_longstaff_1.0y_100m_yuan": 85768.95728,
+     "at_longstaff_3.0y_100m_yuan": 11914.84354,
+     "at_median_discount_100m_yuan": 153772.9228,
+     "lock_buy_median_discount": 0.06539217438,
+     "locked_both_100m_yuan": 164532.03,
+     "longstaff_0.5y": 0.3233439721,
+     "longstaff_1.0y": 0.4787096636,
+     "longstaff_3.0y": 0.9275834405,
+     "median_sigma_250": 0.5121937391,
+     "sse_locked_100m_yuan": 84232.03,
+     "sse_share_of_cap": 0.1620786974,
+     "szse_locked_100m_yuan": 80300.0,
+     "szse_share_of_cap": 0.2025782689
+    },
+    "2022": {
+     "at_longstaff_0.5y_100m_yuan": 84694.63949,
+     "at_longstaff_1.0y_100m_yuan": 65552.38455,
+     "at_longstaff_3.0y_100m_yuan": 10309.36824,
+     "at_median_discount_100m_yuan": 114790.4683,
+     "lock_buy_median_discount": 0.07859078591,
+     "locked_both_100m_yuan": 124581.42,
+     "longstaff_0.5y": 0.320166366,
+     "longstaff_1.0y": 0.4738189327,
+     "longstaff_3.0y": 0.9172479473,
+     "median_sigma_250": 0.5076595843,
+     "sse_locked_100m_yuan": 65601.42,
+     "sse_share_of_cap": 0.1414473755,
+     "szse_locked_100m_yuan": 58980.0,
+     "szse_share_of_cap": 0.1819135155
+    },
+    "2023": {
+     "at_longstaff_0.5y_100m_yuan": 70863.43523,
+     "at_longstaff_1.0y_100m_yuan": 57655.61779,
+     "at_longstaff_3.0y_100m_yuan": 20051.91089,
+     "at_median_discount_100m_yuan": 91048.48563,
+     "lock_buy_median_discount": 0.07835820896,
+     "locked_both_100m_yuan": 98789.45,
+     "longstaff_0.5y": 0.2826821565,
+     "longstaff_1.0y": 0.4163787956,
+     "longstaff_3.0y": 0.7970237622,
+     "median_sigma_250": 0.4535285341,
+     "sse_locked_100m_yuan": 45429.45,
+     "sse_share_of_cap": 0.09809280702,
+     "szse_locked_100m_yuan": 53360.0,
+     "szse_share_of_cap": 0.1721290323
+    },
+    "2024": {
+     "at_longstaff_0.5y_100m_yuan": 58493.89372,
+     "at_longstaff_1.0y_100m_yuan": 47972.82048,
+     "at_longstaff_3.0y_100m_yuan": 18092.48054,
+     "at_median_discount_100m_yuan": 74300.9332,
+     "lock_buy_median_discount": 0.08041237113,
+     "locked_both_100m_yuan": 80798.1,
+     "longstaff_0.5y": 0.2760486482,
+     "longstaff_1.0y": 0.4062630126,
+     "longstaff_3.0y": 0.7760778961,
+     "median_sigma_250": 0.4438225108,
+     "sse_locked_100m_yuan": 31628.1,
+     "sse_share_of_cap": 0.06032339823,
+     "szse_locked_100m_yuan": 49170.0,
+     "szse_share_of_cap": 0.1488151085
+    },
+    "2025": {
+     "locked_both_100m_yuan": null,
+     "szse_locked_100m_yuan": 57800.0,
+     "szse_share_of_cap": 0.1336694341
+    }
+   },
+   "scenario_note": "a median over traded blocks is no bound on a sum weighted by locked value: the model's lower value of the whole is the sum over stocks of locked shares x close x max(0, 1 - bound(sigma_i, term_i)), which needs each stock's locked value, sigma and remaining term"
+  },
+  "B135-7": {
+   "by_year_and_class": {
+    "2000": {
+     "lock": 0,
+     "not_a_share": 0,
+     "other": 0,
+     "unlocked": 1
+    },
+    "2002": {
+     "lock": 0,
+     "not_a_share": 0,
+     "other": 0,
+     "unlocked": 1
+    },
+    "2003": {
+     "lock": 0,
+     "not_a_share": 18,
+     "other": 4,
+     "unlocked": 40
+    },
+    "2004": {
+     "lock": 0,
+     "not_a_share": 71,
+     "other": 5,
+     "unlocked": 56
+    },
+    "2005": {
+     "lock": 0,
+     "not_a_share": 232,
+     "other": 3,
+     "unlocked": 91
+    },
+    "2006": {
+     "lock": 2,
+     "not_a_share": 270,
+     "other": 2,
+     "unlocked": 58
+    },
+    "2007": {
+     "lock": 0,
+     "not_a_share": 398,
+     "other": 2,
+     "unlocked": 74
+    },
+    "2008": {
+     "lock": 10,
+     "not_a_share": 464,
+     "other": 112,
+     "unlocked": 1009
+    },
+    "2009": {
+     "lock": 95,
+     "not_a_share": 958,
+     "other": 825,
+     "unlocked": 1622
+    },
+    "2010": {
+     "lock": 113,
+     "not_a_share": 2677,
+     "other": 1865,
+     "unlocked": 984
+    },
+    "2011": {
+     "lock": 171,
+     "not_a_share": 3420,
+     "other": 3380,
+     "unlocked": 1763
+    },
+    "2012": {
+     "lock": 337,
+     "not_a_share": 5978,
+     "other": 3777,
+     "unlocked": 2261
+    },
+    "2013": {
+     "lock": 1331,
+     "not_a_share": 10010,
+     "other": 5458,
+     "unlocked": 3058
+    },
+    "2014": {
+     "lock": 1533,
+     "not_a_share": 13262,
+     "other": 5403,
+     "unlocked": 4443
+    },
+    "2015": {
+     "lock": 1697,
+     "not_a_share": 11512,
+     "other": 4931,
+     "unlocked": 5541
+    },
+    "2016": {
+     "lock": 2814,
+     "not_a_share": 19502,
+     "other": 8242,
+     "unlocked": 6835
+    },
+    "2017": {
+     "lock": 1221,
+     "not_a_share": 29879,
+     "other": 6919,
+     "unlocked": 7741
+    },
+    "2018": {
+     "lock": 1201,
+     "not_a_share": 35183,
+     "other": 6276,
+     "unlocked": 5441
+    },
+    "2019": {
+     "lock": 2139,
+     "not_a_share": 42491,
+     "other": 7021,
+     "unlocked": 6357
+    },
+    "2020": {
+     "lock": 4690,
+     "not_a_share": 54559,
+     "other": 11384,
+     "unlocked": 11742
+    },
+    "2021": {
+     "lock": 4691,
+     "not_a_share": 67876,
+     "other": 15209,
+     "unlocked": 14680
+    },
+    "2022": {
+     "lock": 5174,
+     "not_a_share": 30177,
+     "other": 16242,
+     "unlocked": 14967
+    },
+    "2023": {
+     "lock": 4504,
+     "not_a_share": 4747,
+     "other": 15919,
+     "unlocked": 16383
+    },
+    "2024": {
+     "lock": 1848,
+     "not_a_share": 7161,
+     "other": 8357,
+     "unlocked": 14072
+    },
+    "2025": {
+     "lock": 4451,
+     "not_a_share": 6273,
+     "other": 7430,
+     "unlocked": 21330
+    },
+    "2026": {
+     "lock": 3811,
+     "not_a_share": 3469,
+     "other": 5696,
+     "unlocked": 15217
+    }
+   },
+   "lock_proxy": {
+    "a_share_blocks": 41833,
+    "from_the_rule_date": 33171,
+    "share_source": "not carried by the holder table: which of these blocks sold auction-bought shares, exempt from the buyer's lock, is not read; every block of the class is 'source not confirmed'",
+    "share_source_confirmed": 0
+   },
+   "usable_lock_by_year": {
+    "2006": 2,
+    "2008": 4,
+    "2009": 42,
+    "2010": 103,
+    "2011": 120,
+    "2012": 277,
+    "2013": 1037,
+    "2014": 1117,
+    "2015": 1106,
+    "2016": 2322,
+    "2017": 886,
+    "2018": 675,
+    "2019": 1117,
+    "2020": 3424,
+    "2021": 3857,
+    "2022": 4141,
+    "2023": 3887,
+    "2024": 1445,
+    "2025": 3364,
+    "2026": 3036
+   }
+  }
+ },
+ "stage": "B135"
+}

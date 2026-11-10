@@ -34,7 +34,7 @@ the rest are not there.
 
 **Index numbers, and what an aggregation hides.** An index is a projection. These read the projection itself rather than the number it returns.
 
-`B79, B81, B83, B84, B101`
+`B79, B81, B83, B84, B101, B131, B132, B133, B134`
 
 **Cutting a relation, and what it rewrites.** What changes when an edge is removed or restored, read before the cut where the theorem allows that.
 
@@ -42,7 +42,11 @@ the rest are not there.
 
 **Where new claims go, and how long they stay.** New money enters somewhere. These stations ask where it is a round later.
 
-`A41, A44, A45, B112, B114, B117`
+`A41, A44, A45, A52, B112, B114, B117`
+
+**Housing: residence binding, rent caps, and who keeps the location value.** Location demand on the asset carrier. These stations read what a rule tying ownership, credit or rent to residence does to who stays and who ends up with the premium.
+
+`A47, A48, A49, A50, A51, B129, B130`
 
 **The stratified economy: support sets, position and circulation.** The simulation track's spine. Positions are fixed before each run and every mechanism after the first is off by default.
 
@@ -65,19 +69,19 @@ stations found in that field's own vocabulary.
 
 **The theorem itself, and its checks**
 
-`B1, B1-R, B1H, B4, B43`
+`B1, B1-R, B1H, B4, B29, B43, B124`
 
 **Market microstructure and asset pricing**
 
-`B9, B9-0, B9-A, B9-A-1, B9-A-2, B9-A-6, B9-A-9, B13, B14, B16, B18, L2`
+`B9, B9-0, B9-A, B9-A-1, B9-A-2, B9-A-6, B9-A-9, B13, B14, B16, B18, B20, B126, B127, L2`
 
 **Household finance and consumer credit**
 
-`A1, A1a, A1b, A1c, A1d, B2A, B2B, B2c, B7, B8, B10, B12`
+`A1, A1a, A1b, A1c, A1d, A47, A48, A49, A51, B2A, B2B, B2c, B7, B8, B10, B12, B130`
 
 **International finance and exchange rate regimes**
 
-`B3, B5, B6-A, B6-B, B15, B17, B21, B23, B24, B48, B62, B63, B97`
+`B3, B5, B6-A, B6-B, B15, B17, B21, B23, B24, B37, B48, B62, B63, B97`
 
 **Corporate finance and credit**
 
@@ -85,11 +89,11 @@ stations found in that field's own vocabulary.
 
 **Macroeconomics, inequality and monetary policy**
 
-`A3, A3b, A3h, A3i, A3j, A3k, A4, A9, A10, A10H, A11, A18, A18_B, A18_C, A18_D, A18_E, A18_F, A23, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39, A41, A44, A45, B65, B66`
+`A3, A3b, A3h, A3i, A3j, A3k, A4, A9, A10, A10H, A11, A18, A18_B, A18_C, A18_D, A18_E, A18_F, A23, A29, A30, A31, A32, A33, A34, A35, A36, A37, A38, A39, A41, A44, A45, A50, A52, B65, B66, B121, B128`
 
 **Payment systems and monetary operations**
 
-`A25, B59, B112, B113, B114, B117`
+`A25, B59, B112, B113, B114, B117, B123`
 
 **Classical and Sraffian price theory**
 
@@ -97,11 +101,11 @@ stations found in that field's own vocabulary.
 
 **Index numbers and price comparison**
 
-`B38, B38b, B38c, B38d, B39, B79, B81, B83, B84, B101`
+`B38, B38b, B38c, B38d, B39, B79, B81, B83, B84, B101, B131, B132, B133, B134`
 
 **Public finance, regulated prices and published schedules**
 
-`A6, A6-7, B33, B45, B49, B50, B51, B52, B53, B54, B55, B56, B57, B58, B98, B100, B102, Counting`
+`A6, A6-7, B25, B26, B28, B33, B45, B49, B50, B51, B52, B53, B54, B55, B56, B57, B58, B98, B99, B100, B102, B122, B125, B129, Counting`
 
 **Trade policy and commodity markets**
 
@@ -121,11 +125,15 @@ stations found in that field's own vocabulary.
 
 **Economic history**
 
-`B40, B44, B46, B47, B64`
+`B32, B40, B44, B46, B47, B64`
 
 **Climate, education and administrative conversion factors**
 
-`C1, C2, C3, E1`
+`B27, C1, C2, C3, E1`
+
+**Not filed yet**, and named rather than dropped:
+
+`B136, B137`
 
 ## Every block in the ledger
 
@@ -157,7 +165,7 @@ cannot: a proof, a derivation, or a carrier specification.
 | [A3k](#a3k--the-zero-domain-read-off-records-already-on-disk) | the zero domain, read off records already on disk |  |
 | [A4](#a4--the-causal-primitive-connectivity-does-not-scale-the-other-mechanisms-it-selects-which-of-them-operate) | the causal primitive: connectivity does not scale the other mechanisms, it selects which of them operate | [`a4_causal_primitive.md`](docs/a4_causal_primitive.md) |
 | [A5](#a5--the-reachability-threshold-the-region-closes-through-the-denominator-and-freezing-the-price-does-not-stop-it) | the reachability threshold: the region closes through the denominator, and freezing the price does not stop it | [`a5_reachability.md`](docs/a5_reachability.md) |
-| [A6](#a6--the-siphon-in-tax-points-the-stratified-graph-needs-r--0060-where-the-flat-graph-needs-0000-and-that-difference-is-the-siphon) | the siphon in tax points: the stratified graph needs R* = 0.060 where the flat graph needs 0.000, and that difference is the siphon | [`a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
+| [A6](#a6--the-siphon-in-tax-points-the-stratified-graph-needs-a-transfer-r--0060-where-the-flat-graph-needs-0000-and-that-difference-is-the-siphon) | the siphon in tax points: the stratified graph needs a transfer R* = 0.060 where the flat graph needs 0.000, and that difference is the siphon | [`a6_siphon_cost.md`](docs/a6_siphon_cost.md) |
 | [A6-7](#a6-7-to-a6-23--the-frontier-ratchet-who-the-levy-falls-on-who-the-rebate-reaches-and-r-as-a-slope-in-lambda) | to A6-23 — the frontier ratchet, who the levy falls on, who the rebate reaches, and R* as a slope in lambda |  |
 | [A7](#a7--continuous-connectivity) | continuous connectivity | [`a7_continuous_c.md`](docs/a7_continuous_c.md) |
 | [A8](#a8--the-coverage-test-four-surfaces-on-one-curve-and-the-edge-width-that-takes-them-off-it) | the coverage test: four surfaces on one curve, and the edge width that takes them off it |  |
@@ -207,6 +215,13 @@ cannot: a proof, a derivation, or a carrier specification.
 | [A43](#a43--how-many-independent-cross-graph-cycles-the-pair-machinery-has) | how many independent cross-graph cycles the pair machinery has |  |
 | [A44](#a44-where-new-claims-end-up-read-off-the-carriers-rules) | where new claims end up, read off the carrier's rules |  |
 | [A45](#a45-how-long-new-claims-stay-ahead-where-they-enter-and-which-parts-of-the-carrier-set-the-split) | how long new claims stay ahead where they enter, and which parts of the carrier set the split |  |
+| [A47](#a47-ownership-tied-to-residence-public-rental-housing-and-rent-caps-on-the-asset-carrier) | ownership tied to residence, public rental housing, and rent caps on the asset carrier |  |
+| [A48](#a48-a-core-location-under-residence-binding-who-stays-put-and-who-ends-up-with-the-premium) | a core location under residence binding, who stays put, and who ends up with the premium |  |
+| [A49](#a49-a-loan-secured-on-a-commitment-to-stay-three-lenders-and-a-rental-market-left-to-short-stays) | a loan secured on a commitment to stay, three lenders, and a rental market left to short stays |  |
+| [A50](#a50-the-provident-contribution-taken-apart-money-parked-outside-circulation-and-the-authority-that-refills-it) | the provident contribution taken apart; money parked outside circulation, and the authority that refills it |  |
+| [A51](#a51-location-demand-priced-as-commuting-wage-earners-live-in-the-core-and-who-keeps-its-location-value-depends-on-the-landlord) | location demand priced as commuting; wage earners live in the core, and who keeps its location value depends on the landlord |  |
+| [A52](#a52-a50s-wage-lock-on-a44s-carrier-the-share-it-adds-is-the-account-stock-and-the-reissue-keeps-circulations-split) | A50's wage lock on A44's carrier; the share it adds is the account stock, and the reissue keeps circulation's split |  |
+| [A52](#a52-claims-taken-out-of-the-financial-layer-and-which-nodes-the-loss-reaches-first) | claims taken out of the financial layer, and which nodes the loss reaches first |  |
 | [B1](#b1--the-enlarged-graph-and-what-stage-b2-measured) | the enlarged graph, and what stage B2 measured | [`b1_setup.md`](docs/b1_setup.md), [`b1_theorem.md`](docs/b1_theorem.md) |
 | [B1-R](#b1-r--the-eleven-checks-behind-the-reduction-theorem-and-which-of-them-can-fail) | the eleven checks behind the reduction theorem, and which of them can fail |  |
 | [B1H](#b1h) |  |  |
@@ -249,14 +264,21 @@ cannot: a proof, a derivation, or a carrier specification.
 | [B17](#b17--how-many-independent-directions-the-parallel-rate-deviations-occupy) | how many independent directions the parallel-rate deviations occupy |  |
 | [B18](#b18--the-directional-remnant-what-a-positions-one-sidedness-leaves-in-the-book) | the directional remnant: what a position's one-sidedness leaves in the book |  |
 | [B19](#b19--closed-at-gate-two-and-the-ratio-that-closed-it-was-not-measured) | closed at gate two, and the ratio that closed it was not measured |  |
+| [B20](#b20--a-station-that-the-derivation-converted-from-an-unmeasured-quantity-into-a-zero-domain-and-was-therefore-not-built) | a station that the derivation converted from an unmeasured quantity into a zero domain, and was therefore not built |  |
 | [B21](#b21-census--what-a-criterion-has-to-look-like-to-reach-corollary-1) | census — what a criterion has to look like to reach Corollary 1 |  |
 | [B21](#b21--the-class-index-on-ah-dual-listings-and-an-arm-whose-target-is-set-by-statute) | the class index on A+H dual listings, and an arm whose target is set by statute |  |
 | [B23](#b23--the-same-statutory-wedge-priced-by-treaty-in-sixteen-countries) | the same statutory wedge, priced by treaty in sixteen countries |  |
 | [B24](#b24--the-square-is-196-times-smaller-where-a-path-between-the-two-positions-exists) | the square is 196 times smaller where a path between the two positions exists |  |
+| [B25](#b25--where-the-design-for-this-family-of-stations-lives) | where the design for this family of stations lives | [`b25_prereg.md`](docs/b25_prereg.md), [`b25_price_band_availability.md`](docs/b25_price_band_availability.md) |
+| [B26](#b26--a-headline-number-that-did-not-move-while-three-of-the-four-fields-around-it-did) | a headline number that did not move while three of the four fields around it did | [`b26_focal_price_availability.md`](docs/b26_focal_price_availability.md), [`b26_prereg.md`](docs/b26_prereg.md), [`b26_results.md`](docs/b26_results.md) |
+| [B27](#b27--how-the-consistency-of-conventional-conversion-systems-is-held-together-and-the-one-number-in-it-that-was-withdrawn) | how the consistency of conventional conversion systems is held together, and the one number in it that was withdrawn | [`b27_prereg.md`](docs/b27_prereg.md), [`b27_results.md`](docs/b27_results.md) |
+| [B28](#b28--the-posted-number-is-defended-and-which-margin-gives-way-depends-on-the-tier) | the posted number is defended, and which margin gives way depends on the tier | [`b28_prereg.md`](docs/b28_prereg.md), [`b28_results.md`](docs/b28_results.md) |
+| [B29](#b29--the-cost-band-cannot-destroy-the-defect-and-the-statistic-that-was-registered-to-measure-it-cannot-find-it) | the cost band cannot destroy the defect, and the statistic that was registered to measure it cannot find it | [`b29_locality_theorem.md`](docs/b29_locality_theorem.md), [`b29_results.md`](docs/b29_results.md) |
 | [B30](#b30--the-propagation-chain-arm-by-arm-and-what-each-one-returned) | the propagation chain, arm by arm, and what each one returned | [`b30_prereg.md`](docs/b30_prereg.md), [`b30_propagation.md`](docs/b30_propagation.md), [`b30_results.md`](docs/b30_results.md) |
 | [B30-5](#b30-5--regional-deviation-on-income-and-whether-the-carrier-measures-a-level-at-all) | regional deviation on income, and whether the carrier measures a level at all |  |
 | [B30-5](#b30-5-global--the-same-criterion-run-once-in-each-of-64-countries) | global — the same criterion run once in each of 64 countries |  |
 | [B31](#b31--chinas-domestic-price-against-its-border-price-19812005) | China's domestic price against its border price, 1981–2005 |  |
+| [B32](#b32--the-german-monetary-unions-conversion-and-which-side-of-the-balance-sheet-the-exception-was-written-for) | the German monetary union's conversion, and which side of the balance sheet the exception was written for |  |
 | [B33](#b33--the-five-classes-a-benefit-scheme-writes-and-the-clause-vectors-they-receive) | the five classes a benefit scheme writes, and the clause vectors they receive |  |
 | [B33](#b33-arm-one-again--two-classes-that-take-the-same-cell-in-every-number-a-tax-code-prints) | arm one again — two classes that take the same cell in every number a tax code prints |  |
 | [B33](#b33-arm-three--whether-a-graduated-per-person-tax-ever-arrives-before-the-register) | arm three — whether a graduated per-person tax ever arrives before the register |  |
@@ -265,6 +287,7 @@ cannot: a proof, a derivation, or a carrier specification.
 | [B33](#b33--the-granularity-chain-and-what-it-does-to-the-observed-side) | the granularity chain, and what it does to the observed side |  |
 | [B34](#b34--where-the-wage-floor-breaks-against-where-the-statute-puts-the-boundary) | where the wage floor breaks, against where the statute puts the boundary | [`b34_prereg.md`](docs/b34_prereg.md), [`b34_results.md`](docs/b34_results.md) |
 | [B36](#b36--a-quota-that-does-not-bind-an-expiry-date-that-does-and-the-same-switch-thrown-twice) | a quota that does not bind, an expiry date that does, and the same switch thrown twice |  |
+| [B37](#b37--a-publisher-that-is-still-printing-a-number-after-the-thing-it-was-a-number-for-has-been-cut-off) | a publisher that is still printing a number after the thing it was a number for has been cut off |  |
 | [B38](#b38--the-rank-of-the-obstruction-to-a-scalar-price-potential) | the rank of the obstruction to a scalar price potential |  |
 | [B38b](#b38b--is-that-residual-an-obstruction-or-is-it-the-same-name-meaning-different-things) | is that residual an obstruction, or is it the same name meaning different things |  |
 | [B38c](#b38c--how-much-of-that-residual-is-still-there-in-the-next-vintage) | how much of that residual is still there in the next vintage |  |
@@ -332,6 +355,7 @@ cannot: a proof, a derivation, or a carrier specification.
 | [B98](#b98-arm-f-the-same-tariff-the-same-formula-the-same-table-one-batch-apart) | arm F: the same tariff, the same formula, the same table, one batch apart |  |
 | [B98](#b98-arm-e-one-kilowatt-hour-one-meter-one-hour-two-net-metering-vintages) | arm E: one kilowatt hour, one meter, one hour, two net metering vintages |  |
 | [B98](#b98-a-zero-whose-answer-the-publisher-already-printed) | a zero whose answer the publisher already printed |  |
+| [B99](#b99--a-station-designed-on-paper-to-the-point-where-its-zero-calibration-exists-and-not-run) | a station designed on paper to the point where its zero calibration exists, and not run |  |
 | [B100](#b100-the-three-shares-of-a-global-surgical-package-and-whether-they-sum-to-one) | the three shares of a global surgical package, and whether they sum to one |  |
 | [B101](#b101--a-published-productivity-index-read-as-an-edge-function-and-what-its-share-smoothing-does) | a published productivity index read as an edge function, and what its share smoothing does | [`b101_index_holonomy.md`](docs/b101_index_holonomy.md) |
 | [B101](#b101--the-cross-country-half-and-what-the-published-smoothing-does-to-it) | the cross-country half, and what the published smoothing does to it | [`b101_index_holonomy.md`](docs/b101_index_holonomy.md) |
@@ -351,6 +375,23 @@ cannot: a proof, a derivation, or a carrier specification.
 | [B115](#b115-chinas-2018-deposit-on-us-sorghum-and-its-end-read-against-gulf-corn) | China's 2018 deposit on US sorghum and its end, read against Gulf corn | [`b115_sorghum_deposit.md`](docs/b115_sorghum_deposit.md), [`b115_soy_tariff.md`](docs/b115_soy_tariff.md) |
 | [B117](#b117-how-coarse-the-classes-of-a-payment-chain-can-be-and-still-read-how-long-new-money-stays-in-its-area) | how coarse the classes of a payment chain can be and still read how long new money stays in its area |  |
 | [B120](#b120-the-locked-placement-price-as-an-option-one-class-holds-read-against-the-price-path-from-the-resolution-date-to-the-end) | the locked placement price as an option one class holds, read against the price path from the resolution date to the end |  |
+| [B121](#b121-the-2007-09-crisis-which-intervention-reached-which-kind-of-fault-read-on-the-rivals-own-data) | the 2007-09 crisis, which intervention reached which kind of fault, read on the rival's own data |  |
+| [B122](#b122-one-input-two-deduction-ratios-and-the-square-the-statute-writes) | one input, two deduction ratios, and the square the statute writes |  |
+| [B122](#b122-b123-b125-the-printed-format-floor-under-their-squares) | B123, B125: the printed-format floor under their squares |  |
+| [B123](#b123-two-networks-interchange-schedules-and-whether-the-cards-class-factors-out) | two networks' interchange schedules, and whether the card's class factors out |  |
+| [B124](#b124-kleinrocks-conservation-law-on-the-directed-square) | Kleinrock's conservation law on the directed square |  |
+| [B125](#b125-the-island-resident-air-fare-discount-and-the-square-its-base-rule-writes) | the island resident air fare discount, and the square its base rule writes |  |
+| [B126](#b126-how-far-an-auction-price-moves-at-each-sale-against-how-often-the-wine-sells) | how far an auction price moves at each sale, against how often the wine sells |  |
+| [B127](#b127-classic-handbags-and-the-gap-between-the-boutique-price-and-the-resale-price) | classic handbags, and the gap between the boutique price and the resale price |  |
+| [B128](#b128-euro-area-bank-rates-a-square-of-two-countries-by-two-products-against-ecb-rate-changes) | euro area bank rates, a square of two countries by two products against ECB rate changes |  |
+| [B129](#b129-the-berlin-rent-cap-twelve-class-values-on-one-kind-of-dwelling-and-an-index-cut-at-1948) | the Berlin rent cap, twelve class values on one kind of dwelling, and an index cut at 1948 |  |
+| [B130](#b130-singapores-public-housing-and-a49s-prediction-the-bound-segment-owns-more-every-year) | Singapore's public housing and A49's prediction; the bound segment owns more, every year |  |
+| [B131](#b131-fisim-one-borrowed-rate-read-as-every-sectors-reference-rate) | FISIM, one borrowed rate read as every sector's reference rate |  |
+| [B132](#b132-the-two-borrowed-prices-in-the-national-accounts-consumption-deflator) | the two borrowed prices in the national-accounts consumption deflator |  |
+| [B133](#b133-how-much-of-the-consumer-output-price-divergence-in-the-pay-productivity-gap-is-borrowed-prices) | how much of the consumer-output price divergence in the pay-productivity gap is borrowed prices |  |
+| [B134](#b134-the-icps-urban-rural-dimension-urban-prices-in-the-rural-cell) | the ICP's urban-rural dimension, urban prices in the rural cell |  |
+| [B136](#b136-adding-a-channel-on-the-price-side-and-on-the-money-side-is-one-rank-one-update) | adding a channel, on the price side and on the money side, is one rank-one update | [`b136_channel_bridge.md`](docs/b136_channel_bridge.md) |
+| [B137](#b137-the-borrowed-price-one-formula-its-slope-in-the-unpublished-price-and-the-least-correction-the-rivals-premise-requires) | the borrowed price, one formula, its slope in the unpublished price, and the least correction the rival's premise requires | [`b137_borrowed_price.md`](docs/b137_borrowed_price.md) |
 | [C1](#c1--an-administratively-declared-exchange-rate-and-the-exact-count-of-its-loops) | an administratively declared exchange rate, and the exact count of its loops | [`c1_gwp_holonomy.md`](docs/c1_gwp_holonomy.md) |
 | [C2](#c2--the-control-arm-a-system-of-the-same-kind-asked-the-same-question-that-agrees-with-itself) | the control arm: a system of the same kind, asked the same question, that agrees with itself | [`c2_transfer_areas.md`](docs/c2_transfer_areas.md) |
 | [C3](#c3--fifteen-provinces-ordering-the-same-universities-and-no-order-they-share) | fifteen provinces ordering the same universities, and no order they share | [`c3_admission_reversals.md`](docs/c3_admission_reversals.md) |

@@ -13,8 +13,8 @@ impossible to check by hand, which is the only reason this stage exists.
 
 Three claims are put at risk
 ----------------------------
-1. The active ratio stays flat while the total ratio rises monotonically, the
-   rise equalling cumulative retention.
+1. The active ratio settles while the total ratio rises monotonically, the
+   rise in total claims equalling cumulative retention one round lagged.
 2. Retention is not hoarding. Spending inside one's own layer is, for every node
    outside that layer, indistinguishable from spending nothing. Book velocity is
    non-zero, topological displacement is zero.

@@ -11245,7 +11245,7 @@
     "prem": -0.00023737
    },
    "2025-03-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 86.02999978704963,
     "nav": 86.009367,
     "prem": 0.00023989
@@ -11269,19 +11269,19 @@
     "prem": 0.00017500000000000003
    },
    "2025-03-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 86.00000026281857,
     "nav": 86.012294,
     "prem": -0.00014293
    },
    "2025-03-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 87.02499986406261,
     "nav": 86.991309,
     "prem": 0.00038729
    },
    "2025-03-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 86.94500021269043,
     "nav": 86.924327,
     "prem": 0.00023783
@@ -11353,7 +11353,7 @@
     "prem": -0.00055661
    },
    "2025-04-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 83.04999959344194,
     "nav": 83.064717,
     "prem": -0.00017718
@@ -11737,13 +11737,13 @@
     "prem": 0.00015844
    },
    "2025-07-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 91.22500013870437,
     "nav": 91.227487,
     "prem": -2.726e-05
    },
    "2025-07-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 91.76499962460124,
     "nav": 91.771252,
     "prem": -6.813e-05
@@ -12373,247 +12373,247 @@
     "prem": 6.178000000000001e-05
    },
    "2025-12-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.09500015256049,
     "nav": 44.107243,
     "prem": -0.00027757
    },
    "2025-12-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.48500008606558,
     "nav": 43.475033,
     "prem": 0.00022925999999999998
    },
    "2025-12-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.384999943473034,
     "nav": 43.375489,
     "prem": 0.00021926999999999998
    },
    "2025-12-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.23500001519433,
     "nav": 44.227878,
     "prem": 0.00016103
    },
    "2025-12-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.13000005272518,
     "nav": 45.119254,
     "prem": 0.00023817
    },
    "2025-12-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.14499986060609,
     "nav": 45.138031,
     "prem": 0.00015439
    },
    "2025-12-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.115000013448736,
     "nav": 45.117791,
     "prem": -6.186e-05
    },
    "2025-12-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.99500005955259,
     "nav": 44.998649,
     "prem": -8.109e-05
    },
    "2025-12-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.18500015000712,
     "nav": 45.184129,
     "prem": 1.9280000000000002e-05
    },
    "2025-12-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.16500000627748,
     "nav": 45.162652,
     "prem": 5.1989999999999995e-05
    },
    "2025-12-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.3550000531482,
     "nav": 45.359585,
     "prem": -0.00010108
    },
    "2025-12-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.66499997573641,
     "nav": 45.674916,
     "prem": -0.0002171
    },
    "2025-12-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.74500001267571,
     "nav": 45.747243,
     "prem": -4.903e-05
    },
    "2025-12-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.83500006368486,
     "nav": 45.840914,
     "prem": -0.00012900999999999999
    },
    "2025-12-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.11999990012825,
     "nav": 46.115695,
     "prem": 9.334999999999999e-05
    },
    "2025-12-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.75499993258216,
     "nav": 45.746492,
     "prem": 0.00018598
    },
    "2025-12-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.724999864318775,
     "nav": 45.709439,
     "prem": 0.00034042999999999996
    },
    "2025-12-31": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.3349998621792,
     "nav": 45.32904,
     "prem": 0.00013148
    },
    "2026-01-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.1150000874927,
     "nav": 46.10907,
     "prem": 0.00012861
    },
    "2026-01-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.59499995908667,
     "nav": 46.587021,
     "prem": 0.00017127
    },
    "2026-01-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.48499979403096,
     "nav": 47.483279,
     "prem": 3.624e-05
    },
    "2026-01-07": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.67499978303344,
     "nav": 46.672444,
     "prem": 5.476e-05
    },
    "2026-01-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.48499977180982,
     "nav": 47.484382,
     "prem": 1.301e-05
    },
    "2026-01-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.255000158166204,
     "nav": 48.263705,
     "prem": -0.00018036
    },
    "2026-01-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.5250000321119,
     "nav": 48.521195,
     "prem": 7.842e-05
    },
    "2026-01-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.724999840452,
     "nav": 48.725682,
     "prem": -1.4e-05
    },
    "2026-01-14": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.755000186848626,
     "nav": 48.740706,
     "prem": 0.00029327
    },
    "2026-01-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.954999834507994,
     "nav": 48.94732,
     "prem": 0.0001569
    },
    "2026-01-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.66999989509426,
     "nav": 48.668023,
     "prem": 4.0619999999999994e-05
    },
    "2026-01-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.20499986261179,
     "nav": 48.203507,
     "prem": 3.0969999999999997e-05
    },
    "2026-01-21": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.234999973790394,
     "nav": 49.234291,
     "prem": 1.4400000000000001e-05
    },
    "2026-01-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.50999998324546,
     "nav": 49.511417,
     "prem": -2.862e-05
    },
    "2026-01-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.96499989823556,
     "nav": 49.966333,
     "prem": -2.668e-05
    },
    "2026-01-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 50.02499994116273,
     "nav": 50.020191,
     "prem": 9.614e-05
    },
    "2026-01-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.98500001643951,
     "nav": 49.985055,
     "prem": -1.1e-06
    },
    "2026-01-28": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.95999999492123,
     "nav": 49.966756,
     "prem": -0.00013521
    },
    "2026-01-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 50.00499994785566,
     "nav": 50.023334,
     "prem": -0.00036651
    },
    "2026-01-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.294999905119354,
     "nav": 49.294574,
     "prem": 8.64e-06
    },
    "2026-02-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.64499998356883,
     "nav": 49.643813,
     "prem": 2.391e-05
    },
    "2026-02-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 50.70500015260716,
     "nav": 50.711652,
     "prem": -0.00013117
    },
    "2026-02-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 51.89500011495722,
     "nav": 51.889298,
     "prem": 0.00010989
@@ -12733,67 +12733,67 @@
     "prem": -0.00017863000000000002
    },
    "2026-03-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.83499999064641,
     "nav": 50.843947,
     "prem": -0.00017597
    },
    "2026-03-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.86499976329482,
     "nav": 49.873798,
     "prem": -0.00017641
    },
    "2026-03-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.0050001232595,
     "nav": 50.002205,
     "prem": 5.5900000000000004e-05
    },
    "2026-03-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.884999956171576,
     "nav": 49.877837,
     "prem": 0.00014361000000000002
    },
    "2026-03-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.84500010861896,
     "nav": 49.847987,
     "prem": -5.992e-05
    },
    "2026-03-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.68499976590016,
     "nav": 49.689118,
     "prem": -8.288e-05
    },
    "2026-03-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.19499995639691,
     "nav": 49.194814,
     "prem": 3.7800000000000002e-06
    },
    "2026-03-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.39499979538515,
     "nav": 49.382351,
     "prem": 0.00025614
    },
    "2026-03-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.52500009855328,
     "nav": 49.520876,
     "prem": 8.328e-05
    },
    "2026-03-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 48.48499996186658,
     "nav": 48.491702,
     "prem": -0.00013821
    },
    "2026-03-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 47.74500006592965,
     "nav": 47.748745,
     "prem": -7.842999999999999e-05
@@ -12973,79 +12973,79 @@
     "prem": -0.00021166000000000002
    },
    "2026-05-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.34500009558144,
     "nav": 51.347169,
     "prem": -4.224e-05
    },
    "2026-05-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.6349999446046,
     "nav": 50.623516,
     "prem": 0.00022685
    },
    "2026-05-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.515000045628,
     "nav": 51.503592,
     "prem": 0.0002215
    },
    "2026-05-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 52.40500016402715,
     "nav": 52.411701,
     "prem": -0.00012785
    },
    "2026-05-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.41500004341971,
     "nav": 51.404697,
     "prem": 0.00020042999999999998
    },
    "2026-05-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.589999778741245,
     "nav": 51.591741,
     "prem": -3.375e-05
    },
    "2026-05-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 52.25500025494651,
     "nav": 52.24815,
     "prem": 0.00013110999999999998
    },
    "2026-05-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 52.14999977607987,
     "nav": 52.142839,
     "prem": 0.00013733000000000001
    },
    "2026-05-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 52.05499999910307,
     "nav": 52.054658,
     "prem": 6.570000000000001e-06
    },
    "2026-05-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.65500021345469,
     "nav": 51.652446,
     "prem": 4.9449999999999996e-05
    },
    "2026-05-15": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.3050001055107,
     "nav": 50.294035,
     "prem": 0.00021801999999999998
    },
    "2026-05-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.19500001071894,
     "nav": 50.198039,
     "prem": -6.0540000000000007e-05
    },
    "2026-05-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.04499978355968,
     "nav": 49.036061,
     "prem": 0.00018229
@@ -13081,55 +13081,55 @@
     "prem": 1.556e-05
    },
    "2026-05-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.35500008116676,
     "nav": 51.353916,
     "prem": 2.111e-05
    },
    "2026-05-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.17500008103801,
     "nav": 51.162275,
     "prem": 0.00024871999999999996
    },
    "2026-06-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.90500003020474,
     "nav": 50.904182,
     "prem": 1.607e-05
    },
    "2026-06-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.504999791847425,
     "nav": 51.493022,
     "prem": 0.00023261
    },
    "2026-06-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.6249999647022,
     "nav": 51.596529,
     "prem": 0.0005518
    },
    "2026-06-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.615000052700765,
     "nav": 51.607244,
     "prem": 0.00015029
    },
    "2026-06-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.64000002924115,
     "nav": 50.628765,
     "prem": 0.00022191
    },
    "2026-06-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 49.94500023922206,
     "nav": 49.939806,
     "prem": 0.00010401
    },
    "2026-06-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 50.77500021945428,
     "nav": 50.784118,
     "prem": -0.00017954
@@ -13231,7 +13231,7 @@
     "prem": -0.00044056
    },
    "2026-07-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 51.9549997737,
     "nav": 51.95474,
     "prem": 5e-06
@@ -16073,7 +16073,7 @@
     "prem": 0.00027189
    },
    "2025-03-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 87.00499971818525,
     "nav": 86.999497,
     "prem": 6.324999999999999e-05
@@ -16121,19 +16121,19 @@
     "prem": -1.35e-06
    },
    "2025-03-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 89.69500015728876,
     "nav": 89.727521,
     "prem": -0.00036244
    },
    "2025-03-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 91.16500000811575,
     "nav": 91.156939,
     "prem": 8.843e-05
    },
    "2025-03-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 91.3750002886687,
     "nav": 91.364529,
     "prem": 0.00011461
@@ -16595,37 +16595,37 @@
     "prem": -8.847000000000001e-05
    },
    "2025-07-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 88.04500028499885,
     "nav": 88.052505,
     "prem": -8.523e-05
    },
    "2025-07-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 88.7350002365082,
     "nav": 88.737815,
     "prem": -3.172e-05
    },
    "2025-07-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 89.14500034966679,
     "nav": 89.163096,
     "prem": -0.00020295
    },
    "2025-07-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 88.12499986153138,
     "nav": 88.113146,
     "prem": 0.00013453
    },
    "2025-07-15": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 86.8700002121217,
     "nav": 86.867865,
     "prem": 2.4580000000000002e-05
    },
    "2025-07-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 86.11499983433559,
     "nav": 86.103208,
     "prem": 0.00013695
@@ -17225,235 +17225,235 @@
     "prem": 0.00014083
    },
    "2025-12-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.92499985534846,
     "nav": 45.931501,
     "prem": -0.00014154
    },
    "2025-12-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.4349998644726,
     "nav": 45.425535,
     "prem": 0.00020836
    },
    "2025-12-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.69500008760259,
     "nav": 45.688119,
     "prem": 0.00015061
    },
    "2025-12-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.18500012739866,
     "nav": 46.186558,
     "prem": -3.3730000000000004e-05
    },
    "2025-12-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.97000015287108,
     "nav": 45.965348,
     "prem": 0.00010121
    },
    "2025-12-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.53499983430902,
     "nav": 45.537146,
     "prem": -4.7130000000000004e-05
    },
    "2025-12-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.19499987523168,
     "nav": 45.199292,
     "prem": -9.496e-05
    },
    "2025-12-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.81500006570274,
     "nav": 43.824158,
     "prem": -0.00020897
    },
    "2025-12-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.79499991043249,
     "nav": 44.781873,
     "prem": 0.00029313
    },
    "2025-12-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.115000200599745,
     "nav": 44.113413,
     "prem": 3.598e-05
    },
    "2025-12-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.13499984793571,
     "nav": 44.145733,
     "prem": -0.00024313
    },
    "2025-12-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.22499982010957,
     "nav": 44.229233,
     "prem": -9.570999999999999e-05
    },
    "2025-12-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.49500014398795,
     "nav": 44.497755,
     "prem": -6.191000000000001e-05
    },
    "2025-12-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.36500018038879,
     "nav": 44.339267,
     "prem": 0.00058037
    },
    "2025-12-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.205000166870974,
     "nav": 44.203583,
     "prem": 3.206e-05
    },
    "2025-12-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.62499986426116,
     "nav": 44.611764,
     "prem": 0.00029669
    },
    "2025-12-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.9749999146441,
     "nav": 44.962134,
     "prem": 0.00028615
    },
    "2025-12-31": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.715000187533064,
     "nav": 44.721831,
     "prem": -0.00015274
    },
    "2026-01-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.65500008187275,
     "nav": 45.657477,
     "prem": -5.4250000000000004e-05
    },
    "2026-01-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.90000013837955,
     "nav": 46.880115,
     "prem": 0.00042417
    },
    "2026-01-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.62999977414368,
     "nav": 45.618856,
     "prem": 0.00024428
    },
    "2026-01-07": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.135000018829,
     "nav": 45.12914,
     "prem": 0.00012985
    },
    "2026-01-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.54500004999464,
     "nav": 46.547387,
     "prem": -5.128e-05
    },
    "2026-01-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.6550002088105,
     "nav": 46.652411,
     "prem": 5.55e-05
    },
    "2026-01-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.32499989702725,
     "nav": 46.332775,
     "prem": -0.00016781
    },
    "2026-01-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.01499986258538,
     "nav": 47.023307,
     "prem": -0.00017666
    },
    "2026-01-14": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.07500006580458,
     "nav": 48.048594,
     "prem": 0.00054957
    },
    "2026-01-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.61499997796074,
     "nav": 47.604675,
     "prem": 0.00021689
    },
    "2026-01-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.695000133385705,
     "nav": 47.700053,
     "prem": -0.00010593
    },
    "2026-01-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.605000130122505,
     "nav": 47.602263,
     "prem": 5.75e-05
    },
    "2026-01-21": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.76500003702033,
     "nav": 48.759753,
     "prem": 0.00010761
    },
    "2026-01-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 48.9149997773584,
     "nav": 48.91292,
     "prem": 4.252e-05
    },
    "2026-01-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.184999821941474,
     "nav": 49.187714,
     "prem": -5.5180000000000004e-05
    },
    "2026-01-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.20500010837581,
     "nav": 49.211718,
     "prem": -0.00013651
    },
    "2026-01-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 49.65500001533083,
     "nav": 49.661981,
     "prem": -0.00014057
    },
    "2026-01-28": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 50.0350001035621,
     "nav": 50.036894,
     "prem": -3.785e-05
    },
    "2026-01-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 50.50500000233358,
     "nav": 50.515197,
     "prem": -0.00020186
    },
    "2026-01-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 51.03999999241816,
     "nav": 51.004666,
     "prem": 0.0006927600000000001
    },
    "2026-02-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 50.044999825747205,
     "nav": 50.037154,
     "prem": 0.0001568
@@ -17585,55 +17585,55 @@
     "prem": -0.000223
    },
    "2026-03-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 56.49499993151091,
     "nav": 56.505107,
     "prem": -0.00017887
    },
    "2026-03-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 56.555000089570726,
     "nav": 56.570179,
     "prem": -0.00026832
    },
    "2026-03-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 56.325000248186996,
     "nav": 56.33367,
     "prem": -0.0001539
    },
    "2026-03-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 55.614999964804504,
     "nav": 55.616154,
     "prem": -2.075e-05
    },
    "2026-03-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 57.00499993704934,
     "nav": 57.008738,
     "prem": -6.557e-05
    },
    "2026-03-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 57.51500014457165,
     "nav": 57.515837,
     "prem": -1.455e-05
    },
    "2026-03-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 57.6950000067902,
     "nav": 57.688795,
     "prem": 0.00010756
    },
    "2026-03-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 57.90499980631946,
     "nav": 57.896687,
     "prem": 0.00014358
    },
    "2026-03-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 58.50500015192406,
     "nav": 58.498174,
     "prem": 0.00011669000000000001
@@ -17675,43 +17675,43 @@
     "prem": 0.00022904000000000002
    },
    "2026-03-26": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 61.525000045996116,
     "nav": 61.535482,
     "prem": -0.00017034
    },
    "2026-03-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 62.56499981608756,
     "nav": 62.588684,
     "prem": -0.00037841
    },
    "2026-03-30": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 61.95500026196364,
     "nav": 61.936628,
     "prem": 0.00029663
    },
    "2026-03-31": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 61.23499973254352,
     "nav": 61.244794,
     "prem": -0.00015992
    },
    "2026-04-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 58.974999995627044,
     "nav": 58.973311,
     "prem": 2.8639999999999997e-05
    },
    "2026-04-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 59.26500015547328,
     "nav": 59.273564,
     "prem": -0.00014448
    },
    "2026-04-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 59.669999757301326,
     "nav": 59.673132,
     "prem": -5.249e-05
@@ -17723,55 +17723,55 @@
     "prem": -0.00017663000000000002
    },
    "2026-04-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 58.06000018099749,
     "nav": 58.058875,
     "prem": 1.938e-05
    },
    "2026-04-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 57.344999777815744,
     "nav": 57.353725,
     "prem": -0.00015213
    },
    "2026-04-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 56.94000010739296,
     "nav": 56.957408,
     "prem": -0.00030563
    },
    "2026-04-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 57.12499985718352,
     "nav": 57.140789,
     "prem": -0.00027632
    },
    "2026-04-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 55.92499999480575,
     "nav": 55.924141,
     "prem": 1.5360000000000002e-05
    },
    "2026-04-15": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 55.775000041389724,
     "nav": 55.774082,
     "prem": 1.6459999999999998e-05
    },
    "2026-04-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 56.60000000544,
     "nav": 56.618,
     "prem": -0.00031792
    },
    "2026-04-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 54.99500020967358,
     "nav": 54.991737,
     "prem": 5.934e-05
    },
    "2026-04-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 55.084999733954525,
     "nav": 55.074986,
     "prem": 0.00018182
@@ -17819,25 +17819,25 @@
     "prem": 6.962e-05
    },
    "2026-04-30": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 59.630000134594496,
     "nav": 59.628897,
     "prem": 1.8500000000000002e-05
    },
    "2026-05-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 58.83500008026343,
     "nav": 58.828566,
     "prem": 0.00010937
    },
    "2026-05-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 59.41500015959196,
     "nav": 59.384949,
     "prem": 0.00050604
    },
    "2026-05-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 59.4349999950949,
     "nav": 59.434474,
     "prem": 8.85e-06
@@ -23201,19 +23201,19 @@
     "prem": -3.994e-05
    },
    "2025-01-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 227.58499991464132,
     "nav": 227.511682,
     "prem": 0.00032226
    },
    "2025-01-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 233.65000101932105,
     "nav": 233.724482,
     "prem": -0.00031867
    },
    "2025-01-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 231.67500080762565,
     "nav": 231.702826,
     "prem": -0.00012009000000000001
@@ -23333,43 +23333,43 @@
     "prem": 0.00036011
    },
    "2025-02-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 222.61000003355522,
     "nav": 222.580655,
     "prem": 0.00013183999999999998
    },
    "2025-02-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 225.61499910163016,
     "nav": 225.624358,
     "prem": -4.1479999999999996e-05
    },
    "2025-03-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 218.72999923562668,
     "nav": 218.682661,
     "prem": 0.00021647
    },
    "2025-03-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 218.52499935558228,
     "nav": 218.478553,
     "prem": 0.00021259
    },
    "2025-03-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 221.525000176401,
     "nav": 221.551254,
     "prem": -0.0001185
    },
    "2025-03-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 215.41500078635391,
     "nav": 215.381285,
     "prem": 0.00015654000000000002
    },
    "2025-03-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 218.47499899274075,
     "nav": 218.522473,
     "prem": -0.00021725000000000002
@@ -23867,7 +23867,7 @@
     "prem": 8.566e-05
    },
    "2025-07-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 256.2649998260916,
     "nav": 256.285313,
     "prem": -7.926000000000001e-05
@@ -24503,61 +24503,61 @@
     "prem": 4.02e-05
    },
    "2025-12-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.5900001238123,
     "nav": 146.61729,
     "prem": -0.00018613
    },
    "2025-12-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 147.66000007933408,
     "nav": 147.629612,
     "prem": 0.00020584000000000002
    },
    "2025-12-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 148.0350005772189,
     "nav": 148.022543,
     "prem": 8.416e-05
    },
    "2025-12-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 148.72000026340976,
     "nav": 148.747343,
     "prem": -0.00018381999999999998
    },
    "2025-12-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 148.00499932245324,
     "nav": 147.964034,
     "prem": 0.00027686
    },
    "2025-12-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 143.6699996048873,
     "nav": 143.682454,
     "prem": -8.668e-05
    },
    "2025-12-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 142.30499943666132,
     "nav": 142.298956,
     "prem": 4.247e-05
    },
    "2025-12-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 142.5149999304339,
     "nav": 142.586042,
     "prem": -0.0004982400000000001
    },
    "2025-12-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 139.37500017092853,
     "nav": 139.355365,
     "prem": 0.0001409
    },
    "2025-12-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 141.52499955584895,
     "nav": 141.551893,
     "prem": -0.00018999
@@ -24593,169 +24593,169 @@
     "prem": 7.842e-05
    },
    "2025-12-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 145.89499969848782,
     "nav": 145.898297,
     "prem": -2.2599999999999997e-05
    },
    "2025-12-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 145.42500022994315,
     "nav": 145.408713,
     "prem": 0.00011200999999999999
    },
    "2025-12-31": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 143.96499968399857,
     "nav": 143.952329,
     "prem": 8.802000000000001e-05
    },
    "2026-01-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 144.28500054223008,
     "nav": 144.307882,
     "prem": -0.00015855999999999997
    },
    "2026-01-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 144.64999974308466,
     "nav": 144.639739,
     "prem": 7.094e-05
    },
    "2026-01-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.6299995812044,
     "nav": 146.674618,
     "prem": -0.00030419999999999997
    },
    "2026-01-07": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.49999952174926,
     "nav": 146.502367,
     "prem": -1.616e-05
    },
    "2026-01-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 144.22999996757298,
     "nav": 144.251303,
     "prem": -0.00014768
    },
    "2026-01-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.14500037665962,
     "nav": 146.170051,
     "prem": -0.00017138
    },
    "2026-01-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.7749996353558,
     "nav": 146.792051,
     "prem": -0.00011616
    },
    "2026-01-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.4999993200649,
     "nav": 146.503826,
     "prem": -2.612e-05
    },
    "2026-01-14": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 144.6999995102682,
     "nav": 144.677087,
     "prem": 0.00015837000000000002
    },
    "2026-01-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 145.4699993203886,
     "nav": 145.421949,
     "prem": 0.00033042
    },
    "2026-01-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 145.60500028044916,
     "nav": 145.609603,
     "prem": -3.1610000000000004e-05
    },
    "2026-01-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 141.86500038461404,
     "nav": 141.834713,
     "prem": 0.00021354000000000002
    },
    "2026-01-21": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 143.8550002482739,
     "nav": 143.851824,
     "prem": 2.208e-05
    },
    "2026-01-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 144.9050004419995,
     "nav": 144.905525,
     "prem": -3.62e-06
    },
    "2026-01-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 145.07499971732923,
     "nav": 145.086093,
     "prem": -7.646e-05
    },
    "2026-01-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.1150006059884,
     "nav": 146.12513,
     "prem": -6.932e-05
    },
    "2026-01-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 148.08499977660534,
     "nav": 148.064746,
     "prem": 0.00013679
    },
    "2026-01-28": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 149.18499985643652,
     "nav": 149.187084,
     "prem": -1.397e-05
    },
    "2026-01-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 146.8350001798451,
     "nav": 146.909936,
     "prem": -0.00051008
    },
    "2026-01-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 143.89500019097898,
     "nav": 143.898094,
     "prem": -2.15e-05
    },
    "2026-02-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 145.27999984550388,
     "nav": 145.271301,
     "prem": 5.988e-05
    },
    "2026-02-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 142.039999887639,
     "nav": 142.043622,
     "prem": -2.5500000000000003e-05
    },
    "2026-02-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 138.1050004230792,
     "nav": 138.091716,
     "prem": 9.620000000000001e-05
    },
    "2026-02-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 135.60000047090344,
     "nav": 135.597317,
     "prem": 1.979e-05
    },
    "2026-02-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 141.0749995887999,
     "nav": 141.116142,
     "prem": -0.00029155
@@ -24773,7 +24773,7 @@
     "prem": 0.00020013
    },
    "2026-02-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 142.9399996602587,
     "nav": 142.962389,
     "prem": -0.00015661
@@ -24785,79 +24785,79 @@
     "prem": 2.845e-05
    },
    "2026-02-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 139.58499932557947,
     "nav": 139.602021,
     "prem": -0.00012193
    },
    "2026-02-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 139.46499995553134,
     "nav": 139.448994,
     "prem": 0.00011478000000000001
    },
    "2026-02-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 140.93499984265873,
     "nav": 140.959985,
     "prem": -0.00017725
    },
    "2026-02-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 140.19500068833997,
     "nav": 140.195511,
     "prem": -3.6400000000000003e-06
    },
    "2026-02-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 140.89499966430503,
     "nav": 140.886214,
     "prem": 6.236e-05
    },
    "2026-02-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 138.56000039302424,
     "nav": 138.518323,
     "prem": 0.00030088
    },
    "2026-02-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 140.3049999275571,
     "nav": 140.317665,
     "prem": -9.025999999999999e-05
    },
    "2026-02-25": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 143.01500014615843,
     "nav": 142.984107,
     "prem": 0.00021606000000000002
    },
    "2026-02-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 141.01500006308268,
     "nav": 141.002245,
     "prem": 9.046e-05
    },
    "2026-02-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 138.7500004834143,
     "nav": 138.773499,
     "prem": -0.00016933
    },
    "2026-03-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 139.50999982150609,
     "nav": 139.558354,
     "prem": -0.00034648
    },
    "2026-03-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 137.51000000283392,
     "nav": 137.513728,
     "prem": -2.711e-05
    },
    "2026-03-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 139.80999957428511,
     "nav": 139.882113,
     "prem": -0.00051553
@@ -24875,19 +24875,19 @@
     "prem": -0.00011844999999999999
    },
    "2026-03-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 139.76499936601257,
     "nav": 139.777146,
     "prem": -8.69e-05
    },
    "2026-03-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 139.7849999661207,
     "nav": 139.767543,
     "prem": 0.0001249
    },
    "2026-03-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 140.44000038006763,
     "nav": 140.461727,
     "prem": -0.00015468
@@ -24953,67 +24953,67 @@
     "prem": 2.13e-06
    },
    "2026-03-26": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 132.46999960422195,
     "nav": 132.479611,
     "prem": -7.255e-05
    },
    "2026-03-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 129.88500008361748,
     "nav": 129.93075,
     "prem": -0.00035211
    },
    "2026-03-30": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 127.49499991185058,
     "nav": 127.518962,
     "prem": -0.00018790999999999998
    },
    "2026-03-31": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 132.90000024485184,
     "nav": 132.959904,
     "prem": -0.00045054
    },
    "2026-04-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 134.94499987875284,
     "nav": 134.935719,
     "prem": 6.878e-05
    },
    "2026-04-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 136.01500023247584,
     "nav": 136.003119,
     "prem": 8.736e-05
    },
    "2026-04-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 136.7850002924918,
     "nav": 136.78253,
     "prem": 1.806e-05
    },
    "2026-04-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 137.41499960793828,
     "nav": 137.409293,
     "prem": 4.153e-05
    },
    "2026-04-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 141.7350002887872,
     "nav": 141.718816,
     "prem": 0.0001142
    },
    "2026-04-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 142.0449996997974,
     "nav": 142.063171,
     "prem": -0.00012791000000000001
    },
    "2026-04-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 142.57000018753916,
     "nav": 142.584203,
     "prem": -9.960999999999999e-05
@@ -25037,7 +25037,7 @@
     "prem": -7.503e-05
    },
    "2026-04-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 152.02499951572935,
     "nav": 152.071217,
     "prem": -0.00030392
@@ -25049,13 +25049,13 @@
     "prem": -0.00016543
    },
    "2026-04-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 154.55000074835291,
     "nav": 154.560786,
     "prem": -6.978e-05
    },
    "2026-04-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 154.6949999885891,
     "nav": 154.652871,
     "prem": 0.00027241
@@ -25103,145 +25103,145 @@
     "prem": -0.00020962999999999998
    },
    "2026-05-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 161.88500002158082,
     "nav": 161.873159,
     "prem": 7.315e-05
    },
    "2026-05-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 162.05499925439233,
     "nav": 162.007808,
     "prem": 0.00029129
    },
    "2026-05-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 165.59000079140293,
     "nav": 165.584207,
     "prem": 3.499e-05
    },
    "2026-05-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 169.96999968611232,
     "nav": 170.004934,
     "prem": -0.00020549
    },
    "2026-05-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 169.67499997898892,
     "nav": 169.665307,
     "prem": 5.7130000000000004e-05
    },
    "2026-05-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 175.54999957896555,
     "nav": 175.575379,
     "prem": -0.00014455000000000002
    },
    "2026-05-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 177.9050006762615,
     "nav": 177.889197,
     "prem": 8.884e-05
    },
    "2026-05-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 175.2499997823613,
     "nav": 175.225279,
     "prem": 0.00014108
    },
    "2026-05-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 176.879999361806,
     "nav": 176.886155,
     "prem": -3.48e-05
    },
    "2026-05-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 179.49499953920807,
     "nav": 179.478527,
     "prem": 9.178e-05
    },
    "2026-05-15": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 176.30500029415947,
     "nav": 176.279928,
     "prem": 0.00014223
    },
    "2026-05-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 174.38000009132807,
     "nav": 174.367212,
     "prem": 7.334e-05
    },
    "2026-05-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 173.2350007946008,
     "nav": 173.212691,
     "prem": 0.00012880000000000001
    },
    "2026-05-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 177.13499984319878,
     "nav": 177.140578,
     "prem": -3.149e-05
    },
    "2026-05-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 178.55499984211903,
     "nav": 178.560687,
     "prem": -3.185e-05
    },
    "2026-05-22": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 180.37499946129265,
     "nav": 180.393755,
     "prem": -0.00010397
    },
    "2026-05-26": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 185.18999990622336,
     "nav": 185.200786,
     "prem": -5.8240000000000005e-05
    },
    "2026-05-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 184.42000086033534,
     "nav": 184.373218,
     "prem": 0.00025374
    },
    "2026-05-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 186.87000004724223,
     "nav": 186.871538,
     "prem": -8.229999999999999e-06
    },
    "2026-05-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 191.07999974666873,
     "nav": 191.015511,
     "prem": 0.00033761
    },
    "2026-06-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 195.75499924932555,
     "nav": 195.765737,
     "prem": -5.4850000000000005e-05
    },
    "2026-06-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 198.18500052241137,
     "nav": 198.190754,
     "prem": -2.903e-05
    },
    "2026-06-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 196.24499961107682,
     "nav": 196.196186,
     "prem": 0.0002488
    },
    "2026-06-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 193.14500048642068,
     "nav": 193.096707,
     "prem": 0.0002501
@@ -30395,19 +30395,19 @@
     "prem": 0.00014491
    },
    "2025-01-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 77.07499993305181,
     "nav": 77.071561,
     "prem": 4.4619999999999996e-05
    },
    "2025-01-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 76.26000003104966,
     "nav": 76.247391,
     "prem": 0.00016537
    },
    "2025-01-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 76.05499970961101,
     "nav": 76.047452,
     "prem": 9.925e-05
@@ -30443,13 +30443,13 @@
     "prem": -0.0001098
    },
    "2025-01-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.7550002623048,
     "nav": 78.75068,
     "prem": 5.486000000000001e-05
    },
    "2025-01-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.81499998679824,
     "nav": 78.825848,
     "prem": -0.00013762
@@ -30533,7 +30533,7 @@
     "prem": -0.00016357
    },
    "2025-02-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.14000011110339,
     "nav": 78.123873,
     "prem": 0.00020643000000000001
@@ -30545,43 +30545,43 @@
     "prem": 6.169e-05
    },
    "2025-02-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.40499991552977,
     "nav": 79.394396,
     "prem": 0.00013356
    },
    "2025-02-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.28500039053985,
     "nav": 79.281864,
     "prem": 3.956e-05
    },
    "2025-02-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.40500013227583,
     "nav": 79.396311,
     "prem": 0.00010944000000000001
    },
    "2025-02-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.0650002299622,
     "nav": 79.071715,
     "prem": -8.492e-05
    },
    "2025-02-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.87500014497651,
     "nav": 79.864478,
     "prem": 0.00013175
    },
    "2025-02-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 80.24499995851122,
     "nav": 80.241154,
     "prem": 4.7930000000000004e-05
    },
    "2025-02-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 80.28500028034729,
     "nav": 80.264459,
     "prem": 0.00025592
@@ -30611,31 +30611,31 @@
     "prem": 0.00011154
    },
    "2025-02-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.02499994945948,
     "nav": 77.992725,
     "prem": 0.00041382
    },
    "2025-02-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.18500022242297,
     "nav": 79.202969,
     "prem": -0.00022687
    },
    "2025-03-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 79.35500009523241,
     "nav": 79.35178,
     "prem": 4.058e-05
    },
    "2025-03-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.03500013183886,
     "nav": 78.019117,
     "prem": 0.00020358
    },
    "2025-03-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 77.47500032896042,
     "nav": 77.488481,
     "prem": -0.00017397
@@ -30707,13 +30707,13 @@
     "prem": -0.00018311
    },
    "2025-03-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.7050000227155,
     "nav": 78.73271,
     "prem": -0.00035194999999999996
    },
    "2025-03-24": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 78.14500023467521,
     "nav": 78.170415,
     "prem": -0.00032512
@@ -31133,13 +31133,13 @@
     "prem": -3.7789999999999996e-05
    },
    "2025-07-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 81.81500028101313,
     "nav": 81.831838,
     "prem": -0.00020576
    },
    "2025-07-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 81.98499971822783,
     "nav": 81.989018,
     "prem": -4.901e-05
@@ -31781,361 +31781,361 @@
     "prem": 0.00020854999999999997
    },
    "2025-12-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.28500003255152,
     "nav": 43.291728,
     "prem": -0.00015541
    },
    "2025-12-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.7349998227936,
     "nav": 42.728896,
     "prem": 0.00014285
    },
    "2025-12-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.74499995713888,
     "nav": 42.740584,
     "prem": 0.00010332
    },
    "2025-12-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.7149998581731,
     "nav": 42.711155,
     "prem": 9.002e-05
    },
    "2025-12-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.0449998293224,
     "nav": 43.04041,
     "prem": 0.00010664
    },
    "2025-12-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.84500018407494,
     "nav": 42.837582,
     "prem": 0.00017317
    },
    "2025-12-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.219999936975555,
     "nav": 43.219735,
     "prem": 6.130000000000001e-06
    },
    "2025-12-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.055000042058985,
     "nav": 43.064031,
     "prem": -0.00020971
    },
    "2025-12-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.74500014781005,
     "nav": 42.732245,
     "prem": 0.00029849
    },
    "2025-12-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.1949999571793,
     "nav": 43.192855,
     "prem": 4.966e-05
    },
    "2025-12-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.61500000966012,
     "nav": 42.615329,
     "prem": -7.72e-06
    },
    "2025-12-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.47499978936669,
     "nav": 42.480029,
     "prem": -0.00011839000000000001
    },
    "2025-12-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.59499998587485,
     "nav": 42.603591,
     "prem": -0.00020165
    },
    "2025-12-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.82499992012088,
     "nav": 42.837784,
     "prem": -0.00029843000000000003
    },
    "2025-12-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.78500014568472,
     "nav": 42.784497,
     "prem": 1.176e-05
    },
    "2025-12-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.87500012380621,
     "nav": 42.863415,
     "prem": 0.00027028
    },
    "2025-12-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.95500016160312,
     "nav": 42.949476,
     "prem": 0.00012862
    },
    "2025-12-31": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.69499994534512,
     "nav": 42.685467,
     "prem": 0.00022333
    },
    "2026-01-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.194999944374004,
     "nav": 43.19165,
     "prem": 7.756e-05
    },
    "2026-01-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.694999809399,
     "nav": 42.691815,
     "prem": 7.46e-05
    },
    "2026-01-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.88999996260947,
     "nav": 42.900269,
     "prem": -0.00023937
    },
    "2026-01-07": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 41.85499983272265,
     "nav": 41.855793,
     "prem": -1.895e-05
    },
    "2026-01-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 41.98499981297316,
     "nav": 41.989554,
     "prem": -0.00010846
    },
    "2026-01-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.50499983583774,
     "nav": 42.508094,
     "prem": -7.279e-05
    },
    "2026-01-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.5849999307874,
     "nav": 42.58889,
     "prem": -9.134e-05
    },
    "2026-01-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.855000020919,
     "nav": 42.85557,
     "prem": -1.33e-05
    },
    "2026-01-14": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.180000113989095,
     "nav": 43.171469,
     "prem": 0.00019761
    },
    "2026-01-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.625000209308716,
     "nav": 43.621548,
     "prem": 7.913999999999999e-05
    },
    "2026-01-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.39499986353868,
     "nav": 43.398572,
     "prem": -8.231e-05
    },
    "2026-01-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.945000044636366,
     "nav": 42.951908,
     "prem": -0.00016083
    },
    "2026-01-21": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.0349998341582,
     "nav": 43.036785,
     "prem": -4.1479999999999996e-05
    },
    "2026-01-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.724999876116364,
     "nav": 42.720193,
     "prem": 0.00011252
    },
    "2026-01-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.544999932043005,
     "nav": 42.551372,
     "prem": -0.00014975
    },
    "2026-01-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.88499991949266,
     "nav": 42.881346,
     "prem": 8.521e-05
    },
    "2026-01-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.40999986049428,
     "nav": 43.415333,
     "prem": -0.00012284
    },
    "2026-01-28": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.315000022309036,
     "nav": 43.313724,
     "prem": 2.946e-05
    },
    "2026-01-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.32500013009564,
     "nav": 43.346549,
     "prem": -0.00049713
    },
    "2026-01-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.26499985570327,
     "nav": 43.266043,
     "prem": -2.4109999999999998e-05
    },
    "2026-02-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 42.60499992870576,
     "nav": 42.604458,
     "prem": 1.2719999999999998e-05
    },
    "2026-02-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.26000009885425,
     "nav": 43.266185,
     "prem": -0.00014295
    },
    "2026-02-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.0749999690592,
     "nav": 43.077464,
     "prem": -5.72e-05
    },
    "2026-02-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.1149998224939,
     "nav": 43.12441,
     "prem": -0.00021821
    },
    "2026-02-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.34499978575364,
     "nav": 43.357158,
     "prem": -0.00028042000000000003
    },
    "2026-02-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 43.485000204917874,
     "nav": 43.499204,
     "prem": -0.00032653
    },
    "2026-02-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.20499980775255,
     "nav": 44.211479,
     "prem": -0.00014654999999999998
    },
    "2026-02-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 44.584999824803745,
     "nav": 44.594465,
     "prem": -0.00021225
    },
    "2026-02-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.2649999590055,
     "nav": 45.26295,
     "prem": 4.529e-05
    },
    "2026-02-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.50500021196888,
     "nav": 46.516956,
     "prem": -0.00025702
    },
    "2026-02-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.395000064677184,
     "nav": 46.379067,
     "prem": 0.00034354000000000003
    },
    "2026-02-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 45.59500019676936,
     "nav": 45.604506,
     "prem": -0.00020844
    },
    "2026-02-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.12499980116321,
     "nav": 46.125682,
     "prem": -1.479e-05
    },
    "2026-02-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.33499996191828,
     "nav": 46.333622,
     "prem": 2.974e-05
    },
    "2026-02-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 46.68499979483544,
     "nav": 46.670517,
     "prem": 0.00031032
    },
    "2026-02-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.185000092161246,
     "nav": 47.180375,
     "prem": 9.803e-05
    },
    "2026-02-25": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.35499977194,
     "nav": 47.348371,
     "prem": 0.00014000000000000001
    },
    "2026-02-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.164999857925864,
     "nav": 47.169522,
     "prem": -9.587e-05
    },
    "2026-02-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.72499977527739,
     "nav": 47.735101,
     "prem": -0.00021161
    },
    "2026-03-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.36499981675617,
     "nav": 47.381663,
     "prem": -0.00035168
    },
    "2026-03-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.08000012693869,
     "nav": 47.075487,
     "prem": 9.587e-05
    },
    "2026-03-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 47.2649998029368,
     "nav": 47.26844,
     "prem": -7.277999999999999e-05
@@ -32207,61 +32207,61 @@
     "prem": -5.0390000000000004e-05
    },
    "2026-03-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.65500018987672,
     "nav": 44.627548,
     "prem": 0.00061514
    },
    "2026-03-23": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.77500013414402,
     "nav": 44.772449,
     "prem": 5.698e-05
    },
    "2026-03-24": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.10499982803304,
     "nav": 45.102162,
     "prem": 6.292e-05
    },
    "2026-03-25": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.2450001394367,
     "nav": 45.238574,
     "prem": 0.00014205
    },
    "2026-03-26": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.3350000897328,
     "nav": 45.342112,
     "prem": -0.00015685000000000002
    },
    "2026-03-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.60499989889992,
     "nav": 45.618696,
     "prem": -0.00030023
    },
    "2026-03-30": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.924999926818586,
     "nav": 45.919558,
     "prem": 0.00011851
    },
    "2026-03-31": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.88499986589703,
     "nav": 45.883087,
     "prem": 4.169e-05
    },
    "2026-04-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 46.0949997984261,
     "nav": 46.08997,
     "prem": 0.00010913000000000001
    },
    "2026-04-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 46.344999923833804,
     "nav": 46.351109,
     "prem": -0.0001318
@@ -32345,31 +32345,31 @@
     "prem": -2.14e-06
    },
    "2026-04-23": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 46.104999950316454,
     "nav": 46.109687,
     "prem": -0.00010165
    },
    "2026-04-24": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 46.174999907852,
     "nav": 46.183336,
     "prem": -0.0001805
    },
    "2026-04-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 46.17500017893157,
     "nav": 46.172457,
     "prem": 5.508e-05
    },
    "2026-04-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 46.24499991235176,
     "nav": 46.234715,
     "prem": 0.00022245
    },
    "2026-04-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.66999980204053,
     "nav": 45.665557,
     "prem": 9.729e-05
@@ -32423,13 +32423,13 @@
     "prem": 6.936e-05
    },
    "2026-05-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.20999992216681,
     "nav": 45.208499,
     "prem": 3.32e-05
    },
    "2026-05-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.655000112901085,
     "nav": 44.649781,
     "prem": 0.00011689
@@ -32441,61 +32441,61 @@
     "prem": -2.919e-05
    },
    "2026-05-15": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.87499988430226,
     "nav": 43.859471,
     "prem": 0.00035406
    },
    "2026-05-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.92499984976249,
     "nav": 43.916985,
     "prem": 0.0001825
    },
    "2026-05-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.35500010560102,
     "nav": 44.351703,
     "prem": 7.434e-05
    },
    "2026-05-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.52500010905637,
     "nav": 44.527503,
     "prem": -5.621e-05
    },
    "2026-05-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.98499996730432,
     "nav": 44.990568,
     "prem": -0.00012376
    },
    "2026-05-22": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.35499990270711,
     "nav": 45.352769,
     "prem": 4.9189999999999995e-05
    },
    "2026-05-26": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.355000052715,
     "nav": 45.34385,
     "prem": 0.0002459
    },
    "2026-05-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.13500005174415,
     "nav": 45.124685,
     "prem": 0.00022859
    },
    "2026-05-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.61499994783106,
     "nav": 44.616939,
     "prem": -4.346e-05
    },
    "2026-05-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.425000000670934,
     "nav": 44.430201,
     "prem": -0.00011706
@@ -32567,7 +32567,7 @@
     "prem": 6.601e-05
    },
    "2026-06-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.065000153588,
     "nav": 45.05896,
     "prem": 0.00013405
@@ -32585,7 +32585,7 @@
     "prem": -0.0002777
    },
    "2026-06-22": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.71500020968059,
     "nav": 44.714524,
     "prem": 1.065e-05
@@ -32705,7 +32705,7 @@
     "prem": 0.00013372999999999998
    },
    "2026-07-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.92500017935016,
     "nav": 44.926516,
     "prem": -3.374e-05
@@ -32735,7 +32735,7 @@
     "prem": 4.5050000000000004e-05
    },
    "2026-07-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 45.514999983257276,
     "nav": 45.496472,
     "prem": 0.00040724
@@ -32759,43 +32759,43 @@
     "prem": 0.00014095
    },
    "2026-08-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.375000071895634,
     "nav": 44.368308,
     "prem": 0.00015083
    },
    "2026-08-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 44.09500019810102,
     "nav": 44.100178,
     "prem": -0.00011741
    },
    "2026-08-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.645000009214996,
     "nav": 43.656569,
     "prem": -0.000265
    },
    "2026-08-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.38500017218863,
     "nav": 43.381023,
     "prem": 9.168e-05
    },
    "2026-08-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.6050002106929,
     "nav": 43.603243,
     "prem": 4.03e-05
    },
    "2026-08-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.14000010852688,
     "nav": 43.135916,
     "prem": 9.468000000000001e-05
    },
    "2026-08-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 43.61499999471683,
     "nav": 43.618438,
     "prem": -7.882000000000001e-05
@@ -35241,19 +35241,19 @@
   },
   "XLY": {
    "2025-01-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 221.3600009613081,
     "nav": 221.363773,
     "prem": -1.704e-05
    },
    "2025-01-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 225.89500082265982,
     "nav": 225.906016,
     "prem": -4.876e-05
    },
    "2025-01-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 226.79000087287048,
     "nav": 226.765517,
     "prem": 0.00010797
@@ -35319,55 +35319,55 @@
     "prem": -0.00019439000000000001
    },
    "2025-01-23": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 231.40500085483131,
     "nav": 231.417546,
     "prem": -5.421e-05
    },
    "2025-01-24": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 230.05500103797016,
     "nav": 230.079493,
     "prem": -0.00010645
    },
    "2025-01-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 231.35000087339955,
     "nav": 231.284804,
     "prem": 0.00028188999999999997
    },
    "2025-01-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 231.57999978344634,
     "nav": 231.593057,
     "prem": -5.638e-05
    },
    "2025-01-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 230.905000137958,
     "nav": 230.997993,
     "prem": -0.00040257
    },
    "2025-01-30": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 233.22500061708956,
     "nav": 233.22348,
     "prem": 6.52e-06
    },
    "2025-01-31": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 232.12500089637402,
     "nav": 232.218506,
     "prem": -0.00040266000000000005
    },
    "2025-02-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 229.07000070546047,
     "nav": 229.025153,
     "prem": 0.00019581999999999998
    },
    "2025-02-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 231.78499905373863,
     "nav": 231.756157,
     "prem": 0.00012445
@@ -35439,7 +35439,7 @@
     "prem": 0.00014104
    },
    "2025-02-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 218.43500000217406,
     "nav": 218.452048,
     "prem": -7.804e-05
@@ -35463,31 +35463,31 @@
     "prem": 0.00018984
    },
    "2025-02-27": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 212.46499937821548,
     "nav": 212.39303,
     "prem": 0.00033884999999999997
    },
    "2025-02-28": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 215.85000054891984,
     "nav": 215.927147,
     "prem": -0.00035728
    },
    "2025-03-03": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 212.00499919100733,
     "nav": 211.945968,
     "prem": 0.00027852
    },
    "2025-03-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 208.19500062254684,
     "nav": 208.162546,
     "prem": 0.00015591000000000002
    },
    "2025-03-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 211.31499960967156,
     "nav": 211.342639,
     "prem": -0.00013078
@@ -35499,7 +35499,7 @@
     "prem": -0.0001512
    },
    "2025-03-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 205.7149995660818,
     "nav": 205.729629,
     "prem": -7.111e-05
@@ -35547,19 +35547,19 @@
     "prem": 0.00022101
    },
    "2025-03-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 197.155000681152,
     "nav": 197.152832,
     "prem": 1.1000000000000001e-05
    },
    "2025-03-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 196.6550008527867,
     "nav": 196.71591,
     "prem": -0.00030963000000000003
    },
    "2025-03-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 197.31499943239692,
     "nav": 197.343934,
     "prem": -0.00014662
@@ -36039,7 +36039,7 @@
     "prem": -0.00017228
    },
    "2025-07-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 220.39500024814606,
     "nav": 220.306578,
     "prem": 0.00040135999999999997
@@ -36123,7 +36123,7 @@
     "prem": 7.701000000000001e-05
    },
    "2025-08-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 223.43500059701256,
     "nav": 223.410211,
     "prem": 0.00011096
@@ -36633,361 +36633,361 @@
     "prem": -1.56e-05
    },
    "2025-12-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 119.72000036765999,
     "nav": 119.744548,
     "prem": -0.000205
    },
    "2025-12-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.99499977377201,
     "nav": 117.962678,
     "prem": 0.000274
    },
    "2025-12-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.99500001946326,
     "nav": 117.973819,
     "prem": 0.00017954
    },
    "2025-12-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 119.7200005512273,
     "nav": 119.72799,
     "prem": -6.673e-05
    },
    "2025-12-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.17499993807668,
     "nav": 120.161829,
     "prem": 0.00010961
    },
    "2025-12-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.69999954512447,
     "nav": 120.681049,
     "prem": 0.00015703
    },
    "2025-12-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.70500014191578,
     "nav": 121.714517,
     "prem": -7.819e-05
    },
    "2025-12-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.9249994314816,
     "nav": 121.952024,
     "prem": -0.0002216
    },
    "2025-12-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.51999995834343,
     "nav": 120.528044,
     "prem": -6.674e-05
    },
    "2025-12-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.33500036810719,
     "nav": 122.324456,
     "prem": 8.62e-05
    },
    "2025-12-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.84499965389362,
     "nav": 121.843423,
     "prem": 1.294e-05
    },
    "2025-12-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.33000008799645,
     "nav": 122.327178,
     "prem": 2.307e-05
    },
    "2025-12-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.1649995524287,
     "nav": 122.172661,
     "prem": -6.271e-05
    },
    "2025-12-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.57999989768435,
     "nav": 122.590501,
     "prem": -8.566e-05
    },
    "2025-12-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.03999995120753,
     "nav": 122.029154,
     "prem": 8.888e-05
    },
    "2025-12-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.8450001098682,
     "nav": 120.839949,
     "prem": 4.18e-05
    },
    "2025-12-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.35999992366669,
     "nav": 120.348349,
     "prem": 9.681e-05
    },
    "2025-12-31": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 119.38999962510697,
     "nav": 119.389848,
     "prem": 1.27e-06
    },
    "2026-01-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 118.36000030323575,
     "nav": 118.377725,
     "prem": -0.00014973
    },
    "2026-01-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.32500039982254,
     "nav": 120.319349,
     "prem": 4.697e-05
    },
    "2026-01-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.0899995621778,
     "nav": 121.10109,
     "prem": -9.158e-05
    },
    "2026-01-07": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.91999957768445,
     "nav": 120.909796,
     "prem": 8.439e-05
    },
    "2026-01-08": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.91499976383938,
     "nav": 122.933982,
     "prem": -0.00015441
    },
    "2026-01-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 124.40500055369078,
     "nav": 124.422518,
     "prem": -0.00014078999999999999
    },
    "2026-01-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 124.51500062232336,
     "nav": 124.532688,
     "prem": -0.00014203
    },
    "2026-01-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 124.20499952284743,
     "nav": 124.216779,
     "prem": -9.483e-05
    },
    "2026-01-14": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.27000031820273,
     "nav": 122.259475,
     "prem": 8.609e-05
    },
    "2026-01-15": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.71000049677914,
     "nav": 122.714255,
     "prem": -3.467e-05
    },
    "2026-01-16": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.29000056726112,
     "nav": 122.298208,
     "prem": -6.711e-05
    },
    "2026-01-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 119.15000045515283,
     "nav": 119.126523,
     "prem": 0.00019708
    },
    "2026-01-21": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.41999946413016,
     "nav": 121.403752,
     "prem": 0.00013383
    },
    "2026-01-22": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.63499980219896,
     "nav": 122.639822,
     "prem": -3.9319999999999996e-05
    },
    "2026-01-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 123.14499978479705,
     "nav": 123.147262,
     "prem": -1.8370000000000002e-05
    },
    "2026-01-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.309999454954,
     "nav": 122.3106,
     "prem": -4.9100000000000004e-06
    },
    "2026-01-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 122.67999945713198,
     "nav": 122.66735,
     "prem": 0.00010312
    },
    "2026-01-28": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.75999945930259,
     "nav": 121.787655,
     "prem": -0.00022708
    },
    "2026-01-29": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.1849995465942,
     "nav": 121.232741,
     "prem": -0.0003938
    },
    "2026-01-30": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.17999962938671,
     "nav": 121.148564,
     "prem": 0.00025948
    },
    "2026-02-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 121.98000015892424,
     "nav": 121.978412,
     "prem": 1.302e-05
    },
    "2026-02-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.9750003347991,
     "nav": 120.973343,
     "prem": 1.37e-05
    },
    "2026-02-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 120.13499948507915,
     "nav": 120.144569,
     "prem": -7.965e-05
    },
    "2026-02-05": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.48999949845202,
     "nav": 117.576497,
     "prem": -0.0007356699999999999
    },
    "2026-02-06": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.95499960500881,
     "nav": 118.00412,
     "prem": -0.00041626000000000006
    },
    "2026-02-09": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.520000418419,
     "nav": 117.585172,
     "prem": -0.0005542500000000001
    },
    "2026-02-10": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 118.33499963128331,
     "nav": 118.330593,
     "prem": 3.7239999999999996e-05
    },
    "2026-02-11": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.75999989743592,
     "nav": 117.789148,
     "prem": -0.00024746
    },
    "2026-02-12": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.11499983564799,
     "nav": 116.1536,
     "prem": -0.00033232
    },
    "2026-02-13": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.17000028090249,
     "nav": 116.180747,
     "prem": -9.25e-05
    },
    "2026-02-17": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.04000028013161,
     "nav": 116.013468,
     "prem": 0.0002287
    },
    "2026-02-18": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.01000054481534,
     "nav": 117.042193,
     "prem": -0.00027505
    },
    "2026-02-19": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.22999967523207,
     "nav": 116.221218,
     "prem": 7.556e-05
    },
    "2026-02-20": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.44000005638848,
     "nav": 117.433843,
     "prem": 5.2430000000000005e-05
    },
    "2026-02-23": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 114.97499994656884,
     "nav": 114.973265,
     "prem": 1.509e-05
    },
    "2026-02-24": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.73500027066827,
     "nav": 116.725542,
     "prem": 8.103e-05
    },
    "2026-02-25": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.074999805024,
     "nav": 117.080245,
     "prem": -4.48e-05
    },
    "2026-02-26": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 117.04499974774188,
     "nav": 117.044665,
     "prem": 2.86e-06
    },
    "2026-02-27": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.85499998732378,
     "nav": 116.868517,
     "prem": -0.00011566
    },
    "2026-03-02": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 115.4099995362275,
     "nav": 115.451375,
     "prem": -0.00035838
    },
    "2026-03-03": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 114.3399997927593,
     "nav": 114.339834,
     "prem": 1.45e-06
    },
    "2026-03-04": {
-    "calm": false,
+    "calm": true,
     "disclosed_price": 116.34499990592388,
     "nav": 116.362701,
     "prem": -0.00015212
@@ -37101,7 +37101,7 @@
     "prem": -1.362e-05
    },
    "2026-03-31": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 108.94499945915328,
     "nav": 108.968868,
     "prem": -0.00021904
@@ -37113,13 +37113,13 @@
     "prem": 4.7990000000000006e-05
    },
    "2026-04-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 108.17499955027715,
     "nav": 108.177876,
     "prem": -2.6589999999999998e-05
    },
    "2026-04-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 109.05999964805795,
     "nav": 109.056572,
     "prem": 3.143e-05
@@ -37131,25 +37131,25 @@
     "prem": 7.718e-05
    },
    "2026-04-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 110.84000011049547,
     "nav": 110.825677,
     "prem": 0.00012924
    },
    "2026-04-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 112.73500032854791,
     "nav": 112.748626,
     "prem": -0.00012085
    },
    "2026-04-10": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 112.89500044141285,
     "nav": 112.896441,
     "prem": -1.276e-05
    },
    "2026-04-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 113.90500011024902,
     "nav": 113.931602,
     "prem": -0.00023349000000000002
@@ -37167,43 +37167,43 @@
     "prem": -1.638e-05
    },
    "2026-04-16": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.65000046781005,
     "nav": 117.666635,
     "prem": -0.00014137
    },
    "2026-04-17": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 120.43000015954817,
     "nav": 120.442372,
     "prem": -0.00010271999999999999
    },
    "2026-04-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 119.85499989384175,
     "nav": 119.846782,
     "prem": 6.857e-05
    },
    "2026-04-21": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.99499941733355,
     "nav": 118.986455,
     "prem": 7.181e-05
    },
    "2026-04-22": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.95000022761349,
     "nav": 118.982029,
     "prem": -0.00026919
    },
    "2026-04-23": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.7350000049211,
     "nav": 117.737071,
     "prem": -1.759e-05
    },
    "2026-04-24": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.69000020170796,
     "nav": 118.708419,
     "prem": -0.00015516
@@ -37221,7 +37221,7 @@
     "prem": 5.333e-05
    },
    "2026-04-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 116.8500003493566,
     "nav": 116.80323,
     "prem": 0.00040042
@@ -37239,55 +37239,55 @@
     "prem": 0.00016045
    },
    "2026-05-04": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.74500024021425,
     "nav": 117.745065,
     "prem": -5.5e-07
    },
    "2026-05-05": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.0700001373088,
     "nav": 118.078353,
     "prem": -7.074e-05
    },
    "2026-05-06": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 119.90000026995763,
     "nav": 119.934611,
     "prem": -0.00028858000000000003
    },
    "2026-05-07": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 119.87500042602969,
     "nav": 119.864251,
     "prem": 8.968000000000001e-05
    },
    "2026-05-08": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 120.21999983026691,
     "nav": 120.226254,
     "prem": -5.202e-05
    },
    "2026-05-11": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 119.37499954601847,
     "nav": 119.359558,
     "prem": 0.00012937000000000002
    },
    "2026-05-12": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.29000046950915,
     "nav": 118.270137,
     "prem": 0.00016795000000000002
    },
    "2026-05-13": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.72999948179529,
     "nav": 118.731486,
     "prem": -1.252e-05
    },
    "2026-05-14": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.66500023365656,
     "nav": 118.668622,
     "prem": -3.052e-05
@@ -37299,19 +37299,19 @@
     "prem": 0.00030496
    },
    "2026-05-18": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 116.32000032322995,
     "nav": 116.288385,
     "prem": 0.00027187
    },
    "2026-05-19": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 115.01500031902779,
     "nav": 114.991703,
     "prem": 0.0002026
    },
    "2026-05-20": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.9450005015608,
     "nav": 117.934864,
     "prem": 8.595e-05
@@ -37347,7 +37347,7 @@
     "prem": 5.5299999999999996e-06
    },
    "2026-05-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 120.90499960351015,
     "nav": 120.900137,
     "prem": 4.0220000000000005e-05
@@ -37449,7 +37449,7 @@
     "prem": 0.00015381
    },
    "2026-06-24": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 115.0449996976798,
     "nav": 115.050269,
     "prem": -4.58e-05
@@ -37461,31 +37461,31 @@
     "prem": 0.00040106
    },
    "2026-06-26": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 114.40000053302404,
     "nav": 114.750049,
     "prem": -0.00305053
    },
    "2026-06-29": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.09999985474391,
     "nav": 117.122437,
     "prem": -0.00019157
    },
    "2026-06-30": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.27499972936711,
     "nav": 117.303596,
     "prem": -0.00024378
    },
    "2026-07-01": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 118.06499947266192,
     "nav": 118.045424,
     "prem": 0.00016583
    },
    "2026-07-02": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 117.10499964280758,
     "nav": 117.209811,
     "prem": -0.00089422
@@ -37509,7 +37509,7 @@
     "prem": -0.00027166
    },
    "2026-07-09": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 116.86999993998336,
     "nav": 116.881632,
     "prem": -9.952000000000001e-05
@@ -37569,7 +37569,7 @@
     "prem": -8.227999999999999e-05
    },
    "2026-07-23": {
-    "calm": true,
+    "calm": false,
     "disclosed_price": 108.7500004629137,
     "nav": 108.791721,
     "prem": -0.00038349

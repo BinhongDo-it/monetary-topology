@@ -23,9 +23,12 @@ Writes ``results/a3_asset_channel.json``.
 
 The criterion that matters is **A3-4**, and its whole force is that the two
 numbers it compares are produced by code that shares nothing. The simulated
-exponent comes from ``asset.py`` running an economy with prices, circulation, a
-wage bill, issuance, supply limits and turnover in it. The loop sum comes from
-``product_graph.py`` given nothing but a terms matrix and two price vectors.
+side is the mean cell-adjusted return gap per round trip between the two
+groups, read off the trade ledger of ``asset.py`` running an economy with
+prices, circulation, a wage bill, issuance, supply limits and turnover in it.
+The loop sum comes from ``product_graph.py`` given the terms matrix, two price
+vectors, and each group's trade counts, which weight the collapse of a group
+to one agent class.
 Neither module imports the other, ``main`` asserts it, and the price is expected
 to fall out of the second by itself rather than being divided out.
 
@@ -315,7 +318,50 @@ def a3_2(models: list[A3Model]) -> Criterion:
     )
 
 
-def adjusted_trades(model: A3Model) -> dict[tuple[int, int], list[float]]:
+def opening_basis(
+    seed: int, rounds: int = REGISTERED_ROUNDS, **asset_kw
+) -> dict[tuple[int, int], int]:
+    """Units each ``(node, tier)`` holds a cost basis for when the opening ends.
+
+    Read off a model that has been built and not run: the opening allocation
+    happens in the constructor, before round zero.
+    """
+    model = A3Model(
+        A3Config(
+            asset=AssetSpec(**asset_kw),
+            network=NetworkConfig(
+                spec=NetworkSpec(seed=seed), seed=seed, rounds=rounds
+            ),
+        )
+    )
+    return {key: len(queue) for key, queue in model.basis.items()}
+
+
+def sold_from_opening(
+    model: A3Model, opening: dict[tuple[int, int], int]
+) -> list[bool]:
+    """For each ledger row, whether the unit sold was an opening unit.
+
+    The ledger dates a unit by the round its basis was written, and that is
+    zero for the opening allocation and for a unit bought on resale inside
+    round zero alike. The basis queue is first in, first out and the opening
+    entries stand at its head, so the first ``opening[(node, tier)]`` sales a
+    node makes in a tier are its opening units, and every later sale is of a
+    unit it bought on resale.
+    """
+    sold: dict[tuple[int, int], int] = {}
+    out = []
+    for node, tier, *_rest in model.trades:
+        key = (int(node), int(tier))
+        before = sold.get(key, 0)
+        sold[key] = before + 1
+        out.append(before < opening.get(key, 0))
+    return out
+
+
+def adjusted_trades(
+    model: A3Model, from_opening: list[bool] | None = None
+) -> dict[tuple[int, int], list[float]]:
     """Cell-adjusted realised return of each resale round trip, per node.
 
     The four-cycle is stated at a **fixed** entry and a **fixed** exit, so a
@@ -331,17 +377,154 @@ def adjusted_trades(model: A3Model) -> dict[tuple[int, int], list[float]]:
     window, prices rise, and the holding period pays them more than the terms
     cost them.
 
-    Opening-allocation entries are excluded. A stretched entrant pays what it
-    has rather than ``gamma * P``, so the identity does not hold there by
-    construction, and including those trades would be measuring the stretch.
+    **What is left out is every trade whose basis is dated round zero.** That
+    is the opening allocation, where a stretched entrant pays what it has
+    rather than ``gamma * P``, so the identity does not hold there by
+    construction and including those trades would be measuring the stretch.
+    It is also every unit bought on resale inside round zero, which did pay
+    ``gamma * P`` and is dated zero all the same: the date cannot tell the two
+    apart. ``from_opening``, one flag per ledger row from
+    ``sold_from_opening``, leaves out the opening units alone.
+    ``round_zero_resales`` prints both readings side by side. The criteria
+    score the date filter.
     """
     out: dict[tuple[int, int], list[float]] = {}
-    for node, tier, entry_round, _exit, paid, _recv, reference in model.trades:
-        if entry_round == 0:
+    for n, row in enumerate(model.trades):
+        node, tier, entry_round, _exit, paid, _recv, reference = row
+        left_out = entry_round == 0 if from_opening is None else from_opening[n]
+        if left_out:
             continue
         key = (int(node), int(tier))
         out.setdefault(key, []).append(float(np.log(reference / paid)))
     return out
+
+
+def terms_differential(
+    models: list[A3Model], origins: list[list[bool]] | None = None
+) -> tuple[float, float, float] | None:
+    """``(ledger, graph, price_free)`` for A3-4, or ``None`` with nothing to read.
+
+    The ledger side is the mean cell-adjusted return of the better-termed
+    group minus the worse-termed one; the graph side is the holonomy of the
+    four-cycle from ``product_graph``. ``origins``, one list of flags per
+    model, switches the trades left out from the date filter to the opening
+    units alone.
+    """
+    rows = []
+    for n, m in enumerate(models):
+        better, worse = terms_pair(m)
+        if better.size == 0:
+            continue
+        adjusted = adjusted_trades(m, None if origins is None else origins[n])
+        rb = [r for (i, _q), v in adjusted.items() if i in set(better.tolist())
+              for r in v]
+        rw = [r for (i, _q), v in adjusted.items() if i in set(worse.tolist())
+              for r in v]
+        if not rb or not rw:
+            continue
+        _, holonomy, price_free = loop_sum_from_graph(
+            m, better, worse, adjusted
+        )
+        rows.append((float(np.mean(rb) - np.mean(rw)), holonomy, price_free))
+    if not rows:
+        return None
+    return (
+        float(np.mean([r[0] for r in rows])),
+        float(np.mean([r[1] for r in rows])),
+        max(r[2] for r in rows),
+    )
+
+
+def window_signs(
+    models: list[A3Model], origins: list[list[bool]] | None = None
+) -> list[list[bool]]:
+    """Per model with a terms pair, whether better terms beat worse per window.
+
+    A trade belongs to the window its sale falls in. ``origins`` switches the
+    trades left out exactly as in ``adjusted_trades``.
+    """
+    per_window = []
+    for n, m in enumerate(models):
+        better, worse = terms_pair(m)
+        if better.size == 0:
+            continue
+        good, bad = set(better.tolist()), set(worse.tolist())
+        signs = []
+        for lo, hi in WINDOWS:
+            rb, rw = [], []
+            for k, (node, _q, t0, t1, paid, _recv, ref) in enumerate(m.trades):
+                left_out = t0 == 0 if origins is None else origins[n][k]
+                if left_out or not (lo <= t1 < hi):
+                    continue
+                value = float(np.log(ref / paid))
+                if node in good:
+                    rb.append(value)
+                elif node in bad:
+                    rw.append(value)
+            signs.append(bool(rb and rw and np.mean(rb) > np.mean(rw)))
+        per_window.append(signs)
+    return per_window
+
+
+def round_zero_resales(
+    seeds: range, models: list[A3Model], rounds: int = REGISTERED_ROUNDS,
+    **asset_kw,
+) -> dict:
+    """The round trips the date filter leaves out beside the opening units.
+
+    Printed, not scored. A3-3, A3-4 and A3-7 leave out every trade whose basis
+    is dated round zero. This counts how many of those were bought on resale
+    inside round zero and not handed out at the opening, checks that they paid
+    ``gamma`` times the reference price like any other resale, and reads A3-4
+    and A3-7 again with them counted.
+    """
+    origins, per_seed, on_terms = [], [], True
+    for seed, m in zip(seeds, models, strict=True):
+        flags = sold_from_opening(m, opening_basis(seed, rounds, **asset_kw))
+        origins.append(flags)
+        resold = [
+            row for row, opened in zip(m.trades, flags, strict=True)
+            if row[2] == 0 and not opened
+        ]
+        for node, tier, _t0, _t1, paid, _recv, ref in resold:
+            due = float(m.terms[int(node), int(tier)]) * ref
+            on_terms = on_terms and abs(paid - due) <= 1e-10 * max(due, 1.0)
+        per_seed.append(
+            {
+                "seed": int(seed),
+                "ledger_rows": len(m.trades),
+                "rows_dated_round_zero": sum(1 for r in m.trades if r[2] == 0),
+                "of_which_bought_on_resale": len(resold),
+            }
+        )
+
+    def reading(found: tuple[float, float, float] | None) -> dict | None:
+        if found is None:
+            return None
+        observed, holonomy, _price_free = found
+        rel = abs(observed - holonomy) / abs(holonomy) if holonomy else None
+        return {
+            "ledger": round(observed, 10),
+            "graph": round(holonomy, 10),
+            "relative_error": None if rel is None else round(rel, 8),
+        }
+
+    def shares(per_window: list[list[bool]]) -> list[float]:
+        if not per_window:
+            return []
+        return [round(float(x), 6) for x in np.mean(per_window, axis=0)]
+
+    return {
+        "per_seed": per_seed,
+        "bought_on_resale_in_round_zero": sum(
+            r["of_which_bought_on_resale"] for r in per_seed
+        ),
+        "they_paid_gamma_times_the_reference_price": bool(on_terms),
+        "a3_4_as_scored": reading(terms_differential(models)),
+        "a3_4_with_them": reading(terms_differential(models, origins)),
+        "a3_7_as_scored": shares(window_signs(models)),
+        "a3_7_with_them": shares(window_signs(models, origins)),
+    }
 
 
 def a3_3(models: list[A3Model]) -> Criterion:
@@ -353,12 +536,15 @@ def a3_3(models: list[A3Model]) -> Criterion:
     increment would be a leak that exhausts itself, which is the reading the
     framework denies.
     """
-    worst, checked = 0.0, 0
-    for m in models:
-        for _key, series in adjusted_trades(m).items():
+    worst, checked, nodes = 0.0, 0, set()
+    for n, m in enumerate(models):
+        for (node, _tier), series in adjusted_trades(m).items():
             if len(series) < 4:
                 continue
             checked += 1
+            # A node trading in two tiers is two cells and one node, and a node
+            # index means a different agent in every seed.
+            nodes.add((n, node))
             half = len(series) // 2
             early, late = np.mean(series[:half]), np.mean(series[half:])
             scale = max(abs(early), 1e-12)
@@ -383,8 +569,10 @@ def a3_3(models: list[A3Model]) -> Criterion:
     return Criterion(
         "A3-3  the gap compounds rather than levelling off",
         worst < 0.05,
-        f"largest drift between a node's first and second half of trades, over "
-        f"{checked} nodes with four or more: at machine precision, below "
+        f"largest drift between the first and second half of the trades one "
+        f"node makes in one tier, over {checked} (seed, node, tier) cells with "
+        f"four or more, on {len(nodes)} nodes counted once per seed: at "
+        f"machine precision, below "
         f"`1e-10` against a threshold of `0.05`. **An assertion and "
         f"not a criterion**, demoted in §5.1: `adjusted return = -log gamma` "
         f"holds by construction, so this is a machine-precision reading of an "
@@ -402,32 +590,19 @@ def a3_4(models: list[A3Model]) -> Criterion:
     per-transaction quantity. The simulated side is the mean cell-adjusted
     return of each group, read off the trade ledger. The graph side is the
     holonomy of the four-cycle, computed by ``product_graph`` from the terms
-    matrix alone. Neither sees the other.
+    matrix, each group collapsed to one agent class by a geometric mean of its
+    members' terms weighted by the round trips each completed. It reads which
+    nodes traded and how often, and no price or return from the ledger, so a
+    change in which trades are counted moves both sides. The gap between the
+    two is the tier-mix term (``a3b_construction.a3_4_reading``).
     """
-    rows = []
-    for m in models:
-        better, worse = terms_pair(m)
-        if better.size == 0:
-            continue
-        adjusted = adjusted_trades(m)
-        rb = [r for (i, _q), v in adjusted.items() if i in set(better.tolist())
-              for r in v]
-        rw = [r for (i, _q), v in adjusted.items() if i in set(worse.tolist())
-              for r in v]
-        if not rb or not rw:
-            continue
-        _, holonomy, price_free = loop_sum_from_graph(
-            m, better, worse, adjusted
-        )
-        rows.append((float(np.mean(rb) - np.mean(rw)), holonomy, price_free))
-    if not rows:
+    found = terms_differential(models)
+    if found is None:
         return Criterion(
             "A3-4  the realised terms differential is the loop sum", False,
             "void: no terms pair completed a resale round trip", void=True,
         )
-    observed = float(np.mean([r[0] for r in rows]))
-    holonomy = float(np.mean([r[1] for r in rows]))
-    price_free = max(r[2] for r in rows)
+    observed, holonomy, price_free = found
     rel = abs(observed - holonomy) / abs(holonomy) if holonomy else np.inf
     # The project's engineering rule 6, as in `a3_3` above. `price_free` is a zero
     # calibration: the claim is that the holonomy does not move under unrelated
@@ -548,12 +723,12 @@ def _shock_survival(
 ) -> float:
     """What is left, after ``A3_6_HORIZON`` rounds, of a transfer to ``target``.
 
-    Behaviour unchanged. The body moved into ``_shock_trace`` so that §16.1's
-    profile can also see the deviation **at** the shock round, which is what
-    tells "the transfer was recaptured" apart from "the transfer left no trace
-    to measure". Those are different events and A3-6's ratio reports both as
-    ``0.0``. Verified identical by re-running A3-6 and comparing its detail
-    string character for character.
+    Behaviour unchanged, and nothing calls it any more. The body moved into
+    ``_shock_trace`` so that §16.1's profile can also see the deviation **at**
+    the shock round, which is what tells "the transfer was recaptured" apart
+    from "the transfer left no trace to measure". A3-6 now prints the second
+    as "no gap in the landing round"; this function still returns ``0.0``
+    for it.
     """
     return _shock_trace(seed, target, base, **asset_kw)[0]
 
@@ -567,19 +742,18 @@ def _shock_survival(
 PROFILE_HORIZONS = (10, 20, 40, 80, 149)
 
 
-def _shock_trace(
+def _shock_deviation(
     seed: int,
     target: int,
     base: A3Model | None = None,
     *,
     shock_round: int = A3_6_SHOCK_ROUND,
     **asset_kw,
-) -> tuple[float, float, dict[str, float]]:
-    """``(retention, deviation at the shock round, retention by horizon)``.
+) -> np.ndarray:
+    """``target``'s net worth with the transfer minus without it, every round.
 
-    One model run. The third element exists because "does the step depend on
-    how long you wait" is a question about the same series, not about a
-    different experiment.
+    One model run, and signed: a positive entry is a round the node ends above
+    its own untransferred path, a negative one a round it ends below it.
 
     ``shock_round`` defaults to the registered value, so A3-6's own path never
     passes it and cannot be moved by it. It is keyword-only and separate from
@@ -610,7 +784,27 @@ def _shock_trace(
 
     a = np.asarray(base.net_worth_history)[:, target]
     b = np.asarray(shocked.net_worth_history)[:, target]
-    dev = np.abs(b - a)
+    return b - a
+
+
+def _trace_of(
+    series: np.ndarray, shock_round: int = A3_6_SHOCK_ROUND
+) -> tuple[float, float, dict[str, float]]:
+    """``(retention, deviation at the shock round, retention by horizon)``.
+
+    The registered statistic. It is the **size** of the deviation at a horizon
+    over its size in the round the transfer lands, so it does not say which
+    way the node moved: a node that ends below its own untransferred path
+    reads the same as one that ends as far above it. ``_signed_of`` reads the
+    same series with the direction kept.
+
+    A landing round with no deviation at all returns ``0.0`` here, as it
+    always has. That is no denominator and not a response of zero: a
+    ``retention_profile`` row stores ``None`` for it at every horizon,
+    ``shock_footprint`` carries the difference, and the summaries below leave
+    such rows out of every retention figure.
+    """
+    dev = np.abs(series)
     start = float(dev[shock_round])
     end = float(dev[min(shock_round + A3_6_HORIZON, dev.size - 1)])
     by_h = {}
@@ -620,8 +814,76 @@ def _shock_trace(
     return (end / start if start > 0 else 0.0), start, by_h
 
 
-def a3_6(seeds: range, **asset_kw) -> Criterion:
+def _signed_of(
+    series: np.ndarray, shock_round: int = A3_6_SHOCK_ROUND
+) -> tuple[float | None, float, dict[str, float | None]]:
+    """``_trace_of`` with the direction kept: ``(response, landing, by horizon)``.
+
+    ``landing`` is the signed deviation in the round the transfer lands. The
+    response is the deviation at the horizon over ``landing``, so it is
+    negative when the two point opposite ways, and ``response * landing`` has
+    the sign of the deviation at the horizon itself. ``None`` where the
+    landing round shows no deviation: there is nothing to divide by.
+    """
+    landing = float(series[shock_round])
+
+    def at(h: int) -> float | None:
+        if landing == 0.0:
+            return None
+        return float(series[min(shock_round + h, series.size - 1)] / landing)
+
+    return at(A3_6_HORIZON), landing, {str(h): at(h) for h in PROFILE_HORIZONS}
+
+
+def _below_baseline(response: float | None, landing: float) -> bool:
+    """Whether the node stands below its own untransferred path at the horizon."""
+    return response is not None and response * landing < 0.0
+
+
+def _kept_above(response: float | None, landing: float, share: float) -> bool:
+    """Whether more than ``share`` of a gap that opened upward is still there."""
+    return response is not None and landing > 0.0 and response > share
+
+
+def _response_words(values: list[float | None]) -> str:
+    return ", ".join(
+        "no gap in the landing round" if x is None else f"{x:+.3%}"
+        for x in values
+    )
+
+
+def _shock_trace(
+    seed: int,
+    target: int,
+    base: A3Model | None = None,
+    *,
+    shock_round: int = A3_6_SHOCK_ROUND,
+    **asset_kw,
+) -> tuple[float, float, dict[str, float]]:
+    """``_trace_of`` on one model run. Kept under its old name for callers.
+
+    The third element exists because "does the step depend on how long you
+    wait" is a question about the same series, not about a different
+    experiment.
+    """
+    return _trace_of(
+        _shock_deviation(
+            seed, target, base, shock_round=shock_round, **asset_kw
+        ),
+        shock_round,
+    )
+
+
+def a3_6(seeds: range, record: dict | None = None, **asset_kw) -> Criterion:
     """Does a stock exist, and for whom? A4's precondition, and only that.
+
+    **The statistic is a size and the detail says so.** What is scored is the
+    absolute gap between a holder's net worth and its own untransferred path
+    forty rounds on, over the same gap in the round the transfer lands. A
+    holder that ends below its own baseline is counted by it exactly like one
+    that kept the transfer. The threshold, the domain and the verdict are the
+    registered ones; the direction is printed beside them, and ``record``, when
+    given, receives every holder's response with its sign.
 
     **Rewritten. The domain was wrong and the obvious repair is forbidden.**
 
@@ -640,14 +902,11 @@ def a3_6(seeds: range, **asset_kw) -> Criterion:
 
     **The domain is now the set that actually holds a unit when the transfer
     arrives**, read at the shock round rather than at the end, and the statistic
-    is the **median over that set**, which is a legitimate statistic on fifteen
-    to eighteen nodes in a way that a decile on ten never was.
-
-    **The threshold is carried over and that is disclosed rather than hidden.**
-    `A3_6_SURVIVAL` was registered against the median-node version, which
-    failed, and it is being applied to a new domain by an author who has
-    already seen the richest node's number. It is kept because lowering it would
-    be worse, not because carrying it is clean.
+    is the **median over that set**, taken per seed and averaged over the
+    seeds, which is a legitimate statistic on fourteen to eighteen nodes in a way that a decile on ten never was.
+    **The threshold is the median-node version's.** `A3_6_SURVIVAL` is the
+    threshold registered for the median-node version, which failed, and it is
+    applied unchanged to the holder domain.
 
     The non-holder arm is reported beside it. **That contrast is the finding,
     and it is worth more than the verdict**: a one-off transfer to a node with
@@ -655,19 +914,40 @@ def a3_6(seeds: range, **asset_kw) -> Criterion:
     holder is not. That is the redistribution-futility result, and it is what
     A6 goes on to price.
     """
-    holder, nonholder, sizes, downstairs, every = [], [], [], [], []
+    holder, sizes, downstairs, every = [], [], [], []
+    signed_every, signed_median, nonholder_signed = [], [], []
+    rows_holders, rows_nonholders = [], []
     for seed in seeds:
         base = run(seed, **asset_kw)
         holders, others = _holders_at_shock(seed, **asset_kw)
         sizes.append(holders.size)
         downstairs.append(int(base._is_production[holders].sum()))
         if holders.size:
-            v = [
-                _shock_survival(seed, int(i), base, **asset_kw)
+            series = [
+                _shock_deviation(seed, int(i), base, **asset_kw)
                 for i in holders
             ]
+            # A holder whose landing round shows no gap has no retention to
+            # read. It is left out of the sizes here as the §16.1 profile
+            # leaves such rows out; its signed row below still records it.
+            # No holder at the registered point or in any sweep cell has
+            # one, so no printed figure depends on this.
+            traces = [_trace_of(s)[:2] for s in series]
+            v = [keep for keep, start in traces if start > 0.0]
             every.extend(v)
-            holder.append(float(np.median(v)))
+            if v:
+                holder.append(float(np.median(v)))
+            signed = [_signed_of(s)[:2] for s in series]
+            signed_every.extend(signed)
+            known = [r for r, _landing in signed if r is not None]
+            if known:
+                signed_median.append(float(np.median(known)))
+            rows_holders.extend(
+                {"seed": int(seed), "node": int(i),
+                 "landing": round(landing, 6),
+                 "response": None if r is None else round(r, 8)}
+                for i, (r, landing) in zip(holders, signed, strict=True)
+            )
         if others.size:
             pick = others[others.size // 2]
             # `**asset_kw` was missing here until 2026-08-13 while the holder
@@ -684,8 +964,13 @@ def a3_6(seeds: range, **asset_kw) -> Criterion:
             # detail string is what was wrong, at every cell but the
             # registered one. `MEASUREMENT.md` §8's closing rule, one call site
             # corrected and its twin left alone, in a third place.
-            nonholder.append(
-                _shock_survival(seed, int(pick), base, **asset_kw)
+            trail = _shock_deviation(seed, int(pick), base, **asset_kw)
+            r, landing = _signed_of(trail)[:2]
+            nonholder_signed.append(r)
+            rows_nonholders.append(
+                {"seed": int(seed), "node": int(pick),
+                 "landing": round(landing, 6),
+                 "response": None if r is None else round(r, 8)}
             )
     if not holder:
         return Criterion(
@@ -696,24 +981,56 @@ def a3_6(seeds: range, **asset_kw) -> Criterion:
             void=True,
         )
     med = float(np.mean(holder))
-    non = float(np.mean(nonholder)) if nonholder else 0.0
     n = float(np.mean(sizes))
     prod = float(np.mean(downstairs))
+    clear = int((np.asarray(every) > A3_6_SURVIVAL).sum())
+    clear_above = sum(
+        _kept_above(r, landing, A3_6_SURVIVAL) for r, landing in signed_every
+    )
+    below = sum(_below_baseline(r, landing) for r, landing in signed_every)
+    med_signed = float(np.mean(signed_median)) if signed_median else 0.0
+    if record is not None:
+        record.update(
+            {
+                "statistic": (
+                    "deviation of the target's net worth from its own "
+                    "untransferred path, at the horizon over the landing "
+                    "round; `response` keeps the sign, the criterion scores "
+                    "its size"
+                ),
+                "horizon": A3_6_HORIZON,
+                "shock_round": A3_6_SHOCK_ROUND,
+                "holders": rows_holders,
+                "holders_clearing_on_size": clear,
+                "holders_clearing_above_baseline": int(clear_above),
+                "holders_below_baseline_at_horizon": int(below),
+                "median_of_sizes_mean_over_seeds": round(med, 8),
+                "median_with_sign_mean_over_seeds": round(med_signed, 8),
+                "nonholders_one_per_seed": rows_nonholders,
+            }
+        )
     return Criterion(
         "A3-6  a stock exists, and A4's domain is exactly who holds it",
         med > A3_6_SURVIVAL,
-        f"median holder retains {med:.1%} of the transfer after "
+        f"holder median of the gap from its own untransferred path, as a share "
+        f"of its gap in the round the transfer lands, taken per seed and "
+        f"averaged over the {len(holder)} seeds: {med:.1%} after "
         f"{A3_6_HORIZON} rounds against {A3_6_SURVIVAL:.0%} required, and "
-        f"**{float(np.mean(np.asarray(every) > A3_6_SURVIVAL)):.0%} of "
-        f"{len(every)} holders clear the threshold**; a "
-        f"non-holder retains {non:.1%}, against 0.00% on the A2 carrier. "
+        f"**{clear} of {len(every)} holders clear the threshold**. The "
+        f"statistic is the size of the gap whichever way it points. With its "
+        f"sign: {clear_above} of {len(every)} clear it above their own "
+        f"baseline, {below} of {len(every)} stand below their own baseline at "
+        f"that round, and the per-seed median averaged over the seeds is "
+        f"{med_signed:.1%}. One non-holder per "
+        f"seed, with its sign: {_response_words(nonholder_signed)}; against "
+        f"0.00% on the A2 carrier. "
         f"**The holding population is {n:.1f} nodes of 200, of which "
         f"{prod:.1f} are in the production layer.** So A4's domain is "
         f"{n:.1f} nodes and they are upstairs, which is a constraint on A4 and "
         f"not a licence: four competitors that act on wealth, measured where "
         f"the wealth is, describe stratification *within* that set and not the "
-        f"economy's. Threshold carried over from the median-node version, "
-        f"disclosed in the docstring",
+        f"economy's. The threshold is the one registered for the median-node "
+        f"version, applied unchanged to the holder domain",
     )
 
 
@@ -723,25 +1040,7 @@ def a3_7(models: list[A3Model]) -> Criterion:
     A trade belongs to the window its sale falls in. A wedge that shows up in
     one window only is a single repricing rather than a per-period term.
     """
-    per_window = []
-    for m in models:
-        better, worse = terms_pair(m)
-        if better.size == 0:
-            continue
-        good, bad = set(better.tolist()), set(worse.tolist())
-        signs = []
-        for lo, hi in WINDOWS:
-            rb, rw = [], []
-            for node, _q, t0, t1, paid, _recv, ref in m.trades:
-                if t0 == 0 or not (lo <= t1 < hi):
-                    continue
-                value = float(np.log(ref / paid))
-                if node in good:
-                    rb.append(value)
-                elif node in bad:
-                    rw.append(value)
-            signs.append(bool(rb and rw and np.mean(rb) > np.mean(rw)))
-        per_window.append(signs)
+    per_window = window_signs(models)
     if not per_window:
         return Criterion(
             "A3-7  non-overlapping windows agree in sign", False,
@@ -920,11 +1219,14 @@ def retention_profile(
     comparison needs no threshold and no distributional assumption, which is why
     it is reported first.
 
-    Nodes whose deviation at the shock round is zero are counted separately
-    rather than recorded as retaining nothing. "The transfer left no trace to
-    measure" and "the transfer was recaptured" are different events, and
-    folding the first into the second would manufacture the step this is
-    supposed to be testing for.
+    Nodes whose deviation at the shock round is zero are listed separately
+    and left out of every retention figure the summary reports. "The transfer
+    left no trace to measure" and "the transfer was recaptured" are different
+    events, and folding the first into the second would manufacture the step
+    this is supposed to be testing for. The row itself stores ``retention =
+    None`` and ``None`` at every horizon, with ``shock_footprint = 0.0`` beside
+    it, which is how the summary tells it apart; the raw deviations
+    (``shock_footprint``, ``signed_footprint``) are kept.
     """
     rows: list[dict] = []
     for seed in seeds:
@@ -935,9 +1237,16 @@ def retention_profile(
         held = at_shock.units.sum(axis=1) > 0
         opening = np.asarray(base._claims_0, dtype=float)
         for i in range(base._n):
-            keep, start, by_h = _shock_trace(
+            series = _shock_deviation(
                 seed, int(i), base, shock_round=shock_round, **asset_kw
             )
+            keep, start, by_h = _trace_of(series, shock_round)
+            signed, landing, signed_by_h = _signed_of(series, shock_round)
+            # No deviation in the landing round: the ratio has no
+            # denominator, so it is stored as ``None`` and not as a zero.
+            ratio = float(keep) if start > 0.0 else None
+            if start <= 0.0:
+                by_h = {h: None for h in by_h}
             rows.append(
                 {
                     "seed": int(seed),
@@ -955,13 +1264,56 @@ def retention_profile(
                     # is used is a reading about the choice.
                     "net_worth_at_shock": float(net[i]),
                     "opening_claims": float(opening[i]),
-                    "retention": float(keep),
+                    "retention": ratio,
                     "shock_footprint": float(start),
+                    # The same series with its direction kept, so a node that
+                    # kept part of the transfer can be told from one that
+                    # ended below its own untransferred path. ``None`` where
+                    # the landing round shows no deviation.
+                    "signed_footprint": float(landing),
+                    "signed_retention": signed,
+                    "signed_by_horizon": signed_by_h,
                 }
             )
         print(f"    seed {seed}: {base._n} nodes shocked, "
               f"{int(held.sum())} of them holders", flush=True)
     return summarise_profile(rows)
+
+
+def average_ranks(values) -> np.ndarray:
+    """Ranks from one, tied values sharing the mean of the ranks they span.
+
+    A rank correlation has to be a function of the data. Ranking by a double
+    ``argsort`` hands tied values distinct ranks in whatever order the rows
+    arrive, so the same rows read in reverse return a different coefficient.
+    At the registered shock round all but 21 of the 921 non-holders share
+    their wealth with another node, more than half of them at exactly zero.
+    """
+    a = np.asarray(values, dtype=float)
+    order = np.argsort(a, kind="stable")
+    ranks = np.empty(a.size, dtype=float)
+    ranks[order] = np.arange(1, a.size + 1, dtype=float)
+    _vals, inverse, counts = np.unique(
+        a, return_inverse=True, return_counts=True
+    )
+    for k in np.flatnonzero(counts > 1):
+        tied = inverse == k
+        ranks[tied] = ranks[tied].mean()
+    return ranks
+
+
+def spearman(x, y) -> float | None:
+    """Spearman's coefficient on average ranks.
+
+    ``None`` under three points, or where one side does not vary at all.
+    """
+    if len(x) < 3:
+        return None
+    rx, ry = average_ranks(x), average_ranks(y)
+    rx = rx - rx.mean()
+    ry = ry - ry.mean()
+    denom = float(np.sqrt((rx * rx).sum() * (ry * ry).sum()))
+    return float((rx * ry).sum() / denom) if denom > 0 else None
 
 
 def summarise_profile(rows: list[dict]) -> dict:
@@ -985,8 +1337,32 @@ def summarise_profile(rows: list[dict]) -> dict:
     **Overlap**, in both directions: the share of non-holders retaining more
     than the median holder, and the share of holders retaining less than the
     median non-holder. Two separated populations overlap in neither direction.
+
+    **A row whose landing round shows no deviation has no retention to read.**
+    Its ratio has no denominator and the row stores ``None`` for it. It is
+    listed under ``unmeasured`` and left out of every median, decile, jump,
+    overlap, rank correlation and the count of retentions above one here;
+    group sizes still count it, with the number left out beside them.
+
+    **Rows that carry the signed response are read with it as well.** The
+    retention is the size of a deviation. The ``sign`` block counts the rows
+    that stand below their own untransferred path at the horizon, and the
+    boundary pair is read a second time with the direction kept.
     """
     seeds = sorted({r["seed"] for r in rows})
+    with_sign = bool(rows) and all("signed_retention" in r for r in rows)
+
+    def measured(r: dict) -> bool:
+        return r["shock_footprint"] > 0.0
+
+    def below(r: dict) -> bool:
+        return _below_baseline(r["signed_retention"], r["signed_footprint"])
+
+    def upward(r: dict) -> float | None:
+        """The signed response of a gap that opened upward, else ``None``."""
+        return r["signed_retention"] if r["signed_footprint"] > 0.0 else None
+
+    live = [r for r in rows if measured(r)]
 
     def boundary_pair(key: str) -> list[dict]:
         out = []
@@ -1003,22 +1379,35 @@ def summarise_profile(rows: list[dict]) -> dict:
             # than every non-holder, both hypotheses predict the same sign and
             # the cell says nothing; calling it a step there would be reading a
             # confirmation out of a comparison that could not have come out the
-            # other way.
-            discriminating = poorest[key] < richest[key]
-            out.append(
-                {
-                    "seed": s,
-                    "poorest_holder_wealth": poorest[key],
-                    "poorest_holder_retention": poorest["retention"],
-                    "richest_nonholder_wealth": richest[key],
-                    "richest_nonholder_retention": richest["retention"],
-                    "discriminating": bool(discriminating),
-                    "step": bool(
-                        discriminating
-                        and poorest["retention"] > richest["retention"]
-                    ),
-                }
-            )
+            # other way. A pair with an unmeasured member cannot be read
+            # either way and is treated the same.
+            readable = measured(poorest) and measured(richest)
+            discriminating = readable and poorest[key] < richest[key]
+            entry = {
+                "seed": s,
+                "poorest_holder_wealth": poorest[key],
+                "poorest_holder_retention": poorest["retention"],
+                "richest_nonholder_wealth": richest[key],
+                "richest_nonholder_retention": richest["retention"],
+                "discriminating": bool(discriminating),
+                "step": bool(
+                    discriminating
+                    and poorest["retention"] > richest["retention"]
+                ),
+            }
+            if not readable:
+                entry["unmeasured_member"] = True
+            if with_sign:
+                up_h, up_f = upward(poorest), upward(richest)
+                entry["poorest_holder_signed"] = poorest["signed_retention"]
+                entry["richest_nonholder_signed"] = richest["signed_retention"]
+                entry["step_with_sign"] = bool(
+                    discriminating
+                    and up_h is not None
+                    and up_f is not None
+                    and up_h > up_f
+                )
+            out.append(entry)
         return out
 
     boundary = boundary_pair("wealth_at_shock")
@@ -1034,13 +1423,16 @@ def summarise_profile(rows: list[dict]) -> dict:
                 lo = d * len(per) // 10
                 hi = (d + 1) * len(per) // 10
                 block.extend(per[lo:hi])
-            hold = [r["retention"] for r in block if r["holder"]]
-            free = [r["retention"] for r in block if not r["holder"]]
+            hold = [r["retention"] for r in block
+                    if r["holder"] and measured(r)]
+            free = [r["retention"] for r in block
+                    if not r["holder"] and measured(r)]
             out.append(
                 {
                     "decile": d + 1,
                     "n_holders": len(hold),
                     "n_nonholders": len(free),
+                    "n_unmeasured": sum(1 for r in block if not measured(r)),
                     "holder_median": float(np.median(hold)) if hold else None,
                     "nonholder_median": float(np.median(free)) if free else None,
                 }
@@ -1052,8 +1444,12 @@ def summarise_profile(rows: list[dict]) -> dict:
         per = sorted(
             (r for r in rows if r["seed"] == s), key=lambda r: r["wealth_at_shock"]
         )
-        keep = np.array([r["retention"] for r in per])
         flags = np.array([r["holder"] for r in per])
+        # The curve runs through the rows that have a retention. Ranks stay
+        # those of the full wealth ordering, so a jump is reported where it
+        # sits in the population and not in the thinned list.
+        ranked = [k for k, r in enumerate(per) if measured(r)]
+        keep = np.array([per[k]["retention"] for k in ranked])
         steps = np.abs(np.diff(keep))
         at = int(np.argmax(steps)) if steps.size else 0
         first_holder = int(np.argmax(flags)) if flags.any() else -1
@@ -1061,7 +1457,7 @@ def summarise_profile(rows: list[dict]) -> dict:
             {
                 "seed": s,
                 "largest_adjacent_jump": float(steps[at]) if steps.size else 0.0,
-                "at_rank": at + 1,
+                "at_rank": (ranked[at] + 1) if steps.size else 1,
                 "of_ranks": len(per),
                 "first_holder_at_rank": first_holder + 1,
                 # A holding boundary that is not a single crossing means the
@@ -1083,30 +1479,34 @@ def summarise_profile(rows: list[dict]) -> dict:
         relationship with wealth is gradient and nothing else. Spearman, on
         ranks, because retention spans four orders of magnitude and a
         correlation on levels would be a correlation with the top few nodes.
+        The ranks are average ranks: most non-holders share their wealth with
+        another node.
         """
-        block = [r for r in rows if r["holder"] is holder]
+        block = [r for r in live if r["holder"] is holder]
         if len(block) < 3:
             return {"n": len(block), "spearman": None}
-        w = np.argsort(np.argsort([r[key] for r in block]))
-        k = np.argsort(np.argsort([r["retention"] for r in block]))
-        w = w - w.mean()
-        k = k - k.mean()
-        denom = float(np.sqrt((w * w).sum() * (k * k).sum()))
         return {
             "n": len(block),
-            "spearman": float((w * k).sum() / denom) if denom > 0 else None,
+            "spearman": spearman(
+                [r[key] for r in block], [r["retention"] for r in block]
+            ),
         }
 
     def layer_groups() -> list[dict]:
         """Three groups, not two, because the two-group split is confounded.
 
         A3-6 and the two-point picture compare **holders** against
-        **non-holders**. In this model every holder is a financial-layer node
-        and no production-layer node ever holds, so that comparison also swaps
-        the layer, and the layer carries two things of its own that have
-        nothing to do with owning an asset: ``_collect_rent`` bills only
-        ``_is_production`` nodes, and ``_prior_owner_weights`` routes the
-        opening proceeds and the unsold residual to the financial layer.
+        **non-holders**. At the registered shock round every holder is a
+        financial-layer node and no production-layer node holds, so that
+        comparison also swaps the layer, and the layer carries something of
+        its own that has nothing to do with owning an asset: ``_collect_rent``
+        bills only ``_is_production`` nodes.
+
+        The opening does not add a second such thing in the arms profiled
+        here. They all run ``proceeds = "equal"`` and ``residual_owner =
+        False``, so the opening proceeds are split equally over all two
+        hundred nodes, the unsold residual has no owner, and
+        ``_prior_owner_weights`` is never reached.
 
         So the split is the full two by two, layer against holding, and the two
         cells that answer §16.1 are the **production-layer** pair: same layer,
@@ -1133,39 +1533,46 @@ def summarise_profile(rows: list[dict]) -> dict:
         out = []
         for name, pick in spec.items():
             block = [r for r in rows if pick(r)]
-            if not block:
-                out.append({"group": name, "n": 0})
+            seen = [r for r in block if measured(r)]
+            if not seen:
+                out.append({"group": name, "n": len(block), "n_measured": 0})
                 continue
-            keep = np.array([r["retention"] for r in block])
-            out.append(
-                {
-                    "group": name,
-                    "n": len(block),
-                    "median": float(np.median(keep)),
-                    "mean": float(keep.mean()),
-                    "p25": float(np.percentile(keep, 25)),
-                    "p75": float(np.percentile(keep, 75)),
-                    "median_wealth": float(
-                        np.median([r["wealth_at_shock"] for r in block])
-                    ),
-                    "by_horizon": {
-                        str(h): float(
-                            np.median(
-                                [r["retention_by_horizon"][str(h)] for r in block]
-                            )
+            keep = np.array([r["retention"] for r in seen])
+            entry = {
+                "group": name,
+                "n": len(block),
+                "n_measured": len(seen),
+                "median": float(np.median(keep)),
+                "mean": float(keep.mean()),
+                "p25": float(np.percentile(keep, 25)),
+                "p75": float(np.percentile(keep, 75)),
+                "median_wealth": float(
+                    np.median([r["wealth_at_shock"] for r in block])
+                ),
+                "by_horizon": {
+                    str(h): float(
+                        np.median(
+                            [r["retention_by_horizon"][str(h)] for r in seen]
                         )
-                        for h in PROFILE_HORIZONS
-                    },
-                }
-            )
+                    )
+                    for h in PROFILE_HORIZONS
+                },
+            }
+            if with_sign:
+                entry["below_baseline_at_horizon"] = sum(below(r) for r in seen)
+                entry["median_with_sign"] = float(
+                    np.median([r["signed_retention"] for r in seen])
+                )
+            out.append(entry)
         return out
 
-    hold_all = [r["retention"] for r in rows if r["holder"]]
-    free_all = [r["retention"] for r in rows if not r["holder"]]
+    hold_all = [r["retention"] for r in live if r["holder"]]
+    free_all = [r["retention"] for r in live if not r["holder"]]
     med_h = float(np.median(hold_all)) if hold_all else 0.0
     med_f = float(np.median(free_all)) if free_all else 0.0
-    traceless = [r for r in rows if r["shock_footprint"] <= 0.0]
-    grew = [r for r in rows if r["retention"] > 1.0]
+    unmeasured = [r for r in rows if not measured(r)]
+    # Over the measured rows only: an unmeasured row stores ``None``.
+    grew = [r for r in live if r["retention"] > 1.0]
     holder_ranks = []
     for s in seeds:
         per = sorted(
@@ -1177,6 +1584,33 @@ def summarise_profile(rows: list[dict]) -> dict:
                 {"seed": s, "lowest": min(idx), "highest": max(idx),
                  "of": len(per)}
             )
+    sign = None
+    if with_sign:
+        sign = {
+            "landing_below_baseline": sum(
+                1 for r in rows if r["signed_footprint"] < 0.0
+            ),
+            "below_baseline_at_horizon": {
+                "holders": sum(1 for r in live if r["holder"] and below(r)),
+                "nonholders": sum(
+                    1 for r in live if not r["holder"] and below(r)
+                ),
+            },
+            "direction_reversed_by_horizon": sum(
+                1 for r in live if r["signed_retention"] < 0.0
+            ),
+            "zero_at_horizon": sum(1 for r in live if r["retention"] == 0.0),
+            "holder_median_with_sign": (
+                float(np.median(
+                    [r["signed_retention"] for r in live if r["holder"]]
+                )) if hold_all else None
+            ),
+            "nonholder_median_with_sign": (
+                float(np.median(
+                    [r["signed_retention"] for r in live if not r["holder"]]
+                )) if free_all else None
+            ),
+        }
     return {
         "diagnostic_only": True,
         "diagnostic_reason": (
@@ -1204,15 +1638,32 @@ def summarise_profile(rows: list[dict]) -> dict:
         "holders_below_nonholder_median": float(
             np.mean([r < med_f for r in hold_all]) if hold_all else 0.0
         ),
-        "n_holders": len(hold_all),
-        "n_nonholders": len(free_all),
-        # Counted, never folded into a retention of zero.
-        "n_no_measurable_shock": len(traceless),
+        "n_holders": sum(1 for r in rows if r["holder"]),
+        "n_nonholders": sum(1 for r in rows if not r["holder"]),
+        "n_holders_measured": len(hold_all),
+        "n_nonholders_measured": len(free_all),
+        # Listed by name, and left out of every retention figure in this
+        # summary: no deviation in the landing round is no denominator.
+        "n_no_measurable_shock": len(unmeasured),
+        "unmeasured": [
+            {
+                "seed": r["seed"],
+                "node": r["node"],
+                "holder": r["holder"],
+                "production": r["production"],
+                "wealth_at_shock": r["wealth_at_shock"],
+            }
+            for r in unmeasured
+        ],
         # A retention above one means the deviation was larger forty rounds
         # after the transfer than at the moment it landed. Reported because a
         # profile that calls that "retention" without saying so is describing
         # amplification in the vocabulary of survival.
         "n_retention_above_one": len(grew),
+        "rank_correlation": (
+            "Spearman on average ranks, tied values sharing the mean of the "
+            "ranks they span"
+        ),
         "gradient_within_holders": within_group(True),
         "gradient_within_nonholders": within_group(False),
         "gradient_within_holders_net_worth": within_group(
@@ -1221,6 +1672,7 @@ def summarise_profile(rows: list[dict]) -> dict:
         "gradient_within_nonholders_net_worth": within_group(
             False, "net_worth_at_shock"
         ),
+        "sign": sign,
         "holder_wealth_ranks": holder_ranks,
         "rows": rows,
     }
@@ -1245,6 +1697,60 @@ def _transition(base: A3Model, arm: A3Model) -> tuple[int, int, int, int]:
     )
 
 
+def _mean_present(values: list) -> float | None:
+    """Mean over the seeds that have a value; ``None`` when none of them does.
+
+    A seed whose landlord set is empty has no median to contribute. Entering
+    it as zero would average a real figure with a blank and print the result
+    as if every seed had one.
+    """
+    present = [v for v in values if v is not None]
+    return float(np.mean(present)) if present else None
+
+
+def rent_sweep_lines(result: dict) -> list[str]:
+    """The rent sweep's printed summary, as lines.
+
+    A function so that the summary is built from the result it describes and
+    can be checked without running the sweep.
+    """
+
+    def signed(x: float | None) -> str:
+        return "none" if x is None else f"{x:+.4f}"
+
+    lines = [
+        f"    zero calibration: "
+        f"{'ok' if result['zero_calibration_ok'] else 'BROKEN'};"
+        f" dropped from the paired population: "
+        f"{result['dropped_from_paired_population']}"
+    ]
+    for rate in result["rates"]:
+        row = result["per_rate"][f"{rate:g}"]
+        lines.append(
+            f"    rent={rate:<6g} renter {row['renter_delta_median']:+.4f} "
+            f"(worst {row['renter_delta_worst']:+.4f})  landlord "
+            f"{signed(row['landlord_delta_median'])} "
+            f"({row['landlord_seeds']} of {row['seeds']} seeds, "
+            f"n={row['landlord_n']:.1f})"
+            f"  L1 {signed(row['financial_delta_median'])} "
+            f"(n={row['financial_n']:.1f})  flow/round "
+            f"{row['rent_per_round_share']:.2e}  cumulative "
+            f"{row['rent_cumulative_share']:.4f}"
+        )
+    lines.append(
+        "    renter and landlord figures are paired net worth changes "
+        "against the same node in the rent-free arm, each divided by that "
+        "node's own opening claims. `n` is the group size averaged over "
+        "every seed, a seed with an empty set counted as zero, while the "
+        "median beside it is averaged over the seeds whose set is not "
+        "empty; it is printed because §11.10's error was a "
+        "quantile on ten units and the production-layer landlord set here "
+        "is routinely empty; a seed with an empty set contributes no figure, "
+        "and the count of seeds that have one is printed beside it"
+    )
+    return lines
+
+
 def rent_sweep(seeds: range, rounds: int) -> dict:
     """The pure transfer, isolated, paired by node, at a frozen price.
 
@@ -1259,8 +1765,9 @@ def rent_sweep(seeds: range, rounds: int) -> dict:
     * **Rule 4, one thing at a time.** ``elasticity = 0`` throughout, so the
       only live channel is the transfer.
     * **Rule 5, population.** Every node is compared against *itself* in the
-      baseline arm. The measured set is the intersection of the never-holders
-      across all rates, and the number of nodes that had to be dropped to form
+      baseline arm. The measured set is the intersection, across all rates,
+      of the production-layer nodes holding nothing at the end of the run,
+      which includes nodes that held a unit earlier and sold out, and the number of nodes that had to be dropped to form
       that intersection is reported. If it is not zero the comparison is
       composition-contaminated and the reader can see so.
     * **Rule 1, time quantifier.** The claim is that holding *continuously*
@@ -1320,11 +1827,11 @@ def rent_sweep(seeds: range, rounds: int) -> dict:
             row["renter_delta_median"].append(float(np.median(delta[never])))
             row["renter_delta_worst"].append(float(delta[never].min()))
             row["landlord_delta_median"].append(
-                float(np.median(delta[holders])) if holders.any() else 0.0
+                float(np.median(delta[holders])) if holders.any() else None
             )
             row["landlord_n"].append(int(holders.sum()))
             row["financial_delta_median"].append(
-                float(np.median(delta[upstairs])) if upstairs.any() else 0.0
+                float(np.median(delta[upstairs])) if upstairs.any() else None
             )
             row["financial_n"].append(int(upstairs.sum()))
             row["rent_per_round_share"].append(
@@ -1336,20 +1843,27 @@ def rent_sweep(seeds: range, rounds: int) -> dict:
             row["transition"].append(list(_transition(base, arm)))
             row["renters"].append(int(never.sum()))
 
-    summary = {
-        rate: {
-            k: (v if k == "transition" else float(np.mean(v)))
+    summary = {}
+    for rate, row in per_rate.items():
+        entry = {
+            k: (v if k == "transition" else _mean_present(v))
             for k, v in row.items()
         }
-        for rate, row in per_rate.items()
-    }
+        entry["seeds"] = len(row["renters"])
+        entry["landlord_seeds"] = sum(
+            v is not None for v in row["landlord_delta_median"]
+        )
+        entry["financial_seeds"] = sum(
+            v is not None for v in row["financial_delta_median"]
+        )
+        summary[rate] = entry
     zero = summary["0"]
     return {
         "elasticity": 0.0,
         "rates": list(RENT_RATES),
         "dropped_from_paired_population": dropped_total,
         "zero_calibration_ok": zero["renter_delta_median"] == 0.0
-        and zero["landlord_delta_median"] == 0.0,
+        and zero["landlord_delta_median"] in (0.0, None),
         "per_rate": summary,
     }
 
@@ -1357,6 +1871,198 @@ def rent_sweep(seeds: range, rounds: int) -> dict:
 # ---------------------------------------------------------------------------
 # driver
 # ---------------------------------------------------------------------------
+
+
+def print_profile(profile: dict) -> None:
+    """The retention profile's printed report, from the summary alone.
+
+    A function of the profile so that the report can be printed from a
+    stored record as well as from a run.
+    """
+    print(f"\n    shock at round {profile['shock_round']}, measured "
+          f"{profile['horizon']} rounds later, {profile['n_rows']} nodes "
+          f"shocked one at a time")
+    print(f"    holders {profile['n_holders']}, non-holders "
+          f"{profile['n_nonholders']}, no measurable shock "
+          f"{profile['n_no_measurable_shock']}")
+    if profile["unmeasured"]:
+        by_seed: dict[int, list[int]] = {}
+        for r in profile["unmeasured"]:
+            by_seed.setdefault(r["seed"], []).append(r["node"])
+        print("    no gap in the landing round, so no retention to read; left "
+              "out of every figure below:")
+        for s, nodes in sorted(by_seed.items()):
+            print(f"      seed {s}: nodes {nodes}")
+
+    print("\n    layer against holding, the full two by two. Holding and "
+          "layer are separate\n    questions and the two-point picture "
+          "answers only their product; rent is billed\n    to "
+          "`_is_production` nodes, so swapping the layer swaps the rent "
+          "liability too.\n    The opening proceeds are split equally over "
+          "all nodes in every arm profiled here.")
+    print("      group                          n   median     mean      "
+          "p25      p75   median wealth")
+    for g in profile["by_layer_group"]:
+        if not g["n"]:
+            print(f"      {g['group']:<28s} {0:>4d}   EMPTY at this shock "
+                  f"round")
+            continue
+        if not g["n_measured"]:
+            print(f"      {g['group']:<28s} {g['n']:>4d}   no row with a gap "
+                  f"in the landing round")
+            continue
+        left_out = g["n"] - g["n_measured"]
+        print(f"      {g['group']:<28s} {g['n']:>4d} {g['median']:8.2%} "
+              f"{g['mean']:8.2%} {g['p25']:8.2%} {g['p75']:8.2%} "
+              f"{g['median_wealth']:14.3f}"
+              + (f"   ({left_out} left out)" if left_out else ""))
+    print("      The two production-layer rows are the comparison that "
+          "answers §16.1: same\n      layer, same rent liability, only the "
+          "asset differs.")
+
+    print("\n    the same three groups at five horizons, median retention "
+          "(the registered one is 40):")
+    head = "".join(f"{h:>10d}" for h in profile["horizons"])
+    print(f"      {'group':<28s}{head}")
+    for g in profile["by_layer_group"]:
+        if not g["n_measured"]:
+            continue
+        cells = "".join(
+            f"{g['by_horizon'][str(h)]:9.2%} " for h in profile["horizons"]
+        )
+        print(f"      {g['group']:<28s}{cells}")
+
+    print("\n    the boundary pair, the one comparison where the two "
+          "hypotheses disagree in sign:")
+    print("      seed   poorest holder            richest non-holder"
+          "        reads as")
+    for b in profile["boundary_pair"]:
+        unmeasured = b.get("unmeasured_member", False)
+        if unmeasured:
+            verdict = ("says nothing: one of the two shows no gap in the "
+                       "landing round")
+        elif not b["discriminating"]:
+            verdict = "says nothing: the holder is the richer of the two"
+        else:
+            verdict = "step" if b["step"] else "GRADIENT"
+        def at_horizon(who: str) -> str:
+            # The retention is a size. A node that ended below its own path
+            # reads as a positive share unless the sign is printed with it.
+            if f"{who}_signed" not in b:
+                # A record without the signed fields cannot say which member
+                # of an unmeasured pair has no landing gap. That member stores
+                # ``None`` (``0.0`` in records written before 2026-10-25),
+                # which is not a retention, so it is not printed as one.
+                if b[f"{who}_retention"] is None or (
+                    unmeasured and b[f"{who}_retention"] == 0.0
+                ):
+                    return "size     n/a"
+                return f"size {b[f'{who}_retention']:7.2%}"
+            s = b[f"{who}_signed"]
+            return "no gap at landing" if s is None else f"{s:+8.2%}"
+        print(f"      {b['seed']:<6d} "
+              f"w={b['poorest_holder_wealth']:9.3f} "
+              f"{at_horizon('poorest_holder')}   "
+              f"w={b['richest_nonholder_wealth']:9.3f} "
+              f"{at_horizon('richest_nonholder')}   "
+              f"{verdict}")
+    n_disc = sum(b["discriminating"] for b in profile["boundary_pair"])
+    n_unm = sum(b.get("unmeasured_member", False)
+                for b in profile["boundary_pair"])
+    print(f"      {n_disc} of {len(profile['boundary_pair'])} seeds put a "
+          f"non-holder above a holder in wealth with both members measured, "
+          f"which is the only arrangement\n      in which this pair can come "
+          f"out either way ({n_unm} pairs have a member with no landing gap)")
+    n_step = sum(b["step"] for b in profile["boundary_pair"])
+    print(f"      of those {n_disc}: step {n_step}, gradient {n_disc - n_step}")
+    if profile["sign"] is not None:
+        kept = sum(b["step_with_sign"] for b in profile["boundary_pair"])
+        print(f"      read with the direction of the response kept, {kept} of "
+              f"the {n_disc} read as a step")
+    for label, key in (
+        ("net worth at the shock round", "boundary_pair_by_net_worth"),
+        ("opening claims", "boundary_pair_by_opening_claims"),
+    ):
+        pairs = profile[key]
+        d = sum(b["discriminating"] for b in pairs)
+        st = sum(b["step"] for b in pairs)
+        print(f"      ordered instead by {label}: {d} of {len(pairs)} "
+              f"seeds discriminate, {st} of those read as a step")
+
+    print("\n    retention by wealth decile at the shock round, median "
+          "within each group:")
+    print("      decile   holders  median      non-holders  median")
+    for d in profile["by_wealth_decile"]:
+        hm = "  n/a  " if d["holder_median"] is None else \
+            f"{d['holder_median']:7.2%}"
+        fm = "  n/a  " if d["nonholder_median"] is None else \
+            f"{d['nonholder_median']:7.2%}"
+        print(f"      {d['decile']:<8d} {d['n_holders']:>7d}  {hm}      "
+              f"{d['n_nonholders']:>10d}  {fm}")
+
+    print("\n    largest adjacent jump in the rank-ordered curve, against "
+          "where holding starts:")
+    for j in profile["largest_jump"]:
+        print(f"      seed {j['seed']}: jump {j['largest_adjacent_jump']:.2%}"
+              f" at rank {j['at_rank']}/{j['of_ranks']}, first holder at "
+              f"rank {j['first_holder_at_rank']}, holders contiguous "
+              f"{j['holder_block_is_contiguous']}")
+
+    print(f"\n    overlap: {profile['nonholders_above_holder_median']:.1%} "
+          f"of non-holders retain more than the median holder "
+          f"({profile['holder_median']:.2%}); "
+          f"{profile['holders_below_nonholder_median']:.1%} of holders "
+          f"retain less than the median non-holder "
+          f"({profile['nonholder_median']:.2%})")
+    print("    Two separated populations overlap in neither direction. "
+          "This is reported\n    and not scored: no threshold is "
+          "registered for any of it.")
+
+    gh = profile["gradient_within_holders"]
+    gf = profile["gradient_within_nonholders"]
+    rho_h = "n/a" if gh["spearman"] is None else f"{gh['spearman']:+.3f}"
+    rho_f = "n/a" if gf["spearman"] is None else f"{gf['spearman']:+.3f}"
+    print("\n    inside each group, where holding is constant and only "
+          "wealth varies (average ranks):")
+    print(f"      holders     n={gh['n']:<4d} "
+          f"Spearman(retention, wealth) = {rho_h}")
+    print(f"      non-holders n={gf['n']:<4d} "
+          f"Spearman(retention, wealth) = {rho_f}")
+    gh2 = profile["gradient_within_holders_net_worth"]
+    gf2 = profile["gradient_within_nonholders_net_worth"]
+    r2h = "n/a" if gh2["spearman"] is None else f"{gh2['spearman']:+.3f}"
+    r2f = "n/a" if gf2["spearman"] is None else f"{gf2['spearman']:+.3f}"
+    print(f"      the same against net worth instead: holders {r2h}, "
+          f"non-holders {r2f}")
+    print("      A step predicts these near zero; a gradient predicts them "
+          "strongly positive.\n      This is the test the deciles cannot "
+          "do, because holding and top-decile\n      wealth are nearly "
+          "collinear here:")
+    for h in profile["holder_wealth_ranks"]:
+        print(f"        seed {h['seed']}: holders span wealth ranks "
+              f"{h['lowest']} to {h['highest']} of {h['of']}")
+    print(f"\n    {profile['n_retention_above_one']} of "
+          f"{profile['n_rows']} nodes end with a larger deviation than "
+          f"they started with, which is amplification and not retention")
+
+    sign = profile["sign"]
+    if sign is not None:
+        at_h = sign["below_baseline_at_horizon"]
+        hm = sign["holder_median_with_sign"]
+        fm = sign["nonholder_median_with_sign"]
+        hm_s = "none" if hm is None else f"{hm:+.2%}"
+        fm_s = "none" if fm is None else f"{fm:+.4%}"
+        print(f"\n    direction of the response. Retention above is the size "
+              f"of a deviation. {sign['landing_below_baseline']} of "
+              f"{profile['n_rows']} nodes end the landing round below their "
+              f"own untransferred path. At the horizon {at_h['holders']} of "
+              f"{profile['n_holders_measured']} holders and "
+              f"{at_h['nonholders']} of {profile['n_nonholders_measured']} "
+              f"non-holders with a landing gap stand below it; "
+              f"{sign['direction_reversed_by_horizon']} rows have changed "
+              f"side since the landing round and {sign['zero_at_horizon']} "
+              f"read exactly zero. Median with its sign: holders "
+              f"{hm_s}, non-holders {fm_s}")
 
 
 def _imported_modules(path: Path) -> set[str]:
@@ -1450,15 +2156,43 @@ def main() -> int:
     models = [run(seed, rounds=args.rounds) for seed in seeds]
     deviations = sorted({d for m in models for d in m.deviations})
 
+    shock_record: dict = {}
     criteria = [
         a3_1(seeds),
         a3_2(models),
         a3_3(models),
         a3_4(models),
         a3_5(seeds),
-        a3_6(seeds),
+        a3_6(seeds, record=shock_record),
         a3_7(models),
     ]
+    zero_round = round_zero_resales(seeds, models, args.rounds)
+    scored, wider = zero_round["a3_4_as_scored"], zero_round["a3_4_with_them"]
+    print(
+        f"  round zero: {zero_round['bought_on_resale_in_round_zero']} round "
+        f"trips dated zero were bought on resale and not handed out at the "
+        f"opening, "
+        + "/".join(
+            str(r["of_which_bought_on_resale"]) for r in zero_round["per_seed"]
+        )
+        + " by seed. The criteria leave them out with the opening units"
+    )
+    if scored is not None and wider is not None:
+        print(
+            f"    A3-4 as scored: ledger {scored['ledger']:+.10f}, graph "
+            f"{scored['graph']:+.10f}, relative error "
+            f"{scored['relative_error']:.6%}"
+        )
+        print(
+            f"    A3-4 with them: ledger {wider['ledger']:+.10f}, graph "
+            f"{wider['graph']:+.10f}, relative error "
+            f"{wider['relative_error']:.6%}"
+        )
+    print(
+        f"    A3-7 share of seeds where better terms win, per window: as "
+        f"scored {zero_round['a3_7_as_scored']}, with them "
+        f"{zero_round['a3_7_with_them']}"
+    )
 
     grid = None
     if args.sweep:
@@ -1495,31 +2229,8 @@ def main() -> int:
     if args.rent_sweep:
         print("\n  rent sweep at a frozen price (elasticity = 0)")
         sweep_result = rent_sweep(seeds, args.rounds)
-        print(
-            f"    zero calibration: "
-            f"{'ok' if sweep_result['zero_calibration_ok'] else 'BROKEN'};"
-            f" dropped from the paired population: "
-            f"{sweep['dropped_from_paired_population']}"
-        )
-        for rate in RENT_RATES:
-            row = sweep_result["per_rate"][f"{rate:g}"]
-            print(
-                f"    rent={rate:<6g} renter {row['renter_delta_median']:+.4f} "
-                f"(worst {row['renter_delta_worst']:+.4f})  landlord "
-                f"{row['landlord_delta_median']:+.4f} (n={row['landlord_n']:.1f})"
-                f"  L1 {row['financial_delta_median']:+.4f} "
-                f"(n={row['financial_n']:.1f})  flow/round "
-                f"{row['rent_per_round_share']:.2e}  cumulative "
-                f"{row['rent_cumulative_share']:.4f}"
-            )
-        print(
-            "    renter and landlord figures are paired net worth changes "
-            "against the same node in the rent-free arm, each divided by that "
-            "node's own opening claims. `n` is the size of the group the "
-            "median is taken over, printed because §11.10's error was a "
-            "quantile on ten units and the production-layer landlord set here "
-            "is routinely empty"
-        )
+        for line in rent_sweep_lines(sweep_result):
+            print(line)
 
     if args.retention_profile:
         print("\n  Retention at every node rank")
@@ -1558,128 +2269,7 @@ def main() -> int:
         profile["arm"] = args.profile_arm
         profile["arm_parameters"] = {k: list(v) if isinstance(v, tuple) else v
                                      for k, v in arm_kw.items()}
-        print(f"\n    shock at round {profile['shock_round']}, measured "
-              f"{profile['horizon']} rounds later, {profile['n_rows']} nodes "
-              f"shocked one at a time")
-        print(f"    holders {profile['n_holders']}, non-holders "
-              f"{profile['n_nonholders']}, no measurable shock "
-              f"{profile['n_no_measurable_shock']}")
-
-        print("\n    layer against holding, the full two by two. Holding and "
-              "layer are separate\n    questions and the two-point picture "
-              "answers only their product; rent is billed\n    to "
-              "`_is_production` nodes and the opening proceeds are routed to "
-              "the financial\n    layer, so swapping the layer swaps those too.")
-        print("      group                          n   median     mean      "
-              "p25      p75   median wealth")
-        for g in profile["by_layer_group"]:
-            if not g["n"]:
-                print(f"      {g['group']:<28s} {0:>4d}   EMPTY at this shock "
-                      f"round")
-                continue
-            print(f"      {g['group']:<28s} {g['n']:>4d} {g['median']:8.2%} "
-                  f"{g['mean']:8.2%} {g['p25']:8.2%} {g['p75']:8.2%} "
-                  f"{g['median_wealth']:14.3f}")
-        print("      The two production-layer rows are the comparison that "
-              "answers §16.1: same\n      layer, same rent liability, only the "
-              "asset differs.")
-
-        print("\n    the same three groups at five horizons, median retention "
-              "(the registered one is 40):")
-        head = "".join(f"{h:>10d}" for h in profile["horizons"])
-        print(f"      {'group':<28s}{head}")
-        for g in profile["by_layer_group"]:
-            if not g["n"]:
-                continue
-            cells = "".join(
-                f"{g['by_horizon'][str(h)]:9.2%} " for h in profile["horizons"]
-            )
-            print(f"      {g['group']:<28s}{cells}")
-
-        print("\n    the boundary pair, the one comparison where the two "
-              "hypotheses disagree in sign:")
-        print("      seed   poorest holder            richest non-holder"
-              "        reads as")
-        for b in profile["boundary_pair"]:
-            if not b["discriminating"]:
-                verdict = "says nothing: the holder is the richer of the two"
-            else:
-                verdict = "step" if b["step"] else "GRADIENT"
-            print(f"      {b['seed']:<6d} "
-                  f"w={b['poorest_holder_wealth']:9.3f} "
-                  f"keeps {b['poorest_holder_retention']:7.2%}   "
-                  f"w={b['richest_nonholder_wealth']:9.3f} "
-                  f"keeps {b['richest_nonholder_retention']:7.2%}   "
-                  f"{verdict}")
-        n_disc = sum(b["discriminating"] for b in profile["boundary_pair"])
-        print(f"      {n_disc} of {len(profile['boundary_pair'])} seeds put a "
-              f"non-holder above a holder in wealth, which is the only "
-              f"arrangement\n      in which this pair can come out either way")
-        for label, key in (
-            ("net worth at the shock round", "boundary_pair_by_net_worth"),
-            ("opening claims", "boundary_pair_by_opening_claims"),
-        ):
-            pairs = profile[key]
-            d = sum(b["discriminating"] for b in pairs)
-            st = sum(b["step"] for b in pairs)
-            print(f"      ordered instead by {label}: {d} of {len(pairs)} "
-                  f"seeds discriminate, {st} of those read as a step")
-
-        print("\n    retention by wealth decile at the shock round, median "
-              "within each group:")
-        print("      decile   holders  median      non-holders  median")
-        for d in profile["by_wealth_decile"]:
-            hm = "  n/a  " if d["holder_median"] is None else \
-                f"{d['holder_median']:7.2%}"
-            fm = "  n/a  " if d["nonholder_median"] is None else \
-                f"{d['nonholder_median']:7.2%}"
-            print(f"      {d['decile']:<8d} {d['n_holders']:>7d}  {hm}      "
-                  f"{d['n_nonholders']:>10d}  {fm}")
-
-        print("\n    largest adjacent jump in the rank-ordered curve, against "
-              "where holding starts:")
-        for j in profile["largest_jump"]:
-            print(f"      seed {j['seed']}: jump {j['largest_adjacent_jump']:.2%}"
-                  f" at rank {j['at_rank']}/{j['of_ranks']}, first holder at "
-                  f"rank {j['first_holder_at_rank']}, holders contiguous "
-                  f"{j['holder_block_is_contiguous']}")
-
-        print(f"\n    overlap: {profile['nonholders_above_holder_median']:.1%} "
-              f"of non-holders retain more than the median holder "
-              f"({profile['holder_median']:.2%}); "
-              f"{profile['holders_below_nonholder_median']:.1%} of holders "
-              f"retain less than the median non-holder "
-              f"({profile['nonholder_median']:.2%})")
-        print("    Two separated populations overlap in neither direction. "
-              "This is reported\n    and not scored: no threshold is "
-              "registered for any of it.")
-
-        gh = profile["gradient_within_holders"]
-        gf = profile["gradient_within_nonholders"]
-        rho_h = "n/a" if gh["spearman"] is None else f"{gh['spearman']:+.3f}"
-        rho_f = "n/a" if gf["spearman"] is None else f"{gf['spearman']:+.3f}"
-        print("\n    inside each group, where holding is constant and only "
-              "wealth varies:")
-        print(f"      holders     n={gh['n']:<4d} "
-              f"Spearman(retention, wealth) = {rho_h}")
-        print(f"      non-holders n={gf['n']:<4d} "
-              f"Spearman(retention, wealth) = {rho_f}")
-        gh2 = profile["gradient_within_holders_net_worth"]
-        gf2 = profile["gradient_within_nonholders_net_worth"]
-        r2h = "n/a" if gh2["spearman"] is None else f"{gh2['spearman']:+.3f}"
-        r2f = "n/a" if gf2["spearman"] is None else f"{gf2['spearman']:+.3f}"
-        print(f"      the same against net worth instead: holders {r2h}, "
-              f"non-holders {r2f}")
-        print("      A step predicts these near zero; a gradient predicts them "
-              "strongly positive.\n      This is the test the deciles cannot "
-              "do, because holding and top-decile\n      wealth are nearly "
-              "collinear here:")
-        for h in profile["holder_wealth_ranks"]:
-            print(f"        seed {h['seed']}: holders occupy wealth ranks "
-                  f"{h['lowest']} to {h['highest']} of {h['of']}")
-        print(f"\n    {profile['n_retention_above_one']} of "
-              f"{profile['n_rows']} nodes end with a larger deviation than "
-              f"they started with, which is amplification and not retention")
+        print_profile(profile)
 
         RESULTS.mkdir(parents=True, exist_ok=True)
         default_run = (
@@ -1774,6 +2364,11 @@ def main() -> int:
                     "traders": [int((m.cycles > 0).sum()) for m in models],
                     "max_cycles": [int(m.cycles.max()) for m in models],
                 },
+                # Printed beside the criteria and scored by none of them: the
+                # trades the date filter leaves out with the opening units,
+                # and every holder's response to the transfer with its sign.
+                "round_zero_resales": zero_round,
+                "shock_response": shock_record,
                 "criteria": [
                     {
                         "name": c.name,

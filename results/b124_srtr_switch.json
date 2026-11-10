@@ -1,0 +1,556 @@
+{
+ "config": {
+  "filter": "deceased donor, liver only, recipient 18+",
+  "reform": "2020-02-04",
+  "window": [
+   [
+    2018,
+    1
+   ],
+   [
+    2022,
+    2
+   ]
+  ]
+ },
+ "criteria": [
+  {
+   "kind": "instrument",
+   "name": "B124-S1",
+   "passed": true,
+   "statement": "Both donor types have a reading in every month of the window"
+  },
+  {
+   "detail": "cross-OPO change, pre 12 months to months 2-13 after: DBD +0.319, DCD +0.135",
+   "kind": "premise",
+   "name": "B124-S2",
+   "passed": true,
+   "statement": "The cross-OPO share of DCD livers moves less at the reform than that of DBD livers"
+  }
+ ],
+ "monthly": {
+  "DBD 2018-01": {
+   "cross_opo": 0.3281,
+   "n": 506,
+   "shared": 0.3281
+  },
+  "DBD 2018-02": {
+   "cross_opo": 0.3878,
+   "n": 477,
+   "shared": 0.3878
+  },
+  "DBD 2018-03": {
+   "cross_opo": 0.3104,
+   "n": 509,
+   "shared": 0.3104
+  },
+  "DBD 2018-04": {
+   "cross_opo": 0.3669,
+   "n": 507,
+   "shared": 0.3669
+  },
+  "DBD 2018-05": {
+   "cross_opo": 0.3467,
+   "n": 522,
+   "shared": 0.3467
+  },
+  "DBD 2018-06": {
+   "cross_opo": 0.3232,
+   "n": 526,
+   "shared": 0.3232
+  },
+  "DBD 2018-07": {
+   "cross_opo": 0.3508,
+   "n": 496,
+   "shared": 0.3508
+  },
+  "DBD 2018-08": {
+   "cross_opo": 0.3531,
+   "n": 507,
+   "shared": 0.3531
+  },
+  "DBD 2018-09": {
+   "cross_opo": 0.3671,
+   "n": 504,
+   "shared": 0.3671
+  },
+  "DBD 2018-10": {
+   "cross_opo": 0.3418,
+   "n": 512,
+   "shared": 0.3418
+  },
+  "DBD 2018-11": {
+   "cross_opo": 0.3086,
+   "n": 499,
+   "shared": 0.3086
+  },
+  "DBD 2018-12": {
+   "cross_opo": 0.3533,
+   "n": 535,
+   "shared": 0.3533
+  },
+  "DBD 2019-01": {
+   "cross_opo": 0.381,
+   "n": 517,
+   "shared": 0.381
+  },
+  "DBD 2019-02": {
+   "cross_opo": 0.368,
+   "n": 500,
+   "shared": 0.368
+  },
+  "DBD 2019-03": {
+   "cross_opo": 0.3294,
+   "n": 595,
+   "shared": 0.3294
+  },
+  "DBD 2019-04": {
+   "cross_opo": 0.3371,
+   "n": 531,
+   "shared": 0.3371
+  },
+  "DBD 2019-05": {
+   "cross_opo": 0.4055,
+   "n": 550,
+   "shared": 0.4055
+  },
+  "DBD 2019-06": {
+   "cross_opo": 0.321,
+   "n": 542,
+   "shared": 0.321
+  },
+  "DBD 2019-07": {
+   "cross_opo": 0.3677,
+   "n": 495,
+   "shared": 0.3677
+  },
+  "DBD 2019-08": {
+   "cross_opo": 0.3417,
+   "n": 597,
+   "shared": 0.3417
+  },
+  "DBD 2019-09": {
+   "cross_opo": 0.3163,
+   "n": 566,
+   "shared": 0.3163
+  },
+  "DBD 2019-10": {
+   "cross_opo": 0.3175,
+   "n": 526,
+   "shared": 0.3175
+  },
+  "DBD 2019-11": {
+   "cross_opo": 0.3554,
+   "n": 484,
+   "shared": 0.3554
+  },
+  "DBD 2019-12": {
+   "cross_opo": 0.3364,
+   "n": 544,
+   "shared": 0.3364
+  },
+  "DBD 2020-01": {
+   "cross_opo": 0.3177,
+   "n": 532,
+   "shared": 0.3177
+  },
+  "DBD 2020-02": {
+   "cross_opo": 0.606,
+   "n": 566,
+   "shared": 0.606
+  },
+  "DBD 2020-03": {
+   "cross_opo": 0.6646,
+   "n": 486,
+   "shared": 0.6646
+  },
+  "DBD 2020-04": {
+   "cross_opo": 0.6728,
+   "n": 434,
+   "shared": 0.6728
+  },
+  "DBD 2020-05": {
+   "cross_opo": 0.6811,
+   "n": 555,
+   "shared": 0.6811
+  },
+  "DBD 2020-06": {
+   "cross_opo": 0.6673,
+   "n": 526,
+   "shared": 0.6673
+  },
+  "DBD 2020-07": {
+   "cross_opo": 0.6472,
+   "n": 564,
+   "shared": 0.6472
+  },
+  "DBD 2020-08": {
+   "cross_opo": 0.6485,
+   "n": 532,
+   "shared": 0.6485
+  },
+  "DBD 2020-09": {
+   "cross_opo": 0.6667,
+   "n": 555,
+   "shared": 0.6667
+  },
+  "DBD 2020-10": {
+   "cross_opo": 0.6655,
+   "n": 562,
+   "shared": 0.6655
+  },
+  "DBD 2020-11": {
+   "cross_opo": 0.6513,
+   "n": 565,
+   "shared": 0.6513
+  },
+  "DBD 2020-12": {
+   "cross_opo": 0.6561,
+   "n": 503,
+   "shared": 0.6541
+  },
+  "DBD 2021-01": {
+   "cross_opo": 0.6667,
+   "n": 540,
+   "shared": 0.6667
+  },
+  "DBD 2021-02": {
+   "cross_opo": 0.6505,
+   "n": 495,
+   "shared": 0.6505
+  },
+  "DBD 2021-03": {
+   "cross_opo": 0.6603,
+   "n": 580,
+   "shared": 0.6586
+  },
+  "DBD 2021-04": {
+   "cross_opo": 0.6719,
+   "n": 570,
+   "shared": 0.6702
+  },
+  "DBD 2021-05": {
+   "cross_opo": 0.681,
+   "n": 580,
+   "shared": 0.6776
+  },
+  "DBD 2021-06": {
+   "cross_opo": 0.701,
+   "n": 592,
+   "shared": 0.701
+  },
+  "DBD 2021-07": {
+   "cross_opo": 0.6792,
+   "n": 611,
+   "shared": 0.6792
+  },
+  "DBD 2021-08": {
+   "cross_opo": 0.6489,
+   "n": 544,
+   "shared": 0.6489
+  },
+  "DBD 2021-09": {
+   "cross_opo": 0.6426,
+   "n": 484,
+   "shared": 0.6405
+  },
+  "DBD 2021-10": {
+   "cross_opo": 0.6724,
+   "n": 525,
+   "shared": 0.6724
+  },
+  "DBD 2021-11": {
+   "cross_opo": 0.6679,
+   "n": 530,
+   "shared": 0.6642
+  },
+  "DBD 2021-12": {
+   "cross_opo": 0.673,
+   "n": 523,
+   "shared": 0.6711
+  },
+  "DBD 2022-01": {
+   "cross_opo": 0.6795,
+   "n": 493,
+   "shared": 0.6795
+  },
+  "DBD 2022-02": {
+   "cross_opo": 0.6107,
+   "n": 506,
+   "shared": 0.6067
+  },
+  "DCD 2018-01": {
+   "cross_opo": 0.2973,
+   "n": 37,
+   "shared": 0.2973
+  },
+  "DCD 2018-02": {
+   "cross_opo": 0.3077,
+   "n": 39,
+   "shared": 0.3077
+  },
+  "DCD 2018-03": {
+   "cross_opo": 0.2955,
+   "n": 44,
+   "shared": 0.2955
+  },
+  "DCD 2018-04": {
+   "cross_opo": 0.3143,
+   "n": 35,
+   "shared": 0.3143
+  },
+  "DCD 2018-05": {
+   "cross_opo": 0.3191,
+   "n": 47,
+   "shared": 0.3191
+  },
+  "DCD 2018-06": {
+   "cross_opo": 0.425,
+   "n": 40,
+   "shared": 0.425
+  },
+  "DCD 2018-07": {
+   "cross_opo": 0.25,
+   "n": 40,
+   "shared": 0.25
+  },
+  "DCD 2018-08": {
+   "cross_opo": 0.2647,
+   "n": 34,
+   "shared": 0.2647
+  },
+  "DCD 2018-09": {
+   "cross_opo": 0.3478,
+   "n": 46,
+   "shared": 0.3478
+  },
+  "DCD 2018-10": {
+   "cross_opo": 0.34,
+   "n": 50,
+   "shared": 0.34
+  },
+  "DCD 2018-11": {
+   "cross_opo": 0.375,
+   "n": 40,
+   "shared": 0.375
+  },
+  "DCD 2018-12": {
+   "cross_opo": 0.32,
+   "n": 50,
+   "shared": 0.32
+  },
+  "DCD 2019-01": {
+   "cross_opo": 0.2642,
+   "n": 53,
+   "shared": 0.2642
+  },
+  "DCD 2019-02": {
+   "cross_opo": 0.3585,
+   "n": 53,
+   "shared": 0.3585
+  },
+  "DCD 2019-03": {
+   "cross_opo": 0.4098,
+   "n": 61,
+   "shared": 0.4098
+  },
+  "DCD 2019-04": {
+   "cross_opo": 0.3273,
+   "n": 55,
+   "shared": 0.3273
+  },
+  "DCD 2019-05": {
+   "cross_opo": 0.3,
+   "n": 50,
+   "shared": 0.3
+  },
+  "DCD 2019-06": {
+   "cross_opo": 0.3889,
+   "n": 54,
+   "shared": 0.3889
+  },
+  "DCD 2019-07": {
+   "cross_opo": 0.3333,
+   "n": 48,
+   "shared": 0.3333
+  },
+  "DCD 2019-08": {
+   "cross_opo": 0.2692,
+   "n": 52,
+   "shared": 0.2692
+  },
+  "DCD 2019-09": {
+   "cross_opo": 0.3393,
+   "n": 56,
+   "shared": 0.3393
+  },
+  "DCD 2019-10": {
+   "cross_opo": 0.4483,
+   "n": 58,
+   "shared": 0.4483
+  },
+  "DCD 2019-11": {
+   "cross_opo": 0.3833,
+   "n": 60,
+   "shared": 0.3833
+  },
+  "DCD 2019-12": {
+   "cross_opo": 0.3594,
+   "n": 64,
+   "shared": 0.3594
+  },
+  "DCD 2020-01": {
+   "cross_opo": 0.26,
+   "n": 50,
+   "shared": 0.26
+  },
+  "DCD 2020-02": {
+   "cross_opo": 0.4684,
+   "n": 79,
+   "shared": 0.4684
+  },
+  "DCD 2020-03": {
+   "cross_opo": 0.377,
+   "n": 61,
+   "shared": 0.377
+  },
+  "DCD 2020-04": {
+   "cross_opo": 0.4118,
+   "n": 51,
+   "shared": 0.4118
+  },
+  "DCD 2020-05": {
+   "cross_opo": 0.5362,
+   "n": 69,
+   "shared": 0.5362
+  },
+  "DCD 2020-06": {
+   "cross_opo": 0.4444,
+   "n": 72,
+   "shared": 0.4444
+  },
+  "DCD 2020-07": {
+   "cross_opo": 0.5,
+   "n": 58,
+   "shared": 0.5
+  },
+  "DCD 2020-08": {
+   "cross_opo": 0.6,
+   "n": 75,
+   "shared": 0.6
+  },
+  "DCD 2020-09": {
+   "cross_opo": 0.3725,
+   "n": 51,
+   "shared": 0.3725
+  },
+  "DCD 2020-10": {
+   "cross_opo": 0.4776,
+   "n": 67,
+   "shared": 0.4776
+  },
+  "DCD 2020-11": {
+   "cross_opo": 0.4727,
+   "n": 55,
+   "shared": 0.4727
+  },
+  "DCD 2020-12": {
+   "cross_opo": 0.4516,
+   "n": 62,
+   "shared": 0.4516
+  },
+  "DCD 2021-01": {
+   "cross_opo": 0.5484,
+   "n": 62,
+   "shared": 0.5484
+  },
+  "DCD 2021-02": {
+   "cross_opo": 0.6038,
+   "n": 53,
+   "shared": 0.6038
+  },
+  "DCD 2021-03": {
+   "cross_opo": 0.5181,
+   "n": 83,
+   "shared": 0.5181
+  },
+  "DCD 2021-04": {
+   "cross_opo": 0.4146,
+   "n": 82,
+   "shared": 0.4024
+  },
+  "DCD 2021-05": {
+   "cross_opo": 0.4375,
+   "n": 64,
+   "shared": 0.4375
+  },
+  "DCD 2021-06": {
+   "cross_opo": 0.5263,
+   "n": 76,
+   "shared": 0.5263
+  },
+  "DCD 2021-07": {
+   "cross_opo": 0.4507,
+   "n": 71,
+   "shared": 0.4507
+  },
+  "DCD 2021-08": {
+   "cross_opo": 0.4561,
+   "n": 57,
+   "shared": 0.4386
+  },
+  "DCD 2021-09": {
+   "cross_opo": 0.4627,
+   "n": 67,
+   "shared": 0.4627
+  },
+  "DCD 2021-10": {
+   "cross_opo": 0.5135,
+   "n": 74,
+   "shared": 0.5135
+  },
+  "DCD 2021-11": {
+   "cross_opo": 0.3973,
+   "n": 73,
+   "shared": 0.3973
+  },
+  "DCD 2021-12": {
+   "cross_opo": 0.5238,
+   "n": 63,
+   "shared": 0.5238
+  },
+  "DCD 2022-01": {
+   "cross_opo": 0.4286,
+   "n": 56,
+   "shared": 0.4286
+  },
+  "DCD 2022-02": {
+   "cross_opo": 0.5125,
+   "n": 80,
+   "shared": 0.5125
+  }
+ },
+ "stage": "B124-S",
+ "window_change": {
+  "DBD": {
+   "cross_opo": {
+    "post": 0.6615,
+    "pre": 0.3428
+   },
+   "shared": {
+    "post": 0.6613,
+    "pre": 0.3428
+   }
+  },
+  "DCD": {
+   "cross_opo": {
+    "post": 0.483,
+    "pre": 0.3481
+   },
+   "shared": {
+    "post": 0.483,
+    "pre": 0.3481
+   }
+  }
+ }
+}

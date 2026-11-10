@@ -1,0 +1,987 @@
+{
+  "arms": {
+    "per_holding": {
+      "details": {
+        "A5-1": "production-layer participation across the grid: rho=0.25: 22.2%, rho=0.5: 27.2%, rho=1.0: 29.2%, rho=2.0: 11.1%, rho=4.0: 0.6%, rho=8.0: 0.0%. **This fails, and what it fails on is a regime boundary rather than noise.** Entry is read at the opening allocation, before any round runs, so nothing here is drift. Two things ration it and they swap over near rho=1. Up to rho=0.9 every unit sells in every seed and cheapening lets the head of the descending-claims walk take more each: 1.256 units per production buyer at rho=0.25 against 1.002 at rho=1, with the financial layer's take rising from 47.0 to 49.8 of the hundred. From rho=1 units go unsold (1 of 12 seeds there), 3.2 at rho=1.25 rising to 83.3 at rho=8. From rho=1.3 up, entry falls at every step, so there cheapening admits more; from rho=0.9 to 1.3 it stays between 28.9% and 29.6%. On the finer opening grid entry reads rho=0.9: 29.1%, rho=1: 29.2%, rho=1.1: 29.6%, rho=1.2: 29.6%, rho=1.25: 28.9%, rho=1.3: 29.0%, rho=1.4: 25.3%, rho=1.5: 24.5%; the highest is 29.6% at rho=1.2, near rho=1, where the median production agent can just enter through the stretch, paying everything it holds. **The registered form assumed price is the only rationing device; there is no per-agent cap, so cheapness rations by letting the front of the queue buy more than one.**",
+        "A5-2": "**Void: the registered floor of 50% is above what the construction can reach.** 100 units over 180 production-layer nodes bounds entry at 55.6%, and that bound needs every unit to go to a different production node with none to the financial layer, which heads the descending-claims walk. At rho=0.5 that layer takes 48.9 of the 100, which leaves the production layer at most 28.4% even at one unit each; across the grid its take runs from 16.6 at rho=8 to 49.8 at rho=0.25. Highest entry read anywhere, registered and finer opening grid together: 29.6% at rho=1.2. Reported either way: at rho=0.5 entry reads 27.2%; at rho=2.0 it reads 11.1% against its registered ceiling of 5%, and that half was decidable.",
+        "A5-3": "net worth share at rho=0.25: 0.279 -> 0.001; at rho=4.0: 0.260 -> 0.010. **Void on this run, because A5-4 holds on it.** A5-4 reads that the benign side is crossed and not returned to (its own line gives the count), so in this configuration there is no benign end state for the share to rise to. That is a reading of the configuration and not an identity between the two criteria: this one reads the production layer's share of net worth at the two ends of the grid, A5-4 the median production agent's claims against the price at rho=0.5, and a configuration in which both fail has been read (the wage bill at four times its registered value, seed 0). The numbers above are the reading. Both regimes fall, which is the finding rather than a null.",
+        "A5-4": "configured rho=0.5, rho_opening=0.319: the configured value is never observed, because the opening allocation moves it before any round runs. Crossed in 12/12 seeds, median round 2 counted from rho_opening against 100, and 1 counted from the series origin, which is the count this stage reported before the origin was named. 0.0% of subsequent rounds back below one against 5%. Measured from the series origin, the price moves by x58.554 and the median production-layer agent's claims by no point value: the sign is not stable across seeds, [x0.036, x2.652], 7 of 12 below x1; which of the two closes the reachable region is what A5-7 and A5-8 are registered to score, and this line reports the pair rather than reading it",
+        "A5-5": "median crossing round counted from rho_opening, by issuance gain: gain=0.25: 2, gain=0.5: 2, gain=1.0: 2. Every median is equal, so the ordering is satisfied vacuously and this pass carries no information about issuance",
+        "A5-6": "largest relative move in rho with the price frozen: 654.51% against 1%. **Void on this run, because A5-7 holds on it** (its own line gives the count). The frozen series starts below one, so a crossing forces a move far above the threshold, and this number is A5-7's evidence with the sign of the claim reversed. That is a reading of the configuration and not an identity: the two read different statistics, and with the wage bill at four times its registered value both fail. **The reachable region closes through the denominator and not through the price**, which A5-8 reads again over the whole grid.",
+        "A5-7": "price frozen at eta=0, configured rho=0.5, rho_opening=0.319: crossed in 12/12 seeds, median round 2 counted from rho_opening against 100 inherited from A5-4, 0.0% of subsequent rounds back below one against 5%. The asset does not move and the reachable region closes anyway",
+        "A5-8": "price frozen: median production-layer claims end below their rho_opening value in 72/72 cells across 6 reachabilities and 12 seeds, median cell ratio x0.045. Reported without a threshold, the same median with the price live is no point value: the sign is not stable across seeds, [x0.000, x2.496], 68 of 72 below x1: the two arms are two registered settings of one switch and this line reports both rather than choosing one",
+        "A5-9": "entry with a cap of one, across the grid: rho=0.25: 44.4%, rho=0.5: 44.4%, rho=1.0: 43.3%, rho=2.0: 11.1%, rho=4.0: 0.6%, rho=8.0: 0.0%. Uncapped, the same grid: 22.2%, 27.2%, 29.2%, 11.1%, 0.6%, 0.0%. The cap removes the rise, so what the uncapped curve reads below its peak is the head of the queue buying more than one and not the price admitting fewer people"
+      },
+      "grid": {
+        "0.25": {
+          "participation": 0.22222222222222224,
+          "rho_opening": 0.16994486566402026,
+          "rho_series_first": 0.4339432257352711,
+          "share_end": 0.0010580211481391424,
+          "share_start": 0.27893596119742975,
+          "survival": 0.0,
+          "trades": 508.3333333333333
+        },
+        "0.5": {
+          "participation": 0.2722222222222222,
+          "rho_opening": 0.31858281768331287,
+          "rho_series_first": 0.7107376868279193,
+          "share_end": 0.0035575063209626807,
+          "share_start": 0.3188602133318968,
+          "survival": 0.0,
+          "trades": 496.5833333333333
+        },
+        "1.0": {
+          "participation": 0.2921296296296296,
+          "rho_opening": 0.4998822886100334,
+          "rho_series_first": 1.077197874643323,
+          "share_end": 0.001884569166197687,
+          "share_start": 0.3667561132221662,
+          "survival": 0.0,
+          "trades": 467.4166666666667
+        },
+        "2.0": {
+          "participation": 0.11111111111111112,
+          "rho_opening": 0.6884710969100287,
+          "rho_series_first": 1.7751466530778872,
+          "share_end": 0.0003896160096472974,
+          "share_start": 0.18366408698583522,
+          "survival": 0.0,
+          "trades": 188.33333333333334
+        },
+        "4.0": {
+          "participation": 0.006018518518518517,
+          "rho_opening": 1.3222925051467351,
+          "rho_series_first": 21.166459293844806,
+          "share_end": 0.009757798402257616,
+          "share_start": 0.26026755909174065,
+          "survival": 0.000462962962962963,
+          "trades": 179.25
+        },
+        "8.0": {
+          "participation": 0.000462962962962963,
+          "rho_opening": 2.7062139314167104,
+          "rho_series_first": 388.07907617044617,
+          "share_end": 0.03273982205472483,
+          "share_start": 0.1439381747173966,
+          "survival": 0.000462962962962963,
+          "trades": 131.66666666666666
+        }
+      },
+      "holding": {
+        "cap_one": {
+          "0.25": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 0.9083333333333333,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 14.333333333333334,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            }
+          },
+          "0.5": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 0.959375,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 4.666666666666667,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            }
+          },
+          "1.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.43333333333333335,
+              "largest_holding": 1.0,
+              "production_holders": 78.0,
+              "production_units": 78.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 6.0,
+              "trades": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 2.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.43333333333333335,
+              "largest_holding": 1.0,
+              "production_holders": 78.0,
+              "production_units": 78.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 6.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 2.0
+            }
+          },
+          "2.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 0.9958333333333333,
+              "financial_units": 19.833333333333332,
+              "holding_share": 0.11064814814814816,
+              "largest_holding": 1.0,
+              "production_holders": 19.916666666666668,
+              "production_units": 19.916666666666668,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 0.08333333333333333,
+              "units_per_production_holder": 1.0,
+              "unowned": 60.25
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 19.75,
+              "holding_share": 0.11111111111111112,
+              "largest_holding": 1.0,
+              "production_holders": 20.0,
+              "production_units": 20.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 60.25
+            }
+          },
+          "4.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 1.0,
+              "financial_units": 18.916666666666668,
+              "holding_share": 0.006018518518518517,
+              "largest_holding": 1.0,
+              "production_holders": 1.0833333333333333,
+              "production_units": 1.0833333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 80.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 18.916666666666668,
+              "holding_share": 0.006018518518518517,
+              "largest_holding": 1.0,
+              "production_holders": 1.0833333333333333,
+              "production_units": 1.0833333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 80.0
+            }
+          },
+          "8.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 1.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 137.66666666666666,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 1.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            }
+          }
+        },
+        "cap_one_crossing": {
+          "configured_rho": 0.5,
+          "frozen": {
+            "back": 0.0,
+            "crossed": 12.0,
+            "median_from_opening": 2.0,
+            "seeds": 12.0
+          },
+          "live": {
+            "back": 0.0,
+            "crossed": 12.0,
+            "median_from_opening": 2.0,
+            "seeds": 12.0
+          }
+        },
+        "turnover": 0.04,
+        "uncapped": {
+          "0.25": {
+            "end": {
+              "cells_per_unit": 0.34833333333333333,
+              "cells_per_unit_min": 0.3,
+              "entrants_still_holding": 0.0,
+              "financial_units": 100.0,
+              "holding_share": 0.0,
+              "largest_holding": 16.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 508.3333333333333,
+              "units_per_production_holder": null,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 49.75,
+              "holding_share": 0.22222222222222224,
+              "largest_holding": 1.0,
+              "production_holders": 40.0,
+              "production_units": 50.25,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.25625,
+              "unowned": 0.0
+            }
+          },
+          "0.5": {
+            "end": {
+              "cells_per_unit": 0.33749999999999997,
+              "cells_per_unit_min": 0.3,
+              "entrants_still_holding": 0.0,
+              "financial_units": 100.0,
+              "holding_share": 0.0,
+              "largest_holding": 14.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 496.5833333333333,
+              "units_per_production_holder": null,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 48.916666666666664,
+              "holding_share": 0.2722222222222222,
+              "largest_holding": 1.0,
+              "production_holders": 49.0,
+              "production_units": 51.083333333333336,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.0425170068027212,
+              "unowned": 0.0
+            }
+          },
+          "1.0": {
+            "end": {
+              "cells_per_unit": 0.31100694444444443,
+              "cells_per_unit_min": 0.27,
+              "entrants_still_holding": 0.0,
+              "financial_units": 99.66666666666667,
+              "holding_share": 0.0,
+              "largest_holding": 13.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 1.0,
+              "trades": 467.4166666666667,
+              "units_per_production_holder": null,
+              "unowned": 0.3333333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 47.0,
+              "holding_share": 0.2921296296296296,
+              "largest_holding": 1.0,
+              "production_holders": 52.583333333333336,
+              "production_units": 52.666666666666664,
+              "seeds": 12.0,
+              "seeds_with_unowned": 1.0,
+              "units_per_production_holder": 1.0015847860538827,
+              "unowned": 0.3333333333333333
+            }
+          },
+          "2.0": {
+            "end": {
+              "cells_per_unit": 0.445775101344948,
+              "cells_per_unit_min": 0.3064516129032258,
+              "entrants_still_holding": 0.0,
+              "financial_units": 55.583333333333336,
+              "holding_share": 0.0,
+              "largest_holding": 18.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 188.33333333333334,
+              "units_per_production_holder": null,
+              "unowned": 44.416666666666664
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 35.583333333333336,
+              "holding_share": 0.11111111111111112,
+              "largest_holding": 1.0,
+              "production_holders": 20.0,
+              "production_units": 20.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 44.416666666666664
+            }
+          },
+          "4.0": {
+            "end": {
+              "cells_per_unit": 0.7066960696308522,
+              "cells_per_unit_min": 0.65,
+              "entrants_still_holding": 0.07692307692307693,
+              "financial_units": 22.833333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 5.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 179.25,
+              "units_per_production_holder": 1.0,
+              "unowned": 77.08333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 21.833333333333332,
+              "holding_share": 0.006018518518518517,
+              "largest_holding": 1.0,
+              "production_holders": 1.0833333333333333,
+              "production_units": 1.0833333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 77.08333333333333
+            }
+          },
+          "8.0": {
+            "end": {
+              "cells_per_unit": 0.8093857499140008,
+              "cells_per_unit_min": 0.7058823529411765,
+              "entrants_still_holding": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 4.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 131.66666666666666,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 1.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            }
+          }
+        }
+      },
+      "states": {
+        "A5-1": "fail",
+        "A5-2": "void",
+        "A5-3": "void",
+        "A5-4": "pass",
+        "A5-5": "diagnostic",
+        "A5-6": "void",
+        "A5-7": "pass",
+        "A5-8": "pass",
+        "A5-9": "pass"
+      }
+    },
+    "per_unit": {
+      "details": {
+        "A5-1": "production-layer participation across the grid: rho=0.25: 22.2%, rho=0.5: 27.2%, rho=1.0: 29.2%, rho=2.0: 11.1%, rho=4.0: 0.6%, rho=8.0: 0.0%. **This fails, and what it fails on is a regime boundary rather than noise.** Entry is read at the opening allocation, before any round runs, so nothing here is drift. Two things ration it and they swap over near rho=1. Up to rho=0.9 every unit sells in every seed and cheapening lets the head of the descending-claims walk take more each: 1.256 units per production buyer at rho=0.25 against 1.002 at rho=1, with the financial layer's take rising from 47.0 to 49.8 of the hundred. From rho=1 units go unsold (1 of 12 seeds there), 3.2 at rho=1.25 rising to 83.3 at rho=8. From rho=1.3 up, entry falls at every step, so there cheapening admits more; from rho=0.9 to 1.3 it stays between 28.9% and 29.6%. On the finer opening grid entry reads rho=0.9: 29.1%, rho=1: 29.2%, rho=1.1: 29.6%, rho=1.2: 29.6%, rho=1.25: 28.9%, rho=1.3: 29.0%, rho=1.4: 25.3%, rho=1.5: 24.5%; the highest is 29.6% at rho=1.2, near rho=1, where the median production agent can just enter through the stretch, paying everything it holds. **The registered form assumed price is the only rationing device; there is no per-agent cap, so cheapness rations by letting the front of the queue buy more than one.**",
+        "A5-2": "**Void: the registered floor of 50% is above what the construction can reach.** 100 units over 180 production-layer nodes bounds entry at 55.6%, and that bound needs every unit to go to a different production node with none to the financial layer, which heads the descending-claims walk. At rho=0.5 that layer takes 48.9 of the 100, which leaves the production layer at most 28.4% even at one unit each; across the grid its take runs from 16.6 at rho=8 to 49.8 at rho=0.25. Highest entry read anywhere, registered and finer opening grid together: 29.6% at rho=1.2. Reported either way: at rho=0.5 entry reads 27.2%; at rho=2.0 it reads 11.1% against its registered ceiling of 5%, and that half was decidable.",
+        "A5-3": "net worth share at rho=0.25: 0.279 -> 0.003; at rho=4.0: 0.260 -> 0.010. **Void on this run, because A5-4 holds on it.** A5-4 reads that the benign side is crossed and not returned to (its own line gives the count), so in this configuration there is no benign end state for the share to rise to. That is a reading of the configuration and not an identity between the two criteria: this one reads the production layer's share of net worth at the two ends of the grid, A5-4 the median production agent's claims against the price at rho=0.5, and a configuration in which both fail has been read (the wage bill at four times its registered value, seed 0). The numbers above are the reading. Both regimes fall, which is the finding rather than a null.",
+        "A5-4": "configured rho=0.5, rho_opening=0.319: the configured value is never observed, because the opening allocation moves it before any round runs. Crossed in 12/12 seeds, median round 2 counted from rho_opening against 100, and 1 counted from the series origin, which is the count this stage reported before the origin was named. 0.0% of subsequent rounds back below one against 5%. Measured from the series origin, the price moves by x47.669 and the median production-layer agent's claims by no point value: the sign is not stable across seeds, [x0.267, x4.262], 4 of 12 below x1; which of the two closes the reachable region is what A5-7 and A5-8 are registered to score, and this line reports the pair rather than reading it",
+        "A5-5": "median crossing round counted from rho_opening, by issuance gain: gain=0.25: 2, gain=0.5: 2, gain=1.0: 2. Every median is equal, so the ordering is satisfied vacuously and this pass carries no information about issuance",
+        "A5-6": "largest relative move in rho with the price frozen: 561.11% against 1%. **Void on this run, because A5-7 holds on it** (its own line gives the count). The frozen series starts below one, so a crossing forces a move far above the threshold, and this number is A5-7's evidence with the sign of the claim reversed. That is a reading of the configuration and not an identity: the two read different statistics, and with the wage bill at four times its registered value both fail. **The reachable region closes through the denominator and not through the price**, which A5-8 reads again over the whole grid.",
+        "A5-7": "price frozen at eta=0, configured rho=0.5, rho_opening=0.319: crossed in 12/12 seeds, median round 2 counted from rho_opening against 100 inherited from A5-4, 0.0% of subsequent rounds back below one against 5%. The asset does not move and the reachable region closes anyway",
+        "A5-8": "price frozen: median production-layer claims end below their rho_opening value in 72/72 cells across 6 reachabilities and 12 seeds, median cell ratio x0.055. Reported without a threshold, the same median with the price live is no point value: the sign is not stable across seeds, [x0.000, x2.398], 62 of 72 below x1: the two arms are two registered settings of one switch and this line reports both rather than choosing one",
+        "A5-9": "entry with a cap of one, across the grid: rho=0.25: 44.4%, rho=0.5: 44.4%, rho=1.0: 43.3%, rho=2.0: 11.1%, rho=4.0: 0.6%, rho=8.0: 0.0%. Uncapped, the same grid: 22.2%, 27.2%, 29.2%, 11.1%, 0.6%, 0.0%. The cap removes the rise, so what the uncapped curve reads below its peak is the head of the queue buying more than one and not the price admitting fewer people"
+      },
+      "grid": {
+        "0.25": {
+          "participation": 0.22222222222222224,
+          "rho_opening": 0.16994486566402026,
+          "rho_series_first": 0.43006690419118687,
+          "share_end": 0.002627319298828751,
+          "share_start": 0.2791900390088566,
+          "survival": 0.0,
+          "trades": 1202.4166666666667
+        },
+        "0.5": {
+          "participation": 0.2722222222222222,
+          "rho_opening": 0.31858281768331287,
+          "rho_series_first": 0.7165140168868143,
+          "share_end": 0.006107212874296704,
+          "share_start": 0.3183250713366468,
+          "survival": 0.0,
+          "trades": 1200.4166666666667
+        },
+        "1.0": {
+          "participation": 0.2921296296296296,
+          "rho_opening": 0.4998822886100334,
+          "rho_series_first": 1.0680535113374756,
+          "share_end": 0.007060649232000574,
+          "share_start": 0.3681983485863684,
+          "survival": 0.0,
+          "trades": 1188.8333333333333
+        },
+        "2.0": {
+          "participation": 0.11111111111111112,
+          "rho_opening": 0.6884710969100287,
+          "rho_series_first": 1.7799918944384743,
+          "share_end": 0.0029088699002946723,
+          "share_start": 0.180840130802321,
+          "survival": 0.000462962962962963,
+          "trades": 435.5833333333333
+        },
+        "4.0": {
+          "participation": 0.006018518518518517,
+          "rho_opening": 1.3222925051467351,
+          "rho_series_first": 21.314400895851723,
+          "share_end": 0.009846257217949142,
+          "share_start": 0.260274724826555,
+          "survival": 0.000462962962962963,
+          "trades": 256.1666666666667
+        },
+        "8.0": {
+          "participation": 0.000462962962962963,
+          "rho_opening": 2.7062139314167104,
+          "rho_series_first": 390.536433933895,
+          "share_end": 0.0328803982608837,
+          "share_start": 0.14365664577948475,
+          "survival": 0.000462962962962963,
+          "trades": 167.58333333333334
+        }
+      },
+      "holding": {
+        "cap_one": {
+          "0.25": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 0.91875,
+              "financial_units": 19.916666666666668,
+              "holding_share": 0.4449074074074075,
+              "largest_holding": 1.0,
+              "production_holders": 80.08333333333333,
+              "production_units": 80.08333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 13.5,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            }
+          },
+          "0.5": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 0.9604166666666667,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 4.166666666666667,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.4444444444444445,
+              "largest_holding": 1.0,
+              "production_holders": 80.0,
+              "production_units": 80.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 0.0
+            }
+          },
+          "1.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.43333333333333335,
+              "largest_holding": 1.0,
+              "production_holders": 78.0,
+              "production_units": 78.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 6.0,
+              "trades": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 2.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 20.0,
+              "holding_share": 0.43333333333333335,
+              "largest_holding": 1.0,
+              "production_holders": 78.0,
+              "production_units": 78.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 6.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 2.0
+            }
+          },
+          "2.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 0.9916666666666667,
+              "financial_units": 19.833333333333332,
+              "holding_share": 0.11064814814814816,
+              "largest_holding": 1.0,
+              "production_holders": 19.916666666666668,
+              "production_units": 19.916666666666668,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 0.16666666666666666,
+              "units_per_production_holder": 1.0,
+              "unowned": 60.25
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 19.75,
+              "holding_share": 0.11111111111111112,
+              "largest_holding": 1.0,
+              "production_holders": 20.0,
+              "production_units": 20.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 60.25
+            }
+          },
+          "4.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 1.0,
+              "financial_units": 18.916666666666668,
+              "holding_share": 0.006018518518518517,
+              "largest_holding": 1.0,
+              "production_holders": 1.0833333333333333,
+              "production_units": 1.0833333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 0.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 80.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 18.916666666666668,
+              "holding_share": 0.006018518518518517,
+              "largest_holding": 1.0,
+              "production_holders": 1.0833333333333333,
+              "production_units": 1.0833333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 80.0
+            }
+          },
+          "8.0": {
+            "end": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "entrants_still_holding": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 1.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 139.83333333333334,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 1.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            }
+          }
+        },
+        "cap_one_crossing": {
+          "configured_rho": 0.5,
+          "frozen": {
+            "back": 0.0,
+            "crossed": 12.0,
+            "median_from_opening": 2.0,
+            "seeds": 12.0
+          },
+          "live": {
+            "back": 0.0,
+            "crossed": 12.0,
+            "median_from_opening": 2.0,
+            "seeds": 12.0
+          }
+        },
+        "turnover": 0.04,
+        "uncapped": {
+          "0.25": {
+            "end": {
+              "cells_per_unit": 0.4166666666666667,
+              "cells_per_unit_min": 0.36,
+              "entrants_still_holding": 0.0,
+              "financial_units": 100.0,
+              "holding_share": 0.0,
+              "largest_holding": 9.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 1202.4166666666667,
+              "units_per_production_holder": null,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 49.75,
+              "holding_share": 0.22222222222222224,
+              "largest_holding": 1.0,
+              "production_holders": 40.0,
+              "production_units": 50.25,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.25625,
+              "unowned": 0.0
+            }
+          },
+          "0.5": {
+            "end": {
+              "cells_per_unit": 0.4033333333333333,
+              "cells_per_unit_min": 0.38,
+              "entrants_still_holding": 0.0,
+              "financial_units": 100.0,
+              "holding_share": 0.0,
+              "largest_holding": 9.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "trades": 1200.4166666666667,
+              "units_per_production_holder": null,
+              "unowned": 0.0
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 48.916666666666664,
+              "holding_share": 0.2722222222222222,
+              "largest_holding": 1.0,
+              "production_holders": 49.0,
+              "production_units": 51.083333333333336,
+              "seeds": 12.0,
+              "seeds_with_unowned": 0.0,
+              "units_per_production_holder": 1.0425170068027212,
+              "unowned": 0.0
+            }
+          },
+          "1.0": {
+            "end": {
+              "cells_per_unit": 0.3887152777777778,
+              "cells_per_unit_min": 0.36,
+              "entrants_still_holding": 0.0,
+              "financial_units": 99.66666666666667,
+              "holding_share": 0.0,
+              "largest_holding": 10.0,
+              "production_holders": 0.0,
+              "production_units": 0.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 1.0,
+              "trades": 1188.8333333333333,
+              "units_per_production_holder": null,
+              "unowned": 0.3333333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 47.0,
+              "holding_share": 0.2921296296296296,
+              "largest_holding": 1.0,
+              "production_holders": 52.583333333333336,
+              "production_units": 52.666666666666664,
+              "seeds": 12.0,
+              "seeds_with_unowned": 1.0,
+              "units_per_production_holder": 1.0015847860538827,
+              "unowned": 0.3333333333333333
+            }
+          },
+          "2.0": {
+            "end": {
+              "cells_per_unit": 0.49852625616728347,
+              "cells_per_unit_min": 0.3709677419354839,
+              "entrants_still_holding": 0.004166666666666667,
+              "financial_units": 55.5,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 18.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 435.5833333333333,
+              "units_per_production_holder": 1.0,
+              "unowned": 44.416666666666664
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 35.583333333333336,
+              "holding_share": 0.11111111111111112,
+              "largest_holding": 1.0,
+              "production_holders": 20.0,
+              "production_units": 20.0,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 44.416666666666664
+            }
+          },
+          "4.0": {
+            "end": {
+              "cells_per_unit": 0.8201726594661379,
+              "cells_per_unit_min": 0.7391304347826086,
+              "entrants_still_holding": 0.07692307692307693,
+              "financial_units": 22.833333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 4.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 256.1666666666667,
+              "units_per_production_holder": 1.0,
+              "unowned": 77.08333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 21.833333333333332,
+              "holding_share": 0.006018518518518517,
+              "largest_holding": 1.0,
+              "production_holders": 1.0833333333333333,
+              "production_units": 1.0833333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 77.08333333333333
+            }
+          },
+          "8.0": {
+            "end": {
+              "cells_per_unit": 0.8991747649352139,
+              "cells_per_unit_min": 0.7647058823529411,
+              "entrants_still_holding": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 3.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "trades": 167.58333333333334,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            },
+            "open": {
+              "cells_per_unit": 1.0,
+              "cells_per_unit_min": 1.0,
+              "financial_units": 16.583333333333332,
+              "holding_share": 0.000462962962962963,
+              "largest_holding": 1.0,
+              "production_holders": 0.08333333333333333,
+              "production_units": 0.08333333333333333,
+              "seeds": 12.0,
+              "seeds_with_unowned": 12.0,
+              "units_per_production_holder": 1.0,
+              "unowned": 83.33333333333333
+            }
+          }
+        }
+      },
+      "states": {
+        "A5-1": "fail",
+        "A5-2": "void",
+        "A5-3": "void",
+        "A5-4": "pass",
+        "A5-5": "diagnostic",
+        "A5-6": "void",
+        "A5-7": "pass",
+        "A5-8": "pass",
+        "A5-9": "pass"
+      }
+    }
+  },
+  "config": {
+    "rho_grid": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "rounds": 300,
+    "rules": {
+      "per_holding": "one draw per positive (node, tier) holding, one unit offered when drawn: the rule in src/monetary_topology/asset.py",
+      "per_unit": "one draw per unit held, so a holding of k units offers Binomial(k, tau) of them: the contrast, defined in this file only"
+    },
+    "seeds": 12
+  },
+  "diagnostic_only": true,
+  "diagnostic_reason": "a contrast arm under a resale rule the model does not use; stage A5's own readings are in a5_reachability.json",
+  "registered_arm_matches_stored_record": true,
+  "stage": "A5b",
+  "states": {
+    "A5-1": {
+      "per_holding": "fail",
+      "per_unit": "fail"
+    },
+    "A5-2": {
+      "per_holding": "void",
+      "per_unit": "void"
+    },
+    "A5-3": {
+      "per_holding": "void",
+      "per_unit": "void"
+    },
+    "A5-4": {
+      "per_holding": "pass",
+      "per_unit": "pass"
+    },
+    "A5-5": {
+      "per_holding": "diagnostic",
+      "per_unit": "diagnostic"
+    },
+    "A5-6": {
+      "per_holding": "void",
+      "per_unit": "void"
+    },
+    "A5-7": {
+      "per_holding": "pass",
+      "per_unit": "pass"
+    },
+    "A5-8": {
+      "per_holding": "pass",
+      "per_unit": "pass"
+    },
+    "A5-9": {
+      "per_holding": "pass",
+      "per_unit": "pass"
+    }
+  },
+  "states_that_differ": []
+}

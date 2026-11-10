@@ -30,6 +30,15 @@ which is `H¹`, and the price cancels out of it, so holding or not holding does
 not enter. Fixing the opening construction cannot fix A3-4. That is correct and
 is recorded here rather than in A3b, because it is a statement about A3.
 
+**Restated 2026-10-26.** The holonomy is orthogonal to the opening; A3-4's
+aggregate comparison is not. Run on each construction, its relative error is
+3.05% on the pre-A3b arm and 14.34% on the fixed-stock `auction` and
+`continuous` arms, and the `occupancy` arm has no reading. On each arm with a
+reading the whole gap between the two sides is the tier-mix term (`−0.01150`,
+`−0.04825`): the ledger side averages over trades, the graph side over tiers,
+and the opening changes which tiers each group trades in.
+`a3b_initial_construction.md` §6.
+
 The same review proposed two dispositions, and **both are rejected**, with
 reasons, because rejecting them is part of the argument for what follows.
 
@@ -82,6 +91,8 @@ perturbs a relation that is exact in isolation.
 *Why passing is weak*: the relation is an identity, so surviving is close to
 guaranteed. The informative number is the size of the perturbation, not the fact
 of agreement.
+
+**Restated 2026-10-27: what the 3.05% is.** It is a composition term, not a disturbance the running economy puts on the identity. Trade by trade, `adjusted return = −log γ` holds at machine precision inside the run (A3-3). The ledger side is a mean over each group's round trips; the graph side collapses each group to one class and reads the holonomy off the tier squares, so the two differ by how unevenly the two groups' round trips fall across the tiers. That tier-mix term is `−0.01150`, the whole of `+0.36536 − (+0.37686)`, with a per-seed residual below `1e-10` (`results/a3b_construction.json`, `a3_4_by_construction`). The graph side is not computed from terms alone: the collapse weights each node by the round trips it completed, read off the ledger, so counting a different set of trades moves both sides (`round_zero_resales` in `results/a3_asset_channel.json`: the graph side goes from `+0.37686` to `+0.37717`).
 
 **P-C. The holonomy is load-bearing.** Remove it and the divergence must go.
 
@@ -161,6 +172,12 @@ The correspondence to the topology is exact and is the reason the split is
 principled rather than convenient: **`H¹` lives in what is paid, `H⁰` lives in
 who may enter.** They were sharing a symbol.
 
+**Restated 2026-10-10: where the model reads each.** `γ_gate` decides the
+opening allocation and nothing after it. Resale eligibility is affordability at
+the paid terms, and the bidder pool that sets each tier's price is admitted on
+`γ_pay` as well. So in §4.3's table `κ_pay = 0` removes the loop sum and also
+levels the pricing pool. §8.1 records the run that separates the two.
+
 ### 4.3 The 2 × 2
 
 Terms dispersion is now two knobs, `κ_pay` and `κ_gate`.
@@ -202,7 +219,19 @@ scale-free. The production layer is named because the claim is about who is
 squeezed out, and because the financial layer's spread is dominated by the
 residual stock it holds under A3b.
 
-**Trap, recorded before running.** `κ_pay = 0` removes the terms premium and so
+**The measure §8 reports.** The 90/10 ratio does not survive this carrier: the
+production layer is stripped, so its 10th percentile is zero and the ratio is
+infinite, and a production-layer window at round 300 reads the aftermath. §8's
+gap pairs each node against itself in a separately built null: the change in
+terminal net worth over its own opening claims, then the mean over the most
+central third minus the mean over the least central third. The population is
+the nodes that complete a round trip in every cell, 41.6 per seed on average;
+all 20 financial-layer nodes are in it in every seed, and the production layer
+contributes 18 to 24. The population is therefore wider than the production
+layer named above. The versions that failed are recorded in the docstring of
+`gap` in `experiments/a3c_load_bearing.py`.
+
+**Trap: a level effect inside the terms cell.** `κ_pay = 0` removes the terms premium and so
 **lowers the average acquisition cost**. Nodes then have more claims left over,
 which is a level effect, not a divergence effect. The base terms `γ̄_q` must be
 rescaled so that the **mean** cost is held constant across cells and only the
@@ -213,15 +242,14 @@ flatter, and the two are not separable.
 
 ## 5. Disposition of the existing seven criteria under this restatement
 
-Nothing here is executed until §4 returns a verdict. Recorded now so the
-rewrite is not designed after seeing the result.
+Nothing here is executed until §4 returns a verdict.
 
 | criterion | disposition |
 |---|---|
 | A3-1 closed channel reproduces A2 bitwise | **Keep unchanged.** It is a regression check, it says so, and regression checks are worth having. |
 | A3-2 a gap opens between agents who started level | **Demote to a diagnostic.** It already says it is a floor. A floor is not a criterion. |
 | A3-3 the gap compounds rather than levelling off | **Retire as a criterion, keep as an assertion.** `2.64e-15` is a machine-precision reading of an identity; it belongs in the test suite, not in the results table. |
-| A3-4 the realised terms differential is the loop sum | **Keep, restated as P-B.** Its content is the 3.05%, which measures how far the embedding perturbs an exact relation. Report the perturbation, not the agreement. |
+| A3-4 the realised terms differential is the loop sum | **Keep, restated as P-B.** Its content is the 3.05%, which measures how far the embedding perturbs an exact relation. Report the perturbation, not the agreement. (Restated 2026-10-27: the 3.05% is the tier-mix term between a mean over round trips and the tier-square holonomy, `−0.01150`, the whole gap; trade by trade the identity holds. See the P-B status above.) |
 | A3-5 the gate binds at the high tier | **Void, not failed.** §9.14 established it cannot be evaluated: `open_tiers` never reaches resale, the high tier allocates fully at the opening, and no production-layer node can reach it at any supply. Under the `γ` split this criterion is subsumed by the `κ_gate` axis and should be rewritten there. |
 | A3-6 the stock survives a generation | **Rewrite the domain.** The threshold sits on the median node while the framework's own claim is that the median node cannot hold a stock, so the criterion currently requires the model to contradict the thesis before A4 is unblocked. The correct form restricts A4 to the population that does hold a stock and says so in the criterion body rather than in a detail string. |
 | A3-7 non-overlapping windows agree in sign | **Keep.** It is the guard against a one-off repricing and that guard is real. |
@@ -247,6 +275,12 @@ Even with P-A, P-B and P-C all established, the stage supports exactly this:
 > In a running stratified economy, agents repeatedly traverse the position-agent
 > cycle; the holonomy of that cycle accumulates; and removing the holonomy while
 > holding everything else removes the divergence.
+
+**Restated 2026-10-24.** In the registered cells the `κ_pay = 0` arm also
+levels the bidder pool that prices a tier, which is admitted on the payment
+terms. Both admission rules were run (§8.1): with the pool admitted on the gate
+terms the loop-sum-removed cell reads `+1.240` with a sign that flips and the
+gate-removed cell `+20.378`, so the reading did not change.
 
 It does **not** support "the real economy's holonomy causes the real economy's
 distributional divergence". That would need the real-data counterpart of the
@@ -275,11 +309,24 @@ hundred rounds. Sandbox and local runs agree to every printed digit.
 
 **Guards, all of them, before the reading.** The zero calibration is two
 independent executions of the null configuration and returns exactly `0.000`.
-The mean acquisition cost is identical across cells to `1.86e-16`, so §4.4's
-trap did not fire and the cells differ in dispersion alone. The paired
-population is 41.6 nodes completing a round trip in *every* cell, with 11
-dropped to form the intersection. No cell reported a `DesignDeviation`.
-Deducting the stretch write-off changes nothing at the third digit.
+The mean acquisition cost that §4.4 holds, the unweighted mean of the
+node-by-tier payment terms at opening prices, is identical across cells to
+`1.86e-16`, so §4.4's trap did not fire in the form it was registered, and
+over the whole matrix the cells differ in the two terms dispersions alone. The
+payment dispersion also sets who enters the pricing pool, as §8.1 records.
+The paired population is not the whole matrix: its own mean posted cost at
+opening prices is `2.111` in the two `κ_pay = 1` cells against `2.388` in the
+two `κ_pay = 0` cells, so on the nodes the gap is read on the dispersion also
+shows up as a level, with the `κ_pay = 0` cells the dearer ones. The paired
+population is 41.6 nodes completing a round trip in *every* cell (43, 42, 41,
+38 and 44 by seed). It holds all twenty financial-layer nodes in every seed
+and 21.6 production-layer nodes, so it is wider than the production layer
+§4.4 names: the central third in the table is 55 of 67 node-seeds from the
+financial layer, the peripheral third 27 of 67. Of the nodes trading in some
+cell, 11 node-seeds were dropped to form the intersection. No cell reported a `DesignDeviation`.
+Deducting the stretch write-off moves the three gaps by `+0.012`, `+0.071`
+and `-0.063`, as the net-of-stretch column shows, and leaves the order, the
+signs and the state where they are.
 
 ### 8.1 The verdict
 
@@ -287,6 +334,17 @@ Deducting the stretch write-off changes nothing at the third digit.
 removed.** From `+23.267` to `+1.409`, while removing the gate instead leaves
 `+21.671`. The holonomy is load-bearing on this carrier, and the identification
 of the settlement ratchet with non-integrability stands.
+
+**Restated 2026-10-10.** In these cells the payment terms also admit the
+bidder pool, so the cell that removes the loop sum levels the pricing pool
+with it: `3,446` (node, tier, round) admissions differ from
+what the gate terms would give over the ten single-channel runs. Run again on a
+model that differs in one method, the pool admitted on the gate terms, the four
+gaps are `+23.267`, `+20.378`, `+1.240` and `0.000`, the loop-sum cell same-signed in
+every seed and the gate cell flipping as before. The collapse follows the
+payment dispersion under either admission rule and is not carried by the
+pool. The comparison arm is printed by `a3c_load_bearing.py` and scores
+nothing; A3-8 is read from the registered cells.
 
 The paired per-seed differences between `both` and `H1_only` are `+2.53, −0.85,
 +12.51, +3.32, −9.53` — sign flips twice. **Removing the gate does nothing that
@@ -323,8 +381,9 @@ negatives and must not be described as a gain.
 
 **The magnitude does not transfer.** `κ_pay = 1` and `κ_gate = 1` are the same
 number and are not the same strength of treatment. The payment premium is a
-**per-round-trip multiplier** and compounds over the twenty-odd traversals the
-population completes; the gate acts **once**, at admission. That a compounding
+**per-round-trip multiplier** and compounds over the round trips each node
+completes: about twenty-two in the central third and three in the peripheral
+third, ten on average with a median of one. The gate acts **once**, at admission. That a compounding
 channel beats a one-off filter over three hundred rounds is partly arithmetic.
 **Direction transfers, ratio does not** — the same limit recorded for A6's `R*`
 and A3b's terminal ownership rate.

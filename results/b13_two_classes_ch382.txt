@@ -32,9 +32,9 @@ R4  sign persistence against the null computed from the data's own marginal, p^2
     RBU3-RBX3        0.2777   0.5988 0.9851  0.9132  0.8278  0.6221     -    
     RBU3-RBV3        0.0190   0.9627 0.9970  0.9776  0.9715  0.9604     -    
 
-    read per design file section 14.3 R4: no threshold, the curve is the reading. **Declared on reading, 2026-08-19: this null absorbs the very thing R5 measures.** p is the whole-sample marginal, so a constant one-sided wedge raises the null by exactly as much as it raises the agreement rate. R4 therefore tests for structure *in excess of* a constant wedge and does not bear on whether there is a wedge. R5 and R6 are the readings that do.
+    R4 has no threshold; the curve is the reading. **This null absorbs the very thing R5 measures.** p is the whole-sample marginal, so a constant one-sided wedge raises the null by exactly as much as it raises the agreement rate. R4 therefore tests for structure *in excess of* a constant wedge and does not bear on whether there is a wedge. R5 and R6 are the readings that do.
 
-R6  parity control (post hoc, declared 2026-08-19, not in the pre-registration)
+R6  parity control
     All four tops are integers on the instrument's tick grid, and
       index = (db+da) - (eb+ef),   friction = -[(da-db) + (ef-eb)]
     both reduce mod 2 to db+da+eb+ef, so **index and friction always share parity**.
@@ -54,4 +54,4 @@ R6  parity control (post hoc, declared 2026-08-19, not in the pre-registration)
     all               49116    26744    22372      12637
 
     where parity allowed a zero, the index is zero in 0.5649 of states; over the whole sample it is zero in 0.2573
-    read per design file section 14: the verdict is **per position edge**, because section 5.1's construction is about one edge (i, j) and not about the two mechanisms in general.
+    the verdict is **per position edge**, because section 5.1's construction is about one edge (i, j) and not about the two mechanisms in general.

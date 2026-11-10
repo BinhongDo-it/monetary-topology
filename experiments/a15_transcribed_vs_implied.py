@@ -132,9 +132,52 @@ class Criterion:
     name: str
     passed: bool
     detail: str
+    #: Added 2026-10-14. A criterion whose rows are not the registered grid
+    #: has nothing to read, and that is the third state, not a FAIL.
+    void: bool = False
 
     def as_dict(self) -> dict:
-        return {"name": self.name, "passed": self.passed, "detail": self.detail}
+        out = {"name": self.name, "passed": self.passed, "detail": self.detail}
+        if self.void:
+            out["void"] = True
+        return out
+
+    @property
+    def mark(self) -> str:
+        return "VOID" if self.void else ("PASS" if self.passed else "FAIL")
+
+
+def floor_need_actual(arm: str, arms: dict | None = None) -> float:
+    """The need the run actually used, read off the arm table.
+
+    ``one_run`` fills a ``None`` floor with A12's registered depth, so the
+    batch's label and the need in force are two things. ``0.0`` is the floor
+    switched off.
+    """
+    spec = (_A12.ARMS if arms is None else arms)[arm][0]
+    return FLOOR_NEED if spec is None else float(spec.need)
+
+
+def coverage(rows: list, arms, seeds, f2is, elasticities) -> dict:
+    """Which registered cells are present, missing, doubled, or foreign."""
+    want = {(s, f, e, a) for s in seeds for f in f2is for e in elasticities
+            for a in arms}
+    got: dict = {}
+    for x in rows:
+        k = (x["seed"], x["f2i"], x["elasticity"], x["arm"])
+        got[k] = got.get(k, 0) + 1
+    missing = sorted(want - set(got))
+    extra = sorted(set(got) - want)
+    doubled = sorted(k for k, n in got.items() if n > 1)
+    return {"cells": len(want), "rows": len(rows), "missing": missing,
+            "extra": extra, "doubled": doubled,
+            "complete": not missing and not extra and not doubled}
+
+
+def _coverage_line(cov: dict) -> str:
+    return ("coverage %d rows over %d registered cells, missing %d, foreign %d, "
+            "doubled %d" % (cov["rows"], cov["cells"], len(cov["missing"]),
+                            len(cov["extra"]), len(cov["doubled"])))
 
 
 def criterion_a15_1() -> Criterion:
@@ -341,7 +384,7 @@ def run_pinpoint(seeds: tuple = PIN_SEEDS, f2is: tuple = PIN_F2I,
         for f2i in f2is:
             for e in elasticities:
                 for arm in PIN_ARMS:
-                    row = one_run(arm, f2i, e, ROUNDS, seed)
+                    row = one_run(arm, f2i, e, ROUNDS, seed, clocks=True)
                     row["seed"] = int(seed)
                     # **The batch label is load-bearing and it was missing.**
                     # This batch and the shallow one below share arm names,
@@ -351,6 +394,7 @@ def run_pinpoint(seeds: tuple = PIN_SEEDS, f2is: tuple = PIN_F2I,
                     # the file said which floor each belonged to.
                     row["batch"] = "pinpoint"
                     row["floor_need"] = r(FLOOR_NEED)
+                    row["floor_need_actual"] = r(floor_need_actual(arm))
                     rows.append(row)
     return rows
 
@@ -374,8 +418,12 @@ def criterion_a15_2b(rows: list) -> Criterion:
     The verdict is the reproduction at seed zero, which is structural. **The
     gaps themselves are printed with no line drawn on them.**
     """
+    cov = coverage(rows, PIN_ARMS, PIN_SEEDS, PIN_F2I, PIN_ELASTICITIES)
+    if not cov["complete"]:
+        return Criterion("A15-2b  does the one cell survive four more seeds", False,
+                         "not evaluated: " + _coverage_line(cov), void=True)
     by = {(x["seed"], x["f2i"], x["elasticity"], x["arm"]): x for x in rows}
-    parts = []
+    parts = [_coverage_line(cov)]
     ok = True
 
     a12 = {(x["f2i"], x["elasticity"], x["arm"]): x
@@ -701,10 +749,12 @@ def criterion_a15_7(rows: list) -> Criterion:
     1.0000. **A control that does not read its forced value is a broken
     control**, and the levels at ``e > 0`` are printed with no line on them.
     """
-    if not rows:
-        return Criterion("A15-7  does the wage level come back", False, "no rows")
+    cov = coverage(rows, PIN_ARMS, PIN_SEEDS, PIN_F2I, PIN_ELASTICITIES)
+    if not cov["complete"]:
+        return Criterion("A15-7  does the wage level come back", False,
+                         "not evaluated: " + _coverage_line(cov), void=True)
     by = {(x["seed"], x["f2i"], x["elasticity"], x["arm"]): x for x in rows}
-    parts, ok = [], True
+    parts, ok = [_coverage_line(cov)], True
 
     flat = [v["wage_owed_ratio"] for k, v in by.items() if k[2] == 0.0]
     if flat:
@@ -754,10 +804,13 @@ def criterion_a15_7(rows: list) -> Criterion:
 # {floor, write-off, rewiring} produces the shape. So the question comes back
 # here, on A12's fourteen arms, moved to the shallow floor.
 #
-# **The floor arm has to be built explicitly.** ``arms_for`` returns ``None``
-# for it and ``one_run`` then fills in ``FLOOR_MULTIPLE`` regardless of the need
-# it was handed, so passing a shallow arm table alone would move thirteen arms
-# and leave that one at 0.20.
+# **Every arm whose floor is ``None`` has to be built explicitly.** ``arms_for``
+# returns ``None`` for four of them (``floor``, ``both``, ``floor+transfer``,
+# ``both+transfer``) and ``one_run`` then fills in ``FLOOR_MULTIPLE`` regardless
+# of the need it was handed. The first version of this function replaced only
+# ``floor``, so the other three ran at need 0.1 under a 0.025 label, a depth
+# four times the batch's (fixed 2026-10-14; the record carries the need in
+# force per row as ``floor_need_actual``).
 SHALLOW_MULTIPLE = 0.05
 SHALLOW_F2I = 30
 SHALLOW_ELASTICITY = 0.5
@@ -767,9 +820,9 @@ def shallow_arms() -> dict:
     from monetary_topology.network import SubsistenceSpec
     need = SHALLOW_MULTIPLE * 100.0 / BASE_CARRIER.nodes
     arms = dict(arms_for(need))
-    floor, write, transfer = arms["floor"]
-    if floor is None:
-        arms["floor"] = (SubsistenceSpec(need=need), write, transfer)
+    for name, (floor, write, transfer) in list(arms.items()):
+        if floor is None:
+            arms[name] = (SubsistenceSpec(need=need), write, transfer)
     return arms
 
 
@@ -778,113 +831,151 @@ def run_shallow(seeds: tuple = PIN_SEEDS) -> list:
     rows = []
     for seed in seeds:
         for arm in arms:
-            row = one_run(arm, SHALLOW_F2I, SHALLOW_ELASTICITY, ROUNDS, seed, arms)
+            row = one_run(arm, SHALLOW_F2I, SHALLOW_ELASTICITY, ROUNDS, seed, arms,
+                          clocks=True)
             row["seed"] = int(seed)
             row["batch"] = "shallow"
             row["floor_need"] = r(SHALLOW_MULTIPLE * 100.0 / BASE_CARRIER.nodes)
+            row["floor_need_actual"] = r(floor_need_actual(arm, arms))
             rows.append(row)
     return rows
+
+
+#: The four states of A15-4b, plus the one the run landed on, and the reading
+#: each maps to. **The map is printed beside the state**, so a state is never
+#: read as a verdict it was not given (11c). The verdict of A15-4b is coverage.
+STATES_4B = (
+    ("interaction",
+     "a subset without the exit produces it while none of its single mechanisms "
+     "does: the pattern is an interaction"),
+    ("exit only",
+     "only subsets carrying the exit produce it: the sample change is necessary"),
+    ("a single mechanism produces it",
+     "an arm with one mechanism on produces it: that mechanism is sufficient "
+     "on this grid"),
+    ("none",
+     "no subset produces it"),
+    ("every subset, same seeds",
+     "every one of the arms produces it, on the same seeds: the graph draw"),
+    ("the empty subset produces it",
+     "the arm with no mechanism on produces it and some arms do not: the shape "
+     "exists under the baseline dynamics and the mechanisms can only remove it; "
+     "which arms remove it is the suppression set"),
+)
+
+
+def _hits(rows: list, window: str) -> dict:
+    """arm -> sorted seeds on which the 1929 shape is hit, over one window.
+
+    ``open-close`` is the registered window: ``holdings[0]``, after the first
+    round's network step, to ``holdings[-1]``. ``init-post`` is the claims
+    before round one to the claims after the last ``_post_round``.
+    """
+    a, b = {"open-close": ("open", None), "init-post": ("init", "post")}[window]
+    out: dict = {}
+    for x in rows:
+        if b is None:
+            t1, t10, g1, g0 = (x["top1_wealth"], x["top10_wealth"],
+                               x["gini_close"], x["gini_open"])
+            o1, o10 = x["top1_open"], x["top10_open"]
+        else:
+            t1, t10, g1 = x["top1_post"], x["top10_post"], x["gini_post"]
+            o1, o10, g0 = x["top1_init"], x["top10_init"], x["gini_init"]
+        out.setdefault(x["arm"], [])
+        if _sign(t1, o1) < 0 and _sign(t10, o10) > 0 and _sign(g1, g0) > 0:
+            out[x["arm"]].append(x["seed"])
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def state_4b(hits: dict, arms: dict) -> str:
+    producing = [a for a, v in hits.items() if v]
+    if not producing:
+        return "none"
+    if len(producing) == len(hits):
+        seed_sets = {tuple(v) for v in hits.values()}
+        if len(seed_sets) == 1:
+            return "every subset, same seeds"
+    if hits.get(CONTROL_ARM):
+        return "the empty subset produces it"
+    if all("floor:exit" in _mechanisms(a, arms) for a in producing):
+        return "exit only"
+    if any(len({m for m in _mechanisms(a, arms) if ":" not in m}) == 1
+           for a in producing):
+        return "a single mechanism produces it"
+    return "interaction"
 
 
 def criterion_a15_4b(rows: list) -> Criterion:
     """The open question, at the depth where the shape exists.
 
-    Four states now, and the fourth is the one A16 added.
+    States and readings are in ``STATES_4B``, and the state is printed on both
+    windows. Four were written before the run; the fifth is where the run
+    landed, the arm with nothing switched on producing the shape.
 
-      A subset produces it, no single mechanism in it does, and it does not
-      contain the exit. The pattern is an interaction and a change in the
-      sample is not necessary for it.
-
-      Only exit-bearing subsets produce it. The sample change is necessary and
-      the orthodox reading wins on this carrier, reported as it stands.
-
-      No subset produces it. Reported, and no mechanism is added to reach it.
-
-      **Every subset produces it, on the same seeds.** Then it is the graph
-      draw and not the mechanism, which is what A16-8 found along the floor:
-      four hits in twenty at every depth in the shallow regime, the same four
-      cells each time.
-
-    Verdict structural: the fourteen arms ran at every seed. **The counts are
-    printed with no line on them.**
+    Verdict structural: every registered arm at every registered seed, once
+    (``coverage``). Rows that are not that grid make this criterion VOID.
+    **The counts are printed with no line on them.**
     """
-    def sg(a, b):
-        return (a > b) - (a < b)
-    if not rows:
-        return Criterion("A15-4b  the question at the depth where the shape is",
-                         False, "no rows")
-    arms = sorted({x["arm"] for x in rows})
-    seeds = sorted({x["seed"] for x in rows})
-    ok = all(len([x for x in rows if x["arm"] == a]) == len(seeds) for a in arms)
-    per, hit_seeds = {}, {}
-    for a in arms:
-        cells = [x for x in rows if x["arm"] == a]
-        hits = [x for x in cells
-                if sg(x["top1_wealth"], x["top1_open"]) < 0
-                and sg(x["top10_wealth"], x["top10_open"]) > 0
-                and sg(x["gini_close"], x["gini_open"]) > 0]
-        per[a] = (len(hits), len(cells))
-        hit_seeds[a] = sorted({x["seed"] for x in hits})
-    producing = [a for a in arms if per[a][0] > 0]
-    all_hit_seeds = sorted({s for a in producing for s in hit_seeds[a]})
+    name = "A15-4b  the question at the depth where the shape is"
+    arms = shallow_arms()
+    cov = coverage(rows, tuple(arms), PIN_SEEDS, (SHALLOW_F2I,), (SHALLOW_ELASTICITY,))
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
     parts = [
         "%d arms x %d seeds at floor %.2f, f2i=%d, e=%g"
-        % (len(arms), len(seeds), SHALLOW_MULTIPLE, SHALLOW_F2I, SHALLOW_ELASTICITY),
-        "1929 shape by arm: %s" % sorted(per.items(), key=lambda kv: -kv[1][0]),
-        "arms producing it: %d of %d" % (len(producing), len(arms)),
-        "the seeds it lands on, over every producing arm: %s" % all_hit_seeds,
-        "arms producing nothing: %s" % [a for a in arms if per[a][0] == 0],
+        % (len(arms), len(PIN_SEEDS), SHALLOW_MULTIPLE, SHALLOW_F2I,
+           SHALLOW_ELASTICITY),
+        _coverage_line(cov),
+        "need in force by arm: %s" % sorted(
+            {x["arm"]: x["floor_need_actual"] for x in rows}.items()),
+        "state map: %s" % "; ".join("%s -> %s" % kv for kv in STATES_4B),
     ]
-    return Criterion("A15-4b  the question at the depth where the shape is",
-                     ok, " | ".join(parts))
+    for window in ("open-close", "init-post"):
+        h = _hits(rows, window)
+        producing = sorted(a for a, v in h.items() if v)
+        parts += [
+            "%s, hits by arm (seeds): %s" % (window, sorted(
+                ((a, v) for a, v in h.items()), key=lambda kv: (-len(kv[1]), kv[0]))),
+            "%s, cells hit %d, arms producing it %d of %d, seeds %s"
+            % (window, sum(len(v) for v in h.values()), len(producing), len(h),
+               sorted({s for v in h.values() for s in v})),
+            "%s, arms producing nothing: %s"
+            % (window, sorted(a for a, v in h.items() if not v)),
+            "%s, state: %s" % (window, state_4b(h, arms)),
+        ]
+    return Criterion(name, True, " | ".join(parts))
 
 
 def criterion_a15_5b(rows: list) -> Criterion:
     """Which switches every producing arm shares, at the shallow floor.
 
-    Prints the intersection and the union. **A mechanism in every producing arm
-    is necessary on this grid and that is a statement about this grid**, so the
-    sets are the reading and no line is drawn on them.
+    Prints the intersection and the union, and the switches in the arms that
+    produce nothing. **A mechanism in every producing arm is necessary on this
+    grid and that is a statement about this grid**, so the sets are the reading
+    and no line is drawn on them. Read on the registered window.
     """
-    def sg(a, b):
-        return (a > b) - (a < b)
+    name = "A15-5b  which switches every producing arm shares"
     arms = shallow_arms()
-
-    def switches(name: str) -> set:
-        floor, write, transfer = arms[name]
-        out = set()
-        if floor is not None and floor.need > 0.0:
-            out.add("floor")
-            out.add("floor:%s" % floor.mode)
-            if floor.cut_payroll:
-                out.add("cut_payroll")
-            if floor.reversible:
-                out.add("reversible")
-        if write is not None and getattr(write, "rate", 0.0) > 0.0:
-            out.add("writeoff")
-            if getattr(write, "refill", False):
-                out.add("writeoff:refill")
-        if transfer > 0.0:
-            out.add("transfer")
-        return out
-
-    producing = sorted({x["arm"] for x in rows
-                        if sg(x["top1_wealth"], x["top1_open"]) < 0
-                        and sg(x["top10_wealth"], x["top10_open"]) > 0
-                        and sg(x["gini_close"], x["gini_open"]) > 0})
+    cov = coverage(rows, tuple(arms), PIN_SEEDS, (SHALLOW_F2I,), (SHALLOW_ELASTICITY,))
+    if not cov["complete"]:
+        return Criterion(name, False, "not evaluated: " + _coverage_line(cov),
+                         void=True)
+    h = _hits(rows, "open-close")
+    producing = sorted(a for a, v in h.items() if v)
+    quiet = sorted(a for a, v in h.items() if not v)
     if not producing:
-        return Criterion("A15-5b  which switches every producing arm shares",
-                         True, "no arm produced the shape, so there is no "
-                               "intersection to take")
-    sets = [switches(a) for a in producing]
+        return Criterion(name, True, "no arm produced the shape, so there is no "
+                                     "intersection to take")
+    sets = [set(_mechanisms(a, arms)) for a in producing]
     inter = set.intersection(*sets)
     union = set.union(*sets)
-    quiet = sorted(set(arms) - set(producing))
+    q = {a: sorted(_mechanisms(a, arms)) for a in quiet}
     return Criterion(
-        "A15-5b  which switches every producing arm shares", True,
+        name, True,
         "producing arms %s | in every one: %s | in at least one: %s | arms that "
-        "produced nothing: %s"
-        % (producing, sorted(inter) or "nothing", sorted(union) or "nothing", quiet))
+        "produced nothing and their switches: %s"
+        % (producing, sorted(inter) or "nothing", sorted(union) or "nothing", q))
 
 
 def plan() -> dict:
@@ -903,11 +994,13 @@ def plan() -> dict:
     read off disk.
     """
     pin = len(PIN_ARMS) * len(PIN_F2I) * len(PIN_ELASTICITIES) * len(PIN_SEEDS)
+    shallow = len(shallow_arms()) * len(PIN_SEEDS)
     return {
         "rounds": ROUNDS,
         "main_seed": MAIN_SEED,
         "pinpoint_runs": pin,
-        "runs_total": pin,
+        "shallow_runs": shallow,
+        "runs_total": pin + shallow,
         "read_and_not_run": {
             "A15-2": "a12_mechanisms.json",
             "A15-3": "a11_subsistence.json and a11_subsistence_drawdown.json",
@@ -963,25 +1056,33 @@ def main() -> int:
         shallow = run_shallow(seeds=(MAIN_SEED,) if args.smoke else PIN_SEEDS)
         crits += [criterion_a15_4b(shallow), criterion_a15_5b(shallow)]
         rows = rows + shallow
-    print("A15 stages one to three. The main grid and the wage sweep are not in this file yet.\n")
+    print("A15. The main grid is read off A12's two records (A15-4, A15-5); the "
+          "wage reading is on the pinpoint rows (A15-7).\n")
     for c in crits:
-        print("  [%s] %s" % ("PASS" if c.passed else "FAIL", c.name))
+        print("  [%s] %s" % (c.mark, c.name))
         print("        %s" % c.detail)
-    passed = sum(1 for c in crits if c.passed)
-    print("\n  %d/%d" % (passed, len(crits)))
+    passed = sum(1 for c in crits if c.passed and not c.void)
+    voids = sum(1 for c in crits if c.void)
+    print("\n  %d/%d%s" % (passed, len(crits), ", %d VOID" % voids if voids else ""))
 
     if args.selftest or args.no_write:
         return 0 if passed == len(crits) else 1
 
     record = {
         "stage": "A15",
-        "diagnostic_only": True,
-        "diagnostic_reason": (
-            "the station is not closed. This record carries the two rulers read "
-            "off A11's and A12's records and the pinpoint repetition, and it does "
-            "not carry the main grid or the wage sweep, which are not written yet"
-        ),
         "carrier": "A12's carrier and arm table, imported at run time",
+        "clocks": {
+            "open": "holdings[0], after round one's network step",
+            "close": "holdings[-1]; on the transfer arms this is before the last "
+                     "round's _post_round",
+            "init": "the claims before round one",
+            "post": "the claims after the last _post_round",
+            "registered": "open-close; init-post is printed beside it",
+        },
+        "floor_need_fields": {
+            "floor_need": "the batch's depth label",
+            "floor_need_actual": "the need the run used; 0 is the floor off",
+        },
         "rounds": ROUNDS,
         "main_seed": MAIN_SEED,
         "pinpoint": {"f2i": list(PIN_F2I), "elasticities": list(PIN_ELASTICITIES),

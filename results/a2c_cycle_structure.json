@@ -59,7 +59,1857 @@
     {
       "name": "A2c-7  limitation recorded: cycle rank saturates when nothing dies",
       "passed": true,
-      "detail": "in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges genuinely stop carrying claims. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record"
+      "detail": "in the two-layer model the realized rank is flat at 1074 after the transient, against a potential 1190. Cycle rank is a binary count, so it moves only where edges drop out of the realized graph. It is informative in the three-layer economy and inert in the two-layer one, and this criterion exists to keep that on the record"
     }
-  ]
+  ],
+  "definitions": {
+    "realized graph": "a directed edge is in it when the flow across it in that round exceeds the cutoff; cycle rank is taken on the underlying undirected graph",
+    "cutoff": "1e-4 of the mean flow per potential edge at round 0, fixed for the run (NetworkHistory.epsilon_absolute)",
+    "positive_rank": "cycle rank counting every edge whose flow is a positive floating-point number, however small",
+    "decades_of_cutoff_reading_this_graph": "log10 of the smallest flow above the cutoff minus log10 of the largest flow at or below it; no flow lies between, so every cutoff in that band reads the same realized graph",
+    "flow_norm, 'total flow', 'circulation'": "the Euclidean norm of net flow per undirected edge of the realized graph, flow[i, j] - flow[j, i]; it is not gross volume, which is recorded beside it",
+    "harmonic, every triangle filled": "the part of net flow orthogonal to the gradient and to every triangle's boundary; A2c-3 is read on this",
+    "harmonic, no face filled": "everything orthogonal to the gradient, which is the curl part and the harmonic part of the other split added together",
+    "continuation": "the same arm, seed and configuration run to CONTINUE_ROUNDS instead of the registered length; it reproduces the registered run at every snapshot the two share",
+    "growth_of_the_ratio_to_the_gradient_norm_on_the_same_run": "a measure of flow over the gradient norm at the last snapshot, divided by the same at the first; on net_flow_per_edge_norm this is A2c-2's ratio_end over ratio_start",
+    "round": "a unit of trend, not a calendar period"
+  },
+  "series": {
+    "two_layer": {
+      "round": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500,
+        550,
+        599
+      ],
+      "realized_rank": [
+        1190,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074
+      ],
+      "gradient_norm": [
+        0.623985,
+        1.00007,
+        1.00268,
+        1.00302,
+        1.00374,
+        1.00203,
+        0.998629,
+        0.998082,
+        1.00385,
+        1.00595,
+        1.00158,
+        1.00808,
+        0.998849
+      ],
+      "curl_norm": [
+        2.65099,
+        24.786,
+        46.7779,
+        68.8401,
+        90.9211,
+        113.01,
+        135.102,
+        157.196,
+        179.295,
+        201.397,
+        223.495,
+        245.597,
+        267.249
+      ],
+      "harmonic_norm": [
+        0.406106,
+        0.24582,
+        0.250782,
+        0.246779,
+        0.249258,
+        0.246925,
+        0.250467,
+        0.249309,
+        0.246808,
+        0.246702,
+        0.248204,
+        0.249219,
+        0.247708
+      ],
+      "flow_norm": [
+        2.75355,
+        24.8074,
+        46.7893,
+        68.8478,
+        90.927,
+        113.015,
+        135.106,
+        157.199,
+        179.298,
+        201.4,
+        223.497,
+        245.599,
+        267.251
+      ],
+      "gradient_share": [
+        0.0513526,
+        0.00162516,
+        0.000459227,
+        0.000212245,
+        0.000121858,
+        7.86119e-05,
+        5.46338e-05,
+        4.03118e-05,
+        3.13462e-05,
+        2.49481e-05,
+        2.00829e-05,
+        1.68474e-05,
+        1.39689e-05
+      ],
+      "harmonic_share": [
+        0.0217516,
+        9.81911e-05,
+        2.87275e-05,
+        1.2848e-05,
+        7.5147e-06,
+        4.77376e-06,
+        3.43679e-06,
+        2.51521e-06,
+        1.89482e-06,
+        1.50047e-06,
+        1.23331e-06,
+        1.0297e-06,
+        8.59102e-07
+      ],
+      "divergence_norm": [
+        3.10752,
+        10.021,
+        10.0448,
+        10.0652,
+        10.0665,
+        10.0505,
+        10.0114,
+        10.0049,
+        10.0713,
+        10.075,
+        10.0432,
+        10.085,
+        10.0143
+      ],
+      "gradient_norm_bare": [
+        0.623985,
+        1.00007,
+        1.00268,
+        1.00302,
+        1.00374,
+        1.00203,
+        0.998629,
+        0.998082,
+        1.00385,
+        1.00595,
+        1.00158,
+        1.00808,
+        0.998849
+      ],
+      "harmonic_norm_bare": [
+        2.68192,
+        24.7872,
+        46.7786,
+        68.8405,
+        90.9215,
+        113.01,
+        135.102,
+        157.196,
+        179.295,
+        201.397,
+        223.495,
+        245.597,
+        267.249
+      ],
+      "harmonic_share_bare": [
+        0.948647,
+        0.998375,
+        0.999541,
+        0.999788,
+        0.999878,
+        0.999921,
+        0.999945,
+        0.99996,
+        0.999969,
+        0.999975,
+        0.99998,
+        0.999983,
+        0.999986
+      ],
+      "splits_agree": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "gross_volume": [
+        75.7122,
+        332.323,
+        611.52,
+        890.496,
+        1169.61,
+        1448.75,
+        1727.86,
+        2006.96,
+        2286.03,
+        2565.37,
+        2844.29,
+        3123.62,
+        3396.95
+      ],
+      "net_flow_l1": [
+        63.0059,
+        230.612,
+        417.913,
+        604.992,
+        792.219,
+        979.445,
+        1166.64,
+        1353.83,
+        1541.02,
+        1728.45,
+        1915.45,
+        2102.9,
+        2286.15
+      ]
+    },
+    "three_layer_realized_rank": {
+      "0": {
+        "round": [
+          0,
+          50,
+          100,
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          550,
+          599
+        ],
+        "realized_rank": [
+          2740,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83,
+          83
+        ]
+      },
+      "1": {
+        "round": [
+          0,
+          50,
+          100,
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          550,
+          599
+        ],
+        "realized_rank": [
+          2741,
+          2209,
+          2220,
+          2220,
+          2230,
+          2225,
+          2224,
+          2230,
+          2230,
+          2230,
+          2230,
+          2230,
+          2230
+        ]
+      },
+      "2": {
+        "round": [
+          0,
+          50,
+          100,
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          550,
+          599
+        ],
+        "realized_rank": [
+          2742,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248,
+          2248
+        ]
+      },
+      "5": {
+        "round": [
+          0,
+          50,
+          100,
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          550,
+          599
+        ],
+        "realized_rank": [
+          2745,
+          2250,
+          2255,
+          2250,
+          2250,
+          2255,
+          2255,
+          2255,
+          2255,
+          2250,
+          2255,
+          2255,
+          2250
+        ]
+      },
+      "12": {
+        "round": [
+          0,
+          50,
+          100,
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          550,
+          599
+        ],
+        "realized_rank": [
+          2752,
+          2444,
+          2444,
+          2444,
+          2444,
+          2444,
+          2444,
+          2444,
+          2444,
+          2439,
+          2444,
+          2444,
+          2439
+        ]
+      },
+      "30": {
+        "round": [
+          0,
+          50,
+          100,
+          150,
+          200,
+          250,
+          300,
+          350,
+          400,
+          450,
+          500,
+          550,
+          599
+        ],
+        "realized_rank": [
+          2769,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557,
+          2557
+        ]
+      }
+    }
+  },
+  "hodge_choice": {
+    "splits_agree_at_every_snapshot": true,
+    "criteria_that_read_the_choice": [
+      "A2c-3"
+    ],
+    "no_face_filled": {
+      "outside_the_gradient_norm_first_last": [
+        2.68192,
+        267.249
+      ],
+      "outside_the_gradient_norm_max_over_min": 99.6483,
+      "outside_the_gradient_share_first_last": [
+        0.948647,
+        0.999986
+      ]
+    },
+    "every_triangle_filled": {
+      "curl_norm_first_last": [
+        2.65099,
+        267.249
+      ],
+      "curl_norm_last_over_first": 100.811,
+      "harmonic_norm_first_last": [
+        0.406106,
+        0.247708
+      ],
+      "harmonic_norm_max_over_min": 1.65204,
+      "harmonic_share_first_last": [
+        0.0217516,
+        8.59102e-07
+      ]
+    },
+    "growth_on_the_same_run": {
+      "gross_volume": 44.8666,
+      "net_flow_per_edge_summed": 36.2846,
+      "net_flow_per_edge_norm": 97.0567
+    },
+    "growth_of_the_ratio_to_the_gradient_norm_on_the_same_run": {
+      "gross_volume": 28.0284,
+      "net_flow_per_edge_summed": 22.6672,
+      "net_flow_per_edge_norm": 60.6318
+    }
+  },
+  "cutoff": {
+    "by_autonomous_edges": {
+      "0": {
+        "potential_rank": 2846,
+        "cutoff_rank": 83,
+        "positive_rank": 2156,
+        "directed_edges_above_cutoff": 120,
+        "directed_edges_positive_at_or_below_cutoff": 2426,
+        "directed_edges_exactly_zero": 776,
+        "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+        "same_graph_at_zero_cutoff": false,
+        "log10_cutoff": -5.7,
+        "log10_smallest_flow_above_cutoff": 0.8,
+        "log10_largest_flow_at_or_below_cutoff": -144.7,
+        "log10_smallest_positive_flow": -147.2,
+        "decades_of_cutoff_reading_this_graph": 145.5,
+        "log10_share_of_volume_at_or_below_cutoff": -145.9
+      },
+      "1": {
+        "potential_rank": 2847,
+        "cutoff_rank": 2230,
+        "positive_rank": 2230,
+        "directed_edges_above_cutoff": 2625,
+        "directed_edges_positive_at_or_below_cutoff": 0,
+        "directed_edges_exactly_zero": 698,
+        "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+        "same_graph_at_zero_cutoff": true,
+        "log10_cutoff": -5.7,
+        "log10_smallest_flow_above_cutoff": -4.3,
+        "log10_largest_flow_at_or_below_cutoff": null,
+        "log10_smallest_positive_flow": -4.3,
+        "decades_of_cutoff_reading_this_graph": null,
+        "log10_share_of_volume_at_or_below_cutoff": null
+      },
+      "2": {
+        "potential_rank": 2848,
+        "cutoff_rank": 2248,
+        "positive_rank": 2248,
+        "directed_edges_above_cutoff": 2644,
+        "directed_edges_positive_at_or_below_cutoff": 0,
+        "directed_edges_exactly_zero": 680,
+        "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+        "same_graph_at_zero_cutoff": true,
+        "log10_cutoff": -5.7,
+        "log10_smallest_flow_above_cutoff": -4.3,
+        "log10_largest_flow_at_or_below_cutoff": null,
+        "log10_smallest_positive_flow": -4.3,
+        "decades_of_cutoff_reading_this_graph": null,
+        "log10_share_of_volume_at_or_below_cutoff": null
+      },
+      "5": {
+        "potential_rank": 2850,
+        "cutoff_rank": 2250,
+        "positive_rank": 2250,
+        "directed_edges_above_cutoff": 2647,
+        "directed_edges_positive_at_or_below_cutoff": 0,
+        "directed_edges_exactly_zero": 680,
+        "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+        "same_graph_at_zero_cutoff": true,
+        "log10_cutoff": -5.7,
+        "log10_smallest_flow_above_cutoff": -4.3,
+        "log10_largest_flow_at_or_below_cutoff": null,
+        "log10_smallest_positive_flow": -4.3,
+        "decades_of_cutoff_reading_this_graph": null,
+        "log10_share_of_volume_at_or_below_cutoff": null
+      },
+      "12": {
+        "potential_rank": 2855,
+        "cutoff_rank": 2439,
+        "positive_rank": 2439,
+        "directed_edges_above_cutoff": 2840,
+        "directed_edges_positive_at_or_below_cutoff": 0,
+        "directed_edges_exactly_zero": 494,
+        "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+        "same_graph_at_zero_cutoff": true,
+        "log10_cutoff": -5.7,
+        "log10_smallest_flow_above_cutoff": -4.0,
+        "log10_largest_flow_at_or_below_cutoff": null,
+        "log10_smallest_positive_flow": -4.0,
+        "decades_of_cutoff_reading_this_graph": null,
+        "log10_share_of_volume_at_or_below_cutoff": null
+      },
+      "30": {
+        "potential_rank": 2871,
+        "cutoff_rank": 2557,
+        "positive_rank": 2557,
+        "directed_edges_above_cutoff": 2963,
+        "directed_edges_positive_at_or_below_cutoff": 0,
+        "directed_edges_exactly_zero": 389,
+        "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+        "same_graph_at_zero_cutoff": true,
+        "log10_cutoff": -5.7,
+        "log10_smallest_flow_above_cutoff": -3.5,
+        "log10_largest_flow_at_or_below_cutoff": null,
+        "log10_smallest_positive_flow": -3.5,
+        "decades_of_cutoff_reading_this_graph": null,
+        "log10_share_of_volume_at_or_below_cutoff": null
+      }
+    },
+    "zero_edges_by_snapshot": {
+      "round": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500,
+        550,
+        599
+      ],
+      "by_snapshot": [
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 2740,
+          "positive_rank": 2740,
+          "directed_edges_above_cutoff": 3214,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 108,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -3.8,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.8,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2526,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2872,
+          "directed_edges_exactly_zero": 330,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -0.3,
+          "log10_largest_flow_at_or_below_cutoff": -12.7,
+          "log10_smallest_positive_flow": -77.9,
+          "decades_of_cutoff_reading_this_graph": 12.4,
+          "log10_share_of_volume_at_or_below_cutoff": -12.9
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2526,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2872,
+          "directed_edges_exactly_zero": 330,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -0.0,
+          "log10_largest_flow_at_or_below_cutoff": -24.7,
+          "log10_smallest_positive_flow": -147.5,
+          "decades_of_cutoff_reading_this_graph": 24.7,
+          "log10_share_of_volume_at_or_below_cutoff": -25.2
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2526,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2872,
+          "directed_edges_exactly_zero": 330,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.2,
+          "log10_largest_flow_at_or_below_cutoff": -36.8,
+          "log10_smallest_positive_flow": -222.8,
+          "decades_of_cutoff_reading_this_graph": 37.0,
+          "log10_share_of_volume_at_or_below_cutoff": -37.4
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2526,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2872,
+          "directed_edges_exactly_zero": 330,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.3,
+          "log10_largest_flow_at_or_below_cutoff": -48.8,
+          "log10_smallest_positive_flow": -283.8,
+          "decades_of_cutoff_reading_this_graph": 49.1,
+          "log10_share_of_volume_at_or_below_cutoff": -49.6
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2160,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2431,
+          "directed_edges_exactly_zero": 771,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.4,
+          "log10_largest_flow_at_or_below_cutoff": -60.8,
+          "log10_smallest_positive_flow": -322.1,
+          "decades_of_cutoff_reading_this_graph": 61.2,
+          "log10_share_of_volume_at_or_below_cutoff": -61.7
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.5,
+          "log10_largest_flow_at_or_below_cutoff": -72.8,
+          "log10_smallest_positive_flow": -75.4,
+          "decades_of_cutoff_reading_this_graph": 73.3,
+          "log10_share_of_volume_at_or_below_cutoff": -73.8
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.5,
+          "log10_largest_flow_at_or_below_cutoff": -84.8,
+          "log10_smallest_positive_flow": -87.3,
+          "decades_of_cutoff_reading_this_graph": 85.3,
+          "log10_share_of_volume_at_or_below_cutoff": -85.8
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.6,
+          "log10_largest_flow_at_or_below_cutoff": -96.9,
+          "log10_smallest_positive_flow": -99.3,
+          "decades_of_cutoff_reading_this_graph": 97.5,
+          "log10_share_of_volume_at_or_below_cutoff": -97.9
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.6,
+          "log10_largest_flow_at_or_below_cutoff": -108.9,
+          "log10_smallest_positive_flow": -111.4,
+          "decades_of_cutoff_reading_this_graph": 109.5,
+          "log10_share_of_volume_at_or_below_cutoff": -110.0
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.7,
+          "log10_largest_flow_at_or_below_cutoff": -120.9,
+          "log10_smallest_positive_flow": -123.4,
+          "decades_of_cutoff_reading_this_graph": 121.6,
+          "log10_share_of_volume_at_or_below_cutoff": -122.1
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.7,
+          "log10_largest_flow_at_or_below_cutoff": -132.9,
+          "log10_smallest_positive_flow": -135.4,
+          "decades_of_cutoff_reading_this_graph": 133.6,
+          "log10_share_of_volume_at_or_below_cutoff": -134.1
+        },
+        {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.8,
+          "log10_largest_flow_at_or_below_cutoff": -144.7,
+          "log10_smallest_positive_flow": -147.2,
+          "decades_of_cutoff_reading_this_graph": 145.5,
+          "log10_share_of_volume_at_or_below_cutoff": -145.9
+        }
+      ]
+    },
+    "by_seed": [
+      {
+        "seed": 0,
+        "zero_edges": {
+          "potential_rank": 2846,
+          "cutoff_rank": 83,
+          "positive_rank": 2156,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2426,
+          "directed_edges_exactly_zero": 776,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.8,
+          "log10_largest_flow_at_or_below_cutoff": -144.7,
+          "log10_smallest_positive_flow": -147.2,
+          "decades_of_cutoff_reading_this_graph": 145.5,
+          "log10_share_of_volume_at_or_below_cutoff": -145.9
+        },
+        "one_edge": {
+          "potential_rank": 2847,
+          "cutoff_rank": 2230,
+          "positive_rank": 2230,
+          "directed_edges_above_cutoff": 2625,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 698,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -4.3,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -4.3,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        }
+      },
+      {
+        "seed": 1,
+        "zero_edges": {
+          "potential_rank": 2857,
+          "cutoff_rank": 69,
+          "positive_rank": 2152,
+          "directed_edges_above_cutoff": 108,
+          "directed_edges_positive_at_or_below_cutoff": 2413,
+          "directed_edges_exactly_zero": 793,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.4,
+          "log10_largest_flow_at_or_below_cutoff": -150.0,
+          "log10_smallest_positive_flow": -152.1,
+          "decades_of_cutoff_reading_this_graph": 150.4,
+          "log10_share_of_volume_at_or_below_cutoff": -151.8
+        },
+        "one_edge": {
+          "potential_rank": 2858,
+          "cutoff_rank": 2245,
+          "positive_rank": 2245,
+          "directed_edges_above_cutoff": 2618,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 697,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -3.2,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.2,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        }
+      },
+      {
+        "seed": 2,
+        "zero_edges": {
+          "potential_rank": 2833,
+          "cutoff_rank": 82,
+          "positive_rank": 2377,
+          "directed_edges_above_cutoff": 120,
+          "directed_edges_positive_at_or_below_cutoff": 2648,
+          "directed_edges_exactly_zero": 541,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.2,
+          "log10_largest_flow_at_or_below_cutoff": -137.3,
+          "log10_smallest_positive_flow": -139.5,
+          "decades_of_cutoff_reading_this_graph": 137.5,
+          "log10_share_of_volume_at_or_below_cutoff": -138.6
+        },
+        "one_edge": {
+          "potential_rank": 2834,
+          "cutoff_rank": 2442,
+          "positive_rank": 2442,
+          "directed_edges_above_cutoff": 2841,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 469,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -4.0,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -4.0,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        }
+      },
+      {
+        "seed": 3,
+        "zero_edges": {
+          "potential_rank": 2864,
+          "cutoff_rank": 66,
+          "positive_rank": 2080,
+          "directed_edges_above_cutoff": 102,
+          "directed_edges_positive_at_or_below_cutoff": 2348,
+          "directed_edges_exactly_zero": 871,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 1.3,
+          "log10_largest_flow_at_or_below_cutoff": -150.2,
+          "log10_smallest_positive_flow": -181.7,
+          "decades_of_cutoff_reading_this_graph": 151.5,
+          "log10_share_of_volume_at_or_below_cutoff": -151.5
+        },
+        "one_edge": {
+          "potential_rank": 2865,
+          "cutoff_rank": 2137,
+          "positive_rank": 2142,
+          "directed_edges_above_cutoff": 2511,
+          "directed_edges_positive_at_or_below_cutoff": 6,
+          "directed_edges_exactly_zero": 805,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -3.8,
+          "log10_largest_flow_at_or_below_cutoff": -181.7,
+          "log10_smallest_positive_flow": -181.7,
+          "decades_of_cutoff_reading_this_graph": 177.9,
+          "log10_share_of_volume_at_or_below_cutoff": -183.5
+        }
+      },
+      {
+        "seed": 4,
+        "zero_edges": {
+          "potential_rank": 2871,
+          "cutoff_rank": 71,
+          "positive_rank": 2228,
+          "directed_edges_above_cutoff": 108,
+          "directed_edges_positive_at_or_below_cutoff": 2465,
+          "directed_edges_exactly_zero": 727,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.3,
+          "log10_largest_flow_at_or_below_cutoff": -157.0,
+          "log10_smallest_positive_flow": -159.6,
+          "decades_of_cutoff_reading_this_graph": 157.3,
+          "log10_share_of_volume_at_or_below_cutoff": -158.7
+        },
+        "one_edge": {
+          "potential_rank": 2872,
+          "cutoff_rank": 2309,
+          "positive_rank": 2309,
+          "directed_edges_above_cutoff": 2658,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 643,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        }
+      },
+      {
+        "seed": 5,
+        "zero_edges": {
+          "potential_rank": 2855,
+          "cutoff_rank": 73,
+          "positive_rank": 2082,
+          "directed_edges_above_cutoff": 108,
+          "directed_edges_positive_at_or_below_cutoff": 2310,
+          "directed_edges_exactly_zero": 863,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": 0.5,
+          "log10_largest_flow_at_or_below_cutoff": -165.2,
+          "log10_smallest_positive_flow": -181.9,
+          "decades_of_cutoff_reading_this_graph": 165.7,
+          "log10_share_of_volume_at_or_below_cutoff": -167.1
+        },
+        "one_edge": {
+          "potential_rank": 2856,
+          "cutoff_rank": 2126,
+          "positive_rank": 2131,
+          "directed_edges_above_cutoff": 2467,
+          "directed_edges_positive_at_or_below_cutoff": 6,
+          "directed_edges_exactly_zero": 809,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.7,
+          "log10_smallest_flow_above_cutoff": -4.0,
+          "log10_largest_flow_at_or_below_cutoff": -181.9,
+          "log10_smallest_positive_flow": -181.9,
+          "decades_of_cutoff_reading_this_graph": 177.9,
+          "log10_share_of_volume_at_or_below_cutoff": -183.8
+        }
+      }
+    ],
+    "two_layer_by_snapshot": {
+      "round": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500,
+        550,
+        599
+      ],
+      "realized_rank": [
+        1190,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074,
+        1074
+      ],
+      "potential_rank": 1190,
+      "by_snapshot": [
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1190,
+          "positive_rank": 1190,
+          "directed_edges_above_cutoff": 1489,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 0,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -2.7,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -2.7,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1190,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 142,
+          "directed_edges_exactly_zero": 0,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": -62.8,
+          "log10_smallest_positive_flow": -76.5,
+          "decades_of_cutoff_reading_this_graph": 59.2,
+          "log10_share_of_volume_at_or_below_cutoff": -64.2
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1190,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 142,
+          "directed_edges_exactly_zero": 0,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.7,
+          "log10_largest_flow_at_or_below_cutoff": -128.5,
+          "log10_smallest_positive_flow": -142.8,
+          "decades_of_cutoff_reading_this_graph": 124.8,
+          "log10_share_of_volume_at_or_below_cutoff": -130.6
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1190,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 142,
+          "directed_edges_exactly_zero": 0,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": -189.5,
+          "log10_smallest_positive_flow": -217.1,
+          "decades_of_cutoff_reading_this_graph": 185.9,
+          "log10_share_of_volume_at_or_below_cutoff": -191.3
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1190,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 142,
+          "directed_edges_exactly_zero": 0,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": -253.2,
+          "log10_smallest_positive_flow": -285.6,
+          "decades_of_cutoff_reading_this_graph": 249.6,
+          "log10_share_of_volume_at_or_below_cutoff": -255.2
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1085,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 12,
+          "directed_edges_exactly_zero": 130,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": false,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": -318.2,
+          "log10_smallest_positive_flow": -318.2,
+          "decades_of_cutoff_reading_this_graph": 314.6,
+          "log10_share_of_volume_at_or_below_cutoff": -320.2
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        },
+        {
+          "potential_rank": 1190,
+          "cutoff_rank": 1074,
+          "positive_rank": 1074,
+          "directed_edges_above_cutoff": 1347,
+          "directed_edges_positive_at_or_below_cutoff": 0,
+          "directed_edges_exactly_zero": 142,
+          "directed_edges_carrying_flow_outside_the_potential_graph": 0,
+          "same_graph_at_zero_cutoff": true,
+          "log10_cutoff": -5.3,
+          "log10_smallest_flow_above_cutoff": -3.6,
+          "log10_largest_flow_at_or_below_cutoff": null,
+          "log10_smallest_positive_flow": -3.6,
+          "decades_of_cutoff_reading_this_graph": null,
+          "log10_share_of_volume_at_or_below_cutoff": null
+        }
+      ]
+    }
+  },
+  "cross_seed": {
+    "collapsed": [
+      0.0291637,
+      0.0241512,
+      0.0289446,
+      0.0230447,
+      0.0247301,
+      0.0255692
+    ],
+    "rescued": [
+      0.783281,
+      0.785514,
+      0.86168,
+      0.745899,
+      0.803969,
+      0.744398
+    ]
+  },
+  "continuation": [
+    {
+      "seed": 0,
+      "autonomous_edges": 0,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        83
+      ],
+      "positive_rank_values_after_round_0": [
+        2526,
+        2160,
+        2156,
+        83
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1300,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1350,
+      "cutoff_rank_at_last_snapshot": 83,
+      "positive_rank_at_last_snapshot": 83,
+      "potential_rank": 2846,
+      "positive_rank_over_potential_at_last_snapshot": 0.0291637
+    },
+    {
+      "seed": 1,
+      "autonomous_edges": 0,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        69
+      ],
+      "positive_rank_values_after_round_0": [
+        2613,
+        2161,
+        2152,
+        69
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1250,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1300,
+      "cutoff_rank_at_last_snapshot": 69,
+      "positive_rank_at_last_snapshot": 69,
+      "potential_rank": 2857,
+      "positive_rank_over_potential_at_last_snapshot": 0.0241512
+    },
+    {
+      "seed": 2,
+      "autonomous_edges": 0,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        82
+      ],
+      "positive_rank_values_after_round_0": [
+        2663,
+        2377,
+        82
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1400,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1450,
+      "cutoff_rank_at_last_snapshot": 82,
+      "positive_rank_at_last_snapshot": 82,
+      "potential_rank": 2833,
+      "positive_rank_over_potential_at_last_snapshot": 0.0289446
+    },
+    {
+      "seed": 3,
+      "autonomous_edges": 0,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        66
+      ],
+      "positive_rank_values_after_round_0": [
+        2618,
+        2080,
+        2075,
+        66
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1250,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1300,
+      "cutoff_rank_at_last_snapshot": 66,
+      "positive_rank_at_last_snapshot": 66,
+      "potential_rank": 2864,
+      "positive_rank_over_potential_at_last_snapshot": 0.0230447
+    },
+    {
+      "seed": 4,
+      "autonomous_edges": 0,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        71
+      ],
+      "positive_rank_values_after_round_0": [
+        2624,
+        2236,
+        2228,
+        71
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1200,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1250,
+      "cutoff_rank_at_last_snapshot": 71,
+      "positive_rank_at_last_snapshot": 71,
+      "potential_rank": 2871,
+      "positive_rank_over_potential_at_last_snapshot": 0.0247301
+    },
+    {
+      "seed": 5,
+      "autonomous_edges": 0,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        73
+      ],
+      "positive_rank_values_after_round_0": [
+        2390,
+        2094,
+        2082,
+        2077,
+        73
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1150,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1200,
+      "cutoff_rank_at_last_snapshot": 73,
+      "positive_rank_at_last_snapshot": 73,
+      "potential_rank": 2855,
+      "positive_rank_over_potential_at_last_snapshot": 0.0255692
+    }
+  ],
+  "continuation_one_edge": [
+    {
+      "seed": 0,
+      "autonomous_edges": 1,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        2209,
+        2220,
+        2224,
+        2225,
+        2230
+      ],
+      "positive_rank_values_after_round_0": [
+        2600,
+        2590,
+        2579,
+        2230,
+        2229,
+        2225,
+        2224,
+        2220
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 250,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 300,
+      "cutoff_rank_at_last_snapshot": 2230,
+      "positive_rank_at_last_snapshot": 2230,
+      "potential_rank": 2847,
+      "positive_rank_over_potential_at_last_snapshot": 0.783281
+    },
+    {
+      "seed": 1,
+      "autonomous_edges": 1,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        2200,
+        2217,
+        2245,
+        2250
+      ],
+      "positive_rank_values_after_round_0": [
+        2706,
+        2678,
+        2661,
+        2254,
+        2250,
+        2245
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 250,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 300,
+      "cutoff_rank_at_last_snapshot": 2250,
+      "positive_rank_at_last_snapshot": 2250,
+      "potential_rank": 2858,
+      "positive_rank_over_potential_at_last_snapshot": 0.787264
+    },
+    {
+      "seed": 2,
+      "autonomous_edges": 1,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        2442
+      ],
+      "positive_rank_values_after_round_0": [
+        2728,
+        2442
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 200,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 250,
+      "cutoff_rank_at_last_snapshot": 2442,
+      "positive_rank_at_last_snapshot": 2442,
+      "potential_rank": 2834,
+      "positive_rank_over_potential_at_last_snapshot": 0.86168
+    },
+    {
+      "seed": 3,
+      "autonomous_edges": 1,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        2126,
+        2132,
+        2137,
+        2142
+      ],
+      "positive_rank_values_after_round_0": [
+        2680,
+        2675,
+        2669,
+        2147,
+        2142,
+        2137,
+        2132
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1050,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1100,
+      "cutoff_rank_at_last_snapshot": 2137,
+      "positive_rank_at_last_snapshot": 2137,
+      "potential_rank": 2865,
+      "positive_rank_over_potential_at_last_snapshot": 0.745899
+    },
+    {
+      "seed": 4,
+      "autonomous_edges": 1,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        2282,
+        2293,
+        2304,
+        2309
+      ],
+      "positive_rank_values_after_round_0": [
+        2700,
+        2689,
+        2678,
+        2312,
+        2309,
+        2304
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 250,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 300,
+      "cutoff_rank_at_last_snapshot": 2309,
+      "positive_rank_at_last_snapshot": 2309,
+      "potential_rank": 2872,
+      "positive_rank_over_potential_at_last_snapshot": 0.803969
+    },
+    {
+      "seed": 5,
+      "autonomous_edges": 1,
+      "rounds": 3000,
+      "snapshots": 61,
+      "reproduces_the_registered_run_at_shared_snapshots": true,
+      "shared_snapshots": 12,
+      "cutoff_rank_values_after_round_0": [
+        2115,
+        2126,
+        2132
+      ],
+      "positive_rank_values_after_round_0": [
+        2445,
+        2439,
+        2428,
+        2143,
+        2137,
+        2132,
+        2131,
+        2126
+      ],
+      "last_snapshot_with_positive_rank_above_cutoff_rank": 1050,
+      "positive_rank_equals_cutoff_rank_from_snapshot": 1100,
+      "cutoff_rank_at_last_snapshot": 2126,
+      "positive_rank_at_last_snapshot": 2126,
+      "potential_rank": 2856,
+      "positive_rank_over_potential_at_last_snapshot": 0.744398
+    }
+  ],
+  "potential_graph": {
+    "runs": 32,
+    "rounds": 48000,
+    "rounds_closing_on_the_opening_graph": 48000,
+    "unchanged_in_every_run": true,
+    "by_run": [
+      {
+        "layers": 2,
+        "seed": 0,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 1489
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3322
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3323
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 2,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3324
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 5,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3327
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 12,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3334
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 30,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3352
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3322
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3323
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 0,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3322
+      },
+      {
+        "layers": 3,
+        "seed": 0,
+        "autonomous_edges": 1,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3323
+      },
+      {
+        "layers": 3,
+        "seed": 1,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3314
+      },
+      {
+        "layers": 3,
+        "seed": 1,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3315
+      },
+      {
+        "layers": 3,
+        "seed": 1,
+        "autonomous_edges": 0,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3314
+      },
+      {
+        "layers": 3,
+        "seed": 1,
+        "autonomous_edges": 1,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3315
+      },
+      {
+        "layers": 3,
+        "seed": 2,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3309
+      },
+      {
+        "layers": 3,
+        "seed": 2,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3310
+      },
+      {
+        "layers": 3,
+        "seed": 2,
+        "autonomous_edges": 0,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3309
+      },
+      {
+        "layers": 3,
+        "seed": 2,
+        "autonomous_edges": 1,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3310
+      },
+      {
+        "layers": 3,
+        "seed": 3,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3321
+      },
+      {
+        "layers": 3,
+        "seed": 3,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3322
+      },
+      {
+        "layers": 3,
+        "seed": 3,
+        "autonomous_edges": 0,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3321
+      },
+      {
+        "layers": 3,
+        "seed": 3,
+        "autonomous_edges": 1,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3322
+      },
+      {
+        "layers": 3,
+        "seed": 4,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3300
+      },
+      {
+        "layers": 3,
+        "seed": 4,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3301
+      },
+      {
+        "layers": 3,
+        "seed": 4,
+        "autonomous_edges": 0,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3300
+      },
+      {
+        "layers": 3,
+        "seed": 4,
+        "autonomous_edges": 1,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3301
+      },
+      {
+        "layers": 3,
+        "seed": 5,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3281
+      },
+      {
+        "layers": 3,
+        "seed": 5,
+        "autonomous_edges": 1,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 3282
+      },
+      {
+        "layers": 3,
+        "seed": 5,
+        "autonomous_edges": 0,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3281
+      },
+      {
+        "layers": 3,
+        "seed": 5,
+        "autonomous_edges": 1,
+        "rounds": 3000,
+        "rounds_graph_equal_to_opening": 3000,
+        "potential_directed_edges": 3282
+      },
+      {
+        "layers": 2,
+        "seed": 0,
+        "autonomous_edges": 0,
+        "rounds": 600,
+        "rounds_graph_equal_to_opening": 600,
+        "potential_directed_edges": 1489
+      }
+    ]
+  }
 }

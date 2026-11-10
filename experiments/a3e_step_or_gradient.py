@@ -10,7 +10,7 @@ The question
 
 §6.4c ends with a shape that is mixed. Holders retain more than non-holders,
 and within the holders retention still climbs with wealth
-(`Spearman = +0.496` registered at shock round 20, `+0.386` with rent off),
+(`Spearman = +0.495` registered at shock round 20, `+0.386` with rent off),
 which a pure step does not predict. Reading that contrast through wealth deciles
 gives an inconsistent answer: fourteen-fold in one decile, one-and-a-third in
 the next, eleven-fold in the one after. Bins are the wrong instrument here
@@ -51,17 +51,16 @@ Reading
   is the outcome §6.4c already flags as possible, since the holder block sits at
   the top of the wealth ranking.
 
-**The sign share was promoted to the headline after the first run and the
-reason is disclosed here rather than left in the history.** The first version
-read the median against the noise floor's interquartile width alone. On the
-data that rule discards the answer: the paired differences are extremely
-skewed, with a median near zero and an upper quartile two orders of magnitude
-above the floor's, so a median-only rule reports "nothing" for a distribution
-whose mass has moved entirely into one tail. A sign test is the standard
-nonparametric reading of matched pairs and it is not sensitive to that skew.
-Both statistics are printed and neither is scored, so the change adds a column
-rather than selecting one. The noise-floor arm supplies the null share
-empirically, which is why the comparison is against it and not against a half.
+**The sign share is the headline, and the level is printed beside it.** A rule
+that reads the median against the noise floor's interquartile width alone
+discards the answer on this data: the paired differences are extremely skewed,
+with a median near zero and an upper quartile two orders of magnitude above the
+floor's, so a median-only rule reports "nothing" for a distribution whose mass
+has moved entirely into one tail. A sign test is the standard nonparametric
+reading of matched pairs and it is not sensitive to that skew. Both statistics
+are printed and neither is scored, so the report does not select one of them.
+The noise-floor arm supplies the null share empirically, which is why the
+comparison is against it and not against a half.
 
 Run
 ---
@@ -159,10 +158,20 @@ def pairing(rows: list[dict]) -> dict:
     the same at every horizon. `--tail` relies on that: a series taken over a
     pair set that moved with the horizon would be measuring the matcher.
     """
-    hold = [r for r in rows if r["holder"]]
-    free = [r for r in rows if not r["holder"]]
+    hold_all = [r for r in rows if r["holder"]]
+    free_all = [r for r in rows if not r["holder"]]
+    # A row with no gap in the landing round has no retention to compare. It is
+    # counted with its group and kept out of every matched and floor pair, the
+    # same rule on both sides; the counts left out are returned and printed.
+    hold = [r for r in hold_all if r["shock_footprint"] > 0.0]
+    free = [r for r in free_all if r["shock_footprint"] > 0.0]
+    unmeasured = {
+        "unmeasured_hold": len(hold_all) - len(hold),
+        "unmeasured_free": len(free_all) - len(free),
+    }
     if not hold or len(free) < 3:
-        return {"n_hold": len(hold), "n_free": len(free), "matched": 0}
+        return {"n_hold": len(hold_all), "n_free": len(free_all),
+                "matched": 0, **unmeasured}
 
     hw = np.array([r["wealth_at_shock"] for r in hold], dtype=float)
     fw = np.array([r["wealth_at_shock"] for r in free], dtype=float)
@@ -195,8 +204,9 @@ def pairing(rows: list[dict]) -> dict:
         floor_dist = np.array([])
 
     return {
-        "n_hold": len(hold),
-        "n_free": len(free),
+        "n_hold": len(hold_all),
+        "n_free": len(free_all),
+        **unmeasured,
         "support": (float(lo), float(hi)),
         "matched": int(inside.sum()),
         "dropped": int((~inside).sum()),
@@ -250,12 +260,15 @@ def report(path: Path, horizon: str, group: str) -> None:
         "fw": [], "fr": [], "hw": [], "hr": [],
     }
     matched = dropped = n_hold = n_free = no_support = 0
+    unm_hold = unm_free = 0
     print("\n  per seed, so the arithmetic below is visible rather than pooled")
     print("    seed  holders  matched  dropped  support in wealth")
     for s in seeds:
         p = pairs_for_seed([r for r in rows if r["seed"] == s], horizon)
         n_hold += p["n_hold"]
         n_free += p["n_free"]
+        unm_hold += p["unmeasured_hold"]
+        unm_free += p["unmeasured_free"]
         if not p["matched"]:
             # A seed whose holders are all richer than every non-holder has no
             # common support at all. Counting it as zero matched pairs and
@@ -285,6 +298,8 @@ def report(path: Path, horizon: str, group: str) -> None:
           f"dropped outside the support {dropped}"
           + (f", seeds with no overlap at all {no_support}" if no_support
              else ""))
+    print(f"  no gap in the landing round, left out of every pair: holders "
+          f"{unm_hold}, non-holders {unm_free}")
     if matched < MIN_PAIRS:
         print(f"  REFUSED: {matched} matched pairs is below {MIN_PAIRS}. The "
               f"support is too thin\n  for this reading, which is itself the "
@@ -427,8 +442,11 @@ def tail_report(path: Path, group: str) -> None:
     ctrl_rows: list[dict] = []
     fa: list[dict] = []
     fb: list[dict] = []
+    unm_hold = unm_free = 0
     for s in seeds:
         p = pairing([r for r in rows if r["seed"] == s])
+        unm_hold += p["unmeasured_hold"]
+        unm_free += p["unmeasured_free"]
         if not p.get("matched"):
             continue
         hold_rows += p["hold_rows"]
@@ -436,6 +454,8 @@ def tail_report(path: Path, group: str) -> None:
         fa += p["floor_a"]
         fb += p["floor_b"]
 
+    print(f"  no gap in the landing round, left out of every pair: holders "
+          f"{unm_hold}, non-holders {unm_free}")
     if len(hold_rows) < MIN_PAIRS:
         print(f"  REFUSED: {len(hold_rows)} matched pairs is below "
               f"{MIN_PAIRS}.")
@@ -446,14 +466,25 @@ def tail_report(path: Path, group: str) -> None:
     print(f"  one fixed pair set of {len(hold_rows)}, matched on wealth at the "
           f"shock round,\n  read at five horizons. The floor has "
           f"{len(fa)} pairs.")
+    # The floor needs three non-holders on the support within a seed. In the
+    # financial and pooled groups some arms have no seed with them, so the
+    # floor arm has no rows there: its columns print n/a and the step's
+    # columns print as usual.
+    has_floor = bool(fa)
+    if not has_floor:
+        print("  NO FLOOR ROWS: no rows in this group for the noise-floor arm "
+              "(no seed has\n  three non-holders on the support), so the "
+              "floor columns below are n/a.")
 
     print("\n  sign and level")
     print("    horiz   wins   floor      p50        p75        p90   floor p90")
     for h in HORIZONS:
         d, f = step[h], floor[h]
-        print(f"    {h:>5}  {np.mean(d > 0):5.1%}  {np.mean(f > 0):5.1%}  "
+        f_win = f"{np.mean(f > 0):5.1%}" if has_floor else "  n/a"
+        f_p90 = f"{np.quantile(f, 0.90):+9.4f}" if has_floor else "      n/a"
+        print(f"    {h:>5}  {np.mean(d > 0):5.1%}  {f_win}  "
               f"{np.median(d):+9.4f}  {np.quantile(d, 0.75):+9.4f}  "
-              f"{np.quantile(d, 0.90):+9.4f}  {np.quantile(f, 0.90):+9.4f}")
+              f"{np.quantile(d, 0.90):+9.4f}  {f_p90}")
 
     print("\n  is it a level or a lottery, and does the winner rotate")
     print("    horiz   top-tenth share   floor's   rho vs h40   top-tenth "
@@ -462,16 +493,25 @@ def tail_report(path: Path, group: str) -> None:
     for h in HORIZONS:
         d = step[h]
         keep = len(top_set(d) & ref_top) / max(len(ref_top), 1)
+        f_conc = (f"{concentration(floor[h]):6.1%}" if has_floor
+                  else "   n/a")
         print(f"    {h:>5}          {concentration(d):6.1%}    "
-              f"{concentration(floor[h]):6.1%}       "
+              f"{f_conc}       "
               f"{spearman(d, step[REF]):+6.3f}          {keep:6.1%}")
 
     print("\n  reading, not scored")
     c = concentration(step[REF])
-    cf = concentration(floor[REF])
-    print(f"    At the registered horizon the top tenth of pairs carries "
-          f"{c:.1%} of the\n    positive total against the floor's {cf:.1%}. "
-          f"A level shift would land near\n    a tenth in both columns.")
+    if has_floor:
+        cf = concentration(floor[REF])
+        print(f"    At the registered horizon the top tenth of pairs carries "
+              f"{c:.1%} of the\n    positive total against the floor's "
+              f"{cf:.1%}. A level shift would land near\n    a tenth in both "
+              f"columns.")
+    else:
+        print(f"    At the registered horizon the top tenth of pairs carries "
+              f"{c:.1%} of the\n    positive total. The floor has no rows in "
+              f"this group, so there is no\n    second column to set it "
+              f"against. A level shift would land near a tenth.")
     print("    The rotation column says whether the same holders keep winning "
           "or whether\n    the tail is a different set each time it is read. "
           "Both are findings and\n    they are different findings.")

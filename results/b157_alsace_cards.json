@@ -1,0 +1,1415 @@
+{
+ "B157_1": {
+  "files": [
+   {
+    "file": "ad67_fiche07_triage_cartes.pdf",
+    "items": 0,
+    "listed": true,
+    "on_disk": true,
+    "sha256_equal": true
+   },
+   {
+    "file": "ad67_fiche07_triage_cartes_text.txt",
+    "items": 22,
+    "listed": true,
+    "on_disk": true,
+    "sha256_equal": true
+   },
+   {
+    "file": "jo_1918-12-07_p10544_ocr.txt",
+    "items": 14,
+    "listed": true,
+    "on_disk": true,
+    "sha256_equal": true
+   },
+   {
+    "file": "le_temps_1918-12-18_alsace_ocr.txt",
+    "items": 11,
+    "listed": true,
+    "on_disk": true,
+    "sha256_equal": true
+   }
+  ],
+  "items": [
+   {
+    "grade": "official",
+    "id": "naming_cash",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "naming_deposit",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "naming_contract",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art2",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art4",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art5",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art6",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art7",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art9",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "loop_art10",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "travel_AD67_a",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "travel_AD67_b",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "travel_AD67_c",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "travel_AD67_d",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "travel_LT_a",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "travel_LT_b",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "travel_LT_c",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "travel_LT_d",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "cassel_d",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "cassel_b",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "step_1919-05-14",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "step_1919-05-16",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "step_undated",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "step_1919-05-21",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "date_1918-11-26",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "date_1918-12-06",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "date_1918-12-14",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "date_1918-12-15",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "date_1918-12-23",
+    "ok": true,
+    "quote_found": true,
+    "source": "JO",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "date_1918-12-24",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "card_arrete",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "card_issuer_ad67",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "card_issuer_lt",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "research",
+    "id": "cards_from_14_dec",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "a_lt",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "a_ad67",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "b_lt",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "b_ad67",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "c_both",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "c_ad67",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "d_lt",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "official",
+    "id": "d_ad67",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "research",
+    "id": "summary_ab",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "research",
+    "id": "summary_rate",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "research",
+    "id": "summary_d",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "research",
+    "id": "execution_file",
+    "ok": true,
+    "quote_found": true,
+    "source": "AD67",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "postal_two_rates",
+    "ok": true,
+    "quote_found": true,
+    "source": "LT",
+    "stored": true
+   },
+   {
+    "grade": "other",
+    "id": "al_definition_weil",
+    "ok": true,
+    "quote_found": null,
+    "source": "WEIL",
+    "stored": false
+   },
+   {
+    "grade": "other",
+    "id": "market_price",
+    "ok": true,
+    "quote_found": null,
+    "source": "WEIL",
+    "stored": false
+   },
+   {
+    "grade": "other",
+    "id": "d_for_immigrant_children",
+    "ok": true,
+    "quote_found": null,
+    "source": "NITHART",
+    "stored": false
+   }
+  ],
+  "not_opened": [
+   {
+    "state": "execution file of the mark exchange, 1918-1919: instructions and general correspondence; cited by the teaching sheet, not opened",
+    "what": "AD 67, 121 AL 1020"
+   },
+   {
+    "state": "where the card arrêté's own text would sit; not on Gallica",
+    "what": "Bulletin officiel d'Alsace et de Lorraine"
+   },
+   {
+    "state": "62 issues searched for the cards and the exchange in one place; 4 read (no item), 58 refused by the server's rate limit",
+    "what": "Le Temps 1918-12-01 to 1919-01-31"
+   }
+  ],
+  "not_stored": {
+   "NITHART": "nithart.com, 'Les 4 cartes d'identité après 1918'; page read, not stored",
+   "WEIL": "geldscheine-online, 'Die Einführung der französischen Währung in Elsaß-Lothringen 1918', summarising Bruno Weil (1921); page read, not stored"
+  },
+  "per_grade": {
+   "official": 31,
+   "other": 14,
+   "research": 5
+  }
+ },
+ "B157_2": {
+  "articles_found": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12
+  ],
+  "classes_changing_value_across_positions": {
+   "AN_PRE": [
+    "1.25",
+    "1.25",
+    "unwritten"
+   ],
+   "FR": [
+    "unwritten",
+    "1.25",
+    "1.25"
+   ]
+  },
+  "contract_note": "a contract counts when both parties are named: AL with AL, or AL with FR; FR with FR is not named",
+  "distinct_partitions": 3,
+  "fork_121_AL_1020": {
+   "cash_distinct": 3,
+   "cell": "OTHER/cash",
+   "value": "0.70"
+  },
+  "per_position": {
+   "cash": {
+    "distinct": 2,
+    "partition": {
+     "1.25": [
+      "AL",
+      "AN_PRE"
+     ],
+     "unwritten": [
+      "FR",
+      "AN_POST",
+      "OTHER"
+     ]
+    },
+    "values": [
+     "1.25",
+     "unwritten"
+    ]
+   },
+   "contract": {
+    "distinct": 2,
+    "partition": {
+     "1.25": [
+      "AL",
+      "FR"
+     ],
+     "unwritten": [
+      "AN_PRE",
+      "AN_POST",
+      "OTHER"
+     ]
+    },
+    "values": [
+     "1.25",
+     "unwritten"
+    ]
+   },
+   "deposit": {
+    "distinct": 2,
+    "partition": {
+     "1.25": [
+      "AL",
+      "FR",
+      "AN_PRE"
+     ],
+     "unwritten": [
+      "AN_POST",
+      "OTHER"
+     ]
+    },
+    "values": [
+     "1.25",
+     "unwritten"
+    ]
+   }
+  },
+  "rates_in_arrete": [
+   "1.25"
+  ],
+  "rows": [
+   {
+    "article": 3,
+    "classes_named": [
+     "AL",
+     "AN_PRE"
+    ],
+    "naming_quote_inside_article": true,
+    "position": "cash",
+    "rates_in_article": [
+     "1.25"
+    ]
+   },
+   {
+    "article": 9,
+    "classes_named": [
+     "AL",
+     "FR",
+     "AN_PRE"
+    ],
+    "naming_quote_inside_article": true,
+    "position": "deposit",
+    "rates_in_article": [
+     "1.25"
+    ]
+   },
+   {
+    "article": 11,
+    "classes_named": [
+     "AL",
+     "FR"
+    ],
+    "naming_quote_inside_article": true,
+    "position": "contract",
+    "rates_in_article": [
+     "1.25"
+    ]
+   }
+  ],
+  "table": {
+   "AL/cash": "1.25",
+   "AL/contract": "1.25",
+   "AL/deposit": "1.25",
+   "AN_POST/cash": "unwritten",
+   "AN_POST/contract": "unwritten",
+   "AN_POST/deposit": "unwritten",
+   "AN_PRE/cash": "1.25",
+   "AN_PRE/contract": "unwritten",
+   "AN_PRE/deposit": "1.25",
+   "FR/cash": "unwritten",
+   "FR/contract": "1.25",
+   "FR/deposit": "1.25",
+   "OTHER/cash": "unwritten",
+   "OTHER/contract": "unwritten",
+   "OTHER/deposit": "unwritten"
+  }
+ },
+ "B157_3": {
+  "alternatives": {
+   "executed+text_only": {
+    "cassel": [
+     {
+      "agrees": true,
+      "by_rule": [
+       "d"
+      ],
+      "documented": "d",
+      "person": "Anna Cassel",
+      "type": "p4"
+     },
+     {
+      "agrees": true,
+      "by_rule": [
+       "b"
+      ],
+      "documented": "b",
+      "person": "her two children (father of old Alsatian stock)",
+      "type": "p3"
+     }
+    ],
+    "overall": "a card spans two",
+    "rows": {
+     "a": {
+      "cells": [
+       {
+        "class": "FR",
+        "type": "p1",
+        "value": "unwritten"
+       },
+       {
+        "class": "AL",
+        "type": "p2",
+        "value": "1.25"
+       }
+      ],
+      "state": "spans two"
+     },
+     "b": {
+      "cells": [
+       {
+        "class": null,
+        "type": "p3",
+        "value": null
+       }
+      ],
+      "state": "undeterminable"
+     },
+     "c": {
+      "cells": [
+       {
+        "class": "AN_PRE",
+        "type": "p5",
+        "value": "1.25"
+       },
+       {
+        "class": "AN_POST",
+        "type": "p6",
+        "value": "unwritten"
+       }
+      ],
+      "state": "spans two"
+     },
+     "d": {
+      "cells": [
+       {
+        "class": null,
+        "type": "p4",
+        "value": null
+       },
+       {
+        "class": "OTHER",
+        "type": "p7",
+        "value": "unwritten"
+       }
+      ],
+      "state": "undeterminable"
+     }
+    },
+    "types_with_no_card": [],
+    "types_with_two_cards": []
+   },
+   "literal_le_temps+executed": {
+    "cassel": [
+     {
+      "agrees": false,
+      "by_rule": [
+       "b",
+       "d"
+      ],
+      "documented": "d",
+      "person": "Anna Cassel",
+      "type": "p4"
+     },
+     {
+      "agrees": false,
+      "by_rule": [],
+      "documented": "b",
+      "person": "her two children (father of old Alsatian stock)",
+      "type": "p3"
+     }
+    ],
+    "overall": "a card spans two",
+    "rows": {
+     "a": {
+      "cells": [
+       {
+        "class": "FR",
+        "type": "p1",
+        "value": "unwritten"
+       },
+       {
+        "class": "AL",
+        "type": "p2",
+        "value": "1.25"
+       }
+      ],
+      "state": "spans two"
+     },
+     "b": {
+      "cells": [
+       {
+        "class": "OTHER",
+        "type": "p4",
+        "value": "unwritten"
+       }
+      ],
+      "state": "one class"
+     },
+     "c": {
+      "cells": [
+       {
+        "class": "AN_PRE",
+        "type": "p5",
+        "value": "1.25"
+       },
+       {
+        "class": "AN_POST",
+        "type": "p6",
+        "value": "unwritten"
+       }
+      ],
+      "state": "spans two"
+     },
+     "d": {
+      "cells": [
+       {
+        "class": "OTHER",
+        "type": "p4",
+        "value": "unwritten"
+       },
+       {
+        "class": "OTHER",
+        "type": "p7",
+        "value": "unwritten"
+       }
+      ],
+      "state": "one class"
+     }
+    },
+    "types_with_no_card": [
+     "p3"
+    ],
+    "types_with_two_cards": [
+     "p4"
+    ]
+   },
+   "literal_le_temps+text_only": {
+    "cassel": [
+     {
+      "agrees": false,
+      "by_rule": [
+       "b",
+       "d"
+      ],
+      "documented": "d",
+      "person": "Anna Cassel",
+      "type": "p4"
+     },
+     {
+      "agrees": false,
+      "by_rule": [],
+      "documented": "b",
+      "person": "her two children (father of old Alsatian stock)",
+      "type": "p3"
+     }
+    ],
+    "overall": "a card spans two",
+    "rows": {
+     "a": {
+      "cells": [
+       {
+        "class": "FR",
+        "type": "p1",
+        "value": "unwritten"
+       },
+       {
+        "class": "AL",
+        "type": "p2",
+        "value": "1.25"
+       }
+      ],
+      "state": "spans two"
+     },
+     "b": {
+      "cells": [
+       {
+        "class": null,
+        "type": "p4",
+        "value": null
+       }
+      ],
+      "state": "undeterminable"
+     },
+     "c": {
+      "cells": [
+       {
+        "class": "AN_PRE",
+        "type": "p5",
+        "value": "1.25"
+       },
+       {
+        "class": "AN_POST",
+        "type": "p6",
+        "value": "unwritten"
+       }
+      ],
+      "state": "spans two"
+     },
+     "d": {
+      "cells": [
+       {
+        "class": null,
+        "type": "p4",
+        "value": null
+       },
+       {
+        "class": "OTHER",
+        "type": "p7",
+        "value": "unwritten"
+       }
+      ],
+      "state": "undeterminable"
+     }
+    },
+    "types_with_no_card": [
+     "p3"
+    ],
+    "types_with_two_cards": [
+     "p4"
+    ]
+   }
+  },
+  "cassel_quotes_found": true,
+  "class_declared_before_card_arrete": true,
+  "executed": {
+   "cassel": [
+    {
+     "agrees": true,
+     "by_rule": [
+      "d"
+     ],
+     "documented": "d",
+     "person": "Anna Cassel",
+     "type": "p4"
+    },
+    {
+     "agrees": true,
+     "by_rule": [
+      "b"
+     ],
+     "documented": "b",
+     "person": "her two children (father of old Alsatian stock)",
+     "type": "p3"
+    }
+   ],
+   "overall": "a card spans two",
+   "rows": {
+    "a": {
+     "cells": [
+      {
+       "class": "FR",
+       "type": "p1",
+       "value": "unwritten"
+      },
+      {
+       "class": "AL",
+       "type": "p2",
+       "value": "1.25"
+      }
+     ],
+     "state": "spans two"
+    },
+    "b": {
+     "cells": [
+      {
+       "class": "AL",
+       "type": "p3",
+       "value": "1.25"
+      }
+     ],
+     "state": "one class"
+    },
+    "c": {
+     "cells": [
+      {
+       "class": "AN_PRE",
+       "type": "p5",
+       "value": "1.25"
+      },
+      {
+       "class": "AN_POST",
+       "type": "p6",
+       "value": "unwritten"
+      }
+     ],
+     "state": "spans two"
+    },
+    "d": {
+     "cells": [
+      {
+       "class": "OTHER",
+       "type": "p4",
+       "value": "unwritten"
+      },
+      {
+       "class": "OTHER",
+       "type": "p7",
+       "value": "unwritten"
+      }
+     ],
+     "state": "one class"
+    }
+   },
+   "types_with_no_card": [],
+   "types_with_two_cards": []
+  },
+  "timeline": [
+   {
+    "date": "1918-11-26",
+    "event": "exchange arrêté signed",
+    "source": "JO"
+   },
+   {
+    "date": "1918-12-06",
+    "event": "declaration deadline; class declared by the holder",
+    "source": "JO"
+   },
+   {
+    "date": "1918-12-14",
+    "event": "card arrêté",
+    "source": "AD67"
+   },
+   {
+    "date": "1918-12-15",
+    "event": "cash exchange opens, at the counter named on the declaration",
+    "source": "JO"
+   },
+   {
+    "date": "1918-12-23",
+    "event": "cash exchange closes",
+    "source": "JO"
+   },
+   {
+    "date": "1918-12-24",
+    "event": "mayors' lists due; cards follow the lists",
+    "source": "LT"
+   }
+  ],
+  "timeline_quotes_found_and_ordered": true,
+  "types": {
+   "p1": "French, not born in Alsace-Lorraine",
+   "p2": "born in Alsace-Lorraine, both parents of French origin",
+   "p3": "born in Alsace-Lorraine, one parent of French origin and one not",
+   "p4": "born in Alsace-Lorraine, neither parent of French origin",
+   "p5": "allied or neutral national, resident before 1 August 1914",
+   "p6": "allied or neutral national, came after 1 August 1914",
+   "p7": "German, Austro-Hungarian, Turkish or Bulgarian subject born outside Alsace-Lorraine"
+  }
+ },
+ "B157_4": {
+  "distinct_ranges": 3,
+  "groups": {
+   "liberated territory": [
+    "a"
+   ],
+   "own cercle and adjacent cercles": [
+    "b",
+    "c"
+   ],
+   "own commune": [
+    "d"
+   ]
+  },
+  "nesting": [
+   "own commune",
+   "own cercle and adjacent cercles",
+   "liberated territory"
+  ],
+  "no_motor_vehicles": "all four classes: no car, no motorcycle",
+  "note": "the archive's transcription of class a elides the Swiss-border and Rhine zone with (…)",
+  "per_card": {
+   "a": {
+    "AD67": "liberated territory",
+    "LT": "liberated territory"
+   },
+   "b": {
+    "AD67": "own cercle and adjacent cercles",
+    "LT": "own cercle and adjacent cercles"
+   },
+   "c": {
+    "AD67": "own cercle and adjacent cercles",
+    "LT": "own cercle and adjacent cercles"
+   },
+   "d": {
+    "AD67": "own commune",
+    "LT": "own commune"
+   }
+  },
+  "rows": [
+   {
+    "card": "a",
+    "quote_found": true,
+    "range": "liberated territory",
+    "source": "AD67"
+   },
+   {
+    "card": "b",
+    "quote_found": true,
+    "range": "own cercle and adjacent cercles",
+    "source": "AD67"
+   },
+   {
+    "card": "c",
+    "quote_found": true,
+    "range": "own cercle and adjacent cercles",
+    "source": "AD67"
+   },
+   {
+    "card": "d",
+    "quote_found": true,
+    "range": "own commune",
+    "source": "AD67"
+   },
+   {
+    "card": "a",
+    "quote_found": true,
+    "range": "liberated territory",
+    "source": "LT"
+   },
+   {
+    "card": "b",
+    "quote_found": true,
+    "range": "own cercle and adjacent cercles",
+    "source": "LT"
+   },
+   {
+    "card": "c",
+    "quote_found": true,
+    "range": "own cercle and adjacent cercles",
+    "source": "LT"
+   },
+   {
+    "card": "d",
+    "quote_found": true,
+    "range": "own commune",
+    "source": "LT"
+   }
+  ]
+ },
+ "B157_5": {
+  "not_written": [
+   "a ceiling per holder on cash",
+   "a link between the exchange and the identity card"
+  ],
+  "per_path": {
+   "cash": "priced",
+   "deposit moved 11 to 30 Nov": "priced",
+   "deposit moved after 30 Nov": "cut",
+   "deposit moved before 11 Nov": "open"
+  },
+  "premium_over_market": "0.786",
+  "premium_per_mark": "0.55",
+  "rows": [
+   {
+    "article": 2,
+    "on_proxy_loop": false,
+    "path": "marks brought in from outside",
+    "quote_inside_article": true,
+    "state": "cut"
+   },
+   {
+    "article": 4,
+    "on_proxy_loop": true,
+    "path": "cash",
+    "quote_inside_article": true,
+    "state": "priced"
+   },
+   {
+    "article": 5,
+    "on_proxy_loop": true,
+    "path": "cash",
+    "quote_inside_article": true,
+    "state": "priced"
+   },
+   {
+    "article": 6,
+    "on_proxy_loop": false,
+    "path": "the same marks at two counters",
+    "quote_inside_article": true,
+    "state": "cut"
+   },
+   {
+    "article": 7,
+    "on_proxy_loop": true,
+    "path": "cash",
+    "quote_inside_article": true,
+    "state": "priced"
+   },
+   {
+    "article": 9,
+    "on_proxy_loop": true,
+    "path": "deposit moved after 30 Nov",
+    "quote_inside_article": true,
+    "state": "cut"
+   },
+   {
+    "article": 10,
+    "on_proxy_loop": true,
+    "path": "deposit moved 11 to 30 Nov",
+    "quote_inside_article": true,
+    "state": "priced"
+   }
+  ]
+ },
+ "B157_6": {
+  "days_request_to_deciding_office": 7,
+  "outcome_in_file": null,
+  "state": "procedural edge",
+  "stated_cost": "with a D card she cannot find work (mayor and letter)",
+  "steps": [
+   {
+    "date": "1919-05-14",
+    "kind": "request",
+    "quote_found": true,
+    "step": "Anna Cassel asks the Commissaire général for an A card in place of her D card"
+   },
+   {
+    "date": "1919-05-16",
+    "kind": "inquiry",
+    "quote_found": true,
+    "step": "the administrator at Molsheim sends it to the mayor for an opinion"
+   },
+   {
+    "date": null,
+    "kind": "opinion",
+    "quote_found": true,
+    "step": "the mayor recommends it"
+   },
+   {
+    "date": "1919-05-21",
+    "kind": "forward",
+    "quote_found": true,
+    "step": "the administrator forwards it to the Commissaire de la République at Strasbourg; the screening commission has no competence to decide"
+   }
+  ]
+ },
+ "classes": {
+  "AL": "Alsatians and Lorrainers",
+  "AN_POST": "allied or neutral nationals who came later",
+  "AN_PRE": "allied or neutral nationals resident before 1 August 1914",
+  "FR": "French",
+  "OTHER": "German, Austro-Hungarian, Turkish and Bulgarian subjects"
+ },
+ "config": {
+  "card_rule": "executed (b: one parent not of French origin; children of two immigrant parents: d)",
+  "exchange_class_definition": "executed (Alsaciens-Lorrains: A and B holders; Weil 1921)",
+  "files": {
+   "ad67_fiche07_triage_cartes.pdf": "b73cebea3b137413ccc9b6d1f8a862fb89f089ab3bafd9dd3a7856de2a2a1000",
+   "ad67_fiche07_triage_cartes_text.txt": "c6fc0210482a0cd8b8aa770c34cfbb7a0ad71895038a8e7e8177ddb47c4235d7",
+   "jo_1918-12-07_p10544_ocr.txt": "2e2e434a91dbfdf7017657cd54b4a315dc1e27d1255b0390ba8f868d5619155c",
+   "le_temps_1918-12-18_alsace_ocr.txt": "4a67727f37e90bc4a6e787c7c1471f4d13150208c7b03563b1c0184b3fbcba80"
+  },
+  "fork": "OTHER/cash/0.70",
+  "market_price_not_counted": "0.70",
+  "normalisation": "NFKC; typographic apostrophes and hyphens to ASCII; whitespace collapsed; OCR errors kept"
+ },
+ "criteria": [
+  {
+   "detail": "50 items, per grade {'official': 31, 'research': 5, 'other': 14}; 47 from stored files, every quote found: True; 3 from pages read and not stored. Files: ad67_fiche07_triage_cartes.pdf 0 items, SHA-256 equal True; ad67_fiche07_triage_cartes_text.txt 22 items, SHA-256 equal True; jo_1918-12-07_p10544_ocr.txt 14 items, SHA-256 equal True; le_temps_1918-12-18_alsace_ocr.txt 11 items, SHA-256 equal True. Not opened: AD 67, 121 AL 1020; Bulletin officiel d'Alsace et de Lorraine; Le Temps 1918-12-01 to 1919-01-31.",
+   "kind": "bookkeeping",
+   "name": "B157-1",
+   "passed": true
+  },
+  {
+   "detail": "The arrêté writes one rate, ['1.25'], in articles 3, 9 and 11. Distinct values per position (unwritten counted): cash 2, deposit 2, contract 2. The three positions draw 3 different partitions: cash {'1.25': ['AL', 'AN_PRE'], 'unwritten': ['FR', 'AN_POST', 'OTHER']}; deposit {'1.25': ['AL', 'FR', 'AN_PRE'], 'unwritten': ['AN_POST', 'OTHER']}; contract {'1.25': ['AL', 'FR'], 'unwritten': ['AN_PRE', 'AN_POST', 'OTHER']}. Classes whose value changes with the position: {'AN_PRE': ['1.25', '1.25', 'unwritten'], 'FR': ['unwritten', '1.25', '1.25']}. If the execution file 121 AL 1020 writes 0.70 for the last class at cash, the cash count is 3; the file was not opened.",
+   "kind": "own_reading",
+   "name": "B157-2",
+   "passed": true
+  },
+  {
+   "detail": "Cash position, cards as executed, exchange classes as executed: a spans two (p1=unwritten, p2=1.25); b one class (p3=1.25); c spans two (p5=1.25, p6=unwritten); d one class (p4=unwritten, p7=unwritten) => a card spans two. With the arrêté alone the class of p3 and p4 is not settled and card b is undeterminable. Read as Le Temps prints class b, type p3 has no card and p4 has two; the Cassel file (Anna Cassel, Strasbourg-born of Palatinate parents: D; her children by an Alsatian father: B) agrees with the rule as executed and not with the printed wording. The class was declared on 1918-12-06, before the card arrêté of 1918-12-14.",
+   "kind": "own_reading",
+   "name": "B157-3",
+   "passed": true
+  },
+  {
+   "detail": "Travel ranges, both transcriptions agree: {'liberated territory': ['a'], 'own cercle and adjacent cercles': ['b', 'c'], 'own commune': ['d']}; 3 distinct, nested own commune < own cercle and adjacent cercles < liberated territory; no motor vehicles for any class.",
+   "kind": "own_reading",
+   "name": "B157-4",
+   "passed": true
+  },
+  {
+   "detail": "Loop: an eligible holder exchanges an ineligible holder's marks. Per path: cash priced; deposit moved before 11 Nov open; deposit moved 11 to 30 Nov priced; deposit moved after 30 Nov cut. Articles on other paths: art. 2 cut (marks brought in from outside); art. 6 cut (the same marks at two counters). Not written: a ceiling per holder on cash, a link between the exchange and the identity card. Premium kept by the loop 0.55 franc per mark, 0.786 of the market price.",
+   "kind": "own_reading",
+   "name": "B157-5",
+   "passed": true
+  },
+  {
+   "detail": "Changing a card: procedural edge. 1919-05-14 Anna Cassel asks the Commissaire général for an A card in place of her D card; 1919-05-16 the administrator at Molsheim sends it to the mayor for an opinion; undated the mayor recommends it; 1919-05-21 the administrator forwards it to the Commissaire de la République at Strasbourg; the screening commission has no competence to decide. 7 days from the request to the deciding office; the sheet carries no decision. Stated cost of the D card: no work.",
+   "kind": "own_reading",
+   "name": "B157-6",
+   "passed": true
+  }
+ ],
+ "mapping_11c": [
+  {
+   "criterion": "B157-3",
+   "state": "every card in one class",
+   "verdict": "card partition is the price partition"
+  },
+  {
+   "criterion": "B157-3",
+   "state": "a card spans two",
+   "verdict": "the two partitions differ"
+  },
+  {
+   "criterion": "B157-3",
+   "state": "undeterminable",
+   "verdict": null
+  },
+  {
+   "criterion": "B157-5",
+   "state": "cut",
+   "verdict": "path removed"
+  },
+  {
+   "criterion": "B157-5",
+   "state": "priced",
+   "verdict": "path kept at a price"
+  },
+  {
+   "criterion": "B157-5",
+   "state": "open",
+   "verdict": "path kept"
+  },
+  {
+   "criterion": "B157-6",
+   "state": "edge absent",
+   "verdict": "no written way to change a card"
+  },
+  {
+   "criterion": "B157-6",
+   "state": "procedural edge",
+   "verdict": "a written way, decided case by case"
+  },
+  {
+   "criterion": "B157-6",
+   "state": "undeterminable",
+   "verdict": null
+  }
+ ],
+ "selftest": [
+  {
+   "check": "norm: ligature, apostrophe and hyphen mapped",
+   "ok": true
+  },
+  {
+   "check": "find_seq keeps the order",
+   "ok": true
+  },
+  {
+   "check": "B157-1 passes on the stored files",
+   "ok": true
+  },
+  {
+   "check": "B157-1 flips when a quote is not in its file",
+   "ok": true
+  },
+  {
+   "check": "B157-1 flips when an item has no grade",
+   "ok": true
+  },
+  {
+   "check": "B157-1 flips with one unlisted file, any extension",
+   "ok": true
+  },
+  {
+   "check": "B157-1 flips when one byte of a stored file changes",
+   "ok": true
+  },
+  {
+   "check": "loader drops .expired only",
+   "ok": true
+  },
+  {
+   "check": "B157-2 passes on the arrêté",
+   "ok": true
+  },
+  {
+   "check": "B157-2 reads twelve articles and one rate, 1.25",
+   "ok": true
+  },
+  {
+   "check": "B157-2 known reading: 2 values at each position, 3 partitions",
+   "ok": true
+  },
+  {
+   "check": "B157-2 flips when the cash naming quote is looked for in the wrong article",
+   "ok": true
+  },
+  {
+   "check": "B157-2 flips when article 9 loses its rate (planted)",
+   "ok": true
+  },
+  {
+   "check": "B157-2 table follows the file: a planted 1.30 in art. 3 reads as 1.30 at cash only",
+   "ok": true
+  },
+  {
+   "check": "fixture: a written 0.70 for the last class gives 3 at cash",
+   "ok": true
+  },
+  {
+   "check": "B157-3 passes on the executed rule",
+   "ok": true
+  },
+  {
+   "check": "B157-3 known reading: a and c span two, b and d one class",
+   "ok": true
+  },
+  {
+   "check": "B157-3 literal rule: p3 has no card, p4 has two, and the Cassel cards are not reproduced",
+   "ok": true
+  },
+  {
+   "check": "fixture: card c without late arrivals is one class",
+   "ok": true
+  },
+  {
+   "check": "B157-3 with the arrêté alone, card b is undeterminable",
+   "ok": true
+  },
+  {
+   "check": "B157-3 flips when a timeline quote is not in its file",
+   "ok": true
+  },
+  {
+   "check": "B157-4 passes, 3 distinct ranges",
+   "ok": true
+  },
+  {
+   "check": "B157-4 flips when one transcription gives card b another range",
+   "ok": true
+  },
+  {
+   "check": "B157-4 flips when one card is missing from one source",
+   "ok": true
+  },
+  {
+   "check": "B157-5 known reading per path",
+   "ok": true
+  },
+  {
+   "check": "B157-5 flips when an article's quote is looked for in another article",
+   "ok": true
+  },
+  {
+   "check": "fixture: a cutting article on cash gives cut",
+   "ok": true
+  },
+  {
+   "check": "B157-6 known reading: procedural edge, 7 days to the deciding office",
+   "ok": true
+  },
+  {
+   "check": "B157-6 without the forwarding step is undeterminable",
+   "ok": true
+  },
+  {
+   "check": "fixture: a documented refusal gives edge absent",
+   "ok": true
+  },
+  {
+   "check": "B157-6 flips when a step's quote is not in the file",
+   "ok": true
+  },
+  {
+   "check": "11c mapping: every undecided state maps to None and only those",
+   "ok": true
+  }
+ ],
+ "stage": "B157",
+ "title": "Alsace and Lorraine 1918: the mark exchange and the identity cards, two partitions of one population"
+}

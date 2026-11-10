@@ -41,7 +41,9 @@ much as it does. A5 asks whether the same shape appears in the price.
 
 with `γ̃` the median terms and `m̃` the median opening claims **of the production
 layer**. `ρ_q = 1` means the median production-layer agent can just afford tier
-`q` on the opening day. It is a definition, not a fitted threshold.
+`q` on the opening day. It is a definition, not a fitted threshold. (`§8.11`:
+with `ρ` divided by `s`, `ρ = 1` is where the median agent can just enter by
+paying everything it holds, a third of the cost at `s = 3`.)
 
 At stage A3's registered parameters, measured over three seeds:
 
@@ -231,8 +233,8 @@ passing in `12/12` seeds.
 
 That is a stronger claim than the one registered and it is also a less
 comfortable one, because it says the lever is not the price at all. What closes
-the reachable region is the drain that stage A2 already measured as support-set
-contraction, now visible as the buyer's side of a price they could once meet.
+the reachable region is the drain that stage A2 already measured as a contraction
+of effective support, now visible as the buyer's side of a price they could once meet.
 A5-5 passes vacuously for the same reason: at a crossing round of one there is
 no clock for issuance to set.
 
@@ -301,7 +303,11 @@ half-life of one to five rounds. The same fact has now surfaced in three places
 that were designed independently —
 
 - A4: the competing mechanisms have no stock to act on,
-- A3-6: an endowment into a median node leaves `1.4%` after forty rounds,
+- A3-6: an endowment into a median node leaves `1.4%` after forty rounds
+  (restated 2026-10-27: the registered A3 record does not hold `1.4%`; its
+  non-holder arm is one node per seed, whose gap from its own untransferred
+  path forty rounds on is at most `0.18%` of its landing-round gap, in either
+  direction),
 - A5-4: reachability doubles in one round with the price held still.
 
 Three stages, three measurement designs, one fact. **Whatever else is true, the
@@ -641,3 +647,211 @@ calibration is for, and A5-6 is not backfilled on that account.
 stands unchanged: `ρ = 23.5` between the layers is a property of this
 parameterisation and not a measurement of anything, and A5 rules out one lever
 while saying nothing about supply, the issuance rule or the terms structure.
+
+---
+
+### 8.10 Four readings restated (2026-10-10)
+
+No verdict moves in this section. Four statements were wider, or older, than what
+the run computes, and each is put back on the object it was read from. The record
+gains two printed blocks, `opening` and `holding`; nothing is scored on either.
+
+#### Who enters and who stays are two readings, and the cap moves both
+
+The reading of A5-9 said that a cap of one unit per agent changes who enters and
+not who stays, and it rested the second half on A5-4 and A5-7. Those two read
+whether a buyer's claims reach the price. A holder whose claims no longer reach it
+still owns what it holds, so neither criterion says who is still holding. That is
+read off the unit matrix at the end of the run:
+
+| `ρ` | no cap: opening | end | entrants still holding | one unit each: opening | end | entrants still holding | trades, no cap | trades, one unit each |
+|---|---|---|---|---|---|---|---|---|
+| 0.25 | 22.22% | 0.00% | 0.0% | 44.44% | 44.44% | 90.8% | 508.3 | 14.3 |
+| 0.5 | 27.22% | 0.00% | 0.0% | 44.44% | 44.44% | 95.9% | 496.6 | 4.7 |
+| 1 | 29.21% | 0.00% | 0.0% | 43.33% | 43.33% | 100.0% | 467.4 | 0.0 |
+| 2 | 11.11% | 0.00% | 0.0% | 11.11% | 11.06% | 99.6% | 188.3 | 0.1 |
+| 4 | 0.60% | 0.05% | 7.7% | 0.60% | 0.60% | 100.0% | 179.2 | 0.0 |
+| 8 | 0.05% | 0.05% | 100.0% | 0.05% | 0.05% | 100.0% | 131.7 | 137.7 |
+
+"Opening" and "end" are the share of the 180 production-layer nodes holding at
+least one unit, twelve-seed means, the end being round 300. "Entrants still
+holding" follows the nodes and not their number: of the production-layer nodes
+that got a unit at the opening, the share holding one at the end, pooled over the
+seeds. Trades are transactions over the run.
+
+- **With no cap the production layer's entrants are sold out.** At `ρ` up to 2
+  nobody in the layer holds at the end, in any seed. At `ρ = 0.25` and `0.5` all
+  hundred units end with the twenty financial-layer nodes.
+- **With one unit per agent the entrants are still holding**, 90.8% of them at
+  the cheapest point and all of them at `ρ = 1`, `4` and `8`. Little trades under
+  the cap below `ρ = 8`, because an offered unit needs a buyer who holds nothing
+  and can pay in full. What does trade at `ρ = 0.25` and `0.5` is mostly one
+  production-layer node selling to another, so the layer ends with as many units
+  as it bought. At `ρ = 8` the trades under the cap are all within the financial
+  layer, where a few nodes hold nothing.
+- **The buyers' side closes with or without the cap.** With one unit per agent,
+  configured `ρ = 0.5` crosses one in 12/12 seeds at round
+  2 from `rho_opening` and does not return, with the price live and with the
+  price frozen.
+
+So the cap changes who enters at `ρ` below 2, and who stays at every `ρ` at which
+anyone entered. "The region closes" says whether someone who does not hold can
+buy. It does not say what holders do, and the earlier sentence used it as if it
+did.
+
+#### Resale draws once per holding and not once per unit
+
+`A3Model._offers` draws once for every positive `(node, tier)` holding at rate `τ`,
+and a holding that is drawn offers one unit. Its docstring said a Bernoulli per
+unit. The two are one rule while every holding is a single unit, which the opening
+walk guarantees: every holding in every opening allocation read here is one unit.
+They part as units pile up in the same hands, since a holding of `k` units turns
+over at `τ/k` per unit. At the end of the uncapped histories the expected share of
+held units offered in a round is 1.39%, 1.35%, 1.24%, 1.78%, 2.83%, 3.24%
+across the grid, against the 4% a per-unit reading of `τ` gives. The lowest
+single history is 1.08% and the largest holding is 18 units. `T = 25 = 1/τ` is
+therefore the expected wait before a holding offers a unit, and the holding period
+of a unit only where the holding is single.
+
+The description in `asset.py` now says what the code does, and the rule is left as
+coded, because every stored result was produced under it. Whether stage A5 hangs
+on the choice is measured: `experiments/a5b_offer_unit_probe.py` reads the whole
+stage under a draw per unit beside the registered rule
+(`results/a5b_offer_unit_probe.json`). **All nine criteria return the same state
+under both rules.** Trades rise where the stock is concentrated, 508.3 to
+1202.4 over the run at `ρ = 0.25`. The frozen-price drain reads `×0.055`
+against `×0.045` and holds in 72 of 72 cells under both. The live-price twin ends
+below its opening value in 62 of 72 cells against 68. The production layer is sold
+out at the end, or within one node of it, under both. The probe does not say which
+rule describes a housing market better.
+
+#### The opening figures in A5-1 and A5-2 are computed from the run's own seeds
+
+Their details carried figures from the five-seed reading into the twelve-seed
+record: `1.250` and `1.004` units per production buyer, `2.4` and `83.6` units
+unsold, a peak of `30.0%` near `ρ = 1.1`, and a financial-layer take of "36 to 50
+units at every reachability". On twelve seeds:
+
+- units per production buyer are `1.256` at `ρ = 0.25` and `1.002` at `ρ = 1`;
+- every unit sells in every seed up to `ρ = 0.9`; units first go unsold at
+  `ρ = 1` (1 seed of 12) and in every seed from `ρ = 1.4`; `3.2` are
+  unsold at `ρ = 1.25` and `83.3` at `ρ = 8`;
+- entry is flat from `ρ = 0.9` to `1.3`, between `28.9%` and `29.6%` with
+  the highest value at `ρ = 1.2`, and falls to `25.3%` at `ρ = 1.4`;
+- the financial layer's take runs from `16.6` at `ρ = 8` to `49.8` at
+  `ρ = 0.25`.
+
+A5-2's void now rests on the take at its own registered low point: at `ρ = 0.5`
+the financial layer takes `48.9` of the hundred, which leaves the production
+layer at most `28.4%` even at one unit each, against a registered floor of 50%.
+The sentences are produced by `opening_reading` from `opening_table`, and the test
+file plants a figure to check that the sentence moves with it.
+
+#### A5-3 is void where A5-4 holds, and the two are not complements
+
+A5-3 reads the production layer's share of net worth, claims plus units at the
+market price summed over the layer, at `ρ = 0.25` and `ρ = 4`. A5-4 reads the
+median production agent's claims against the price at `ρ = 0.5`. Neither is the
+negation of the other. At the registered configuration A5-4 holds, so there is no
+benign end state for the share to rise to and A5-3 has nothing to be evaluated on,
+which is why it is void there. In another configuration both fail: with the wage
+bill at four times its registered value, on seed 0, the share falls at both ends
+of the grid, and `ρ = 0.5` reaches one only after round 100 and is below it again
+in most of the rounds that follow. The void is therefore tied to A5-4's verdict on
+the run and not written in, and `tests/test_a5_origin.py` reproduces that
+configuration. A5-6 and A5-7 are a different case: they read one statistic on one
+arm with opposite signs, and that exclusion stands as recorded.
+
+#### §1's Berkshire sentence, narrowed
+
+§1 says that nothing about liquidity or information distinguishes the two share
+classes. The issuer's own comparison of them (memorandum of 2 February 1999,
+updated 3 July 2003 and 20 January 2010) gives a Class B share the rights of
+1/1,500th of a Class A share with 1/10,000th of its vote, makes A convertible into
+1,500 B at the holder's option and B not convertible into A, and concludes that B
+cannot trade more than a tiny fraction above 1/1,500th of A and can trade below
+it. So the two differ in voting weight and in which way conversion runs, and their
+prices are tied on one side only. What A5 takes from them is narrower and stands:
+the denomination decides who can hold which, which is the point the memorandum
+itself makes when it tells a buyer of 1,500 or more B to consider A instead.
+
+### 8.11 What `ρ` reads, and seven statements put back on their objects (2026-10-24)
+
+No verdict moves and no number in the record moves. The rerun changes the
+details of A5-1, A5-6 and A5-8 and nothing else.
+
+#### `ρ = 1` is the stretched gate, not "can just pay"
+
+`ρ` is divided by the stretch `s = 3` (`§2`, and every function in the
+script). So `ρ = 1` is where the median production agent's claims equal a third
+of the median cost: it can just enter by paying everything it holds, through the
+soft gate that applies at the opening allocation only. After the opening, resale
+requires payment in full, which the median agent meets at `ρ = 1/s`. `§2`, `§4`
+under A5-2, the module docstring and A5-1's detail said "can just afford" or "can
+just pay"; the docstring and the detail now say what the code computes. A
+crossing of one says the median agent is shut out even of the stretched entry at
+the current price. It is a statement about the median of the layer, holders
+included, and not about whether some non-holder can buy: at the index where `ρ`
+first reaches one (index 2 in 12 of 12 seeds at configured `0.5`), 8.1
+production-layer non-holders a seed can still pay a low-tier unit in full in the
+uncapped runs, at least three in every seed, against 0.7 under the cap. The
+crossing reads the same in both arms; who can buy does not. §8.10's first subsection used "the region
+closes" in the second sense; read it in the first.
+
+#### A5-6 is void where A5-7 holds, as A5-3 is where A5-4 holds
+
+§8.10 said A5-6 and A5-7 read one statistic with opposite signs. They read two:
+A5-6 the largest move against the series' own first point, which carries no
+level; A5-7 the first index at or above one counted from `rho_opening`. On this
+run the frozen series starts below one, so a crossing forces a move far above
+1%, and the exclusion holds. With the wage bill at four times its registered
+value, on seed 0 and the price frozen, the series moves by tens of percent and
+never reaches one, and both fail. A5-6's void now follows A5-7's verdict on the
+run, its detail no longer carries a written-in "12 of 12", and
+`tests/test_a5_origin.py` reproduces the configuration in which both fail.
+
+#### Where cheapening raises entry
+
+A5-1's detail said that from the first unsold point, `ρ = 1`, cheapening raises
+entry. On the fine grid it does not: entry rises from 29.2% at `ρ = 1` to 29.6%
+at `1.2` while units go unsold. The detail now reads off the table the lowest
+point from which entry falls at every step, `ρ = 1.3`, and prints the flat band
+from `0.9` to `1.3` (28.9% to 29.6%) on its own.
+
+#### The frozen arm closes the region where there is a region to close
+
+The crossing on the frozen arm is scored at configured `ρ = 0.5` only. Read at
+every reachability of the grid, it crosses in 12 of 12 seeds from `0.25` to `2`.
+At `4` and `8` the frozen arm opens at `rho_opening` 1.27 to 1.45 and 2.58 to
+2.92, already above one, so nothing closes over the run. A5-8 reads the drain at
+all six points as a median over the 72 cell ratios, `x0.045`; the detail now
+says median.
+
+#### Who stays, at which reachabilities, and read at which times
+
+The cap changes who stays up to `ρ = 4`. At `ρ = 8` the two arms are the same,
+0.05% holding at the opening and at the end. "Entrants still holding" is read at
+the two endpoints, so an entrant who sold and bought back counts: under the cap
+at `ρ = 0.25`, 872 of the 960 entrants hold at the end and 846 held without a
+break.
+
+#### Two smaller figures
+
+The 5.6 points by which the capped arm misses the 50% floor is the shortfall,
+50% against 44.4%. The financial layer's twenty units are 11.1 points of the
+production layer's 180. And `§8.9`'s round-zero drop of fifty-four to sixty
+percent is the five-seed figure; on twelve seeds at `ρ = 0.5` it is 44.7% to
+62.5%, the same with the price live or frozen. `rho_components` and A5-8 then
+differ by origin and by the cells they pool, not by origin alone.
+
+#### The resale probe and the opening walk
+
+`experiments/a5b_offer_unit_probe.py` runs the two resale rules on different
+random numbers, so its arms differ even where the rules coincide: under the cap,
+where every holding stays a single unit, trades at `ρ = 0.25` are 14.3 against
+13.5. The nine equal states stand; a contrast smaller than that is not read as
+the rule's. "The opening walk hands out one unit per holding" holds in stage A5,
+where `residual_owner` is off. With it on, as in stage A3b's construction, the
+unsold stock goes to the prior owners in whole blocks at the opening (largest
+holding 11 to 17 units in the auction arm, seeds 0 to 4), and the two rules part
+from the first day.

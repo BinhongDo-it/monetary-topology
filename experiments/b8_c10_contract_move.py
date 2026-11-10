@@ -487,6 +487,76 @@ def run(names: list[str]) -> int:
 # selftest
 # ---------------------------------------------------------------------------
 
+def _spec_arms() -> dict:
+    """Each arm's expected ``(rows, moving rows)``, read off ``b8_loops``'s case
+    table rather than off ``find_loops``.
+
+    **Why not a pinned number.** The loop fixture is shared, and other stations
+    add cases to it. On 2026-10-10 ``status_99_inside`` joined it: a
+    modification loop whose onset is not its cure row and moves neither rate nor
+    term, so arm B went from one moving row in six to one in seven and a pinned
+    ``1/6`` failed with the code unchanged. The question is whether the rows
+    reaching each arm are the ones the cases say, and the cases say it
+    themselves.
+
+    Read from each case's rows: the onset is the first rise of the
+    modification flag, field 63 or field 108; the cure is the first ``00`` row
+    at or after it. A loop whose onset is its cure goes to arm A, any other
+    loop to arm B, both at the onset row. A two-arm drop goes to arm C at its
+    field-108 rise, a deferral-arm loop to the control at the same rise. A row
+    moves when it sets a note rate other than the one in force, or extends the
+    term.
+
+    Arm C's onset order (field 108 first, modification first, same row) is
+    returned beside the arms. Its two rows read one moving and one still
+    whichever onset they are taken at, so the order is what pins them to the
+    field-108 row.
+    """
+    def field(spec, k, default):
+        return spec[k] if len(spec) > k else default
+
+    out = {k: [0, 0] for k in ("A", "B", "C", "control")}
+    order = {"C_same_row": 0, "C_nib_first": 0, "C_mod_first": 0}
+    for name, rows in L.CASES.items():
+        kind, what = L.EXPECT[name]
+        rate = 5.0                          # `_synth_loops`'s opening rate
+        prev = ("00", "N", 0, 0)            # the lead rows carry nothing
+        onset = defer = mod = None
+        moves = []
+        for i, spec in enumerate(rows):
+            new_rate = field(spec, 5, None)
+            moves.append((new_rate is not None and new_rate != rate)
+                         or bool(field(spec, 6, 0)))
+            if new_rate is not None:
+                rate = new_rate
+            rose = [(spec[1] == "Y") and (prev[1] != "Y"),
+                    spec[2] > 0 and prev[2] == 0,
+                    field(spec, 7, 0) > 0 and field(prev, 7, 0) == 0]
+            if onset is None and any(rose):
+                onset = i
+            if defer is None and rose[2]:
+                defer = i
+            if mod is None and (rose[0] or rose[1]):
+                mod = i
+            prev = spec
+        if kind == "loop":
+            cure = next(i for i in range(onset, len(rows))
+                        if rows[i][0] == "00")
+            arms = ["A" if cure == onset else "B"]
+            if what == L.ARM_DEFER:
+                arms.append("control")
+            for arm in arms:
+                at = defer if arm == "control" else onset
+                out[arm][0] += 1
+                out[arm][1] += int(moves[at])
+        elif (kind, what) == ("drop", "two_arms"):
+            out["C"][0] += 1
+            out["C"][1] += int(moves[defer])
+            order["C_same_row" if defer == mod else
+                  "C_nib_first" if defer < mod else "C_mod_first"] += 1
+    return {k: tuple(v) for k, v in out.items()}, order
+
+
 def selftest() -> int:
     """``contract_move`` on a hand-built table, plus the whole path on
     ``b8_loops``'s fixture.
@@ -601,12 +671,27 @@ def selftest() -> int:
     for k in ("A", "B", "floor", "C", "control"):
         print(f"  {k:8} n={a[k]['n']:>3} decidable={a[k]['decidable']:>3} "
               f"any={_fmt(a[k], 'any')}", file=sys.stderr)
-    if a["A"]["n"] != 1:
-        fails.append(f"fixture arm A has {a['A']['n']} rows, expected 1")
-    if a["C"]["n"] != 2:
-        fails.append(f"fixture arm C has {a['C']['n']} rows, expected 2")
-    if a["control"]["n"] != 1:
-        fails.append(f"fixture control has {a['control']['n']} rows, expected 1")
+    spec, order = _spec_arms()
+    for k, w in order.items():
+        if a[k] != w:
+            fails.append(f"{k} = {a[k]}, the case table says {w}; arm C is "
+                         f"not read at the field-108 onset")
+    for k, (n, mv) in spec.items():
+        print(f"  {k:8} from the case table: n={n:>3} moving={mv:>3}",
+              file=sys.stderr)
+        if a[k]["n"] != n or a[k]["decidable"] != n:
+            fails.append(f"fixture arm {k} has {a[k]['n']} rows "
+                         f"({a[k]['decidable']} decidable), the case table "
+                         f"says {n}")
+        if a[k]["any"] != mv:
+            fails.append(f"fixture arm {k} reads {a[k]['any']} moving rows, "
+                         f"the case table says {mv}; the rows reaching this "
+                         f"arm are not the intended ones")
+    # A test arm needs a moving row and a still one, or `any` cannot tell the
+    # right rows from the wrong ones there. Arm B is the large one.
+    if not 0 < spec["B"][1] < spec["B"][0]:
+        fails.append("the case table gives arm B no moving row or no still "
+                     "one, so its wiring is untested")
 
     # **The arms must read different numbers.** The first version of this test
     # passed with every arm at 0.0000, because the fixture never moved a
@@ -629,7 +714,14 @@ def selftest() -> int:
     # So arm C now holds one moving row and one still one and reads 1/2.
     # **Sharper than before, not looser**: the old single row pinned an
     # average of one number, and two rows that differ pin both of them.
-    want = {"A": 1.0, "B": 1 / 6, "floor": 1 / 3, "C": 1 / 2, "control": 0.0}
+    # **2026-10-27: A, B, C and the control are no longer pinned here.** They
+    # are counted off the case table above, row for row, because a fourth
+    # re-pin was due for a reason that was not a ruling: a case another station
+    # added to the shared fixture (see `_spec_arms`). The floor stays pinned.
+    # It is built from `find_clean_cures` episodes, not from one row per case,
+    # and no case was added on that side.
+    want = {k: (mv / n if n else 0.0) for k, (n, mv) in spec.items()}
+    want["floor"] = 1 / 3
     for k, w in want.items():
         got = _rate(a[k], "any")
         if not np.isclose(got, w):

@@ -29,8 +29,17 @@ reports it as a collapsed axis instead of quietly presenting a three-point grid
 with two identical columns.
 
 **Everything here is a level, not a loop sum.** These arms move `H⁰`, who can
-reach the asset. They say nothing about `H¹`, and A3-4 is untouched by them,
-which is checked rather than assumed.
+reach the asset. They say nothing about `H¹`. What they do to A3-4 is printed
+and not assumed. Trade by trade the identity holds by construction, since a
+resale pays `γ · P`, and the entry reads its consequence: on every seed the gap
+between the ledger side and the graph side equals the tier-mix term to `1e-10`.
+The aggregate comparison moves with how each group's trades fall across the
+tiers and with which nodes complete round trips, both of which the opening
+changes. On the occupancy arm it has no reading at all.
+
+**Round one is not the opening.** The checkpoint tables start at the end of
+round one. The state the constructor leaves, before any round has run, is
+printed above them as its own row.
 """
 
 from __future__ import annotations
@@ -56,6 +65,18 @@ from monetary_topology.asset import (  # noqa: E402
 from monetary_topology.network import (  # noqa: E402
     NetworkConfig,
     NetworkSpec,
+)
+
+_HERE = Path(__file__).resolve().parent
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
+
+from a3_asset_channel import (  # noqa: E402
+    A3_4_TOLERANCE,
+    adjusted_trades,
+    loop_sum_from_graph,
+    terms_differential,
+    terms_pair,
 )
 
 RESULTS = ROOT / "results"
@@ -97,13 +118,17 @@ class ArmResult:
     prod_holders: dict[int, float] = field(default_factory=dict)
     prod_units: dict[int, float] = field(default_factory=dict)
     total_units: dict[int, float] = field(default_factory=dict)
+    #: The same four measures on the state the constructor leaves, before any
+    #: round has run. Round one is one round of trading later.
+    opening: dict[str, float] = field(default_factory=dict)
     supply: int = 0
     deviations: list[str] = field(default_factory=list)
 
 
-def build(seed: int, rounds: int, **asset_kw) -> A3Model:
+def construct(seed: int, rounds: int, **asset_kw) -> A3Model:
+    """``build`` without the run: the model as the opening allocation leaves it."""
     spec = AssetSpec(**asset_kw)
-    model = A3Model(
+    return A3Model(
         A3Config(
             asset=spec,
             network=NetworkConfig(
@@ -111,6 +136,10 @@ def build(seed: int, rounds: int, **asset_kw) -> A3Model:
             ),
         )
     )
+
+
+def build(seed: int, rounds: int, **asset_kw) -> A3Model:
+    model = construct(seed, rounds, **asset_kw)
     model.run()
     return model
 
@@ -136,6 +165,15 @@ def run_arm(name: str, kw: dict, seeds: range, rounds: int) -> ArmResult:
     checking that assumption is more work than paying for the runs.
     """
     out = ArmResult(name=name)
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DesignDeviation)
+        first = [_snapshot(construct(seed, rounds, **kw)) for seed in seeds]
+    out.opening = {
+        "ownership": float(np.mean([s[0] for s in first])),
+        "prod_holders": float(np.mean([s[1] for s in first])),
+        "prod_units": float(np.mean([s[2] for s in first])),
+        "total_units": float(np.mean([s[3] for s in first])),
+    }
     for r in CHECKPOINTS:
         if r > rounds:
             continue
@@ -162,6 +200,176 @@ def run_arm(name: str, kw: dict, seeds: range, rounds: int) -> ArmResult:
     return out
 
 
+def path(seed: int, rounds: int, **asset_kw) -> tuple[A3Model, dict]:
+    """One run read at every round: who holds, and who comes back.
+
+    The checkpoint tables are six points on a path. This is the path. It
+    counts the rounds that end with no production-layer holder, whether any
+    production-layer node holds again after the layer has emptied, how many
+    times a production-layer node that had sold out holds again at all, and
+    how many rounds end with more holders than the round before, in the whole
+    population and in the financial layer.
+    """
+    model = construct(seed, rounds, **asset_kw)
+    prod = model._is_production
+    holds: list[np.ndarray] = [model.units.sum(axis=1) > 0]
+    inner = model._post_round
+
+    def after_round(t: int) -> None:
+        inner(t)
+        holds.append(model.units.sum(axis=1) > 0)
+
+    model._post_round = after_round  # type: ignore[method-assign]
+    model.run()
+
+    held = np.array(holds)                       # row 0 is the opening
+    in_prod = held[:, prod].sum(axis=1)
+    everyone = held.sum(axis=1)
+    upstairs = held[:, ~prod].sum(axis=1)
+    empty = np.flatnonzero(in_prod[1:] == 0)
+    emptied_at = int(empty[0]) + 1 if empty.size else None
+    ever = np.maximum.accumulate(held, axis=0)
+    # a node that holds at the end of a round, did not at the end of the one
+    # before, and had held at some earlier point: it sold out and came back.
+    # The two `*_returns_after_selling_out` counts below are returns, one per
+    # such node and round, and not distinct nodes: a node that comes back
+    # twice counts twice.
+    back = held[1:] & ~held[:-1] & ever[:-1]
+    return model, {
+        "seed": int(seed),
+        "production_layer_empty_from_round": emptied_at,
+        "production_holder_after_it_emptied": (
+            None if emptied_at is None else bool(in_prod[emptied_at:].any())
+        ),
+        "production_returns_after_selling_out": int(back[:, prod].sum()),
+        "financial_returns_after_selling_out": int(
+            back[:, ~prod].sum()
+        ),
+        "rounds_ending_with_more_holders": int((np.diff(everyone) > 0).sum()),
+        "rounds_ending_with_more_financial_holders": int(
+            (np.diff(upstairs) > 0).sum()
+        ),
+        "rounds_ending_with_more_production_holders": int(
+            (np.diff(in_prod) > 0).sum()
+        ),
+    }
+
+
+def transfer_tiers(seed: int, rounds: int, **asset_kw) -> dict:
+    """Which tier the occupancy transfer hands a drawn node, read off the model.
+
+    The draw decides who is in the set and does not consult claims. Inside the
+    set the walk is in descending claims, low tier first, one unit each, so
+    the low tier goes to the front of the set until it runs out and whoever
+    is left takes the next tier up. With 140 drawn and 132 low-tier units,
+    the next tier goes to the eight with the least claims. Nothing in the
+    transfer reads the layer.
+    """
+    model = construct(seed, rounds, **asset_kw)
+    drawn = np.flatnonzero(model._opening_bypass)
+    low = int(model.supply[0])
+    order = drawn[np.argsort(-model._claims_0[drawn], kind="stable")]
+    rest = order[low:]
+    one_next_tier = [
+        bool(model.units[i, 0] == 0 and model.units[i, 1] == 1
+             and model.units[i].sum() == 1)
+        for i in rest
+    ]
+    return {
+        "seed": int(seed),
+        "drawn": int(drawn.size),
+        "drawn_in_the_production_layer": int(model._is_production[drawn].sum()),
+        "low_tier_units": low,
+        "drawn_past_the_low_tier": int(rest.size),
+        "they_hold_one_unit_of_the_next_tier_and_nothing_else": bool(
+            rest.size and all(one_next_tier)
+        ),
+        "they_are_in_the_production_layer": int(
+            model._is_production[rest].sum()
+        ),
+        "drawn_holding_the_next_tier_and_no_low_unit": int(
+            sum(1 for i in drawn
+                if model.units[i, 0] == 0 and model.units[i, 1] >= 1)
+        ),
+    }
+
+
+def a3_4_reading(models: list[A3Model]) -> dict:
+    """A3-4 on one arm's runs, and what the gap between its two sides is.
+
+    The ledger side is a mean over trades and the graph side is a mean over
+    tiers, so the two differ by how unevenly each group's trades fall across
+    the tiers. With terms that factor into a tier part and a node part, which
+    is what ``terms_matrix`` builds, that tier-mix term is the whole gap, and
+    the flag says whether it was here to ``1e-10``.
+
+    An arm in which one group completes no resale round trip whose purchase
+    is dated after round zero (the trades ``adjusted_trades`` keeps) has no
+    reading, and says so. ``trades_better_worse_by_seed`` counts those round
+    trips and not every sale: on the occupancy arm the worse-termed group's
+    only sales are of units it was handed at the opening.
+    """
+    counts = []
+    for m in models:
+        better, worse = terms_pair(m)
+        adjusted = adjusted_trades(m)
+        good, bad = set(better.tolist()), set(worse.tolist())
+        counts.append([
+            sum(len(v) for (i, _q), v in adjusted.items() if i in good),
+            sum(len(v) for (i, _q), v in adjusted.items() if i in bad),
+        ])
+    found = terms_differential(models)
+    if found is None:
+        return {
+            "void": True,
+            "reason": (
+                "one of the two groups completed no round trip whose purchase "
+                "is dated after round zero, the trades A3-4 reads"
+            ),
+            "trades_better_worse_by_seed": counts,
+        }
+    ledger, graph, _price_free = found
+    mix, residual = [], []
+    for m in models:
+        better, worse = terms_pair(m)
+        adjusted = adjusted_trades(m)
+        good, bad = set(better.tolist()), set(worse.tolist())
+        tb = [(q, r) for (i, q), v in adjusted.items() if i in good for r in v]
+        tw = [(q, r) for (i, q), v in adjusted.items() if i in bad for r in v]
+        if not tb or not tw:
+            continue
+        observed = float(np.mean([r for _q, r in tb]) - np.mean([r for _q, r in tw]))
+        _, holonomy, _ = loop_sum_from_graph(m, better, worse, adjusted)
+        # The tier part of the terms, read off the two groups themselves: each
+        # node's log terms less their own mean, averaged over the members. If
+        # the terms factor it is the same profile for every node; if they do
+        # not, the residual below is not zero and the flag drops.
+        members = np.concatenate([better, worse])
+        logs = np.log(m.terms[members])
+        tier_part = (logs - logs.mean(axis=1, keepdims=True)).mean(axis=0)
+        tiers = m.terms.shape[1]
+        share_b = np.bincount([q for q, _r in tb], minlength=tiers) / len(tb)
+        share_w = np.bincount([q for q, _r in tw], minlength=tiers) / len(tw)
+        term = float(((share_b - share_w) * (-tier_part)).sum())
+        mix.append(term)
+        residual.append(abs(observed - holonomy - term))
+    rel = abs(ledger - graph) / abs(graph) if graph else None
+    return {
+        "void": False,
+        "ledger": round(ledger, 10),
+        "graph": round(graph, 10),
+        "relative_error": None if rel is None else round(rel, 8),
+        "within_the_registered_tolerance": bool(
+            rel is not None and rel < A3_4_TOLERANCE
+        ),
+        "tier_mix_term": round(float(np.mean(mix)), 10),
+        "the_gap_is_the_tier_mix_term": bool(
+            residual and max(residual) < 1e-10
+        ),
+        "trades_better_worse_by_seed": counts,
+    }
+
+
 def collapsed_pairs(
     arms: dict[str, ArmResult], seeds: range, rounds: int
 ) -> list[dict]:
@@ -174,9 +382,12 @@ def collapsed_pairs(
     worse than no guard, so the test now runs on what is reported.
 
     Net worth is still compared, separately, because the two answers together
-    say something the either alone does not: two arms can move claims around
-    without moving **who holds anything**, and for a stage about access that is
-    a collapse even though the models differ.
+    say something the either alone does not: two arms could move claims around
+    without moving **who holds anything**, and for a stage about access that
+    would be a collapse even though the models differ. On the registered run
+    the net-worth flag for ``auction / continuous`` is false at rounding level
+    only: bitwise equal in seeds 0, 1 and 3, at most ``4.5e-13`` apart on net
+    worth of order ``10^3`` in seeds 2 and 4, with units identical throughout.
     """
     terminal = {}
     for name, kw in ARMS.items():
@@ -249,6 +460,10 @@ def main() -> int:
         print(f"\n  {title}")
         head = "    round  " + "".join(f"{n:>14s}" for n in arms)
         print(head + f"{'auction pre-A3b':>18s}")
+        row = "  opening  "
+        for a in arms.values():
+            row += format(a.opening[attr], fmt).rjust(14)
+        print(row + format(zero.opening[attr], fmt).rjust(18))
         for r in CHECKPOINTS:
             if r > args.rounds:
                 continue
@@ -273,8 +488,8 @@ def main() -> int:
             tail = (
                 "and identical in net worth too"
                 if c["identical_in_net_worth"]
-                else "though net worth differs, so the arms move claims "
-                "without moving who holds anything"
+                else "though net worth is not bitwise equal; who holds "
+                "what is the same"
             )
             print(f"    {c['pair']} -- {tail}")
         print("    This run may not be described as testing three "
@@ -287,6 +502,64 @@ def main() -> int:
         print("\n  deviations reported by the model:")
         for d in devs:
             print(f"    {d}")
+
+    every = {"auction_pre_a3b": ARMS["auction"],
+             **{name: {**FIXED, **kw} for name, kw in ARMS.items()}}
+    paths: dict[str, list[dict]] = {}
+    a3_4: dict[str, dict] = {}
+    for name, kw in every.items():
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", DesignDeviation)
+            ran = [path(seed, args.rounds, **kw) for seed in seeds]
+        paths[name] = [summary for _model, summary in ran]
+        a3_4[name] = a3_4_reading([model for model, _summary in ran])
+    print("\n  the path between the checkpoints, by seed")
+    print("    arm               production layer empty from round      "
+          "holds again after   sold out and held again (production / "
+          "financial, returns)   rounds ending with more holders")
+    for name, rows in paths.items():
+        print(f"    {name:16s}  "
+              + f"{[r['production_layer_empty_from_round'] for r in rows]!s:36s}  "
+              + f"{'yes' if any(r['production_holder_after_it_emptied'] for r in rows) else 'no':18s}  "
+              + f"{sum(r['production_returns_after_selling_out'] for r in rows)} / "
+              + f"{sum(r['financial_returns_after_selling_out'] for r in rows)}"
+              + f"{'':30s}{[r['rounds_ending_with_more_holders'] for r in rows]}")
+    print("    The holder count is not monotone: financial-layer nodes sell "
+          "out and buy back. What\n    does not come back is the production "
+          "layer.")
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("ignore", DesignDeviation)
+        handed = [
+            transfer_tiers(seed, args.rounds, **every["occupancy"])
+            for seed in seeds
+        ]
+    print("\n  occupancy: the tier a drawn node is handed follows its place in "
+          "the drawn set by claims,\n  low tier first, and not its layer")
+    for h in handed:
+        print(f"    seed {h['seed']}: {h['drawn']} drawn, "
+              f"{h['drawn_in_the_production_layer']} of them in the production "
+              f"layer; {h['low_tier_units']} low-tier units, so the "
+              f"{h['drawn_past_the_low_tier']} with the least claims take the "
+              f"next tier"
+              + ("" if h["they_hold_one_unit_of_the_next_tier_and_nothing_else"]
+                 else " (NOT what the model shows)")
+              + f"; {h['they_are_in_the_production_layer']} of those are in "
+                f"the production layer")
+
+    print("\n  A3-4 on each arm: the ledger side against the graph side")
+    for name, r in a3_4.items():
+        if r["void"]:
+            print(f"    {name:16s}  no reading: {r['reason']}. Round trips "
+                  f"read, by group and seed "
+                  f"{r['trades_better_worse_by_seed']}")
+            continue
+        print(f"    {name:16s}  {r['ledger']:+.5f} against {r['graph']:+.5f}, "
+              f"relative error {r['relative_error']:.2%} against "
+              f"{A3_4_TOLERANCE:.0%}; tier-mix term {r['tier_mix_term']:+.5f}, "
+              + ("which is the whole gap"
+                 if r["the_gap_is_the_tier_mix_term"]
+                 else "which is NOT the whole gap"))
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     registered = (
@@ -314,9 +587,13 @@ def main() -> int:
                 "checkpoints": list(CHECKPOINTS),
                 "conservation": cons,
                 "collapsed_pairs": collapsed,
+                "paths": paths,
+                "occupancy_transfer": handed,
+                "a3_4_by_construction": a3_4,
                 "results": {
                     name: {
                         "supply": a.supply,
+                        "opening": a.opening,
                         "ownership": a.ownership,
                         "prod_holders": a.prod_holders,
                         "prod_units": a.prod_units,

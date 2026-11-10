@@ -63,10 +63,18 @@ def book_check(m) -> tuple[bool, dict]:
     lent = sum(x[2] for x in m.loan_log)
     closes = lent - m.repaid_principal - m.foreclosure_credit - m.written_off - float(m.debt.sum())
     ok = abs(closes) <= 1e-9 * max(1.0, lent) and (m.debt >= -1e-15).all()
+    # the interest book: what accrued is paid, still owed, or written off
+    owed = float(m.interest_owed.sum())
+    i_closes = m.interest_accrued - m.interest_paid - owed - m.interest_written_off
+    ok &= abs(i_closes) <= 1e-9 * max(1.0, m.interest_accrued) and (m.interest_owed >= -1e-15).all()
     return bool(ok), {"lent": round(lent, 6), "repaid_principal": round(m.repaid_principal, 6),
                       "foreclosure_credit": round(m.foreclosure_credit, 6),
                       "written_off": round(m.written_off, 6), "outstanding": round(float(m.debt.sum()), 6),
-                      "book_residual": closes}
+                      "book_residual": closes,
+                      "interest_accrued": round(m.interest_accrued, 6),
+                      "interest_owed": round(owed, 6),
+                      "interest_written_off": round(m.interest_written_off, 6),
+                      "interest_residual": i_closes}
 
 
 def borrower_check(m) -> tuple[bool, dict]:
@@ -119,6 +127,10 @@ def selftest() -> None:
     assert m.loan_log, "the selftest arm must lend"
     m.repaid_principal += 0.01
     assert not book_check(m)[0], "A49-2 must catch a book that does not close"
+    m, _ = a47_block3.run(ARMS["bound, loan bank d 0.1 r 0.02, short 0.1"], rounds=80)
+    assert book_check(m)[0] and m.interest_accrued > 0.0, "the bank arm must accrue interest and balance"
+    m.interest_owed[0] += 0.01
+    assert not book_check(m)[0], "A49-2 must catch interest that is neither paid, owed nor written off"
     m, _ = a47_block3.run(ARMS["bound, loan public d 0.1, short 0.1"], rounds=80)
     x = list(m.loan_log[0]); x[5] = True; m.loan_log[0] = tuple(x)
     assert not borrower_check(m)[0], "A49-3 must catch a short-stayer who borrowed"

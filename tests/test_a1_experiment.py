@@ -346,8 +346,9 @@ def test_the_main_arm_is_constructible_at_a_dispersion_it_supports(
     tmp_path: Path,
 ) -> None:
     """At the published means the bottom half's mortgaged households spend
-    0.862 of their disposable on debt service, and a Beta with that mean cannot
-    carry the registered 0.25. The refusal is the model's, and it is reported
+    0.862 of their disposable on debt service, and at that mean the registered
+    0.25 needs a Beta concentration of 1.552, below the registered floor of 2.
+    The refusal is the model's, and it is reported
     as an arm that has no population rather than swallowed."""
     from monetary_topology.cascade import CostRule
 
@@ -523,7 +524,7 @@ def test_an_empty_cell_is_allowed_where_an_empty_group_is_not(
 
 
 # ---------------------------------------------------------------------------
-# The dispersion is derived from the data, not chosen
+# Each arm's cap at the floor of 2 is reported; the dispersion drawn is 0.25
 # ---------------------------------------------------------------------------
 def test_the_caps_are_reported_and_not_minimised_into_a_parameter(
     tmp_path: Path,

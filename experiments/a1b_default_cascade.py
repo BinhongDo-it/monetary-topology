@@ -8,6 +8,7 @@ Usage::
     python experiments/a1b_default_cascade.py
     python experiments/a1b_default_cascade.py --households 200000
     python experiments/a1b_default_cascade.py --records    # print and stop
+    python experiments/a1b_default_cascade.py --carrier registered
 
 Writes ``results/a1b_default_cascade.json``.
 
@@ -19,13 +20,28 @@ Where every number comes from
 One archive and one table:
 
 * ``data/raw/scfp2022excel.zip``, read by ``monetary_topology.scf_joint`` under
-  ``data/scf_joint_variables.json``. Income, net worth, tenure, the mortgage
-  balance and payment, the rent, the card balance and its **measured** payment,
-  and the vehicle balance, all from the same respondent under one weight.
-* ``data/processed/cex_income_necessities.csv`` for the necessities basket
+  ``data/scf_joint_variables.json``. Income, net worth, tenure, the rent, the
+  mortgage, card and vehicle balances and the published payment columns, all
+  from the same respondent under one weight.
+* ``data/processed/cex_necessities_by_decile.csv`` for the necessities basket
   alone, assigned **by income rank** (``docs/a1b_prereg.md`` §2.2). It is the
-  one quantity not measured on the respondent, because the SCF collects food at
+  one field taken from outside the respondent, because the SCF collects food at
   home and neither utilities, healthcare nor commuting.
+
+Each rung stands on the payment of its own stock (ruled 2026-10-17): the card
+rung on the publisher's 2.5% of the card balance, the mortgage rung on the
+payments on the loans the mortgage balance counts (``PAYMORT1`` to
+``PAYMORT3``), the car-loan rung on the vehicle payments the extract carries
+loan by loan. Every other published payment the respondent makes is carried as
+an outflow on no rung: the rest of the revolving payment (buy-now-pay-later and
+the lines of credit not secured by the residence), the rest of ``MORTPAY``
+(other residential property, land contracts, the primary residence's
+home-equity lines, and all of it on a household with no mortgage rung), and a
+vehicle payment on a household with no vehicle balance. ``--carrier
+registered`` runs the construction the stage was registered on: the whole
+revolving payment on the card rung, the whole ``MORTPAY`` on the mortgage rung,
+one sixtieth of the vehicle balance on the car-loan rung, and nothing on no
+rung. The default run reads that construction as an arm beside it.
 
 Nothing is drawn. The population is a deterministic largest-remainder allocation
 of the weights, so this stage has **no seed**, and the service-share dispersion
@@ -45,6 +61,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import os
 import sys
 from concurrent.futures import ProcessPoolExecutor
@@ -62,6 +79,7 @@ from monetary_topology.cascade import (  # noqa: E402
     HouseholdRecord,
     Obligation,
     Tenure,
+    allocate,
     baseline_stress,
     build_from_records,
     distinct_records,
@@ -72,6 +90,8 @@ from monetary_topology.income_path import (  # noqa: E402
     describe,
     retention_path,
 )
+from dataclasses import dataclass, fields, replace  # noqa: E402
+
 from monetary_topology.scf import GROUPS  # noqa: E402
 from monetary_topology.scf_joint import (  # noqa: E402
     DECILE_CUTS,
@@ -154,9 +174,21 @@ def basket_by_decile() -> tuple[float, ...]:
     return tuple(float(r["necessities"]) for r in rows)
 
 
+def tenure_of(person: Respondent) -> Tenure:
+    """The tenure a respondent is built at."""
+    if person.owns:
+        return Tenure.MORTGAGED if person.mortgaged else Tenure.OUTRIGHT
+    return Tenure.RENTER
+
+
 def to_records(respondents: list[Respondent],
-               basket_annual: tuple[float, ...]) -> list[HouseholdRecord]:
+               basket_annual: tuple[float, ...],
+               carrier: str | None = None) -> list[HouseholdRecord]:
     """One record per respondent, in the model's units.
+
+    ``carrier`` says which payment each rung stands on, and is
+    :data:`CARRIER_MATCHED` unless a run asks for :data:`CARRIER_REGISTERED`.
+    See :func:`matched_payments`.
 
     Two rankings are taken here and they are different things. ``group`` is the
     **net-worth** group and is what the criteria report by. The basket is taken
@@ -170,13 +202,28 @@ def to_records(respondents: list[Respondent],
     # decile, being published that way; a criterion banded by income needs the
     # four groups, so both are taken here rather than rebuilt downstream.
     income_four = rank_groups(respondents, "income")
+    carrier = carrier or CARRIER_MATCHED
+    if carrier not in CARRIERS:
+        raise ValueError(f"carrier {carrier!r} is not one of {CARRIERS}")
+    if carrier == CARRIER_MATCHED and respondents and any(
+            c not in respondents[0].extra
+            for c in (*PRIMARY_MORTGAGE, *VEHICLE_PAYMENTS)):
+        raise ValueError(
+            "the matched carrier needs the primary-residence and vehicle "
+            "payment columns, and the selection does not carry them")
     out: list[HouseholdRecord] = []
     for person, group, income_group, band in zip(respondents, wealth, decile,
                                                  income_four, strict=True):
-        if person.owns:
-            tenure = Tenure.MORTGAGED if person.mortgaged else Tenure.OUTRIGHT
+        tenure = tenure_of(person)
+        if carrier == CARRIER_MATCHED:
+            paid = matched_payments(person, tenure)
+            card_payment, mortgage_payment = paid["card"], paid["mortgage"]
+            vehicle_payment, outflow = paid["vehicle"], paid["outflow"]
         else:
-            tenure = Tenure.RENTER
+            card_payment = person.card_payment
+            mortgage_payment = (person.mortgage_payment
+                                if tenure is Tenure.MORTGAGED else 0.0)
+            vehicle_payment, outflow = None, 0.0
         out.append(HouseholdRecord(
             weight=person.weight,
             group=group,
@@ -188,13 +235,14 @@ def to_records(respondents: list[Respondent],
             basket_monthly=basket_annual[income_group] / 12.0,
             tenure=tenure,
             rent_monthly=person.rent if tenure is Tenure.RENTER else 0.0,
-            mortgage_payment_monthly=(person.mortgage_payment
-                                      if tenure is Tenure.MORTGAGED else 0.0),
+            mortgage_payment_monthly=mortgage_payment,
             mortgage_balance=(person.mortgage_debt
                               if tenure is Tenure.MORTGAGED else 0.0),
             card_balance=person.card,
-            card_payment_monthly=person.card_payment,
+            card_payment_monthly=card_payment,
             vehicle_balance=person.vehicle,
+            vehicle_payment_published=vehicle_payment,
+            outflow_monthly=outflow,
             # Carried and **not used by this stage**. A1b's cushion is
             # ``Cushion.SCHEDULED``, which never reads it, so every figure this
             # file produces is what it was before the column existed.
@@ -202,6 +250,318 @@ def to_records(respondents: list[Respondent],
             liquid=person.liquid,
         ))
     return out
+
+
+# ---------------------------------------------------------------------------
+# What has to be read before a run, because the run removes it
+# ---------------------------------------------------------------------------
+def starting_state(households: list) -> dict:
+    """Who is short and who carries which rung, on the population as built.
+
+    ``CascadeModel.run`` mutates the households it is given: displacement pops
+    the shelter bill and its balance. A household classified afterwards is
+    classified on what the run left, so a displaced renter no longer counts as
+    carrying rent and a household whose bills fell below its income by losing
+    its home reads as never having been short. Both are read here, first.
+    """
+    carriers = {t.value: {k.value: 0 for k in Obligation} for t in Tenure}
+    for house in households:
+        for kind in house.balances:
+            carriers[house.tenure.value][kind.value] += 1
+    return {
+        "short": [sum(h.due.values()) + h.outflow > h.income
+                  for h in households],
+        "carriers": carriers,
+        "tenure": {t.value: sum(1 for h in households if h.tenure is t)
+                   for t in Tenure},
+    }
+
+
+def displaced_by_tenure(households: list) -> dict[str, int]:
+    """Displaced households by the tenure they started with."""
+    return {t.value: sum(1 for h in households
+                         if h.tenure is t and h.displaced_at is not None)
+            for t in Tenure}
+
+
+# ---------------------------------------------------------------------------
+# The payment carriers, one leg at a time
+# ---------------------------------------------------------------------------
+#: The Federal Reserve's variable-definition macro, which builds the extract's
+#: payment columns. ``MORTPAY`` adds to these three the payments on other
+#: residential property, on land contracts and on the home-equity lines the
+#: primary residence secures. The three are the loans on the primary residence
+#: that ``NH_MORT`` counts, and ``NH_MORT`` is net of the home-equity lines.
+PRIMARY_MORTGAGE = ("PAYMORT1", "PAYMORT2", "PAYMORT3")
+#: The other residential property (``PAYORE1``, ``PAYORE2``, ``PAYOREV``) and the
+#: land contracts (``PAYLC1``, ``PAYLC2``, ``PAYLCO``) inside ``MORTPAY``. What
+#: ``MORTPAY`` holds beyond these six and the three above is the payment on the
+#: home-equity lines the primary residence secures, read as the remainder.
+OTHER_PROPERTY = ("PAYORE1", "PAYORE2", "PAYOREV", "PAYLC1", "PAYLC2", "PAYLCO")
+#: The vehicle payments the extract carries loan by loan.
+VEHICLE_PAYMENTS = ("PAYVEH1", "PAYVEH2", "PAYVEH3", "PAYVEH4", "PAYVEHM",
+                    "PAYVEO1", "PAYVEO2", "PAYVEOM")
+#: ``CCPAY = .025 * CCBAL`` and ``BNPLPAY = 0.33 * BNPL`` in the same macro:
+#: the card and buy-now-pay-later parts of ``REVPAY`` are the publisher's rates.
+CARD_PUBLISHER_RATE = 0.025
+BNPL_PUBLISHER_RATE = 0.33
+
+#: Which payment each rung stands on. ``matched`` is the default, ruled
+#: 2026-10-17: each rung on the payment of its own stock, every other published
+#: payment on no rung. ``registered`` is the construction the stage was
+#: registered on, run as an arm beside it.
+CARRIER_MATCHED = "matched"
+CARRIER_REGISTERED = "registered"
+CARRIERS = (CARRIER_MATCHED, CARRIER_REGISTERED)
+
+ARM_MATCHED = "each rung on the payment of its own stock (the default)"
+ARM_REGISTERED = "as registered"
+ARM_PRIMARY = "the primary residence's mortgage payment"
+ARM_CARD = "the card payment at the publisher's rate on the card balance"
+ARM_VEHICLE = "the published vehicle payments"
+
+
+def matched_payments(person: Respondent, tenure: Tenure) -> dict[str, float]:
+    """Each rung's payment read on its own stock, and what is left on no rung.
+
+    The card rung pays the publisher's 2.5% of the card balance, the mortgage
+    rung the payments on the loans ``NH_MORT`` counts, the car-loan rung the
+    published vehicle payments. What the respondent pays beyond those is kept
+    as an outflow on no rung: the rest of ``REVPAY``, the rest of ``MORTPAY``
+    (all of it where the household has no mortgage rung), and a vehicle
+    payment where there is no vehicle balance. A rung whose stock is zero is
+    dropped by :func:`build_from_records`, so its payment here is zero too.
+    """
+    card = CARD_PUBLISHER_RATE * person.card if person.card > 0.0 else 0.0
+    own = sum(person.extra[c] for c in PRIMARY_MORTGAGE)
+    mortgage = own if tenure is Tenure.MORTGAGED else 0.0
+    published = sum(person.extra[c] for c in VEHICLE_PAYMENTS)
+    vehicle = published if person.vehicle > 0.0 else 0.0
+    revolving_rest = max(person.card_payment - card, 0.0)
+    mortgage_rest = max(person.mortgage_payment - mortgage, 0.0)
+    vehicle_rest = published - vehicle
+    return {"card": card, "mortgage": mortgage, "vehicle": vehicle,
+            "revolving_rest": revolving_rest, "mortgage_rest": mortgage_rest,
+            "vehicle_rest": vehicle_rest,
+            "outflow": revolving_rest + mortgage_rest + vehicle_rest}
+
+
+def carrier_construction(respondents: list[Respondent],
+                         records: list[HouseholdRecord],
+                         households: int) -> dict[str, object]:
+    """What the matched carrier puts on each rung and on no rung, overall.
+
+    Means are per family by weight over every row; rows are implicates and
+    copies are the model households at this population size.
+    """
+    copies = allocate(records, households)
+    total = sum(p.weight for p in respondents)
+    paid = [matched_payments(p, tenure_of(p)) for p in respondents]
+
+    def mean(get) -> float:
+        return sum(p.weight * get(p, q) for p, q in zip(respondents, paid,
+                                                       strict=True)) / total
+
+    def rows(test) -> int:
+        return sum(1 for p, q in zip(respondents, paid, strict=True)
+                   if test(p, q))
+
+    def copied(test) -> int:
+        return sum(c for p, q, c in zip(respondents, paid, copies, strict=True)
+                   if test(p, q))
+
+    def no_loan_payment(p, q) -> bool:
+        return (tenure_of(p) is Tenure.MORTGAGED and p.mortgage_debt > 0.0
+                and q["mortgage"] <= 0.0)
+
+    def no_vehicle_payment(p, q) -> bool:
+        return p.vehicle > 0.0 and q["vehicle"] <= 0.0
+
+    def registered(p, q) -> float:
+        card = p.card_payment if p.card > 0.0 else 0.0
+        mortgage = (p.mortgage_payment if tenure_of(p) is Tenure.MORTGAGED
+                    and p.mortgage_debt > 0.0 else 0.0)
+        vehicle = (p.vehicle * PAYMENT_RATE[Obligation.AUTO]
+                   if p.vehicle > 0.0 else 0.0)
+        return card + mortgage + vehicle
+
+    def matched(p, q) -> float:
+        mortgage = q["mortgage"] if p.mortgage_debt > 0.0 else 0.0
+        return q["card"] + mortgage + q["vehicle"] + q["outflow"]
+
+    return {
+        "default": CARRIER_MATCHED,
+        "outflow": {
+            "rows_with_an_outflow": rows(lambda p, q: q["outflow"] > 0.01),
+            "copies_with_an_outflow": copied(lambda p, q: q["outflow"] > 0.01),
+            "mean_outflow": mean(lambda p, q: q["outflow"]),
+            "mean_revolving_beyond_the_card_rate": mean(
+                lambda p, q: q["revolving_rest"]),
+            "mean_MORTPAY_beyond_the_mortgage_rung": mean(
+                lambda p, q: q["mortgage_rest"]),
+            "mean_vehicle_payment_with_no_vehicle_balance": mean(
+                lambda p, q: q["vehicle_rest"]),
+            "rows_with_REVPAY_and_no_card_balance": rows(
+                lambda p, q: p.card <= 0.0 and p.card_payment > 0.01),
+            "rows_with_MORTPAY_and_no_mortgage_rung": rows(
+                lambda p, q: tenure_of(p) is not Tenure.MORTGAGED
+                and p.mortgage_payment > 0.01),
+            "rows_with_a_vehicle_payment_and_no_vehicle_balance": rows(
+                lambda p, q: q["vehicle_rest"] > 0.01),
+        },
+        "rows_with_a_mortgage_rung_and_no_payment_on_its_loans": rows(
+            no_loan_payment),
+        "copies_with_a_mortgage_rung_and_no_payment_on_its_loans": copied(
+            no_loan_payment),
+        "rows_with_a_vehicle_balance_and_no_published_payment": rows(
+            no_vehicle_payment),
+        "copies_with_a_vehicle_balance_and_no_published_payment": copied(
+            no_vehicle_payment),
+        "mean_debt_payment_carried": {
+            CARRIER_REGISTERED: mean(registered),
+            CARRIER_MATCHED: mean(matched),
+        },
+    }
+
+
+def carrier_arms(respondents: list[Respondent],
+                 records: list[HouseholdRecord]) -> dict[str, list]:
+    """The registered records with one leg's payment replaced, three times.
+
+    ``records`` is the registered construction. Each arm changes one payment
+    and nothing else, so the scheduled cushion, which is one month of the
+    household's own bills, follows that one payment. The three arms are the
+    sensitivity of the registered construction to each leg alone; the default
+    replaces all three at once and carries the rest on no rung.
+    """
+    need = (*PRIMARY_MORTGAGE, *VEHICLE_PAYMENTS)
+    if not respondents or any(c not in respondents[0].extra for c in need):
+        return {}
+    primary, card, vehicle = [], [], []
+    for person, record in zip(respondents, records, strict=True):
+        own = sum(person.extra[c] for c in PRIMARY_MORTGAGE)
+        primary.append(replace(
+            record,
+            mortgage_payment_monthly=(own if record.tenure is Tenure.MORTGAGED
+                                      else 0.0)))
+        card.append(replace(
+            record,
+            card_payment_monthly=CARD_PUBLISHER_RATE * record.card_balance))
+        vehicle.append(replace(
+            record,
+            vehicle_payment_published=sum(person.extra[c]
+                                          for c in VEHICLE_PAYMENTS)))
+    return {ARM_PRIMARY: primary, ARM_CARD: card, ARM_VEHICLE: vehicle}
+
+
+def carrier_reading(result) -> dict[str, object]:
+    """What one arm reads on the three loan rungs at the end of the path."""
+    final = {k.value: result.delinquent_share[k.value][-1]
+             for k in (Obligation.CARD, Obligation.AUTO, Obligation.MORTGAGE)}
+    return {"final": final,
+            "k_shape": final["MORTGAGE"] < final["AUTO"] < final["CARD"],
+            "defaulting_households": result.defaulting_households}
+
+
+def payment_coverage(respondents: list[Respondent],
+                     copies: list[int] | None = None) -> dict[str, object]:
+    """What each payment column covers beside the balance it is set against.
+
+    Rows are implicates, five to a family, and the means are weighted. A row
+    counts as carrying something extra when the difference passes one cent.
+
+    ``MORTPAY`` beyond the ``NH_MORT`` loans is split in two, as A1a splits it:
+    other property and land contracts, read from their six columns, and the
+    primary residence's home-equity line, the remainder. A row paying beyond
+    the ``NH_MORT`` loans has some payment on other property or a land contract,
+    or the home-equity line alone.
+
+    The vehicle comparison is counted on the rows with a vehicle balance, which
+    are the rows the model gives a vehicle rung. Rows with a published vehicle
+    payment and no vehicle balance are counted apart, and ``copies``, one count
+    per row from :func:`allocate`, gives how many model households they become.
+    """
+    if not respondents or any(c not in respondents[0].extra
+                              for c in (*PRIMARY_MORTGAGE, *OTHER_PROPERTY,
+                                        *VEHICLE_PAYMENTS, "BNPL")):
+        return {}
+
+    def mean(rows, get) -> float:
+        w = sum(r.weight for r in rows)
+        return sum(r.weight * get(r) for r in rows) / w if w else 0.0
+
+    def own(r):
+        return sum(r.extra[c] for c in PRIMARY_MORTGAGE)
+
+    def other(r):
+        return sum(r.extra[c] for c in OTHER_PROPERTY)
+
+    def veh(r):
+        return sum(r.extra[c] for c in VEHICLE_PAYMENTS)
+
+    def sixtieth(r):
+        return r.vehicle * PAYMENT_RATE[Obligation.AUTO]
+
+    mortgaged = [r for r in respondents if r.owns and r.mortgaged]
+    beyond = [r for r in mortgaged if r.mortgage_payment - own(r) > 0.01]
+    holders = [r for r in respondents if r.card > 0]
+    drivers = [r for r in respondents if r.vehicle > 0]
+    unheld = [i for i, r in enumerate(respondents)
+              if r.vehicle <= 0 and veh(r) > 0.01]
+    vehicle_unheld: dict[str, int] = {
+        "rows_with_a_published_vehicle_payment_and_no_vehicle_balance":
+            len(unheld),
+    }
+    if copies is not None:
+        vehicle_unheld[
+            "copies_with_a_published_vehicle_payment_and_no_vehicle_balance"
+        ] = sum(copies[i] for i in unheld)
+    return {
+        "mortgage": {
+            "rows_mortgaged": len(mortgaged),
+            "rows_paying_beyond_the_NH_MORT_loans": len(beyond),
+            "rows_with_other_property_or_land_contract_payments": sum(
+                1 for r in beyond if other(r) > 0.01),
+            "rows_with_only_the_home_equity_line_beyond_the_NH_MORT_loans": sum(
+                1 for r in beyond if other(r) <= 0.01),
+            "mean_MORTPAY": mean(mortgaged, lambda r: r.mortgage_payment),
+            "mean_nh_mort_loans": mean(mortgaged, own),
+            "mean_other_property_and_land_contracts": mean(mortgaged, other),
+            "mean_primary_residence_home_equity_line": mean(
+                mortgaged, lambda r: r.mortgage_payment - own(r) - other(r)),
+        },
+        "card": {
+            "rows_with_a_card_balance": len(holders),
+            "rows_with_more_than_the_card_rate": sum(
+                1 for r in holders
+                if r.card_payment - CARD_PUBLISHER_RATE * r.card > 0.01),
+            "mean_REVPAY": mean(holders, lambda r: r.card_payment),
+            "mean_card_at_the_publisher_rate": mean(
+                holders, lambda r: CARD_PUBLISHER_RATE * r.card),
+            "mean_bnpl_at_the_publisher_rate": mean(
+                holders, lambda r: BNPL_PUBLISHER_RATE * r.extra["BNPL"]),
+            "rows_with_a_revolving_payment_and_no_card_balance": sum(
+                1 for r in respondents if r.card <= 0 and r.card_payment > 0),
+            "REVPAY_over_card_balance_all_rows": (
+                sum(r.weight * r.card_payment for r in respondents)
+                / sum(r.weight * r.card for r in respondents)),
+            "REVPAY_over_card_balance_card_holders": (
+                sum(r.weight * r.card_payment for r in holders)
+                / sum(r.weight * r.card for r in holders)),
+        },
+        "vehicle": {
+            "rows_with_a_vehicle_balance": len(drivers),
+            "rows_with_a_vehicle_balance_where_the_two_differ": sum(
+                1 for r in drivers if abs(veh(r) - sixtieth(r)) > 0.01),
+            **vehicle_unheld,
+            "mean_published_all_households": mean(respondents, veh),
+            "mean_sixtieth_all_households": mean(
+                respondents, lambda r: r.vehicle * PAYMENT_RATE[Obligation.AUTO]),
+            "mean_published_holders": mean(drivers, veh),
+            "mean_sixtieth_holders": mean(
+                drivers, lambda r: r.vehicle * PAYMENT_RATE[Obligation.AUTO]),
+        },
+    }
 
 
 def flat_path(periods: int, n_strata: int, multiplier: float = 1.0):
@@ -246,11 +606,17 @@ def _task(job: dict) -> dict:
     if job["kind"] == "relieved":
         households = relieved(households, cost)
     path = job["path"]
+    start = starting_state(households)
     result = CascadeModel(households, cost).run(path)
 
-    out: dict = {"kind": job["kind"], "result": result}
+    out: dict = {"kind": job["kind"], "result": result,
+                 "carriers_at_start": start["carriers"],
+                 "tenure_at_start": start["tenure"],
+                 "displaced_by_tenure": displaced_by_tenure(households)}
+    if job["kind"] == "carrier":
+        out["arm"] = job["arm"]
     if job["kind"] == "scored":
-        short = [sum(h.due.values()) > h.income for h in households]
+        short = start["short"]
         clear = [h for h, s in zip(households, short, strict=True) if not s]
         defaulting = [h for h in clear if h.first_default is not None]
         if defaulting:
@@ -323,7 +689,9 @@ def relieved(households: list, cost: CostRule) -> list:
 
     out = copy.deepcopy(households)
     for house in out:
-        scheduled = sum(house.due.values())
+        # The payments on no rung are bills too, and a shortfall on them is
+        # part of the cause this arm removes.
+        scheduled = sum(house.due.values()) + house.outflow
         house.income = max(house.income, scheduled)
         house.buffer = max(house.buffer, scheduled)
     return out
@@ -362,7 +730,7 @@ def a1b_0(clean, unrelieved) -> tuple[Criterion, dict[str, object]]:
     }
     reference = {
         "final": {k: v[-1] for k, v in baseline.items()},
-        "displaced": unrelieved.displaced,
+        "displaced_all_tenures": unrelieved.displaced,
         "renters": unrelieved.renters,
         "periods": unrelieved.periods,
         "still_moving": any(
@@ -405,8 +773,38 @@ def first_default_shares(result) -> dict[str, float]:
     }
 
 
-def first_default_shares_by_tenure(result) -> dict[str, dict[str, float]]:
+#: Written into the record beside the per-tenure rows, so the record says which
+#: rate to read. The row keys are these names with the rung appended.
+TENURE_RATE_DEFINITIONS = {
+    "share": "first defaults on the rung over the tenure's defaulting households",
+    "carriers_at_start": (
+        "households of the starting tenure that carried the rung when the run "
+        "began, read before the run"),
+    "per_carrier_at_start": (
+        "first defaults on the rung over carriers_at_start; the rate to read"),
+    "exposed": (
+        "households of the starting tenure still carrying the rung when the run "
+        "ended; displacement removes the shelter rung, so for rent and the "
+        "mortgage this is fewer than carried it at the start"),
+    "per_exposed": (
+        "first defaults on the rung over exposed, kept under its own name; a "
+        "displaced household whose first default was its shelter rung is in "
+        "that rung's numerator and no longer in its denominator"),
+}
+
+
+def first_default_shares_by_tenure(result, carriers_at_start=None
+                                   ) -> dict[str, dict[str, float]]:
     """The same shares inside each starting tenure, with its own denominator.
+
+    **Two per-carrier rates are kept apart.** A first default is counted once,
+    on the household that started in the tenure, so its rate per carrier is
+    over the households that carried the rung at the start. The model's own
+    ``exposure_by_tenure`` is taken after the run, when every displaced
+    household has had its shelter rung removed, so dividing first defaults by
+    it keeps a displaced household whose first default was its shelter rung in
+    that rung's numerator and drops it from the denominator. That figure is kept under its own name, ``per_exposed``, and
+    the rate to read is ``per_carrier_at_start``.
 
     The pooled version divides every rung by every defaulting household, and
     two of the rungs are not carried by every household: a mortgaged household
@@ -439,6 +837,11 @@ def first_default_shares_by_tenure(result) -> dict[str, dict[str, float]]:
             e = exposed.get(kind.value, 0)
             row[f"per_exposed_{kind.value.lower()}"] = (n / e) if e else None
             row[f"exposed_{kind.value.lower()}"] = e
+            if carriers_at_start is not None:
+                s = carriers_at_start.get(tenure, {}).get(kind.value, 0)
+                row[f"per_carrier_at_start_{kind.value.lower()}"] = (
+                    (n / s) if s else None)
+                row[f"carriers_at_start_{kind.value.lower()}"] = s
         out[tenure] = row
     return out
 
@@ -471,7 +874,8 @@ def a1_2(scored, unstressed) -> Criterion:
     )
     if unstressed:
         detail += (
-            f". Among the {unstressed['n']:,} not short at baseline: card "
+            f". Among the {unstressed['n']:,} defaulting households not short "
+            f"at baseline: card "
             f"{unstressed['card']:.4f}, auto {unstressed['auto']:.4f}, "
             f"shelter {unstressed['shelter']:.4f}"
             + ("" if unstressed["holds"] == holds
@@ -487,7 +891,7 @@ def a1_2(scored, unstressed) -> Criterion:
         "could not default on them. Volume One section 18 states its cascade "
         "about tenants. The ordering claim itself is carried by A1c, which "
         "reads the sequence inside one household and holds. The tenure-split "
-        "shares and the per-exposed-household rates are reported beside this "
+        "shares and the per-carrier-at-start rates are reported beside this "
         "line and are what the section 18 reading needs"
     )
     return Criterion("A1-2  the order is an output", holds, detail, True)
@@ -738,6 +1142,10 @@ def representative(records: list[HouseholdRecord],
         card_balance=mean(lambda r: r.card_balance),
         card_payment_monthly=mean(lambda r: r.card_payment_monthly),
         vehicle_balance=mean(lambda r: r.vehicle_balance),
+        vehicle_payment_published=(
+            None if all(r.vehicle_payment_published is None for r in records)
+            else mean(lambda r: r.vehicle_payment_monthly)),
+        outflow_monthly=mean(lambda r: r.outflow_monthly),
         # The collapse of the cushion too, so that a stage running this arm on a
         # measured cushion collapses the same population rather than a different
         # one. A1b never reads it.
@@ -842,11 +1250,14 @@ SWEEP_MONTHS_PER_ROUND = (1, 3)
 #: without changing behaviour. The licence is tested rather than asserted, in
 #: A1's own experiment, and if that test fails this override goes with it.
 #:
-#: **What the size costs is precision at the top**, and the criterion turns on
-#: exactly that: the survey's smallest adjacent gap is four basis points,
-#: between its two smallest cells. The group sizes are printed so a reader can
-#: see how many households that ordering rests on.
-DEFAULT_SWEEP_HOUSEHOLDS = 20_000
+#: **The size is forced by the resolution rule below rather than chosen.** At
+#: 20,000 households the ``next9`` group holds 1,895 and the survey's own rate
+#: would put 4.2 events in it, under :data:`EXPECTED_EVENT_FLOOR`, while the
+#: survey resolves the ``next40``/``next9`` pair, so the rule refuses that size.
+#: At 50,000 the same group holds 4,322 and the expectation is 9.6. A1d's sweep
+#: runs at the same size for the same reason. The group sizes are printed so a
+#: reader can see how many households each scored pair rests on.
+DEFAULT_SWEEP_HOUSEHOLDS = 50_000
 
 #: The survey asks about being sixty days or more late on **loan payments**, so
 #: the model's counterpart is the card, the car and the mortgage. Rent is
@@ -902,38 +1313,242 @@ def ordering(values: list[float]) -> tuple[int, ...]:
     return tuple(rank)
 
 
+# ---------------------------------------------------------------------------
+# The resolution rule, which A1d imports from here
+# ---------------------------------------------------------------------------
+#: ``docs/a1b_prereg.md`` §5.3 and ``docs/a1d_prereg.md`` §5, model side. A group
+#: producing fewer than this many expected events under the survey's own rate
+#: has produced a rounding rather than a rate.
+EXPECTED_EVENT_FLOOR = 5.0
+
+#: Survey side. Two standard errors of the adjacent difference, the standard
+#: error naive binomial on the family equivalents, rows over five. Naive is the
+#: conservative direction here: it ignores the SCF's design effect, so it
+#: admits **more** pairs than a design-corrected rule would and is therefore
+#: harder on the model.
+PAIR_SIGMA = 2.0
+
+#: The extract carries five implicates of each family, in blocks of five rows,
+#: so rows over five is a count of family equivalents, and a standard error
+#: taken on rows would be the sampling error of an imputation. Inside a
+#: net-worth group there are at least as many distinct families as family
+#: equivalents, and on this file more, because one family's implicates can rank
+#: into different groups. :func:`distinct_families` counts them, a family being
+#: a row index over this.
+IMPLICATES = 5
+
+#: Written into the record beside the survey counts, so the record says what
+#: each one counts.
+TARGET_COUNT_DEFINITIONS = {
+    "rows": "implicate rows in the net-worth group",
+    "reporting_rows": "implicate rows in the group with LATE60 above zero",
+    "family_equivalents": (
+        "rows over five, the extract's implicates per family; the standard "
+        "errors are taken on this"),
+    "distinct_families": (
+        "SCF families with at least one implicate in the group; a family whose "
+        "implicates rank into several groups is counted in each, so the four "
+        "sum to more than the families in the file"),
+    "distinct_families_reporting": (
+        "of distinct_families, those with LATE60 above zero on at least one of "
+        "their implicates in the group"),
+}
+
+
+def target_with_counts(respondents: list[Respondent]) -> dict[str, list]:
+    """``LATE60`` by net-worth group, with the sample behind each figure.
+
+    The rate alone cannot say whether an adjacent pair is resolvable. The top
+    pair of the net-worth cut is separated by four basis points and eleven
+    reporting implicate rows against five, which are four families against two,
+    so the counts travel with the rates from here on.
+
+    What each count is made of is in :data:`TARGET_COUNT_DEFINITIONS`, which
+    the record carries beside them. The standard errors are taken on the
+    family equivalents; the distinct-family counts are reported and enter no
+    test.
+    """
+    groups = rank_groups(respondents, "networth")
+    weight = [0.0] * len(GROUPS)
+    behind = [0.0] * len(GROUPS)
+    rows = [0] * len(GROUPS)
+    reporting = [0] * len(GROUPS)
+    for person, group in zip(respondents, groups, strict=True):
+        weight[group] += person.weight
+        behind[group] += person.weight * person.extra.get("LATE60", 0.0)
+        rows[group] += 1
+        if person.extra.get("LATE60", 0.0) > 0.0:
+            reporting[group] += 1
+    rate = [b / w if w else 0.0 for b, w in zip(behind, weight, strict=True)]
+    equivalents = [n / IMPLICATES for n in rows]
+    distinct, distinct_reporting = distinct_families(
+        groups,
+        [person.extra.get("LATE60", 0.0) > 0.0 for person in respondents],
+        len(GROUPS),
+    )
+    return {
+        "_definitions": TARGET_COUNT_DEFINITIONS,
+        "rate": rate,
+        "family_equivalents": equivalents,
+        "rows": rows,
+        "reporting_rows": reporting,
+        "distinct_families": distinct,
+        "distinct_families_reporting": distinct_reporting,
+        "standard_error": [
+            math.sqrt(p * (1.0 - p) / f) if f > 0 else float("inf")
+            for p, f in zip(rate, equivalents, strict=True)
+        ],
+    }
+
+
+def distinct_families(groups: list[int], flags: list[bool],
+                      n_groups: int) -> tuple[list[int], list[int]]:
+    """Distinct SCF families in each group, and those flagged in it.
+
+    The rows come in blocks of :data:`IMPLICATES`, one block per family, so a
+    family is a row index over that. A family is counted once in each group any
+    of its implicates ranks into, and is flagged in a group when one of its
+    implicates there carries the flag.
+    """
+    if len(groups) % IMPLICATES:
+        raise ValueError(
+            f"{len(groups)} rows do not come in blocks of {IMPLICATES}, so a row "
+            f"index over {IMPLICATES} would not name a family")
+    every: list[set[int]] = [set() for _ in range(n_groups)]
+    flagged: list[set[int]] = [set() for _ in range(n_groups)]
+    for index, (group, flag) in enumerate(zip(groups, flags, strict=True)):
+        every[group].add(index // IMPLICATES)
+        if flag:
+            flagged[group].add(index // IMPLICATES)
+    return [len(s) for s in every], [len(s) for s in flagged]
+
+
+def scorable_pairs(target: dict[str, list],
+                   sizes: list[int]) -> tuple[list[int], list[dict]]:
+    """Which adjacent pairs both sides can resolve.
+
+    ``docs/a1b_prereg.md`` §5.3 and ``docs/a1d_prereg.md`` §5. Returns the
+    indices of the admitted pairs and a row per pair saying why it was admitted
+    or not. A pair the source cannot resolve is not evidence about the model,
+    and gating on one is `MEASUREMENT.md` checklist item 8: a guard that would
+    say the same thing if the thing it guards were broken.
+    """
+    admitted: list[int] = []
+    rows: list[dict] = []
+    n = len(target["rate"])
+    for i in range(n - 1):
+        gap = target["rate"][i] - target["rate"][i + 1]
+        sigma = math.hypot(target["standard_error"][i],
+                           target["standard_error"][i + 1])
+        sigmas = abs(gap) / sigma if sigma > 0 else 0.0
+        expected = [sizes[j] * target["rate"][j] for j in (i, i + 1)]
+        source_ok = sigmas >= PAIR_SIGMA
+        model_ok = min(expected) >= EXPECTED_EVENT_FLOOR
+        if source_ok and model_ok:
+            admitted.append(i)
+        rows.append({
+            "pair": f"{GROUPS[i]}/{GROUPS[i + 1]}",
+            "gap": gap,
+            "sigmas": sigmas,
+            "expected_events": expected,
+            "source_resolves": source_ok,
+            "model_resolves": model_ok,
+            "scored": source_ok and model_ok,
+        })
+    return admitted, rows
+
+
+def refused_pairs(pair_rows: list[dict]) -> list[dict]:
+    """Pairs the source resolves and this population size does not.
+
+    The code refuses any size at which a group admitted by the target-side test
+    falls under the model-side floor. Dropping such a pair and scoring the rest
+    would let the population size choose which comparisons the criterion makes,
+    so a size that leaves one is refused and the criterion is void at it.
+    """
+    return [r for r in pair_rows if r["source_resolves"] and not r["model_resolves"]]
+
+
+def _touched(admitted: list[int]) -> list[int]:
+    """The groups the admitted pairs speak about, in order and without repeats."""
+    out: list[int] = []
+    for i in admitted:
+        for g in (i, i + 1):
+            if g not in out:
+                out.append(g)
+    return out
+
+
 def a1b_1(respondents: list[Respondent], sweep: list[dict],
           households: int) -> tuple[Criterion, dict]:
-    """Decreasing in net worth, and matching the survey's own ordering.
+    """Decreasing in net worth on the pairs both sides resolve.
 
     ``docs/a1b_prereg.md`` §5.3. **Ordinal only**, the direction taken from
-    Volume One section 18 rather than from the data, and required in every cell of the sweep
-    registered in §8. Four denominator facts forbid a level comparison and they
-    are in §5.3; none of them touches an ordering.
+    Volume One section 18 rather than from the data, and required in every cell
+    of the sweep registered in §8. Four denominator facts forbid a level
+    comparison and they are in §5.3; none of them touches an ordering. Which
+    pairs are scored is decided by :func:`scorable_pairs`: a pair the survey
+    cannot resolve is printed and not scored, and a size at which a pair the
+    survey resolves falls under the model-side floor is refused.
     """
-    target = late60_by_group(respondents)
-    want = ordering(target)
+    return gradient_verdict(target_with_counts(respondents), sweep, households)
+
+
+def gradient_verdict(target: dict, sweep: list[dict],
+                     households: int) -> tuple[Criterion, dict]:
+    """A1b-1 on a target already counted, so a known answer can be fed in."""
+    name = "A1b-1 the delinquency gradient"
     sizes = sweep[0]["sizes"]
+    payload = {"late60": target["rate"], "target": target, "cells": [],
+               "pairs": [], "group_sizes": sizes}
     empty = [GROUPS[g] for g, n in enumerate(sizes) if n == 0]
     if empty:
         return Criterion(
-            "A1b-1 the delinquency gradient", False,
+            name, False,
             f"{households:,} households leaves {', '.join(empty)} with no "
             f"member, so the gradient has fewer groups than the target and "
             f"the comparison would fail on its own shape. Group sizes "
             f"{sizes}. Run at a size that fills every group",
             True,
-        ), {"late60": target, "cells": [], "group_sizes": sizes}
+        ), payload
 
+    admitted, pair_rows = scorable_pairs(target, sizes)
+    payload["pairs"] = pair_rows
+    refused = refused_pairs(pair_rows)
+    if refused:
+        return Criterion(
+            name, False,
+            f"{households:,} households is refused as a size for this criterion: "
+            + "; ".join(f"the source resolves {r['pair']} at {r['sigmas']:.2f} "
+                        f"sigma and the model would expect "
+                        f"{min(r['expected_events']):.1f} events in its thinner "
+                        f"group, under the floor of {EXPECTED_EVENT_FLOOR}"
+                        for r in refused)
+            + ". Scoring the remaining pairs would let the population size "
+              "choose the comparisons. Run at a size that clears the floor",
+            True,
+        ), payload
+    if not admitted:
+        return Criterion(
+            name, False,
+            "no adjacent pair is resolvable on both sides, so there is no "
+            "ordinal statement left to make. "
+            + "; ".join(f"{r['pair']} {r['sigmas']:.2f}sigma, expected "
+                        f"{min(r['expected_events']):.1f}" for r in pair_rows),
+            True,
+        ), payload
+
+    touched = _touched(admitted)
+    want = ordering([target["rate"][g] for g in touched])
     cells = [
         {
             "seed": cell["seed"],
             "months_per_round": cell["months_per_round"],
             "model": cell["model"],
             "model_with_rent": cell["model_with_rent"],
-            "decreasing": all(a >= b for a, b in zip(cell["model"],
-                                                     cell["model"][1:])),
-            "matches": ordering(cell["model"]) == want,
+            "decreasing": all(cell["model"][i] > cell["model"][i + 1]
+                              for i in admitted),
+            "matches": ordering([cell["model"][g] for g in touched]) == want,
         }
         for cell in sweep
     ]
@@ -941,30 +1556,37 @@ def a1b_1(respondents: list[Respondent], sweep: list[dict],
     matches = all(c["matches"] for c in cells)
     detail = (
         "LATE60 by net worth: "
-        + ", ".join(f"{GROUPS[g]} {v:.4f}" for g, v in enumerate(target))
-        + f". Model over {len(cells)} sweep cells: "
+        + ", ".join(
+            f"{GROUPS[g]} {target['rate'][g]:.4f} "
+            f"({target['reporting_rows'][g]:,} of {target['rows'][g]:,} "
+            f"implicate rows, {target['family_equivalents'][g]:,.1f} "
+            f"family equivalents)"
+            for g in range(len(GROUPS))
+        )
+        + ". Scored pairs: "
+        + ", ".join(pair_rows[i]["pair"] for i in admitted)
+        + ". Reported and not scored: "
+        + (", ".join(f"{r['pair']} ({r['sigmas']:.2f} sigma, expected events "
+                     f"{min(r['expected_events']):.1f})"
+                     for i, r in enumerate(pair_rows) if i not in admitted)
+           or "none")
+        + f". Model, any missed loan payment over the run, over {len(cells)} "
+          f"sweep cells: "
         + "; ".join(
             f"seed {c['seed']}x{c['months_per_round']} "
             + "/".join(f"{v:.3f}" for v in c["model"])
             + ("" if c["decreasing"] and c["matches"] else "  <-")
             for c in cells
         )
-        + f". Decreasing in every cell: {decreasing}. Ordering matches the "
-          f"survey in every cell: {matches}"
+        + f". Decreasing on every scored pair in every cell: {decreasing}. "
+          f"Ordering matches the survey on those groups in every cell: "
+          f"{matches}"
+        + f". Group sizes at {households:,} households: {sizes}"
+        + ". Including rent, reported only: "
+        + "/".join(f"{v:.3f}" for v in cells[0]["model_with_rent"])
     )
-    detail += f". Group sizes at {households:,} households: {sizes}"
-    detail += ". Including rent, reported only: " + "/".join(
-        f"{v:.3f}" for v in cells[0]["model_with_rent"]
-    )
-    gaps = sorted(abs(a - b) for a, b in zip(target, target[1:]))
-    detail += (
-        f". The target's smallest adjacent gap is {gaps[0]:.4f}, which is what "
-        f"the ordering turns on"
-    )
-    return Criterion("A1b-1 the delinquency gradient", decreasing and matches,
-                     detail), {"late60": target, "cells": cells,
-                               "group_sizes": sizes,
-                               "target_smallest_gap": gaps[0]}
+    payload.update({"cells": cells, "scored_pairs": admitted})
+    return Criterion(name, decreasing and matches, detail), payload
 
 
 # ---------------------------------------------------------------------------
@@ -1044,13 +1666,17 @@ def print_stress(built: list) -> dict[str, object]:
     return stress
 
 
-def print_payment_check(respondents: list[Respondent]) -> dict[str, float]:
-    """The one payment rate this stage did not measure, against the file.
+def print_payment_check(respondents: list[Respondent],
+                        copies: list[int] | None = None) -> dict[str, object]:
+    """The payment columns against the balances they are set beside.
 
-    The vehicle leg keeps a literature rate of one sixtieth because the
-    published instalment payment cannot be split into its vehicle part.
-    Apportioning that payment by balance is an independent route to the same
-    number, and the two are printed together.
+    The vehicle leg keeps a literature rate of one sixtieth, and the first two
+    lines compare it with the published instalment payment apportioned by
+    balance, as this function always did. The extract also carries the vehicle
+    payments themselves, the revolving payment is the publisher's construction
+    and the mortgage payment covers loans beyond the ``NH_MORT`` ones, so the
+    coverage of all three is printed as well. ``copies`` is passed through to
+    :func:`payment_coverage`.
     """
     total_weight = sum(r.weight for r in respondents)
     modelled = sum(
@@ -1071,16 +1697,63 @@ def print_payment_check(respondents: list[Respondent]) -> dict[str, float]:
         sum(r.weight * r.card_payment for r in respondents)
         / sum(r.weight * r.card for r in respondents)
     )
-    print("\nthe one payment rate not measured, checked against the file")
+    print("\nthe payment columns, checked against the file")
     print(f"    vehicle, one sixtieth of a measured balance   "
           f"{modelled:>8,.0f} a month")
     print(f"    vehicle, published instalment payment shared  "
           f"{apportioned:>8,.0f} a month")
-    print(f"    card, measured rather than a rate: the published payment is "
-          f"{card_rate:.4f} of the revolving balance a month against the "
-          f"{PAYMENT_RATE[Obligation.CARD]:.4f} this project cited")
-    return {"vehicle_literature": modelled, "vehicle_apportioned": apportioned,
-            "card_measured_rate": card_rate}
+    print(f"    card: the published revolving payment is "
+          f"{card_rate:.4f} of the card balance a month over all rows, against "
+          f"the {PAYMENT_RATE[Obligation.CARD]:.4f} this project cited. It is "
+          f"the publisher's {CARD_PUBLISHER_RATE:.3f} of the card balance plus "
+          f"buy-now-pay-later and other lines, not a payment the household "
+          f"reported")
+    out = {"vehicle_literature": modelled, "vehicle_apportioned": apportioned,
+           "card_revpay_over_balance_all_rows": card_rate}
+    cover = payment_coverage(respondents, copies)
+    if cover:
+        m, c, v = cover["mortgage"], cover["card"], cover["vehicle"]
+        print(f"    mortgage: {m['rows_paying_beyond_the_NH_MORT_loans']:,} of "
+              f"{m['rows_mortgaged']:,} mortgaged rows pay MORTPAY beyond the "
+              f"NH_MORT loans, "
+              f"{m['rows_with_other_property_or_land_contract_payments']:,} on "
+              f"other property or land contracts and "
+              f"{m['rows_with_only_the_home_equity_line_beyond_the_NH_MORT_loans']:,}"
+              f" on the primary residence's home-equity line alone; weighted "
+              f"mean {m['mean_MORTPAY']:,.2f} a month against "
+              f"{m['mean_nh_mort_loans']:,.2f} on the NH_MORT loans, "
+              f"{m['mean_other_property_and_land_contracts']:,.2f} on other "
+              f"property and land contracts and "
+              f"{m['mean_primary_residence_home_equity_line']:,.2f} on the "
+              f"home-equity line")
+        print(f"    card: {c['rows_with_more_than_the_card_rate']:,} of "
+              f"{c['rows_with_a_card_balance']:,} rows with a card balance "
+              f"carry more than the card rate; weighted mean "
+              f"{c['mean_REVPAY']:,.2f} against "
+              f"{c['mean_card_at_the_publisher_rate']:,.2f} on the card alone "
+              f"({c['mean_bnpl_at_the_publisher_rate']:,.2f} of the difference "
+              f"is buy-now-pay-later); "
+              f"{c['rows_with_a_revolving_payment_and_no_card_balance']:,} rows "
+              f"have a revolving payment and no card balance")
+        print(f"    vehicle: the published payments average "
+              f"{v['mean_published_all_households']:,.2f} a month over all "
+              f"households against {v['mean_sixtieth_all_households']:,.2f} at "
+              f"one sixtieth ({v['mean_published_holders']:,.2f} against "
+              f"{v['mean_sixtieth_holders']:,.2f} among holders); "
+              f"{v['rows_with_a_vehicle_balance_where_the_two_differ']:,} of "
+              f"the {v['rows_with_a_vehicle_balance']:,} rows with a vehicle "
+              f"balance differ")
+        unheld = v["rows_with_a_published_vehicle_payment_and_no_vehicle_balance"]
+        built = v.get(
+            "copies_with_a_published_vehicle_payment_and_no_vehicle_balance")
+        print(f"    vehicle: {unheld:,} rows carry a published vehicle payment "
+              f"and no vehicle balance"
+              + (f", {built:,} households in this population" if built is not None
+                 else "")
+              + "; the model gives them no vehicle rung, so every vehicle arm "
+                "reads the payments on households with a vehicle balance")
+        out["coverage"] = cover
+    return out
 
 
 NOT_YET_WRITTEN = ()
@@ -1097,6 +1770,10 @@ def main() -> int:
                          "estimation setting under A1-10's licence")
     ap.add_argument("--records", action="store_true",
                     help="print the population and stop")
+    ap.add_argument("--carrier", choices=CARRIERS, default=CARRIER_MATCHED,
+                    help="which payment each rung stands on; the default puts "
+                         "each rung on the payment of its own stock and reads "
+                         "the registered construction as an arm")
     args = ap.parse_args()
 
     print("A1b: the default cascade on a measured population")
@@ -1107,7 +1784,10 @@ def main() -> int:
     try:
         selection = JointSelection.load(SELECTION)
         respondents = read_respondents(ARCHIVE, selection)
-        records = to_records(respondents, basket_by_decile())
+        records = to_records(respondents, basket_by_decile(), args.carrier)
+        registered_records = (records if args.carrier == CARRIER_REGISTERED
+                              else to_records(respondents, basket_by_decile(),
+                                              CARRIER_REGISTERED))
     except (InputProblem, ValueError) as exc:
         print(f"  FAILED {exc}", file=sys.stderr)
         return 1
@@ -1124,7 +1804,24 @@ def main() -> int:
     built = fresh()
     print_population(records, args.households, built)
     stress = print_stress(built)
-    payments = print_payment_check(respondents)
+    payments = print_payment_check(respondents,
+                                   allocate(records, args.households))
+    construction = ({"default": CARRIER_REGISTERED}
+                    if args.carrier == CARRIER_REGISTERED
+                    else carrier_construction(respondents, records,
+                                              args.households))
+    if args.carrier == CARRIER_MATCHED:
+        o = construction["outflow"]
+        carried = construction["mean_debt_payment_carried"]
+        print(f"\n  carrier: each rung on the payment of its own stock; "
+              f"{o['rows_with_an_outflow']:,} rows pay on no rung, "
+              f"{o['mean_outflow']:,.2f} a month per family (revolving "
+              f"{o['mean_revolving_beyond_the_card_rate']:,.2f}, MORTPAY "
+              f"{o['mean_MORTPAY_beyond_the_mortgage_rung']:,.2f}, vehicle "
+              f"{o['mean_vehicle_payment_with_no_vehicle_balance']:,.2f}); "
+              f"debt payments carried {carried[CARRIER_MATCHED]:,.2f} a month "
+              f"per family against {carried[CARRIER_REGISTERED]:,.2f} as "
+              f"registered")
     if args.records:
         return 0
 
@@ -1150,13 +1847,21 @@ def main() -> int:
                                                 seed=seed,
                                                 months_per_round=months)),
             })
+    arms = carrier_arms(respondents, registered_records)
+    if args.carrier == CARRIER_MATCHED:
+        arms = {ARM_REGISTERED: registered_records, **arms}
+    for arm, arm_records in arms.items():
+        jobs.append({"kind": "carrier", "arm": arm, "records": arm_records,
+                     "households": args.households, "path": scored_path})
     workers = args.jobs if args.jobs is not None else default_jobs()
     print(f"\n  {len(jobs)} independent runs on {workers} worker(s); the "
           f"answer does not depend on that number")
     done = run_tasks(jobs, workers)
     by_kind = {job["kind"]: out for job, out in zip(jobs, done, strict=True)
-               if job["kind"] != "sweep"}
+               if job["kind"] not in ("sweep", "carrier")}
     sweep = [out for out in done if out["kind"] == "sweep"]
+    carriers = {out["arm"]: carrier_reading(out["result"])
+                for out in done if out["kind"] == "carrier"}
 
     zero, reference = a1b_0(by_kind["relieved"]["result"],
                             by_kind["baseline"]["result"])
@@ -1187,10 +1892,42 @@ def main() -> int:
     print(f"\nbaseline with no shock, {reference['periods']} periods: "
           + ", ".join(f"{k} {v:.4f}"
                       for k, v in reference["final"].items() if v > 0.0))
-    print(f"    {reference['displaced']:,} of {reference['renters']:,} renters "
-          f"displaced with no shock at all; the series is "
+    moved = by_kind["baseline"]["displaced_by_tenure"]
+    held = by_kind["baseline"]["carriers_at_start"]
+    # A household is displaced from a shelter rung, so the denominator is the
+    # households that carried one: renters paying rent, owners with a mortgage.
+    began = {"RENTER": held["RENTER"]["RENT"],
+             "MORTGAGED": held["MORTGAGED"]["MORTGAGE"]}
+    reference["displaced_by_tenure"] = moved
+    reference["shelter_carriers_at_start"] = began
+    print(f"    {reference['displaced_all_tenures']:,} households displaced with "
+          f"no shock at "
+          f"all: {moved['RENTER']:,} of {began['RENTER']:,} renters and "
+          f"{moved['MORTGAGED']:,} of {began['MORTGAGED']:,} mortgaged; the "
+          f"series is "
           f"{'still moving' if reference['still_moving'] else 'settled'} at the "
           f"end. Every shocked reading in this stage is reported against this")
+
+    by_tenure = first_default_shares_by_tenure(
+        scored, by_kind["scored"]["carriers_at_start"])
+    print("\nfirst defaults per household that carried the rung at the start")
+    for tenure, row in by_tenure.items():
+        cells = [f"{kind} {row[f'per_carrier_at_start_{kind}']:.4f} "
+                 f"({row[f'carriers_at_start_{kind}']:,})"
+                 for kind in ("card", "auto", "rent", "mortgage", "basket")
+                 if row.get(f"per_carrier_at_start_{kind}") is not None]
+        print(f"    {tenure:<10}" + ", ".join(cells))
+
+    headline = carrier_reading(scored)
+    arm_table = {(ARM_MATCHED if args.carrier == CARRIER_MATCHED
+                  else ARM_REGISTERED): headline, **carriers}
+    if carriers:
+        print("\nthe payment carriers, last period (CARD, AUTO, MORTGAGE)")
+        for arm, got in arm_table.items():
+            f = got["final"]
+            print(f"    {arm:<62}{f['CARD']:.6f}  {f['AUTO']:.6f}  "
+                  f"{f['MORTGAGE']:.6f}  "
+                  f"{'K shape holds' if got['k_shape'] else 'K SHAPE BREAKS'}")
 
     print("\ncriteria")
     for c in criteria:
@@ -1232,9 +1969,10 @@ def main() -> int:
                     ],
                 },
                 "first_default_shares": first_default_shares(scored),
-                "first_default_shares_by_tenure": first_default_shares_by_tenure(
-                    scored
-                ),
+                "first_default_shares_by_tenure": {
+                    "_definitions": TENURE_RATE_DEFINITIONS, **by_tenure},
+                "carrier": construction,
+                "carrier_arms": arm_table,
                 "first_default_unstressed": unstressed,
                 "scored_final": {
                     k.value: scored.delinquent_share[k.value][-1]

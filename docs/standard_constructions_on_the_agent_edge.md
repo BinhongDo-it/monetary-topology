@@ -213,7 +213,7 @@ position summand.
 
 | Station | Family | Class graph | Position side |
 |---|---|---|---|
-| [B0d](b0d_new_keynesian.md) | New Keynesian | a point | `H¹ = 0` by construction: a scalar price field, every cycle zero |
+| [B0d](b0d_new_keynesian.md) | New Keynesian | a point | `[ω] = 0` by construction for the members B0d surveys: a scalar price field, every cycle zero |
 | [B65](b65_post_keynesian.md) | Post-Keynesian, Kaleckian | a point | nonzero, one term per class of good: a production cycle carries `log(1+μ_j)`, with the `μ_j` allowed to differ |
 | [B66](b66_mmt.md) | MMT | a point, the sovereign outside the graph | nonzero; the question is which edges lie on cycles that can be walked |
 | [B67](b67_prices_of_production.md) | Sraffa, classical | a point | nonzero and all equal, `log(1+r)`: one more equation than B65 |

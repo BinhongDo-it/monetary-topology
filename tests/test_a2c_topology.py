@@ -16,7 +16,12 @@ import numpy as np
 import pytest
 
 from monetary_topology.config import MonetaryAuthority, WageChannel
-from monetary_topology.network import NetworkConfig, NetworkSpec, run_network
+from monetary_topology.network import (
+    Network,
+    NetworkConfig,
+    NetworkSpec,
+    run_network,
+)
 from monetary_topology.topology import (
     connected_components,
     curl_matrix,
@@ -176,17 +181,19 @@ def test_punching_holes_changes_the_rank_by_exactly_the_arithmetic() -> None:
 # -- on the actual model -----------------------------------------------------
 
 
-def run(spec: NetworkSpec, rounds: int = 400, seed: int = 0):
-    return run_network(
-        NetworkConfig(
-            spec=spec,
-            rounds=rounds,
-            seed=seed,
-            snapshot_every=100,
-            authority=MonetaryAuthority(rule="endogenous"),
-            wages=WageChannel(bill=8.0, elasticity=0.0),
-        )
+def config(spec: NetworkSpec, rounds: int = 400, seed: int = 0) -> NetworkConfig:
+    return NetworkConfig(
+        spec=spec,
+        rounds=rounds,
+        seed=seed,
+        snapshot_every=100,
+        authority=MonetaryAuthority(rule="endogenous"),
+        wages=WageChannel(bill=8.0, elasticity=0.0),
     )
+
+
+def run(spec: NetworkSpec, rounds: int = 400, seed: int = 0):
+    return run_network(config(spec, rounds, seed))
 
 
 def three(seed: int, edges: int = 0) -> NetworkSpec:
@@ -203,16 +210,60 @@ def test_snapshots_are_off_by_default() -> None:
     assert h.snapshots == {}
 
 
-def test_potential_graph_is_never_modified_during_a_run() -> None:
-    """The whole stage rests on this. If the model deleted edges, a falling
-    realized rank would be trivial."""
-    spec = NetworkSpec(seed=0)
-    h = run(spec)
-    from monetary_topology.network import build_graph
+def rounds_on_the_opening_graph(net: Network) -> tuple[int, int]:
+    """Rounds run, and rounds that closed on the graph the run opened on.
 
-    fresh = build_graph(spec, wage_edges=None)
-    assert cycle_rank(h.adjacency) >= cycle_rank(fresh)
-    assert np.array_equal(h.adjacency, h.adjacency)  # unchanged object identity
+    The copy is taken before round 0. The history a run returns carries the
+    live array, so comparing that array with itself afterwards compares
+    nothing, and comparing only the closing state misses an edge taken out and
+    put back.
+    """
+    opening = net.adjacency.copy()
+    closed = [np.array_equal(net.adjacency, opening) for _ in net._run_steps()]
+    assert net._history is not None and net._history.adjacency is net.adjacency
+    return len(closed), sum(closed)
+
+
+@pytest.mark.parametrize(
+    "spec",
+    [NetworkSpec(seed=0), three(0, 0), three(0, 1)],
+    ids=["two-layer", "three-layer, no autonomous edge", "three-layer, one"],
+)
+def test_potential_graph_is_never_modified_during_a_run(spec: NetworkSpec) -> None:
+    """The whole stage rests on this. If the model deleted edges, a falling
+    realized rank would be trivial. Compared as every round closes."""
+    ran, same = rounds_on_the_opening_graph(Network(config(spec)))
+    assert ran == 400
+    assert same == ran
+
+
+def test_the_graph_comparison_sees_an_edge_removed_and_one_put_back() -> None:
+    """The comparison above can fail, on the two faults the earlier form of it
+    let through: an edge gone for good, and an edge gone for ten rounds."""
+
+    class Removes(Network):
+        def _post_round(self, t: int) -> None:
+            super()._post_round(t)
+            if t == 10:
+                i, j = np.argwhere(self.adjacency > 0)[0]
+                self.adjacency[i, j] = 0.0
+
+    class PutsBack(Network):
+        def _post_round(self, t: int) -> None:
+            super()._post_round(t)
+            if t == 10:
+                self._ij = tuple(int(x) for x in np.argwhere(self.adjacency > 0)[0])
+                self.adjacency[self._ij] = 0.0
+            if t == 20:
+                self.adjacency[self._ij] = 1.0
+
+    cfg = config(NetworkSpec(seed=0), rounds=60)
+    assert rounds_on_the_opening_graph(Network(cfg)) == (60, 60)
+    assert rounds_on_the_opening_graph(Removes(cfg)) == (60, 10)
+    net = PutsBack(cfg)
+    opening = net.adjacency.copy()
+    assert rounds_on_the_opening_graph(net) == (60, 50)
+    assert np.array_equal(net.adjacency, opening)  # the end state alone hides it
 
 
 @pytest.mark.parametrize("seed", range(4))
@@ -249,8 +300,10 @@ def test_the_gradient_component_is_flat_while_flow_grows() -> None:
 def test_cycle_rank_saturates_in_the_two_layer_model() -> None:
     """A limitation, tested so it stays recorded.
 
-    Cycle rank is a binary count over edges, and proportional dynamics leave
-    every edge carrying something, so it moves only where flow genuinely stops.
+    Cycle rank is a binary count over the edges whose flow exceeds the cutoff,
+    so it moves only where an edge's flow crosses the cutoff. In this run the
+    edges that leave the realized graph have done so by round 50, while their
+    flow is still positive, and carry exactly zero from round 300 on.
     """
     h = run(NetworkSpec(seed=0), rounds=600)
     ranks = [

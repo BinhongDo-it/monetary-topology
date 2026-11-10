@@ -1,6 +1,6 @@
 {
   "diagnostic_only": true,
-  "diagnostic_reason": "§10 第 3 步的 --depth。只印连接的对账与列的原始分布，不算 ω、不算 λ、不算 π，不读任何一条预测。",
+  "diagnostic_reason": "the --depth of step 3 in section 10. prints only the join reconciliation and the raw column distributions; computes no ω, no λ and no π, and reads no prediction.",
   "funds": {
     "JNK": {
       "join": {

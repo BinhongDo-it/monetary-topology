@@ -1,0 +1,768 @@
+{
+ "config": {
+  "floor": "se(ln median) = 1.2533 (ln Q3 - ln Q1) / 1.349 / sqrt N",
+  "in_use": "a cell not printed as 0, including <5",
+  "post_reform_years": [
+   "2018/19",
+   "2019/20",
+   "2020/21",
+   "2021/22"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": {
+    "2016/17": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "2017/18": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "2018/19": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "2019/20": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ]
+   },
+   "kind": "premise",
+   "name": "B124-L1",
+   "passed": true,
+   "statement": "After the reform every DBD centre lies in one component of the routes in use"
+  },
+  {
+   "detail": "2017/18 4.20; 2018/19 0.84; 2019/20 3.07",
+   "kind": "own_reading",
+   "name": "B124-L2",
+   "passed": true,
+   "statement": "The DBD dispersion statistic Q/df is below its pre-reform value in both post-reform years with a matrix"
+  },
+  {
+   "detail": "DBD 0.84, 3.07; DCD 1.11, 1.72",
+   "kind": "own_reading",
+   "name": "B124-L3",
+   "passed": false,
+   "statement": "In each post-reform year with a matrix the DBD Q/df is below the DCD Q/df"
+  }
+ ],
+ "doc": "docs/b124_transport_dual.md",
+ "levels": {
+  "DBD": {
+   "2017/18": {
+    "Q": 25.2023368269733,
+    "Q_over_df": 4.200389471162217,
+    "centres": [
+     {
+      "N": 30,
+      "centre": "Newcastle",
+      "log_median": 3.8501476017100584,
+      "se": 0.31826482535372713
+     },
+     {
+      "N": 108,
+      "centre": "Leeds",
+      "log_median": 4.1666652238017265,
+      "se": 0.19430268514703328
+     },
+     {
+      "N": 71,
+      "centre": "Cambridge",
+      "log_median": 4.30406509320417,
+      "se": 0.2485010985743255
+     },
+     {
+      "N": 84,
+      "centre": "Royal Free",
+      "log_median": 4.600157644164547,
+      "se": 0.21100461391534533
+     },
+     {
+      "N": 128,
+      "centre": "King’s College",
+      "log_median": 4.8283137373023015,
+      "se": 0.17389242380256417
+     },
+     {
+      "N": 133,
+      "centre": "Birmingham",
+      "log_median": 3.871201010907891,
+      "se": 0.178192241426101
+     },
+     {
+      "N": 81,
+      "centre": "Edinburgh",
+      "log_median": 3.7376696182833684,
+      "se": 0.22776812425817353
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.21100461391534533,
+    "p_equal": 0.0003132173802265926,
+    "pooled_log_mean": 4.249401925046397,
+    "sd_log_median": 0.41045717062644343
+   },
+   "2018/19": {
+    "Q": 5.02338347723488,
+    "Q_over_df": 0.8372305795391467,
+    "centres": [
+     {
+      "N": 22,
+      "centre": "Newcastle",
+      "log_median": 3.7612001156935624,
+      "se": 0.3428961810941431
+     },
+     {
+      "N": 66,
+      "centre": "Leeds",
+      "log_median": 3.7256934272366524,
+      "se": 0.317862454493218
+     },
+     {
+      "N": 65,
+      "centre": "Cambridge",
+      "log_median": 3.58351893845611,
+      "se": 0.2506086719037264
+     },
+     {
+      "N": 83,
+      "centre": "Royal Free",
+      "log_median": 3.4965075614664802,
+      "se": 0.30026630673672605
+     },
+     {
+      "N": 143,
+      "centre": "King’s College",
+      "log_median": 3.9889840465642745,
+      "se": 0.24329443594961964
+     },
+     {
+      "N": 155,
+      "centre": "Birmingham",
+      "log_median": 3.7376696182833684,
+      "se": 0.1683561027799398
+     },
+     {
+      "N": 88,
+      "centre": "Edinburgh",
+      "log_median": 3.1986731175506815,
+      "se": 0.29290590787471277
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.29290590787471277,
+    "p_equal": 0.5408175278241798,
+    "pooled_log_mean": 3.6728222298834523,
+    "sd_log_median": 0.24896125254736842
+   },
+   "2019/20": {
+    "Q": 18.439924513405952,
+    "Q_over_df": 3.0733207522343253,
+    "centres": [
+     {
+      "N": 26,
+      "centre": "Newcastle",
+      "log_median": 3.349904087274605,
+      "se": 0.3286208996618071
+     },
+     {
+      "N": 79,
+      "centre": "Leeds",
+      "log_median": 3.4965075614664802,
+      "se": 0.2838364755321493
+     },
+     {
+      "N": 60,
+      "centre": "Cambridge",
+      "log_median": 2.833213344056216,
+      "se": 0.2476332473579849
+     },
+     {
+      "N": 91,
+      "centre": "Royal Free",
+      "log_median": 3.6109179126442243,
+      "se": 0.21099474998495207
+     },
+     {
+      "N": 145,
+      "centre": "King’s College",
+      "log_median": 3.9889840465642745,
+      "se": 0.20846819074929665
+     },
+     {
+      "N": 154,
+      "centre": "Birmingham",
+      "log_median": 4.069026754237811,
+      "se": 0.23364793387864613
+     },
+     {
+      "N": 52,
+      "centre": "Edinburgh",
+      "log_median": 3.8394523125933104,
+      "se": 0.25731418266176004
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.2476332473579849,
+    "p_equal": 0.005221894459498079,
+    "pooled_log_mean": 3.6453416435194264,
+    "sd_log_median": 0.42621418145232337
+   },
+   "2020/21": {
+    "Q": 8.568797502229563,
+    "Q_over_df": 1.4281329170382604,
+    "centres": [
+     {
+      "N": 27,
+      "centre": "Newcastle",
+      "log_median": 3.9512437185814275,
+      "se": 0.402525128340241
+     },
+     {
+      "N": 70,
+      "centre": "Leeds",
+      "log_median": 3.960813169597578,
+      "se": 0.2698192777830844
+     },
+     {
+      "N": 35,
+      "centre": "Cambridge",
+      "log_median": 3.1354942159291497,
+      "se": 0.3350452758877542
+     },
+     {
+      "N": 57,
+      "centre": "Royal Free",
+      "log_median": 3.6635616461296463,
+      "se": 0.3044961273543113
+     },
+     {
+      "N": 115,
+      "centre": "King’s College",
+      "log_median": 3.4657359027997265,
+      "se": 0.24796722443264813
+     },
+     {
+      "N": 114,
+      "centre": "Birmingham",
+      "log_median": 4.269697449699962,
+      "se": 0.30358447245951153
+     },
+     {
+      "N": 58,
+      "centre": "Edinburgh",
+      "log_median": 3.817712325956905,
+      "se": 0.40003884090383485
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.3044961273543113,
+    "p_equal": 0.19931991192858048,
+    "pooled_log_mean": 3.738626672219876,
+    "sd_log_median": 0.3709172428887793
+   },
+   "2021/22": {
+    "Q": 7.008444382229217,
+    "Q_over_df": 1.1680740637048694,
+    "centres": [
+     {
+      "N": 23,
+      "centre": "Newcastle",
+      "log_median": 3.8066624897703196,
+      "se": 0.41369955509141126
+     },
+     {
+      "N": 60,
+      "centre": "Leeds",
+      "log_median": 3.3141860046725258,
+      "se": 0.3034701691528314
+     },
+     {
+      "N": 50,
+      "centre": "Cambridge",
+      "log_median": 3.6109179126442243,
+      "se": 0.3025337123134964
+     },
+     {
+      "N": 65,
+      "centre": "Royal Free",
+      "log_median": 3.332204510175204,
+      "se": 0.3408103609019146
+     },
+     {
+      "N": 117,
+      "centre": "King’s College",
+      "log_median": 3.4965075614664802,
+      "se": 0.2050868061139662
+     },
+     {
+      "N": 127,
+      "centre": "Birmingham",
+      "log_median": 3.5263605246161616,
+      "se": 0.22971105285396892
+     },
+     {
+      "N": 39,
+      "centre": "Edinburgh",
+      "log_median": 2.833213344056216,
+      "se": 0.2555323204463117
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.3025337123134964,
+    "p_equal": 0.3200669732323552,
+    "pooled_log_mean": 3.3912392429184304,
+    "sd_log_median": 0.3072159619431172
+   }
+  },
+  "DCD": {
+   "2017/18": {
+    "Q": 24.73793226386568,
+    "Q_over_df": 4.12298871064428,
+    "centres": [
+     {
+      "N": 5,
+      "centre": "Newcastle",
+      "log_median": 4.663439094112067,
+      "se": 0.5294876359500069
+     },
+     {
+      "N": 26,
+      "centre": "Leeds",
+      "log_median": 4.350277936359301,
+      "se": 0.5700747807640684
+     },
+     {
+      "N": 32,
+      "centre": "Cambridge",
+      "log_median": 4.0943445622221,
+      "se": 0.2743858898115489
+     },
+     {
+      "N": 13,
+      "centre": "Royal Free",
+      "log_median": 4.127134385045092,
+      "se": 0.5867936709887955
+     },
+     {
+      "N": 46,
+      "centre": "King’s College",
+      "log_median": 4.204692619390966,
+      "se": 0.2776866566345081
+     },
+     {
+      "N": 52,
+      "centre": "Birmingham",
+      "log_median": 3.1135153092103742,
+      "se": 0.15261476250787331
+     },
+     {
+      "N": 12,
+      "centre": "Edinburgh",
+      "log_median": 3.7256934272366524,
+      "se": 0.6023724063479299
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.5294876359500069,
+    "p_equal": 0.00038178164206896666,
+    "pooled_log_mean": 3.618409319874923,
+    "sd_log_median": 0.49661864658066246
+   },
+   "2018/19": {
+    "Q": 6.684512604490465,
+    "Q_over_df": 1.114085434081744,
+    "centres": [
+     {
+      "N": 3,
+      "centre": "Newcastle",
+      "log_median": 5.717027701406222,
+      "se": 1.6213204053490489
+     },
+     {
+      "N": 21,
+      "centre": "Leeds",
+      "log_median": 3.58351893845611,
+      "se": 0.42781871412828726
+     },
+     {
+      "N": 40,
+      "centre": "Cambridge",
+      "log_median": 4.051784947803305,
+      "se": 0.2620610189321221
+     },
+     {
+      "N": 28,
+      "centre": "Royal Free",
+      "log_median": 4.034240638152395,
+      "se": 0.27836154514591555
+     },
+     {
+      "N": 38,
+      "centre": "King’s College",
+      "log_median": 4.283586561860629,
+      "se": 0.2511780658155698
+     },
+     {
+      "N": 38,
+      "centre": "Birmingham",
+      "log_median": 3.56953269648137,
+      "se": 0.24256353834598057
+     },
+     {
+      "N": 13,
+      "centre": "Edinburgh",
+      "log_median": 4.2626798770413155,
+      "se": 0.5592969808602378
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.27836154514591555,
+    "p_equal": 0.35101087985972185,
+    "pooled_log_mean": 3.965280164389936,
+    "sd_log_median": 0.7231612529935881
+   },
+   "2019/20": {
+    "Q": 10.333250836451569,
+    "Q_over_df": 1.7222084727419282,
+    "centres": [
+     {
+      "N": 4,
+      "centre": "Newcastle",
+      "log_median": 4.973279507552487,
+      "se": 0.528206290270281
+     },
+     {
+      "N": 21,
+      "centre": "Leeds",
+      "log_median": 3.58351893845611,
+      "se": 0.3660527160780115
+     },
+     {
+      "N": 33,
+      "centre": "Cambridge",
+      "log_median": 3.5553480614894135,
+      "se": 0.27779291965333974
+     },
+     {
+      "N": 37,
+      "centre": "Royal Free",
+      "log_median": 4.007333185232471,
+      "se": 0.27030971143283583
+     },
+     {
+      "N": 37,
+      "centre": "King’s College",
+      "log_median": 4.430816798843313,
+      "se": 0.25211886679694673
+     },
+     {
+      "N": 33,
+      "centre": "Birmingham",
+      "log_median": 3.912023005428146,
+      "se": 0.23080515447607916
+     },
+     {
+      "N": 5,
+      "centre": "Edinburgh",
+      "log_median": 3.9318256327243257,
+      "se": 0.51233371351897
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.27779291965333974,
+    "p_equal": 0.11130156156006017,
+    "pooled_log_mean": 3.994540023729379,
+    "sd_log_median": 0.49904851044563026
+   },
+   "2020/21": {
+    "Q": 4.5235623402915675,
+    "Q_over_df": 0.7539270567152613,
+    "centres": [
+     {
+      "N": 2,
+      "centre": "Newcastle",
+      "log_median": 4.700480365792417,
+      "se": 2.620537576739892
+     },
+     {
+      "N": 15,
+      "centre": "Leeds",
+      "log_median": 4.02535169073515,
+      "se": 0.3915478349759085
+     },
+     {
+      "N": 35,
+      "centre": "Cambridge",
+      "log_median": 4.48863636973214,
+      "se": 0.23920528508866415
+     },
+     {
+      "N": 11,
+      "centre": "Royal Free",
+      "log_median": 4.04305126783455,
+      "se": 0.6127706260309203
+     },
+     {
+      "N": 31,
+      "centre": "King’s College",
+      "log_median": 4.812184355372417,
+      "se": 0.20904084405565843
+     },
+     {
+      "N": 11,
+      "centre": "Birmingham",
+      "log_median": 4.74493212836325,
+      "se": 0.9670508406694792
+     },
+     {
+      "N": 5,
+      "centre": "Edinburgh",
+      "log_median": 3.7376696182833684,
+      "se": 1.3520976656316868
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.6127706260309203,
+    "p_equal": 0.6061982324852662,
+    "pooled_log_mean": 4.548854677757913,
+    "sd_log_median": 0.4251881208354118
+   },
+   "2021/22": {
+    "Q": 10.283611460835141,
+    "Q_over_df": 1.7139352434725235,
+    "centres": [
+     {
+      "N": 13,
+      "centre": "Newcastle",
+      "log_median": 5.0238805208462765,
+      "se": 0.312862424532646
+     },
+     {
+      "N": 16,
+      "centre": "Leeds",
+      "log_median": 4.749270529961848,
+      "se": 0.24136682885687302
+     },
+     {
+      "N": 48,
+      "centre": "Cambridge",
+      "log_median": 4.143134726391533,
+      "se": 0.2536181806544823
+     },
+     {
+      "N": 23,
+      "centre": "Royal Free",
+      "log_median": 4.543294782270004,
+      "se": 0.3295940197018369
+     },
+     {
+      "N": 46,
+      "centre": "King’s College",
+      "log_median": 4.894101477840304,
+      "se": 0.15566009475521692
+     },
+     {
+      "N": 25,
+      "centre": "Birmingham",
+      "log_median": 4.543294782270004,
+      "se": 0.23972507373767335
+     },
+     {
+      "N": 18,
+      "centre": "Edinburgh",
+      "log_median": 3.960813169597578,
+      "se": 0.491545160810621
+     }
+    ],
+    "df": 6,
+    "median_floor": 0.2536181806544823,
+    "p_equal": 0.11320547600819708,
+    "pooled_log_mean": 4.6676297995004585,
+    "sd_log_median": 0.386315726219155
+   }
+  }
+ },
+ "stage": "B124-L",
+ "structure": {
+  "DBD": {
+   "2016/17": {
+    "all_centres_joined": true,
+    "b1": 37,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 51,
+    "vertices": 15
+   },
+   "2017/18": {
+    "all_centres_joined": true,
+    "b1": 36,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 50,
+    "vertices": 15
+   },
+   "2018/19": {
+    "all_centres_joined": true,
+    "b1": 38,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 52,
+    "vertices": 15
+   },
+   "2019/20": {
+    "all_centres_joined": true,
+    "b1": 36,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 50,
+    "vertices": 15
+   }
+  },
+  "DCD": {
+   "2016/17": {
+    "all_centres_joined": true,
+    "b1": 20,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 33,
+    "vertices": 14
+   },
+   "2017/18": {
+    "all_centres_joined": true,
+    "b1": 15,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 28,
+    "vertices": 14
+   },
+   "2018/19": {
+    "all_centres_joined": true,
+    "b1": 21,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 34,
+    "vertices": 14
+   },
+   "2019/20": {
+    "all_centres_joined": true,
+    "b1": 15,
+    "centres_by_component": [
+     [
+      "Birmingham",
+      "Cambridge",
+      "Edinburgh",
+      "King’s College",
+      "Leeds",
+      "Newcastle",
+      "Royal Free"
+     ]
+    ],
+    "components": 1,
+    "routes_in_use": 29,
+    "vertices": 15
+   }
+  }
+ }
+}

@@ -7,10 +7,20 @@ it does not inherit the 2005 window that limits the survival read (see the
 working notes, sections 107-110).
 
 Outcome, from REGISTER_ORT:
-    empty, or a phrase saying no entry exists  ->  no registry entry
-    a court name                               ->  has a registry entry
+    empty, or a phrase saying no entry exists  ->  no register court on file
+    a court name                               ->  a register court on file
 REGISTER_DATUM reproduces the same split independently and is printed as a
-structural check, not as a second outcome.
+structural check, not as a second outcome. The outcome is the file's field and
+not by itself a finding that no entry was ever made: some rows with no court
+still carry a register number or a registration date, so those rows are counted
+and the contrast is read again without them.
+
+Most of these firms were not founded in the ordinary way. Section 11(2) of the
+Treuhandgesetz made the state enterprises it covered stock corporations or
+limited companies by statute on 1 July 1990, and section 15(1) orders each
+entered in the commercial register ex officio. Such a company exists before any
+entry, so for it a missing court is a missing entry and not a missing legal
+person. The firms founded on that day are read on their own.
 
 Criteria are printed objects with a reading fixed in advance, never a line drawn
 on an estimate:
@@ -101,6 +111,7 @@ def read_bvs(path):
                 'firma': cell(r[col['FIRMA']]),
                 'name': cell(r[col['NAME']]),
                 'register_ort': cell(r[col['REGISTER_ORT']]),
+                'register_nr': cell(r[col['REGISTER_NR']]),
                 'register_datum': cell(r[col['REGISTER_DATUM']]),
                 'gruend_dat': cell(r[col['GRUEND_DAT']]),
                 'altname': cell(r[col['ALTNAME']]),
@@ -115,14 +126,53 @@ def no_registry(r):
     return (not o) or bool(NOREG.search(o))
 
 
-def share(rows):
-    k = sum(1 for r in rows if no_registry(r))
+DIGIT = re.compile(r'\d')
+NOT_REQUIRED = re.compile(r'erforderlich|notwendig', re.I)
+STATUTE_DAY = '1990-07-01'      # Treuhandgesetz section 11(2): companies by statute from this day
+REPEATED_DAY = '1980-01-01'     # one date carried by hundreds of unrelated rows
+FOUNDING = ('founded 1990-07-01', 'another founding date', 'dated 1980-01-01', 'no founding date')
+
+
+def register_trace(r):
+    """A register number with a digit in it, or a registration date."""
+    return bool(DIGIT.search(r['register_nr'])) or bool(r['register_datum'])
+
+
+def no_trace(r):
+    """The narrower reading of the outcome: no court, and no number or date either."""
+    return no_registry(r) and not register_trace(r)
+
+
+def court_cell(r):
+    """What the court column of a no-court row holds."""
+    o = r['register_ort']
+    if not o:
+        return 'empty'
+    if not o.strip('- '):
+        return 'a dash'
+    if NOT_REQUIRED.search(o):
+        return 'says an entry is not required'
+    return 'says no entry exists'
+
+
+def founding_class(r):
+    d = r['gruend_dat'][:10]
+    if d == STATUTE_DAY:
+        return FOUNDING[0]
+    if d == REPEATED_DAY:
+        return FOUNDING[2]
+    return FOUNDING[1] if d else FOUNDING[3]
+
+
+def share(rows, outcome=None):
+    outcome = no_registry if outcome is None else outcome
+    k = sum(1 for r in rows if outcome(r))
     return k, len(rows), (float(k) / len(rows) if rows else 0.0)
 
 
-def contrast(a_rows, b_rows):
-    ka, na, pa = share(a_rows)
-    kb, nb, pb = share(b_rows)
+def contrast(a_rows, b_rows, outcome=None):
+    ka, na, pa = share(a_rows, outcome)
+    kb, nb, pb = share(b_rows, outcome)
     se = math.sqrt(pa * (1 - pa) / na + pb * (1 - pb) / nb) if na and nb else float('nan')
     return {'a_k': ka, 'a_n': na, 'a_p': pa, 'b_k': kb, 'b_n': nb, 'b_p': pb,
             'ratio': (pa / pb) if pb else None,
@@ -137,7 +187,63 @@ def line(label, c):
                c['b_k'], c['b_n'], 100 * c['b_p'], ratio, units))
 
 
+def coverage_order(cov):
+    """The seven statuses, best covered first, as one sentence."""
+    order = sorted(cov, key=lambda x: (-cov[x]['share'], x))
+    return order, ', '.join('%s %.2f%%' % (st, 100 * cov[st]['share']) for st in order)
+
+
+def selftest():
+    """The helpers added for the outcome cell and the founding date, on rows worked by hand."""
+    def row(ort='', nr='', datum='', gruend='', name='X GmbH'):
+        return {'register_ort': ort, 'register_nr': nr, 'register_datum': datum,
+                'gruend_dat': gruend, 'name': name}
+    court = row(ort='Dresden', nr='HRB 12', datum='1991-03-01 00:00:00')
+    numbered = row(nr='HRB 3284', datum='1992-02-27 00:00:00')
+    dated = row(ort='-', nr='-', datum='1992-01-06 00:00:00')
+    dash = row(ort='-', nr='-')
+    empty = row()
+    said = row(ort='Kein Eintrag im Register')
+    exempt = row(ort='Eintrag nicht erforderlich')
+    a, b = [numbered, dated, dash, empty], [court, court, said, numbered]
+    wide, narrow = contrast(a, b), contrast(a, b, no_trace)
+    cov = {'R': {'share': 0.0103}, 'L': {'share': 0.0721}, 'GV': {'share': 0.0810},
+           'F': {'share': 0.0792}}
+    checks = [
+        ('a named court is a court on file', not no_registry(court)),
+        ('an empty court is no court, with or without a number',
+         no_registry(numbered) and no_registry(empty)),
+        ('a number with a digit is a trace, a dash is not',
+         register_trace(numbered) and not register_trace(dash)),
+        ('a registration date alone is a trace', register_trace(dated)),
+        ('the narrower outcome drops rows with a trace and keeps the rest',
+         [no_trace(r) for r in (numbered, dated, dash, empty, said, court)]
+         == [False, False, True, True, True, False]),
+        ('a row with a court and nothing else is not in the narrower outcome either',
+         not no_trace(row(ort='Dresden'))),
+        ('the court column is read as empty, a dash, no entry, or not required',
+         [court_cell(r) for r in (empty, dash, said, exempt)]
+         == ['empty', 'a dash', 'says no entry exists', 'says an entry is not required']),
+        ('the founding date falls in one of four classes',
+         [founding_class(row(gruend=g)) for g in
+          ('1990-07-01 00:00:00', '1990-06-28 00:00:00', '1980-01-01 00:00:00', '')]
+         == list(FOUNDING)),
+        ('the wide contrast counts every no-court row: 4 of 4 against 2 of 4',
+         (wide['a_k'], wide['a_n'], wide['b_k'], wide['b_n']) == (4, 4, 2, 4)),
+        ('the narrow contrast leaves out the traced ones: 2 of 4 against 1 of 4',
+         (narrow['a_k'], narrow['a_n'], narrow['b_k'], narrow['b_n']) == (2, 4, 1, 4)),
+        ('coverage is ordered best first, and liquidation is third here',
+         coverage_order(cov)[0] == ['GV', 'F', 'L', 'R']),
+    ]
+    for label, ok in checks:
+        print('  %s  %s' % ('ok   ' if ok else 'WRONG', label))
+    print('selftest: %d of %d' % (sum(1 for _l, ok in checks if ok), len(checks)))
+    return 0 if all(ok for _l, ok in checks) else 1
+
+
 def main():
+    if '--selftest' in sys.argv:
+        sys.exit(selftest())
     raw = sys.argv[1] if len(sys.argv) > 1 else 'data/raw/Treuhand'
     xlsx = os.path.join(raw, 'THU_Status_BvS.xlsx')
     ratings_csv = os.path.join(raw, 'leitungsausschuss_ratings.csv')
@@ -193,6 +299,77 @@ def main():
                             'detail': 'flipped: %s; East total %.4f vs %.4f, %.1f se'
                                       % (flips or 'none', overall['a_p'], overall['b_p'],
                                          overall['se_units'])})
+
+    # ---- the outcome cell itself: what the court column holds, what else the row carries,
+    # and the same contrast with every row that carries a number or a date left out
+    print('\nthe no-court cell: the court column, and rows that still carry a number or a date')
+    print('  %-3s %5s %6s %5s %9s %13s %7s %5s' % ('st', 'n', 'empty', 'dash', 'no entry',
+                                                 'not required', 'number', 'date'))
+    cell_tab = {}
+    for st in ['R', 'V', 'L', 'GV']:
+        sub = [r for r in east if r['status'] == st and no_registry(r)]
+        held = collections.Counter(court_cell(r) for r in sub)
+        cell_tab[st] = {'n': len(sub), 'court_column': dict(sorted(held.items())),
+                        'number_with_a_digit': sum(1 for r in sub if DIGIT.search(r['register_nr'])),
+                        'registration_date': sum(1 for r in sub if r['register_datum']),
+                        'number_or_date': sum(1 for r in sub if register_trace(r))}
+        print('  %-3s %5d %6d %5d %9d %13d %7d %5d'
+              % (st, len(sub), held['empty'], held['a dash'], held['says no entry exists'],
+                 held['says an entry is not required'], cell_tab[st]['number_with_a_digit'],
+                 cell_tab[st]['registration_date']))
+    narrow = contrast(R, V, no_trace)
+    narrow_flips = []
+    for L in EAST:
+        c = contrast([r for r in R if r['bundesland'] == L],
+                     [r for r in V if r['bundesland'] == L], no_trace)
+        if c['a_p'] <= c['b_p']:
+            narrow_flips.append(L)
+    print(line('no court, no number, no date', narrow))
+    print('  Laender where R is not above V on that reading: %s' % (narrow_flips or 'none'))
+    traced = sorted(([r['status'], r['firma'], r['name'], r['register_ort'], r['register_nr'],
+                      r['register_datum'][:10]]
+                     for r in east if r['status'] in ('R', 'V') and no_registry(r)
+                     and register_trace(r)), key=lambda x: (x[0], int(x[1])))
+    for x in traced:
+        print('    %s %-6s %-46s | %-40s | %-20s | %s' % (x[0], x[1], x[2][:46], x[3][:40], x[4], x[5]))
+    rec['tables']['no_court_cell'] = {'by_status': cell_tab, 'narrow_reading': narrow,
+                                      'narrow_reading_flips': narrow_flips,
+                                      'rows_with_a_number_or_date': traced}
+
+    # ---- the founding date. 1990-07-01 is the day the statute made these firms companies.
+    print('\nno-court rate by founding date, R against V')
+    by_date = {}
+    for lab in FOUNDING:
+        c = contrast([r for r in R if founding_class(r) == lab],
+                     [r for r in V if founding_class(r) == lab])
+        by_date[lab] = c
+        print(line(lab, c))
+    conv = contrast([r for r in R if founding_class(r) == FOUNDING[0] and GMBH.search(r['name'])],
+                    [r for r in V if founding_class(r) == FOUNDING[0] and GMBH.search(r['name'])])
+    by_date['founded 1990-07-01, NAME says GmbH'] = conv
+    print(line('founded 1990-07-01, says GmbH', conv))
+    dated = contrast([r for r in R if founding_class(r) in FOUNDING[:2]],
+                     [r for r in V if founding_class(r) in FOUNDING[:2]])
+    by_date['a founding date other than 1980-01-01'] = dated
+    print(line('a date other than 1980-01-01', dated))
+    cell_dates = {}
+    for st, g in (('R', R), ('V', V)):
+        nr = [r for r in g if no_registry(r)]
+        cell_dates[st] = dict(collections.Counter(founding_class(r) for r in nr), n=len(nr))
+    by_date['no_court_cell_by_founding_date'] = cell_dates
+    print('  the no-court cell by founding date: %s' % cell_dates)
+    undated = [r for r in east if founding_class(r) in (FOUNDING[2], FOUNDING[3])]
+    by_date['rows_per_class_east'] = dict(collections.Counter(founding_class(r) for r in east))
+    by_date['dated_1980_or_undated'] = {
+        'east_rows': len(undated),
+        'with_the_VT_prefix': sum(1 for r in undated if r['name'].startswith('VT')),
+        'R': sum(1 for r in undated if r['status'] == 'R'),
+        'V': sum(1 for r in undated if r['status'] == 'V')}
+    print('  %d East rows are dated 1980-01-01 or carry no founding date; %d of them carry the '
+          'VT prefix; R %d, V %d'
+          % (len(undated), by_date['dated_1980_or_undated']['with_the_VT_prefix'],
+             by_date['dated_1980_or_undated']['R'], by_date['dated_1980_or_undated']['V']))
+    rec['tables']['by_founding_date'] = by_date
 
     # ---- B40-3 the asset story, tested by restriction
     print('\nC3  restriction to firms that name themselves a company')
@@ -345,7 +522,10 @@ def main():
                      2 * sem, 100 * 2 * sem / 5.0))
             c5['grades'] = {'R_n': len(gr['R']), 'V_n': len(gr['V']), 'R_mean': mR,
                             'V_mean': mV, 'diff': mR - mV, 'se': sem,
-                            'resolves_2se': 2 * sem, 'scale_width': 5}
+                            'resolves_2se': 2 * sem, 'scale_width': 5,
+                            'two_se_either_side': [mR - mV - 2 * sem, mR - mV + 2 * sem]}
+            print('    two standard errors either side of the difference: %+.3f to %+.3f'
+                  % (mR - mV - 2 * sem, mR - mV + 2 * sem))
     rec['tables']['c5_rated'] = c5
     g = c5.get('grades')
     rec['criteria'].append({'name': 'B40-5 size story on the rated subset: what it excludes',
@@ -354,8 +534,9 @@ def main():
                                        'worst: R means %.3f, V means %.3f, a difference of %+.3f '
                                        'at %.1f se. What this subset can do is bound: it resolves '
                                        '%.3f grade points at two standard errors, %.0f%% of a '
-                                       'scale five wide, so it excludes a quality gap larger than '
-                                       'that and says nothing about smaller ones. Two limits '
+                                       'scale five wide, and two standard errors either side of the '
+                                       'difference run from %+.3f to %+.3f, so a gap outside that '
+                                       'range is excluded and one inside it is not. Two limits '
                                        'travel with it. The rated firms are selected, so the bound '
                                        'holds on the rated subset and not on the arm. And n=%d is '
                                        'not a sample that could be enlarged: it is every rated '
@@ -367,6 +548,7 @@ def main():
                                        % (g['R_n'], g['V_n'], g['R_mean'], g['V_mean'], g['diff'],
                                           abs(g['diff']) / g['se'] if g['se'] else 0.0,
                                           g['resolves_2se'], 100 * g['resolves_2se'] / 5.0,
+                                          g['two_se_either_side'][0], g['two_se_either_side'][1],
                                           g['R_n'])
                                        if g else 'ratings file absent')})
 
@@ -386,11 +568,13 @@ def main():
         print('  %-4s %6d %7d %8.2f%%' % (st, cov[st]['n'], cov[st]['rated'],
                                           100 * cov[st]['share']))
     least = min(cov, key=lambda x: cov[x]['share'])
+    order, order_text = coverage_order(cov)
     pR, nR2 = cov['R']['share'], cov['R']['n']
     pV, nV2 = cov['V']['share'], cov['V']['n']
     se_cov = math.sqrt(pR * (1 - pR) / nR2 + pV * (1 - pV) / nV2) if nR2 and nV2 else 0.0
     cov_units = abs(pR - pV) / se_cov if se_cov else 0.0
     rec['tables']['b40_9_rating_coverage'] = {'by_status': cov, 'least_covered': least,
+                                              'best_covered_first': order,
                                               'R_vs_V_se_units': cov_units,
                                               'R_vs_V_ratio': (pV / pR) if pR else None}
     print('  least covered: %s. R %.2f%% against V %.2f%%, a ratio of %.2f and %.1f se.'
@@ -404,15 +588,17 @@ def main():
                                       'for sold and %.2f%% for liquidated, a ratio of %.2f to sold '
                                       'and %.1f se. That is the identifying premise measured '
                                       'rather than assumed: restitution did not pass through the '
-                                      'process that produced the grades. Liquidation being the '
-                                      'best covered fixes the direction of the appendix sentence '
-                                      'that grades are not awarded to firms already being '
+                                      'process that produced the grades. Best covered first, the '
+                                      'seven run %s. Liquidated firms carry a grade %s often than '
+                                      'sold ones, which fixes the direction of the appendix '
+                                      'sentence that grades are not awarded to firms already being '
                                       'privatized, municipalized or liquidated: it is about the '
                                       'state at the meeting, not the eventual outcome, and it does '
                                       'not name restitution at all, so it does not by itself '
                                       'account for this gap.'
                                       % (100 * pR, 100 * pV, 100 * cov['L']['share'],
-                                         (pV / pR) if pR else 0.0, cov_units)})
+                                         (pV / pR) if pR else 0.0, cov_units, order_text,
+                                         'more' if cov['L']['share'] > cov['V']['share'] else 'less')})
 
     # ---- B40-8 the industry story, strong form: group, then print every group's sign
     print("\nC8  no-registry rate within industry groups, three ways of grouping")
@@ -429,11 +615,17 @@ def main():
         tag = {r['firma']: grp(r) for r in east}
         classified = sum(1 for r in east if tag[r['firma']] != 'unclassified')
         per, flips, ratios = {}, [], []
+        both, not_above = 0, []     # every cell with both arms present, the thin ones included
         for gname in [g for g, _ in INDUSTRY] + ['unclassified']:
             a = [r for r in R if tag[r['firma']] == gname]
             b = [r for r in V if tag[r['firma']] == gname]
+            if a and b:
+                both += 1
+                if share(a)[2] <= share(b)[2]:
+                    not_above.append(gname)
             if len(a) < 10 or len(b) < 10:
-                per[gname] = {'a_n': len(a), 'b_n': len(b), 'judged': False}
+                per[gname] = {'a_n': len(a), 'b_n': len(b), 'a_k': share(a)[0],
+                              'b_k': share(b)[0], 'judged': False}
                 continue
             c = contrast(a, b)
             c['judged'] = True
@@ -443,6 +635,7 @@ def main():
                 flips.append(gname)
         finite = [x for x in ratios if x != float('inf')]
         c8[glab] = {'classified': classified, 'of': len(east), 'groups': per,
+                    'cells_with_both_arms': both, 'cells_where_R_is_not_above_V': not_above,
                     'flips': flips, 'judged_groups': len(finite) + (len(ratios) - len(finite)),
                     'ratio_min': min(finite) if finite else None,
                     'ratio_max': max(finite) if finite else None}
@@ -458,6 +651,8 @@ def main():
                          100 * c['b_p'],
                          ('%.1fx' % c['ratio']) if c['ratio'] else 'inf', c['se_units']))
         print('    groups where R is not above V: %s' % (flips or 'none'))
+        print('    every cell with both arms present, thin ones included: %d, R not above V in %s'
+              % (both, not_above or 'none'))
     all_flips = sorted({g for v in c8.values() for g in v['flips']})
     rec['tables']['c8_industry_groups'] = c8
     rec['criteria'].append({'name': 'B40-8 industry, strong form: every group printed, three groupings',
@@ -508,13 +703,30 @@ def main():
     # the whole world's supply rather than a sample that could be grown. What is left is not
     # a criterion of this station but a different measurement needing a proprietary source.
     rec['diagnostic_only'] = False
-    rec['scope_note'] = ('two limits travel with every reading here and neither is an open '
-                         'step. About half of each arm never joins the register, and non-match '
+    rec['definitions'] = {
+        'no_registry': 'REGISTER_ORT is empty, a dash, or says in words that no entry exists or '
+                       'that none is required: the released file names no register court for the '
+                       'firm. It is the field of the file and not by itself a finding that no '
+                       'entry was ever made. The table no_court_cell counts the rows that still '
+                       'carry a register number or a registration date and reads the contrast '
+                       'again without them.',
+        'founded 1990-07-01': 'GRUEND_DAT is the day on which section 11(2) of the '
+                              'Treuhandgesetz made the state enterprises it covered stock '
+                              'corporations or limited companies by statute; section 15(1) orders '
+                              'each entered in the commercial register ex officio. Such a company '
+                              'exists before any entry, so for it a missing court is a missing '
+                              'entry and not a missing legal person.',
+    }
+    rec['scope_note'] = ('two limits travel with every reading here. About half of each arm '
+                         'never joins the register, and non-match '
                          'is mixed with dying before 2005, so the later margin is read only '
-                         'among firms that did join. And the rated subset bounds the quality '
+                         'among firms that did join. And the rated subset resolves the quality '
                          'story at 0.51 grade points on a scale five wide, no finer, on the '
-                         'rated firms alone. Splitting the sold arm into West and East German '
-                         'buyers is a further measurement and not an unfinished one. Six source '
+                         'rated firms alone. The positional reading is registered over three '
+                         'disposal classes and this station scores two, returned against sold as '
+                         'a whole. The two-class reading is necessary for the three-class one and '
+                         'not sufficient, and the sold arm has not been split by buyer origin '
+                         'here. Six source '
                          'categories were checked for that column: the commercial firm register '
                          'the published paper used, the agency own contract system at the federal '
                          'archive (confidential, reached through an institutional cooperation), '

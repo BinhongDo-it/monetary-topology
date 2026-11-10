@@ -61,9 +61,10 @@ OUT = K.ROOT / "results" / "b8_residue.md"
 COLS = Z8.COLS + ["zero_bal"]
 
 #: A month counts as flat when the balance moved by less than this fraction of
-#: itself. **Source, not a choice**: B8-0b measured the floor at half a cent
-#: over a median balance of 165,000, which is 3.03e-08, so anything at that
-#: scale is field 12's quantisation and anything above it is a real move.
+#: itself. **Source, not a choice**: B8-0b measured the floor at 2.68e-08 to
+#: 5.22e-08, just under half a cent over each archive's median balance
+#: (3.04e-08 to 5.85e-08), so anything at that scale is field 12's
+#: quantisation and anything above it is a real move.
 FLAT_TOL = 1e-7
 
 #: A month counts as on-schedule when the balance landed within this fraction
@@ -181,8 +182,9 @@ def render(rows: list[dict]) -> str:
       "paid**, and a loan perpetually one month behind is never `current` "
       "while paying every month.\n")
     A(f"`flat` is `|B(t) - B(t-1)|` within {FLAT_TOL:g} of the balance, whose "
-      "source is B8-0b's floor (half a cent over a median balance of 165,000 "
-      f"is 3.03e-08). `sched` is within {SCHED_TOL:g} of "
+      "source is B8-0b's floor (2.68e-08 to 5.22e-08, just under half a cent "
+      "over each archive's median balance, 3.04e-08 to 5.85e-08). "
+      f"`sched` is within {SCHED_TOL:g} of "
       "`B(t-1)*(1+i/1200) - P`. **`other` is neither, and if it carries the "
       "gap the reading is wrong and something else is happening.**\n")
     if not rows:

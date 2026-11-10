@@ -6,44 +6,56 @@
   "seeds": "none; A0's path seed is the only randomness",
   "path_seed": 7,
   "periods": 60,
-  "defaulting_households": 7277,
-  "in_scope_for_no_pair": 17499,
+  "defaulting_households": 7692,
+  "in_scope_for_no_pair": 17141,
+  "no_pair_by_population": {
+    "all_households": {
+      "n": 20000,
+      "no_pair": 17141,
+      "share": 0.85705
+    },
+    "defaulting_households": {
+      "n": 7692,
+      "no_pair": 4833,
+      "share": 0.6283151326053042
+    }
+  },
   "pairs": {
     "card_before_auto": {
-      "in_scope": 1142,
-      "in_order": 607,
-      "tied": 533,
-      "inverted": 2,
-      "released": 2,
+      "in_scope": 1419,
+      "in_order": 670,
+      "tied": 744,
+      "inverted": 5,
+      "released": 5,
       "unattributed": 0,
       "examples": [],
       "holds": true
     },
     "auto_before_rent": {
-      "in_scope": 977,
-      "in_order": 449,
-      "tied": 526,
-      "inverted": 2,
-      "released": 2,
+      "in_scope": 1195,
+      "in_order": 799,
+      "tied": 387,
+      "inverted": 9,
+      "released": 9,
       "unattributed": 0,
       "examples": [],
       "holds": true
     },
     "card_before_rent": {
-      "in_scope": 1612,
-      "in_order": 523,
-      "tied": 1080,
-      "inverted": 9,
-      "released": 9,
+      "in_scope": 1747,
+      "in_order": 682,
+      "tied": 1042,
+      "inverted": 23,
+      "released": 23,
       "unattributed": 0,
       "examples": [],
       "holds": true
     }
   },
   "mortgage_before_auto": {
-    "in_scope": 788,
-    "in_order": 768,
-    "tied": 20,
+    "in_scope": 936,
+    "in_order": 910,
+    "tied": 26,
     "inverted": 0,
     "released": 0,
     "unattributed": 0,
@@ -57,13 +69,13 @@
       "name": "A1c-1 the sequence holds inside a household",
       "passed": true,
       "void": false,
-      "detail": "card_before_auto: 607 in order, 533 tied, 2 inverted, of 1,142 in scope; auto_before_rent: 449 in order, 526 tied, 2 inverted, of 977 in scope; card_before_rent: 523 in order, 1,080 tied, 9 inverted, of 1,612 in scope. 17,499 of 20,000 households are in scope for no pair at all, which is the population A1-2 quantified over and the size of the mismatch between the claim and its cross-sectional form"
+      "detail": "card_before_auto: 670 in order, 744 tied, 5 inverted, of 1,419 in scope; auto_before_rent: 799 in order, 387 tied, 9 inverted, of 1,195 in scope; card_before_rent: 682 in order, 1,042 tied, 23 inverted, of 1,747 in scope. 17,141 of 20,000 households are in scope for no pair at all. At this run's setting, 20,000 households on A0's path at seed 7 over 60 months, the population A1-2 quantifies over is every household that defaults, 7,692 of them, and 4,833 of those, 62.83%, are in scope for no pair, which is the size of the mismatch between the claim and its cross-sectional form. A1-2's own record in A1b is a run of 100,000 households, 38,436 of them defaulting"
     },
     {
       "name": "A1c-2 every inversion is attributed",
       "passed": true,
       "void": false,
-      "detail": "13 inversions: 13 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed"
+      "detail": "37 inversions: 37 attributed to the release clause, the later class unsavable in the period it was first missed while the earlier one was savable; 0 unattributed"
     }
   ]
 }

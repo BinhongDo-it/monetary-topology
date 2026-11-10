@@ -1,5 +1,9 @@
 {
  "config": {
+  "borrowed_items": {
+   "DIMP": "financial services furnished without payment (line 107)",
+   "DOWN": "imputed rental of owner-occupied nonfarm housing (line 21)"
+  },
   "ends": [
    2007,
    2024
@@ -19,6 +23,10 @@
     2024
    ]
   ],
+  "operators": {
+   "contributions": "(PCE change - BEA contributions) / (1 - previous-year share)",
+   "fisher": "geometric mean of a Laspeyres and a Paasche removal from the items' Fisher price indexes and current-dollar values"
+  },
   "starts": [
    1970,
    1985
@@ -38,21 +46,27 @@
    "passed": true
   },
   {
-   "detail": "main windows: 1973-2014 divergence 13.68, without borrowed 11.46, share 0.1623; 1979-2019 divergence 14.36, without borrowed 9.62, share 0.3298; 1973-2024 divergence 13.14, without borrowed 7.64, share 0.4182. Knob sweep over 288 windows: divergence not positive in 0; share ranges 0.086 to 0.477, median 0.229, above 1 (borrowed prices more than the whole divergence) in 0",
+   "detail": "main windows: 1973-2014 divergence 13.68, without borrowed 11.46, share 0.1623; 1979-2019 divergence 14.36, without borrowed 9.62, share 0.3298; 1973-2024 divergence 13.14, without borrowed 7.64, share 0.4182. Knob sweep over 288 windows: divergence not positive in 0; share ranges 0.086 to 0.477, median 0.229, above 1 (borrowed prices more than the whole divergence) in 0. With the Fisher removal: 1973-2014 share 0.1528; 1979-2019 share 0.3256; 1973-2024 share 0.4117; sweep 0.083 to 0.478, median 0.222; the two operators' shares differ by at most 0.0104 over the sweep",
    "kind": "own_reading",
    "name": "B133-3",
    "passed": true
   },
   {
-   "detail": "1970-1980: rent pull 6.0, FISIM pull 1.26, rent price 59.98 against PCE 67.78; 1980-1990: rent pull 6.25, FISIM pull 0.21, rent price 58.11 against PCE 42.89; 1990-2000: rent pull 3.3, FISIM pull 0.14, rent price 29.0 against PCE 21.11; 2000-2010: rent pull 3.05, FISIM pull 0.58, rent price 25.57 against PCE 20.38; 2010-2020: rent pull 3.13, FISIM pull 1.16, rent price 26.62 against PCE 14.53; 2020-2025: rent pull 2.93, FISIM pull 1.06, rent price 24.57 against PCE 19.28",
+   "detail": "1970-1980: rent pull 6.0, unpriced financial services pull 1.26, rent price 59.98 against PCE 67.78; 1980-1990: rent pull 6.25, unpriced financial services pull 0.21, rent price 58.11 against PCE 42.89; 1990-2000: rent pull 3.3, unpriced financial services pull 0.14, rent price 29.0 against PCE 21.11; 2000-2010: rent pull 3.05, unpriced financial services pull 0.58, rent price 25.57 against PCE 20.38; 2010-2020: rent pull 3.13, unpriced financial services pull 1.16, rent price 26.62 against PCE 14.53; 2020-2025: rent pull 2.93, unpriced financial services pull 1.06, rent price 24.57 against PCE 19.28; line 107 by provider, pension funds' share of its value: 2000 0.195, 2014 0.178, 2024 0.140",
    "kind": "own_reading",
    "name": "B133-4",
    "passed": true
   },
   {
-   "detail": "EPI puts price divergence at 29.6 % of the net gap and 32.4 % of the gross gap, 1973-2014; with a borrowed share of 0.162 on the PCE measure, borrowed prices are 4.8 % and 5.3 % of the whole gap (EPI uses the CPI-U-RS, whose owner's-equivalent-rent weight is larger than the PCE's)",
+   "detail": "EPI puts price divergence at 29.6 % of the net gap and 32.4 % of the gross gap, 1973-2014; with a borrowed share of 0.162 on the PCE measure, borrowed prices are 4.8 % and 5.3 % of the whole gap (a scale conversion: EPI's consumer side is its own compensation deflator, wages by the CPI-U-RS and health benefits by a medical index, and the borrowed share on that measure is not computed here); with the Fisher removal's share of 0.153, 4.5 % and 5.0 %",
    "kind": "own_reading",
    "name": "B133-5",
+   "passed": true
+  },
+  {
+   "detail": "contributions: against BEA's PCE excluding food and energy, yearly gap median 0.0061 points, largest 0.1195 (1943); cumulated 1973-2014 +0.225 log points against 2.22 read, 1979-2019 +0.141 log points against 4.73 read, 1973-2024 +0.251 log points against 5.49 read; fisher: against BEA's PCE excluding food and energy, yearly gap median 0.0015 points, largest 0.0308 (1937); cumulated 1973-2014 +0.005 log points against 2.09 read, 1979-2019 +0.002 log points against 4.67 read, 1973-2024 +0.003 log points against 5.41 read",
+   "kind": "known_answer",
+   "name": "B133-6",
    "passed": true
   }
  ],
@@ -72,27 +86,36 @@
    "main": {
     "1973-2014": {
      "borrowed_share": 0.1623,
+     "borrowed_share_fisher": 0.1528,
      "divergence": 13.68,
      "divergence_without_borrowed": 11.46,
+     "divergence_without_borrowed_fisher": 11.59,
      "nfb": 132.76,
      "pce": 146.44,
-     "pce_without_borrowed": 144.22
+     "pce_without_borrowed": 144.22,
+     "pce_without_borrowed_fisher": 144.35
     },
     "1973-2024": {
      "borrowed_share": 0.4182,
+     "borrowed_share_fisher": 0.4117,
      "divergence": 13.14,
      "divergence_without_borrowed": 7.64,
+     "divergence_without_borrowed_fisher": 7.73,
      "nfb": 157.47,
      "pce": 170.61,
-     "pce_without_borrowed": 165.11
+     "pce_without_borrowed": 165.11,
+     "pce_without_borrowed_fisher": 165.2
     },
     "1979-2019": {
      "borrowed_share": 0.3298,
+     "borrowed_share_fisher": 0.3256,
      "divergence": 14.36,
      "divergence_without_borrowed": 9.62,
+     "divergence_without_borrowed_fisher": 9.68,
      "nfb": 93.67,
      "pce": 108.02,
-     "pce_without_borrowed": 103.29
+     "pce_without_borrowed": 103.29,
+     "pce_without_borrowed_fisher": 103.35
     }
    },
    "sweep": {
@@ -102,6 +125,12 @@
     "min": 0.0863,
     "n": 288,
     "share_above_1": []
+   },
+   "sweep_fisher": {
+    "largest_gap_to_contributions": 0.0104,
+    "max": 0.4776,
+    "median": 0.2224,
+    "min": 0.0826
    }
   },
   "B133-4": {
@@ -146,12 +175,86 @@
     "imputed_rent_price_lp": 24.57,
     "imputed_rent_pull": 2.93,
     "pce_lp": 19.28
+   },
+   "financial_services_line_107_components_musd": {
+    "2000": {
+     "commercial_banks": 49306.0,
+     "line_107_total": 161044.0,
+     "other_depository_and_investment_companies": 80287.0,
+     "pension_funds": 31450.0,
+     "pension_share": 0.1953
+    },
+    "2014": {
+     "commercial_banks": 97742.0,
+     "line_107_total": 264153.0,
+     "other_depository_and_investment_companies": 119475.0,
+     "pension_funds": 46936.0,
+     "pension_share": 0.1777
+    },
+    "2024": {
+     "commercial_banks": 241526.0,
+     "line_107_total": 565522.0,
+     "other_depository_and_investment_companies": 244783.0,
+     "pension_funds": 79214.0,
+     "pension_share": 0.1401
+    }
    }
   },
   "B133-5": {
    "borrowed_share": 0.1623,
+   "borrowed_share_fisher": 0.1528,
    "of_gross_gap_pct": 5.26,
-   "of_net_gap_pct": 4.8
+   "of_gross_gap_pct_fisher": 4.95,
+   "of_net_gap_pct": 4.8,
+   "of_net_gap_pct_fisher": 4.52
+  },
+  "B133-6": {
+   "contributions": {
+    "windows": {
+     "1973-2014": {
+      "borrowed_lp": 2.2211,
+      "gap_over_borrowed": 0.1012,
+      "gap_to_published_core_lp": 0.2248
+     },
+     "1973-2024": {
+      "borrowed_lp": 5.4932,
+      "gap_over_borrowed": 0.0457,
+      "gap_to_published_core_lp": 0.2513
+     },
+     "1979-2019": {
+      "borrowed_lp": 4.7346,
+      "gap_over_borrowed": 0.0297,
+      "gap_to_published_core_lp": 0.1406
+     }
+    },
+    "yearly_gap_max_abs": 0.119534,
+    "yearly_gap_max_year": 1943,
+    "yearly_gap_median_abs": 0.006144,
+    "years": 96
+   },
+   "fisher": {
+    "windows": {
+     "1973-2014": {
+      "borrowed_lp": 2.0905,
+      "gap_over_borrowed": 0.0024,
+      "gap_to_published_core_lp": 0.0049
+     },
+     "1973-2024": {
+      "borrowed_lp": 5.4079,
+      "gap_over_borrowed": 0.0005,
+      "gap_to_published_core_lp": 0.0028
+     },
+     "1979-2019": {
+      "borrowed_lp": 4.6745,
+      "gap_over_borrowed": 0.0003,
+      "gap_to_published_core_lp": 0.0016
+     }
+    },
+    "yearly_gap_max_abs": 0.030798,
+    "yearly_gap_max_year": 1937,
+    "yearly_gap_median_abs": 0.001521,
+    "years": 96
+   }
   }
  },
  "stage": "B133"

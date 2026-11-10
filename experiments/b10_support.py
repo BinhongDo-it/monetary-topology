@@ -109,8 +109,9 @@ MODIFIED, DEFERRED, RA = "modified", "deferred", "RA"
 #: three of them stepping `00 -> 99` in one month) and did **not** name it, so
 #: it stands as its own vertex in every grid until it has a name.
 #:
-#: **`RA`'s treatment, copied rather than invented**: `RA` is Freddie's
-#: not-available code and it is its own node in `g1`, `g2` and `g3` already.
+#: **`RA`'s treatment, copied rather than invented**: `RA` is Freddie's REO
+#: acquisition code (the not-available code is `XX`, below), and it is its own
+#: node in `g1`, `g2` and `g3` already.
 #:
 #: **Adding it here is inert with the switch off**, and that is the whole
 #: point: nothing else in this repository can produce this label, so `b12_*`

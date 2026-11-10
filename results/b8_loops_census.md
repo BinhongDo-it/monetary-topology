@@ -79,11 +79,11 @@ A loan still reporting at the end of the archive is **right censored**; one that
 
 | archive | unknown-status rows | inside a window | windows touched |
 |---|---|---|---|
-| 2002Q1 | 956,287 | 36 | 1 |
-| 2006Q1 | 237,185 | 60 | 4 |
-| 2007Q1 | 235,576 | 58 | 7 |
-| 2012Q1 | 393,765 | 0 | 0 |
-| 2017Q1 | 127,930 | 0 | 0 |
+| 2002Q1 | 955,640 | 0 | 0 |
+| 2006Q1 | 234,986 | 0 | 0 |
+| 2007Q1 | 233,693 | 0 | 0 |
+| 2012Q1 | 393,675 | 0 | 0 |
+| 2017Q1 | 127,929 | 0 | 0 |
 | 2019Q1 | 86,309 | 0 | 0 |
 
 ## What this does not decide

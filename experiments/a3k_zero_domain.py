@@ -12,6 +12,12 @@ that came out of the old `gamma`: `gamma_pay` is what is paid and enters the
 cochain (`H1`); `gamma_gate` is an admission threshold, a restriction on the
 domain, outside the cochain **by construction** (`H0`).
 
+In the model the payment terms also admit the bidder pool that prices a tier,
+so the cell read below as the terms channel, `H1`, is the loop-sum-only cell
+with the pricing pool dispersed alongside the loop sum, and the gate cell has
+the pool levelled and carries the opening allocation alone. The prediction is
+read on the gate cell.
+
 > **So the gate channel's holonomy share is predicted to be zero. Not small,
 > not bounded: zero, as a point prediction, from the theorem, with no constant
 > chosen by anyone.**

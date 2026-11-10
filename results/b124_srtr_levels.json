@@ -1,0 +1,548 @@
+{
+ "config": {
+  "filter": "deceased donor, liver only, recipient 18+",
+  "meld": "laboratory MELD at transplant, MELD candidates only",
+  "min_n": 10,
+  "wait": "days from listing to transplant plus one, log scale",
+  "windows": {
+   "W1": [
+    "2018-02-04",
+    "2019-02-04"
+   ],
+   "W2": [
+    "2019-02-04",
+    "2020-02-04"
+   ],
+   "W3": [
+    "2020-02-04",
+    "2021-02-04"
+   ],
+   "W4": [
+    "2021-02-04",
+    "2022-02-04"
+   ]
+  }
+ },
+ "criteria": [
+  {
+   "detail": {
+    "A": -0.5102818270070237,
+    "AB": null,
+    "B": 0.27019643451662567,
+    "O": -0.19398253804014498
+   },
+   "kind": "own_reading",
+   "name": "B124-U1",
+   "passed": false,
+   "statement": "Within each blood group, the spread of DBD centre medians of lab MELD at transplant falls from the two windows before the reform to the two after"
+  },
+  {
+   "detail": {
+    "A": 0.17161314691898655,
+    "AB": null,
+    "B": -0.01086090806365747,
+    "O": 0.10101453311699415
+   },
+   "kind": "own_reading",
+   "name": "B124-U2",
+   "passed": false,
+   "statement": "Within each blood group, the spread of DBD centre log median waits falls across the reform"
+  },
+  {
+   "detail": {
+    "DBD": {
+     "A": -0.5102818270070237,
+     "AB": null,
+     "B": 0.27019643451662567,
+     "O": -0.19398253804014498
+    },
+    "DCD": {
+     "A": 0.07348369479023864,
+     "AB": null,
+     "B": null,
+     "O": -0.30154493018321427
+    }
+   },
+   "kind": "own_reading",
+   "name": "B124-U3",
+   "passed": false,
+   "statement": "Within each blood group the DBD fall in MELD spread exceeds the DCD fall"
+  },
+  {
+   "detail": {
+    "DBD": {
+     "A": 0.17161314691898655,
+     "AB": null,
+     "B": -0.01086090806365747,
+     "O": 0.10101453311699415
+    },
+    "DCD": {
+     "A": 0.3847099191507597,
+     "AB": null,
+     "B": null,
+     "O": -0.2918461220568709
+    }
+   },
+   "kind": "own_reading",
+   "name": "B124-U4",
+   "passed": false,
+   "statement": "Within each blood group the DBD fall in wait spread exceeds the DCD fall"
+  }
+ ],
+ "dispersion": {
+  "DBD A W1": {
+   "meld": {
+    "Q_over_df": 6.0705,
+    "centres": 88,
+    "median_floor": 2.9667,
+    "sd": 5.6107
+   },
+   "wait": {
+    "Q_over_df": 4.1608,
+    "centres": 88,
+    "median_floor": 0.4802,
+    "sd": 0.8487
+   }
+  },
+  "DBD A W2": {
+   "meld": {
+    "Q_over_df": 4.8187,
+    "centres": 88,
+    "median_floor": 2.7491,
+    "sd": 5.4041
+   },
+   "wait": {
+    "Q_over_df": 5.1866,
+    "centres": 88,
+    "median_floor": 0.5048,
+    "sd": 0.9063
+   }
+  },
+  "DBD A W3": {
+   "meld": {
+    "Q_over_df": 4.8991,
+    "centres": 84,
+    "median_floor": 2.5984,
+    "sd": 4.9277
+   },
+   "wait": {
+    "Q_over_df": 5.696,
+    "centres": 84,
+    "median_floor": 0.5652,
+    "sd": 1.1063
+   }
+  },
+  "DBD A W4": {
+   "meld": {
+    "Q_over_df": 6.9594,
+    "centres": 81,
+    "median_floor": 2.4388,
+    "sd": 5.0665
+   },
+   "wait": {
+    "Q_over_df": 6.092,
+    "centres": 81,
+    "median_floor": 0.5385,
+    "sd": 0.9918
+   }
+  },
+  "DBD AB W1": {
+   "meld": null,
+   "wait": null
+  },
+  "DBD AB W2": {
+   "meld": null,
+   "wait": null
+  },
+  "DBD AB W3": {
+   "meld": null,
+   "wait": null
+  },
+  "DBD AB W4": {
+   "meld": null,
+   "wait": null
+  },
+  "DBD B W1": {
+   "meld": {
+    "Q_over_df": 2.607,
+    "centres": 38,
+    "median_floor": 3.3631,
+    "sd": 4.7883
+   },
+   "wait": {
+    "Q_over_df": 9.0242,
+    "centres": 38,
+    "median_floor": 0.6229,
+    "sd": 1.0369
+   }
+  },
+  "DBD B W2": {
+   "meld": {
+    "Q_over_df": 1.9816,
+    "centres": 41,
+    "median_floor": 2.8555,
+    "sd": 4.7391
+   },
+   "wait": {
+    "Q_over_df": 3.1552,
+    "centres": 41,
+    "median_floor": 0.5268,
+    "sd": 0.8708
+   }
+  },
+  "DBD B W3": {
+   "meld": {
+    "Q_over_df": 3.0097,
+    "centres": 34,
+    "median_floor": 3.7804,
+    "sd": 5.51
+   },
+   "wait": {
+    "Q_over_df": 2.0796,
+    "centres": 34,
+    "median_floor": 0.7247,
+    "sd": 0.9082
+   }
+  },
+  "DBD B W4": {
+   "meld": {
+    "Q_over_df": 2.2607,
+    "centres": 40,
+    "median_floor": 3.6001,
+    "sd": 4.5579
+   },
+   "wait": {
+    "Q_over_df": 3.0846,
+    "centres": 40,
+    "median_floor": 0.6769,
+    "sd": 0.9778
+   }
+  },
+  "DBD O W1": {
+   "meld": {
+    "Q_over_df": 4.0387,
+    "centres": 89,
+    "median_floor": 2.8774,
+    "sd": 5.1981
+   },
+   "wait": {
+    "Q_over_df": 7.5571,
+    "centres": 89,
+    "median_floor": 0.4748,
+    "sd": 0.8735
+   }
+  },
+  "DBD O W2": {
+   "meld": {
+    "Q_over_df": 6.454,
+    "centres": 88,
+    "median_floor": 2.5999,
+    "sd": 5.239
+   },
+   "wait": {
+    "Q_over_df": 9.1187,
+    "centres": 88,
+    "median_floor": 0.4571,
+    "sd": 0.8868
+   }
+  },
+  "DBD O W3": {
+   "meld": {
+    "Q_over_df": 6.4968,
+    "centres": 91,
+    "median_floor": 2.3803,
+    "sd": 4.9067
+   },
+   "wait": {
+    "Q_over_df": 4.5335,
+    "centres": 91,
+    "median_floor": 0.5797,
+    "sd": 0.9933
+   }
+  },
+  "DBD O W4": {
+   "meld": {
+    "Q_over_df": 7.2088,
+    "centres": 89,
+    "median_floor": 2.1791,
+    "sd": 5.1424
+   },
+   "wait": {
+    "Q_over_df": 5.0262,
+    "centres": 89,
+    "median_floor": 0.526,
+    "sd": 0.969
+   }
+  },
+  "DCD A W1": {
+   "meld": {
+    "Q_over_df": 0.541,
+    "centres": 3,
+    "median_floor": 1.546,
+    "sd": 1.1547
+   },
+   "wait": {
+    "Q_over_df": 0.7014,
+    "centres": 3,
+    "median_floor": 0.4303,
+    "sd": 0.3736
+   }
+  },
+  "DCD A W2": {
+   "meld": {
+    "Q_over_df": 2.6105,
+    "centres": 3,
+    "median_floor": 1.9609,
+    "sd": 3.0
+   },
+   "wait": {
+    "Q_over_df": 1.7009,
+    "centres": 3,
+    "median_floor": 0.2811,
+    "sd": 0.6488
+   }
+  },
+  "DCD A W3": {
+   "meld": {
+    "Q_over_df": 1.3457,
+    "centres": 9,
+    "median_floor": 1.408,
+    "sd": 2.3184
+   },
+   "wait": {
+    "Q_over_df": 6.435,
+    "centres": 9,
+    "median_floor": 0.4219,
+    "sd": 0.9704
+   }
+  },
+  "DCD A W4": {
+   "meld": {
+    "Q_over_df": 1.2238,
+    "centres": 10,
+    "median_floor": 1.6114,
+    "sd": 1.9833
+   },
+   "wait": {
+    "Q_over_df": 2.1593,
+    "centres": 10,
+    "median_floor": 0.478,
+    "sd": 0.8215
+   }
+  },
+  "DCD AB W1": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD AB W2": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD AB W3": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD AB W4": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD B W1": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD B W2": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD B W3": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD B W4": {
+   "meld": null,
+   "wait": null
+  },
+  "DCD O W1": {
+   "meld": {
+    "Q_over_df": 1.4745,
+    "centres": 5,
+    "median_floor": 2.483,
+    "sd": 3.7014
+   },
+   "wait": {
+    "Q_over_df": 30.5222,
+    "centres": 5,
+    "median_floor": 0.4104,
+    "sd": 1.3952
+   }
+  },
+  "DCD O W2": {
+   "meld": {
+    "Q_over_df": 1.3574,
+    "centres": 7,
+    "median_floor": 1.341,
+    "sd": 2.1409
+   },
+   "wait": {
+    "Q_over_df": 2.2509,
+    "centres": 7,
+    "median_floor": 0.4425,
+    "sd": 0.5683
+   }
+  },
+  "DCD O W3": {
+   "meld": {
+    "Q_over_df": 0.8027,
+    "centres": 10,
+    "median_floor": 1.8688,
+    "sd": 1.8447
+   },
+   "wait": {
+    "Q_over_df": 2.7163,
+    "centres": 10,
+    "median_floor": 0.4743,
+    "sd": 0.7642
+   }
+  },
+  "DCD O W4": {
+   "meld": {
+    "Q_over_df": 4.5123,
+    "centres": 13,
+    "median_floor": 1.5825,
+    "sd": 3.3945
+   },
+   "wait": {
+    "Q_over_df": 2.5527,
+    "centres": 13,
+    "median_floor": 0.531,
+    "sd": 0.6156
+   }
+  }
+ },
+ "doc": "docs/b124_transport_dual.md",
+ "spread_change": {
+  "DBD meld": {
+   "A": -0.5103,
+   "AB": null,
+   "B": 0.2702,
+   "O": -0.194
+  },
+  "DBD wait": {
+   "A": 0.1716,
+   "AB": null,
+   "B": -0.0109,
+   "O": 0.101
+  },
+  "DCD meld": {
+   "A": 0.0735,
+   "AB": null,
+   "B": null,
+   "O": -0.3015
+  },
+  "DCD wait": {
+   "A": 0.3847,
+   "AB": null,
+   "B": null,
+   "O": -0.2918
+  }
+ },
+ "stage": "B124-U",
+ "structure_dbd": {
+  "A W1": {
+   "b1": 325,
+   "components": 1,
+   "routes": 503,
+   "vertices": 179
+  },
+  "A W2": {
+   "b1": 344,
+   "components": 1,
+   "routes": 520,
+   "vertices": 177
+  },
+  "A W3": {
+   "b1": 713,
+   "components": 1,
+   "routes": 888,
+   "vertices": 176
+  },
+  "A W4": {
+   "b1": 728,
+   "components": 1,
+   "routes": 902,
+   "vertices": 175
+  },
+  "AB W1": {
+   "b1": 74,
+   "components": 2,
+   "routes": 223,
+   "vertices": 151
+  },
+  "AB W2": {
+   "b1": 87,
+   "components": 4,
+   "routes": 240,
+   "vertices": 157
+  },
+  "AB W3": {
+   "b1": 129,
+   "components": 1,
+   "routes": 284,
+   "vertices": 156
+  },
+  "AB W4": {
+   "b1": 126,
+   "components": 2,
+   "routes": 274,
+   "vertices": 150
+  },
+  "B W1": {
+   "b1": 164,
+   "components": 1,
+   "routes": 331,
+   "vertices": 168
+  },
+  "B W2": {
+   "b1": 166,
+   "components": 2,
+   "routes": 336,
+   "vertices": 172
+  },
+  "B W3": {
+   "b1": 327,
+   "components": 1,
+   "routes": 496,
+   "vertices": 170
+  },
+  "B W4": {
+   "b1": 370,
+   "components": 1,
+   "routes": 539,
+   "vertices": 170
+  },
+  "O W1": {
+   "b1": 354,
+   "components": 2,
+   "routes": 532,
+   "vertices": 180
+  },
+  "O W2": {
+   "b1": 354,
+   "components": 1,
+   "routes": 533,
+   "vertices": 180
+  },
+  "O W3": {
+   "b1": 740,
+   "components": 1,
+   "routes": 916,
+   "vertices": 177
+  },
+  "O W4": {
+   "b1": 809,
+   "components": 1,
+   "routes": 984,
+   "vertices": 176
+  }
+ }
+}

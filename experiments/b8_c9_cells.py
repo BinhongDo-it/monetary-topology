@@ -324,10 +324,13 @@ def collect(names: list[str]):
         with K.Core(n) as c:
             t = T.triangles(c)
             g = build_grids(c)
-            # The triangle population does not depend on the `q` grid: the test
-            # asks for *some* delinquent row, not a depth, and both registered
-            # grids agree on which rows are delinquent. Asserted rather than
-            # argued, since §3.3 forbids reading anything off one grid.
+            # The triangle population does not depend on the `q` grid: the
+            # triangle finder reads field 40 itself and asks for *some*
+            # delinquent row, not a depth, and neither registered grid enters
+            # it. The two masks below are the same expression, so this
+            # comparison cannot fail and checks nothing; it is kept so the
+            # report's branch still has a flag to read. Both stop at 98 and
+            # leave out `99`, which no triangle reads through them.
             dv = c.row["delinq"]
             primary_del = (dv <= 98) & (dv != 0)      # current/30/60/90+/mod
             secondary_del = (dv <= 98) & (dv != 0)    # current/delinquent/mod
@@ -363,7 +366,10 @@ def report(res, res_flex_cohort, q_same, names) -> str:
       "`current/30/60/90+/modified` and the secondary "
       "`current/delinquent/modified` agree row for row on which rows are "
       "delinquent. " +
-      ("**Checked as arrays on every archive, not argued.** The `q` grid "
+      ("**This holds by construction**: the triangle finder reads the "
+       "delinquency field without either grid, so no array comparison is "
+       "needed and the one in the code compares two identical expressions. "
+       "The `q` grid "
        "changes the walk's state space and therefore `omega`; it does not "
        "change who completes a triangle, so one table per class grid is the "
        "whole answer rather than two identical ones.\n"

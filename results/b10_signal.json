@@ -6,21 +6,21 @@
   ],
   "criteria": [
     {
-      "detail": "schemes ['orig', 'sub']; ratios {'sub': 6388936.9, 'orig': 6391860.1}; widest over narrowest 1.000458",
+      "detail": "schemes ['orig', 'sub']; ratios {'sub': 6862690.9, 'orig': 6391860.1}; widest over narrowest 1.073661",
       "kind": "instrument",
       "name": "B10-10",
       "passed": true,
       "text": "The two payment schemes put the modification arm's loop sum on the same side of the readable line. The scheme is this stage's choice, so a verdict that moved with it would be a property of the choice rather than of the carrier."
     },
     {
-      "detail": "readable line 1.0; registered scheme sub reads 6388936.9; all schemes {'sub': 6388936.9, 'orig': 6391860.1}",
+      "detail": "readable line 1.0; registered scheme sub reads 6862690.9; all schemes {'sub': 6862690.9, 'orig': 6391860.1}",
       "kind": "own_reading",
       "name": "B10-11",
       "passed": true,
       "text": "On the second carrier the modification arm's loop sum stands above the instrument's own resolution floor, the line being \u00a721.2's, transcribed, and the floor being measured on this carrier rather than carried over from the first. Read on the registered payment scheme; the other one is the robustness check and B10-10 is where it is scored."
     },
     {
-      "detail": "registered scheme sub reads 6388936.9 against a readable line of 1.0; all schemes {'sub': 6388936.9, 'orig': 6391860.1}",
+      "detail": "registered scheme sub reads 6862690.9 against a readable line of 1.0; all schemes {'sub': 6862690.9, 'orig': 6391860.1}",
       "grid": "B",
       "kind": "rival",
       "name": "B10-12",
@@ -104,6 +104,32 @@
       "absmed": 2.437557355960962e-08,
       "mad": 2.349980055988965e-08,
       "n": 12450
+    }
+  },
+  "floors_by_scheme": {
+    "orig": {
+      "ambient": {
+        "absmed": 0.0001787440921390271,
+        "mad": 0.0002649849534270885,
+        "n": 115081
+      },
+      "resolution": {
+        "absmed": 2.437557355960962e-08,
+        "mad": 2.349980055988965e-08,
+        "n": 12450
+      }
+    },
+    "sub": {
+      "ambient": {
+        "absmed": 0.00044988073510232596,
+        "mad": 0.0006669516203323923,
+        "n": 115085
+      },
+      "resolution": {
+        "absmed": 2.2982398206750076e-08,
+        "mad": 2.1877532631897622e-08,
+        "n": 10576
+      }
     }
   },
   "inherited_line": 3.0,
@@ -219,12 +245,12 @@
           },
           "ratios": {
             "ambient": {
-              "net": 42.0144711411521,
-              "raw": 62.80420242814609
+              "net": 16.692669062042953,
+              "raw": 24.952587486261272
             },
             "resolution": {
-              "net": 473757.32616235537,
-              "raw": 708183.3998137505
+              "net": 508887.49046451616,
+              "raw": 760696.7812806875
             }
           },
           "raw": {
@@ -241,12 +267,12 @@
           },
           "ratios": {
             "ambient": {
-              "net": 541.9602891259741,
-              "raw": 566.5934661989991
+              "net": 215.32494651082087,
+              "raw": 225.11189518965253
             },
             "resolution": {
-              "net": 6111171.948348315,
-              "raw": 6388936.913324146
+              "net": 6564329.00317064,
+              "raw": 6862690.860939724
             }
           },
           "raw": {
@@ -257,7 +283,7 @@
         }
       },
       "l1": {
-        "exact": 8899,
+        "exact": 8898,
         "l1c_missing": 0,
         "n": 20846,
         "q_eff": [
@@ -275,8 +301,8 @@
           8.0,
           20.0
         ],
-        "share": 0.4268924493907704,
-        "tol": 4.69996011197793e-08
+        "share": 0.42684447855703733,
+        "tol": 4.3755065263795244e-08
       },
       "net": {
         "absmed": 0.014668926243629699,
@@ -285,20 +311,20 @@
       },
       "ratios": {
         "ambient": {
-          "net": 69.92344852226206,
+          "net": 27.78111812802674,
           "net_above_1": true,
           "net_above_3": true,
           "net_over_raw": 0.7387908805460942,
-          "raw": 94.6457926911287,
+          "raw": 37.60349357248656,
           "raw_above_1": true,
           "raw_above_3": true
         },
         "resolution": {
-          "net": 788460.3830110139,
+          "net": 846926.482153572,
           "net_above_1": true,
           "net_above_3": true,
           "net_over_raw": 0.7387908805460942,
-          "raw": 1067230.8007215862,
+          "raw": 1146368.3492242715,
           "raw_above_1": true,
           "raw_above_3": true
         }

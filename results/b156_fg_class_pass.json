@@ -1,0 +1,3127 @@
+{
+ "config": {
+  "alpha": 0.05,
+  "bands": [
+   2,
+   5
+  ],
+  "default_band": 2,
+  "default_window": 2,
+  "draws": 2000,
+  "event_first_for_class_indices": "20170101",
+  "event_rule": {
+   "action_regex": "((raise|lower|maintain|keep|reduce)[a-z]* (the|its|this|the current) target range|target range[^.]{0,80}remains appropriate)",
+   "hold_regex": "((maintain|keep)[a-z]* (the|its|this|the current) target range|target range[^.]{0,80}remains appropriate)",
+   "path_object_regex": "(target range|federal funds rate|policy firming)",
+   "path_regex": "(gradual increases|patient|act as appropriate|until|soon be appropriate|policy firming|not expect it will be appropriate|additional adjustments|future adjustments|future increases|ongoing increases|any adjustments|extended period|at least through|at least as long as|considerable time|well past|likely to occur sooner|likely to occur later|below levels)"
+  },
+  "first_day": "2017-01-03",
+  "last_day": "2026-10-15",
+  "seeds": [
+   156,
+   1561
+  ],
+  "series": {
+   "conv": "OBMMIC30YF",
+   "fha": "OBMMIFHA30YF",
+   "jumbo": "OBMMIJUMBO30YF",
+   "t10": "DGS10",
+   "t2": "DGS2",
+   "va": "OBMMIVA30YF"
+  },
+  "windows": [
+   2,
+   5,
+   10
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "FRED files against the in-browser row counts: all match; releases with an #article block 149 of 149",
+   "kind": "instrument",
+   "name": "B156-1",
+   "passed": true
+  },
+  {
+   "detail": "10 events from the text rule: 20180131 20190130 20190619 20200916 20211215 20220126 20230614 20231213 20240131 20260617. Landmarks 20190130 20200916 present. Releases with no rate decision skipped: 20100509 20191011 20200323 20200331 20200827 20250822",
+   "kind": "known_answer",
+   "name": "B156-2",
+   "passed": true
+  },
+  {
+   "cite": "Royal Swedish Academy of Sciences, Scientific background to the 2026 prize in economic sciences, 'Microeconomic foundations of macroeconomic stabilization', section 4.2.1 'Consumers: enter Hall'.",
+   "detail": "All non-event windows, VA minus conventional change on 10-year change: slope 0.0185, 90% month-block interval [-0.0303, 0.0658], n 904 (h=2, band 2). Knob points (h, band, slope): (2, 2, 0.0185); (2, 5, 0.0293); (5, 2, 0.0430); (5, 5, 0.0081); (10, 2, 0.0450); (10, 5, 0.0413). Reading: inside the floor.",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B156-3",
+   "passed": null,
+   "rival_entailment": "An announcement that changes only the expected path of the policy rate reaches every household through that one Q_t sequence. A spread between two borrower classes on the same contract can then only be a constant wedge outside the policy channel, so its change over such a day is zero and its change on rate news generally is zero: the VA minus conventional spread does not load on the 10-year yield.",
+   "rival_premise": "One intertemporal price schedule for every household: P_t C_t + Q_t B_{t+1} = B_t + W_t H_t + Pi_t, with no household index on the bond price Q_t; the edge field is w = d(phi), the same for every class.",
+   "rival_shape": "point"
+  },
+  {
+   "cite": "Royal Swedish Academy of Sciences, Scientific background to the 2026 prize in economic sciences, 'Microeconomic foundations of macroeconomic stabilization', section 4.2.1 'Consumers: enter Hall'.",
+   "detail": "Forward-guidance days, |change in VA minus conventional| mean 0.0575 against non-event mean 0.0374 (n 904), permutation p 0.025/0.024 at 2000 draws. Per day (date, spread, 2y, 10y, rank): 20180131 -0.030 +0.03 +0.05 0.49; 20190130 -0.016 -0.11 -0.09 0.26; 20190619 +0.033 -0.14 -0.05 0.53; 20200916 -0.029 -0.01 +0.01 0.49; 20211215 -0.030 -0.03 +0.00 0.49; 20220126 +0.104 +0.16 +0.03 0.96; 20230614 +0.011 -0.05 -0.12 0.19; 20231213 -0.178 -0.36 -0.28 1.00; 20240131 -0.121 -0.16 -0.19 0.98; 20260617 +0.023 +0.14 +0.03 0.41. Knob points (h, band, p): (2, 2, 0.025/0.024); (2, 5, 0.029/0.022); (5, 2, 0.727/0.707); (5, 5, 0.776/0.771); (10, 2, 0.670/0.664); (10, 5, 0.463/0.472). Reading: sign moves over the knobs, above the floor on some knob points and not others.",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B156-4",
+   "passed": null,
+   "rival_entailment": "An announcement that changes only the expected path of the policy rate reaches every household through that one Q_t sequence. A spread between two borrower classes on the same contract can then only be a constant wedge outside the policy channel, so its change over such a day is zero and its change on rate news generally is zero: the VA minus conventional spread does not load on the 10-year yield.",
+   "rival_premise": "One intertemporal price schedule for every household: P_t C_t + Q_t B_{t+1} = B_t + W_t H_t + Pi_t, with no household index on the bond price Q_t; the edge field is w = d(phi), the same for every class.",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "FHA minus conventional, printed as a gradient (the split is self-selected): slope -0.1371 interval [-0.1680, -0.1045]; event mean |change| 0.0293 against 0.0287, p 0.432/0.443",
+   "kind": "own_reading",
+   "name": "B156-5",
+   "passed": true
+  },
+  {
+   "detail": "Six knob points computed: yes. Rate-sheet lag check: at h=10 the interval excludes zero on 0 of 2 bands",
+   "kind": "instrument",
+   "name": "B156-6",
+   "passed": true
+  },
+  {
+   "detail": "Permutation floor at 2000 draws, seeds 156/1561, printed per knob point; largest seed spread 0.020",
+   "kind": "bookkeeping",
+   "name": "B156-7",
+   "passed": true
+  },
+  {
+   "detail": "FHA minus conventional at fixed scenarios (MND rate-sheet index), change on 10-year change. 2017-01-03 onward, same release bands as B156-5: (2, 2, -0.0639 [-0.1105, -0.0140] n 892); (2, 5, -0.1110 [-0.1636, -0.0622] n 647); (5, 2, -0.0097 [-0.0796, 0.0707] n 271); (5, 5, -0.0510 [-0.1201, 0.0260] n 184); (10, 2, 0.0109 [-0.1018, 0.1025] n 78); (10, 5, 0.0558 [-0.0941, 0.1934] n 31); reading sign moves over the knobs. 2009-04-29 to 2016-12-30 (same release bands): (2, 2, -0.1124 [-0.1662, -0.0533] n 697); (2, 5, -0.1166 [-0.1732, -0.0580] n 513); (5, 2, -0.1052 [-0.1802, -0.0278] n 212); (5, 5, -0.1144 [-0.1944, -0.0269] n 144); (10, 2, 0.1154 [-0.0253, 0.2496] n 62); (10, 5, -0.2065 [-0.4328, 0.0436] n 24); reading sign moves over the knobs. Days with both lines: 4280",
+   "kind": "own_reading",
+   "name": "B156-8",
+   "passed": true
+  },
+  {
+   "cite": "Royal Swedish Academy of Sciences, Scientific background to the 2026 prize in economic sciences, 'Microeconomic foundations of macroeconomic stabilization', section 4.2.1 'Consumers: enter Hall'.",
+   "detail": "VA minus conventional on the 10-year, overlapping windows, month-block interval: (2, 2, 0.0244 [-0.0212, 0.0689] n 1764); (2, 5, 0.0211 [-0.0290, 0.0700] n 1277); (5, 2, 0.0452 [0.0081, 0.0832] n 1274); (5, 5, 0.0471 [0.0009, 0.0966] n 806); (10, 2, 0.0401 [-0.0016, 0.0836] n 508); (10, 5, 0.0217 [-0.0404, 0.0675] n 143). Reading: inside the floor.",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B156-9",
+   "passed": null,
+   "rival_entailment": "An announcement that changes only the expected path of the policy rate reaches every household through that one Q_t sequence. A spread between two borrower classes on the same contract can then only be a constant wedge outside the policy channel, so its change over such a day is zero and its change on rate news generally is zero: the VA minus conventional spread does not load on the 10-year yield.",
+   "rival_premise": "One intertemporal price schedule for every household: P_t C_t + Q_t B_{t+1} = B_t + W_t H_t + Pi_t, with no household index on the bond price Q_t; the edge field is w = d(phi), the same for every class.",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "FHA minus conventional at fixed scenarios, overlapping windows. 2017-01-03 onward: (2, 2, -0.0776 [-0.1164, -0.0356] n 1747); (2, 5, -0.0872 [-0.1299, -0.0425] n 1260); (5, 2, -0.0516 [-0.0952, -0.0044] n 1257); (5, 5, -0.0315 [-0.0817, 0.0193] n 790); (10, 2, -0.0318 [-0.0996, 0.0418] n 492); (10, 5, 0.0204 [-0.0737, 0.1250] n 134); reading sign moves over the knobs. 2009-04-29 to 2016-12-30: (2, 2, -0.1143 [-0.1610, -0.0646] n 1358); (2, 5, -0.1219 [-0.1736, -0.0671] n 989); (5, 2, -0.1070 [-0.1574, -0.0502] n 986); (5, 5, -0.0633 [-0.1324, 0.0100] n 621); (10, 2, -0.1153 [-0.2044, -0.0110] n 383); (10, 5, -0.0991 [-0.2665, 0.0602] n 94); reading nonzero, sign stable over the knobs.",
+   "kind": "own_reading",
+   "name": "B156-10",
+   "passed": true
+  },
+  {
+   "detail": "Forward-guidance days 2009 to 2026 on the fixed-scenario quotes, |change in FHA minus conventional|: 27 days, per day (date, spread, 2y, 10y, rank): 20090624 +0.000 -0.02 -0.10 0.13; 20091104 +0.020 -0.02 +0.07 0.53; 20100921 +0.010 -0.03 -0.16 0.16; 20110622 +0.000 -0.05 -0.06 0.13; 20110809 +0.050 -0.08 -0.23 0.83; 20110921 +0.050 +0.11 +0.06 0.79; 20120125 +0.110 -0.02 -0.12 0.97; 20120913 +0.000 +0.02 +0.11 0.00; 20121212 -0.030 +0.03 +0.08 0.63; 20130320 -0.010 +0.03 +0.03 0.16; 20131218 -0.050 +0.01 +0.09 0.79; 20140129 -0.160 -0.02 -0.05 0.99; 20140319 -0.070 +0.09 +0.11 0.89; 20141029 -0.020 +0.06 +0.02 0.41; 20141217 +0.020 +0.09 +0.15 0.48; 20150128 +0.010 -0.03 -0.06 0.31; 20150318 -0.050 -0.07 -0.08 0.79; 20180131 +0.110 +0.03 +0.05 0.97; 20190130 +0.090 -0.11 -0.09 0.95; 20190619 -0.010 -0.14 -0.05 0.31; 20200916 +0.010 -0.01 +0.01 0.16; 20211215 +0.000 -0.03 +0.00 0.00; 20220126 -0.030 +0.16 +0.03 0.61; 20230614 -0.020 -0.05 -0.12 0.41; 20231213 +0.180 -0.36 -0.28 0.99; 20240131 +0.080 -0.16 -0.19 0.92; 20260617 -0.010 +0.14 +0.03 0.16. Early landmarks 20110809 20141217 present. Knob points (h, band, mean, null mean, p; draws in the record): (2, 2, 0.0444, 0.0314, 0.051/0.053); (2, 5, 0.0444, 0.0323, 0.066/0.069); (5, 2, 0.0556, 0.0433, 0.128/0.135); (5, 5, 0.0556, 0.0424, 0.062/0.062); (10, 2, 0.0452, 0.0527, 0.616/0.616); (10, 5, 0.0452, 0.0484, 0.665/0.667). Reading: inside the floor.",
+   "kind": "own_reading",
+   "name": "B156-11",
+   "passed": true
+  }
+ ],
+ "event_cells": {
+  "fha": [
+   {
+    "band": 2,
+    "draws": 2000,
+    "h": 2,
+    "mean_abs": 0.0293,
+    "null_mean_abs": 0.02867,
+    "null_n": 904,
+    "perm_p": [
+     0.4325,
+     0.4425
+    ],
+    "rows": [
+     {
+      "d_spread": 0.001,
+      "d_t10": 0.05,
+      "d_t2": 0.03,
+      "date": "20180131",
+      "null_rank": 0.02323
+     },
+     {
+      "d_spread": 0.0,
+      "d_t10": -0.09,
+      "d_t2": -0.11,
+      "date": "20190130",
+      "null_rank": 0.0
+     },
+     {
+      "d_spread": -0.006,
+      "d_t10": -0.05,
+      "d_t2": -0.14,
+      "date": "20190619",
+      "null_rank": 0.159292
+     },
+     {
+      "d_spread": 0.022,
+      "d_t10": 0.01,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.466814
+     },
+     {
+      "d_spread": 0.017,
+      "d_t10": 0.0,
+      "d_t2": -0.03,
+      "date": "20211215",
+      "null_rank": 0.380531
+     },
+     {
+      "d_spread": -0.03,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.609513
+     },
+     {
+      "d_spread": 0.029,
+      "d_t10": -0.12,
+      "d_t2": -0.05,
+      "date": "20230614",
+      "null_rank": 0.582965
+     },
+     {
+      "d_spread": 0.087,
+      "d_t10": -0.28,
+      "d_t2": -0.36,
+      "date": "20231213",
+      "null_rank": 0.972345
+     },
+     {
+      "d_spread": 0.072,
+      "d_t10": -0.19,
+      "d_t2": -0.16,
+      "date": "20240131",
+      "null_rank": 0.943584
+     },
+     {
+      "d_spread": 0.029,
+      "d_t10": 0.03,
+      "d_t2": 0.14,
+      "date": "20260617",
+      "null_rank": 0.60177
+     }
+    ]
+   },
+   {
+    "band": 5,
+    "draws": 2000,
+    "h": 2,
+    "mean_abs": 0.0293,
+    "null_mean_abs": 0.028756,
+    "null_n": 659,
+    "perm_p": [
+     0.435,
+     0.4635
+    ],
+    "rows": [
+     {
+      "d_spread": 0.001,
+      "d_t10": 0.05,
+      "d_t2": 0.03,
+      "date": "20180131",
+      "null_rank": 0.036419
+     },
+     {
+      "d_spread": 0.0,
+      "d_t10": -0.09,
+      "d_t2": -0.11,
+      "date": "20190130",
+      "null_rank": 0.0
+     },
+     {
+      "d_spread": -0.006,
+      "d_t10": -0.05,
+      "d_t2": -0.14,
+      "date": "20190619",
+      "null_rank": 0.168437
+     },
+     {
+      "d_spread": 0.022,
+      "d_t10": 0.01,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.481032
+     },
+     {
+      "d_spread": 0.017,
+      "d_t10": 0.0,
+      "d_t2": -0.03,
+      "date": "20211215",
+      "null_rank": 0.38695
+     },
+     {
+      "d_spread": -0.03,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.620637
+     },
+     {
+      "d_spread": 0.029,
+      "d_t10": -0.12,
+      "d_t2": -0.05,
+      "date": "20230614",
+      "null_rank": 0.588771
+     },
+     {
+      "d_spread": 0.087,
+      "d_t10": -0.28,
+      "d_t2": -0.36,
+      "date": "20231213",
+      "null_rank": 0.968134
+     },
+     {
+      "d_spread": 0.072,
+      "d_t10": -0.19,
+      "d_t2": -0.16,
+      "date": "20240131",
+      "null_rank": 0.937785
+     },
+     {
+      "d_spread": 0.029,
+      "d_t10": 0.03,
+      "d_t2": 0.14,
+      "date": "20260617",
+      "null_rank": 0.605463
+     }
+    ]
+   },
+   {
+    "band": 2,
+    "draws": 2000,
+    "h": 5,
+    "mean_abs": 0.0355,
+    "null_mean_abs": 0.035978,
+    "null_n": 272,
+    "perm_p": [
+     0.5035,
+     0.493
+    ],
+    "rows": [
+     {
+      "d_spread": 0.044,
+      "d_t10": 0.06,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.680147
+     },
+     {
+      "d_spread": -0.014,
+      "d_t10": -0.01,
+      "d_t2": -0.03,
+      "date": "20190130",
+      "null_rank": 0.272059
+     },
+     {
+      "d_spread": -0.03,
+      "d_t10": -0.06,
+      "d_t2": -0.15,
+      "date": "20190619",
+      "null_rank": 0.507353
+     },
+     {
+      "d_spread": 0.053,
+      "d_t10": 0.0,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.761029
+     },
+     {
+      "d_spread": 0.019,
+      "d_t10": 0.04,
+      "d_t2": 0.03,
+      "date": "20211215",
+      "null_rank": 0.367647
+     },
+     {
+      "d_spread": 0.004,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.110294
+     },
+     {
+      "d_spread": 0.048,
+      "d_t10": -0.12,
+      "d_t2": 0.01,
+      "date": "20230614",
+      "null_rank": 0.724265
+     },
+     {
+      "d_spread": 0.074,
+      "d_t10": -0.27,
+      "d_t2": -0.32,
+      "date": "20231213",
+      "null_rank": 0.882353
+     },
+     {
+      "d_spread": 0.056,
+      "d_t10": 0.03,
+      "d_t2": 0.03,
+      "date": "20240131",
+      "null_rank": 0.775735
+     },
+     {
+      "d_spread": 0.013,
+      "d_t10": -0.02,
+      "d_t2": 0.06,
+      "date": "20260617",
+      "null_rank": 0.272059
+     }
+    ]
+   },
+   {
+    "band": 5,
+    "draws": 2000,
+    "h": 5,
+    "mean_abs": 0.0355,
+    "null_mean_abs": 0.038935,
+    "null_n": 185,
+    "perm_p": [
+     0.635,
+     0.6305
+    ],
+    "rows": [
+     {
+      "d_spread": 0.044,
+      "d_t10": 0.06,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.610811
+     },
+     {
+      "d_spread": -0.014,
+      "d_t10": -0.01,
+      "d_t2": -0.03,
+      "date": "20190130",
+      "null_rank": 0.221622
+     },
+     {
+      "d_spread": -0.03,
+      "d_t10": -0.06,
+      "d_t2": -0.15,
+      "date": "20190619",
+      "null_rank": 0.481081
+     },
+     {
+      "d_spread": 0.053,
+      "d_t10": 0.0,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.724324
+     },
+     {
+      "d_spread": 0.019,
+      "d_t10": 0.04,
+      "d_t2": 0.03,
+      "date": "20211215",
+      "null_rank": 0.286486
+     },
+     {
+      "d_spread": 0.004,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.059459
+     },
+     {
+      "d_spread": 0.048,
+      "d_t10": -0.12,
+      "d_t2": 0.01,
+      "date": "20230614",
+      "null_rank": 0.675676
+     },
+     {
+      "d_spread": 0.074,
+      "d_t10": -0.27,
+      "d_t2": -0.32,
+      "date": "20231213",
+      "null_rank": 0.864865
+     },
+     {
+      "d_spread": 0.056,
+      "d_t10": 0.03,
+      "d_t2": 0.03,
+      "date": "20240131",
+      "null_rank": 0.751351
+     },
+     {
+      "d_spread": 0.013,
+      "d_t10": -0.02,
+      "d_t2": 0.06,
+      "date": "20260617",
+      "null_rank": 0.216216
+     }
+    ]
+   },
+   {
+    "band": 2,
+    "draws": 2000,
+    "h": 10,
+    "mean_abs": 0.0422,
+    "null_mean_abs": 0.048278,
+    "null_n": 79,
+    "perm_p": [
+     0.692,
+     0.694
+    ],
+    "rows": [
+     {
+      "d_spread": 0.081,
+      "d_t10": 0.1,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.860759
+     },
+     {
+      "d_spread": 0.046,
+      "d_t10": -0.04,
+      "d_t2": -0.06,
+      "date": "20190130",
+      "null_rank": 0.56962
+     },
+     {
+      "d_spread": -0.054,
+      "d_t10": -0.08,
+      "d_t2": -0.09,
+      "date": "20190619",
+      "null_rank": 0.64557
+     },
+     {
+      "d_spread": 0.008,
+      "d_t10": -0.02,
+      "d_t2": -0.03,
+      "date": "20200916",
+      "null_rank": 0.075949
+     },
+     {
+      "d_spread": -0.025,
+      "d_t10": 0.11,
+      "d_t2": 0.08,
+      "date": "20211215",
+      "null_rank": 0.329114
+     },
+     {
+      "d_spread": -0.006,
+      "d_t10": 0.18,
+      "d_t2": 0.33,
+      "date": "20220126",
+      "null_rank": 0.050633
+     },
+     {
+      "d_spread": -0.017,
+      "d_t10": -0.13,
+      "d_t2": 0.04,
+      "date": "20230614",
+      "null_rank": 0.189873
+     },
+     {
+      "d_spread": 0.108,
+      "d_t10": -0.41,
+      "d_t2": -0.53,
+      "date": "20231213",
+      "null_rank": 0.924051
+     },
+     {
+      "d_spread": 0.046,
+      "d_t10": 0.25,
+      "d_t2": 0.28,
+      "date": "20240131",
+      "null_rank": 0.56962
+     },
+     {
+      "d_spread": -0.031,
+      "d_t10": 0.05,
+      "d_t2": 0.12,
+      "date": "20260617",
+      "null_rank": 0.367089
+     }
+    ]
+   },
+   {
+    "band": 5,
+    "draws": 2000,
+    "h": 10,
+    "mean_abs": 0.0422,
+    "null_mean_abs": 0.038938,
+    "null_n": 32,
+    "perm_p": [
+     0.318,
+     0.315
+    ],
+    "rows": [
+     {
+      "d_spread": 0.081,
+      "d_t10": 0.1,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.9375
+     },
+     {
+      "d_spread": 0.046,
+      "d_t10": -0.04,
+      "d_t2": -0.06,
+      "date": "20190130",
+      "null_rank": 0.65625
+     },
+     {
+      "d_spread": -0.054,
+      "d_t10": -0.08,
+      "d_t2": -0.09,
+      "date": "20190619",
+      "null_rank": 0.6875
+     },
+     {
+      "d_spread": 0.008,
+      "d_t10": -0.02,
+      "d_t2": -0.03,
+      "date": "20200916",
+      "null_rank": 0.09375
+     },
+     {
+      "d_spread": -0.025,
+      "d_t10": 0.11,
+      "d_t2": 0.08,
+      "date": "20211215",
+      "null_rank": 0.375
+     },
+     {
+      "d_spread": -0.006,
+      "d_t10": 0.18,
+      "d_t2": 0.33,
+      "date": "20220126",
+      "null_rank": 0.09375
+     },
+     {
+      "d_spread": -0.017,
+      "d_t10": -0.13,
+      "d_t2": 0.04,
+      "date": "20230614",
+      "null_rank": 0.1875
+     },
+     {
+      "d_spread": 0.108,
+      "d_t10": -0.41,
+      "d_t2": -0.53,
+      "date": "20231213",
+      "null_rank": 1.0
+     },
+     {
+      "d_spread": 0.046,
+      "d_t10": 0.25,
+      "d_t2": 0.28,
+      "date": "20240131",
+      "null_rank": 0.65625
+     },
+     {
+      "d_spread": -0.031,
+      "d_t10": 0.05,
+      "d_t2": 0.12,
+      "date": "20260617",
+      "null_rank": 0.375
+     }
+    ]
+   }
+  ],
+  "va": [
+   {
+    "band": 2,
+    "draws": 2000,
+    "h": 2,
+    "mean_abs": 0.0575,
+    "null_mean_abs": 0.037402,
+    "null_n": 904,
+    "perm_p": [
+     0.0245,
+     0.0235
+    ],
+    "rows": [
+     {
+      "d_spread": -0.03,
+      "d_t10": 0.05,
+      "d_t2": 0.03,
+      "date": "20180131",
+      "null_rank": 0.485619
+     },
+     {
+      "d_spread": -0.016,
+      "d_t10": -0.09,
+      "d_t2": -0.11,
+      "date": "20190130",
+      "null_rank": 0.262168
+     },
+     {
+      "d_spread": 0.033,
+      "d_t10": -0.05,
+      "d_t2": -0.14,
+      "date": "20190619",
+      "null_rank": 0.527655
+     },
+     {
+      "d_spread": -0.029,
+      "d_t10": 0.01,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.485619
+     },
+     {
+      "d_spread": -0.03,
+      "d_t10": 0.0,
+      "d_t2": -0.03,
+      "date": "20211215",
+      "null_rank": 0.490044
+     },
+     {
+      "d_spread": 0.104,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.964602
+     },
+     {
+      "d_spread": 0.011,
+      "d_t10": -0.12,
+      "d_t2": -0.05,
+      "date": "20230614",
+      "null_rank": 0.185841
+     },
+     {
+      "d_spread": -0.178,
+      "d_t10": -0.28,
+      "d_t2": -0.36,
+      "date": "20231213",
+      "null_rank": 1.0
+     },
+     {
+      "d_spread": -0.121,
+      "d_t10": -0.19,
+      "d_t2": -0.16,
+      "date": "20240131",
+      "null_rank": 0.981195
+     },
+     {
+      "d_spread": 0.023,
+      "d_t10": 0.03,
+      "d_t2": 0.14,
+      "date": "20260617",
+      "null_rank": 0.409292
+     }
+    ]
+   },
+   {
+    "band": 5,
+    "draws": 2000,
+    "h": 2,
+    "mean_abs": 0.0575,
+    "null_mean_abs": 0.036297,
+    "null_n": 659,
+    "perm_p": [
+     0.0295,
+     0.0225
+    ],
+    "rows": [
+     {
+      "d_spread": -0.03,
+      "d_t10": 0.05,
+      "d_t2": 0.03,
+      "date": "20180131",
+      "null_rank": 0.538695
+     },
+     {
+      "d_spread": -0.016,
+      "d_t10": -0.09,
+      "d_t2": -0.11,
+      "date": "20190130",
+      "null_rank": 0.288316
+     },
+     {
+      "d_spread": 0.033,
+      "d_t10": -0.05,
+      "d_t2": -0.14,
+      "date": "20190619",
+      "null_rank": 0.579666
+     },
+     {
+      "d_spread": -0.029,
+      "d_t10": 0.01,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.534143
+     },
+     {
+      "d_spread": -0.03,
+      "d_t10": 0.0,
+      "d_t2": -0.03,
+      "date": "20211215",
+      "null_rank": 0.546282
+     },
+     {
+      "d_spread": 0.104,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.963581
+     },
+     {
+      "d_spread": 0.011,
+      "d_t10": -0.12,
+      "d_t2": -0.05,
+      "date": "20230614",
+      "null_rank": 0.191199
+     },
+     {
+      "d_spread": -0.178,
+      "d_t10": -0.28,
+      "d_t2": -0.36,
+      "date": "20231213",
+      "null_rank": 0.996965
+     },
+     {
+      "d_spread": -0.121,
+      "d_t10": -0.19,
+      "d_t2": -0.16,
+      "date": "20240131",
+      "null_rank": 0.975721
+     },
+     {
+      "d_spread": 0.023,
+      "d_t10": 0.03,
+      "d_t2": 0.14,
+      "date": "20260617",
+      "null_rank": 0.435508
+     }
+    ]
+   },
+   {
+    "band": 2,
+    "draws": 2000,
+    "h": 5,
+    "mean_abs": 0.0334,
+    "null_mean_abs": 0.040243,
+    "null_n": 272,
+    "perm_p": [
+     0.727,
+     0.707
+    ],
+    "rows": [
+     {
+      "d_spread": 0.032,
+      "d_t10": 0.06,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.503676
+     },
+     {
+      "d_spread": -0.068,
+      "d_t10": -0.01,
+      "d_t2": -0.03,
+      "date": "20190130",
+      "null_rank": 0.834559
+     },
+     {
+      "d_spread": -0.002,
+      "d_t10": -0.06,
+      "d_t2": -0.15,
+      "date": "20190619",
+      "null_rank": 0.055147
+     },
+     {
+      "d_spread": 0.012,
+      "d_t10": 0.0,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.209559
+     },
+     {
+      "d_spread": -0.05,
+      "d_t10": 0.04,
+      "d_t2": 0.03,
+      "date": "20211215",
+      "null_rank": 0.709559
+     },
+     {
+      "d_spread": -0.013,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.220588
+     },
+     {
+      "d_spread": 0.058,
+      "d_t10": -0.12,
+      "d_t2": 0.01,
+      "date": "20230614",
+      "null_rank": 0.783088
+     },
+     {
+      "d_spread": -0.067,
+      "d_t10": -0.27,
+      "d_t2": -0.32,
+      "date": "20231213",
+      "null_rank": 0.834559
+     },
+     {
+      "d_spread": 0.023,
+      "d_t10": 0.03,
+      "d_t2": 0.03,
+      "date": "20240131",
+      "null_rank": 0.363971
+     },
+     {
+      "d_spread": 0.009,
+      "d_t10": -0.02,
+      "d_t2": 0.06,
+      "date": "20260617",
+      "null_rank": 0.154412
+     }
+    ]
+   },
+   {
+    "band": 5,
+    "draws": 2000,
+    "h": 5,
+    "mean_abs": 0.0334,
+    "null_mean_abs": 0.041978,
+    "null_n": 185,
+    "perm_p": [
+     0.7765,
+     0.7715
+    ],
+    "rows": [
+     {
+      "d_spread": 0.032,
+      "d_t10": 0.06,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.475676
+     },
+     {
+      "d_spread": -0.068,
+      "d_t10": -0.01,
+      "d_t2": -0.03,
+      "date": "20190130",
+      "null_rank": 0.837838
+     },
+     {
+      "d_spread": -0.002,
+      "d_t10": -0.06,
+      "d_t2": -0.15,
+      "date": "20190619",
+      "null_rank": 0.032432
+     },
+     {
+      "d_spread": 0.012,
+      "d_t10": 0.0,
+      "d_t2": -0.01,
+      "date": "20200916",
+      "null_rank": 0.210811
+     },
+     {
+      "d_spread": -0.05,
+      "d_t10": 0.04,
+      "d_t2": 0.03,
+      "date": "20211215",
+      "null_rank": 0.67027
+     },
+     {
+      "d_spread": -0.013,
+      "d_t10": 0.03,
+      "d_t2": 0.16,
+      "date": "20220126",
+      "null_rank": 0.221622
+     },
+     {
+      "d_spread": 0.058,
+      "d_t10": -0.12,
+      "d_t2": 0.01,
+      "date": "20230614",
+      "null_rank": 0.745946
+     },
+     {
+      "d_spread": -0.067,
+      "d_t10": -0.27,
+      "d_t2": -0.32,
+      "date": "20231213",
+      "null_rank": 0.837838
+     },
+     {
+      "d_spread": 0.023,
+      "d_t10": 0.03,
+      "d_t2": 0.03,
+      "date": "20240131",
+      "null_rank": 0.351351
+     },
+     {
+      "d_spread": 0.009,
+      "d_t10": -0.02,
+      "d_t2": 0.06,
+      "date": "20260617",
+      "null_rank": 0.156757
+     }
+    ]
+   },
+   {
+    "band": 2,
+    "draws": 2000,
+    "h": 10,
+    "mean_abs": 0.0462,
+    "null_mean_abs": 0.051987,
+    "null_n": 79,
+    "perm_p": [
+     0.6705,
+     0.664
+    ],
+    "rows": [
+     {
+      "d_spread": 0.061,
+      "d_t10": 0.1,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.658228
+     },
+     {
+      "d_spread": -0.05,
+      "d_t10": -0.04,
+      "d_t2": -0.06,
+      "date": "20190130",
+      "null_rank": 0.594937
+     },
+     {
+      "d_spread": 0.006,
+      "d_t10": -0.08,
+      "d_t2": -0.09,
+      "date": "20190619",
+      "null_rank": 0.0
+     },
+     {
+      "d_spread": -0.037,
+      "d_t10": -0.02,
+      "d_t2": -0.03,
+      "date": "20200916",
+      "null_rank": 0.455696
+     },
+     {
+      "d_spread": -0.054,
+      "d_t10": 0.11,
+      "d_t2": 0.08,
+      "date": "20211215",
+      "null_rank": 0.632911
+     },
+     {
+      "d_spread": 0.047,
+      "d_t10": 0.18,
+      "d_t2": 0.33,
+      "date": "20220126",
+      "null_rank": 0.582278
+     },
+     {
+      "d_spread": -0.011,
+      "d_t10": -0.13,
+      "d_t2": 0.04,
+      "date": "20230614",
+      "null_rank": 0.088608
+     },
+     {
+      "d_spread": -0.113,
+      "d_t10": -0.41,
+      "d_t2": -0.53,
+      "date": "20231213",
+      "null_rank": 0.898734
+     },
+     {
+      "d_spread": 0.06,
+      "d_t10": 0.25,
+      "d_t2": 0.28,
+      "date": "20240131",
+      "null_rank": 0.658228
+     },
+     {
+      "d_spread": -0.023,
+      "d_t10": 0.05,
+      "d_t2": 0.12,
+      "date": "20260617",
+      "null_rank": 0.227848
+     }
+    ]
+   },
+   {
+    "band": 5,
+    "draws": 2000,
+    "h": 10,
+    "mean_abs": 0.0462,
+    "null_mean_abs": 0.045781,
+    "null_n": 32,
+    "perm_p": [
+     0.463,
+     0.4725
+    ],
+    "rows": [
+     {
+      "d_spread": 0.061,
+      "d_t10": 0.1,
+      "d_t2": -0.03,
+      "date": "20180131",
+      "null_rank": 0.6875
+     },
+     {
+      "d_spread": -0.05,
+      "d_t10": -0.04,
+      "d_t2": -0.06,
+      "date": "20190130",
+      "null_rank": 0.5625
+     },
+     {
+      "d_spread": 0.006,
+      "d_t10": -0.08,
+      "d_t2": -0.09,
+      "date": "20190619",
+      "null_rank": 0.15625
+     },
+     {
+      "d_spread": -0.037,
+      "d_t10": -0.02,
+      "d_t2": -0.03,
+      "date": "20200916",
+      "null_rank": 0.46875
+     },
+     {
+      "d_spread": -0.054,
+      "d_t10": 0.11,
+      "d_t2": 0.08,
+      "date": "20211215",
+      "null_rank": 0.625
+     },
+     {
+      "d_spread": 0.047,
+      "d_t10": 0.18,
+      "d_t2": 0.33,
+      "date": "20220126",
+      "null_rank": 0.53125
+     },
+     {
+      "d_spread": -0.011,
+      "d_t10": -0.13,
+      "d_t2": 0.04,
+      "date": "20230614",
+      "null_rank": 0.15625
+     },
+     {
+      "d_spread": -0.113,
+      "d_t10": -0.41,
+      "d_t2": -0.53,
+      "date": "20231213",
+      "null_rank": 0.9375
+     },
+     {
+      "d_spread": 0.06,
+      "d_t10": 0.25,
+      "d_t2": 0.28,
+      "date": "20240131",
+      "null_rank": 0.6875
+     },
+     {
+      "d_spread": -0.023,
+      "d_t10": 0.05,
+      "d_t2": 0.12,
+      "date": "20260617",
+      "null_rank": 0.3125
+     }
+    ]
+   }
+  ]
+ },
+ "events": [
+  {
+   "added": [
+    "The Committee expects that economic conditions will evolve in a manner that will warrant further gradual increases in the federal funds rate; the federal funds rate is likely to remain, for some time, below levels that are expected to prevail in the longer run."
+   ],
+   "date": "20180131",
+   "removed": [
+    "The Committee expects that economic conditions will evolve in a manner that will warrant gradual increases in the federal funds rate; the federal funds rate is likely to remain, for some time, below levels that are expected to prevail in the longer run."
+   ]
+  },
+  {
+   "added": [
+    "In light of global economic and financial developments and muted inflation pressures, the Committee will be patient as it determines what future adjustments to the target range for the federal funds rate may be appropriate to support these outcomes."
+   ],
+   "date": "20190130",
+   "removed": [
+    "The Committee judges that some further gradual increases in the target range for the federal funds rate will be consistent with sustained expansion of economic activity, strong labor market conditions, and inflation near the Committee's symmetric 2 percent objective over the medium term."
+   ]
+  },
+  {
+   "added": [],
+   "date": "20190619",
+   "removed": [
+    "In light of global economic and financial developments and muted inflation pressures, the Committee will be patient as it determines what future adjustments to the target range for the federal funds rate may be appropriate to support these outcomes."
+   ]
+  },
+  {
+   "added": [
+    "The Committee decided to keep the target range for the federal funds rate at 0 to 1/4 percent and expects it will be appropriate to maintain this target range until labor market conditions have reached levels consistent with the Committee's assessments of maximum employment and inflation has risen to 2 percent and is on track to moderately exceed 2 percent for some time."
+   ],
+   "date": "20200916",
+   "removed": [
+    "The Committee expects to maintain this target range until it is confident that the economy has weathered recent events and is on track to achieve its maximum employment and price stability goals."
+   ]
+  },
+  {
+   "added": [
+    "With inflation having exceeded 2 percent for some time, the Committee expects it will be appropriate to maintain this target range until labor market conditions have reached levels consistent with the Committee's assessments of maximum employment."
+   ],
+   "date": "20211215",
+   "removed": [
+    "The Committee decided to keep the target range for the federal funds rate at 0 to 1/4 percent and expects it will be appropriate to maintain this target range until labor market conditions have reached levels consistent with the Committee's assessments of maximum employment and inflation has risen to 2 percent and is on track to moderately exceed 2 percent for some time."
+   ]
+  },
+  {
+   "added": [
+    "With inflation well above 2 percent and a strong labor market, the Committee expects it will soon be appropriate to raise the target range for the federal funds rate."
+   ],
+   "date": "20220126",
+   "removed": [
+    "With inflation having exceeded 2 percent for some time, the Committee expects it will be appropriate to maintain this target range until labor market conditions have reached levels consistent with the Committee's assessments of maximum employment."
+   ]
+  },
+  {
+   "added": [
+    "In determining the extent of additional policy firming that may be appropriate to return inflation to 2 percent over time, the Committee will take into account the cumulative tightening of monetary policy, the lags with which monetary policy affects economic activity and inflation, and economic and financial developments."
+   ],
+   "date": "20230614",
+   "removed": [
+    "In determining the extent to which additional policy firming may be appropriate to return inflation to 2 percent over time, the Committee will take into account the cumulative tightening of monetary policy, the lags with which monetary policy affects economic activity and inflation, and economic and financial developments."
+   ]
+  },
+  {
+   "added": [
+    "In determining the extent of any additional policy firming that may be appropriate to return inflation to 2 percent over time, the Committee will take into account the cumulative tightening of monetary policy, the lags with which monetary policy affects economic activity and inflation, and economic and financial developments."
+   ],
+   "date": "20231213",
+   "removed": [
+    "In determining the extent of additional policy firming that may be appropriate to return inflation to 2 percent over time, the Committee will take into account the cumulative tightening of monetary policy, the lags with which monetary policy affects economic activity and inflation, and economic and financial developments."
+   ]
+  },
+  {
+   "added": [
+    "In considering any adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks.",
+    "The Committee does not expect it will be appropriate to reduce the target range until it has gained greater confidence that inflation is moving sustainably toward 2 percent."
+   ],
+   "date": "20240131",
+   "removed": [
+    "In determining the extent of any additional policy firming that may be appropriate to return inflation to 2 percent over time, the Committee will take into account the cumulative tightening of monetary policy, the lags with which monetary policy affects economic activity and inflation, and economic and financial developments."
+   ]
+  },
+  {
+   "added": [],
+   "date": "20260617",
+   "removed": [
+    "In considering the extent and timing of additional adjustments to the target range for the federal funds rate, the Committee will carefully assess incoming data, the evolving outlook, and the balance of risks."
+   ]
+  }
+ ],
+ "events_before_class_indices": [
+  {
+   "added": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and anticipates that economic conditions are likely to warrant exceptionally low levels of the federal funds rate for an extended period."
+   ],
+   "date": "20090318",
+   "removed": []
+  },
+  {
+   "added": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and continues to anticipate that economic conditions are likely to warrant exceptionally low levels of the federal funds rate for an extended period."
+   ],
+   "date": "20090624",
+   "removed": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and anticipates that economic conditions are likely to warrant exceptionally low levels of the federal funds rate for an extended period."
+   ]
+  },
+  {
+   "added": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and continues to anticipate that economic conditions, including low rates of resource utilization, subdued inflation trends, and stable inflation expectations, are likely to warrant exceptionally low levels of the federal funds rate for an extended period."
+   ],
+   "date": "20091104",
+   "removed": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and continues to anticipate that economic conditions are likely to warrant exceptionally low levels of the federal funds rate for an extended period."
+   ]
+  },
+  {
+   "added": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and continues to anticipate that economic conditions, including low rates of resource utilization, subdued inflation trends, and stable inflation expectations, are likely to warrant exceptionally low levels for the federal funds rate for an extended period."
+   ],
+   "date": "20100921",
+   "removed": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and continues to anticipate that economic conditions, including low rates of resource utilization, subdued inflation trends, and stable inflation expectations, are likely to warrant exceptionally low levels of the federal funds rate for an extended period."
+   ]
+  },
+  {
+   "added": [
+    "The Committee continues to anticipate that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate for an extended period."
+   ],
+   "date": "20110622",
+   "removed": [
+    "The Committee will maintain the target range for the federal funds rate at 0 to 1/4 percent and continues to anticipate that economic conditions, including low rates of resource utilization, subdued inflation trends, and stable inflation expectations, are likely to warrant exceptionally low levels for the federal funds rate for an extended period."
+   ]
+  },
+  {
+   "added": [
+    "The Committee currently anticipates that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate at least through mid-2013."
+   ],
+   "date": "20110809",
+   "removed": [
+    "The Committee continues to anticipate that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate for an extended period."
+   ]
+  },
+  {
+   "added": [
+    "The Committee also decided to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate at least through mid-2013."
+   ],
+   "date": "20110921",
+   "removed": [
+    "The Committee currently anticipates that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate at least through mid-2013."
+   ]
+  },
+  {
+   "added": [
+    "In particular, the Committee decided today to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate at least through late 2014."
+   ],
+   "date": "20120125",
+   "removed": [
+    "The Committee also decided to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate at least through mid-2013."
+   ]
+  },
+  {
+   "added": [
+    "In particular, the Committee also decided today to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that exceptionally low levels for the federal funds rate are likely to be warranted at least through mid-2015."
+   ],
+   "date": "20120913",
+   "removed": [
+    "In particular, the Committee decided today to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that economic conditions--including low rates of resource utilization and a subdued outlook for inflation over the medium run--are likely to warrant exceptionally low levels for the federal funds rate at least through late 2014."
+   ]
+  },
+  {
+   "added": [
+    "In particular, the Committee decided to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that this exceptionally low range for the federal funds rate will be appropriate at least as long as the unemployment rate remains above 6-1/2 percent, inflation between one and two years ahead is projected to be no more than a half percentage point above the Committee’s 2 percent longer-run goal, and longer-term inflation expectations continue to be well anchored."
+   ],
+   "date": "20121212",
+   "removed": [
+    "In particular, the Committee also decided today to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that exceptionally low levels for the federal funds rate are likely to be warranted at least through mid-2015."
+   ]
+  },
+  {
+   "added": [
+    "In particular, the Committee decided to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that this exceptionally low range for the federal funds rate will be appropriate at least as long as the unemployment rate remains above 6-1/2 percent, inflation between one and two years ahead is projected to be no more than a half percentage point above the Committee's 2 percent longer-run goal, and longer-term inflation expectations continue to be well anchored."
+   ],
+   "date": "20130320",
+   "removed": [
+    "In particular, the Committee decided to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that this exceptionally low range for the federal funds rate will be appropriate at least as long as the unemployment rate remains above 6-1/2 percent, inflation between one and two years ahead is projected to be no more than a half percentage point above the Committee’s 2 percent longer-run goal, and longer-term inflation expectations continue to be well anchored."
+   ]
+  },
+  {
+   "added": [
+    "The Committee also reaffirmed its expectation that the current exceptionally low target range for the federal funds rate of 0 to 1/4 percent will be appropriate at least as long as the unemployment rate remains above 6-1/2 percent, inflation between one and two years ahead is projected to be no more than a half percentage point above the Committee's 2 percent longer-run goal, and longer-term inflation expectations continue to be well anchored.",
+    "The Committee now anticipates, based on its assessment of these factors, that it likely will be appropriate to maintain the current target range for the federal funds rate well past the time that the unemployment rate declines below 6-1/2 percent, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal."
+   ],
+   "date": "20131218",
+   "removed": [
+    "In particular, the Committee decided to keep the target range for the federal funds rate at 0 to 1/4 percent and currently anticipates that this exceptionally low range for the federal funds rate will be appropriate at least as long as the unemployment rate remains above 6-1/2 percent, inflation between one and two years ahead is projected to be no more than a half percentage point above the Committee's 2 percent longer-run goal, and longer-term inflation expectations continue to be well anchored."
+   ]
+  },
+  {
+   "added": [
+    "The Committee continues to anticipate, based on its assessment of these factors, that it likely will be appropriate to maintain the current target range for the federal funds rate well past the time that the unemployment rate declines below 6-1/2 percent, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal."
+   ],
+   "date": "20140129",
+   "removed": [
+    "The Committee now anticipates, based on its assessment of these factors, that it likely will be appropriate to maintain the current target range for the federal funds rate well past the time that the unemployment rate declines below 6-1/2 percent, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal."
+   ]
+  },
+  {
+   "added": [
+    "The Committee continues to anticipate, based on its assessment of these factors, that it likely will be appropriate to maintain the current target range for the federal funds rate for a considerable time after the asset purchase program ends, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal, and provided that longer-term inflation expectations remain well anchored.",
+    "The Committee currently anticipates that, even after employment and inflation are near mandate-consistent levels, economic conditions may, for some time, warrant keeping the target federal funds rate below levels the Committee views as normal in the longer run."
+   ],
+   "date": "20140319",
+   "removed": [
+    "The Committee also reaffirmed its expectation that the current exceptionally low target range for the federal funds rate of 0 to 1/4 percent will be appropriate at least as long as the unemployment rate remains above 6-1/2 percent, inflation between one and two years ahead is projected to be no more than a half percentage point above the Committee's 2 percent longer-run goal, and longer-term inflation expectations continue to be well anchored.",
+    "The Committee continues to anticipate, based on its assessment of these factors, that it likely will be appropriate to maintain the current target range for the federal funds rate well past the time that the unemployment rate declines below 6-1/2 percent, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal."
+   ]
+  },
+  {
+   "added": [
+    "Conversely, if progress proves slower than expected, then increases in the target range are likely to occur later than currently anticipated.",
+    "However, if incoming information indicates faster progress toward the Committee's employment and inflation objectives than the Committee now expects, then increases in the target range for the federal funds rate are likely to occur sooner than currently anticipated.",
+    "The Committee anticipates, based on its current assessment, that it likely will be appropriate to maintain the 0 to 1/4 percent target range for the federal funds rate for a considerable time following the end of its asset purchase program this month, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal, and provided that longer-term inflation expectations remain well anchored."
+   ],
+   "date": "20141029",
+   "removed": [
+    "The Committee continues to anticipate, based on its assessment of these factors, that it likely will be appropriate to maintain the current target range for the federal funds rate for a considerable time after the asset purchase program ends, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal, and provided that longer-term inflation expectations remain well anchored."
+   ]
+  },
+  {
+   "added": [
+    "The Committee sees this guidance as consistent with its previous statement that it likely will be appropriate to maintain the 0 to 1/4 percent target range for the federal funds rate for a considerable time following the end of its asset purchase program in October, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal, and provided that longer-term inflation expectations remain well anchored."
+   ],
+   "date": "20141217",
+   "removed": [
+    "The Committee anticipates, based on its current assessment, that it likely will be appropriate to maintain the 0 to 1/4 percent target range for the federal funds rate for a considerable time following the end of its asset purchase program this month, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal, and provided that longer-term inflation expectations remain well anchored."
+   ]
+  },
+  {
+   "added": [
+    "However, if incoming information indicates faster progress toward the Committee’s employment and inflation objectives than the Committee now expects, then increases in the target range for the federal funds rate are likely to occur sooner than currently anticipated."
+   ],
+   "date": "20150128",
+   "removed": [
+    "However, if incoming information indicates faster progress toward the Committee's employment and inflation objectives than the Committee now expects, then increases in the target range for the federal funds rate are likely to occur sooner than currently anticipated.",
+    "The Committee sees this guidance as consistent with its previous statement that it likely will be appropriate to maintain the 0 to 1/4 percent target range for the federal funds rate for a considerable time following the end of its asset purchase program in October, especially if projected inflation continues to run below the Committee's 2 percent longer-run goal, and provided that longer-term inflation expectations remain well anchored."
+   ]
+  },
+  {
+   "added": [],
+   "date": "20150318",
+   "removed": [
+    "Conversely, if progress proves slower than expected, then increases in the target range are likely to occur later than currently anticipated.",
+    "However, if incoming information indicates faster progress toward the Committee’s employment and inflation objectives than the Committee now expects, then increases in the target range for the federal funds rate are likely to occur sooner than currently anticipated."
+   ]
+  }
+ ],
+ "mapping_11c": [
+  {
+   "grid": "B",
+   "maps_to": "rival point prediction fails",
+   "state": "nonzero, sign stable over the knobs",
+   "verdict": true
+  },
+  {
+   "grid": "unread",
+   "maps_to": "cell not read (11f)",
+   "state": "sign moves over the knobs",
+   "verdict": null
+  },
+  {
+   "grid": "unread",
+   "maps_to": "third state, no verdict",
+   "state": "inside the floor",
+   "verdict": null
+  }
+ ],
+ "mnd_event_cells": [
+  {
+   "band": 2,
+   "draws": 20000,
+   "h": 2,
+   "mean_abs": 0.044444,
+   "null_mean_abs": 0.031372,
+   "null_n": 1592,
+   "perm_p": [
+    0.05135,
+    0.05345
+   ],
+   "rows": [
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.1,
+     "d_t2": -0.02,
+     "date": "20090624",
+     "null_rank": 0.130025
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.07,
+     "d_t2": -0.02,
+     "date": "20091104",
+     "null_rank": 0.528266
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.16,
+     "d_t2": -0.03,
+     "date": "20100921",
+     "null_rank": 0.164573
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.06,
+     "d_t2": -0.05,
+     "date": "20110622",
+     "null_rank": 0.130025
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": -0.23,
+     "d_t2": -0.08,
+     "date": "20110809",
+     "null_rank": 0.83103
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": 0.06,
+     "d_t2": 0.11,
+     "date": "20110921",
+     "null_rank": 0.78706
+    },
+    {
+     "d_spread": 0.11,
+     "d_t10": -0.12,
+     "d_t2": -0.02,
+     "date": "20120125",
+     "null_rank": 0.965452
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": 0.11,
+     "d_t2": 0.02,
+     "date": "20120913",
+     "null_rank": 0.0
+    },
+    {
+     "d_spread": -0.03,
+     "d_t10": 0.08,
+     "d_t2": 0.03,
+     "date": "20121212",
+     "null_rank": 0.633166
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.03,
+     "d_t2": 0.03,
+     "date": "20130320",
+     "null_rank": 0.164573
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": 0.09,
+     "d_t2": 0.01,
+     "date": "20131218",
+     "null_rank": 0.788945
+    },
+    {
+     "d_spread": -0.16,
+     "d_t10": -0.05,
+     "d_t2": -0.02,
+     "date": "20140129",
+     "null_rank": 0.988693
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.11,
+     "d_t2": 0.09,
+     "date": "20140319",
+     "null_rank": 0.892588
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": 0.02,
+     "d_t2": 0.06,
+     "date": "20141029",
+     "null_rank": 0.41206
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.15,
+     "d_t2": 0.09,
+     "date": "20141217",
+     "null_rank": 0.478643
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.06,
+     "d_t2": -0.03,
+     "date": "20150128",
+     "null_rank": 0.312814
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": -0.08,
+     "d_t2": -0.07,
+     "date": "20150318",
+     "null_rank": 0.788945
+    },
+    {
+     "d_spread": 0.11,
+     "d_t10": 0.05,
+     "d_t2": 0.03,
+     "date": "20180131",
+     "null_rank": 0.965452
+    },
+    {
+     "d_spread": 0.09,
+     "d_t10": -0.09,
+     "d_t2": -0.11,
+     "date": "20190130",
+     "null_rank": 0.951633
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.05,
+     "d_t2": -0.14,
+     "date": "20190619",
+     "null_rank": 0.312814
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": 0.01,
+     "d_t2": -0.01,
+     "date": "20200916",
+     "null_rank": 0.164573
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": 0.0,
+     "d_t2": -0.03,
+     "date": "20211215",
+     "null_rank": 0.0
+    },
+    {
+     "d_spread": -0.03,
+     "d_t10": 0.03,
+     "d_t2": 0.16,
+     "date": "20220126",
+     "null_rank": 0.607412
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": -0.12,
+     "d_t2": -0.05,
+     "date": "20230614",
+     "null_rank": 0.41206
+    },
+    {
+     "d_spread": 0.18,
+     "d_t10": -0.28,
+     "d_t2": -0.36,
+     "date": "20231213",
+     "null_rank": 0.990578
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": -0.19,
+     "d_t2": -0.16,
+     "date": "20240131",
+     "null_rank": 0.915201
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.03,
+     "d_t2": 0.14,
+     "date": "20260617",
+     "null_rank": 0.164573
+    }
+   ]
+  },
+  {
+   "band": 5,
+   "draws": 20000,
+   "h": 2,
+   "mean_abs": 0.044444,
+   "null_mean_abs": 0.032277,
+   "null_n": 1164,
+   "perm_p": [
+    0.06585,
+    0.06925
+   ],
+   "rows": [
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.1,
+     "d_t2": -0.02,
+     "date": "20090624",
+     "null_rank": 0.122852
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.07,
+     "d_t2": -0.02,
+     "date": "20091104",
+     "null_rank": 0.522337
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.16,
+     "d_t2": -0.03,
+     "date": "20100921",
+     "null_rank": 0.159794
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.06,
+     "d_t2": -0.05,
+     "date": "20110622",
+     "null_rank": 0.122852
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": -0.23,
+     "d_t2": -0.08,
+     "date": "20110809",
+     "null_rank": 0.823883
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": 0.06,
+     "d_t2": 0.11,
+     "date": "20110921",
+     "null_rank": 0.774055
+    },
+    {
+     "d_spread": 0.11,
+     "d_t10": -0.12,
+     "d_t2": -0.02,
+     "date": "20120125",
+     "null_rank": 0.97079
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": 0.11,
+     "d_t2": 0.02,
+     "date": "20120913",
+     "null_rank": 0.0
+    },
+    {
+     "d_spread": -0.03,
+     "d_t10": 0.08,
+     "d_t2": 0.03,
+     "date": "20121212",
+     "null_rank": 0.619416
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.03,
+     "d_t2": 0.03,
+     "date": "20130320",
+     "null_rank": 0.159794
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": 0.09,
+     "d_t2": 0.01,
+     "date": "20131218",
+     "null_rank": 0.774055
+    },
+    {
+     "d_spread": -0.16,
+     "d_t10": -0.05,
+     "d_t2": -0.02,
+     "date": "20140129",
+     "null_rank": 0.987973
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.11,
+     "d_t2": 0.09,
+     "date": "20140319",
+     "null_rank": 0.887457
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": 0.02,
+     "d_t2": 0.06,
+     "date": "20141029",
+     "null_rank": 0.411512
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.15,
+     "d_t2": 0.09,
+     "date": "20141217",
+     "null_rank": 0.466495
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.06,
+     "d_t2": -0.03,
+     "date": "20150128",
+     "null_rank": 0.311856
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": -0.08,
+     "d_t2": -0.07,
+     "date": "20150318",
+     "null_rank": 0.774055
+    },
+    {
+     "d_spread": 0.11,
+     "d_t10": 0.05,
+     "d_t2": 0.03,
+     "date": "20180131",
+     "null_rank": 0.97079
+    },
+    {
+     "d_spread": 0.09,
+     "d_t10": -0.09,
+     "d_t2": -0.11,
+     "date": "20190130",
+     "null_rank": 0.951031
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.05,
+     "d_t2": -0.14,
+     "date": "20190619",
+     "null_rank": 0.311856
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": 0.01,
+     "d_t2": -0.01,
+     "date": "20200916",
+     "null_rank": 0.159794
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": 0.0,
+     "d_t2": -0.03,
+     "date": "20211215",
+     "null_rank": 0.0
+    },
+    {
+     "d_spread": -0.03,
+     "d_t10": 0.03,
+     "d_t2": 0.16,
+     "date": "20220126",
+     "null_rank": 0.59622
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": -0.12,
+     "d_t2": -0.05,
+     "date": "20230614",
+     "null_rank": 0.411512
+    },
+    {
+     "d_spread": 0.18,
+     "d_t10": -0.28,
+     "d_t2": -0.36,
+     "date": "20231213",
+     "null_rank": 0.993127
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": -0.19,
+     "d_t2": -0.16,
+     "date": "20240131",
+     "null_rank": 0.90378
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.03,
+     "d_t2": 0.14,
+     "date": "20260617",
+     "null_rank": 0.159794
+    }
+   ]
+  },
+  {
+   "band": 2,
+   "draws": 20000,
+   "h": 5,
+   "mean_abs": 0.055556,
+   "null_mean_abs": 0.043278,
+   "null_n": 485,
+   "perm_p": [
+    0.1278,
+    0.13465
+   ],
+   "rows": [
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.12,
+     "d_t2": -0.03,
+     "date": "20090624",
+     "null_rank": 0.119588
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.0,
+     "d_t2": -0.07,
+     "date": "20091104",
+     "null_rank": 0.119588
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.18,
+     "d_t2": -0.03,
+     "date": "20100921",
+     "null_rank": 0.323711
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": 0.06,
+     "d_t2": 0.08,
+     "date": "20110622",
+     "null_rank": 0.101031
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": -0.17,
+     "d_t2": -0.07,
+     "date": "20110809",
+     "null_rank": 0.705155
+    },
+    {
+     "d_spread": -0.04,
+     "d_t10": 0.29,
+     "d_t2": 0.11,
+     "date": "20110921",
+     "null_rank": 0.6
+    },
+    {
+     "d_spread": 0.13,
+     "d_t10": -0.25,
+     "d_t2": -0.02,
+     "date": "20120125",
+     "null_rank": 0.960825
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": 0.02,
+     "d_t2": 0.02,
+     "date": "20120913",
+     "null_rank": 0.37732
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": 0.16,
+     "d_t2": 0.04,
+     "date": "20121212",
+     "null_rank": 0.705155
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.0,
+     "d_t2": 0.01,
+     "date": "20130320",
+     "null_rank": 0.119588
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.14,
+     "d_t2": 0.04,
+     "date": "20131218",
+     "null_rank": 0.806186
+    },
+    {
+     "d_spread": -0.31,
+     "d_t10": -0.13,
+     "d_t2": -0.07,
+     "date": "20140129",
+     "null_rank": 0.995876
+    },
+    {
+     "d_spread": -0.08,
+     "d_t10": 0.07,
+     "d_t2": 0.11,
+     "date": "20140319",
+     "null_rank": 0.853608
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": 0.05,
+     "d_t2": 0.1,
+     "date": "20141029",
+     "null_rank": 0.705155
+    },
+    {
+     "d_spread": 0.09,
+     "d_t10": 0.19,
+     "d_t2": 0.15,
+     "date": "20141217",
+     "null_rank": 0.88866
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.04,
+     "d_t2": -0.02,
+     "date": "20150128",
+     "null_rank": 0.0
+    },
+    {
+     "d_spread": -0.08,
+     "d_t10": -0.18,
+     "d_t2": -0.12,
+     "date": "20150318",
+     "null_rank": 0.853608
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": 0.06,
+     "d_t2": -0.03,
+     "date": "20180131",
+     "null_rank": 0.853608
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": -0.01,
+     "d_t2": -0.03,
+     "date": "20190130",
+     "null_rank": 0.719588
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.06,
+     "d_t2": -0.15,
+     "date": "20190619",
+     "null_rank": 0.230928
+    },
+    {
+     "d_spread": 0.06,
+     "d_t10": 0.0,
+     "d_t2": 0.0,
+     "date": "20200916",
+     "null_rank": 0.764948
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": 0.02,
+     "d_t2": 0.01,
+     "date": "20211215",
+     "null_rank": 0.230928
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": 0.0,
+     "d_t2": 0.14,
+     "date": "20220126",
+     "null_rank": 0.661856
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.12,
+     "d_t2": 0.01,
+     "date": "20230614",
+     "null_rank": 0.119588
+    },
+    {
+     "d_spread": 0.14,
+     "d_t10": -0.27,
+     "d_t2": -0.32,
+     "date": "20231213",
+     "null_rank": 0.969072
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": 0.03,
+     "d_t2": 0.03,
+     "date": "20240131",
+     "null_rank": 0.661856
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.02,
+     "d_t2": 0.06,
+     "date": "20260617",
+     "null_rank": 0.428866
+    }
+   ]
+  },
+  {
+   "band": 5,
+   "draws": 20000,
+   "h": 5,
+   "mean_abs": 0.055556,
+   "null_mean_abs": 0.042372,
+   "null_n": 331,
+   "perm_p": [
+    0.06235,
+    0.0617
+   ],
+   "rows": [
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.12,
+     "d_t2": -0.03,
+     "date": "20090624",
+     "null_rank": 0.120846
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.0,
+     "d_t2": -0.07,
+     "date": "20091104",
+     "null_rank": 0.120846
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.18,
+     "d_t2": -0.03,
+     "date": "20100921",
+     "null_rank": 0.250755
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": 0.06,
+     "d_t2": 0.08,
+     "date": "20110622",
+     "null_rank": 0.093656
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": -0.17,
+     "d_t2": -0.07,
+     "date": "20110809",
+     "null_rank": 0.697885
+    },
+    {
+     "d_spread": -0.04,
+     "d_t10": 0.29,
+     "d_t2": 0.11,
+     "date": "20110921",
+     "null_rank": 0.567976
+    },
+    {
+     "d_spread": 0.13,
+     "d_t10": -0.25,
+     "d_t2": -0.02,
+     "date": "20120125",
+     "null_rank": 0.963746
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": 0.02,
+     "d_t2": 0.02,
+     "date": "20120913",
+     "null_rank": 0.305136
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": 0.16,
+     "d_t2": 0.04,
+     "date": "20121212",
+     "null_rank": 0.697885
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.0,
+     "d_t2": 0.01,
+     "date": "20130320",
+     "null_rank": 0.120846
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.14,
+     "d_t2": 0.04,
+     "date": "20131218",
+     "null_rank": 0.782477
+    },
+    {
+     "d_spread": -0.31,
+     "d_t10": -0.13,
+     "d_t2": -0.07,
+     "date": "20140129",
+     "null_rank": 0.996979
+    },
+    {
+     "d_spread": -0.08,
+     "d_t10": 0.07,
+     "d_t2": 0.11,
+     "date": "20140319",
+     "null_rank": 0.848943
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": 0.05,
+     "d_t2": 0.1,
+     "date": "20141029",
+     "null_rank": 0.697885
+    },
+    {
+     "d_spread": 0.09,
+     "d_t10": 0.19,
+     "d_t2": 0.15,
+     "date": "20141217",
+     "null_rank": 0.89426
+    },
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.04,
+     "d_t2": -0.02,
+     "date": "20150128",
+     "null_rank": 0.0
+    },
+    {
+     "d_spread": -0.08,
+     "d_t10": -0.18,
+     "d_t2": -0.12,
+     "date": "20150318",
+     "null_rank": 0.848943
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": 0.06,
+     "d_t2": -0.03,
+     "date": "20180131",
+     "null_rank": 0.848943
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": -0.01,
+     "d_t2": -0.03,
+     "date": "20190130",
+     "null_rank": 0.70997
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.06,
+     "d_t2": -0.15,
+     "date": "20190619",
+     "null_rank": 0.205438
+    },
+    {
+     "d_spread": 0.06,
+     "d_t10": 0.0,
+     "d_t2": 0.0,
+     "date": "20200916",
+     "null_rank": 0.73716
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": 0.02,
+     "d_t2": 0.01,
+     "date": "20211215",
+     "null_rank": 0.205438
+    },
+    {
+     "d_spread": 0.05,
+     "d_t10": 0.0,
+     "d_t2": 0.14,
+     "date": "20220126",
+     "null_rank": 0.661631
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.12,
+     "d_t2": 0.01,
+     "date": "20230614",
+     "null_rank": 0.120846
+    },
+    {
+     "d_spread": 0.14,
+     "d_t10": -0.27,
+     "d_t2": -0.32,
+     "date": "20231213",
+     "null_rank": 0.975831
+    },
+    {
+     "d_spread": -0.05,
+     "d_t10": 0.03,
+     "d_t2": 0.03,
+     "date": "20240131",
+     "null_rank": 0.661631
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.02,
+     "d_t2": 0.06,
+     "date": "20260617",
+     "null_rank": 0.344411
+    }
+   ]
+  },
+  {
+   "band": 2,
+   "draws": 20000,
+   "h": 10,
+   "mean_abs": 0.045185,
+   "null_mean_abs": 0.052695,
+   "null_n": 141,
+   "perm_p": [
+    0.61565,
+    0.61565
+   ],
+   "rows": [
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.32,
+     "d_t2": -0.23,
+     "date": "20090624",
+     "null_rank": 0.078014
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.14,
+     "d_t2": -0.15,
+     "date": "20091104",
+     "null_rank": 0.35461
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.22,
+     "d_t2": -0.06,
+     "date": "20100921",
+     "null_rank": 0.269504
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": 0.13,
+     "d_t2": 0.03,
+     "date": "20110622",
+     "null_rank": 0.269504
+    },
+    {
+     "d_spread": 0.06,
+     "d_t10": -0.25,
+     "d_t2": -0.05,
+     "date": "20110809",
+     "null_rank": 0.723404
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.23,
+     "d_t2": 0.1,
+     "date": "20110921",
+     "null_rank": 0.283688
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": -0.08,
+     "d_t2": 0.01,
+     "date": "20120125",
+     "null_rank": 0.815603
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.11,
+     "d_t2": 0.0,
+     "date": "20120913",
+     "null_rank": 0.234043
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.07,
+     "d_t2": 0.03,
+     "date": "20121212",
+     "null_rank": 0.234043
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.09,
+     "d_t2": 0.0,
+     "date": "20130320",
+     "null_rank": 0.120567
+    },
+    {
+     "d_spread": -0.06,
+     "d_t10": 0.15,
+     "d_t2": 0.05,
+     "date": "20131218",
+     "null_rank": 0.723404
+    },
+    {
+     "d_spread": -0.17,
+     "d_t10": 0.03,
+     "d_t2": -0.03,
+     "date": "20140129",
+     "null_rank": 0.971631
+    },
+    {
+     "d_spread": -0.06,
+     "d_t10": 0.09,
+     "d_t2": 0.08,
+     "date": "20140319",
+     "null_rank": 0.751773
+    },
+    {
+     "d_spread": 0.04,
+     "d_t10": 0.07,
+     "d_t2": 0.13,
+     "date": "20141029",
+     "null_rank": 0.617021
+    },
+    {
+     "d_spread": -0.06,
+     "d_t10": 0.1,
+     "d_t2": 0.09,
+     "date": "20141217",
+     "null_rank": 0.744681
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.18,
+     "d_t2": 0.13,
+     "date": "20150128",
+     "null_rank": 0.77305
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.12,
+     "d_t2": -0.14,
+     "date": "20150318",
+     "null_rank": 0.326241
+    },
+    {
+     "d_spread": 0.06,
+     "d_t10": 0.1,
+     "d_t2": -0.03,
+     "date": "20180131",
+     "null_rank": 0.723404
+    },
+    {
+     "d_spread": 0.09,
+     "d_t10": -0.04,
+     "d_t2": -0.06,
+     "date": "20190130",
+     "null_rank": 0.836879
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": -0.08,
+     "d_t2": -0.09,
+     "date": "20190619",
+     "null_rank": 0.326241
+    },
+    {
+     "d_spread": 0.03,
+     "d_t10": 0.01,
+     "d_t2": -0.01,
+     "date": "20200916",
+     "null_rank": 0.41844
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.08,
+     "d_t2": 0.06,
+     "date": "20211215",
+     "null_rank": 0.326241
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.16,
+     "d_t2": 0.34,
+     "date": "20220126",
+     "null_rank": 0.77305
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.13,
+     "d_t2": 0.04,
+     "date": "20230614",
+     "null_rank": 0.35461
+    },
+    {
+     "d_spread": 0.11,
+     "d_t10": -0.41,
+     "d_t2": -0.53,
+     "date": "20231213",
+     "null_rank": 0.879433
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": 0.25,
+     "d_t2": 0.28,
+     "date": "20240131",
+     "null_rank": 0.815603
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.05,
+     "d_t2": 0.12,
+     "date": "20260617",
+     "null_rank": 0.269504
+    }
+   ]
+  },
+  {
+   "band": 5,
+   "draws": 20000,
+   "h": 10,
+   "mean_abs": 0.045185,
+   "null_mean_abs": 0.048393,
+   "null_n": 56,
+   "perm_p": [
+    0.6654,
+    0.667
+   ],
+   "rows": [
+    {
+     "d_spread": 0.0,
+     "d_t10": -0.32,
+     "d_t2": -0.23,
+     "date": "20090624",
+     "null_rank": 0.035714
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.14,
+     "d_t2": -0.15,
+     "date": "20091104",
+     "null_rank": 0.285714
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.22,
+     "d_t2": -0.06,
+     "date": "20100921",
+     "null_rank": 0.178571
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": 0.13,
+     "d_t2": 0.03,
+     "date": "20110622",
+     "null_rank": 0.178571
+    },
+    {
+     "d_spread": 0.06,
+     "d_t10": -0.25,
+     "d_t2": -0.05,
+     "date": "20110809",
+     "null_rank": 0.678571
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.23,
+     "d_t2": 0.1,
+     "date": "20110921",
+     "null_rank": 0.232143
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": -0.08,
+     "d_t2": 0.01,
+     "date": "20120125",
+     "null_rank": 0.839286
+    },
+    {
+     "d_spread": 0.01,
+     "d_t10": -0.11,
+     "d_t2": 0.0,
+     "date": "20120913",
+     "null_rank": 0.107143
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.07,
+     "d_t2": 0.03,
+     "date": "20121212",
+     "null_rank": 0.107143
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": -0.09,
+     "d_t2": 0.0,
+     "date": "20130320",
+     "null_rank": 0.035714
+    },
+    {
+     "d_spread": -0.06,
+     "d_t10": 0.15,
+     "d_t2": 0.05,
+     "date": "20131218",
+     "null_rank": 0.678571
+    },
+    {
+     "d_spread": -0.17,
+     "d_t10": 0.03,
+     "d_t2": -0.03,
+     "date": "20140129",
+     "null_rank": 0.982143
+    },
+    {
+     "d_spread": -0.06,
+     "d_t10": 0.09,
+     "d_t2": 0.08,
+     "date": "20140319",
+     "null_rank": 0.732143
+    },
+    {
+     "d_spread": 0.04,
+     "d_t10": 0.07,
+     "d_t2": 0.13,
+     "date": "20141029",
+     "null_rank": 0.625
+    },
+    {
+     "d_spread": -0.06,
+     "d_t10": 0.1,
+     "d_t2": 0.09,
+     "date": "20141217",
+     "null_rank": 0.696429
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.18,
+     "d_t2": 0.13,
+     "date": "20150128",
+     "null_rank": 0.75
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.12,
+     "d_t2": -0.14,
+     "date": "20150318",
+     "null_rank": 0.267857
+    },
+    {
+     "d_spread": 0.06,
+     "d_t10": 0.1,
+     "d_t2": -0.03,
+     "date": "20180131",
+     "null_rank": 0.678571
+    },
+    {
+     "d_spread": 0.09,
+     "d_t10": -0.04,
+     "d_t2": -0.06,
+     "date": "20190130",
+     "null_rank": 0.875
+    },
+    {
+     "d_spread": -0.02,
+     "d_t10": -0.08,
+     "d_t2": -0.09,
+     "date": "20190619",
+     "null_rank": 0.267857
+    },
+    {
+     "d_spread": 0.03,
+     "d_t10": 0.01,
+     "d_t2": -0.01,
+     "date": "20200916",
+     "null_rank": 0.392857
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": 0.08,
+     "d_t2": 0.06,
+     "date": "20211215",
+     "null_rank": 0.267857
+    },
+    {
+     "d_spread": -0.07,
+     "d_t10": 0.16,
+     "d_t2": 0.34,
+     "date": "20220126",
+     "null_rank": 0.75
+    },
+    {
+     "d_spread": 0.02,
+     "d_t10": -0.13,
+     "d_t2": 0.04,
+     "date": "20230614",
+     "null_rank": 0.285714
+    },
+    {
+     "d_spread": 0.11,
+     "d_t10": -0.41,
+     "d_t2": -0.53,
+     "date": "20231213",
+     "null_rank": 0.910714
+    },
+    {
+     "d_spread": 0.08,
+     "d_t10": 0.25,
+     "d_t2": 0.28,
+     "date": "20240131",
+     "null_rank": 0.839286
+    },
+    {
+     "d_spread": -0.01,
+     "d_t10": 0.05,
+     "d_t2": 0.12,
+     "date": "20260617",
+     "null_rank": 0.178571
+    }
+   ]
+  }
+ ],
+ "mnd_fixed_scenario_cells": {
+  "2009_to_2016": [
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.053315,
+    "lo90": -0.166172,
+    "n": 697,
+    "overlap": false,
+    "sd_change": 0.041468,
+    "slope": -0.112446
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.058047,
+    "lo90": -0.173165,
+    "n": 513,
+    "overlap": false,
+    "sd_change": 0.042346,
+    "slope": -0.116595
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": -0.027807,
+    "lo90": -0.180217,
+    "n": 212,
+    "overlap": false,
+    "sd_change": 0.051413,
+    "slope": -0.105201
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": -0.026888,
+    "lo90": -0.194448,
+    "n": 144,
+    "overlap": false,
+    "sd_change": 0.058721,
+    "slope": -0.114429
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.24958,
+    "lo90": -0.025312,
+    "n": 62,
+    "overlap": false,
+    "sd_change": 0.054302,
+    "slope": 0.115433
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.043559,
+    "lo90": -0.43283,
+    "n": 24,
+    "overlap": false,
+    "sd_change": 0.076539,
+    "slope": -0.206496
+   }
+  ],
+  "from_2017": [
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.014019,
+    "lo90": -0.110503,
+    "n": 892,
+    "overlap": false,
+    "sd_change": 0.066656,
+    "slope": -0.063865
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.062185,
+    "lo90": -0.163631,
+    "n": 647,
+    "overlap": false,
+    "sd_change": 0.073528,
+    "slope": -0.111048
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 5,
+    "hi90": 0.07074,
+    "lo90": -0.079555,
+    "n": 271,
+    "overlap": false,
+    "sd_change": 0.10296,
+    "slope": -0.009734
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 5,
+    "hi90": 0.02602,
+    "lo90": -0.120145,
+    "n": 184,
+    "overlap": false,
+    "sd_change": 0.061978,
+    "slope": -0.051
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.102462,
+    "lo90": -0.101773,
+    "n": 78,
+    "overlap": false,
+    "sd_change": 0.128652,
+    "slope": 0.010912
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.193359,
+    "lo90": -0.094097,
+    "n": 31,
+    "overlap": false,
+    "sd_change": 0.060054,
+    "slope": 0.055825
+   }
+  ],
+  "series": {
+   "mnd_conv": "MND 30 Yr. Fixed",
+   "mnd_fha": "MND 30 Yr. FHA"
+  },
+  "source": "data/raw/b156/mnd/mtg-rates-mnd-full_20261016.html"
+ },
+ "overlapping_window_cells": {
+  "mnd_fha_2009_to_2016": [
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.064636,
+    "lo90": -0.160992,
+    "n": 1358,
+    "overlap": true,
+    "sd_change": 0.042239,
+    "slope": -0.114311
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.067132,
+    "lo90": -0.173634,
+    "n": 989,
+    "overlap": true,
+    "sd_change": 0.042453,
+    "slope": -0.121889
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": -0.050169,
+    "lo90": -0.157369,
+    "n": 986,
+    "overlap": true,
+    "sd_change": 0.055455,
+    "slope": -0.107028
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 5,
+    "hi90": 0.009958,
+    "lo90": -0.13236,
+    "n": 621,
+    "overlap": true,
+    "sd_change": 0.057164,
+    "slope": -0.063335
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 10,
+    "hi90": -0.011,
+    "lo90": -0.204378,
+    "n": 383,
+    "overlap": true,
+    "sd_change": 0.068373,
+    "slope": -0.115349
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.060205,
+    "lo90": -0.266467,
+    "n": 94,
+    "overlap": true,
+    "sd_change": 0.069077,
+    "slope": -0.099075
+   }
+  ],
+  "mnd_fha_from_2017": [
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.035593,
+    "lo90": -0.116427,
+    "n": 1747,
+    "overlap": true,
+    "sd_change": 0.067977,
+    "slope": -0.077622
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.042506,
+    "lo90": -0.129873,
+    "n": 1260,
+    "overlap": true,
+    "sd_change": 0.073134,
+    "slope": -0.087152
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": -0.004366,
+    "lo90": -0.095232,
+    "n": 1257,
+    "overlap": true,
+    "sd_change": 0.083061,
+    "slope": -0.051579
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 5,
+    "hi90": 0.019283,
+    "lo90": -0.081716,
+    "n": 790,
+    "overlap": true,
+    "sd_change": 0.077525,
+    "slope": -0.031534
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.041788,
+    "lo90": -0.099568,
+    "n": 492,
+    "overlap": true,
+    "sd_change": 0.096881,
+    "slope": -0.031813
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.125049,
+    "lo90": -0.07368,
+    "n": 134,
+    "overlap": true,
+    "sd_change": 0.061666,
+    "slope": 0.020371
+   }
+  ],
+  "va": [
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 2,
+    "hi90": 0.068915,
+    "lo90": -0.021184,
+    "n": 1764,
+    "overlap": true,
+    "sd_change": 0.048918,
+    "slope": 0.02439
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 2,
+    "hi90": 0.069994,
+    "lo90": -0.029014,
+    "n": 1277,
+    "overlap": true,
+    "sd_change": 0.047899,
+    "slope": 0.021071
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": 0.083179,
+    "lo90": 0.008079,
+    "n": 1274,
+    "overlap": true,
+    "sd_change": 0.052895,
+    "slope": 0.045202
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": 0.096602,
+    "lo90": 0.000945,
+    "n": 806,
+    "overlap": true,
+    "sd_change": 0.051088,
+    "slope": 0.047083
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.083611,
+    "lo90": -0.001558,
+    "n": 508,
+    "overlap": true,
+    "sd_change": 0.056455,
+    "slope": 0.040149
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.067464,
+    "lo90": -0.040406,
+    "n": 143,
+    "overlap": true,
+    "sd_change": 0.05274,
+    "slope": 0.021693
+   }
+  ]
+ },
+ "skipped_releases": [
+  "20100509",
+  "20191011",
+  "20200323",
+  "20200331",
+  "20200827",
+  "20250822"
+ ],
+ "slope_cells": {
+  "fha": [
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.10447,
+    "lo90": -0.167993,
+    "n": 904,
+    "overlap": false,
+    "sd_change": 0.036775,
+    "slope": -0.137067
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 2,
+    "hi90": -0.109099,
+    "lo90": -0.178919,
+    "n": 659,
+    "overlap": false,
+    "sd_change": 0.037441,
+    "slope": -0.145468
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": -0.138499,
+    "lo90": -0.22688,
+    "n": 272,
+    "overlap": false,
+    "sd_change": 0.04717,
+    "slope": -0.183983
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 5,
+    "hi90": -0.137981,
+    "lo90": -0.251907,
+    "n": 185,
+    "overlap": false,
+    "sd_change": 0.049018,
+    "slope": -0.196758
+   },
+   {
+    "band": 2,
+    "excludes_zero": true,
+    "h": 10,
+    "hi90": -0.151715,
+    "lo90": -0.277321,
+    "n": 79,
+    "overlap": false,
+    "sd_change": 0.060878,
+    "slope": -0.21822
+   },
+   {
+    "band": 5,
+    "excludes_zero": true,
+    "h": 10,
+    "hi90": -0.077975,
+    "lo90": -0.234451,
+    "n": 32,
+    "overlap": false,
+    "sd_change": 0.044595,
+    "slope": -0.159039
+   }
+  ],
+  "va": [
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 2,
+    "hi90": 0.065755,
+    "lo90": -0.03033,
+    "n": 904,
+    "overlap": false,
+    "sd_change": 0.04809,
+    "slope": 0.018481
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 2,
+    "hi90": 0.088049,
+    "lo90": -0.032552,
+    "n": 659,
+    "overlap": false,
+    "sd_change": 0.048469,
+    "slope": 0.029335
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 5,
+    "hi90": 0.115622,
+    "lo90": -0.029962,
+    "n": 272,
+    "overlap": false,
+    "sd_change": 0.054253,
+    "slope": 0.042982
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 5,
+    "hi90": 0.07889,
+    "lo90": -0.058886,
+    "n": 185,
+    "overlap": false,
+    "sd_change": 0.05405,
+    "slope": 0.008094
+   },
+   {
+    "band": 2,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.141911,
+    "lo90": -0.045803,
+    "n": 79,
+    "overlap": false,
+    "sd_change": 0.065003,
+    "slope": 0.045017
+   },
+   {
+    "band": 5,
+    "excludes_zero": false,
+    "h": 10,
+    "hi90": 0.172508,
+    "lo90": -0.09326,
+    "n": 32,
+    "overlap": false,
+    "sd_change": 0.05439,
+    "slope": 0.041259
+   }
+  ]
+ },
+ "stage": "B156"
+}

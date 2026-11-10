@@ -269,7 +269,8 @@ def theorem_5(rng: np.random.Generator, shapes: int) -> tuple[list[Criterion], d
             continue
         bounded_tested += 1
         # Every proper non-empty subset must break, because strong connectivity
-        # means every such subset has a directed edge leaving it.
+        # means every such subset has a directed edge leaving it. Three are
+        # drawn per graph, one of each size below, and the detail says so.
         worst_for_this_graph = np.inf
         for size in (1, n // 2, n - 1):
             subset = list(rng.permutation(n)[:size])
@@ -323,8 +324,9 @@ def theorem_5(rng: np.random.Generator, shapes: int) -> tuple[list[Criterion], d
         Criterion(
             "B4-4  Theorem 5: strong connectivity bounds the polytope",
             bounded_tested > 0 and not bounded_failures and not interval_failures,
-            f"{bounded_tested} strongly connected graphs; every proper subset "
-            f"breaks (smallest breach {bounded_min_break:.3e}); every coordinate "
+            f"{bounded_tested} strongly connected graphs; a random proper subset "
+            f"of each size 1, n//2 and n-1 breaks in every graph (smallest "
+            f"breach {bounded_min_break:.3e}); every coordinate "
             f"interval is finite, non-empty and contains the returned potential, "
             f"widest {widest:.3f}"
             if bounded_tested
@@ -463,8 +465,10 @@ def directed_squares(rng: np.random.Generator) -> tuple[list[Criterion], dict]:
                     bound_holds += bnd
                     equiv_breaks += (neg != bnd)
 
-        # A spread common to both classes: added to every leg of every class on
-        # every position edge, which is what "the market widened" looks like.
+        # A friction common to both classes in log terms, which is an equal
+        # RELATIVE spread, the sense Theorem 6(5) requires: added to every leg
+        # of every class on every position edge, which is what "the market
+        # widened" looks like.
         extra = -abs(float(rng.normal(0.0, 0.5)))
         wide = directed_product(adj_g, m, forward + extra, backward + extra)
         for i, j in undirected_pairs(adj_g):

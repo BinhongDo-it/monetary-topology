@@ -23,8 +23,16 @@ computable at all, and whether the friction half obeys its sign constraint on
 real data. It is **not** the empirical test of section 5.1's invariance claim,
 which needs a dated friction change common to both classes and has no carrier
 yet. **Whether the implied book and the directly quoted book are two agent
-classes in B4's sense has not been adjudicated**; nothing here assumes they are,
+classes in B4's sense is not decided here**; nothing here assumes they are,
 and the arithmetic is reported as the arithmetic of two quoting mechanisms.
+The question is answered per position edge by `b4_two_classes.py` and
+recorded in `docs/b4_directed_edges.md` section 9.
+
+Units are additive: the legs are prices in ticks, because a calendar spread
+can trade below zero and has no logarithm. So the friction is minus the sum
+of the two quoted spreads and the index is twice the difference of the two
+arithmetic mids; the log form of section 5.1, with Theorem 6(5)'s
+geometric-mid term, does not enter.
 
 Theorem 4 says a positive two-cycle means `P(omega)` is empty. So the friction
 half going positive even once is not noise: it is an arbitrage at that instant,

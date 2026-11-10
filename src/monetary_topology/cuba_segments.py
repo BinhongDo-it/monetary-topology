@@ -143,8 +143,8 @@ def to_direct(rates: dict[str, float], currency: str) -> dict[str, float]:
         return {tag: 1.0 / value for tag, value in rates.items()}
     raise GuardFailed(f"{currency}: unknown quotation {how!r}")
 
-#: Segments whose class has **no return leg**, so that ``b4`` §5.2 types them
-#: ``H0``. Stated as data rather than as prose so that a criterion cannot read
+#: Segments whose class has **no return leg and no directed path back** (the
+#: sinks of B6-6b), so that ``b4`` §5.2 types them ``H0``. Stated as data rather than as prose so that a criterion cannot read
 #: one of them as an ordinary two-way class by forgetting a sentence.
 ONE_WAY_SEGMENTS = ("I", "II")
 

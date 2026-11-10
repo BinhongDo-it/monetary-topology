@@ -2,9 +2,12 @@
 release and PPP round, the methodology page on urban and rural PPPs, and Chen and Ravallion's
 paper on the 2005 round.
 
-  - pip_ppp_<version>.csv: PIP auxiliary PPP table, one per release x PPP round listed in FILES.
-    Rows: country, data level (national, rural, urban), year of the round, PPP. The same round in
-    two releases is the same reading published twice; their difference is the measured floor.
+  - pip_ppp_<version>.csv: PIP auxiliary PPP table, one per release x PPP round the platform
+    lists (every label in pip_versions.csv; the first fetch took ten of the eighteen). These are
+    the PPPs the platform converts consumption with, its consumption PPPs. Rows: country, data
+    level (national, rural, urban), year of the round, PPP. The same round in two releases is the
+    same reading published twice; their difference is the measured floor. A table is what the
+    platform serves under that label on the day it is fetched.
   - pip_versions.csv: the list of releases.
   - pip_handbook_convert.html: PIP Methodology Handbook, the page on converting to PPP dollars,
     which states how separate rural and urban PPPs are built for China, India and Indonesia.
@@ -55,12 +58,20 @@ PIP = "https://api.worldbank.org/pip/v1/"
 FILES = {
     "pip_ppp_20220909_2011_02_02_PROD.csv": PIP + "aux?table=ppp&version=20220909_2011_02_02_PROD&format=csv",
     "pip_ppp_20220909_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20220909_2017_01_02_PROD&format=csv",
+    "pip_ppp_20230328_2011_02_02_PROD.csv": PIP + "aux?table=ppp&version=20230328_2011_02_02_PROD&format=csv",
+    "pip_ppp_20230328_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20230328_2017_01_02_PROD&format=csv",
     "pip_ppp_20230919_2011_02_02_PROD.csv": PIP + "aux?table=ppp&version=20230919_2011_02_02_PROD&format=csv",
     "pip_ppp_20230919_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20230919_2017_01_02_PROD&format=csv",
+    "pip_ppp_20240326_2011_02_02_PROD.csv": PIP + "aux?table=ppp&version=20240326_2011_02_02_PROD&format=csv",
+    "pip_ppp_20240326_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20240326_2017_01_02_PROD&format=csv",
     "pip_ppp_20240627_2011_02_02_PROD.csv": PIP + "aux?table=ppp&version=20240627_2011_02_02_PROD&format=csv",
     "pip_ppp_20240627_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20240627_2017_01_02_PROD&format=csv",
+    "pip_ppp_20250401_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20250401_2017_01_02_PROD&format=csv",
+    "pip_ppp_20250401_2021_01_02_PROD.csv": PIP + "aux?table=ppp&version=20250401_2021_01_02_PROD&format=csv",
     "pip_ppp_20250930_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20250930_2017_01_02_PROD&format=csv",
     "pip_ppp_20250930_2021_01_02_PROD.csv": PIP + "aux?table=ppp&version=20250930_2021_01_02_PROD&format=csv",
+    "pip_ppp_20260324_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20260324_2017_01_02_PROD&format=csv",
+    "pip_ppp_20260324_2021_01_02_PROD.csv": PIP + "aux?table=ppp&version=20260324_2021_01_02_PROD&format=csv",
     "pip_ppp_20260922_2017_01_02_PROD.csv": PIP + "aux?table=ppp&version=20260922_2017_01_02_PROD&format=csv",
     "pip_ppp_20260922_2021_01_02_PROD.csv": PIP + "aux?table=ppp&version=20260922_2021_01_02_PROD&format=csv",
     "pip_versions.csv": PIP + "versions?format=csv",
@@ -141,6 +152,13 @@ def fetch() -> int:
     return 1 if bad else 0
 
 
+def unlisted(versions_csv: str, names) -> list[str]:
+    """Version labels the platform lists that no PPP file in `names` covers."""
+    have = {n[len("pip_ppp_"):-len(".csv")] for n in names if n.startswith("pip_ppp_")}
+    listed = [line.split(",")[0] for line in versions_csv.strip().splitlines()[1:] if line.strip()]
+    return [v for v in listed if v not in have]
+
+
 def check() -> int:
     bad = 0
     for name in FILES:
@@ -148,6 +166,10 @@ def check() -> int:
         why = "missing" if not path.exists() else check_bytes(name, path.read_bytes())
         print(f"{name}: {'ok' if why is None else why}")
         bad += why is not None
+    if (RAW / "pip_versions.csv").exists():
+        gone = unlisted((RAW / "pip_versions.csv").read_text(encoding="utf-8"), FILES)
+        print(f"version labels listed by the platform and not fetched: {gone if gone else 'none'}")
+        bad += bool(gone)
     return 1 if bad else 0
 
 
@@ -163,7 +185,13 @@ def selftest() -> None:
         p.write_bytes(b"1")
         set_aside(p)
         assert (Path(tmp) / "a.csv.bad_1").exists() and not p.exists()
-    print("selftest ok: a table without the rural row, an HTML page and a cut PDF fail; set_aside renames")
+    listing = "version,release_version,ppp_version,identity\n20250401_2017_01_02_PROD,20250401,2017,PROD\n" \
+              "20240627_2017_01_02_PROD,20240627,2017,PROD\n"
+    assert unlisted(listing, ["pip_ppp_20240627_2017_01_02_PROD.csv"]) == ["20250401_2017_01_02_PROD"], \
+        "a listed release with no table must be reported"
+    assert unlisted(listing, ["pip_ppp_20240627_2017_01_02_PROD.csv", "pip_ppp_20250401_2017_01_02_PROD.csv"]) == []
+    print("selftest ok: a table without the rural row, an HTML page and a cut PDF fail; a listed release with "
+          "no table is reported; set_aside renames")
 
 
 if __name__ == "__main__":

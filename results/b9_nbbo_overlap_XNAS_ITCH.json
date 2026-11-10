@@ -1,14 +1,29 @@
 {
-  "calm_rate": 0.5447643150901613,
-  "crossed_at_mark": 2,
+  "calm_rate": 0.5538315389487017,
+  "crossed_at_mark": 0,
+  "dataset": "XNAS.ITCH",
   "diagnostic_only": false,
-  "exact_rate": 0.5255746196179993,
+  "early_close": {
+    "calm_rate_without": 0.5562977099236641,
+    "days": [
+      "2025-07-03",
+      "2025-11-28",
+      "2025-12-24"
+    ],
+    "exact": 0,
+    "exact_rate_without": 0.5276243093922652,
+    "n": 21,
+    "n_without": 6154,
+    "stress_rate_without": 0.49767441860465117,
+    "verdict_without": "fails"
+  },
+  "exact_rate": 0.52582995951417,
   "funds": {
     "JNK": {
       "calm_exact": 156,
       "calm_n": 201,
       "exact": 290,
-      "n": 402,
+      "n": 401,
       "spread_1tick": 327,
       "steps": {
         "0": 290,
@@ -21,11 +36,10 @@
         "5": 1,
         "6": 2,
         "7": 2,
-        "8": 2,
-        "922337193965": 1
+        "8": 2
       },
       "stress_exact": 134,
-      "stress_n": 201
+      "stress_n": 200
     },
     "SPAB": {
       "calm_exact": 187,
@@ -106,10 +120,10 @@
       "stress_n": 201
     },
     "XLB": {
-      "calm_exact": 96,
-      "calm_n": 203,
+      "calm_exact": 104,
+      "calm_n": 202,
       "exact": 220,
-      "n": 403,
+      "n": 402,
       "spread_1tick": 294,
       "steps": {
         "0": 220,
@@ -119,10 +133,9 @@
         "3": 7,
         "4": 5,
         "5": 2,
-        "9": 1,
-        "922337194632": 1
+        "9": 1
       },
-      "stress_exact": 124,
+      "stress_exact": 116,
       "stress_n": 200
     },
     "XLC": {
@@ -148,7 +161,7 @@
       "stress_n": 201
     },
     "XLE": {
-      "calm_exact": 116,
+      "calm_exact": 120,
       "calm_n": 203,
       "exact": 238,
       "n": 403,
@@ -162,7 +175,7 @@
         "4": 4,
         "5": 1
       },
-      "stress_exact": 122,
+      "stress_exact": 118,
       "stress_n": 200
     },
     "XLF": {
@@ -184,9 +197,9 @@
     },
     "XLI": {
       "calm_exact": 58,
-      "calm_n": 203,
+      "calm_n": 202,
       "exact": 110,
-      "n": 403,
+      "n": 402,
       "spread_1tick": 88,
       "steps": {
         "0": 110,
@@ -202,14 +215,13 @@
         "5": 11,
         "6": 6,
         "7": 3,
-        "8": 2,
-        "922337189387": 1
+        "8": 2
       },
       "stress_exact": 52,
       "stress_n": 200
     },
     "XLK": {
-      "calm_exact": 42,
+      "calm_exact": 47,
       "calm_n": 203,
       "exact": 95,
       "n": 404,
@@ -235,7 +247,7 @@
         "8": 3,
         "9": 3
       },
-      "stress_exact": 53,
+      "stress_exact": 48,
       "stress_n": 201
     },
     "XLP": {
@@ -278,7 +290,7 @@
       "stress_n": 201
     },
     "XLU": {
-      "calm_exact": 124,
+      "calm_exact": 129,
       "calm_n": 201,
       "exact": 247,
       "n": 401,
@@ -290,7 +302,7 @@
         "3": 9,
         "4": 3
       },
-      "stress_exact": 123,
+      "stress_exact": 118,
       "stress_n": 200
     },
     "XLV": {
@@ -318,8 +330,8 @@
       "stress_n": 201
     },
     "XLY": {
-      "calm_exact": 51,
-      "calm_n": 202,
+      "calm_exact": 56,
+      "calm_n": 201,
       "exact": 97,
       "n": 401,
       "spread_1tick": 73,
@@ -343,8 +355,8 @@
         "8": 1,
         "9": 3
       },
-      "stress_exact": 46,
-      "stress_n": 199
+      "stress_exact": 41,
+      "stress_n": 200
     }
   },
   "halfcent_steps": {
@@ -384,16 +396,19 @@
     "72": 1,
     "79": 1,
     "8": 9,
-    "9": 9,
-    "922337189387": 1,
-    "922337193965": 1,
-    "922337194632": 1
+    "9": 9
   },
-  "median_abs_bp": 4.782159069912241e-05,
-  "n": 6178,
-  "one_tick_spread_rate": 0.5783425056652638,
-  "p90_abs_bp": 1.2146299487738177,
+  "header_only_captures": 0,
+  "median_abs_bp": 4.7757358315803335e-05,
+  "min_size": 0,
+  "n": 6175,
+  "never_compared": 26,
+  "offset_s": 0,
+  "one_tick_spread_rate": 0.5786234817813766,
+  "p90_abs_bp": 1.2126179143757907,
+  "registered_fund_days": 6201,
   "stage": "B9-A-6 (§36)",
-  "stress_rate": 0.5054690089492874,
-  "verdict": "fails"
+  "stress_rate": 0.4965197215777262,
+  "verdict": "fails",
+  "verdict_reading": "read"
 }

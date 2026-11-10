@@ -19,7 +19,9 @@ Checks, each with a planted error that must make it fail (--selftest):
 
 Readings (A50-13, own_reading): against block 2 (target without the accounts): production
 share, issuance, circulation at the end, wages paid in the last 50 rounds; block 2's seven
-differences.
+differences. A difference in shares is read over the pairs in which every run paid at least
+half the wages due in its last 50 rounds; the pairs with a stalled run are counted and their
+signs printed apart.
 
 Run from the repo root:
     python experiments/a50_block5.py
@@ -41,13 +43,15 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import a50_grid  # noqa: E402
-from a50_common import C, LEVIES, mean_cells, row, rules, unseen_rows  # noqa: E402
+from a50_common import (ACTIVE_FLOOR, C, LEVIES, active, mean_cells, read_by_activity, row,  # noqa: E402
+                        rules, unseen_rows)
 from a50_grid import QTY, REGIMES, SEEDS  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "results" / "a50_block5.json"
 PARKED = ("both parked", "employee parked", "employer parked", "employee locked", "both locked")
 KEYS = QTY + ("issuance_total", "circulating_end", "wage_paid_last50", "pf_target_cut")
+SHARES = ("prod_share", "top_decile")
 
 
 def target_check(m) -> tuple[bool, dict]:
@@ -83,8 +87,15 @@ def selftest() -> None:
         pass
     else:
         raise AssertionError("the target switch on a returned arm must be refused")
-    print("selftest ok: A50-11 catches a wrong velocity and a run that withheld nothing; "
-          "the switch is refused on a returned arm")
+    # the activity rule: a stalled pair is kept out of the direction, and nothing is read with no active pair
+    by = read_by_activity([0.1, 0.2, -0.3], [True, True, False])
+    assert by["read"] and by["active_pairs"] == 2 and by["signs_stalled"] == ["-"], \
+        "a stalled pair with the other sign must not stop the active pairs from being read"
+    assert not read_by_activity([0.1, 0.2], [False, False])["read"], "with every pair stalled nothing is read"
+    assert not read_by_activity([0.1, -0.2, 0.3], [True, True, False])["read"], "active pairs of two signs are not read"
+    assert active({"wage_paid_last50": 200.0}) and not active({"wage_paid_last50": 199.9})
+    print("selftest ok: A50-11 catches a wrong velocity and a run that withheld nothing; the switch is "
+          "refused on a returned arm; a stalled pair is kept out of the direction")
 
 
 def main() -> int:
@@ -114,8 +125,8 @@ def main() -> int:
     extra = [(reg, arm, lv, s) for reg in REGIMES for arm in ("none", "employer returned")
              for lv in LEVIES for s in SEEDS]
     with ProcessPoolExecutor(max_workers=workers) as ex:
-        plain = list(ex.map(_plain, extra + [(reg, arm, 0.20, s) for reg in REGIMES for arm in PARKED
-                                             for s in SEEDS], chunksize=2))
+        plain = list(ex.map(_plain, extra + [(reg, arm, lv, s) for reg in REGIMES for arm in PARKED
+                                             for lv in LEVIES for s in SEEDS], chunksize=2))
     for p in plain:
         b = [x for x in base if (x["regime"], x["arm"], x["levy"], x["seed"]) == (p["regime"], p["arm"], p["levy"], p["seed"])]
         assert b and all(b[0][q] == p[q] for q in QTY), "block 2's rows must reproduce under the plain run"
@@ -139,14 +150,26 @@ def main() -> int:
     print("\ndifferences, prod_share per seed at levy 0.20 (sign over seeds and levies):")
     verdict = {}
     byl = {lv: a50_grid.differences([x for x in target if x["levy"] == lv], cs=(C,)) for lv in LEVIES}
+    idx = {(x["regime"], x["arm"], x["levy"], x["seed"]): x for x in target}
     for name, v in byl[0.20].items():
         allsigns = set()
         for lv in LEVIES:
             allsigns |= set(a50_grid.signs(byl[lv].get(name, [])))
         read = len(allsigns) == 1 and "0" not in allsigns
         verdict[name] = {"levy_0.20": v, "signs_all_levies": sorted(allsigns), "read": read}
+        reg, _, dn, q = name.split(" | ")
+        if q in SHARES:
+            arms = a50_grid.DIFFS[dn][0] + a50_grid.DIFFS[dn][1]
+            vals = [x for lv in LEVIES for x in byl[lv].get(name, [None] * len(SEEDS))]
+            act = [all(active(idx[(reg, a, lv, s)]) for a in arms) for lv in LEVIES for s in SEEDS]
+            by = read_by_activity(vals, act)
+            verdict[name].update(by, read_all_pairs=read)
         if name.endswith("prod_share"):
-            print(f"  {name:58s} {v}  {'read ' + next(iter(allsigns)) if read else 'NOT READ ' + str(sorted(allsigns))}")
+            r = verdict[name]
+            print(f"  {name:58s} {v}  active {r['active_pairs']}/{r['pairs']} {r['signs_active']}"
+                  f" stalled {r['signs_stalled']}  {'read' if r['read'] else 'NOT READ'}")
+    stalled = sum(1 for x in rows if not active(x))
+    print(f"\nruns below the activity floor ({ACTIVE_FLOOR} of wages over the last 50 rounds): {stalled} of {len(rows)}")
 
     record = {"stage": "A50-block5",
               "criteria": [
@@ -157,6 +180,7 @@ def main() -> int:
                   {"name": "A50-2", "kind": "instrument", "passed": ok2, "detail": f"fund adds up in {len(rows)} runs"},
                   {"name": "A50-4", "kind": "instrument", "passed": ok4, "detail": "locked accounts never spent"}],
               "rows": rows, "plain_rows": plain, "cell_summary": summary, "differences": verdict,
+              "activity": {"floor": ACTIVE_FLOOR, "stalled_runs": stalled, "runs": len(rows)},
               "config": {"provident_in_target": True, "c": C, "levies": list(LEVIES), "seeds": list(SEEDS),
                          "arms": list(PARKED), "short_stay_share": 0.1}}
     OUT.write_text(json.dumps(record, indent=1, sort_keys=True, ensure_ascii=False, default=str) + "\n",

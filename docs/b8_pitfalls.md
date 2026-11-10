@@ -493,8 +493,10 @@ cannot open.
     B8-0b's floor measured 2.7e-6 to 1.4e-5, which looks exactly like measurement
     noise, **and is in fact `loop_residual_ideal`, a deterministic function of
     `(B0, i, P, k)`**. Subtracting it leaves 2.68e-08 to 5.22e-08, against a
-    median balance on this arm of 165,000, **and half a cent divided by that is
-    3.03e-08**. The real floor is the fact that field 12 is written to the cent.
+    median balance on this arm of 85,447 to 164,620 by archive, **and half a
+    cent divided by that is 3.04e-08 to 5.85e-08**, each archive's floor 10 to
+    15 per cent under its own. The real floor is the fact that field 12 is
+    written to the cent.
     **Diagnostic: correlate the floor against some known closed-form quantity.
     One line of `np.corrcoef`.**
 

@@ -27,7 +27,10 @@ each. They are complements, not substitutes, which was not obvious before.
 **Theorem 3** is the one that matters for the repository as it stands. The
 within-cell variance reported by stage B2 equals, up to a factor of two, the mean
 squared holonomy around the graph's four-cycles. **B2 loop A did not measure a
-proxy for a cohomological quantity. It measured the quantity.**
+proxy for a cohomological quantity. It measured the quantity.** That is the square
+reading, with the dwelling as the position under A1 of §8. Read with the cell as the
+position and the borrowers unlabelled, the same figure is a dispersion at a position,
+and [`b0_claim_scope.md`](b0_claim_scope.md) §5 keeps the two readings side by side.
 
 That closes the open question recorded in the README: whether the partition
 result was a special case of the cohomological claim or a weaker relative. It is
@@ -37,7 +40,10 @@ obstruction.
 **Corollary 5.5**, added 2026-08-29, names the family that occupies Theorem 5's
 zero set: any account generating terms from one scalar on positions plus one common
 intertemporal rate returns `∮ω = 0` on every cycle identically, whatever its
-frictions and shocks. That is what the measured carriers are read against.
+shocks and whatever frictions act on the dynamics of that scalar. A friction on
+direction keeps every square's index part at zero and moves the reading onto the ratio
+of Theorem 6(4) of `b4_directed_edges.md`. That is what the measured carriers are read
+against.
 
 **Theorem 5**, added 2026-08-27, turns Theorem 1's equivalence into a
 measurement. It computes the distance from the field to the nearest single scalar
@@ -253,13 +259,16 @@ what remains is an approximation whose error is the thing being measured.
 Condition (4) is two conditions, and they do not cost the same.
 
 The first, that each `w_a` is exact on `G`, says that within one class the terms
-have a potential. The second, that all the `w_a` coincide, says that the potential
-does not depend on who is transacting. **Standard price theory assumes both, and
-assumes the second one silently**: writing down one price vector for a market is
-already the assertion that no index for the transacting party is needed. A
-Walrasian price vector, a state price, a stochastic discount factor and a table of
-relative prices differ in what they are indexed by and agree in this, so the
-condition is not one school's commitment but the shared representational one.
+have a potential. The second, that all the `w_a` coincide, says that the edge
+field does not depend on who is transacting. **Standard price theory assumes both,
+and assumes the second one silently**: writing down one price vector as the terms
+every party trades at is already the assertion that no index for the transacting
+party is needed. A Walrasian price vector, a state price, a stochastic discount factor
+and a table of relative prices differ in what they are indexed by and agree in this, so
+the condition is the shared representational one, common to every school. A model that
+adds a party-specific cost paid in one direction of the same transition, as Chen, Cúrdia
+and Ferrero (2012) do for long-term bonds, has left (4) by its own construction and has
+written the index `a`.
 
 **So (4) is not a rival hypothesis that Theorem 1 refutes. It is the locus on
 which the enlarged object coincides with the older one**, and the implication
@@ -433,7 +442,8 @@ that the two summands separate when slice is genuinely non-zero.
 Stage B2's headline figures — `0.7831` over all cells, `0.8480` over cells of at
 least twenty loans, `0.7654` and `0.8181` in the rank-transformed version that
 excludes nothing — are therefore cohomological quantities and not proxies for
-them. The identity is checked numerically per cell and in aggregate; it holds to
+them, on the square reading that [`b0_claim_scope.md`](b0_claim_scope.md) §5 sets
+beside the dispersion reading. The identity is checked numerically per cell and in aggregate; it holds to
 `1e-16`, which is what an algebraic identity should do.
 
 ### Why this was worth proving rather than assuming
@@ -1194,7 +1204,8 @@ it. With Corollary 5.1,
 ```
 
 so `ρ` is a modulus for Theorem 1's condition (4): it vanishes exactly there, and
-off it, it is bounded away from zero by two graph spectra.
+off it, `ρ(ω)² ≥ m · dist(w̄, im d_G)² + ρ_H · D²`, with `ρ_H` fixed by the two graph
+spectra.
 
 **This is the containment statement.** The single-price account is the locus
 `D = 0` with the common field's `H¹(G)` component zero. On that locus the enlarged
@@ -1225,16 +1236,26 @@ shock process the model admits.**
 `w_a` is exact on `G` because it is a coboundary, and all the `w_a` coincide
 because none of them carries the index `a`. Apply (4) ⟹ (1).
 
-**Scope, and why the family is closed under its own extensions.** The New Keynesian
-literature is the largest current occupant of this locus, and its extensions do not
-leave it. They act in three places: the time dynamics of `φ`, which is what every
+**Scope, and why the family is closed under the extensions that keep one set of
+terms.** The New Keynesian literature is the largest current occupant of this locus, and
+every extension that keeps one set of terms for all classes stays at `D = 0`. Those
+extensions act in three places: the time dynamics of `φ`, which is what every
 nominal rigidity, indexation scheme, information friction and behavioural discount
 operates on; a measure laid over `C⁰(G)`, which is what a household distribution is;
 and edges added to the position graph `G`, which is what an input-output structure
 is. **None of the three introduces the index `a` into the field**, so none changes
-`D`. A survey of the current frontier by quotation of its setups, together with the
-one place a counterexample would have to appear, is in
-[`b0d_new_keynesian.md`](b0d_new_keynesian.md).
+`D`. A friction on direction faced by every agent, such as a borrowing wedge, leaves
+the exact locus and keeps `D = 0`: it enters the friction part of every directed square
+and leaves the index part at zero, so the ratio of Theorem 6(4) of
+[`b4_directed_edges.md`](b4_directed_edges.md) is zero on every square, and wherever the
+friction is the same on both legs of each edge the field sits on the larger locus of the
+next section. An extension that writes a class-specific cost paid in one direction of a
+shared transition leaves the family: segmented bond markets (Chen, Cúrdia and Ferrero
+2012, a cost per unit of long-term bond purchased) and central-bank intermediation
+(Gertler and Karadi 2011, a cost per unit of credit supplied) do this, and there the
+model's own field carries a non-zero square on that transition (Corollary 1), so it has
+adopted the index this framework measures. A survey of the current frontier by quotation of
+its setups is in [`b0d_new_keynesian.md`](b0d_new_keynesian.md).
 
 **What this is not.** It is not a refutation of any model in that family, for the
 reason Corollary 1's reduction paragraph already gives: the locus is where the
@@ -1244,14 +1265,14 @@ locus their answers are this framework's answers.
 **What it buys.** It fixes what the carriers are measuring against. A non-zero
 closed-loop sum is not evidence that some model in that family fits badly. It is a
 reading of a quantity every member of it sets to exactly zero as an arithmetic
-consequence of its own index sets. **The seven carriers are therefore seven
+consequence of its own index sets. **The carriers listed in [`CARRIERS.md`](../CARRIERS.md) are therefore
 independent tests of one named point prediction**, and the shape of the test does
 not require anyone to concede a fit anywhere.
 
 **Two things it does not license.** It says nothing about the magnitude of any
 reading, per §10. And it is not escaped by staggered pricing: dispersion generated
 by firms resetting at different dates disperses `p_i` across sellers, which leaves
-the field inside `C⁰(G)`, so `w = dφ` stays exact and the cycle sum stays zero
+the field in the image of `d⁰`, so `w = dφ` stays exact and the cycle sum stays zero
 however large that dispersion is. What such a mechanism buys is slower dynamics for
 `φ`, and §14.5 states the domain fact it runs into.
 
@@ -1287,7 +1308,8 @@ code or a record is being quoted.
 different theorems.** §13.3 above is this file's Theorem 4, additive
 separability, while Theorem 4 of `b4_directed_edges.md` is the sub-potential
 criterion; §14 is this file's Theorem 5, while Theorem 5 of that file is the
-one-sided bound on a directed graph. A citation across the two therefore names
+boundedness criterion on a directed graph (bounded exactly when strongly
+connected, one-sided across a sink component). A citation across the two therefore names
 the file before the number, as §9.1 already does.
 
 ### 14.3 What this licenses, and what it does not
@@ -1309,7 +1331,7 @@ the file before the number, as §9.1 already does.
    edges of one instrument family on one day. After removing the states where the
    tick lattice makes zero arithmetically unavailable, one edge returns exactly
    zero in **716 states of 716**, while two others return zero in **4.5 and 8.2
-   per cent** of their states with residuals that are **97.5 and 98.9 per cent
+   per cent** of their states with residuals that are **75.3 and 98.9 per cent
    one-signed**. Corollary 5.4 is what entitles the framework to the exactness:
    `R = 0` iff `D = 0`, with no tolerance band anywhere in the statement. An
    account in which prices are scalar up to small frictions predicts a small
@@ -1344,7 +1366,8 @@ the file before the number, as §9.1 already does.
 
 `experiments/b1_reduction.py`. As in §11, this checks the implementation and not
 the mathematics: a proof is not evidence about the code that claims to implement
-it. Eleven criteria at `--seed 20260827 --trials 10`.
+it. Eleven checks at `--seed 20260827 --trials 10`; ten of them assert, and R-5
+prints a table and asserts nothing.
 
 **Four routes to the same number, sharing as little code as could be arranged.**
 Brute force solves least squares against the incidence operator of `Γ` and uses no
@@ -1353,15 +1376,17 @@ agent mode on `G` alone. The closed form evaluates the double sum. The projector
 route builds `L_Γ` from the product graph, inverts it on its own eigenbasis, and
 touches neither the mode transform nor the Kronecker structure nor `lstsq`. If the
 product structure were being assumed rather than used, the fourth route is the one
-that would disagree.
+that would disagree. It shares the graph construction (`box_product`,
+`incidence_matrix` and the field assembly) with brute force, so the agreement of
+those two is evidence about the spectral algebra; R-6 is what covers the construction.
 
 | | what it checks | reading |
 | --- | --- | --- |
-| **R-1** | all four routes, ten shapes | agree to `1.42e-14` worst case |
+| **R-1** | all four routes, ten draws over five shape templates | agree to `1.42e-14` worst case |
 | **R-2** | scaling the deviations by `t` with `w̄` held fixed | `R/t² = 17.11315731` unchanged for `t = 1, 0.5, 0.25, 0.1, 0.01`; the common summand does not move. Corollary 5.1, four decades of it |
 | **R-3** | the sandwich of Corollary 5.3 | inside the band ten out of ten |
 | **R-4** | the two degenerate ends | all classes equal reproduces `m · dist(w, im d_G)²` to `1e-9`; equal and exact returns `2.13e-14` |
-| **R-5** | one `G` and one field, four choices of `H` | `R/D²` rises with `μ_1`: path `0.581` at `μ_1 = 0.5858`, star `0.597` at `1.0`, cycle `0.655` at `2.0`, complete `0.751` at `4.0`, with `λ_max(L_G) = 4.618034` |
+| **R-5** | one `G` and one field, four choices of `H`; printed, no assertion | on this one draw `R/D²` rises with `μ_1`: path `0.581` at `μ_1 = 0.5858`, star `0.597` at `1.0`, cycle `0.655` at `2.0`, complete `0.751` at `4.0`, with `λ_max(L_G) = 4.618034`. On fresh fields drawn the same way the four values are out of order in more than half of the draws (`RESULTS.md`, B1-R), so the order belongs to this draw; the general statement is the pair of bounds, R-3 and R-11 |
 | **R-6** | `L_Γ = L_G ⊗ I + I ⊗ L_H` against the Laplacian of `box_product` | difference `0.00e+00`, exactly, on five shapes |
 | **R-7** | both ends of Corollary 5.2, reached by weighting agent edges by `t` | `t = 1e−6` gives `15.72801745` against the target `15.72799829`; `t = 1e6` gives `33.11672785` against `33.11674803`; monotone in `t` at all seven values, brute force and closed form agreeing throughout |
 | **R-8** | parallelogram law, `ρ²(w̄+u) + ρ²(w̄−u) − 2ρ²(w̄) = 2R(u)` | five trials, worst gap `5.68e-14`. Confirms Corollary 5.1 by a route independent of R-2 |
@@ -1369,11 +1394,17 @@ that would disagree.
 | **R-10** | `m = 1` | collapses to `dist(w, im d_G)²` to `1e-9`, the one-index problem on `G` alone |
 | **R-11** | 300 random shapes up to `n = 12`, `m = 8`, all four routes | worst relative spread `5.11e-15`; Corollary 5.3's bounds held on all 300 |
 
-R-6 and R-7 are the two that would catch a wrong theorem rather than a wrong
-implementation. R-6 is the only step of the proof that is not one line of linear
-algebra, and R-7 exercises the formula at the two limits where its interpretation
-is claimed, six orders of magnitude apart in each direction, against targets
-computed without it.
+The residual digits in R-1, R-4, R-8 and R-11 are those of the 2026-09-02 run and
+belong to the linear-algebra build; what each check asserts is its bound, `1e-7`
+for R-1, `1e-9` for R-4 and `1e-8` for R-8 and R-11.
+
+R-7 is the one that would catch a wrong theorem rather than a wrong implementation:
+it exercises the formula at the two limits where its interpretation is claimed,
+six orders of magnitude apart in each direction, against targets computed without
+it. R-6 checks the one step of the proof that is not one line of linear algebra,
+the factorisation of the product Laplacian, on the graph `box_product` builds; it
+compares two expressions of the same construction, so what it confirms is that
+`box_product` builds the Cartesian product the proof assumes.
 
 ### 14.5 Precedent, and what is actually new here
 

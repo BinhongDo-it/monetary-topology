@@ -1,0 +1,2725 @@
+{
+ "arm9": [
+  {
+   "ln_high": 0.206,
+   "ln_low": 0.206,
+   "source": "official rate",
+   "year": 1609
+  },
+  {
+   "ln_high": 0.0518,
+   "ln_low": 0.0518,
+   "source": "official rate",
+   "year": 1700
+  },
+  {
+   "ln_high": 0.1477,
+   "ln_low": 0.1477,
+   "source": "Sanka zui",
+   "year": 1601
+  },
+  {
+   "ln_high": 0.0619,
+   "ln_low": 0.0619,
+   "source": "Sanka zui",
+   "year": 1632
+  },
+  {
+   "ln_high": 0.1523,
+   "ln_low": 0.1523,
+   "source": "Sanka zui",
+   "year": 1645
+  },
+  {
+   "ln_high": 0.1419,
+   "ln_low": 0.1419,
+   "source": "Sanka zui",
+   "year": 1650
+  },
+  {
+   "ln_high": 0.2148,
+   "ln_low": 0.2148,
+   "source": "Sanka zui",
+   "year": 1693
+  },
+  {
+   "ln_high": 0.2175,
+   "ln_low": 0.2175,
+   "source": "Sanka zui",
+   "year": 1694
+  },
+  {
+   "ln_high": 0.2209,
+   "ln_low": 0.2192,
+   "source": "Sanka zui",
+   "year": 1695
+  },
+  {
+   "ln_high": 0.4493,
+   "ln_low": -0.1586,
+   "source": "Sanka zui",
+   "year": 1696
+  },
+  {
+   "ln_high": 0.0986,
+   "ln_low": 0.0186,
+   "source": "Sanka zui",
+   "year": 1702
+  },
+  {
+   "ln_high": 0.3668,
+   "ln_low": 0.2614,
+   "source": "Sanka zui",
+   "year": 1704
+  },
+  {
+   "ln_high": 0.1057,
+   "ln_low": 0.1057,
+   "source": "Sanka zui",
+   "year": 1705
+  },
+  {
+   "ln_high": 0.0992,
+   "ln_low": 0.0824,
+   "source": "Sanka zui",
+   "year": 1706
+  },
+  {
+   "ln_high": 0.3768,
+   "ln_low": 0.3651,
+   "source": "Sanka zui",
+   "year": 1707
+  },
+  {
+   "ln_high": 0.0526,
+   "ln_low": 0.0526,
+   "source": "Sanka zui",
+   "year": 1707
+  },
+  {
+   "ln_high": 0.569,
+   "ln_low": 0.1842,
+   "source": "Sanka zui",
+   "year": 1708
+  },
+  {
+   "ln_high": 0.6839,
+   "ln_low": 0.2831,
+   "source": "Sanka zui",
+   "year": 1709
+  },
+  {
+   "ln_high": 0.7225,
+   "ln_low": 0.2141,
+   "source": "Sanka zui",
+   "year": 1710
+  },
+  {
+   "ln_high": 1.0927,
+   "ln_low": 0.1344,
+   "source": "Sanka zui",
+   "year": 1711
+  },
+  {
+   "ln_high": 0.0955,
+   "ln_low": 0.0442,
+   "source": "Sanka zui",
+   "year": 1712
+  },
+  {
+   "ln_high": 0.3997,
+   "ln_low": 0.0149,
+   "source": "Sanka zui",
+   "year": 1713
+  },
+  {
+   "ln_high": 1.0132,
+   "ln_low": 0.32,
+   "source": "Sanka zui",
+   "year": 1714
+  },
+  {
+   "ln_high": 1.1563,
+   "ln_low": 0.204,
+   "source": "Sanka zui",
+   "year": 1717
+  },
+  {
+   "ln_high": 0.5503,
+   "ln_low": 0.5212,
+   "source": "Sanka zui",
+   "year": 1718
+  },
+  {
+   "ln_high": 0.618,
+   "ln_low": 0.5889,
+   "source": "Sanka zui",
+   "year": 1719
+  },
+  {
+   "ln_high": 0.6388,
+   "ln_low": 0.4416,
+   "source": "Sanka zui",
+   "year": 1720
+  },
+  {
+   "ln_high": 0.4818,
+   "ln_low": 0.2985,
+   "source": "Sanka zui",
+   "year": 1721
+  },
+  {
+   "ln_high": 0.2841,
+   "ln_low": 0.2183,
+   "source": "Sanka zui",
+   "year": 1733
+  },
+  {
+   "ln_high": 0.3081,
+   "ln_low": 0.3081,
+   "source": "Sanka zui",
+   "year": 1736
+  },
+  {
+   "ln_high": 0.4607,
+   "ln_low": 0.42,
+   "source": "Sanka zui",
+   "year": 1736
+  },
+  {
+   "ln_high": 0.361,
+   "ln_low": 0.361,
+   "source": "Sanka zui",
+   "year": 1736
+  },
+  {
+   "ln_high": 0.3391,
+   "ln_low": 0.3391,
+   "source": "Sanka zui",
+   "year": 1737
+  },
+  {
+   "ln_high": 0.1771,
+   "ln_low": 0.1771,
+   "source": "Sanka zui",
+   "year": 1742
+  },
+  {
+   "ln_high": 0.189,
+   "ln_low": 0.189,
+   "source": "Sanka zui",
+   "year": 1745
+  },
+  {
+   "ln_high": 0.2305,
+   "ln_low": 0.2305,
+   "source": "Sanka zui",
+   "year": 1748
+  },
+  {
+   "ln_high": 0.2163,
+   "ln_low": 0.2146,
+   "source": "Sanka zui",
+   "year": 1750
+  },
+  {
+   "ln_high": 0.2071,
+   "ln_low": 0.2054,
+   "source": "Sanka zui",
+   "year": 1753
+  },
+  {
+   "ln_high": 0.1785,
+   "ln_low": 0.1785,
+   "source": "Sanka zui",
+   "year": 1755
+  },
+  {
+   "ln_high": 0.2098,
+   "ln_low": 0.2098,
+   "source": "Sanka zui",
+   "year": 1762
+  },
+  {
+   "ln_high": 0.1897,
+   "ln_low": 0.1737,
+   "source": "Sanka zui",
+   "year": 1763
+  },
+  {
+   "ln_high": 0.1657,
+   "ln_low": 0.1499,
+   "source": "Sanka zui",
+   "year": 1766
+  },
+  {
+   "ln_high": 0.0916,
+   "ln_low": 0.0723,
+   "source": "Sanka zui",
+   "year": 1770
+  },
+  {
+   "ln_high": 0.0677,
+   "ln_low": 0.0677,
+   "source": "Sanka zui",
+   "year": 1771
+  },
+  {
+   "ln_high": 0.0365,
+   "ln_low": -0.0055,
+   "source": "Sanka zui",
+   "year": 1772
+  },
+  {
+   "ln_high": 0.0953,
+   "ln_low": 0.0509,
+   "source": "Sanka zui",
+   "year": 1772
+  },
+  {
+   "ln_high": 0.2597,
+   "ln_low": 0.2457,
+   "source": "Sanka zui",
+   "year": 1781
+  },
+  {
+   "ln_high": 0.2005,
+   "ln_low": 0.1837,
+   "source": "Sanka zui",
+   "year": 1782
+  },
+  {
+   "ln_high": 0.383,
+   "ln_low": 0.383,
+   "source": "Sanka zui",
+   "year": 1786
+  },
+  {
+   "ln_high": 0.2949,
+   "ln_low": 0.2949,
+   "source": "Osaka daily",
+   "year": 1787
+  },
+  {
+   "ln_high": 0.2823,
+   "ln_low": 0.2823,
+   "source": "Osaka daily",
+   "year": 1789
+  },
+  {
+   "ln_high": 0.2607,
+   "ln_low": 0.2607,
+   "source": "Osaka daily",
+   "year": 1792
+  },
+  {
+   "ln_high": 0.2174,
+   "ln_low": 0.2174,
+   "source": "Osaka daily",
+   "year": 1793
+  },
+  {
+   "ln_high": 0.2431,
+   "ln_low": 0.2431,
+   "source": "Osaka daily",
+   "year": 1794
+  },
+  {
+   "ln_high": 0.2272,
+   "ln_low": 0.2272,
+   "source": "Osaka daily",
+   "year": 1797
+  },
+  {
+   "ln_high": 0.2361,
+   "ln_low": 0.2361,
+   "source": "Osaka daily",
+   "year": 1798
+  },
+  {
+   "ln_high": 0.2368,
+   "ln_low": 0.2368,
+   "source": "Osaka daily",
+   "year": 1799
+  },
+  {
+   "ln_high": 0.2181,
+   "ln_low": 0.2181,
+   "source": "Osaka daily",
+   "year": 1800
+  },
+  {
+   "ln_high": 0.2257,
+   "ln_low": 0.2257,
+   "source": "Osaka daily",
+   "year": 1801
+  },
+  {
+   "ln_high": 0.187,
+   "ln_low": 0.187,
+   "source": "Osaka daily",
+   "year": 1804
+  },
+  {
+   "ln_high": 0.2012,
+   "ln_low": 0.2012,
+   "source": "Osaka daily",
+   "year": 1805
+  },
+  {
+   "ln_high": 0.1662,
+   "ln_low": 0.1662,
+   "source": "Osaka daily",
+   "year": 1806
+  },
+  {
+   "ln_high": 0.1908,
+   "ln_low": 0.1908,
+   "source": "Osaka daily",
+   "year": 1808
+  },
+  {
+   "ln_high": 0.2103,
+   "ln_low": 0.2103,
+   "source": "Osaka daily",
+   "year": 1809
+  },
+  {
+   "ln_high": 0.2167,
+   "ln_low": 0.2167,
+   "source": "Osaka daily",
+   "year": 1810
+  },
+  {
+   "ln_high": 0.1924,
+   "ln_low": 0.1924,
+   "source": "Osaka daily",
+   "year": 1811
+  },
+  {
+   "ln_high": 0.2249,
+   "ln_low": 0.2249,
+   "source": "Osaka daily",
+   "year": 1812
+  },
+  {
+   "ln_high": 0.2303,
+   "ln_low": 0.2303,
+   "source": "Osaka daily",
+   "year": 1813
+  },
+  {
+   "ln_high": 0.1495,
+   "ln_low": 0.1495,
+   "source": "Osaka daily",
+   "year": 1814
+  },
+  {
+   "ln_high": 0.1557,
+   "ln_low": 0.1557,
+   "source": "Osaka daily",
+   "year": 1816
+  },
+  {
+   "ln_high": 0.1459,
+   "ln_low": 0.1459,
+   "source": "Osaka daily",
+   "year": 1817
+  },
+  {
+   "ln_high": 0.364,
+   "ln_low": 0.364,
+   "source": "Osaka daily",
+   "year": 1820
+  },
+  {
+   "ln_high": 0.3281,
+   "ln_low": 0.3281,
+   "source": "Osaka daily",
+   "year": 1822
+  },
+  {
+   "ln_high": 0.3,
+   "ln_low": 0.3,
+   "source": "Osaka daily",
+   "year": 1823
+  },
+  {
+   "ln_high": 0.3072,
+   "ln_low": 0.3072,
+   "source": "Osaka daily",
+   "year": 1824
+  },
+  {
+   "ln_high": 0.2899,
+   "ln_low": 0.2899,
+   "source": "Osaka daily",
+   "year": 1825
+  },
+  {
+   "ln_high": 0.2891,
+   "ln_low": 0.2891,
+   "source": "Osaka daily",
+   "year": 1827
+  },
+  {
+   "ln_high": 0.2915,
+   "ln_low": 0.2915,
+   "source": "Osaka daily",
+   "year": 1828
+  },
+  {
+   "ln_high": 0.296,
+   "ln_low": 0.296,
+   "source": "Osaka daily",
+   "year": 1830
+  },
+  {
+   "ln_high": 0.3185,
+   "ln_low": 0.3185,
+   "source": "Osaka daily",
+   "year": 1832
+  },
+  {
+   "ln_high": 0.3411,
+   "ln_low": 0.3411,
+   "source": "Osaka daily",
+   "year": 1836
+  },
+  {
+   "ln_high": 0.3597,
+   "ln_low": 0.3597,
+   "source": "Osaka daily",
+   "year": 1837
+  },
+  {
+   "ln_high": 0.5515,
+   "ln_low": 0.5515,
+   "source": "Osaka daily",
+   "year": 1838
+  },
+  {
+   "ln_high": 0.5031,
+   "ln_low": 0.5031,
+   "source": "Osaka daily",
+   "year": 1840
+  },
+  {
+   "ln_high": 0.5033,
+   "ln_low": 0.5033,
+   "source": "Osaka daily",
+   "year": 1841
+  },
+  {
+   "ln_high": 0.4866,
+   "ln_low": 0.4866,
+   "source": "Osaka daily",
+   "year": 1842
+  },
+  {
+   "ln_high": 0.4792,
+   "ln_low": 0.4792,
+   "source": "Osaka daily",
+   "year": 1843
+  },
+  {
+   "ln_high": 0.4759,
+   "ln_low": 0.4759,
+   "source": "Osaka daily",
+   "year": 1844
+  },
+  {
+   "ln_high": 0.4907,
+   "ln_low": 0.4907,
+   "source": "Osaka daily",
+   "year": 1845
+  },
+  {
+   "ln_high": 0.4849,
+   "ln_low": 0.4849,
+   "source": "Osaka daily",
+   "year": 1846
+  },
+  {
+   "ln_high": 0.4824,
+   "ln_low": 0.4824,
+   "source": "Osaka daily",
+   "year": 1847
+  },
+  {
+   "ln_high": 0.488,
+   "ln_low": 0.488,
+   "source": "Osaka daily",
+   "year": 1848
+  },
+  {
+   "ln_high": 0.486,
+   "ln_low": 0.486,
+   "source": "Osaka daily",
+   "year": 1849
+  },
+  {
+   "ln_high": 0.5107,
+   "ln_low": 0.5107,
+   "source": "Osaka daily",
+   "year": 1850
+  },
+  {
+   "ln_high": 0.4752,
+   "ln_low": 0.4752,
+   "source": "Osaka daily",
+   "year": 1851
+  },
+  {
+   "ln_high": 0.4767,
+   "ln_low": 0.4767,
+   "source": "Osaka daily",
+   "year": 1852
+  },
+  {
+   "ln_high": 0.4388,
+   "ln_low": 0.4388,
+   "source": "Osaka daily",
+   "year": 1853
+  },
+  {
+   "ln_high": 0.4018,
+   "ln_low": 0.4018,
+   "source": "Osaka daily",
+   "year": 1854
+  },
+  {
+   "ln_high": 0.3827,
+   "ln_low": 0.3827,
+   "source": "Osaka daily",
+   "year": 1855
+  },
+  {
+   "ln_high": 0.3622,
+   "ln_low": 0.3622,
+   "source": "Osaka daily",
+   "year": 1856
+  },
+  {
+   "ln_high": 0.3422,
+   "ln_low": 0.3422,
+   "source": "Osaka daily",
+   "year": 1857
+  },
+  {
+   "ln_high": 0.3299,
+   "ln_low": 0.3299,
+   "source": "Osaka daily",
+   "year": 1858
+  },
+  {
+   "ln_high": 0.2927,
+   "ln_low": 0.2927,
+   "source": "Osaka daily",
+   "year": 1859
+  }
+ ],
+ "config": {
+  "R_w": {
+   "1859": 15.19,
+   "1860": 15.29,
+   "before 1687": "Soetbeer 1879 twenty-year European estimates",
+   "from 1687": "MeasuringWorth"
+  },
+  "chogin_fineness": {
+   "三ツ宝": 0.32,
+   "享保": 0.8,
+   "保字": 0.26,
+   "元文": 0.46,
+   "元禄": 0.64,
+   "四ツ宝": 0.2,
+   "宝永": 0.5,
+   "慶長": 0.8,
+   "文政": 0.36,
+   "永字": 0.4
+  },
+  "dated_statements": {
+   "a_statement_dates_a_month_if_it_spans_at_most_days": 62,
+   "dating_rules": {
+    "both sides dated": "each side has a statement dated to within the span",
+    "cell": "claimed only where the two rules give one verdict",
+    "rule in force": "everyone else has a statement dated to within the span; the custom house's side is the written rate covering the month"
+   },
+   "days": "spans counted on the calendar",
+   "ichibu_per_100_dollars_by_weight": 311.0,
+   "later_compilations": "in the table, left out of every reading: by the kind of source (level), however the figure was read (how)",
+   "others": [
+    "street",
+    "posted",
+    "treasury_jp"
+   ],
+   "ports_read": [
+    "Yokohama",
+    "Nagasaki"
+   ],
+   "revalued_koban_in_ichibu": {
+    "new": 10.75,
+    "old": 13.5
+   },
+   "shanghai_dollar_in_taels": "every rate near the day, each named by its basis: cash quotation, bill on Hongkong, booked in an account",
+   "table": "data/b139_dated_statements.json",
+   "tael_rate_within_days": 14,
+   "tenpo_koban_zomashi_ryo": 3.375
+  },
+  "koban_gold_momme": {
+   "乾字": 2.1073,
+   "享保": 4.130966,
+   "保字": 1.7032,
+   "元文": 2.3,
+   "元禄": 2.730639,
+   "慶長": 4.01226,
+   "文政": 1.97443,
+   "正徳": 4.0122
+  },
+  "osaka_quote": "annual mean of the daily mid, to 1859-06-29",
+  "specifications": "every source kept: koban Mint 1874 or Dillon, ichibu Mint 1874 or Koga, dollar legal or US Mint 1859; the floor is the spread between them"
+ },
+ "criteria": [
+  {
+   "detail": "5000 synthetic specifications, largest relative gap L_w 4.6e-16, L_b 4.7e-16, L_w/L_b 6.4e-16; seeded faults caught: gross_weight True, ten_bu_to_ryo True, inverted_world_ratio True, bullion_by_face True",
+   "kind": "instrument",
+   "name": "B139-1  the ring walked coin by coin agrees with the three closed forms",
+   "passed": true
+  },
+  {
+   "detail": "multiple with the Tenpo koban taken at 4 ichibu: tenpo_koban Mint 1874, dollar legal 2.970, tenpo_koban Mint 1874, dollar mint_1859 2.993. The Tenpo koban had been raised to 1 ryo 1 bu on 1859-06-24; the ring open from 1859-07-21 returns 2.376 to 2.404",
+   "kind": "known_answer",
+   "name": "B139-2  the literature's chain, 4 dollars to 12 ichibu to 3 koban, returns three times",
+   "passed": true
+  },
+  {
+   "detail": "1859-07-01 -0.2333..-0.2215 (floor 0.0118); 1859-07-21 +0.8653..+0.8771 (floor 0.0118); 1860-02-22 -0.1213..-0.1049 (floor 0.0164); 1860-05-30 -0.1119..-0.1012 (floor 0.0107); 1860-07-01 -0.1008..-0.0959 (floor 0.0049); 1860-07-01 -0.5174..-0.5067 (floor 0.0107); ln L_b Kaseikoyo 1887 +0.3601, Ikebe 1896 +0.4041, Mikami 1989, 37 momme +0.2086, Inoue 2012, 37.5 momme +0.1949, fold, Osaka 1858 low +0.3335, fold, Osaka 1858 high +0.2893",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B139-3  every ring of the opening, and the bullion ring, has ln L away from zero",
+   "passed": true,
+   "rival_entailment": "every exchange term is phi(j) - phi(i) in logs, so the ring dollar -> ichibu -> koban -> dollar sums to zero whoever writes the rate and for whom",
+   "rival_premise": "each coin has one price phi in a common unit of account, the same for every holder",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "R_t ansei ichibu, ansei koban at 1 ryo 6.034, tenpo ichibu, tenpo koban at 1.25 ryo 6.743; R_b Kaseikoyo 1887 10.597, Ikebe 1896 10.140, Mikami 1989, 37 momme 12.330, Inoue 2012, 37.5 momme 12.500, fold, Osaka 1858 low 10.883, fold, Osaka 1858 high 11.375; the two fold rows read the Osaka quote as a weight of chogin, which Endo 1931 p.33 disputes",
+   "kind": "own_reading",
+   "name": "B139-4  the silver-gold ratio, one per edge",
+   "passed": true
+  },
+  {
+   "detail": "1858 treaty art. 5: foreigners with Japanese: same kind, same weight | 1859-07-01 custom house: foreigners at the custom house: 1 dollar = 2 nishu = 1 bu | 1859-07-21 Roju letter: foreigners at the custom house: 1 dollar = 3 ichibu | before 1859-08-26 domestic notice: Japanese among themselves: silver of 7.2 momme = 3 ichibu | 1859-08-26 order: Japanese among themselves: by weight | 1859-12-02 notice: Japanese among themselves; land tax: by weight | 1860-01-20 sanbu-sadame: every holder, stamped dollars >= 7 momme: 1 dollar = 3 ichibu | 1860-07-01 letter: official class: by weight less 4% | 1860-07-01 letter: everyone else: market price. From 1860-07-01 the edge carries 2 written values by holder. Who could change how much in December 1859 (Bakumatsu gaikoku kankei monjo 30): Kanagawa: 10,000 ichibu a day for all nations together, divided among them; the mint strikes 15,000 to 16,000 a day, 20,000 at most, for three ports (doc. 91, pp.220-221, Roju and Harris, 11.24 (1859-12-17)) | Nagasaki: nine ichibu a day per American before the Kanrin-maru brought 200,000 ichibu, four a day after (doc. 52, p.132 and doc. 39, p.93) | Hakodate: five dollars a day per man by agreement: 500 dollars for a crew of 100 (doc. 67, p.164, the Russian commander at Hakodate, 11.22) | Hakodate: the town does not take dollars; foreign merchants who drew ichibu at the office change them at a premium for Japanese holding dollars; the office reckons 78,000 ryo a year for foreigners and 70,000 for townsmen, asks 70,000 and is granted 30,000 (doc. 5, pp.10-14, the Hakodate magistrates, 11.16) | treaty: same kind, same weight binds the exchange at the port offices; trade between merchants lies outside it (doc. 91, p.222, Harris, 11.24) | Kanagawa: on each koban the Japanese seller and the foreign buyer gain four ichibu apiece (a koban is worth twelve ichibu abroad) (doc. 91, pp.209 and 222, Harris, 11.24) | by weight: 100 dollars weigh 311 ichibu (doc. 91, p.213, Harris, 11.24)",
+   "kind": "own_reading",
+   "name": "B139-5  the edge dollar <-> ichibu: written rules by holder",
+   "passed": true
+  },
+  {
+   "detail": "from 1859-07-01: custom house 1 dollar = 2 nishu = 1 bu; tenpo koban 1 ryo 1 bu, ansei koban 1 ryo; from 1859-07-21: 1 dollar = 3 ichibu; koban as above; from 1860-02-22: zomashi: tenpo koban 3 ryo 1 bu 2 shu, ansei koban 2 ryo 2 bu 3 shu; from 1860-05-30: Man'en koban at 1 ryo; from 1860-07-01: official class: by weight less 4% (ansei ichibu); from 1860-07-01: everyone else: market; autumn 1860 point 1 dollar = 2 ichibu. At market prices on one day, mid-December 1859 (Roju Wakisaka and Harris, Bakumatsu gaikoku kankei monjo 30, doc. 39): custom-house quota: 1 dollar = 3 ichibu; koban at 8 ichibu: ln L +0.150..+0.403; money changers: 1 dollar = 2 bu to 2 bu 2 shu; koban at 8 ichibu: ln L -0.255..+0.221. The written rates of the same date open the ring at +0.865..+0.877. The gold leg at market prices, in logs of ryo per unit of gold from the opening: Kanagawa koban at 2 ryo by 1859-12-13, +0.47; the oban bought in Osaka, 30 ryo 2 bu on 1859-10-30 and 55 ryo 2 bu on 1860-01-31, +0.60 between the two; the zomashi in force 1860-02-22 wrote +0.99 for the Tenpo koban. The market had moved 60% of that distance on the oban before the zomashi was announced",
+   "kind": "own_reading",
+   "name": "B139-6  the dose path of the ring",
+   "passed": true
+  },
+  {
+   "detail": "silver side (Ansei two-shu): -0.233..-0.222 on 1859-07-01, withdrawn 1859-07-21 (+0.865..+0.877); gold side (zomashi, then Man'en koban): -0.121..-0.105, residual after Man'en -0.112..-0.101",
+   "kind": "own_reading",
+   "name": "B139-7  the two closings: the silver side on opening day, the gold side from 1860",
+   "passed": true
+  },
+  {
+   "detail": "42 named estimates or statements: 阪谷芳郎 1890：一億圓（通称2,000万両说） | 山崎覚次郎：输出小判约1万枚（1万両说） | Rathgen 1891：至多小判100万个（上限） | Black 1880：第一年贸易£1,000,000，其中£800,000大部为贵金属 | Alcock 1863：开港当年全部贸易逾£100万，外流无数值 | 竹越與三郎 1920：约百萬兩（100万両说） | 山口和雄 1943：接受竹越约百萬両，使其成通说 | 西方通行叙述：100万枚，上海售约$3.5M（McMaster汇总） | McMaster 1960 自估：三大批约$200,000，全部≤$300,000 | Jardine, Matheson & Co. 日本金币装运表（McMaster原表） | Lindau 1861（经McMaster）：Powhattan运入$500,000，连另两船约$2.5M银元 | 石井孝 1940（旧推计初版）：50万両内外 | 石井孝 1959（『横浜市史』第2巻）：30万両内外 | 『横浜市史』经鹿野2022转述：40-50万両（其中横浜港30万両内外） | 鹿野嘉昭 2022：集中6个月，年额换算≥20万両 | 三上隆三 1989（『円の誕生』増補版）：约80万両，上限113万5,350両 | 石井寛治 1984：10万両台（仕入れ额20-40万ドル） | 石井孝 1987（新推计）：10万両内外，至多15万両 | 藤野正三郎 1990：第1次金貨流出821.5万両 | 藤野正三郎 1994：第1次金貨流出858万両（8,583,832両） | 東野治之 1997：「妥当」30-40万両 | 山本有造 1994：总额无定说（无自有数值） | 岩橋勝 1976：货币存量推计中扣除流出50万両 | 杉山伸也 2013：支持10万両程度 | 高橋秀悦 2015：推計III 13万7,334両（结论13万両台） | 高橋秀悦 2015：藤野型上限路径 推計I 531万両、推計II 286万両 | 高橋秀悦 2018（书）：12-21万両（转述） | 日本銀行『にちぎん』2009：半年10万両至50万両 | Okubo Takashi（日銀貨幣博物館）：约500,000 ryo | Frost 1970：usual estimate 100,000 ryo（1859） | Bytheway & Chaiklin 2016（经BullionStar）：10万枚（0.63 t）至2,000万枚（126 t） | Koning 2019（BullionStar博客）：假设25吨 | 醤油资料网页（村岡祥次）诸说汇总 | Lindau 1861：三艘美船一天运入 1,200,000 dollars（银元流入） | 遠藤佐々喜 1931：金貨濫出的疑问（无自有数值） | Ikebe Komao 1896：安政金外流无确数，也无需数 | 英国议会文书 1860 Alcock 往来公函：无总量，大宗未申报出运 | 小林延人 2017（日銀貨幣博物館）：石井孝新推计 10万両内外，流出期 安政6.7.9至万延1.1.17 | 山本有造 2022：诸说汇总与自评（重述山本1994 p.77注10） | Takekoshi 1930 英文版 vol.III：无外流总量；市面金币存量、小判价 4→7 | 米川伸一 1985 书评：石井寛治1984 pp.108-109 的金币输出结论 | 横山伊徳 1987 书评：石井孝1987 第三章按石井寛治1984 全面改写",
+   "kind": "bookkeeping",
+   "name": "B139-8  outflow estimates, each with its source, not combined",
+   "passed": true
+  },
+  {
+   "detail": "103 readings of ln(R_w/R_b), 101 with the whole interval above zero. 1609 official rate +0.206..+0.206; 1700 official rate +0.052..+0.052; 1601 Sanka zui +0.148..+0.148; 1632 Sanka zui +0.062..+0.062; 1645 Sanka zui +0.152..+0.152; 1650 Sanka zui +0.142..+0.142; 1693 Sanka zui +0.215..+0.215; 1694 Sanka zui +0.217..+0.217; 1695 Sanka zui +0.219..+0.221; 1696 Sanka zui -0.159..+0.449; 1702 Sanka zui +0.019..+0.099; 1704 Sanka zui +0.261..+0.367; 1705 Sanka zui +0.106..+0.106; 1706 Sanka zui +0.082..+0.099; 1707 Sanka zui +0.365..+0.377; 1707 Sanka zui +0.053..+0.053; 1708 Sanka zui +0.184..+0.569; 1709 Sanka zui +0.283..+0.684; 1710 Sanka zui +0.214..+0.723; 1711 Sanka zui +0.134..+1.093; 1712 Sanka zui +0.044..+0.095; 1713 Sanka zui +0.015..+0.400; 1714 Sanka zui +0.320..+1.013; 1717 Sanka zui +0.204..+1.156; 1718 Sanka zui +0.521..+0.550; 1719 Sanka zui +0.589..+0.618; 1720 Sanka zui +0.442..+0.639; 1721 Sanka zui +0.299..+0.482; 1733 Sanka zui +0.218..+0.284; 1736 Sanka zui +0.308..+0.308; 1736 Sanka zui +0.420..+0.461; 1736 Sanka zui +0.361..+0.361; 1737 Sanka zui +0.339..+0.339; 1742 Sanka zui +0.177..+0.177; 1745 Sanka zui +0.189..+0.189; 1748 Sanka zui +0.230..+0.230; 1750 Sanka zui +0.215..+0.216; 1753 Sanka zui +0.205..+0.207; 1755 Sanka zui +0.179..+0.179; 1762 Sanka zui +0.210..+0.210; 1763 Sanka zui +0.174..+0.190; 1766 Sanka zui +0.150..+0.166; 1770 Sanka zui +0.072..+0.092; 1771 Sanka zui +0.068..+0.068; 1772 Sanka zui -0.005..+0.036; 1772 Sanka zui +0.051..+0.095; 1781 Sanka zui +0.246..+0.260; 1782 Sanka zui +0.184..+0.201; 1786 Sanka zui +0.383..+0.383; 1787 Osaka daily +0.295..+0.295; 1789 Osaka daily +0.282..+0.282; 1792 Osaka daily +0.261..+0.261; 1793 Osaka daily +0.217..+0.217; 1794 Osaka daily +0.243..+0.243; 1797 Osaka daily +0.227..+0.227; 1798 Osaka daily +0.236..+0.236; 1799 Osaka daily +0.237..+0.237; 1800 Osaka daily +0.218..+0.218; 1801 Osaka daily +0.226..+0.226; 1804 Osaka daily +0.187..+0.187; 1805 Osaka daily +0.201..+0.201; 1806 Osaka daily +0.166..+0.166; 1808 Osaka daily +0.191..+0.191; 1809 Osaka daily +0.210..+0.210; 1810 Osaka daily +0.217..+0.217; 1811 Osaka daily +0.192..+0.192; 1812 Osaka daily +0.225..+0.225; 1813 Osaka daily +0.230..+0.230; 1814 Osaka daily +0.150..+0.150; 1816 Osaka daily +0.156..+0.156; 1817 Osaka daily +0.146..+0.146; 1820 Osaka daily +0.364..+0.364; 1822 Osaka daily +0.328..+0.328; 1823 Osaka daily +0.300..+0.300; 1824 Osaka daily +0.307..+0.307; 1825 Osaka daily +0.290..+0.290; 1827 Osaka daily +0.289..+0.289; 1828 Osaka daily +0.292..+0.292; 1830 Osaka daily +0.296..+0.296; 1832 Osaka daily +0.318..+0.318; 1836 Osaka daily +0.341..+0.341; 1837 Osaka daily +0.360..+0.360; 1838 Osaka daily +0.552..+0.552; 1840 Osaka daily +0.503..+0.503; 1841 Osaka daily +0.503..+0.503; 1842 Osaka daily +0.487..+0.487; 1843 Osaka daily +0.479..+0.479; 1844 Osaka daily +0.476..+0.476; 1845 Osaka daily +0.491..+0.491; 1846 Osaka daily +0.485..+0.485; 1847 Osaka daily +0.482..+0.482; 1848 Osaka daily +0.488..+0.488; 1849 Osaka daily +0.486..+0.486; 1850 Osaka daily +0.511..+0.511; 1851 Osaka daily +0.475..+0.475; 1852 Osaka daily +0.477..+0.477; 1853 Osaka daily +0.439..+0.439; 1854 Osaka daily +0.402..+0.402; 1855 Osaka daily +0.383..+0.383; 1856 Osaka daily +0.362..+0.362; 1857 Osaka daily +0.342..+0.342; 1858 Osaka daily +0.330..+0.330; 1859 Osaka daily +0.293..+0.293. The fold reads the Osaka quote as a weight of chogin (Endo 1931 p.33 disputes it); four unfolded points, 1717, 1855, 1859 twice: ln +0.20 to +0.52",
+   "kind": "own_reading",
+   "name": "B139-9  after the edge was cut the ring stays open, 1601-1859",
+   "passed": true
+  },
+  {
+   "detail": "706 trading days, quote 68.15 to 78.99 momme per ryo. Largest step at a decree on the dollar-ichibu edge, in logs: window 5 days 0.0169 (median step of the series 0.0030, 90th percentile 0.0131), window 10 days 0.0181 (median step of the series 0.0046, 90th percentile 0.0194), window 20 days 0.0252 (median step of the series 0.0093, 90th percentile 0.0268). Steps at ten days: 1859-06-24 -0.0259 (two-shu decree; Tenpo koban raised to 1 ryo 1 bu (the later window runs into the switch of 06-30)); 1859-06-30 -0.0585 (the quote moves from koban to gold on hand); 1859-07-21 +0.0035 (1 dollar = 3 ichibu); 1859-08-26 -0.0002 (by weight among Japanese); 1859-09-09 +0.0000 (Ansei ichibu at the dollar's fineness); 1859-12-02 -0.0042 (by weight among Japanese; dollars taken for land tax); 1860-01-20 -0.0012 (three-bu stamp on dollars of 7 momme and over); 1860-02-11 +0.0185 (zomashi announced); 1860-02-22 +0.0185 (zomashi in force); 1860-05-30 +0.0080 (Man'en koban); 1860-07-01 -0.0181 (market rate for all but the official class). On 1859-06-30 the quote left the koban for gold on hand: 76.42 the day before, 69.65 that day, -0.093. In the fourth month of 1860, 78.89 to 69.04 within the month the Man'en koban was issued, -0.133; the ledger's editors put it down to large shipments of silver to Edo and the new koban. Prices dated in the same ledger: Ansei 6.8.21 (1859-09-17): ichibu silver bought by tender, 10,000 ryo, bids 71.36, 71.38, 71.40 momme per ryo; the day's quote 71.42 | Ansei 6.9.15: ichibu silver bought by tender, 15,000 ryo, bids 71.400, 71.430, 71.435; the day's quote 71.450 | Ansei 6.10.5 (1859-10-30): five oban bought, 30 ryo 2 bu each, paid in ichibu silver | Ansei 7.1.9 (1860-01-31): five oban bought, 55 ryo 2 bu each, paid in ichibu silver. The tenders put four ichibu of silver at the day's quote for a ryo of gold on hand to within 0.1%: the ichibu passed at its face. A series cut to sixty days does not pass: True",
+   "kind": "own_reading",
+   "name": "B139-10  the Osaka gold quote day by day across the decrees, 1859-1860",
+   "passed": true
+  },
+  {
+   "detail": "256 dated statements read, in ichibu per 100 dollars; later compilations left out by the kind of source, however their figures were read. Two rules date a month. Rule in force (everyone else has a statement dated to within two months; the custom house's side is the written rate covering the month): Yokohama: 8 of 12 above, 4 unsorted, 0 below (sign test 3.9e-03), by quarter 7 of 7 above, 0 unsorted, 0 below (sign test 7.8e-03), on the rows read from page images and ledgers 8 of 12 above, 4 unsorted, 0 below (sign test 3.9e-03); Nagasaki: 15 of 16 above, 1 unsorted, 0 below (sign test 3.1e-05), by quarter 8 of 8 above, 0 unsorted, 0 below (sign test 3.9e-03), on the rows read from page images and ledgers 14 of 15 above, 1 unsorted, 0 below (sign test 6.1e-05). Both ports: 23 of 28 above, 5 unsorted, 0 below (sign test 1.2e-07). Both sides dated to within two months: Yokohama: 5 of 5 above, 0 unsorted, 0 below (sign test 3.1e-02), by quarter 5 of 5 above, 0 unsorted, 0 below (sign test 3.1e-02), on the rows read from page images and ledgers 5 of 5 above, 0 unsorted, 0 below (sign test 3.1e-02); Nagasaki: 1 of 1 above, 0 unsorted, 0 below (sign test 5.0e-01), by quarter 1 of 1 above, 0 unsorted, 0 below (sign test 5.0e-01), on the rows read from page images and ledgers 1 of 1 above, 0 unsorted, 0 below (sign test 5.0e-01). Both ports: 6 of 6 above, 0 unsorted, 0 below (sign test 1.6e-02); months Yokohama 1860-03, Yokohama 1860-04, Yokohama 1860-07, Yokohama 1861-03, Yokohama 1861-04, Nagasaki 1860-02. Where a month is sorted under the first rule, ln(custom house / others) runs +0.020 to +0.445. The government's own counter at Yokohama, what it gave foreigners against what it gave Japanese holders: 1859-08 +0.405..+0.441, 1859-09 +0.405..+0.441. Seeded faults: the two classes exchanged, caught; the custom house set to the street's 200, caught; units are months and an overlapping month has no sign, caught; a later compilation counted, caught; a later compilation read on its page image counted, caught; no dated statement on the custom house's side, caught; a span counted in days of the calendar, caught; the two dating rules disagreeing leave no cell, caught; no dated statement on the others' side, caught; the duty counter set to the street's 200, caught; duties asked at the market rate in every month, caught; no koban price at the port, caught; everyone handed the custom-house rate, caught",
+   "grid": "B",
+   "grid_note": "a month whose two ranges overlap occupies no cell: Yokohama 1859-08, Yokohama 1860-01, Yokohama 1860-05, Yokohama 1860-06, Nagasaki 1860-05; the two dating rules give one verdict",
+   "kind": "rival",
+   "name": "B139-11  what a dollar fetched in ichibu, month by month: the custom house against everyone else",
+   "passed": true,
+   "rival_entailment": "the rate the custom house gave the holders it changed for and the rate everyone else got are one number, so in a month where both are dated the two ranges overlap, and where the scatter of the statements sorts a month it sorts it as often one way as the other",
+   "rival_premise": "at a port in a month the dollar has one price in ichibu, the same for every holder",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "Rule in force (the duty rate is the written rule covering the month, everyone else dated to within two months): Yokohama: 17 of 20 above, 3 unsorted, 0 below (sign test 7.6e-06), by quarter 9 of 9 above, 0 unsorted, 0 below (sign test 2.0e-03), on the rows read from page images and ledgers 17 of 20 above, 3 unsorted, 0 below (sign test 7.6e-06); Nagasaki: 3 of 3 above, 0 unsorted, 0 below (sign test 1.2e-01), by quarter 2 of 2 above, 0 unsorted, 0 below (sign test 2.5e-01), on the rows read from page images and ledgers 2 of 2 above, 0 unsorted, 0 below (sign test 2.5e-01). Both ports: 20 of 23 above, 3 unsorted, 0 below (sign test 9.5e-07). Both sides dated to within two months: Yokohama: 1 of 2 above, 1 unsorted, 0 below (sign test 5.0e-01), by quarter 1 of 1 above, 0 unsorted, 0 below (sign test 5.0e-01), on the rows read from page images and ledgers 1 of 2 above, 1 unsorted, 0 below (sign test 5.0e-01); Nagasaki: 0 of 0 above, 0 unsorted, 0 below, by quarter 0 of 0 above, 0 unsorted, 0 below, on the rows read from page images and ledgers 0 of 0 above, 0 unsorted, 0 below. Both ports: 1 of 2 above, 1 unsorted, 0 below (sign test 5.0e-01); months Yokohama 1860-08, Yokohama 1860-09. Where a month is sorted under the first rule, ln(duty rate / others) runs +0.036 to +0.441. Every statement of the duty rate: 1859-07-01..1866-06-25 Y 311 (anyone paying duties) | 1860-01-01..1861-02-19 Y 311 (anyone paying the government) | 1860-07-28..1860-07-28 Y market rate asked, no figure (a merchant paying duty) | 1860-08-06..1860-08-06 Y market rate asked, no figure (merchants paying duties reckoned in silver account) | 1860-08-12..1860-08-12 Y 311 (the merchant refused on 28 July) | 1860-09-22..1860-09-22 Y 311 (anyone paying duties) | 1860-08-01..1860-08-22 N 207 (merchants paying duties) | 1860-08-01..1860-08-31 N market rate asked, no figure (merchants paying duties) | 1860-07-01..1860-12-31 N 310 (anyone paying duties) | 1861-04-25..1861-04-25 H 299 (foreign residents paying ground rent). Seeded faults: the two classes exchanged, caught; the custom house set to the street's 200, caught; units are months and an overlapping month has no sign, caught; a later compilation counted, caught; a later compilation read on its page image counted, caught; no dated statement on the custom house's side, caught; a span counted in days of the calendar, caught; the two dating rules disagreeing leave no cell, caught; no dated statement on the others' side, caught; the duty counter set to the street's 200, caught; duties asked at the market rate in every month, caught; no koban price at the port, caught; everyone handed the custom-house rate, caught",
+   "grid": "unread",
+   "grid_note": "a month with no sign occupies no cell: Yokohama 1860-01, Yokohama 1860-07, Yokohama 1860-08; in the months where a statement says duties were asked at the market rate the sign is withheld; the two dating rules differ (rule in force: B; both sides dated: C), so no cell is claimed",
+   "kind": "rival",
+   "name": "B139-12  the rate at which the custom house took dollars for duties, against everyone else",
+   "passed": null,
+   "rival_entailment": "a dollar paid in for duties discharges as many ichibu as a dollar fetches from everyone else, so in a month where both are dated the duty rate lies inside the others' range, or is sorted as often below it as above",
+   "rival_premise": "at a port in a month the dollar has one price in ichibu, whatever it is tendered for",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "dollars to ichibu to koban at Yokohama to dollars at Shanghai, ln L low..high by month. Holder changing at the custom house: 1859-09 +0.208..+0.685, 1859-10 +0.187..+0.717, 1859-11 +0.059..+0.679, 1859-12 +0.157..+0.411 (4 of 4 months with the whole range above zero). Holder at the others' rate: 1859-09 -0.197..+0.169, 1859-12 -0.248..+0.331 (2 of 2 months astride zero). Where the coin is named: 1859-11 new koban +0.429..+0.506, 1859-11 old koban +0.344..+0.417. Lots and shipments, proceeds over cost: 1859-09-05 1.527, 1859-09-12 1.586, 1859-09-22 1.256, 1859-10-15 1.647, 1859-10-01 1.580, 1859-10-01 1.362. The multiple as stated: 2 (the British consul general), 2 (the North-China Herald's review of 1859). Shanghai's price of the koban against its London value: new -0.094..+0.017, old -0.084..-0.004; against its metal with gold at the rate an account booked the sovereign at and silver at the dollar's rates (a church's account, dated 1859-12-31, 54 days from the koban's price, the day of the conversion not stated; no market quotation of the sovereign is on these pages): new -0.001..+0.030, old +0.008..+0.012. The dollar in taels that turns the koban's tael price into dollars: 1859-10-20 every rate 0.725..0.73 (bill on Hongkong 0.725-0.73), without the bills on Hongkong none, cash quotations only none; 1859-11-07 every rate 0.73..0.785 (cash quotation 0.785, booked in an account 0.7452, bill on Hongkong 0.73), without the bills on Hongkong 0.7452..0.785, cash quotations only 0.785..0.785. The flag is the same with the bills left out: True. A koban carried in and paid at its new value under the rule in force from 1860-02-22, against its Shanghai price of 1859-11, the one on these pages (the two are 107 days apart; no Shanghai price after the revaluation is on them): new +0.093..+0.170, old +0.096..+0.168. Seeded faults: the two classes exchanged, caught; the custom house set to the street's 200, caught; units are months and an overlapping month has no sign, caught; a later compilation counted, caught; a later compilation read on its page image counted, caught; no dated statement on the custom house's side, caught; a span counted in days of the calendar, caught; the two dating rules disagreeing leave no cell, caught; no dated statement on the others' side, caught; the duty counter set to the street's 200, caught; duties asked at the market rate in every month, caught; no koban price at the port, caught; everyone handed the custom-house rate, caught",
+   "kind": "own_reading",
+   "name": "B139-13  the ring at each month's prices, by holder",
+   "passed": true
+  }
+ ],
+ "dated_statements": {
+  "both_sides_dated": {
+   "custom_house_against_others": {
+    "Nagasaki": [
+     {
+      "custom": [
+       250.0,
+       312.0
+      ],
+      "ln": [
+       0.0619,
+       0.292
+      ],
+      "month": "1860-02",
+      "others": [
+       233.0,
+       235.0
+      ],
+      "sign": "+",
+      "statements": 1
+     }
+    ],
+    "Yokohama": [
+     {
+      "custom": [
+       300.0,
+       311.0
+      ],
+      "ln": [
+       0.2231,
+       0.2592
+      ],
+      "month": "1860-03",
+      "others": [
+       240.0,
+       240.0
+      ],
+      "sign": "+",
+      "statements": 1
+     },
+     {
+      "custom": [
+       300.0,
+       311.0
+      ],
+      "ln": [
+       0.0583,
+       0.2888
+      ],
+      "month": "1860-04",
+      "others": [
+       233.0,
+       283.0
+      ],
+      "sign": "+",
+      "statements": 2
+     },
+     {
+      "custom": [
+       296.0,
+       311.0
+      ],
+      "ln": [
+       0.0205,
+       0.4415
+      ],
+      "month": "1860-07",
+      "others": [
+       200.0,
+       290.0
+      ],
+      "sign": "+",
+      "statements": 6
+     },
+     {
+      "custom": [
+       299.0,
+       299.0
+      ],
+      "ln": [
+       0.1553,
+       0.2624
+      ],
+      "month": "1861-03",
+      "others": [
+       230.0,
+       256.0
+      ],
+      "sign": "+",
+      "statements": 3
+     },
+     {
+      "custom": [
+       299.0,
+       299.0
+      ],
+      "ln": [
+       0.2198,
+       0.2624
+      ],
+      "month": "1861-04",
+      "others": [
+       230.0,
+       240.0
+      ],
+      "sign": "+",
+      "statements": 3
+     }
+    ]
+   },
+   "custom_house_counts": {
+    "Nagasaki": {
+     "above": 1,
+     "below": 0,
+     "grid": "B",
+     "months": 1,
+     "passed": true,
+     "prob": 0.5,
+     "unsorted": 0
+    },
+    "Yokohama": {
+     "above": 5,
+     "below": 0,
+     "grid": "B",
+     "months": 5,
+     "passed": true,
+     "prob": 0.03125,
+     "unsorted": 0
+    },
+    "both ports": {
+     "above": 6,
+     "below": 0,
+     "grid": "B",
+     "months": 6,
+     "passed": true,
+     "prob": 0.015625,
+     "unsorted": 0
+    }
+   },
+   "duty_counts": {
+    "Nagasaki": {
+     "above": 0,
+     "below": 0,
+     "grid": "unread",
+     "months": 0,
+     "passed": null,
+     "prob": null,
+     "unsorted": 0
+    },
+    "Yokohama": {
+     "above": 1,
+     "below": 0,
+     "grid": "C",
+     "months": 2,
+     "passed": false,
+     "prob": 0.5,
+     "unsorted": 1
+    },
+    "both ports": {
+     "above": 1,
+     "below": 0,
+     "grid": "C",
+     "months": 2,
+     "passed": false,
+     "prob": 0.5,
+     "unsorted": 1
+    }
+   },
+   "duty_rate_against_others": {
+    "Nagasaki": [],
+    "Yokohama": [
+     {
+      "duty": [
+       311.0,
+       311.0
+      ],
+      "ln": [
+       0.3462,
+       0.3927
+      ],
+      "market_rate_asked": true,
+      "month": "1860-08",
+      "others": [
+       210.0,
+       220.0
+      ],
+      "sign": "none",
+      "statements": 1
+     },
+     {
+      "duty": [
+       311.0,
+       311.0
+      ],
+      "ln": [
+       0.2183,
+       0.4415
+      ],
+      "month": "1860-09",
+      "others": [
+       200.0,
+       250.0
+      ],
+      "sign": "+",
+      "statements": 6
+     }
+    ]
+   }
+  },
+  "cells_claimed": {
+   "B139-11": {
+    "grid": "B",
+    "passed": true
+   },
+   "B139-12": {
+    "grid": "unread",
+    "passed": null
+   }
+  },
+  "custom_house_against_others": {
+   "Nagasaki": [
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.1863,
+      0.2624
+     ],
+     "month": "1859-09",
+     "others": [
+      240.0,
+      249.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.3711,
+      0.4447
+     ],
+     "month": "1860-01",
+     "others": [
+      200.0,
+      207.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      250.0,
+      312.0
+     ],
+     "ln": [
+      0.0619,
+      0.292
+     ],
+     "month": "1860-02",
+     "others": [
+      233.0,
+      235.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2066,
+      0.2458
+     ],
+     "month": "1860-04",
+     "others": [
+      244.0,
+      244.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.0,
+      0.2624
+     ],
+     "month": "1860-05",
+     "others": [
+      240.0,
+      300.0
+     ],
+     "sign": "none",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.1823,
+      0.3269
+     ],
+     "month": "1860-07",
+     "others": [
+      225.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.1823,
+      0.3269
+     ],
+     "month": "1860-09",
+     "others": [
+      225.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.1823,
+      0.3269
+     ],
+     "month": "1860-10",
+     "others": [
+      225.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2357,
+      0.2834
+     ],
+     "month": "1861-01",
+     "others": [
+      235.0,
+      237.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2442,
+      0.3049
+     ],
+     "month": "1861-02",
+     "others": [
+      230.0,
+      235.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2614,
+      0.3049
+     ],
+     "month": "1861-03",
+     "others": [
+      230.0,
+      231.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.257,
+      0.3006
+     ],
+     "month": "1861-04",
+     "others": [
+      231.0,
+      232.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2442,
+      0.3269
+     ],
+     "month": "1861-05",
+     "others": [
+      225.0,
+      235.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2231,
+      0.2877
+     ],
+     "month": "1861-06",
+     "others": [
+      234.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2442,
+      0.2877
+     ],
+     "month": "1861-07",
+     "others": [
+      234.0,
+      235.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "custom": [
+      300.0,
+      312.0
+     ],
+     "ln": [
+      0.2442,
+      0.2877
+     ],
+     "month": "1861-08",
+     "others": [
+      234.0,
+      235.0
+     ],
+     "sign": "+",
+     "statements": 4
+    }
+   ],
+   "Yokohama": [
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.0,
+      0.4415
+     ],
+     "month": "1859-08",
+     "others": [
+      200.0,
+      300.0
+     ],
+     "sign": "none",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.4055,
+      0.4415
+     ],
+     "month": "1859-09",
+     "others": [
+      200.0,
+      200.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.0443,
+      0.4415
+     ],
+     "month": "1859-12",
+     "others": [
+      200.0,
+      287.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      -0.036,
+      0.4415
+     ],
+     "month": "1860-01",
+     "others": [
+      200.0,
+      311.0
+     ],
+     "sign": "none",
+     "statements": 5
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.069,
+      0.4415
+     ],
+     "month": "1860-02",
+     "others": [
+      200.0,
+      280.0
+     ],
+     "sign": "+",
+     "statements": 4
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.2231,
+      0.2592
+     ],
+     "month": "1860-03",
+     "others": [
+      240.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.0583,
+      0.2888
+     ],
+     "month": "1860-04",
+     "others": [
+      233.0,
+      283.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.0,
+      0.2223
+     ],
+     "month": "1860-05",
+     "others": [
+      249.0,
+      300.0
+     ],
+     "sign": "none",
+     "statements": 2
+    },
+    {
+     "custom": [
+      300.0,
+      311.0
+     ],
+     "ln": [
+      0.0,
+      0.036
+     ],
+     "month": "1860-06",
+     "others": [
+      300.0,
+      300.0
+     ],
+     "sign": "none",
+     "statements": 2
+    },
+    {
+     "custom": [
+      296.0,
+      311.0
+     ],
+     "ln": [
+      0.0205,
+      0.4415
+     ],
+     "month": "1860-07",
+     "others": [
+      200.0,
+      290.0
+     ],
+     "sign": "+",
+     "statements": 6
+    },
+    {
+     "custom": [
+      299.0,
+      299.0
+     ],
+     "ln": [
+      0.1553,
+      0.2624
+     ],
+     "month": "1861-03",
+     "others": [
+      230.0,
+      256.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "custom": [
+      299.0,
+      299.0
+     ],
+     "ln": [
+      0.2198,
+      0.2624
+     ],
+     "month": "1861-04",
+     "others": [
+      230.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 3
+    }
+   ]
+  },
+  "custom_house_counts": {
+   "Nagasaki": {
+    "above": 15,
+    "below": 0,
+    "grid": "B",
+    "months": 16,
+    "passed": true,
+    "prob": 3.05176e-05,
+    "unsorted": 1
+   },
+   "Yokohama": {
+    "above": 8,
+    "below": 0,
+    "grid": "B",
+    "months": 12,
+    "passed": true,
+    "prob": 0.00390625,
+    "unsorted": 4
+   },
+   "both ports": {
+    "above": 23,
+    "below": 0,
+    "grid": "B",
+    "months": 28,
+    "passed": true,
+    "prob": 1.19209e-07,
+    "unsorted": 5
+   }
+  },
+  "duty_counts": {
+   "Nagasaki": {
+    "above": 3,
+    "below": 0,
+    "grid": "B",
+    "months": 3,
+    "passed": true,
+    "prob": 0.125,
+    "unsorted": 0
+   },
+   "Yokohama": {
+    "above": 17,
+    "below": 0,
+    "grid": "B",
+    "months": 20,
+    "passed": true,
+    "prob": 7.62939e-06,
+    "unsorted": 3
+   },
+   "both ports": {
+    "above": 20,
+    "below": 0,
+    "grid": "B",
+    "months": 23,
+    "passed": true,
+    "prob": 9.53674e-07,
+    "unsorted": 3
+   }
+  },
+  "duty_rate_against_others": {
+   "Nagasaki": [
+    {
+     "duty": [
+      310.0,
+      310.0
+     ],
+     "ln": [
+      0.2151,
+      0.3205
+     ],
+     "month": "1860-07",
+     "others": [
+      225.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      310.0,
+      310.0
+     ],
+     "ln": [
+      0.2151,
+      0.3205
+     ],
+     "month": "1860-09",
+     "others": [
+      225.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      310.0,
+      310.0
+     ],
+     "ln": [
+      0.2151,
+      0.3205
+     ],
+     "month": "1860-10",
+     "others": [
+      225.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 2
+    }
+   ],
+   "Yokohama": [
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.036,
+      0.4415
+     ],
+     "month": "1859-08",
+     "others": [
+      200.0,
+      300.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.4415,
+      0.4415
+     ],
+     "month": "1859-09",
+     "others": [
+      200.0,
+      200.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.0803,
+      0.4415
+     ],
+     "month": "1859-12",
+     "others": [
+      200.0,
+      287.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.0,
+      0.4415
+     ],
+     "month": "1860-01",
+     "others": [
+      200.0,
+      311.0
+     ],
+     "sign": "none",
+     "statements": 5
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.105,
+      0.4415
+     ],
+     "month": "1860-02",
+     "others": [
+      200.0,
+      280.0
+     ],
+     "sign": "+",
+     "statements": 4
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2592,
+      0.2592
+     ],
+     "month": "1860-03",
+     "others": [
+      240.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 1
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.0943,
+      0.2888
+     ],
+     "month": "1860-04",
+     "others": [
+      233.0,
+      283.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.036,
+      0.2223
+     ],
+     "month": "1860-05",
+     "others": [
+      249.0,
+      300.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.036,
+      0.036
+     ],
+     "month": "1860-06",
+     "others": [
+      300.0,
+      300.0
+     ],
+     "sign": "+",
+     "statements": 2
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.0699,
+      0.4415
+     ],
+     "market_rate_asked": true,
+     "month": "1860-07",
+     "others": [
+      200.0,
+      290.0
+     ],
+     "sign": "none",
+     "statements": 6
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.3462,
+      0.3927
+     ],
+     "market_rate_asked": true,
+     "month": "1860-08",
+     "others": [
+      210.0,
+      220.0
+     ],
+     "sign": "none",
+     "statements": 1
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2183,
+      0.4415
+     ],
+     "month": "1860-09",
+     "others": [
+      200.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 6
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.3017,
+      0.4415
+     ],
+     "month": "1860-10",
+     "others": [
+      200.0,
+      230.0
+     ],
+     "sign": "+",
+     "statements": 4
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2183,
+      0.4071
+     ],
+     "month": "1860-11",
+     "others": [
+      207.0,
+      250.0
+     ],
+     "sign": "+",
+     "statements": 5
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2592,
+      0.3879
+     ],
+     "month": "1860-12",
+     "others": [
+      211.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2888,
+      0.4415
+     ],
+     "month": "1861-01",
+     "others": [
+      200.0,
+      233.0
+     ],
+     "sign": "+",
+     "statements": 4
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2064,
+      0.4415
+     ],
+     "month": "1861-02",
+     "others": [
+      200.0,
+      253.0
+     ],
+     "sign": "+",
+     "statements": 7
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.1946,
+      0.3017
+     ],
+     "month": "1861-03",
+     "others": [
+      230.0,
+      256.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2592,
+      0.3017
+     ],
+     "month": "1861-04",
+     "others": [
+      230.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 3
+    },
+    {
+     "duty": [
+      311.0,
+      311.0
+     ],
+     "ln": [
+      0.2592,
+      0.3237
+     ],
+     "month": "1861-08",
+     "others": [
+      225.0,
+      240.0
+     ],
+     "sign": "+",
+     "statements": 2
+    }
+   ]
+  },
+  "government_counter_foreigners_against_japanese": [
+   {
+    "custom": [
+     300.0,
+     311.0
+    ],
+    "ln": [
+     0.4055,
+     0.4415
+    ],
+    "month": "1859-08",
+    "others": [
+     200.0,
+     200.0
+    ],
+    "sign": "+",
+    "statements": 1
+   },
+   {
+    "custom": [
+     300.0,
+     311.0
+    ],
+    "ln": [
+     0.4055,
+     0.4415
+    ],
+    "month": "1859-09",
+    "others": [
+     200.0,
+     200.0
+    ],
+    "sign": "+",
+    "statements": 2
+   }
+  ],
+  "later_compilations_read_on_a_page_image": [
+   {
+    "from": "1860-07-04",
+    "kind": "custom",
+    "ref": "official#75",
+    "to": "1861-12-31"
+   },
+   {
+    "from": "1860-07-04",
+    "kind": "custom",
+    "ref": "official#77",
+    "to": "1861-12-31"
+   },
+   {
+    "from": "1860-10-01",
+    "kind": "street",
+    "ref": "nl_fr_de#44",
+    "to": "1860-10-31"
+   },
+   {
+    "from": "1860-09-23",
+    "kind": "posted",
+    "ref": "nl_fr_de#44",
+    "to": "1860-10-31"
+   },
+   {
+    "from": "1860-11-01",
+    "kind": "posted",
+    "ref": "nl_fr_de#44",
+    "to": "1860-11-30"
+   },
+   {
+    "from": "1860-02-01",
+    "kind": "koban",
+    "ref": "nl_fr_de#32",
+    "to": "1860-02-21"
+   }
+  ],
+  "ring_by_holder": {
+   "after_the_revaluation": [
+    {
+     "against_london_value": [
+      0.0689,
+      0.1029
+     ],
+     "against_shanghai": [
+      0.0927,
+      0.1697
+     ],
+     "coin": "new",
+     "ichibu": 10.75,
+     "rule_in_force_from": "1860-02-22",
+     "shanghai_price_of": "1859-11"
+    },
+    {
+     "against_london_value": [
+      0.0775,
+      0.0853
+     ],
+     "against_shanghai": [
+      0.0956,
+      0.1682
+     ],
+     "coin": "old",
+     "ichibu": 13.5,
+     "rule_in_force_from": "1860-02-22",
+     "shanghai_price_of": "1859-11"
+    }
+   ],
+   "lots_and_shipments": [
+    {
+     "date": "1859-09-05",
+     "multiple": 1.5275,
+     "note": "Remi",
+     "port": "Y"
+    },
+    {
+     "date": "1859-09-12",
+     "multiple": 1.5856,
+     "note": "Troas",
+     "port": "Y"
+    },
+    {
+     "date": "1859-09-22",
+     "multiple": 1.2557,
+     "note": "Azoff",
+     "port": "N"
+    },
+    {
+     "date": "1859-10-15",
+     "multiple": 1.6467,
+     "note": "Jacob & Anna",
+     "port": "Y"
+    },
+    {
+     "date": "1859-10-01",
+     "multiple": 1.58,
+     "note": "cobang bought at an average of $2.50, 'brought $3.95'",
+     "port": "Y"
+    },
+    {
+     "date": "1859-10-01",
+     "multiple": 1.3619,
+     "note": "oban bought at $52 and a fraction, sold at $71 and a fraction; the cents are not legible",
+     "port": "Y"
+    }
+   ],
+   "multiple_as_stated": [
+    {
+     "from": "1859-11-21",
+     "holder": "the British consul general",
+     "multiple": 2.0,
+     "to": "1859-11-21"
+    },
+    {
+     "from": "1859-11-01",
+     "holder": "the North-China Herald's review of 1859",
+     "multiple": 2.0,
+     "to": "1859-12-31"
+    }
+   ],
+   "ring_by_month": [
+    {
+     "custom_house_holder": [
+      0.2082,
+      0.6846
+     ],
+     "holder_at_the_others_rate": [
+      -0.1973,
+      0.1694
+     ],
+     "month": "1859-09",
+     "shanghai_dollars": [
+      3.0785,
+      3.85
+     ]
+    },
+    {
+     "custom_house_holder": [
+      0.1869,
+      0.7166
+     ],
+     "holder_at_the_others_rate": null,
+     "month": "1859-10",
+     "shanghai_dollars": [
+      3.0137,
+      3.95
+     ]
+    },
+    {
+     "custom_house_holder": [
+      0.059,
+      0.6794
+     ],
+     "holder_at_the_others_rate": null,
+     "month": "1859-11",
+     "shanghai_dollars": [
+      2.9172,
+      3.9452
+     ]
+    },
+    {
+     "custom_house_holder": [
+      0.157,
+      0.411
+     ],
+     "holder_at_the_others_rate": [
+      -0.2485,
+      0.3307
+     ],
+     "month": "1859-12",
+     "shanghai_dollars": [
+      3.12,
+      3.88
+     ]
+    }
+   ],
+   "ring_coin_named": [
+    {
+     "coin": "new",
+     "ln": [
+      0.4288,
+      0.5058
+     ],
+     "month": "1859-11"
+    },
+    {
+     "coin": "old",
+     "ln": [
+      0.3444,
+      0.417
+     ],
+     "month": "1859-11"
+    }
+   ],
+   "shanghai_against_london_value": [
+    {
+     "coin": "new",
+     "ln": [
+      -0.0942,
+      0.0168
+     ]
+    },
+    {
+     "coin": "old",
+     "ln": [
+      -0.0841,
+      -0.0037
+     ]
+    }
+   ],
+   "shanghai_dollar_in_taels": [
+    {
+     "cash_quotations_only": null,
+     "date": "1859-10-20",
+     "every_rate": [
+      0.725,
+      0.73
+     ],
+     "rates_used": [
+      {
+       "basis": "bill on Hongkong",
+       "from": "1859-10-21",
+       "high": 0.73,
+       "holder": "exchange on Hongkong",
+       "low": 0.725,
+       "to": "1859-10-21"
+      }
+     ],
+     "without_bills_on_hongkong": null
+    },
+    {
+     "cash_quotations_only": [
+      0.785,
+      0.785
+     ],
+     "date": "1859-11-07",
+     "every_rate": [
+      0.73,
+      0.785
+     ],
+     "rates_used": [
+      {
+       "basis": "cash quotation",
+       "from": "1859-11-01",
+       "high": 0.785,
+       "holder": "Mexican dollars, highest quotation of 1859",
+       "low": 0.785,
+       "to": "1859-11-30"
+      },
+      {
+       "basis": "booked in an account",
+       "from": "1859-11-16",
+       "high": 0.7452,
+       "holder": "an institution's account",
+       "low": 0.7452,
+       "to": "1859-11-16"
+      },
+      {
+       "basis": "bill on Hongkong",
+       "from": "1859-11-04",
+       "high": 0.73,
+       "holder": "exchange on Hongkong",
+       "low": 0.73,
+       "to": "1859-11-04"
+      }
+     ],
+     "without_bills_on_hongkong": [
+      0.7452,
+      0.785
+     ]
+    }
+   ],
+   "shanghai_in_its_own_prices": [
+    {
+     "coin": "new",
+     "date": "1859-11-07",
+     "ln": [
+      -0.0014,
+      0.0303
+     ],
+     "sovereign_rate": [
+      {
+       "basis": "booked in an account",
+       "dated": "1859-12-31",
+       "days_from_the_koban_price": 54,
+       "holder": "a church's account"
+      }
+     ]
+    },
+    {
+     "coin": "old",
+     "date": "1859-11-07",
+     "ln": [
+      0.0082,
+      0.0125
+     ],
+     "sovereign_rate": [
+      {
+       "basis": "booked in an account",
+       "dated": "1859-12-31",
+       "days_from_the_koban_price": 54,
+       "holder": "a church's account"
+      }
+     ]
+    }
+   ]
+  },
+  "ring_by_holder_flag": {
+   "astride_zero": 2,
+   "months_custom_house": 4,
+   "months_others": 2,
+   "open": 4,
+   "parts_present": true,
+   "passed": true
+  },
+  "ring_by_holder_flag_without_bills_on_hongkong": {
+   "astride_zero": 2,
+   "months_custom_house": 4,
+   "months_others": 2,
+   "open": 4,
+   "parts_present": true,
+   "passed": true
+  },
+  "seeded_faults": {
+   "a later compilation counted": true,
+   "a later compilation read on its page image counted": true,
+   "a span counted in days of the calendar": true,
+   "duties asked at the market rate in every month": true,
+   "everyone handed the custom-house rate": true,
+   "no dated statement on the custom house's side": true,
+   "no dated statement on the others' side": true,
+   "no koban price at the port": true,
+   "the custom house set to the street's 200": true,
+   "the duty counter set to the street's 200": true,
+   "the two classes exchanged": true,
+   "the two dating rules disagreeing leave no cell": true,
+   "units are months and an overlapping month has no sign": true
+  },
+  "statements_in_table": 278,
+  "statements_read": 256,
+  "statements_read_from_images_and_ledgers": 241
+ },
+ "ledger_prices": [
+  {
+   "price": "bids 71.36, 71.38, 71.40 momme per ryo; the day's quote 71.42",
+   "what": "ichibu silver bought by tender, 10,000 ryo",
+   "when": "Ansei 6.8.21 (1859-09-17)"
+  },
+  {
+   "price": "bids 71.400, 71.430, 71.435; the day's quote 71.450",
+   "what": "ichibu silver bought by tender, 15,000 ryo",
+   "when": "Ansei 6.9.15"
+  },
+  {
+   "price": "30 ryo 2 bu each, paid in ichibu silver",
+   "what": "five oban bought",
+   "when": "Ansei 6.10.5 (1859-10-30)"
+  },
+  {
+   "price": "55 ryo 2 bu each, paid in ichibu silver",
+   "what": "five oban bought",
+   "when": "Ansei 7.1.9 (1860-01-31)"
+  }
+ ],
+ "market_1859": [
+  {
+   "holder": "custom-house quota: 1 dollar = 3 ichibu; koban at 8 ichibu",
+   "ln_L_max": 0.4031,
+   "ln_L_min": 0.15
+  },
+  {
+   "holder": "money changers: 1 dollar = 2 bu to 2 bu 2 shu; koban at 8 ichibu",
+   "ln_L_max": 0.2208,
+   "ln_L_min": -0.2554
+  }
+ ],
+ "osaka_1859_1860": {
+  "10": {
+   "noise": {
+    "median": 0.0046,
+    "n": 687,
+    "p90": 0.0194,
+    "p95": 0.0261
+   },
+   "steps": [
+    {
+     "after": 74.28,
+     "before": 76.23,
+     "decree": "1859-06-24",
+     "edge": "both",
+     "step": -0.0259,
+     "what": "two-shu decree; Tenpo koban raised to 1 ryo 1 bu (the later window runs into the switch of 06-30)"
+    },
+    {
+     "after": 71.96,
+     "before": 76.29,
+     "decree": "1859-06-30",
+     "edge": "quote",
+     "step": -0.0585,
+     "what": "the quote moves from koban to gold on hand"
+    },
+    {
+     "after": 71.19,
+     "before": 70.94,
+     "decree": "1859-07-21",
+     "edge": "dollar-ichibu",
+     "step": 0.0035,
+     "what": "1 dollar = 3 ichibu"
+    },
+    {
+     "after": 71.37,
+     "before": 71.38,
+     "decree": "1859-08-26",
+     "edge": "dollar-ichibu",
+     "step": -0.0002,
+     "what": "by weight among Japanese"
+    },
+    {
+     "after": 71.41,
+     "before": 71.41,
+     "decree": "1859-09-09",
+     "edge": "dollar-ichibu",
+     "step": 0.0,
+     "what": "Ansei ichibu at the dollar's fineness"
+    },
+    {
+     "after": 74.6,
+     "before": 74.91,
+     "decree": "1859-12-02",
+     "edge": "dollar-ichibu",
+     "step": -0.0042,
+     "what": "by weight among Japanese; dollars taken for land tax"
+    },
+    {
+     "after": 71.66,
+     "before": 71.75,
+     "decree": "1860-01-20",
+     "edge": "dollar-ichibu",
+     "step": -0.0012,
+     "what": "three-bu stamp on dollars of 7 momme and over"
+    },
+    {
+     "after": 73.24,
+     "before": 71.9,
+     "decree": "1860-02-11",
+     "edge": "ichibu-koban",
+     "step": 0.0185,
+     "what": "zomashi announced"
+    },
+    {
+     "after": 74.79,
+     "before": 73.42,
+     "decree": "1860-02-22",
+     "edge": "ichibu-koban",
+     "step": 0.0185,
+     "what": "zomashi in force"
+    },
+    {
+     "after": 78.18,
+     "before": 77.56,
+     "decree": "1860-05-30",
+     "edge": "ichibu-koban",
+     "step": 0.008,
+     "what": "Man'en koban"
+    },
+    {
+     "after": 69.16,
+     "before": 70.42,
+     "decree": "1860-07-01",
+     "edge": "dollar-ichibu",
+     "step": -0.0181,
+     "what": "market rate for all but the official class"
+    }
+   ]
+  },
+  "20": {
+   "noise": {
+    "median": 0.0093,
+    "n": 667,
+    "p90": 0.0268,
+    "p95": 0.05
+   },
+   "steps": [
+    {
+     "after": 72.94,
+     "before": 76.22,
+     "decree": "1859-06-24",
+     "edge": "both",
+     "step": -0.044,
+     "what": "two-shu decree; Tenpo koban raised to 1 ryo 1 bu (the later window runs into the switch of 06-30)"
+    },
+    {
+     "after": 71.45,
+     "before": 76.21,
+     "decree": "1859-06-30",
+     "edge": "quote",
+     "step": -0.0646,
+     "what": "the quote moves from koban to gold on hand"
+    },
+    {
+     "after": 71.29,
+     "before": 71.45,
+     "decree": "1859-07-21",
+     "edge": "dollar-ichibu",
+     "step": -0.0022,
+     "what": "1 dollar = 3 ichibu"
+    },
+    {
+     "after": 71.4,
+     "before": 71.41,
+     "decree": "1859-08-26",
+     "edge": "dollar-ichibu",
+     "step": -0.0001,
+     "what": "by weight among Japanese"
+    },
+    {
+     "after": 71.41,
+     "before": 71.38,
+     "decree": "1859-09-09",
+     "edge": "dollar-ichibu",
+     "step": 0.0004,
+     "what": "Ansei ichibu at the dollar's fineness"
+    },
+    {
+     "after": 73.78,
+     "before": 74.43,
+     "decree": "1859-12-02",
+     "edge": "dollar-ichibu",
+     "step": -0.0089,
+     "what": "by weight among Japanese; dollars taken for land tax"
+    },
+    {
+     "after": 72.06,
+     "before": 72.06,
+     "decree": "1860-01-20",
+     "edge": "dollar-ichibu",
+     "step": -0.0,
+     "what": "three-bu stamp on dollars of 7 momme and over"
+    },
+    {
+     "after": 73.96,
+     "before": 71.98,
+     "decree": "1860-02-11",
+     "edge": "ichibu-koban",
+     "step": 0.0272,
+     "what": "zomashi announced"
+    },
+    {
+     "after": 74.85,
+     "before": 72.71,
+     "decree": "1860-02-22",
+     "edge": "ichibu-koban",
+     "step": 0.0291,
+     "what": "zomashi in force"
+    },
+    {
+     "after": 75.83,
+     "before": 77.21,
+     "decree": "1860-05-30",
+     "edge": "ichibu-koban",
+     "step": -0.018,
+     "what": "Man'en koban"
+    },
+    {
+     "after": 69.93,
+     "before": 71.72,
+     "decree": "1860-07-01",
+     "edge": "dollar-ichibu",
+     "step": -0.0252,
+     "what": "market rate for all but the official class"
+    }
+   ]
+  },
+  "5": {
+   "noise": {
+    "median": 0.003,
+    "n": 697,
+    "p90": 0.0131,
+    "p95": 0.0176
+   },
+   "steps": [
+    {
+     "after": 76.27,
+     "before": 76.29,
+     "decree": "1859-06-24",
+     "edge": "both",
+     "step": -0.0002,
+     "what": "two-shu decree; Tenpo koban raised to 1 ryo 1 bu (the later window runs into the switch of 06-30)"
+    },
+    {
+     "after": 71.77,
+     "before": 76.29,
+     "decree": "1859-06-30",
+     "edge": "quote",
+     "step": -0.0612,
+     "what": "the quote moves from koban to gold on hand"
+    },
+    {
+     "after": 71.17,
+     "before": 71.37,
+     "decree": "1859-07-21",
+     "edge": "dollar-ichibu",
+     "step": -0.0028,
+     "what": "1 dollar = 3 ichibu"
+    },
+    {
+     "after": 71.35,
+     "before": 71.35,
+     "decree": "1859-08-26",
+     "edge": "dollar-ichibu",
+     "step": -0.0001,
+     "what": "by weight among Japanese"
+    },
+    {
+     "after": 71.39,
+     "before": 71.45,
+     "decree": "1859-09-09",
+     "edge": "dollar-ichibu",
+     "step": -0.0008,
+     "what": "Ansei ichibu at the dollar's fineness"
+    },
+    {
+     "after": 74.93,
+     "before": 75.06,
+     "decree": "1859-12-02",
+     "edge": "dollar-ichibu",
+     "step": -0.0018,
+     "what": "by weight among Japanese; dollars taken for land tax"
+    },
+    {
+     "after": 71.84,
+     "before": 72.27,
+     "decree": "1860-01-20",
+     "edge": "dollar-ichibu",
+     "step": -0.006,
+     "what": "three-bu stamp on dollars of 7 momme and over"
+    },
+    {
+     "after": 72.6,
+     "before": 72.31,
+     "decree": "1860-02-11",
+     "edge": "ichibu-koban",
+     "step": 0.0039,
+     "what": "zomashi announced"
+    },
+    {
+     "after": 74.66,
+     "before": 73.75,
+     "decree": "1860-02-22",
+     "edge": "ichibu-koban",
+     "step": 0.0123,
+     "what": "zomashi in force"
+    },
+    {
+     "after": 78.28,
+     "before": 77.65,
+     "decree": "1860-05-30",
+     "edge": "ichibu-koban",
+     "step": 0.008,
+     "what": "Man'en koban"
+    },
+    {
+     "after": 68.6,
+     "before": 69.77,
+     "decree": "1860-07-01",
+     "edge": "dollar-ichibu",
+     "step": -0.0169,
+     "what": "market rate for all but the official class"
+    }
+   ]
+  }
+ },
+ "quotas_1859_12": [
+  {
+   "source": "doc. 91, pp.220-221, Roju and Harris, 11.24 (1859-12-17)",
+   "what": "10,000 ichibu a day for all nations together, divided among them; the mint strikes 15,000 to 16,000 a day, 20,000 at most, for three ports",
+   "where": "Kanagawa"
+  },
+  {
+   "source": "doc. 52, p.132 and doc. 39, p.93",
+   "what": "nine ichibu a day per American before the Kanrin-maru brought 200,000 ichibu, four a day after",
+   "where": "Nagasaki"
+  },
+  {
+   "source": "doc. 67, p.164, the Russian commander at Hakodate, 11.22",
+   "what": "five dollars a day per man by agreement: 500 dollars for a crew of 100",
+   "where": "Hakodate"
+  },
+  {
+   "source": "doc. 5, pp.10-14, the Hakodate magistrates, 11.16",
+   "what": "the town does not take dollars; foreign merchants who drew ichibu at the office change them at a premium for Japanese holding dollars; the office reckons 78,000 ryo a year for foreigners and 70,000 for townsmen, asks 70,000 and is granted 30,000",
+   "where": "Hakodate"
+  },
+  {
+   "source": "doc. 91, p.222, Harris, 11.24",
+   "what": "same kind, same weight binds the exchange at the port offices; trade between merchants lies outside it",
+   "where": "treaty"
+  },
+  {
+   "source": "doc. 91, pp.209 and 222, Harris, 11.24",
+   "what": "on each koban the Japanese seller and the foreign buyer gain four ichibu apiece (a koban is worth twelve ichibu abroad)",
+   "where": "Kanagawa"
+  },
+  {
+   "source": "doc. 91, p.213, Harris, 11.24",
+   "what": "100 dollars weigh 311 ichibu",
+   "where": "by weight"
+  }
+ ],
+ "segments": [
+  {
+   "floor_width": 0.0118,
+   "from": "1859-07-01",
+   "ln_L_max": -0.2215,
+   "ln_L_min": -0.2333,
+   "rule": "custom house 1 dollar = 2 nishu = 1 bu; tenpo koban 1 ryo 1 bu, ansei koban 1 ryo"
+  },
+  {
+   "floor_width": 0.0118,
+   "from": "1859-07-21",
+   "ln_L_max": 0.8771,
+   "ln_L_min": 0.8653,
+   "rule": "1 dollar = 3 ichibu; koban as above"
+  },
+  {
+   "floor_width": 0.0164,
+   "from": "1860-02-22",
+   "ln_L_max": -0.1049,
+   "ln_L_min": -0.1213,
+   "rule": "zomashi: tenpo koban 3 ryo 1 bu 2 shu, ansei koban 2 ryo 2 bu 3 shu"
+  },
+  {
+   "floor_width": 0.0107,
+   "from": "1860-05-30",
+   "ln_L_max": -0.1012,
+   "ln_L_min": -0.1119,
+   "rule": "Man'en koban at 1 ryo"
+  },
+  {
+   "floor_width": 0.0049,
+   "from": "1860-07-01",
+   "ln_L_max": -0.0959,
+   "ln_L_min": -0.1008,
+   "rule": "official class: by weight less 4% (ansei ichibu)"
+  },
+  {
+   "floor_width": 0.0107,
+   "from": "1860-07-01",
+   "ln_L_max": -0.5067,
+   "ln_L_min": -0.5174,
+   "rule": "everyone else: market; autumn 1860 point 1 dollar = 2 ichibu"
+  }
+ ],
+ "stage": "B139"
+}

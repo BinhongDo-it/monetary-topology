@@ -2698,6 +2698,12 @@
   },
   "shift_bp": 45.097052
  },
+ "definitions": {
+  "class difference": "outside minus inside the class, of that share or of its log odds, inside a size band, quarter and asset bin, weighted and pooled as the configuration says. The rival's zero rests on the indicator's departures from the price paid not differing by class inside a bin",
+  "crossed difference": "the class difference at one height in the span when the primary credit rate stood there, minus the same in the other span. A share above a height is not linear in the level of prices, and the readings kept change with the height, so a move of both classes' prices between the spans enters it. It describes the two spans at the two heights; by itself it does not isolate what the rate's height adds",
+  "paying above the rate": "a filer-quarter whose price, so defined, stands above the quarter's mean primary credit rate; a share paying above the rate is a share of filer-quarters",
+  "price": "the RC-K indicator of experiments/b59_size_spread.py, percent a year: the quarter's expense on federal funds purchased and securities sold under agreements to repurchase (RIAD 4180, year to date, differenced) over the quarterly average of the same two liabilities together (RC-K 3353), read only where repo is zero at both quarter ends. It is a quarter's average rate on that line. The form lets the average be taken over daily or over Wednesday closes, and repo inside the quarter is not seen, so it is the price of overnight federal funds where the balance was federal funds throughout and the filed average is the balance the expense accrued on"
+ },
  "join": {
   "filers_they_name": 120,
   "joined": 52389,

@@ -1,0 +1,1602 @@
+{
+ "cells": {
+  "Table 1": {
+   "2016/17": {
+    "Birmingham": [
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     103,
+     0
+    ],
+    "Cambridge": [
+     "<5",
+     "<5",
+     37,
+     "<5",
+     "<5",
+     "<5",
+     "<5"
+    ],
+    "Edinburgh": [
+     "<5",
+     14,
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     45
+    ],
+    "King’s College": [
+     "<5",
+     "<5",
+     5,
+     "<5",
+     95,
+     5,
+     "<5"
+    ],
+    "Leeds": [
+     9,
+     64,
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     16
+    ],
+    "Newcastle": [
+     9,
+     5,
+     "<5",
+     "<5",
+     "<5",
+     0,
+     7
+    ],
+    "Overseas": [
+     0,
+     "<5",
+     "<5",
+     "<5",
+     0,
+     "<5",
+     "<5"
+    ],
+    "Royal Free": [
+     "<5",
+     "<5",
+     0,
+     50,
+     "<5",
+     "<5",
+     "<5"
+    ]
+   },
+   "2017/18": {
+    "Birmingham": [
+     5,
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     104,
+     "<5"
+    ],
+    "Cambridge": [
+     "<5",
+     "<5",
+     49,
+     "<5",
+     0,
+     "<5",
+     6
+    ],
+    "Edinburgh": [
+     "<5",
+     12,
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     38
+    ],
+    "King’s College": [
+     0,
+     "<5",
+     5,
+     "<5",
+     116,
+     8,
+     "<5"
+    ],
+    "Leeds": [
+     9,
+     75,
+     6,
+     "<5",
+     "<5",
+     7,
+     22
+    ],
+    "Newcastle": [
+     6,
+     5,
+     "<5",
+     "<5",
+     0,
+     "<5",
+     "<5"
+    ],
+    "Overseas": [
+     0,
+     3,
+     0,
+     "<5",
+     0,
+     "<5",
+     "<5"
+    ],
+    "Royal Free": [
+     "<5",
+     "<5",
+     "<5",
+     65,
+     "<5",
+     "<5",
+     5
+    ]
+   },
+   "2018/19": {
+    "Birmingham": [
+     "<5",
+     15,
+     14,
+     25,
+     22,
+     25,
+     13
+    ],
+    "Cambridge": [
+     "<5",
+     "<5",
+     11,
+     11,
+     11,
+     11,
+     9
+    ],
+    "Edinburgh": [
+     7,
+     6,
+     6,
+     7,
+     14,
+     14,
+     14
+    ],
+    "King’s College": [
+     "<5",
+     8,
+     11,
+     11,
+     47,
+     41,
+     28
+    ],
+    "Leeds": [
+     "<5",
+     24,
+     9,
+     14,
+     21,
+     25,
+     10
+    ],
+    "Newcastle": [
+     "<5",
+     5,
+     5,
+     5,
+     12,
+     8,
+     "<5"
+    ],
+    "Overseas": [
+     0,
+     0,
+     0,
+     "<5",
+     "<5",
+     "<5",
+     0
+    ],
+    "Royal Free": [
+     "<5",
+     "<5",
+     7,
+     9,
+     10,
+     24,
+     10
+    ]
+   },
+   "2019/20": {
+    "Birmingham": [
+     6,
+     12,
+     12,
+     20,
+     26,
+     30,
+     14
+    ],
+    "Cambridge": [
+     0,
+     "<5",
+     8,
+     9,
+     8,
+     12,
+     "<5"
+    ],
+    "Edinburgh": [
+     "<5",
+     9,
+     6,
+     15,
+     15,
+     18,
+     8
+    ],
+    "King’s College": [
+     "<5",
+     23,
+     13,
+     17,
+     46,
+     34,
+     8
+    ],
+    "Leeds": [
+     "<5",
+     15,
+     11,
+     12,
+     26,
+     33,
+     13
+    ],
+    "Newcastle": [
+     "<5",
+     6,
+     0,
+     "<5",
+     "<5",
+     12,
+     "<5"
+    ],
+    "Overseas": [
+     "<5",
+     "<5",
+     0,
+     5,
+     0,
+     0,
+     0
+    ],
+    "Royal Free": [
+     "<5",
+     8,
+     7,
+     7,
+     13,
+     14,
+     "<5"
+    ]
+   }
+  },
+  "Table 2": {
+   "2016/17": {
+    "Birmingham": [
+     "<5",
+     0,
+     6,
+     0,
+     "<5",
+     26,
+     "<5"
+    ],
+    "Cambridge": [
+     0,
+     0,
+     19,
+     "<5",
+     "<5",
+     9,
+     0
+    ],
+    "Edinburgh": [
+     "<5",
+     "<5",
+     0,
+     0,
+     0,
+     "<5",
+     15
+    ],
+    "King’s College": [
+     0,
+     0,
+     "<5",
+     "<5",
+     41,
+     "<5",
+     0
+    ],
+    "Leeds": [
+     "<5",
+     16,
+     5,
+     "<5",
+     8,
+     9,
+     "<5"
+    ],
+    "Newcastle": [
+     5,
+     "<5",
+     "<5",
+     0,
+     "<5",
+     "<5",
+     "<5"
+    ],
+    "Overseas": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "Royal Free": [
+     0,
+     0,
+     0,
+     5,
+     6,
+     "<5",
+     0
+    ]
+   },
+   "2017/18": {
+    "Birmingham": [
+     0,
+     0,
+     8,
+     "<5",
+     "<5",
+     27,
+     0
+    ],
+    "Cambridge": [
+     0,
+     0,
+     20,
+     "<5",
+     "<5",
+     7,
+     0
+    ],
+    "Edinburgh": [
+     0,
+     0,
+     0,
+     "<5",
+     0,
+     0,
+     10
+    ],
+    "King’s College": [
+     0,
+     0,
+     0,
+     "<5",
+     33,
+     7,
+     0
+    ],
+    "Leeds": [
+     "<5",
+     26,
+     "<5",
+     "<5",
+     6,
+     8,
+     "<5"
+    ],
+    "Newcastle": [
+     "<5",
+     0,
+     0,
+     "<5",
+     0,
+     "<5",
+     "<5"
+    ],
+    "Overseas": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "Royal Free": [
+     0,
+     0,
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     0
+    ]
+   },
+   "2018/19": {
+    "Birmingham": [
+     0,
+     "<5",
+     8,
+     "<5",
+     6,
+     26,
+     "<5"
+    ],
+    "Cambridge": [
+     0,
+     0,
+     23,
+     "<5",
+     0,
+     "<5",
+     "<5"
+    ],
+    "Edinburgh": [
+     "<5",
+     "<5",
+     0,
+     0,
+     0,
+     "<5",
+     7
+    ],
+    "King’s College": [
+     0,
+     "<5",
+     6,
+     5,
+     22,
+     "<5",
+     0
+    ],
+    "Leeds": [
+     0,
+     15,
+     "<5",
+     7,
+     5,
+     "<5",
+     "<5"
+    ],
+    "Newcastle": [
+     "<5",
+     "<5",
+     0,
+     "<5",
+     "<5",
+     0,
+     "<5"
+    ],
+    "Overseas": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "Royal Free": [
+     0,
+     0,
+     "<5",
+     12,
+     7,
+     "<5",
+     0
+    ]
+   },
+   "2019/20": {
+    "Birmingham": [
+     0,
+     "<5",
+     9,
+     5,
+     "<5",
+     25,
+     0
+    ],
+    "Cambridge": [
+     "<5",
+     0,
+     16,
+     "<5",
+     "<5",
+     5,
+     0
+    ],
+    "Edinburgh": [
+     0,
+     0,
+     "<5",
+     "<5",
+     0,
+     0,
+     5
+    ],
+    "King’s College": [
+     0,
+     0,
+     "<5",
+     9,
+     28,
+     "<5",
+     0
+    ],
+    "Leeds": [
+     "<5",
+     16,
+     "<5",
+     "<5",
+     "<5",
+     "<5",
+     0
+    ],
+    "Newcastle": [
+     "<5",
+     "<5",
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "Overseas": [
+     0,
+     0,
+     0,
+     "<5",
+     0,
+     0,
+     0
+    ],
+    "Royal Free": [
+     0,
+     0,
+     "<5",
+     13,
+     "<5",
+     0,
+     0
+    ]
+   }
+  }
+ },
+ "checks": {
+  "DBD": [
+   {
+    "inside": true,
+    "interval": [
+     577,
+     670
+    ],
+    "published": 635,
+    "quantity": "total",
+    "year": "2017/18"
+   },
+   {
+    "inside": false,
+    "interval": [
+     453,
+     453
+    ],
+    "published": 468,
+    "quantity": "zonal",
+    "year": "2017/18"
+   },
+   {
+    "inside": true,
+    "interval": [
+     124,
+     217
+    ],
+    "published": 167,
+    "quantity": "non_zonal",
+    "year": "2017/18"
+   },
+   {
+    "inside": true,
+    "interval": [
+     591,
+     627
+    ],
+    "published": 622,
+    "quantity": "total",
+    "year": "2018/19"
+   },
+   {
+    "inside": true,
+    "interval": [
+     131,
+     134
+    ],
+    "published": 134,
+    "quantity": "zonal",
+    "year": "2018/19"
+   },
+   {
+    "inside": true,
+    "interval": [
+     460,
+     493
+    ],
+    "published": 488,
+    "quantity": "non_zonal",
+    "year": "2018/19"
+   },
+   {
+    "inside": false,
+    "interval": [
+     564,
+     603
+    ],
+    "published": 607,
+    "quantity": "total",
+    "year": "2019/20"
+   },
+   {
+    "inside": false,
+    "interval": [
+     115,
+     118
+    ],
+    "published": 121,
+    "quantity": "zonal",
+    "year": "2019/20"
+   },
+   {
+    "inside": false,
+    "interval": [
+     449,
+     485
+    ],
+    "published": 486,
+    "quantity": "non_zonal",
+    "year": "2019/20"
+   }
+  ],
+  "DCD": [
+   {
+    "inside": true,
+    "interval": [
+     170,
+     224
+    ],
+    "published": 186,
+    "quantity": "total",
+    "year": "2017/18"
+   },
+   {
+    "inside": true,
+    "interval": [
+     118,
+     124
+    ],
+    "published": 121,
+    "quantity": "zonal",
+    "year": "2017/18"
+   },
+   {
+    "inside": true,
+    "interval": [
+     52,
+     100
+    ],
+    "published": 65,
+    "quantity": "non_zonal",
+    "year": "2017/18"
+   },
+   {
+    "inside": true,
+    "interval": [
+     170,
+     233
+    ],
+    "published": 181,
+    "quantity": "total",
+    "year": "2018/19"
+   },
+   {
+    "inside": true,
+    "interval": [
+     106,
+     109
+    ],
+    "published": 107,
+    "quantity": "zonal",
+    "year": "2018/19"
+   },
+   {
+    "inside": true,
+    "interval": [
+     64,
+     124
+    ],
+    "published": 74,
+    "quantity": "non_zonal",
+    "year": "2018/19"
+   },
+   {
+    "inside": true,
+    "interval": [
+     150,
+     207
+    ],
+    "published": 170,
+    "quantity": "total",
+    "year": "2019/20"
+   },
+   {
+    "inside": true,
+    "interval": [
+     104,
+     107
+    ],
+    "published": 105,
+    "quantity": "zonal",
+    "year": "2019/20"
+   },
+   {
+    "inside": true,
+    "interval": [
+     46,
+     100
+    ],
+    "published": 65,
+    "quantity": "non_zonal",
+    "year": "2019/20"
+   }
+  ]
+ },
+ "config": {
+  "overseas_row": "counted as non-zonal",
+  "suppressed_interval": [
+   1,
+   4
+  ],
+  "zonal": "row zone equals column centre"
+ },
+ "criteria": [
+  {
+   "kind": "instrument",
+   "name": "B124-N1",
+   "passed": true,
+   "statement": "Both tables parse to four years, eight donor-zone rows and seven centre columns"
+  },
+  {
+   "detail": {
+    "DBD": [
+     {
+      "inside": false,
+      "interval": [
+       453,
+       453
+      ],
+      "published": 468,
+      "quantity": "zonal",
+      "year": "2017/18"
+     },
+     {
+      "inside": false,
+      "interval": [
+       564,
+       603
+      ],
+      "published": 607,
+      "quantity": "total",
+      "year": "2019/20"
+     },
+     {
+      "inside": false,
+      "interval": [
+       115,
+       118
+      ],
+      "published": 121,
+      "quantity": "zonal",
+      "year": "2019/20"
+     },
+     {
+      "inside": false,
+      "interval": [
+       449,
+       485
+      ],
+      "published": 486,
+      "quantity": "non_zonal",
+      "year": "2019/20"
+     }
+    ],
+    "DCD": []
+   },
+   "kind": "known_answer",
+   "name": "B124-N2",
+   "passed": false,
+   "statement": "Under the order DBD then DCD, every published total, zonal and non-zonal count for 2017/18 to 2019/20 lies inside the interval read from the matrix"
+  },
+  {
+   "kind": "known_answer",
+   "name": "B124-N3",
+   "passed": true,
+   "statement": "The swapped order (DCD then DBD) fails the same check, so the order is identified"
+  },
+  {
+   "detail": {
+    "DBD": [
+     {
+      "above": 2,
+      "below": 0,
+      "centre": "Cambridge",
+      "interval": [
+       63,
+       63
+      ],
+      "published": 65,
+      "year": "2018/19"
+     },
+     {
+      "above": 2,
+      "below": 0,
+      "centre": "King’s College",
+      "interval": [
+       138,
+       141
+      ],
+      "published": 143,
+      "year": "2018/19"
+     },
+     {
+      "above": 3,
+      "below": 0,
+      "centre": "Birmingham",
+      "interval": [
+       149,
+       152
+      ],
+      "published": 155,
+      "year": "2018/19"
+     },
+     {
+      "above": 3,
+      "below": 0,
+      "centre": "Cambridge",
+      "interval": [
+       57,
+       57
+      ],
+      "published": 60,
+      "year": "2019/20"
+     },
+     {
+      "above": 2,
+      "below": 0,
+      "centre": "Royal Free",
+      "interval": [
+       86,
+       89
+      ],
+      "published": 91,
+      "year": "2019/20"
+     },
+     {
+      "above": 7,
+      "below": 0,
+      "centre": "King’s College",
+      "interval": [
+       135,
+       138
+      ],
+      "published": 145,
+      "year": "2019/20"
+     },
+     {
+      "above": 1,
+      "below": 0,
+      "centre": "Birmingham",
+      "interval": [
+       153,
+       153
+      ],
+      "published": 154,
+      "year": "2019/20"
+     }
+    ],
+    "DCD": [
+     {
+      "above": 0,
+      "below": 3,
+      "centre": "King’s College",
+      "interval": [
+       41,
+       44
+      ],
+      "published": 38,
+      "year": "2018/19"
+     }
+    ]
+   },
+   "kind": "known_answer",
+   "name": "B124-N4",
+   "passed": false,
+   "statement": "Every published per-centre N of Tables 16 and 17 for 2017/18 to 2019/20 lies inside the matrix column interval"
+  }
+ ],
+ "diagnostics": {
+  "centre_check": {
+   "DBD": [
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Newcastle",
+     "interval": [
+      23,
+      32
+     ],
+     "published": 30,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Leeds",
+     "interval": [
+      99,
+      111
+     ],
+     "published": 108,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Cambridge",
+     "interval": [
+      64,
+      76
+     ],
+     "published": 71,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Royal Free",
+     "interval": [
+      72,
+      93
+     ],
+     "published": 84,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "King’s College",
+     "interval": [
+      120,
+      132
+     ],
+     "published": 128,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Birmingham",
+     "interval": [
+      124,
+      139
+     ],
+     "published": 133,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Edinburgh",
+     "interval": [
+      75,
+      87
+     ],
+     "published": 81,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Newcastle",
+     "interval": [
+      13,
+      31
+     ],
+     "published": 22,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Leeds",
+     "interval": [
+      60,
+      66
+     ],
+     "published": 66,
+     "year": "2018/19"
+    },
+    {
+     "above": 2,
+     "below": 0,
+     "centre": "Cambridge",
+     "interval": [
+      63,
+      63
+     ],
+     "published": 65,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Royal Free",
+     "interval": [
+      83,
+      86
+     ],
+     "published": 83,
+     "year": "2018/19"
+    },
+    {
+     "above": 2,
+     "below": 0,
+     "centre": "King’s College",
+     "interval": [
+      138,
+      141
+     ],
+     "published": 143,
+     "year": "2018/19"
+    },
+    {
+     "above": 3,
+     "below": 0,
+     "centre": "Birmingham",
+     "interval": [
+      149,
+      152
+     ],
+     "published": 155,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Edinburgh",
+     "interval": [
+      85,
+      88
+     ],
+     "published": 88,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Newcastle",
+     "interval": [
+      12,
+      30
+     ],
+     "published": 26,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Leeds",
+     "interval": [
+      75,
+      81
+     ],
+     "published": 79,
+     "year": "2019/20"
+    },
+    {
+     "above": 3,
+     "below": 0,
+     "centre": "Cambridge",
+     "interval": [
+      57,
+      57
+     ],
+     "published": 60,
+     "year": "2019/20"
+    },
+    {
+     "above": 2,
+     "below": 0,
+     "centre": "Royal Free",
+     "interval": [
+      86,
+      89
+     ],
+     "published": 91,
+     "year": "2019/20"
+    },
+    {
+     "above": 7,
+     "below": 0,
+     "centre": "King’s College",
+     "interval": [
+      135,
+      138
+     ],
+     "published": 145,
+     "year": "2019/20"
+    },
+    {
+     "above": 1,
+     "below": 0,
+     "centre": "Birmingham",
+     "interval": [
+      153,
+      153
+     ],
+     "published": 154,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Edinburgh",
+     "interval": [
+      46,
+      55
+     ],
+     "published": 52,
+     "year": "2019/20"
+    }
+   ],
+   "DCD": [
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Newcastle",
+     "interval": [
+      2,
+      8
+     ],
+     "published": 5,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Leeds",
+     "interval": [
+      26,
+      26
+     ],
+     "published": 26,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Cambridge",
+     "interval": [
+      30,
+      36
+     ],
+     "published": 32,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Royal Free",
+     "interval": [
+      7,
+      28
+     ],
+     "published": 13,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "King’s College",
+     "interval": [
+      42,
+      51
+     ],
+     "published": 46,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Birmingham",
+     "interval": [
+      51,
+      57
+     ],
+     "published": 52,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Edinburgh",
+     "interval": [
+      12,
+      18
+     ],
+     "published": 12,
+     "year": "2017/18"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Newcastle",
+     "interval": [
+      2,
+      8
+     ],
+     "published": 3,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Leeds",
+     "interval": [
+      19,
+      31
+     ],
+     "published": 21,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Cambridge",
+     "interval": [
+      39,
+      45
+     ],
+     "published": 40,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Royal Free",
+     "interval": [
+      27,
+      36
+     ],
+     "published": 28,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 3,
+     "centre": "King’s College",
+     "interval": [
+      41,
+      44
+     ],
+     "published": 38,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Birmingham",
+     "interval": [
+      31,
+      46
+     ],
+     "published": 38,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Edinburgh",
+     "interval": [
+      11,
+      23
+     ],
+     "published": 13,
+     "year": "2018/19"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Newcastle",
+     "interval": [
+      3,
+      12
+     ],
+     "published": 4,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Leeds",
+     "interval": [
+      18,
+      24
+     ],
+     "published": 21,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Cambridge",
+     "interval": [
+      29,
+      41
+     ],
+     "published": 33,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Royal Free",
+     "interval": [
+      31,
+      43
+     ],
+     "published": 37,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "King’s College",
+     "interval": [
+      32,
+      44
+     ],
+     "published": 37,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Birmingham",
+     "interval": [
+      32,
+      38
+     ],
+     "published": 33,
+     "year": "2019/20"
+    },
+    {
+     "above": 0,
+     "below": 0,
+     "centre": "Edinburgh",
+     "interval": [
+      5,
+      5
+     ],
+     "published": 5,
+     "year": "2019/20"
+    }
+   ]
+  },
+  "dbd_liver_only_scope": {
+   "2017/18": {
+    "feasible_zonal_liver_kidney": [
+     15
+    ],
+    "liver_kidney": 20
+   },
+   "2018/19": {
+    "feasible_zonal_liver_kidney": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "liver_kidney": 13
+   },
+   "2019/20": {
+    "feasible_zonal_liver_kidney": [
+     3,
+     4,
+     5,
+     6
+    ],
+    "liver_kidney": 14
+   }
+  }
+ },
+ "source": {
+  "file": "Elective Liver Transplants UK - CAS-323843-M1Z2M9.pdf",
+  "foi_reference": "CAS-323843-M1Z2M9",
+  "response_date": "2026-10-22",
+  "sha256": "6a4ae6b83981ec4a392f28899a4d17b752631a6276615c3847e6a7ae0b35538e"
+ },
+ "stage": "B124-N",
+ "summary": {
+  "Table 1": {
+   "2016/17": {
+    "non_zonal": [
+     98,
+     209
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 37,
+    "total": [
+     501,
+     612
+    ],
+    "zonal": [
+     403,
+     403
+    ]
+   },
+   "2017/18": {
+    "non_zonal": [
+     124,
+     217
+    ],
+    "printed_below_five": [
+     [
+      "Overseas",
+      "Leeds",
+      3
+     ]
+    ],
+    "suppressed_cells": 31,
+    "total": [
+     577,
+     670
+    ],
+    "zonal": [
+     453,
+     453
+    ]
+   },
+   "2018/19": {
+    "non_zonal": [
+     460,
+     493
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 12,
+    "total": [
+     591,
+     627
+    ],
+    "zonal": [
+     131,
+     134
+    ]
+   },
+   "2019/20": {
+    "non_zonal": [
+     449,
+     485
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 13,
+    "total": [
+     564,
+     603
+    ],
+    "zonal": [
+     115,
+     118
+    ]
+   }
+  },
+  "Table 2": {
+   "2016/17": {
+    "non_zonal": [
+     63,
+     123
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 20,
+    "total": [
+     190,
+     250
+    ],
+    "zonal": [
+     127,
+     127
+    ]
+   },
+   "2017/18": {
+    "non_zonal": [
+     52,
+     100
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 18,
+    "total": [
+     170,
+     224
+    ],
+    "zonal": [
+     118,
+     124
+    ]
+   },
+   "2018/19": {
+    "non_zonal": [
+     64,
+     124
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 21,
+    "total": [
+     170,
+     233
+    ],
+    "zonal": [
+     106,
+     109
+    ]
+   },
+   "2019/20": {
+    "non_zonal": [
+     46,
+     100
+    ],
+    "printed_below_five": [],
+    "suppressed_cells": 19,
+    "total": [
+     150,
+     207
+    ],
+    "zonal": [
+     104,
+     107
+    ]
+   }
+  }
+ }
+}

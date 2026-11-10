@@ -1,10 +1,20 @@
 """A7-A: connectivity as a continuum, on the A3 carrier.
 
-**Status: probe only. No criterion is scored by this file yet.** The
-pre-registration is `docs/a7_continuous_c.md`; section 4.7 requires a timing
-probe at one interior grid point at one seed, reported, before the grid runs.
-`--probe` is that. `--grid` exists so the probe and the run share one row
-function rather than two, and it has not been audited or registered as run.
+The pre-registration and the readings are `docs/a7_continuous_c.md`. What
+each entry runs:
+
+- `--probe`, the timing probe section 4.7 requires: one interior grid point,
+  one seed;
+- `--grid`, the registered seventeen-point grid. With the uniform arm, twenty
+  seeds and three hundred rounds it writes `results/a7_continuous_c.json`;
+  `--arm preferential` is section 4.3's placebo arm;
+- `--low`, the four low points with per-seed gaps, and `--dfixed`, section
+  4.2's scored estimator `D_fixed` over those four points;
+- `--scope` and `--dose`, where the added edges land and the downward
+  channel as a dose;
+- `--loop-sum`, A7-A-5's quantity at every seed, on models built and not run;
+- `--verdicts`, which assembles `results/a7_verdicts.json` from the records
+  on disk.
 
 What a row is
 -------------
@@ -13,7 +23,9 @@ At one shortcut rate `s`, the whole four-cell kappa factorial and its separately
 built null, exactly as A3-8 runs them. `a3c_load_bearing` supplies `build_all`,
 `build_baseline`, `summarise` and `evaluate`, so this is the same instrument at a
 different graph rather than a second implementation of it. Section 4.3's guard
-G3 inherits that module's inert detection with it.
+G3 named that module's inert detection, which lives in its `sweep`; this file
+does not call `sweep`, and section 4.3's 2026-10-10 restatement says how the
+stored rows were checked instead.
 
 Alongside every row, the control variables in their own units, because this
 repository has already run a scan whose second moving quantity had no name until
@@ -30,13 +42,12 @@ three stages later:
   not, and a payer set that has turned over by the second grid point means the
   stage is moving two things.
 
-What this file does not do
---------------------------
+What a row does not compute
+---------------------------
 
-`D_fixed`, the grid-wide intersection population section 4.2 registers as the
-scored estimator, is not computed here. Neither is the placebo arm of section
-4.3. Both belong to the run, and both are written after the probe says what the
-run costs.
+A row's gaps are `D_reach`, the within-`s` intersection. `D_fixed`, section
+4.2's scored estimator, is computed only under `--dfixed`, into its own record,
+with the population intersected across every cell and the four points in `LOW`.
 """
 
 from __future__ import annotations
@@ -58,6 +69,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from monetary_topology.asset import centrality, loop_sum  # noqa: E402
 from monetary_topology.network import NetworkSpec, build_graph  # noqa: E402
+from monetary_topology.product_graph import tier_positions  # noqa: E402
 
 #: The availability check's grid, dense near zero because that is where a
 #: threshold would sit if the framework's account is right.
@@ -104,8 +116,10 @@ def _a3c():
 def production_nodes(spec: NetworkSpec) -> np.ndarray:
     """Everything that is not the financial layer.
 
-    A5.3's scope table counts here, and `A3-8` is measured on the top eighth of
-    it, so the denominator has to be this set rather than the whole graph.
+    A5.3's scope table counts here. `A3-8`'s paired set holds all twenty
+    financial-layer nodes, and its production-layer participants are the top
+    eighth of this set, so the denominator has to be this set rather than the
+    whole graph.
     """
     return np.arange(spec.layer1_size, spec.size)
 
@@ -218,6 +232,147 @@ def mean_abs_loop_sum(model, nodes: np.ndarray) -> list[float]:
                 "vectorised loop sum disagrees with asset.loop_sum"
             )
     return out
+
+
+#: Section 2.6's per-seed tolerance, in the relative form it was measured in: the
+#: largest per-seed rise of the centrality dispersion was 0.62% of that seed's own
+#: `s = 0` value, and the terms dispersion the loop sum is built from is
+#: proportional to that dispersion, so the relative form is the one that carries.
+PER_SEED_RELATIVE_TOLERANCE = 0.0062
+
+
+def summarise_loop_sum(arm: str, grid, by_point: dict) -> dict:
+    """A7-A-5's shape from per-seed values, at every grid point.
+
+    The criterion registers a fall that is monotone in the seed mean, and per
+    seed within section 2.6's tolerance with every violation named. So the
+    reading is of both: the mean over seeds, and each seed's own series step by
+    step, every rise larger than the tolerance named by seed and step. The peak
+    over the grid as a multiple of the value at the first grid point is printed
+    alongside; a seed can break the per-seed clause without ever passing its own
+    first value, so the two are different readings.
+    """
+    first = grid[0]
+    n = len(by_point[first])
+    mean = [float(np.mean(by_point[s])) for s in grid]
+    peaks = [
+        max(by_point[s][i] for s in grid) / by_point[first][i] for i in range(n)
+    ]
+    violations = [
+        {"seed": i, "from": a, "to": b,
+         "rise_over_own_first": (by_point[b][i] - by_point[a][i])
+         / by_point[first][i]}
+        for i in range(n) for a, b in zip(grid, grid[1:])
+        if by_point[b][i] - by_point[a][i]
+        > PER_SEED_RELATIVE_TOLERANCE * by_point[first][i]
+    ]
+    return {
+        "per_seed_tolerance_relative": PER_SEED_RELATIVE_TOLERANCE,
+        "per_seed_violations": violations,
+        "seeds_with_a_violation": len({v["seed"] for v in violations}),
+        "falls_per_seed_within_tolerance": not violations,
+        "arm": arm,
+        "grid": list(grid),
+        "tier": 0,
+        "seeds": n,
+        "by_point": {f"{s:g}": list(by_point[s]) for s in grid},
+        "mean_by_point": mean,
+        "peak_multiple_first_seed": peaks[0],
+        "peak_multiple_of_the_seed_mean": max(mean) / mean[0],
+        "peak_multiple_by_seed": peaks,
+        "rising_steps_of_the_seed_mean": sum(
+            1 for a, b in zip(mean, mean[1:]) if b > a
+        ),
+        "seeds_rising_above_their_own_first_point": sum(
+            1 for p in peaks if p > 1.0
+        ),
+        "falls_monotonically_in_the_seed_mean": all(
+            b <= a for a, b in zip(mean, mean[1:])
+        ),
+    }
+
+
+def loop_sum_by_seed(module, arm: str, seeds: range, rounds: int,
+                     grid=GRID) -> dict:
+    """A7-A-5's quantity at every seed, on models that are built and not run.
+
+    The loop sum over the fixed production layer is read off the terms matrix,
+    and the terms are set when the model is constructed. So the reading over
+    all the seeds the criterion registers costs one construction per seed and
+    grid point and no run. The grid records carry the first seed alone, and
+    the verdict sheet used to quote that seed as the stage's figure.
+
+    Section 4.3's guard G2 is asserted here as well, where it costs nothing:
+    the position graph is the cash-and-tiers star at every point, so its first
+    Betti number is zero and the whole obstruction is squares.
+    """
+    by_point: dict[float, list[float]] = {}
+    for s in grid:
+        kw = {"shortcut_rate": s, "shortcut_mode": arm} if s > 0.0 else {}
+        values = []
+        for seed in seeds:
+            model = module.construct(
+                seed, rounds, **module.FIXED, **module.CELLS["both"], **kw
+            )
+            star = tier_positions(model.a3.asset.tiers)
+            edges = int(np.count_nonzero(np.triu(star + star.T)))
+            assert edges - star.shape[0] + 1 == 0, (
+                "the position graph is no longer a star, so the obstruction "
+                "is not all squares and H1 may not be read off the square sums"
+            )
+            values.append(
+                mean_abs_loop_sum(
+                    model, production_nodes(model.a3.network.spec)
+                )[0]
+            )
+        by_point[s] = values
+    return summarise_loop_sum(arm, grid, by_point)
+
+
+def paired_loop_sum_by_seed(module, arm: str, seeds: range, rounds: int,
+                            grid=GRID) -> dict:
+    """Mean |loop sum| over each seed's own paired population, at every seed.
+
+    The grid records carry this for the first seed alone
+    (`mean_abs_loop_sum_paired`), and section 14.2 quoted that seed's change
+    from `s = 0` to `s = 0.01` as the stage's. The paired population is the
+    within-`s` intersection, so it comes out of the runs, and this mode runs the
+    same factorial a grid row runs. Unlike the fixed production layer this set
+    moves with `s`, so a change here mixes the identity with composition.
+    """
+    per_point: dict[float, list[float]] = {}
+    size: dict[float, list[int]] = {}
+    for s in grid:
+        kw = {"shortcut_rate": s, "shortcut_mode": arm} if s > 0.0 else {}
+        models, population, _ = module.build_all(seeds, rounds, **kw)
+        per_point[s] = [
+            mean_abs_loop_sum(models[("both", seed)], population[seed])[0]
+            for seed in seeds
+        ]
+        size[s] = [int(len(population[seed])) for seed in seeds]
+    first = grid[0]
+    n = len(per_point[first])
+    change = {
+        f"{s:g}": [per_point[s][i] / per_point[first][i] - 1.0 for i in range(n)]
+        for s in grid
+    }
+    return {
+        "arm": arm,
+        "grid": list(grid),
+        "tier": 0,
+        "seeds": n,
+        "by_point": {f"{s:g}": per_point[s] for s in grid},
+        "population_by_point": {f"{s:g}": size[s] for s in grid},
+        "mean_by_point": [float(np.mean(per_point[s])) for s in grid],
+        "change_from_first_by_seed": change,
+        "change_of_the_seed_mean_from_first": {
+            f"{s:g}": float(np.mean(per_point[s]) / np.mean(per_point[first]) - 1.0)
+            for s in grid
+        },
+        "seeds_higher_than_their_own_first": {
+            k: sum(1 for v in vals if v > 0) for k, vals in change.items()
+        },
+    }
 
 
 def added_edges_by_kind(spec: NetworkSpec) -> dict[str, int]:
@@ -458,7 +613,8 @@ def _split(cen: np.ndarray, population: np.ndarray, bins: int):
 
 def d_fixed(module, seeds: range, rounds: int, arm: str, points=None) -> dict:
     """Section 4.2's scored estimator: the population intersected across every
-    cell **and** every grid point.
+    cell **and** every point in ``points``, which defaults to `LOW`, the
+    placebo's readable region of section 4.3.
 
     Everything reported before 2026-08-16 was `D_reach`, the within-`s`
     intersection, which section 4.2 registers as reported and never scored. This
@@ -676,6 +832,11 @@ def write_verdicts() -> Path:
         "dfx_p": "a7_continuous_c.offparam_dfixed_preferential_20x300.json",
         "legb": "a7b_legb.offparam_uniform_20x300.json",
         "p2": "a7b_p2_room.offparam_uniform_20x300.json",
+        "p2_p": "a7b_p2_room.offparam_preferential_20x300.json",
+        "p1_u": "a7b_p1_retention.offparam_uniform_20x300.json",
+        "p1_p": "a7b_p1_retention.offparam_preferential_20x300.json",
+        "loop": "a7_loop_sum_by_seed.json",
+        "im": "a7b_im_switch.offparam_uniform_20x300.json",
     }
     r = {}
     for key, name in need.items():
@@ -710,6 +871,85 @@ def write_verdicts() -> Path:
     )
     dk0 = legb[0.0]["d"]["K"]["log_inv_hhi_prod"]
 
+    # A7-A-5 registers a fall that is monotone in the seed mean and, per seed,
+    # within section 2.6's tolerance with every violation named. The grid
+    # records carry the first seed alone, and the sheet used to quote that
+    # seed's peak as the stage's. The per-seed record has every seed; its first
+    # seed has to be the one the grid records carry, or the two are not
+    # readings of one object.
+    loops = {"uniform": (r["loop"]["arms"]["uniform"], gu),
+             "preferential": (r["loop"]["arms"]["preferential"], gp)}
+    for arm, (block, grid_rows) in loops.items():
+        for s, row in grid_rows.items():
+            first = block["by_point"][f"{s:g}"][0]
+            if abs(first - row["mean_abs_loop_sum_fixed"][0]) > 1e-9:
+                raise ValueError(
+                    f"the per-seed loop sums and the {arm} grid record "
+                    f"disagree on the first seed at s = {s:g}, so they do not "
+                    "read the same object. Re-run --loop-sum."
+                )
+    # Both clauses are read off the per-seed values themselves, not off the
+    # summary fields stored beside them, so a record whose stored flags say one
+    # thing and whose values say another reads as its values.
+    def _from_values(block):
+        grid = tuple(block["grid"])
+        return summarise_loop_sum(
+            block["arm"], grid, {s: block["by_point"][f"{s:g}"] for s in grid})
+    lu = _from_values(loops["uniform"][0])
+    lp = _from_values(loops["preferential"][0])
+    a7_a5 = all(a["falls_monotonically_in_the_seed_mean"]
+                and a["falls_per_seed_within_tolerance"] for a in (lu, lp))
+
+    # A7-A-2 names D_fixed. Its interior is the D_fixed points strictly inside
+    # the grid, and the clause asks for a negative rank correlation of the gap
+    # against s at every seed.
+    def _ranks(xs):
+        order = sorted(range(len(xs)), key=lambda i: xs[i])
+        out = [0.0] * len(xs)
+        i = 0
+        while i < len(order):
+            j = i
+            while j + 1 < len(order) and xs[order[j + 1]] == xs[order[i]]:
+                j += 1
+            for k in range(i, j + 1):
+                out[order[k]] = (i + j) / 2.0
+            i = j + 1
+        return out
+
+    def _negative_seeds(cells):
+        split = cells["both"]["split_at_s"]
+        interior = sorted((p for p in split if 0.0 < float(p) < 1.0), key=float)
+        xs = _ranks([float(p) for p in interior])
+        count = 0
+        for i in range(len(split[interior[0]]["by_seed"])):
+            ys = _ranks([split[p]["by_seed"][i] for p in interior])
+            if float(np.corrcoef(xs, ys)[0, 1]) < 0:
+                count += 1
+        return count, interior
+    a2_neg_u, a2_interior = _negative_seeds(du)
+    a2_neg_p, _ = _negative_seeds(dp)
+    a2_seeds = len(du["both"]["split_at_s"]["0.0"]["by_seed"])
+
+    # Leg B ran on its own grid, which is nine of leg A's seventeen points.
+    legb_points = sorted(legb)
+    absent = [s for s in sorted(gu) if s not in legb]
+    # A7-B-4 registers both probes on every row of leg B. Read which points
+    # each probe record carries rather than assuming them from leg B's rows.
+    probe_points = {
+        key: sorted(row["s"] for row in r[key]["rows"])
+        for key in ("p1_u", "p1_p", "p2", "p2_p")
+    }
+    probes_on_every_row = all(v == legb_points for v in probe_points.values())
+    k_unstable = sum(
+        1 for s in legb_points
+        if not legb[s]["d"]["K"]["log_inv_hhi_prod"]["same_sign_across_seeds"]
+    )
+
+    # The two switch cells section 13.5 recorded as identically zero.
+    im = r["im"]["point"]
+    im_i = im["d"]["I"]["log_inv_hhi_prod"]
+    im_m = im["d"]["M"]["log_inv_hhi_prod"]
+
     # Rule 11f, 2026-09-13. Three of this sheet's verdicts were a literal True while
     # their details stated claims the objects above can answer. None of the readings
     # moves; what changes is that the claim and the verdict become the same object.
@@ -734,7 +974,7 @@ def write_verdicts() -> Path:
     # the band and the production-layer axis does not, which is what makes the
     # substitution fire; the band is named here rather than left in the prose.
     ROOM_BAND = 1.5
-    a7_b4 = room_max > ROOM_BAND >= room_max_prod
+    a7_b4 = probes_on_every_row and room_max > ROOM_BAND >= room_max_prod
 
     criteria = [
         {"name": "A7-A-1", "passed": a7_a1, "detail":
@@ -746,10 +986,21 @@ def write_verdicts() -> Path:
          f"{gu[first_reach]['graph']['layer_gap']:.3f}. The carrier gains a "
          f"measurable population by ceasing to be stratified; docs section 6.1"},
         {"name": "A7-A-2", "passed": False, "detail":
-         f"the registered shape is wrong. Not a gradient: a step at the first "
-         f"grid point, both {gu[0.0]['gaps']['both']:+.4f} to "
-         f"{gu[0.01]['gaps']['both']:+.4f}, then flat to s = 0.9. Recorded under "
-         f"the project's engineering rule 8 and not repaired; docs section 6.2"},
+         f"the registered shape is wrong. On D_fixed, the estimator it names, "
+         f"over its interior points s = "
+         f"{', '.join(f'{float(p):g}' for p in a2_interior)} the rank "
+         f"correlation of both against s is negative in {a2_neg_u}/{a2_seeds} "
+         f"seeds in the uniform arm and {a2_neg_p}/{a2_seeds} in the "
+         f"preferential one, not at every seed. Not a gradient: a step at the "
+         f"first grid point, on D_fixed both "
+         f"{du['both']['split_at_s']['0.0']['mean']:+.4f} to "
+         f"{du['both']['split_at_s']['0.01']['mean']:+.4f} and "
+         f"{dp['both']['split_at_s']['0.0']['mean']:+.4f} to "
+         f"{dp['both']['split_at_s']['0.01']['mean']:+.4f}; on D_reach the same "
+         f"step reads {gu[0.0]['gaps']['both']:+.4f} to "
+         f"{gu[0.01]['gaps']['both']:+.4f} and stays flat to s = 0.9. Recorded "
+         f"under the project's engineering rule 8 and not repaired; docs "
+         f"sections 6.2 and 11.1"},
         {"name": "A7-A-3", "passed": False, "void": True, "detail":
          f"void on the estimator it names. On D_fixed each arm's population is "
          f"intersected across its own grid, so the two are "
@@ -762,13 +1013,30 @@ def write_verdicts() -> Path:
          f"{du['H1_only']['split_at_s']['0.0']['n_positive']}/20 and "
          f"{dp['H1_only']['split_at_s']['0.0']['n_positive']}/20, against 20/20 "
          f"on D_reach. A3-8's own state is untouched; docs section 11.3"},
-        {"name": "A7-A-5", "passed": False, "detail":
+        {"name": "A7-A-5", "passed": a7_a5, "detail":
          f"the identity does not hold on the measured population. Mean |loop "
-         f"sum| over the fixed production layer rises before it falls, to "
+         f"sum| over the fixed production layer rises before it falls. On the "
+         f"mean of the {lu['seeds']} seeds its peak over the grid is "
+         f"{lu['peak_multiple_of_the_seed_mean']:.2f} times its s = 0 value in "
+         f"the uniform arm and {lp['peak_multiple_of_the_seed_mean']:.2f} in "
+         f"the preferential one, the mean rising at "
+         f"{lu['rising_steps_of_the_seed_mean']} and "
+         f"{lp['rising_steps_of_the_seed_mean']} of "
+         f"{len(lu['grid']) - 1} steps; "
+         f"{lu['seeds_rising_above_their_own_first_point']} and "
+         f"{lp['seeds_rising_above_their_own_first_point']} of "
+         f"{lu['seeds']} seeds rise above their own s = 0 value. Per seed, "
+         f"{lu['seeds_with_a_violation']} and {lp['seeds_with_a_violation']} of "
+         f"{lu['seeds']} seeds rise by more than section 2.6's tolerance "
+         f"({lu['per_seed_tolerance_relative']:.2%} of the seed's own s = 0 "
+         f"value) at some step, {len(lu['per_seed_violations'])} and "
+         f"{len(lp['per_seed_violations'])} steps, each named in "
+         f"results/a7_loop_sum_by_seed.json. The first "
+         f"seed alone, which is what the grid records carry, peaks at "
          f"{max(row['mean_abs_loop_sum_fixed'][0] for row in gu.values()) / gu[0.0]['mean_abs_loop_sum_fixed'][0]:.2f} "
-         f"times its s = 0 value in the uniform arm and "
-         f"{max(row['mean_abs_loop_sum_fixed'][0] for row in gp.values()) / gp[0.0]['mean_abs_loop_sum_fixed'][0]:.2f} "
-         f"in the preferential one; docs section 6 changelog"},
+         f"and "
+         f"{max(row['mean_abs_loop_sum_fixed'][0] for row in gp.values()) / gp[0.0]['mean_abs_loop_sum_fixed'][0]:.2f}"
+         f"; docs section 9, changelog entry of 2026-08-16"},
         {"name": "A7-A-6", "passed": False, "detail":
          "the round-count ladder is not monotone in the uniform arm and gives "
          "4.85 against a registered five in the preferential one. The retained "
@@ -777,7 +1045,8 @@ def write_verdicts() -> Path:
          "fourfold change in rounds while the gap at s = 0 moves with it; docs "
          "sections 10.2 and 10.3"},
         {"name": "A7-B-1", "passed": False, "void": True, "detail":
-         f"unreadable. d(K, s) is sign-unstable at every grid point including "
+         f"unreadable. d(K, s) is sign-unstable at {k_unstable} of the "
+         f"{len(legb_points)} grid points leg B ran, including "
          f"s = 0, where the mean is {dk0['mean']:+.5f} against a range of "
          f"[{dk0['range'][0]:+.4f}, {dk0['range'][1]:+.4f}] that straddles zero. "
          f"A quantity with no sign has no magnitude to trend. This is A4-4's "
@@ -793,17 +1062,35 @@ def write_verdicts() -> Path:
          "readable; docs section 13.3"},
         {"name": "A7-B-4", "passed": a7_b4, "detail":
          f"both probes ran before anything was scored and the section 5.3 "
-         f"trigger was decided on them alone. Room relative to s = 0, largest "
+         f"trigger was decided on them alone. P1 in both arms and P2 in both "
+         f"arms carry "
+         f"{'every one' if probes_on_every_row else 'not all'} of the "
+         f"{len(legb_points)} points leg B ran "
+         f"({min(len(v) for v in probe_points.values())} to "
+         f"{max(len(v) for v in probe_points.values())} points per record). "
+         f"Room relative to s = 0, largest "
          f"over the grid: aggregate log(1/HHI) {room_max:.2f} against a "
          f"registered band of {ROOM_BAND}, production-layer-only "
          f"{room_max_prod:.2f}. "
          f"The substitution registered with the band fires and leg B proceeds "
          f"on one axis; docs sections 12.2 and 12.3"},
         {"name": "A7-B-5", "passed": False, "void": True, "detail":
-         "I and M recorded as not run. Above s = 0.02 in the uniform arm a "
-         "one-off transfer leaves nothing after a generation, so a transmitting "
-         "mechanism has no stock and their effects are identically zero by "
-         "construction; docs sections 12.1 and 13.5"},
+         f"I and M recorded as not run on leg B's grid, on section 5.2's "
+         f"ruling that they are unreadable for direction. The further reason "
+         f"once given here, that above s = 0.02 a one-off transfer leaves "
+         f"nothing after a generation and so their effects are identically "
+         f"zero, does not hold: what vanishes is the memory of a perturbation, "
+         f"and the two switches act on current holdings through the "
+         f"demographic layer. At s = {im['s']:g} in the {im['arm']} arm the "
+         f"switch cells end on other holdings than the control in "
+         f"{im['final_holdings_differ_from_none']['I']} and "
+         f"{im['final_holdings_differ_from_none']['M']} of "
+         f"{r['im']['seeds']} seeds, production-layer log(1/HHI) "
+         f"{im_i['mean']:+.4f} for I and {im_m['mean']:+.4f} for M, negative "
+         f"in {im_i['n_negative']} and {im_m['n_negative']} seeds. Either "
+         f"switch also turns on the demographic layer, so that is the switch "
+         f"cell against the control and not an effect of inheritance or "
+         f"mating alone; docs sections 12.1 and 13.5"},
     ]
     out = RESULTS / "a7_verdicts.json"
     out.write_text(
@@ -816,7 +1103,13 @@ def write_verdicts() -> Path:
                 "carry diagnostic_only because section 4.2's scored estimator "
                 "is computed under a flag rather than by default; this sheet "
                 "carries the verdicts and is assembled from those records by "
-                "experiments/a7_continuous_c.py --verdicts."
+                "experiments/a7_continuous_c.py --verdicts. Leg B ran on "
+                + str(len(legb_points))
+                + " of leg A's "
+                + str(len(gu))
+                + " grid points; the points leg A has and leg B does not are "
+                + ", ".join(f"{s:g}" for s in absent)
+                + "."
             ),
             "criteria": criteria,
         }, indent=2, sort_keys=True) + "\n",
@@ -828,9 +1121,17 @@ def write_verdicts() -> Path:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--probe", action="store_true", help="one point, one seed")
-    ap.add_argument("--grid", action="store_true", help="not registered as run")
+    ap.add_argument("--grid", action="store_true",
+                    help="the seventeen-point grid; the registered run with the "
+                         "uniform arm, 20 seeds and 300 rounds")
     ap.add_argument("--verdicts", action="store_true",
                     help="assemble results/a7_verdicts.json from the records")
+    ap.add_argument("--loop-sum", action="store_true",
+                    help="A7-A-5's quantity at every seed, both arms, on "
+                         "models that are built and not run")
+    ap.add_argument("--paired-loop-sum", action="store_true",
+                    help="mean |loop sum| over each seed's own paired "
+                         "population, every seed, both arms; needs the runs")
     ap.add_argument(
         "--dfixed", action="store_true",
         help="section 4.2's scored estimator, over the --low points",
@@ -851,9 +1152,9 @@ def main() -> int:
         "--dose", action="store_true",
         help="the downward channel as a dose, at s = 0. NetworkSpec."
              "downward_edges is the framework's own thin controlled channel and "
-             "zero is its specification; the scope arms showed that 21 such "
-             "edges arriving sideways through the shortcut draw already collapse "
-             "the gap. This turns the channel on directly over "
+             "zero is its specification; the scope arms showed that such edges "
+             "arriving sideways through the shortcut draw, 21 to 47 per seed "
+             "(21 at the first seed), already collapse the gap. This turns the channel on directly over "
              + str(DOSE) + " and reads where the collapse starts.",
     )
     ap.add_argument(
@@ -863,8 +1164,9 @@ def main() -> int:
         help="where the shortcut edges may land, with the count held at "
              "what the registered arm draws. The draw is uniform over "
              "ordered pairs and on a 20/180 graph that is not uniform over "
-             "kinds of edge: at a rate of 0.01 the registered arm puts 282 "
-             "edges inside the production layer and 21 pointing downward, "
+             "kinds of edge: at a rate of 0.01 the registered arm puts, at "
+             "the first seed, 282 edges inside the production layer and 21 "
+             "pointing downward (21 to 47 downward across 20 seeds), "
              "while downward_edges is zero by default and its docstring "
              "calls zero the framework's specification",
     )
@@ -897,6 +1199,95 @@ def main() -> int:
             f" points from the dense\n  low-`s` region inward and record which."
             f" Never drop seeds.\n"
         )
+        return 0
+
+    if args.loop_sum:
+        print(
+            f"\nLOOP SUM  A7-A-5's quantity at every seed, both arms,"
+            f" {args.seeds} seeds.\n  Read off the terms matrix of models that"
+            f" are built and not run, over the fixed production layer.\n"
+        )
+        arms = {
+            arm: loop_sum_by_seed(module, arm, range(args.seeds), args.rounds)
+            for arm in ("uniform", "preferential")
+        }
+        for arm, a in arms.items():
+            print(f"  {arm:13s} peak over the grid, as a multiple of s = 0: "
+                  f"{a['peak_multiple_of_the_seed_mean']:.6f} on the mean of "
+                  f"{a['seeds']} seeds, {a['peak_multiple_first_seed']:.6f} on "
+                  f"the first seed alone, "
+                  f"{min(a['peak_multiple_by_seed']):.3f} to "
+                  f"{max(a['peak_multiple_by_seed']):.3f} by seed")
+            print(f"  {'':13s} the seed mean rises at "
+                  f"{a['rising_steps_of_the_seed_mean']} of "
+                  f"{len(a['grid']) - 1} steps, and "
+                  f"{a['seeds_rising_above_their_own_first_point']} of "
+                  f"{a['seeds']} seeds rise above their own s = 0 value")
+        registered = args.seeds == REGISTERED_SEEDS and args.rounds == 300
+        RESULTS.mkdir(parents=True, exist_ok=True)
+        out = RESULTS / (
+            "a7_loop_sum_by_seed.json" if registered
+            else f"a7_loop_sum_by_seed.offparam_{args.seeds}x{args.rounds}.json"
+        )
+        payload = {
+            "stage": "A7-A loop sum by seed",
+            "diagnostic_only": True,
+            "diagnostic_reason": (
+                "the per-seed reading A7-A-5 registers; the verdict sheet "
+                "reads it, and the grid records carry the first seed alone"
+            ),
+            "built_and_not_run": True,
+            "seeds": args.seeds,
+            "rounds": args.rounds,
+            "arms": arms,
+        }
+        out.write_text(
+            json.dumps(_clean(payload), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8", newline="\n",
+        )
+        print(f"\n  written: {out.name}\n")
+        return 0
+
+    if args.paired_loop_sum:
+        print(
+            f"\nPAIRED LOOP SUM  mean |loop sum| over each seed's own paired"
+            f" population, both arms,\n  {args.seeds} seeds, {args.rounds}"
+            f" rounds. The population comes out of the runs.\n"
+        )
+        arms = {}
+        for arm in ("uniform", "preferential"):
+            a = paired_loop_sum_by_seed(module, arm, range(args.seeds),
+                                        args.rounds)
+            arms[arm] = a
+            for k in ("0.01", "0.05", "0.5"):
+                if k in a["change_of_the_seed_mean_from_first"]:
+                    print(f"  {arm:13s} s = {k:4s} seed mean "
+                          f"{a['change_of_the_seed_mean_from_first'][k]:+.4f} "
+                          f"from s = 0, higher in "
+                          f"{a['seeds_higher_than_their_own_first'][k]} of "
+                          f"{a['seeds']} seeds")
+        registered = args.seeds == REGISTERED_SEEDS and args.rounds == 300
+        RESULTS.mkdir(parents=True, exist_ok=True)
+        out = RESULTS / (
+            "a7_paired_loop_sum_by_seed.json" if registered
+            else f"a7_paired_loop_sum_by_seed.offparam_{args.seeds}x{args.rounds}.json"
+        )
+        payload = {
+            "stage": "A7-A paired loop sum by seed",
+            "diagnostic_only": True,
+            "diagnostic_reason": (
+                "the paired-population loop sum at every seed; the grid records "
+                "carry the first seed alone and section 14.2 quoted it"
+            ),
+            "seeds": args.seeds,
+            "rounds": args.rounds,
+            "arms": arms,
+        }
+        out.write_text(
+            json.dumps(_clean(payload), indent=2, sort_keys=True) + "\n",
+            encoding="utf-8", newline="\n",
+        )
+        print(f"\n  written: {out.name}\n")
         return 0
 
     if args.verdicts:

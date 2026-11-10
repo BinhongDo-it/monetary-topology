@@ -90,8 +90,9 @@ sequence being wrong for that pair rather than the code being wrong.
 
 **Reported beside it and not scored**: the tie share for each pair, the in-scope
 count for each pair, and the share of households in scope for no pair at all.
-The last is the population A1-2 was quantifying over and is the size of the
-mismatch between the claim and its cross-sectional form.
+That share is reported on two populations: every model household, and the households
+that default, which is the population A1-2 quantified over and the one on which it
+measures the mismatch between the claim and its cross-sectional form.
 
 ### A1c-2. Every inversion is attributed
 
@@ -123,7 +124,7 @@ no published counterpart, because no source publishes the order in which one
 household gave things up.
 
 **Not a repair of A1-2.** A1-2 quantified over all defaulting households and it
-failed. This quantifies over households holding both rungs of a pair. Where the
+failed. This quantifies over households that missed both rungs of a pair. Where the
 two disagree, both stand, and the disagreement is the finding that a
 cross-section of first defaults is not a sequence.
 
@@ -257,7 +258,12 @@ car `768` times against nil, `20` in the same month.
 
 `17,499` of `20,000` households are in scope for no pair, so the sequence is a
 statement about `12.5%` of this population. That figure is the domain of the
-claim and is reported at every run.
+claim and is reported at every run. At this run's setting, `20,000` households on
+A0's path at seed 7 over 60 months, the population A1-2 quantifies over is every
+household that defaults, `7,277` of them, and `4,776` of those are in scope for no
+pair, `65.6%`, so the sequence speaks about `34.4%` of that population. A1-2's own
+record in A1b is a run of `100,000` households, `36,292` of them defaulting
+(added 2026-10-10, the setting and A1b's population written out 2026-10-15).
 
 **One defect fixed between the two runs of this stage**, and it moved a reported
 number. A1c-2 attributed an inversion to the release clause by comparing each
@@ -280,3 +286,33 @@ scripts under `experiments/` and nothing has required it to be complete since th
 record ratchet was retired on 2026-08-21, so **whether this stage has a job there
 says nothing about whether it has run**. A stage is run by its own file and its
 record is in `results/`; `RESULTS.md` is the index. Nothing above is withdrawn.
+
+### 2026-10-15, the quantifier in §4, the setting of the no-pair count, and A1-2's current state
+
+**§4 quantifies over households that missed both rungs of a pair.** That is the
+population §2 defines and the one A1c-1 counts as `in_scope`. A household holding
+both rungs and missing one or neither stands outside it. The code has counted
+this population at every run, so no number above moves.
+
+**The no-pair count among defaulters carries its setting.** `7,277` is the number
+of defaulting households at this record's `20,000` households, A0's path at seed 7
+over 60 months. A1-2's own record in A1b is a run of `100,000` households, `36,292`
+of them defaulting. The criterion's detail in the record states both.
+
+**A1-2's current state in A1b's record is VOID**: the estimator and the object do
+not line up, since a pooled share over every defaulter is decided by how many
+households stand on a rung as well as by how hard the rung is. The opening
+paragraph and §4 record A1-2 as refuted and failed on 2026-08-16, and they stand
+as the record of that date.
+
+### 2026-10-17, A1b's payment carriers
+
+A1c builds on A1b's records, and A1b now puts each rung on the payment of its own stock,
+with every other published payment paid on no rung (A1b's registration, entry of that
+date). Rerun at the record's 20,000 households: the card before the car loan 670 in
+order, 744 tied, 5 inverted of 1,419 in scope; the car loan before rent 799, 387 and 9
+of 1,195; the card before rent 682, 1,042 and 23 of 1,747. All 37 inversions are
+attributed to the release clause, and both criteria pass as before. 7,692 households
+default, and 4,833 of them, 62.83%, are in scope for no pair. A1-2's own record in A1b
+is now 38,436 defaulting households of 100,000. The 7,277 and 36,292 of the entry of
+2026-10-15 are the readings on the registered construction.

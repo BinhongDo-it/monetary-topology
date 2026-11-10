@@ -82,7 +82,7 @@ CARRIER_ROWS = [
     # ---- exchange, dealer and posted quotes ----
     ("One exchange's implied and directly quoted spread markets",
      QUOTE, ZERO, ["B13", "B18"], 1,
-     "81,968 states over nine products and three channels"),
+     "81,968 bid and offer readings over eight products and three channels"),
     ("An exchange-traded fund's creation and redemption triangle",
      QUOTE, LOOP, ["B9"], 1,
      "the published fee schedule plus the venue quotes on both legs"),
@@ -210,7 +210,7 @@ CARRIER_ROWS = [
     ("An island resident air fare discount and the statute that sets its base",
      LAW, LOOP, ["B125"], 1, "a share of the fare with three airport charges taken out of the base, and its dated history"),
     ("A city's rent cap statute and the rent index its table was derived from",
-     LAW, COUNT, ["B129"], 1, "twelve values for one kind of dwelling, each an index median times one factor"),
+     LAW, COUNT, ["B129"], 1, "twelve values for one kind of dwelling, each a 2013 rent-index base times one factor"),
 
     # ---- official statistics and administrative panels ----
     ("A national statistical yearbook's city panel",

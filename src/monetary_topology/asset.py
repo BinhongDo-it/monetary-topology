@@ -89,7 +89,8 @@ STRETCH_COSTS: tuple[str, ...] = ("uncounted", "counted")
 CONSTRUCTIONS: tuple[str, ...] = ("auction", "occupancy", "continuous")
 
 #: Where the opening sale's proceeds go. ``"equal"`` splits across all nodes and
-#: is what the code did before A3b; ``"seller"`` pays whoever held the unit.
+#: is what the code did before A3b; ``"seller"`` pays the prior-owner set, the
+#: financial layer weighted by opening claims (``A3Model._prior_owner_weights``).
 PROCEEDS: tuple[str, ...] = ("equal", "seller")
 
 #: Who the rent bill is assessed on. ``layer`` keys the payer set on the layer
@@ -174,13 +175,34 @@ class AssetSpec:
     #: vacuous; the pre-registration records that a pass there is a null.
     terms_spread: float = 1.0
 
-    #: ``τ``. Share of held units returning to the market each round for reasons
-    #: unrelated to price. Set at the observed turnover of the US housing stock,
-    #: roughly three to five percent a year, with a round read as a year.
+    #: ``τ``. Each round every ``(node, tier)`` holding of at least one unit puts
+    #: **one** unit back on the market with this probability, for reasons
+    #: unrelated to price (``A3Model._offers``). For a holding of one unit that
+    #: is the unit's own turnover rate, and the value was set at the observed
+    #: turnover of the US housing stock, roughly three to five percent a year,
+    #: with a round read as a year.
+    #:
+    #: **It is a rate per holding and not per unit.** A holding of ``k`` units
+    #: still offers at most one a round, so its units turn over at ``τ / k``,
+    #: and the expected number of offers in a round is ``τ`` times the number
+    #: of positive holdings rather than ``τ`` times the stock. With
+    #: ``residual_owner`` off, the opening walk hands out one unit per holding,
+    #: so the two readings agree on the first day and part as units pile up in
+    #: the same hands. With it on, the unsold stock goes to the prior owners in
+    #: whole blocks at the opening and the two part from the first day: under
+    #: stage A3b's registered construction, seeds 0 to 4, the largest opening
+    #: holding is 11 to 17 units in the auction and continuous arms and 5 to 7
+    #: in the occupancy arm, and the day-one share of held units offered is
+    #: 1.33% to 1.53% and 3.20% to 3.27% against ``τ = 4%``.
+    #: Under arm F the forced offers come on top (see ``A3Model._offers``).
+    #: ``experiments/a5_reachability.py`` prints the expected share of held
+    #: units offered in a round at the end of its histories (``holding`` in its
+    #: record).
     turnover: float = 0.04
 
     #: ``φ``. A node holding claims below this share of its round-zero claims
-    #: must sell one unit. Arm F only.
+    #: offers one unit from each tier it holds, unless the turnover draw has
+    #: already taken one of its holdings that round. Arm F only.
     forced_sale_floor: float = 0.10
 
     #: How many bins the trader population is cut into before two of them are
@@ -219,8 +241,15 @@ class AssetSpec:
     #: ``T``. Holding period in the edge weight and in the counted stretch's
     #: amortisation, in rounds.
     #:
-    #: This is the period over which a holding is actually held, so under arm E
-    #: it must equal ``1 / turnover``. It was first set to ``40`` to match stage
+    #: Under arm E it is tied to ``1 / turnover``. **That is the expected wait before a
+    #: holding offers a unit, and it is the unit's own holding period only where
+    #: the holding is a single unit** (see ``turnover``): in a holding of
+    #: several units a unit waits longer, and ``T`` is not rescaled for that.
+    #: An offer also becomes a sale only if an eligible buyer exists, so the
+    #: period a unit is actually held can be far longer than ``T`` (under stage
+    #: A5's cap of one unit, 4.7 trades over 300 rounds at ``rho = 0.5``
+    #: against about 1,200 offers).
+    #: It was first set to ``40`` to match stage
     #: A4's generation length, which is a different quantity that happens to be
     #: a duration; the mismatch silently rescales ``δ`` and would have moved
     #: A3-4 by a factor of ``40/25`` with nothing in the run looking wrong. A
@@ -417,6 +446,15 @@ class AssetSpec:
     #: Moving ``terms_spread`` alone moved both, so the one intervention that
     #: could show the holonomy is load-bearing was unavailable: `MEASUREMENT.md`
     #: rule 4, one switch changing two things.
+    #:
+    #: In the model it reaches the opening allocation only. Resale eligibility
+    #: and the bidder pool that prices a tier are both decided on
+    #: ``terms_spread`` (``A3Model._admitted_at_opening``), so
+    #: ``terms_spread = 0`` levels the pricing pool along with the loop sum.
+    #: ``experiments/a3c_load_bearing.py`` also runs the four cells with the
+    #: pool admitted on the gate terms (``GatePooled``). Both admission rules
+    #: were run there and the reading did not change: the loop-sum cell keeps
+    #: one sign across seeds and the gate cell flips under either.
     gate_spread: float | None = None
 
     #: Hold the cross-sectional **mean** acquisition cost fixed while the
@@ -658,8 +696,10 @@ def carrier_model(config: NetworkConfig, *, asset: bool = False) -> Network:
     is five chances to write them differently.** A2d, A10, A11, A13 and A14 all
     read concentration off a carrier with no asset revaluation on it, and
     revaluation is the channel the empirical work weights most heavily:
-    Montecino and Epstein put an employment channel at about -0.5 points on the
-    90/10 ratio against an equity channel at about +6.3 on the 95/10 ratio.
+    Montecino and Epstein (version of 24 April 2017, Table 2) find rising equity
+    returns contribute +6.3 percentage points to the change in the 95/10 ratio
+    of household net income against -0.4 from the employment channel, and +4.1
+    against -0.5 on the 90/10 ratio.
 
     **The returned object is the model and not the history**, because a caller
     may want the state after the run: A11 reads ``_alive`` to see who left. Call
@@ -668,14 +708,43 @@ def carrier_model(config: NetworkConfig, *, asset: bool = False) -> Network:
     ``asset=False`` constructs a plain ``Network``, so the default path is the
     path those stages always took and reproduction is by construction.
 
+    **With ``asset=True`` the history carries claims and nothing else, and its
+    last row is one asset step short of the end.** ``NetworkHistory.holdings[t]``
+    is written after round ``t``'s network step and before that round's
+    ``_post_round``, which is where rent, stretch debt, resales and repricing
+    happen. A terminal share on this carrier can be read on three accounts, and
+    a record that reports more than one names them with these keys:
+
+    ``claims_recorded``
+        ``holdings[-1]`` of the history: claims per node in the last row,
+        written before the round's asset step, with held units not in it.
+    ``claims_settled``
+        claims after the last asset step: ``holdings`` on the returned object
+        once it has run, which is also the last entry of ``claims_history``.
+    ``net_worth``
+        settled claims plus held units at the closing price: ``net_worth()``
+        on the returned object, also the last entry of ``net_worth_history``.
+
+    The asset step moves claims between nodes and creates none, so the first
+    two have the same total and differ in who holds it. On a plain ``Network``
+    the hook does nothing: the last row is the state the run ends in, claims
+    are all a node holds, and ``claims_recorded`` is the only account. A2d's
+    asset record carries all three under ``accounts``.
+
     **What the asset layer changes is measured, not assumed.** A2d's four
-    corners, 2026-08-24: the structural span on terminal top one percent wealth
-    moves 0.156440 to 0.153907, essentially not at all, while sigma's span moves
-    0.006645 to 0.015829, more than doubling. The ratio between them, which is
-    that stage's headline, goes from 23.5 to 9.7. **The direction survives and
-    the number does not**, and the mechanism is plain: sigma is a retention rate
-    and retained claims can sit in an appreciating asset, so retention buys more
-    when there is something to retain into.
+    corners, 2026-08-24, read on ``claims_recorded``: the structural span on
+    the top one percent share moves 0.156440 to 0.153907, essentially not at
+    all, while sigma's span moves 0.006645 to 0.015829, more than doubling. The
+    ratio between them, which is that stage's headline, goes from 23.5 to 9.7.
+    **The direction survives and the number does not.** A2d's asset record
+    carries the whole grid on all three accounts: sigma's span is 0.031873 with
+    the ratio at 4.83 on ``claims_recorded``, 0.031290 and 4.93 on
+    ``claims_settled``, and 0.129474 and 2.36 on ``net_worth``. On the two
+    claims accounts the widening is what the asset step settles in claims:
+    rent, stretch-debt service, resale. Sigma is a retention rate and retained
+    claims can sit in an appreciating asset, so retention buys more when there
+    is something to retain into; that is read on ``net_worth``, where the mark
+    is, and it is largest there.
     """
     if not asset:
         return Network(config)
@@ -958,9 +1027,10 @@ class A3Model(Network):
         if spec.arm == "exogenous" and spec.turnover > 0 and mismatch:
             note = (
                 f"holding_period {spec.holding_period} against turnover "
-                f"{spec.turnover}, which implies a mean holding period of "
-                f"{implied}. T in the edge weight is the period a unit is "
-                "actually held, so a mismatch rescales the loop sum: A3-4 "
+                f"{spec.turnover}, which implies an expected wait of "
+                f"{implied} rounds before a holding offers a unit. T in the "
+                "edge weight is tied to that wait, so a mismatch rescales the "
+                "loop sum: A3-4 "
                 "would move by that factor with nothing in the run looking "
                 "wrong."
             )
@@ -982,8 +1052,10 @@ class A3Model(Network):
         #: the matrix the holonomy is computed from. Named ``terms`` and not
         #: ``terms_pay`` because every existing caller means this one.
         self.terms = terms_matrix(self.centrality, spec, hold_mean_at=ref)
-        #: What admits. Used only where entry is decided, never in a payment.
-        #: Equal to ``terms`` unless ``gate_spread`` is set.
+        #: What admits at the opening allocation, and it is read nowhere after
+        #: it: resale eligibility and the pricing pool are both decided on
+        #: ``terms``. Never used in a payment. Equal to ``terms`` unless
+        #: ``gate_spread`` is set.
         self.terms_gate = (
             self.terms
             if spec.gate_spread is None
@@ -1078,7 +1150,14 @@ class A3Model(Network):
     # -- the gate ----------------------------------------------------------
 
     def _clears(self) -> np.ndarray:
-        """Who can afford each tier *now*. Used for acquisition."""
+        """Who can afford each tier *now*, on the payment terms.
+
+        **Nothing in the model calls this.** Resale applies the same test
+        inline in ``_settle`` (without forcing ``open_tiers``); the opening
+        allocation in ``_walk_tiers`` admits on ``terms_gate`` instead. It is
+        kept for one test, which contrasts it with ``_admitted_at_opening``,
+        the set the price is formed from.
+        """
         return gate_clears(
             self.holdings, self.terms, self.price, self.a3.asset.open_tiers
         )
@@ -1090,6 +1169,14 @@ class A3Model(Network):
         claims are chasing the asset; leaving it out would have the model say
         that a poor bidder's money does not count, which is the opposite of what
         the mechanism claims. With ``stretch = 1`` this is the hard gate exactly.
+
+        **It reads ``self.terms``, the payment terms, and this is the function
+        the price is formed from**: the opening pool and every round's
+        ``_update_prices`` call it. So ``terms_spread`` moves the bidder pool
+        together with what is paid, and ``gate_spread`` does not reach the
+        pool. With the two tied, which is the default, the distinction does
+        not arise. ``experiments/a3c_load_bearing.py`` counts where the two
+        part in the cells that untie them.
         """
         admitted, _ = soft_gate(
             self.holdings,
@@ -1101,7 +1188,17 @@ class A3Model(Network):
         return admitted
 
     def _clears_at_opening(self) -> np.ndarray:
-        """Who can afford each tier at its *opening* price. Used for pricing.
+        """Who clears each tier's **gate** terms at its *opening* price.
+
+        **Nothing in the model calls this**; one test,
+        ``test_the_pricing_pool_ignores_the_current_price``, holds it to the
+        same property as the pool. It was written as the pricing set and is the
+        only place besides the opening allocation that reads ``terms_gate``,
+        but the price is formed from ``_admitted_at_opening``, which reads the
+        payment terms through the soft gate. It states the other admission
+        rule as a hard gate. The comparison arm in
+        ``experiments/a3c_load_bearing.py`` runs that rule through the soft
+        gate, and the reading of A3-8 does not change.
 
         Separate from ``_clears`` because the two answer different questions and
         conflating them is what made the price oscillate. Acquisition asks what
@@ -1214,8 +1311,9 @@ class A3Model(Network):
         defence: the seller of a dwelling is its previous owner, so an equal
         split is one perfectly egalitarian redistribution at `t = 0` and then a
         measurement of how a gap opens from there. `"seller"` pays the prior
-        owner. The default remains `"equal"` only so the pre-A3b runs are
-        reproducible.
+        owners, the financial layer weighted by opening claims
+        (`_prior_owner_weights`). The default remains `"equal"` only so the
+        pre-A3b runs are reproducible.
         """
         spec = self.a3.asset
         owned = np.zeros(self._n, dtype=int)
@@ -1237,10 +1335,14 @@ class A3Model(Network):
         # means — the uncapped rule is for a market, where accumulating more
         # than one is the thing the stage measures.
         #
-        # This does not put means back in. The tier follows the layer, not the
-        # claims, and the layer is the source manuscript's own structure rather
-        # than a wealth test: §3.1 registers the occupancy arm as uncorrelated
-        # with claims *within the production layer*.
+        # This does not put means back into who is in the transfer: the draw
+        # does not consult claims. Which tier a drawn node is handed does
+        # depend on its claims, through the order of the walk. Inside the
+        # drawn set the walk is in descending claims, low tier first, so the
+        # low tier goes to the front of the set until it runs out and whoever
+        # is left takes the next tier up. Nothing here reads the layer. With
+        # 140 drawn and 132 low-tier units, the eight with the least claims
+        # are handed the next tier.
         if self._opening_bypass.any():
             paid_total += self._walk_tiers(
                 range(spec.tiers), order, owned, left, transfer=True
@@ -1388,11 +1490,11 @@ class A3Model(Network):
     def _update_prices(self) -> None:
         """Re-mark every tier from the current bidder pool.
 
-        The gate is evaluated against the price standing at the start of the
-        round, so the pool that sets this round's price is the one that could
-        have bid at last round's price. That avoids a fixed point, and it is the
-        same lagged-information convention stage A0 already uses for issuance:
-        no actor observes the round it is acting in.
+        The pool is ``_admitted_at_opening``: the soft gate on the payment terms
+        at **opening** prices, applied to the claims standing at the end of this
+        round, after rent, debt service and sales. No current or lagged price
+        enters it, which removes the feedback ``bidder_pool`` describes; only
+        the claims move the pool from round to round.
         """
         pool = bidder_pool(self.holdings, self._admitted_at_opening())
         self.price = price_at(
@@ -1499,13 +1601,31 @@ class A3Model(Network):
     def _offers(self) -> list[tuple[int, int]]:
         """``(node, tier)`` pairs coming back onto the market this round.
 
-        Arm E draws each held unit independently at rate ``τ``: people die,
-        relocate, retire, and none of that is about the price. A Bernoulli per
-        unit rather than a fixed count, so the rate is exact in expectation and
-        no rounding rule has to be invented for a stock that changes size.
+        Arm E draws once per positive ``(node, tier)`` holding at rate ``τ``,
+        and a holding that is drawn offers **one** unit: people die, relocate,
+        retire, and none of that is about the price. The draw is per holding
+        and not per unit. A holding of one unit turns over at ``τ``; a holding
+        of ``k`` units offers at most one a round, so its units turn over at
+        ``τ / k``, and the expected number of offers in a round is ``τ`` times
+        the number of positive holdings rather than ``τ`` times the stock. A
+        Bernoulli per holding rather than a fixed count, so no rounding rule has
+        to be invented for a stock that changes hands.
+
+        **This docstring said "a Bernoulli per unit" until 2026-10-10, and the
+        code below never drew per unit.** The two agree while every holding is
+        a single unit, which the opening walk guarantees on the first day when
+        ``residual_owner`` is off, and they part as units accumulate. With it
+        on, the residual stock lands in multi-unit holdings at the opening and
+        the two part from the first day (see ``AssetSpec.turnover``). Every stored result was produced under
+        the rule as coded. A draw per unit is a different turnover rule, and
+        adopting it would be a registered change to the model and not a
+        correction of this description.
 
         Arm F adds units whose holder has fallen below ``φ`` of its opening
-        claims and must liquidate. That is the source manuscript's two-sided
+        claims and must liquidate: one unit from each tier the node holds,
+        unless the turnover draw already took one of its holdings this round,
+        in which case that drawn holding is its only offer. So under arm F the
+        expected offers are not ``τ`` times the positive holdings. That is the source manuscript's two-sided
         squeeze: the drained production layer selling into a rising market. It
         overlaps stage A1 and takes only A1's trigger, never its cascade.
         """
@@ -1543,32 +1663,42 @@ class A3Model(Network):
 
         The seller receives the market price. The buyer pays ``γ · P``, so the
         premium ``(γ − 1) · P`` has to go somewhere or claims stop being
-        conserved. It is **split equally across all nodes**, for the same reason
-        the opening proceeds are: routing it to the financial layer is the
-        realistic destination and it is also a second channel with the same sign
-        as ``γ``, which would leave A3-4 unable to say whether the exponent it
-        measured came from the terms differential or from the premium's
-        destination. The realistic variant is a separate arm and is not run
-        here.
+        conserved. It is **split equally across all nodes** in every arm:
+        routing it to the financial layer is the realistic destination and it
+        is also a second channel with the same sign as ``γ``, which would leave
+        A3-4 unable to say whether the gap it measured came from the terms
+        differential or from the premium's destination. Under
+        ``proceeds = "equal"``, the default and A3's setting, the opening
+        proceeds are split the same way for the same reason; under
+        ``proceeds = "seller"``, which A3b and A3c run, they go to the
+        financial layer in proportion to opening claims, and the premium stays
+        equal-split. The realistic variant for the premium is a separate arm
+        and is not run here.
 
         An offer with no buyer simply does not sell and the holder keeps it.
         Nothing is destroyed and no unit is left ownerless.
 
-        **A seller may buy.** Excluding them emptied the market outright: one
-        unit per node means the only agents with claims already hold something,
-        so with sellers barred there is no eligible buyer anywhere and three
-        hundred rounds produced zero transactions. It is also what a housing
+        **A seller may buy.** Excluding them emptied the market outright when
+        holdings were capped at one unit per node (``max_units = 1``, the first
+        implementation; the default is no cap): the only agents with claims
+        already held something, so with sellers barred there was no eligible
+        buyer anywhere and three hundred rounds produced zero transactions. It is also what a housing
         market mostly is — people selling one and buying another. Offers are
         settled in order, so a node that sells early can bid on what is offered
         after it.
 
         **Resale requires payment in full; the stretch applies only at the
-        opening allocation.** At the opening there is no counterparty to
-        shortchange: the proceeds are split equally and the shortfall is
-        absorbed outside the ledger. A resale has a seller who must receive the
-        market price, so a buyer short of it would have to be funded by
-        something, and there is nothing to fund it with that does not break
-        conservation.
+        opening allocation.** At the opening the seller is every node
+        (``proceeds = "equal"``) or the prior owners, the financial layer
+        weighted by opening claims (``"seller"``), and either way it receives
+        only what was paid. Where an admitted buyer is short, in the stretch
+        band or on the gate terms, the shortfall is booked to the buyer, as
+        ``uncounted_cost`` outside the ledger or as ``stretch_debt`` that it
+        later pays down through its own adjacency row; on a forced-open tier
+        or in the occupancy pass the buyer pays what it has and the rest is not
+        booked. A resale has a single seller who must receive the market price,
+        so a buyer short of it would have to be funded by something, and there
+        is nothing to fund it with that does not break conservation.
         """
         if not offers:
             self.sales.append(0)

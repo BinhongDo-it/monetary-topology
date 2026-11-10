@@ -2126,7 +2126,7 @@
     "col12-_f25+": 7727,
     "col12-_f25-": 74250473
   },
-  "deferral_definition": "column 12 positive, because \u00a78\u00b723's omega was computed on it. Field 25 in (P, C) is cross-tabulated against it and delivered, never used as a criterion (\u8bbe\u8ba1\u4ef6 \u00a78\u00b725\u00b72).",
+  "deferral_definition": "column 12 positive, because \u00a78\u00b723's omega was computed on it. Field 25 in (P, C) is cross-tabulated against it and delivered, never used as a criterion.",
   "drop": {
     "no payment for the window": 1,
     "rate or horizon missing on either row": 3

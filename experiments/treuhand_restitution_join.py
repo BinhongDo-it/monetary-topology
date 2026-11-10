@@ -70,6 +70,23 @@ def read_bvs(path):
     return out
 
 
+def add_candidate(idx, key, cid):
+    """One register key, the companies it names. The dump lists some reference numbers
+    twice for one company; a company counts once, so a key that names one company
+    resolves to it and is not read as several candidates."""
+    if cid not in idx[key]:
+        idx[key].append(cid)
+
+
+def resolve(cands):
+    """(outcome, company id) for the candidates of one key."""
+    if not cands:
+        return 'no_match', ''
+    if len(cands) > 1:
+        return 'multi', ''
+    return 'unique', cands[0]
+
+
 def build_index(db_path):
     con = sqlite3.connect('file:%s?mode=ro' % db_path, uri=True)
     cur = con.cursor()
@@ -80,7 +97,7 @@ def build_index(db_path):
     for cid, nat, court in cur.execute(q, tuple(courts)):
         m = NAT_RE.search(nat or '')
         if m:
-            idx[(court, m.group(1).upper(), int(m.group(2)))].append(cid)
+            add_candidate(idx, (court, m.group(1).upper(), int(m.group(2))), cid)
     diss = {}
     for cid, d, first, last in cur.execute(
             "SELECT companyId, dissolutionDate, firstSeenDate, lastSeenDate FROM Companies"):
@@ -89,11 +106,39 @@ def build_index(db_path):
     return idx, diss
 
 
+def selftest():
+    """The candidate list of a key, worked by hand."""
+    idx = collections.defaultdict(list)
+    for key, cid in [(('Potsdam', 'HRB', 1396), 'A'), (('Potsdam', 'HRB', 1396), 'A'),
+                     (('Potsdam', 'HRB', 7), 'B'), (('Potsdam', 'HRB', 7), 'C'),
+                     (('Potsdam', 'HRB', 7), 'B')]:
+        add_candidate(idx, key, cid)
+    checks = [
+        ('one company listed twice under a key is one candidate',
+         idx[('Potsdam', 'HRB', 1396)] == ['A']),
+        ('and that key resolves to it', resolve(idx[('Potsdam', 'HRB', 1396)]) == ('unique', 'A')),
+        ('two companies under a key stay two, whatever the repeats',
+         idx[('Potsdam', 'HRB', 7)] == ['B', 'C']),
+        ('and that key is read as several', resolve(idx[('Potsdam', 'HRB', 7)]) == ('multi', '')),
+        ('a key the dump does not hold is no match', resolve(idx.get(('Potsdam', 'HRB', 9), []))
+         == ('no_match', '')),
+        ('a register number is read with its type', parse_nr('HRB 01396') == ('HRB', 1396)
+         and parse_nr('110-08-957') is None),
+    ]
+    for label, ok in checks:
+        print('  %s  %s' % ('ok   ' if ok else 'WRONG', label))
+    print('selftest: %d of %d' % (sum(1 for _l, ok in checks if ok), len(checks)))
+    return 0 if all(ok for _l, ok in checks) else 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--raw', default='data/raw/Treuhand')
     ap.add_argument('--out', default='data/processed/treuhand')
+    ap.add_argument('--selftest', action='store_true')
     a = ap.parse_args()
+    if a.selftest:
+        sys.exit(selftest())
     xlsx = os.path.join(a.raw, 'THU_Status_BvS.xlsx')
     db = os.path.join(a.raw, 'handelsregister.db')
     for p in (xlsx, db):
@@ -115,13 +160,7 @@ def main():
         elif key is None:
             outcome, cid = ('nr_unparsed', '')
         else:
-            cands = idx.get((court,) + key, [])
-            if not cands:
-                outcome, cid = ('no_match', '')
-            elif len(cands) > 1:
-                outcome, cid = ('multi', '')
-            else:
-                outcome, cid = ('unique', cands[0])
+            outcome, cid = resolve(idx.get((court,) + key, []))
         d, first, last = diss.get(cid, ('', '', ''))
         rows.append(dict(b, match=outcome, company_id=cid,
                          dissolution_date=d, first_seen=first, last_seen=last))

@@ -22,11 +22,16 @@ largely a list of things that were true once and were still being read later,
 so a cache keyed on the archive name alone would be a machine for
 manufacturing that defect.
 
-So the key is a **hash of the source of every function that produced the
-numbers** -- `b8_core`, `b8_omega`, `b8_loops`, `b8_loop_omega` -- together
-with the curve rule and the archive's own manifest. Edit any of them and the
-tag changes and the cache is rebuilt. Nothing has to remember to invalidate
-it. `b8_core._fixture_tag` already uses this trick for the selftest fixtures,
+So the key is a **hash of the source text of every module whose code
+produces the cached numbers**, nine of them, listed in `SOURCE_MODULES`:
+`b8_core`, `b8_omega`, `b8_loops`, `b8_loop_omega`, `b8_0a_gate`, this
+module itself, `b8_triangles` (the loop finder's position helpers and the
+window table behind the `window` field), and `b8_cmt_fetch` and
+`b8_cmt_sensitivity` (the Treasury curve table every discount rate is read
+from). To that it adds the curve rule's name, `b8_omega.MAX_H` and the core
+table's schema version. The archive's own content is not in the tag. Edit
+any of these and the tag changes and the cache is rebuilt. Nothing has to
+remember to invalidate it. `b8_core._fixture_tag` already uses this trick for the selftest fixtures,
 so it is the house pattern rather than a new idea.
 
 The tag is stored beside the data and checked on load. `load` on a stale or
@@ -61,6 +66,8 @@ import b8_loops as L                                           # noqa: E402
 import b8_loop_omega as Z8                                     # noqa: E402
 import b8_0a_gate as G                                         # noqa: E402
 import b8_triangles as T                                       # noqa: E402
+import b8_cmt_fetch as F                                       # noqa: E402
+import b8_cmt_sensitivity as S1                                # noqa: E402
 
 CACHE = K.ROOT / "data" / "processed" / "b8_loops"
 
@@ -73,7 +80,12 @@ CACHE = K.ROOT / "data" / "processed" / "b8_loops"
 #: fields -- left the tag unchanged. A cache tag that does not cover the code
 #: writing the cache is the exact defect the tag exists to prevent, sitting
 #: inside the tag.
-SOURCE_MODULES = (K, W, L, Z8, G, sys.modules[__name__])
+#:
+#: **The last three were added 2026-10-27**: `b8_triangles` (through
+#: `find_loops` and `_window_of`) and the two curve modules (through
+#: `b8_loop_omega.curve_table`) feed cached fields, and until then editing
+#: them did not move the tag.
+SOURCE_MODULES = (K, W, L, Z8, G, sys.modules[__name__], T, F, S1)
 
 #: Fields kept per signal loop. Everything a downstream station has needed so
 #: far, and nothing that belongs to one station's own diagnostics.

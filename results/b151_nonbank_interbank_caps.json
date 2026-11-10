@@ -1,0 +1,680 @@
+{
+ "cells": {
+  "A/fmi": {
+   "anchor": "ioer",
+   "anchor_named": true,
+   "entry": "A_fmi",
+   "found_in": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "level": "other (three outlets carry the sentence word for word the same)",
+   "listed": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "modal": [
+    "参考",
+    "合理确定"
+   ],
+   "modal_in_sentence": true,
+   "rates_named": [
+    "ioer"
+   ],
+   "sentence": "金融基础设施机构的同业活期存款主要体现支付结算属性，应参考超额存款准备金利率合理确定利率水平"
+  },
+  "A/other": {
+   "anchor": "rr7",
+   "anchor_named": true,
+   "entry": "A_other",
+   "found_in": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "level": "other (three outlets carry the sentence word for word the same)",
+   "listed": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "modal": [
+    "参考",
+    "合理确定"
+   ],
+   "modal_in_sentence": true,
+   "rates_named": [
+    "rr7"
+   ],
+   "sentence": "除金融基础设施机构外的其他非银同业活期存款应参考公开市场7天期逆回购操作利率合理确定利率水平，充分体现政策利率传导"
+  },
+  "B/fmi": {
+   "anchor": "ioer",
+   "anchor_named": true,
+   "entry": "B_all",
+   "found_in": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "level": "other (three outlets carry the sentence word for word the same)",
+   "listed": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "modal": [
+    "原则上不应高于"
+   ],
+   "modal_in_sentence": true,
+   "rates_named": [
+    "ioer"
+   ],
+   "sentence": "若银行与非银金融机构（含非法人产品）约定同业定期存款可提前支取，提前支取利率原则上不应高于超额存款准备金利率"
+  },
+  "B/other": {
+   "anchor": "ioer",
+   "anchor_named": true,
+   "entry": "B_all",
+   "found_in": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "level": "other (three outlets carry the sentence word for word the same)",
+   "listed": [
+    "thepaper_20241204.html",
+    "sina_21cbh_20241129.html",
+    "cnfin_xinhua_bank_bulletin_20241209.pdf"
+   ],
+   "modal": [
+    "原则上不应高于"
+   ],
+   "modal_in_sentence": true,
+   "rates_named": [
+    "ioer"
+   ],
+   "sentence": "若银行与非银金融机构（含非法人产品）约定同业定期存款可提前支取，提前支取利率原则上不应高于超额存款准备金利率"
+  }
+ },
+ "config": {
+  "classes": {
+   "fmi": "financial market infrastructure institutions",
+   "other": "non-bank financial institutions other than financial market infrastructure (incl. unincorporated products)"
+  },
+  "compositions": {
+   "log": "log(other / fmi)@A - log(other / fmi)@B",
+   "pp": "(other - fmi)@A - (other - fmi)@B"
+  },
+  "floor": {
+   "log": "log((x + 0.01) / x), x the smallest of the four square cells",
+   "pp": "0.01, the two-decimal publication grid of both policy rates"
+  },
+  "lapse_date": "2027-03-31",
+  "not_at_these_positions": "corporate and household deposits: general deposits, not interbank deposits; this initiative does not cover them and their rates are written under other rules, not read here",
+  "positions": {
+   "A": "demand deposit placed at a bank",
+   "B": "early withdrawal of a time deposit placed at the same bank"
+  },
+  "read_date": "2026-10-14",
+  "segments": [
+   {
+    "end": "2025-05-07",
+    "id": "one",
+    "start": "2024-12-01"
+   },
+   {
+    "end": "2026-10-14",
+    "id": "two",
+    "start": "2025-05-08"
+   }
+  ],
+  "unit_of_count": "one initiative; values are the policy rates the sentences refer to, in the segment",
+  "values_are": "written values: a reference rate at A, a ceiling at B; no rate actually paid is read"
+ },
+ "criteria": [
+  {
+   "detail": "segment one: ioer 0.35 (pbc_ioer_20200403.html), rr7 1.50 (pbc_omo_notice_2024_5.html); segment two: ioer 0.35 (pbc_ioer_20200403.html), rr7 1.40 (pbc_omo_notice_2025_1.html); no notice in the table changes either rate inside a segment; latest statement of each level: rr7 1.40 (pbc_omo_trade_2026_198.html, published 2026-10-14, official), rr7 1.40 (pbc_mpr_2026q1.pdf, published 2026-05-11, official), ioer 0.35 (sina_20260507.html, published 2026-05-07, other)",
+   "kind": "instrument",
+   "mapping": {
+    "a rate missing, unread, or not equal to the table": "FAIL",
+    "every segment has both rates, each read off a notice and equal to the table": "PASS"
+   },
+   "name": "B151-1",
+   "passed": true,
+   "statement": "each segment's two policy rates are read off an opened central bank notice and agree with the table; segment cuts sit on the notices' effective dates"
+  },
+  {
+   "detail": "A/fmi: sentence names ioer, value from ioer, modal 参考+合理确定, on 3 of 3 snapshots, level other (three outlets carry the sentence word for word the same); A/other: sentence names rr7, value from rr7, modal 参考+合理确定, on 3 of 3 snapshots, level other (three outlets carry the sentence word for word the same); B/fmi: sentence names ioer, value from ioer, modal 原则上不应高于, on 3 of 3 snapshots, level other (three outlets carry the sentence word for word the same); B/other: sentence names ioer, value from ioer, modal 原则上不应高于, on 3 of 3 snapshots, level other (three outlets carry the sentence word for word the same); existence and name on the central bank's own release: yes",
+   "kind": "bookkeeping",
+   "mapping": {
+    "a cell without a verified snapshot, without its modal word, without a level, or whose sentence does not name its anchor rate alone": "FAIL",
+    "every cell has its sentence on a verified snapshot, a modal word inside the sentence, a level, and the sentence names its anchor rate and no other": "PASS"
+   },
+   "name": "B151-2",
+   "passed": true,
+   "statement": "every cell carries its sentence on a verified snapshot, its operative wording and the level of its source, and its value is taken from the one policy rate its sentence names"
+  },
+  {
+   "count_by_segment": {
+    "one": {
+     "classes_present": [
+      "fmi",
+      "other"
+     ],
+     "distinct_values": [
+      "0.35",
+      "1.50"
+     ],
+     "entries": [
+      "A_fmi",
+      "A_other"
+     ],
+     "members": {
+      "fmi": "0.35",
+      "other": "1.50"
+     },
+     "missing": [],
+     "n_values": 2,
+     "separately_written": 2
+    },
+    "two": {
+     "classes_present": [
+      "fmi",
+      "other"
+     ],
+     "distinct_values": [
+      "0.35",
+      "1.40"
+     ],
+     "entries": [
+      "A_fmi",
+      "A_other"
+     ],
+     "members": {
+      "fmi": "0.35",
+      "other": "1.40"
+     },
+     "missing": [],
+     "n_values": 2,
+     "separately_written": 2
+    }
+   },
+   "detail": "segment one: 2 values ['0.35', '1.50'] for 2 classes named, members {'fmi': '0.35', 'other': '1.50'}; segment two: 2 values ['0.35', '1.40'] for 2 classes named, members {'fmi': '0.35', 'other': '1.40'}",
+   "grid": "D2",
+   "grid_note": "at the demand-deposit position no single number is read by both classes: the written value splits by class and each half is pinned by a different published policy rate; an object with one index per position has nowhere to write this",
+   "kind": "own_reading",
+   "mapping": {
+    "a cell at position A without a value or without a verified sentence": "None (no verdict)",
+    "in every segment, distinct values at position A equal the classes named (2)": "PASS",
+    "in some segment distinct values differ from the classes named (fewer or more)": "FAIL"
+   },
+   "name": "B151-3",
+   "passed": true,
+   "statement": "distinct values the initiative writes at the demand-deposit position, by segment"
+  },
+  {
+   "detail": "segment one: pp 1.1500 (115.0000 x floor), log 1.4553 (51.6593 x floor), both clear their floor, same sign; segment two: pp 1.0500 (105.0000 x floor), log 1.3863 (49.2102 x floor), both clear their floor, same sign | position B carries one value, so the two compositions reduce to (A gap) and log(A ratio) and their agreeing in sign is forced: here the sign check is a code check | rival shapes: bare (one value per position): has no place for the two values position A carries in every segment (B151-3, grid D2); additive (class term + position term, pp square zero): refuted as a shape of the written schedule in every segment; rates actually paid are not read at either position; multiplicative (class term x position term, log square zero): refuted as a shape of the written schedule in every segment; rates actually paid are not read at either position",
+   "kind": "own_reading",
+   "mapping": {
+    "a cell of the square without a value or without a verified sentence": "None (no verdict)",
+    "both clear their floor with opposite signs in some segment": "None (no verdict)",
+    "either composition at or under its floor in some segment": "None (no verdict)",
+    "in every segment both compositions clear their floor with the same sign": "PASS"
+   },
+   "name": "B151-4",
+   "passed": true,
+   "rival_shapes": [
+    "bare (one value per position): has no place for the two values position A carries in every segment (B151-3, grid D2)",
+    "additive (class term + position term, pp square zero): refuted as a shape of the written schedule in every segment; rates actually paid are not read at either position",
+    "multiplicative (class term x position term, log square zero): refuted as a shape of the written schedule in every segment; rates actually paid are not read at either position"
+   ],
+   "squares": {
+    "one": {
+     "square": {
+      "cells": {
+       "A_fmi": "0.3500",
+       "A_other": "1.5000",
+       "B_fmi": "0.3500",
+       "B_other": "0.3500"
+      },
+      "log": "1.4553",
+      "log_floor": "0.0282",
+      "log_multiple": "51.6593",
+      "pp": "1.1500",
+      "pp_floor": "0.0100",
+      "pp_multiple": "115.0000"
+     },
+     "verdict": true,
+     "why": "both clear their floor, same sign"
+    },
+    "two": {
+     "square": {
+      "cells": {
+       "A_fmi": "0.3500",
+       "A_other": "1.4000",
+       "B_fmi": "0.3500",
+       "B_other": "0.3500"
+      },
+      "log": "1.3863",
+      "log_floor": "0.0282",
+      "log_multiple": "49.2102",
+      "pp": "1.0500",
+      "pp_floor": "0.0100",
+      "pp_multiple": "105.0000"
+     },
+     "verdict": true,
+     "why": "both clear their floor, same sign"
+    }
+   },
+   "statement": "the 2 x 2 square (class x position) of the written values (a reference rate at A, a ceiling at B), in percentage points and in logs, against the publication grid of the rates"
+  },
+  {
+   "by_position": {
+    "one/A": {
+     "classes_present": [
+      "fmi",
+      "other"
+     ],
+     "distinct_values": [
+      "0.35",
+      "1.50"
+     ],
+     "entries": [
+      "A_fmi",
+      "A_other"
+     ],
+     "members": {
+      "fmi": "0.35",
+      "other": "1.50"
+     },
+     "missing": [],
+     "n_values": 2,
+     "separately_written": 2,
+     "unwritten_classes": [
+      "banks (interbank demand deposits between banks)"
+     ]
+    },
+    "one/B": {
+     "classes_present": [
+      "fmi",
+      "other"
+     ],
+     "distinct_values": [
+      "0.35"
+     ],
+     "entries": [
+      "B_all"
+     ],
+     "members": {
+      "fmi": "0.35",
+      "other": "0.35"
+     },
+     "missing": [],
+     "n_values": 1,
+     "separately_written": 1,
+     "unwritten_classes": [
+      "banks (interbank time deposits between banks)"
+     ]
+    },
+    "two/A": {
+     "classes_present": [
+      "fmi",
+      "other"
+     ],
+     "distinct_values": [
+      "0.35",
+      "1.40"
+     ],
+     "entries": [
+      "A_fmi",
+      "A_other"
+     ],
+     "members": {
+      "fmi": "0.35",
+      "other": "1.40"
+     },
+     "missing": [],
+     "n_values": 2,
+     "separately_written": 2,
+     "unwritten_classes": [
+      "banks (interbank demand deposits between banks)"
+     ]
+    },
+    "two/B": {
+     "classes_present": [
+      "fmi",
+      "other"
+     ],
+     "distinct_values": [
+      "0.35"
+     ],
+     "entries": [
+      "B_all"
+     ],
+     "members": {
+      "fmi": "0.35",
+      "other": "0.35"
+     },
+     "missing": [],
+     "n_values": 1,
+     "separately_written": 1,
+     "unwritten_classes": [
+      "banks (interbank time deposits between banks)"
+     ]
+    }
+   },
+   "detail": "one/A: 2 values for 2 separately written classes ['A_fmi', 'A_other'], not written for ['banks (interbank demand deposits between banks)']; one/B: 1 values for 1 separately written classes ['B_all'], not written for ['banks (interbank time deposits between banks)']; two/A: 2 values for 2 separately written classes ['A_fmi', 'A_other'], not written for ['banks (interbank demand deposits between banks)']; two/B: 1 values for 1 separately written classes ['B_all'], not written for ['banks (interbank time deposits between banks)']",
+   "grid_note": "position B (early withdrawal): one class named, one value written; a scalar field also answers one value there, both answers agree and the counting law predicts exactly one",
+   "kind": "own_reading",
+   "mapping": {
+    "a cell without a value or without a verified sentence": "None (no verdict)",
+    "a position with no classes": "None (no verdict)",
+    "at every position distinct values equal separately written classes": "PASS",
+    "at some position they differ": "FAIL"
+   },
+   "name": "B151-5",
+   "passed": true,
+   "statement": "at each position the number of distinct values equals the number of classes written separately"
+  },
+  {
+   "detail": "waiting for the event: no text as of 2026-10-14; checks [{\"date\": \"2026-10-14\", \"looked_at\": \"central bank monetary policy reports 2026Q1 and 2026Q2 (full text), the report list page (2026Q3 not yet listed), press search\", \"found\": \"reports only; 2026-05 press says 'expected in the third quarter', cap 'same-tenor Shibor + 10 bp'; no text of the step itself\"}]",
+   "kind": "own_reading",
+   "mapping": {
+    "no text after the lapse date": "None (announced, not landed)",
+    "no text, reading date on or before the lapse date": "None (waiting for the event)",
+    "second-step text read and a cell fails the sentence checks": "None (no verdict)",
+    "second-step text read, its cells pass the sentence checks, positions recomputed": "verdict of the recomputed B151-5"
+   },
+   "name": "B151-6",
+   "passed": null,
+   "positions": 2,
+   "recomputed": false,
+   "statement": "when the second-step text is out, read it and recompute positions and counts"
+  }
+ ],
+ "latest_statement": [
+  {
+   "agrees": true,
+   "file": "pbc_omo_trade_2026_198.html",
+   "level": "official",
+   "published": "2026-10-14",
+   "rate": "rr7",
+   "read": "1.40"
+  },
+  {
+   "agrees": true,
+   "file": "pbc_mpr_2026q1.pdf",
+   "level": "official",
+   "published": "2026-05-11",
+   "rate": "rr7",
+   "read": "1.40"
+  },
+  {
+   "agrees": true,
+   "file": "sina_20260507.html",
+   "level": "other",
+   "published": "2026-05-07",
+   "rate": "ioer",
+   "read": "0.35"
+  }
+ ],
+ "quotes": {
+  "A_fmi": "金融基础设施机构的同业活期存款主要体现支付结算属性，应参考超额存款准备金利率合理确定利率水平",
+  "A_other": "除金融基础设施机构外的其他非银同业活期存款应参考公开市场7天期逆回购操作利率合理确定利率水平，充分体现政策利率传导",
+  "B_all": "若银行与非银金融机构（含非法人产品）约定同业定期存款可提前支取，提前支取利率原则上不应高于超额存款准备金利率"
+ },
+ "rates_read": [
+  {
+   "agrees": true,
+   "file": "pbc_ioer_20200403.html",
+   "rate": "ioer",
+   "read_effective": "2020-04-07",
+   "read_value": "0.35",
+   "table_effective": "2020-04-07",
+   "table_value": "0.35"
+  },
+  {
+   "agrees": true,
+   "file": "pbc_omo_notice_2024_5.html",
+   "rate": "rr7",
+   "read_effective": "2024-09-27",
+   "read_value": "1.50",
+   "table_effective": "2024-09-27",
+   "table_value": "1.50"
+  },
+  {
+   "agrees": true,
+   "file": "pbc_omo_notice_2025_1.html",
+   "rate": "rr7",
+   "read_effective": "2025-05-08",
+   "read_value": "1.40",
+   "table_effective": "2025-05-08",
+   "table_value": "1.40"
+  }
+ ],
+ "second_step": {
+  "checks": [
+   {
+    "date": "2026-10-14",
+    "found": "reports only; 2026-05 press says 'expected in the third quarter', cap 'same-tenor Shibor + 10 bp'; no text of the step itself",
+    "looked_at": "central bank monetary policy reports 2026Q1 and 2026Q2 (full text), the report list page (2026Q3 not yet listed), press search"
+   }
+  ],
+  "text": null
+ },
+ "selftest": {
+  "1: 1.40 written as 1.50 fails one": true,
+  "1: a cut date that the notice does not print fails one": true,
+  "1: a notice removed fails one": true,
+  "1: a reading-date operation at another rate fails one": true,
+  "1: a segment cut that is not the notice's date fails one": true,
+  "1: segment one's 1.50 written as 1.70 fails one": true,
+  "2: a cell without modal wording fails two": true,
+  "2: a snapshot path not on disk fails two": true,
+  "2: both early-withdrawal cells taken from the 7-day rate fails two": true,
+  "2: central bank release missing fails two": true,
+  "2: modal wording not in the sentence fails two": true,
+  "2: the two anchors at position A swapped fails two": true,
+  "3: a cell whose sentence is on no page leaves three without a verdict": true,
+  "3: a cell without a value leaves three without a verdict": true,
+  "3: infrastructure cell pointed at the 7-day rate fails three": true,
+  "3: two values under one named class at position A fails three": true,
+  "4/5: the early-withdrawal sentence gone from every page leaves four and five without a verdict": true,
+  "4: a square inside the floor leaves four without a verdict": true,
+  "4: infrastructure at B = 0.0875: log square zero, pp not, no verdict": true,
+  "4: log square inside its floor while pp clears, same sign: no verdict": true,
+  "4: other non-bank at B on the 7-day rate: both squares zero, no verdict": true,
+  "5: a cell at B whose sentence is on no page leaves five without a verdict": true,
+  "5: a cell at B without a value leaves five and four without a verdict": true,
+  "5: other non-bank at B moved to 1.40 under one entry fails five": true,
+  "5: position B with no classes leaves five without a verdict": true,
+  "6: a second step whose recount fails is a FAIL": true,
+  "6: a second step whose sentences are on no page leaves six without a verdict": true,
+  "6: a second-step cell without a source level leaves six without a verdict": true,
+  "6: a second-step table is read and the count recomputed with one more position": true,
+  "6: empty text leaves six without a verdict": true,
+  "6: past the lapse date reads 'announced, not landed'": true,
+  "baseline: one to five pass, six waits": true,
+  "snapshots: a changed byte is refused": true,
+  "snapshots: sentences gone from every page leave three without a verdict": true
+ },
+ "snapshots": [
+  {
+   "d47_level": "其他",
+   "file": "thepaper_20241204.html",
+   "published": "2024-12-04",
+   "publisher": "澎湃新闻（记者陈月石）",
+   "read_on": "2026-10-14",
+   "sha256": "bf954cc34e2131baafbf7f5a4d0866989ef308c536e60c7c3f45e25b0fd007a7",
+   "url": "https://m.thepaper.cn/newsDetail_forward_29542123"
+  },
+  {
+   "d47_level": "其他",
+   "file": "sina_21cbh_20241129.html",
+   "published": "2024-11-29",
+   "publisher": "21世纪经济报道（记者唐婧），新浪财经转载",
+   "read_on": "2026-10-14",
+   "sha256": "602607a290b46f20dee39d2268ab7519d9f2f5593447ae9e88eed87c59b155ad",
+   "url": "https://finance.sina.com.cn/money/bank/bank_hydt/2024-11-29/doc-incxtzmi1710625.shtml"
+  },
+  {
+   "d47_level": "其他",
+   "file": "cnfin_xinhua_bank_bulletin_20241209.pdf",
+   "published": "2024-12-09",
+   "publisher": "新华社中国经济信息社《新华银行行长专刊》2024 年第 48 期",
+   "read_on": "2026-10-14",
+   "sha256": "b6e01d9167ea6d9a508496f407578eb5a3d62854ec501068ce9780b6b03f4550",
+   "url": "https://f1.cnfin.com/icmp-web-static-data/resources/third-upgrade/upload/2024/12/09/20241209247009699/727b4d1fa8f74510aacee96bf70fcedd.pdf"
+  },
+  {
+   "d47_level": "其他",
+   "file": "chinadaily_20241130.html",
+   "published": "2024-11-30",
+   "publisher": "中国日报网（新华社稿）",
+   "read_on": "2026-10-14",
+   "sha256": "158fd3647abc9184b4a981664df7ce3ab966d292ea50e56cc5061378c0ddaf18",
+   "url": "https://cn.chinadaily.com.cn/a/202411/30/WS674ad0eda310b59111da6613.html"
+  },
+  {
+   "d47_level": "其他",
+   "file": "yicai_20241202.html",
+   "published": "2024-12-02",
+   "publisher": "第一财经",
+   "read_on": "2026-10-14",
+   "sha256": "a3d11f302b99dd255d054965894bd0f334553afdfa88de448c4600263ff29a82",
+   "url": "https://www.yicai.com/news/102383166.html"
+  },
+  {
+   "d47_level": "其他",
+   "file": "sina_20260507.html",
+   "published": "2026-05-07",
+   "publisher": "新浪财经",
+   "read_on": "2026-10-14",
+   "sha256": "a2807c3a2e0a7c36afd045a45be3f94c338b6eba11a1a0480388cd229aaa4f4f",
+   "url": "https://finance.sina.com.cn/jjxw/2026-05-07/doc-inhxatfc4986176.shtml"
+  },
+  {
+   "d47_level": "其他",
+   "file": "cnstock_20260509.html",
+   "published": "2026-05-09",
+   "publisher": "上海证券报（记者张欣然）",
+   "read_on": "2026-10-14",
+   "sha256": "c1561d1ebf5d44a8a38e7207c056d158e3fa872a67ee85d6ec58e0aa8882c07e",
+   "url": "https://paper.cnstock.com/html/2026-05/09/content_2214782.htm"
+  },
+  {
+   "d47_level": "官方",
+   "file": "govcn_xinhua_20241130.html",
+   "published": "2024-11-30",
+   "publisher": "中国政府网转新华社",
+   "read_on": "2026-10-14",
+   "sha256": "68e972ae68653a5f66f31e76762d6d7d1307c77b45af7cc31db7c032ea5e1caf",
+   "url": "https://www.gov.cn/lianbo/bumen/202411/content_6990255.htm"
+  },
+  {
+   "d47_level": "官方",
+   "file": "govcn_xinhua_interp_20241130.html",
+   "published": "2024-11-30",
+   "publisher": "中国政府网转新华社",
+   "read_on": "2026-10-14",
+   "sha256": "8dce59888358bf139e884be1daeaba3e3cec59928cff9658d38acabbb2c7e0b7",
+   "url": "https://www.gov.cn/zhengce/202411/content_6990334.htm"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_meeting_20241129.html",
+   "published": "2024-11-29",
+   "publisher": "中国人民银行",
+   "read_on": "2026-10-14",
+   "sha256": "40c3a1863d541cf3173da2d7c96dcec3acfa5e4a5081d6c03b61c22eda8b187f",
+   "url": "https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/2025092212554390357/index.html"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_omo_notice_2024_5.html",
+   "published": "2024-09-27",
+   "publisher": "中国人民银行公开市场业务操作室",
+   "read_on": "2026-10-14",
+   "sha256": "2d0b27f9367a9aba3effded19d97e0a2635236c0e9b3e91640a3205767787402",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125431/125469/5468922/index.html"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_omo_notice_2025_1.html",
+   "published": "2025-05-07",
+   "publisher": "中国人民银行公开市场业务操作室",
+   "read_on": "2026-10-14",
+   "sha256": "e1a3fd908f0a761e4a73c091ab9ad3f8dbba4c0c3a0e9ee0449b1e56ba86c0f2",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125431/125469/5699842/index.html"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_omo_trade_2026_198.html",
+   "published": "2026-10-14",
+   "publisher": "中国人民银行公开市场业务操作室",
+   "read_on": "2026-10-14",
+   "sha256": "63a37b674d33b6fd7d18b3d3879abee1725273bd461ac78961691cd1c72d173f",
+   "url": "http://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125431/125475/2026101408462382153/index.html"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_ioer_20200403.html",
+   "published": "2020-04-03",
+   "publisher": "中国人民银行",
+   "read_on": "2026-10-14",
+   "sha256": "9e05c31b46bf9fbb738d3edf086b768ffb1d3c00e5cd9978ca2590d7980f7f40",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125213/125434/125798/b97818c9c9644078a3daba8aee0aec92/index.html"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_mpr_2024q4.pdf",
+   "published": "2025-02-13",
+   "publisher": "中国人民银行货币政策分析小组",
+   "read_on": "2026-10-14",
+   "sha256": "1a642956b21b758c04ae002a2eda12e12d64a4c00ff7a2e39201e75e9ba73ea3",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/5347949/ad0bc3efe0234fed8cc6260a134a6e95/2025022618190099812.pdf"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_mpr_2025q1.pdf",
+   "published": "2025-05-09",
+   "publisher": "中国人民银行货币政策分析小组",
+   "read_on": "2026-10-14",
+   "sha256": "ca0d0af85241dbde98f21bc9442120fe2c4bd944999555ac27668c4277d26408",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/f5c4690f2cbd40918bf24c2d39ac58af/2025091218344076234/2025081517321679368.pdf"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_mpr_2026q1.pdf",
+   "published": "2026-05-11",
+   "publisher": "中国人民银行货币政策分析小组",
+   "read_on": "2026-10-14",
+   "sha256": "4bf30078e68f4b53edec63df5446b9449ea16c1a1a6f394b89a24ce62b486e13",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/2026nhbzczxbg/2026052015172981527/2026052015172957468.pdf"
+  },
+  {
+   "d47_level": "官方",
+   "file": "pbc_mpr_2026q2.pdf",
+   "published": "2026-08-12",
+   "publisher": "中国人民银行货币政策分析小组",
+   "read_on": "2026-10-14",
+   "sha256": "82c3f62136439902d9d8c464748afd9913503e53487257b61e1b31cc3d1e8ad9",
+   "url": "https://www.pbc.gov.cn/zhengcehuobisi/125207/125227/125957/2026nhbzczxbg/2026081218435062865/2026081218435024793.pdf"
+  }
+ ],
+ "snapshots_unverified": [],
+ "stage": "B151",
+ "values": {
+  "one/A/fmi": "0.3500",
+  "one/A/other": "1.5000",
+  "one/B/fmi": "0.3500",
+  "one/B/other": "0.3500",
+  "two/A/fmi": "0.3500",
+  "two/A/other": "1.4000",
+  "two/B/fmi": "0.3500",
+  "two/B/other": "0.3500"
+ }
+}

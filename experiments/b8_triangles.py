@@ -140,10 +140,10 @@ def triangles(c: K.Core) -> dict:
     period = c.row["period"].astype(np.int32)
 
     # `d is not None` in the audit is "the field is a digit string". Two-digit
-    # strings land on 0-98 here; 253 is the length-mismatch code and is exactly
+    # strings land on 0-99 here; 253 is the length-mismatch code and is exactly
     # the population where the two implementations can disagree.
     n_odd = int((dv == 253).sum())
-    known = dv <= 98
+    known = dv <= K.DELINQ_KNOWN_MAX
     is_cur = known & (dv == 0)
     is_del = known & (dv != 0)
     is_mod = mf == K._Y

@@ -198,7 +198,7 @@ the thing that moved.
 |---|---|---|
 | A3-3, drift 0.583 | Constancy was not grouped by **tier**, so the entire drift is tier changes. | A3-3 漂移 0.583：常数性没按**档位**分组，漂移全是换档 |
 | A3-5, sign reversed | `open_tiers` changes the **threshold** and the **bidding pool** at once, so what was measured is the price response and not access. | A3-5 符号相反：`open_tiers` 同时改**门槛**和**竞标池**，量到的是价格反应不是准入 |
-| A6-9's curve, top end | The curve sweeps `λ` at a **fixed** `R`. A6-21 then measured `R* = λ`, so the levy's strength relative to each cell's own critical rate was sweeping in the **opposite** direction: `R = 0.005` is five times critical at `λ = 1e-3` and one twentieth of it at `λ = 0.1`. The two cells that closed at high `λ` were read as *too much absorption* and were *too small a tax*. Scaled to `R = λ`, the band is the whole scanned decade and more absorption is monotonically better. | A6-9 曲线的上端：曲线在**固定** `R` 下扫 `λ`，而 A6-21 后来量出 `R* = λ`，所以税相对于每格自身临界率的强度是**反向**在扫的：`R = 0.005` 在 `λ = 1e-3` 是临界的五倍，在 `λ = 0.1` 是二十分之一。高 `λ` 关闭的那两格被读成*吸收太多*，实际是*税太小*。按 `R = λ` 缩放之后，带是整个扫描数量级，而且吸收越高越好 |
+| A6-9's curve, top end | The curve sweeps `λ` at a **fixed** `R`. A6-21 then measured `R* = λ` on the same layer base for `λ` from `1e-3` to `1e-2`, so the levy's strength relative to each cell's own critical rate was sweeping in the **opposite** direction: `R = 0.005` is five times critical at `λ = 1e-3` and, carrying `R* = λ` past the measured decade, one twentieth of it at `λ = 0.1`. The two cells that closed at high `λ` were read as *too much absorption* and were *too small a tax*. Scaled to `R = λ` on the corrected instrument (threshold levy and rebate, where the critical rate itself was not measured), the band is the whole scanned range, two decades, and more absorption is monotonically better. | A6-9 曲线的上端：曲线在**固定** `R` 下扫 `λ`，而 A6-21 后来在同一 layer 税基上、`λ` 从 `1e-3` 到 `1e-2` 量出 `R* = λ`，所以税相对于每格自身临界率的强度是**反向**在扫的：`R = 0.005` 在 `λ = 1e-3` 是临界的五倍，把 `R* = λ` 延到量过的那一个数量级之外，在 `λ = 0.1` 是二十分之一。高 `λ` 关闭的那两格被读成*吸收太多*，实际是*税太小*。按 `R = λ` 缩放（在更正后的仪器上跑，门槛征收配门槛返还，那上面的临界率本身没量）之后，带是整个扫描范围，两个数量级，而且吸收越高越好 |
 
 **Rule**: **move one thing at a time; where moving one is impossible, decompose
 the compound operation and report the parts separately.** If a switch
@@ -234,7 +234,7 @@ the treatment changes that outcome.
 | A5-1/A5-2, 0% across the whole grid | Participation measured at the end of the period measures **survival** and not entry. | A5-1/A5-2，全网格 0%：期末测参与率，量的是**存活**不是进场 |
 | Rent sweep v1 | The set of "never-holders" moves with the rent rate. | 租金扫描 v1：「从不持有者」这个集合随租金率改变 |
 | Rent sweep v2 | Pinning the population to the `rent=0` set still fails: some of them **acquire units at other rates and are therefore on the receiving side of the rent**. | 租金扫描 v2：把人群固定到 `rent=0` 那批仍不行——其中一些在别的费率下**买到了单位，于是是收租方** |
-| **A3-8's paired population** (2026-08-13) | The set is `cycles > 0` in **every** cell, which is an outcome. What it leaves is the top eighth of the production layer by centrality, band `[86.8, 100]` over twenty seeds, and `gate_spread` disperses terms **along** centrality. The peripheral tercile trades zero times in every cell **including the null**, so the gate is not what removed it. **The inertness that was inferred from this in 2026-08-13, that the gate reads zero because its treatment barely varies here, was measured in 2026-08-27 and is false**: the gate moves 19.4 nodes' cycle counts against the other channel's 16.8 and 74.0 total absolute cycle change against 85.6, **86 per cent of it**. The selection-on-an-outcome defect stands; **the inference from a narrow band to an inert treatment does not**. Failure mode 78. | `a3_asset_channel.md` §5.3, `experiments/a3d_gate_margin.py` |
+| **A3-8's paired population** (2026-08-13) | The set is `cycles > 0` in **every** cell, which is an outcome. What it leaves is the twenty financial-layer nodes at every seed plus the top eighth of the production layer by centrality, whose production members sit in band `[86.8, 100]` over twenty seeds, and `gate_spread` disperses terms **along** centrality. The peripheral tercile trades zero times in every cell **including the null**, so the gate is not what removed it. **The inertness that was inferred from this in 2026-08-13, that the gate reads zero because its treatment barely varies here, was measured in 2026-08-27 and is false**: the gate moves 19.4 nodes' cycle counts against the other channel's 16.8 and 74.0 total absolute cycle change against 85.6, **86 per cent of it**. The selection-on-an-outcome defect stands; **the inference from a narrow band to an inert treatment does not**. Failure mode 78. | `a3_asset_channel.md` §5.3, `experiments/a3d_gate_margin.py` |
 
 **Rule**: **the population has to be defined by the state before treatment, or
 matched by node.** Matching is the strongest form: the same node is compared
@@ -308,7 +308,7 @@ nothing, or it looks like a result.
 | **vacuous** | B4-4's criterion had a side that never occurred in the sample. B6's XLSX-against-API agreement looked like a zero calibration and tests only the delivery path: two routes to one record say nothing about the collection |
 | **domain set by the sample it was written on** | B6's plausibility band was `(1, 1e6)`, written when the stage held two currencies, and rejected two of the eleven added later. Its provisional-row rule required a forward fill, true of six files downloaded in one minute and false of the next thirty-three. Its coverage check asserted every currency starts on the window's first day, and one joined twelve days late |
 | **message conflates two states** | B6's export loader reported "the directory is empty" when the directory held six files whose names it did not accept |
-| **computed on a different population from the thing it guards** | A6's noise floor ran on 2012–2025 while the signal ran on 2000–2025 |
+| **computed on a different population from the thing it guards** | B3's noise floor ran on 2012–2025 while the signal ran on 2000–2025 |
 
 **Rule**: **write down what the guard would say if the thing it guards were
 broken, and what it would say if the guard itself were broken, and check that
@@ -361,10 +361,10 @@ whenever a layer index is in scope and a quantity needs a population.
 | Instance（实例） | What went wrong（错在哪） | 处置 |
 |---|---|---|
 | A6 的税基 | The levy fell on `_l1_idx`, twenty node indices fixed at construction, not on whoever held most. No real net wealth tax uses fixed membership. | 加 `LevySpec` 开关，默认仍是层制所以既有结果逐位不动，另一支按门槛累进 |
-| A6 的返还端 | `holdings[_l2_idx] += total / _l2_idx.size`. **The correction above was applied to one side of the instrument only.** Under the threshold base the payers are recomputed from measured holdings every round while the recipients are still the fixed set, so at steady state 56 of the 180 recipients are also payers and 4 financial-layer nodes below the threshold pay nothing and receive nothing. | **未处置**，见下 |
+| A6 的返还端 | `holdings[_l2_idx] += total / _l2_idx.size`. **The correction above was applied to one side of the instrument only.** Under the threshold base the payers are recomputed from measured holdings every round while the recipients are still the fixed set, so at steady state 56 of the 180 recipients are also payers and 4 financial-layer nodes below the threshold pay nothing and receive nothing. **Restated 2026-10-26:** at the cell A6-20 runs (stratified graph, stratified retention, `λ = 1e-3`, `R = 0.005`, 20,000 rounds) seed zero ends with 55 nodes on both sides and averages 54.4 over its rounds (computed in memory); the record carries the worst round over five seeds, 61 (`results/a6_ratchet.json`, `rebate_sides`). The 56 and the 4 are seed zero after its final round: 56 production-layer nodes above the threshold once that round's levy and rebate have moved, and 4 financial-layer nodes below it. | 已处置（2026-08-13，`RebateSpec`，`a6_siphon_cost.md` §18，判据 A6-20） |
 | A3-6 与 §12.6 的两点画面 | Every holder is a financial-layer node and no production-layer node holds, so "holder against non-holder" is also "layer 1 against layer 2". | `a3_asset_channel.md` §6.4b：诊断跑完，形状归因不成立 |
 | A3 的租金负债 | `renters = (held <= 0) & _is_production`. Liability keyed on the layer index, receipts keyed on holding. A financial-layer node holding nothing pays no rent; a production-layer node holding nothing pays every round. | 同上，已记未改 |
-| A3 的开盘价款与残量 | `_prior_owner_weights` routes both to `~_is_production`, weighted by opening claims. | 同上；docstring 里有辩护，形状仍是这一类 |
+| A3b 等构造的开盘价款与残量 | `_prior_owner_weights` routes both to `~_is_production`, weighted by opening claims. It runs only under `proceeds = "seller"` or `residual_owner = True` (A3b, A3 P-C in `a3c_load_bearing.py`, A4a, and the A47 carrier that keeps the residual); the registered A3 runs and the retention profile in `a3_asset_channel.md` §6.4b run `"equal"` and `False` and never reach it. | 已记未改；docstring 里有辩护，走到它的那些构造里形状仍是这一类 |
 
 **Rule**: **tell position apart from quantity.** Layer as position, meaning who
 has which edges, is the framework's own object and does not move: a household
@@ -407,14 +407,15 @@ named `layer2_holdings` is the holdings of a fixed set of addresses, and
 `effective_support_l2` is reach into that set, neither of which is "the
 households'" if a member of the set has since become rich. The 9 mechanism sites
 are the four instruments in the table above, and only the A6 rebate is
-uncorrected.
+uncorrected. The A6 rebate was corrected the same day (`RebateSpec`,
+`a6_siphon_cost.md` §18; noted 2026-10-26).
 
 （**2026-08-13 的普查。** `src/monetary_topology/` 里每一行读层籍下标或固定节点集的地方
 都被枚举并分类：**73 处，45 处位置，19 处测量，9 处机制。** 那 45 处是图的接线、spec 的
 下标访问器、消费倾向与开盘分配，全都在定义位置，是框架自己的对象。那 19 处是在固定下标
 集上报一条序列，算术没问题但附带一个读法风险：叫 `layer2_holdings` 的序列是一组固定地址
 的持有量，`effective_support_l2` 是对那一组地址的触达，如果集合里有成员后来变富了，两者
-都不叫「家户的」。那 9 处机制就是上表的四个工具，其中只有 A6 的返还端还没处置。）
+都不叫「家户的」。那 9 处机制就是上表的四个工具，其中只有 A6 的返还端还没处置。A6 的返还端同日已由 `RebateSpec` 处置，见 `a6_siphon_cost.md` §18（2026-10-26 补记）。）
 
 ---
 
@@ -1189,7 +1190,7 @@ The scope marker is checkable without any external document: `experiments/*.py` 
 **一份过期的缓存比没有缓存坏。** 本仓库的坑表大半是「曾经为真、后来还在被读」，
 所以一个只按档名做键的缓存是制造这类缺陷的机器。
 
-键是**产出这些数字的全部函数源码的哈希**，加上曲线规则与核心表 schema。
+键是**产出这些数字的模块源码的哈希**，加上曲线规则名、`MAX_H` 与核心表 schema 版本。进哈希的是九个整模块的源码文本：`b8_core`、`b8_omega`、`b8_loops`、`b8_loop_omega`、`b8_0a_gate`、`b8_cache` 自己，以及 2026-10-27 补进清单的三个：`b8_triangles`（`find_loops` 经它找上一个 current 月，`window` 字段按它的窗口表分档）、`b8_cmt_fetch` 与 `b8_cmt_sensitivity`（曲线表）。在那之前改这三个，标签不动。档案本身的内容不进标签。补清单之后按新标签重建六档缓存，234 个数组逐元素与旧缓存相同，元数据除标签外相同；`b8_cache.py` 抬头那段说明同日改成照实列出这些（原来只列前四个模块，并把档案 manifest 算进了键）。
 改动其中任何一个，标签就变，缓存重建，**没有人需要记得去失效它**。
 标签存在数据旁边、加载时核对；过期或缺失时 `load` 抛错，绝不返回旧数。
 
@@ -1881,8 +1882,11 @@ A12 的打印表与 A12-7 都是为这条加的。**一条从来不触发的臂�
 
 **买来的**：2026-08-23 到 08-24，A2 的自主边网格搬去别的载体尺寸。
 
-`financial_to_intermediate_edges` 是**边数**。A0b 注册的预言是**份额**：
-中间块开局流入里，来自上层的那一份。**两者不是一回事，而它们长得像一回事**，
+`financial_to_intermediate_edges` 是**边数**，它代表的量是**份额**：
+中间块开局流入里，来自上层的那一份。A0b 原来的对象是两层工资规则里的自主项 `W0(1−e)`，
+即工资里不随生产层支出变动的那一份（单位弹性以上由合同性的工资下限担任）；
+三层图没有工资弹性也没有下限，拿这个份额作它的对应物，
+因为两者都是付工资一方的资金里不依赖它所付工资那批住户的部分。**两者不是一回事，而它们长得像一回事**，
 因为在一个固定的载体上，份额是边数的单调函数，于是网格点的顺序、疏密、
 两端的位置全部对得上，**唯独换了载体之后对不上**。
 
@@ -2101,6 +2105,10 @@ A7 的 shortcut 按一个概率对**每一个有序对**独立抽。听起来是
 | **向下（金融→生产）** | 9.05% | **21** |
 | 金融层内部 | **0.95%** | **2** |
 
+**2026-10-26 重述。** 上表最后一列是 `seed = 0` 那一张图。二十个种子上注册臂在
+`s = 0.01` 加 `337` 到 `436` 条（均值 `383.85`）：生产层内部 `278` 到 `350`，向上
+`20` 到 `45`，向下 `21` 到 `47`（均值 `35.0`），金融层内部 `0` 到 `5`。
+
 **问题在第三行。** `NetworkSpec.downward_edges` 默认是 0，
 **它自己的 docstring 写着「Zero is the framework's own specification」**。
 而 `s = 0.01` 那一格加了 21 条向下的边。
@@ -2179,6 +2187,7 @@ A7 的 shortcut 按一个概率对**每一个有序对**独立抽。听起来是
 在两个载体上各跑一次。读出 σ 张成 `0.006645 → 0.015829`，倍率 `23.5 → 9.7`。
 
 **整张网格跑出来是 `0.006645 → 0.031873`，倍率 `23.5 → 4.83`。**
+（两组数都读在末行 claim 上：资产载体上那一行写在当轮资产结算之前，不含持有资产的市值。同一张网格在净财富上是 σ 张成 `0.129474`、倍率 `2.36`，结构大于 σ 照旧，A2d 资产记录三个口径并排。）
 **低估了一倍。**
 
 ### 为什么
@@ -2742,8 +2751,9 @@ A16 在同一个载体上加了一条轴之后，**同一个形状出现了 21 �
 
 ### 处置
 
-**这条臂不撤，改口径。** 它测的是**「先切工资通道的边」这一个有名字的干预**，
-读数对那个干预成立。**它不是文献那个泛指的「定向打枢纽」**，
+**这条臂不撤，改口径。** 它测的是**「三十个工资支付方的自主支出出口先被切掉、工资照付」这一个有名字的干预**，
+读数对那个干预成立。工资按固定名册转钱、不读邻接，share 0.7 上全程工资的 73%–75% 走在已被切掉的关系上，
+所以这一刀切掉的是支出出口，不是工资（2026-10-14 按独立审核核正）。**它不是文献那个泛指的「定向打枢纽」**，
 而那个泛指版本在这个载体上做不出来，因为这里的度不是自由抽的。
 **改的是这条臂在说什么，不是它跑了什么。**
 
@@ -2969,7 +2979,7 @@ A18 记 `resupply_asked` 与 `funded_share` 两个字段。
 
 **不要报「最差那一个字段」这一个数**：它会被最接近零的那个字段占据
 （此处是 `frozen_close`，深生存线上读 `0.30`，相对变动 42%，
-那是两个小数之比不是读数）。A17-8 撞过同一个形状并且拒绝了同一类数字。
+那是两个小数之比不是读数）。A17-8 的 support 不属这一类：有效支撑对同倍缩放不变，流量薄不会把它变成两个小数之比。
 
 ### 一条正面的：按量级写的结论扛住了
 
@@ -3200,7 +3210,7 @@ A18 记 `resupply_asked` 与 `funded_share` 两个字段。
 （「这个跌幅里有多少是退出、多少是累积，尚未分离」）。
 
 A11 的 registered arm 用 `exit`：跌破生存线的节点冻在图里，
-**不再交易，但手里的 claim 原样留着**。收盘 Gini 算在全部 200 个节点上，
+**不再交易，但手里的 claim 原样留着，并且照样领工资**。收盘 Gini 算在全部 200 个节点上，
 底线 0.5 时读 **0.9367 → 0.7139**，一个 0.22 的「改善」。
 
 A12 早就有第二条规矩 `drawdown`：节点留在图里，花 `min(need, holdings)`，
@@ -3211,11 +3221,16 @@ A12 早就有第二条规矩 `drawdown`：节点留在图里，花 `min(need, ho
 | 分层 | 0.5 | `exit` | **−0.2229 ± 0.0023**，5/5 负 | 39.7% | 182.4 |
 | 分层 | 0.5 | `drawdown` | **+0.00024 ± 0.00001**，5/5 正 | 0.21% | 172.0 |
 | 完全 | 1.0 | `exit` | **+0.9822 ± 0.0003** | 100% | 200 |
-| 完全 | 1.0 | `drawdown` | **−0.0027 ± 0.0002** | 0% | 0 |
+| 完全 | 1.0 | `drawdown` | **−0.0027 ± 0.0002** | 0% | 收盘 0；300 轮里 150 轮是 200 个 |
 
-**饿死的人数两条规矩差不多**（182 对 172），**两条规矩在谁走这件事上一致**，
-**分歧全在走的时候手上那笔 claim 去了哪。** `drawdown` 下它被花掉，冻结份额剩千分之二，
-**Gini 一动不动**。所以：**跌幅里退出贡献 0，冻结贡献全部。**
+表里末两栏在 `exit` 下数的是已离场的节点与它们持有的份额；`drawdown` 下没有人离场，
+200 个都在图里照常交易，数的是收盘那一轮在线下的节点与它们持有的份额。
+
+**两条规矩把同一批节点放到线下**：`drawdown` 收盘在线下的 172 个全在 `exit` 离场的 182 个里面。
+`drawdown` 下线下那群人的份额剩千分之二，**Gini 一动不动**。所以：**跌幅里退出贡献 0，冻结贡献全部。**
+这句话现在有两个不必跨规矩的量法：
+在注册那次跑自己的收盘向量里，把每个离场节点的持有退回它离场那一轮的值，ΔGini 剩 **−0.0003**；
+同一条 `exit` 规矩只把离场节点的工资切掉，退出照旧发生（156 个离场），ΔGini 剩 **−0.0002**。
 
 **而 `exit` 那个数的符号由图决定，不由机制决定。**
 同一个开关同一个深度，分层图读 **−0.22**，完全图读 **+0.98** ——
@@ -3232,8 +3247,11 @@ A12 早就有第二条规矩 `drawdown`：节点留在图里，花 `min(need, ho
 
 1. **印停摆那群人占多少**（本例 `frozen_share_close`）。
    接近零 → 成分那一份可以忽略；**上到四成 → 报出来的移动基本就是它。**
-2. **换一条只改「停摆之后 claim 怎么处理」的规矩，别的一个字不改，再读一次。**
+2. **只动「停摆之后还收不收钱」这一个开关，别的一个字不改，再读一次。**
    两条读数差三个数量级 → 原来那个数不是分布结论。
+3. **零次重跑的那一个**：在同一次跑的收盘向量里，把停摆之后才到账的那部分退回去再读一次。
+   本例 99.4% 的冻结存量是离场之后到的。换规矩（本例的 `drawdown`）也能读，
+   而它同时动了成员资格与发行，只能作旁证。
 
 ### 与既有条目的关系
 
@@ -3266,6 +3284,8 @@ A12 早就有第二条规矩 `drawdown`：节点留在图里，花 `min(need, ho
 的坍缩就是这个机制在跑。映射到的载体是 ETF 一级市场，
 而那里被当作对应物的门是 **Authorized Participant 资格，一纸合约，行情动它不动**。
 于是那次实跑量到的是**这个门不呼吸**，不是那个机制成不成立。
+
+**2026-10-20 重述。** A3 里随价格动的是开盘之后的转售可买性，`claims ≥ γ_pay · P_q(t)`，按当期价判，§6.4d 数的就是它；`γ^gate · P_q(0)` 只在开盘分配时读一次。A3 有一道随价格动的门、AP 资格没有，这个对照不变。
 
 **它危险的地方不在成本，在记账。** 那次跑产出一个方向明确的读数
 （零变动日占比在压力期下降，十一支里十支），落进注册的第三格。
@@ -3336,7 +3356,7 @@ A12 早就有第二条规矩 `drawdown`：节点留在图里，花 `min(need, ho
 
 于是汇总层带上去的是「对着测量底 `4.18e+06` 倍」，**而不是「一个预言精确零的对手
 在这里错了」**。前者读作「读得出来」，后者读作「推翻了什么」。
-**七个载体的核心读数因此被整批记成「与普通微观结构叙事重合」，
+**那一批载体的核心读数因此被整批记成「与普通微观结构叙事重合」，
 而那一族叙事根本不否认非零，它们解释非零的来源** ——
 那是承认了主张之后的次级争论，不是对同一个主张的反对。
 
@@ -4092,11 +4112,11 @@ Reg T 与 `FINRA Rule 4210` 的四个门槛全部公布。
 **A3g 付的账，2026-08-27。这一条把一个两年前登记的载体要求精确化了。**
 
 一条判据两年读不出来，诊断写的是**人群太窄**：被测集合是生产层中心性
-第 `87` 到 `100` 百分位的 `41.6` 个节点，**而处理变量正是沿中心性分散准入的**，
+第 `87` 到 `100` 百分位的约 `21.6` 个生产层节点，加上每个种子全部 `20` 个金融层节点，共 `41.6` 个节点，**而处理变量正是沿中心性分散准入的**，
 那么窄的带上它几乎不变，**所以必然读作零，而那个零不携带机制的信息。**
 当时留的载体要求是：**下一个 carrier 的人群不能是单层的八分之一。**
 
-**照做了，用现成的旋钮把人群从 `18.4` 拉到 `200.0`（生产层共 `180`）。结果是：**
+**照做了，用现成的旋钮把人群从 `18.4` 拉到 `200.0`（每个种子的配对人群，两层合计；`200.0` 是全部 200 个节点，其中生产层 `180`、金融层 `20`）。结果是：**
 
 ```
 stretch    2.0    3.0    5.0    6.0    8.0   12.0   20.0   40.0
@@ -4711,10 +4731,16 @@ bad = {n for n in dup if len({v["tier"] for v in home.values() if v["name"] == n
 梯度下富的那个留存更多，台阶下穷的那个更多。**这一对是唯一能分开两种形状的比较。**
 
 **实例**：逐节点冲击（5 种子 × 1000 节点 × horizon 40，每个节点一次完整跑）。
-两点统计逐臂复现，两组中位数差 **20 到 3,568 倍**。
-而边界对读成台阶只有 **11 / 25** 个种子-臂格，梯度 14 / 25，某一条臂 **0 / 5**；
+两点统计逐臂复现，两组中位数差 **20 到 3,483 倍**。
+而边界对读成台阶只有 **9 / 25** 个种子-臂格，梯度 14 / 25，另 2 格里最穷的持有者仍比每个
+非持有者富，这一对两头都读不出；某一条臂 **0 / 5**；
 **两类在财富序上连成一块只有 2 / 25 格** —— 它们是交错的，
 所以在这个人群上两种形状本来就分不干净。
+
+**2026-10-10 重述。** 上面两个数原写 3,568 与 11 / 25。前一个把落地当期没有偏离的 29 行
+按留存为零计进了非持有者中位数，后一个把两头都读不出的那 2 格算成了台阶。同一次重跑还把
+每个响应的方向留了下来：留存是偏离的大小，持有者在远期低于自己未受冲击路径的也算作留住。
+带方向读，台阶是 7 格，且不是那 9 格的子集。
 
 **后果比读错一个数大**：一个建立在那个形状上的外部核验站，
 **在被核验的那一侧就没有对象**。它不是「不可判定」（没跑过），
@@ -5611,8 +5637,10 @@ Swing 存在正是因为一侧持续逆差），**而那一条没有被建进构
 > **两条路走到同一个数，只有在两条路真的独立时才是证据。**
 
 **这一次真正的 outturn 在别处，而且不一样**：储蓄银行自报截至 1990-06-30
-按 1:1 换掉的占其存款 **0.3425**，而计划数是 **0.3913**；
-按其份额折算，**实际取用率约 0.875**，不是 1。
+按 1:1 换掉的占其换算的 1,460 亿储蓄存款 **0.3425**，而计划数占全部居民活期与储蓄存款 1,656 亿的 **0.3913**（两个分母同类，前者是后者里储蓄银行的那一块）；
+按存款份额分摊容量折算约 0.875；容量其实按人数与年龄档定，照储蓄银行经办的
+1,430 万申请人算，取用率在 **0.82 到 0.95** 之间。**两种算法都不是 1。**
+（2026-10-10 改：原句把前一个折算直接叫作实际取用率。）
 
 **判别式，两问，在把一个数当成观测之前：**
 
@@ -8437,7 +8465,7 @@ CSV 与 JSON 的数值序列化默认都去尾零，**于是一个印到两位�
 B8-0a   逾期后自愈的 current → delinquent → current 出入相消，反对称，必须精确回零
         真实贷款级数据，跑同一台估计量，不许在重复边上短路          PASS
 B8-0b   MAD(omega − closed) 实测 2.68e-08 到 5.22e-08
-        对着一个构造预言的 3.03e-08（半分钱除以中位余额）
+        对着一个构造预言的 3.04e-08 到 5.85e-08（半分钱除以各档中位余额，各档实测低 10% 到 15%）
         这就是「估计量对着一个独立算得出的真值」本身
 B3      发布方同时给同一个对象的两种构造，噪声底 N 由数据给
 B5-2    平凡方块 0.0e+00，取自其它每个数所来的同一个矩阵

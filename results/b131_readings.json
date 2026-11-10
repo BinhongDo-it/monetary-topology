@@ -69,19 +69,19 @@
    "passed": true
   },
   {
-   "detail": "euro area: household deposit FISIM 0.253 % of P3 in 2021, 2.185 % in 2023; the change is 1.056 % of 2023 GDP",
+   "detail": "euro area: household deposit FISIM 0.253 % of P3 in 2021, 2.185 % in 2023; the change is 1.056 % of 2023 GDP in size (no euro-area imports of FISIM are published). Whole-economy FISIM imports in 2023 against the change, 22 countries: DE 0.456; FR 0.011; NL 0.17; IT 0.04, median 0.123; both sides and every sector in one total, negative in HR, LT, so not a cap on the imported part",
    "kind": "own_reading",
    "name": "B131-6",
    "passed": true
   },
   {
-   "detail": "1380 euro-area member cells with every input: the sign of the DFR-based margin agrees with the sign of FISIM in 879, not in 501; 295 cells lack an input",
+   "detail": "1369 euro-area member cells with every input: the sign of the DFR-based margin agrees with the sign of FISIM in 877, not in 492; 306 cells lack an input",
    "kind": "instrument",
    "name": "B131-7",
    "passed": true
   },
   {
-   "detail": "188 member years with every input; band closed in 0; the office's four implied rates differ by a median 0.58 points (quartiles 0.37 to 1.17); the office's scalar lies outside the band in 96; of the 49 years with a negative cell: band closed 0, office scalar outside the band 49, office scalar inside the band 0",
+   "detail": "187 member years with every input; band closed in 0; the office's four implied rates differ by a median 0.58 points (quartiles 0.36 to 1.15); the office's scalar lies outside the band in 95; of the 49 years with a negative cell: band closed 0, office scalar outside the band 49, office scalar inside the band 0",
    "kind": "own_reading",
    "name": "B131-8",
    "passed": true
@@ -556,509 +556,763 @@
    "AT": {
     "2019": {
      "dep_over_GDP_pct": 0.31,
-     "dep_over_P3_pct": 0.608
+     "dep_over_P3_pct": 0.608,
+     "fisim_exports": 1310.0,
+     "fisim_imports": 867.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.032,
-     "dep_over_P3_pct": 0.064
+     "dep_over_P3_pct": 0.064,
+     "fisim_exports": 1310.0,
+     "fisim_imports": 1023.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.866,
-     "dep_over_P3_pct": 1.676
+     "dep_over_P3_pct": 1.676,
+     "fisim_exports": 1078.0,
+     "fisim_imports": 1403.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.839
+    "change_2021_2023": 4010.0,
+    "change_2021_2023_over_GDP2023_pct": 0.839,
+    "imports2023_over_change": 0.35
    },
    "BE": {
     "2019": {
      "dep_over_GDP_pct": -0.266,
-     "dep_over_P3_pct": -0.513
+     "dep_over_P3_pct": -0.513,
+     "fisim_exports": 3116.0,
+     "fisim_imports": 713.0
     },
     "2021": {
      "dep_over_GDP_pct": -0.38,
-     "dep_over_P3_pct": -0.761
+     "dep_over_P3_pct": -0.761,
+     "fisim_exports": 2637.0,
+     "fisim_imports": 559.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.63,
-     "dep_over_P3_pct": 3.155
+     "dep_over_P3_pct": 3.155,
+     "fisim_exports": 1497.0,
+     "fisim_imports": 2589.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.949
+    "change_2021_2023": 11741.0,
+    "change_2021_2023_over_GDP2023_pct": 1.949,
+    "imports2023_over_change": 0.221
    },
    "BG": {
     "2019": {
      "dep_over_GDP_pct": 0.855,
-     "dep_over_P3_pct": 1.444
+     "dep_over_P3_pct": 1.444,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": -0.052,
-     "dep_over_P3_pct": -0.089
+     "dep_over_P3_pct": -0.089,
+     "fisim_exports": null,
+     "fisim_imports": null
     }
    },
    "CH": {
     "2019": {
      "dep_over_GDP_pct": 0.729,
-     "dep_over_P3_pct": 1.391
+     "dep_over_P3_pct": 1.391,
+     "fisim_exports": 5987.0,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.663,
-     "dep_over_P3_pct": 1.334
+     "dep_over_P3_pct": 1.334,
+     "fisim_exports": 4314.0,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 0.598,
-     "dep_over_P3_pct": 1.172
+     "dep_over_P3_pct": 1.172,
+     "fisim_exports": 9015.0,
+     "fisim_imports": null
     },
+    "change_2021_2023": 377.0,
     "change_2021_2023_over_GDP2023_pct": 0.046
    },
    "CY": {
     "2019": {
      "dep_over_GDP_pct": 0.936,
-     "dep_over_P3_pct": 1.475
+     "dep_over_P3_pct": 1.475,
+     "fisim_exports": 120.0,
+     "fisim_imports": 1816.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.171,
-     "dep_over_P3_pct": 0.301
+     "dep_over_P3_pct": 0.301,
+     "fisim_exports": 203.0,
+     "fisim_imports": 1818.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.828,
-     "dep_over_P3_pct": 3.149
+     "dep_over_P3_pct": 3.149,
+     "fisim_exports": 311.0,
+     "fisim_imports": 1631.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.692
+    "change_2021_2023": 549.0,
+    "change_2021_2023_over_GDP2023_pct": 1.692,
+    "imports2023_over_change": 2.971
    },
    "CZ": {
     "2019": {
      "dep_over_GDP_pct": 0.35,
-     "dep_over_P3_pct": 0.723
+     "dep_over_P3_pct": 0.723,
+     "fisim_exports": 446.0,
+     "fisim_imports": 246.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.323,
-     "dep_over_P3_pct": 0.684
+     "dep_over_P3_pct": 0.684,
+     "fisim_exports": 457.0,
+     "fisim_imports": 307.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.699,
-     "dep_over_P3_pct": 1.479
+     "dep_over_P3_pct": 1.479,
+     "fisim_exports": 609.0,
+     "fisim_imports": 510.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.45
+    "change_2021_2023": 1436.0,
+    "change_2021_2023_over_GDP2023_pct": 0.45,
+    "imports2023_over_change": 0.355
    },
    "DE": {
     "2019": {
      "dep_over_GDP_pct": 0.445,
-     "dep_over_P3_pct": 0.844
+     "dep_over_P3_pct": 0.844,
+     "fisim_exports": 8131.0,
+     "fisim_imports": 4642.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.387,
-     "dep_over_P3_pct": 0.773
+     "dep_over_P3_pct": 0.773,
+     "fisim_exports": 8033.0,
+     "fisim_imports": 4350.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.712,
-     "dep_over_P3_pct": 1.353
+     "dep_over_P3_pct": 1.353,
+     "fisim_exports": 12091.0,
+     "fisim_imports": 7206.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.374
+    "change_2021_2023": 15788.0,
+    "change_2021_2023_over_GDP2023_pct": 0.374,
+    "imports2023_over_change": 0.456
    },
    "DK": {
     "2019": {
      "dep_over_GDP_pct": 0.003,
-     "dep_over_P3_pct": 0.005
+     "dep_over_P3_pct": 0.005,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.052,
-     "dep_over_P3_pct": 0.113
+     "dep_over_P3_pct": 0.113,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 0.698,
-     "dep_over_P3_pct": 1.554
+     "dep_over_P3_pct": 1.554,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": 2429.0,
     "change_2021_2023_over_GDP2023_pct": 0.651
    },
    "EA21": {
     "2019": {
      "dep_over_GDP_pct": 0.21,
-     "dep_over_P3_pct": 0.391
+     "dep_over_P3_pct": 0.391,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.131,
-     "dep_over_P3_pct": 0.253
+     "dep_over_P3_pct": 0.253,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 1.168,
-     "dep_over_P3_pct": 2.185
+     "dep_over_P3_pct": 2.185,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": 155275.0,
     "change_2021_2023_over_GDP2023_pct": 1.056
    },
    "EE": {
     "2019": {
      "dep_over_GDP_pct": -0.018,
-     "dep_over_P3_pct": -0.035
+     "dep_over_P3_pct": -0.035,
+     "fisim_exports": 20.0,
+     "fisim_imports": 48.0
     },
     "2021": {
      "dep_over_GDP_pct": -0.045,
-     "dep_over_P3_pct": -0.088
+     "dep_over_P3_pct": -0.088,
+     "fisim_exports": 31.0,
+     "fisim_imports": 59.0
     },
     "2023": {
      "dep_over_GDP_pct": -0.185,
-     "dep_over_P3_pct": -0.345
+     "dep_over_P3_pct": -0.345,
+     "fisim_exports": 66.0,
+     "fisim_imports": 89.0
     },
+    "change_2021_2023": -57.0,
     "change_2021_2023_over_GDP2023_pct": -0.149
    },
    "EL": {
     "2019": {
      "dep_over_GDP_pct": 1.096,
-     "dep_over_P3_pct": 1.58
+     "dep_over_P3_pct": 1.58,
+     "fisim_exports": 177.0,
+     "fisim_imports": 731.0
     },
     "2021": {
      "dep_over_GDP_pct": 1.321,
-     "dep_over_P3_pct": 1.931
+     "dep_over_P3_pct": 1.931,
+     "fisim_exports": 66.0,
+     "fisim_imports": 394.0
     },
     "2023": {
      "dep_over_GDP_pct": 2.803,
-     "dep_over_P3_pct": 4.052
+     "dep_over_P3_pct": 4.052,
+     "fisim_exports": 417.0,
+     "fisim_imports": 482.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.718
+    "change_2021_2023": 3860.0,
+    "change_2021_2023_over_GDP2023_pct": 1.718,
+    "imports2023_over_change": 0.125
    },
    "ES": {
     "2019": {
      "dep_over_GDP_pct": 0.462,
-     "dep_over_P3_pct": 0.805
+     "dep_over_P3_pct": 0.805,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.354,
-     "dep_over_P3_pct": 0.63
+     "dep_over_P3_pct": 0.63,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 2.203,
-     "dep_over_P3_pct": 3.974
+     "dep_over_P3_pct": 3.974,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": 28619.0,
     "change_2021_2023_over_GDP2023_pct": 1.911
    },
    "EU27_2020": {
     "2019": {
      "dep_over_GDP_pct": 0.219,
-     "dep_over_P3_pct": 0.408
+     "dep_over_P3_pct": 0.408,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.143,
-     "dep_over_P3_pct": 0.276
+     "dep_over_P3_pct": 0.276,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 1.141,
-     "dep_over_P3_pct": 2.14
+     "dep_over_P3_pct": 2.14,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": 175176.0,
     "change_2021_2023_over_GDP2023_pct": 1.018
    },
    "FI": {
     "2019": {
      "dep_over_GDP_pct": 0.039,
-     "dep_over_P3_pct": 0.077
+     "dep_over_P3_pct": 0.077,
+     "fisim_exports": 69.0,
+     "fisim_imports": 329.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.0,
-     "dep_over_P3_pct": 0.0
+     "dep_over_P3_pct": 0.0,
+     "fisim_exports": 44.0,
+     "fisim_imports": 364.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.929,
-     "dep_over_P3_pct": 1.812
+     "dep_over_P3_pct": 1.812,
+     "fisim_exports": 74.0,
+     "fisim_imports": 217.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.929
+    "change_2021_2023": 2536.0,
+    "change_2021_2023_over_GDP2023_pct": 0.929,
+    "imports2023_over_change": 0.086
    },
    "FR": {
     "2019": {
      "dep_over_GDP_pct": -0.001,
-     "dep_over_P3_pct": -0.002
+     "dep_over_P3_pct": -0.002,
+     "fisim_exports": 3814.0,
+     "fisim_imports": 1104.0
     },
     "2021": {
      "dep_over_GDP_pct": -0.088,
-     "dep_over_P3_pct": -0.167
+     "dep_over_P3_pct": -0.167,
+     "fisim_exports": 3092.0,
+     "fisim_imports": 1000.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.426,
-     "dep_over_P3_pct": 2.61
+     "dep_over_P3_pct": 2.61,
+     "fisim_exports": 8692.0,
+     "fisim_imports": 484.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.505
+    "change_2021_2023": 42534.0,
+    "change_2021_2023_over_GDP2023_pct": 1.505,
+    "imports2023_over_change": 0.011
    },
    "HR": {
     "2019": {
      "dep_over_GDP_pct": 0.169,
-     "dep_over_P3_pct": 0.297
+     "dep_over_P3_pct": 0.297,
+     "fisim_exports": 10.0,
+     "fisim_imports": 229.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.188,
-     "dep_over_P3_pct": 0.325
+     "dep_over_P3_pct": 0.325,
+     "fisim_exports": 10.0,
+     "fisim_imports": 137.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.962,
-     "dep_over_P3_pct": 1.701
+     "dep_over_P3_pct": 1.701,
+     "fisim_exports": 78.0,
+     "fisim_imports": -94.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.823
+    "change_2021_2023": 652.0,
+    "change_2021_2023_over_GDP2023_pct": 0.823,
+    "imports2023_over_change": -0.144
    },
    "HU": {
     "2019": {
      "dep_over_GDP_pct": 0.235,
-     "dep_over_P3_pct": 0.478
+     "dep_over_P3_pct": 0.478,
+     "fisim_exports": 113.0,
+     "fisim_imports": 175.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.287,
-     "dep_over_P3_pct": 0.589
+     "dep_over_P3_pct": 0.589,
+     "fisim_exports": 108.0,
+     "fisim_imports": 148.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.581,
-     "dep_over_P3_pct": 3.216
+     "dep_over_P3_pct": 3.216,
+     "fisim_exports": 226.0,
+     "fisim_imports": 286.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.356
+    "change_2021_2023": 2671.0,
+    "change_2021_2023_over_GDP2023_pct": 1.356,
+    "imports2023_over_change": 0.107
    },
    "IE": {
     "2019": {
      "dep_over_GDP_pct": 0.14,
-     "dep_over_P3_pct": 0.481
+     "dep_over_P3_pct": 0.481,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.299,
-     "dep_over_P3_pct": 1.26
+     "dep_over_P3_pct": 1.26,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 1.03,
-     "dep_over_P3_pct": 3.761
+     "dep_over_P3_pct": 3.761,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": 4066.0,
     "change_2021_2023_over_GDP2023_pct": 0.775
    },
    "IS": {
     "2019": {
      "dep_over_GDP_pct": 0.721,
-     "dep_over_P3_pct": 1.462
+     "dep_over_P3_pct": 1.462,
+     "fisim_exports": 78.0,
+     "fisim_imports": 6.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.708,
-     "dep_over_P3_pct": 1.381
+     "dep_over_P3_pct": 1.381,
+     "fisim_exports": 53.0,
+     "fisim_imports": 6.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.627,
-     "dep_over_P3_pct": 1.289
+     "dep_over_P3_pct": 1.289,
+     "fisim_exports": 44.0,
+     "fisim_imports": 2.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.092
+    "change_2021_2023": 27.0,
+    "change_2021_2023_over_GDP2023_pct": 0.092,
+    "imports2023_over_change": 0.074
    },
    "IT": {
     "2019": {
      "dep_over_GDP_pct": -0.013,
-     "dep_over_P3_pct": -0.022
+     "dep_over_P3_pct": -0.022,
+     "fisim_exports": 829.0,
+     "fisim_imports": 584.0
     },
     "2021": {
      "dep_over_GDP_pct": -0.117,
-     "dep_over_P3_pct": -0.208
+     "dep_over_P3_pct": -0.208,
+     "fisim_exports": 890.0,
+     "fisim_imports": 621.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.807,
-     "dep_over_P3_pct": 1.404
+     "dep_over_P3_pct": 1.404,
+     "fisim_exports": 2268.0,
+     "fisim_imports": 778.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.907
+    "change_2021_2023": 19438.0,
+    "change_2021_2023_over_GDP2023_pct": 0.907,
+    "imports2023_over_change": 0.04
    },
    "LT": {
     "2019": {
      "dep_over_GDP_pct": 0.173,
-     "dep_over_P3_pct": 0.296
+     "dep_over_P3_pct": 0.296,
+     "fisim_exports": 7.0,
+     "fisim_imports": 64.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.203,
-     "dep_over_P3_pct": 0.361
+     "dep_over_P3_pct": 0.361,
+     "fisim_exports": 3.0,
+     "fisim_imports": 52.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.793,
-     "dep_over_P3_pct": 1.415
+     "dep_over_P3_pct": 1.415,
+     "fisim_exports": 264.0,
+     "fisim_imports": -26.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.638
+    "change_2021_2023": 474.0,
+    "change_2021_2023_over_GDP2023_pct": 0.638,
+    "imports2023_over_change": -0.055
    },
    "LU": {
     "2019": {
      "dep_over_GDP_pct": 0.359,
-     "dep_over_P3_pct": 1.067
+     "dep_over_P3_pct": 1.067,
+     "fisim_exports": 2349.0,
+     "fisim_imports": 1598.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.272,
-     "dep_over_P3_pct": 0.898
+     "dep_over_P3_pct": 0.898,
+     "fisim_exports": 2211.0,
+     "fisim_imports": 412.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.386,
-     "dep_over_P3_pct": 1.171
+     "dep_over_P3_pct": 1.171,
+     "fisim_exports": 4399.0,
+     "fisim_imports": 3763.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.144
+    "change_2021_2023": 118.0,
+    "change_2021_2023_over_GDP2023_pct": 0.144,
+    "imports2023_over_change": 31.89
    },
    "LV": {
     "2019": {
      "dep_over_GDP_pct": 0.186,
-     "dep_over_P3_pct": 0.324
+     "dep_over_P3_pct": 0.324,
+     "fisim_exports": 39.0,
+     "fisim_imports": 63.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.297,
-     "dep_over_P3_pct": 0.534
+     "dep_over_P3_pct": 0.534,
+     "fisim_exports": 31.0,
+     "fisim_imports": 52.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.945,
-     "dep_over_P3_pct": 1.631
+     "dep_over_P3_pct": 1.631,
+     "fisim_exports": 65.0,
+     "fisim_imports": 47.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.703
+    "change_2021_2023": 278.0,
+    "change_2021_2023_over_GDP2023_pct": 0.703,
+    "imports2023_over_change": 0.169
    },
    "MT": {
     "2019": {
      "dep_over_GDP_pct": 0.863,
-     "dep_over_P3_pct": 1.87
+     "dep_over_P3_pct": 1.87,
+     "fisim_exports": 95.0,
+     "fisim_imports": 15.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.671,
-     "dep_over_P3_pct": 1.626
+     "dep_over_P3_pct": 1.626,
+     "fisim_exports": 84.0,
+     "fisim_imports": 15.0
     },
     "2023": {
      "dep_over_GDP_pct": 2.659,
-     "dep_over_P3_pct": 5.822
+     "dep_over_P3_pct": 5.822,
+     "fisim_exports": 81.0,
+     "fisim_imports": 16.0
     },
-    "change_2021_2023_over_GDP2023_pct": 2.123
+    "change_2021_2023": 444.0,
+    "change_2021_2023_over_GDP2023_pct": 2.123,
+    "imports2023_over_change": 0.036
    },
    "NL": {
     "2019": {
      "dep_over_GDP_pct": -0.126,
-     "dep_over_P3_pct": -0.286
+     "dep_over_P3_pct": -0.286,
+     "fisim_exports": 2307.0,
+     "fisim_imports": 2236.0
     },
     "2021": {
      "dep_over_GDP_pct": -0.238,
-     "dep_over_P3_pct": -0.558
+     "dep_over_P3_pct": -0.558,
+     "fisim_exports": 1966.0,
+     "fisim_imports": 2360.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.253,
-     "dep_over_P3_pct": 2.793
+     "dep_over_P3_pct": 2.793,
+     "fisim_exports": 6162.0,
+     "fisim_imports": 2601.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.455
+    "change_2021_2023": 15279.0,
+    "change_2021_2023_over_GDP2023_pct": 1.455,
+    "imports2023_over_change": 0.17
    },
    "NO": {
     "2019": {
      "dep_over_GDP_pct": 0.25,
-     "dep_over_P3_pct": 0.57
+     "dep_over_P3_pct": 0.57,
+     "fisim_exports": 909.0,
+     "fisim_imports": 847.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.04,
-     "dep_over_P3_pct": 0.105
+     "dep_over_P3_pct": 0.105,
+     "fisim_exports": 784.0,
+     "fisim_imports": 920.0
     }
    },
    "PL": {
     "2019": {
      "dep_over_GDP_pct": 0.5,
-     "dep_over_P3_pct": 0.865
+     "dep_over_P3_pct": 0.865,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 0.248,
-     "dep_over_P3_pct": 0.439
+     "dep_over_P3_pct": 0.439,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 1.634,
-     "dep_over_P3_pct": 2.834
+     "dep_over_P3_pct": 2.834,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": 10840.0,
     "change_2021_2023_over_GDP2023_pct": 1.442
    },
    "PT": {
     "2019": {
      "dep_over_GDP_pct": 0.064,
-     "dep_over_P3_pct": 0.1
+     "dep_over_P3_pct": 0.1,
+     "fisim_exports": 67.0,
+     "fisim_imports": 267.0
     },
     "2021": {
      "dep_over_GDP_pct": -0.035,
-     "dep_over_P3_pct": -0.055
+     "dep_over_P3_pct": -0.055,
+     "fisim_exports": 47.0,
+     "fisim_imports": 250.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.259,
-     "dep_over_P3_pct": 0.42
+     "dep_over_P3_pct": 0.42,
+     "fisim_exports": 149.0,
+     "fisim_imports": 154.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.287
+    "change_2021_2023": 776.0,
+    "change_2021_2023_over_GDP2023_pct": 0.287,
+    "imports2023_over_change": 0.198
    },
    "RO": {
     "2019": {
      "dep_over_GDP_pct": 0.808,
-     "dep_over_P3_pct": 1.297
+     "dep_over_P3_pct": 1.297,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": 1.01,
-     "dep_over_P3_pct": 1.643
+     "dep_over_P3_pct": 1.643,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": 0.605,
-     "dep_over_P3_pct": 0.984
+     "dep_over_P3_pct": 0.984,
+     "fisim_exports": null,
+     "fisim_imports": null
     },
+    "change_2021_2023": -487.0,
     "change_2021_2023_over_GDP2023_pct": -0.151
    },
    "RS": {
     "2019": {
      "dep_over_GDP_pct": 0.249,
-     "dep_over_P3_pct": 0.376
+     "dep_over_P3_pct": 0.376,
+     "fisim_exports": 7.0,
+     "fisim_imports": 20.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.204,
-     "dep_over_P3_pct": 0.319
+     "dep_over_P3_pct": 0.319,
+     "fisim_exports": 2.0,
+     "fisim_imports": 25.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.876,
-     "dep_over_P3_pct": 1.4
+     "dep_over_P3_pct": 1.4,
+     "fisim_exports": 5.0,
+     "fisim_imports": 22.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.725
+    "change_2021_2023": 545.0,
+    "change_2021_2023_over_GDP2023_pct": 0.725,
+    "imports2023_over_change": 0.04
    },
    "SE": {
     "2019": {
      "dep_over_GDP_pct": 0.244,
-     "dep_over_P3_pct": 0.532
+     "dep_over_P3_pct": 0.532,
+     "fisim_exports": 737.0,
+     "fisim_imports": 479.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.113,
-     "dep_over_P3_pct": 0.251
+     "dep_over_P3_pct": 0.251,
+     "fisim_exports": 1035.0,
+     "fisim_imports": 712.0
     },
     "2023": {
      "dep_over_GDP_pct": 0.837,
-     "dep_over_P3_pct": 1.839
+     "dep_over_P3_pct": 1.839,
+     "fisim_exports": 1300.0,
+     "fisim_imports": 655.0
     },
-    "change_2021_2023_over_GDP2023_pct": 0.725
+    "change_2021_2023": 3881.0,
+    "change_2021_2023_over_GDP2023_pct": 0.725,
+    "imports2023_over_change": 0.169
    },
    "SI": {
     "2019": {
      "dep_over_GDP_pct": 0.363,
-     "dep_over_P3_pct": 0.699
+     "dep_over_P3_pct": 0.699,
+     "fisim_exports": 21.0,
+     "fisim_imports": 66.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.39,
-     "dep_over_P3_pct": 0.754
+     "dep_over_P3_pct": 0.754,
+     "fisim_exports": 34.0,
+     "fisim_imports": 40.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.394,
-     "dep_over_P3_pct": 2.704
+     "dep_over_P3_pct": 2.704,
+     "fisim_exports": 60.0,
+     "fisim_imports": 13.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.077
+    "change_2021_2023": 690.0,
+    "change_2021_2023_over_GDP2023_pct": 1.077,
+    "imports2023_over_change": 0.019
    },
    "SK": {
     "2019": {
      "dep_over_GDP_pct": 0.194,
-     "dep_over_P3_pct": 0.346
+     "dep_over_P3_pct": 0.346,
+     "fisim_exports": 88.0,
+     "fisim_imports": 165.0
     },
     "2021": {
      "dep_over_GDP_pct": 0.233,
-     "dep_over_P3_pct": 0.411
+     "dep_over_P3_pct": 0.411,
+     "fisim_exports": 66.0,
+     "fisim_imports": 107.0
     },
     "2023": {
      "dep_over_GDP_pct": 1.192,
-     "dep_over_P3_pct": 2.043
+     "dep_over_P3_pct": 2.043,
+     "fisim_exports": 71.0,
+     "fisim_imports": 149.0
     },
-    "change_2021_2023_over_GDP2023_pct": 1.0
+    "change_2021_2023": 1236.0,
+    "change_2021_2023_over_GDP2023_pct": 1.0,
+    "imports2023_over_change": 0.121
    },
    "TR": {
     "2019": {
      "dep_over_GDP_pct": -0.0,
-     "dep_over_P3_pct": -0.0
+     "dep_over_P3_pct": -0.0,
+     "fisim_exports": 429.0,
+     "fisim_imports": null
     },
     "2021": {
      "dep_over_GDP_pct": -0.02,
-     "dep_over_P3_pct": -0.037
+     "dep_over_P3_pct": -0.037,
+     "fisim_exports": 326.0,
+     "fisim_imports": null
     },
     "2023": {
      "dep_over_GDP_pct": -0.003,
-     "dep_over_P3_pct": -0.005
+     "dep_over_P3_pct": -0.005,
+     "fisim_exports": 452.0,
+     "fisim_imports": null
     },
+    "change_2021_2023": 107.0,
     "change_2021_2023_over_GDP2023_pct": 0.01
    }
   },
   "B131-7": {
-   "agree": 879,
-   "disagree": 501,
-   "dropped": 295,
-   "evaluated": 1380
+   "agree": 877,
+   "disagree": 492,
+   "dropped": 306,
+   "evaluated": 1369
   },
   "B131-8": {
    "closed": 0,
@@ -1118,9 +1372,9 @@
     "office scalar inside the band": 0,
     "office scalar outside the band": 49
    },
-   "outside": 96,
-   "spread_median": 0.5829,
-   "years": 188
+   "outside": 95,
+   "spread_median": 0.5824,
+   "years": 187
   }
  },
  "stage": "B131"

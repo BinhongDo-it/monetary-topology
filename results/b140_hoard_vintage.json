@@ -1,0 +1,1431 @@
+{
+ "config": {
+  "common_stock_places": [
+   "jin",
+   "song"
+  ],
+  "cut_stable": 1179,
+  "dating": "Jin, Liao and Xixia hoards by their latest coin of an issuer other than Southern Song; Southern Song hoards by their latest coin",
+  "excluded": {
+   "10": "乐安: Sato's row copies 衢州; the 叙录 entry for the same hoard (乐安公溪镇芜头) replaces it",
+   "19": "大鄭村: a collector's hoard, every type near 3% (尹郁山, 考古 1988-2; Miyake, 中国历史文物 2004-3, pp.63, 67)",
+   "25": "遷安: row swapped with 遷西",
+   "26": "遷西: row swapped with 遷安; the 叙录 entry for the same hoard (迁西长岭峰, p.378) replaces it",
+   "8": "開仙院: temple offering deposit (Miyake 2024 n.7 excludes it)"
+  },
+  "original_reports_replace": [
+   "九台卡伦",
+   "顺平安阳小学"
+  ],
+  "reference_stocks": [
+   "common stock",
+   "Southern Song home stock"
+  ],
+  "sato_rows_read_on_the_page": {
+   "7/3/30": [
+    "熙寧",
+    30.0
+   ]
+  },
+  "song_xia_wars": [
+   [
+    1040,
+    1044
+   ],
+   [
+    1064,
+    1067
+   ],
+   [
+    1071,
+    1082
+   ],
+   [
+    1096,
+    1099
+   ],
+   [
+    1114,
+    1119
+   ]
+  ],
+  "window_dose": [
+   1160,
+   1189
+  ],
+  "window_main": [
+   1204,
+   null
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "checks closed forms True, dating True, window True, bootstrap True, pooling True, presence True, transitions True, segments True, common stock True, rank True, type basis True; seeded faults caught: drops_only True, presence_without_power True, single_coin_fails True, dading_as_song True, date_all_issuers True, window_by_discovery True, coin_bootstrap True, chunxi_unmarked_as_post True, rho_by_pooling True, type_basis_takes_chunxi True, count_single_type_step True, ignore_placebo True, steps_as_units True, one_reference True, common_takes_every_place True, war_end_year_out True; unmapped labels 1: Sato 2021 t3 #23 石家庄市獲鹿県磚廠: 不明 [その他] n=1: no reign key in '不明'; rows not summing to the printed total 11: Sato 2021 t3 #1 臨城県臨城鎮北街: rows sum 325, printed 338 | Sato 2021 t3 #3 黄石市岩殻山: rows sum 13468, printed 13469 | Sato 2021 t3 #5 中河橋北100m 地点: rows sum 12577, printed 12578 | Sato 2021 t3 #10 乐安县公溪镇: rows sum 3092, printed 7032 | Sato 2021 t3 #11 豊寧霧雲山: rows sum 1814, printed 1941 | Sato 2021 t3 #14 賀養山大風溝: rows sum 8592, printed 8599 | Sato 2021 t3 #15 賀養山楡樹台: rows sum 5408, printed 5390 | Sato 2021 t3 #17 大畽村: rows sum 1640, printed 1641 | Sato 2021 t3 #24 小店村: rows sum 30395, printed 30396 | Sato 2021 t3 #25 遷安市平林鎮: rows sum 9488, printed 23404 | Sato 2021 t3 #26 遷西市長嶺峰: rows sum 21741, printed 7825",
+   "kind": "instrument",
+   "name": "B140-1  the quantities on synthetic hoards, and every coin label mapped",
+   "passed": true
+  },
+  {
+   "detail": "Suzuki 1992 table 4: Northern Song 17 of 20 (the secondary figure 18 does not match the table). 'Northern Song above 85% in Liaoning Jin hoards': no underlying table, not recomputed",
+   "kind": "known_answer",
+   "name": "B140-2  the top twenty coins in Japanese hoards, recounted",
+   "passed": true
+  },
+  {
+   "detail": "hoards with T_h >= 1204: Jin 0, Southern Song 6; the one Jin candidate, Beijing Youanmen (Li Wei 2013), is a scatter in river silt with Taihe coins (T_h >= 1204); collectors counted Dading about 4,000, Taihe about 150, Daguan ten-cash about 70, and the types they list include no Southern Song coin; a list, not a per-type table. Not a rival criterion: the Northern Song denominator is stock Jin and Xixia held before the border, so rho < 1 follows on the rival's premise as well",
+   "kind": "own_reading",
+   "name": "B140-3a  Jin territory, rho in the main window, printed",
+   "passed": null
+  },
+  {
+   "detail": "hoards with a per-type table and T_h >= 1204: Southern Song territory 6, Jin territory 0; rho_Q is Jin against home, and the Jin side is empty (the Xixia hoards are read in 3c). Jin-territory hoards in the window with no count by Southern Song type: 北京右安门 (中国钱币 2013-6), dated >= 1204 (泰和): no Southern Song type listed; 甘泉蛇河沟, Shaanxi (陕西金融 1993 增刊钱币专辑 19; 叙录 p.382), dated 1210 (Xixia 皇建): 28,104 coins identified; Southern Song 284, types 建炎, 绍兴, 乾道, 淳熙, none later (孙斌 2020 p.51 agrees); read in 3c on the type basis. The objects: Sato 2021 t3 #14 賀養山大風溝 (xia, T_h 1211): SS 7, cast 1163-1210 0, from 1180 0; Sato 2021 t3 #15 賀養山楡樹台 (xia, T_h 1211): SS 22, cast 1163-1210 0, from 1180 0; Sato 2021 t3 #16 衢州市武威地区師範学校 (xia, T_h 1211): SS 8, cast 1163-1210 0, from 1180 0; 句容春城 (叙录 p.322) (song, T_h 1265): SS 502, cast 1163-1210 144, from 1180 153; 乐安公溪镇芜头 (叙录 p.320) (song, T_h 1265): SS 825, cast 1163-1210 348, from 1180 422; 萍乡硖石 (叙录 p.330) (song, T_h 1265): SS 171, cast 1163-1210 79, from 1180 100; 萍乡大王坪 (叙录 p.331) (song, T_h 1265): SS 84, cast 1163-1210 43, from 1180 68; Sato 2021 t3 #6 祁東県太和堂区 (song, T_h 1260): SS 47, cast 1163-1210 16, from 1180 9; Sato 2021 t3 #7 崇安県城関西門村 (song, T_h 1253): SS 42, cast 1163-1210 29, from 1180 26",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B140-3b  the late Southern Song coins, rho_Q below one",
+   "passed": null,
+   "rival_entailment": "in the same window the Southern-to-Northern Song ratio of any destination equals that inside Southern Song territory, rho = 1",
+   "rival_premise": "the outflow of Song coin is a property of the issuer: what leaves is an unbiased sample of its stock, whichever way it goes and whether the edge is open",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "Verdict on the type basis (Southern Song types first cast 1190-1210 against every type first cast to 1210): home hoards with counts 句容春城 (叙录 p.322) p 0.194, 乐安公溪镇芜头 (叙录 p.320) p 0.327, 萍乡硖石 (叙录 p.330) p 0.372, 萍乡大王坪 (叙录 p.331) p 0.714, Sato 2021 t3 #6 祁東県太和堂区 p 0.136, Sato 2021 t3 #7 崇安県城関西門村 p 0.590; destinations Sato 2021 t3 #14 賀養山大風溝 T_h 1211; Sato 2021 t3 #15 賀養山楡樹台 T_h 1211; Sato 2021 t3 #16 衢州市武威地区師範学校 T_h 1211; 甘泉蛇河沟, Shaanxi, Jin territory T_h 1210, 284 Southern Song coins, late types 0 (types Jianyan, Shaoxing, Qiandao, Chunxi 'and others' (叙录 p.382); Sun Bin 2020 p.51 lists it under Chunxi and under no later type). Destination late-type share 0.000 over 321 coins against the lowest home share 0.136; on the rival's premise probability 3.65e-21. On the casting-year basis (coins cast from 1180), Xixia hoards only: Home hoards in the window: 18 of 18 hold them (6 counted: 句容春城 (叙录 p.322) p 0.116, 乐安公溪镇芜头 (叙录 p.320) p 0.207, 萍乡硖石 (叙录 p.330) p 0.237, 萍乡大王坪 (叙录 p.331) p 0.667, Sato 2021 t3 #6 祁東県太和堂区 p 0.136, Sato 2021 t3 #7 崇安県城関西門村 p 0.304; 12 type lists: 安吉, 东莞, 邵阳, 祁东小坪, 南宁, 高安, 深圳, 长兴, 常宁, 玉屏, 罗定, 黄石). Destinations with a per-type table and T_h >= 1204: Sato 2021 t3 #14 賀養山大風溝 T_h 1211, 7 Southern Song coins, from 1180 0; Sato 2021 t3 #15 賀養山楡樹台 T_h 1211, 22 Southern Song coins, from 1180 0; Sato 2021 t3 #16 衢州市武威地区師範学校 T_h 1211, 8 Southern Song coins, from 1180 0. Destination late share 0.000 against the lowest home share 0.116; on the rival's premise a share this low has probability 0.0102. Printed, not counted: Beijing Youanmen (T_h >= 1204), a collectors' list with no Southern Song type; Sanyuan, Shaanxi (Jin territory, 1983, over 2,100 kg), coins picked from the part that went to private hands, among them a Xixia Tianqing (1194) and a Chunxi with back 7 (1180), a Southern Song coin cast after the cut, T_h 1194, below the window and with no table; one coin is what a cut edge lets through by trade and carriage, not a share. Jin-territory type lists that name Southern Song types cast after the cut (dated below the window, no counts): 临汝佛山寺, Henan (中原文物 1984-3), dated 1178 (大定): 淳熙 backs 1181, 1185; 绍熙 back 1190; 孝义上栅, Shanxi (考古 1988-4, 叙录 p.315), dated 1178 (大定): 嘉定 (1208-1224); 115,500 coins; 微山田陈, Shandong (中国钱币 1987-2, 叙录 p.316), dated 1178 (大定): 淳熙 with back years, 'a few of each'; 三原五泉, Shaanxi (内蒙古金融 1987-4, 叙录 p.323), dated 1194 (Xixia 天庆): 淳熙 back 柒 (1180); 定兴小店, Hebei (中原文物 1987-1; 孙斌 2020 p.51), dated 1178 (大定): 淳熙 backs 十一, 十二, 十四 (1184-1187); the Sato row counts 9 淳熙 without back years; 沁阳金冢, Henan (华夏考古 1990-2; 孙斌 2020 p.51), dated 1178 (大定): 淳熙 backs 柒 to 十三 (1180-1186); 获鹿张家庄, Hebei (考古 1989-2; 叙录 p.377), dated 1178 (大定): 淳熙 22 with backs 捌, 九, 十, 一 as printed (from 1181); the Sato row counts the 22 without back years. Jin to Song, printed: Jin coins cast before 1198 (Zhenglong, Dading) in 15 of 18 home hoards, cast after 1198 (Taihe) in 0; Jin cast little between the end of Dading and Taihe, and Taihe is a ten-cash coin, so this row has little power",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B140-3c  coins cast after the border: their share at the destinations against home",
+   "passed": true,
+   "rival_entailment": "a type cast after the border reaches a destination at its share p of the issuer's circulation: among n Southern Song coins at a destination, k late ones with k/n near p",
+   "rival_premise": "the outflow of Song coin is a property of the issuer: what leaves is an unbiased sample of its stock, whichever way it goes and whether the edge is open",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "Mapping: every hoard rises and the probability is below 0.05 -> B; every hoard falls and the probability is below 0.05 -> C; anything else -> unread; the cell is claimed only if every reference stock gives the same verdict. Counted war-to-peace steps (D to E, F to G), by reference stock. common stock (482834 coins): Xixia 6 of 6 steps, 3 of 3 hoards with every counted step rising (Sato 2021 t3 #14 賀養山大風溝: 1.20, -, 1.52, 0.87, 1.03, 0.79, 0.95, 0.31 | Sato 2021 t3 #15 賀養山楡樹台: 1.08, 0.45, 1.44, 0.97, 1.00, 0.86, 0.94, 0.57 | Sato 2021 t3 #16 衢州市武威地区師範学校: 1.36, -, 1.68, 0.79, 0.92, 0.61, 1.12, 0.78); the same steps in the other hoards against the same stock, a hoard pooled in it taken out: Jin territory 18 of 34 steps, 5 of 18 hoards with every counted step rising; Southern Song territory 13 of 18 steps, 6 of 9 hoards with every counted step rising; Liao 0 of 4 steps, 0 of 3 hoards with every counted step rising; rival's bound for a hoard 0.50, probability 0.125. Southern Song home stock (46919 coins): Xixia 2 of 6 steps, 0 of 3 hoards with every counted step rising (Sato 2021 t3 #14 賀養山大風溝: 1.46, -, 1.66, 0.87, 0.88, 0.69, 0.69, 0.23 | Sato 2021 t3 #15 賀養山楡樹台: 1.31, 0.25, 1.57, 0.97, 0.85, 0.75, 0.68, 0.41 | Sato 2021 t3 #16 衢州市武威地区師範学校: 1.65, -, 1.83, 0.79, 0.78, 0.53, 0.81, 0.57); the same steps in the other hoards against the same stock, a hoard pooled in it taken out: Jin territory 10 of 34 steps, 1 of 18 hoards with every counted step rising; Southern Song territory 9 of 18 steps, 2 of 9 hoards with every counted step rising; Liao 0 of 4 steps, 0 of 3 hoards with every counted step rising; rival's bound for a hoard 0.50, probability 1.000. The hoard is the unit and the steps of one hoard are not separate trials: three hoards give at best 0.125, and 5 hoards all rising would be needed. The common stock without its largest hoard (Sato 2021 t3 #23 石家庄市獲鹿県磚廠, 201194 coins, 42% of it): Xixia 5 of 6 steps, 2 of 3 hoards with every counted step rising. Hoard by hoard, among the hoards of each home territory: E over D, coin counts: Xixia 0.470, 0.411, 0.464; Jin territory median 0.384 over 18 hoards, above each Xixia hoard 3, 5, 3, chance of ranking this high 0.062; Southern Song territory median 0.460 over 9 hoards, above each Xixia hoard 4, 7, 4, chance of ranking this high 0.636; G over F, coin counts: Xixia 2.650, 2.386, 4.000; Jin territory median 2.439 over 16 hoards, above each Xixia hoard 7, 8, 2, chance of ranking this high 0.244; Southern Song territory median 2.704 over 9 hoards, above each Xixia hoard 5, 6, 0, chance of ranking this high 0.364; share of group A: Xixia 0.357, 0.321, 0.404; Jin territory median 0.318 over 18 hoards, above each Xixia hoard 1, 8, 0, chance of ranking this high 0.040; Southern Song territory median 0.256 over 9 hoards, above each Xixia hoard 0, 1, 0, chance of ranking this high 0.009; share of group C: Xixia 0.061, 0.058, 0.067; Jin territory median 0.052 over 18 hoards, above each Xixia hoard 2, 5, 2, chance of ranking this high 0.040; Southern Song territory median 0.038 over 9 hoards, above each Xixia hoard 1, 1, 1, chance of ranking this high 0.032; share of group H: Xixia 0.030, 0.054, 0.074; Jin territory median 0.080 over 18 hoards, below each Xixia hoard 1, 3, 6, chance of ranking this low 0.050; Southern Song territory median 0.143 over 9 hoards, below each Xixia hoard 0, 0, 0, chance of ranking this low 0.004. Pooled ratio by segment against the common stock (Xixia coins): A peace 1004-1053 1.16 (4463); B war 1040-1048 0.17 (1); C peace 1054-1063 1.50 (774); D war 1064-1085 0.90 (3746); E peace 1086-1097 1.01 (1672); F war 1098-1100 0.81 (144); G peace 1101 0.96 (376); H late 1102-1126 0.44 (536). A segment is a group of reign titles and a coin is dated no finer than its title; war years inside each title, then the share of the group's coin cast in war years if each title's coin is spread evenly over its years, with the lowest and highest share any spread allows: A peace 1004-1053 (景德 1004-1007 war years 0 of 4, 祥符 1008-1016 war years 0 of 9, 天禧 1017-1021 war years 0 of 5, 天圣 1023-1031 war years 0 of 9, 明道 1032-1033 war years 0 of 2, 景祐 1034-1037 war years 0 of 4, 皇宋 1039-1053 war years 5 of 15) 0.12 [0.00, 0.36]; B war 1040-1048 (康定 1040-1040 war years 1 of 1, 庆历 1041-1048 war years 4 of 8) 0.50 [0.00, 1.00]; C peace 1054-1063 (至和 1054-1055 war years 0 of 2, 嘉祐 1056-1063 war years 0 of 8) 0.00 [0.00, 0.00]; D war 1064-1085 (治平 1064-1067 war years 4 of 4, 熙宁 1068-1077 war years 7 of 10, 元丰 1078-1085 war years 5 of 8) 0.70 [0.11, 1.00]; E peace 1086-1097 (元祐 1086-1093 war years 0 of 8, 绍圣 1094-1097 war years 2 of 4) 0.15 [0.00, 0.29]; F war 1098-1100 (元符 1098-1100 war years 2 of 3) 0.67 [0.00, 1.00]; G peace 1101 (圣宋 1101-1101 war years 0 of 1) 0.00 [0.00, 0.00]; H late 1102-1126 (崇宁 1102-1106 war years 0 of 5, 大观 1107-1110 war years 0 of 4, 政和 1111-1117 war years 4 of 7, 重和 1118-1118 war years 1 of 1, 宣和 1119-1125 war years 1 of 7, 靖康 1126-1126 war years 0 of 1) 0.25 [0.00, 0.57]. The step out of segment B is not counted: B is one coin, the Qingli ten-cash piece (1 Xixia coin, about 6 expected at the common stock's share), scarce in the north whatever the border did, and that step rises in 9 of 10 Jin-territory hoards against the Southern Song home stock. The late group (cast 1102-1126) is low in every Xixia hoard: little open time before 1127, and after 1127 the route ran through Jin, whose coin bans cut it. Under the Song shi account of the trading posts alone (closed from early Jiayou to 1067), Jiayou coin (1.50) falls in a closed spell; the war and peace reading is taken because a closed post without war moved trade into smuggling (Chen Xu 2005). Northern Song coin in hoards sealed under the Northern Song, outside both stocks: Sato 2021 t3 #1 臨城県臨城鎮北街 307; Sato 2021 t3 #2 汨羅市呂仙村 4107",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B140-9  Northern Song vintages in Xixia hoards follow the Song-Xia war and peace periods",
+   "passed": null,
+   "rival_entailment": "every Northern Song vintage reaches Xixia at its share of the Song stock: the ratio of Xixia share to reference-stock share is 1 for every vintage, or falls steadily with vintage if the flow simply ended; it never rises from a group of reign titles cast mostly in war years to the group cast mostly in peace years after it",
+   "rival_premise": "the outflow of Song coin is a property of the issuer: what leaves is an unbiased sample of its stock, whichever way it goes and whether the edge is open",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "the published catalogue gives names and variety counts, no coin counts",
+   "kind": "own_reading",
+   "name": "B140-4  the Sinan ship against the Southern Song stock",
+   "passed": null
+  },
+  {
+   "detail": "T_h 1265 S None Q 1.6923 Ming 0.0 n 394 丸子 寺開土 (197 of about 3,000 survive); T_h 1266 S 0.03012 Q 3.197 Ming 0.0 n 20902 岐阜 4:安八郡神戸町大字南方; T_h 1266 S 0.02841 Q 2.125 Ming 0.0 n 2042 岐阜 25:高山市国府町宮地; T_h 1310 S 0.0269 Q 2.4706 Ming 0.0 n 4930 岐阜 14:郡上市大和町万場野尻; T_h 1310 S 0.03001 Q 2.5491 Ming 0.0 n 66982 志海苔 jar3; T_h 1368 S 0.02974 Q 2.7681 Ming 0.0 n 317449 志海苔 jar1_2; T_h 1408 S 0.01512 Q 6.0 Ming 0.0489 n 1125 岐阜 19:中津川市苗木三郷(現存); T_h 1433 S 0.02034 Q 1.0 Ming 0.0568 n 774 岐阜 9:岐阜市長良 城之内遺跡SD01 1号竹行李; T_h 1433 S 0.05923 Q 3.7778 Ming 0.0517 n 3772 岐阜 23:高山市丹生川町尾崎城(現存); T_h 1461 S 0.02097 Q 2.4074 Ming 0.052 n 10808 岐阜 13:郡上市大和町島野口; T_h 1461 S 0.02358 Q 2.6667 Ming 0.066 n 21532 岐阜 15:郡上市大和町大間見友久; T_h 1470 S 0.03123 Q 2.1707 Ming 0.0039 n 11666 赤磐 中屋",
+   "kind": "own_reading",
+   "name": "B140-5  Japanese hoards by T_h",
+   "passed": true
+  },
+  {
+   "detail": "T_h 1086: 0.0; T_h 1119: 0.0; T_h 1119: 0.0; T_h 1158: 0.00388; T_h 1158: 0.002; T_h 1158: 0.00244; T_h 1178: 0.00732; T_h 1178: 0.00876; T_h 1178: 0.00233; T_h 1178: 0.00699; T_h 1178: 0.00524; T_h 1178: 0.0086; T_h 1178: 0.00688; T_h 1178: 0.01054; T_h 1178: 0.00664; T_h 1178: 0.00408; T_h 1178: 0.01172. Left out: 蓬莱兴无 (叙录 p.369), whose entry names no Jin coin",
+   "kind": "own_reading",
+   "name": "B140-6  the share of Jin's own coins in Jin hoards",
+   "passed": true
+  },
+  {
+   "detail": "叙录 tables, rows against printed totals: 句容春城 (叙录 p.322) rows 5972, printed 6180; 乐安公溪镇芜头 (叙录 p.320) rows 11580, printed 11688; 萍乡硖石 (叙录 p.330) rows 2695, no total printed; 萍乡大王坪 (叙录 p.331) rows 1053, no total printed; 蓬莱兴无 (叙录 p.369) rows 58790, printed 59663; 迁西长岭峰 (叙录 p.378) rows 8470, printed 8214; 辉县城内 (叙录 p.381) rows 5821, printed 6452; 克东福安 (叙录 p.384) rows 3438, printed 3436; 康平边台子 (叙录 p.386) rows 15221, printed 15404; 东沟马圈子 (叙录 p.386) rows 8001, printed 9173. 句容 prints a Northern Song subtotal of 5,384; its rows give 5,043. 迁西长岭峰 rows exceed the printed total by 256, the count printed for both 元祐 and 绍圣; 蓬莱, 辉县, 康平 and 东沟 leave types without counts (康平 also 13 coins with no reign). Chinese with a per-type table 42 (excluded 7); Japanese 12; Sinan 0. Opened, types listed without counts, 16: 北京右安门 (李维, 中国钱币 2013-6), jin, latest >= 1204 (泰和): river-silt scatter; Dading, Taihe, Daguan counted by collectors; no Southern Song type listed | 高安相城乡 (肖锦秀, 南方文物 1997-2), song, latest 咸淳: about 15,000 coins; Southern Song 17 types, back years listed; only 正隆 15 and 天盛 1 counted | 深圳花果山 (南方文物 1996-4), song, latest 淳祐: about 2 t; 'Southern Song relatively few'; rubbings, no counts | 长兴虹星乡 (夏星南, 考古 1990-8), song, latest 咸淳: 2,588 coins, 47 types, types only | 常宁县招待所 (冯玉辉, 考古 1983-1), song, latest 咸淳: over 4,000 jin, types only | 玉屏关家屯 (吴钦湘, 考古 1989-7), song, latest 景定: about 12,000 coins, 53 types, types only | 罗定车田乡 (陈大远, 考古 1992-3), song, latest 开庆: 12,764 legible coins; counts for Tang and Jin types only | 黄石西塞山 (湖北省博物馆, 考古 1973-4), song, latest 淳祐 (1252): over 20,000 jin; percentages for the commonest types only; Liao, Xixia and Jin coins present | 安吉五岭冲 (安吉县博物馆, 考古 1982-1), song, latest 咸淳: about 850 coins, 54 types; counts for the rarest only | 东莞大岭山 (王健, 考古 1986-7), song, latest 咸淳: over 50 kg, types only | 邵阳石脚 (杨平怀, 考古 1985-11), song, latest 咸淳: 7 kg, types only | 祁东小坪 (唐郑, 考古 1987-2), song, latest 景定: over 140 jin, types only | 南宁白坟岭 (叶浓新, 考古 1987-6), song, latest 咸淳: 49.3 jin, types only; back years listed | 建宁封头 (叙录 p.330; 东南文化 1994-5), song, latest 咸淳: 3,669 kg, types only | 贺县兴全 (叙录 p.332; 考古与文物 1985-1), song, latest 绍定: 6,557 coins, 40 types, types only | 临汝佛山寺 (李献奇、侯鸿钧, 中原文物 1984-3), jin, latest 1178 by 大定: 510 kg, 170 types; Southern Song types include 淳熙 backs 捌 (1181) and 十二 (1185), 绍熙 back 元 (1190); no counts",
+   "kind": "bookkeeping",
+   "name": "B140-7  coverage: every hoard with a per-type table, its source and its exclusion",
+   "passed": true
+  },
+  {
+   "detail": "median copper: Zhou 2004, Northern Song 500 coins 65.4%, Southern Song 82 coins 56.3%; Wang et al. 2005, 70.0% and 63.0%; Wuzhou mint site, 19 Northern Song coins, 61.8%. Northern Song coin is richer in copper, so melting by copper content raises S_h, against the prediction; rho_Q cancels it",
+   "kind": "own_reading",
+   "name": "B140-8  copper by issuer, and the direction selective melting would push",
+   "passed": true
+  }
+ ],
+ "hoards": [
+  {
+   "NS": 5043.0,
+   "SS": 502.0,
+   "SS_cast_1163_1210": 144.0,
+   "SS_cast_from_1180": 153.0,
+   "S_h": 0.099544,
+   "T_h": 1265,
+   "excluded": null,
+   "hoard": "句容春城 (叙录 p.322)",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 9648.0,
+   "SS": 825.0,
+   "SS_cast_1163_1210": 348.0,
+   "SS_cast_from_1180": 422.0,
+   "S_h": 0.08551,
+   "T_h": 1265,
+   "excluded": null,
+   "hoard": "乐安公溪镇芜头 (叙录 p.320)",
+   "jin_share": 0.00302,
+   "place": "song"
+  },
+  {
+   "NS": 2247.0,
+   "SS": 171.0,
+   "SS_cast_1163_1210": 79.0,
+   "SS_cast_from_1180": 100.0,
+   "S_h": 0.076101,
+   "T_h": 1265,
+   "excluded": null,
+   "hoard": "萍乡硖石 (叙录 p.330)",
+   "jin_share": 0.00408,
+   "place": "song"
+  },
+  {
+   "NS": 896.0,
+   "SS": 84.0,
+   "SS_cast_1163_1210": 43.0,
+   "SS_cast_from_1180": 68.0,
+   "S_h": 0.09375,
+   "T_h": 1265,
+   "excluded": null,
+   "hoard": "萍乡大王坪 (叙录 p.331)",
+   "jin_share": 0.0038,
+   "place": "song"
+  },
+  {
+   "NS": 51747.0,
+   "SS": 529.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.010223,
+   "T_h": 1119,
+   "excluded": null,
+   "hoard": "蓬莱兴无 (叙录 p.369)",
+   "jin_share": 0.0,
+   "place": "jin"
+  },
+  {
+   "NS": 7605.0,
+   "SS": 64.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.008416,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "迁西长岭峰 (叙录 p.378)",
+   "jin_share": 0.00732,
+   "place": "jin"
+  },
+  {
+   "NS": 5246.0,
+   "SS": 6.0,
+   "SS_cast_1163_1210": 1.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.001144,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "辉县城内 (叙录 p.381)",
+   "jin_share": 0.00876,
+   "place": "jin"
+  },
+  {
+   "NS": 3002.0,
+   "SS": 7.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.002332,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "克东福安 (叙录 p.384)",
+   "jin_share": 0.00233,
+   "place": "jin"
+  },
+  {
+   "NS": 13781.0,
+   "SS": 42.0,
+   "SS_cast_1163_1210": 1.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.003048,
+   "T_h": 1158,
+   "excluded": null,
+   "hoard": "康平边台子 (叙录 p.386)",
+   "jin_share": 0.00388,
+   "place": "jin"
+  },
+  {
+   "NS": 7523.0,
+   "SS": 25.0,
+   "SS_cast_1163_1210": 2.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.003323,
+   "T_h": 1158,
+   "excluded": null,
+   "hoard": "东沟马圈子 (叙录 p.386)",
+   "jin_share": 0.002,
+   "place": "jin"
+  },
+  {
+   "NS": 307.0,
+   "SS": 0.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.0,
+   "T_h": 1119,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #1 臨城県臨城鎮北街",
+   "jin_share": 0.0,
+   "place": "ns"
+  },
+  {
+   "NS": 4107.0,
+   "SS": 0.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.0,
+   "T_h": 1119,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #2 汨羅市呂仙村",
+   "jin_share": 0.0,
+   "place": "ns"
+  },
+  {
+   "NS": 12352.0,
+   "SS": 212.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.017163,
+   "T_h": 1131,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #3 黄石市岩殻山",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 3484.0,
+   "SS": 148.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.04248,
+   "T_h": 1131,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #4 樟樹孟塘村",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 11593.0,
+   "SS": 29.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.002502,
+   "T_h": 1127,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #5 中河橋北100m 地点",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 617.0,
+   "SS": 47.0,
+   "SS_cast_1163_1210": 16.0,
+   "SS_cast_from_1180": 9.0,
+   "S_h": 0.076175,
+   "T_h": 1260,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #6 祁東県太和堂区",
+   "jin_share": 0.00275,
+   "place": "song"
+  },
+  {
+   "NS": 1039.0,
+   "SS": 42.0,
+   "SS_cast_1163_1210": 29.0,
+   "SS_cast_from_1180": 26.0,
+   "S_h": 0.040423,
+   "T_h": 1253,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #7 崇安県城関西門村",
+   "jin_share": 0.00326,
+   "place": "song"
+  },
+  {
+   "NS": 3079.0,
+   "SS": 8.0,
+   "SS_cast_1163_1210": 6.0,
+   "SS_cast_from_1180": 4.0,
+   "S_h": 0.002598,
+   "T_h": 1228,
+   "excluded": "開仙院: temple offering deposit (Miyake 2024 n.7 excludes it)",
+   "hoard": "Sato 2021 t3 #8 衙州市開仙院",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 3510.0,
+   "SS": 1.0,
+   "SS_cast_1163_1210": 1.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.000285,
+   "T_h": 1086,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #9 宿州市",
+   "jin_share": 0.0,
+   "place": "jin"
+  },
+  {
+   "NS": 3079.0,
+   "SS": 8.0,
+   "SS_cast_1163_1210": 6.0,
+   "SS_cast_from_1180": 4.0,
+   "S_h": 0.002598,
+   "T_h": 1228,
+   "excluded": "乐安: Sato's row copies 衢州; the 叙录 entry for the same hoard (乐安公溪镇芜头) replaces it",
+   "hoard": "Sato 2021 t3 #10 乐安县公溪镇",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 1294.0,
+   "SS": 0.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.0,
+   "T_h": 1102,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #11 豊寧霧雲山",
+   "jin_share": 0.0,
+   "place": "liao"
+  },
+  {
+   "NS": 4900.0,
+   "SS": 0.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.0,
+   "T_h": 1111,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #12 巴林土木富州",
+   "jin_share": 0.0,
+   "place": "liao"
+  },
+  {
+   "NS": 3128.0,
+   "SS": 0.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.0,
+   "T_h": 1101,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #13 赤峰市",
+   "jin_share": 0.0,
+   "place": "liao"
+  },
+  {
+   "NS": 7300.0,
+   "SS": 7.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.000959,
+   "T_h": 1211,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #14 賀養山大風溝",
+   "jin_share": 0.00012,
+   "place": "xia"
+  },
+  {
+   "NS": 4747.0,
+   "SS": 22.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.004635,
+   "T_h": 1211,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #15 賀養山楡樹台",
+   "jin_share": 0.00351,
+   "place": "xia"
+  },
+  {
+   "NS": 821.0,
+   "SS": 8.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.009744,
+   "T_h": 1211,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #16 衢州市武威地区師範学校",
+   "jin_share": 0.00677,
+   "place": "xia"
+  },
+  {
+   "NS": 1476.0,
+   "SS": 21.0,
+   "SS_cast_1163_1210": 1.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.014228,
+   "T_h": 1158,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #17 大畽村",
+   "jin_share": 0.00244,
+   "place": "jin"
+  },
+  {
+   "NS": 46498.0,
+   "SS": 452.0,
+   "SS_cast_1163_1210": 17.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.009721,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #18 莱州市総工会",
+   "jin_share": 0.00699,
+   "place": "jin"
+  },
+  {
+   "NS": 2267.0,
+   "SS": 91.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.040141,
+   "T_h": 1158,
+   "excluded": "大鄭村: a collector's hoard, every type near 3% (尹郁山, 考古 1988-2; Miyake, 中国历史文物 2004-3, pp.63, 67)",
+   "hoard": "Sato 2021 t3 #19 大鄭村",
+   "jin_share": 0.00283,
+   "place": "jin"
+  },
+  {
+   "NS": 134.0,
+   "SS": 2.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.014925,
+   "T_h": 1119,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #20 碧水村",
+   "jin_share": 0.0,
+   "place": "jin"
+  },
+  {
+   "NS": 16717.0,
+   "SS": 207.0,
+   "SS_cast_1163_1210": 7.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.012383,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #22 耀州窯",
+   "jin_share": 0.00524,
+   "place": "jin"
+  },
+  {
+   "NS": 201194.0,
+   "SS": 1555.0,
+   "SS_cast_1163_1210": 54.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.007729,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #23 石家庄市獲鹿県磚廠",
+   "jin_share": 0.0086,
+   "place": "jin"
+  },
+  {
+   "NS": 27569.0,
+   "SS": 237.0,
+   "SS_cast_1163_1210": 18.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.008597,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #24 小店村",
+   "jin_share": 0.00688,
+   "place": "jin"
+  },
+  {
+   "NS": 7559.0,
+   "SS": 64.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.008467,
+   "T_h": 1178,
+   "excluded": "遷安: row swapped with 遷西",
+   "hoard": "Sato 2021 t3 #25 遷安市平林鎮",
+   "jin_share": 0.00653,
+   "place": "jin"
+  },
+  {
+   "NS": 21319.0,
+   "SS": 99.0,
+   "SS_cast_1163_1210": 2.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.004644,
+   "T_h": 1178,
+   "excluded": "遷西: row swapped with 遷安; the 叙录 entry for the same hoard (迁西长岭峰, p.378) replaces it",
+   "hoard": "Sato 2021 t3 #26 遷西市長嶺峰",
+   "jin_share": 0.00731,
+   "place": "jin"
+  },
+  {
+   "NS": 2609.0,
+   "SS": 16.0,
+   "SS_cast_1163_1210": 1.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.006133,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #27 成安県西南荘村",
+   "jin_share": 0.01054,
+   "place": "jin"
+  },
+  {
+   "NS": 10375.0,
+   "SS": 35.0,
+   "SS_cast_1163_1210": 3.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.003373,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #28 遷西市東寨村",
+   "jin_share": 0.00664,
+   "place": "jin"
+  },
+  {
+   "NS": 856.0,
+   "SS": 0.0,
+   "SS_cast_1163_1210": 0.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.0,
+   "T_h": 1119,
+   "excluded": null,
+   "hoard": "Sato 2021 t3 #30 南溝村",
+   "jin_share": 0.0,
+   "place": "jin"
+  },
+  {
+   "NS": 23555.0,
+   "SS": 58.0,
+   "SS_cast_1163_1210": 4.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.002462,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "九台卡伦 (谷潜 1985)",
+   "jin_share": 0.00408,
+   "place": "jin"
+  },
+  {
+   "NS": 3079.0,
+   "SS": 8.0,
+   "SS_cast_1163_1210": 6.0,
+   "SS_cast_from_1180": 4.0,
+   "S_h": 0.002598,
+   "T_h": 1228,
+   "excluded": "temple offering deposit",
+   "hoard": "衢州开仙院 (崔成实 1983)",
+   "jin_share": 0.0,
+   "place": "song"
+  },
+  {
+   "NS": 12518.0,
+   "SS": 78.0,
+   "SS_cast_1163_1210": 2.0,
+   "SS_cast_from_1180": 0.0,
+   "S_h": 0.006231,
+   "T_h": 1178,
+   "excluded": null,
+   "hoard": "顺平安阳小学 (三宅 2004 表1)",
+   "jin_share": 0.01172,
+   "place": "jin"
+  },
+  {
+   "NS": 251.0,
+   "SS": 89.0,
+   "SS_cast_1163_1210": 50.0,
+   "SS_cast_from_1180": 41.0,
+   "S_h": 0.354582,
+   "T_h": 1208,
+   "excluded": "hand-picked sample, biased to new coins",
+   "hoard": "马山长屯 (于凤芝 1997)",
+   "jin_share": 0.0,
+   "place": "song"
+  }
+ ],
+ "japan": [
+  {
+   "Q_h": 1.6923,
+   "S_h": null,
+   "T_h": 1265,
+   "hoard": "丸子 寺開土 (197 of about 3,000 survive)",
+   "ming_share": 0.0,
+   "n": 394.0
+  },
+  {
+   "Q_h": 3.197,
+   "S_h": 0.03012,
+   "T_h": 1266,
+   "hoard": "岐阜 4:安八郡神戸町大字南方",
+   "ming_share": 0.0,
+   "n": 20902.0
+  },
+  {
+   "Q_h": 2.125,
+   "S_h": 0.02841,
+   "T_h": 1266,
+   "hoard": "岐阜 25:高山市国府町宮地",
+   "ming_share": 0.0,
+   "n": 2042.0
+  },
+  {
+   "Q_h": 2.4706,
+   "S_h": 0.0269,
+   "T_h": 1310,
+   "hoard": "岐阜 14:郡上市大和町万場野尻",
+   "ming_share": 0.0,
+   "n": 4930.0
+  },
+  {
+   "Q_h": 2.5491,
+   "S_h": 0.03001,
+   "T_h": 1310,
+   "hoard": "志海苔 jar3",
+   "ming_share": 0.0,
+   "n": 66982.0
+  },
+  {
+   "Q_h": 2.7681,
+   "S_h": 0.02974,
+   "T_h": 1368,
+   "hoard": "志海苔 jar1_2",
+   "ming_share": 0.0,
+   "n": 317449.0
+  },
+  {
+   "Q_h": 6.0,
+   "S_h": 0.01512,
+   "T_h": 1408,
+   "hoard": "岐阜 19:中津川市苗木三郷(現存)",
+   "ming_share": 0.0489,
+   "n": 1125.0
+  },
+  {
+   "Q_h": 1.0,
+   "S_h": 0.02034,
+   "T_h": 1433,
+   "hoard": "岐阜 9:岐阜市長良 城之内遺跡SD01 1号竹行李",
+   "ming_share": 0.0568,
+   "n": 774.0
+  },
+  {
+   "Q_h": 3.7778,
+   "S_h": 0.05923,
+   "T_h": 1433,
+   "hoard": "岐阜 23:高山市丹生川町尾崎城(現存)",
+   "ming_share": 0.0517,
+   "n": 3772.0
+  },
+  {
+   "Q_h": 2.4074,
+   "S_h": 0.02097,
+   "T_h": 1461,
+   "hoard": "岐阜 13:郡上市大和町島野口",
+   "ming_share": 0.052,
+   "n": 10808.0
+  },
+  {
+   "Q_h": 2.6667,
+   "S_h": 0.02358,
+   "T_h": 1461,
+   "hoard": "岐阜 15:郡上市大和町大間見友久",
+   "ming_share": 0.066,
+   "n": 21532.0
+  },
+  {
+   "Q_h": 2.1707,
+   "S_h": 0.03123,
+   "T_h": 1470,
+   "hoard": "赤磐 中屋",
+   "ming_share": 0.0039,
+   "n": 11666.0
+  }
+ ],
+ "stage": "B140",
+ "xixia_vintages": {
+  "claimed": null,
+  "common_stock_without_its_largest_hoard": {
+   "coins": 201194.0,
+   "hoard": "Sato 2021 t3 #23 石家庄市獲鹿県磚廠",
+   "share_of_stock": 0.4167,
+   "xia": {
+    "hoards": 3,
+    "hoards_falling": 0,
+    "hoards_rising": 2,
+    "hoards_with_both_rising": 2,
+    "hoards_with_both_steps": 3,
+    "steps": 6,
+    "steps_rising": 5
+   }
+  },
+  "mapping": {
+   "anything else": "unread",
+   "every hoard falls and the probability is below 0.05": "C",
+   "every hoard rises and the probability is below 0.05": "B"
+  },
+  "placement_among_home_hoards": [
+   {
+    "jin": {
+     "beyond_each_xia_hoard": [
+      3,
+      5,
+      3
+     ],
+     "hoards": 18,
+     "median": 0.3839,
+     "rank_prob": 0.0624
+    },
+    "measure": "E over D, coin counts",
+    "side": "high",
+    "song": {
+     "beyond_each_xia_hoard": [
+      4,
+      7,
+      4
+     ],
+     "hoards": 9,
+     "median": 0.4597,
+     "rank_prob": 0.6364
+    },
+    "xia": {
+     "Sato 2021 t3 #14 賀養山大風溝": 0.4705,
+     "Sato 2021 t3 #15 賀養山楡樹台": 0.4106,
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": 0.4641
+    }
+   },
+   {
+    "jin": {
+     "beyond_each_xia_hoard": [
+      7,
+      8,
+      2
+     ],
+     "hoards": 16,
+     "median": 2.4389,
+     "rank_prob": 0.2436
+    },
+    "measure": "G over F, coin counts",
+    "side": "high",
+    "song": {
+     "beyond_each_xia_hoard": [
+      5,
+      6,
+      0
+     ],
+     "hoards": 9,
+     "median": 2.7039,
+     "rank_prob": 0.3636
+    },
+    "xia": {
+     "Sato 2021 t3 #14 賀養山大風溝": 2.65,
+     "Sato 2021 t3 #15 賀養山楡樹台": 2.386,
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": 4.0
+    }
+   },
+   {
+    "jin": {
+     "beyond_each_xia_hoard": [
+      1,
+      8,
+      0
+     ],
+     "hoards": 18,
+     "median": 0.3177,
+     "rank_prob": 0.0398
+    },
+    "measure": "share of group A",
+    "side": "high",
+    "song": {
+     "beyond_each_xia_hoard": [
+      0,
+      1,
+      0
+     ],
+     "hoards": 9,
+     "median": 0.2562,
+     "rank_prob": 0.0091
+    },
+    "xia": {
+     "Sato 2021 t3 #14 賀養山大風溝": 0.3573,
+     "Sato 2021 t3 #15 賀養山楡樹台": 0.3208,
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": 0.4044
+    }
+   },
+   {
+    "jin": {
+     "beyond_each_xia_hoard": [
+      2,
+      5,
+      2
+     ],
+     "hoards": 18,
+     "median": 0.0523,
+     "rank_prob": 0.0398
+    },
+    "measure": "share of group C",
+    "side": "high",
+    "song": {
+     "beyond_each_xia_hoard": [
+      1,
+      1,
+      1
+     ],
+     "hoards": 9,
+     "median": 0.0377,
+     "rank_prob": 0.0318
+    },
+    "xia": {
+     "Sato 2021 t3 #14 賀養山大風溝": 0.061,
+     "Sato 2021 t3 #15 賀養山楡樹台": 0.0577,
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": 0.067
+    }
+   },
+   {
+    "jin": {
+     "beyond_each_xia_hoard": [
+      1,
+      3,
+      6
+     ],
+     "hoards": 18,
+     "median": 0.0799,
+     "rank_prob": 0.0504
+    },
+    "measure": "share of group H",
+    "side": "low",
+    "song": {
+     "beyond_each_xia_hoard": [
+      0,
+      0,
+      0
+     ],
+     "hoards": 9,
+     "median": 0.143,
+     "rank_prob": 0.0045
+    },
+    "xia": {
+     "Sato 2021 t3 #14 賀養山大風溝": 0.0299,
+     "Sato 2021 t3 #15 賀養山楡樹台": 0.0541,
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": 0.0743
+    }
+   }
+  ],
+  "pooled_ratio_by_segment": [
+   {
+    "ratio": 1.1623,
+    "segment": "A peace 1004-1053",
+    "xia_coins": 4463.0
+   },
+   {
+    "ratio": 0.1653,
+    "segment": "B war 1040-1048",
+    "xia_coins": 1.0
+   },
+   {
+    "ratio": 1.5043,
+    "segment": "C peace 1054-1063",
+    "xia_coins": 774.0
+   },
+   {
+    "ratio": 0.8998,
+    "segment": "D war 1064-1085",
+    "xia_coins": 3746.0
+   },
+   {
+    "ratio": 1.011,
+    "segment": "E peace 1086-1097",
+    "xia_coins": 1672.0
+   },
+   {
+    "ratio": 0.8051,
+    "segment": "F war 1098-1100",
+    "xia_coins": 144.0
+   },
+   {
+    "ratio": 0.9588,
+    "segment": "G peace 1101",
+    "xia_coins": 376.0
+   },
+   {
+    "ratio": 0.4374,
+    "segment": "H late 1102-1126",
+    "xia_coins": 536.0
+   }
+  ],
+  "references": {
+   "Southern Song home stock": {
+    "bound": 0.5,
+    "coins": 46919.0,
+    "hoards_needed": 5,
+    "others": {
+     "jin": {
+      "hoards": 18,
+      "hoards_falling": 8,
+      "hoards_rising": 1,
+      "hoards_with_both_rising": 0,
+      "hoards_with_both_steps": 16,
+      "steps": 34,
+      "steps_rising": 10
+     },
+     "liao": {
+      "hoards": 3,
+      "hoards_falling": 3,
+      "hoards_rising": 0,
+      "hoards_with_both_rising": 0,
+      "hoards_with_both_steps": 1,
+      "steps": 4,
+      "steps_rising": 0
+     },
+     "song": {
+      "hoards": 9,
+      "hoards_falling": 2,
+      "hoards_rising": 2,
+      "hoards_with_both_rising": 2,
+      "hoards_with_both_steps": 9,
+      "steps": 18,
+      "steps_rising": 9
+     }
+    },
+    "placebo_share_rising_and_falling": [
+     0.1,
+     0.4333
+    ],
+    "prob": 1.0,
+    "verdict": null,
+    "xia": {
+     "hoards": 3,
+     "hoards_falling": 1,
+     "hoards_rising": 0,
+     "hoards_with_both_rising": 0,
+     "hoards_with_both_steps": 3,
+     "steps": 6,
+     "steps_rising": 2
+    },
+    "xia_per_hoard": {
+     "Sato 2021 t3 #14 賀養山大風溝": [
+      1.461,
+      null,
+      1.6619,
+      0.8659,
+      0.8757,
+      0.6865,
+      0.6861,
+      0.2277
+     ],
+     "Sato 2021 t3 #15 賀養山楡樹台": [
+      1.3121,
+      0.2534,
+      1.5736,
+      0.967,
+      0.8536,
+      0.7522,
+      0.6768,
+      0.4128
+     ],
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": [
+      1.6537,
+      null,
+      1.8264,
+      0.7853,
+      0.7835,
+      0.5341,
+      0.8057,
+      0.5666
+     ]
+    }
+   },
+   "common stock": {
+    "bound": 0.5,
+    "coins": 482834.0,
+    "hoards_needed": 5,
+    "others": {
+     "jin": {
+      "hoards": 18,
+      "hoards_falling": 4,
+      "hoards_rising": 5,
+      "hoards_with_both_rising": 4,
+      "hoards_with_both_steps": 16,
+      "steps": 34,
+      "steps_rising": 18
+     },
+     "liao": {
+      "hoards": 3,
+      "hoards_falling": 3,
+      "hoards_rising": 0,
+      "hoards_with_both_rising": 0,
+      "hoards_with_both_steps": 1,
+      "steps": 4,
+      "steps_rising": 0
+     },
+     "song": {
+      "hoards": 9,
+      "hoards_falling": 2,
+      "hoards_rising": 6,
+      "hoards_with_both_rising": 6,
+      "hoards_with_both_steps": 9,
+      "steps": 18,
+      "steps_rising": 13
+     }
+    },
+    "placebo_share_rising_and_falling": [
+     0.3667,
+     0.3
+    ],
+    "prob": 0.125,
+    "verdict": null,
+    "xia": {
+     "hoards": 3,
+     "hoards_falling": 0,
+     "hoards_rising": 3,
+     "hoards_with_both_rising": 3,
+     "hoards_with_both_steps": 3,
+     "steps": 6,
+     "steps_rising": 6
+    },
+    "xia_per_hoard": {
+     "Sato 2021 t3 #14 賀養山大風溝": [
+      1.1973,
+      null,
+      1.5246,
+      0.8676,
+      1.0275,
+      0.7885,
+      0.9529,
+      0.3136
+     ],
+     "Sato 2021 t3 #15 賀養山楡樹台": [
+      1.0752,
+      0.4481,
+      1.4436,
+      0.9689,
+      1.0015,
+      0.8639,
+      0.9401,
+      0.5685
+     ],
+     "Sato 2021 t3 #16 衢州市武威地区師範学校": [
+      1.3552,
+      null,
+      1.6754,
+      0.7869,
+      0.9193,
+      0.6134,
+      1.1191,
+      0.7802
+     ]
+    }
+   }
+  },
+  "sealed_under_northern_song_outside_both_stocks": {
+   "Sato 2021 t3 #1 臨城県臨城鎮北街": 307.0,
+   "Sato 2021 t3 #2 汨羅市呂仙村": 4107.0
+  },
+  "segments": [
+   {
+    "kind": "peace",
+    "segment": "A peace 1004-1053",
+    "titles": [
+     {
+      "cast": [
+       1004,
+       1007
+      ],
+      "title": "景德",
+      "war_years": 0,
+      "years": 4
+     },
+     {
+      "cast": [
+       1008,
+       1016
+      ],
+      "title": "祥符",
+      "war_years": 0,
+      "years": 9
+     },
+     {
+      "cast": [
+       1017,
+       1021
+      ],
+      "title": "天禧",
+      "war_years": 0,
+      "years": 5
+     },
+     {
+      "cast": [
+       1023,
+       1031
+      ],
+      "title": "天圣",
+      "war_years": 0,
+      "years": 9
+     },
+     {
+      "cast": [
+       1032,
+       1033
+      ],
+      "title": "明道",
+      "war_years": 0,
+      "years": 2
+     },
+     {
+      "cast": [
+       1034,
+       1037
+      ],
+      "title": "景祐",
+      "war_years": 0,
+      "years": 4
+     },
+     {
+      "cast": [
+       1039,
+       1053
+      ],
+      "title": "皇宋",
+      "war_years": 5,
+      "years": 15
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     0.3639
+    ],
+    "war_share_even": 0.1213
+   },
+   {
+    "kind": "war",
+    "segment": "B war 1040-1048",
+    "titles": [
+     {
+      "cast": [
+       1040,
+       1040
+      ],
+      "title": "康定",
+      "war_years": 1,
+      "years": 1
+     },
+     {
+      "cast": [
+       1041,
+       1048
+      ],
+      "title": "庆历",
+      "war_years": 4,
+      "years": 8
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     1.0
+    ],
+    "war_share_even": 0.5
+   },
+   {
+    "kind": "peace",
+    "segment": "C peace 1054-1063",
+    "titles": [
+     {
+      "cast": [
+       1054,
+       1055
+      ],
+      "title": "至和",
+      "war_years": 0,
+      "years": 2
+     },
+     {
+      "cast": [
+       1056,
+       1063
+      ],
+      "title": "嘉祐",
+      "war_years": 0,
+      "years": 8
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     0.0
+    ],
+    "war_share_even": 0.0
+   },
+   {
+    "kind": "war",
+    "segment": "D war 1064-1085",
+    "titles": [
+     {
+      "cast": [
+       1064,
+       1067
+      ],
+      "title": "治平",
+      "war_years": 4,
+      "years": 4
+     },
+     {
+      "cast": [
+       1068,
+       1077
+      ],
+      "title": "熙宁",
+      "war_years": 7,
+      "years": 10
+     },
+     {
+      "cast": [
+       1078,
+       1085
+      ],
+      "title": "元丰",
+      "war_years": 5,
+      "years": 8
+     }
+    ],
+    "war_share_bounds": [
+     0.1083,
+     1.0
+    ],
+    "war_share_even": 0.6952
+   },
+   {
+    "kind": "peace",
+    "segment": "E peace 1086-1097",
+    "titles": [
+     {
+      "cast": [
+       1086,
+       1093
+      ],
+      "title": "元祐",
+      "war_years": 0,
+      "years": 8
+     },
+     {
+      "cast": [
+       1094,
+       1097
+      ],
+      "title": "绍圣",
+      "war_years": 2,
+      "years": 4
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     0.2903
+    ],
+    "war_share_even": 0.1451
+   },
+   {
+    "kind": "war",
+    "segment": "F war 1098-1100",
+    "titles": [
+     {
+      "cast": [
+       1098,
+       1100
+      ],
+      "title": "元符",
+      "war_years": 2,
+      "years": 3
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     1.0
+    ],
+    "war_share_even": 0.6667
+   },
+   {
+    "kind": "peace",
+    "segment": "G peace 1101",
+    "titles": [
+     {
+      "cast": [
+       1101,
+       1101
+      ],
+      "title": "圣宋",
+      "war_years": 0,
+      "years": 1
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     0.0
+    ],
+    "war_share_even": 0.0
+   },
+   {
+    "kind": "late",
+    "segment": "H late 1102-1126",
+    "titles": [
+     {
+      "cast": [
+       1102,
+       1106
+      ],
+      "title": "崇宁",
+      "war_years": 0,
+      "years": 5
+     },
+     {
+      "cast": [
+       1107,
+       1110
+      ],
+      "title": "大观",
+      "war_years": 0,
+      "years": 4
+     },
+     {
+      "cast": [
+       1111,
+       1117
+      ],
+      "title": "政和",
+      "war_years": 4,
+      "years": 7
+     },
+     {
+      "cast": [
+       1118,
+       1118
+      ],
+      "title": "重和",
+      "war_years": 1,
+      "years": 1
+     },
+     {
+      "cast": [
+       1119,
+       1125
+      ],
+      "title": "宣和",
+      "war_years": 1,
+      "years": 7
+     },
+     {
+      "cast": [
+       1126,
+       1126
+      ],
+      "title": "靖康",
+      "war_years": 0,
+      "years": 1
+     }
+    ],
+    "war_share_bounds": [
+     0.0,
+     0.5717
+    ],
+    "war_share_even": 0.2543
+   }
+  ]
+ }
+}

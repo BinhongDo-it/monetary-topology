@@ -659,6 +659,33 @@ def write_record():
         beat.append((label, sum(1 for x in oth if abs(x) >= abs(mine)), len(oth)))
     clean = [b for b in beat if b[1] == 0]
 
+    # The steps behind B97-4, printed rather than scored: at the cross-border date, on both
+    # window lengths, the carrier's step, how many controls moved at least as much, and how
+    # many of the carrier's own non-event months show a step at least as big. These are the
+    # numbers `--wedges` prints; they go in `report` so the record carries them too.
+    cross_border_steps = {}
+    for label, shape in SHAPES.items():
+        present = areas_on_disk(shape)
+        if CARRIER not in present:
+            continue
+        wc = wedge(shape, CARRIER)
+        per_win = {}
+        for win in WINDOWS:
+            mine = step_at(wc, "2015-04", win)
+            if mine is None:
+                continue
+            oth = [step_at(wedge(shape, a), "2015-04", win) for a in present[1:]]
+            oth = [x for x in oth if x is not None]
+            pb = placebo_steps(wc, win)
+            per_win[f"window_{win}"] = {
+                "carrier_step": round(mine, 3),
+                "controls_at_least_as_big": [sum(1 for x in oth if abs(x) >= abs(mine)),
+                                             len(oth)],
+                "non_event_months_at_least_as_big": [
+                    sum(1 for _m, x in pb if abs(x) >= abs(mine)), len(pb)],
+            }
+        cross_border_steps[label] = per_win
+
     # B97-5: the differential prediction. Three states, and the middle one is a verdict of
     # its own (`11c`): an instrument that sits on both classes of edge cannot separate them,
     # and saying so is not the same as saying the prediction failed.
@@ -769,6 +796,7 @@ def write_record():
             "rate_squares_over_floor": [r_big, r_tot],
             "goods_squares_over_floor": [g_big, g_tot],
             "instruments_clean_at_the_cross_border_date": [len(clean), len(beat)],
+            "cross_border_steps": cross_border_steps,
         },
     }
     for c in crit:

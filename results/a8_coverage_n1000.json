@@ -42,13 +42,18 @@
       "passed": true
     },
     {
-      "detail": "90/90 runs hold the identity between holdings and opening-plus-issuance at machine precision, below 1e-09",
+      "detail": "90/90 runs hold the identity between holdings and opening-plus-issuance at machine precision, below 1e-09, on every recorded row and on the settled state the run is left in",
       "name": "A8-3  claims are conserved across the grid",
       "passed": true
     },
     {
       "detail": "all four surfaces present at edges [2, 5, 8, 15, 28, 45, 72]; absent at [0, 128]; surfaces never present anywhere on the grid: none",
       "name": "A8-4  one setting puts all four surfaces on the table",
+      "passed": true
+    },
+    {
+      "detail": "f2i=0: all_four 0/5, two 0/5 three 5/5 four_a 5/5 four_b 5/5; f2i=2: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=5: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=8: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=15: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=28: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=45: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=72: all_four 5/5, two 5/5 three 5/5 four_a 5/5 four_b 5/5; f2i=128: all_four 0/5, two 0/5 three 0/5 four_a 0/5 four_b 5/5",
+      "name": "A8-5  the seed arm is tallied surface by surface, no line on it",
       "passed": true
     }
   ],
@@ -182,6 +187,168 @@
           0.880446
         ]
       }
+    },
+    "rounding": {
+      "digits": 6,
+      "edges_where_it_decides": [
+        0
+      ],
+      "flags_decided": [
+        {
+          "arm": "grid",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -153
+          },
+          "elasticity": 0.0,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "grid",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -153
+          },
+          "elasticity": 0.5,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "grid",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -153
+          },
+          "elasticity": 0.9,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "grid",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -152
+          },
+          "elasticity": 0.99,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "grid",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -111,
+            "wage_owed_ratio": -111
+          },
+          "elasticity": 1.0,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "grid",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -111,
+            "wage_owed_ratio": -111
+          },
+          "elasticity": 1.0,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "four_b",
+          "unrounded": true
+        },
+        {
+          "arm": "seeds",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -153
+          },
+          "elasticity": 0.9,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 0,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "seeds",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -146
+          },
+          "elasticity": 0.9,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 1,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "seeds",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -144
+          },
+          "elasticity": 0.9,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 2,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "seeds",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -151
+          },
+          "elasticity": 0.9,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 3,
+          "surface": "two",
+          "unrounded": true
+        },
+        {
+          "arm": "seeds",
+          "at_record_resolution": false,
+          "below_resolution": {
+            "mara_ratio": -149
+          },
+          "elasticity": 0.9,
+          "f2i": 0,
+          "layer2_reached_close": 0,
+          "seed": 4,
+          "surface": "two",
+          "unrounded": true
+        }
+      ],
+      "orders_reading_zero": {
+        "largest": -111,
+        "smallest": -153
+      },
+      "reads_zero_below": 5e-07,
+      "smallest_value_reading_positive": {
+        "mara_ratio": 1.000732,
+        "wage_owed_ratio": 0.01
+      }
     }
   },
   "grid": {
@@ -210,7 +377,11 @@
   "grid_runs": [
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -153
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 0,
       "gini_close": 0.953816,
@@ -237,12 +408,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -153
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 0,
       "gini_close": 0.953816,
@@ -269,12 +450,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.5
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -153
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 0,
       "gini_close": 0.953816,
@@ -301,12 +492,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.1
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -152
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 0,
       "gini_close": 0.953816,
@@ -333,12 +534,23 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.01
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -111,
+        "wage_owed_ratio": -111
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 0,
       "gini_close": 0.953816,
@@ -365,12 +577,20 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.710481,
       "wage_owed_ratio": 0.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 2,
       "gini_close": 0.951461,
@@ -397,12 +617,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.410287,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 2,
       "gini_close": 0.951441,
@@ -429,12 +657,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.466505,
       "wage_owed_ratio": 0.744627
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 2,
       "gini_close": 0.951421,
@@ -461,12 +697,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.521617,
       "wage_owed_ratio": 0.554349
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 2,
       "gini_close": 0.951416,
@@ -493,12 +737,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.536193,
       "wage_owed_ratio": 0.513456
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 2,
       "gini_close": 0.951415,
@@ -525,12 +777,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.537869,
       "wage_owed_ratio": 0.50896
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 5,
       "gini_close": 0.947059,
@@ -557,12 +817,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.505298,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 5,
       "gini_close": 0.946974,
@@ -589,12 +857,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.567655,
       "wage_owed_ratio": 0.743834
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 5,
       "gini_close": 0.946895,
@@ -621,12 +897,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.617006,
       "wage_owed_ratio": 0.557712
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 5,
       "gini_close": 0.946878,
@@ -653,12 +937,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.627706,
       "wage_owed_ratio": 0.518434
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 5,
       "gini_close": 0.946876,
@@ -685,12 +977,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.628932,
       "wage_owed_ratio": 0.514124
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 8,
       "gini_close": 0.943697,
@@ -717,12 +1017,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.557938,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 8,
       "gini_close": 0.943558,
@@ -749,12 +1057,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.620052,
       "wage_owed_ratio": 0.74526
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 8,
       "gini_close": 0.943441,
@@ -781,12 +1097,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.671458,
       "wage_owed_ratio": 0.56188
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 8,
       "gini_close": 0.943412,
@@ -813,12 +1137,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.682748,
       "wage_owed_ratio": 0.52335
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 8,
       "gini_close": 0.943409,
@@ -845,12 +1177,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.683979,
       "wage_owed_ratio": 0.519134
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 15,
       "gini_close": 0.93731,
@@ -877,12 +1217,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.614222,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 15,
       "gini_close": 0.937088,
@@ -909,12 +1257,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.671417,
       "wage_owed_ratio": 0.751411
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 15,
       "gini_close": 0.936894,
@@ -941,12 +1297,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.709284,
       "wage_owed_ratio": 0.57575
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 15,
       "gini_close": 0.93685,
@@ -973,12 +1337,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.716672,
       "wage_owed_ratio": 0.539164
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 15,
       "gini_close": 0.936845,
@@ -1005,12 +1377,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.717451,
       "wage_owed_ratio": 0.535166
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 28,
       "gini_close": 0.930178,
@@ -1037,12 +1417,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.670172,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 28,
       "gini_close": 0.929871,
@@ -1069,12 +1457,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.722063,
       "wage_owed_ratio": 0.759739
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 28,
       "gini_close": 0.929627,
@@ -1101,12 +1497,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.752771,
       "wage_owed_ratio": 0.592318
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 28,
       "gini_close": 0.929573,
@@ -1133,12 +1537,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.758213,
       "wage_owed_ratio": 0.557667
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 28,
       "gini_close": 0.929567,
@@ -1165,12 +1577,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.75882,
       "wage_owed_ratio": 0.553879
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 45,
       "gini_close": 0.92501,
@@ -1197,12 +1617,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.725386,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 45,
       "gini_close": 0.924691,
@@ -1229,12 +1657,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.774319,
       "wage_owed_ratio": 0.76716
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 45,
       "gini_close": 0.924444,
@@ -1261,12 +1697,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.803048,
       "wage_owed_ratio": 0.60671
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 45,
       "gini_close": 0.924385,
@@ -1293,12 +1737,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.806881,
       "wage_owed_ratio": 0.573822
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 45,
       "gini_close": 0.924379,
@@ -1325,12 +1777,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.80731,
       "wage_owed_ratio": 0.570231
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 72,
       "gini_close": 0.919027,
@@ -1357,12 +1817,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.784211,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 72,
       "gini_close": 0.918708,
@@ -1389,12 +1857,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.832034,
       "wage_owed_ratio": 0.775334
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 72,
       "gini_close": 0.918476,
@@ -1421,12 +1897,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.859847,
       "wage_owed_ratio": 0.622336
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 72,
       "gini_close": 0.918426,
@@ -1453,12 +1937,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.864501,
       "wage_owed_ratio": 0.591041
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 72,
       "gini_close": 0.91842,
@@ -1485,12 +1977,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.864995,
       "wage_owed_ratio": 0.587632
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.0,
       "f2i": 128,
       "gini_close": 0.902685,
@@ -1517,12 +2017,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.880446,
       "wage_owed_ratio": 1.0
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.5,
       "f2i": 128,
       "gini_close": 0.902567,
@@ -1549,12 +2057,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.897024,
       "wage_owed_ratio": 0.856139
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 128,
       "gini_close": 0.902489,
@@ -1581,12 +2097,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.908381,
       "wage_owed_ratio": 0.748282
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.99,
       "f2i": 128,
       "gini_close": 0.902474,
@@ -1613,12 +2137,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.911007,
       "wage_owed_ratio": 0.724857
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 1.0,
       "f2i": 128,
       "gini_close": 0.902472,
@@ -1645,6 +2177,12 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.911304,
       "wage_owed_ratio": 0.722273
     }
@@ -1656,7 +2194,11 @@
   "seed_runs": [
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -153
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 0,
       "gini_close": 0.953816,
@@ -1683,12 +2225,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.1
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -146
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 0,
       "gini_close": 0.955268,
@@ -1715,12 +2267,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.1
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -144
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 0,
       "gini_close": 0.952157,
@@ -1747,12 +2309,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.1
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -151
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 0,
       "gini_close": 0.956814,
@@ -1779,12 +2351,22 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.1
     },
     {
       "all_four": false,
+      "below_resolution": {
+        "mara_ratio": -149
+      },
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 0,
       "gini_close": 0.955867,
@@ -1811,12 +2393,20 @@
         "three": true,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.0,
       "wage_owed_ratio": 0.1
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 2,
       "gini_close": 0.951421,
@@ -1843,12 +2433,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.521617,
       "wage_owed_ratio": 0.554349
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 2,
       "gini_close": 0.95193,
@@ -1875,12 +2473,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.558197,
       "wage_owed_ratio": 0.566532
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 2,
       "gini_close": 0.949197,
@@ -1907,12 +2513,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.596185,
       "wage_owed_ratio": 0.562994
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 2,
       "gini_close": 0.953634,
@@ -1939,12 +2553,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.562516,
       "wage_owed_ratio": 0.552847
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 2,
       "gini_close": 0.951774,
@@ -1971,12 +2593,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.590783,
       "wage_owed_ratio": 0.553473
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 5,
       "gini_close": 0.946895,
@@ -2003,12 +2633,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.617006,
       "wage_owed_ratio": 0.557712
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 5,
       "gini_close": 0.948598,
@@ -2035,12 +2673,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.601156,
       "wage_owed_ratio": 0.57357
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 5,
       "gini_close": 0.945771,
@@ -2067,12 +2713,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.659058,
       "wage_owed_ratio": 0.566721
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 5,
       "gini_close": 0.950245,
@@ -2099,12 +2753,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.612639,
       "wage_owed_ratio": 0.559323
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 5,
       "gini_close": 0.94745,
@@ -2131,12 +2793,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.644106,
       "wage_owed_ratio": 0.55928
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 8,
       "gini_close": 0.943441,
@@ -2163,12 +2833,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.671458,
       "wage_owed_ratio": 0.56188
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 8,
       "gini_close": 0.945629,
@@ -2195,12 +2873,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.630466,
       "wage_owed_ratio": 0.579908
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 8,
       "gini_close": 0.942434,
@@ -2227,12 +2913,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.685369,
       "wage_owed_ratio": 0.572981
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 8,
       "gini_close": 0.946648,
@@ -2259,12 +2953,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.650806,
       "wage_owed_ratio": 0.564588
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 8,
       "gini_close": 0.943904,
@@ -2291,12 +2993,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.698054,
       "wage_owed_ratio": 0.562199
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 15,
       "gini_close": 0.936894,
@@ -2323,12 +3033,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.709284,
       "wage_owed_ratio": 0.57575
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 15,
       "gini_close": 0.940089,
@@ -2355,12 +3073,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.673934,
       "wage_owed_ratio": 0.593759
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 15,
       "gini_close": 0.935753,
@@ -2387,12 +3113,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.710087,
       "wage_owed_ratio": 0.588968
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 15,
       "gini_close": 0.940775,
@@ -2419,12 +3153,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.722642,
       "wage_owed_ratio": 0.574701
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 15,
       "gini_close": 0.937632,
@@ -2451,12 +3193,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.730884,
       "wage_owed_ratio": 0.575936
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 28,
       "gini_close": 0.929627,
@@ -2483,12 +3233,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.752771,
       "wage_owed_ratio": 0.592318
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 28,
       "gini_close": 0.932213,
@@ -2515,12 +3273,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.70403,
       "wage_owed_ratio": 0.614742
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 28,
       "gini_close": 0.928567,
@@ -2547,12 +3313,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.748184,
       "wage_owed_ratio": 0.608219
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 28,
       "gini_close": 0.932221,
@@ -2579,12 +3353,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.779707,
       "wage_owed_ratio": 0.591692
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 28,
       "gini_close": 0.929985,
@@ -2611,12 +3393,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.779076,
       "wage_owed_ratio": 0.595256
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 45,
       "gini_close": 0.924444,
@@ -2643,12 +3433,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.803048,
       "wage_owed_ratio": 0.60671
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 45,
       "gini_close": 0.926453,
@@ -2675,12 +3473,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.756034,
       "wage_owed_ratio": 0.629208
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 45,
       "gini_close": 0.922272,
@@ -2707,12 +3513,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.803765,
       "wage_owed_ratio": 0.62336
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 45,
       "gini_close": 0.925557,
@@ -2739,12 +3553,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.822599,
       "wage_owed_ratio": 0.609726
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 45,
       "gini_close": 0.923076,
@@ -2771,12 +3593,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.840419,
       "wage_owed_ratio": 0.608197
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 72,
       "gini_close": 0.918476,
@@ -2803,12 +3633,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.859847,
       "wage_owed_ratio": 0.622336
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 72,
       "gini_close": 0.921889,
@@ -2835,12 +3673,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.803228,
       "wage_owed_ratio": 0.643717
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 72,
       "gini_close": 0.916492,
@@ -2867,12 +3713,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.847933,
       "wage_owed_ratio": 0.638168
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 72,
       "gini_close": 0.920359,
@@ -2899,12 +3753,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.857823,
       "wage_owed_ratio": 0.62711
     },
     {
       "all_four": true,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 72,
       "gini_close": 0.917654,
@@ -2931,12 +3793,20 @@
         "three": true,
         "two": true
       },
+      "surfaces_unrounded": {
+        "four_a": true,
+        "four_b": true,
+        "three": true,
+        "two": true
+      },
       "wage_funding": 0.858518,
       "wage_owed_ratio": 0.626688
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 128,
       "gini_close": 0.902489,
@@ -2963,12 +3833,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.908381,
       "wage_owed_ratio": 0.748282
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 128,
       "gini_close": 0.906114,
@@ -2995,12 +3873,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.884969,
       "wage_owed_ratio": 0.76219
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 128,
       "gini_close": 0.900817,
@@ -3027,12 +3913,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.914701,
       "wage_owed_ratio": 0.750673
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 128,
       "gini_close": 0.904126,
@@ -3059,12 +3953,20 @@
         "three": false,
         "two": false
       },
+      "surfaces_unrounded": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
       "wage_funding": 0.91455,
       "wage_owed_ratio": 0.752111
     },
     {
       "all_four": false,
+      "below_resolution": {},
       "claims_conserved": true,
+      "claims_conserved_at_close": true,
       "elasticity": 0.9,
       "f2i": 128,
       "gini_close": 0.901833,
@@ -3086,6 +3988,12 @@
       "support_l2_ratio": 1.2822,
       "support_ratio": 1.093659,
       "surfaces": {
+        "four_a": false,
+        "four_b": true,
+        "three": false,
+        "two": false
+      },
+      "surfaces_unrounded": {
         "four_a": false,
         "four_b": true,
         "three": false,

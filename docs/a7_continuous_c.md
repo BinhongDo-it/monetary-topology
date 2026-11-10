@@ -69,7 +69,8 @@ part of it.
 The reason for a ruling rather than a note: every sentence of the form
 "connectivity rises" is ambiguous under two coordinates that run opposite ways,
 and this project has already lost a round to a variable that moved without a
-name of its own (A6-9's `R* = λ`).
+name of its own (A6-9 swept `λ` at a fixed `R` while `R* = λ`, which A6-21
+measured later).
 
 ### 2.2 `uniform_access` is five collapses, and only one of them is the mechanism
 
@@ -314,6 +315,18 @@ same zero is a stronger identification than either route alone**, and a
 divergence that survives the structural route while collapsing on the parameter
 route would say that something co-moving with `κ_pay` was doing the work.
 
+(Restated 2026-10-20: one thing does co-move with `κ_pay` in A3's model. The
+bidder pool that prices a tier is admitted on the payment terms, so A3-8's
+zeroed cell also levels that pool. `a3_asset_channel.md` §5.2 separates the two
+at the registered point: with the pool admitted on the gate terms the
+loop-sum-removed cell still reads `+1.2403` and the gate-removed cell
+`+20.3783`. The structural route flattens the payment terms through the
+centralities, so it moves the pool with them too. Every cell this document
+reads, at every `s`, runs on the registered pool rule through
+`a3c_load_bearing.build_all`. On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
+
 **The confound that shapes every criterion below.** At `s = 1` the graph is
 complete, and A4-1 measured that the complete graph is an attractor: two hundred
 identical agents end three hundred rounds at a Gini of `0.00711`. So `D → 0` at
@@ -341,18 +354,23 @@ across it as well is not the same decision.
 - **`D_fixed(s)`, the scored estimator**: the population is the intersection
   across every cell **and** every grid point. Composition is then constant along
   the grid, which is what a slope requires.
+  (Restated 2026-10-27: the `D_fixed` computed in §11 intersects across every
+  cell and the four points `s = 0, 0.01, 0.02, 0.05`, the placebo's readable
+  region of §4.3, per arm, and not across the whole grid: `24.20` nodes in the
+  uniform arm and `35.95` in the preferential one.)
 - **`D_reach(s)`, reported and never scored**: the within-`s` intersection, so
   the set moves with the treatment. It exists to show what the carrier reaches
   at each `s` and may not be quoted as a slope.
 
 **And the arithmetic consequence has to be stated before the run rather than
 discovered from it.** `D_fixed`'s population is a subset of the `s = 0`
-population, so it is at most A3-8's `41.6` shared nodes and it sits inside the
-band §5.3 measured, the top eighth of the production layer by centrality.
-**`D_fixed` therefore cannot clear A3-8′'s stated precondition**, which asks for
-a carrier whose measured population is not one eighth of one layer. Any
-quotation of `D_fixed` carries that band with it, on the same terms §5.3
-imposes on A3-8 itself. Whether the carrier's reach improves at all is a
+population, so it is at most A3-8's `41.6` shared nodes. On A3-8 that
+population is the twenty financial-layer nodes at every seed plus a
+production-layer part inside the band §5.3 measured, the top eighth of that
+layer by centrality. Any quotation of `D_fixed` carries that population with
+it, on the same terms §5.3 imposes on A3-8 itself. (A3-8′ once also asked for
+a carrier whose measured population is not one eighth of one layer; that
+clause was withdrawn on 2026-08-27, in `a3_asset_channel.md` §5.3.) Whether the carrier's reach improves at all is a
 separate question and it is A7-A-1's.
 
 ### 4.3 Guards and arms
@@ -377,6 +395,16 @@ point and names it in the summary. A7-A inherits it unchanged
 (`centrality_bins` had a field, validation and
 documentation and no line of code reading it, and the grid swept it twice and
 reported clean).
+
+**Restated 2026-10-10: where G2 and G3 are actually executed.** Neither ran in
+the row path that produced the grid records. G2's fact does not depend on `s`
+at all: the position graph is `tier_positions`, the cash-and-tiers star, at
+every point, and its first Betti number is zero by counting edges and vertices.
+It is now asserted where it costs nothing, in the mode that builds every model
+of the grid without running it (`--loop-sum`), and it held at all 680 builds.
+G3's detection lives in `a3c_load_bearing.sweep`, which this stage does not
+call. What it would have caught is read off the stored records instead: in
+neither arm does any grid row have the same four gaps as the `s = 0` row.
 
 **G4. Every grid row carries its control variables in its own units.** Realised
 edge count, mean degree, centrality standard deviation, layer gap, participating
@@ -419,6 +447,17 @@ narrowed on the way from five to twenty.
 A7-A-1 is a measured value from §5.3's twenty-seed run, and every other clause
 is a sign, an ordering or a rank correlation.
 
+**Restated 2026-10-26: two labels in this table name other objects than the
+verdict sheet scores under them.** The A7-A-6 that `results/a7_verdicts.json`
+scores, and §10 reports, is the round-count ladder §8 registered under the same
+label. The reach description in the row above has no verdict of its own; its
+quantities (`D_reach`, the participating counts, the churn diagnostics) are on
+every grid row of the records. A7-A-5 is listed here as an assertion and not
+scored, and the sheet carries it as a criterion that fails, computed from the
+per-seed record (the changelog's 2026-08-16 entry and its 2026-10-10
+restatement). Leg B's two unscored rows in §5.5, A7-B-4 and A7-B-5, likewise
+carry a pass and a void on the sheet.
+
 **A7-A-4's readability clause is not an escape hatch.** As `s` rises the terms
 dispersion falls, so at high `s` every cell approaches zero together and the
 ordering stops being readable for a reason the leg itself predicts. Points where
@@ -430,7 +469,8 @@ and the count of such points is reported with the criterion.
 
 **A7-A-1 fails, participation stays exactly zero below `s = 1` at every seed.**
 Then adding edges does not fix the scope problem, every A3-family divergence
-reading stays confined to the top eighth of the production layer, and the route
+reading stays confined to the twenty financial-layer nodes and the top eighth
+of the production layer, and the route
 "build a better carrier by densifying the graph" is closed. **This is a
 reportable negative and it retires a route rather than a claim.**
 
@@ -454,7 +494,8 @@ state stays `void` for the reason already on record.
 1. **It has no competitors in it.** `A3Model` has none, so nothing here speaks
    to whether connectivity amplifies inheritance, education, capital returns or
    assortative mating. That is leg B and leg B has no `H¹`.
-2. **`D_fixed`'s population is the top eighth of the production layer** (§4.2),
+2. **`D_fixed`'s population lies inside A3-8's paired population** (§4.2), the
+   twenty financial-layer nodes plus the top eighth of the production layer,
    whatever A7-A-1 finds about reach.
 3. **The far endpoint is uninformative** (§4.1) and the interior grid is where
    every scored claim lives.
@@ -547,6 +588,13 @@ what a generational mechanism has to transmit exists only upstairs, in a
 twenty-node layer, while leg B's outcome is a whole-population concentration
 measure.
 
+**Restated 2026-10-27.** The table measures what is left of a one-off transfer,
+which is not the stock `I` and `M` act on. Either switch turns on the demographic
+layer, which pools current holdings every round, and at `s = 0.5` the two switch
+cells end on other holdings than the control in all twenty seeds (§12.1's
+restatement). What stands is the ruling that the two are unreadable for
+direction, and A7-B-5 stands on it.
+
 Carried with them regardless: §11.4 measured that `99.6%` of what `I` and `M`
 did on the stratified arm was the zero-cost transfer across the thermocline that
 a straddling household provides, and none of it was the channel. **`pooling`
@@ -607,6 +655,20 @@ at the two endpoints only, as §11.4's fence.
 
 Twenty seeds, three hundred rounds, the same grid as leg A, the same guards G1
 to G4 from §4.3.
+
+**Restated 2026-10-27: which of §4.3's guards leg B carries.** G2 and G3 have no
+object on the A4 carrier leg B runs on. G2 is about A3's cash-and-tiers position
+graph and G3 about A3's four-gap factorial; A4 has neither, so neither ran for
+leg B. Leg B's rows (`results/a7b_legb.offparam_uniform_20x300.json`) carry the
+cell levels and the within-seed differences, and not G4's graph and churn
+columns.
+
+**Restated 2026-10-10: leg B ran on nine of leg A's seventeen points.** Leg B
+and its two probes were run at `s = 0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 0.9, 1`,
+and the fence at the two endpoints `s = 0` and `s = 1`. The eight points leg A has and leg B does not are `0.15, 0.3,
+0.4, 0.6, 0.7, 0.8, 0.95, 0.99`. Every leg-B figure in §12 and §13 is a reading
+on those nine, and "every grid point" and "every row" in the leg-B sections
+mean those nine. No point was added.
 
 ### 5.5 The criteria
 
@@ -714,6 +776,12 @@ At `s = 0.01`, matched at `1389` edges in both arms:
 `19.101 > 18.324`, so the registered inequality holds, by `4%`. It holds again at
 `s = 0.02`, by `2%`.
 
+(Restated 2026-10-27: A7-A-3 names `D_fixed`, and on it the criterion is void,
+§11.2. These two falls are `D_reach` readings over different agents, `35.95`
+paired nodes in the uniform arm and `42.95` in the preferential one at
+`s = 0.01` against `41.65` at `s = 0`, so the inequality above is a diagnostic
+and not the criterion's reading.)
+
 **The criterion cannot separate "the placebo falls slightly less" from "the
 placebo does not fall".** Both arms lose `97%` to `99%`, and an unnormalised
 difference of falls returns a small correctly-signed margin whenever both
@@ -760,6 +828,16 @@ the gate-only cell. At `s = 0`: same sign `20/20`, `+22.2119` against `−0.2997
 every point. **The criterion registered forward in `a3_asset_channel.md` §5.3
 survives only at the point it was derived from.**
 
+(Restated 2026-10-27: the criteria are registered on `D_fixed`, §4.2, and on it
+the loop-sum-only cell at `s = 0` is same-sign in `17/20` seeds in the uniform
+arm's population and `19/20` in the preferential one, so A3-8′ holds nowhere on
+this axis, §11.3. The `20/20` above is the `D_reach` reading over `41.65` paired
+nodes.)
+
+(Restated 2026-10-20: the loop-sum-only cell scored here keeps the pricing pool
+dispersed along with the loop sum, and the gate-only cell carries the opening
+allocation alone; the pointer in §4.1 gives the reason.)
+
 A7-A-3′, registered forward one message before this run and therefore **not
 scored here**, asks whether the two arms' retained fractions differ by an order
 of magnitude. Measured: `+1.59%` against `+2.03%`, a ratio of `1.28`.
@@ -767,16 +845,36 @@ of magnitude. Measured: `+1.59%` against `+2.03%`, a ratio of `1.28`.
 A7-A-5 is not computed. The mean absolute loop sum is not read by
 `experiments/a7_continuous_c.py`.
 
+**Restated 2026-10-26.** It is computed now, on the `both` cell over the fixed
+production layer, and A7-A-5 fails; the changelog's 2026-08-16 entry and its
+2026-10-10 restatement carry the reading.
+
 ### 6.6 What this costs A3
 
-§5.3 attaches one limit to every quotation of A3-8: it is measured on the top
-eighth of the production layer by centrality. **A second limit is now required
+§5.3 attaches one limit to every quotation of A3-8: it is measured on the agents
+who trade in every cell, which at every seed are all twenty financial-layer
+nodes plus the top eighth of the production layer by centrality. **A second limit is now required
 and it is harder.**
 
 > **A3-8's `+23.267` is a reading at mean out-degree `5.20`, and it is gone at
 > mean out-degree `6.95`.** Adding `350` edges to `1039`, in any direction,
 > removes `98%` of it. A3's registered sweep never varied graph density, so this
 > sensitivity was neither measured nor excluded before now.
+
+**Restated 2026-10-26: "in any direction" covers the two targeting rules, not
+where the edges land.** `350` and `6.95` are the first seed's graph (§2.6's
+units note). Across the twenty seeds the registered arm adds `337` to `436`
+edges at `s = 0.01`, of which `21` to `47` point downward, from the financial
+layer into the production layer, an edge kind the framework's specification
+sets to zero. The scope arms
+(`results/a7_continuous_c.offparam_low_uniform_scope-*_20x300.json`) hold each
+seed's count and move only where the edges land. Aimed downward, `H1_only`
+falls to `[−0.966, +1.776]` across seeds; aimed upward it stays in
+`[+14.138, +36.915]`; aimed inside the production layer it widens to
+`[−30.301, +63.063]`; at `s = 0` it is `[+7.107, +37.422]`. So the gap goes at
+that density when some of the added edges point downward, and the same count
+landing elsewhere does not remove it. `RESULTS.md`'s A7 section carries the
+table.
 
 ---
 
@@ -807,8 +905,15 @@ central node's capture per relationship falls about a quarter.
 
 
 §5.2 records that the payment premium is a per-round-trip multiplier compounding
-over some twenty traversals. `0.75ⁿ` is `3.2%` at `n = 12` and `1.0%` at `n = 16`,
+over about ten round trips per node in A3-8's paired population: about twenty
+for each of its financial-layer members and one for each production-layer
+member. `0.75ⁿ` is `3.2%` at `n = 12` and `1.0%` at `n = 16`,
 against a measured retention of `1%` to `2%`. **Same order, nothing fitted.**
+
+**Restated 2026-10-24.** `n = 12` to `16` lies between the paired population's
+average and its financial-layer members' count. A production-layer member
+completes one round trip, at which `0.75ⁿ` is `75%`, so the comparison above
+holds at most for the financial half. The section stays withdrawn.
 
 So the candidate mechanism is: **positional rent is a small per-transaction
 margin that compounds into a large stock by repeated traversal of the same
@@ -942,6 +1047,10 @@ At mean out-degree `5.20`, position buys a **rate**: run the economy longer and
 the gap widens roughly in proportion. At mean out-degree `6.95`, position stops
 buying a rate. Running twice as long no longer widens anything.
 
+(Restated 2026-10-26: the ladder ran on the registered arms, whose added edges
+include downward ones; the paragraphs below are read with §6.6's pointer
+attached.)
+
 So what one or two extra counterparties destroy is not the margin on each
 transaction. It is the **repetition** of that margin against the same
 counterparty. **Positional rent is a lock-in rather than a spread.** It requires
@@ -1029,6 +1138,13 @@ A3-8′ requires the loop-sum-only cell to be same-sign across all seeds. On
 `D_reach` that held at `s = 0` at `20/20`. On `D_fixed` it is **`17/20`** in the
 uniform arm's population and **`19/20`** in the preferential arm's.
 
+(The cells are those of §6.5's 2026-10-20 pointer: the pricing pool is admitted
+on the payment terms, A7 did not run the rule that admits it on the gate terms,
+and on the three stations run under both rules, A3 P-C, A22 and A42, the
+readings did not change.)
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
+
 **A3-8′ now holds nowhere on this axis, including at the point it was derived
 from.** The clause that fails is sign stability, and what breaks it is removing
 about forty per cent of the population by intersecting across grid points.
@@ -1069,6 +1185,14 @@ stands as recorded in §10 with that limitation attached, and §10.3's
 unnormalised reading, which is what the conclusion rests on, is a comparison
 within one estimator rather than across two.
 
+**Restated 2026-10-27: the 2026-08-24 scope arms are on `D_reach` too.** The
+five-arm comparison in §6.6's 2026-10-26 restatement and in `RESULTS.md`'s A7
+section reads each arm's within-`s` intersection, which at `s = 0.01` is `35.95`
+paired nodes in the registered arm, `35.9` downward, `36.75` production, `41.5`
+upward and `42.5` financial, against `41.65` at `s = 0`. No `D_fixed` was
+computed on those arms, so that comparison is across different agents as well as
+across where the edges land.
+
 ---
 
 ## 12. Leg A7-B: the two probes, and the section 5.3 trigger decided
@@ -1099,6 +1223,22 @@ spread and by `s = 0.1` when they point at the centre.
 cliff they are not confounded, they have nothing to transmit, so `d(I, s)` and
 `d(M, s)` are identically zero there for a reason with no connectivity in it.
 
+**Restated 2026-10-10: that inference does not hold, and the paragraph after it
+is why.** What the cliff erases is the memory of a perturbation. Holdings still
+circulate, and `I` and `M` do not act on a remembered transfer: switching either
+on switches on the demographic layer, which pools current holdings every
+round and settles them across the cohort every generation. So "nothing to transmit" does not follow from "a
+one-off transfer leaves nothing". It was put to the model at one point,
+`s = 0.5`, uniform arm, twenty seeds, three hundred rounds
+(`experiments/a7b_probes.py --im`). The `I` cell and the `M` cell end on other
+holdings than the control in all twenty seeds, with production-layer
+`log(1/HHI)` lower by `0.0548` and `0.0540`, the same sign in every seed.
+Section 5.2's ruling that the two are unreadable **for direction** on this
+carrier is untouched, and it is the ground A7-B-5 now stands on. The reading is
+the switch cell against the control: either switch also turns on households and
+generations, so it is not an effect of inheritance or of mating alone, and no
+cell has the demographic layer on with both channels off.
+
 **It does not mean the model has no holdings.** What is erased is the memory of a
 perturbation. Steady-state holdings still circulate, so `E`, which acts on the
 wage flow, and `K`, which acts on the current holdings each round, are untouched.
@@ -1108,6 +1248,13 @@ wage flow, and `K`, which acts on the current holdings each round, are untouched
 curve is flat from `s = 0.05`, **flat at zero**. By the letter they become
 scoreable exactly where the mechanism cannot fire. The clause needed "and
 non-zero" and does not have it. Recorded, not repaired.
+
+**Restated 2026-10-27.** "Where the mechanism cannot fire" rests on the inference
+the restatement above withdraws. What is flat at zero is what remains of a
+one-off transfer after a generation. At `s = 0.5` the `I` and `M` switch cells
+still end on other holdings than the control in all twenty seeds. The clause
+makes the two scoreable where the perturbation reading has nothing left, which is
+not where the switch cells do nothing.
 
 ### 12.2 P2, room, and two numbers that reproduce
 
@@ -1160,6 +1307,12 @@ reason pointing the same way: what survives a generation lives in that layer at
 every seed, so the measure leg B now scores on excludes the only place a
 generational mechanism has anything to work with.
 
+**Restated 2026-10-27.** What lives in that layer is the surviving part of a
+one-off transfer, not everything a generational switch acts on. On this
+production-layer measure the `I` and `M` switch cells sit `0.0548` and `0.0540`
+below the control at `s = 0.5`, in every seed (§12.1's restatement). The decision
+rests on the room reading above.
+
 ---
 
 ## 13. Leg A7-B: the verdicts
@@ -1181,7 +1334,8 @@ taken **within seed** against that seed's own control, so the graph draw cancels
 ### 13.1 A7-B-1, capital returns: **unreadable**
 
 The criterion asks that `|d(K, s)|` decrease in `s` with `sign(d)` stable. **The
-sign is unstable at every grid point including `s = 0`**, where the mean is
+sign is unstable at every grid point including `s = 0`** (every one of the nine
+leg B ran; restated 2026-10-10, see §5.4), where the mean is
 `−0.00039` against a range of `[−0.0020, +0.0010]` whose width is five times the
 mean and which straddles zero. A quantity with no sign has no magnitude to trend,
 so the slope cannot be asked. `K` is not distinguishable from zero anywhere on
@@ -1216,6 +1370,12 @@ after a generation, so a transmitting mechanism has no stock to transmit and
 would produce zeros whose cause is the carrier. **Recorded as not run rather than
 as measured.**
 
+**Restated 2026-10-10.** "Identically zero by construction" does not hold; see
+§12.1's restatement. Read at `s = 0.5` the two switch cells differ from the
+control in every one of twenty seeds (`-0.0548` and `-0.0540` on production-layer
+`log(1/HHI)`). They remain **not run on leg B's grid**, and the reason is
+§5.2's: unreadable for direction on this carrier. A7-B-5 stays void.
+
 ### 13.6 The section 5.4 fence: no-op confirmed
 
 `pooling = generation` against `round` at both endpoints, twenty seeds, every
@@ -1228,6 +1388,11 @@ the point.
 `|d(E)|` falls by a factor near **2700** from `s = 0` to `s = 0.2`, and `|d(K)|`
 by about twenty. The control cell's production-layer effective holder count rises
 from `75` to `180` of `180` across the same range.
+
+**Restated 2026-10-27:** from `s = 0` to `s = 0.2` the record gives a factor of
+`530` for `|d(E)|` and `17` for `|d(K)|`, and the control cell's production-layer
+effective holder count goes from `75.4` to `175.6`. The `2700` and `180` are the
+`s = 0.9` and `s = 1` values (`2639` and `2934`; `179.6` and `179.7`).
 
 **This may not be reported as an effect**, because the quantities whose
 magnitudes are falling are, by the registered standard, indistinguishable from
@@ -1254,10 +1419,15 @@ is not applied here.
 Leg A: the divergence A3-8 measures exists only on the sparse graph, and thirty-
 four per cent more edges remove ninety-eight per cent of it whichever way they
 are aimed.
+(Restated 2026-10-26: both targeting rules put some of the added edges
+downward, `21` to `47` per seed in the uniform arm and `20` to `37` in the
+preferential one; §6.6's pointer gives what the same count does when none of it
+points downward.)
 
 Leg B: on a different carrier, with a different outcome and different mechanisms,
 the two competitors that could be measured are indistinguishable from zero
-everywhere, and what magnitude they have follows the same collapse.
+everywhere (at the nine points leg B ran; restated 2026-10-27, see §5.4), and what
+magnitude they have follows the same collapse.
 
 **Two carriers, two quantities, one shape.** Whatever this model has to say about
 position and about competing explanations, it says only at mean out-degree near
@@ -1297,6 +1467,12 @@ count, `H¹` read directly off the terms matrix over the paired population is
 `+4.9%` and `+7.0%` **higher** at `s = 0.01` than at `s = 0` in the two arms, and
 the preferential arm raises the centrality dispersion and the layer gap as well.
 `D` falls `98%` in both. **Whatever removed it, it was not the margin.**
+
+**Restated 2026-10-27: `+4.9%` and `+7.0%` are the first seed alone.** The grid
+records carry the paired-population loop sum for that seed only. Over the 20 seeds, each on its own paired population, the seed mean is `+4.2%` at `s = 0.01` against `s = 0` in the uniform arm, higher in `16` of `20` seeds (`-4.8%` to `+18.5%`), and `-0.3%` in the preferential arm, higher in `9` of `20` (`-8.3%` to `+10.7%`). The record is `results/a7_paired_loop_sum_by_seed.json` (`--paired-loop-sum`); its first seed equals the grid records' to the last digit.
+So the margin rose in the uniform arm and held level in the preferential one, and
+in both arms it moved by a few per cent while `D` fell `98%`: whatever removed `D`,
+it was not the margin.
 
 **Supply and demand predicts a smaller rate. The rate went to zero.** Cournot
 from five competitors to seven takes the markup from `1/5` to `1/7`, a `29%`
@@ -1346,6 +1522,13 @@ this document's §7.3 should be read with that attached.
 void, one shape-wrong, three unreadable or not adjudicable, one not run with the
 reason measured.
 
+**Restated 2026-10-26.** The verdict sheet `results/a7_verdicts.json`, which
+`RESULTS.md` carries, has three passes (A7-A-1, A7-B-3, A7-B-4), four fails
+(A7-A-2, whose registered shape is wrong, A7-A-4, A7-A-5, A7-A-6) and four voids
+(A7-A-3, A7-B-1, A7-B-2, A7-B-5). The tally above sorts the same eleven by kind
+of outcome and does not match the sheet's flags, and A7-B-5's reason is now
+§5.2's ruling rather than the measurement §13.5 gave (§12.1).
+
 **Two decisions, taken and registered rather than left open.**
 
 **`diagnostic_only` stays on.** Every A7 record keeps it and no A7 heading enters
@@ -1358,6 +1541,13 @@ not deferred indefinitely.
 from this date, A7 is not in its job table and never was, and a job there has
 stopped being evidence of anything since the record ratchet was retired on
 2026-08-21. Whatever revisits this decision, it is not that file.
+
+**Restated 2026-10-26.** The decision was reversed on 2026-08-18. The registered
+measurement record, `results/a7_continuous_c.json`, no longer carries
+`diagnostic_only`, A7 has a section in `RESULTS.md`, and the off-parameter
+records keep the flag (`write_record`'s docstring in
+`experiments/a7_continuous_c.py`). The registered record still carries the
+`D_reach` caveat in its `diagnostic_reason`.
 
 **`D_reach` stays the default output of `experiments/a7_continuous_c.py`, and
 this is a registered known state rather than an oversight.** `D_fixed` runs under
@@ -1520,11 +1710,23 @@ preferential one. **§4.1's argument that `s → H¹` is a construction identity
 holds for global centrality dispersion and not for the quantity the loop sum is
 built on over the measured population**, and the two are different objects.
 
+**Restated 2026-10-10: `1.44` and `4.13` are one seed, and the sentence above
+says twenty.** The grid records carry this quantity for the first seed alone.
+On the mean of the twenty seeds the criterion registers, the peak is `1.29`
+times the `s = 0` value in the uniform arm and `4.39` in the preferential one,
+the mean rising at 5 and 10 of the 16 grid steps, and each of the twenty seeds
+rises above its own `s = 0` value in both arms (1.08 to 1.66 times, and
+3.37 to 5.93). A7-A-5 fails on the mean and in every seed. The per-seed
+reading is `results/a7_loop_sum_by_seed.json`.
+
 The measurement that follows from it is the stage's cleanest: on the paired
 population at `s = 0.01`, `H¹` read directly off the terms matrix is `+4.9%`
 higher than at `s = 0` in the uniform arm and `+7.0%` higher in the preferential
 arm, while `D` is down `98%` in both. **`H¹` up, `D` down, no proxy and no
 tolerance.**
+
+**Restated 2026-10-27: `+4.9%` and `+7.0%` are the first seed alone, like `1.44`
+and `4.13`.** Over the 20 seeds, each on its own paired population, the seed mean is `+4.2%` at `s = 0.01` against `s = 0` in the uniform arm, higher in `16` of `20` seeds (`-4.8%` to `+18.5%`), and `-0.3%` in the preferential arm, higher in `9` of `20` (`-8.3%` to `+10.7%`). The record is `results/a7_paired_loop_sum_by_seed.json` (`--paired-loop-sum`); its first seed equals the grid records' to the last digit. §14.2's restatement carries what follows from it.
 
 That is the third statistic in this stage dominated by something moving with the
 treatment, after A7-A-3 and A7-A-6, and it is why §10.5's discipline candidate is

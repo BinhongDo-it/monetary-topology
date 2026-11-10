@@ -1,0 +1,4937 @@
+{
+  "class_definitions": {
+    "apple_eu": [
+      "Sales processed by Apple In-App Purchase from participants in the App Store Small Business Program, Mini Apps Partner Program, or Video Partner Program, and sales of auto-renewable subscriptions after their first year.",
+      "Sales processed via alternative payment processing within the app from participants in the App Store Small Business Program, Mini Apps Partner Program, or Video Partner Program; and sales of auto-renewable subscriptions after their first year.",
+      "Out-of-app offers for relevant transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program; and out-of-app offers for relevant auto-renewable subscriptions after their first year"
+    ],
+    "apple_jp": [
+      "Transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program.",
+      "Out-of-app offers for relevant auto-renewable subscriptions after their first year.",
+      "Out-of-app offers for relevant transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program."
+    ]
+  },
+  "class_jurisdiction": [
+    {
+      "channel": "iap",
+      "floors": {
+        "level": {
+          "floor": "1.000000",
+          "size": "0.000000"
+        },
+        "log1p": {
+          "floor": "0.008734",
+          "size": "0.000000"
+        },
+        "neglog1m": {
+          "floor": "0.013606",
+          "size": "0.000000"
+        }
+      },
+      "japan_addon_stripped": {
+        "level_pp": "+0",
+        "signs": [
+          0,
+          -1,
+          1
+        ]
+      },
+      "level_pp": "+0",
+      "signs": [
+        0,
+        0,
+        0
+      ],
+      "state": "zero",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.000000",
+        "neglog1m": "0.000000"
+      }
+    },
+    {
+      "channel": "alt",
+      "floors": {
+        "level": {
+          "floor": "1.000000",
+          "size": "1.000000"
+        },
+        "log1p": {
+          "floor": "0.009132",
+          "size": "0.008299"
+        },
+        "neglog1m": {
+          "floor": "0.012739",
+          "size": "0.012579"
+        }
+      },
+      "japan_addon_stripped": null,
+      "level_pp": "-1",
+      "signs": [
+        -1,
+        -1,
+        -1
+      ],
+      "state": "read_on_floor",
+      "worst_multiple": {
+        "level": "1.000000",
+        "log1p": "0.908713",
+        "neglog1m": "0.987421"
+      }
+    },
+    {
+      "channel": "link",
+      "floors": {
+        "level": {
+          "floor": "1.000000",
+          "size": "0.000000"
+        },
+        "log1p": {
+          "floor": "0.009132",
+          "size": "0.000000"
+        },
+        "neglog1m": {
+          "floor": "0.011834",
+          "size": "0.000000"
+        }
+      },
+      "japan_addon_stripped": null,
+      "level_pp": "+0",
+      "signs": [
+        0,
+        0,
+        0
+      ],
+      "state": "zero",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.000000",
+        "neglog1m": "0.000000"
+      }
+    }
+  ],
+  "class_lines": [
+    {
+      "assigned_by": "eligibility",
+      "page": "apple_sbp",
+      "part": "Small Business Program",
+      "quote": "Existing developers who made up to 1 million USD in proceeds in the prior calendar year for all their apps, as well as developers new to the App Store, can qualify for the program and the reduced commission.",
+      "row": "reduced",
+      "table": "apple_eu"
+    },
+    {
+      "assigned_by": "program",
+      "page": "apple_eu",
+      "part": "Mini Apps and Video Partner programs",
+      "quote": "from participants in the App Store Small Business Program, Mini Apps Partner Program, or Video Partner Program",
+      "row": "reduced",
+      "table": "apple_eu"
+    },
+    {
+      "assigned_by": "subscription_age",
+      "page": "apple_eu",
+      "part": "subscriptions after their first year",
+      "quote": "and sales of auto-renewable subscriptions after their first year.",
+      "row": "reduced",
+      "table": "apple_eu"
+    },
+    {
+      "assigned_by": "eligibility",
+      "page": "apple_sbp",
+      "part": "everyone else",
+      "quote": "If a participating developer surpasses the 1 million USD threshold in the current calendar year, the standard commission rate will apply to future sales.",
+      "row": "standard",
+      "table": "apple_eu"
+    },
+    {
+      "assigned_by": "program",
+      "page": "apple_jp",
+      "part": "Small Business, Mini Apps and Video Partner programs",
+      "quote": "Transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program.",
+      "row": "reduced",
+      "table": "apple_jp"
+    },
+    {
+      "assigned_by": "subscription_age",
+      "page": "apple_jp",
+      "part": "subscriptions after their first year",
+      "quote": "Auto-renewable subscriptions after their first year.",
+      "row": "reduced",
+      "table": "apple_jp"
+    },
+    {
+      "assigned_by": "eligibility",
+      "page": "apple_jp",
+      "part": "everyone else",
+      "quote": "Excludes transactions from program participants or auto-renewable subscriptions after their first year.",
+      "row": "standard",
+      "table": "apple_jp"
+    },
+    {
+      "assigned_by": "revenue_tranche",
+      "page": "google_help",
+      "part": "first million of annual earnings",
+      "quote": "First $1M (USD) of annual earnings",
+      "row": "first1m",
+      "table": "google_main"
+    },
+    {
+      "assigned_by": "revenue_tranche",
+      "page": "google_appsexp",
+      "part": "annual earnings above one million",
+      "quote": "Standard, for annual earnings $1M+ (USD)",
+      "row": "standard",
+      "table": "google_main"
+    },
+    {
+      "assigned_by": "program",
+      "page": "google_levelup",
+      "part": "Play Games Level Up",
+      "quote": "games that implement all new Level Up guidelines will qualify for a lower service fee.",
+      "row": "program",
+      "table": "google_main"
+    },
+    {
+      "assigned_by": "program",
+      "page": "google_appsexp",
+      "part": "Apps Experience",
+      "quote": "by meeting all the guidelines, your apps qualify for a new program rate card.",
+      "row": "program",
+      "table": "google_main"
+    },
+    {
+      "assigned_by": "revenue_tranche",
+      "condition": "the rows apply to developers enrolled in the 15% service fee tier; within it the tranche of annual earnings assigns the row",
+      "page": "google_help",
+      "part": "first million, developers enrolled in the 15% tier",
+      "quote": "Developers enrolled in the 15% service fee tier 15% for the first $1M (USD) revenue earned by the developer each year",
+      "row": "first1m",
+      "table": "google_row"
+    },
+    {
+      "assigned_by": "revenue_tranche",
+      "condition": "as for the first-million row",
+      "page": "google_help",
+      "part": "above one million, developers enrolled in the 15% tier",
+      "quote": "Developers enrolled in the 15% service fee tier 15% for the first $1M (USD) revenue earned by the developer each year 30% for earnings in excess of $1M (USD) revenue earned by the developer each year",
+      "row": "above",
+      "table": "google_row"
+    }
+  ],
+  "config": {
+    "addon": [
+      "with",
+      "without"
+    ],
+    "addon_scope": "the add-on knob acts within one table; PAY1-5 compares totals",
+    "input_layouts": [
+      "rule",
+      "cell"
+    ],
+    "korea_india": [
+      "points",
+      "relative"
+    ],
+    "pages": {
+      "apple_eu": {
+        "accessed": "2026-10-14",
+        "url": "https://developer.apple.com/support/alternative-payment-options-on-the-app-store-in-the-eu/",
+        "version": "Effective October 1, 2026, the primary updates include:",
+        "version_reason": null
+      },
+      "apple_jp": {
+        "accessed": "2026-10-14",
+        "url": "https://developer.apple.com/support/app-distribution-in-japan/",
+        "version": null,
+        "version_reason": "the page prints no version or effective date for its rate tables; the one dated sentence on it ('By March 17, 2026, all current members of the Apple Developer Program will need to agree to the latest update ...') is an agreement deadline. The rates' date is on the announcement page (apple_jp_news: December 17, 2025)."
+      },
+      "apple_jp_news": {
+        "accessed": "2026-10-14",
+        "url": "https://www.apple.com/newsroom/2025/12/apple-announces-changes-to-ios-in-japan/",
+        "version": "December 17, 2025",
+        "version_reason": null
+      },
+      "apple_sbp": {
+        "accessed": "2026-10-14",
+        "url": "https://developer.apple.com/app-store/small-business-program/",
+        "version": null,
+        "version_reason": "the page prints no version or effective date"
+      },
+      "google_appsexp": {
+        "accessed": "2026-10-14",
+        "url": "https://play.google.com/console/about/programs/appsexperience/",
+        "version": "United States, United Kingdom, Japan, European Economic Area and Australia September 30, 2026",
+        "version_reason": null
+      },
+      "google_blog": {
+        "accessed": "2026-10-14",
+        "url": "https://android-developers.googleblog.com/2026/06/play-expanded-billing.html",
+        "version": "This starts on June 30, 2026, beginning with the United States, European Economic Area, and United Kingdom.",
+        "version_reason": null
+      },
+      "google_help": {
+        "accessed": "2026-10-14",
+        "url": "https://support.google.com/googleplay/android-developer/answer/112622?hl=en",
+        "version": "(June 30, 2026 for the EEA, UK, and US; September 30, 2026 for Australia and Japan)",
+        "version_reason": null
+      },
+      "google_levelup": {
+        "accessed": "2026-10-14",
+        "url": "https://play.google.com/console/about/levelup/",
+        "version": null,
+        "version_reason": "the page prints no version; its rate card prints no date"
+      }
+    },
+    "printed_once": {
+      "apple_jp": "21% covers in-app purchase and alternative payment; 5% processing fee covers both classes' in-app cells",
+      "google_main cell layout": "the first-million 10% + 5% cell spans three columns; every other printed cell is its own input; the first-million link cell is the blog post's 10%",
+      "google_main rule layout": "one 10% for the first-million row and every subscription cell; one 5% billing fee for nine cells (the blog post's two rules)",
+      "google_row": "15% for subscriptions printed once for both rows; 4% reduction printed once"
+    },
+    "reference": {
+      "addon": "with",
+      "krin": "points"
+    },
+    "tick": "1 percentage point",
+    "transforms": [
+      "level",
+      "log1p",
+      "neglog1m"
+    ]
+  },
+  "counts": {
+    "apple_eu": {
+      "read_above": 2,
+      "read_on_floor": 1,
+      "unread": 0,
+      "zero": 0
+    },
+    "apple_jp": {
+      "read_above": 2,
+      "read_on_floor": 0,
+      "unread": 1,
+      "zero": 0
+    },
+    "google_main": {
+      "read_above": 13,
+      "read_on_floor": 0,
+      "unread": 5,
+      "zero": 0
+    },
+    "google_row": {
+      "read_above": 4,
+      "read_on_floor": 0,
+      "unread": 1,
+      "zero": 1
+    },
+    "total": {
+      "read_above": 21,
+      "read_on_floor": 1,
+      "unread": 7,
+      "zero": 1
+    }
+  },
+  "criteria": [
+    {
+      "detail": "Every printed number the station uses is quoted from its saved page as printed, and the percentage the quote points at equals the value in the table: 36 quotes agree of 36 (34 inputs over both input layouts, and 2 second class-row quotes on the Japan page, each checked against the input of the class row it merges into). 7 cells are listed missing with a reason and none of them sits in any table; 1 column set by a printed rule from cells already read is listed apart with the rule quoted on its pages. The two program pages print the program rate card in text and it agrees with the help page's rows (program 10/15/20/15, standard 10/20/25/20, first million 10/10/10): yes. Google's help page (cell by cell) and its post (two rules) give the same value in each of the 12 cells on all four add-on x Korea/India settings: yes. Failures: none.",
+      "kind": "instrument",
+      "name": "PAY1-1",
+      "passed": true
+    },
+    {
+      "detail": "Every class line carries a quoted rule from a saved page and how the rule assigns it (eligibility/revenue_tranche/subscription_age/program); none of them lets a developer pick the class on one transaction: 13 class lines, failures none.",
+      "kind": "premise",
+      "name": "PAY1-2",
+      "passed": true
+    },
+    {
+      "detail": "Where the writer prints a rule that combines numbers, the result is fixed by arithmetic (a, d and e are squares; b and c are the post's two rules checked against the help page's cell-by-cell numbers): a_apple_japan_iap_vs_alt holds; b_google_billing_fee_leaves_level_squares holds; c_google_first_million_row_flat holds; d_korea_india_alt_vs_play_billing_level_zero holds; e_subscription_vs_subscription_alt_zero holds.",
+      "kind": "known_answer",
+      "name": "PAY1-3",
+      "passed": true
+    },
+    {
+      "detail": "Exact squares across 3 transforms x 2 add-on settings x 2 Korea/India readings: 30 squares; read above the floor 21, read on the floor 1, zero 1, not read 7. Every square has one state and the four counts add to the total. Square by square the states equal the registered table (30 squares): no difference. Smallest multiple over the floor among the squares read above it, worst of three transforms and two input layouts: 3.90. The squares read above the floor by the two columns they compare: billing route only 6, product or install cohort on one route 10, both 5. Independent squares within the tables 13 (with Apple's two jurisdictions as one table 14); the squares read above the floor span 13 of the 13. Each rival in its own units, squares (independent squares they span): L fails on 21 (13), holds on 7 (5), no verdict on 2; M fails on 22 (13), holds on 1 (1), no verdict on 7. L (level): the commission is a price of the position the transaction sits on (its product, the buyer's install cohort, its billing route) plus a term for the developer class; one term per column and one per row. M (log): a scalar potential on positions, with a constant offset per class. L: f(row, column) = A(row) + phi(column), so every level square is zero. M: log(1 + f), or -log(1 - f), is a row term plus a column term, so every log square is zero. point prediction (exactly zero)",
+      "kind": "own_reading",
+      "name": "PAY1-4",
+      "passed": true,
+      "rival_entailment": "L: f(row, column) = A(row) + phi(column), so every level square is zero. M: log(1 + f), or -log(1 - f), is a row term plus a column term, so every log square is zero.",
+      "rival_premise": "L (level): the commission is a price of the position the transaction sits on (its product, the buyer's install cohort, its billing route) plus a term for the developer class; one term per column and one per row. M (log): a scalar potential on positions, with a constant offset per class.",
+      "rival_shape": "point prediction (exactly zero)"
+    },
+    {
+      "detail": "Apple's reduced class, EU against Japan: both pages' definitions are on the saved pages (yes); word for word the same: no; the same four members on both (4 / 4). Class by jurisdiction squares, add-on included (printed, not judged): iap zero (level +0); alt read_on_floor (level -1); link zero (level +0). With Japan's processing fee stripped the in-app purchase square is level +0, signs [0, -1, 1].",
+      "kind": "own_reading",
+      "name": "PAY1-5",
+      "passed": true
+    },
+    {
+      "detail": "Each of 8 pages carries its address, access date, version or effective-date sentence (or why there is none) and the sha256 of the saved page and its text; 7 missing cells carry a reason; 1 derived column carries its rule. Gaps: none.",
+      "kind": "bookkeeping",
+      "name": "PAY1-6",
+      "passed": true
+    }
+  ],
+  "derived": [
+    {
+      "col": "alt_billing (sub, new, exist)",
+      "if_added": "its squares against the Google Play billing columns are level zeros made by the billing-fee rule (the same 5 on every row) and non-zero in the logs; its squares against the other columns repeat the existing level squares. No direction changes; counts would grow.",
+      "quotes": [
+        [
+          "google_blog",
+          "For all other transactions, the rates in the table below applies:"
+        ],
+        [
+          "google_blog",
+          "For transactions processed via alternative billing or external web links, the billing fee does not apply."
+        ],
+        [
+          "google_levelup",
+          "When qualified for Level Up 10% +billing fee, if applicable"
+        ],
+        [
+          "google_appsexp",
+          "Standard, for annual earnings $1M+ (USD) 10% +billing fee, if applicable"
+        ]
+      ],
+      "row": "standard and program",
+      "rule": "The post introduces the rate card with 'Regardless of whether you use Google Play's billing system, alternative billing, or external web links, the service fee starts at 10% ... For all other transactions, the rates in the table below applies' and states 'For transactions processed via alternative billing or external web links, the billing fee does not apply.' The program pages print the same card in text with each service fee marked '+billing fee, if applicable' and no separate alternative-billing column. So under alternative billing a row pays the card's service fee and no billing fee: the column is the Google Play billing column with the add-on stripped, which the add-on knob already reads (setting 'without').",
+      "table": "google_main"
+    }
+  ],
+  "independent_squares_d22": {
+    "rank_by_rival_outcome": {
+      "L_fails": {
+        "apple_eu": 2,
+        "apple_jp": 2,
+        "google_main": 6,
+        "google_row": 3,
+        "total": 13
+      },
+      "L_holds": {
+        "apple_eu": 0,
+        "apple_jp": 1,
+        "google_main": 3,
+        "google_row": 1,
+        "total": 5
+      },
+      "L_no_verdict": {
+        "apple_eu": 1,
+        "apple_jp": 0,
+        "google_main": 0,
+        "google_row": 1,
+        "total": 2
+      },
+      "M_fails": {
+        "apple_eu": 2,
+        "apple_jp": 2,
+        "google_main": 6,
+        "google_row": 3,
+        "total": 13
+      },
+      "M_holds": {
+        "apple_eu": 0,
+        "apple_jp": 0,
+        "google_main": 0,
+        "google_row": 1,
+        "total": 1
+      },
+      "M_no_verdict": {
+        "apple_eu": 1,
+        "apple_jp": 1,
+        "google_main": 3,
+        "google_row": 0,
+        "total": 5
+      }
+    },
+    "rank_of_read_above": {
+      "apple_eu": 2,
+      "apple_jp": 2,
+      "google_main": 6,
+      "google_row": 3,
+      "total": 13
+    },
+    "with_apple_jurisdictions": {
+      "apple_both_jurisdictions": 5,
+      "google_main": 6,
+      "google_row": 3,
+      "total": 14
+    },
+    "within_tables": {
+      "apple_eu": 2,
+      "apple_jp": 2,
+      "google_main": 6,
+      "google_row": 3,
+      "total": 13
+    }
+  },
+  "known_answers": {
+    "a_apple_japan_iap_vs_alt": true,
+    "b_google_billing_fee_leaves_level_squares": true,
+    "c_google_first_million_row_flat": true,
+    "d_korea_india_alt_vs_play_billing_level_zero": true,
+    "e_subscription_vs_subscription_alt_zero": true
+  },
+  "layout_disagreements": [],
+  "mapping_11c": [
+    {
+      "called": "read, above the floor",
+      "counts_in": "above_floor",
+      "maps_to": "both rivals' point predictions fail on this square (written into detail)",
+      "state": "read_above",
+      "verdict": true
+    },
+    {
+      "called": "read, on the floor",
+      "counts_in": "printed only",
+      "maps_to": "no verdict for either rival",
+      "state": "read_on_floor",
+      "verdict": null
+    },
+    {
+      "called": "zero",
+      "counts_in": "zero",
+      "maps_to": "two prices printed as one (D30 third clause, the constant is 1); the rivals say zero too, grid A",
+      "state": "zero",
+      "verdict": true
+    },
+    {
+      "called": "not read",
+      "counts_in": "unread",
+      "maps_to": "no joint verdict; each rival is then read in its own units by RIVAL_MAPPING",
+      "state": "unread",
+      "verdict": null
+    }
+  ],
+  "missing": [
+    {
+      "col": "new_link",
+      "reason": "external web link rate on new installs: not printed; the link rate is printed only beside the existing-install cell",
+      "row": "standard",
+      "table": "google_main"
+    },
+    {
+      "col": "new_link",
+      "reason": "as for the standard row",
+      "row": "program",
+      "table": "google_main"
+    },
+    {
+      "col": "other",
+      "reason": "the remaining-markets program row prints '15% or lower', a bound and not a rate",
+      "row": "program",
+      "table": "google_row"
+    },
+    {
+      "col": "billing_fee",
+      "reason": "no billing fee is printed for the remaining markets ('We'll announce billing fee details for other markets soon.')",
+      "row": "first1m",
+      "table": "google_row"
+    },
+    {
+      "col": "off_store",
+      "reason": "Core Technology Commission 5% for distribution outside the App Store: one rate printed with no class split, and not a payment channel inside the App Store; left out by the design",
+      "row": "standard",
+      "table": "apple_jp"
+    },
+    {
+      "col": "off_store",
+      "reason": "the Core Technology Commission is not on the page read",
+      "row": "standard",
+      "table": "apple_eu"
+    },
+    {
+      "col": "iap",
+      "reason": "Apple's rates outside the EU and Japan are not on the pages read",
+      "row": "standard",
+      "table": "apple_row"
+    }
+  ],
+  "mutations": [
+    {
+      "caught": true,
+      "how": "self-test stopped: KeyError",
+      "mutation": "a transform dropped"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: 11c per rival: both rivals fail on every square read above the floor, no verdict on the floor",
+      "mutation": "the level floor set to zero"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: 11c per rival: both rivals fail on every square read above the floor, no verdict on the floor",
+      "mutation": "the log floors set to zero"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: Japan in-app against alternative: level floor is zero (21 and 5 are printed once)",
+      "mutation": "Japan's 21% split into two inputs"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: fixture: a square non-zero with the add-on and zero without it is not read",
+      "mutation": "the state read on the reference setting only"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: 11c: four states mapped, read-on-floor and not-read carry no verdict",
+      "mutation": "the not-read state mapped to a verdict"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: PAY1-1 flips when a missing cell is put in a table",
+      "mutation": "the quote check skipped"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: PAY1-3 flips when Japan's processing fee is 6 for the standard class only",
+      "mutation": "the known answers written as constants"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: PAY1-1 flips when Japan's second reduced-class row points at a rate other than the class's (21%)",
+      "mutation": "the merged class rows left unchecked"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: 11c per rival: both rivals fail on every square read above the floor, no verdict on the floor",
+      "mutation": "a rival scored as failing on the floor"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: rival L on Korea/India other against other-alt: no verdict (zero in points, not in share)",
+      "mutation": "a rival's hold read on the reference setting only"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: rival M fails where only its own units are non-zero above the floor (Korea/India other against other-alt)",
+      "mutation": "a rival's failure read from the joint state only"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: PAY1-3 b flips when the help page prints a 6% billing fee in one cell",
+      "mutation": "Google's two rules checked on the rule layout"
+    },
+    {
+      "caught": true,
+      "how": "self-test check failed: PAY1-1 layout agreement flips when the help page prints a 6% billing fee in one cell",
+      "mutation": "the two layouts' agreement written as a constant"
+    }
+  ],
+  "pair_kinds_read_above": {
+    "mixed": 5,
+    "product_or_cohort": 10,
+    "route_only": 6
+  },
+  "positions": {
+    "apple_eu": {
+      "alt": [
+        "any",
+        "any",
+        "alternative payment"
+      ],
+      "iap": [
+        "any",
+        "any",
+        "store billing"
+      ],
+      "link": [
+        "any",
+        "any",
+        "external link"
+      ]
+    },
+    "apple_jp": {
+      "alt": [
+        "any",
+        "any",
+        "alternative payment"
+      ],
+      "iap": [
+        "any",
+        "any",
+        "store billing"
+      ],
+      "link": [
+        "any",
+        "any",
+        "external link"
+      ]
+    },
+    "google_main": {
+      "exist": [
+        "other",
+        "existing install",
+        "Play billing"
+      ],
+      "exist_link": [
+        "other",
+        "existing install",
+        "external link"
+      ],
+      "new": [
+        "other",
+        "new install",
+        "Play billing"
+      ],
+      "sub": [
+        "subscription",
+        "any",
+        "Play billing"
+      ]
+    },
+    "google_row": {
+      "other": [
+        "other",
+        "any",
+        "Play billing"
+      ],
+      "other_alt": [
+        "other",
+        "any",
+        "alternative billing (Korea, India)"
+      ],
+      "sub": [
+        "subscription",
+        "any",
+        "Play billing"
+      ],
+      "sub_alt": [
+        "subscription",
+        "any",
+        "alternative billing (Korea, India)"
+      ]
+    }
+  },
+  "printed_rules": [
+    {
+      "page": "apple_jp",
+      "quote": "The total charge when using Apple In-App Purchase consists of two primary components—a commission and a separate payment processing fee",
+      "table": "apple_jp"
+    },
+    {
+      "page": "apple_jp",
+      "quote": "(including using alternative payments within apps)",
+      "table": "apple_jp"
+    },
+    {
+      "page": "google_blog",
+      "quote": "For transactions processed via alternative billing or external web links, the billing fee does not apply.",
+      "table": "google_main"
+    },
+    {
+      "page": "google_blog",
+      "quote": "Regardless of whether you use Google Play's billing system, alternative billing, or external web links, the service fee starts at 10% on your first $1M (USD) in annual earnings. This 10% service fee also applies to all auto-renewing subscriptions.",
+      "table": "google_main"
+    },
+    {
+      "page": "google_help",
+      "quote": "the service fee for such transactions using the Alternative Billing System is equal to the service fee applicable for transactions via Google Play’s billing system reduced by 4%.",
+      "table": "google_row"
+    },
+    {
+      "page": "google_help",
+      "quote": "Subscriptions 15% for automatically renewing subscription products purchased by subscribers, regardless of revenue earned by the developer each year",
+      "table": "google_row"
+    },
+    {
+      "page": "apple_eu",
+      "quote": "App Store commission rates apply to the price paid by the customer.",
+      "table": "basis"
+    },
+    {
+      "page": "apple_jp",
+      "quote": "These rates apply to the price paid by the customer.",
+      "table": "basis"
+    }
+  ],
+  "program_cards": [
+    {
+      "on_page": true,
+      "page": "google_levelup",
+      "percentages": [
+        "10",
+        "15",
+        "20",
+        "15"
+      ],
+      "quote": "When qualified for Level Up 10% +billing fee, if applicable 15% +billing fee, if applicable 20% +billing fee, if applicable 15% external web link transactions"
+    },
+    {
+      "on_page": true,
+      "page": "google_appsexp",
+      "percentages": [
+        "10",
+        "15",
+        "20",
+        "15"
+      ],
+      "quote": "When qualified for Apps Experience 10% +billing fee, if applicable 15% +billing fee, if applicable 20% +billing fee, if applicable 15% external web link transactions"
+    },
+    {
+      "on_page": true,
+      "page": "google_appsexp",
+      "percentages": [
+        "10",
+        "20",
+        "25",
+        "20"
+      ],
+      "quote": "Standard, for annual earnings $1M+ (USD) 10% +billing fee, if applicable 20% +billing fee, if applicable 25% +billing fee, if applicable 20% external web link transactions"
+    },
+    {
+      "on_page": true,
+      "page": "google_levelup",
+      "percentages": [
+        "10",
+        "10",
+        "10"
+      ],
+      "quote": "First $1M (USD) of annual earnings 10% +billing fee, if applicable 10% +billing fee, if applicable 10% +billing fee, if applicable"
+    }
+  ],
+  "quotes": [
+    {
+      "agrees": true,
+      "input": "alt_r",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_eu",
+      "printed": "10",
+      "quote": "10% Sales processed via alternative payment processing within the app from participants in the App Store Small Business Program, Mini Apps Partner Program, or Video Partner Program; and sales of auto-renewable subscriptions after their first year.",
+      "table": "apple_eu",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "alt_s",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_eu",
+      "printed": "20",
+      "quote": "20% Sales processed via alternative payment processing within the app.",
+      "table": "apple_eu",
+      "token": 0,
+      "value": "20"
+    },
+    {
+      "agrees": true,
+      "input": "iap_r",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_eu",
+      "printed": "15",
+      "quote": "15% Sales processed by Apple In-App Purchase from participants in the App Store Small Business Program, Mini Apps Partner Program, or Video Partner Program, and sales of auto-renewable subscriptions after their first year.",
+      "table": "apple_eu",
+      "token": 0,
+      "value": "15"
+    },
+    {
+      "agrees": true,
+      "input": "iap_s",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_eu",
+      "printed": "26",
+      "quote": "26% Sales processed by Apple In-App Purchase.",
+      "table": "apple_eu",
+      "token": 0,
+      "value": "26"
+    },
+    {
+      "agrees": true,
+      "input": "lnk_r",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_eu",
+      "printed": "10",
+      "quote": "10% Out-of-app offers for relevant transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program; and out-of-app offers for relevant auto-renewable subscriptions after their first year",
+      "table": "apple_eu",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "lnk_s",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_eu",
+      "printed": "15",
+      "quote": "15% Out-of-app offers. 10% Out-of-app offers for relevant transactions",
+      "table": "apple_eu",
+      "token": 0,
+      "value": "15"
+    },
+    {
+      "agrees": true,
+      "input": "com_r",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "10",
+      "quote": "10% Transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program.",
+      "table": "apple_jp",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "com_r_sub",
+      "merged_into": "com_r",
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "10",
+      "quote": "10% Auto-renewable subscriptions after their first year. 21% Sale",
+      "table": "apple_jp",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "com_s",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "21",
+      "quote": "21% Sale of digital goods or services (including using alternative payments within apps). Excludes transactions from program participants or auto-renewable subscriptions after their first year.",
+      "table": "apple_jp",
+      "token": 0,
+      "value": "21"
+    },
+    {
+      "agrees": true,
+      "input": "lnk_r",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "10",
+      "quote": "10% Out-of-app offers for relevant transactions from participants in the App Store Small Business Program, Mini Apps Partner Program, and Video Partner Program.",
+      "table": "apple_jp",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "lnk_r_sub",
+      "merged_into": "lnk_r",
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "10",
+      "quote": "10% Out-of-app offers for relevant auto-renewable subscriptions after their first year.",
+      "table": "apple_jp",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "lnk_s",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "15",
+      "quote": "10% Out-of-app offers for relevant auto-renewable subscriptions after their first year. 15% Out-of-app offers.",
+      "table": "apple_jp",
+      "token": 1,
+      "value": "15"
+    },
+    {
+      "agrees": true,
+      "input": "proc",
+      "merged_into": null,
+      "on_page": true,
+      "page": "apple_jp",
+      "printed": "5",
+      "quote": "Apple payment processing fee Rate Applies to 5% Payments processed by Apple In-App Purchase.",
+      "table": "apple_jp",
+      "token": 0,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_blog",
+      "printed": "5",
+      "quote": "In the United States, United Kingdom, and the European Economic Area, the billing fee is set at 5%.",
+      "table": "google_main",
+      "token": 0,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_first",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "First $1M (USD) of annual earnings 10% + 5% billing fee *",
+      "table": "google_main",
+      "token": 1,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_p_ex",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 5,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_p_new",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 3,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_p_sub",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 1,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_s_ex",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 5,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_s_new",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 3,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "bill_s_sub",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "5",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 1,
+      "value": "5"
+    },
+    {
+      "agrees": true,
+      "input": "first",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "10",
+      "quote": "First $1M (USD) of annual earnings 10% + 5% billing fee *",
+      "table": "google_main",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "first_lnk",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_blog",
+      "printed": "10",
+      "quote": "Regardless of whether you use Google Play's billing system, alternative billing, or external web links, the service fee starts at 10% on your first $1M (USD) in annual earnings. This 10% service fee also applies to all auto-renewing subscriptions.",
+      "table": "google_main",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "p_ex",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "20",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 4,
+      "value": "20"
+    },
+    {
+      "agrees": true,
+      "input": "p_lnk",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "15",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 6,
+      "value": "15"
+    },
+    {
+      "agrees": true,
+      "input": "p_new",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "15",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 2,
+      "value": "15"
+    },
+    {
+      "agrees": true,
+      "input": "p_sub",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "10",
+      "quote": "When participating in the Play Games Level Up or Apps Experience programs 10% + 5% billing fee * 15% + 5% billing fee * 20% + 5% billing fee * OR; 15% for external web links",
+      "table": "google_main",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "s_ex",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "25",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 4,
+      "value": "25"
+    },
+    {
+      "agrees": true,
+      "input": "s_lnk",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "20",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 6,
+      "value": "20"
+    },
+    {
+      "agrees": true,
+      "input": "s_new",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "20",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 2,
+      "value": "20"
+    },
+    {
+      "agrees": true,
+      "input": "s_sub",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "10",
+      "quote": "Standard 10% + 5% billing fee * 20% + 5% billing fee * 25% + 5% billing fee * OR; 20% for external web links",
+      "table": "google_main",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "ten",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_blog",
+      "printed": "10",
+      "quote": "Regardless of whether you use Google Play's billing system, alternative billing, or external web links, the service fee starts at 10% on your first $1M (USD) in annual earnings. This 10% service fee also applies to all auto-renewing subscriptions.",
+      "table": "google_main",
+      "token": 0,
+      "value": "10"
+    },
+    {
+      "agrees": true,
+      "input": "above",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "30",
+      "quote": "Developers enrolled in the 15% service fee tier 15% for the first $1M (USD) revenue earned by the developer each year 30% for earnings in excess of $1M (USD) revenue earned by the developer each year",
+      "table": "google_row",
+      "token": 2,
+      "value": "30"
+    },
+    {
+      "agrees": true,
+      "input": "cut",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "4",
+      "quote": "the service fee for such transactions using the Alternative Billing System is equal to the service fee applicable for transactions via Google Play’s billing system reduced by 4%.",
+      "table": "google_row",
+      "token": 0,
+      "value": "4"
+    },
+    {
+      "agrees": true,
+      "input": "first",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "15",
+      "quote": "Developers enrolled in the 15% service fee tier 15% for the first $1M (USD) revenue earned by the developer each year 30% for earnings in excess of $1M (USD) revenue earned by the developer each year",
+      "table": "google_row",
+      "token": 1,
+      "value": "15"
+    },
+    {
+      "agrees": true,
+      "input": "sub",
+      "merged_into": null,
+      "on_page": true,
+      "page": "google_help",
+      "printed": "15",
+      "quote": "Subscriptions 15% for automatically renewing subscription products purchased by subscribers, regardless of revenue earned by the developer each year",
+      "table": "google_row",
+      "token": 0,
+      "value": "15"
+    }
+  ],
+  "rival_counts": {
+    "L": {
+      "fails": 21,
+      "holds": 7,
+      "no_verdict": 2
+    },
+    "M": {
+      "fails": 22,
+      "holds": 1,
+      "no_verdict": 7
+    }
+  },
+  "rival_mapping_11c": [
+    {
+      "outcome": "fails",
+      "verdict": false,
+      "when": "L: the level square is non-zero on all 4 add-on x Korea/India settings and above its floor on each of them in both input layouts. M: both log squares are non-zero on all 4 settings and above their floors on each of them in both layouts"
+    },
+    {
+      "outcome": "holds",
+      "verdict": true,
+      "when": "L: the level square is zero on all 4 add-on x Korea/India settings. M: one log square is zero on all 4 settings"
+    },
+    {
+      "outcome": "no_verdict",
+      "verdict": null,
+      "when": "otherwise (on the floor, or the rival's own square moves between zero and non-zero on a knob, or non-zero but not above the floor)"
+    }
+  ],
+  "rivals": {
+    "rival_entailment": "L: f(row, column) = A(row) + phi(column), so every level square is zero. M: log(1 + f), or -log(1 - f), is a row term plus a column term, so every log square is zero.",
+    "rival_premise": "L (level): the commission is a price of the position the transaction sits on (its product, the buyer's install cohort, its billing route) plus a term for the developer class; one term per column and one per row. M (log): a scalar potential on positions, with a constant offset per class.",
+    "rival_shape": "point prediction (exactly zero)"
+  },
+  "selftest": [
+    {
+      "check": "every criterion holds on the saved pages",
+      "passed": true
+    },
+    {
+      "check": "fixture: an additive table is zero in level on every square",
+      "passed": true
+    },
+    {
+      "check": "fixture: and non-zero in log(1 + f), so every square is not read",
+      "passed": true
+    },
+    {
+      "check": "fixture: a square non-zero with the add-on and zero without it is not read",
+      "passed": true
+    },
+    {
+      "check": "PAY1-1 flips when a missing cell is put in a table",
+      "passed": true
+    },
+    {
+      "check": "PAY1-1 flips when a value moves by a point and its quote does not",
+      "passed": true
+    },
+    {
+      "check": "PAY1-1 flips when Japan's second reduced-class row points at a rate other than the class's (21%)",
+      "passed": true
+    },
+    {
+      "check": "PAY1-1 flips when a derived column's rule is not on its page",
+      "passed": true
+    },
+    {
+      "check": "PAY1-2 flips when a class line's rule is erased",
+      "passed": true
+    },
+    {
+      "check": "PAY1-3 flips when Japan's processing fee is 6 for the standard class only",
+      "passed": true
+    },
+    {
+      "check": "PAY1-3 flips when the billing fee is added on the program row only",
+      "passed": true
+    },
+    {
+      "check": "PAY1-3 b flips when the help page prints a 6% billing fee in one cell",
+      "passed": true
+    },
+    {
+      "check": "PAY1-1 layout agreement flips when the help page prints a 6% billing fee in one cell",
+      "passed": true
+    },
+    {
+      "check": "PAY1-3 c flips when the help page prints 12% for the first million",
+      "passed": true
+    },
+    {
+      "check": "PAY1-1 layout agreement flips when the help page prints 12% for the first million",
+      "passed": true
+    },
+    {
+      "check": "PAY1-4 flips when a program-row non-subscription cell moves one point",
+      "passed": true
+    },
+    {
+      "check": "PAY1-4 on a level-additive table: every level square is zero",
+      "passed": true
+    },
+    {
+      "check": "PAY1-4 flips on a level-additive table",
+      "passed": true
+    },
+    {
+      "check": "PAY1-4 on a rank-one table: every log(1 + f) square is zero",
+      "passed": true
+    },
+    {
+      "check": "PAY1-4 flips on a rank-one table",
+      "passed": true
+    },
+    {
+      "check": "PAY1-5 flips when Japan's class definition is erased",
+      "passed": true
+    },
+    {
+      "check": "PAY1-6 flips when one page's access date is deleted",
+      "passed": true
+    },
+    {
+      "check": "11c: four states mapped, read-on-floor and not-read carry no verdict",
+      "passed": true
+    },
+    {
+      "check": "11c per rival: both rivals fail on every square read above the floor, no verdict on the floor",
+      "passed": true
+    },
+    {
+      "check": "rival M fails where only its own units are non-zero above the floor (Korea/India other against other-alt)",
+      "passed": true
+    },
+    {
+      "check": "rival M has no verdict on the five equal-number squares (logs below the floor or zero without the fee)",
+      "passed": true
+    },
+    {
+      "check": "rival L on Korea/India other against other-alt: no verdict (zero in points, not in share)",
+      "passed": true
+    },
+    {
+      "check": "pair kinds: Apple in-app against link is route only; Google subscription against new installs is not",
+      "passed": true
+    },
+    {
+      "check": "D22 rank: exact rank of square vectors",
+      "passed": true
+    },
+    {
+      "check": "Japan in-app against alternative: level floor is zero (21 and 5 are printed once)",
+      "passed": true
+    },
+    {
+      "check": "every square carries a sign on 3 transforms x 2 add-on x 2 Korea/India settings",
+      "passed": true
+    },
+    {
+      "check": "every square read above the floor has a non-zero floor in all three transforms and both layouts",
+      "passed": true
+    },
+    {
+      "check": "Apple EU in-app against link: level 6, floor 1",
+      "passed": true
+    }
+  ],
+  "squares": [
+    {
+      "cols": [
+        "iap",
+        "alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "1.000000",
+            "size": "1.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "0.475052",
+            "size": "0.004338"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "1.529006",
+            "size": "0.020803"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "1.000000",
+            "size": "1.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "0.475052",
+            "size": "0.004338"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "1.529006",
+            "size": "0.020803"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "1",
+        "with,relative": "1",
+        "without,points": "1",
+        "without,relative": "1"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "1.000000",
+          "log1p": "0.475052",
+          "neglog1m": "1.529006"
+        },
+        "with,relative": {
+          "level": "1.000000",
+          "log1p": "0.475052",
+          "neglog1m": "1.529006"
+        },
+        "without,points": {
+          "level": "1.000000",
+          "log1p": "0.475052",
+          "neglog1m": "1.529006"
+        },
+        "without,relative": {
+          "level": "1.000000",
+          "log1p": "0.475052",
+          "neglog1m": "1.529006"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_on_floor",
+      "rivals": {
+        "L": "no_verdict",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_on_floor",
+      "table": "apple_eu",
+      "worst_multiple": {
+        "level": "1.000000",
+        "log1p": "0.475052",
+        "neglog1m": "1.529006"
+      }
+    },
+    {
+      "cols": [
+        "iap",
+        "link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "6.000000",
+            "size": "6.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "5.135297",
+            "size": "0.046898"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "5.984847",
+            "size": "0.081428"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "6.000000",
+            "size": "6.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "5.135297",
+            "size": "0.046898"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "5.984847",
+            "size": "0.081428"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "6",
+        "with,relative": "6",
+        "without,points": "6",
+        "without,relative": "6"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "6.000000",
+          "log1p": "5.135297",
+          "neglog1m": "5.984847"
+        },
+        "with,relative": {
+          "level": "6.000000",
+          "log1p": "5.135297",
+          "neglog1m": "5.984847"
+        },
+        "without,points": {
+          "level": "6.000000",
+          "log1p": "5.135297",
+          "neglog1m": "5.984847"
+        },
+        "without,relative": {
+          "level": "6.000000",
+          "log1p": "5.135297",
+          "neglog1m": "5.984847"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "apple_eu",
+      "worst_multiple": {
+        "level": "6.000000",
+        "log1p": "5.135297",
+        "neglog1m": "5.984847"
+      }
+    },
+    {
+      "cols": [
+        "alt",
+        "link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "4.660245",
+            "size": "0.042560"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "4.819594",
+            "size": "0.060625"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "4.660245",
+            "size": "0.042560"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "4.819594",
+            "size": "0.060625"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "5",
+        "with,relative": "5",
+        "without,points": "5",
+        "without,relative": "5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "apple_eu",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.660245",
+        "neglog1m": "4.819594"
+      }
+    },
+    {
+      "cols": [
+        "iap",
+        "alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.000766",
+            "multiple": "5.173544",
+            "size": "0.003960"
+          },
+          "neglog1m": {
+            "floor": "0.001771",
+            "multiple": "4.643389",
+            "size": "0.008224"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.000766",
+            "multiple": "5.173544",
+            "size": "0.003960"
+          },
+          "neglog1m": {
+            "floor": "0.001771",
+            "multiple": "4.643389",
+            "size": "0.008224"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "5.173544",
+          "neglog1m": "4.643389"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "5.173544",
+          "neglog1m": "4.643389"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "unread",
+      "rivals": {
+        "L": "holds",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": 0,
+        "log1p,without,relative": 0,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 0,
+        "neglog1m,without,relative": 0
+      },
+      "state": "unread",
+      "table": "apple_jp",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "5.173544",
+        "neglog1m": "4.643389"
+      }
+    },
+    {
+      "cols": [
+        "iap",
+        "link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "6.000000",
+            "size": "6.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "5.135297",
+            "size": "0.046898"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "5.984847",
+            "size": "0.081428"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "6.000000",
+            "size": "6.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "5.135297",
+            "size": "0.046898"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "5.984847",
+            "size": "0.081428"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "6",
+        "with,relative": "6",
+        "without,points": "6",
+        "without,relative": "6"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "6.000000",
+          "log1p": "5.135297",
+          "neglog1m": "5.984847"
+        },
+        "with,relative": {
+          "level": "6.000000",
+          "log1p": "5.135297",
+          "neglog1m": "5.984847"
+        },
+        "without,points": {
+          "level": "6.000000",
+          "log1p": "5.568958",
+          "neglog1m": "5.746390"
+        },
+        "without,relative": {
+          "level": "6.000000",
+          "log1p": "5.568958",
+          "neglog1m": "5.746390"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "apple_jp",
+      "worst_multiple": {
+        "level": "6.000000",
+        "log1p": "5.135297",
+        "neglog1m": "5.984847"
+      }
+    },
+    {
+      "cols": [
+        "alt",
+        "link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "6.000000",
+            "size": "6.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "5.568958",
+            "size": "0.050858"
+          },
+          "neglog1m": {
+            "floor": "0.012739",
+            "multiple": "5.746390",
+            "size": "0.073203"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "6.000000",
+            "size": "6.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "5.568958",
+            "size": "0.050858"
+          },
+          "neglog1m": {
+            "floor": "0.012739",
+            "multiple": "5.746390",
+            "size": "0.073203"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "6",
+        "with,relative": "6",
+        "without,points": "6",
+        "without,relative": "6"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "6.000000",
+          "log1p": "5.568958",
+          "neglog1m": "5.746390"
+        },
+        "with,relative": {
+          "level": "6.000000",
+          "log1p": "5.568958",
+          "neglog1m": "5.746390"
+        },
+        "without,points": {
+          "level": "6.000000",
+          "log1p": "5.568958",
+          "neglog1m": "5.746390"
+        },
+        "without,relative": {
+          "level": "6.000000",
+          "log1p": "5.568958",
+          "neglog1m": "5.746390"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "apple_jp",
+      "worst_multiple": {
+        "level": "6.000000",
+        "log1p": "5.568958",
+        "neglog1m": "5.746390"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "new"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "10.000000",
+            "size": "10.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "9.547134",
+            "size": "0.083382"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "9.324514",
+            "size": "0.125163"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "10.000000",
+            "size": "10.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "9.547134",
+            "size": "0.083382"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "9.324514",
+            "size": "0.125163"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "10",
+        "with,relative": "10",
+        "without,points": "10",
+        "without,relative": "10"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "10.000000",
+          "log1p": "9.547134",
+          "neglog1m": "9.324514"
+        },
+        "with,relative": {
+          "level": "10.000000",
+          "log1p": "9.547134",
+          "neglog1m": "9.324514"
+        },
+        "without,points": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        },
+        "without,relative": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "standard"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "10.000000",
+        "log1p": "9.547134",
+        "neglog1m": "9.324514"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "exist"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "14.037877",
+            "size": "0.122602"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "13.493610",
+            "size": "0.194156"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "14.037877",
+            "size": "0.122602"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "13.493610",
+            "size": "0.194156"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "15",
+        "with,relative": "15",
+        "without,points": "15",
+        "without,relative": "15"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "with,relative": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "without,points": {
+          "level": "15.000000",
+          "log1p": "13.997657",
+          "neglog1m": "13.582752"
+        },
+        "without,relative": {
+          "level": "15.000000",
+          "log1p": "13.997657",
+          "neglog1m": "13.582752"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "standard"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "15.000000",
+        "log1p": "14.037877",
+        "neglog1m": "13.493610"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "10.000000",
+            "size": "10.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "9.527680",
+            "size": "0.087011"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "9.363628",
+            "size": "0.117783"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "10.000000",
+            "size": "10.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "9.527680",
+            "size": "0.087011"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "9.363628",
+            "size": "0.117783"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "10",
+        "with,relative": "10",
+        "without,points": "10",
+        "without,relative": "10"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        },
+        "with,relative": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        },
+        "without,points": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        },
+        "without,relative": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "standard"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "10.000000",
+        "log1p": "9.527680",
+        "neglog1m": "9.363628"
+      }
+    },
+    {
+      "cols": [
+        "new",
+        "exist"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008032",
+            "multiple": "4.882953",
+            "size": "0.039221"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "4.794922",
+            "size": "0.068993"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008032",
+            "multiple": "4.882953",
+            "size": "0.039221"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "4.794922",
+            "size": "0.068993"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "5",
+        "with,relative": "5",
+        "without,points": "5",
+        "without,relative": "5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.882953",
+          "neglog1m": "4.794922"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.882953",
+          "neglog1m": "4.794922"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.878200",
+          "neglog1m": "4.808048"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.878200",
+          "neglog1m": "4.808048"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "standard"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.882953",
+        "neglog1m": "4.794922"
+      }
+    },
+    {
+      "cols": [
+        "new",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "0.397457",
+            "size": "0.003630"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "0.549810",
+            "size": "0.007380"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "0.433755",
+            "size": "0.003630"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "0.549810",
+            "size": "0.007380"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "0.397457",
+          "neglog1m": "0.549810"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "0.397457",
+          "neglog1m": "0.549810"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "unread",
+      "rivals": {
+        "L": "holds",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "first1m",
+        "standard"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 0,
+        "log1p,without,relative": 0,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": 0,
+        "neglog1m,without,relative": 0
+      },
+      "state": "unread",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.397457",
+        "neglog1m": "0.549810"
+      }
+    },
+    {
+      "cols": [
+        "exist",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "3.897181",
+            "size": "0.035591"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "5.307830",
+            "size": "0.076373"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "4.253093",
+            "size": "0.035591"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "5.307830",
+            "size": "0.076373"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-5",
+        "with,relative": "-5",
+        "without,points": "-5",
+        "without,relative": "-5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "3.897181",
+          "neglog1m": "5.307830"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "3.897181",
+          "neglog1m": "5.307830"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.469977",
+          "neglog1m": "4.808048"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.469977",
+          "neglog1m": "4.808048"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "standard"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "3.897181",
+        "neglog1m": "5.307830"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "new"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.873045",
+            "size": "0.042560"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "4.819594",
+            "size": "0.060625"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.873045",
+            "size": "0.042560"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "4.819594",
+            "size": "0.060625"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "5",
+        "with,relative": "5",
+        "without,points": "5",
+        "without,relative": "5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.873045",
+          "neglog1m": "4.819594"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.873045",
+          "neglog1m": "4.819594"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.867434",
+          "neglog1m": "4.829830"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.867434",
+          "neglog1m": "4.829830"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.873045",
+        "neglog1m": "4.819594"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "exist"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "10.000000",
+            "size": "10.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "9.547134",
+            "size": "0.083382"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "9.324514",
+            "size": "0.125163"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "10.000000",
+            "size": "10.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "9.547134",
+            "size": "0.083382"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "9.324514",
+            "size": "0.125163"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "10",
+        "with,relative": "10",
+        "without,points": "10",
+        "without,relative": "10"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "10.000000",
+          "log1p": "9.547134",
+          "neglog1m": "9.324514"
+        },
+        "with,relative": {
+          "level": "10.000000",
+          "log1p": "9.547134",
+          "neglog1m": "9.324514"
+        },
+        "without,points": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        },
+        "without,relative": {
+          "level": "10.000000",
+          "log1p": "9.527680",
+          "neglog1m": "9.363628"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "10.000000",
+        "log1p": "9.547134",
+        "neglog1m": "9.324514"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "4.867434",
+            "size": "0.044452"
+          },
+          "neglog1m": {
+            "floor": "0.011834",
+            "multiple": "4.829830",
+            "size": "0.057158"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "4.867434",
+            "size": "0.044452"
+          },
+          "neglog1m": {
+            "floor": "0.011834",
+            "multiple": "4.829830",
+            "size": "0.057158"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "5",
+        "with,relative": "5",
+        "without,points": "5",
+        "without,relative": "5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.867434",
+          "neglog1m": "4.829830"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.867434",
+          "neglog1m": "4.829830"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.867434",
+          "neglog1m": "4.829830"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.867434",
+          "neglog1m": "4.829830"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.867434",
+        "neglog1m": "4.829830"
+      }
+    },
+    {
+      "cols": [
+        "new",
+        "exist"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "4.878200",
+            "size": "0.040822"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "4.808048",
+            "size": "0.064539"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "4.878200",
+            "size": "0.040822"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "4.808048",
+            "size": "0.064539"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "5",
+        "with,relative": "5",
+        "without,points": "5",
+        "without,relative": "5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.878200",
+          "neglog1m": "4.808048"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.878200",
+          "neglog1m": "4.808048"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.873045",
+          "neglog1m": "4.819594"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.873045",
+          "neglog1m": "4.819594"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.878200",
+        "neglog1m": "4.808048"
+      }
+    },
+    {
+      "cols": [
+        "new",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "0.207189",
+            "size": "0.001892"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "0.275560",
+            "size": "0.003466"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "0.216650",
+            "size": "0.001892"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "0.275560",
+            "size": "0.003466"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "0.207189",
+          "neglog1m": "0.275560"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "0.207189",
+          "neglog1m": "0.275560"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "unread",
+      "rivals": {
+        "L": "holds",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "first1m",
+        "program"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 0,
+        "log1p,without,relative": 0,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": 0,
+        "neglog1m,without,relative": 0
+      },
+      "state": "unread",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.207189",
+        "neglog1m": "0.275560"
+      }
+    },
+    {
+      "cols": [
+        "exist",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.009132",
+            "multiple": "4.262789",
+            "size": "0.038930"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "5.066276",
+            "size": "0.068005"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.457439",
+            "size": "0.038930"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "5.066276",
+            "size": "0.068005"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-5",
+        "with,relative": "-5",
+        "without,points": "-5",
+        "without,relative": "-5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.262789",
+          "neglog1m": "5.066276"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.262789",
+          "neglog1m": "5.066276"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.262789",
+        "neglog1m": "5.066276"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "new"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.674089",
+            "size": "0.040822"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "4.808048",
+            "size": "0.064539"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "4.878200",
+            "size": "0.040822"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "4.808048",
+            "size": "0.064539"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-5",
+        "with,relative": "-5",
+        "without,points": "-5",
+        "without,relative": "-5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.674089",
+          "neglog1m": "4.808048"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.674089",
+          "neglog1m": "4.808048"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.674089",
+        "neglog1m": "4.808048"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "exist"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.490743",
+            "size": "0.039221"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "4.794922",
+            "size": "0.068993"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008032",
+            "multiple": "4.882953",
+            "size": "0.039221"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "4.794922",
+            "size": "0.068993"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-5",
+        "with,relative": "-5",
+        "without,points": "-5",
+        "without,relative": "-5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.490743",
+          "neglog1m": "4.794922"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.490743",
+          "neglog1m": "4.794922"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.469977",
+          "neglog1m": "4.808048"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.469977",
+          "neglog1m": "4.808048"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.490743",
+        "neglog1m": "4.794922"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.873045",
+            "size": "0.042560"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "4.819594",
+            "size": "0.060625"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "5.000000",
+            "size": "5.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "4.873045",
+            "size": "0.042560"
+          },
+          "neglog1m": {
+            "floor": "0.012579",
+            "multiple": "4.819594",
+            "size": "0.060625"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-5",
+        "with,relative": "-5",
+        "without,points": "-5",
+        "without,relative": "-5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "5.000000",
+          "log1p": "4.873045",
+          "neglog1m": "4.819594"
+        },
+        "with,relative": {
+          "level": "5.000000",
+          "log1p": "4.873045",
+          "neglog1m": "4.819594"
+        },
+        "without,points": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        },
+        "without,relative": {
+          "level": "5.000000",
+          "log1p": "4.660245",
+          "neglog1m": "4.819594"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "standard",
+        "program"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "5.000000",
+        "log1p": "4.873045",
+        "neglog1m": "4.819594"
+      }
+    },
+    {
+      "cols": [
+        "new",
+        "exist"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "0.191352",
+            "size": "0.001601"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "0.309572",
+            "size": "0.004454"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008368",
+            "multiple": "0.191352",
+            "size": "0.001601"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "0.309572",
+            "size": "0.004454"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "0.191352",
+          "neglog1m": "0.309572"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "0.191352",
+          "neglog1m": "0.309572"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.198956",
+          "neglog1m": "0.291581"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.198956",
+          "neglog1m": "0.291581"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "unread",
+      "rivals": {
+        "L": "holds",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "standard",
+        "program"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "unread",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.191352",
+        "neglog1m": "0.309572"
+      }
+    },
+    {
+      "cols": [
+        "new",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "0.198956",
+            "size": "0.001738"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "0.291581",
+            "size": "0.003914"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "0.198956",
+            "size": "0.001738"
+          },
+          "neglog1m": {
+            "floor": "0.013423",
+            "multiple": "0.291581",
+            "size": "0.003914"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "0.198956",
+          "neglog1m": "0.291581"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "0.198956",
+          "neglog1m": "0.291581"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "unread",
+      "rivals": {
+        "L": "holds",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "standard",
+        "program"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": 0,
+        "log1p,without,relative": 0,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 0,
+        "neglog1m,without,relative": 0
+      },
+      "state": "unread",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.198956",
+        "neglog1m": "0.291581"
+      }
+    },
+    {
+      "cols": [
+        "exist",
+        "exist_link"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "0.382302",
+            "size": "0.003339"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "0.581583",
+            "size": "0.008368"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "0.382302",
+            "size": "0.003339"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "0.581583",
+            "size": "0.008368"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "0.382302",
+          "neglog1m": "0.581583"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "0.382302",
+          "neglog1m": "0.581583"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.198956",
+          "neglog1m": "0.291581"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.198956",
+          "neglog1m": "0.291581"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "unread",
+      "rivals": {
+        "L": "holds",
+        "M": "no_verdict"
+      },
+      "rows": [
+        "standard",
+        "program"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "unread",
+      "table": "google_main",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.382302",
+        "neglog1m": "0.581583"
+      }
+    },
+    {
+      "cols": [
+        "other",
+        "sub"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "14.037877",
+            "size": "0.122602"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "13.493610",
+            "size": "0.194156"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "14.037877",
+            "size": "0.122602"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "13.493610",
+            "size": "0.194156"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-15",
+        "with,relative": "-15",
+        "without,points": "-15",
+        "without,relative": "-15"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "with,relative": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "without,points": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "without,relative": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_row",
+      "worst_multiple": {
+        "level": "15.000000",
+        "log1p": "14.037877",
+        "neglog1m": "13.493610"
+      }
+    },
+    {
+      "cols": [
+        "other",
+        "other_alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.001082",
+            "multiple": "3.836105",
+            "size": "0.004149"
+          },
+          "neglog1m": {
+            "floor": "0.002306",
+            "multiple": "4.156260",
+            "size": "0.009585"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.001082",
+            "multiple": "3.836105",
+            "size": "0.004149"
+          },
+          "neglog1m": {
+            "floor": "0.002306",
+            "multiple": "4.156260",
+            "size": "0.009585"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "-3/5",
+        "without,points": "0",
+        "without,relative": "-3/5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "3.836105",
+          "neglog1m": "4.156260"
+        },
+        "with,relative": {
+          "level": "4.000000",
+          "log1p": "3.963864",
+          "neglog1m": "4.036259"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "3.836105",
+          "neglog1m": "4.156260"
+        },
+        "without,relative": {
+          "level": "4.000000",
+          "log1p": "3.963864",
+          "neglog1m": "4.036259"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "unread",
+      "rivals": {
+        "L": "no_verdict",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": -1,
+        "level,without,points": 0,
+        "level,without,relative": -1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "unread",
+      "table": "google_row",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "3.836105",
+        "neglog1m": "4.156260"
+      }
+    },
+    {
+      "cols": [
+        "other",
+        "sub_alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "14.037877",
+            "size": "0.122602"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "13.493610",
+            "size": "0.194156"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.008734",
+            "multiple": "14.037877",
+            "size": "0.122602"
+          },
+          "neglog1m": {
+            "floor": "0.014389",
+            "multiple": "13.493610",
+            "size": "0.194156"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-15",
+        "with,relative": "-15",
+        "without,points": "-15",
+        "without,relative": "-15"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "with,relative": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "without,points": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        },
+        "without,relative": {
+          "level": "15.000000",
+          "log1p": "14.037877",
+          "neglog1m": "13.493610"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_row",
+      "worst_multiple": {
+        "level": "15.000000",
+        "log1p": "14.037877",
+        "neglog1m": "13.493610"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "other_alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.009050",
+            "multiple": "14.005968",
+            "size": "0.126752"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "13.565780",
+            "size": "0.184571"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.009050",
+            "multiple": "14.005968",
+            "size": "0.126752"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "13.565780",
+            "size": "0.184571"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "15",
+        "with,relative": "72/5",
+        "without,points": "15",
+        "without,relative": "72/5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "15.000000",
+          "log1p": "14.005968",
+          "neglog1m": "13.565780"
+        },
+        "with,relative": {
+          "level": "15.000000",
+          "log1p": "14.069005",
+          "neglog1m": "13.568637"
+        },
+        "without,points": {
+          "level": "15.000000",
+          "log1p": "14.005968",
+          "neglog1m": "13.565780"
+        },
+        "without,relative": {
+          "level": "15.000000",
+          "log1p": "14.069005",
+          "neglog1m": "13.568637"
+        }
+      },
+      "pair_kind": "mixed",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": 1,
+        "level,with,relative": 1,
+        "level,without,points": 1,
+        "level,without,relative": 1,
+        "log1p,with,points": 1,
+        "log1p,with,relative": 1,
+        "log1p,without,points": 1,
+        "log1p,without,relative": 1,
+        "neglog1m,with,points": 1,
+        "neglog1m,with,relative": 1,
+        "neglog1m,without,points": 1,
+        "neglog1m,without,relative": 1
+      },
+      "state": "read_above",
+      "table": "google_row",
+      "worst_multiple": {
+        "level": "15.000000",
+        "log1p": "14.005968",
+        "neglog1m": "13.565780"
+      }
+    },
+    {
+      "cols": [
+        "sub",
+        "sub_alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "neglog1m": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "log1p": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          },
+          "neglog1m": {
+            "floor": "0.000000",
+            "multiple": "0.000000",
+            "size": "0.000000"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "0",
+        "with,relative": "0",
+        "without,points": "0",
+        "without,relative": "0"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "with,relative": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "without,points": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        },
+        "without,relative": {
+          "level": "0.000000",
+          "log1p": "0.000000",
+          "neglog1m": "0.000000"
+        }
+      },
+      "pair_kind": "route_only",
+      "registered": "zero",
+      "rivals": {
+        "L": "holds",
+        "M": "holds"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "sign_stable_when_read": false,
+      "signs": {
+        "level,with,points": 0,
+        "level,with,relative": 0,
+        "level,without,points": 0,
+        "level,without,relative": 0,
+        "log1p,with,points": 0,
+        "log1p,with,relative": 0,
+        "log1p,without,points": 0,
+        "log1p,without,relative": 0,
+        "neglog1m,with,points": 0,
+        "neglog1m,with,relative": 0,
+        "neglog1m,without,points": 0,
+        "neglog1m,without,relative": 0
+      },
+      "state": "zero",
+      "table": "google_row",
+      "worst_multiple": {
+        "level": "0.000000",
+        "log1p": "0.000000",
+        "neglog1m": "0.000000"
+      }
+    },
+    {
+      "cols": [
+        "other_alt",
+        "sub_alt"
+      ],
+      "floor_at_reference": {
+        "cell": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.009050",
+            "multiple": "14.005968",
+            "size": "0.126752"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "13.565780",
+            "size": "0.184571"
+          }
+        },
+        "rule": {
+          "level": {
+            "floor": "1.000000",
+            "multiple": "15.000000",
+            "size": "15.000000"
+          },
+          "log1p": {
+            "floor": "0.009050",
+            "multiple": "14.005968",
+            "size": "0.126752"
+          },
+          "neglog1m": {
+            "floor": "0.013606",
+            "multiple": "13.565780",
+            "size": "0.184571"
+          }
+        }
+      },
+      "level_pp": {
+        "with,points": "-15",
+        "with,relative": "-72/5",
+        "without,points": "-15",
+        "without,relative": "-72/5"
+      },
+      "multiple_by_setting": {
+        "with,points": {
+          "level": "15.000000",
+          "log1p": "14.005968",
+          "neglog1m": "13.565780"
+        },
+        "with,relative": {
+          "level": "15.000000",
+          "log1p": "14.069005",
+          "neglog1m": "13.568637"
+        },
+        "without,points": {
+          "level": "15.000000",
+          "log1p": "14.005968",
+          "neglog1m": "13.565780"
+        },
+        "without,relative": {
+          "level": "15.000000",
+          "log1p": "14.069005",
+          "neglog1m": "13.568637"
+        }
+      },
+      "pair_kind": "product_or_cohort",
+      "registered": "read_above",
+      "rivals": {
+        "L": "fails",
+        "M": "fails"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "sign_stable_when_read": true,
+      "signs": {
+        "level,with,points": -1,
+        "level,with,relative": -1,
+        "level,without,points": -1,
+        "level,without,relative": -1,
+        "log1p,with,points": -1,
+        "log1p,with,relative": -1,
+        "log1p,without,points": -1,
+        "log1p,without,relative": -1,
+        "neglog1m,with,points": -1,
+        "neglog1m,with,relative": -1,
+        "neglog1m,without,points": -1,
+        "neglog1m,without,relative": -1
+      },
+      "state": "read_above",
+      "table": "google_row",
+      "worst_multiple": {
+        "level": "15.000000",
+        "log1p": "14.005968",
+        "neglog1m": "13.565780"
+      }
+    }
+  ],
+  "stage": "B152",
+  "tables": {
+    "apple_eu": {
+      "cells": {
+        "reduced|alt": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "10",
+          "sum": [
+            "alt_r"
+          ],
+          "with_pp": "10",
+          "without_pp": "10"
+        },
+        "reduced|iap": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "iap_r"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        },
+        "reduced|link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "10",
+          "sum": [
+            "lnk_r"
+          ],
+          "with_pp": "10",
+          "without_pp": "10"
+        },
+        "standard|alt": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "20",
+          "sum": [
+            "alt_s"
+          ],
+          "with_pp": "20",
+          "without_pp": "20"
+        },
+        "standard|iap": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "26",
+          "sum": [
+            "iap_s"
+          ],
+          "with_pp": "26",
+          "without_pp": "26"
+        },
+        "standard|link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "lnk_s"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        }
+      },
+      "cols": [
+        "iap",
+        "alt",
+        "link"
+      ],
+      "inputs_cell_layout": {
+        "alt_r": "10",
+        "alt_s": "20",
+        "iap_r": "15",
+        "iap_s": "26",
+        "lnk_r": "10",
+        "lnk_s": "15"
+      },
+      "inputs_rule_layout": {
+        "alt_r": "10",
+        "alt_s": "20",
+        "iap_r": "15",
+        "iap_s": "26",
+        "lnk_r": "10",
+        "lnk_s": "15"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "where": "EU",
+      "writer": "Apple"
+    },
+    "apple_jp": {
+      "cells": {
+        "reduced|alt": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "10",
+          "sum": [
+            "com_r"
+          ],
+          "with_pp": "10",
+          "without_pp": "10"
+        },
+        "reduced|iap": {
+          "addon": [
+            "proc"
+          ],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "com_r"
+          ],
+          "with_pp": "15",
+          "without_pp": "10"
+        },
+        "reduced|link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "10",
+          "sum": [
+            "lnk_r"
+          ],
+          "with_pp": "10",
+          "without_pp": "10"
+        },
+        "standard|alt": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "21",
+          "sum": [
+            "com_s"
+          ],
+          "with_pp": "21",
+          "without_pp": "21"
+        },
+        "standard|iap": {
+          "addon": [
+            "proc"
+          ],
+          "cut": null,
+          "relative_pp": "26",
+          "sum": [
+            "com_s"
+          ],
+          "with_pp": "26",
+          "without_pp": "21"
+        },
+        "standard|link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "lnk_s"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        }
+      },
+      "cols": [
+        "iap",
+        "alt",
+        "link"
+      ],
+      "inputs_cell_layout": {
+        "com_r": "10",
+        "com_s": "21",
+        "lnk_r": "10",
+        "lnk_s": "15",
+        "proc": "5"
+      },
+      "inputs_rule_layout": {
+        "com_r": "10",
+        "com_s": "21",
+        "lnk_r": "10",
+        "lnk_s": "15",
+        "proc": "5"
+      },
+      "rows": [
+        "standard",
+        "reduced"
+      ],
+      "where": "Japan",
+      "writer": "Apple"
+    },
+    "google_main": {
+      "cells": {
+        "first1m|exist": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "ten"
+          ],
+          "with_pp": "15",
+          "without_pp": "10"
+        },
+        "first1m|exist_link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "10",
+          "sum": [
+            "ten"
+          ],
+          "with_pp": "10",
+          "without_pp": "10"
+        },
+        "first1m|new": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "ten"
+          ],
+          "with_pp": "15",
+          "without_pp": "10"
+        },
+        "first1m|sub": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "ten"
+          ],
+          "with_pp": "15",
+          "without_pp": "10"
+        },
+        "program|exist": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "25",
+          "sum": [
+            "p_ex"
+          ],
+          "with_pp": "25",
+          "without_pp": "20"
+        },
+        "program|exist_link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "p_lnk"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        },
+        "program|new": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "20",
+          "sum": [
+            "p_new"
+          ],
+          "with_pp": "20",
+          "without_pp": "15"
+        },
+        "program|sub": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "ten"
+          ],
+          "with_pp": "15",
+          "without_pp": "10"
+        },
+        "standard|exist": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "30",
+          "sum": [
+            "s_ex"
+          ],
+          "with_pp": "30",
+          "without_pp": "25"
+        },
+        "standard|exist_link": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "20",
+          "sum": [
+            "s_lnk"
+          ],
+          "with_pp": "20",
+          "without_pp": "20"
+        },
+        "standard|new": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "25",
+          "sum": [
+            "s_new"
+          ],
+          "with_pp": "25",
+          "without_pp": "20"
+        },
+        "standard|sub": {
+          "addon": [
+            "bill"
+          ],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "ten"
+          ],
+          "with_pp": "15",
+          "without_pp": "10"
+        }
+      },
+      "cols": [
+        "sub",
+        "new",
+        "exist",
+        "exist_link"
+      ],
+      "inputs_cell_layout": {
+        "bill_first": "5",
+        "bill_p_ex": "5",
+        "bill_p_new": "5",
+        "bill_p_sub": "5",
+        "bill_s_ex": "5",
+        "bill_s_new": "5",
+        "bill_s_sub": "5",
+        "first": "10",
+        "first_lnk": "10",
+        "p_ex": "20",
+        "p_lnk": "15",
+        "p_new": "15",
+        "p_sub": "10",
+        "s_ex": "25",
+        "s_lnk": "20",
+        "s_new": "20",
+        "s_sub": "10"
+      },
+      "inputs_rule_layout": {
+        "bill": "5",
+        "p_ex": "20",
+        "p_lnk": "15",
+        "p_new": "15",
+        "s_ex": "25",
+        "s_lnk": "20",
+        "s_new": "20",
+        "ten": "10"
+      },
+      "rows": [
+        "first1m",
+        "standard",
+        "program"
+      ],
+      "where": "Australia, EEA, Japan, UK, US",
+      "writer": "Google"
+    },
+    "google_row": {
+      "cells": {
+        "above|other": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "30",
+          "sum": [
+            "above"
+          ],
+          "with_pp": "30",
+          "without_pp": "30"
+        },
+        "above|other_alt": {
+          "addon": [],
+          "cut": "cut",
+          "relative_pp": "144/5",
+          "sum": [
+            "above"
+          ],
+          "with_pp": "26",
+          "without_pp": "26"
+        },
+        "above|sub": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "sub"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        },
+        "above|sub_alt": {
+          "addon": [],
+          "cut": "cut",
+          "relative_pp": "72/5",
+          "sum": [
+            "sub"
+          ],
+          "with_pp": "11",
+          "without_pp": "11"
+        },
+        "first1m|other": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "first"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        },
+        "first1m|other_alt": {
+          "addon": [],
+          "cut": "cut",
+          "relative_pp": "72/5",
+          "sum": [
+            "first"
+          ],
+          "with_pp": "11",
+          "without_pp": "11"
+        },
+        "first1m|sub": {
+          "addon": [],
+          "cut": null,
+          "relative_pp": "15",
+          "sum": [
+            "sub"
+          ],
+          "with_pp": "15",
+          "without_pp": "15"
+        },
+        "first1m|sub_alt": {
+          "addon": [],
+          "cut": "cut",
+          "relative_pp": "72/5",
+          "sum": [
+            "sub"
+          ],
+          "with_pp": "11",
+          "without_pp": "11"
+        }
+      },
+      "cols": [
+        "other",
+        "sub",
+        "other_alt",
+        "sub_alt"
+      ],
+      "inputs_cell_layout": {
+        "above": "30",
+        "cut": "4",
+        "first": "15",
+        "sub": "15"
+      },
+      "inputs_rule_layout": {
+        "above": "30",
+        "cut": "4",
+        "first": "15",
+        "sub": "15"
+      },
+      "rows": [
+        "first1m",
+        "above"
+      ],
+      "where": "all remaining markets; Korea and India for the alternative-billing columns",
+      "writer": "Google"
+    }
+  }
+}

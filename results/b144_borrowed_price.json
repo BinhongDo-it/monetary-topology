@@ -1,0 +1,58 @@
+{
+ "config": {
+  "fetched_by": "experiments/b144_fetch.py --only uk, --only weights",
+  "japan": "data/raw/b144/weights",
+  "japan_line": "0163 持家の帰属家賃を除く総合 581 8 420 8 000",
+  "uk": "data/raw/b144/uk/segments_2025_04"
+ },
+ "criteria": [
+  {
+   "detail": "UK segments: IMPUTED RENTS - ENGLAND, IMPUTED RENTS - WALES, IMPUTED RENTS -SCOTLAND, IMPUTED RENTS - N.IRELAND; Japanese line '0163 持家の帰属家賃を除く総合 581 8 420 8 000' found; as expected",
+   "kind": "instrument",
+   "name": "B144-J0",
+   "passed": true,
+   "statement": "The two official tables carry the lines the reading takes from them."
+  },
+  {
+   "detail": "United Kingdom, April 2025: imputed rents 170.7 of the 966.3 parts of the CPIH in the file (17.7%), and 0 in the CPI. Japan, 2020 base: the total without the imputed rent of owner-occupied housing weighs 8420 of 10000 nationally and 8000 in Tokyo, so the borrowed price is 15.8% and 20.0%",
+   "kind": "own_reading",
+   "name": "B144-J1",
+   "passed": true,
+   "statement": "One country publishes two price levels, with and without a price nobody pays."
+  }
+ ],
+ "diagnostic_only": true,
+ "diagnostic_reason": "the station is open: its arms are read one at a time and it has not been closed",
+ "objects": {
+  "B144-J0": {
+   "problems": []
+  },
+  "B144-J1": {
+   "japan": {
+    "share_national": 0.158,
+    "share_tokyo": 0.2,
+    "without_national": 8420,
+    "without_tokyo": 8000
+   },
+   "uk": {
+    "CPIH_WEIGHT": {
+     "imputed": 170.734,
+     "share": 0.1767,
+     "total_in_file": 966.349
+    },
+    "CPI_WEIGHT": {
+     "imputed": 0.0,
+     "share": 0.0,
+     "total_in_file": 993.001
+    },
+    "segments": [
+     "IMPUTED RENTS - ENGLAND",
+     "IMPUTED RENTS - WALES",
+     "IMPUTED RENTS -SCOTLAND",
+     "IMPUTED RENTS - N.IRELAND"
+    ]
+   }
+  }
+ },
+ "stage": "B144"
+}

@@ -1091,6 +1091,23 @@ def draw_singletons(kind, vocab, real_singles, rng, i):
     raise ValueError(kind)
 
 
+def partitions_in_class(kind, n_vocab, n_singles, n_codes):
+    """How many distinct partitions the comparison class `kind` holds.
+
+    `shape` picks which vertices stay alone: C(n_vocab, n_singles).
+    `alone` puts one code alone with the two events: n_codes.
+    `split` is an unordered two-way split of the codes into non-empty
+    sides: 2**(n_codes - 1) - 1.
+    """
+    if kind == "shape":
+        return math.comb(n_vocab, n_singles)
+    if kind == "alone":
+        return n_codes
+    if kind == "split":
+        return 2 ** (n_codes - 1) - 1
+    raise ValueError(kind)
+
+
 def perm_one(archive: str, n_draws: int, kind: str = "shape") -> dict:
     pos, tab = LO.curve_table()
     c = K.Core(archive, cols=LO.COLS)
@@ -1123,8 +1140,9 @@ def perm_one(archive: str, n_draws: int, kind: str = "shape") -> dict:
         rec["vertices"] = len(vocab)
         rec["fibre_shape"] = shape
         rec["real_singletons"] = sorted(real_singles)
-        rec["distinct_partitions"] = math.comb(len(vocab),
-                                               len(real_singles))
+        rec["distinct_partitions"] = partitions_in_class(
+            kind, len(vocab), len(real_singles),
+            sum(1 for v in vocab if v not in (fr.MODIFIED, fr.DEFERRED)))
 
         for tag, code_ in (("defer", L.ARM_DEFER), ("mod", L.ARM_MOD)):
             sel = [i for i in np.flatnonzero(meas & (arm == code_)).tolist()

@@ -81,7 +81,8 @@ GAPS = {
 
 #: A22's treatment, all three knobs. ``kappa = 0`` alone would also make the
 #: flat cell the cheap cell, and the gate is pinned so one switch cannot move
-#: both who pays what and who may enter.
+#: both who pays what and who may enter at the opening. The pricing pool
+#: still follows the payment terms, so the treatment levels it too.
 TREATED = {"terms_spread": KAPPA_FLAT, "hold_mean_cost": True,
            "mean_cost_reference": KAPPA_REF, "gate_spread": KAPPA_REF}
 

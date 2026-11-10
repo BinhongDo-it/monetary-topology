@@ -1865,6 +1865,13 @@ own precision, **which is a separate collection and has not been made**.
 | Columns | state, district, market, variety, group, arrivals, min, max, modal, date. **This copy carries the three administrative levels; the JSON API rows above do not**, which is failure mode 153 |
 | Also read by | `experiments/b60_anchor_regeneration.py` and `experiments/b61_branch_loading.py`. B61 reads the `variety` column as a stratifier and uses only the `Other` stratum, since a price gap between varieties is not a price gap between markets |
 
+B146 (`experiments/b146_stop_census.py`, `experiments/b146_double_cut.py`) reads the same three commodity folders
+under `data/agmark/<commodity>/<year>.csv` and collects nothing. Its event table (dates of blockades, floods, orders
+to carriers, strikes and closures) is entered by hand in `experiments/b146_double_cut.py` from press reports and a
+public tracker of shutdown orders; each row carries its source addresses, a grade and whether it was checked, and
+the same table is written into `results/b146_double_cut_<commodity>.json`. Those dates are documents cited by the
+station, not a dataset: nothing from those pages is stored under `data/`.
+
 **Four readings that belong with the data, not in a footnote:**
 
 1. **Arrivals are reported per market per day, and a market reports only on days it trades.**
@@ -3214,7 +3221,7 @@ netted. Month-to-month noise in reserves is printed per country by block 6 of
 | Files | `data/b114/raw/Sarafu2021_UKdb_submission_complete_d.zip`, 39,745,209 bytes, read in place without unpacking; `data/b114/raw/manifest.json` beside it records its SHA-256, and `experiments/b114_sarafu.py` refuses an archive that differs from it |
 | Source | UK Data Service ReShare, record 855142: Mattsson, Criscione and Ruddick, Sarafu Community Inclusion Currency, 2020-2021. The data descriptor is Scientific Data 9, 426 (2022) |
 | Retrieved | 2026-09-16, downloaded by hand after registration. The archive is safeguarded data under the UK Data Service End User Licence, which prohibits research that aims to de-anonymize or re-identify Sarafu users; everything this station prints is a sum over areas, months or wallet classes |
-| Origin | exported by Grassroots Economics from the xDAI chain the currency ran on; the archive carries the transaction table, the users table, a README, the descriptor's preprocessing notebook and documentation pages |
+| Origin | exported by Grassroots Economics from its Sarafu PostgreSQL accounting database; transactions were copied to the xDAI blockchain when possible, with the blockchain serving as a secondary repository. The archive carries the transaction table, users table, README, preprocessing notebook and documentation pages |
 | Caliber | `sarafu_xDAI/sarafu_txns_20200125-20210615.csv` (173,316,885 bytes): one row per transfer, 930,161 rows; `source` and `target` are wallet addresses, which the users table carries as `xDAI_blockchain_address`; `weight` is in Sarafu; `transfer_subtype` is in capitals (`STANDARD`, `DISBURSEMENT`, `RECLAMATION`, `AGENT_OUT`) although the descriptor writes the codes in lower case. One row is in Kenyan Shilling (a disbursement of 1,000 on 2020-04-30) and is left out of every sum. `sarafu_xDAI/sarafu_users_20210615.csv` (9,477,705 bytes): one row per account with its area, area type, business type, held role and final balance; its `id` is a database index, not the key transfers use. Two staff wallets carry 3 and 20 staff rows, three accounts created in error share the address `None`, and one row repeats another exactly. Disbursements before 2020-01-28 convert the precursor community tokens one to one and are not new money |
 | Checks | the descriptor's totals recomputed from the transfers: demurrage reclaimed 2021-02-01 to 2021-02-03, 352,834.00 against 352,834; `agent_out`, 6,172,074.95 against 6,172,075; the balance of all accounts except admin accounts, 19,414,222.25 from the flows against 19,419,736, and 19,416,434.84 from the users table's final balances. Balances rebuilt from the flows match `final_bal` to 0.01 for 54,883 wallets and differ for 83, by at most 1,000 |
 
@@ -3251,6 +3258,17 @@ netted. Month-to-month noise in reserves is printed per country by block 6 of
 | Caliber | flat prices in US$/t FOB vessel, #2 YC for corn (Gulf and PNW) and #2 YGS for sorghum (NOLA and Texas); basis in US$/bu over the CBOT corn futures month named by its letter (H March, K May, N July, U September, Z December); corn and sorghum bushels both 56 lb, so a flat price is the futures price plus the basis, times 39.37. Delivery months as printed, FH and LH marking the halves of a month, and a few 2016 and 2017 labels carry a day (March 5, March 25, February 25). Three Gulf corn bases of 2017-08-24 are printed without a decimal point (`50+U`, `52+Z`, `61+Z`) and are read as 0.50, 0.52 and 0.61. Lines printed under a table to say another table is left out that week are not price rows and are not transcribed |
 | Coverage | 47 issues in 2016, 46 in 2017, 30 in 2018 to 08-02. No PDF found for 2016-02-18, 06-09, 07-21 and 11-10, or for 2017-01-05, 03-16, 05-18 and 09-21; no issue on 2016-11-24, 2017-11-23, 2017-12-28 and 2018-01-25. The images linked from the 2017 issue pages no longer open |
 | Checks | each PDF's Week Ending date equals its issue date, 123 of 123; the 231 cells of 2018-02-22 to 08-02 read from the images equal those read from the text layer in every cell; `experiments/b115_sorghum_step.py` flags 19 cells whose flat price and basis put the futures price more than a cent a bushel from the median over their issue and futures month, and 3 cells hung on a futures month that ends before their delivery month |
+
+## B115: US sorghum weekly export sales by destination, FAS ESRQS
+
+| | |
+|---|---|
+| Files | `data/b115_sorghum_esr.json`: 2,722 destination rows and 414 Total rows, each with its week, marketing year, destination code and name and the eight columns, plus a block per source file (URL, bytes, SHA-256, header dates, pages, weeks, rows). `data/b115_esr_destination_codes.json`: the 194 destination codes asked for, with the commodity code and id. `data/b115/raw/esr/esr_sorghum_<YYYY>_<YY>.html`, six report pages, one per marketing year 2013/14 to 2018/19, 14,182,348 bytes together; `data/b115/raw/b115_esr_manifest.json` records per file the URL, bytes, SHA-256 and retrieval date. Fetched and rebuilt by `experiments/b115_sorghum_flows.py --fetch`, which skips a file whose hash and checks hold and refuses one that fails them |
+| Source | USDA Foreign Agricultural Service, Export Sales Reporting and Query System, the report page `https://apps.fas.usda.gov/esrqs/ReportsHome.aspx?RN=ESRQR&weekStartDate=MM/DD/YYYY&weekEndDate=MM/DD/YYYY&commodityId=13&destinationCode=<codes>&format=Commodity/WeekEndingDate/ReportingMarketingYearName/Country`, read by a plain GET; the data are in the page. `commodityId=13` is the system's id for commodity code 701, GRAIN SORGHUMS - UNMILLED (`https://apps.fas.usda.gov/esrqs/api/lookups/Commodities`). The destination codes are the list of the query form at `https://apps.fas.usda.gov/esrqs/#/esr-query`, read 2026-10-12; `destinationCode=0` returns an empty table, so the codes are listed |
+| Retrieved | 2026-10-12, by script, one request per marketing year with a pause between requests |
+| Caliber | tonnes. A week runs Friday to Thursday and is named by its Thursday. The marketing year is September to August; a request runs from the first Thursday of September to the last Thursday before the next one. A week can hold two marketing-year blocks (new-crop sales before September, and the weeks around the turn of the year). Eight columns, named as the source names them: Gross New Sales, Net Sales, Weekly Exports, Outstanding Sales, Accumulated Exports and Total Commitment for the marketing year of the block, and Net Sales and Outstanding Sales for the next marketing year. By the source's definitions Net Sales is new sales net of buy-backs and cancellations and of changes of destination out of and into the row, Weekly Exports are shipments of the Friday-to-Thursday week, and Accumulated Exports can be revised. The report has no column of cancellations by destination. Destination 5700 is China and 9990 is UNKNOWN, a reporting category for sales with no destination declared. A destination with no row in a week has no activity and no balance there and is read as zeros: China has no row in 24 of the 313 weeks, none of them between 2018-01-04 and 2018-08-30. Gross New Sales and Weekly Exports are never below zero in any of the 2,722 rows |
+| Coverage | 313 Thursdays from 2013-09-05 to 2019-08-29, each with a Total row; 25 destinations with at least one row |
+| Checks | each of the six files ends complete, reports one page, carries the header dates asked for and the commodity name, and has a Total row for every Thursday of its span. In every row Total Commitment equals Outstanding Sales plus Accumulated Exports; in every week and marketing-year block the Total row equals the sum of the destinations in all eight columns; China's Outstanding Sales and Accumulated Exports chain week to week through Net Sales and Weekly Exports from 2018-01-04 to 2018-08-30; all within 0.15 t, with no break, and no chain break for any other destination or year either |
 
 ## B30-4, the itch.io tag directory
 
@@ -3350,6 +3368,16 @@ be checked by anyone**, including by a later session of this project.
 | Caliber | One row per transplant, donor, candidate or organ disposition. The transplant file carries the donor's OPO (`DON_OPO_CTR_ID`), the recipient's centre (`REC_CTR_ID`), the recipient's permanent state and the share type (`REC_PB_SHARE_TY`); the institution table maps each centre to its state and OPTN region. The disposition file writes dates as month/day/two-digit year |
 | Checks | `zipfile.testzip` passes on all 197 members, and no member is a Git LFS pointer. Each `.gz` decompresses whole with its gzip CRC and length intact. The transplant, donor, candidate and institution row counts match the counts in The Markup's methodology. The disposition file holds 1,048,575 data rows plus a header, which is Excel's row limit of 1,048,576, and its dates cover 1987-10 to 1997-05 and 2013-01 to 2022-03 with nothing in between, so it was most likely cut at that limit before release; its 2013 to 2022 rows are to be checked against the transplant file's yearly liver counts before any use |
 
+## B124: NHSBT donation zone by transplant centre counts, released under freedom of information
+
+| | |
+|---|---|
+| Files | `data/raw/b124/nhsbt/Elective Liver Transplants UK - CAS-323843-M1Z2M9.pdf` (109,759 bytes, 2 pages, SHA-256 `6a4ae6b83981ec4a392f28899a4d17b752631a6276615c3847e6a7ae0b35538e`): Table 1 and Table 2. `data/raw/b124/nhsbt/Response - Elective Liver Transplants - CAS-323843-M1Z2M9.pdf` (204,635 bytes, 3 pages, SHA-256 `36704fa9a09a5dbe3c86a888d71db254555db461c872dd773761f4c3e4fb30a6`): the covering letter. Both placed by hand |
+| Source | NHS Blood and Transplant, response to a Freedom of Information Act 2000 request, reference CAS-323843-M1Z2M9, dated 2026-10-22 |
+| Retrieved | 2026-10-24, saved from the response e-mail |
+| Clarification | NHSBT e-mail of 2026-11-04 on the same reference: the counts include simultaneous liver and kidney (SLK) transplants where one occurred in the period |
+| Caliber | Adult elective liver transplants, donation zone (seven UK zones plus Overseas, rows) by transplant centre (seven centres, columns), one block per year running 20 March to 19 March, 2016/17 to 2019/20. Table 1 is DBD and Table 2 is DCD; the tables do not say so, and the order is identified by the known-answer check in `experiments/b124_nhsbt_matrix.py`. Counts from 1 to 4 are printed `<5` under section 40 of the Act, zeros are printed; one cell (Table 1, 2017/18, Overseas to Leeds) is printed as `3`. The tables are not the population of Tables 14 and 15 of the 48-month monitoring report: DCD lies inside the report's counts for all three published years, DBD does not in 2017/18 (zonal) and 2019/20 (all three counts), and a liver-only scope reconciles every DBD year |
+
 ## B125: GSA City Pair Program contract fares, fiscal years 2026 and 2027
 
 | | |
@@ -3379,7 +3407,10 @@ be checked by anyone**, including by a later session of this project.
 
 Fetched 2026-09-23 by `scripts/fetch_b128.py` from the ECB Data Portal SDMX API
 (https://data-api.ecb.europa.eu/service/data), start period 2003-01, into `data/raw/b128/`; checksums and per-series
-first and last periods are in `data/raw/b128/manifest.json`, request times in `timings.json`.
+first and last periods are in `data/raw/b128/manifest.json`, request times in `timings.json`. A file on disk is
+taken as whole only when it matches its manifest entry in bytes, SHA-256 and every series' first period, last period
+and row count; a new download must carry exactly the series that a separate series-keys-only request for the same
+key lists. On 2026-09-28 all 17 files matched their entries.
 
 - `mir_B_*.csv`: MFI interest rate statistics (MIR), new business, monthly, every reference area in one request per
   shape. Ten shapes, all variable or fixed for up to one year: loans to corporations up to EUR 0.25M, EUR 0.25M to
@@ -3448,6 +3479,12 @@ Fetched 2026-09-24 by `experiments/b131_fetch.py` into `data/raw/b131/`; URLs, s
   stocks is not the margin the office used.
 - `nasa_10_nf_tr_b6g_p3.json`: household disposable income (B6G) and final consumption expenditure (P3),
   S14_S15, current prices, million euro.
+- `nasa_10_nf_tr_s1.json`: total economy (S1) GDP (B1GQ), current prices, million euro. The request also names
+  FISIM exports (P62F) and imports (P72F); the reply lists both items and carries no value for either under S1.
+- `nasa_10_nf_tr_fisim_trade.json`: FISIM exports (P62F, under S2 paid) and imports (P72F, under S2 received),
+  rest of the world, current prices, million euro, 1976-2025. Fetched 2026-09-27. 26 reporting countries; no
+  euro-area or EU aggregate, and Spain and Ireland are not in it. Each value sums both sides (deposits and loans)
+  and every resident sector, and a total can be negative (Croatia and Lithuania in 2023).
 - `esa2010_ch14.html`: ESA 2010 chapter 14 as Eurostat publishes it (Regulation (EU) No 549/2013, Annex A).
 - `ecb_eb_2023_8_box5.html`: ECB Economic Bulletin 8/2023, box "A primer on measuring household income",
   read as literature, not as a measurement.
@@ -3491,6 +3528,14 @@ Added 2026-09-25 for a side question (what the resale price of a bound flat foll
   filtered query (`filters={"month": ...}`) on data.gov.sg "Resale flat prices based on registration date from Jan-2017
   onwards" (resource `d_8b84c4ee58e3cfc0ece0d773c8ca6abc`), written by `experiments/b130_side_buyers.py`. First-timer
   families who bought resale flats are transcribed in that script from MND's written answer to PQ 2568, 9 Jan 2023, Table 1A.
+  That dataset publishes prices, so it leaves out transactions whose price may not be a full market price (between
+  relatives, some part-share sales); it runs 5 to 7 percent below the registrations below.
+
+- `dgs_resale_applications_quarterly.json`: HDB registered resale applications by quarter and flat type, 2007-Q1 onwards,
+  data.gov.sg resource `d_02aa4bb51bc674f3a2d0b9bb6911d934`, fetched whole 2026-09-30 by `experiments/b130_side_buyers.py`.
+  The copy is used only if its record count equals the source's total and every quarter the script reads carries each
+  of the six flat types once. The source repeats five quarter and flat-type keys in 2026-Q1, a quarter the script does
+  not read.
 
 - `dgs_cpf_contributions_annual.json`, `dgs_cpf_housing_withdrawn_annual.json`: CPF Board, contributions received per
   calendar year (includes government grants, dividends from Special Discounted Shares and interest paid; data.gov.sg
@@ -3503,15 +3548,21 @@ the Ministry of Social and Family Development's lower-income households trends r
 
 ## B132: household consumption by purpose and the HICP
 
-Fetched 2026-09-24 by `experiments/b132_fetch.py` into `data/raw/b132/`; URLs, sizes and SHA-256 are in
-`data/raw/b132/manifest.json`.
+Fetched 2026-10-06 by `experiments/b132_fetch.py` into `data/raw/b132/`, all five files in one batch; URLs,
+sizes, SHA-256 and the source's own update stamp are in `data/raw/b132/manifest.json`. The first fetch, of
+2026-09-24 and in euro only, is kept beside it under its original names with the suffix
+`.expired_20261006_存档版本_20260924`.
 
 - `nama_10_cp18.json`: Eurostat household final consumption expenditure by purpose, COICOP 2018, annual: total,
   actual rentals (CP041), imputed rentals (CP042), financial services (CP122, household FISIM included), current
-  prices and previous-year prices, million euro. Current over previous-year price gives each year's deflator
-  change, and the item differences add up exactly to the total's.
+  prices and previous-year prices, in million euro (`CP_MEUR`, `PYP_MEUR`) and in million units of national
+  currency (`CP_MNAC`, `PYP_MNAC`). Current over previous-year price gives each year's deflator change, and the
+  item differences add up exactly to the total's. A country is read in national currency: the euro series is
+  converted at each year's exchange rate, so its change carries the exchange rate's move. Aggregates exist in
+  euro only. The two units are never put in one column.
 - `nama_10_co3_p3.json`: the same account by COICOP 1999 (CP041, CP042, CP126), current prices and chain-linked
-  volumes (2020); most countries stop in 2022. Kept as a cross-check of the 2018 version on the overlapping years.
+  volumes (2020), in the same two units; most countries stop in 2022. Kept as a cross-check of the 2018 version
+  on the overlapping years.
 - `prc_hicp_aind.json`: HICP annual average index, 2015 = 100, all items (CP00), actual rentals (CP041), financial
   services n.e.c. (CP126). The HICP has no imputed rentals, and its CP126 holds explicitly charged fees only.
 - `prc_hicp_inw.json`: HICP item weights, per mille, same items.
@@ -3524,7 +3575,11 @@ Fetched 2026-09-24 by `experiments/b132_fetch.py` into `data/raw/b132/`; URLs, s
 Fetched 2026-09-25 by `experiments/b133_fetch.py` into `data/raw/b133/`; URLs, sizes and SHA-256 are in
 `data/raw/b133/manifest.json`. No key or registration is needed for these files.
 
-- `NipaDataA.txt`: every published annual NIPA series (SeriesCode, Period, Value). Series read: DPCERG and DPCERV
+- `NipaDataA.txt`: every published annual NIPA series (SeriesCode, Period, Value). Also read since 2026-10-06, from
+  the same file: PCE excluding food and energy (DPCCRG) with the contributions, price indexes and values of food
+  and of energy (CE001047, CE001066, DFXARG, DNRGRG, DFXARC, DNRGRC), to calibrate the removal operators; and the
+  three providers of line 107 (DIMCRC commercial banks, DIMNRC other depository institutions and regulated
+  investment companies, DPENRC pension funds). Series read: DPCERG and DPCERV
   (PCE price index and its percent change), CE001228 and CE001209 (contributions to the PCE price change of imputed
   rental of owner-occupied nonfarm housing and of financial services furnished without payment, Table 2.4.8),
   DOWNRG, DIMPRG, DOWNRC, DIMPRC, DPCERC (those two items' price indexes and current-dollar values, and PCE's),
@@ -3538,13 +3593,17 @@ Fetched 2026-09-25 by `experiments/b133_fetch.py` into `data/raw/b133/`; URLs, s
 
 ## B134: PIP PPPs by release and round, the PIP handbook page on urban and rural PPPs, Chen and Ravallion (2008)
 
-Fetched 2026-09-25 by `experiments/b134_fetch.py` into `data/raw/b134/`; URLs, sizes and SHA-256 are in
+Fetched 2026-09-25 by `experiments/b134_fetch.py` into `data/raw/b134/` (ten PPP tables and the documents) and
+2026-10-06 (the other eight tables the platform lists); URLs, sizes and SHA-256 are in
 `data/raw/b134/manifest.json`.
 
 - `pip_ppp_<release>_<round>_<...>_PROD.csv`: World Bank Poverty and Inequality Platform auxiliary PPP table
-  (`aux?table=ppp&version=...`), one file per release and PPP round (2011, 2017, 2021; releases 2022-09-09 to
-  2026-09-22). Columns: country code, data level (national, rural, urban), round year, PPP in local currency per
-  international dollar. The same round in two releases is the same reading published twice.
+  (`aux?table=ppp&version=...`), one file for each of the 18 release-by-round labels in `pip_versions.csv` (rounds
+  2011, 2017, 2021; nine release dates from 2022-09-09 to 2026-09-22). Columns: country code, data level (national,
+  rural, urban), round year, PPP in local currency per international dollar. These are the PPPs the platform
+  converts household consumption with (consumption PPPs); the PPP for GDP is a different conversion factor and is
+  not in these files. The same round in two releases is the same reading published twice. A file is what the
+  platform served under its label on the day it was fetched.
 - `pip_versions.csv`: PIP's list of releases.
 - `pip_handbook_convert.html`: PIP Methodology Handbook, "Converting to PPP dollars"; it states that separate rural and
   urban PPPs are computed for China, India and Indonesia from the national PPP, the ratio of urban to rural poverty
@@ -3552,3 +3611,1076 @@ Fetched 2026-09-25 by `experiments/b134_fetch.py` into `data/raw/b134/`; URLs, s
 - `chen_ravallion_wps4703.pdf`: Chen, S. and Ravallion, M. (2008), "The Developing World is Poorer than We Thought, But
   No Less Successful in the Fight against Poverty", World Bank Policy Research Working Paper 4703; read as
   literature for the 2005 round (China's ICP prices collected in 11 cities, treated as an urban PPP).
+
+## B135: block trades, holder and officer changes, exchange yearbooks, daily bars
+
+- `data/raw/b135/rpt_data_blocktrade/`, `rpt_executive_hold_details/`, `rpt_share_holder_increase/`: the eastmoney
+  data centre reports `RPT_DATA_BLOCKTRADE` (block trades, one row per trade, from 2000-08-29), `RPT_EXECUTIVE_HOLD_DETAILS`
+  (officers' holding changes, with the stated method) and `RPT_SHARE_HOLDER_INCREASE` (five-per-cent holders' changes,
+  with a market field that names the method), paged 500 rows by `experiments/b135_fetch.py`. Two snapshots each: the
+  probe window 2016-05-27 to 2018-05-26 (fetched 2026-09-25) and the whole table to 2026-09-25 (fetched 2026-09-26),
+  counts and the check for rows sharing a full key in `data/raw/b135/full_manifest_1990-01-01_2026-09-25.json`.
+  About half the block rows are bonds (codes 112, 114, 118, 122, 138, 149, ...); the station reads Shanghai and Shenzhen
+  A shares. `SECURITY_NAME_ABBR` is the stock's current short name, not its name on the trade day.
+- `data/raw/b135/exchange_yearbooks/`: the Shanghai Stock Exchange's statistical yearbooks (volumes 2013, 2015, 2017,
+  2018, 2020, 2021, 2023, 2025) and the Shenzhen Stock Exchange's fact books (2015, 2019, 2025), downloaded 2026-09-27
+  from sse.com.cn and docs.static.szse.cn; URL, size and SHA-256 of each in `sources.json` there, which also names the Shanghai 2019 volume (no
+  text layer, not read) and an unused one. A Shanghai volume N holds year
+  N - 1 and the year before; a Shenzhen volume N holds year N. The Shenzhen fact books carry no block-trade statistics.
+  Numbers used are transcribed with page and column in `experiments/b135_yearbooks.py`, checked against the page text,
+  and written to `data/processed/b135_yearbooks.json`.
+- Daily bars for the lock-buy class's volatility: baostock, through B110's per-stock cache
+  (`data/raw/b110/daily_baostock/stock/`), by `experiments/b135_bars.py`; manifest `data/raw/b135/bars_manifest.json`.
+  Each bar carries `isST`, 1 on a day the stock is under risk warning. `experiments/b135_readings.py` reads that
+  column from every stock file in the cache (3,970 on 2026-10-06) to set the trade day's price limit; a block
+  with no bar that day keeps its board's limit and is counted as having no flag.
+- Unlock schedule: B110's `RPT_LIFT_STAGE` snapshot, read by `b135_fetch.load_lift_stage`.
+
+## B138: split-share reform implementation notices on cninfo, and the Chen and Xiong discounts
+
+- `data/raw/b138/cninfo/<keyword>/`: cninfo announcement search, `http://www.cninfo.com.cn/new/hisAnnouncement/query`
+  (POST: `column` szse, which answers for both exchanges; `tabName` fulltext; `searchkey` 股权分置改革方案实施公告 or
+  股权分置改革说明书; `seDate` one calendar year, 2005 to 2015; 30 rows a page), one JSON file per answer page, fetched
+  2026-09-27 by `experiments/b138_probe.py`. The platform's `totalpages` is rounded down, so the page count is taken
+  from `totalAnnouncement`. The implementation notices' whole listing is on disk (1,356 rows). The platform
+  serves 100 pages of one query and answers a deeper page number with page one again, so a year with more rows is
+  asked month by month: the reform statements of 2006 (3,352 rows) are on disk as twelve monthly windows, fetched
+  2026-10-06; the 112 pages of the 2006 year window fetched 2026-09-27 stay on disk and are no longer read past
+  their first.
+- `data/raw/b138/pdf/<announcementId>.pdf` from `http://static.cninfo.com.cn/` plus the row's `adjunctUrl`, and their text
+  in `data/raw/b138/pdf_text/<announcementId>.txt` (PyMuPDF). `data/raw/b138/request_log.tsv`: one line per request with
+  its seconds and bytes. `data/raw/b138/probe_printout_<time>.txt`: what each probe run printed, including which notices
+  were opened.
+- `data/raw/b138/literature/`: Chen and Xiong (2001), the Yale working paper, from the Internet Archive's 2006 capture of
+  the copy on pages.stern.nyu.edu (the live copy and SSRN refused on 2026-09-27); URL, size and SHA-256 in `sources.json`
+  there, with the text layer beside it. Used as literature: two average discounts and the sample they come from.
+- `data/raw/b138/pdf/` and `data/raw/b138/html/`: every row of the implementation-notice listing (1,356), fetched
+  2026-09-27 by `experiments/b138_fetch.py`; twelve 2005 pilot notices are GBK HTML pages, the rest PDFs. Text in
+  `data/raw/b138/pdf_text/`; `data/raw/b138/fetch_manifest.json` lists each row with its size, SHA-256, pages and status.
+  `data/raw/b138/read_printout_<n>.txt`: what `b138_share_split.py --read` printed, every company not in the reading named.
+- `data/raw/b138/literature/szse_gqfz_review.pdf`: Shenzhen Stock Exchange research institute, 股权分置改革的回顾与总结,
+  report 0147, 2006-12-20, from econ.sdu.edu.cn, SHA-256 4991ded41eacffbc1dd800253390e9ea001890d6973bed792cec11e35a6769c6.
+  Used as literature: the counts and mean considerations on its p. 20.
+- `data/raw/b138/statement_dates.json`: code to the first day a reform statement (full text, summary or revision)
+  was published, from the whole statement listing on cninfo (pages under `data/raw/b138/cninfo/股权分置改革说明书/`),
+  written by `experiments/b138_bars.py`, last on 2026-10-06 from 22 windows and 5,134 distinct statements (1,329
+  companies; the 2026-09-27 file, built from a 2006 listing 352 rows short, covered 1,279).
+  `data/raw/b138/statement_listing_coverage.json`: each window's total as the platform states it, the rows and
+  distinct ids returned, and any page that repeated an earlier one.
+- Daily bars around each reform, from 45 days before the statement to 45 days after the record day (150 days before the
+  record day where no statement date was found): baostock, unadjusted, through B110's per-stock cache
+  (`data/raw/b110/daily_baostock/stock/`), by `experiments/b138_bars.py` on 2026-09-27, and 40 further ranges on
+  2026-10-06 for the companies whose first statement date moved; manifest
+  `data/raw/b138/bars_manifest.json`, printout `data/raw/b138/bars_run.log`. The Shanghai composite (sh.000001) and the
+  Shenzhen composite (sz.399106), 2005 to 2015, unadjusted, in `data/raw/b138/index_sh000001.json` and
+  `index_sz399106.json`, fetched directly from baostock the same day.
+
+## F27 (empirical arm): Brazil's wage-indexation switches of 1979, 1991 and 1993; Ibovespa, the minimum wage, IGP-DI, INPC, M1 and M0, the FIESP wage index, and the statutes
+
+Fetched 2026-09-28 by `fingerprints/f27_fetch.py` in the `topology-fingerprints` repository, into its
+`data/raw/fingerprints/f27/`. URL, final URL after redirects, retrieval date, bytes, SHA-256, the content check each file
+passed and, for every series, the months it covers are in `f27_manifest.json` there. The script resumes, and it accepts
+an answer only after checking its content (series code, one row per month, the stated base, the statute's own number and
+date line).
+
+- Ipeadata OData API: values from `http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='<code>')`, and each
+  series' own record (name, unit, source, comment) from `http://www.ipeadata.gov.br/api/odata4/Metadados('<code>')`.
+  Monthly, one row per month, no hole inside any series' span.
+  - `GM12_IBVSP12`: Ibovespa closing values, **percent change accumulated in the month** (% a.m.), source ANBIMA,
+    computed by Ipeadata from its daily closing series `GM366_IBVSP366`. 1968-02 to 2026-09. The disclosure divisions
+    listed below do not appear as jumps: in the ten division months up to 1994 the monthly change lies between -13.6 %
+    and +84.4 %.
+  - `MTE12_SALMIN12`: minimum wage in force, nominal, expressed in reais across every currency change. The record says
+    it does not include abonos ("não considera abonos salariais") and that, while federal law set regional bands, the
+    value is the highest minimum wage in force in the country (national unification 1984-05). 1940-07 to 2026-12. From
+    1975-01 to 1984-04 it equals, month by month, the highest value in Ipeadata's regional table below.
+  - `DEFL12_IGP12`: IGP-DI (FGV), index level. 1944-01 to 2026-08.
+  - `DEFL12_INPC12`: INPC (IBGE), index level. 1979-03 to 2026-08. The record states that August 1991 is missing from
+    the original series and that August and September 1991 are imputed by Ipea as a geometric mean.
+  - `BM12_M1N12`: M1, end-of-period balance (Banco Central do Brasil), R$ million. 1946-01 to 2026-07. The record states
+    that the reformulated money aggregates are applied to the historical series from July 1988.
+  - `BM12_M0N12`: monetary base M0, end-of-period balance (Banco Central do Brasil), R$ million. 1946-01 to 2026-07.
+- `ibge_seculoxx_tabela_sal_2_14.xls`: IBGE, *Estatísticas do Século XX*, table II.14, "Evolução do Índice Mensal do
+  Salário Nominal 1975/2001 (FIESP): São Paulo". **Nominal wage index for manufacturing in São Paulo, June 1994 = 100,
+  with every currency change chained into one index**, 1975-01 to 2001-11 (323 months; June 1994 reads 100).
+  `https://seculoxx.ibge.gov.br/images/seculoxx/economia/rendimentos_precos/rendimentos/tabela_sal_2_14.xls`, requested
+  with a browser User-Agent and the page's own Referer
+  (`https://seculoxx.ibge.gov.br/economicas/rendimentos-e-precos/tabelas-de-rendimentos.html`), since the server refuses
+  some scripted requests. The table's only note is its source, Ipeadata, accessed January 2002; it says nothing about
+  abonos. Ipeadata no longer carries the series. **The stored precision changes along the table**: from 1975-01 to
+  1989-05 the cells are formatted `0.00E+00` and store five significant digits; from 1989-06 to 1993-12 they are
+  General and store four decimals; from 1994-01 to 1999-12 one decimal; from 2000-01 two decimals. From 1989-06 to
+  1991-05 that leaves one or two significant digits (1989-07 to 1989-09 all read 0.0001), and levels of 0.0064 to 0.0132
+  in 1991 are good to about 0.4 to 0.8 percent. `fingerprints/f27_brazil_frequency.py` reads the precision off the
+  workbook and prints the rounding step of every window it uses.
+- `ipea_doc_SalariosMinimosRegionais_1940_1984.xls`: Ipeadata's table of regional minimum wages 1940-1984, in reais,
+  linked from the minimum wage's record: `http://www.ipeadata.gov.br/doc/SalariosMinimosRegionais_1940_1984.xls`.
+- `b3_ibov_statistics_i18n_en-us.json`, `b3_ibov_statistics_i18n_pt-br.json`: the text files of B3's Ibovespa historic
+  statistics page, `https://sistemaswebb3-listados.b3.com.br/indexStatisticsPage/assets/i18n/en-us.json` and `pt-br.json`.
+  They state that, for disclosure only and without changing the calculation, the index was divided by 100 on
+  1983-10-03 and by 10 on 1985-12-02, 1988-08-29, 1989-04-14, 1990-01-12, 1991-05-28, 1992-01-21, 1993-01-26,
+  1993-08-27, 1994-02-10 and 1997-03-03.
+- `horn2005_ensaios_fee_26_1_p505.pdf`: Horn, C. H. (2005), "Negociações coletivas, indexação oficial e inflação: uma
+  análise dos salários negociados na indústria do Rio Grande do Sul — 1978-95", *Ensaios FEE* 26(1): 505-542,
+  `https://revistas.planejamento.rs.gov.br/index.php/ensaios/article/download/2092/2474/8620`. Read as literature:
+  appendix Quadro 1 lists the official wage-indexation regimes 1965-96 with their adjustment interval and formula. The
+  dates of MP 193, MP 295, Lei 8.178 and MP 434 are taken from the statutes below, not from that table.
+- Statutes, one HTML page each. Planalto, consolidated texts with later amendments shown in place:
+  Lei 6.708 of 1979-10-30 (`https://www.planalto.gov.br/ccivil_03/leis/l6708.htm`),
+  MP 193 of 1990-06-25 (`.../ccivil_03/mpv/1990-1995/193.htm`), MP 295 of 1991-01-31 (`.../mpv/1990-1995/295.htm`),
+  Lei 8.178 of 1991-03-01 (`.../leis/l8178.htm`), Lei 8.222 of 1991-09-05 (`.../leis/l8222.htm`),
+  Lei 8.238 of 1991-10-04 (`.../leis/1989_1994/l8238.htm`), Lei 8.276 of 1991-12-19 (`.../leis/1989_1994/l8276.htm`),
+  Lei 8.542 of 1992-12-23 (`.../leis/l8542.htm`), MP 340 of 1993-07-31 (`.../mpv/1990-1995/340.htm`),
+  Lei 8.700 of 1993-08-27 (`.../leis/1989_1994/l8700.htm`), MP 434 of 1994-02-27 (`.../mpv/1990-1995/434.htm`).
+  The Chamber of Deputies' LegIn, original publication: Decreto 83.375 of 1979-04-30 and Decreto 84.135 of 1979-10-31,
+  the minimum-wage tables in force from 1979-05-01 and from 1979-11-01 (full URLs in the manifest). A page is accepted
+  only if it carries its own number and date line and, where the minimum-wage calendar is read from it, the calendar
+  phrase itself (Lei 8.542: advances in March, July and November; Lei 8.700: true-ups in January, May and September,
+  and monthly advances from August 1993). Planalto's load balancer appends a script with a per-request token after
+  `</html>`, so two fetches of the same statute differ in bytes; the manifest also records `text_sha256`, the hash of
+  the page text before that script, which identifies the content.
+
+## F29 (empirical arm): Israel's COLA switch of 1980 and Italy's scala mobile switches of 1946, 1951, 1957 and 1986; wages, prices, share prices and money, the rule tables, and the statutes
+
+Fetched 2026-09-28 by `fingerprints/f29_fetch.py` in the `topology-fingerprints` repository, into its
+`data/raw/fingerprints/f29/`; the transcription files there were written 2026-09-29 by `f29_fetch --transcribe` from
+`fingerprints/f29_transcribed.py`. URL, final URL after redirects, retrieval date, bytes, SHA-256, the content check
+each file passed and, for every series (downloaded or transcribed), the months it covers are in `f29_manifest.json`.
+The script resumes, accepts an answer only after checking its content (dataflow and series, one value per month,
+finite values; a PDF must open, end in `%%EOF` and carry its page count and a title phrase; a statute page must carry
+its number, date and the sentence read from it), and renames a file that fails its check instead of removing it.
+`f29_fetch --coverage` prints the coverage of every series over each event window and floor span.
+
+**Series from the publishers' current APIs**, each with its dataflow's structure (`references=all`) stored beside it:
+
+- IMF SDMX 2.1, `https://api.imf.org/external/sdmx/2.1/data/IMF.STA,<dataflow>/<key>`, StructureSpecificData XML:
+  `LS/ISR.WR..M`, Israel wage rates, index 2010 = 100, monthly from 1979-01; `CPI/ISR.CPI._T..M`, Israel consumer
+  prices, all items (`IX` from 1970-01, `SRP_IX`, the source's reference period, from 1952-01); `CPI/ITA.CPI._T..M`,
+  Italy consumer prices, all items, from 1955-01; `MFS_FMP/ITA.EQTS..M`, Italy share prices, period-average index,
+  from 1950-01.
+- OECD SDMX, `https://sdmx.oecd.org/public/rest/data/<agency>,<dataflow>,/<key>`, CSV with labels:
+  `DSD_EAR@DF_HOU_EAR` `ITA.EAR.IX.N.C.S1.M`, Italy hourly earnings in manufacturing, index, not seasonally adjusted,
+  from 1955-01; `DSD_PRICES@DF_PRICES_ALL` `ITA+ISR.M.N.CPI.IX._T.N._Z`, consumer prices, all items (Italy from 1955-01,
+  Israel from 1970-01); `DSD_STES@DF_FINMARK` `ITA+ISR.M.SHARE.IX._Z._Z._Z._Z.N`, share prices (Italy from 1957-01,
+  Israel from 1980-01).
+- Series the current APIs no longer serve for these years (checked 2026-09-28: the IMF's MFS_MA, MFS_CBS, MFS_DC and
+  MFS_NSRF dataflows return no Israeli or Italian series before 1995; the OECD's DF_MONAGG carries no Italian series
+  and Israeli narrow money only from 1981-04): DBnomics copies of the IMF's legacy IFS,
+  `https://api.db.nomics.world/v22/series/IMF/IFS/<code>`, for `M.IL.34____XDC` (Israel money, 1957-01 to 2010-05),
+  `M.IL.14A___XDC` (Israel currency outside banking institutions, 1963-01 to 2010-05) and `M.IT.34B_N_XDC` (Italy
+  demand deposits, 1956-01 to 1998-12); FRED's copy of the discontinued OECD MEI series `MYAGM2ITM189N`, Italy M2,
+  1974-12 to 1998-12, with its series page.
+- The OECD consumer price series for Italy is not ISTAT's cost-of-living index in 1955-57: the monthly log changes of
+  the two differ by up to 0.008, and by more than 0.002 in 19 of 32 months. The scala mobile's own index is the ISTAT
+  (2000) Tavola 9 below.
+
+**Documents, stored whole** (scans with an OCR text layer unless stated):
+
+- Banca d'Italia, *Relazione annuale* for 1946 to 1959,
+  `https://www.bancaditalia.it/pubblicazioni/relazione-annuale/<year>/rel<year>_tot.pdf` (1950, 1951, 1953 and 1955
+  are named `rel<year>-tot.pdf`; 1959 is `rel59-ord-e-stra.pdf`, the name the report's own index page links).
+- ISTAT, *Annuario statistico italiano* 1944-48, 1949-50 and 1951 to 1957, ISTAT's digital library,
+  `https://ebiblio.istat.it/digibib/Annuario%20Statistico%20Italiano/<file>` (the file names are in the manifest).
+- ISTAT (2000), *L'indice del costo della vita valevole ai fini dell'applicazione della scala mobile delle
+  retribuzioni. Dalle origini alla cessazione (1945-97)*, ed. P. Piacentini, Metodi e norme n.s. 6,
+  `https://ebiblio.istat.it/digibib/Metodi%20e%20norme/IST0034271Ed2000N6.pdf` (a printed text with an OCR layer).
+- Shiffer, Z. (2004), Bank of Israel Review 76, article 4, the history of the cost-of-living allowance,
+  `https://boi.org.il/media/fsjjrdxy/surv76_4.pdf`; Bank of Israel, Annual Report 1980 (Hebrew), chapter 3, prices,
+  `https://boi.org.il/media/0jaeanzu/p3.pdf`, and its list of tables, `https://boi.org.il/media/23tcmywc/luchoth.pdf`
+  (Table VIII-13b: a total-return index of the ordinary and preference shares listed on the exchange, 1975 to 1980,
+  printed page 265, in chapter 8). The text layer of each page the station quotes (the ISTAT Annuario 1951 note on
+  family allowances, ISTAT (2000) Tavola 9's heading page, the Israeli chapter's COLA paragraph) is extracted once into
+  a `f29_text_*.txt` file beside its PDF, with its hash in the manifest, so the quotations do not depend on the PDF
+  library.
+- Statutes, original text from the Gazzetta Ufficiale: Legge 26 febbraio 1986 n. 38, art. 1 ("A partire dal 31
+  gennaio 1986"), and DPR 1 febbraio 1986 n. 13, art. 16 (the semiannual cadence, the 580.000 lire fully indexed and 25
+  per cento of the rest); full URLs in the manifest.
+
+**Transcriptions.** `f29_transcriptions.csv` holds 2,064 values typed from the page images, each with its file, its page
+(`pdf_index_0based`, the 0-based index into the stored PDF, and `pdf_viewer_page`, the same page as a PDF viewer
+numbers it), printed page, table, row, column and method (`image`, or `text+image`: taken from the OCR layer and
+confirmed digit by digit on the rendered image); 1,196 of them also appear in the page's OCR layer, and the fetch
+script lists the others. `f29_pages_opened.csv` lists the 48 pages opened, with the number of values read on each, zero
+included. The transcription module checks itself before writing: the tables' printed annual means against the twelve
+typed months (57 means), and the identities the ISTAT (2000) tables obey among themselves (Tavola 5's points against
+its highest rounded index, Tavola 6's rounding and cumulative points, the 1974-base block of Tavola 7's points against
+its index steps, the 1983-85 block of Tavola 7 and the semesters of Tavole 8 and 11 against Tavola 9's months, Tavola
+11's amounts against its increments and rates); a seeded typing error fails each check. What was transcribed:
+
+- Wages. Relazione 1947 Tav. IV (p. 264), ISTAT industrial wages 1946-03 to 1947-12; Relazione 1950 Tav. 32 (pp.
+  136-137) and 1951 Tav. 133 (p. 379), "Salari (operai industria, coniugati)", 1947-01 to 1952-03; ISTAT Annuario 1953
+  Tav. 344 (pp. 335-336), 1954 Tav. 326 (p. 309), 1955 Tav. 357 (p. 312), 1956 Tav. 390 (p. 359) and 1957 Tav. 381 (p.
+  359), industry, workers, monthly 1949-01 to 1957-10, in two panels. Month by month the Banca d'Italia column equals
+  ISTAT's married workers' panel. **ISTAT's own note** (Annuario 1951, Tav. 389, note (a)): "Gli indici relativi ai
+  lavoratori coniugati sono calcolati sui salari comprensivi degli assegni familiari per il caso di un capo famiglia
+  con moglie e tre figli a carico"; from the 1955 Annuario the panels are headed "A - Esclusi gli assegni familiari o
+  le quote complementari" and "B - Compresi gli assegni familiari o le quote complementari". Panel A covers men and
+  women in industry, panel B men only. The married index jumps in months where panel A does not move or moves less:
+  1949-12 (+5.5 % against +1.4 %), 1951-07 (+4.8 % against zero), 1952-06 and 1952-07 (+4.8 % and +4.6 % against
+  zero). The Annuari revise the 1953 months between volumes (Annuario 1953 against 1954); both vintages are kept, and the
+  wage chains take the 1954 vintage from 1953-01 linked by a ratio at 1953-01 (the 1954 table prints 1950-52 only as
+  annual means), so the step into 1953-01 is the 1953 vintage's own.
+- Cost of living. Relazione 1946 Tav. XVI (p. 309), food chapter only, 1945-07 to 1946-12; Relazione 1947 Tav. IV,
+  general index 1947 (an earlier vintage, which differs from later tables from 1947-08); Annuario 1944-48 Tav. 370 (p.
+  365), general index and food chapter, 1947-01 to 1948-12, whose note (a) describes national indices as weighted means
+  of those computed for communes over 50,000 inhabitants; Relazione 1950 Tav. 32 and 1951 Tav. 133 to 1952-03;
+  Annuario 1953 Tav. 325 (p. 321), 1954 Tav. 311 (p. 299), 1955 Tav. 340 (p. 300), 1956 Tav. 371 (p. 347) and 1957 Tav.
+  378 (p. 356); Relazione 1953 Tav. 61 and 1954 Tav. 50, selected months, of which 1953-11 is the only printed value on
+  disk for that month. From January 1956 the Annuario notes two method changes: vegetables and fruit enter through
+  smoothed prices of 13 and 14 species, and rents are surveyed every two months instead of every quarter. **No general
+  index exists on disk for 1946**, so the 1946-12 / 1947-01 join is food chapter to food chapter; neither table says
+  whether the 1945-46 food chapter and the 1947-48 food chapter are one series (the step between the two tables'
+  months is ln(4644/3964) = 0.158).
+- Milan share index, all shares, 1938 = 100: Relazione 1947 Tav. XV (p. 277), 1946-01 to 1947-12, whose first page
+  notes the monthly rows as the end of the last week of the month; Relazione 1948 Tav. XIII (p. 316), 1946-12 to
+  1948-12; Relazione 1949 Tav. XII (p. 365), 1947-12 to 1949-12. **The three vintages disagree month by month**
+  (annual 1947: 1.969,9 in the first, 2.235,8 in the second and third; annual 1948: 1.357,4 in the second, 1.319,5 in
+  the third) and none states its definition; they are kept as three series and not chained. The IMF's series starts
+  1950-01. The months 1948-01 to 1949-12 of the 1947 vintage are therefore declared a structural gap (other vintages
+  cover them and are not joined), not source coverage.
+- Money. Relazione 1947 Tav. XXXII (printed p. 311), notes, provisional notes and am-lire in circulation at month end,
+  1946-01 to 1947-12; its note: am-lire are included from February 1946, so January 1946 is on a narrower definition
+  (the step to February is +25 %). Relazione 1950 Tav. 32 and 1951 Tav. 133, means of payment (notes, coins, cashier's
+  and bank drafts; bank current accounts; total), 1946-12 to 1952-03, each month the mean of the start and end of the
+  month. Relazione 1956 Tav. 171, 1957 Tav. 138, 1958 Tav. 151 and 1959 Tav. 139, circulation of the 500 to 10,000
+  lire denominations at month end, 1955-12 to 1959-12; from 1958-04 the 500 denomination includes coins (1 to 19
+  billion lire).
+- The rule tables, ISTAT (2000): Tavola 5 (p. 40), bimonthly index 1950-56 with the contingenza points and the notes
+  on points given to family allowances and on the four-point exemption; Tavola 6 (p. 41), quarterly index 1957-83 on the
+  base May-June 1956 = 100, with points (the one-point cut of 1959 deferred a quarter for confirmation, note (c));
+  Tavola 7 (p. 42), quarterly index 1974-85 on the bases August-October 1974 and 1982, with points (Decree-Law 10 of
+  1984 fixes two quarters at 2 points); Tavola 8 (p. 43), semiannual index 1985-97 and its changes; Tavola 9 (pp.
+  44-45), the monthly index 1957-91 in three bases (May-June 1956, August-October 1974 from 1974-10, August-October
+  1982 from 1982-10; each new base overlaps the old one for three months) and, from 1989, the index net of the 0.5 %
+  cut under Decree-Law 69 of 1989; Tavola 11 (p. 48), the semiannual index 1985-91 with the monthly amounts equal for
+  all (580.000 lire in 1985-86, 838.122 after the last increment). Tavola 9's months average exactly to the semesters of
+  Tavole 8 and 11 and, after rounding, to the 1983-85 block of Tavola 7; **for 1957-82 their quarterly means differ from
+  Tavola 6 and from the 1974-base block of Tavola 7** (1957-74: by +0.15 points on average and up to 1.44 over 71
+  quarters). Rows for 1992-97 and Tavola 10 (the index against the FOI consumer price index) were not transcribed.
+
+**Months that stay missing after a search** (also in `f29_source_coverage.json`):
+
+- Israel share prices before 1980-01: the OECD series starts 1980-01; the IMF's current share price dataflow and the
+  legacy IFS carry no Israeli share price series. The table that would cover 1979 is the Annual Report 1980's Table
+  VIII-13b (chapter 8, printed page 265, named in the report's list of tables above). Chapter 8's PDF was not
+  reached: its file address is not known; the report's page, which links the chapters, answers with a bot-check
+  page (not bypassed); the Wayback Machine's index holds no capture of that page on either host; the five archived
+  chapter-8 files it holds are those of the 1975, 1976, 1977 and 2010 reports and a two-page file with no year, none
+  carrying Table 13b (all tried 2026-09-29).
+- ISTAT's national cost of living for 1946 (only the food chapter is printed), 1953-12 and 1956-11 to 1956-12 (the
+  Annuari print 1953 and 1956 as annual means; the Relazioni print selected months only).
+- Structural, not source coverage: the Milan share index in its 1947 vintage after 1947-12 (the two later vintages
+  cover 1948-49 and are not joined to it).
+
+## F30 (empirical arm): wage-indexation abolitions on the annual asset-wage wedge; the JST R6 file read in place, its documentation, and the Australian and Irish wage sources
+
+Fetched 2026-09-29 by `fingerprints/f30_fetch.py` in the `topology-fingerprints` repository, into its
+`data/raw/fingerprints/f30/`. URL, final URL, retrieval date, bytes, SHA-256 and the content check each file passed are
+in `f30_manifest.json` there (for the HTML pages also the SHA-256 of the page text, since the pages carry per-request
+tokens). The script resumes, accepts an answer only after checking its content (a PDF must end in `%%EOF`, open, carry
+its page count and its own title phrase; a page must end in `</html>`, carry the phrases read from it and not be a
+bot-check page; the MeasuringWorth export must carry its column names and one row per year), and renames a file that
+fails its check instead of removing it.
+
+**The series are not fetched.** The station reads JST R6 in place: `data/raw/fingerprints/jst_macro.xlsx`, the file
+fetched for F12 from `https://www.macrohistory.net/app/download/9834512569/JSTdatasetR6.xlsx`, 1,408,158 bytes, SHA-256
+`c1bb91fe56ea50d4f27af5c0fc897d481e89ae38ce41eaecab62134c9354981d`, columns `hpnom`, `wage`, `cpi`, `eq_capgain`,
+`eq_capgain_interp` and `crisisJST`. On 2026-09-29 the publisher's current file (the database page's link,
+Last-Modified 2024-07-10) was byte-identical to it; the comparison was made in memory and nothing was stored. Every
+year of every event window and floor span the station touches is in the file (coverage below).
+
+**Documents, stored whole**, because JST carries no description of its own columns and the station prints one per
+column:
+
+- `JST_documentationR6.pdf`, the database's documentation, release 6 (July 2022), 201 pages:
+  `https://www.macrohistory.net/app/download/9834516169/JST_documentationR6.pdf`; its sources per country for consumer
+  prices, house prices and wages.
+- `JST_RORE_Documentation_R6.pdf`, the release-6 update note (Chen, Elsherbiny, Gabriel, Jorda, Kim, Schularick and
+  Taylor, 2022), 12 pages: `.../9918957869/JST_RORE_Documentation_R6.pdf`; equity returns 2016-2020 and the origin of
+  the wage series.
+- `RORE_documentation.pdf`, the data documentation of Jorda, Knoll, Kuvshinov, Schularick and Taylor (2019), 72 pages:
+  `.../9834516469/RORE_documentation.pdf`; equity sources per country in Tables 19 to 35.
+- `NPLH_documentation.pdf`, the online appendix of Knoll, Schularick and Steger (2017), 171 pages:
+  `.../9834516269/NPLH_documentation.pdf`; the house price series per country and period, and how each is made annual.
+- `JSTcrisis_chronology.pdf`, the crisis chronology behind `crisisJST`, 51 pages: `.../9844625569/JSTcrisis_chronology.pdf`.
+- `macrohistory_database_page.html`, `https://www.macrohistory.net/database/`, the page that links all of the above.
+- `gabriel_2023_data_appendix.pdf`, the data appendix (May 2023) of Gabriel, "Monetary Policy and the Wage
+  Inflation-Unemployment Tradeoff", 17 pages, from Gabriel's replication package:
+  `https://raw.githubusercontent.com/RicardoGabriel/Monetary-Policy-and-the-Wage-Inflation-Unemployment-Tradeoff/main/Data_Documentation.pdf`.
+  The JST documentation has no wage section for Ireland; this appendix documents the Irish wage series JST carries.
+- MeasuringWorth, Australian wages (Hutchinson and Ploeckl, the JST source for Australian wages 1870-2020): the dataset
+  page `https://www.measuringworth.com/datasets/auswages/` (`mw_auswages_page.html`), its sources and methods
+  `.../auswages/auswagesources.php` (`mw_auswages_sources.html`), and the export of its three series 1861-2025
+  (`mw_auswages_1861_2025.csv`, `.../auswages/export.php?year_source=1861&year_result=2025&use[]=weeklyearnpound&use[]=avecomppound&use[]=awardwagepound`).
+
+**Transcription.** `f30_fetch --transcribe` writes `f30_series_notes.csv` from `fingerprints/f30_notes.py`: 238 rows
+(213 documented source segments, 1 break named by a publisher, 16 statements of how an annual value is formed, 8
+notes), each with its document, page (0-based index and viewer page, and the printed page where one is found) and an
+excerpt; the script finds every excerpt on its page's text layer (dashes, ligatures and whitespace normalised) and
+writes nothing if one is missing. Rows are kept for the years 1949 to 2020. `f30_pages_opened.csv` lists the 135 pages
+opened, with the rows read on each, zero included.
+
+**What the documentation says that changes the reading:**
+
+- Wages change definition at 1990 in 14 of the 18 countries: OECD average annual wages (current prices, levels) from
+  1990, after an IMF IFS wage rates index to 1989 in ten of them (manufacturing wage rates for Canada, Finland and the
+  United States) and after hourly wages or earnings series in Denmark (manufacturing), Norway, Switzerland and Ireland.
+  Australia and the United Kingdom are MeasuringWorth series throughout, Germany is Bundesbank compensation per employee
+  from 1951, and Portugal changes source in 1986, 1992 and 1996. Inside the station's event segments the 1990 seam
+  falls in three Italian windows: the post side after the 1983-86 ramp (1987-1990), the pre side before the 1992 event
+  (1987-1991), and the added year of the 1984 step's shifted-post variant (Δln wage 1989 +0.059, 1990 +0.070, 1991
+  +0.074).
+- Australian wages are average weekly earnings for the Australian financial year (1 July to 30 June), labelled by the
+  year in which it ends; for 1969/70 to 1995/96 each value is the average of four quarters. JST's Australian wage
+  growth equals MeasuringWorth's under the same label, within 1e-3 in Δln, in every year 1951-1994; from 1995 the two
+  differ by up to 0.020, MeasuringWorth having revised the series after the 2021 vintage JST cites. The Australian wage
+  is therefore centred about half a year before the calendar-year averages of consumer and house prices.
+  MeasuringWorth names two breaks in its series, 1969/70 (manufacturing earnings to all sectors) and 1981 (payroll-tax
+  returns to surveys).
+- House prices are year averages over the Knoll et al. span of the 14 countries in that dataset (to 2012; Japan to
+  2008, then a hedonic index from land-registry transactions to 2013), then the OECD index from 2013; Italy (from 1970), Spain (from 1971) and Portugal (from 1988) are the OECD index only; Ireland
+  is end-of-year from 2005 and Q4-to-Q4 growth for 1996-2004. The Australian series changes in 1986 from a weighted
+  average of median prices (1973-85) to the ABS mix-adjusted indices (1986-2002), inside the pre side of the 1987
+  event. The Dutch series for 1970-1991 is a median sales price, not mix-adjusted; the Swiss series for 1930-1969 is a
+  five-year moving average; the Japanese series is residential land prices.
+- Consumer prices are Taylor (2002) to 1996 and the IMF World Economic Outlook annual average from 1997 in nine
+  countries; Belgium, Japan and Portugal change from national historical series to the World Economic Outlook in 2008,
+  2001 and 1998; France is IMF IFS from 1966; the United Kingdom changes from the Bank of England's millennium dataset
+  to the ONS in 2017, the United States from CPI-U annual averages to CPI-U-RS in 1978; Norway, Sweden and Ireland are
+  one source each. Inside the event segments the 1997 seam falls in the post side after the Italian 1992 event.
+- Equity capital gains are defined as p[t]/p[t-1] without saying whether p is a year-end or an annual-average price.
+  From 2016 they come from the Fama-French country returns in 14 countries (Euronext Lisbon for Portugal, Shiller for
+  the United States); inside the event segments that seam falls in the Spanish window after 2012. The file carries no
+  equity capital gain for Canada and Ireland at all, and none for Switzerland 1950-1959 and Portugal 1988-2004 although
+  the returns documentation lists sources for those years. The interpolation flag is set only for Portugal 1975-1977.
+  The Danish capital gains for 1923-1999 rest on a price index compiled from League of Nations, UN and IMF data.
+
+**Coverage** (`f30_fetch --coverage`, written to `f30_coverage.json`): every year each event window reads is present,
+for all four columns, the year after each post side (read by the shifted-post variant) included; for example the
+Dutch window reads house prices and wages in 11 of 11 years, consumer prices in 13 of 13 (1977-1989, from the year
+before the pre side) and equity capital gains in 12 of 12. Over the floor span 1950-2020 wages and
+consumer prices are complete in all 18 countries; house prices are missing for Canada 1950-1955, Germany 1950-1961,
+Spain 1950-1970, Italy 1950-1969 and Portugal 1950-1987. JST crisis years inside the event segments: Denmark 1987,
+Australia 1989, Italy 1990, Spain 2008.
+
+## B139: Japanese coin specifications, the 1858 treaty and the shogunate's notices of 1859-1860, silver-gold ratios, the Osaka daily gold quote, and dated prices of the dollar and the koban at the open ports, 1859-1861
+
+Every folder under `data/raw/b139/` has a manifest (file, URL, UTC time, bytes, SHA-1), and
+`data/raw/b139/_blockzero/<key>.json` lists each reading with its source, its saved file and whether the page was
+opened; `<key>_verify.json` is a second reading from freshly fetched copies. Fetched 2026-09-28 to 2026-10-01.
+Japanese dates are converted by new-moon computation and checked against the National Astronomical Observatory's
+calendar pages (eco.mtk.nao.ac.jp).
+
+- `specs/`, `specs_verify/`: the Mint's table of old coins annexed to the Dajokan notice of 5 September 1874 (National
+  Diet Library digital collections, pid 800341; troy ounces per ten ryo to five decimals, fineness to 0.1 per mille),
+  read on the page images; Dillon's assays of 1874 (pid 800592); the US Mint report for 1860; Eckfeldt and Du Bois
+  (1842) for the Mexican dollar, on archive.org; the Bank of Japan IMES pages and discussion paper 96-E-26. Every
+  source is kept and the spread between them is the floor of the ring.
+- `treaty/`, `treaty_verify/`: article 5 of the treaty of 1858 in English (Malloy 1910), Dutch (US Statutes at Large
+  12, govinfo.gov; again from the KB resolver) and Japanese (法令全書, NDL pid 787948; the printing of 1859, pid
+  2548201), the other four treaties, the conventions of 1857 and the tariff convention of 1866, from the NDL,
+  worldjpn.net, archive.org, Wikisource, Yale's Avalon and the National Archives of Japan. Transcribed in
+  `treaty/treaty_currency_articles_transcribed.txt`.
+- `notices/`, `notices_verify/`: the shogunate's coin notices of 1859-1860 from 続徳川実紀 4 (NDL pid 773008),
+  大日本貨幣史 9 (pid 800600) and its 参考 21-25 (pid 800622), and from the 維新史料綱要 database and the page images
+  of the 大日本維新史料稿本 at the Historiographical Institute, University of Tokyo (wwwap.hi.u-tokyo.ac.jp,
+  clioimg.hi.u-tokyo.ac.jp), which fix each notice to its day.
+- `ratios/`, `ratios_verify/`: Soetbeer (1879), pp. 123-131, on archive.org; the US Mint report for 1903, table XVII;
+  `measuringworth_goldsilver_1687_1900_export_ratioonly.csv` (Officer and Williamson, measuringworth.com); The
+  Economist, 1859-1860, as archive.org text. The London ratio is 15.19 for 1859 and 15.29 for 1860 in all three.
+- `arm9/`, `arm9_verify/`: `kobe_kinseidb_data_180301.xlsx`, the Mitsui Osaka daily gold quote in the Kinsei Keizai
+  Database of the Research Institute for Economics and Business Administration, Kobe University
+  (rieb.kobe-u.ac.jp), read locally under its terms (`kobe_kinseidb_terms.html`); 通航一覧 (NDL pid 1047948,
+  1908952), 御触書集成 manuscripts (pid 2549906, 2549917) and 吹塵録 (pid 799923) for the steps that cut the edge and
+  the mint procedures of about 1790; Taya (1973) on J-STAGE.
+- `sanka/`, `sanka_verify/`: 三貨図彙, prices part (NDL pid 950411, frames 3 to 125 as page images);
+  `sankazui_gold_by_year.tsv` transcribes its gold rows by year, with frame, page and printed precision.
+- `outflow/`, `outflow_verify/`: McMaster (1960), Journal of Asian Studies 19(3), pp. 273-287, from the archive.org
+  microfilm scan, with the Jardine, Matheson shipment table on p. 283; Takahashi (2015) and the other named
+  estimates of the gold outflow. Used as literature.
+- `_user/`: supplied by hand: the OCR text of 大日本古文書 幕末外国関係文書 5 and 30 and of 横浜市史 資料編 2
+  (HathiTrust), McMaster's SOAS thesis of 1962 (British Trade and Traders to Japan 1859-1869).
+- `yokohama/`: dated statements on the dollar and the koban at Yokohama, Nagasaki and Hakodate, July 1859 to 1861,
+  one folder and one block-zero file (`_blockzero/yokohama_<name>.json`) for each group of sources:
+  `en_news/` (US, Hawaiian and British papers: Chronicling America at loc.gov, archive.org);
+  `merchants/` (Heco, Johnston, the Dutch firm De Coningh, Carst & Lels, Frazar & Co.);
+  `ja/` (幕末外国関係文書 24 to 50 on the Historiographical Institute's page images, 219 pages; an NDL manuscript of
+  浅野長祚 寒檠璅綴; 函館税関沿革史 and 横浜市史稿 at the NDL; two open papers);
+  `nl_fr_de/` (Dutch and Batavia newspapers through the KB resolver, the books of the Prussian expedition, Noback 1862,
+  Lindau in the Revue des Deux Mondes);
+  `official/` (the Blue Books of 1860, 1861 and 1862, Vyse's consular reports in Accounts and Papers 1862 vol. LVIII,
+  Arbuthnot's Treasury reports, Locock 1867, the London and China Telegraph);
+  `nch_1859h2/`, `nch_1860h1/`, `nch_1860h2/` (the North-China Herald, 2 July 1859 to 29 December 1860, all 79 issues,
+  357 page images from archive.org; block-zero files `yokohama_nch_1859h2_r2.json`, `yokohama_nch_1860h1.json`,
+  `yokohama_nch_1860h2.json`);
+  `nch_1861h1/`, `nch_1861h2/` (the North-China Herald, 5 January to 28 December 1861, all 52 issues, 219 page
+  images from archive.org, read 2026-10-01; the issue of 24 August was fetched from the archive's storage server
+  because the download address answered HTTP 500; block-zero files `yokohama_nch_1861h1.json`,
+  `yokohama_nch_1861h2.json`; one note file per issue in each folder);
+  `ja3/` (幕末外国関係文書 23 to 51, the documents on the dollar and its exchange that the first reading found in
+  the index and did not open: 40 documents on 129 pages, 11 of them also at full size, same page-image server,
+  read 2026-10-01; block-zero file `yokohama_ja3.json`, built from one note file per document);
+  `kohon/` (大日本維新史料稿本 MA009, frames 236 to 270, Historiographical Institute: manuscript copies of the
+  correspondence of June to August 1860 on the rate posted at the Kanagawa custom house);
+  `ja2/` (the Tokyo Higher Commercial School's survey of October 1914, 横浜開港当時之貿易状態並洋銀相場取引之沿革, from the
+  Yokohama city library's digital archive, pp. 16-28 read on page renders; Takahashi 2015, 東北学院大学経済学論集 184,
+  from the university's site);
+  `nsla_probe/` (The Nagasaki Shipping List and Advertiser, Nos. 3 to 28, 6 July to 1 October 1861, Nagasaki University
+  Library, gallery.lb.nagasaki-u.ac.jp/nsla: the library's transcriptions of all 26 issues and its page files for the
+  passages used; three transcribed figures are corrected from the pages);
+  `enkakushi/` (the item record of 太田久好 横浜沿革誌, NDL pid 993784; its page images are served only in the library's
+  viewer and were not read).
+  `yokohama/yokohama_dated_prices.tsv` is the table built from the block-zero files by `yokohama_dated_build.py`: one
+  row per statement (278 rows), with the record it comes from, the source line, and whether the figure was read on
+  the page image; newspaper records are checked by issue and wording, so a shifted record index stops the build.
+  `yokohama_dated_read.py` prints the readings. `yokohama/verify/` holds the crops read again. Rates are ichibu per
+  100 dollars; a rate in momme is turned at 15 momme to the ichibu; Shanghai taels are turned at the dollar's rates
+  printed in the North-China Herald within two weeks of the quotation.
+- `data/b139_dated_statements.json` (in the repository): that table, 278 statements, each with its source line, the
+  way its figure was read (`how`: image, ledger, text, study) and the holder it applies to, written by
+  `data/build_b139_dated_statements.py` from `yokohama/yokohama_dated_prices.tsv`. The kind of source is a column of
+  its own (`level`): 22 rows come from later compilations or modern studies, six of them with figures read on the
+  page image, and none enters a reading. The Shanghai rates carry `basis`: a cash quotation of the coin (2 rows), the
+  discount on bank bills payable in Hongkong (18), or the rate at which an account booked a sum (4, among them the
+  one sovereign rate). Read by `experiments/b139_japan_1859.py --dated` (B139-11 to B139-13).
+
+## B140: coin hoards of Song, Jin, Liao, Xixia and medieval Japan by coin type; the decrees on carrying coin across the Song-Jin border; coin alloys
+
+Every folder under `data/raw/b140/` has a `manifest.tsv` (file, URL, UTC time, bytes, SHA-1), and
+`data/raw/b140/_blockzero/<key>.json` lists each reading with its source, its saved file and whether the page was
+opened; `<key>_verify.json` is a second reading of the same material from freshly fetched copies. All fetched
+2026-09-28 to 2026-09-30. Counts are coins by legend; nothing here is a weight.
+
+- `alt_miyake/sato2021_komazawa95_table3_rows.tsv` and `..._long.tsv`: Sato Daiki (2021), 「12・13世紀出土銭貨から見た
+  日本と中国（その2）」, 駒澤史学 95, pp. 168-204, table 3 (pp. 181-184), thirty hoards with a count for every coin
+  type, compiled from Miyake Toshihiko (2005); the PDF from the Komazawa University repository
+  (komazawa-u.repo.nii.ac.jp), parsed from its own text layer into 1,301 entries and checked against the page images.
+  Two rows of the printed table are wrong and are replaced (row 10 copies Quzhou; row 26 is swapped with its neighbour).
+  Row 7 (Chong'an) prints "熙寧元・重87、30": thirty coins with no name, kept in the file as printed (label "3",
+  count 0) and read by the script as Northern Song coin, which brings the row to its printed total of 1,227
+  (`alt_miyake_sato95_p14_rows7_8.png`).
+- `xulu/*.tsv`: ten hoards transcribed by hand from 《钱币考古文献叙录》 (郑州师专中原文化研究所编, 中州古籍出版社 2005),
+  which reprints the per-type counts of excavation briefs; the page, the brief quoted, the printed total and every
+  reading note are in the header lines of each file. Southern Song: 句容春城, 乐安芜头, 萍乡硖石, 萍乡大王坪. Jin
+  territory: 蓬莱兴无, 迁西长岭峰, 辉县城内, 克东福安, 康平边台子, 东沟马圈子. The book is a PDF supplied by hand
+  (`_user/qianbi_kaogu_wenxian_xulu_2005.pdf`).
+- `user_reports/*.tsv`: 九台卡伦 (文物 1985-1) and 衢州开仙院 (考古 1983-9, pp. 861-862), transcribed from PDFs supplied
+  by hand, each number checked against page renders at 300 to 1000 dpi (`user_reports_verify/`).
+- `jin_hoards/anyang_xiaoxue_shunping_miyake2004_table1.tsv`: Miyake (2004), 「金代の銭貨流通」, table 1, p. 65, in a
+  Sapporo Gakuin University research report (pub.sgu.ac.jp); his tabulation of 马林 (1994), 文物春秋 1994-4, which was
+  not opened.
+- `mashan/mashan_changtun_yu1997_transcribed.tsv`: the Mashan Changtun hoard (1997 report, PDF supplied by hand), by
+  type with the printed sub-type counts; printed and left out of the readings as a hand-picked sample.
+- `_user/`: PDFs supplied by hand. The excavation briefs of the hoards in the window (National Social Sciences
+  Database copies: Anji, Changning, Changxing, Dongguan, Ejina, Gao'an, Hengyang, Huangshi Xisaishan, Linru, Luoding,
+  Miluo, Nanning, Shaoyang, Shenzhen, Youxi, Yuping; Beijing Youanmen from 中国钱币 2013-6); Miyake's article in
+  Chinese (中国历史文物 2004-3); 孙斌 (2020), 宋史研究论丛 27, pp. 39-54; Nakamura's review of Miyake (2005); the
+  Guangxi Museum volumes.
+- `japan/` and `japan_verify/`: site reports from the Nara institute's repository 全国遺跡報告総覧
+  (sitereports.nabunken.go.jp) and the tables transcribed from them: `nakaya_akaiwa_table4_transcribed.tsv` (赤磐市
+  文化財調査報告 6, 2013), `terakaido_maruko_table4_transcribed.tsv` (丸子町教育委員会 1988; 197 of about 3,000 coins
+  survive), `gifu_kiyo3_tables3-4_transcribed.tsv` (岐阜県文化財保護センター 研究紀要 3, 2017);
+  `shinori_table1-3-1_transcribed.tsv` (the Shinori hoard, 函館市史 銭亀沢編 on adeac.jp, after the 1973 report; the
+  printed column totals do not equal the sums of their rows and are kept as printed);
+  `suzuki1992_table4_top40_transcribed.tsv` (Suzuki Kimio 1992, 史学 61(3/4), table 4, the forty most frequent types
+  in Japanese hoards, from Keio's KOARA repository).
+- `alloy/` and `alloy_verify/`: 周卫荣 (2004) as transcribed in Oxford's FLAME Database of Chinese Coin Analysis (xlsx
+  from the Internet Archive capture of 2025-04-17), British Museum Research Publication 152, Wang et al. (2005);
+  `guangxi_wenji17_tables7_8_transcribed.tsv` from 《广西博物馆文集》 17, pp. 127-133, tables 7 and 8 (XRF of coins from
+  the Wuzhou mint site), transcribed cell by cell from a PDF supplied by hand. Used for the direction of melting only.
+- `decrees/` and `decrees_verify/`: 宋史, 金史, 宋会要辑稿 (食货, 刑法), 建炎以来朝野杂记, 文献通考, 建炎以来系年要录 and
+  庆元条法事类 from zh.wikisource.org and ctext.org, with archive.org scans for the checks; `decrees_transcription.tsv` (56 rows) and
+  `decrees_verify_transcription.tsv` (34 rows), each quotation matched by script against the saved original.
+- `song_hoards/`, `song_hoards_verify/`, `jin_hoards/`, `jin_hoards_verify/`, `missing_reports/`, `dest_r4/`: the search
+  for per-type tables (Miyake 2005 in 日本考古学 20 on J-STAGE, his 2024 survey in the Shukutoku repository, cqvip.com
+  listing pages, museum and press pages). Registers of hoards with totals and latest coin; a register is not a count
+  by type and none of these enters a reading unless a table above carries it.
+- `sinan/` and `sinan_verify/`: the Sinan wreck of 1323 (文化公報部·文化財管理局 1985, 新安海底遺物 資料篇 III; the 2006
+  신안선 volume, whose table 1 lists coin names with the number of varieties and no counts). Total weight only; not used
+  by any criterion.
+
+## B141: Ming tea-horse offices, the horses taken and the tea paid by year, the official ratios, enforcement against private tea, and dated statements on the private trade
+
+Every folder under `data/raw/b141/` has a `manifest.tsv` (file, URL, UTC time, bytes, SHA-1);
+`data/raw/b141/_blockzero/<key>.json` and `<key>_verify.json` hold the records, each with its quotation, source,
+saved file and whether the original was opened. Fetched 2026-09-28 to 2026-09-30. Dates are converted with Academia
+Sinica's 兩千年中西曆轉換 (sinocal.sinica.edu.tw), Julian before 1582-10-15.
+
+- `horses/mingshilu*/`, `horses_verify/mingshilu_zhongma/`, `enforcement/`, `official/`: paragraph pages of the Ming
+  shilu in the Academia Sinica edition, from the 明實錄 database of 漢籍電子文獻 (hanchi.ihp.sinica.edu.tw, no
+  login), about 1,700 paragraph pages reached through 42 search terms. Horses taken and tea paid by office and year, the
+  official ratios and their revisions, and each act of enforcement.
+- `official/`, `official_verify/`: 大明会典 (Zhengde and Wanli) from zh.wikisource.org and ctext.org, with page images
+  of the Wanli printing (Peking University Library copy on archive.org) and kanripo.org for the checks; 明史 兵志 and
+  食货志; 马政纪.
+- `private/`, `private_verify/`: 杨一清, 关中奏议 (18 juan, juan 3 read through), 皇明经世文编, 皇明九边考, from the
+  Academia Sinica database, daizhige.org and ctext.org; Tani Mitsutaka (1966), 史林 49, from the Kyoto University
+  repository, for the Wanli Shaanxi gazetteer read at second hand. `ctext/`: four ctext.org search pages for 私茶.
+- `qinbian/`, `qinbian_verify/`: 秦边纪略 (the Tongzhi 11 printing) at shidianguji.com, all six juan as text with 25
+  page images for the passages that carry numbers.
+- `kyakhta/`, `kyakhta_verify/`: an availability survey of the Kyakhta barter and brick tea (Korsak 1857 on
+  archive.org, the Russian Geographical Society's library); registered only, read by no criterion.
+- The script reads `_blockzero/horses.json`, `horses_verify.json`, `private.json` and `private_verify.json` by record
+  index; the intake rows, the paired prices and the dated statements of B141-3b each point at one record.
+
+## B143: statutes and rules that regulate the price of part of one line of business, with the words that draw the line
+
+Read 2026-10-08 and 2026-10-09 (local dates; the manifest carries UTC). The station quotes short fragments and
+every fragment names its page; the pages, their publishers and the days they were opened are in
+`experiments/b143_price_control_line.py` and in the record.
+
+- `data/raw/b143/tlc/`: Rules of the New York City Taxi and Limousine Commission, chapters 58 (108 pages) and
+  59 (198 pages), both marked "Updated February 27, 2026", from the Commission's own site. `manifest.tsv`: file,
+  URL, UTC time, bytes, SHA-256, pages. Each PDF starts with `%PDF-`, has `%%EOF` in its last 2,048 bytes and
+  opens in pymupdf at the page count stated; every fragment the station quotes from the two chapters was found
+  in the text of the saved copy, whitespace collapsed.
+- Read as pages and not kept as files, fragments copied in order: 49 U.S.C. 14501, 42 U.S.C. 300gg-131,
+  300gg-132 and 300gg-135, and 15 U.S.C. 1693o-2, from the Legal Information Institute's reproduction of the
+  United States Code (`law.cornell.edu/uscode/text/...`); the New York City Administrative Code, title 19
+  chapter 5, from an unofficial mirror (`nycadmincode.readthedocs.io/t19/c05/`), read to character 100,000 of
+  211,207; California Penal Code 396 from FindLaw's reproduction ("Current as of January 01, 2026"), with the
+  Attorney General's page on price gouging beside it; the Domestic Gas and Electricity (Tariff Cap) Act 2018
+  as enacted, from `legislation.gov.uk`; ICOBS 6B.2 from the Financial Conduct Authority's handbook.
+- Opened and not read: the California Legislative Information page and Justia's page for Penal Code 396, both
+  HTTP 403.
+- Caliber: the words of a provision, not a price series. "Price written" means an authority sets the price,
+  caps it, or is given the power to regulate it; the three are not put in one column with any price level.
+
+## B144: posted prices of digital items by account region
+
+Fetched 2026-10-12 by `experiments/b144_fetch.py` into `data/raw/b144/`; the manifest
+`data/raw/b144/b144_manifest.json` carries the counts and the measured seconds per request. Every response
+is cached and never fetched twice; a payload that does not validate is kept with a `.partial` suffix. Public
+endpoints, no key, nothing bought.
+
+- **Steam store**, `store.steampowered.com/api/appdetails` with `filters=price_overview`.
+  `steam_zone/<code>.json`: eight reference titles asked once for each of 249 ISO country codes; codes that
+  return the same currency and the same eight prices are one price zone (43 answers; 42 zones after one is joined
+  to the zone it differs from only in what is sold). `steam_price/<code>_<nnn>.json`: one code per zone, 1,000 titles in
+  requests of 100. **What the source calls the fields**: `initial` is the price before a discount and `final`
+  the price charged, both in hundredths of the currency unit named in `currency`, including for currencies
+  without a minor unit. The readings use `initial`. Prices are as shown to an account of that country and
+  include tax where the store includes it; the United States price does not.
+- **steamspy.com**, `api.php?request=all&page=0` and `page=1`: `steamspy_all_p<n>.json`, 1,000 applications
+  each in the catalogue's own order, with `publisher`, `developer` and `initialprice` in United States cents.
+  Third-party catalogue; used for the list of titles and the publisher of each. The store's United States
+  list price equals its `initialprice` for 972 of 975 titles.
+- **Apple**, `support.apple.com/en-us/108047` (published 2026-09-16): `icloud_108047.html`, monthly iCloud+
+  prices for five storage tiers in 157 rows. The euro area is one row named Euro. The page marks rows whose
+  prices include tax and rows where tax may be added, bills countries without a supported currency in
+  dollars, and states that in one country earlier subscribers stay on the price of their purchase date.
+- **Microsoft**, `displaycatalog.mp.microsoft.com/v7.0/products` with `fieldsTemplate=browse`:
+  `gamepass/<code>.json`, three Game Pass products per market, the same product ids everywhere; 86 of 249
+  markets return a price. **What the source calls the fields**: `MSRP` is the standing monthly price and
+  `ListPrice` can be an introductory price; the readings use `MSRP`.
+- **Exchange rates**: `fx_open_er_api.json` from open.er-api.com (166 currencies against the dollar, updated
+  2026-10-12) and `fx_ecb.xml`, the ECB daily reference rates (29 currencies against the euro, 2026-10-12). The two differ by
+  at most 1.2% in logs on the currencies they share. Only the readings that need a level at a market rate
+  use them.
+- **GOG**, `catalog.gog.com/v1/catalog`: `gog_zone/<code>.json` (page 1 of each country's best sellers, 249
+  codes) and `gog_price/US_<nnn>.json` (42 pages). Probed and not read by any script: a title on two stores
+  carries one number where its publisher, or a parity term of the larger store, keeps it so.
+
+## B144: official tables for one country seen from inside, and statute on dwellings
+
+Fetched 2026-10-12 by `experiments/b144_fetch.py --only us`, `--only law` and `--only uk` into
+`data/raw/b144/`, under the same rules as the entry above: cached once, resumable, a payload that does not
+validate kept with a `.partial` suffix.
+
+- **Bureau of Economic Analysis, regional price parities by metropolitan area**,
+  `apps.bea.gov/regional/zip/MARPP.zip`: `us/MARPP.zip`, the table `MARPP_MSA_2008_2024.csv` and its
+  definition file. **What the source calls the lines**: 1 all items, 2 goods, 3 "RPPs: Services: Housing",
+  4 utilities, 5 other services; the definition file says "Housing price levels are only estimated for
+  tenant-occupied housing". The United States is 100 on the all-items line. The readings use 2024 and 2023.
+- **Bureau of Labor Statistics, quarterly census of employment and wages**, annual averages,
+  `data.bls.gov/cew/data/api/<year>/a/industry/<code>.csv`: `us/qcew_<year>_<code>.csv` for 2024 and 2023 and
+  ten industry codes (10 all industries, 8121, 7225, 5617, 2382, 8111, 6244, 8123, 2361, 4451).
+  **Columns read**: `annual_avg_wkly_wage`, `annual_avg_emplvl`, `avg_annual_pay`, by `area_fips` for
+  metropolitan areas; `own_code` 0 is every employer and 5 private employers. A cell the source does not
+  disclose is not read. Average weekly wage is total pay over employment and includes differences in hours.
+- **Statute and official rule on dwellings**, `law/`, eleven pages, each row of the reading resting on
+  verbatim passages found on its page: the Inland Revenue Authority of Singapore on additional buyer's stamp
+  duty (`sg_absd.html`); the State Taxation Administration's announcement 16 of 2024 on deed tax
+  (`cn_deedtax.html`); the Shanghai notice of 2025-08-25 on purchase limits as relayed by Xinhua
+  (`cn_sh_xinhua.html`); Korea's Local Tax Act article 13-2 and Housing Lease Protection Act articles 6-3
+  and 7 from a third-party copy of the statutes (`kr_*.html`); 26 U.S.C. 1445 from the Legal Information
+  Institute (`us_1445.html`); the California tax board's Publication 29 on property tax
+  (`us_boe_pub29.pdf`); the German civil code, sections 573 and 558, from gesetze-im-internet.de
+  (`de_bgb_*.html`); Japan's Act on Land and Building Leases, article 28, from the e-Gov law interface
+  (`jp_shakuchi_28.xml`). The level of each source is recorded with its row.
+- **Office for National Statistics, price quotes** behind the consumer price indices, dataset "Consumer
+  price inflation item indices and price quotes": `uk/quotes_2025_04/pricequotes202504.xlsx` (151,300 rows)
+  and `uk/quotes_2026_08/upload-pricequotes202608.csv` (94,010 rows), with the glossaries
+  `uk/glossary/` and `uk/glossary_2025/`. **What the glossary calls the columns**: `PRICE` is the "Observed
+  price on date of collection (in £GBP)"; `VALIDITY` true is a "Quote included in the current months index";
+  `REGION` is an "Approximation to Government Office Regions (GOR)", codes 2 to 13, code 1 being catalogue
+  collections; `SHOP_TYPE` 1 is a multiple of ten or more outlets and 2 an independent. The item is named in
+  `ITEM_DESC` in the 2025 file and in `CS_DESC` in the 2026 file. The readings use valid quotes with a price.
+  Each edition page (`uk/<name>.edition.json`) names its own file. The host answers 429 to requests a second
+  apart; the fetcher waits 25 seconds between them.
+- **Office for National Statistics, Annual Survey of Hours and Earnings**, 2025 provisional:
+  `uk/ashe14/` (Table 14, four-digit occupation, United Kingdom), `uk/ashe15/` (Table 15, region by
+  four-digit occupation) and `uk/ashe3/` (Table 3, whose region lines give each region's own pay).
+  **What the source calls the table read**: "Hourly pay - Excluding overtime (£) - For all employee jobs:
+  United Kingdom, 2025", sheet All, median and mean; the companion table of coefficients of variation gives
+  the survey's own uncertainty. Employees only; a suppressed cell is marked x and is not read. Table 15
+  carries eleven regions, without Northern Ireland.
+- **Government pages for the rates used**, `uk_rules/`: gov.uk on VAT rates (`vat.html`), rates and
+  thresholds for employers 2025 to 2026 (`employers_2025_26.html`), income tax rates (`income_tax.html`),
+  national minimum wage rates (`minimum_wage.html`), and the statutory framework of the early years
+  foundation stage for childminders (`eyfs_childminders.pdf`, found from the publication page `eyfs.html`).
+  Every rate the reading uses is checked against a passage on its page.
+
+## B147: six United States hospitals' machine-readable standard-charge files and the CMS data dictionary
+
+Retrieved 2026-10-14 UTC (2026-10-13 local) by `experiments/b147_fetch.py` into `raw/b147/`, one directory per
+source. `raw/b147/b147_manifest.json` records for each file the URL, byte count, SHA-256, the server's
+Last-Modified header, the wholeness check it passed and the retrieval time. Each hospital's address is the
+`mrf-url` line of the `cms-hpt.txt` at the root of its own site; that index is saved beside the file. **These
+addresses carry no version and are overwritten in place at least once a year, so the hash and the retrieval time
+identify the edition read.** Nothing is redistributed.
+
+- **Garfield County Health Center**, Jordan, Montana: `garfield/816001366_garfield-county-health-center_standardcharges.csv`,
+  680,743 bytes, from `garfieldcountymt.gov/wp-content/uploads/2026/01/`. Template 3.0.0, dated 1/4/2026. Wide CSV,
+  534 items, five payers.
+- **Memorial Hermann - Texas Medical Center**, Houston: `mh_tmc/741152597_memorial-hermann-texas-medical-center_standardcharges.csv`,
+  36,141,332 bytes, served from `memorialhermann.org` under a name ending `.ashx`. Template 3.0.0, dated 2026-04-01. Tall CSV.
+- **Oregon Health & Science University**, Portland: `ohsu/931176109_Oregon-Health-and-Science-University_standardcharges.zip`,
+  13,498,398 bytes, one CSV member of 297,896,809 bytes, read in place. Template 3.0.0, dated 2026-03-23. Tall CSV;
+  some descriptions carry Windows-1252 bytes, read as the replacement character.
+- **Deaconess Regional Medical Center**, Bozeman, Montana: `deaconess/474717998_deaconess-regional-medical-center_standardcharges.json`,
+  134,150,342 bytes, from `bozemanhealth.org`. Template 2.2.0, dated 2024-11-19; server Last-Modified 2025-09-23.
+- **Central Vermont Medical Center**, Berlin, Vermont: `cvmc/222547186_central-vermont-medical-center-inc_standardcharges.csv`,
+  52,895,861 bytes, from `www.uvmhealth.org`. Template 3.0.0, dated 2026-10-01. Tall CSV.
+- **Cheshire Medical Center**, Keene, New Hampshire: `cheshire/02-0354549_Cheshire-Medical-Center_standardcharges.zip`,
+  12,956,206 bytes, one CSV member of 526,379,146 bytes, read in place. Template 3.0.0, dated 1/1/2026. Wide CSV, 40 payer blocks.
+- **CMS data dictionary** for the CSV and JSON templates, 37,031 and 31,443 bytes, in `cms_dictionary/`, from the
+  CMS template repository (`CMSgov/hospital-price-transparency` on GitHub, `documentation/CSV` and `documentation/JSON`).
+
+**What the source calls the columns read** (data dictionary): `standard_charge | gross`; `standard_charge |
+[payer] | [plan] | negotiated_dollar`, `negotiated_percentage`, `negotiated_algorithm`; `standard_charge |
+methodology`, the "method used to establish the payer-specific negotiated charge", with the values `case rate`,
+`fee schedule`, `percent of total billed charges`, `per diem`, `other`. The 2026 columns `median_amount`,
+`10th_percentile`, `90th_percentile` and `count` summarise past remittances and are not read as prices.
+
+**Added 2026-10-14** by the same script, same manifest, same wholeness checks; a partial download resumes with `Range` and `If-Range` and is renamed only when complete and checked.
+
+- **University of Iowa Health Care Medical Center**, main campus (NPI 1376544320): `uihc/426004813-1376544320_state-university-of-iowa_standardcharges.csv`, 1,597,353,362 bytes, SHA-256 `7124f50a62cd7c4fa8a3c30440b9dbf75f0b1f5a3bed1f9c2d9b2a0012590aeb`, ETag `"01fb7f6c97dd1:0"`, Last-Modified 2026-06-29; and Downtown (NPI 1699541870): `uihc_dt/426004813-1699541870_state-university-of-iowa_standardcharges.csv`, 1,583,312,047 bytes, SHA-256 `32061ab1f534ac8c190c8b17b135e59dfa2a2cdd4df18f84b079e721821d2dbc`, ETag `"0ca4738ca7dd1:0"`, Last-Modified 2026-06-29; both from `www.healthcare.uiowa.edu/marcom/uihc/billing/`. The two addresses are the `mrf-url` lines of the hospital's index at `uihc.org/cms-hpt.txt` (read 2026-10-14); the index the fetcher saved beside the files was asked of `www.healthcare.uiowa.edu/cms-hpt.txt`, which answers 404. Template 3.0.0, dated 2026-03-11, tall CSV; every header column is named by the CMS data dictionary.
+- **CMS, Payment Allowance Limits for Medicare Part B Drugs**, nine quarterly zip files in `cms_asp/`, from `www.cms.gov/files/zip/`: October 2024; January, April, July and October 2025; January, April, July and October 2026 (71,421 to 85,594 bytes each; SHA-256 in the manifest). The table read is the one titled `Payment Allowance Limits for Medicare Part B Drugs`, header `HCPCS Code, Short Description, HCPCS Code Dosage, Payment Limit`; limits are printed to three decimals, 860 to 1,011 codes per file, none printed twice in one file. **cms.gov carries only the latest revision of each quarter**, so the revision read is the date CMS put in each member's name: October 2024 2025-05-27; January 2025 2025-12-09; April and July 2025 2026-02-25; October 2025 2026-08-20; January, April and July 2026 2026-09-15; October 2026 2026-09-16. Read as reference tables, not as hospital files.
+
+- **CMS, Clinical Laboratory Fee Schedule**, nine quarterly zip files in `clfs/`: 24CLABQ4; 25CLABQ1, 25CLABQ2, 25CLABQ3V2, 25CLABQ4; 26CLABQ1 to 26CLABQ4 (495,301 to 533,110 bytes; SHA-256 in the manifest), from `www.cms.gov/files/zip/<name>.zip` after the AMA CPT end-user licence page on cms.gov, accepted 2026-10-29. The CY 2026 Q1 file was also supplied by hand, CY2026 Q1 v1 (`clfs/clfs_cy26_q1v1_0.zip`, 495,817 bytes, SHA-256 `c2bd6922117d5db506cd8405423d2afce48781d93e81bcbcc93c4a4f12a76e29`), byte for byte the same as `26clabq1.zip`. The table read is the CSV member: title `<year> Clinical Diagnostic Laboratory Fee Schedule`, header `YEAR, HCPCS, MOD, EFF_DATE, INDICATOR, RATE, ...`; the record layout in the same zip calls the rate "Payment amount associated with each HCPCS code" and the indicator "National or local pricing indicator". Rows with a modifier (QW, a CLIA-waived test) or a local indicator are set aside; rates are printed to the cent. Read as reference tables, not as hospital files.
+
+**Not retrieved.** Hospitals whose index points to a file host that is not their own site were passed over. The parsed cells are cached under `cache/b147/`, keyed by the source file's SHA-256.
+
+## B144: the taxation of labour, the weights of one basket, and statute on household services and school places
+
+Fetched 2026-10-13 by `experiments/b144_fetch.py --only oecd`, `--only cuts`, `--only uk` and `--only school`
+into `data/raw/b144/`, under the same rules as the two entries above.
+
+- **OECD, labour taxation, comparative country indicators** (the tables of Taxing Wages), dataflow
+  `OECD.CTP.TPS:DSD_TAX_WAGES_COMP@DF_TW_COMP(2.1)` from `sdmx.oecd.org`, from 2022, as a file with labels:
+  `oecd/tw_comp.csv`, 38 countries and two aggregates, 2022 to 2025. **What the source calls the measure
+  read**: `MR_TW_PE`, "Marginal tax wedge of the principal earner", in `PT_COS_LB`, "Percentage of labour
+  costs"; household `S_C0`, "Single person, no children"; earnings `AW67`, `AW100`, `AW167`, percent of the
+  average wage. The two measures named "Increase in net income after an increase of 1 currency unit" are
+  elasticities and are not read.
+- **OECD, VAT rates**, the annex table of Consumption Tax Trends: `oecd/vat_rates.xlsx`, "Annex Table 2.A.1.
+  VAT rates", standard rates by year to 2023 for 37 countries. The United States has no row. Rates in
+  brackets are temporary rates and are read as printed for the last year.
+- **Provisions on services bought by households**, `law_labour/`, ten pages: the German Income Tax Act
+  section 35a (gesetze-im-internet.de); the French public service page on the tax credit for employing
+  someone at home (service-public.fr, F12); the Swedish Income Tax Act, chapter 67 (riksdagen.se); gov.uk on
+  Tax-Free Childcare; the Internal Revenue Service's topic 756 on household employees; Annex III of Council
+  Directive 2006/112/EC in its consolidated text of 2025-01-01 (eur-lex.europa.eu); Singapore's Ministry of
+  Manpower on the levy for a foreign domestic worker; the Hong Kong Labour Department on the statutory
+  minimum wage and its reference guideline on who is covered, and the government's announcement of
+  2025-09-29 on the minimum allowable wage of foreign domestic helpers. The level of each source is recorded
+  with its row. The EUR-Lex host answered the fetcher with an empty body; the cached copy was fetched the
+  same day with a browser's agent string.
+- **Office for National Statistics, consumption segment indices**, April 2025:
+  `uk/segments_2025_04/upload-consumptionsegments202504.csv`, 684 segments with `CPI_WEIGHT`, `RPI_WEIGHT`
+  and `CPIH_WEIGHT` in parts per thousand. The CPIH weights in the file add to 966.3. A segment is joined to
+  the quotes of the same month by `CS_ID`; the quote file marks each quote's `SHOP_TYPE`, which its glossary
+  defines as 1 "Multiple (10 or more outlets)", 2 "Independents (less than 10 outlets)" and 3 "Item not
+  stratified by retailer". Items are grouped by the first two digits of `ITEM_ID`.
+- **Provisions on the place in a public school**, `law_school/`, ten pages: China's Compulsory Education Law
+  (gov.cn); the Shanghai education commission's admissions document for 2026 and the 2026 rules of Hongkou
+  and Huangpu districts (shanghai.gov.cn); the 2026 primary admissions plan of Huairou district, Beijing
+  (beijing.gov.cn, a Word file); Japan's Order for Enforcement of the School Education Act, article 1 (e-Gov
+  law interface); the Bavarian education act, article 42 (gesetze-bayern.de); England's School Admissions
+  Code 2021 (gov.uk); New York Education Law section 3202 (nysenate.gov); Singapore's Ministry of Education
+  on distance in primary one registration. Passages are matched with white space removed. The New York page
+  answered the fetcher with 403 and the Singapore page stood behind it in the queue; the cached copies of
+  both were fetched the same day with a browser's agent string.
+
+## B144: housing costs by tenure, price indices along time, and the weight of imputed rent
+
+Fetched 2026-10-14 by `experiments/b144_fetch.py --only eurostat`, `--only bls` and `--only weights`.
+
+- **Eurostat, survey of income and living conditions**, SDMX-CSV from the dissemination interface, from 2023:
+  `eurostat/ilc_lvho07c.csv`, "Housing cost overburden rate by tenure status", unit `PC`, tenure `OWN_L`,
+  `OWN_NL`, `RENT_MKT`, `RENT_FR`, `TOTAL`; `eurostat/ilc_di09.csv`, "Mean and median income by tenure status",
+  read as `MED_EI` in `PPS` for both sexes and all ages. The overburden rate is the share of people living in a
+  household whose housing costs exceed 40 percent of its disposable income. Cells flagged `u` are of low
+  reliability and are left out in one of the two settings.
+- **Bureau of Labor Statistics, public interface version 1** (`api.bls.gov/publicAPI/v1/timeseries/data/`, a POST
+  of up to 25 series and ten years, no key): `bls/cpi_<start>_<end>.json` for 1990 to 2025, fifteen components of
+  the consumer price index for all urban consumers, U.S. city average, not seasonally adjusted (`CUUR0000...`),
+  and average hourly earnings of production and nonsupervisory employees, total private, not seasonally adjusted
+  (`CEU0500000008`). The index for October 2025 was not published, so 2025 has eleven months. Water and sewer
+  and trash collection starts in 1998.
+- **Statistics Bureau of Japan, weights of the 2020-base consumer price index**,
+  `www.stat.go.jp/data/cpi/2020/kaisetsu/pdf/5-1.pdf`: `weights/jp_cpi_2020_weights.pdf`. The line read is
+  "0163 持家の帰属家賃を除く総合", the total without the imputed rent of owner-occupied housing, with its number of
+  items and its weight in parts per ten thousand nationally and for the wards of Tokyo.
+
+## B144: Japan's regional price difference index by prefecture
+
+- **Statistics Bureau of Japan, retail price survey (structural part), results for 2025**, summary published
+  2026-09-18, `www.stat.go.jp/data/kouri/kouzou/pdf/g_2025.pdf`: `weights/jp_regional_price_index_2025.pdf`,
+  fetched 2026-10-14. Annex table 1 gives every prefecture's index (national average 100) and rank for the total,
+  the total without rent, and ten groups; the summary's figure 4-3 names the highest and lowest prefecture of
+  each group, which the reading uses to confirm which parsed column is which. Housing excludes the imputed rent
+  of owner-occupied housing.
+
+## B144: the World Bank's price levels for the held-out contest
+
+- **World Bank, World Development Indicators**, `api.worldbank.org/v2/country/all/indicator/<id>?date=2022&source=2`,
+  fetched 2026-10-14: `worldbank/PA.NUS.PRVT.PP_2022.json` ("PPP conversion factor, private consumption (LCU per
+  international $)"), `worldbank/PA.NUS.PPP_2022.json` (the same for GDP) and `worldbank/PA.NUS.FCRF_2022.json`
+  ("Official exchange rate (LCU per US$, period average)"). The price level read is the first over the third. The
+  former ratio indicator `PA.NUS.PPPC.RF` answers that it has been archived. Country names of the city table are
+  joined to the World Bank's through a list of aliases kept in `experiments/b144_held_out.py`; 163 of 209 countries
+  join.
+
+## B148: HSBC UK mortgage rate pages, one per customer class
+
+Read through a text-extraction tool on 2026-10-14 (first read 09:53 to 10:01 and second read 10:15 to 10:26, New York
+time) and 2026-10-18 (next-day read 13:43 to 13:50). Each returned text is saved unchanged in `raw/b148/` as
+`<page>_<read>_<window>.txt`; the read logs `raw/b148/b148_fetchlog_read1.json`, `b148_fetchlog_read2.json` and
+`b148_fetchlog_read10.json` record for each snapshot the URL, the character offset, the prompt and a time bracket, and
+`raw/b148/b148_snapshots.json` adds the SHA-256 and length of every stored text (31 snapshots). **The hash identifies the
+returned text, not the page bytes.** The pages carry no date; the fixed end dates (31.01.2029, 31.01.2032) were taken as
+the version mark, and on 2026-10-18 the rates had moved while those dates had not. The parsed rows are
+`raw/b148/b148_rows.json`, each row keeping its source line.
+
+- **First-time buyers (F)**: `https://www.hsbc.co.uk/mortgages/first-time-buyers/rates/`
+- **Moving home (M)**: `https://www.hsbc.co.uk/mortgages/our-rates/`
+- **Remortgage to HSBC (R)**: `https://www.hsbc.co.uk/mortgages/move-your-mortgage/rates/`
+- **Existing customers switching (E)**: `https://www.hsbc.co.uk/mortgages/existing-customers/switch/rates/`
+
+Read and not stored: Barclays, NatWest, Coventry, Lloyds and Yorkshire mortgage pages, none of which prints a text rate
+row by customer class at the addresses read (listed in the record's `config.second_designer`).
+
+**Barclays customer rate sheet (second designer), fetched 2026-10-29.** One PDF:
+`https://www.barclays.co.uk/content/dam/documents/personal/mortgages/CoreRangeCustomerRateSheet.pdf`, the rate sheet
+the Barclays first-time-buyer and remortgage pages link. Stored unchanged as
+`raw/b148/barclays/CoreRangeCustomerRateSheet_20261016T000745Z.pdf` (the name carries the server's Last-Modified,
+2026-10-16 00:07:45 GMT), 584,117 bytes, SHA-256 `ce5cff8a1b093035d02c78d072ac740a458ded00e20a71990c5ab78ea62c73ea`;
+`raw/b148/barclays/barclays_manifest.json` records URL, file, length, SHA-256, Last-Modified, ETag and a fetch time
+bracket. The sheet prints "Rates effective from 16 October 2026"; 11 pages: residential purchase (pages 1 to 3),
+residential remortgage (4 and 5), buy-to-let purchase and remortgage (6), existing-customer residential (7 to 9) and
+buy-to-let (10), additional information (11, no rate row). Fetched by `experiments/b148_fetch_barclays.py` (resumable,
+checks the PDF header, the end-of-file marker and the length). Read by `experiments/b148_read_barclays.py` into
+`raw/b148/barclays/barclays_rows.json`: 169 rate rows, each with its page and its row in that page's table, read
+twice (table geometry and the text stream) and compared row by row.
+
+## B149: Regulation Q, Federal Reserve Bulletin survey and ceiling-table pages, New York Fed circulars on foreign official deposits, Federal Register issues
+
+Fetched on 2026-10-29 by `experiments/b149_fetch.py` into `raw/b149/`; `raw/b149/b149_manifest.json` records for every
+file the URL, byte count, SHA-256, the check it passed and the retrieval time (208 files, 250.8 MB). Reruns keep a file
+that passes its check and fetch only what is missing; nothing is deleted.
+
+- **Federal Reserve Bulletin (FRASER, title 62), page by page through the IIIF services**: the issue manifest
+  `https://iiif.slf.digirati.io/presentation/item/<item>`, then for each page used the page image
+  (`<image service>/full/max/0/default.jpg`) and its ALTO text (`https://iiif.slf.digirati.io/text/alto/item/<item>/<canvas>`).
+  Whole-issue PDFs are not taken. Survey of time and savings deposits at insured commercial banks: September 1977
+  (item 20434, pages 19 to 29, survey of 1977-04-27), November 1978 (20447, 14 to 19, 1978-07-26), November 1979 (20459,
+  138 to 141, 1979-07-25), March 1980 (20463, 175 to 178, 1979-10-31), June 1980 (20466, 167 to 170, 1980-01-30). Table
+  1.16, maximum interest rates payable at federally insured institutions: September 1977 (20434, page 115), September 1978
+  (20445, 95), September 1979 (20458, 119), March 1980 (20463, 116). Page numbers are positions in the IIIF manifest.
+  Units differ by issue: the 1977 appendix tables print counts of banks and millions of dollars; 1978 to 1980 print
+  percentages of issuing banks and of deposits. "(2)" in those tables means less than 0.05 percent and is entered as 0.
+- **New York Fed circulars (FRASER, title 466)**, manifest and ALTO for every page, page images of the pages that carry
+  the foreign-official clause: 5248 (1962-10-30), 5690 (1965-08-17), 6100 (1968-01-24), 6220 (1968-09-27), 6227
+  (1968-10-14), 6436 (1969-11-12), 7847a (1976-03-24), 9022 (1981-02-24), 9563 (1983-10-11). Manifest and ALTO only,
+  no page images: 8338 (1978-05-08, item 496694, amendment effective 1978-11-01) and 8341 (1978-05-09, item 496698,
+  amendment effective 1978-07-06), the two items left on the circulars' retain lists.
+- **Federal Register (govinfo)**, whole daily issues, the only form govinfo serves for these years (its page-cite link
+  resolves to the issue PDF): 1974-12-17 (39 FR 43618), 1978-05-18 (43 FR 21435 to 21439), 1979-06-06 (44 FR 32356),
+  1979-08-07 (44 FR 46266), `https://www.govinfo.gov/content/pkg/<issue>/pdf/<issue>.pdf`. Chosen by a full-text search
+  of the collection for the section numbers in the weeks before each effective date; the issues carrying the Federal
+  Home Loan Bank Board's 1979-1980 amendments and the Deregulation Committee's notices were not identified (the public
+  search key was rate-limited), and their content is read from Bulletin table 1.16 and the circulars' reprints.
+
+The circulars read before 2026-10-29 (8102 to 9611, the Board press releases of 1966 and 1986, Dallas 81-154 and 86-034)
+were read from FRASER without keeping a copy; their URLs, pages and readings are in `b149_regq_cells.json` (`sources`,
+`pages_read`).
+
+## B150: Singapore Ministry of Manpower levy pages and the quota and levy guide
+
+Read 2026-10-14 UTC. For each page, the levy tables, the sentences the reading uses and the page's own "Last updated"
+line were transcribed into UTF-8 text in `raw/b150/`, one file per page, named with the snapshot time
+`20261014T134920Z`. `raw/b150/manifest.json` records for each page the URL, the snapshot time, the page's Last updated
+date, a SHA-256 of the stored text, the number of levy cells read (zero included), and how much of the stored text is
+word for word: full (five pages), partial (manufacturing: table headers paraphrased, figures and quoted sentences as
+printed) or summary (S Pass changes: the quoted sentence as printed, the tables summarised). **The pages carry no date
+in their address and are edited in place, so the hash and the snapshot time identify the edition read.** The stored
+files are transcriptions of the tables, not the pages' HTML.
+
+- **Services sector requirements**, last updated 2026-09-16:
+  `https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/services-sector-requirements`
+- **Manufacturing sector requirements**, last updated 2026-09-14:
+  `https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/manufacturing-sector-requirements`
+- **Construction sector requirements**, last updated 2026-07-03:
+  `https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/construction-sector-requirements`
+- **Process sector requirements**, last updated 2026-07-01:
+  `https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/process-sector-requirements`
+- **Marine shipyard sector requirements**, last updated 2026-07-01:
+  `https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/marine-sector-requirements`
+- **S Pass levy and quota requirements**, last updated 2026-02-19 (the levy of $650 in every sector and tier since
+  1 September 2025): `https://www.mom.gov.sg/passes-and-permits/s-pass/quota-and-levy/levy-and-quota-requirements`
+- **Upcoming changes to S Pass eligibility**, last updated 2025-03-06 (the tiered S Pass levy before 1 September 2025):
+  `https://www.mom.gov.sg/maintenance/passes-and-permits/s-pass/upcoming-changes-to-s-pass-eligibility`
+- **"How to calculate your quota and levy bill"**, the Ministry's guide, PDF, "Updated 1 July 2026", 15 pages, all
+  read, not stored:
+  `https://www.mom.gov.sg/~/media/mom/documents/services-forms/passes/guide_on_comp_of_company_quota_balance.pdf`.
+  Steps 1 to 6, the rate table on pages 5 and 6, and the worked bills on pages 12, 14 and 15.
+
+## B151: China's self-regulatory initiative on non-bank interbank deposit rates, and the central bank notices for the two policy rates it refers to
+
+Pages read 2026-10-14 and saved, unchanged, into `raw/b151/`. `raw/b151/b151_manifest.json` records for each
+snapshot the URL, publisher, publication date, reading date, source level, byte count and SHA-256; the script
+refuses any snapshot whose hash does not match. No data series was retrieved. Nothing is redistributed.
+
+- **The initiative's operative sentences**, as carried word for word the same by three outlets: The Paper,
+  2024-12-04 (`thepaper_20241204.html`); 21st Century Business Herald as carried by Sina Finance, 2024-11-29
+  (`sina_21cbh_20241129.html`, which also gives the initiative's definition of a non-bank financial institution);
+  Xinhua China Economic Information Service bank bulletin 2024 No. 48, pages 4-5 (`cnfin_xinhua_bank_bulletin_20241209.pdf`).
+  The writer has not published the text itself.
+- **Name, scope and effective date**: the People's Bank of China's release of 2024-11-29 on the mechanism's meeting
+  (`pbc_meeting_20241129.html`); two Xinhua items carried by the State Council's site, 2024-11-30; China Daily and
+  Yicai press pages of 2024-11-30 and 2024-12-02.
+- **Policy rates**: the People's Bank of China's notice cutting the rate on excess reserves from 0.72 to 0.35 from
+  2020-04-07 (`pbc_ioer_20200403.html`); open market notices 2024 No. 5 (7-day reverse repo 1.70 to 1.50 from
+  2024-09-27) and 2025 No. 1 (1.50 to 1.40 from 2025-05-08); open market trading notice 2026 No. 198 (2026-10-14,
+  7-day at 1.40).
+- **Monetary policy reports** of the People's Bank of China for 2024Q4 (PDF page 30), 2025Q1 (PDF page 24), 2026Q1 and
+  2026Q2, saved whole and dated as their covers print them (2025-02-13, 2025-05-09, 2026-05-11, 2026-08-12); the last
+  two are read for the absence of the second step.
+- **Second step**: press reports of 2026-05-07 (Sina Finance, also the latest statement of the excess-reserve rate
+  at 0.35) and 2026-05-09 (Shanghai Securities News, `cnstock_20260509.html`) describe interbank time deposits
+  brought under the self-regulation from the third quarter of 2026; no text of the step was public on 2026-10-14.
+
+**Not retrieved.** The central bank's credit balance sheet line for deposits of non-bank financial institutions: it
+puts both classes and demand and time deposits in one figure, so it cannot separate the classes.
+
+## B152: Apple's and Google's published app store commission tables
+
+| | |
+|---|---|
+| Files | `data/raw/b152/`: each page saved as served (HTML) with its text beside it. `apple_eu.html` (140,378 bytes), `apple_jp.html` (133,318), `apple_jp_news.html` (176,214), `apple_sbp.html` (115,643), `google_help.html` (1,630,411), `google_blog.html` (150,831), `google_levelup.html` (399,568), `google_appsexp.html` (364,189). `b152_manifest.json`: URL, access date, version sentence or why none, byte counts and SHA-256 of both the page and its text for all eight. `b152_tables_transcribed.json`: every number used, with its page, the quoted sentence and which percentage in it is the value |
+| Source | Apple `https://developer.apple.com/support/alternative-payment-options-on-the-app-store-in-the-eu/`, `https://developer.apple.com/support/app-distribution-in-japan/`, `https://www.apple.com/newsroom/2025/12/apple-announces-changes-to-ios-in-japan/`, `https://developer.apple.com/app-store/small-business-program/`. Google `https://support.google.com/googleplay/android-developer/answer/112622?hl=en`, `https://android-developers.googleblog.com/2026/06/play-expanded-billing.html`, `https://play.google.com/console/about/levelup/`, `https://play.google.com/console/about/programs/appsexperience/` |
+| Retrieved | 2026-10-14, each page saved from its live URL; the text is derived from the saved page by the station script, which marks every table cell with its column span |
+| Caliber | Commission as a whole percentage of the price the customer pays, by developer class and position. Apple EU effective 2026-10-01; Apple Japan's rates as announced 2025-12-17 (the distribution page prints no date for its tables), with the 5% payment processing fee on Apple In-App Purchase as a separate add-on. Google: service fee plus a 5% billing fee on Google Play billing, effective 2026-06-30 for the EEA, UK and US and 2026-09-30 for Australia and Japan; the remaining-markets table applies to developers enrolled in the 15% service fee tier, with alternative billing in South Korea and India "reduced by 4%". The two Google program pages print the program rate card in text |
+| Checks | The script checks that each quoted sentence is in the saved text and that the percentage it points at equals the value used, and that each page's hash matches the manifest; the two program pages' rate cards are checked cell by cell against the help page, and the help page's cell-by-cell numbers against the post's two rules |
+
+## B153: the British rail fares database, timetable and routeing guide, one issue each
+
+- **Rail Settlement Plan fares feed**, full refresh issue 917, generated 13/10/2026 (file header `Generated`),
+  obtained by hand and kept at `data/raw/rail_fares/fares.zip` (48,336,732 bytes, SHA-256
+  `a6b490973bdfa12674ce13e546389e8cb4cbed43b09518e3d060f79a63b3d07b`; 24 members, 292,780,440 bytes unpacked).
+  Field layouts from *RSPS5045 Fares and Associated Data Feed Interface Specification* P-02-04 (22-Apr-2026),
+  public documentation page of rspaccreditation.org: flows and fares 4.1 (setter in field 11, cross-London
+  marker in field 12), routes and their include/exclude locations 4.20.2 and 4.20.3. Fares are in pence;
+  `SDS` (Anytime Day Single) and `SOS` (Anytime Single) fares are all multiples of 5 pence.
+- **Timetable feed**, full refresh issue 988, `data/raw/rail_fares/timetable.zip` (77,624,644 bytes, SHA-256
+  `bd9b762aee5232abc834bee6e838ad09a39f2af418cab359961ac126420c88ea`; 9 members). Layout from *RSPS5046
+  Timetable Information Data Feed Interface Specification* P-04-02 (03-Jun-2025), sections 5.5.4 to 5.5.7
+  (public times; locations passed without a public time are read as passed) and 5.13.4 (station file).
+- **Routeing guide feed**, issue 1095, `data/raw/rail_fares/routeing.zip` (1,576,106 bytes, SHA-256
+  `e9ea25cb5dd5efbed87451e3affab950747e91e9d0ce02fd31ebf397cc48a266`; 19 members). Read through *RSPS5047*
+  P-02-04 (03-Jun-2025), section 7.1.1 (a journey without a change of train is on a through train and
+  permitted).
+- The packages, the unpacked files and the specification PDFs stay under `data/raw/rail_fares/`; the manifest
+  `data/raw/rail_fares/b153_manifest.json` records every member's bytes, CRC and SHA-256. The record
+  `results/b153_rail_triangles.json` carries counts, shares, quantiles and public station names only.
+  Derived caches are in `data/cache/b153/`.
+- **Retail check**, `data/raw/rail_fares/b153_arm0_retail_20261027.json`: fifteen legs of five station triples
+  read by hand on the National Rail journey planner (`https://www.nationalrail.co.uk/journey-planner/`) on
+  27/10/2026 for travel on 28/10/2026, single, one adult, no railcard, standard class, departures from 07:00.
+  Each row holds the Anytime Day Single price shown, or, where none is shown, the price of the fare that is,
+  with a note of the ticket and route condition printed on the page.
+
+## B154: federal milk marketing order rules, the Central order's statistical uniform price announcements, and the all-order statistical overviews
+
+| | |
+|---|---|
+| Files | `data/raw/b154/`: `rules/` 40 files (3,326,360 bytes): eCFR text of 7 CFR 1000.40, 1000.50, 1000.52 and of sections .51, .61 and .75 of the eleven orders; govinfo CFR XML of 1000.52 in the 2000, 2024 and 2026 editions; 91 FR 59047 (FR Doc. 2026-19177) as PDF. `central/` 321 PDFs `pp[YY][MM].pdf`, 2000-01 to 2026-09 (28,526,824 bytes; the first 24 months were fetched and measured before the rest). `sums/` 27 PDFs `sum[YYYY].pdf`, 2000 to 2026 (1,434,333 bytes). `listings/` the two index pages. `b154_manifest.json`: URL, retrieval time, seconds, byte count and SHA-256 for every file |
+| Source | `https://www.law.cornell.edu/cfr/text/7/` (sections as named); `https://www.govinfo.gov/content/pkg/CFR-{2000,2024,2026}-title7-vol9/xml/` (sec1000-52); `https://www.govinfo.gov/content/pkg/FR-2026-09-18/pdf/2026-19177.pdf`; `https://www.fmmacentral.com/PDFdata/pp[YY][MM].pdf`; `https://www.fmmacentral.com/PDFdata/sum[YYYY].pdf`; index pages `https://www.fmmacentral.com/statistical_uniform_price.html` and `https://www.fmmacentral.com/federal_order_statistical_overview.html` |
+| Retrieved | 2026-10-14, 14:35 to 14:39 UTC |
+| Caliber | Dollars per hundredweight at 3.5 percent butterfat. The county table gives the Class I differential adjusted for location by county FIPS; the 2000 and 2024 prints give Pierce County, WA as `5303`, read as `53053`; the 2026 print's Shannon County, SD row at `0.00` is a renaming placeholder that 91 FR 59047 deletes, and is excluded. Announcements print the pool computation (handler and producer location lines), pooled pounds by class, the producer price differential and, in most months, a plant list with county and location adjustment relative to Jackson County, MO. In 74 announcements (all between 2003-08 and 2010-08) the page carrying the handler location line is a scanned image with no text layer. The overviews print each order's Class I price, uniform price, producer price differential, receipts and utilization by month; the 2008 to 2024 Appalachian, Florida and Southeast order adjustments under section .51(b) appear in footnotes, not in the price column |
+| Checks | `experiments/b154_fetch.py --verify` re-reads every file against the manifest's byte count and SHA-256 and checks that each PDF parses to its last page (388 files, 0 bad); the station script checks row counts against distinct FIPS, the printed two-decimal format, the current table against the 2026 print plus the correction, and the overview's header differentials against the county table |
+
+**The other ten orders' statistical uniform price announcements (fetched 2026-10-29)**
+
+| | |
+|---|---|
+| Files | `data/raw/b154/<part>/` for parts 1001, 1005, 1006, 1007, 1030, 1033, 1051, 1124, 1126, 1131: 1,879 PDFs, 151,803,671 bytes (Northeast 321, Appalachian 321, Florida 11, Southeast 11, Upper Midwest 320, Mideast 79, California 95, Pacific Northwest 79, Southwest 321, Arizona 321; monthly files, plus yearly compilations where the office publishes only those: Florida and Southeast 2024 to 2025, Mideast and Pacific Northwest 2000 to 2021). `listings/` the nine index pages read on 2026-10-29. `b154_orders_manifest.json`: URL, retrieval time, seconds, byte count and SHA-256 for every file, the six listed URLs the server did not serve (Florida and Southeast yearly 2021 to 2023, HTTP 404), and the measured estimate taken before the full fetch |
+| Source | `https://www.fmmone.com/Price_Announcements_Uniform.htm`; `https://www.malouisville.com/hist_uniform_price`; `https://www.fmmatlanta.com/Price_Announcements_Uniform.htm` (FO6, FO7); `https://www.fmma30.com/PPD.html`; `https://www.fmmaclev.com/Price_Announcements_Uniform.htm`; `https://www.cafmmo.com/prices/statistical-uniform/`; `https://fmmaseattle.com/uniform.html` and `uniformarchive.html`; `https://www.azfmmo.com/prices/uniform-price/`; Southwest by the office's path pattern `https://www.dallasma.com/file_map/producer_price/SOUTHWEST+FO+126/<year>/26PD<mm><yy>.PDF` (its index page is built by script) |
+| Retrieved | 2026-10-29, 05:47 to 06:07 UTC, after one file per order at the earliest and latest month was measured (upper estimate 631,648,436 bytes against a 1 GB cap) |
+| Caliber | Dollars per hundredweight. Plant lists read only under their printed column labels: Upper Midwest `State County Rate` (differential at the plant's county); California `County FIPS Code Loc. Adj.`, relative to Los Angeles County, whose differential the footnote prints (2018-11 to 2019 also `Plant Differential`); Pacific Northwest and Arizona `Class I Differential` and `Location Adjustment` from King County, WA or Maricopa County, AZ, by city; Appalachian `CLASS 1 DIFFERENTIAL`, by city. Northeast and Mideast print reference zone tables, Southwest a handler list without differentials, Florida and Southeast the pool computation only. The Appalachian 2019-11 plant page uses a font without a Unicode map and is not read |
+| Checks | `experiments/b154_fetch_orders.py --verify` (1,879 files, 0 bad) and `--selftest` (truncated and altered files caught, fetch refused without an estimate under the cap); the station script's coverage table lists every file with its pages, the layouts read and the rows taken, zero included, and fails if a manifest file is missing from it |
+
+**The Census 2020 place-by-county file and the section .51(b) text of the Appalachian, Florida and Southeast orders (fetched 2026-10-29)**
+
+| | |
+|---|---|
+| Files | `data/raw/b154/census/national_place_by_county2020.txt` (2,736,928 bytes, SHA-256 `9996494d33cf6ee4527491508aa1b8dae85dcff3a979886e19b0b375e5d06ec6`; header and 33,618 pipe-delimited rows of ten fields). `data/raw/b154/rules/`: `cfr{2009,2020,2024}_100{5,6,7}_51.xml` (nine govinfo CFR XML files), `ecfr20250201_100{5,6,7}_51.xml` (eCFR text in force on 2025-02-01), `ecfr_versions_100{5,6,7}_51.json` (amendment dates); 629,163 bytes together. `b154_census_rules_manifest.json`: URL, retrieval time, seconds, byte count, bytes on the wire, server Last-Modified and SHA-256 for every file |
+| Source | `https://www2.census.gov/geo/docs/reference/codes2020/national_place_by_county2020.txt`; `https://www.govinfo.gov/content/pkg/CFR-{2009,2020,2024}-title7-vol9/xml/CFR-{year}-title7-vol9-sec100{5,6,7}-51.xml`; `https://www.ecfr.gov/api/versioner/v1/full/2025-02-01/title-7.xml?section=100{5,6,7}.51`; `https://www.ecfr.gov/api/versioner/v1/versions/title-7.json?section=100{5,6,7}.51` |
+| Retrieved | 2026-10-29, 09:23 to 09:28 UTC |
+| Caliber | Census: one row per place and county the place lies in, 2020 boundaries; `PLACENAME` carries its legal or statistical descriptor (`city`, `town`, `CDP`). Section .51(b): State, County/parish (the Southeast print reads `Country/parish`), FIPS, Class I price adjustment in dollars per hundredweight; 338 rows for 1005, 63 for 1006, 572 for 1007; each print carries one source note, the March 17, 2008 Federal Register document of its order; the 2009 print sets eleven county names in two words (`MC DOWELL` for `MCDOWELL`) |
+| Checks | `experiments/b154_fetch_orders.py --extra-verify`: the Census text has the expected header, every line the same field count and a final newline; each XML file parses and carries its section number; each JSON file parses. A partial download resumes with a Range request and is kept only at the server's full length. The station script compares the four texts of each .51(b) on (state, FIPS, adjustment) and reads one table per order, and compares each base county's entry with the adjustment the all-order overview footnotes (three of three equal) |
+
+## B155: EU capital rules for corporate bonds held by banks (Article 122 CRR) and insurers (Article 176 of Delegated Regulation 2015/35), and the two rating mapping standards
+
+| | |
+|---|---|
+| Files | `data/raw/b155/b155_text_snapshot.json` (15,887 bytes, SHA-256 `a34e81291541d1131878bbc417b55fbf253776cd69be39fc3330e349d507ca95`): 13 page entries, each with URL, access date, version line and the quoted page text the station uses (whitespace collapsed, table cells separated by ` \| `). The same entries are carried in the station record under `page_text` |
+| Source | EUR-Lex: `CELEX:32013R0575` (2013 Official Journal text) and `CELEX:02013R0575-20240709` (consolidated), Article 122; `CELEX:32024R1623`, Article 1 point (51) and Article 2 (the 9 July 2024 early-application list stored in full); `CELEX:32016R0467`, Article 1 point 3 and Article 3; `CELEX:32026R0269`, Article 1 point (53) and Article 2; the document information page of `CELEX:32015R0035` ('Modified by'); `CELEX:02016R1799-20240725`, Annex III; `CELEX:02016R1800-20240722`, Annex. Publications Office: the 2015 Official Journal L 12 text of Delegated Regulation 2015/35, Article 176 (the EUR-Lex HTML does not display at that size), and the 2024-11-14 consolidated version. Related work: the abstract page of Laas and Siegel (2017), DOI 10.1111/jori.12154, and their 2014 working paper (SSRN 2248049) |
+| Retrieved | 2026-10-14, read in a browser from the live pages; only the page text was kept |
+| Caliber | Bank: risk weight in whole percent by credit quality step, corporates, standardised approach; steps 1 to 6 at 20/50/100/100/150/150 and unrated at 100% or the sovereign's weight if higher until 31 December 2024; 20/50/75/100/150/150 and unrated 100% from 1 January 2025. Insurer: spread-risk stress on bonds and loans as `a + b x (duration - segment start)` in percent, five duration segments, steps 0 to 6 with 5 and 6 in one column, and the unrated formula of paragraph 4. Three versions: the 2015 text; the 2016/467 correction, in force from 2016-04-02, which differs in four cells by 0.1 point; the 2026/269 amendment, applying from 2027-01-30, which replaces paragraph 1 only. The 2015 text of paragraph 4 is not in the snapshot |
+| Checks | The station script parses each quoted sentence (comma as decimal mark) and compares every transcribed number with it: 189 cells, none differ. Segment-boundary breaks are printed per version. The two mapping standards are read for Fitch, Moody's and S&P, issuer and issue scales |
+
+## B158: HRSA 340B OPAIS contract pharmacy daily report
+
+| | |
+|---|---|
+| Files | `data/raw/org1/340B_ContractPharmacy_Daily_20261014_140816.xlsx` (36,567,279 bytes), `org1_manifest.json` (byte count, SHA-256, retrieval time), `opais_cp_20261014_slim.csv` (402,695 rows, 17 columns derived from the workbook; contact names and telephone numbers are not carried) |
+| Source | `https://340bopais.hrsa.gov/Reports`, the "Contract Pharmacy Daily Report" button; the page serves the file through the application and prints no direct URL |
+| Retrieved | 2026-10-14 14:08 EDT; the workbook prints its own export time, 2026-10-14 00:02 |
+| Caliber | One row per covered entity × contract pharmacy contract, with contract begin and termination dates, pharmacy address and state, and the covered entity's state and participation flag. Terminated contracts are kept only back to 2016-10-03 (the earliest termination date in the file), so stocks before 2016 count survivors only. Begin dates fall almost entirely on quarter starts. The file has no termination reason column |
+| Checks | Workbook hash recorded at retrieval; row count of the derived CSV equals the non-blank data rows of the sheet |
+
+## B158: CMS Provider of Services files, hospital & non-hospital facilities, December 2011 and Q2 2026
+
+| | |
+|---|---|
+| Files | `data/raw/org1/POS_OTHER_DEC11.csv` (125,364,015 bytes, 138,586 rows, 500 columns), `data/raw/org1/Hospital_and_other.DATA.Q2_2026.csv` (30,195,693 bytes, 44,707 rows, 473 columns); `org1_manifest.json` carries URL, byte count, SHA-256, the server's Last-Modified and retrieval time for each |
+| Source | `https://data.cms.gov/sites/default/files/2021-01/POS_OTHER_DEC11.csv`, `https://data.cms.gov/sites/default/files/2026-07/7780b4e3-4c4b-4811-8884-65ca23b7a4e8/Hospital_and_other.DATA.Q2_2026.csv` (links taken from `https://data.cms.gov/data.json`) |
+| Retrieved | 2026-10-14 23:55 EDT |
+| Caliber | One row per certified provider, active and terminated. Hospitals are provider category `01`. `GNRL_CNTL_TYPE_CD` is the ownership type code; its value `09` reads "PHYSICIAN OWNERSHIP" in the 2023-04-02 record layout, but the same hospitals are coded differently across the two files (most of the 2026 `09` hospitals that already existed carry `04`, private for profit, in 2011), so the code is not a consistent series |
+| Checks | Byte total against the server's range header where given; the file ends in a newline; every row has the header's field count |
+
+## B156: Optimal Blue daily mortgage rate lock indices by loan type, Treasury 2- and 10-year yields, and FOMC press releases 2017 onward
+
+| | |
+|---|---|
+| Files | `data/raw/b156/`: `b156_fred_OBMMIC30YF.csv` (42,889 bytes, SHA-256 `f716d3ff61521394c08a5a761579c0c050fb9059558f34118efeef8b6f743bfc`), `b156_fred_OBMMIVA30YF.csv` (42,890, `4c23da4789f795bee2aea8beb9b5cb0839343e9e79bf6aae13fc9e990de9e8bf`), `b156_fred_OBMMIFHA30YF.csv` (42,891, `f910ddb6a35fabca2b0ac3a0d08fffe0be7d9d5ef7956f6a70075cf1c26bced2`), `b156_fred_OBMMIJUMBO30YF.csv` (42,893, `01aea41fee66283cd1a5db34a5da44da8ba4d3cbef4479dfe50a86b28c1a7da9`), `b156_fred_DGS2.csv` (209,248, `48529b32b0138fdc623aee0d3e414eff4d41ca35c5545f5652cf47e00aed3299`), `b156_fred_DGS10.csv` (269,075, `b972c9a2bbfbbe82596aeeef473dbee40490f2c6a773dbd228491df17306a04d`); `fomc/` 149 HTML files `monetaryYYYYMMDDa.htm`, 2009-01-28 to 2026-09-16 (12,378,414 bytes); `mnd/mtg-rates-mnd-full_20261016.html` (2,734,466 bytes, SHA-256 `9e75aa95a15f87b9279e7f8bb65c51dd6c0f220b9fb1c26dfcaa1c61aca20ef7`); `mnd/mtg-rates-thirty-year-va-full_20261017.html` (356,507 bytes, SHA-256 `76e0f6fbaa1ed854070b7f6bee0bc55237781b12cef8e663d2acd0bb92725aaa`) |
+| Source | `https://fred.stlouisfed.org/graph/fredgraph.csv?id=<series>` for the six series; `https://www.federalreserve.gov/newsevents/pressreleases/monetaryYYYYMMDDa.htm`, dates read off `https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm` and `fomchistorical2009.htm` to `fomchistorical2020.htm` (2009 and 2010 link the older `/newsevents/press/monetary/YYYYMMDDa.htm` form, which redirects to the same page); `https://www.mortgagenewsdaily.com/charts/embed/mtg-rates-mnd-full` for the Mortgage News Daily rate index |
+| Retrieved | 2026-10-16. The FRED files were saved by hand through a browser, because FRED does not answer non-browser requests from this machine; the row counts were read in the browser before saving and match the files. The press releases and the Mortgage News Daily page were fetched by `experiments/b156_fetch.py` |
+| Caliber | Optimal Blue indices: average 30-year fixed rate on locked loans that day, in percent, by loan type (conforming conventional, VA, FHA, jumbo), business days from 2017-01-03. Treasury yields: constant maturity, percent, business days. The rate lock index is an average over the day's locks, so its composition (credit score, loan-to-value, lender) moves day to day; that movement is the noise floor the station measures on non-event days. Mortgage News Daily index: built from lender rate sheets at one fixed scenario per product (the page states 75 LTV and 780 FICO for the conventional line), adjusted for points, so its day-to-day change carries no borrower composition; the chart JSON on the page carries the 30-year fixed from 1980, the 30-year FHA and jumbo from 2009-04-29, and intraday revisions (the last value of each New York calendar day is used). The VA line has its own chart page (`/charts/embed/mtg-rates-thirty-year-va-full`, 2009-04-29 onward), and on it the VA value equals the FHA value plus 0.125 on every day from 2009-04-29 to 2016-12-30 (1,864 of 1,864 days) and on 1,220 of 1,231 days from 2017 to 2021; from 2022 the two separate (101 of 1,191 days at that offset). So before 2022 the VA line carries no information beyond the FHA line |
+| Checks | `experiments/b156_fetch.py` checks each FRED file's header, first year and last line, and keeps a press release only if it carries the closing tag and the `#article` block; rerunning fetches only what is missing |
+
+## B157: the arrêté of 26 November 1918 on German money in Alsace and Lorraine
+
+| | |
+|---|---|
+| Files | `data/raw/b157/jo_1918-12-07_p10544_ocr.txt` (12,443 bytes, SHA-256 `2e2e434a91dbfdf7017657cd54b4a315dc1e27d1255b0390ba8f868d5619155c`) |
+| Source | Journal officiel de la République française, Lois et décrets, 7 December 1918 (A50, N333), page 10544, view 2 of 20; Gallica `https://gallica.bnf.fr/ark:/12148/bpt6k63709852/f2.texteBrut` (BnF, public domain) |
+| Retrieved | 2026-10-26, supplied by hand: the page's text mode was copied from a browser, because Gallica answers automated requests with a human check. The file is that copy, unedited, including the notice header |
+| Caliber | Gallica's OCR text, stated recognition rate 99%. OCR slips are left as they are (`le r août` for `1er août`, `3U novembre` for `30 novembre`); a reading that depends on one of them names it. The page carries the full arrêté of 26 November 1918 (twelve articles, signed Clemenceau as président du conseil, ministre de la guerre), the arrêté of 30 November 1918 on acts of the German authorities, and the start of a report on the decree of 27 September 1914 |
+| Checks | Page number 10544 read off the issue's pagination service (view 2); article numbers 1 to 12 all present, in order |
+
+### B157, second file: Le Temps of 18 December 1918 on the identity cards
+
+| | |
+|---|---|
+| Files | `data/raw/b157/le_temps_1918-12-18_alsace_ocr.txt` (3,933 bytes, SHA-256 `4a67727f37e90bc4a6e787c7c1471f4d13150208c7b03563b1c0184b3fbcba80`) |
+| Source | *Le Temps*, 18 December 1918, column "L'Alsace et la Lorraine libérées"; Gallica `https://gallica.bnf.fr/ark:/12148/bpt6k2434975.texteBrut` (BnF) |
+| Retrieved | 2026-10-26, read in a browser session on Gallica's text mode; the column was copied out unedited, with one header line naming the source |
+| Caliber | Gallica OCR text. A newspaper report of an arrêté by the generals commanding the French armies in Alsace and Lorraine: it summarises the arrêté and quotes the four card classes and the travel rules; the arrêté's own date is not given. The arrêté's text, which would sit in the Bulletin officiel d'Alsace et de Lorraine, is not on Gallica (title search, 2026-10-26) |
+| Checks | The excerpt runs from the column heading to the end of the postal paragraph; the four classes a to d and the three travel rules are all inside it |
+
+### B157, third file: Archives d'Alsace teaching sheet on the identity cards
+
+| | |
+|---|---|
+| Files | `data/raw/b157/ad67_fiche07_triage_cartes.pdf` (3,521,754 bytes, SHA-256 `b73cebea3b137413ccc9b6d1f8a862fb89f089ab3bafd9dd3a7856de2a2a1000`); `data/raw/b157/ad67_fiche07_triage_cartes_text.txt` (18,947 bytes, SHA-256 `c6fc0210482a0cd8b8aa770c34cfbb7a0ad71895038a8e7e8177ddb47c4235d7`) |
+| Source | Archives d'Alsace, site of Strasbourg (AD67), Service éducatif, "Les Alsaciens. Paix sur le Rhin ? 18-25", Fiche 07, "Le « triage » de la population 1/2 : l'attribution de cartes A-B-C et D", 13 pages: `https://archives.alsace.eu/media/0hslrwhx/fiche-07triagecartesabcdeleve.pdf` |
+| Retrieved | 2026-10-26 by a plain fetch of the PDF; the text file is the PDF's own text layer extracted with PyMuPDF, unedited, with one header line and page markers added |
+| Caliber | A teaching sheet written by the archive's education service for school pupils. It transcribes three archival documents with call numbers: the arrêté of 14 December 1918 on police in the liberated communes, articles 2 and 4 (AVES, 503 Fi 72; the transcription carries an editorial bracket "[l'un des]" in the definition of class B); Anna Cassel's letter of 14 May 1919 asking to exchange a D card for an A card, with the mayor's and the administrator's notes (AD67, 286 D 175); and the captions of three specimen cards A, B and D (286 D 175 and a private collection). Its paragraph "Taux de change" is the service's own summary and cites the execution file AD 67, 121 AL 1020 (instructions and general correspondence on the mark exchange, 1918-1919), which was not opened |
+| Checks | 13 pages read; pages 1, 4, 5 and 6 carry the transcriptions and the summary used here; pages 7 to 13 are exercises and comic-strip extracts and carry no item used here |
+
+## B145: Berkes and Nencka replication packages, Carnegie libraries and patents
+
+| | |
+|---|---|
+| Files | `data/raw/b145/data_pkg/~data_restat_upload.7z` (491,062,786 bytes, SHA-256 `b13d8ea657c5431bed43f8112a5b1bc5703b777fa1ed8fbc56a79cc39f49eb88`); `data/raw/b145/code_pkg/~2023.10_conditional_accept_upload.7z` (4,588,918 bytes, SHA-256 `3d2ba33497c7ab934d4031645ae5c393e2d8555690ba88b22a5b2b7b0eacf90d`); manifest `data/raw/b145/b145_manifest.json` |
+| Source | Harvard Dataverse `doi:10.7910/DVN/TYVVY2`, datafiles 9659456 and 9659455 (`https://dataverse.harvard.edu/api/access/datafile/<id>`), CC0, no login. Replication material for Berkes and Nencka, Review of Economics and Statistics, 2026; patent data from CUSP |
+| Retrieved | 2026-10-29 by `experiments/b145_fetch.py` (resumable, length and 7z signature checked before a file takes its final name) |
+| Extracted | with the system `bsdtar` (libarchive 3.8.4) into `data/raw/b145/code_x/` (whole code package) and `data/raw/b145/data_x/` (only `patent_data`, `Carnegie libraries`, `City populations`, `City_Covariates`, `City distances`, `Census/Output/1900 covariates.dta`, `Unions/Output`, `~Combined`); the data package unpacks to 4.29 GB, the rest is left packed. Nothing in either package was executed; the Stata and Python scripts were read as text |
+| Caliber | City-year panel, 1836 to 2014, by `state` and `city` as written in the patent data. `patent_count` is fractional (patents apportioned over inventors). `prob_foreignborn_ln` and `prob_female_fn` are sums of name-based probabilities, not counts of identified people; birthplace probabilities cover 94.1% and gender probabilities 95.2% of patents in the B145 sample. `updated_city_pop.dta` is the authors' city population series; `1900 covariates.dta` holds county aggregates of the 1900 census (`pop_county_1900`), keyed by state name and county code (read with `convert_categoricals=False`). The analysis panel (`~Combined/Output/...carnegie sample.dta`) and two city files built from the restricted full-count census (`1900 city level covariates_2023.dta`, `1900_count_non_unique.dta`) are not in the package |
+| Checks | Both files at the listed length; the 7z listing has no absolute or parent-directory paths; the rebuilt panel's means match the published summary table (patents per city-year 2.54 against 2.51) |
+
+## B159: Nova Scotia Regulatory and Appeals Board automobile insurance decisions and filing requirements, Definity and Travelers Canada
+
+| | |
+|---|---|
+| Files | `data/raw/b159/pdf/` (12 PDFs), `data/raw/b159/xlsx/` (2 workbooks), `data/raw/b159/txt/` (12 text extractions, PyMuPDF text layer, page markers added, otherwise unedited); `data/raw/b159/b159_manifest.json` lists every file with bytes, SHA-256 and source URL. Decision M12606 PDF 131,199 bytes, SHA-256 `4890af3acecf19d01476717e854f7d0fac5dc546fcde47adc9a26674c8b5c9f6` |
+| Source | `nserbt.ca/sites/default/files/` and `nsuarb.novascotia.ca/sites/default/files/`: decisions M12606 (2026 NSRAB 20), M12629 (2026 NSRAB 8), M12803 (2026 NSRAB 93), M12284 (2025 NSRAB 65), M12431 (2025 NSRAB 99, not used), M10813/M10861 (2023 NSUARB 11), M09990 (2021 NSUARB 28, not used), M12044 (2025 NSUARB 25); Section 155G Prior Approval filing requirements (revised 2025) and the Minor version; Appendix A summary-of-information workbook (2021); the CARR private passenger rating-profile workbook (2026, with rate-group tabs for the 2024, 2025 and 2026 CLEAR tables). New Brunswick Insurance Board, Definity private passenger decision of 2026-07-13. Definity Financial Corporation, Q2 2026 news release |
+| Retrieved | 2026-10-29, plain HTTPS GET of public files; no login, no form |
+| Files, matter database | `data/raw/b159/uarb15/` (16 files): from the Board's public documents database (`uarb.novascotia.ca/fmi/webd/UARB15`), matters M12606 (exhibit D-1, Amending Order 101357, Board letter 103078), M12284 (exhibits T-3, T-6, T-8, T-10), M12803 (exhibits D-1, D-3, Amended Board Order 103778), M12161 (exhibit D-2, Board Decision 98121, Amended Order 99051), M12466 (Board decision letter 99287, cover letter 99256); text extractions of the ten PDFs in `data/raw/b159/txt/`. Retrieved 2026-10-29 by matter-number search, public items only, through each matter page's download button; every file with bytes and SHA-256 in the manifest |
+| Caliber, profiles | CARR harmonized rating profiles, premiums by coverage and Nova Scotia territory, current and proposed, printed in whole dollars (2022 version: Dominion T-3, T-8, Definity M12161 D-2) or to the cent (2025 version: Definity M12803 D-3); the printed total is the sum of the printed components. Definity prints third-party liability under bodily injury with property damage zero. M12284 T-10, titled 'Proposed Rating Profiles' and listed public, is the filer's confidential base-rate and differential exhibit; it is held as `M12284_T-10.xlsx.expired`, marked `withheld_not_read` in the manifest, opened by no code path and used for no reading |
+| Caliber | Decisions are the Board's reasons; numbers in them are the Board's or the applicant's as quoted. The filing requirements state which parts of an application are routinely kept confidential (Part 2: CONF pages of Appendix A, actuarial support, final rates) and which are not (Part 1: rule changes, rating profiles). The profile workbook's rate-group tabs give the Board's expected CLEAR rate groups for the fifteen profile vehicles under four table versions; the 2026 tab's footer names the 2025 tables while its values differ from the 2025 tab for all nine distinct vehicles |
+| Checks | The station script recomputes every SHA-256 against the manifest and finds every quote it uses in the whitespace-collapsed text with page furniture removed. Workbook column headers are checked against the expected names before reading |
+
+## B160: Reserve Bank of India press releases and circulars on the withdrawn ₹500 and ₹1,000 notes, November 2016 to January 2017
+
+| | |
+|---|---|
+| Files | `data/raw/b160/b160_text_snapshot.json` (44,627 bytes, SHA-256 `c7b4ad60686bf23f45e8a67529e3aab118510257505f6915ea4c1e39322dd003`): 18 entries (11 press releases, 7 circulars), each with URL, fetch time (UTC), SHA-256 of the raw response and of the body text, and the body text; `data/raw/b160/b160_scan_index.json` (306,447 bytes, SHA-256 `ee73a009c830023cf6a40a8a2c8b9b6e50e4e0c2798e61fc671f487d8eb08129`): the first words of every press release from prid 38520 to 39259 and every circular from Id 10670 to 10779, with two flags read from the full body (`split_phrase`, `sbn_related`); the pages themselves are not kept |
+| Source | `https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=<n>` for prid 38520, 38560, 38568, 38643, 38662, 38695, 38727, 38839, 38886, 38980, 39163; `https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=<n>` for Id 10684, 10698, 10705, 10706, 10713, 10719, 10740 |
+| Retrieved | 2026-10-29, by `experiments/b160_fetch.py` (plain HTTP fetch, body text cut between the page's size marker and its archive month list) |
+| Caliber | ₹ crore, cumulative from 2016-11-10. Two releases (2016-11-21, 2016-11-28) print exchange and deposits apart; they are the two rows of the banks' daily report (circular DCM (Plg) 1264, Annex 6). "Exchange" is cash paid for withdrawn notes at bank and Reserve Bank counters; "deposits" is withdrawn notes credited to accounts. Later releases print notes issued to the public, or notes returned to the Reserve Bank and currency chests, and do not split |
+| Checks | Each split release's parts add to its total within one crore; the release phrases are matched to the report rows; the scan flags every page that carries both phrases (two do) |
+
+## B99: NADAC annual reference files, NADAC Comparison, FDA NSDE
+
+| | |
+|---|---|
+| Files | `data/raw/b99/nadac/nadac-national-average-drug-acquisition-cost-10-28-2026.csv` (112,571,995 bytes, SHA-256 `252ec94cae41bfbfa30ad5523aeb352cbf84e35e0720bf631e1ef95d1edca2e9`); `data/raw/b99/nadac/nadac-national-average-drug-acquisition-cost-12-31-2025.csv` (139,475,442 bytes, SHA-256 `317c0387d2005b18ade760029bf61b3ff5a3aab74ef96e322d319432c410ed80`); `data/raw/b99/comparison/nadac-comparison-10-28-2026.csv` (370,916,996 bytes, SHA-256 `3edd0213e9092a83a0a7f7ea62e80e0a0f956b8aa15b693e83f812384b6a7027`); `data/raw/b99/nsde/Comprehensive_NDC_SPL_Data_Elements_File.zip` (21,849,404 bytes), unpacked to `data/raw/b99/nsde/extracted_e993e20d330b/`; manifest `data/raw/b99/b99_manifest.json` with every SHA-256 |
+| Source | `https://download.medicaid.gov/data/` (the downloadURL of the data.medicaid.gov datasets "NADAC (National Average Drug Acquisition Cost) 2026", "... 2025" and "NADAC Comparison"); `https://download.open.fda.gov/Comprehensive_NDC_SPL_Data_Elements_File.zip`, the file FDA's NSDE page links. US government works |
+| Retrieved | 2026-10-29 by `scripts/fetch_b99.py` (resumable, length checked against the server's announcement, header and per-row field count checked, zip CRC checked, members unpacked by base name into a new empty directory) |
+| Caliber | NADAC: national average acquisition cost per pricing unit (`EA`, `ML`, `GM`) at retail community pharmacies, one row per NDC and effective date, prices printed to five decimals. The 2025 file ends without a final newline as published. Comparison: Old and New NADAC Per Unit and Percent Change per NDC per comparison week from 2013; Percent Change is printed as a per cent in most weeks, as a fraction in sixteen weeks of 2017 to 2018 and as a hundred times the per cent in two weeks (2020-10-21, 2021-04-14), the rescaled weeks rounded to two places before rescaling. NSDE: one row per item code; Billing Unit is the one field NSDE does not generate from SPL, an NCPDP Billing Unit, empty on some rows |
+| Checks | Every column read is matched to the name the source prints; all matched. Row counts 1,298,476, 1,608,416, 3,492,313 and 671,489 |
+
+## B99: DailyMed SPL sample (source NDCs)
+
+| | |
+|---|---|
+| Files | `data/raw/b99/spl_sample/xml/<setid>.xml` (563 documents) and `data/raw/b99/spl_sample/query/<ndc11>.json` (the web service answers), 107,865,251 bytes in all; manifest `data/raw/b99/spl_sample/manifest.json` with bytes, SHA-256 and seconds for every file; counts in `spl_sample/pairs.json` and `spl_sample/source_ndc_sample.csv` |
+| Source | `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?ndc=<item code>` and `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/<setid>.xml`, National Library of Medicine. US government work |
+| Retrieved | 2026-10-29 by `scripts/fetch_b99_spl.py` (each file written to `.part` and kept only when as long as announced, parsed, ended in `</document>` with the HL7 v3 root; DOCTYPE or ENTITY declarations refused unparsed; byte cap) |
+| Caliber | A sample, not the full SPL set. Frame: the 24,128 NADAC products (labeler plus product) of the 2025 and 2026 annual files; 300 drawn at random with seed 99, then up to 100 drawn at random from each of the five labelers the first draw showed carrying source NDCs. Each product looked up by one package NDC in NSDE's `Item Code` form; every set id returned was fetched. The SPL is the current version on the retrieval date. Source NDC read from `asEquivalentEntity/definingMaterialKind/code` (code system 2.16.840.1.113883.6.69) under the product's own code |
+| Checks | 563 documents parsed, none refused; all 617 source rows carry equivalence code `C64637` |
+
+## B99: CMS Part D quarterly public use file documentation (read, no data fetched)
+
+| | |
+|---|---|
+| Files | `data/raw/b99/docs/partd/`: `Methodology-SPUF-2026.pdf`, `SPUFRecordLayout-2026.pdf`, `SPUFRecordLayout-2024.pdf`, `Methodology-PUF-2027.pdf`, `PUFRecordLayout-2026.pdf`, `FAQCY07FormRefNDCFile_030106.pdf`, and `guidelines/2026-pricing-data-guidelines-calendar.zip` unpacked to `guidelines/extracted/` (CY 2026 Drug Pricing Submission Guidelines and Appendices A to G); text of each PDF page by page in `<name>.pages.txt`; manifest `data/raw/b99/docs/partd/manifest.json` with URL, bytes and SHA-256 |
+| Source | `https://data.cms.gov/sites/default/files/...` (methodology and record layouts, as listed in the data.cms.gov catalog `data.json` for the dataset "Quarterly Prescription Drug Plan Formulary, Pharmacy Network, and Pricing Information"); `https://www.cms.gov/files/zip/2026-pricing-data-guidelines-calendar.zip`; `https://cms.gov/Medicare/Prescription-Drug-Coverage/PrescriptionDrugCovContra/Downloads/FAQCY07FormRefNDCFile_030106.pdf`. US government works |
+| Retrieved | 2026-10-29, curl, HTTP 200 on each; one hhs.gov copy of an older layout answered 403 and that response is kept under an `.expired` name. The zip was opened with Python `zipfile`, member paths checked to stay inside the target directory |
+| Caliber | Documentation only. The pricing file's NDC is "11-digit proxy NDC associated with the drug product" (record layout 2026, p. 15): one related NDC per RXCUI, one unit cost per plan per drug product. The quarterly data zip itself (`SPUF_2026_20261007.zip`, 2,485,007,192 bytes announced) was not fetched |
+| Checks | Every PDF parsed; page text extracted with `python -I`. The CMS Formulary Reference File zip, fetched to check which pair end is the related NDC, turned out to sit behind an end user agreement that asks for an "Accept" click; nothing was accepted and its data file was not read. It is kept under `data/raw/b99/partd_ref.expired_20261029_EUPA_not_accepted` |
+
+## B99: CMS Formulary Reference File, the SPUF formulary file, RxNav (fetched 2026-10-29)
+
+| | |
+|---|---|
+| Files | `data/raw/b99/partd_ref/`: `cy-2026-september-formulary-reference-file.zip` (647,919 bytes, SHA-256 `790a696124edb30e15f72bf4171b49d002cdd16fdcc2ee73eb107b4e54d29314`) unpacked to `extracted/` (`CY26 FRF_20260924.csv`, `.xlsx`, and the End User Point Agreement PDF); `data/raw/b99/partd_spuf_formulary/`: the member `basic drugs formulary file  PPUF_2026Q3.zip` of `SPUF_2026_20261007.zip`, fetched alone by HTTP Range (8,343,876 bytes at offset 0), CRC-32 checked, unpacked to `extracted/basic drugs formulary file  PPUF_2026Q3.txt` (59,052,703 bytes, SHA-256 `adc94ae0cf9a38894af5709237feca0e9a3db919adab4346152d4b09f4f7baa1`); `data/raw/b99/rxnav/ndcstatus.jsonl`, one RxNav getNDCStatus reply per NDC-11 of the 605 repackaging pairs. Each directory has a `manifest.json` with URL, bytes and SHA-256 |
+| Source | `https://www.cms.gov/files/zip/cy-2026-september-formulary-reference-file.zip-0` (the link on the Formulary Guidance page); `https://data.cms.gov/sites/default/files/2026-10/062e9434-ed9d-4e83-abbd-4d64eb375949/SPUF_2026_20261007.zip` (period 2026-07-01 to 2026-09-30); `https://rxnav.nlm.nih.gov/REST/ndcstatus.json` (National Library of Medicine, no key) |
+| Licence | The Formulary Reference File package carries an End User Point Agreement (six terms; the page link serves the zip directly, with no button in front of it). Accepted 2026-10-29 |
+| Retrieved | 2026-10-29 by `scripts/fetch_b99_partd_ref.py`, `scripts/fetch_b99_spuf_formulary.py` and `scripts/fetch_b99_rxnav_ndc.py`; each resumes an interrupted fetch and refuses a short file or a failed CRC. Zip members were checked to stay inside the target directory |
+| Caliber | The CY 2026 FRF CSV has six columns, `RxCUI, TTY, RxNorm Description, Related BN, Related SCDC, Related DF`, and **no NDC column**; the CY 2026 Drug Pricing Submission Guidelines (p. 15) show a `Related NDC` column on the FRF, which the published file does not carry. The NDC CMS uses for each RXCUI is read instead from the SPUF formulary file, whose `NDC` is the "11-digit proxy National Drug Code (NDC) associated with the drug product" (SPUF record layout 2026, p. 7) |

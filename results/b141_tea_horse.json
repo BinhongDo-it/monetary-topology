@@ -1,0 +1,127 @@
+{
+ "config": {
+  "bi_readings": {
+   "gross": [
+    [
+     1368,
+     7.0
+    ],
+    [
+     1515,
+     6.25
+    ],
+    [
+     1571,
+     7.0
+    ],
+    [
+     1644,
+     10.0
+    ]
+   ],
+   "tea": [
+    [
+     1368,
+     7.0
+    ],
+    [
+     1515,
+     3.0303
+    ],
+    [
+     1571,
+     7.0
+    ],
+    [
+     1644,
+     10.0
+    ]
+   ],
+   "wangqi": [
+    [
+     1368,
+     10.0
+    ],
+    [
+     1515,
+     3.0303
+    ],
+    [
+     1571,
+     7.0
+    ],
+    [
+     1644,
+     10.0
+    ]
+   ]
+  },
+  "gold_tally_chains": [
+   "永樂四年 (續通考卷22)",
+   "永樂十四年 (萬曆會典卷37)",
+   "正統十四年 (正德會典卷122)"
+  ],
+  "intake_compared": "horses taken by the three offices; a campaign counted over three years; sums due and quotas listed, not compared",
+  "pairing": "a feature not stated in a record matches nothing",
+  "quote_interval": "half the last printed place of the unit the quote is printed in",
+  "segments": [
+   "1393-1449",
+   "1449-1502",
+   "1503-1535",
+   "1536-1644"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "checks units True, grades True, square True, rival field True, dose encoder True, direction True, intake True, posted True; seeded faults caught: bi_as_jin True, bi_one_weight True, kanzhong_as_middle True, pair_across_grade True, pair_across_place True, state_from_next_day True, floor_zero True, count_by_record True, ignore_contrary True, pair_unknown_as_same True, floor_half_jin True, one_bi_reading True, foal_simplified_only True, quota_as_intake True, posted_unchecked True",
+   "kind": "instrument",
+   "name": "B141-1  units, grades, pairing and the dose encoder on synthetic data",
+   "passed": true
+  },
+  {
+   "detail": "Taizu shilu 196, 1389: (120, 70, 50), at Yazhou/Diaomen for Changhexi merchants, third grade 'foal', and 'merchants who do not wish may refuse'; the Qin-He price recalled in 1409 is 80/60/40",
+   "kind": "known_answer",
+   "name": "B141-2  the oft-cited Hongwu price 120/70/50 against the Veritable Records",
+   "passed": true
+  },
+  {
+   "detail": "no pair matches on place, period, grade and tea, so there is no square to read. One bound: Li Dongyang (an essay of c. 1471-72) puts the private price between 80 and 200 jin; one ungraded market estimate: 1466 Ganzhou, a good horse for 100 jin of tea and 15 shi of barley. The tool, when a pair comes: a feature a record does not state matches nothing; a quote is good to half the last place of the unit it is printed in; the square is read under each of the three bi weights and left unread where they disagree",
+   "grid": "unread",
+   "kind": "rival",
+   "name": "B141-3  official and private price of one horse differ",
+   "passed": null,
+   "rival_entailment": "the official price equals the private price at the same place, time, grade and tea: the square between the channels is zero",
+   "rival_premise": "a horse has one price in tea, the same whoever buys it",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "24 dated statements read in the original (Veritable Records, Yang Yiqing's memorials, Huang Ming jingshi wenbian, Jiubian kao), 22 years, 7 reigns (Hongwu, Xuande, Zhengtong, Chenghua, Hongzhi, Jiajing, Wanli); against the framework's direction 0; on the rival's premise probability 0.0078 by reign (by year it would be 2.4e-07). The statements: 1397 open: horses dear, tea cheap (《明太祖實錄》卷250，中研院校勘本頁3619); 1397 open: tea cheap, horses dear (《明太祖實錄》卷251，頁3635); 1397 open: private tea goes cheap to the buyers, few horses come in (《明太祖實錄》卷251，頁3630); 1435 open: fewer horses got (《明英宗實錄》卷4，頁83); 1436 open: office tea loses value (《明英宗實錄》卷18，頁352-353); 1441 open: horses dear, tea cheap (《明英宗實錄》卷79，頁1572); 1442 open: sellers no longer bring horses for office tea (《明英宗實錄》卷88，頁1762); 1445 open: tea price lost, horse numbers short (《明英宗實錄》卷133，頁2640); 1448 open: fine tea sold privately, coarse tea to the office, sellers refuse it (《明英宗實錄》卷163，頁3158); 1471 open: the office price must be raised to 200 and 100 jin to starve the private market (《皇明經世文編》卷54 李東陽；楊時喬《馬政紀》卷12引); 1473 cut: horses crowd in (《明憲宗實錄》卷121，頁2334-2335); 1502 open: horses got are not a tenth of early Chenghua's, the ban on private tea not holding (《明孝宗實錄》卷194，頁3569); 1503 cut: tea dear at Xining (《關中奏議》卷3《為將官濫給驛傳興販私茶違法等事》); 1504 cut: tea price jumps, sellers gather from far and near (楊一清《關中奏議》卷3《為修復茶馬舊制以撫馭番眾安靖地方); 1523 open: sellers get tea without bringing horses (《明世宗實錄》卷24，頁700-701); 1530 open: sellers supplied by traders, not by the office (《明世宗實錄》卷110，頁2601-2602); 1533 open: brick tea goes straight to the sellers, the office market stalls (《明世宗實錄》卷147，頁3406); 1534 open: merchant tea swells, horses do not come (《明世宗實錄》卷164，頁3630-3631); 1536 open: the gain on private dealing is more than threefold (《皇明經世文編》卷106 梁材《議茶馬事宜疏》載劉良卿題); 1541 open: sellers collect the gain on tea and bring no tally horses (魏煥《皇明九邊考》); 1551 open: horses do not come even with the gold tally (《明世宗實錄》卷369，頁6605-6606); 1590 open: traders carry tea deep into the sellers' country for a thick gain (《皇明經世文編》卷405 鄭洛《敬陳備禦海虜事宜以弭後患); 1595 open: sellers enjoy cheap private tea and will not bring horses (《明神宗實錄》卷282，頁5207); 1597 open: sellers enjoy cheap private tea and will not bring horses (《明神宗實錄》卷308，頁5759). Read and not coded: 1433: an officer cut the price paid to sellers and traded privately; no sign stated; Mingshan cang on 1435-36: a later compilation; Mingshan cang on 1478: a later compilation; Mingshan cang on 1546, 'the ban strict, tea price soaring': a later compilation; Ming shi 80, 'the best horses all go to the traders': a later compilation; Wanli Shaanxi tongzhi through Tani 1966: read at second hand. The sign only: no statement gives the size of the gap, which B141-3 needs",
+   "grid": "B",
+   "kind": "rival",
+   "name": "B141-3b  the sign of the gap between the channels, from dated statements",
+   "passed": true,
+   "rival_entailment": "the seller is indifferent between the office and the private trader, so reports of which way sellers and tea prices moved when the private channel was open or cut carry no common sign: each reign's reports go either way with probability one half",
+   "rival_premise": "a horse has one price in tea, the same whoever buys it",
+   "rival_shape": "point"
+  },
+  {
+   "detail": "horses taken by the three offices, a year (a campaign every three years counted over three): under the tallies 4506, 4333 (campaigns of 1398 and 1435); 1497-1502 840.5 (5,043 in six years); 1503-1506 2488, 6343, 4298, 5948 (19077 in four years, 4769.25 a year, 5.67 times the six years before). Listed and not compared, sums due and parts: 1393-1449 due 14051 a campaign (gold-tally levy due every three years (7,705 + 3,296 + 3,050), arrears collected the next year); 1432 taken 6500 a campaign (河州 alone, of 7,700 due); 1447 taken 2946 a campaign (five 衛 of the 西寧 side); 1556 due 4800 a year (quota 洮州 河州); 1571 taken 6370 a year (four offices); 1601 due 9600 a year (quota, six offices); to 1618 due 9724 a year (yearly quota before the Liao war, recalled by 王大年 in 1626); to 1644 due 11088 a year (old quota of five offices at the end of Chongzhen, 'in arrears every year' (姜圖南's memorial, after 1645)). The fall as a censor stated it, 1502: in early Chenghua 'ten thousand a year', of late 'not one in ten' (variants: 'not two in ten'), laid to the ban on private tea not holding and to merchant tea. Realized price, jin per horse: 1380 28.7 (河州); 1392 29.0 (河州); 1398 37.0 (三衛 (gold tallies)); 1410 36.1 (河州); 1435 84.4 (西寧 河州 洮州); 1447 42.6 (five 衛); 1508 86.9 (三司 under 翟唐). Diaomen: 1387 962 (tea 163,600 jin for camels, horses, mules, foals '170餘'); 1389 1800 (old price per fit horse, before the posting); 1409 1186 ('the tea ban slightly relaxed': tea 83,050 jin, horses 70)",
+   "kind": "own_reading",
+   "name": "B141-4  official intake falls where enforcement slackens and returns where it tightens",
+   "passed": true
+  },
+  {
+   "detail": "1383: (40, 30, 20) 永寧 (as 河州); 洪武中 (recalled 1409): (80, 60, 40) 秦河; 1389: (120, 70, 50) 雅州/碉門, to 長河西 merchants, 'who will not may refuse'; 1410: (60, 40, None) 河州; 1435: None 河州: +30 jin per horse, on request; c. 1471-72, proposal: (200, None, 100) 陝西 (李東陽, a cabinet-examination essay: 'if they covet the high price, private trade cannot run'); 1490: (100, 80, None) 西寧 河州 洮州; 順治初: (120, 90, 70) 陝甘 five offices, 12/9/7 bi of 10 jin. Each row against its block-zero record (opened, with a source, its figures and its year in it, dated rows in order): no problem. Three-office counts of horses taken, before and after each dated revision: 1383: before none, after 1398 13518 a campaign; 1389: before none, after 1398 13518 a campaign; 1410: before 1398 13518 a campaign, after 1435 13000 a campaign; 1435: before 1398 13518 a campaign, that year 13000 a campaign, after 1497-1502 840 a year; c. 1471-72, proposal: before 1435 13000 a campaign, after 1497-1502 840 a year; 1490: before 1435 13000 a campaign, after 1497-1502 840 a year; 順治初: before 1508 9000 a year, after none. No three-office count stands between 1435 and 1497, so whether the raising of 1490 came close upon a fall is not read from counts; the statements are Li Dongyang's essay (private trade flourishing since the tallies lapsed, c. 1471-72) and the censor's of 1502. The count after the raising of 1490 is the lowest on file; it rose again when Yang Yiqing tightened enforcement from 1503. Li Dongyang's stated reason for 200/100: a high posted price starves the private market. The raising of 1435 was granted on a request, in a year of high intake",
+   "kind": "own_reading",
+   "name": "B141-5  the issuer's revisions of the posted price",
+   "passed": true
+  },
+  {
+   "detail": "108 records from block zero, two rounds; private prices found in no Ming period",
+   "kind": "bookkeeping",
+   "name": "B141-6  every horse-count and price record carries its source",
+   "passed": true
+  }
+ ],
+ "stage": "B141"
+}

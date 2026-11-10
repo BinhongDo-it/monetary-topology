@@ -553,6 +553,28 @@ def fed_rows(path=FED_CSV):
     return out
 
 
+def fed_tickets(path=FED_CSV):
+    """(year, network, exempt average ticket, covered average ticket), printed beside the known
+    answer: the two classes of issuer have different average tickets, which is why the Board's
+    averages cannot carry a square. Same column layout as fed_rows, read two columns further."""
+    text = path.read_bytes().decode("utf-8-sig", errors="replace")
+    rows = [r for r in csv.reader(io.StringIO(text)) if any(c.strip() for c in r)]
+    years = rows[1]
+    out = []
+    for r in rows[4:]:
+        net = r[0].strip()
+        if not net or net.lower().startswith(("note", "source", "1", "2", "3")):
+            continue
+        for k in range(1, len(r), 14):
+            if k + 9 >= len(r):
+                break
+            year = years[k].strip()
+            ex, cov = money(r[k + 2]), money(r[k + 7])
+            if year.isdigit() and ex is not None and cov is not None:
+                out.append([int(year), net, "%.2f" % float(ex), "%.2f" % float(cov)])
+    return out
+
+
 # ---------------------------------------------------------------- criteria
 
 def _crit(name, kind, verdict, detail, extra=None):
@@ -591,7 +613,8 @@ def build(tables, fed):
             "examples_unread": [x for x in sq if x["state"] == "unread"][:4],
             "cpd": cpd_residual(t),
         }
-    report["_fed"] = {"rows": len(fed)}
+    report["_fed"] = {"rows": len(fed),
+                      "average_tickets_exempt_covered": fed_tickets() if fed else []}
     return report
 
 

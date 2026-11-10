@@ -8,6 +8,10 @@ Checks, each with a planted error that must make it fail (--selftest):
                       opening supply plus private and public building; the pool is never
                       negative; the state's top-up never exceeds what was levied; a
                       self-maintaining pool passes nothing down
+  A47-8b  instrument  the sale path, read on one settle each: with only freshly built public
+                      units in the landlord's stock, turnover 1 and every renter able to pay,
+                      no public unit is offered or sold; a listed landlord that sells units
+                      sends none of the proceeds out of the graph, all of them to its owners
 
 Then one seed of each block-4 arm on the block-3 carrier. public_build_rate 0.01 is a
 placeholder; block 5 sweeps it.
@@ -78,9 +82,13 @@ def public_check(m, opening) -> tuple[bool, dict]:
     pool_ok = min(m.pool_history, default=0.0) >= -1e-12 and m.pool >= -1e-12
     topup_ok = m.topup_total <= m.levied + 1e-9
     pass_ok = not (m.rules.pool_pass_rate == 0.0 and m.passed_down > 0.0)
-    ok = count_ok and pool_ok and topup_ok and pass_ok
+    # public units never leave and stay new: the landlord holds all of them and its
+    # new-flag count covers them
+    kept_ok = bool(np.all(m.landlord_units >= m.public_built - 1e-9)
+                   and np.all(m.landlord_new >= m.public_built - 1e-9))
+    ok = count_ok and pool_ok and topup_ok and pass_ok and kept_ok
     return bool(ok), {"count_ok": count_ok, "pool_ok": pool_ok, "topup_ok": topup_ok,
-                      "pass_ok": pass_ok, "public_built": float(m.public_built.sum()),
+                      "pass_ok": pass_ok, "kept_ok": kept_ok, "public_built": float(m.public_built.sum()),
                       "landlord_units_end": float(m.landlord_units.sum()),
                       "pool_end": round(float(m.pool), 4), "topup_total": round(m.topup_total, 4),
                       "levied_total": round(m.levied, 2),
@@ -88,6 +96,54 @@ def public_check(m, opening) -> tuple[bool, dict]:
                       "maintenance_unfunded": round(m.maintenance_unfunded, 4),
                       "public_build_paid": round(m.public_build_paid, 4),
                       "public_tenants_end": m.public_tenants_history[-1] if m.public_tenants_history else 0}
+
+
+def _probe_model(rules, cls=None):
+    from a47_block1 import a3_config
+    from monetary_topology.housing_rules import A47Config, A47Model
+    asset = dict(a47_block3.CARRIER_ASSET, max_units=1)
+    return (cls or A47Model)(A47Config(a3=a3_config(0, 1, **asset), rules=rules))
+
+
+def _turnover_one_and_fund(m) -> None:
+    m.a3 = replace(m.a3, asset=replace(m.a3.asset, turnover=1.0))
+    m.holdings[m.units.sum(axis=1) == 0] = 100.0
+
+
+def sale_probe(cls=None) -> tuple[bool, dict]:
+    """A47-8b. ``cls`` lets the selftest plant the old sale rules."""
+    from monetary_topology.housing_rules import LANDLORD
+    pub = replace(CARRIER, residence_bound=True, landlord="public", new_supply_rate=0.0,
+                  **{**SELF, "public_build_rate": 0.01})
+    m = _probe_model(pub, cls)
+    m.landlord_units[:] = 0.0
+    m.landlord_new[:] = 0.0
+    m.pool = 100.0
+    m._public_round()
+    built = float(m.public_built.sum())
+    _turnover_one_and_fund(m)
+    offered = sum(1 for s, _ in m._offers() if s == LANDLORD)
+    m._settle([(LANDLORD, q) for q in range(m.landlord_units.size) for _ in range(int(m.landlord_units[q]))])
+    public_ok = built > 0 and offered == 0 and m.landlord_sales[-1] == 0         and float(m.landlord_units.sum()) == built
+    lst = replace(CARRIER, residence_bound=True, landlord="listed", dividend_exit=0.271,
+                  new_supply_rate=0.0)
+    m2 = _probe_model(lst, cls)
+    m2.landlord_units[:] = 0.0
+    m2.landlord_new[:] = 0.0
+    m2.landlord_units[0] = 3.0
+    _turnover_one_and_fund(m2)
+    exited0 = m2.exited
+    m2._settle([(LANDLORD, 0)] * 3)
+    sold = m2.landlord_sales[-1]
+    exit_on_sales = m2.exited - exited0
+    rent_exit = m2.rules.dividend_exit * 100.0
+    before = m2.exited
+    m2._credit_landlord(100.0)
+    sale_ok = sold > 0 and exit_on_sales == 0.0 and abs(m2.exited - before - rent_exit) < 1e-12
+    return bool(public_ok and sale_ok), {
+        "public_built": built, "public_offered": offered, "public_sold": int(m.landlord_sales[-1]),
+        "listed_units_sold": int(sold), "exit_on_sale_proceeds": exit_on_sales,
+        "exit_on_rent_of_100": round(m2.exited - before, 12)}
 
 
 def regression() -> tuple[bool, list[str]]:
@@ -123,6 +179,38 @@ def selftest() -> None:
     m.pool_history[3] = 0.0
     m.passed_down = 1.0
     assert not public_check(m, op)[0], "A47-8 must catch a self-maintaining pool that passed down"
+    m.passed_down = 0.0
+    assert public_check(m, op)[0]
+    q = int(np.argmax(m.public_built))
+    m.landlord_new[q] = m.public_built[q] - 1.0
+    assert not public_check(m, op)[0], "A47-8 must catch a public unit that lost its new flag"
+    from monetary_topology.housing_rules import A47Model, LANDLORD
+    assert sale_probe()[0], "A47-8b must pass on the model"
+
+    class SellsPublic(A47Model):          # the sale rule before the 2026-09-30 fix
+        def _offers(self):
+            out = self._household_offers()
+            spec = self.a3.asset
+            for q in range(spec.tiers):
+                k = int(self.landlord_units[q])
+                if k and spec.turnover > 0.0:
+                    out.extend([(LANDLORD, q)] * int((self._asset_rng.random(k) < spec.turnover).sum()))
+            return out
+
+        def _settle(self, offers):
+            keep = self.public_units.copy()
+            self.public_units[:] = 0.0
+            try:
+                super()._settle(offers)
+            finally:
+                self.public_units[:] = np.minimum(keep, self.landlord_units)
+
+    class DividendOnSales(A47Model):      # the dividend rule before the fix
+        def _credit_landlord(self, amount, sale=False):
+            super()._credit_landlord(amount)
+
+    assert not sale_probe(SellsPublic)[0], "A47-8b must catch a public unit offered and sold"
+    assert not sale_probe(DividendOnSales)[0], "A47-8b must catch a dividend on sale proceeds"
     try:
         HousingRules(public_build_rate=0.01, landlord="listed")
     except ValueError:
@@ -130,7 +218,8 @@ def selftest() -> None:
     else:
         raise AssertionError("public housing under a listed landlord must be refused")
     print("selftest ok: A47-8 catches a created unit, an over-topup, a negative pool and a "
-          "pass-down; public housing under a listed landlord is refused")
+          "pass-down; A47-8b catches a public unit sold and a dividend on sale proceeds; A47-8 catches a public unit that lost its new flag; "
+          "public housing under a listed landlord is refused")
 
 
 def main() -> int:
@@ -151,6 +240,8 @@ def main() -> int:
                       "unhoused_mean": round(float(unh.mean()), 2), **reading(m),
                       **a47_block3.square(m)}
     print(f"{'PASS' if ok8 else 'FAIL'} A47-8 [instrument]: public housing bookkeeping, {len(ARMS)} arms")
+    ok8b, d8b = sale_probe()
+    print(f"{'PASS' if ok8b else 'FAIL'} A47-8b [instrument]: public units unsold, no dividend on sales; {d8b}")
     keys = ["seconds", "price_ratio_end_to_start_low_tier", "owners_end", "public_built",
             "public_tenants_end", "unhoused_mean", "rent_total", "pool_end", "topup_total",
             "levied_total", "maintenance_paid", "maintenance_unfunded", "public_build_paid",
@@ -165,6 +256,8 @@ def main() -> int:
             {"name": "A47-1b", "kind": "instrument", "passed": okr, "detail": "blocks 1-3 reproduce"},
             {"name": "A47-5", "kind": "instrument", "passed": ok5, "detail": "levy carrier is A6Model"},
             {"name": "A47-8", "kind": "instrument", "passed": ok8, "detail": "public housing bookkeeping"},
+            {"name": "A47-8b", "kind": "instrument", "passed": ok8b,
+             "detail": "public units are never offered or sold; sale proceeds carry no dividend", "probe": d8b},
         ],
         "preview_seed0": arms,
         "config": {"self_maintaining": SELF,
@@ -173,7 +266,7 @@ def main() -> int:
     OUT.write_text(json.dumps(record, indent=1, sort_keys=True, ensure_ascii=False, default=str) + "\n",
                    encoding="utf-8", newline="\n")
     print(f"\nwrote {OUT.relative_to(ROOT)}")
-    return 0 if (ok1 and okr and ok5 and ok8) else 1
+    return 0 if (ok1 and okr and ok5 and ok8 and ok8b) else 1
 
 
 if __name__ == "__main__":

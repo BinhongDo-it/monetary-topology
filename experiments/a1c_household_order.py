@@ -6,8 +6,11 @@ measured quantity and one criterion.
 
 Usage::
 
-    python experiments/a1c_household_order.py
     python experiments/a1c_household_order.py --households 20000
+    python experiments/a1c_household_order.py
+
+The first line is the setting of the record on disk; the bare command runs
+A1b's default of 100,000 households.
 
 Writes ``results/a1c_household_order.json``.
 
@@ -22,11 +25,15 @@ hold whatever the cost ordering is.
 
 Volume One section 18's claim is about **one household over time**. A household holding a
 card, a car loan and a tenancy, squeezed, gives them up in that order. That is
-what this file measures, on the households that hold both rungs of each pair.
+what this file measures, pair by pair, on the households that missed both rungs
+of the pair.
 
-**A1-2 is not rescued by any of it.** Its failure stands as recorded. Where the
-two disagree, both stand, and the disagreement is the finding that a
-cross-section of first defaults is not a sequence.
+**A1-2 is not rescued by any of it.** It was recorded as failing on 2026-08-16,
+and its current state in A1b's record is VOID: the estimator and the object do not line
+up, since a pooled share over every defaulter is decided by how many households
+stand on a rung as well as by how hard the rung is. Where the two disagree,
+both stand, and the disagreement is the finding that a cross-section of first
+defaults is not a sequence.
 """
 
 from __future__ import annotations
@@ -66,6 +73,14 @@ from monetary_topology.scf_joint import (  # noqa: E402
 )
 
 RESULTS = ROOT / "results"
+
+#: A1-2's population in its own record, ``results/a1b_default_cascade.json``:
+#: the households at that record's top level and the defaulters A1-2's detail
+#: counts. Read off the record on 2026-10-17, after A1b moved to the matched
+#: payment carrier. It is quoted beside this run's own count because the two
+#: runs differ in size, and it moves when A1b is rerun;
+#: ``tests/test_a1c_record.py`` checks it against the record.
+A1B_A1_2_POPULATION = (100_000, 38_436)
 
 #: The manuscript's own adjacency, plus its one transitive consequence.
 #:
@@ -177,8 +192,27 @@ def compare(households: list, pairs=None) -> dict[str, dict[str, object]]:
     return out
 
 
+def no_pair_counts(no_pair: int, total: int, defaulting: int) -> dict[str, object]:
+    """Households in scope for no pair, over the two populations it is quoted on.
+
+    A household in scope for a pair has missed both sides of it, so it has
+    defaulted. The households with at least one pair are therefore all among
+    the defaulters, and the defaulters with no pair are the rest of them. A1-2
+    quantified over the households that default, which is the second line.
+    """
+    with_pair = total - no_pair
+    among = defaulting - with_pair
+    return {
+        "all_households": {"n": total, "no_pair": no_pair,
+                           "share": no_pair / total if total else None},
+        "defaulting_households": {"n": defaulting, "no_pair": among,
+                                  "share": (among / defaulting
+                                            if defaulting else None)},
+    }
+
+
 def a1c_1(rows: dict[str, dict[str, object]], no_pair: int,
-          total: int) -> Criterion:
+          total: int, defaulting: int | None = None) -> Criterion:
     """In order strictly exceeds inverted, for each of the three pairs.
 
     The pairs are the renter's cascade. See ``PAIRS`` for why, and
@@ -203,9 +237,22 @@ def a1c_1(rows: dict[str, dict[str, object]], no_pair: int,
     detail = "; ".join(parts)
     detail += (
         f". {no_pair:,} of {total:,} households are in scope for no pair at "
-        f"all, which is the population A1-2 quantified over and the size of "
-        f"the mismatch between the claim and its cross-sectional form"
+        f"all"
     )
+    if defaulting:
+        among = no_pair_counts(no_pair, total, defaulting)["defaulting_households"]
+        a1b_households, a1b_defaulting = A1B_A1_2_POPULATION
+        detail += (
+            f". At this run's setting, {total:,} households on A0's path at "
+            f"seed {PATH_SEED} over {SCORED_PERIODS} months, the population "
+            f"A1-2 quantifies over is every household that defaults, "
+            f"{defaulting:,} of them, and {among['no_pair']:,} of those, "
+            f"{among['share']:.2%}, are in scope for no pair, which is the "
+            f"size of the mismatch between the claim and its cross-sectional "
+            f"form. A1-2's own record in A1b is a run of "
+            f"{a1b_households:,} households, {a1b_defaulting:,} of them "
+            f"defaulting"
+        )
     if not holds:
         detail += ". A pair that inverts is the manuscript's sequence being "
         detail += "wrong for that pair, not the code being wrong"
@@ -285,7 +332,8 @@ def main() -> int:
               f"payment consumes a twelfth of the foreclosure clock against a "
               f"third of the repossession clock")
 
-    criteria = [a1c_1(rows, no_pair, len(households)), a1c_2(rows)]
+    criteria = [a1c_1(rows, no_pair, len(households),
+                      result.defaulting_households), a1c_2(rows)]
     print("\ncriteria")
     for c in criteria:
         print(c.line())
@@ -307,6 +355,8 @@ def main() -> int:
                 "periods": SCORED_PERIODS,
                 "defaulting_households": result.defaulting_households,
                 "in_scope_for_no_pair": no_pair,
+                "no_pair_by_population": no_pair_counts(
+                    no_pair, len(households), result.defaulting_households),
                 "pairs": rows,
                 "mortgage_before_auto": {
                     **mortgage,

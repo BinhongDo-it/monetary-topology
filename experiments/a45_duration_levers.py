@@ -474,7 +474,8 @@ def chain_row(parts: Parts, label: str, builder: FieldBuilder | None = None,
     identity = float(np.abs(chain @ sums - sums).max())
     return {"seed": parts.seed, "wall": parts.wall, "map": label,
             "classes": len(names) - 1, "conserve_err": conserve, "identity_err": identity,
-            "mass_err": abs(float(sums[mass].sum()) - 1.0)}
+            "mass_err": abs(float(sums[mass].sum()) - 1.0),
+            "stationary_err": float(np.abs(block @ pi - pi).max())}
 
 
 def type_weights(parts: Parts, scaled: dict) -> np.ndarray:
@@ -523,7 +524,7 @@ def sweep_maps(parts: Parts) -> list[tuple[str, dict]]:
 
 def _label(r: dict) -> str:
     head = f"{r['variant']}, " if r.get("variant") else ""
-    tail = f" {r['lever']}" if "lever" in r else (f" {r['map']}" if "map" in r else "")
+    tail = (f" {r['map']}" if "map" in r else "") + (f" {r['lever']}" if "lever" in r else "")
     return f"{head}seed {r['seed']} wall {r['wall']}{tail}"
 
 
@@ -567,10 +568,11 @@ def criterion_derivative(rows: list[dict]) -> dict:
     bad = [r for r in rows if not r["diff"] <= TOL_DERIVATIVE]
     carriers = len({(r["seed"], r["wall"]) for r in rows})
     levers = len({r["lever"] for r in rows})
+    m3 = sum(1 for r in rows if r.get("map"))
     return dict(
         name=name, kind="instrument", passed=not bad,
         detail=(f"Holds on all {len(rows)} pairs of {carriers} carriers and "
-                f"{levers} levers: the stationary vector's derivative from the "
+                f"{levers} levers, {m3} of them on M3's maps: the stationary vector's derivative from the "
                 f"fundamental matrix with its projector, Z (dB/dtheta) pi with "
                 f"dB a central difference at step {LEVER_STEP:g}, differs from "
                 f"the central difference of the re-solved stationary vector by "
@@ -603,27 +605,31 @@ def criterion_footprint(rows: list[dict]) -> dict:
 
 
 def criterion_chain(rows: list[dict]) -> dict:
-    name = ("A45-2  the class chain keeps the stationary split: weighted by "
-            "stationary mass, it conserves claims and returns the class sums, "
-            "which add to one")
+    name = ("A45-2  the class chain keeps the stationary split: the stationary "
+            "vector solves the map, and weighted by stationary mass the chain "
+            "conserves claims and returns the class sums, which add to one")
     if not rows:
         return dict(name=name, kind="instrument", passed=False,
                     detail="Void: no maps, nothing was evaluated")
     bad = [r for r in rows
            if not (r["conserve_err"] <= TOL_CHAIN and r["identity_err"] <= TOL_CHAIN
-                   and r["mass_err"] <= TOL_CHAIN)]
-    sweeps = sum(1 for r in rows if r["map"] != "carrier")
+                   and r["mass_err"] <= TOL_CHAIN and r["stationary_err"] <= TOL_CHAIN)]
+    m3 = sum(1 for r in rows if r["map"].startswith("M3 "))
+    sweeps = sum(1 for r in rows if r["map"] != "carrier") - m3
     return dict(
         name=name, kind="instrument", passed=not bad,
-        detail=(f"Holds on all {len(rows)} maps, {len(rows) - sweeps} carriers "
-                f"and {sweeps} sweep points: every column of the class chain "
-                f"conserves claims to within {TOL_CHAIN:.0e}, and the chain "
-                f"carries the class sums of the stationary vector to themselves "
-                f"to within {TOL_CHAIN:.0e}, and the sums over the classes that "
-                f"hold claims add to one to within {TOL_CHAIN:.0e}." if not bad else
+        detail=(f"Holds on all {len(rows)} maps, {len(rows) - sweeps - m3} carriers, "
+                f"{sweeps} sweep points and {m3} of M3's maps: the stationary "
+                f"vector solves the map to within {TOL_CHAIN:.0e}, every column of "
+                f"the class chain conserves claims to within {TOL_CHAIN:.0e}, and "
+                f"the chain carries the class sums of the stationary vector to "
+                f"themselves to within {TOL_CHAIN:.0e}, and the sums over the "
+                f"classes that hold claims add to one to within {TOL_CHAIN:.0e}."
+                if not bad else
                 f"Fails on {len(bad)} of {len(rows)} maps: "
                 + "; ".join(f"{_label(r)} conserve {r['conserve_err']:.2e}, "
-                            f"identity {r['identity_err']:.2e}, mass {r['mass_err']:.2e}"
+                            f"identity {r['identity_err']:.2e}, mass {r['mass_err']:.2e}, "
+                            f"stationary {r['stationary_err']:.2e}"
                             for r in bad[:4])))
 
 
@@ -700,7 +706,21 @@ def print_check(d_rows: list[dict], c_rows: list[dict]) -> None:
         print(f"\n  residues on this machine: derivative {max(r['diff'] for r in d_rows):.3e}")
     if c_rows:
         print(f"  chain conservation {max(r['conserve_err'] for r in c_rows):.3e}, "
-              f"identity {max(r['identity_err'] for r in c_rows):.3e}")
+              f"identity {max(r['identity_err'] for r in c_rows):.3e}, "
+              f"stationary {max(r['stationary_err'] for r in c_rows):.3e}")
+
+
+def print_ablation_check(d_rows: list[dict], c_rows: list[dict]) -> None:
+    print("\nM3's maps under A45-1 and A45-2: count, largest derivative difference | "
+          "largest conservation error, largest stationary residue")
+    for label in ("no_bill", "no_pass_on", "neither"):
+        ds = [r for r in d_rows if r["map"] == f"M3 {label}"]
+        cs = [r for r in c_rows if r["map"] == f"M3 {label}"]
+        if not (ds and cs):
+            continue
+        print(f"  {label:12s} {len(ds):3d}  {max(r['diff'] for r in ds):.2e} | "
+              f"{max(r['conserve_err'] for r in cs):.2e}  "
+              f"{max(r['stationary_err'] for r in cs):.2e}")
 
 
 # --------------------------------------------------------------------------
@@ -1050,8 +1070,34 @@ def _others_gap(row: dict, own: str, value: float) -> float:
     return max(abs(row[f"elasticity_{c}"] - value) for c in HOME_CLASSES if c != own)
 
 
+def ablation_maps(parts: Parts, builder: FieldBuilder | None = None
+                  ) -> list[tuple[str, Parts]]:
+    """M3's three maps for the intermediate block: the bill slope at zero, the
+    pass-on removed, and both. The pass-on is removed through the lever's own
+    entry, the short shares at strength zero, so a payer that has left the
+    market keeps its share and stays out of the bill (see FieldBuilder)."""
+    builder = FieldBuilder() if builder is None else builder
+    live_zero = builder._short_shares(parts, 0.0)
+    return [("no_bill", dataclasses.replace(parts, bill_slope=0.0)),
+            ("no_pass_on", dataclasses.replace(parts, capped=live_zero)),
+            ("neither", dataclasses.replace(parts, bill_slope=0.0, capped=live_zero))]
+
+
+def ablation_checks(defaults: list[Parts], builder: FieldBuilder | None = None
+                    ) -> tuple[list[dict], list[dict]]:
+    """A45-1 and A45-2 on the maps M3 reads: the intermediate block's lever on
+    each, and each map's chain. M3 reads its gaps from these same rows."""
+    mid = [lever_named("propensity, intermediate block")]
+    d_rows, c_rows = [], []
+    for p in defaults:
+        for label, q in ablation_maps(p, builder):
+            d_rows += [r | {"map": f"M3 {label}"} for r in derivative_rows(q, levers=mid)]
+            c_rows.append(chain_row(q, f"M3 {label}"))
+    return d_rows, c_rows
+
+
 def holding_time_rows(defaults: list[Parts], carriers: list[dict],
-                      d_rows: list[dict]) -> list[dict]:
+                      d_rows: list[dict], m3_rows: list[dict]) -> list[dict]:
     """M3: each propensity lever's elasticities against the holding-time form.
 
     The earners: no route enters them, so after wages each keeps ``1 - p`` of
@@ -1070,6 +1116,7 @@ def holding_time_rows(defaults: list[Parts], carriers: list[dict],
     removed, and with both."""
     reading = {(r["seed"], r["wall"]): r for r in carriers}
     deriv = {(r["seed"], r["wall"], r["lever"]): r for r in d_rows}
+    ablated = {(r["seed"], r["wall"], r["map"]): r for r in m3_rows}
     rows = []
     for p in defaults:
         earners = (p.labels == "earners") & p.alive
@@ -1098,12 +1145,8 @@ def holding_time_rows(defaults: list[Parts], carriers: list[dict],
             row[f"gap_{key}_own"] = (lever[f"elasticity_{own}"] + (1.0 - share)
                                      if lever else nan)
             row[f"gap_{key}_others"] = _others_gap(lever, own, share) if lever else nan
-        mid_lever = [lever_named("propensity, intermediate block")]
-        without = (("no_bill", {"bill_slope": 0.0}),
-                   ("no_pass_on", {"capped": np.zeros_like(p.capped)}),
-                   ("neither", {"bill_slope": 0.0, "capped": np.zeros_like(p.capped)}))
-        for label, changes in without:
-            r = derivative_rows(dataclasses.replace(p, **changes), levers=mid_lever)[0]
+        for label in ("no_bill", "no_pass_on", "neither"):
+            r = ablated[(p.seed, p.wall, f"M3 {label}")]
             row[f"gap_intermediate_own_{label}"] = r["elasticity_mid"] + (1.0 - r["pi_mid"])
             row[f"gap_intermediate_others_{label}"] = _others_gap(r, "mid", r["pi_mid"])
         rows.append(row)
@@ -1134,13 +1177,15 @@ def run_all(seeds) -> dict:
     by_seed = {p.seed: p for p in defaults if p.wall == 0.0}
     by_variant = {(p.variant, p.seed): p for p in variants}
     predictions = variant_rows(by_seed, by_variant, d_rows, load_a44_record())
-    closed = holding_time_rows(defaults, carriers, d_rows)
+    m3_d, m3_c = ablation_checks(defaults)
+    closed = holding_time_rows(defaults, carriers, d_rows, m3_d)
     tick(f"M2b on {len(predictions)} variant carriers, M3 on {len(closed)} carriers")
     return {"seeds": list(seeds), "rebuild": rebuild, "derivative": d_rows,
             "chain_checks": c_rows, "footprint": f_rows, "carriers": carriers,
             "chains": chains, "sweeps": sweeps, "outrate_pairs": outrate_pairs(sweeps),
             "check_carriers": check_carriers, "check_horizons": check_horizons,
-            "variants": predictions, "holding_time": closed}
+            "variants": predictions, "holding_time": closed,
+            "holding_time_derivative": m3_d, "holding_time_chains": m3_c}
 
 # --------------------------------------------------------------------------
 # printing the readings
@@ -1488,6 +1533,14 @@ def _edge_ratio(changes: dict):
     return None
 
 
+def chain_record(r: dict) -> dict:
+    keys = ("conserve_err", "identity_err", "mass_err", "stationary_err")
+    out = record_row(r, drop=keys)
+    for key in keys:
+        out |= record_within(r, key, TOL_CHAIN)
+    return out
+
+
 def build_record(out: dict, crit: list[dict]) -> dict:
     rec = {
         "stage": "A45",
@@ -1500,11 +1553,12 @@ def build_record(out: dict, crit: list[dict]) -> dict:
                        | record_within(r, "diff", TOL_DERIVATIVE)
                        for r in out["derivative"]],
         "footprint": [record_row(r) for r in out["footprint"]],
-        "chain_checks": [record_row(r, drop=("conserve_err", "identity_err", "mass_err"))
-                         | record_within(r, "conserve_err", TOL_CHAIN)
-                         | record_within(r, "identity_err", TOL_CHAIN)
-                         | record_within(r, "mass_err", TOL_CHAIN)
-                         for r in out["chain_checks"]],
+        "chain_checks": [chain_record(r) for r in out["chain_checks"]],
+        "holding_time_checks": {
+            "derivative": [record_row(r, drop=("diff",))
+                           | record_within(r, "diff", TOL_DERIVATIVE)
+                           for r in out["holding_time_derivative"]],
+            "chains": [chain_record(r) for r in out["holding_time_chains"]]},
         "carriers": [record_row(r) for r in out["carriers"]],
         "chains": [{"seed": ch["seed"], "wall": _clip(ch["wall"]), "classes": ch["classes"],
                     "matrix": [[_clip(x) for x in row] for row in ch["matrix"]]}
@@ -1557,7 +1611,10 @@ class _SpendingRowSkipsWages(FieldBuilder):
 class _PassOnMovesDepartedPayers(FieldBuilder):
     """Seeded fault: the pass-on strength also scales the short shares of payers
     that have left the market. This is how the lever was first written, and
-    A45-1 caught it on the three carriers where a departed payer is short."""
+    A45-1 caught it on the three carriers where a departed payer is short. M3's
+    pass-on map first carried the same fault through its own copy of the
+    shares, outside the maps A45-1 ran on; it now takes them from the builder,
+    and its maps are checked (selftest_ablation)."""
 
     planted = False
 
@@ -1833,6 +1890,38 @@ def selftest_chain() -> bool:
     return all(ok)
 
 
+def selftest_ablation() -> bool:
+    """M3's maps on the carriers where a payer that has left is short. Seeded
+    fault: the pass-on removed from every payer, departed ones too, which is how
+    M3 first removed it; A45-1 and A45-2 must catch it on the pass-on map, and
+    only there, since with the bill slope at zero a departed payer's share
+    reaches nothing in the block."""
+    ok = []
+    departed = [p for p in default_parts((2, 4))
+                if p.wall > 0.0 and bool(((~p.alive[p.payers]) & (p.capped > 0.0)).any())]
+    d, c = ablation_checks(departed)
+    got = [criterion_derivative(d), criterion_chain(c)]
+    ok.append(bool(departed) and all(g["passed"] for g in got))
+    print(f"M3 clean on {len(departed)} carriers with a short payer that has left: "
+          f"A45-1 {got[0]['passed']}, A45-2 {got[1]['passed']}, largest derivative "
+          f"difference {max(r['diff'] for r in d):.2e}, largest stationary residue "
+          f"{max(r['stationary_err'] for r in c):.2e}")
+    _PassOnMovesDepartedPayers.planted = False
+    d, c = ablation_checks(departed, builder=_PassOnMovesDepartedPayers())
+    got = [criterion_derivative(d), criterion_chain(c)]
+    caught_d = {r["map"] for r in d if not r["diff"] <= TOL_DERIVATIVE}
+    caught_c = {r["map"] for r in c
+                if not (r["conserve_err"] <= TOL_CHAIN and r["stationary_err"] <= TOL_CHAIN)}
+    planted = _PassOnMovesDepartedPayers.planted and bool(departed)
+    ok.append(planted and not any(g["passed"] for g in got)
+              and caught_d == caught_c == {"M3 no_pass_on"})
+    print(f"  pass-on removed from departed payers planted {planted}   A45-1 passed="
+          f"{got[0]['passed']}, A45-2 passed={got[1]['passed']} (want False, False), "
+          f"maps caught {sorted(caught_d)} | {sorted(caught_c)}, largest conservation "
+          f"error {max(r['conserve_err'] for r in c):.2e}")
+    return all(ok)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--gate", action="store_true", help="A45-0")
@@ -1856,8 +1945,10 @@ def main() -> int:
         f = selftest_footprint()
         print("\nchain selftest:")
         c = selftest_chain()
-        print("\nselftest:", "PASS" if (a and b and f and c) else "FAIL")
-        return 0 if (a and b and f and c) else 1
+        print("\nM3 selftest:")
+        m = selftest_ablation()
+        print("\nselftest:", "PASS" if (a and b and f and c and m) else "FAIL")
+        return 0 if (a and b and f and c and m) else 1
     seeds = SEEDS[:1] if args.smoke else SEEDS
     if args.gate:
         rows, crit = run_gate(seeds=seeds)
@@ -1867,18 +1958,23 @@ def main() -> int:
         return 0 if crit["passed"] else 1
     if args.check:
         d_rows, c_rows, f_rows = run_check(seeds)
-        crit = [criterion_derivative(d_rows), criterion_chain(c_rows),
+        m3_d, m3_c = ablation_checks(default_parts(seeds))
+        crit = [criterion_derivative(d_rows + m3_d), criterion_chain(c_rows + m3_c),
                 criterion_footprint(f_rows)]
         _print_criteria(crit)
         print_check(d_rows, c_rows)
+        print_ablation_check(m3_d, m3_c)
         print("\n(--check: nothing written)")
         return 0 if all(x["passed"] for x in crit) else 1
     if args.run:
         out = run_all(seeds)
-        crit = [criterion_rebuild(out["rebuild"]), criterion_derivative(out["derivative"]),
-                criterion_chain(out["chain_checks"]), criterion_footprint(out["footprint"])]
+        crit = [criterion_rebuild(out["rebuild"]),
+                criterion_derivative(out["derivative"] + out["holding_time_derivative"]),
+                criterion_chain(out["chain_checks"] + out["holding_time_chains"]),
+                criterion_footprint(out["footprint"])]
         _print_criteria(crit)
         print_check(out["derivative"], out["chain_checks"])
+        print_ablation_check(out["holding_time_derivative"], out["holding_time_chains"])
         print_readouts(out)
         if args.smoke or args.no_write:
             print("\n(smoke or --no-write: nothing written)")

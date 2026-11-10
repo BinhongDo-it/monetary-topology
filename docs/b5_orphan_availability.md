@@ -103,11 +103,13 @@ agent is and not by what is being bought. The ruling that the orphan currency
 measures **squares and not slices** is confirmed by the
 shape rather than asserted: every one of these is many agents on one edge.
 
-**And the `H⁰` claim has its own instances here**, kept separate per B4 §5.2:
+**And there are directed edges here**, kept separate per B4 §5.2:
 the export surrender requirement is a directed edge, since an exporter must
-convert dollars into pesos at the official rate and cannot convert back; the
-former rule that buying MEP barred the official window for ninety days is a
-directed edge in the agent factor.
+convert dollars into pesos at the official rate and cannot convert back at that
+rate; the former rule that buying MEP barred the official window for ninety days
+is a directed edge in the agent factor. Whether either leaves a position bounded
+on one side depends on whether a directed path leads back through the MEP, CCL
+or informal legs, and this check did not trace it.
 
 ### 3.1 What is free, and what each source is
 

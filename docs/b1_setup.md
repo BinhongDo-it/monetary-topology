@@ -86,7 +86,7 @@ stops being an environment and becomes the claim. There is no interior.**
 
 **Turn the scope of "environment" down** until it means a property of positions,
 which is what fuel, the cycle and a regulatory regime are. **Then it predicts a
-zero loop and it is falsified**, on seven carriers, the largest at 4.18e+06 times
+zero loop and it is falsified**, on the carriers of [`CARRIERS.md`](../CARRIERS.md), the largest at 4.18e+06 times
 the measured floor.
 
 **Turn it up** until it means whatever shapes what all the parties can do. **Then

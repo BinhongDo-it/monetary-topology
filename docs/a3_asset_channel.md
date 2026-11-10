@@ -56,6 +56,8 @@ agreement. P-C is the only arm whose outcome is not fixed by construction, and
 the only one that can falsify the identification of the ratchet with
 non-integrability.
 
+**Restated 2026-10-27: what P-B's residual is.** It is a composition term, not a disturbance the running economy puts on the identity. Trade by trade, `adjusted return = −log γ` holds at machine precision inside the run (A3-3). The ledger side is a mean over each group's round trips; the graph side collapses each group to one class and reads the holonomy off the tier squares, so the two differ by how unevenly the two groups' round trips fall across the tiers. That tier-mix term is `−0.01150`, the whole of `+0.36536 − (+0.37686)`, with a per-seed residual below `1e-10` (`results/a3b_construction.json`, `a3_4_by_construction`). The graph side is not computed from terms alone: the collapse weights each node by the round trips it completed, read off the ledger, so counting a different set of trades moves both sides (`round_zero_resales` in `results/a3_asset_channel.json`: the graph side goes from `+0.37686` to `+0.37717`).
+
 ---
 
 ## 2. The claim, and why the price cancels
@@ -111,6 +113,12 @@ The split follows the topology exactly:
 `gate_spread = None` ties them and recovers the single-parameter behaviour
 bitwise, the same discipline as `elasticity = 0`.
 
+**Restated 2026-10-10: where each is read.** `γ_gate` decides the opening
+allocation and is read nowhere after it. Resale eligibility and the bidder pool
+that prices a tier are both decided on `γ_pay`. With the two tied there is one
+set of terms and the question does not arise; it arises in §5.2's four cells,
+and §5.2 answers it with a run.
+
 ---
 
 ## 3. The mechanism
@@ -119,17 +127,21 @@ One asset in `Q` tiers, and nothing else is added.
 
 | element | rule | source-text anchor |
 |---|---|---|
-| pricing | `P_q(t) = P_q(0) · (pool_q(t)/pool_q(0))^η`, the pool being the claims of those admitted at opening prices | Vol. I §10, the stretch effect |
+| pricing | `P_q(t) = P_q(0) · (pool_q(t)/pool_q(0))^η`, the pool being the claims of those whose claims clear their **payment** terms at opening prices, softened by `s`, read again every round | Vol. I §10, the stretch effect |
 | terms | `γ_{i,q} = γ̄_q (1 + κ (1 − c_i))`, `c` centrality. Derived from the graph, never hand-filled | Vol. I §3, scale economies of money |
-| gate | `claims_i ≥ γ^gate_{i,q} · P_q(0)`, softened by `s` | Vol. I §4, the collateral ladder |
+| gate | `claims_i ≥ γ^gate_{i,q} · P_q(0)`, softened by `s`, at the opening allocation | Vol. I §4, the collateral ladder |
 | return | revaluation, plus rent from production-layer non-holders to holders pro rata | Vol. I §10 |
-| turnover | `τ` of held units return to market each round; arm F adds forced sale below `φ` | Vol. I §5 |
+| turnover | each positive `(node, tier)` holding offers one unit with probability `τ` each round, so a holding of `k` units turns over at `τ/k` per unit; arm F adds forced sale below `φ` | Vol. I §5 |
 | opening | three registered constructions; see `a3b_initial_construction.md` | Vol. I §15 |
 
 **The gate is an opening-allocation concept and does not reach resale.** Resale
 eligibility is affordability at the paid terms, because a resale has a
 counterparty who must receive the market price. This is stated because it was
 discovered the hard way; see §6.3.
+
+**Nor does it reach the price** (restated 2026-10-10). The bidder pool is
+admitted on the payment terms. Outside §5.2's four cells the two sets of terms
+are tied and there is nothing to distinguish.
 
 **Rent is the channel by which holders take from non-holders**, and it is what
 reattaches compounding to access. An earlier version excluded it on grounds of
@@ -148,6 +160,13 @@ claims grow fastest. Measured over three hundred rounds: `120×`, `146×`, `191�
 nominal, and `1.151`, `1.399`, `1.832` against the total claim stock — flat
 after round 50, so the tier spread is a **one-off repricing and not a
 per-period wedge**. Recorded in `a3b_initial_construction.md` §8.
+
+**Restated 2026-10-26.** Under the current code those figures are `104×`,
+`821×` and `1266×` nominal and `1.000`, `7.864`, `12.129` against the claim
+stock, flat to the fourth digit from round 200 (seed 0, A3 defaults). The pool
+is admitted at opening prices and by the end holds all claims, so each tier's
+spread is the inverse of the share of claims that cleared it at the opening
+(100%, 12.7%, 8.2%). It is still a one-off repricing.
 
 ---
 
@@ -170,17 +189,17 @@ is a defect in this table, not a freedom.
 | `κ_gate` = `gate_spread` | dispersion in the **gate**; `None` ties it to `κ` | `None` | `{0, 1}` in A3c |
 | `hold_mean_cost` | hold the mean acquisition cost while dispersion moves | `False`; **`True` whenever `κ` varies** | — |
 | `mean_cost_reference` | the `κ` whose mean cost is held | `1.0` | no |
-| `τ` | exogenous turnover per round | `0.04` | `{0.02, 0.04, 0.08}` |
+| `τ` | exogenous turnover per round, **per holding**: one draw per positive `(node, tier)` holding, one unit offered when drawn. Equal to the per-unit rate where every holding is a single unit, as at the opening; `a5_reachability.md` §8.10 | `0.04` | `{0.02, 0.04, 0.08}` |
 | `φ` | forced-sale trigger, arm F | `0.10` | `{0.05, 0.10, 0.20}` |
 | `arm` | `exogenous` or `forced` | `exogenous` | both |
-| `rent_rate` | rent per round as a share of the low tier's price | `0.05` | `{0, 0.002, 0.005, 0.01, 0.02, 0.05}` at `η = 0` |
+| `rent_rate` | rent per round as a share of the low tier's price | `0.05` | `{0, 0.002, 0.005, 0.01, 0.02, 0.05}` at `η = 0`; `0` at `η = 1` in §16.1's profile arms |
 | `rent_base` | which set the rent bill falls on. `layer` keys the payer set on the layer index fixed at construction, which is what every stored result was produced under; `holding` keys it on the measured units, so both sides of the instrument read the same magnitude. **Added 2026-08-13**, registering the status quo rather than changing it, because `MEASUREMENT.md` §8 lists the payer side as a membership error and requires the choice be registered as a choice | `layer` | `holding` in §16.1's profile arms |
 | `s` = `stretch` | how far short a node may be and still enter | `3.0` | `{1, 2, 3, 5}` |
 | `stretch_cost` | `uncounted` or `counted` | `uncounted` | both |
 | `max_units` | cap on units per node; `0` is no cap | `0` | `1` runs and produces zero trades |
-| `open_tiers` | tiers forced open regardless of claims | `()` | A3-5 only |
+| `open_tiers` | tiers forced open regardless of claims | `()` | A3-5; `(0,)` in §16.1's profile arms |
 | `bins` | how many bins the trader population is cut into before the outer two are compared. **Corrected, §6.5b**: registered as `4` and as feeding the product-graph `δ`, and it reached no code at all. `3` is the value at which the wired parameter reproduces every stored result bit for bit | `3` | `{2, 8}` |
-| `T` | holding period in the weight; must equal `1/τ` under arm E | `25` | tied to `τ` |
+| `T` | holding period in the weight; must equal `1/τ` under arm E, which is the expected wait before a holding offers a unit, and a unit's own holding period only where the holding is single and its offers find a buyer | `25` | tied to `τ` |
 | `construction` | opening allocation rule | `auction` | A3b axis |
 | `ownership_rate` | share owning at `t = 0`; ignored under `auction` | `0.70` / `0.653` | A3b |
 | `opening_discount` | discount in the occupancy transfer | `0.44` | A3b |
@@ -208,7 +227,7 @@ Five seeds, three hundred rounds. Registered thresholds in the third column.
 | A3-3 | *assertion, not a criterion* | — | drift `1.44e-15`; see below |
 | A3-4 | the realised terms differential is the loop sum | rel. err. `< 20%` | **pass**, `3.05%` (`+0.36536` against `+0.37686`) |
 | A3-5 | the gate binds at the high tier | `low > ½ · shut > high` | **void**; see §6.3 |
-| A3-6 | a stock survives a generation | `≥ 50%` at 40 rounds | **fail** on the median node (`0.0%`), **pass** on the richest (`62.2%`); see §6.4 |
+| A3-6 | a stock survives a generation | `≥ 50%` at 40 rounds | **fail** on the median node (`0.0%`), **pass** on the richest (`62.2%`); see §6.4. (Restated 2026-10-27: the criterion now scores the median over the holders at the shock round, **fail**, `13.8%` as a size and `13.5%` with its sign; 2 of 79 clear on size, 1 of them above its own path.) |
 | A3-7 | non-overlapping windows agree in sign | all three windows | **pass**, `100/100/100` |
 | **A3-8** | **the holonomy is load-bearing** | see §5.2 | **unstable**; see §5.2 |
 
@@ -242,6 +261,8 @@ wage bill, issuance, supply limits, turnover and rent perturbs a relation that
 is exact on paper. The two numbers are still produced by code that shares
 nothing, and `main` asserts the absence of imports in both directions.
 
+**Restated 2026-10-27: what the 3.05% is.** It is a composition term, not a disturbance the running economy puts on the identity. Trade by trade, `adjusted return = −log γ` holds at machine precision inside the run (A3-3). The ledger side is a mean over each group's round trips; the graph side collapses each group to one class and reads the holonomy off the tier squares, so the two differ by how unevenly the two groups' round trips fall across the tiers. That tier-mix term is `−0.01150`, the whole of `+0.36536 − (+0.37686)`, with a per-seed residual below `1e-10` (`results/a3b_construction.json`, `a3_4_by_construction`). The graph side is not computed from terms alone: the collapse weights each node by the round trips it completed, read off the ledger, so counting a different set of trades moves both sides (`round_zero_resales` in `results/a3_asset_channel.json`: the graph side goes from `+0.37686` to `+0.37717`). What `main` asserts is that neither module imports the other; it does not assert that the graph side reads nothing from the ledger.
+
 ### 5.2 A3-8, the intervention
 
 `experiments/a3c_load_bearing.py`. `γ` split, mean acquisition cost held fixed,
@@ -257,8 +278,14 @@ complete a round trip in **every** cell.
 
 Zero calibration exactly `0.000`, from two independent executions rather than an
 alias. Mean cost identical across cells to `1.86e-16`. Paired population 41.6
-nodes with 11 dropped to form the intersection. No deviations. Deducting the
-stretch write-off moves nothing at the third digit.
+nodes (43, 42, 41, 38, 44 by seed): all twenty financial-layer nodes in every
+seed plus 21.6 production-layer nodes, with 11 dropped to form the intersection.
+The central and peripheral thirds below are centrality thirds of this mixed set,
+so the central third is 55 of 67 node-seeds from the financial layer and the
+peripheral third 27 of 67. No deviations. Deducting the
+stretch write-off moves the three gaps by `+0.012`, `+0.071` and `-0.063`, to
+`+23.279`, `+21.742` and `+1.346`, and leaves the order, the signs and the state
+where they are.
 
 **Registered reading, first case: the divergence collapses when the loop sum is
 removed.** `+23.267 → +1.409`. Removing the gate instead leaves `+21.671`, and
@@ -282,9 +309,49 @@ third more so. The small positive gap is a difference of two negatives.
 
 **The magnitude does not transfer.** `κ_pay = 1` and `κ_gate = 1` are the same
 number and not the same strength of treatment: the payment premium is a
-per-round-trip multiplier compounding over some twenty traversals, the gate acts
+per-round-trip multiplier compounding over about ten round trips per node in
+the paired population (about twenty-two in the central third, about three in the
+peripheral third), the gate acts
 once. A compounding channel beating a one-off filter over three hundred rounds
 is partly arithmetic. **Direction transfers, ratio does not.**
+
+
+**Restated 2026-10-10: what `κ_pay` moves, and that the reading does not depend
+on it.** §2 gives the gate terms the admission threshold. In the model the gate
+terms decide the opening allocation and are read nowhere after it: resale
+eligibility is affordability at the paid terms, as §3 says, and the bidder pool
+that sets each tier's price is admitted on the payment terms too, at opening
+prices, against current claims, every round. So in the table above `κ_pay = 0`
+removes the loop sum **and** levels who is in the pricing pool, and `κ_gate = 0`
+levels the opening admission and nothing else. Counted on the registered runs,
+the pool as run and the pool the gate terms would give disagree on
+`3,446` (node, tier, round) admissions in
+`1,132` rounds over the ten single-channel runs, and on
+`12` node-tiers at the opening; from the same
+balances the gate-terms pool would have set a price at most
+`5.26%` away.
+
+That is a compound intervention, and the way to find out whether the compound
+carries the result is to run the other rule. `a3c_load_bearing.py` now does:
+the same four cells on a model that differs in one method, the pool admitted on
+the gate terms, so that removing the loop sum leaves the pricing pool
+dispersed.
+
+| cell | gap as registered | gap with the pool on the gate terms | across seeds, pool on the gate terms |
+|---|---|---|---|
+| both | +23.2667 | +23.2667 | same sign, [+10.96, +38.31] |
+| loop sum only | +21.6714 | +20.3783 | same sign, [+8.44, +27.11] |
+| gate only | +1.4091 | +1.2403 | **sign flips**, [-16.26, +10.62] |
+| null | +0.0000 | +0.0000 | zero calibration |
+
+**The reading does not move.** With the loop sum removed and the pool left
+dispersed the gap is `+1.2403` with a sign that flips across seeds; with the
+gate and the pool both levelled it is `+20.3783`, of one sign in every seed. The two cells
+with tied terms reproduce the registered run seed for seed. So the collapse is
+not carried by the pricing pool: it follows the payment dispersion to whichever
+cell has the loop sum removed, under either admission rule. A3-8 is read from
+the registered cells and stays `unstable`; the comparison arm is printed and
+scores nothing.
 
 ### 5.3 A3-8's population, and a criterion registered forward rather than back
 
@@ -312,21 +379,32 @@ down.
 | gate on (`both`, `H0_only`) | 24.6 | **0.0** | 13.7% | `[86.8, 93.4, 100.0]` |
 | gate off (`H1_only`, `null`) | 21.9 | **0.0** | 12.2% | `[88.3, 94.2, 100.0]` |
 
-**A3-8 is measured on the top eighth of the production layer by centrality.**
-The peripheral tercile walks the cycle zero times, in every cell, at every seed,
-including the null, so the gate is not what removed it. The criterion's own
-"peripheral" group therefore sits near the 87th percentile, and `κ_gate`, which
-disperses admission along centrality, has almost no variation left to act on
-inside a band that runs from 87 to 100. That is a statement about
+**A3-8's production-layer participants are the top eighth of that layer by
+centrality.** The paired population itself is `41.6` nodes, and at every seed
+`20` of them are the whole financial layer. So at the five registered seeds the
+criterion's "central" third is mostly financial-layer nodes (`55` of `67`
+node-seeds), and its "peripheral" third holds `27` financial-layer node-seeds of
+`67`, the rest being production nodes between about the 88th and 95th
+percentile of that layer.
+The production layer's peripheral tercile walks the cycle zero times, in every
+cell, at every seed, including the null, so the gate is not what removed it. The
+criterion's own "peripheral" group therefore holds no production node below
+about the 88th percentile, so the production-layer nodes `κ_gate` is read on
+all sit inside a band that runs from 87 to 100 of the centrality along which
+it disperses admission. That is a statement about
 the estimand's reach and it holds whatever the gap comes out to.
 
 **One inference drawn from that row in 2026-08-13 was that the gate reads as
 nothing because its treatment barely varies over the set it is read on. It was
 measured on 2026-08-27 and it is false.** Taking the two cells that differ only
-in the gate and the two that differ only in the terms, the gate moves `19.4`
+in the gate and the two that differ only in the payment terms, which in this
+model also level the bidder pool that prices a tier (that pool is admitted on
+the payment terms, §5.2), the gate moves `19.4`
 nodes' cycle counts against the other channel's `16.8`, and `74.0` of total
 absolute cycle change against `85.6`, **eighty-six per cent of it**
-(`experiments/a3h_gate_acts.py`). It also moves `2.2` nodes into the trading set
+(`experiments/a3h_gate_acts.py`, run with the pool admitted on the payment
+terms only; on the three stations run under both admission rules, A3 P-C, A22
+and A42, the readings did not change). It also moves `2.2` nodes into the trading set
 and none out, so it acts on the intensive margin rather than the extensive one
 this section assigned it to. **The scope fact above stands and the inertness
 read off it does not**, and the general form is in `docs/MEASUREMENT.md` failure
@@ -336,6 +414,8 @@ knob that widens the population, the ratio runs 0.748 at 18.4 nodes down to
 exactly 0.000 at 178.4 and at 200 of 200, so the inertness is at the wide end**:
 an admission rule that disperses entry has nothing left to ration once nearly
 everyone is already inside.
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
 
 **Any quotation of A3-8 must carry that population with it.** This is the same
 disease §6.4 records for A3-6, whose holding population is 15.8 nodes of 200
@@ -361,6 +441,14 @@ of `+0.60`, and on `any_cell` it goes negative at one seed and becomes
 unquotable. Mechanically that follows from the row above, since the gate moves
 two or three nodes in and out of the measured set without contributing a
 direction, so switching it off removes composition noise and no signal.
+
+**Restated 2026-10-24.** These twenty seeds run on the registered rule, where
+the bidder pool that prices a tier is admitted on the payment terms, so the
+loop-sum-only cell carries that pool along with the loop sum. Both admission
+rules were run at the five registered seeds (§5.2), and there the cell keeps
+one sign under either. On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
 
 **§6.5b reads the gate arm's instability as a sample-size effect. For that arm
 it is not.** Going from five seeds to twenty widens the range, `[−16.26,
@@ -393,7 +481,9 @@ would be manufacturing the result it was chosen to fit. **A3-8's state stays
 two shares before it ran.** A3-8′ governs the next stage that runs this design.
 
 **Amended 2026-08-27.** The clause that once followed here, that such a stage
-first needs a carrier whose measured population is not one eighth of one layer,
+first needs a carrier whose production-layer participants reach beyond the top
+eighth of that layer (the measured set is the whole financial layer plus that top
+eighth),
 was built on the inertness inference this section now retires, and widening the
 population was measured to remove the effect along with it. What the next stage
 needs is that the treatment have a measurable effect on the mechanism, which
@@ -402,6 +492,16 @@ this carrier already has. **A3-8′ has since been scored three times**: by A7 a
 stability; on fresh seeds by A3h; and pooled across every point on record by
 A3i, which counts the ordering clause holding at 54 of 57 points and the
 gate-only cell sign-stable at none of them.
+
+(Restated 2026-10-20: every cell in this section runs on the model §5.2
+restates, where the bidder pool that prices a tier is admitted on the payment
+terms. So the loop-sum-only cell, `κ_gate = 0`, also keeps the pricing pool
+dispersed, and the gate-only cell carries the opening allocation alone with the
+pool levelled. That holds for the twenty-seed table above, for the A3h
+comparison, whose terms column switches the payment terms and so counts what
+the pool does as well (`16.8` nodes, `85.6`), and for the three scorings of
+A3-8′. §5.2's comparison arm is the one place the loop-sum cell was read with
+the pool levelled: `+20.3783`, of one sign at all five registered seeds.)
 
 ---
 
@@ -438,9 +538,9 @@ agents who traverse the cycle in every cell — is the one in §5.2.
 
 ### 6.2 The production layer is emptied, one way, under every construction
 
-`a3b_initial_construction.md` §9.2. Opening ownership of 21.3% and of 72.0% both
-end at about 8.6%, and the production layer reaches **zero** holders in every
-arm. The opening distribution sets how long the drain takes and not where it
+`a3b_initial_construction.md` §10.1. Ownership of 21.9% and of 74.4% at the
+opening (21.3% and 72.0% one round in) both end at about 8.6%, and the
+production layer reaches **zero** holders in every arm. The opening distribution sets how long the drain takes and not where it
 ends. Starting broad buys time and nothing else.
 
 This is the stage's clearest statement about the modelled world, and it is the
@@ -480,13 +580,17 @@ one as a broken test.
 
 ### 6.3 A3-5 cannot be evaluated as registered, and the reason is a finding
 
-The high-tier arm is a **bitwise no-op**. Three reasons, the first sufficient:
-`open_tiers` is consulted only at the opening allocation and never in resale;
+The high-tier arm is a **bitwise no-op on the price-frozen arm**, where the
+verdict is taken. Three reasons, the first sufficient: `open_tiers` is consulted
+at the opening allocation and in the bidder pool that prices the tier, never in
+resale, and with the price frozen the pool moves nothing;
 the high tier allocates fully at the opening in both arms, so forcing its gate
 open admits newcomers to the back of a queue that ends before them; and
 downstairs, of 180 production-layer nodes, the number that can reach the high
 tier is **zero even at the soft gate**, against a production-layer claims median
-of `0.162` and a high-tier price of `2.0`.
+of `0.162` and a high-tier price of `2.0`. With the price free, opening the high
+tier changes who is in its pricing pool and so moves prices, which is why the
+verdict is read on the frozen arm.
 
 **So at the high tier the exclusion is a price wall, not a hole.** §2 registered
 `γ` as carrying the hole-versus-high-price distinction in one parameter; this run
@@ -524,27 +628,49 @@ no dispersion beside it, hiding the one observation that produced it.
 
 **Corrected domain.** The population is now the set that actually holds a unit
 when the transfer arrives, read at the shock round, and the statistic is the
-median over that set — legitimate on fifteen to eighteen nodes in a way a decile
+median over that set, taken per seed and averaged over the five seeds — legitimate on fourteen to eighteen nodes in a way a decile
 on ten never was.
 
 | quantity | value |
 |---|---|
-| median holder's retention after 40 rounds | **13.8%** |
-| holders clearing the 50% threshold | **3% of 79** |
-| a non-holder's retention | **0.1%** |
+| holder median of the gap from its own untransferred path after 40 rounds, as a share of its gap in the landing round, taken per seed and averaged over the five seeds (pooled over all 79 holders it is 14.25%) | **13.8%** |
+| the same with its sign kept (pooled over all 79 holders: 13.99%) | **13.5%** |
+| holders clearing the 50% threshold on size | **2 of 79** |
+| of those, above their own path | **1** |
+| holders below their own path at that round | **4 of 79** |
+| one non-holder per seed, with its sign | **−0.177%, +0.003%, no gap in the landing round, −0.107%, 0.000%** |
 | holding population | **15.8 of 200 nodes** |
 | of which in the production layer | **0.0** |
 
 **A3-6 fails on the corrected domain, and the correction made it fail harder.**
-The threshold is carried over from the median-node version and that is
-disclosed rather than hidden: it is being applied to a new domain by an author
-who had already seen the richest node's number, and it is kept because
-lowering it would be worse than carrying it.
+The threshold is the one registered for the median-node version, applied
+unchanged to the holder domain.
+
+
+**Restated 2026-10-10: the statistic is a size.** What is scored is the absolute
+gap between a holder's net worth and its own untransferred path forty rounds on,
+over the same gap in the round the transfer lands. It counts a holder that ends
+below its own path exactly like one that kept the transfer, so "retention" in
+this section and the two after it is that size, and the table gives the
+direction beside it. The two holders that clear the threshold are both in seed
+3: node 12, whose gap grew to `177.2%` of what it was at landing, and node 19,
+which stands `63.7%` of its landing gap **below** its own path. Four of the
+seventy-nine stand below their own path at that round. The criterion fails on
+the size and fails with the direction kept, and the threshold, the domain and
+the verdict are the registered ones. The non-holder figure is five single
+nodes, one per seed, and one of them shows no gap at all in the landing round,
+which leaves nothing to divide by; the table used to give their mean as `0.1%`.
+Each holder's response is in `results/a3_asset_channel.json` under
+`shock_response`.
 
 **Three consequences, and the third is the one that matters for A4.**
 
 *The contrast is the finding, not the verdict.* A one-off transfer to a node
-with no asset is recaptured within a generation — `0.1%` — while the same
+with no asset is recaptured within a generation: the four single non-holders
+that show a landing gap stand between `0.000%` and `0.177%` of it from their own
+path after forty rounds, two of them below it, and the median over the 910
+non-holders with a landing gap in §6.4b is `0.004%` (`0.00%` there), while the
+same
 transfer to a holder is not. Retention rises steeply with position and does so
 non-monotonically in claims. **That is the redistribution-futility result, and
 it is what A6 goes on to price.**
@@ -561,6 +687,8 @@ inheritance in particular, which is a generation-scale channel, has a
 forty-round median retention of 14% to transmit. **A4 must not be run as
 designed until this is resolved**, and switching its domain silently to the
 holders would reproduce exactly the error refused above.
+
+**Restated 2026-10-27.** The 14% is the size of the gap from the holder's own untransferred path, not a stock left to pass on. With its sign the median is `13.5%`, and 4 of 79 holders stand below their own path at forty rounds.
 
 ### 6.4b The step in retention is a step in layer, and the asset's own step is a transient
 
@@ -583,18 +711,23 @@ median non-holder.
 **It cannot be attributed to the asset, because at the registered shock round
 every holder is a financial-layer node.** Seventy-nine holders, all upstairs;
 nine hundred production-layer node-seeds, not one of them holding. Holders
-occupy wealth ranks `182` to `200` of `200` in every seed. So "holder against
-non-holder" is also "layer 1 against layer 2", and the layer carries two things
-of its own that have nothing to do with owning:
+occupy the top of the wealth ranking in every seed: from rank `182`, `184`,
+`185`, `184` and `185` (seeds 0 to 4) up to `200` of `200`. So "holder against
+non-holder" is also "layer 1 against layer 2", and the layer carries something
+of its own that has nothing to do with owning:
 
 * `_collect_rent` bills `(held <= 0) & _is_production`. A financial-layer node
   holding nothing pays no rent; a production-layer node holding nothing pays,
   every round, at `rent_rate = 0.05` of the low tier's price. **Liability is
   keyed on the construction-time layer index while receipts are keyed on
   holding**, and that asymmetry is live in the registered run.
-* `_prior_owner_weights` routes the opening proceeds and the unsold residual to
-  `~_is_production`, weighted by opening claims. Defended in its docstring and
-  the same shape all the same: a fixed index set receives.
+* `_prior_owner_weights` would route the opening proceeds and the unsold
+  residual to `~_is_production`, weighted by opening claims: a fixed index set
+  receiving. **It is not reached in any arm profiled here** (restated
+  2026-10-10). They all run `proceeds = "equal"` and `residual_owner = False`,
+  so the opening proceeds are split equally over all two hundred nodes and the
+  unsold residual has no owner. In these runs the layer carries the rent
+  liability above and not a second thing.
 
 `_is_production` is assigned once, by index, at `layer1_size`, and is never
 updated. This is the same defect A6 had in its levy base, in a different place.
@@ -613,15 +746,20 @@ end of the round it lands in is a median of `36` upstairs and `3.8` downstairs.
 Nine tenths of a transfer to the production layer is gone inside the landing
 round. So A3-6's ratio **understates** the gap: at forty rounds the absolute
 retained amounts are `9.83` and `0.017`, a factor of about `560`, where the
-ratio shows a factor of `66`.
+ratio shows a factor of `62`.
 
 **`open_tiers` does not break the identification, and that was tested rather
 than assumed.** It is the only switch in the model that admits regardless of
-claims, which is what §16.1's problem needs. Opening the low tier admits **one**
-production-layer node across three seeds. Allocated units rise from `61` to `89`
-of a supply of `100` and the extra units go upstairs: the opening caps each node
-at one unit, and the resale market then has no cap at all, so twenty financial
-nodes absorb the stock over a hundred and fifty rounds. Opening the high tier is
+claims, which is what §16.1's problem needs. Opening the low tier hands a low-tier unit to 40
+production-layer nodes in each of seeds 0 to 2 at the opening, against 23, 28
+and 21 without it. In seed 0, allocated units rise from `61` to `89` of a supply
+of `100`, and 18 of the 28 extra units start downstairs. By the registered shock
+round they have gone upstairs: neither the opening's
+market pass nor the resale market caps what a node may hold (the one-unit cap
+belongs to the occupancy transfer, which these arms do not run), so the financial
+layer absorbs the stock over a hundred and fifty rounds. At round 150 one
+production-layer node holds across three seeds with the price frozen, none with
+the price free, and none without the switch. Opening the high tier is
 a bitwise no-op, per §6.3.
 
 **What does break it is the shock round.** Production-layer nodes holding a unit,
@@ -640,7 +778,7 @@ at five points off the same runs:
 | financial layer, holds | 88 | **24.33%** | 22.35% | 23.43% | 24.33% | 22.31% | 22.53% |
 | financial layer, no asset | 12 | 1.39% | 1.68% | 1.57% | 1.39% | 2.00% | 0.89% |
 | production layer, holds | 62 | **0.59%** | 6.17% | 10.95% | 0.59% | 0.28% | 0.01% |
-| production layer, no asset | 838 | 0.37% | 0.01% | 0.23% | 0.37% | 0.16% | 0.00% |
+| production layer, no asset | 838, of which 830 have a landing gap | 0.39% | 0.01% | 0.23% | 0.39% | 0.16% | 0.00% |
 
 The last two rows are the comparison §16.1 wanted: same layer, same rent
 liability, same construction-time assignment, and the asset is the only thing
@@ -653,17 +791,18 @@ horizon, `22%` at ten rounds and `22%` at a hundred and forty-nine.
 
 *Within the production layer the asset's step is a transient.* `6.17%` against
 `0.01%` at ten rounds, `10.95%` against `0.23%` at twenty, and by forty rounds
-`0.59%` against `0.37%`, which in absolute terms is `0.0245` against `0.0174`, a
+`0.59%` against `0.39%`, which in absolute terms is `0.0245` against `0.0174`, a
 factor of `1.4`. By a hundred and forty-nine rounds it is gone. The asset is
 sold or stripped and the advantage goes with it.
 
 *Wealth is still doing work inside the groups.* Spearman of retention against
 wealth, with holding held constant, is `+0.776` among holders at the registered
-shock round and `+0.860` against net worth; at round 20 it is `+0.496`. A pure
+shock round and `+0.860` against net worth; at round 20 it is `+0.495`. A pure
 step predicts these near zero. The boundary pair, the poorest holder against the
-richest non-holder, splits two to two across seeds at round 150 and three to two
-at round 20, and under a net-worth ordering it reads as a step in none of the
-two seeds that can discriminate at all. The largest adjacent jump in the
+richest non-holder, splits two to two across the four seeds that can
+discriminate at round 150 and three to two across all five at round 20, and
+under a net-worth ordering it reads as a step in none of the
+two seeds that can discriminate at round 150 and in two of the four at round 20. The largest adjacent jump in the
 rank-ordered curve sits at the holding boundary in **no** seed at either shock
 round.
 
@@ -679,7 +818,63 @@ outward, and what would travel is the layer.
 
 Nothing here changes A3-6. Its threshold, domain, verdict and detail string are
 untouched, and the profile writes to its own file so that a diagnostic cannot
-reach a criterion.
+reach a criterion. (The detail string was reworded on 2026-10-10, by §6.4's
+restatement and not by this profile; the threshold, domain and verdict are as
+they were.)
+
+
+**Restated 2026-10-10: three things about how the profile is read, and one
+about the opening.** The five profile files were produced again on a driver
+that keeps the direction of each response. Every field the earlier files held
+is unchanged row by row.
+
+*The retention figures above are sizes.* Each is the gap between a node's net
+worth and its own untransferred path at the horizon, over the same gap in the
+round the transfer lands, with the direction dropped. Read with the direction
+kept, the registered shock round is close to what the sizes say: 4 of 79
+holders stand below their own path at forty rounds and the median is `13.99%`
+against `14.25%`. Shock round 20 is not. Of the 88 financial-layer holders, 12
+stand below their own path at ten rounds and 20 at forty, and the median with
+its sign goes from `14.40%` at ten rounds through `9.92%` at forty to `7.11%` at
+a hundred and forty-nine, where the sizes read a flat `22%`. Of the 62
+production-layer holders, 47 stand below their own path at ten rounds, 39 at
+twenty and 32 at forty, and the median with its sign is `−2.97%`, `−0.28%` and
+`−0.00%`. So the production-layer figures of `6.17%` and `10.95%` are deviations
+of that size whose direction, for three holders in four at ten rounds, is
+downward. The production-layer non-holders split close to evenly at forty
+rounds, 423 of 830 below, which is a deviation with no direction. The boundary
+pair read with the direction kept is a step in one of the four discriminating
+seeds at round 150 and in one of five at round 20: in two of the three seeds
+that read *step* on size at round 20, the poorest holder ended `5.4` and `8.7`
+times its landing gap below its own path. None of this reinstates the shape;
+it removes the direction from the two figures that looked most like one.
+
+*Twenty-nine rows have nothing to divide by.* In 11 rows of the registered arm
+at round 150, 10 of the rent-by-holding arm and 8 of the registered arm at
+round 20, the node's net worth at the end of the landing round is exactly what
+it would have been without the transfer. All are production-layer non-holders.
+They are listed in each file and left out of every median, decile and rank
+correlation. Before this date they were entered as a retention of zero, which is
+the folding this profile's own note rules out. Leaving them out moves the
+production-layer non-holder median at forty rounds from `0.37%` to `0.39%` at
+round 20, which is corrected in place above and in §6.4c, and no other printed
+cell of the round-20 table.
+
+*The rank correlations are on average ranks.* At round 150, 900 of the 921
+non-holder wealth values repeat another node's, 540 of them at exactly zero. A
+double argsort hands tied values distinct ranks in row order, and the same rows
+read in reverse moved the non-holder coefficient from `+0.159` to `+0.313`. On
+average ranks, over rows with a landing gap, it is `+0.276` at round 150 and
+`+0.052` at round 20. Within holders nothing is tied at round 150 and the
+figures above stand; at round 20 five holders share a retention of exactly zero and `+0.496`
+is `+0.495`.
+
+*The opening.* Every arm profiled here runs the registered opening: proceeds
+split equally over all nodes, the unsold residual unowned, and no per-node cap
+in the market pass. By seed it allocates 61, 65, 55, 55 and 67 units of the
+hundred to 43, 48, 41, 38 and 49 nodes, of which 14, 11, 9, 13 and 11 take more
+than one and none takes more than three. The two sentences above that described
+a prior-owner routing and a one-unit cap have been brought to that.
 
 ### 6.4c §6.4b's reading is a reading at one parameter, and the parameter is the rent
 
@@ -706,7 +901,7 @@ Keying the payer set on the measured magnitude instead moves almost nothing.
 |---|---|---|
 | financial layer, holds | **14.25%** | **14.56%** |
 | financial layer, no asset | 0.31% | 0.19% |
-| production layer, no asset | 0.00% | 0.00% |
+| production layer, no asset | 0.00% | 0.01% |
 | Spearman(retention, wealth) within holders | +0.776 | +0.771 |
 | median wealth, financial layer non-holders | 13.492 | **9.337** |
 
@@ -736,12 +931,17 @@ here; it just does not carry anything here.**
 
 Two things follow and the second is the one that matters.
 
-Rent is what drives the production layer's retention to **exactly zero**. With
-it off the non-holder deciles come out as a clean monotone gradient
+Rent is what pins the production layer's retention to the floor: at forty
+rounds 319 of the 889 non-holders with a landing gap read exactly zero, and the
+median is `0.004%`, against none at zero and a median of `0.22%` with rent off.
+With it off the non-holder deciles come out as a clean monotone gradient
 (`0.11, 0.11, 0.11, 0.11, 0.16, 0.22, 0.31, 0.47, 0.65, 3.11`); with it on that
-curve is flattened onto the floor. An exact zero in a denominator is also why
-§16.1's two summaries of the same gap disagree, one reporting 560-fold in
-absolute retention and the other 66-fold as a ratio.
+curve is flattened onto the floor. §16.1's two summaries of the same gap
+disagree, 560-fold in absolute retention against 62-fold as a ratio, because
+the denominator is itself set by the layer: the gap in the landing round is a
+median of `36` upstairs and `3.9` downstairs over the rows the ratio is taken
+on (§6.4b). Rows whose landing gap is exactly zero have no ratio and are left
+out of it; entered as zero they would move it only from 62 to 65.
 
 **And `production_layer_with_asset` is empty in every arm at round 150,
 including with rent fully off.** So rent is not what strips the production layer
@@ -752,29 +952,31 @@ and this diagnostic does not identify it.
 
 The registered control at round 20 reproduces §6.4b exactly
 (`6.17 / 10.95 / 0.59 / 0.28 / 0.01` against
-`0.01 / 0.23 / 0.37 / 0.16 / 0.00`).
+`0.01 / 0.23 / 0.39 / 0.16 / 0.00`).
 
 Production layer only, holders against non-holders, median retention:
 
 | horizon | 10 | 20 | **40** | 80 | 149 |
 |---|---|---|---|---|---|
-| registered | 6.17% / 0.01% | 10.95% / 0.23% | **0.59% / 0.37%** | 0.28% / 0.16% | 0.01% / 0.00% |
-| ratio | 617× | 47.6× | **1.59×** | 1.75× | both dead |
+| registered | 6.17% / 0.01% | 10.95% / 0.23% | **0.59% / 0.39%** | 0.28% / 0.16% | 0.01% / 0.00% |
+| ratio | 450× | 46.9× | **1.51×** | 1.72× | both dead |
 | `rent_rate = 0` | 2.76% / 0.23% | 8.88% / 0.44% | **4.89% / 0.86%** | 1.70% / 0.83% | 2.54% / 1.11% |
-| ratio | 12.0× | 20.2× | **5.69×** | 2.05× | **2.29×** |
+| ratio | 12.1× | 20.3× | **5.65×** | 2.03× | **2.28×** |
+
+Ratios are of the unrounded medians in the record, not of the rounded cells above.
 
 And the two steps against each other at horizon 40:
 
 | | layer step, holders across layers | asset step, within the production layer | ratio |
 |---|---|---|---|
-| registered | 24.33 / 0.59 = **41.2×** | **1.59×** | **26 : 1** |
-| `rent_rate = 0` | 33.82 / 4.89 = **6.92×** | **5.69×** | **1.2 : 1** |
+| registered | 24.33 / 0.59 = **41.3×** | **1.51×** | **27 : 1** |
+| `rent_rate = 0` | 33.82 / 4.89 = **6.92×** | **5.65×** | **1.2 : 1** |
 
 **§6.4b's closing sentence, that the step which travels is the layer's and not
 the asset's, is a reading at `rent_rate = 0.05`.** At zero the two are the same
 order of magnitude at horizon 40.
 
-**The `2.29×` at horizon 149 in that table does not survive the decomposition
+**The `2.28×` at horizon 149 in that table does not survive the decomposition
 below and is retracted as an asset effect.** It is a ratio of group medians, so
 it carries whatever wealth difference the two groups have. Once the pairs are
 matched on wealth the advantage at 149 is gone in both arms. The retraction is
@@ -805,7 +1007,7 @@ fourteen-fold in one decile, one-and-a-third in the next and eleven-fold in the
 one after is not a step read through a bin.
 
 *It is a step plus a gradient in both arms.* Spearman(retention, wealth) within
-the holder group is `+0.496` registered and `+0.386` with rent off, `+0.510` and
+the holder group is `+0.495` registered and `+0.386` with rent off, `+0.510` and
 `+0.431` against net worth. §16.1's own reading is that a pure step predicts
 these near zero.
 
@@ -845,7 +1047,7 @@ pre-treatment, so item 5 holds by construction.
 | spread of the share | 7.6% | 5.9% |
 | noise floor's interquartile width | 0.0163 | 0.0328 |
 | Spearman(retention, wealth), non-holders **on the support** | −0.377 (n=20) | **+0.071** (n=218) |
-| the same over the **full** range, from §6.4b's reading | +0.068 | +0.293 |
+| the same over the **full** range, from §6.4b's reading | +0.052 | +0.293 |
 
 Three readings and none of them is the shape §16.1 wanted.
 
@@ -958,9 +1160,12 @@ identified. This identifies it.
 
 #### Two candidates with different fingerprints
 
-Turnover is exogenous at `τ = 0.04`, so about four percent of held units return
-to the market each round whoever holds them and a holder that never wins one
-back decays with a half-life near seventeen rounds. **The units leave by
+Turnover is exogenous at `τ = 0.04` per holding, so a holder of one unit returns
+it to the market with probability four percent each round and a holder that never
+wins one back decays with a half-life near seventeen rounds. (The draw is per
+`(node, tier)` holding and offers one unit, so a holding of several units turns
+over more slowly per unit; the opening hands out single-unit holdings, which is
+the case here.) **The units leave by
 construction. The question is why none come back**, and there are two answers.
 
 *The wall.* The price rises, the gate is `claims ≥ γ·P`, and production-layer
@@ -1016,6 +1221,12 @@ at `η = 1`, with `B` the claims-weighted bidder pool. The low tier goes from
 `claims ≥ γ·P`. Anyone whose claims do not also quadruple is out. That is the
 stage's registered mechanism working exactly as written, not a defect.
 
+(Restated 2026-10-20: the wall is resale affordability, `claims ≥ γ_pay · P_q(t)`
+at the current price, the test `_settle` applies and the one
+`a3f_who_empties_downstairs.py` counts. The gate of §3, `γ^gate · P_q(0)`, is
+read once, at the opening allocation. At the registered parameters the two sets
+of terms are tied, so the counts above stand as printed.)
+
 #### This reframes §6.3, and the two readings converge
 
 §6.3 concluded that at the high tier the exclusion is a price wall and not a
@@ -1027,7 +1238,8 @@ hole for the first ten rounds and a wall for the remaining two hundred and
 ninety, and nothing in the registered reporting says when it flips.
 
 **And §5.3 is the same fact seen from the other end.** That section finds A3-8
-measured on the top eighth of the production layer by centrality, with the
+measured with its production-layer members in the top eighth of that layer by
+centrality (the paired set also holds all twenty financial-layer nodes), with the
 peripheral tercile trading zero times in every cell including the null. A layer
 walled out of the market by round ten is exactly a layer that never appears in a
 population defined by having traded. Two diagnostics built for different
@@ -1105,6 +1317,8 @@ every stored A3 number **bit for bit**, and that was verified rather than
 assumed: `criteria`, `market`, `rent_sweep` and `deviations` in
 `a3_asset_channel.json`, and `cells` and `mean_cost_relative_drift` in
 `a3c_load_bearing.json`, all compare identical against the pre-wiring files.
+(Restated 2026-10-27: at that time `rent_sweep` was empty in both files, so that
+field compared nothing; the rent sweep first entered the record on 2026-10-10.)
 **The declared `4` was never the behaviour of anything**, and leaving it in
 place would have changed every number in the stage the moment the wire was
 connected, with nothing in the run looking wrong. This is the same reduction
@@ -1238,7 +1452,7 @@ size of each compared group is `pop / bins`:
 
 | cell | pop | group | loop-sum channel quotable |
 |---|---|---|---|
-| registered and nine others | 41.6 | 13.9 | yes |
+| registered and eight others | 41.6 | 13.9 | yes |
 | **`s = 1.0`** | **18.4** | **6.1** | **no** |
 | **`s = 2.0`** | **24.2** | **8.1** | **no** |
 | **`bins = 8`** | 41.6 | **5.2** | **no** |
@@ -1254,11 +1468,15 @@ many nodes were left to compare, not about the mechanism. §6.5b's own reading o
 the binning axis said as much for `bins = 8`; the `stretch` axis was not read
 that way and should have been.
 
-**And `stretch` is a lever on §5.3's problem.** §5.3 records that A3-8 is
-measured on the top eighth of the production layer and that the next carrier
-needs a larger measured population. The grid shows that parameter already
+**And `stretch` moves §5.3's population.** §5.3 records that A3-8's
+production-layer participants are the top eighth of that layer by centrality,
+measured alongside all twenty financial-layer nodes. It does not ask the next
+carrier for a larger measured population: widening the set along `stretch` takes
+the effect down with it, `277` times over by the time the peripheral tercile
+enters. The grid shows that parameter already
 exists: `s = 5.0` carries `98.8` nodes against the registered `41.6`, and it
-keeps both channels quotable. A separate reading notes independently that
+keeps the loop-sum channel quotable; the gate channel's sign still moves across
+seeds there, as it does at every cell of the grid. A separate reading notes independently that
 `s = 5` admits eighty-eight production-layer nodes to the lowest tier against
 twenty-three at the registered `s = 3`.
 
@@ -1279,6 +1497,12 @@ With P-A, P-B and P-C all established the stage supports exactly this:
 > In a running stratified economy, agents repeatedly traverse the position-agent
 > cycle; the holonomy of that cycle accumulates; and removing the holonomy while
 > holding everything else removes the divergence.
+
+**Restated 2026-10-24.** In the registered cells `do(κ_pay = 0)` also levels
+the bidder pool that prices a tier, which is admitted on the payment terms.
+Both admission rules were run (§5.2): with the pool admitted on the gate terms
+the loop-sum-removed cell reads `+1.2403` with a sign that flips across seeds
+and the gate-removed cell `+20.3783`, so the reading did not change.
 
 It does **not** support "the real economy's holonomy causes the real economy's
 distributional divergence". That needs the real-data counterpart of
@@ -1324,6 +1548,12 @@ denominator** under `C = 0`, and that is not a numerical inconvenience — it is
 the hypothesis. The measurable is instead, within each `C` arm and for each
 competitor `X`, the share of `X`'s effect that vanishes under `do(κ_pay = 0)`.
 
+(Restated 2026-10-20: on this model `do(κ_pay = 0)` also levels the bidder pool
+that prices a tier, since the pool is admitted on the payment terms, §5.2. A
+share built on it counts what routes through `H¹` and through that pool
+together, unless it runs on the comparison arm's rule, the pool admitted on the
+gate terms.)
+
 Three properties this discriminant has and the Gini ratio does not: it is
 unbounded, so §12.7's ceiling problem does not arise; it is measured on the
 object the framework says is doing the work rather than on a summary of the
@@ -1364,7 +1594,7 @@ unshocked path:
 | carrier | recipient | retained |
 |---|---|---|
 | A2, no asset channel | any | **0.00%** |
-| A3 | holds nothing when the transfer arrives | **0.1%** |
+| A3 | holds nothing when the transfer arrives | **0.1%** as registered, a mean over five single nodes, one of which shows no gap in the landing round; over the 910 non-holders with a landing gap the median is `0.004%` (§6.4b) |
 | A3 | holds a unit, median over the holding set | **14%** |
 
 And the shape, which matters more than the level. Median retention across
@@ -1463,6 +1693,8 @@ survives contact with a working economy.** It is not a validation of the theory
 and §3.2's sixth reading applies: the relation was always going to agree with
 itself, and the informative quantity is the perturbation.
 
+**Restated 2026-10-27.** The three percent is not a perturbation of the identity. It is a composition term, not a disturbance the running economy puts on the identity. Trade by trade, `adjusted return = −log γ` holds at machine precision inside the run (A3-3). The ledger side is a mean over each group's round trips; the graph side collapses each group to one class and reads the holonomy off the tier squares, so the two differ by how unevenly the two groups' round trips fall across the tiers. That tier-mix term is `−0.01150`, the whole of `+0.36536 − (+0.37686)`, with a per-seed residual below `1e-10` (`results/a3b_construction.json`, `a3_4_by_construction`). The graph side is not computed from terms alone: the collapse weights each node by the round trips it completed, read off the ledger, so counting a different set of trades moves both sides (`round_zero_resales` in `results/a3_asset_channel.json`: the graph side goes from `+0.37686` to `+0.37717`).
+
 **A3-5, void, and the void is the finding.** The framework compresses "a hole"
 and "a price that is too high" into one parameter. This run separates them and
 locates each. At the **top** of the asset ladder the exclusion is a price wall:
@@ -1475,8 +1707,11 @@ shuts between rounds six and fifteen. **The hole is a property of the opening.**
 
 **A3-6, fail, and the failure is the economic result.** Two readings and the
 second matters more. First, redistribution futility: a one-off transfer to a
-node with no asset is recaptured within a generation, `0.1%` surviving forty
-rounds, while the same transfer to a holder leaves `13.8%`. **Money handed to a
+node with no asset is recaptured within a generation (the four single
+non-holders with a landing gap stand between `0.000%` and `0.177%` of it from
+their own path forty rounds on, and the median over the 910 non-holders with
+a landing gap in §6.4b is `0.004%`), while the same transfer to a holder
+leaves a gap of `13.8%` of its landing size. **Money handed to a
 node with no in-edges to retain it does not stay.** That is §8's reachability
 criterion at the scale of one agent, and it is what A6 goes on to price in tax
 points. Second, the criterion asked whether a stock survives a generation and
@@ -1492,15 +1727,21 @@ fourteen grid cells fail it and are not repaired. **A3-7's conclusion lives at
 the registered parameter values and A3-4's does not.**
 
 **A3-8, unstable.** Removing the loop sum collapses the divergence from
-`+23.27` to `+1.41`; removing the gate leaves `+21.67`. **Among agents already
+`+23.27` to `+1.41`; removing the gate leaves `+21.67`. Removing the loop sum
+also levels the pricing pool, which is admitted on the payment terms; with the
+pool admitted on the gate terms the two cells read `+1.24` and `+20.38` (§5.2),
+so the collapse follows the loop sum. **Among agents already
 in the market, what drives them apart is the terms and not the admission
 threshold.** No share may be quoted for the gate because its sign moves across
-seeds. §5.3 supplies the scope and it is what makes the reading honest: the
-measurement lives on the top eighth of the production layer by centrality, and
-the gate disperses **along** centrality, so it is read where it barely varies.
-The two halves fit together rather than competing. **The gate decides who is in
-the market; the terms decide how those inside come apart; and A3-8 can only see
-the second, because its sample is the people already inside.**
+seeds. §5.3 supplies the scope: the measurement lives on the agents who trade in
+every cell, all twenty financial-layer nodes per seed and the top eighth of the
+production layer by centrality. The gate disperses **along** centrality and
+still acts on that set: it moves `74.0` of total absolute cycle change against
+the payment terms' `85.6`, which also count what the pricing pool does,
+eighty-six per cent of it, almost all of it on agents already
+inside. **The terms decide how those inside come apart, with one sign across
+seeds; the gate acts on the same agents with a sign that moves. A3-8 sees the
+gate act. What it cannot do is give that effect a stable sign.**
 
 ### 10.2 What §9's registered prediction is now worth
 
@@ -1554,10 +1795,10 @@ one re-check §6.4c left open, what empties the production layer, is answered in
 removed by data rather than chosen between.
 
 What A3 hands forward is in §7, with one addition from §5.3 and §6.5c: **the
-next stage built on this carrier needs a measured population larger than one
-eighth of one layer, and `stretch` is an existing lever on it.** Recorded as an
-observation. Choosing that parameter after seeing which value makes a channel
-quotable is the move §5.1's demotions exist to prevent.
+next stage built on this carrier needs a treatment with a measurable effect on
+the mechanism, which this carrier already has; it does not need a wider measured
+population, and widening it with `stretch` until the periphery enters was
+measured to remove the effect along with it.** Recorded as an observation.
 
 
 ---
@@ -1604,6 +1845,14 @@ existed. `results/a3k_zero_domain.json`.
 `|gate| < |terms|` at **48 of 57** points. Amplitude ratio `0.2967` at the
 medians and `0.1183` at the maxima.
 
+(Restated 2026-10-20: the terms cell is the loop-sum-only cell, `κ_gate = 0`.
+In this model the bidder pool that prices a tier is admitted on the payment
+terms, so that cell also keeps the pool dispersed, and the gate cell, with the
+pool levelled, carries the opening allocation alone. The zero-domain reading is
+a reading of the gate cell and does not move. The terms column, here and in
+§11.3, is the loop sum together with the pricing pool; at A3-8's registered
+point §5.2 reads the same cell with the pool levelled at `+20.3783`.)
+
 **The five points where the gate cell reads exactly zero carry nothing, and
 `A3k-7` prints the reason beside each.** `A3j` measures the gate's mechanical
 ratio as `0.000` at `stretch 20` and `40`, so a zero there is inertness and not
@@ -1645,6 +1894,16 @@ eight grid values at which that ratio is non-zero:
 population sweep; the other cannot, and it cannot while pushing the economy
 about as hard.
 
+**Restated 2026-10-24.** All eight points run on the registered rule, where the
+bidder pool that prices a tier is admitted on the payment terms: the terms cell
+carries that pool along with the loop sum, and the gate cell has it levelled and
+moves the opening allocation alone. Both admission rules were run at
+`stretch = 3.0` (§5.2), where the terms cell reads `+20.3783` with one sign and
+the gate cell `+1.2403` with a sign that flips; the other seven points ran on
+the registered rule only. On the three stations run under both admission rules, A3 P-C, A22 and A42, the readings did not change.
+
+(Restated 2026-11-08: on A42 one cell moved. With the pool admitted on the gate terms, the treated-to-control ratio on the support gap goes from `+0.88` to `+1.22`, across one; the two differences, `−0.0008` and `+0.0016`, both sit inside the seed floor of `0.0030`, so the station's reading stands, and the treated arm moves more on all three gaps. A3 P-C and A22 read the same under both rules.)
+
 **The gate's mechanical effect, from the records that measured it.** `A3h-1`:
 total `|d cycles|` for the gate is **`74.0`** against the terms channel's
 **`85.6`**, a ratio of **`86%`**; nodes with a changed cycle count `19.4`;
@@ -1671,7 +1930,7 @@ neither clause.** It needs the two cells side by side, which every record
 prints, and it asks a different question of the same numbers.
 
 **It is the third zero domain and the smallest, and the three must never be
-quoted as one reading.** `B13` is the large one, `81,968` states of an exchange's
+quoted as one reading.** `B13` is the large one, `81,968` bid and offer readings of an exchange's
 published implied spread against the two-leg derivation from its own outrights,
 paired with the directly quoted member of the same family at `65%` to `96%`
 non-zero. B6's is an arithmetic identity inside a third party's published table.

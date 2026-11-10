@@ -1,0 +1,2516 @@
+{
+ "arms": {
+  "per_unit": "one draw per unit held, Binomial(k, tau) offers from a holding of k",
+  "registered": "the rule in src/monetary_topology/asset.py",
+  "stream": "the registered rule with the asset stream shifted by one seed"
+ },
+ "stage": "resale_rule_probe",
+ "stages": {
+  "a3b": {
+   "exit": {
+    "per_unit": "written",
+    "registered": "written",
+    "stream": "written"
+   },
+   "moved_by_per_unit": 174,
+   "moved_by_stream": 171,
+   "numbers_compared": 392,
+   "rule_beyond_stream": [
+    {
+     "key": "/results/occupancy/prod_units/200",
+     "per_unit": 2.0,
+     "registered": 0.0,
+     "rule_move": 2.0,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/results/occupancy/prod_units/300",
+     "per_unit": 0.6,
+     "registered": 0.0,
+     "rule_move": 0.6,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/results/occupancy/prod_holders/200",
+     "per_unit": 0.2,
+     "registered": 0.0,
+     "rule_move": 0.2,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/results/occupancy/prod_holders/300",
+     "per_unit": 0.2,
+     "registered": 0.0,
+     "rule_move": 0.2,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/3/1",
+     "per_unit": 65.0,
+     "registered": 7.0,
+     "rule_move": 58.0,
+     "stream": 7.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/3/1",
+     "per_unit": 65.0,
+     "registered": 7.0,
+     "rule_move": 58.0,
+     "stream": 7.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/2/1",
+     "per_unit": 350.0,
+     "registered": 38.0,
+     "rule_move": 312.0,
+     "stream": 38.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/2/1",
+     "per_unit": 350.0,
+     "registered": 38.0,
+     "rule_move": 312.0,
+     "stream": 38.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/1/1",
+     "per_unit": 234.0,
+     "registered": 29.0,
+     "rule_move": 205.0,
+     "stream": 38.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/1/1",
+     "per_unit": 234.0,
+     "registered": 29.0,
+     "rule_move": 205.0,
+     "stream": 38.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/4/1",
+     "per_unit": 266.0,
+     "registered": 36.0,
+     "rule_move": 230.0,
+     "stream": 29.0,
+     "stream_move": 7.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/4/1",
+     "per_unit": 266.0,
+     "registered": 36.0,
+     "rule_move": 230.0,
+     "stream": 29.0,
+     "stream_move": 7.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/4/0",
+     "per_unit": 1987.0,
+     "registered": 273.0,
+     "rule_move": 1714.0,
+     "stream": 289.0,
+     "stream_move": 16.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/4/0",
+     "per_unit": 1987.0,
+     "registered": 273.0,
+     "rule_move": 1714.0,
+     "stream": 289.0,
+     "stream_move": 16.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/0/1",
+     "per_unit": 212.0,
+     "registered": 30.0,
+     "rule_move": 182.0,
+     "stream": 24.0,
+     "stream_move": 6.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/0/1",
+     "per_unit": 212.0,
+     "registered": 30.0,
+     "rule_move": 182.0,
+     "stream": 24.0,
+     "stream_move": 6.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/1/0",
+     "per_unit": 1994.0,
+     "registered": 284.0,
+     "rule_move": 1710.0,
+     "stream": 294.0,
+     "stream_move": 10.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/1/0",
+     "per_unit": 1994.0,
+     "registered": 284.0,
+     "rule_move": 1710.0,
+     "stream": 294.0,
+     "stream_move": 10.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/2/0",
+     "per_unit": 1530.0,
+     "registered": 233.0,
+     "rule_move": 1297.0,
+     "stream": 231.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/2/0",
+     "per_unit": 1530.0,
+     "registered": 233.0,
+     "rule_move": 1297.0,
+     "stream": 231.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/a3_4_by_construction/occupancy/trades_better_worse_by_seed/1/0",
+     "per_unit": 2422.0,
+     "registered": 388.0,
+     "rule_move": 2034.0,
+     "stream": 416.0,
+     "stream_move": 28.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/3/0",
+     "per_unit": 1578.0,
+     "registered": 260.0,
+     "rule_move": 1318.0,
+     "stream": 243.0,
+     "stream_move": 17.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/3/0",
+     "per_unit": 1578.0,
+     "registered": 260.0,
+     "rule_move": 1318.0,
+     "stream": 243.0,
+     "stream_move": 17.0
+    },
+    {
+     "key": "/a3_4_by_construction/occupancy/trades_better_worse_by_seed/4/0",
+     "per_unit": 2219.0,
+     "registered": 370.0,
+     "rule_move": 1849.0,
+     "stream": 358.0,
+     "stream_move": 12.0
+    },
+    {
+     "key": "/a3_4_by_construction/occupancy/trades_better_worse_by_seed/3/0",
+     "per_unit": 2400.0,
+     "registered": 409.0,
+     "rule_move": 1991.0,
+     "stream": 424.0,
+     "stream_move": 15.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction/trades_better_worse_by_seed/0/0",
+     "per_unit": 1665.0,
+     "registered": 298.0,
+     "rule_move": 1367.0,
+     "stream": 282.0,
+     "stream_move": 16.0
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/trades_better_worse_by_seed/0/0",
+     "per_unit": 1665.0,
+     "registered": 298.0,
+     "rule_move": 1367.0,
+     "stream": 282.0,
+     "stream_move": 16.0
+    },
+    {
+     "key": "/a3_4_by_construction/occupancy/trades_better_worse_by_seed/0/0",
+     "per_unit": 2310.0,
+     "registered": 423.0,
+     "rule_move": 1887.0,
+     "stream": 397.0,
+     "stream_move": 26.0
+    },
+    {
+     "key": "/a3_4_by_construction/occupancy/trades_better_worse_by_seed/2/0",
+     "per_unit": 2161.0,
+     "registered": 407.0,
+     "rule_move": 1754.0,
+     "stream": 365.0,
+     "stream_move": 42.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/3/0",
+     "per_unit": 355.0,
+     "registered": 101.0,
+     "rule_move": 254.0,
+     "stream": 104.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/4/1",
+     "per_unit": 78.0,
+     "registered": 23.0,
+     "rule_move": 55.0,
+     "stream": 23.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/4/0",
+     "per_unit": 503.0,
+     "registered": 152.0,
+     "rule_move": 351.0,
+     "stream": 145.0,
+     "stream_move": 7.0
+    },
+    {
+     "key": "/paths/auction/4/production_layer_empty_from_round",
+     "per_unit": 166.0,
+     "registered": 52.0,
+     "rule_move": 114.0,
+     "stream": 100.0,
+     "stream_move": 48.0
+    },
+    {
+     "key": "/paths/continuous/4/production_layer_empty_from_round",
+     "per_unit": 166.0,
+     "registered": 52.0,
+     "rule_move": 114.0,
+     "stream": 100.0,
+     "stream_move": 48.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/1/0",
+     "per_unit": 490.0,
+     "registered": 156.0,
+     "rule_move": 334.0,
+     "stream": 160.0,
+     "stream_move": 4.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/0/1",
+     "per_unit": 52.0,
+     "registered": 17.0,
+     "rule_move": 35.0,
+     "stream": 22.0,
+     "stream_move": 5.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/0/0",
+     "per_unit": 279.0,
+     "registered": 102.0,
+     "rule_move": 177.0,
+     "stream": 79.0,
+     "stream_move": 23.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/2/1",
+     "per_unit": 66.0,
+     "registered": 25.0,
+     "rule_move": 41.0,
+     "stream": 30.0,
+     "stream_move": 5.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/4/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 27.0,
+     "registered": 11.0,
+     "rule_move": 16.0,
+     "stream": 18.0,
+     "stream_move": 7.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/2/0",
+     "per_unit": 171.0,
+     "registered": 71.0,
+     "rule_move": 100.0,
+     "stream": 49.0,
+     "stream_move": 22.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/4/rounds_ending_with_more_financial_holders",
+     "per_unit": 23.0,
+     "registered": 10.0,
+     "rule_move": 13.0,
+     "stream": 16.0,
+     "stream_move": 6.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/4/rounds_ending_with_more_holders",
+     "per_unit": 22.0,
+     "registered": 10.0,
+     "rule_move": 12.0,
+     "stream": 12.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/paths/auction/0/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 0.0,
+     "registered": 14.0,
+     "rule_move": 14.0,
+     "stream": 4.0,
+     "stream_move": 10.0
+    },
+    {
+     "key": "/paths/auction/0/rounds_ending_with_more_financial_holders",
+     "per_unit": 0.0,
+     "registered": 12.0,
+     "rule_move": 12.0,
+     "stream": 3.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "/paths/auction/0/rounds_ending_with_more_holders",
+     "per_unit": 0.0,
+     "registered": 11.0,
+     "rule_move": 11.0,
+     "stream": 3.0,
+     "stream_move": 8.0
+    },
+    {
+     "key": "/paths/auction/1/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 0.0,
+     "registered": 4.0,
+     "rule_move": 4.0,
+     "stream": 7.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/auction/1/rounds_ending_with_more_financial_holders",
+     "per_unit": 0.0,
+     "registered": 4.0,
+     "rule_move": 4.0,
+     "stream": 7.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/auction/1/rounds_ending_with_more_holders",
+     "per_unit": 0.0,
+     "registered": 4.0,
+     "rule_move": 4.0,
+     "stream": 6.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/3/production_nodes_that_sold_out_and_held_again",
+     "per_unit": 0.0,
+     "registered": 1.0,
+     "rule_move": 1.0,
+     "stream": 1.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/paths/continuous/0/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 0.0,
+     "registered": 14.0,
+     "rule_move": 14.0,
+     "stream": 4.0,
+     "stream_move": 10.0
+    },
+    {
+     "key": "/paths/continuous/0/rounds_ending_with_more_financial_holders",
+     "per_unit": 0.0,
+     "registered": 12.0,
+     "rule_move": 12.0,
+     "stream": 3.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "/paths/continuous/0/rounds_ending_with_more_holders",
+     "per_unit": 0.0,
+     "registered": 11.0,
+     "rule_move": 11.0,
+     "stream": 3.0,
+     "stream_move": 8.0
+    },
+    {
+     "key": "/paths/continuous/1/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 0.0,
+     "registered": 4.0,
+     "rule_move": 4.0,
+     "stream": 7.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/continuous/1/rounds_ending_with_more_financial_holders",
+     "per_unit": 0.0,
+     "registered": 4.0,
+     "rule_move": 4.0,
+     "stream": 7.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/continuous/1/rounds_ending_with_more_holders",
+     "per_unit": 0.0,
+     "registered": 4.0,
+     "rule_move": 4.0,
+     "stream": 6.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/paths/occupancy/1/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 0.0,
+     "registered": 1.0,
+     "rule_move": 1.0,
+     "stream": 1.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/paths/occupancy/1/rounds_ending_with_more_financial_holders",
+     "per_unit": 0.0,
+     "registered": 1.0,
+     "rule_move": 1.0,
+     "stream": 1.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/paths/occupancy/1/rounds_ending_with_more_holders",
+     "per_unit": 0.0,
+     "registered": 1.0,
+     "rule_move": 1.0,
+     "stream": 1.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/trades_better_worse_by_seed/1/1",
+     "per_unit": 65.0,
+     "registered": 35.0,
+     "rule_move": 30.0,
+     "stream": 27.0,
+     "stream_move": 8.0
+    },
+    {
+     "key": "/paths/auction/2/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 2.0,
+     "registered": 11.0,
+     "rule_move": 9.0,
+     "stream": 6.0,
+     "stream_move": 5.0
+    },
+    {
+     "key": "/paths/continuous/2/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 2.0,
+     "registered": 11.0,
+     "rule_move": 9.0,
+     "stream": 6.0,
+     "stream_move": 5.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/2/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 38.0,
+     "registered": 21.0,
+     "rule_move": 17.0,
+     "stream": 30.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/1/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 41.0,
+     "registered": 23.0,
+     "rule_move": 18.0,
+     "stream": 29.0,
+     "stream_move": 6.0
+    },
+    {
+     "key": "/paths/auction/2/rounds_ending_with_more_financial_holders",
+     "per_unit": 2.0,
+     "registered": 9.0,
+     "rule_move": 7.0,
+     "stream": 6.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/auction/2/rounds_ending_with_more_holders",
+     "per_unit": 2.0,
+     "registered": 9.0,
+     "rule_move": 7.0,
+     "stream": 6.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/continuous/2/rounds_ending_with_more_financial_holders",
+     "per_unit": 2.0,
+     "registered": 9.0,
+     "rule_move": 7.0,
+     "stream": 6.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/continuous/2/rounds_ending_with_more_holders",
+     "per_unit": 2.0,
+     "registered": 9.0,
+     "rule_move": 7.0,
+     "stream": 6.0,
+     "stream_move": 3.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/2/rounds_ending_with_more_financial_holders",
+     "per_unit": 31.0,
+     "registered": 18.0,
+     "rule_move": 13.0,
+     "stream": 18.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/2/rounds_ending_with_more_holders",
+     "per_unit": 29.0,
+     "registered": 17.0,
+     "rule_move": 12.0,
+     "stream": 17.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/results/auction/prod_holders/50",
+     "per_unit": 3.8,
+     "registered": 2.4,
+     "rule_move": 1.4,
+     "stream": 3.4,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/results/auction/prod_units/50",
+     "per_unit": 3.8,
+     "registered": 2.4,
+     "rule_move": 1.4,
+     "stream": 3.4,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/results/continuous/prod_holders/50",
+     "per_unit": 3.8,
+     "registered": 2.4,
+     "rule_move": 1.4,
+     "stream": 3.4,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/results/continuous/prod_units/50",
+     "per_unit": 3.8,
+     "registered": 2.4,
+     "rule_move": 1.4,
+     "stream": 3.4,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/4/production_layer_empty_from_round",
+     "per_unit": 86.0,
+     "registered": 56.0,
+     "rule_move": 30.0,
+     "stream": 81.0,
+     "stream_move": 25.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/tier_mix_term",
+     "per_unit": -0.0172303465,
+     "registered": -0.011500863,
+     "rule_move": 0.0057294835,
+     "stream": -0.0107121457,
+     "stream_move": 0.0007887173000000001
+    },
+    {
+     "key": "/paths/auction_pre_a3b/1/rounds_ending_with_more_financial_holders",
+     "per_unit": 28.0,
+     "registered": 19.0,
+     "rule_move": 9.0,
+     "stream": 18.0,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/1/rounds_ending_with_more_holders",
+     "per_unit": 25.0,
+     "registered": 17.0,
+     "rule_move": 8.0,
+     "stream": 16.0,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/paths/occupancy/4/production_layer_empty_from_round",
+     "per_unit": 179.0,
+     "registered": 122.0,
+     "rule_move": 57.0,
+     "stream": 94.0,
+     "stream_move": 28.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/relative_error",
+     "per_unit": 0.04366625,
+     "registered": 0.03051742,
+     "rule_move": 0.013148829999999997,
+     "stream": 0.02964847,
+     "stream_move": 0.0008689500000000003
+    },
+    {
+     "key": "/a3_4_by_construction/auction/relative_error",
+     "per_unit": 0.08435846,
+     "registered": 0.14335955,
+     "rule_move": 0.059001090000000006,
+     "stream": 0.14843941,
+     "stream_move": 0.005079859999999992
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/relative_error",
+     "per_unit": 0.08435846,
+     "registered": 0.14335955,
+     "rule_move": 0.059001090000000006,
+     "stream": 0.14843941,
+     "stream_move": 0.005079859999999992
+    },
+    {
+     "key": "/a3_4_by_construction/auction/tier_mix_term",
+     "per_unit": -0.028643897,
+     "registered": -0.0482483699,
+     "rule_move": 0.019604472899999996,
+     "stream": -0.0509758447,
+     "stream_move": 0.0027274748000000043
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/tier_mix_term",
+     "per_unit": -0.028643897,
+     "registered": -0.0482483699,
+     "rule_move": 0.019604472899999996,
+     "stream": -0.0509758447,
+     "stream_move": 0.0027274748000000043
+    },
+    {
+     "key": "/paths/auction_pre_a3b/0/production_layer_empty_from_round",
+     "per_unit": 68.0,
+     "registered": 111.0,
+     "rule_move": 43.0,
+     "stream": 87.0,
+     "stream_move": 24.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/1/production_layer_empty_from_round",
+     "per_unit": 72.0,
+     "registered": 105.0,
+     "rule_move": 33.0,
+     "stream": 83.0,
+     "stream_move": 22.0
+    },
+    {
+     "key": "/results/auction_pre_a3b/prod_units/50",
+     "per_unit": 3.0,
+     "registered": 3.8,
+     "rule_move": 0.7999999999999998,
+     "stream": 3.2,
+     "stream_move": 0.5999999999999996
+    },
+    {
+     "key": "/results/occupancy/prod_holders/50",
+     "per_unit": 16.0,
+     "registered": 19.4,
+     "rule_move": 3.3999999999999986,
+     "stream": 16.6,
+     "stream_move": 2.799999999999997
+    },
+    {
+     "key": "/paths/occupancy/0/production_layer_empty_from_round",
+     "per_unit": 155.0,
+     "registered": 132.0,
+     "rule_move": 23.0,
+     "stream": 138.0,
+     "stream_move": 6.0
+    },
+    {
+     "key": "/results/auction_pre_a3b/prod_units/25",
+     "per_unit": 8.8,
+     "registered": 10.6,
+     "rule_move": 1.799999999999999,
+     "stream": 9.6,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/paths/auction_pre_a3b/0/financial_nodes_that_sold_out_and_held_again",
+     "per_unit": 29.0,
+     "registered": 25.0,
+     "rule_move": 4.0,
+     "stream": 26.0,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/paths/occupancy/2/production_layer_empty_from_round",
+     "per_unit": 112.0,
+     "registered": 132.0,
+     "rule_move": 20.0,
+     "stream": 139.0,
+     "stream_move": 7.0
+    },
+    {
+     "key": "/results/auction_pre_a3b/prod_holders/25",
+     "per_unit": 8.8,
+     "registered": 10.2,
+     "rule_move": 1.3999999999999986,
+     "stream": 9.4,
+     "stream_move": 0.7999999999999989
+    },
+    {
+     "key": "/results/auction/ownership/200",
+     "per_unit": 0.08800000000000001,
+     "registered": 0.08,
+     "rule_move": 0.008000000000000007,
+     "stream": 0.084,
+     "stream_move": 0.0040000000000000036
+    },
+    {
+     "key": "/results/continuous/ownership/200",
+     "per_unit": 0.08800000000000001,
+     "registered": 0.08,
+     "rule_move": 0.008000000000000007,
+     "stream": 0.084,
+     "stream_move": 0.0040000000000000036
+    },
+    {
+     "key": "/results/occupancy/ownership/50",
+     "per_unit": 0.172,
+     "registered": 0.187,
+     "rule_move": 0.015000000000000013,
+     "stream": 0.17700000000000002,
+     "stream_move": 0.009999999999999981
+    },
+    {
+     "key": "/results/auction_pre_a3b/ownership/300",
+     "per_unit": 0.082,
+     "registered": 0.07600000000000001,
+     "rule_move": 0.0059999999999999915,
+     "stream": 0.07500000000000001,
+     "stream_move": 0.0010000000000000009
+    },
+    {
+     "key": "/a3_4_by_construction/auction/ledger",
+     "per_unit": 0.3109058838,
+     "registered": 0.2883066028,
+     "rule_move": 0.022599281000000027,
+     "stream": 0.2924359636,
+     "stream_move": 0.004129360800000037
+    },
+    {
+     "key": "/a3_4_by_construction/continuous/ledger",
+     "per_unit": 0.3109058838,
+     "registered": 0.2883066028,
+     "rule_move": 0.022599281000000027,
+     "stream": 0.2924359636,
+     "stream_move": 0.004129360800000037
+    },
+    {
+     "key": "/results/auction_pre_a3b/ownership/100",
+     "per_unit": 0.083,
+     "registered": 0.077,
+     "rule_move": 0.006000000000000005,
+     "stream": 0.07400000000000001,
+     "stream_move": 0.002999999999999989
+    },
+    {
+     "key": "/results/auction_pre_a3b/ownership/200",
+     "per_unit": 0.08,
+     "registered": 0.075,
+     "rule_move": 0.0050000000000000044,
+     "stream": 0.07,
+     "stream_move": 0.0049999999999999906
+    },
+    {
+     "key": "/paths/auction/0/production_layer_empty_from_round",
+     "per_unit": 85.0,
+     "registered": 90.0,
+     "rule_move": 5.0,
+     "stream": 94.0,
+     "stream_move": 4.0
+    },
+    {
+     "key": "/paths/continuous/0/production_layer_empty_from_round",
+     "per_unit": 85.0,
+     "registered": 90.0,
+     "rule_move": 5.0,
+     "stream": 94.0,
+     "stream_move": 4.0
+    },
+    {
+     "key": "/a3_4_by_construction/auction_pre_a3b/graph",
+     "per_unit": 0.394591865,
+     "registered": 0.3768622047,
+     "rule_move": 0.017729660300000005,
+     "stream": 0.3613051537,
+     "stream_move": 0.015557050999999988
+    },
+    {
+     "key": "/results/auction/prod_units/1",
+     "per_unit": 23.6,
+     "registered": 22.6,
+     "rule_move": 1.0,
+     "stream": 22.0,
+     "stream_move": 0.6000000000000014
+    },
+    {
+     "key": "/results/continuous/prod_units/1",
+     "per_unit": 23.6,
+     "registered": 22.6,
+     "rule_move": 1.0,
+     "stream": 22.0,
+     "stream_move": 0.6000000000000014
+    },
+    {
+     "key": "/results/auction_pre_a3b/ownership/25",
+     "per_unit": 0.132,
+     "registered": 0.13699999999999998,
+     "rule_move": 0.004999999999999977,
+     "stream": 0.133,
+     "stream_move": 0.003999999999999976
+    },
+    {
+     "key": "/results/auction_pre_a3b/prod_holders/1",
+     "per_unit": 23.2,
+     "registered": 22.6,
+     "rule_move": 0.5999999999999979,
+     "stream": 22.4,
+     "stream_move": 0.20000000000000284
+    },
+    {
+     "key": "/results/occupancy/ownership/200",
+     "per_unit": 0.089,
+     "registered": 0.08700000000000001,
+     "rule_move": 0.001999999999999988,
+     "stream": 0.08700000000000001,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/results/auction/ownership/1",
+     "per_unit": 0.21600000000000003,
+     "registered": 0.213,
+     "rule_move": 0.0030000000000000304,
+     "stream": 0.21000000000000002,
+     "stream_move": 0.002999999999999975
+    },
+    {
+     "key": "/results/continuous/ownership/1",
+     "per_unit": 0.21600000000000003,
+     "registered": 0.213,
+     "rule_move": 0.0030000000000000304,
+     "stream": 0.21000000000000002,
+     "stream_move": 0.002999999999999975
+    },
+    {
+     "key": "/results/occupancy/ownership/300",
+     "per_unit": 0.089,
+     "registered": 0.08800000000000001,
+     "rule_move": 0.000999999999999987,
+     "stream": 0.08800000000000001,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/results/auction_pre_a3b/prod_units/1",
+     "per_unit": 23.6,
+     "registered": 23.4,
+     "rule_move": 0.20000000000000284,
+     "stream": 23.2,
+     "stream_move": 0.1999999999999993
+    },
+    {
+     "key": "/results/occupancy/prod_holders/1",
+     "per_unit": 124.8,
+     "registered": 124.0,
+     "rule_move": 0.7999999999999972,
+     "stream": 123.4,
+     "stream_move": 0.5999999999999943
+    },
+    {
+     "key": "/results/occupancy/prod_units/1",
+     "per_unit": 125.2,
+     "registered": 124.4,
+     "rule_move": 0.7999999999999972,
+     "stream": 123.8,
+     "stream_move": 0.6000000000000085
+    },
+    {
+     "key": "/results/occupancy/ownership/1",
+     "per_unit": 0.724,
+     "registered": 0.72,
+     "rule_move": 0.0040000000000000036,
+     "stream": 0.717,
+     "stream_move": 0.0030000000000000027
+    }
+   ],
+   "rule_beyond_stream_count": 115,
+   "verdicts": {
+    "per_unit": {},
+    "registered": {},
+    "stream": {}
+   },
+   "verdicts_that_differ": {}
+  },
+  "a3c": {
+   "exit": {
+    "per_unit": "written",
+    "registered": "written",
+    "stream": "written"
+   },
+   "moved_by_per_unit": 94,
+   "moved_by_stream": 93,
+   "numbers_compared": 284,
+   "rule_beyond_stream": [
+    {
+     "key": "/cells/H1_only/peripheral_mean",
+     "per_unit": 5.204540020567883,
+     "registered": -0.30170196806609295,
+     "rule_move": 5.506241988633976,
+     "stream": 2.8351459270958856,
+     "stream_move": 3.1368478951619787
+    },
+    {
+     "key": "/cells/both/peripheral_mean",
+     "per_unit": 4.0061650487553235,
+     "registered": -0.9027352378500059,
+     "rule_move": 4.90890028660533,
+     "stream": 0.4646417790753478,
+     "stream_move": 1.3673770169253536
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/4/node_tier_rounds",
+     "per_unit": 472.0,
+     "registered": 84.0,
+     "rule_move": 388.0,
+     "stream": 134.0,
+     "stream_move": 50.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/4/rounds",
+     "per_unit": 226.0,
+     "registered": 51.0,
+     "rule_move": 175.0,
+     "stream": 37.0,
+     "stream_move": 14.0
+    },
+    {
+     "key": "/pricing_pool/single_channel_cells/largest_at/seed",
+     "per_unit": 4.0,
+     "registered": 1.0,
+     "rule_move": 3.0,
+     "stream": 1.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/1/rounds",
+     "per_unit": 227.0,
+     "registered": 64.0,
+     "rule_move": 163.0,
+     "stream": 76.0,
+     "stream_move": 12.0
+    },
+    {
+     "key": "/cells/H0_only/gap_by_seed/1",
+     "per_unit": -1.724591468353276,
+     "registered": 1.5311668444601698,
+     "rule_move": 3.2557583128134455,
+     "stream": 2.241914555005021,
+     "stream_move": 0.7107477105448512
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/2/rounds",
+     "per_unit": 206.0,
+     "registered": 71.0,
+     "rule_move": 135.0,
+     "stream": 62.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/H0_only/gap_by_seed/1",
+     "per_unit": -1.316258,
+     "registered": 1.541131,
+     "rule_move": 2.857389,
+     "stream": 2.240084,
+     "stream_move": 0.6989529999999999
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/rounds",
+     "per_unit": 1193.0,
+     "registered": 419.0,
+     "rule_move": 774.0,
+     "stream": 362.0,
+     "stream_move": 57.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/4/rounds",
+     "per_unit": 282.0,
+     "registered": 103.0,
+     "rule_move": 179.0,
+     "stream": 132.0,
+     "stream_move": 29.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/2/node_tier_rounds",
+     "per_unit": 597.0,
+     "registered": 222.0,
+     "rule_move": 375.0,
+     "stream": 197.0,
+     "stream_move": 25.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/4/node_tier_rounds",
+     "per_unit": 738.0,
+     "registered": 280.0,
+     "rule_move": 458.0,
+     "stream": 348.0,
+     "stream_move": 68.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/0/rounds",
+     "per_unit": 262.0,
+     "registered": 102.0,
+     "rule_move": 160.0,
+     "stream": 71.0,
+     "stream_move": 31.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/3/node_tier_rounds",
+     "per_unit": 611.0,
+     "registered": 251.0,
+     "rule_move": 360.0,
+     "stream": 302.0,
+     "stream_move": 51.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/1/node_tier_rounds",
+     "per_unit": 471.0,
+     "registered": 194.0,
+     "rule_move": 277.0,
+     "stream": 265.0,
+     "stream_move": 71.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/2/rounds",
+     "per_unit": 234.0,
+     "registered": 100.0,
+     "rule_move": 134.0,
+     "stream": 81.0,
+     "stream_move": 19.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/node_tier_rounds",
+     "per_unit": 2564.0,
+     "registered": 1128.0,
+     "rule_move": 1436.0,
+     "stream": 1029.0,
+     "stream_move": 99.0
+    },
+    {
+     "key": "/pricing_pool/single_channel_cells/rounds",
+     "per_unit": 2551.0,
+     "registered": 1132.0,
+     "rule_move": 1419.0,
+     "stream": 1036.0,
+     "stream_move": 96.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/4/largest_relative_price_gap",
+     "per_unit": 0.04682099,
+     "registered": 0.02217698,
+     "rule_move": 0.02464401,
+     "stream": 0.02051609,
+     "stream_move": 0.0016608899999999982
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/3/rounds",
+     "per_unit": 272.0,
+     "registered": 131.0,
+     "rule_move": 141.0,
+     "stream": 116.0,
+     "stream_move": 15.0
+    },
+    {
+     "key": "/cells/H0_only/gap_by_seed/3",
+     "per_unit": -0.30409299615093344,
+     "registered": 7.125400357576827,
+     "rule_move": 7.42949335372776,
+     "stream": 0.38483327409396617,
+     "stream_move": 6.74056708348286
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/H0_only/gap_by_seed/4",
+     "per_unit": 0.005047,
+     "registered": -16.256231,
+     "rule_move": 16.261278,
+     "stream": -5.284498,
+     "stream_move": 10.971733
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/0/node_tier_rounds",
+     "per_unit": 560.0,
+     "registered": 282.0,
+     "rule_move": 278.0,
+     "stream": 122.0,
+     "stream_move": 160.0
+    },
+    {
+     "key": "/cells/H0_only/gap_by_seed/4",
+     "per_unit": -0.9160059185853313,
+     "registered": -16.256578157894822,
+     "rule_move": 15.340572239309491,
+     "stream": -5.292694549609913,
+     "stream_move": 10.96388360828491
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/1/rounds",
+     "per_unit": 288.0,
+     "registered": 150.0,
+     "rule_move": 138.0,
+     "stream": 136.0,
+     "stream_move": 14.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/rounds",
+     "per_unit": 1358.0,
+     "registered": 713.0,
+     "rule_move": 645.0,
+     "stream": 674.0,
+     "stream_move": 39.0
+    },
+    {
+     "key": "/cells/H0_only/gap_range/0",
+     "per_unit": -1.724591468353276,
+     "registered": -16.256578157894822,
+     "rule_move": 14.531986689541545,
+     "stream": -5.292694549609913,
+     "stream_move": 10.96388360828491
+    },
+    {
+     "key": "/cells/H0_only/gap_range/1",
+     "per_unit": 1.6908438438477185,
+     "registered": 10.621195986082995,
+     "rule_move": 8.930352142235277,
+     "stream": 2.241914555005021,
+     "stream_move": 8.379281431077974
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/both/gap_by_seed/2",
+     "per_unit": 6.902167,
+     "registered": 38.310804,
+     "rule_move": 31.408637,
+     "stream": 7.396061,
+     "stream_move": 30.914742999999998
+    },
+    {
+     "key": "/cells/both/gap_by_seed/2",
+     "per_unit": 6.902167151096595,
+     "registered": 38.31080373592391,
+     "rule_move": 31.408636584827317,
+     "stream": 7.396061382235013,
+     "stream_move": 30.9147423536889
+    },
+    {
+     "key": "/cells/H0_only/central_mean",
+     "per_unit": -0.23656363735571193,
+     "registered": -1.274221753801512,
+     "rule_move": 1.0376581164458,
+     "stream": -1.6852001551032765,
+     "stream_move": 0.41097840130176455
+    },
+    {
+     "key": "/pricing_pool/single_channel_cells/node_tier_rounds",
+     "per_unit": 6188.0,
+     "registered": 3446.0,
+     "rule_move": 2742.0,
+     "stream": 3040.0,
+     "stream_move": 406.0
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/both/gap_by_seed/3",
+     "per_unit": 7.161768,
+     "registered": 30.490416,
+     "rule_move": 23.328648,
+     "stream": 17.92254,
+     "stream_move": 12.567875999999998
+    },
+    {
+     "key": "/cells/both/gap_by_seed/3",
+     "per_unit": 7.161768438879929,
+     "registered": 30.4904158976372,
+     "rule_move": 23.32864745875727,
+     "stream": 17.922540406558387,
+     "stream_move": 12.567875491078812
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/0/rounds",
+     "per_unit": 279.0,
+     "registered": 159.0,
+     "rule_move": 120.0,
+     "stream": 141.0,
+     "stream_move": 18.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/2/largest_relative_price_gap",
+     "per_unit": 0.02081545,
+     "registered": 0.01211467,
+     "rule_move": 0.00870078,
+     "stream": 0.01196823,
+     "stream_move": 0.00014643999999999942
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/H1_only/gap_by_seed/3",
+     "per_unit": 7.970912,
+     "registered": 27.112394,
+     "rule_move": 19.141481999999996,
+     "stream": 21.796855,
+     "stream_move": 5.315538999999998
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/2/largest_relative_price_gap",
+     "per_unit": 0.01679632,
+     "registered": 0.04770027,
+     "rule_move": 0.030903950000000003,
+     "stream": 0.02021497,
+     "stream_move": 0.027485300000000004
+    },
+    {
+     "key": "/cells/H1_only/gap_by_seed/3",
+     "per_unit": 10.160335059531631,
+     "registered": 27.17354988596542,
+     "rule_move": 17.01321482643379,
+     "stream": 21.910721097473264,
+     "stream_move": 5.262828788492158
+    },
+    {
+     "key": "/cells/both/gap_range/1",
+     "per_unit": 15.5691940862345,
+     "registered": 38.31080373592391,
+     "rule_move": 22.741609649689412,
+     "stream": 36.000535312399485,
+     "stream_move": 2.310268423524427
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/node_tier_rounds",
+     "per_unit": 3624.0,
+     "registered": 2318.0,
+     "rule_move": 1306.0,
+     "stream": 2011.0,
+     "stream_move": 307.0
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/both/gap_mean",
+     "per_unit": 10.963879,
+     "registered": 23.266654,
+     "rule_move": 12.302774999999999,
+     "stream": 20.148705,
+     "stream_move": 3.1179489999999994
+    },
+    {
+     "key": "/cells/both/gap_mean",
+     "per_unit": 10.963879264535857,
+     "registered": 23.266653908465443,
+     "rule_move": 12.302774643929586,
+     "stream": 20.14870536436401,
+     "stream_move": 3.1179485441014343
+    },
+    {
+     "key": "/cells/both/gap_net_of_stretch",
+     "per_unit": 10.976321690199134,
+     "registered": 23.279096334128724,
+     "rule_move": 12.30277464392959,
+     "stream": 20.161147790027286,
+     "stream_move": 3.117948544101438
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/both/gap_net_of_stretch",
+     "per_unit": 10.976322,
+     "registered": 23.279096,
+     "rule_move": 12.302774,
+     "stream": 20.161148,
+     "stream_move": 3.1179479999999984
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/H1_only/gap_mean",
+     "per_unit": 10.520402,
+     "registered": 20.378268,
+     "rule_move": 9.857865999999998,
+     "stream": 20.075211,
+     "stream_move": 0.303056999999999
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/H1_only/gap_net_of_stretch",
+     "per_unit": 10.590929,
+     "registered": 20.448796,
+     "rule_move": 9.857867000000002,
+     "stream": 20.145739,
+     "stream_move": 0.3030570000000026
+    },
+    {
+     "key": "/cells/H1_only/gap_mean",
+     "per_unit": 11.460323231053831,
+     "registered": 21.671388460880383,
+     "rule_move": 10.211065229826552,
+     "stream": 19.24328896602401,
+     "stream_move": 2.4280994948563723
+    },
+    {
+     "key": "/cells/H1_only/gap_net_of_stretch",
+     "per_unit": 11.5308510827512,
+     "registered": 21.741916312577747,
+     "rule_move": 10.211065229826547,
+     "stream": 19.31381681772138,
+     "stream_move": 2.4280994948563652
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/0/node_tier_rounds",
+     "per_unit": 759.0,
+     "registered": 520.0,
+     "rule_move": 239.0,
+     "stream": 426.0,
+     "stream_move": 94.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/2/node_tier_rounds",
+     "per_unit": 450.0,
+     "registered": 317.0,
+     "rule_move": 133.0,
+     "stream": 206.0,
+     "stream_move": 111.0
+    },
+    {
+     "key": "/cells/both/gap_range/0",
+     "per_unit": 6.902167151096595,
+     "registered": 10.960021267027644,
+     "rule_move": 4.057854115931049,
+     "stream": 7.396061382235013,
+     "stream_move": 3.563959884792631
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/3/rounds",
+     "per_unit": 275.0,
+     "registered": 201.0,
+     "rule_move": 74.0,
+     "stream": 184.0,
+     "stream_move": 17.0
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/1/largest_relative_price_gap",
+     "per_unit": 0.02700934,
+     "registered": 0.04070532,
+     "rule_move": 0.013695980000000003,
+     "stream": 0.0464717,
+     "stream_move": 0.0057663799999999946
+    },
+    {
+     "key": "/cells/both/central_mean",
+     "per_unit": 14.97004431329118,
+     "registered": 22.36391867061544,
+     "rule_move": 7.393874357324261,
+     "stream": 20.61334714343936,
+     "stream_move": 1.7505715271760813
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/0/largest_relative_price_gap",
+     "per_unit": 0.02844382,
+     "registered": 0.02139098,
+     "rule_move": 0.007052840000000001,
+     "stream": 0.0222412,
+     "stream_move": 0.0008502199999999988
+    },
+    {
+     "key": "/pool_on_gate_terms/cells/H1_only/gap_by_seed/4",
+     "per_unit": 16.368905,
+     "registered": 23.468382,
+     "rule_move": 7.099476999999997,
+     "stream": 25.466598,
+     "stream_move": 1.9982160000000029
+    },
+    {
+     "key": "/pricing_pool/by_cell/H1_only/by_seed/3/largest_relative_price_gap",
+     "per_unit": 0.01692256,
+     "registered": 0.02281628,
+     "rule_move": 0.005893720000000002,
+     "stream": 0.02286789,
+     "stream_move": 5.1609999999997075e-05
+    },
+    {
+     "key": "/pricing_pool/by_cell/H0_only/by_seed/3/node_tier_rounds",
+     "per_unit": 777.0,
+     "registered": 622.0,
+     "rule_move": 155.0,
+     "stream": 620.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/cells/H1_only/central_mean",
+     "per_unit": 16.664863251621714,
+     "registered": 21.36968649281429,
+     "rule_move": 4.704823241192575,
+     "stream": 22.078434893119898,
+     "stream_move": 0.708748400305609
+    },
+    {
+     "key": "/cells/H1_only/gap_by_seed/4",
+     "per_unit": 18.828143866969114,
+     "registered": 23.291518967314623,
+     "rule_move": 4.463375100345509,
+     "stream": 20.291517658181043,
+     "stream_move": 3.00000130913358
+    }
+   ],
+   "rule_beyond_stream_count": 62,
+   "verdicts": {
+    "per_unit": {
+     "A3-8  removing the holonomy removes the divergence": "void"
+    },
+    "registered": {
+     "A3-8  removing the holonomy removes the divergence": "void"
+    },
+    "stream": {
+     "A3-8  removing the holonomy removes the divergence": "void"
+    }
+   },
+   "verdicts_that_differ": {}
+  },
+  "a47_block3": {
+   "exit": {
+    "per_unit": "written",
+    "registered": "written",
+    "stream": "written"
+   },
+   "moved_by_per_unit": 71,
+   "moved_by_stream": 70,
+   "numbers_compared": 405,
+   "rule_beyond_stream": [
+    {
+     "key": "/preview_seed0/carrier + wage cap/sales_total",
+     "per_unit": 3899.0,
+     "registered": 298.0,
+     "rule_move": 3601.0,
+     "stream": 280.0,
+     "stream_move": 18.0
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/sales_total",
+     "per_unit": 3883.0,
+     "registered": 298.0,
+     "rule_move": 3585.0,
+     "stream": 280.0,
+     "stream_move": 18.0
+    },
+    {
+     "key": "/preview_seed0/carrier/sales_total",
+     "per_unit": 3883.0,
+     "registered": 298.0,
+     "rule_move": 3585.0,
+     "stream": 280.0,
+     "stream_move": 18.0
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/gap_post",
+     "per_unit": 0.004,
+     "registered": 0.0009,
+     "rule_move": 0.0031000000000000003,
+     "stream": 0.0011,
+     "stream_move": 0.0002000000000000001
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/square",
+     "per_unit": 0.004,
+     "registered": 0.0009,
+     "rule_move": 0.0031000000000000003,
+     "stream": 0.0011,
+     "stream_move": 0.0002000000000000001
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/net_worth_production_layer_share",
+     "per_unit": 0.0182,
+     "registered": 0.0114,
+     "rule_move": 0.0068000000000000005,
+     "stream": 0.0114,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/preview_seed0/carrier/net_worth_production_layer_share",
+     "per_unit": 0.0182,
+     "registered": 0.0114,
+     "rule_move": 0.0068000000000000005,
+     "stream": 0.0114,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/net_worth_production_layer_share",
+     "per_unit": 0.0177,
+     "registered": 0.0119,
+     "rule_move": 0.0058,
+     "stream": 0.012,
+     "stream_move": 9.99999999999994e-05
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/owners_end",
+     "per_unit": 25.0,
+     "registered": 19.0,
+     "rule_move": 6.0,
+     "stream": 21.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/owners_end",
+     "per_unit": 24.0,
+     "registered": 19.0,
+     "rule_move": 5.0,
+     "stream": 21.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/preview_seed0/carrier/owners_end",
+     "per_unit": 24.0,
+     "registered": 19.0,
+     "rule_move": 5.0,
+     "stream": 21.0,
+     "stream_move": 2.0
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/price_end_by_tier/2",
+     "per_unit": 40.8365,
+     "registered": 51.197,
+     "rule_move": 10.360500000000002,
+     "stream": 50.749,
+     "stream_move": 0.4480000000000004
+    },
+    {
+     "key": "/preview_seed0/carrier/price_end_by_tier/2",
+     "per_unit": 40.8488,
+     "registered": 51.1984,
+     "rule_move": 10.349600000000002,
+     "stream": 50.7518,
+     "stream_move": 0.44659999999999656
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/price_end_by_tier/2",
+     "per_unit": 41.0841,
+     "registered": 50.5184,
+     "rule_move": 9.4343,
+     "stream": 50.0283,
+     "stream_move": 0.4900999999999982
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/gap_post",
+     "per_unit": 0.6362,
+     "registered": 0.7669,
+     "rule_move": 0.13070000000000004,
+     "stream": 0.7573,
+     "stream_move": 0.009600000000000053
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/square",
+     "per_unit": 0.6362,
+     "registered": 0.7669,
+     "rule_move": 0.13070000000000004,
+     "stream": 0.7573,
+     "stream_move": 0.009600000000000053
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/levied_total",
+     "per_unit": 11929.35,
+     "registered": 14071.91,
+     "rule_move": 2142.5599999999995,
+     "stream": 13977.27,
+     "stream_move": 94.63999999999942
+    },
+    {
+     "key": "/preview_seed0/carrier/levied_total",
+     "per_unit": 11930.0,
+     "registered": 14072.1,
+     "rule_move": 2142.1000000000004,
+     "stream": 13977.52,
+     "stream_move": 94.57999999999993
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/sales_total",
+     "per_unit": 535.0,
+     "registered": 465.0,
+     "rule_move": 70.0,
+     "stream": 486.0,
+     "stream_move": 21.0
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/levied_total",
+     "per_unit": 11872.85,
+     "registered": 13953.15,
+     "rule_move": 2080.2999999999993,
+     "stream": 13861.19,
+     "stream_move": 91.95999999999913
+    },
+    {
+     "key": "/preview_seed0/bound, market, public + wage cap/sales_total",
+     "per_unit": 535.0,
+     "registered": 466.0,
+     "rule_move": 69.0,
+     "stream": 486.0,
+     "stream_move": 20.0
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/regulated_paid_over_uncapped_end",
+     "per_unit": 0.5296,
+     "registered": 0.4667,
+     "rule_move": 0.06289999999999996,
+     "stream": 0.4678,
+     "stream_move": 0.0010999999999999899
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/price_end_by_tier/1",
+     "per_unit": 18.1429,
+     "registered": 20.9663,
+     "rule_move": 2.8233999999999995,
+     "stream": 20.8445,
+     "stream_move": 0.12180000000000035
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/price_end_by_tier/1",
+     "per_unit": 18.0148,
+     "registered": 20.7697,
+     "rule_move": 2.7548999999999992,
+     "stream": 20.655,
+     "stream_move": 0.11469999999999914
+    },
+    {
+     "key": "/preview_seed0/carrier/price_end_by_tier/1",
+     "per_unit": 18.0173,
+     "registered": 20.7699,
+     "rule_move": 2.752600000000001,
+     "stream": 20.6553,
+     "stream_move": 0.11459999999999937
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/sale_price_low_tier_r149",
+     "per_unit": 1.2328,
+     "registered": 1.4052,
+     "rule_move": 0.1724000000000001,
+     "stream": 1.3938,
+     "stream_move": 0.011400000000000077
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/sale_price_low_tier_r149",
+     "per_unit": 1.2328,
+     "registered": 1.4052,
+     "rule_move": 0.1724000000000001,
+     "stream": 1.3938,
+     "stream_move": 0.011400000000000077
+    },
+    {
+     "key": "/preview_seed0/carrier/sale_price_low_tier_r149",
+     "per_unit": 1.2328,
+     "registered": 1.4052,
+     "rule_move": 0.1724000000000001,
+     "stream": 1.3938,
+     "stream_move": 0.011400000000000077
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/sale_price_low_tier_r199",
+     "per_unit": 1.2395,
+     "registered": 1.4107,
+     "rule_move": 0.17120000000000002,
+     "stream": 1.4047,
+     "stream_move": 0.006000000000000005
+    },
+    {
+     "key": "/preview_seed0/carrier/sale_price_low_tier_r199",
+     "per_unit": 1.2436,
+     "registered": 1.4121,
+     "rule_move": 0.16849999999999987,
+     "stream": 1.401,
+     "stream_move": 0.011099999999999888
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/sale_price_low_tier_r199",
+     "per_unit": 1.2436,
+     "registered": 1.412,
+     "rule_move": 0.16839999999999988,
+     "stream": 1.401,
+     "stream_move": 0.010999999999999899
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/price_ratio_end_to_start_low_tier",
+     "per_unit": 2.493,
+     "registered": 2.8251,
+     "rule_move": 0.33210000000000006,
+     "stream": 2.809,
+     "stream_move": 0.01609999999999978
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/price_end_by_tier/0",
+     "per_unit": 1.2465,
+     "registered": 1.4125,
+     "rule_move": 0.16600000000000015,
+     "stream": 1.4045,
+     "stream_move": 0.008000000000000007
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/rent_total",
+     "per_unit": 3508.8569,
+     "registered": 3967.0537,
+     "rule_move": 458.1967999999997,
+     "stream": 3938.9754,
+     "stream_move": 28.078300000000127
+    },
+    {
+     "key": "/preview_seed0/carrier/rent_total",
+     "per_unit": 3511.9892,
+     "registered": 3967.9598,
+     "rule_move": 455.9706000000001,
+     "stream": 3940.2295,
+     "stream_move": 27.73030000000017
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/price_end_by_tier/0",
+     "per_unit": 1.2453,
+     "registered": 1.4047,
+     "rule_move": 0.1594,
+     "stream": 1.3937,
+     "stream_move": 0.01100000000000012
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/price_ratio_end_to_start_low_tier",
+     "per_unit": 2.4906,
+     "registered": 2.8093,
+     "rule_move": 0.31869999999999976,
+     "stream": 2.7874,
+     "stream_move": 0.02190000000000003
+    },
+    {
+     "key": "/preview_seed0/carrier/price_ratio_end_to_start_low_tier",
+     "per_unit": 2.4907,
+     "registered": 2.8093,
+     "rule_move": 0.3186,
+     "stream": 2.7874,
+     "stream_move": 0.02190000000000003
+    },
+    {
+     "key": "/preview_seed0/carrier/price_end_by_tier/0",
+     "per_unit": 1.2454,
+     "registered": 1.4047,
+     "rule_move": 0.1593,
+     "stream": 1.3937,
+     "stream_move": 0.01100000000000012
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/owners_end",
+     "per_unit": 38.0,
+     "registered": 40.0,
+     "rule_move": 2.0,
+     "stream": 41.0,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/rent_total",
+     "per_unit": 3239.4579,
+     "registered": 3396.486,
+     "rule_move": 157.0281,
+     "stream": 3368.9543,
+     "stream_move": 27.5317
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/liquidations_total",
+     "per_unit": 245.0,
+     "registered": 235.0,
+     "rule_move": 10.0,
+     "stream": 240.0,
+     "stream_move": 5.0
+    },
+    {
+     "key": "/preview_seed0/bound, market, listed 0.271/sales_total",
+     "per_unit": 545.0,
+     "registered": 568.0,
+     "rule_move": 23.0,
+     "stream": 576.0,
+     "stream_move": 8.0
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/landlord_sales_total",
+     "per_unit": 240.0,
+     "registered": 232.0,
+     "rule_move": 8.0,
+     "stream": 238.0,
+     "stream_move": 6.0
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/net_worth_production_layer_share",
+     "per_unit": 0.4112,
+     "registered": 0.4197,
+     "rule_move": 0.008500000000000008,
+     "stream": 0.4166,
+     "stream_move": 0.0030999999999999917
+    },
+    {
+     "key": "/preview_seed0/bound, market, public + wage cap/net_worth_production_layer_share",
+     "per_unit": 0.4139,
+     "registered": 0.4205,
+     "rule_move": 0.006599999999999995,
+     "stream": 0.4152,
+     "stream_move": 0.005299999999999971
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/regulated_paid_over_uncapped_end",
+     "per_unit": 0.9846,
+     "registered": 1.0,
+     "rule_move": 0.01539999999999997,
+     "stream": 1.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/net_worth_top_decile_share",
+     "per_unit": 0.5975,
+     "registered": 0.5906,
+     "rule_move": 0.006900000000000017,
+     "stream": 0.5944,
+     "stream_move": 0.0038000000000000256
+    },
+    {
+     "key": "/preview_seed0/bound, market, public/landlord_units_end",
+     "per_unit": 182.0,
+     "registered": 180.0,
+     "rule_move": 2.0,
+     "stream": 179.0,
+     "stream_move": 1.0
+    },
+    {
+     "key": "/preview_seed0/bound, market, listed 0.271/net_worth_production_layer_share",
+     "per_unit": 0.1037,
+     "registered": 0.1028,
+     "rule_move": 0.000899999999999998,
+     "stream": 0.1036,
+     "stream_move": 0.0007999999999999952
+    },
+    {
+     "key": "/preview_seed0/carrier + berlin cap/net_worth_top_decile_share",
+     "per_unit": 0.9826,
+     "registered": 0.9901,
+     "rule_move": 0.007499999999999951,
+     "stream": 0.9898,
+     "stream_move": 0.00029999999999996696
+    },
+    {
+     "key": "/preview_seed0/carrier/net_worth_top_decile_share",
+     "per_unit": 0.9826,
+     "registered": 0.9901,
+     "rule_move": 0.007499999999999951,
+     "stream": 0.9898,
+     "stream_move": 0.00029999999999996696
+    },
+    {
+     "key": "/preview_seed0/carrier + wage cap/net_worth_top_decile_share",
+     "per_unit": 0.9824,
+     "registered": 0.9896,
+     "rule_move": 0.007199999999999984,
+     "stream": 0.9892,
+     "stream_move": 0.00040000000000006697
+    },
+    {
+     "key": "/preview_seed0/bound, market, public + wage cap/net_worth_top_decile_share",
+     "per_unit": 0.5968,
+     "registered": 0.5925,
+     "rule_move": 0.0042999999999999705,
+     "stream": 0.5958,
+     "stream_move": 0.0032999999999999696
+    },
+    {
+     "key": "/preview_seed0/bound, market, public + wage cap/rent_total",
+     "per_unit": 1525.6437,
+     "registered": 1517.1532,
+     "rule_move": 8.490500000000111,
+     "stream": 1525.4104,
+     "stream_move": 8.257200000000012
+    },
+    {
+     "key": "/preview_seed0/bound, market, listed 0.271/rent_total",
+     "per_unit": 1183.975,
+     "registered": 1180.8,
+     "rule_move": 3.1749999999999545,
+     "stream": 1177.95,
+     "stream_move": 2.849999999999909
+    },
+    {
+     "key": "/preview_seed0/bound, market, listed 0.271/exited_total",
+     "per_unit": 320.8572,
+     "registered": 319.9968,
+     "rule_move": 0.8603999999999701,
+     "stream": 319.2245,
+     "stream_move": 0.7723000000000297
+    },
+    {
+     "key": "/preview_seed0/bound, market, listed 0.271/net_worth_top_decile_share",
+     "per_unit": 0.8963,
+     "registered": 0.8972,
+     "rule_move": 0.0009000000000000119,
+     "stream": 0.8964,
+     "stream_move": 0.0008000000000000229
+    }
+   ],
+   "rule_beyond_stream_count": 58,
+   "verdicts": {
+    "per_unit": {
+     "A47-1": "pass",
+     "A47-1b": "fail",
+     "A47-5": "pass",
+     "A47-6": "pass",
+     "A47-7": "pass"
+    },
+    "registered": {
+     "A47-1": "pass",
+     "A47-1b": "pass",
+     "A47-5": "pass",
+     "A47-6": "pass",
+     "A47-7": "pass"
+    },
+    "stream": {
+     "A47-1": "pass",
+     "A47-1b": "fail",
+     "A47-5": "pass",
+     "A47-6": "pass",
+     "A47-7": "pass"
+    }
+   },
+   "verdicts_that_differ": {
+    "A47-1b": {
+     "per_unit": "fail",
+     "registered": "pass",
+     "stream": "fail"
+    }
+   }
+  },
+  "a4a": {
+   "exit": {
+    "per_unit": 0,
+    "registered": 0,
+    "stream": 0
+   },
+   "moved_by_per_unit": 83,
+   "moved_by_stream": 40,
+   "numbers_compared": 103,
+   "rule_beyond_stream": [
+    {
+     "key": "line0104#0",
+     "per_unit": 0.5,
+     "registered": 0.0,
+     "rule_move": 0.5,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0105#0",
+     "per_unit": 0.5,
+     "registered": 0.0,
+     "rule_move": 0.5,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0106#0",
+     "per_unit": 0.5,
+     "registered": 0.0,
+     "rule_move": 0.5,
+     "stream": 0.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0091#1",
+     "per_unit": 3313.2,
+     "registered": 8.0,
+     "rule_move": 3305.2,
+     "stream": 8.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0091#0",
+     "per_unit": 3213.2,
+     "registered": 100.0,
+     "rule_move": 3113.2,
+     "stream": 100.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0012#4",
+     "per_unit": 14.8,
+     "registered": 5.6,
+     "rule_move": 9.200000000000001,
+     "stream": 6.4,
+     "stream_move": 0.8000000000000007
+    },
+    {
+     "key": "line0012#1",
+     "per_unit": 14.6,
+     "registered": 5.6,
+     "rule_move": 9.0,
+     "stream": 6.4,
+     "stream_move": 0.8000000000000007
+    },
+    {
+     "key": "line0012#5",
+     "per_unit": 14.6,
+     "registered": 5.6,
+     "rule_move": 9.0,
+     "stream": 6.4,
+     "stream_move": 0.8000000000000007
+    },
+    {
+     "key": "line0057#0",
+     "per_unit": 1.0,
+     "registered": 9.3,
+     "rule_move": 8.3,
+     "stream": 9.3,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0039#3",
+     "per_unit": 17.6,
+     "registered": 99.5,
+     "rule_move": 81.9,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0049#3",
+     "per_unit": 17.6,
+     "registered": 99.5,
+     "rule_move": 81.9,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0021#1",
+     "per_unit": 17.8,
+     "registered": 99.0,
+     "rule_move": 81.2,
+     "stream": 99.5,
+     "stream_move": 0.5
+    },
+    {
+     "key": "line0030#3",
+     "per_unit": 19.0,
+     "registered": 99.0,
+     "rule_move": 80.0,
+     "stream": 99.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0030#1",
+     "per_unit": 19.2,
+     "registered": 99.0,
+     "rule_move": 79.8,
+     "stream": 99.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0039#1",
+     "per_unit": 20.0,
+     "registered": 99.5,
+     "rule_move": 79.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0049#1",
+     "per_unit": 20.0,
+     "registered": 99.5,
+     "rule_move": 79.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0021#3",
+     "per_unit": 20.0,
+     "registered": 99.0,
+     "rule_move": 79.0,
+     "stream": 99.5,
+     "stream_move": 0.5
+    },
+    {
+     "key": "line0039#2",
+     "per_unit": 17.8,
+     "registered": 69.0,
+     "rule_move": 51.2,
+     "stream": 61.0,
+     "stream_move": 8.0
+    },
+    {
+     "key": "line0049#2",
+     "per_unit": 17.6,
+     "registered": 61.0,
+     "rule_move": 43.4,
+     "stream": 61.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0020#2",
+     "per_unit": 30.5,
+     "registered": 90.5,
+     "rule_move": 60.0,
+     "stream": 39.0,
+     "stream_move": 51.5
+    },
+    {
+     "key": "line0021#0",
+     "per_unit": 21.6,
+     "registered": 60.5,
+     "rule_move": 38.9,
+     "stream": 30.5,
+     "stream_move": 30.0
+    },
+    {
+     "key": "line0012#0",
+     "per_unit": 17.0,
+     "registered": 10.4,
+     "rule_move": 6.6,
+     "stream": 10.2,
+     "stream_move": 0.20000000000000107
+    },
+    {
+     "key": "line0020#0",
+     "per_unit": 30.5,
+     "registered": 83.0,
+     "rule_move": 52.5,
+     "stream": 39.0,
+     "stream_move": 44.0
+    },
+    {
+     "key": "line0105#1",
+     "per_unit": 4963.1,
+     "registered": 3088.4,
+     "rule_move": 1874.7000000000003,
+     "stream": 3088.4,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0106#1",
+     "per_unit": 5062.4,
+     "registered": 3215.6,
+     "rule_move": 1846.7999999999997,
+     "stream": 3215.6,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0010#2",
+     "per_unit": 39.0,
+     "registered": 90.5,
+     "rule_move": 51.5,
+     "stream": 87.5,
+     "stream_move": 3.0
+    },
+    {
+     "key": "line0104#1",
+     "per_unit": 5107.3,
+     "registered": 3261.1,
+     "rule_move": 1846.2000000000003,
+     "stream": 3261.1,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0010#0",
+     "per_unit": 39.0,
+     "registered": 83.0,
+     "rule_move": 44.0,
+     "stream": 86.5,
+     "stream_move": 3.5
+    },
+    {
+     "key": "line0018#0",
+     "per_unit": 36.5,
+     "registered": 77.5,
+     "rule_move": 41.0,
+     "stream": 77.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0018#2",
+     "per_unit": 36.5,
+     "registered": 77.5,
+     "rule_move": 41.0,
+     "stream": 77.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0021#2",
+     "per_unit": 30.2,
+     "registered": 60.5,
+     "rule_move": 30.3,
+     "stream": 30.5,
+     "stream_move": 30.0
+    },
+    {
+     "key": "line0028#2",
+     "per_unit": 39.0,
+     "registered": 77.5,
+     "rule_move": 38.5,
+     "stream": 50.0,
+     "stream_move": 27.5
+    },
+    {
+     "key": "line0038#0",
+     "per_unit": 30.5,
+     "registered": 20.5,
+     "rule_move": 10.0,
+     "stream": 20.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0048#0",
+     "per_unit": 30.5,
+     "registered": 20.5,
+     "rule_move": 10.0,
+     "stream": 20.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0037#0",
+     "per_unit": 19.5,
+     "registered": 35.0,
+     "rule_move": 15.5,
+     "stream": 35.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0047#0",
+     "per_unit": 19.5,
+     "registered": 35.0,
+     "rule_move": 15.5,
+     "stream": 35.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0007#0",
+     "per_unit": 46.5,
+     "registered": 80.0,
+     "rule_move": 33.5,
+     "stream": 85.0,
+     "stream_move": 5.0
+    },
+    {
+     "key": "line0007#2",
+     "per_unit": 46.5,
+     "registered": 80.0,
+     "rule_move": 33.5,
+     "stream": 89.0,
+     "stream_move": 9.0
+    },
+    {
+     "key": "line0037#2",
+     "per_unit": 49.0,
+     "registered": 35.0,
+     "rule_move": 14.0,
+     "stream": 35.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0047#2",
+     "per_unit": 49.0,
+     "registered": 35.0,
+     "rule_move": 14.0,
+     "stream": 35.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0028#0",
+     "per_unit": 34.0,
+     "registered": 50.0,
+     "rule_move": 16.0,
+     "stream": 50.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0008#2",
+     "per_unit": 73.0,
+     "registered": 95.5,
+     "rule_move": 22.5,
+     "stream": 96.5,
+     "stream_move": 1.0
+    },
+    {
+     "key": "line0048#2",
+     "per_unit": 60.5,
+     "registered": 73.0,
+     "rule_move": 12.5,
+     "stream": 73.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0029#0",
+     "per_unit": 30.5,
+     "registered": 36.5,
+     "rule_move": 6.0,
+     "stream": 36.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0049#0",
+     "per_unit": 41.6,
+     "registered": 36.5,
+     "rule_move": 5.100000000000001,
+     "stream": 36.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0039#0",
+     "per_unit": 41.4,
+     "registered": 36.5,
+     "rule_move": 4.899999999999999,
+     "stream": 36.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0019#0",
+     "per_unit": 39.0,
+     "registered": 36.5,
+     "rule_move": 2.5,
+     "stream": 36.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0102#1",
+     "per_unit": 3088.4,
+     "registered": 3312.3,
+     "rule_move": 223.9000000000001,
+     "stream": 3312.3,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0107#1",
+     "per_unit": 4862.4,
+     "registered": 5107.3,
+     "rule_move": 244.90000000000055,
+     "stream": 5107.3,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0027#0",
+     "per_unit": 36.5,
+     "registered": 35.0,
+     "rule_move": 1.5,
+     "stream": 35.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0017#1",
+     "per_unit": 99.5,
+     "registered": 97.5,
+     "rule_move": 2.0,
+     "stream": 99.0,
+     "stream_move": 1.5
+    },
+    {
+     "key": "line0017#3",
+     "per_unit": 99.5,
+     "registered": 97.5,
+     "rule_move": 2.0,
+     "stream": 99.0,
+     "stream_move": 1.5
+    },
+    {
+     "key": "line0103#1",
+     "per_unit": 3215.6,
+     "registered": 3188.7,
+     "rule_move": 26.90000000000009,
+     "stream": 3188.7,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0029#2",
+     "per_unit": 60.5,
+     "registered": 61.0,
+     "rule_move": 0.5,
+     "stream": 61.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0020#1",
+     "per_unit": 99.5,
+     "registered": 99.0,
+     "rule_move": 0.5,
+     "stream": 99.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0020#3",
+     "per_unit": 99.5,
+     "registered": 99.0,
+     "rule_move": 0.5,
+     "stream": 99.0,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0019#1",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0019#3",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0028#1",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0028#3",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0037#1",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0037#3",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0047#1",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0047#3",
+     "per_unit": 99.0,
+     "registered": 99.5,
+     "rule_move": 0.5,
+     "stream": 99.5,
+     "stream_move": 0.0
+    },
+    {
+     "key": "line0108#1",
+     "per_unit": 4967.9,
+     "registered": 4963.1,
+     "rule_move": 4.799999999999272,
+     "stream": 4963.1,
+     "stream_move": 0.0
+    }
+   ],
+   "rule_beyond_stream_count": 65,
+   "verdicts": {
+    "per_unit": {},
+    "registered": {},
+    "stream": {}
+   },
+   "verdicts_that_differ": {}
+  }
+ }
+}

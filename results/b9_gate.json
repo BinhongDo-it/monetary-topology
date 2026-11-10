@@ -103,7 +103,7 @@
     "a NaN fee survives the loop sum",
     "the cochain agrees with an independent expression"
   ],
-  "note": "退化环 cash→etf→cash 走 path_sum，费用传 NaN，所以任何一次误走含费边都会得到 NaN 而不是零。",
+  "note": "the degenerate loop cash→etf→cash goes through path_sum with the fee passed as NaN, so any accidental traversal of a fee-bearing edge yields NaN rather than zero.",
   "passed": true,
   "probe_fee": 0.00037,
   "stage": "B9-0",

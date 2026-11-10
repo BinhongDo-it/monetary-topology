@@ -1,6 +1,38 @@
 {
   "capture_day": "2023-07-17",
   "channels": 3,
+  "coverage": {
+    "products_exactly_equal": [
+      "GC",
+      "HG",
+      "MHG",
+      "NG",
+      "QI",
+      "TTF"
+    ],
+    "products_not_exactly_equal": [
+      "CL",
+      "RB"
+    ],
+    "products_with_a_reading": [
+      "CL",
+      "GC",
+      "HG",
+      "MHG",
+      "NG",
+      "QI",
+      "RB",
+      "TTF"
+    ],
+    "spreads_with_a_reading": 36,
+    "spreads_with_a_reading_by_product_file": {
+      "b13_gate0_oos_20230717.txt": 9,
+      "b13_gate0_oos_ch360_COMEX.txt": 12,
+      "b13_gate0_oos_ch386_NG.txt": 15
+    },
+    "states": 81968,
+    "states_exactly_equal_products": 18800
+  },
   "criteria": [
     {
       "detail": "34923 end-of-event states with a book change on one of the three instruments, 2442 of them republished the spread's implied book and are paired. Update actions this book class does not implement: 0. Reading only the A-side of an A+B deduplicated capture had cost 2 per cent of updates and produced a bid agreement of 0.9229 that looked like a finding; with both sides it is 0.9990",
@@ -8,17 +40,17 @@
       "passed": true
     },
     {
-      "detail": "0 violations in 63168 states on ch382, 0 in 5336 on ch386 and 0 in 13464 on ch360, over nine products and three channels. The criterion is a one-sided inequality and not an equality, which is what makes zero violations the whole of it",
+      "detail": "0 violations in 63168 bid and offer readings on ch382, 0 in 5336 on ch386 and 0 in 13464 on ch360, over eight products and three channels; a state quoted on both sides is read twice. The criterion is a one-sided inequality and not an equality, which is what makes zero violations the whole of it",
       "name": "B13-1  section 4.A.2, load-bearing: the exchange's published implied price is never worse than the two-leg derivation",
       "passed": true
     },
     {
       "detail": "equality rate 1.0000 on both sides of both ch386 and ch360, which is 2668 offer and 2668 bid states there and 6732 of each on ch360, 18800 in all. **The explanation the station first gave is withdrawn**: it said those products have only one derivation path, and the instrument listing says otherwise for every root measured, CL 906 of 906 multi-path, NG 1124 of 1127, GC 231 of 231, HG 820 of 820, MHG 780 of 780, QI 55 of 55. The reading stands and the attribution does not",
-      "name": "B13-2  on six of the nine products the inequality is an equality, bit for bit, and why those six is not established",
+      "name": "B13-2  on six of the eight products the inequality is an equality, bit for bit, and why those six is not established",
       "passed": true
     },
     {
-      "detail": "share of states with a non-zero gap between the directly quoted book and the two-leg derivation, by channel: 0.8751 offer and 0.9240 bid on ch382, 0.7470 and 0.6516 on ch386, 0.9478 and 0.9610 on ch360. Nine products, no exception. **Not an economic statement**: it is ordinary queueing and market-making difference, and the design file forbids reading it as more",
+      "detail": "share of states with a non-zero gap between the directly quoted book and the two-leg derivation, by channel: 0.8751 offer and 0.9240 bid on ch382, 0.7470 and 0.6516 on ch386, 0.9478 and 0.9610 on ch360. Eight products, no exception. **Not an economic statement**: it is ordinary queueing and market-making difference, and the design file forbids reading it as more",
       "name": "B13-3  the same apparatus on the directly quoted member of the same family returns non-zero",
       "passed": true
     },
@@ -55,10 +87,9 @@
     "5.2": "a section number in the design file, not a reading",
     "6": "Theorem 6, a theorem number",
     "6.8": "the capture size in gigabytes, named in this file's docstring",
-    "60": "the products' size in kilobytes, likewise",
-    "9": "nine products, a count of the instrument list rather than a reading"
+    "60": "the products' size in kilobytes, likewise"
   },
-  "products": 9,
+  "products": 8,
   "sources": {
     "B13-0": [
       "b13_gate0_CLZ3-CLZ4_AB.txt"

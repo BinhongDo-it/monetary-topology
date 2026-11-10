@@ -66,12 +66,12 @@ RATIO = 2.7244
 AGGREGATE_CREDIT = 5_073_031e6 / 135_760e3
 
 
-#: Inside the limit the published means allow. At the real inputs the bottom
-#: half's mortgaged households spend 0.862 of their disposable on debt service
-#: and a Beta with that mean cannot carry a coefficient of variation above
-#: 0.231, so the module's registered 0.25 is refused here rather than silently
-#: degenerating. The fixture uses a value every cell supports; which value the
-#: stage runs at is the experiment's to state.
+#: Inside the cap the published means allow at the registered concentration
+#: floor of 2. At the real inputs the bottom half's mortgaged households spend
+#: 0.862 of their disposable on debt service, where the cap at that floor is a
+#: coefficient of variation of 0.231, so the module's registered 0.25 needs a
+#: concentration of 1.552 and is refused. The fixture uses a value every cell
+#: supports; which value the stage runs at is the experiment's to state.
 FIXTURE_DISPERSION = 0.14
 
 
@@ -760,6 +760,36 @@ def test_a_dispersion_a_mean_cannot_carry_is_refused() -> None:
         make_population(spec=spec)
     assert "point masses" in str(caught.value)
     assert "largest dispersion" in str(caught.value)
+
+
+def test_the_refusal_says_floor_where_a_proper_beta_exists() -> None:
+    """A mean of 0.862 with a coefficient of variation of 0.25 needs a
+    concentration of 1.552: both shape parameters are positive, so it is a
+    proper Beta, and what refuses it is the registered floor of 2. Only a
+    dispersion past sqrt((1 - m) / m) has no Beta at all."""
+    from monetary_topology.cascade import (
+        MIN_CONCENTRATION,
+        degenerate_reason,
+        needed_concentration,
+    )
+
+    mean = 0.8624208988962194
+    needed = needed_concentration(mean, 0.25)
+    assert needed == pytest.approx(1.552426107110585)
+    assert mean * needed > 0.0 and (1.0 - mean) * needed > 0.0
+    assert 0.0 < needed < MIN_CONCENTRATION
+    said = degenerate_reason(mean, 0.25)
+    assert "needs a Beta concentration of 1.552" in said
+    assert "below the floor of 2" in said
+    assert "largest dispersion this mean supports at the floor is 0.231" in said
+    assert "cannot carry" not in said
+
+    # at the floor itself nothing is refused, and past the Beta limit the message says so
+    assert needed_concentration(mean, max_dispersion(mean)) == pytest.approx(MIN_CONCENTRATION)
+    limit_at_zero = max_dispersion(mean, concentration=0.0)
+    assert needed_concentration(mean, limit_at_zero) == pytest.approx(0.0, abs=1e-12)
+    assert "past what any Beta" in degenerate_reason(mean, limit_at_zero * 1.01)
+    assert "needs a Beta concentration" not in degenerate_reason(mean, limit_at_zero * 1.01)
 
 
 def test_the_limit_is_the_beta_limit_and_not_a_chosen_number() -> None:

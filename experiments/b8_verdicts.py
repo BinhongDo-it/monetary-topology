@@ -80,7 +80,9 @@ CRITERIA: list[dict] = [
     {"name": "B8-0b", "recorded": True, "detail":
      "the floor is MAD(omega - closed) on the clean-cure arm, 2.68e-08 to "
      "5.22e-08, against a construction that predicts half a cent divided by "
-     "the median balance, 3.03e-08. Two further quantities in this repository "
+     "each vintage's median balance, 3.04e-08 to 5.85e-08, and each vintage's "
+     "floor sits just under its own prediction. Two further quantities in "
+     "this repository "
      "are also called a floor and one of them is a signal; they are named "
      "N_cure, N_placebo(L) and IB_RESIDUAL, and any quotation of a floor has "
      "to say which"},
@@ -88,7 +90,10 @@ CRITERIA: list[dict] = [
      "necessary condition holds in all six vintages. Ratio 2,412,840 to "
      "6,765,767; subtract the closed form for leg 1 and it is 2,135,051.8 to "
      "6,632,538.5, a net-to-raw of 0.8849 to 1.0224, so at most 11.5 percent of "
-     "the signal is construction. The threshold was demoted to a readability "
+     "the signal is construction. Leg 1 equals its flat-delinquency closed "
+     "form on only 0.0043 to 0.1198 of loops by vintage, so that subtraction "
+     "is not a flat-delinquency reading. "
+     "The threshold was demoted to a readability "
      "line rather than a significance test: corr(omega, closed) is +1.0000 in "
      "five of six vintages, which makes the residual instrument resolution "
      "rather than a sampling distribution. The leg-1 shortfall behind that "

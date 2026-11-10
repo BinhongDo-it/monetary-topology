@@ -5858,6 +5858,11 @@ preconditions, surprise and physical continuity, are unchecked.
 2. **An identity verified by two independent paths.** 0.33506 derived from published
    totals against 0.3425 from the savings banks' own books, 0.74 percentage points
    apart, **with no common input.**
+   **Restated by B32 on 2026-10-10.** The first figure solves back to the Bundesbank's
+   own planning input, headcount times allowance, so the two are a plan and an outturn
+   on different bases and not two paths to one number. B32 now records the identity as
+   not evaluated against an actual distribution of deposits and keeps the comparison as
+   a description. Nothing else in this chunk rests on it.
 
 ## Limits
 
@@ -9041,6 +9046,7 @@ em uma mesma instituição financeira
 ##### 7.12d 分辨率那一格：印度 2016，而缺口是国家自己讲出来的
 
 **写下来的是一条按人的界**：柜面兑换 `₹4,000`（11-08 起）、`₹4,500`（11-14 起）、`₹2,000`（11-18 起）。
+**【2026-10-29 指针，`D20`，上面原文一字未动】** 按储备银行通函：`₹4,000` 的兑换自 11-10 开柜（DCM (Plg) 1226，日期 11-08）；`₹4,500` 是 DCM (Plg) 1272，日期 11-13，「The above modifications take immediate effect」；`₹2,000` 是 DCM (Plg) 1302，自 11-18 起并写「only once per person」；11-24 午夜后银行柜台停兑（DCM (Plg) 1391），储备银行柜台照旧。兑换与存入两条路的流量读数在 `b160_exchange_deposit.md`。
 **而认人程序只分辨到「这个柜台，这一次」。** 印度经济事务秘书 2016-11-15 的原话：
 
 ```
@@ -15539,6 +15545,8 @@ Brenke 的全部 Bestandsgrößen `1.6:1` 口径更宽（含企业），方向�
 **⚠ 该推导假定这一池只在 1:1 与 2:1 之间分、不含 3:1 的非居民部分**；
 储蓄银行那个 34% 独立落在同一处，**说明假定站得住**。
 
+**2026-10-14 更正。** `193.4` 与 `129.1` 是联邦银行 1990 年 7 月月报换算表上的数，那张表按满额取用演算，解出的 `64.8` 就是它脚注里的 `2,000 × 3.2 百万 ＋ 4,000 × 10.1 百万 ＋ 6,000 × 3.0 百万`。所以 33.5% 是演算，34% 是储蓄银行的实际，范围也不同，两数并列作描述，不是两条路到同一个量。
+
 #### 15.3 每份平均 4,050，而中间档定额是 4,000
 
 ```
@@ -15581,6 +15589,8 @@ B(1989) 79,112.8 千 － A(1989) 62,679.0 千 ＝ 16,433.796 千 ＝ 16,433,796 
 `C` 的分母是**人口**（1,643 万），而申请覆盖 97%。
 **照 `D31` 主报 `0.9754`（两个量分母一致），并报 `1.0018` 并注明它的分母是申请数。**
 差 `0.18%` 的两种解释（输入精度／申请人非年龄同构）都留，不裁。
+
+**2026-10-14 更正：`0.675`、`0.9754` 与 `1.0018` 作为占用读数撤。** 分子 `64.80` 是联邦银行三档人数乘上限，分母 `66.44` 是 GESIS 三档人数乘同一组上限，这个比比的是两张人头表；`1.0018` 大于一就是这个错位的露头处。相减、三档人数、`C = 4,042.7` 与 `66.44` 照旧。唯一的 outturn 是储蓄银行截至 6 月 30 日约 500 亿，其 1,430 万申请人按全国三档人数的额度在 528 亿到 608 亿之间，取用率在 0.82 到 0.95 之间；全体人口的取用率没有读数。`RESULTS.md` 的 B46 一节同日同改。
 
 **方法上登记一条**：**一份手上没有的序列，可以是两份手上有的序列之差。**
 **这是 `D32` 那一族的正面手法 —— 枚举源头类别之外，还可以构造。**
@@ -16714,8 +16724,9 @@ restaurant pair. Both cache nothing because the input is the table itself.
   separate session of this project. The 1990 German monetary union carrier, Annex I
   Article 6 of the treaty read in the original, the conversion rates by holder, the
   per-person application clause, the Umgehungsgeschaefte sind nichtig clause, the
-  observed account-opening wave and its window, and the identity verified on the
-  savings-bank subset. **Internal, and it is the authority for all of it.**
+  observed account-opening wave and its window, and the identity it recorded as
+  verified on the savings-bank subset, which B32 restated on 2026-10-10 as not
+  evaluated. **Internal, and it is the authority for all of it.**
 
 - **Iain McLean**, Supplementary written evidence to the House of Commons Scottish
   Affairs Committee, 2012, publications.parliament.uk/pa/cm201012/cmselect/cmscotaf/

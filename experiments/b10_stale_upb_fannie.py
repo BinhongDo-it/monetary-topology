@@ -9,8 +9,11 @@ written**. It answers one question and adds no criterion:
     an underpayment. On Freddie, 5.208% of quiet month-differences carry a
     balance identical to the month before, and those months read
     ``P(t) = UPB x rate/1200``, interest only, median 0.8086 of the contract
-    payment (the B10 availability register §13.1). By construction such a
-    month sits below the cluster. **How much of 8.8% is that?**
+    payment (the B10 availability register §13.1). Such a month sits below the
+    cluster when the interest is below the cluster's lower edge, which the
+    cross-tab here shows for 98.4% (2002Q1) and 98.3% (2019Q1) of the months
+    whose balance did not move; the rest land in or above it. **How much of
+    8.8% is that?**
 
 What this file does not do
 --------------------------

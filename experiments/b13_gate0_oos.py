@@ -183,7 +183,10 @@ def main() -> int:
                   tot["offer better"], tot["OFFER VIOLATION"]))
     out.append("")
     viol = tot["BID VIOLATION"] + tot["OFFER VIOLATION"]
-    out.append("load-bearing criterion, section 4.A.2: %d violations in %d states"
+    # A state is counted once for each side that is quoted, so the total is a
+    # count of one-sided readings and a state quoted on both sides is read twice.
+    out.append("load-bearing criterion, section 4.A.2: %d violations in %d bid "
+               "and offer readings"
                % (viol, tot["bid states"] + tot["offer states"]))
     out.append("verdict: %s" % ("PASS, zero violations" if viol == 0
                                 else "FAIL, the premise that the exchange publishes "
@@ -192,9 +195,16 @@ def main() -> int:
                % (tot["bid equal"] / tot["bid states"] if tot["bid states"] else 0,
                   tot["offer equal"] / tot["offer states"] if tot["offer states"] else 0))
     out.append("")
+    # The values below are divided by 1e9 for every product. That is one tick
+    # for CL, RB, NG and GC and it is not one tick elsewhere: TTF, HG and MHG
+    # tick in 5e9 and QI in 125e9, so a printed -115 on TTF is -23 ticks. The
+    # label said "in ticks" until 2026-10-10. Outputs written before then carry
+    # that label over these same numbers.
     out.append("independent side, design file section 7. lambda_offer = "
                "ask(spread, directly quoted) - [ask(near) - bid(far)], "
-               "lambda_bid = bid(spread) - [bid(near) - ask(far)], in ticks")
+               "lambda_bid = bid(spread) - [bid(near) - ask(far)], in units of "
+               "1e9 raw price: one tick for CL, RB, NG, GC; five such units "
+               "are one tick for TTF, HG, MHG and 125 for QI")
     out.append("%-14s %9s %9s %9s   %s" % ("spread", "states", "non-zero",
                                            "share", "distribution"))
     for side, table in (("offer", lam), ("bid", lam_bid)):

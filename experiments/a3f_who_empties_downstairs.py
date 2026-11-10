@@ -28,6 +28,10 @@ are two answers with different fingerprints.
 claims stop clearing it. Then the count of production nodes that could buy at
 the current price goes to zero **before** their unit count does, and after that
 the auction is irrelevant because they cannot enter it.
+The test read here is affordability at the current price on the payment
+terms, the one resale applies. The opening gate on ``terms_gate`` is read once,
+at the allocation, and at the registered parameters the two sets of terms are
+tied.
 
 *The auction.* They can still clear the gate but lose every time, because the
 bidder pool is claims-weighted and the financial layer holds far more claims.

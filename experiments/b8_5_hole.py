@@ -141,7 +141,7 @@ def scan(c: K.Core) -> dict:
     loan = c.loan_of_row()
     per = c.row["period"][:].astype(np.int64)
     dv = c.row["delinq"][:]
-    known = dv <= 98
+    known = dv <= K.DELINQ_KNOWN_MAX
     rowidx = np.arange(n, dtype=np.int64)
     last_row = (c.row_start.astype(np.int64)
                 + c.n_per_loan.astype(np.int64) - 1)

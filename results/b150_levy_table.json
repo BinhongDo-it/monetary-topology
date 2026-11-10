@@ -1,0 +1,2966 @@
+{
+ "L3_1_rows": [
+  {
+   "cell": "construction/MNP/BS",
+   "computed": "23.02",
+   "diff_cents": 0,
+   "monthly": 700,
+   "printed": "23.02",
+   "state": "match"
+  },
+  {
+   "cell": "construction/MNP/HS",
+   "computed": "9.87",
+   "diff_cents": 0,
+   "monthly": 300,
+   "printed": "9.87",
+   "state": "match"
+  },
+  {
+   "cell": "construction/MNP/U",
+   "monthly": 900,
+   "printed": null,
+   "state": "no_input"
+  },
+  {
+   "cell": "construction/NTS/BS",
+   "computed": "29.59",
+   "diff_cents": 0,
+   "monthly": 900,
+   "printed": "29.59",
+   "state": "match"
+  },
+  {
+   "cell": "construction/NTS/HS",
+   "computed": "16.44",
+   "diff_cents": 0,
+   "monthly": 500,
+   "printed": "16.44",
+   "state": "match"
+  },
+  {
+   "cell": "construction/NTS/U",
+   "monthly": 900,
+   "printed": null,
+   "state": "no_input"
+  },
+  {
+   "cell": "construction/OFF/BS",
+   "computed": "12.17",
+   "diff_cents": 0,
+   "monthly": 370,
+   "printed": "12.17",
+   "state": "match"
+  },
+  {
+   "cell": "construction/OFF/HS",
+   "computed": "8.22",
+   "diff_cents": 0,
+   "monthly": 250,
+   "printed": "8.22",
+   "state": "match"
+  },
+  {
+   "cell": "construction/OFF/U",
+   "monthly": null,
+   "printed": null,
+   "state": "no_input"
+  },
+  {
+   "cell": "manufacturing/T1/BS",
+   "computed": "12.17",
+   "diff_cents": 0,
+   "monthly": 370,
+   "printed": "12.17",
+   "state": "match"
+  },
+  {
+   "cell": "manufacturing/T1/HS",
+   "computed": "8.22",
+   "diff_cents": 0,
+   "monthly": 250,
+   "printed": "8.22",
+   "state": "match"
+  },
+  {
+   "cell": "manufacturing/T2/BS",
+   "computed": "15.46",
+   "diff_cents": 0,
+   "monthly": 470,
+   "printed": "15.46",
+   "state": "match"
+  },
+  {
+   "cell": "manufacturing/T2/HS",
+   "computed": "11.51",
+   "diff_cents": 0,
+   "monthly": 350,
+   "printed": "11.51",
+   "state": "match"
+  },
+  {
+   "cell": "manufacturing/T3/BS",
+   "computed": "21.37",
+   "diff_cents": 0,
+   "monthly": 650,
+   "printed": "21.37",
+   "state": "match"
+  },
+  {
+   "cell": "manufacturing/T3/HS",
+   "computed": "18.09",
+   "diff_cents": 0,
+   "monthly": 550,
+   "printed": "18.09",
+   "state": "match"
+  },
+  {
+   "cell": "marine/ONE/BS",
+   "computed": "16.44",
+   "diff_cents": 0,
+   "monthly": 500,
+   "printed": "16.44",
+   "state": "match"
+  },
+  {
+   "cell": "marine/ONE/HS",
+   "computed": "11.51",
+   "diff_cents": 0,
+   "monthly": 350,
+   "printed": "11.51",
+   "state": "match"
+  },
+  {
+   "cell": "process/MNP/BS",
+   "computed": "14.80",
+   "diff_cents": 0,
+   "monthly": 450,
+   "printed": "14.80",
+   "state": "match"
+  },
+  {
+   "cell": "process/MNP/HS",
+   "computed": "6.58",
+   "diff_cents": 0,
+   "monthly": 200,
+   "printed": "6.58",
+   "state": "match"
+  },
+  {
+   "cell": "process/NTS/BS",
+   "computed": "21.37",
+   "diff_cents": 0,
+   "monthly": 650,
+   "printed": "21.37",
+   "state": "match"
+  },
+  {
+   "cell": "process/NTS/HS",
+   "computed": "9.87",
+   "diff_cents": 0,
+   "monthly": 300,
+   "printed": "9.87",
+   "state": "match"
+  },
+  {
+   "cell": "services/T1/BS",
+   "computed": "14.80",
+   "diff_cents": 0,
+   "monthly": 450,
+   "printed": "14.80",
+   "state": "match"
+  },
+  {
+   "cell": "services/T1/HS",
+   "computed": "9.87",
+   "diff_cents": 0,
+   "monthly": 300,
+   "printed": "9.87",
+   "state": "match"
+  },
+  {
+   "cell": "services/T2/BS",
+   "computed": "19.73",
+   "diff_cents": 0,
+   "monthly": 600,
+   "printed": "19.73",
+   "state": "match"
+  },
+  {
+   "cell": "services/T2/HS",
+   "computed": "13.16",
+   "diff_cents": 0,
+   "monthly": 400,
+   "printed": "13.16",
+   "state": "match"
+  },
+  {
+   "cell": "services/T3/BS",
+   "computed": "26.31",
+   "diff_cents": 0,
+   "monthly": 800,
+   "printed": "26.31",
+   "state": "match"
+  },
+  {
+   "cell": "services/T3/HS",
+   "computed": "19.73",
+   "diff_cents": 0,
+   "monthly": 600,
+   "printed": "19.73",
+   "state": "match"
+  },
+  {
+   "cell": "spass/ALL/SP",
+   "computed": "21.37",
+   "diff_cents": 0,
+   "monthly": 650,
+   "printed": "21.37",
+   "state": "match"
+  }
+ ],
+ "L3_2_rows": [
+  {
+   "diff": 0,
+   "guide": 700,
+   "page": 700,
+   "row": "rate construction/MNP/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 300,
+   "page": 300,
+   "row": "rate construction/MNP/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 900,
+   "page": 900,
+   "row": "rate construction/NTS/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 500,
+   "page": 500,
+   "row": "rate construction/NTS/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 370,
+   "page": 370,
+   "row": "rate construction/OFF/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 250,
+   "page": 250,
+   "row": "rate construction/OFF/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 650,
+   "page": 650,
+   "row": "rate manufacturing/ALL/SP",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 370,
+   "page": 370,
+   "row": "rate manufacturing/T1/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 250,
+   "page": 250,
+   "row": "rate manufacturing/T1/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 470,
+   "page": 470,
+   "row": "rate manufacturing/T2/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 350,
+   "page": 350,
+   "row": "rate manufacturing/T2/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 650,
+   "page": 650,
+   "row": "rate manufacturing/T3/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 550,
+   "page": 550,
+   "row": "rate manufacturing/T3/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 500,
+   "page": 500,
+   "row": "rate marine/ONE/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 50,
+   "guide": 300,
+   "page": 350,
+   "row": "rate marine/ONE/HS",
+   "state": "disagree"
+  },
+  {
+   "diff": 0,
+   "guide": 450,
+   "page": 450,
+   "row": "rate process/MNP/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 200,
+   "page": 200,
+   "row": "rate process/MNP/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 650,
+   "page": 650,
+   "row": "rate process/NTS/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 300,
+   "page": 300,
+   "row": "rate process/NTS/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 650,
+   "page": 650,
+   "row": "rate services/ALL/SP",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 450,
+   "page": 450,
+   "row": "rate services/T1/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 300,
+   "page": 300,
+   "row": "rate services/T1/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 600,
+   "page": 600,
+   "row": "rate services/T2/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 400,
+   "page": 400,
+   "row": "rate services/T2/HS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 800,
+   "page": 800,
+   "row": "rate services/T3/BS",
+   "state": "agree"
+  },
+  {
+   "diff": 0,
+   "guide": 600,
+   "page": 600,
+   "row": "rate services/T3/HS",
+   "state": "agree"
+  },
+  {
+   "computed": 14,
+   "diff": 0,
+   "printed": 14,
+   "row": "p12 factory T1 count",
+   "state": "agree"
+  },
+  {
+   "computed": 5900,
+   "diff": 0,
+   "printed": 5900,
+   "row": "p12 factory T1 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 14,
+   "diff": 0,
+   "printed": 14,
+   "row": "p12 factory T2 count",
+   "state": "agree"
+  },
+  {
+   "computed": 6580,
+   "diff": 0,
+   "printed": 6580,
+   "row": "p12 factory T2 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 3,
+   "diff": 0,
+   "printed": 3,
+   "row": "p12 factory T3 count",
+   "state": "agree"
+  },
+  {
+   "computed": 1950,
+   "diff": 0,
+   "printed": 1950,
+   "row": "p12 factory T3 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 14430,
+   "diff": 0,
+   "printed": 14430,
+   "row": "p12 factory total",
+   "state": "agree"
+  },
+  {
+   "computed": 1,
+   "diff": 0,
+   "printed": 1,
+   "row": "p14 cafe T1 count",
+   "state": "agree"
+  },
+  {
+   "computed": 300,
+   "diff": 0,
+   "printed": 300,
+   "row": "p14 cafe T1 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 1,
+   "diff": 0,
+   "printed": 1,
+   "row": "p14 cafe T2 count",
+   "state": "agree"
+  },
+  {
+   "computed": 400,
+   "diff": 0,
+   "printed": 400,
+   "row": "p14 cafe T2 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 1,
+   "diff": 0,
+   "printed": 1,
+   "row": "p14 cafe T3 count",
+   "state": "agree"
+  },
+  {
+   "computed": 600,
+   "diff": 0,
+   "printed": 600,
+   "row": "p14 cafe T3 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 1300,
+   "diff": 0,
+   "printed": 1300,
+   "row": "p14 cafe total",
+   "state": "agree"
+  },
+  {
+   "computed": 12,
+   "diff": 0,
+   "printed": 12,
+   "row": "p15 factory T1 count",
+   "state": "agree"
+  },
+  {
+   "computed": 5520,
+   "diff": 0,
+   "printed": 5520,
+   "row": "p15 factory T1 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 12,
+   "diff": 0,
+   "printed": 12,
+   "row": "p15 factory T2 count",
+   "state": "agree"
+  },
+  {
+   "computed": 5640,
+   "diff": -480,
+   "printed": 5160,
+   "row": "p15 factory T2 levy",
+   "state": "disagree"
+  },
+  {
+   "computed": 4,
+   "diff": 0,
+   "printed": 4,
+   "row": "p15 factory T3 count",
+   "state": "agree"
+  },
+  {
+   "computed": 2600,
+   "diff": 0,
+   "printed": 2600,
+   "row": "p15 factory T3 levy",
+   "state": "agree"
+  },
+  {
+   "computed": 13760,
+   "diff": -480,
+   "printed": 13280,
+   "row": "p15 factory total",
+   "state": "disagree"
+  },
+  {
+   "computed": 15060,
+   "diff": -480,
+   "printed": 14580,
+   "row": "p15 cafe + factory total",
+   "state": "disagree"
+  }
+ ],
+ "L3_3": {
+  "all_work_permit_distinct": 15,
+  "all_work_permit_values": [
+   200,
+   250,
+   300,
+   350,
+   370,
+   400,
+   450,
+   470,
+   500,
+   550,
+   600,
+   650,
+   700,
+   800,
+   900
+  ],
+  "classes_written_at_position": {
+   "construction/MNP": 3,
+   "construction/NTS": 3,
+   "construction/OFF": 2,
+   "manufacturing/T1": 2,
+   "manufacturing/T2": 2,
+   "manufacturing/T3": 2,
+   "marine/ONE": 2,
+   "process/MNP": 2,
+   "process/NTS": 2,
+   "services/T1": 2,
+   "services/T2": 2,
+   "services/T3": 2
+  },
+  "distinct_values_at_position": {
+   "construction/MNP": 3,
+   "construction/NTS": 2,
+   "construction/OFF": 2,
+   "manufacturing/T1": 2,
+   "manufacturing/T2": 2,
+   "manufacturing/T3": 2,
+   "marine/ONE": 2,
+   "process/MNP": 2,
+   "process/NTS": 2,
+   "services/T1": 2,
+   "services/T2": 2,
+   "services/T3": 2
+  },
+  "per_position": {
+   "construction/MNP": {
+    "BS": 700,
+    "HS": 300,
+    "U": 900
+   },
+   "construction/NTS": {
+    "BS": 900,
+    "HS": 500,
+    "U": 900
+   },
+   "construction/OFF": {
+    "BS": 370,
+    "HS": 250,
+    "U": null
+   },
+   "manufacturing/T1": {
+    "BS": 370,
+    "HS": 250
+   },
+   "manufacturing/T2": {
+    "BS": 470,
+    "HS": 350
+   },
+   "manufacturing/T3": {
+    "BS": 650,
+    "HS": 550
+   },
+   "marine/ONE": {
+    "BS": 500,
+    "HS": 350
+   },
+   "process/MNP": {
+    "BS": 450,
+    "HS": 200
+   },
+   "process/NTS": {
+    "BS": 650,
+    "HS": 300
+   },
+   "services/T1": {
+    "BS": 450,
+    "HS": 300
+   },
+   "services/T2": {
+    "BS": 600,
+    "HS": 400
+   },
+   "services/T3": {
+    "BS": 800,
+    "HS": 600
+   }
+  },
+  "per_table": {
+   "construction": {
+    "cells": 8,
+    "distinct": 6,
+    "values": [
+     250,
+     300,
+     370,
+     500,
+     700,
+     900
+    ]
+   },
+   "manufacturing": {
+    "cells": 6,
+    "distinct": 6,
+    "values": [
+     250,
+     350,
+     370,
+     470,
+     550,
+     650
+    ]
+   },
+   "marine": {
+    "cells": 2,
+    "distinct": 2,
+    "values": [
+     350,
+     500
+    ]
+   },
+   "process": {
+    "cells": 4,
+    "distinct": 4,
+    "values": [
+     200,
+     300,
+     450,
+     650
+    ]
+   },
+   "services": {
+    "cells": 6,
+    "distinct": 5,
+    "values": [
+     300,
+     400,
+     450,
+     600,
+     800
+    ]
+   }
+  },
+  "positions": 12,
+  "positions_hs_bs_differ": 12,
+  "positions_hs_bs_not_two_values": [],
+  "spass_current": 650,
+  "spass_previous": {
+   "other sectors Tier 1 (up to 10%)": 550,
+   "other sectors Tier 2 (above 10% to 15%)": 650,
+   "services Tier 1 (up to 10%)": 550
+  },
+  "spass_previous_distinct": 2
+ },
+ "L3_4": {
+  "announced_2028": [
+   {
+    "log": "+0.1178",
+    "log_floor": "0.0025",
+    "log_multiple": "47.2",
+    "log_state": "nonzero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": false,
+    "set": "2028_announced",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "services M vs T3"
+   },
+   {
+    "log": "+0.2819",
+    "log_floor": "0.0033",
+    "log_multiple": "84.7",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "2028_announced",
+    "sgd": 70,
+    "sgd_floor": 1,
+    "sgd_multiple": 70,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing M vs T3"
+   },
+   {
+    "log": "+0.1178",
+    "log_floor": "0.0050",
+    "log_multiple": "23.6",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "2028_announced",
+    "sgd": -100,
+    "sgd_floor": 1,
+    "sgd_multiple": 100,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "process MNP vs NTS"
+   }
+  ],
+  "b1_matches_basis": true,
+  "b1_total": 7,
+  "complete": true,
+  "cross_sector": [
+   {
+    "log": "+0.0134",
+    "log_floor": "0.0040",
+    "log_multiple": "3.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 30,
+    "sgd_floor": 1,
+    "sgd_multiple": 30,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs manufacturing T1"
+   },
+   {
+    "log": "+0.1107",
+    "log_floor": "0.0033",
+    "log_multiple": "33.3",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 30,
+    "sgd_floor": 1,
+    "sgd_multiple": 30,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs manufacturing T2"
+   },
+   {
+    "log": "+0.2384",
+    "log_floor": "0.0033",
+    "log_multiple": "71.6",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs manufacturing T3"
+   },
+   {
+    "log": "-0.4418",
+    "log_floor": "0.0033",
+    "log_multiple": "132.8",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -250,
+    "sgd_floor": 1,
+    "sgd_multiple": 250,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs construction MNP"
+   },
+   {
+    "log": "-0.1823",
+    "log_floor": "0.0033",
+    "log_multiple": "54.8",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -250,
+    "sgd_floor": 1,
+    "sgd_multiple": 250,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs construction NTS"
+   },
+   {
+    "log": "+0.0134",
+    "log_floor": "0.0040",
+    "log_multiple": "3.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 30,
+    "sgd_floor": 1,
+    "sgd_multiple": 30,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs construction OFF"
+   },
+   {
+    "log": "-0.4055",
+    "log_floor": "0.0050",
+    "log_multiple": "81.3",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -100,
+    "sgd_floor": 1,
+    "sgd_multiple": 100,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs process MNP"
+   },
+   {
+    "log": "-0.3677",
+    "log_floor": "0.0033",
+    "log_multiple": "110.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T1 vs process NTS"
+   },
+   {
+    "log": "+0.0488",
+    "log_floor": "0.0033",
+    "log_multiple": "14.7",
+    "log_state": "nonzero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "services T1 vs marine ONE"
+   },
+   {
+    "log": "+0.0134",
+    "log_floor": "0.0040",
+    "log_multiple": "3.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 80,
+    "sgd_floor": 1,
+    "sgd_multiple": 80,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs manufacturing T1"
+   },
+   {
+    "log": "+0.1107",
+    "log_floor": "0.0029",
+    "log_multiple": "38.8",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 80,
+    "sgd_floor": 1,
+    "sgd_multiple": 80,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs manufacturing T2"
+   },
+   {
+    "log": "+0.2384",
+    "log_floor": "0.0025",
+    "log_multiple": "95.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 100,
+    "sgd_floor": 1,
+    "sgd_multiple": 100,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs manufacturing T3"
+   },
+   {
+    "log": "-0.4418",
+    "log_floor": "0.0033",
+    "log_multiple": "132.8",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs construction MNP"
+   },
+   {
+    "log": "-0.1823",
+    "log_floor": "0.0025",
+    "log_multiple": "73.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs construction NTS"
+   },
+   {
+    "log": "+0.0134",
+    "log_floor": "0.0040",
+    "log_multiple": "3.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 80,
+    "sgd_floor": 1,
+    "sgd_multiple": 80,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs construction OFF"
+   },
+   {
+    "log": "-0.4055",
+    "log_floor": "0.0050",
+    "log_multiple": "81.3",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs process MNP"
+   },
+   {
+    "log": "-0.3677",
+    "log_floor": "0.0033",
+    "log_multiple": "110.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -150,
+    "sgd_floor": 1,
+    "sgd_multiple": 150,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs process NTS"
+   },
+   {
+    "log": "+0.0488",
+    "log_floor": "0.0029",
+    "log_multiple": "17.1",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T2 vs marine ONE"
+   },
+   {
+    "log": "-0.1044",
+    "log_floor": "0.0040",
+    "log_multiple": "26.1",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 80,
+    "sgd_floor": 1,
+    "sgd_multiple": 80,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "services T3 vs manufacturing T1"
+   },
+   {
+    "log": "-0.0071",
+    "log_floor": "0.0029",
+    "log_multiple": "2.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 80,
+    "sgd_floor": 1,
+    "sgd_multiple": 80,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "services T3 vs manufacturing T2"
+   },
+   {
+    "log": "+0.1206",
+    "log_floor": "0.0018",
+    "log_multiple": "66.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 100,
+    "sgd_floor": 1,
+    "sgd_multiple": 100,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T3 vs manufacturing T3"
+   },
+   {
+    "log": "-0.5596",
+    "log_floor": "0.0033",
+    "log_multiple": "168.2",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T3 vs construction MNP"
+   },
+   {
+    "log": "-0.3001",
+    "log_floor": "0.0020",
+    "log_multiple": "150.2",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T3 vs construction NTS"
+   },
+   {
+    "log": "-0.1044",
+    "log_floor": "0.0040",
+    "log_multiple": "26.1",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 80,
+    "sgd_floor": 1,
+    "sgd_multiple": 80,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "services T3 vs construction OFF"
+   },
+   {
+    "log": "-0.5232",
+    "log_floor": "0.0050",
+    "log_multiple": "104.9",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T3 vs process MNP"
+   },
+   {
+    "log": "-0.4855",
+    "log_floor": "0.0033",
+    "log_multiple": "145.9",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -150,
+    "sgd_floor": 1,
+    "sgd_multiple": 150,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "services T3 vs process NTS"
+   },
+   {
+    "log": "-0.0690",
+    "log_floor": "0.0029",
+    "log_multiple": "24.2",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "services T3 vs marine ONE"
+   },
+   {
+    "log": "-0.4553",
+    "log_floor": "0.0040",
+    "log_multiple": "114.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -280,
+    "sgd_floor": 1,
+    "sgd_multiple": 280,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T1 vs construction MNP"
+   },
+   {
+    "log": "-0.1957",
+    "log_floor": "0.0040",
+    "log_multiple": "49.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -280,
+    "sgd_floor": 1,
+    "sgd_multiple": 280,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T1 vs construction NTS"
+   },
+   {
+    "log": "+0.0000",
+    "log_floor": "0.0040",
+    "log_multiple": "0.0",
+    "log_state": "zero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": true,
+    "set": "cross_sector",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "both compositions zero",
+    "square": "manufacturing T1 vs construction OFF"
+   },
+   {
+    "log": "-0.4189",
+    "log_floor": "0.0050",
+    "log_multiple": "84.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -130,
+    "sgd_floor": 1,
+    "sgd_multiple": 130,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T1 vs process MNP"
+   },
+   {
+    "log": "-0.3811",
+    "log_floor": "0.0040",
+    "log_multiple": "95.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -230,
+    "sgd_floor": 1,
+    "sgd_multiple": 230,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T1 vs process NTS"
+   },
+   {
+    "log": "+0.0354",
+    "log_floor": "0.0040",
+    "log_multiple": "8.9",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -30,
+    "sgd_floor": 1,
+    "sgd_multiple": 30,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "manufacturing T1 vs marine ONE"
+   },
+   {
+    "log": "-0.5525",
+    "log_floor": "0.0033",
+    "log_multiple": "166.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -280,
+    "sgd_floor": 1,
+    "sgd_multiple": 280,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T2 vs construction MNP"
+   },
+   {
+    "log": "-0.2930",
+    "log_floor": "0.0029",
+    "log_multiple": "102.7",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -280,
+    "sgd_floor": 1,
+    "sgd_multiple": 280,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T2 vs construction NTS"
+   },
+   {
+    "log": "-0.0972",
+    "log_floor": "0.0040",
+    "log_multiple": "24.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "manufacturing T2 vs construction OFF"
+   },
+   {
+    "log": "-0.5161",
+    "log_floor": "0.0050",
+    "log_multiple": "103.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -130,
+    "sgd_floor": 1,
+    "sgd_multiple": 130,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T2 vs process MNP"
+   },
+   {
+    "log": "-0.4784",
+    "log_floor": "0.0033",
+    "log_multiple": "143.8",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -230,
+    "sgd_floor": 1,
+    "sgd_multiple": 230,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T2 vs process NTS"
+   },
+   {
+    "log": "-0.0619",
+    "log_floor": "0.0029",
+    "log_multiple": "21.7",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -30,
+    "sgd_floor": 1,
+    "sgd_multiple": 30,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T2 vs marine ONE"
+   },
+   {
+    "log": "-0.6802",
+    "log_floor": "0.0033",
+    "log_multiple": "204.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -300,
+    "sgd_floor": 1,
+    "sgd_multiple": 300,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T3 vs construction MNP"
+   },
+   {
+    "log": "-0.4207",
+    "log_floor": "0.0020",
+    "log_multiple": "210.6",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -300,
+    "sgd_floor": 1,
+    "sgd_multiple": 300,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T3 vs construction NTS"
+   },
+   {
+    "log": "-0.2250",
+    "log_floor": "0.0040",
+    "log_multiple": "56.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -20,
+    "sgd_floor": 1,
+    "sgd_multiple": 20,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T3 vs construction OFF"
+   },
+   {
+    "log": "-0.6439",
+    "log_floor": "0.0050",
+    "log_multiple": "129.1",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -150,
+    "sgd_floor": 1,
+    "sgd_multiple": 150,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T3 vs process MNP"
+   },
+   {
+    "log": "-0.6061",
+    "log_floor": "0.0033",
+    "log_multiple": "182.1",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -250,
+    "sgd_floor": 1,
+    "sgd_multiple": 250,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T3 vs process NTS"
+   },
+   {
+    "log": "-0.1896",
+    "log_floor": "0.0029",
+    "log_multiple": "66.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T3 vs marine ONE"
+   },
+   {
+    "log": "+0.0364",
+    "log_floor": "0.0050",
+    "log_multiple": "7.3",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 150,
+    "sgd_floor": 1,
+    "sgd_multiple": 150,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction MNP vs process MNP"
+   },
+   {
+    "log": "+0.0741",
+    "log_floor": "0.0033",
+    "log_multiple": "22.3",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction MNP vs process NTS"
+   },
+   {
+    "log": "+0.4906",
+    "log_floor": "0.0033",
+    "log_multiple": "147.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 250,
+    "sgd_floor": 1,
+    "sgd_multiple": 250,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction MNP vs marine ONE"
+   },
+   {
+    "log": "-0.2231",
+    "log_floor": "0.0050",
+    "log_multiple": "44.7",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 150,
+    "sgd_floor": 1,
+    "sgd_multiple": 150,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "construction NTS vs process MNP"
+   },
+   {
+    "log": "-0.1854",
+    "log_floor": "0.0033",
+    "log_multiple": "55.7",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "construction NTS vs process NTS"
+   },
+   {
+    "log": "+0.2311",
+    "log_floor": "0.0029",
+    "log_multiple": "81.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 250,
+    "sgd_floor": 1,
+    "sgd_multiple": 250,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction NTS vs marine ONE"
+   },
+   {
+    "log": "-0.4189",
+    "log_floor": "0.0050",
+    "log_multiple": "84.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -130,
+    "sgd_floor": 1,
+    "sgd_multiple": 130,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction OFF vs process MNP"
+   },
+   {
+    "log": "-0.3811",
+    "log_floor": "0.0040",
+    "log_multiple": "95.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -230,
+    "sgd_floor": 1,
+    "sgd_multiple": 230,
+    "sgd_state": "nonzero",
+    "sign": "-",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction OFF vs process NTS"
+   },
+   {
+    "log": "+0.0354",
+    "log_floor": "0.0040",
+    "log_multiple": "8.9",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": -30,
+    "sgd_floor": 1,
+    "sgd_multiple": 30,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "construction OFF vs marine ONE"
+   },
+   {
+    "log": "+0.4543",
+    "log_floor": "0.0050",
+    "log_multiple": "91.1",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 100,
+    "sgd_floor": 1,
+    "sgd_multiple": 100,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "process MNP vs marine ONE"
+   },
+   {
+    "log": "+0.4165",
+    "log_floor": "0.0033",
+    "log_multiple": "125.2",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "cross_sector",
+    "sgd": 200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "process NTS vs marine ONE"
+   }
+  ],
+  "main": [
+   {
+    "log": "+0.0000",
+    "log_floor": "0.0033",
+    "log_multiple": "0.0",
+    "log_state": "zero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": true,
+    "set": "main",
+    "sgd": -50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "services T1 vs T2"
+   },
+   {
+    "log": "+0.1178",
+    "log_floor": "0.0033",
+    "log_multiple": "35.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": -50,
+    "sgd_floor": 1,
+    "sgd_multiple": 50,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "services T1 vs T3"
+   },
+   {
+    "log": "+0.1178",
+    "log_floor": "0.0025",
+    "log_multiple": "47.2",
+    "log_state": "nonzero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "services T2 vs T3"
+   },
+   {
+    "log": "+0.0972",
+    "log_floor": "0.0040",
+    "log_multiple": "24.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "manufacturing T1 vs T2"
+   },
+   {
+    "log": "+0.2250",
+    "log_floor": "0.0040",
+    "log_multiple": "56.4",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 20,
+    "sgd_floor": 1,
+    "sgd_multiple": 20,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T1 vs T3"
+   },
+   {
+    "log": "+0.1277",
+    "log_floor": "0.0029",
+    "log_multiple": "44.8",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 20,
+    "sgd_floor": 1,
+    "sgd_multiple": 20,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "manufacturing T2 vs T3"
+   },
+   {
+    "log": "+0.2595",
+    "log_floor": "0.0033",
+    "log_multiple": "78.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": true,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 0,
+    "sgd_floor": 1,
+    "sgd_multiple": 0,
+    "sgd_state": "zero",
+    "sign": null,
+    "sign_state": "one composition zero",
+    "square": "construction MNP vs NTS"
+   },
+   {
+    "log": "+0.4553",
+    "log_floor": "0.0040",
+    "log_multiple": "114.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 280,
+    "sgd_floor": 1,
+    "sgd_multiple": 280,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction MNP vs OFF"
+   },
+   {
+    "log": "+0.1957",
+    "log_floor": "0.0040",
+    "log_multiple": "49.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": 280,
+    "sgd_floor": 1,
+    "sgd_multiple": 280,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction NTS vs OFF"
+   },
+   {
+    "log": "+0.0377",
+    "log_floor": "0.0050",
+    "log_multiple": "7.6",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "main",
+    "sgd": -100,
+    "sgd_floor": 1,
+    "sgd_multiple": 100,
+    "sgd_state": "nonzero",
+    "sign": null,
+    "sign_state": "compositions of opposite sign",
+    "square": "process MNP vs NTS"
+   }
+  ],
+  "per_table": {
+   "construction": {
+    "additive_holds_on_table": false,
+    "b1": 2,
+    "basis": [
+     "construction MNP vs NTS",
+     "construction MNP vs OFF"
+    ],
+    "dependent": [
+     "construction NTS vs OFF"
+    ],
+    "multiplicative_holds_on_table": false,
+    "positions": 3,
+    "squares": 3
+   },
+   "manufacturing": {
+    "additive_holds_on_table": false,
+    "b1": 2,
+    "basis": [
+     "manufacturing T1 vs T2",
+     "manufacturing T1 vs T3"
+    ],
+    "dependent": [
+     "manufacturing T2 vs T3"
+    ],
+    "multiplicative_holds_on_table": false,
+    "positions": 3,
+    "squares": 3
+   },
+   "process": {
+    "additive_holds_on_table": false,
+    "b1": 1,
+    "basis": [
+     "process MNP vs NTS"
+    ],
+    "dependent": [],
+    "multiplicative_holds_on_table": false,
+    "positions": 2,
+    "squares": 1
+   },
+   "services": {
+    "additive_holds_on_table": false,
+    "b1": 2,
+    "basis": [
+     "services T1 vs T2",
+     "services T1 vs T3"
+    ],
+    "dependent": [
+     "services T2 vs T3"
+    ],
+    "multiplicative_holds_on_table": false,
+    "positions": 3,
+    "squares": 3
+   }
+  },
+  "rival_bare_dies_at_position": {
+   "construction/MNP": true,
+   "construction/NTS": true,
+   "construction/OFF": true,
+   "manufacturing/T1": true,
+   "manufacturing/T2": true,
+   "manufacturing/T3": true,
+   "marine/ONE": true,
+   "process/MNP": true,
+   "process/NTS": true,
+   "services/T1": true,
+   "services/T2": true,
+   "services/T3": true
+  },
+  "unskilled": [
+   {
+    "log": "+0.5108",
+    "log_floor": "0.0033",
+    "log_multiple": "153.5",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "unskilled",
+    "sgd": 200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction U vs HS, MNP vs NTS"
+   },
+   {
+    "log": "+0.2513",
+    "log_floor": "0.0014",
+    "log_multiple": "176.0",
+    "log_state": "nonzero",
+    "rival_additive_holds": false,
+    "rival_multiplicative_holds": false,
+    "set": "unskilled",
+    "sgd": 200,
+    "sgd_floor": 1,
+    "sgd_multiple": 200,
+    "sgd_state": "nonzero",
+    "sign": "+",
+    "sign_state": "both compositions nonzero, same sign",
+    "square": "construction U vs BS, MNP vs NTS"
+   }
+  ]
+ },
+ "L3_5": {
+  "L=1..40 step 1": {
+   "manufacturing": {
+    "increments": {
+     "BS": {
+      "350": 433,
+      "370": 27703,
+      "450": 435,
+      "470": 50428,
+      "650": 20095
+     },
+     "HS": {
+      "250": 28136,
+      "350": 50863,
+      "530": 19084,
+      "550": 1011
+     },
+     "SP": {
+      "650": 25543,
+      "750": 45650,
+      "930": 17185,
+      "950": 920
+     }
+    },
+    "mixes_within_quota": 104714,
+    "sets": {
+     "BS": [
+      350,
+      370,
+      450,
+      470,
+      650
+     ],
+     "HS": [
+      250,
+      350,
+      530,
+      550
+     ],
+     "SP": [
+      650,
+      750,
+      930,
+      950
+     ]
+    }
+   },
+   "services": {
+    "increments": {
+     "BS": {
+      "450": 462,
+      "500": 545,
+      "600": 4885,
+      "650": 94,
+      "700": 306,
+      "800": 5697
+     },
+     "HS": {
+      "300": 1007,
+      "400": 3611,
+      "450": 1274,
+      "500": 400,
+      "600": 4728,
+      "650": 969
+     },
+     "SP": {
+      "1000": 969,
+      "650": 1007,
+      "750": 2798,
+      "800": 1274,
+      "850": 400,
+      "950": 3749
+     }
+    },
+    "mixes_within_quota": 13880,
+    "sets": {
+     "BS": [
+      450,
+      500,
+      600,
+      650,
+      700,
+      800
+     ],
+     "HS": [
+      300,
+      400,
+      450,
+      500,
+      600,
+      650
+     ],
+     "SP": [
+      650,
+      750,
+      800,
+      850,
+      950,
+      1000
+     ]
+    }
+   }
+  },
+  "L=1..80 step 0.5": {
+   "manufacturing": {
+    "increments": {
+     "BS": {
+      "350": 913,
+      "370": 220306,
+      "450": 913,
+      "470": 313377,
+      "650": 43401
+     },
+     "HS": {
+      "250": 221219,
+      "350": 314290,
+      "530": 41295,
+      "550": 2106
+     },
+     "SP": {
+      "650": 202124,
+      "750": 284165,
+      "930": 37381,
+      "950": 1924
+     }
+    },
+    "mixes_within_quota": 606009,
+    "sets": {
+     "BS": [
+      350,
+      370,
+      450,
+      470,
+      650
+     ],
+     "HS": [
+      250,
+      350,
+      530,
+      550
+     ],
+     "SP": [
+      650,
+      750,
+      930,
+      950
+     ]
+    }
+   },
+   "services": {
+    "increments": {
+     "BS": {
+      "450": 11076,
+      "500": 12244,
+      "600": 116565,
+      "650": 1403,
+      "700": 6743,
+      "800": 115845
+     },
+     "HS": {
+      "300": 23320,
+      "400": 80870,
+      "450": 35695,
+      "500": 8146,
+      "600": 96605,
+      "650": 19240
+     },
+     "SP": {
+      "1000": 18537,
+      "650": 22094,
+      "750": 70073,
+      "800": 34863,
+      "850": 7595,
+      "950": 84787
+     }
+    },
+    "mixes_within_quota": 282708,
+    "sets": {
+     "BS": [
+      450,
+      500,
+      600,
+      650,
+      700,
+      800
+     ],
+     "HS": [
+      300,
+      400,
+      450,
+      500,
+      600,
+      650
+     ],
+     "SP": [
+      650,
+      750,
+      800,
+      850,
+      950,
+      1000
+     ]
+    }
+   }
+  },
+  "L=1..80 step 1": {
+   "manufacturing": {
+    "increments": {
+     "BS": {
+      "350": 433,
+      "370": 111403,
+      "450": 435,
+      "470": 157464,
+      "650": 21359
+     },
+     "HS": {
+      "250": 111836,
+      "350": 157899,
+      "530": 20348,
+      "550": 1011
+     },
+     "SP": {
+      "650": 102182,
+      "750": 142797,
+      "930": 18399,
+      "950": 920
+     }
+    },
+    "mixes_within_quota": 304714,
+    "sets": {
+     "BS": [
+      350,
+      370,
+      450,
+      470,
+      650
+     ],
+     "HS": [
+      250,
+      350,
+      530,
+      550
+     ],
+     "SP": [
+      650,
+      750,
+      930,
+      950
+     ]
+    }
+   },
+   "services": {
+    "increments": {
+     "BS": {
+      "450": 5646,
+      "500": 6216,
+      "600": 59434,
+      "650": 721,
+      "700": 3440,
+      "800": 57837
+     },
+     "HS": {
+      "300": 11862,
+      "400": 41176,
+      "450": 18258,
+      "500": 4161,
+      "600": 48213,
+      "650": 9624
+     },
+     "SP": {
+      "1000": 9266,
+      "650": 11236,
+      "750": 35691,
+      "800": 17820,
+      "850": 3877,
+      "950": 42339
+     }
+    },
+    "mixes_within_quota": 142783,
+    "sets": {
+     "BS": [
+      450,
+      500,
+      600,
+      650,
+      700,
+      800
+     ],
+     "HS": [
+      300,
+      400,
+      450,
+      500,
+      600,
+      650
+     ],
+     "SP": [
+      650,
+      750,
+      800,
+      850,
+      950,
+      1000
+     ]
+    }
+   }
+  },
+  "whole quota region": {
+   "manufacturing": {
+    "grid": {
+     "bs": "0..61",
+     "hs": "0..61",
+     "lqs_count": "1..40 step 1",
+     "s_pass": "0..16"
+    },
+    "increments": {
+     "BS": {
+      "350": 3978,
+      "370": 50611,
+      "450": 3872,
+      "470": 79129,
+      "650": 66309
+     },
+     "HS": {
+      "250": 54589,
+      "350": 83001,
+      "530": 57393,
+      "550": 8916
+     },
+     "SP": {
+      "650": 50955,
+      "750": 76722,
+      "930": 53392,
+      "950": 8180
+     }
+    },
+    "mixes_within_quota": 215729,
+    "sets": {
+     "BS": [
+      350,
+      370,
+      450,
+      470,
+      650
+     ],
+     "HS": [
+      250,
+      350,
+      530,
+      550
+     ],
+     "SP": [
+      650,
+      750,
+      930,
+      950
+     ]
+    }
+   },
+   "services": {
+    "grid": {
+     "bs": "0..45",
+     "hs": "0..45",
+     "lqs_count": "1..80 step 1",
+     "s_pass": "0..14"
+    },
+    "increments": {
+     "BS": {
+      "450": 6229,
+      "500": 7869,
+      "600": 70363,
+      "650": 1289,
+      "700": 4727,
+      "800": 84662
+     },
+     "HS": {
+      "300": 14098,
+      "400": 50265,
+      "450": 20098,
+      "500": 6016,
+      "600": 69177,
+      "650": 15485
+     },
+     "SP": {
+      "1000": 15485,
+      "650": 14098,
+      "750": 44306,
+      "800": 20098,
+      "850": 6016,
+      "950": 61651
+     }
+    },
+    "mixes_within_quota": 188720,
+    "sets": {
+     "BS": [
+      450,
+      500,
+      600,
+      650,
+      700,
+      800
+     ],
+     "HS": [
+      300,
+      400,
+      450,
+      500,
+      600,
+      650
+     ],
+     "SP": [
+      650,
+      750,
+      800,
+      850,
+      950,
+      1000
+     ]
+    }
+   }
+  }
+ },
+ "L3_6": {
+  "L3_5_announced": "not computed: the merged tier's boundary is not written on any page",
+  "announced": {
+   "manufacturing": {
+    "M/BS": 470,
+    "M/HS": 300
+   },
+   "marine": {
+    "ONE/BS": 600
+   },
+   "process": {
+    "MNP/BS": 600,
+    "NTS/BS": 800
+   },
+   "services": {
+    "M/BS": 600,
+    "M/HS": 400
+   }
+  },
+  "announced_tables": {
+   "manufacturing": {
+    "M": {
+     "BS": 470,
+     "HS": 300
+    },
+    "T3": {
+     "BS": 650,
+     "HS": 550
+    }
+   },
+   "marine": {
+    "ONE": {
+     "BS": 600,
+     "HS": 350
+    }
+   },
+   "process": {
+    "MNP": {
+     "BS": 600,
+     "HS": 200
+    },
+    "NTS": {
+     "BS": 800,
+     "HS": 300
+    }
+   },
+   "services": {
+    "M": {
+     "BS": 600,
+     "HS": 400
+    },
+    "T3": {
+     "BS": 800,
+     "HS": 600
+    }
+   }
+  },
+  "recomputed_L3_3_announced": {
+   "manufacturing": {
+    "cells": 4,
+    "distinct": 4,
+    "values": [
+     300,
+     470,
+     550,
+     650
+    ]
+   },
+   "marine": {
+    "cells": 2,
+    "distinct": 2,
+    "values": [
+     350,
+     600
+    ]
+   },
+   "process": {
+    "cells": 4,
+    "distinct": 4,
+    "values": [
+     200,
+     300,
+     600,
+     800
+    ]
+   },
+   "services": {
+    "cells": 4,
+    "distinct": 3,
+    "values": [
+     400,
+     600,
+     800
+    ]
+   }
+  },
+  "state": "event not yet in effect"
+ },
+ "L3_7": {
+  "guide": {
+   "pages_read": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "stored": false,
+   "url": "https://www.mom.gov.sg/~/media/mom/documents/services-forms/passes/guide_on_comp_of_company_quota_balance.pdf",
+   "version": "Updated 1 July 2026"
+  },
+  "pages": [
+   {
+    "announced_2028_cells": 2,
+    "last_updated": "2026-09-16",
+    "monthly_cells_read": 6,
+    "page": "services",
+    "sha256": "e5baf7279a82f8dfc189b167c2729f6906c0dcb86cfb649409154efb5cd25e3a",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/services-sector-requirements",
+    "verbatim": "full",
+    "verbatim_note": "tables and sentences as returned by the fetch, no paraphrase marked"
+   },
+   {
+    "announced_2028_cells": 2,
+    "last_updated": "2026-09-14",
+    "monthly_cells_read": 6,
+    "page": "manufacturing",
+    "sha256": "7281562c8d86fb1b3706960105b3dbecb51b19820470007336ab4a7a5508688b",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/manufacturing-sector-requirements",
+    "verbatim": "partial",
+    "verbatim_note": "table headers paraphrased by the fetch tool; figures and quoted sentences as printed"
+   },
+   {
+    "announced_2028_cells": 0,
+    "last_updated": "2026-07-03",
+    "monthly_cells_read": 7,
+    "page": "construction",
+    "sha256": "495e4f2211d2c693c8d868b88d844da12d9022a0d000cea9129091beaac4a833",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/construction-sector-requirements",
+    "verbatim": "full",
+    "verbatim_note": "tables and sentences as returned by the fetch, no paraphrase marked"
+   },
+   {
+    "announced_2028_cells": 2,
+    "last_updated": "2026-07-01",
+    "monthly_cells_read": 4,
+    "page": "process",
+    "sha256": "b6a4b6351e58a552c194ab93c5e2faa9657b8481af97ca261649576ae270eb23",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/process-sector-requirements",
+    "verbatim": "full",
+    "verbatim_note": "tables and sentences as returned by the fetch, no paraphrase marked"
+   },
+   {
+    "announced_2028_cells": 1,
+    "last_updated": "2026-07-01",
+    "monthly_cells_read": 2,
+    "page": "marine",
+    "sha256": "cd3df17f61de31d254ba78a898f6c13b9c4b1815fa30ed5cd07065590be3c263",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/passes-and-permits/work-permit-for-foreign-worker/sector-specific-rules/marine-sector-requirements",
+    "verbatim": "full",
+    "verbatim_note": "tables and sentences as returned by the fetch, no paraphrase marked"
+   },
+   {
+    "announced_2028_cells": 0,
+    "last_updated": "2026-02-19",
+    "monthly_cells_read": 1,
+    "page": "spass_levy_quota",
+    "sha256": "e087dc877d44388f457f091ba5a254945a974a83f7f152ef67fae0bde629f8b6",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/passes-and-permits/s-pass/quota-and-levy/levy-and-quota-requirements",
+    "verbatim": "full",
+    "verbatim_note": "tables and sentences as returned by the fetch, no paraphrase marked"
+   },
+   {
+    "announced_2028_cells": 0,
+    "last_updated": "2025-03-06",
+    "monthly_cells_read": 6,
+    "page": "spass_changes",
+    "sha256": "073dec5a8f0716a6d358ba8ddf2955ee06b1702ffb072b49a590bfe0defb33a4",
+    "sha_recomputed_equal": true,
+    "snapshot_utc": "20261014T134920Z",
+    "url": "https://www.mom.gov.sg/maintenance/passes-and-permits/s-pass/upcoming-changes-to-s-pass-eligibility",
+    "verbatim": "summary",
+    "verbatim_note": "the quoted sentence is as printed; the levy tables were summarised by the fetch tool"
+   }
+  ],
+  "unlisted_files": []
+ },
+ "config": {
+  "L3_5_grid": {
+   "bs": "0..24",
+   "hs": "0..24",
+   "lqs_count": "1..40 step 1; 1..80 step 1; 1..80 step 0.5",
+   "s_pass": "0..7",
+   "whole_quota_region": {
+    "manufacturing": "LQS 1..40, S Pass 0..16, HS and BS 0..61",
+    "services": "LQS 1..80, S Pass 0..14, HS and BS 0..45"
+   },
+   "within_quota": "before and after the hire"
+  },
+  "guide_version": "Updated 1 July 2026",
+  "s_pass_rate": 650,
+  "snapshots": {
+   "construction": {
+    "file": "construction_20261014T134920Z.txt",
+    "last_updated": "2026-07-03",
+    "sha256": "495e4f2211d2c693c8d868b88d844da12d9022a0d000cea9129091beaac4a833"
+   },
+   "manufacturing": {
+    "file": "manufacturing_20261014T134920Z.txt",
+    "last_updated": "2026-09-14",
+    "sha256": "7281562c8d86fb1b3706960105b3dbecb51b19820470007336ab4a7a5508688b"
+   },
+   "marine": {
+    "file": "marine_20261014T134920Z.txt",
+    "last_updated": "2026-07-01",
+    "sha256": "cd3df17f61de31d254ba78a898f6c13b9c4b1815fa30ed5cd07065590be3c263"
+   },
+   "process": {
+    "file": "process_20261014T134920Z.txt",
+    "last_updated": "2026-07-01",
+    "sha256": "b6a4b6351e58a552c194ab93c5e2faa9657b8481af97ca261649576ae270eb23"
+   },
+   "services": {
+    "file": "services_20261014T134920Z.txt",
+    "last_updated": "2026-09-16",
+    "sha256": "e5baf7279a82f8dfc189b167c2729f6906c0dcb86cfb649409154efb5cd25e3a"
+   },
+   "spass_changes": {
+    "file": "spass_changes_20261014T134920Z.txt",
+    "last_updated": "2025-03-06",
+    "sha256": "073dec5a8f0716a6d358ba8ddf2955ee06b1702ffb072b49a590bfe0defb33a4"
+   },
+   "spass_levy_quota": {
+    "file": "spass_levy_quota_20261014T134920Z.txt",
+    "last_updated": "2026-02-19",
+    "sha256": "e087dc877d44388f457f091ba5a254945a974a83f7f152ef67fae0bde629f8b6"
+   }
+  },
+  "tier_rules": {
+   "manufacturing": {
+    "a": 25,
+    "b": 50,
+    "mult_den": 2,
+    "mult_num": 3,
+    "spq": 15
+   },
+   "services": {
+    "a": 10,
+    "b": 25,
+    "mult_den": 1000000,
+    "mult_num": 538462,
+    "spq": 10
+   }
+  }
+ },
+ "criteria": [
+  {
+   "detail": "Daily levy equals ceil_cent(monthly x 12 / 365) on every printed cell: 25 match, 0 mismatch; 3 cells carry no daily rate and take no verdict: construction/MNP/U (monthly only), construction/NTS/U (monthly only), construction/OFF/U (not written).",
+   "kind": "instrument",
+   "name": "L3-1",
+   "passed": true
+  },
+  {
+   "detail": "The guide's rate table and worked bills, recomputed from its own steps and compared with the sector pages: 48 rows, 48 read on both sides and reconciled; 44 agree, 4 disagree. The 4 that disagree are errors in the Ministry's guide 'How to calculate your quota and levy bill' (the source document), where the guide contradicts its own steps or the sector page; they are not errors in this reading. Listed from the rows: rate marine/ONE/HS printed/page 350 vs computed/guide 300; p15 factory T2 levy printed/page 5160 vs computed/guide 5640; p15 factory total printed/page 13280 vs computed/guide 13760; p15 cafe + factory total printed/page 14580 vs computed/guide 15060. The flag reads that every row is present and reconciled; the list is this check's output.",
+   "kind": "bookkeeping",
+   "name": "L3-2",
+   "passed": true
+  },
+  {
+   "detail": "HS and BS are both written and differ at 12 of 12 positions; positions writing more than two classes (Unskilled added): construction/MNP 3 classes, 3 distinct values, construction/NTS 3 classes, 2 distinct values. services 6 cells 5 distinct; manufacturing 6 cells 6 distinct; construction 8 cells 6 distinct; process 4 cells 4 distinct; marine 2 cells 2 distinct; all Work Permit cells 15 distinct values; S Pass current 1 value (650), before 2025-09-01 2 values (550, 650).",
+   "kind": "own_reading",
+   "name": "L3-3",
+   "passed": true
+  },
+  {
+   "detail": "Squares (BS-HS)@a-(BS-HS)@b in SGD (floor 1) and log(BS/HS) difference (floor log((x+1)/x)), every pair of positions within a table, 10 squares, 7 independent (b1 = E - V + 1 per table: services 2, manufacturing 2, construction 2, process 1; dependent: services T2 vs T3, manufacturing T2 vs T3, construction NTS vs OFF): services T1 vs T2 -50 / +0.0000 [one composition zero]; services T1 vs T3 -50 / +0.1178 [compositions of opposite sign]; services T2 vs T3 +0 / +0.1178 [one composition zero]; manufacturing T1 vs T2 +0 / +0.0972 [one composition zero]; manufacturing T1 vs T3 +20 / +0.2250 [both compositions nonzero, same sign]; manufacturing T2 vs T3 +20 / +0.1277 [both compositions nonzero, same sign]; construction MNP vs NTS +0 / +0.2595 [one composition zero]; construction MNP vs OFF +280 / +0.4553 [both compositions nonzero, same sign]; construction NTS vs OFF +280 / +0.1957 [both compositions nonzero, same sign]; process MNP vs NTS -100 / +0.0377 [compositions of opposite sign]. Rival shapes, read on whole tables: bare (one value per position) fails at 12/12 positions; additive (class term + position term) fails on 4/4 tables (services, manufacturing, construction, process); multiplicative fails on 4/4 tables (services, manufacturing, construction, process). Single squares where a rival's zero holds: additive services T2 vs T3, manufacturing T1 vs T2, construction MNP vs NTS; multiplicative services T1 vs T2.",
+   "kind": "own_reading",
+   "name": "L3-4",
+   "passed": true
+  },
+  {
+   "detail": "Increment in the monthly bill from one more hire, computed from the guide's steps over mixes within quota, LQS 1..80: services S Pass [650, 750, 800, 850, 950, 1000], manufacturing S Pass [650, 750, 930, 950]; the printed S Pass rate is one number, 650. Sets identical at all knob points: True. Flag (S Pass maximum above 650) holds at 4/4 knob points (L=1..40 step 1, L=1..80 step 1, L=1..80 step 0.5, whole quota region).",
+   "kind": "own_reading",
+   "name": "L3-5",
+   "passed": true
+  },
+  {
+   "detail": "Announced 2028 tables (services and manufacturing merge Tier 1 and Tier 2; process and marine raise basic-skilled rates; construction announces nothing). Pages say the timeline will be released 'in due course'. READ: quarterly from 2027-01-15; on 2028-12-31 still pending => 'announcement not carried out'.",
+   "kind": "known_answer",
+   "name": "L3-6",
+   "passed": null
+  },
+  {
+   "detail": "7 page snapshots, SHA-256 recomputed equal on 7; unlisted files 0; guide read pages 1-15, not stored.",
+   "kind": "bookkeeping",
+   "name": "L3-7",
+   "passed": true
+  }
+ ],
+ "mapping_11c": [
+  {
+   "criterion": "L3-1",
+   "state": "printed daily equals ceil_cent",
+   "verdict": "match"
+  },
+  {
+   "criterion": "L3-1",
+   "state": "printed daily differs",
+   "verdict": "mismatch, flag False"
+  },
+  {
+   "criterion": "L3-1",
+   "state": "no daily printed (Unskilled) or no monthly",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-2",
+   "state": "row read on both sides and agrees",
+   "verdict": "agree count"
+  },
+  {
+   "criterion": "L3-2",
+   "state": "a row read on both sides disagrees",
+   "verdict": "listed as an error in the guide; the list is the output, flag unaffected"
+  },
+  {
+   "criterion": "L3-2",
+   "state": "a row is missing",
+   "verdict": "flag False"
+  },
+  {
+   "criterion": "L3-3",
+   "state": "a position writes two distinct class values",
+   "verdict": "counted"
+  },
+  {
+   "criterion": "L3-3",
+   "state": "a position writes one value, or a class value is missing",
+   "verdict": "flag False"
+  },
+  {
+   "criterion": "L3-2",
+   "state": "guide lacks the input",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-4",
+   "state": "composition exactly zero",
+   "verdict": "zero"
+  },
+  {
+   "criterion": "L3-4",
+   "state": "composition nonzero",
+   "verdict": "nonzero, multiple of floor"
+  },
+  {
+   "criterion": "L3-4",
+   "state": "both compositions nonzero, same sign",
+   "verdict": "read sign"
+  },
+  {
+   "criterion": "L3-4",
+   "state": "compositions of opposite sign",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-4",
+   "state": "one composition zero",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-4",
+   "state": "both compositions zero",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-4",
+   "state": "a cell of a square missing, or b1 from the cells differs from the basis",
+   "verdict": "flag False"
+  },
+  {
+   "criterion": "L3-5",
+   "state": "S Pass max increment > 650 at every knob point",
+   "verdict": true
+  },
+  {
+   "criterion": "L3-5",
+   "state": "S Pass max increment == 650 at every knob point",
+   "verdict": false
+  },
+  {
+   "criterion": "L3-5",
+   "state": "knob points disagree",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-6",
+   "state": "event not yet in effect",
+   "verdict": null
+  },
+  {
+   "criterion": "L3-6",
+   "state": "in effect, every cell as announced",
+   "verdict": true
+  },
+  {
+   "criterion": "L3-6",
+   "state": "in effect, some cell differs",
+   "verdict": false
+  },
+  {
+   "criterion": "L3-6",
+   "state": "2028-12-31 passed and still not in effect ('announcement not carried out')",
+   "verdict": null
+  }
+ ],
+ "rival_shapes": {
+  "additive": "levy = class term + position term => SGD squares are zero",
+  "bare": "a levy is one number per position (sector) => one value per position",
+  "multiplicative": "levy = class term x position term => log squares are zero"
+ },
+ "s_pass_printed_rate": {
+  "premise": "S Pass page: 'harmonised to $650 across all sectors and levy tiers'; the printed rate is one number in every sector and tier",
+  "reading": "holds: L3-3 reads one current S Pass value (650)",
+  "separate_object": "the increase in the monthly bill from one more S Pass holder (L3-5) is a different object; the sentence says nothing about it"
+ },
+ "selftest": [
+  {
+   "check": "tier_fill (counts) equals allocate (lists) on every case with tiers 0..4 and 0..3 of each class",
+   "ok": true
+  },
+  {
+   "check": "ceil_cent known answers 300->9.87, 650->21.37",
+   "ok": true
+  },
+  {
+   "check": "guide p12 bill recomputes to 14,430",
+   "ok": true
+  },
+  {
+   "check": "guide p14 bill recomputes to 1,300",
+   "ok": true
+  },
+  {
+   "check": "order fixture: S Pass takes the T1 slot (650 + 400)",
+   "ok": true
+  },
+  {
+   "check": "fixture: two HS in manufacturing T1 cost 500",
+   "ok": true
+  },
+  {
+   "check": "L3-1 passes on the tables",
+   "ok": true
+  },
+  {
+   "check": "L3-1 flips when one monthly levy is moved by one dollar",
+   "ok": true
+  },
+  {
+   "check": "L3-2 on the guide: 48 rows all reconciled, the flag is True and the list names exactly the four guide errors",
+   "ok": true
+  },
+  {
+   "check": "L3-2 fixture where every known answer agrees: the flag is True",
+   "ok": true
+  },
+  {
+   "check": "L3-2 flips when a row is deleted",
+   "ok": true
+  },
+  {
+   "check": "L3-2 list moves when one guide cell is altered and is that cell (list is computed, not written)",
+   "ok": true
+  },
+  {
+   "check": "L3-2 takes no verdict when the guide gives no input for one row",
+   "ok": true
+  },
+  {
+   "check": "L3-3 passes on the tables",
+   "ok": true
+  },
+  {
+   "check": "L3-3 flips when a position is cleared",
+   "ok": true
+  },
+  {
+   "check": "L3-3 flips when one position writes the same value for HS and BS, and names that position",
+   "ok": true
+  },
+  {
+   "check": "L3-4 passes on the tables",
+   "ok": true
+  },
+  {
+   "check": "L3-4 fixture BS = HS + c: SGD squares all zero, log squares all nonzero",
+   "ok": true
+  },
+  {
+   "check": "L3-4 fixture BS = HS x c: log squares all zero, SGD squares all nonzero",
+   "ok": true
+  },
+  {
+   "check": "L3-4 sign is read only where both compositions are nonzero and agree (paper table, design 3)",
+   "ok": true
+  },
+  {
+   "check": "L3-4 fixture with four positions gives C(4,2) = 6 squares",
+   "ok": true
+  },
+  {
+   "check": "L3-4 b1 = E - V + 1 = 8 - 6 + 1 = 3 on the four-position fixture",
+   "ok": true
+  },
+  {
+   "check": "L3-4 flips to False (no crash) when one cell is cleared: got False",
+   "ok": true
+  },
+  {
+   "check": "L3-4 flips to False (no crash) when one cell is deleted: got False",
+   "ok": true
+  },
+  {
+   "check": "L3-4 per-table additive reading is computed from the squares (fixture holds, tables do not)",
+   "ok": true
+  },
+  {
+   "check": "L3-5 flag is True on a small grid",
+   "ok": true
+  },
+  {
+   "check": "L3-5 flips when S Pass is taken out of the tier slots (S Pass set [300, 350, 450, 500, 550, 650], maximum 650)",
+   "ok": true
+  },
+  {
+   "check": "L3-6 compare passes when pages equal the announcement",
+   "ok": true
+  },
+  {
+   "check": "L3-6 compare flips when one announced cell differs",
+   "ok": true
+  },
+  {
+   "check": "L3-6 is None while the event is pending",
+   "ok": true
+  },
+  {
+   "check": "L3-7 passes on the snapshot folder",
+   "ok": true
+  },
+  {
+   "check": "L3-7 flips with one unlisted file",
+   "ok": true
+  },
+  {
+   "check": "L3-7 flips when one byte of a snapshot changes",
+   "ok": true
+  },
+  {
+   "check": "L3-7 loader keeps files of any extension (a stored PDF would be unlisted), drops manifest and .expired",
+   "ok": true
+  },
+  {
+   "check": "L3-7 flips when a page carries no verbatim field",
+   "ok": true
+  },
+  {
+   "check": "L3-7 flips when a page's verbatim field is not full, partial or summary",
+   "ok": true
+  },
+  {
+   "check": "11c mapping: every undecided cell maps to None and only those",
+   "ok": true
+  }
+ ],
+ "stage": "B150",
+ "title": "Singapore foreign worker levy: one job, priced by worker class and by the employer's tier"
+}

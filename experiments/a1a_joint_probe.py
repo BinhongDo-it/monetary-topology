@@ -53,8 +53,108 @@ sys.path.insert(0, str(ROOT / "src"))
 from monetary_topology.scf import GROUPS  # noqa: E402
 from monetary_topology.scf_joint import (  # noqa: E402
     JointSelection,
-    read_joint,
+    extract,
+    joint,
+    rank_groups,
+    read_rows,
 )
+
+#: ``MORTPAY`` in the Federal Reserve's variable-definition macro is these three
+#: plus the payments on other residential property, on land contracts and on
+#: the home-equity lines the primary residence secures. The three are the
+#: loans on the primary residence that ``NH_MORT`` counts. ``NH_MORT`` is net
+#: of the home-equity lines, so their payment is in ``MORTPAY`` and their debt
+#: is outside ``NH_MORT``.
+PRIMARY_MORTGAGE = ("PAYMORT1", "PAYMORT2", "PAYMORT3")
+#: The other residential property (``PAYORE1``, ``PAYORE2``, ``PAYOREV``) and the
+#: land contracts (``PAYLC1``, ``PAYLC2``, ``PAYLCO``) inside ``MORTPAY``. What
+#: ``MORTPAY`` holds beyond these six and the three above is the payment on the
+#: home-equity lines the primary residence secures, read as the remainder.
+OTHER_PROPERTY = ("PAYORE1", "PAYORE2", "PAYOREV", "PAYLC1", "PAYLC2", "PAYLCO")
+#: The three land-contract columns among the six, counted on their own so the
+#: record says how much of the other-property part they carry.
+LAND_CONTRACT = ("PAYLC1", "PAYLC2", "PAYLCO")
+
+
+def mortgage_payment_coverage(respondents: list, wealth: list[int],
+                              income: list[int]) -> dict[str, object]:
+    """The mortgage payment column beside the payment on the ``NH_MORT`` loans.
+
+    The probe sets ``MORTPAY`` beside ``NH_MORT`` on one row, and the two do not
+    cover the same debt. The stock is the primary-residence loans ``NH_MORT``
+    counts. The payment adds other residential property, land contracts and
+    the home-equity lines the primary residence secures. What ``MORTPAY`` pays
+    beyond the ``NH_MORT`` loans is split in two: other property and land
+    contracts, read from their six columns, and the primary residence's
+    home-equity line, the remainder. A row pays beyond the ``NH_MORT`` loans
+    when that excess is above a cent, and such a row falls in one of two
+    classes: some payment on other property or a land contract, or the
+    home-equity line alone. Everything is reported overall and by cell, over
+    the mortgaged rows the probe already counts. Rows are implicates.
+    """
+    if not respondents or any(c not in respondents[0].extra
+                              for c in PRIMARY_MORTGAGE + OTHER_PROPERTY):
+        return {}
+
+    def own(r) -> float:
+        return sum(r.extra[c] for c in PRIMARY_MORTGAGE)
+
+    def other(r) -> float:
+        return sum(r.extra[c] for c in OTHER_PROPERTY)
+
+    def line(r) -> float:
+        return r.mortgage_payment - own(r) - other(r)
+
+    def beyond(r) -> bool:
+        return r.mortgage_payment - own(r) > 0.01
+
+    def line_only(r) -> bool:
+        return beyond(r) and other(r) <= 0.01
+
+    def mean(rows, get) -> float:
+        w = sum(r.weight for r in rows)
+        return sum(r.weight * get(r) for r in rows) / w if w else 0.0
+
+    rows = [(r, w, i) for r, w, i in zip(respondents, wealth, income, strict=True)
+            if r.owns and r.mortgaged]
+    mortgaged = [r for r, _w, _i in rows]
+    wider = [r for r in mortgaged if beyond(r)]
+    weight = sum(r.weight for r in mortgaged)
+    cells = []
+    for w in range(len(GROUPS)):
+        for i in range(len(GROUPS)):
+            here = [r for r, ww, ii in rows if ww == w and ii == i]
+            cells.append({
+                "wealth_group": w, "income_group": i, "rows_mortgaged": len(here),
+                "payment_per_mortgaged": mean(here, lambda r: r.mortgage_payment),
+                "nh_mort_loan_payment_per_mortgaged": mean(here, own),
+                "rows_with_other_property_or_land_contract_payments": sum(
+                    1 for r in here if beyond(r) and not line_only(r)),
+                "rows_with_only_the_home_equity_line_beyond_the_NH_MORT_loans":
+                    sum(1 for r in here if line_only(r)),
+                "other_property_and_land_contract_payment_per_mortgaged":
+                    mean(here, other),
+                "primary_residence_home_equity_line_payment_per_mortgaged":
+                    mean(here, line),
+            })
+    return {
+        "rows_mortgaged": len(mortgaged),
+        "rows_paying_beyond_the_NH_MORT_loans": len(wider),
+        "rows_with_other_property_or_land_contract_payments": sum(
+            1 for r in wider if not line_only(r)),
+        "rows_with_only_the_home_equity_line_beyond_the_NH_MORT_loans": sum(
+            1 for r in wider if line_only(r)),
+        "rows_with_a_land_contract_payment": sum(
+            1 for r in mortgaged
+            if sum(r.extra[c] for c in LAND_CONTRACT) > 0.01),
+        "weighted_share_paying_beyond_the_NH_MORT_loans": (
+            sum(r.weight for r in wider) / weight if weight else 0.0),
+        "mean_MORTPAY": mean(mortgaged, lambda r: r.mortgage_payment),
+        "mean_nh_mort_loans": mean(mortgaged, own),
+        "mean_other_property_and_land_contracts": mean(mortgaged, other),
+        "mean_primary_residence_home_equity_line": mean(mortgaged, line),
+        "by_cell": cells,
+    }
 
 RAW = ROOT / "data" / "raw"
 PROCESSED = ROOT / "data" / "processed"
@@ -101,8 +201,15 @@ def main() -> int:
               file=sys.stderr)
         return 1
     selection = JointSelection.load(SELECTION)
-    result = read_joint(ARCHIVE, selection, check_anchors=not args.no_anchors)
+    respondents = extract(read_rows(ARCHIVE, selection.member), selection)
+    result = joint(respondents, not args.no_anchors)
     cells = table(result)
+    coverage = mortgage_payment_coverage(
+        respondents, rank_groups(respondents, "networth"),
+        rank_groups(respondents, "income"))
+    own_payment = {(c["wealth_group"], c["income_group"]):
+                   c["nh_mort_loan_payment_per_mortgaged"]
+                   for c in coverage.get("by_cell", [])}
 
     print(f"\n  wave {selection.wave}, {result['records']:,} implicate rows, "
           f"{result['weighted_families']:,.0f} families, overall ownership "
@@ -132,8 +239,13 @@ def main() -> int:
               f"{MODEL_CONSUMER_CREDIT[w]:>13,.0f}")
 
     print("\ntenure and the shelter flows, measured on the joint")
+    print("  pay/mo is MORTPAY: the NH_MORT loans, other property, land "
+          "contracts and the primary residence's home-equity line")
+    print("  own/mo is the payment on the NH_MORT loans alone, the debt mtg "
+          "debt is")
     print(f"  {'wealth':<10}{'income':<10}{'renter':>8}{'mtgd':>8}{'outr':>8}"
-          f"{'rent/mo':>10}{'pay/mo':>10}{'mtg debt':>12}{'weight':>9}")
+          f"{'rent/mo':>10}{'pay/mo':>10}{'own/mo':>10}{'mtg debt':>12}"
+          f"{'weight':>9}")
     for w in range(len(GROUPS)):
         for i in range(len(GROUPS)):
             c = cells[(w, i)]
@@ -143,8 +255,28 @@ def main() -> int:
                   f"{c['renter_share']:>8.3f}{c['mortgaged_share']:>8.3f}"
                   f"{c['outright_share']:>8.3f}{c['rent_per_renter']:>10,.0f}"
                   f"{c['payment_per_mortgaged']:>10,.0f}"
+                  f"{own_payment.get((w, i), float('nan')):>10,.0f}"
                   f"{c['mortgage_debt_per_mortgaged']:>12,.0f}"
                   f"{c['share_of_population']:>9.4f}")
+
+    if coverage:
+        print(f"\n  {coverage['rows_paying_beyond_the_NH_MORT_loans']:,} of "
+              f"{coverage['rows_mortgaged']:,} mortgaged rows "
+              f"({coverage['weighted_share_paying_beyond_the_NH_MORT_loans']:.2%}"
+              f" of mortgaged families by weight) pay MORTPAY beyond the "
+              f"NH_MORT loans: "
+              f"{coverage['rows_with_other_property_or_land_contract_payments']:,}"
+              f" on other property or land contracts, "
+              f"{coverage['rows_with_only_the_home_equity_line_beyond_the_NH_MORT_loans']:,}"
+              f" on the primary residence's home-equity line alone")
+        print(f"  a month per mortgaged family: "
+              f"{coverage['mean_MORTPAY']:,.2f} in all, "
+              f"{coverage['mean_nh_mort_loans']:,.2f} on the NH_MORT "
+              f"loans, "
+              f"{coverage['mean_other_property_and_land_contracts']:,.2f} on "
+              f"other property and land contracts, "
+              f"{coverage['mean_primary_residence_home_equity_line']:,.2f} on "
+              f"the primary residence's home-equity line")
 
     card = float(result["aggregate_card"])  # type: ignore[arg-type]
     vehicle = float(result["aggregate_vehicle"])  # type: ignore[arg-type]
@@ -161,12 +293,21 @@ def main() -> int:
 
     PROCESSED.mkdir(parents=True, exist_ok=True)
     columns = list(result["cells"][0])  # type: ignore[index]
+    # payment_per_mortgaged is MORTPAY. The payment on the NH_MORT loans goes
+    # beside it, so both payments sit next to the debt they are set against.
+    beside = "nh_mort_loan_payment_per_mortgaged"
+    if own_payment:
+        columns.insert(columns.index("payment_per_mortgaged") + 1, beside)
     out_csv = PROCESSED / "scf_joint_cells.csv"
     with out_csv.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=columns, lineterminator="\n")
         writer.writeheader()
         for cell in result["cells"]:  # type: ignore[union-attr]
-            writer.writerow(cell)
+            row = dict(cell)
+            if own_payment:
+                row[beside] = own_payment[(GROUPS.index(cell["wealth"]),
+                                           GROUPS.index(cell["income"]))]
+            writer.writerow(row)
 
     RESULTS.mkdir(parents=True, exist_ok=True)
     out_json = RESULTS / "a1a_joint_probe.json"
@@ -185,6 +326,7 @@ def main() -> int:
                 "copula_0_76": [list(r) for r in COPULA_0_76],
                 "z1_consumer_credit": Z1_CONSUMER_CREDIT,
                 "z1_home_mortgages": Z1_HOME_MORTGAGES,
+                "mortgage_payment_coverage": coverage,
                 **result,
             },
             indent=2,

@@ -8,6 +8,12 @@ euro-area membership years are imported from `b131_readings.py`. Nothing is fetc
 Decomposition, exact: with current prices CP and previous-year prices PYP, the item differences add
 up to the total's, so item i moves the total deflator by (CP_i - PYP_i) / PYP_total points (x 100).
 
+Units. A country's deflator change is read in national currency (CP_MNAC over PYP_MNAC): its euro
+series is converted at each year's exchange rate, so CP_MEUR over PYP_MEUR carries the exchange
+rate's move, and a comparison with the country's own HICP needs the country's own prices. Aggregates
+are published in euro only and are read in euro; for one that spans several currencies (EU27) the
+euro deflator still carries exchange-rate moves, and the record says so.
+
 Criteria (each has a planted error in --selftest that must make it fail):
   B132-1  instrument    COICOP 1999 and 2018 versions give the same yearly deflator change for the
                         total and CP042 on the overlapping years; gaps above 0.5 point listed by name
@@ -24,6 +30,8 @@ Criteria (each has a planted error in --selftest that must make it fail):
                         CP041 change, per country and year
   B132-6  own_reading   2020 -> 2024 cumulated: national-accounts deflator, HICP, and the deflator with
                         both borrowed prices taken out
+  B132-7  instrument    the unit: on euro-area member years the national-currency and euro deflator
+                        changes are one number; the country-years where they are not are counted
 
 Run from the repo root:
     python experiments/b132_readings.py
@@ -49,7 +57,19 @@ INSEE_FR_2023 = {"with": 7.1, "without": 4.8}
 INSEE_TOL = 0.2
 VERSION_GAP = 0.5      # percent
 YEARS = range(2019, 2026)
-AGG = {"EA20", "EU27_2020", "EA19", "EU28", "EA"}
+#: Every aggregate the two tables carry; EA12 overlaps both versions from 1996 to 2022 and is no country.
+AGG = {"EA20", "EU27_2020", "EA19", "EU28", "EA", "EA12", "EA21"}
+UNIT_TOL = 1e-6        # points; the two units on a euro member year
+
+
+def is_area(g: str) -> bool:
+    return g in AGG or g.startswith(("EA", "EU"))
+
+
+def units(g: str, volume: str = "PYP") -> tuple[str, str]:
+    """Current-price and volume units for one area: euro for an aggregate, national currency for a country."""
+    cur = "MEUR" if is_area(g) else "MNAC"
+    return f"CP_{cur}", f"{volume}_{cur}"
 
 
 def load(name: str) -> dict:
@@ -73,27 +93,30 @@ def load_all() -> dict:
 
 # ---------- objects ----------
 
-def na_change(cp18, g, y, drop=()) -> float | None:
+def na_change(cp18, g, y, drop=(), unit=None) -> float | None:
     """Deflator change of the total, percent, with the items in `drop` taken out."""
-    cp, py = cp18.get(("CP_MEUR", "TOTAL", g, y)), cp18.get(("PYP_MEUR", "TOTAL", g, y))
+    uc, up = unit or units(g)
+    cp, py = cp18.get((uc, "TOTAL", g, y)), cp18.get((up, "TOTAL", g, y))
     if cp is None or py is None:
         return None
     for it in drop:
-        a, b = cp18.get(("CP_MEUR", it, g, y)), cp18.get(("PYP_MEUR", it, g, y))
+        a, b = cp18.get((uc, it, g, y)), cp18.get((up, it, g, y))
         if a is None or b is None:
             return None
         cp, py = cp - a, py - b
     return None if py <= 0 else 100 * (cp / py - 1)
 
 
-def item_change(cp18, g, it, y):
-    a, b = cp18.get(("CP_MEUR", it, g, y)), cp18.get(("PYP_MEUR", it, g, y))
+def item_change(cp18, g, it, y, unit=None):
+    uc, up = unit or units(g)
+    a, b = cp18.get((uc, it, g, y)), cp18.get((up, it, g, y))
     return None if a is None or b is None or b == 0 else 100 * (a / b - 1)
 
 
 def pull(cp18, g, it, y):
-    a, b = cp18.get(("CP_MEUR", it, g, y)), cp18.get(("PYP_MEUR", it, g, y))
-    t = cp18.get(("PYP_MEUR", "TOTAL", g, y))
+    uc, up = units(g)
+    a, b = cp18.get((uc, it, g, y)), cp18.get((up, it, g, y))
+    t = cp18.get((up, "TOTAL", g, y))
     return None if None in (a, b, t) or t == 0 else 100 * (a - b) / t
 
 
@@ -110,8 +133,10 @@ def r(v, n=3):
 
 def co3_change(co3, g, it, y):
     """Deflator change in the COICOP 1999 version: current price over chain-linked volume."""
+    uc, uv = units(g, "CLV20")
+
     def p(t):
-        a, b = co3.get(("CP_MEUR", it, g, t)), co3.get(("CLV20_MEUR", it, g, t))
+        a, b = co3.get((uc, it, g, t)), co3.get((uv, it, g, t))
         return None if a is None or b is None or b == 0 else a / b
     a, b = p(y), p(y - 1)
     return None if a is None or b is None or b == 0 else 100 * (a / b - 1)
@@ -122,7 +147,7 @@ def c1(data):
     they are compared on the deflator's yearly change, which is what this station reads."""
     listed, diffs = [], []
     for (u, it, g, y) in list(data["co3"]):
-        if u != "CP_MEUR" or it not in ("TOTAL", "CP042") or g in AGG:
+        if u != "CP_MNAC" or it not in ("TOTAL", "CP042") or is_area(g):
             continue
         a = co3_change(data["co3"], g, it, y)
         b = item_change(data["cp18"], g, it, y) if it != "TOTAL" else na_change(data["cp18"], g, y)
@@ -206,15 +231,18 @@ def c5(data):
             if a is None or b is None:
                 continue
             rows[f"{g} {y}"] = {"na_CP042": r(a), "hicp_CP041": r(b), "diff": r(a - b)}
-            if g not in AGG:
+            if not is_area(g):
                 d.append(a - b)
     d = np.array(d)
     same = int((np.abs(d) <= 0.01 + 1e-9).sum()) if d.size else 0
+    half = int((np.abs(d) <= 0.5).sum()) if d.size else 0
+    to_one = int(((np.abs(d) > 0.5) & (np.abs(d) <= 1.0)).sum()) if d.size else 0
     passed = d.size > 0
     detail = (f"{d.size} country-years (aggregates excluded): median |CP042 - CP041| "
               f"{np.median(np.abs(d)):.2f} points, within 0.01 point in {same}, within 0.5 point in "
-              f"{int((np.abs(d) <= 0.5).sum())}" if d.size else "no country-years")
-    return passed, detail, {"rows": rows, "n": int(d.size), "within_0.01": same,
+              f"{half}, between 0.5 and 1 point in {to_one}" if d.size else "no country-years")
+    return passed, detail, {"rows": rows, "n": int(d.size), "within_0.01": same, "within_0.5": half,
+                            "between_0.5_and_1": to_one,
                             "median_abs": r(float(np.median(np.abs(d))) if d.size else None)}
 
 
@@ -242,9 +270,45 @@ def c6(data):
     return passed, detail, rows
 
 
+def c7(data):
+    """The unit a country is read in. On a euro member year the national currency is the euro, so the
+    two units must give one deflator change; where they part, the euro series is carrying the
+    exchange rate. The year a country joins is listed apart: its previous-year-price figure is
+    converted at the last market rate in the euro series and at the fixed rate in the other."""
+    cp = data["cp18"]
+    eur, nac = ("CP_MEUR", "PYP_MEUR"), ("CP_MNAC", "PYP_MNAC")
+    worst, member, apart, joining = 0.0, 0, [], []
+    for g in sorted({k[2] for k in cp}):
+        if is_area(g):
+            continue
+        for y in YEARS:
+            for it in ("TOTAL", "CP042", "CP122"):
+                a = na_change(cp, g, y, unit=eur) if it == "TOTAL" else item_change(cp, g, it, y, unit=eur)
+                b = na_change(cp, g, y, unit=nac) if it == "TOTAL" else item_change(cp, g, it, y, unit=nac)
+                if a is None or b is None:
+                    continue
+                if g in B131.EURO_FROM and y > B131.EURO_FROM[g]:
+                    member += 1
+                    worst = max(worst, abs(a - b))
+                elif g in B131.EURO_FROM and y == B131.EURO_FROM[g]:
+                    joining.append(f"{g} {y} {it}: {abs(a - b):.4f} points")
+                elif it == "TOTAL" and abs(a - b) > 0.1:
+                    apart.append((abs(a - b), f"{g} {y}: euro {a:.2f} %, national currency {b:.2f} %"))
+    apart.sort(reverse=True)
+    passed = member > 0 and worst <= UNIT_TOL
+    detail = (f"{member} member item-years after the joining year: the two units differ by at most "
+              f"{worst:.1e} points; {len(joining)} item-years in a joining year listed. Outside "
+              f"membership, the total's change differs by more than 0.1 point in {len(apart)} country-years"
+              + (f"; largest {apart[0][1]}" if apart else ""))
+    return passed, detail, {"member_item_years": member, "worst_points": worst, "joining_year": joining,
+                            "apart_total": [s for _, s in apart],
+                            "read_in": {"countries": list(nac), "aggregates": list(eur),
+                                        "aggregates_in_data": sorted({k[2] for k in cp if is_area(k[2])})}}
+
+
 KINDS = {"B132-1": "instrument", "B132-2": "known_answer", "B132-3": "own_reading",
-         "B132-4": "own_reading", "B132-5": "own_reading", "B132-6": "own_reading"}
-FUNCS = {"B132-1": c1, "B132-2": c2, "B132-3": c3, "B132-4": c4, "B132-5": c5, "B132-6": c6}
+         "B132-4": "own_reading", "B132-5": "own_reading", "B132-6": "own_reading", "B132-7": "instrument"}
+FUNCS = {"B132-1": c1, "B132-2": c2, "B132-3": c3, "B132-4": c4, "B132-5": c5, "B132-6": c6, "B132-7": c7}
 
 
 def build(data):
@@ -259,8 +323,14 @@ def selftest() -> None:
     bad["co3"] = {}
     assert not c1(bad)[0], "B132-1 must fail with no overlap"
     bad = copy.deepcopy(data)
-    bad["cp18"][("CP_MEUR", "CP122", "FR", 2023)] += 20_000
+    bad["cp18"][("CP_MNAC", "CP122", "FR", 2023)] += 20_000
     assert not c2(bad)[0], "B132-2 must catch a wrong French CP122"
+    assert not c7(bad)[0], "B132-7 must catch a member year whose two units disagree"
+    assert units("SE") == ("CP_MNAC", "PYP_MNAC") and units("EA20") == ("CP_MEUR", "PYP_MEUR") \
+        and units("EU27_2020", "CLV20") == ("CP_MEUR", "CLV20_MEUR"), "a country in national currency, an area in euro"
+    se_eur = na_change(data["cp18"], "SE", 2023, unit=("CP_MEUR", "PYP_MEUR"))
+    se_nac = na_change(data["cp18"], "SE", 2023)
+    assert abs(se_eur - se_nac) > 1.0, "Sweden 2023 must differ between the units, or the unit does nothing"
     for fn, key in ((c3, "EA20"), (c6, "EA20")):
         bad = copy.deepcopy(data)
         bad["cp18"] = {k: v for k, v in bad["cp18"].items() if k[2] != key}
@@ -271,7 +341,8 @@ def selftest() -> None:
     bad = copy.deepcopy(data)
     bad["hicp"] = {k: v for k, v in bad["hicp"].items() if k[1] != "CP041"}
     assert not c5(bad)[0], "B132-5 must fail with no actual-rent index"
-    print("selftest ok: all six flags pass on the data and each fails on its planted error")
+    print("selftest ok: all seven flags pass on the data and each fails on its planted error; "
+          f"Sweden 2023 reads {se_eur:.2f} % in euro and {se_nac:.2f} % in kronor")
 
 
 def main() -> int:
@@ -284,7 +355,8 @@ def main() -> int:
     record = {"stage": "B132", "criteria": crit,
               "objects": {n: o for n, (_, _, o) in res.items()},
               "config": {"insee_fr_2023": INSEE_FR_2023, "insee_tolerance": INSEE_TOL,
-                         "version_gap_pct": VERSION_GAP, "years": [min(YEARS), max(YEARS)]}}
+                         "version_gap_pct": VERSION_GAP, "years": [min(YEARS), max(YEARS)],
+                         "source": json.loads((RAW / "manifest.json").read_text(encoding="utf-8"))}}
     OUT.write_text(json.dumps(record, indent=1, sort_keys=True, ensure_ascii=False, default=str) + "\n",
                    encoding="utf-8", newline="\n")
     print(f"wrote {OUT.relative_to(ROOT)}")

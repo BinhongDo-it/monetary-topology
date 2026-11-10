@@ -1,0 +1,1110 @@
+{
+ "B146-6": [],
+ "B146-7": [],
+ "B146-8": {},
+ "cells": {
+  "T_cut_I_open": 0,
+  "T_open_I_cut": 0,
+  "both_cut_edges_only": 0,
+  "both_cut_read_inside": 0,
+  "object_absent": 0,
+  "ordinary": 2,
+  "unverified": 0
+ },
+ "cells_by_event": {
+  "RJ-2015-blockade": {
+   "ordinary": 2
+  }
+ },
+ "closure_readback": {
+  "cells": 28,
+  "cells_below_neighbours": 28,
+  "ratio": 0.26616,
+  "shifted_calendars_compared": [
+   -40,
+   -20,
+   -10,
+   10,
+   20,
+   40
+  ],
+  "shifted_cells": {
+   "-10": 28,
+   "-20": 27,
+   "-40": 27,
+   "10": 28,
+   "20": 28,
+   "40": 28
+  },
+  "shifted_cells_below": {
+   "-10": 14,
+   "-20": 12,
+   "-40": 12,
+   "10": 13,
+   "20": 14,
+   "40": 10
+  },
+  "shifted_ratios": {
+   "-10": 0.939623,
+   "-20": 0.950413,
+   "-40": 0.905077,
+   "10": 0.926641,
+   "20": 0.900204,
+   "40": 0.962547
+  }
+ },
+ "commodity": "Cowpea (Lobia-Karamani)",
+ "config": {
+  "closure_placebo": {
+   "min_units": 10,
+   "step_days": 7
+  },
+  "cross_section_year_back_days": 364,
+  "early_last_filing_days": 2,
+  "edge_days": 7,
+  "events": [
+   "MN-2016-blockade",
+   "MP-2017-strike",
+   "AS-2014-flood",
+   "RJ-2015-blockade",
+   "WB-2017-hills",
+   "MP-2016-cash",
+   "UK-2013-flood",
+   "GJ-2015-mobile",
+   "HR-2016-blockade",
+   "TR-2016-road"
+  ],
+  "fixed_composition_min_filings": 10,
+  "full_cut_kinds": [
+   "all"
+  ],
+  "h_read_min_definitions": 2,
+  "h_read_min_window_days": 30,
+  "h_segments": "whole Monday-to-Sunday weeks; the segment before the window starts on the Monday of the week that holds the day pre_days before it",
+  "knobs": {
+   "cluster_window": 3,
+   "prior_floor": 5,
+   "stop_floor": 8
+  },
+  "min_markets": 3,
+  "min_segment": 10,
+  "nationwide_events": [
+   {
+    "date": "2016-11-08",
+    "what": "large notes withdrawn nationwide on the evening of 8 Nov 2016"
+   }
+  ],
+  "placebo": {
+   "max_windows": 36,
+   "min_length_days": 30,
+   "step_days": 30
+  },
+  "pre_days": 60,
+  "price_per_market": "the variety with most filings in that market",
+  "prior_window_days": 30,
+  "reference": "median log modal price on the day over series outside the event's state; B146-8 repeats it per variety and with the set of series held fixed",
+  "reference_min_obs": 500,
+  "reference_slack_days": 3,
+  "shifts": [
+   -40,
+   -20,
+   -10,
+   10,
+   20,
+   40
+  ],
+  "source": "data/agmark/Cowpea (Lobia-Karamani)/*.csv",
+  "sweep": {
+   "cluster_window": [
+    3,
+    7
+   ],
+   "prior_floor": [
+    5,
+    10,
+    15
+   ],
+   "stop_floor": [
+    8,
+    15
+   ]
+  },
+  "wide_cut_kinds": [
+   "all",
+   "all_internet"
+  ]
+ },
+ "criteria": [
+  {
+   "detail": "files 10, lines 28236, short 0, undated 0, kept 28236; markets 242, states 18, 2008-01-01 to 2017-06-21",
+   "kind": "instrument",
+   "name": "B146-1",
+   "passed": true
+  },
+  {
+   "detail": "markets filing on three fixed closure days against the median of the 14 neighbouring days: pooled ratio 0.266, 28 of 28 cells below; the same on calendars shifted by -40/-20/-10/10/20/40 days: 0.905 / 0.950 / 0.940 / 0.927 / 0.900 / 0.963, cells below 12 of 27 / 12 of 27 / 14 of 28 / 13 of 28 / 14 of 28 / 10 of 28",
+   "kind": "known_answer",
+   "name": "B146-2",
+   "passed": true
+  },
+  {
+   "detail": "10 event rows, 6 checked against a source, 4 not; rows with every field: 10; units of an unchecked row sitting in a cell that reads: 0",
+   "kind": "bookkeeping",
+   "name": "B146-3",
+   "passed": true
+  },
+  {
+   "detail": "units covered by a checked transport document and a checked full information cut, active before the event: 0. With every data service stopped and voice up counted as a cut: 0. With any information order at all: 0 (none). Events carrying both documents: MN-2016-blockade (mobile_data): 0 active in the state, 0 in both documents by district, 0 after the markets the orders leave out; WB-2017-hills (all_internet): 0 active in the state, 0 in both documents by district, 0 after the markets the orders leave out",
+   "kind": "premise",
+   "name": "B146-4",
+   "passed": false
+  },
+  {
+   "detail": "2 units, one cell each: unverified 0, ordinary 2, T_cut_I_open 0, T_open_I_cut 0, object_absent 0, both_cut_read_inside 0, both_cut_edges_only 0. Units a closure document covers, that filed nothing, and that sit in a both-cut cell: 0",
+   "kind": "own_reading",
+   "name": "B146-5",
+   "passed": true
+  },
+  {
+   "detail": "both edges cut and still filing: 0 event groups; states unread. No unit in the cell, so there is nothing to read; the cell is not scored.",
+   "kind": "own_reading",
+   "name": "B146-6",
+   "passed": null,
+   "state": "unread"
+  },
+  {
+   "detail": "both edges cut and not filing: 0 units, 0 with a step that can be read. No unit in the cell; not scored.",
+   "kind": "own_reading",
+   "name": "B146-7",
+   "passed": null,
+   "state": "unread"
+  },
+  {
+   "detail": "transport cut, information open: 0 units in 0 events. No unit in the cell on this commodity; not scored.",
+   "kind": "own_reading",
+   "name": "B146-8",
+   "passed": null
+  },
+  {
+   "detail": "12 of 12 knob points run (prior floor 5/10/15, stop floor 8/15, cluster window 3/7; the flag counts the points and checks that they are distinct); units that change cell somewhere on the sweep: 0; both-cut units at each point: 0 0 0 0 0 0 0 0 0 0 0 0",
+   "kind": "instrument",
+   "name": "B146-9",
+   "passed": true
+  },
+  {
+   "detail": "events with at least one unit: 1; units: 2; per event: RJ-2015-blockade 2",
+   "kind": "bookkeeping",
+   "name": "B146-10",
+   "passed": true
+  }
+ ],
+ "events": [
+  {
+   "checked": true,
+   "closures": [
+    {
+     "districts": [
+      "Imphal East",
+      "Imphal West"
+     ],
+     "end": "2016-12-18",
+     "start": "2016-12-18",
+     "what": "curfew reported on that day; relaxation dates not found, so the documented span is the one day"
+    }
+   ],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 47,
+     "from": "2016-11-01",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2016-12-17"
+    },
+    {
+     "days": 1,
+     "from": "2016-12-18",
+     "in_force": [
+      "transport",
+      "info:mobile_data",
+      "closure1"
+     ],
+     "to": "2016-12-18"
+    },
+    {
+     "days": 12,
+     "from": "2016-12-19",
+     "in_force": [
+      "transport",
+      "info:mobile_data"
+     ],
+     "to": "2016-12-30"
+    },
+    {
+     "days": 79,
+     "from": "2016-12-31",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2017-03-19"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 3,
+   "grade": 3,
+   "id": "MN-2016-blockade",
+   "info": {
+    "districts": [
+     "Imphal East",
+     "Imphal West"
+    ],
+    "end": "2016-12-30",
+    "kind": "mobile_data",
+    "start": "2016-12-18",
+    "what": "district magistrates' order to disconnect mobile internet"
+   },
+   "label": "highway blockade, Manipur",
+   "sources": [
+    "https://internetshutdowns.in/india-shutdowns/960/manipur-2016/",
+    "https://www.thequint.com/india/2016/12/20/economic-blockade-to-attack-on-civilians-manipur-crisis-with-nagaland-districts-violence-all-you-need-to-know-",
+    "https://english.madhyamam.com/national/2016/dec/18/manipur-22-vehicles-torched-near-imphal-violence-spreads-curfew-imposed",
+    "https://swarajyamag.com/amp/story/insta%2F130-day-naga-economic-blockade-in-manipur-to-be-lifted-tonight"
+   ],
+   "state": "Manipur",
+   "transport": {
+    "districts": null,
+    "end": "2017-03-19",
+    "start": "2016-11-01",
+    "what": "National Highways 2 and 37 blockaded; lifted 19 Mar 2017"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [
+    {
+     "districts": null,
+     "end": "2017-06-10",
+     "start": "2017-06-01",
+     "what": "ten-day strike called by farmers' bodies: no produce brought to market"
+    },
+    {
+     "districts": [
+      "Mandsaur"
+     ],
+     "end": "2017-06-10",
+     "start": "2017-06-06",
+     "what": "curfew after the 6 Jun firing; relaxed 10 Jun"
+    }
+   ],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 5,
+     "from": "2017-06-01",
+     "in_force": [
+      "closure1"
+     ],
+     "to": "2017-06-05"
+    },
+    {
+     "days": 5,
+     "from": "2017-06-06",
+     "in_force": [
+      "info:mobile_data",
+      "closure1",
+      "closure2"
+     ],
+     "to": "2017-06-10"
+    },
+    {
+     "days": 1,
+     "from": "2017-06-11",
+     "in_force": [
+      "info:mobile_data"
+     ],
+     "to": "2017-06-11"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 3,
+   "grade": 3,
+   "id": "MP-2017-strike",
+   "info": {
+    "districts": [
+     "Mandsaur",
+     "Ratlam",
+     "Ujjain",
+     "Neemuch",
+     "Indore",
+     "Dewas"
+    ],
+    "end": "2017-06-11",
+    "kind": "mobile_data",
+    "start": "2017-06-06",
+    "what": "mobile internet suspended; one report gives 5 Jun as the start"
+   },
+   "label": "farmers' strike, Madhya Pradesh",
+   "sources": [
+    "https://internetshutdowns.in/india-shutdowns/737/madhya-pradesh-2017/",
+    "https://www.millenniumpost.in/big-stories/big-stories-245862",
+    "https://www.millenniumpost.in/nation/nation-246460",
+    "https://www.business-standard.com/article/pti-stories/farmers-stir-violence-arson-in-western-mp-govt-announces-117060701377_1.html"
+   ],
+   "state": "Madhya Pradesh",
+   "transport": null
+  },
+  {
+   "checked": true,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 4,
+     "from": "2014-09-22",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2014-09-25"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": 3,
+   "id": "AS-2014-flood",
+   "info": null,
+   "label": "flood, lower Assam",
+   "sources": [
+    "https://assamtribune.com/goalpara-hatsingimari-hit-by-garo-hills-water",
+    "https://indiaenvironmentportal.org.in/news-clippings/state-flood-toll-rises-to-36",
+    "https://www.millenniumpost.in/after-jk-assam-flooded-39565"
+   ],
+   "state": "Assam",
+   "transport": {
+    "districts": [
+     "Goalpara",
+     "Kamrup"
+    ],
+    "end": "2014-09-25",
+    "start": "2014-09-22",
+    "what": "National Highway 37 under water, Goalpara cut off from Guwahati; 25 Sep is the last dated report of the closure, a lower bound"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 8,
+     "from": "2015-05-21",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2015-05-28"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": 3,
+   "id": "RJ-2015-blockade",
+   "info": null,
+   "label": "rail and road blockade, eastern Rajasthan",
+   "sources": [
+    "https://www.tribuneindia.com/news/archive/nation/after-failed-talks-gujjars-intensify-stir-in-rajasthan-84980",
+    "https://www.moneylife.in/article/gujjars-call-off-agitation-as-rajasthan-agrees-to-quota/42019.html",
+    "https://www.business-standard.com/article/pti-stories/gujjar-stir-wr-losing-rs-15-cr-daily-due-to-train-cancellation-115052600410_1.html"
+   ],
+   "state": "Rajasthan",
+   "transport": {
+    "districts": [
+     "Bharatpur",
+     "Dausa",
+     "Sawai Madhopur",
+     "Karauli",
+     "Tonk"
+    ],
+    "end": "2015-05-28",
+    "start": "2015-05-21",
+    "what": "sit-in on the Delhi-Mumbai line from 21 May, highways from 24 May; called off 28 May"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 5,
+     "from": "2017-06-15",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2017-06-19"
+    },
+    {
+     "days": 3,
+     "from": "2017-06-20",
+     "in_force": [
+      "transport",
+      "info:all_internet"
+     ],
+     "to": "2017-06-22"
+    }
+   ],
+   "excluded_markets": [
+    "Siliguri"
+   ],
+   "execution_steps": 2,
+   "grade": 3,
+   "id": "WB-2017-hills",
+   "info": {
+    "districts": [
+     "Darjeeling"
+    ],
+    "end": "2017-06-22",
+    "kind": "all_internet",
+    "start": "2017-06-20",
+    "what": "mobile internet blocked 18 Jun; on 20 Jun the district magistrate ordered providers to stop all internet service in the hills"
+   },
+   "label": "hills shutdown, Darjeeling",
+   "sources": [
+    "https://internetshutdowns.in/india-shutdowns/902/west-bengal-2017/",
+    "https://sflc.in/darjeeling-internet-ban-completes-two-months/",
+    "https://www.business-standard.com/article/pti-stories/wb-internet-still-suspended-gjm-activists-take-out-protest-117061900693_1.html"
+   ],
+   "state": "West Bengal",
+   "transport": {
+    "districts": [
+     "Darjeeling"
+    ],
+    "end": "2017-06-22",
+    "start": "2017-06-15",
+    "what": "indefinite general shutdown in the hills (19 Jun reported as its fifth day); still on when the panel ends on 22 Jun"
+   }
+  },
+  {
+   "checked": true,
+   "closures": [
+    {
+     "districts": null,
+     "end": "2016-11-22",
+     "start": "2016-11-09",
+     "what": "large notes withdrawn on the evening of 8 Nov 2016; markets reported shut for want of cash for five days to a fortnight"
+    }
+   ],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 14,
+     "from": "2016-11-09",
+     "in_force": [
+      "closure1"
+     ],
+     "to": "2016-11-22"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": 3,
+   "id": "MP-2016-cash",
+   "info": null,
+   "label": "largest cluster of stops on the panel, Madhya Pradesh",
+   "sources": [
+    "https://newsbits.in/demonetization-crushes-rural-economy-mp-villagers-are-cashless-getting-fleeced",
+    "https://culanth.org/fieldsights/trading-notes",
+    "https://www.ideasforindia.in/topics/money-finance/what-did-demonetisation-do-to-domestic-agricultural-markets.html"
+   ],
+   "state": "Madhya Pradesh",
+   "transport": null
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 15,
+     "from": "2013-06-16",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2013-06-30"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": null,
+   "id": "UK-2013-flood",
+   "info": null,
+   "label": "flood, Uttarakhand (unchecked)",
+   "sources": [],
+   "state": "Uttrakhand",
+   "transport": {
+    "districts": null,
+    "end": "2013-06-30",
+    "start": "2013-06-16",
+    "what": "unchecked"
+   }
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 8,
+     "from": "2015-08-26",
+     "in_force": [
+      "info:mobile_data"
+     ],
+     "to": "2015-09-02"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": null,
+   "id": "GJ-2015-mobile",
+   "info": {
+    "districts": null,
+    "end": "2015-09-02",
+    "kind": "mobile_data",
+    "start": "2015-08-26",
+    "what": "unchecked"
+   },
+   "label": "statewide mobile-data stop, Gujarat (unchecked)",
+   "sources": [],
+   "state": "Gujarat",
+   "transport": null
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 5,
+     "from": "2016-02-19",
+     "in_force": [
+      "transport",
+      "info:mobile_data"
+     ],
+     "to": "2016-02-23"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 2,
+   "grade": null,
+   "id": "HR-2016-blockade",
+   "info": {
+    "districts": null,
+    "end": "2016-02-23",
+    "kind": "mobile_data",
+    "start": "2016-02-19",
+    "what": "unchecked"
+   },
+   "label": "road blockade, Haryana (unchecked)",
+   "sources": [],
+   "state": "Haryana",
+   "transport": {
+    "districts": null,
+    "end": "2016-02-23",
+    "start": "2016-02-19",
+    "what": "unchecked"
+   }
+  },
+  {
+   "checked": false,
+   "closures": [],
+   "complete": true,
+   "dosage": [
+    {
+     "days": 47,
+     "from": "2016-06-15",
+     "in_force": [
+      "transport"
+     ],
+     "to": "2016-07-31"
+    }
+   ],
+   "excluded_markets": [],
+   "execution_steps": 1,
+   "grade": null,
+   "id": "TR-2016-road",
+   "info": null,
+   "label": "highway failure, Tripura (unchecked)",
+   "sources": [],
+   "state": "Tripura",
+   "transport": {
+    "districts": null,
+    "end": "2016-07-31",
+    "start": "2016-06-15",
+    "what": "unchecked"
+   }
+  }
+ ],
+ "independent_units": {
+  "events_with_units": 1,
+  "per_event": {
+   "RJ-2015-blockade": 2
+  },
+  "units": 2
+ },
+ "knob_sweep": [
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 2
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 8,
+   "units": 2
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 2
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 2,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 8,
+   "units": 2
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 2
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 15,
+   "units": 2
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 2
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 1,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 0,
+   "prior_floor": 5,
+   "stop_floor": 15,
+   "units": 2
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 1
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 1,
+   "prior_floor": 10,
+   "stop_floor": 8,
+   "units": 1
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 1
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 1,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 1,
+   "prior_floor": 10,
+   "stop_floor": 8,
+   "units": 1
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 1
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 1,
+   "prior_floor": 10,
+   "stop_floor": 15,
+   "units": 1
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {
+    "ordinary": 1
+   },
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 1,
+   "prior_floor": 10,
+   "stop_floor": 15,
+   "units": 1
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {},
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 2,
+   "prior_floor": 15,
+   "stop_floor": 8,
+   "units": 0
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {},
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 2,
+   "prior_floor": 15,
+   "stop_floor": 8,
+   "units": 0
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {},
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 3,
+   "dropped_vs_default": 2,
+   "prior_floor": 15,
+   "stop_floor": 15,
+   "units": 0
+  },
+  {
+   "added_vs_default": 0,
+   "both_cut_units": 0,
+   "cells": {},
+   "changed_cell": [],
+   "cluster_sizes": {
+    "AS-2014-flood": 0,
+    "MN-2016-blockade": 0,
+    "MP-2016-cash": 0,
+    "MP-2017-strike": 0,
+    "RJ-2015-blockade": 0,
+    "WB-2017-hills": 0
+   },
+   "cluster_window": 7,
+   "dropped_vs_default": 2,
+   "prior_floor": 15,
+   "stop_floor": 15,
+   "units": 0
+  }
+ ],
+ "mapping": {
+  "T_cut_I_open": {
+   "feeds": "B146-8",
+   "rule": "transport document covers it; no full information cut does (a mobile-data-only order is a thinner edge, not a cut one)",
+   "verdict": "printed"
+  },
+  "T_open_I_cut": {
+   "feeds": "counted, dispersion printed",
+   "rule": "full information cut covers it; no transport document does",
+   "verdict": "printed"
+  },
+  "both_cut_edges_only": {
+   "feeds": "B146-7",
+   "rule": "both documents cover it, it filed nothing inside the window, no closure",
+   "verdict": "read"
+  },
+  "both_cut_read_inside": {
+   "feeds": "B146-6",
+   "rule": "both documents cover it, it filed inside the window, no closure",
+   "verdict": "read"
+  },
+  "object_absent": {
+   "feeds": "nothing",
+   "rule": "a closure, curfew or strike document covers it and it filed nothing in its window, or every filing in the window has zero arrivals: what is missing is the price itself, and no edge is described",
+   "verdict": null
+  },
+  "ordinary": {
+   "feeds": "counted, not read",
+   "rule": "neither edge document covers the market",
+   "verdict": "counted"
+  },
+  "unverified": {
+   "feeds": "nothing",
+   "rule": "an edge document of the event is not checked against a source",
+   "verdict": null
+  }
+ },
+ "mapping_B146-6": {
+  "did_not_grow": {
+   "rule": "it does not: the copies stayed where the cut left them, and the registered consequent does not hold on this unit",
+   "verdict": false
+  },
+  "grew": {
+   "rule": "dispersion at the end of the window exceeds dispersion at the cut by more than one grid step: the registered consequent holds",
+   "verdict": true
+  },
+  "unread": {
+   "rule": "fewer than three markets of one variety, or the premise is false, or the count of both-cut units moves on the knob sweep: no verdict",
+   "verdict": null
+  }
+ },
+ "mapping_B146-7": {
+  "did_not_move": "printed",
+  "moved_against_reference": "printed",
+  "moved_with_reference": "printed",
+  "unread": null
+ },
+ "object_absent_against_shifted_closures": {},
+ "object_absent_units": {},
+ "parse": {
+  "dated_share": 1.0,
+  "files": 10,
+  "first_day": "2008-01-01",
+  "kept": 28236,
+  "last_day": "2017-06-21",
+  "lines": 28236,
+  "markets": 242,
+  "short": 0,
+  "states": 18,
+  "undated": 0
+ },
+ "physical_outage_screen": [
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "OR-2013-cyclone",
+   "label": "cyclone, Odisha coast",
+   "start": "2013-10-12",
+   "state": "Orissa"
+  },
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "AP-2014-cyclone",
+   "label": "cyclone, north Andhra coast",
+   "start": "2014-10-12",
+   "state": "Andhra Pradesh"
+  },
+  {
+   "active_units_by_prior_floor": {
+    "1": 3,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "TN-2015-flood",
+   "label": "flood, Chennai and the north coast",
+   "start": "2015-12-01",
+   "state": "Tamil Nadu"
+  },
+  {
+   "active_units_by_prior_floor": {
+    "1": 0,
+    "10": 0,
+    "15": 0,
+    "5": 0
+   },
+   "checked": false,
+   "id": "TN-2016-cyclone",
+   "label": "cyclone, Chennai",
+   "start": "2016-12-12",
+   "state": "Tamil Nadu"
+  }
+ ],
+ "premise": {
+  "any_order_units": [],
+  "units_T_and_all_data_cut": 0,
+  "units_T_and_any_information_order": 0,
+  "units_T_and_full_cut": 0
+ },
+ "premise_by_event": {
+  "MN-2016-blockade": {
+   "active_units_in_state": 0,
+   "after_named_exclusions": 0,
+   "excluded_markets": [],
+   "in_both_documents_by_district": 0,
+   "information_kind": "mobile_data"
+  },
+  "WB-2017-hills": {
+   "active_units_in_state": 0,
+   "after_named_exclusions": 0,
+   "excluded_markets": [
+    "Siliguri"
+   ],
+   "in_both_documents_by_district": 0,
+   "information_kind": "all_internet"
+  }
+ },
+ "reference_daily_move_by_event": {
+  "AS-2014-flood": {
+   "day_pairs": 63,
+   "max": 0.464306,
+   "median": 0.0809,
+   "p90": 0.199129
+  },
+  "MN-2016-blockade": {
+   "day_pairs": 198,
+   "max": 0.849493,
+   "median": 0.088704,
+   "p90": 0.393778
+  },
+  "MP-2017-strike": {
+   "day_pairs": 70,
+   "max": 0.787134,
+   "median": 0.062464,
+   "p90": 0.319823
+  },
+  "RJ-2015-blockade": {
+   "day_pairs": 67,
+   "max": 0.511432,
+   "median": 0.043436,
+   "p90": 0.150338
+  },
+  "WB-2017-hills": {
+   "day_pairs": 66,
+   "max": 0.787134,
+   "median": 0.067339,
+   "p90": 0.26638
+  }
+ },
+ "stage": "B146",
+ "steps_across_stops_under_information_orders": [],
+ "units": [
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Jhunjunu / Jhunjhunu",
+   "prior": 8,
+   "stopped": false,
+   "zero_arrivals": false
+  },
+  {
+   "I": false,
+   "I_thin": false,
+   "T": false,
+   "cell": "ordinary",
+   "closure": false,
+   "event": "RJ-2015-blockade",
+   "filed_in_window": null,
+   "market": "Kota / Kota",
+   "prior": 11,
+   "stopped": false,
+   "zero_arrivals": false
+  }
+ ]
+}

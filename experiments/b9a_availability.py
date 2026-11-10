@@ -1316,7 +1316,51 @@ HALF_CENT_EQUAL = 1e-4            # §36.4: equality on the half-cent grid
 # asked for. The first parser assumed ISO timestamps, decimal prices and a
 # symbol column, and matched nothing, which is how the three were found.
 DB_PX_SCALE = 1e-9
+# The vendor's undefined-price sentinel in a fixed-point price field
+# (2**63 - 1). It is no price, so a side carrying it is missing, the same
+# as a non-positive price. Filtered from 2026-10-27; before that it was
+# read as a price near $9.2e9 on 3 Nasdaq and 5 four-venue fund-days, all
+# on the three early-close days.
+DB_UNDEF_PX = 2**63 - 1
 DB_MAP_SYMBOLS = "true"
+
+#: Days inside this sample on which the NYSE core session closed at 13:00
+#: Eastern: the day before Independence Day, the day after Thanksgiving and
+#: Christmas Eve (NYSE Group's holiday and early-closing calendar for 2025).
+#: **Every capture window brackets 16:00.** On these three days the last record
+#: at the mark was made in the late session, three hours after the close, so it
+#: is not a reading of the closing quote and no offset inside a ten-second
+#: capture can make it one. Named by the calendar and by nothing measured here.
+EARLY_CLOSE_DAYS = ("2025-07-03", "2025-11-28", "2025-12-24")
+
+
+def overlap_cell(rate, calm_rate, stress_rate) -> str:
+    """§36.5's four cells, from the three rates it reads."""
+    if rate >= 0.99 and (stress_rate is None or calm_rate is None
+                         or stress_rate >= 0.99):
+        return "passes"
+    if rate < 0.90:
+        return "fails"
+    if (stress_rate is not None and calm_rate is not None
+            and stress_rate < calm_rate - 0.02):
+        return "fails_on_stress_clustering"
+    return "passes_on_subtest"
+
+
+def gate_reading(cell_all: str, cell_at_the_close: str) -> str:
+    """Whether §36.5's cell can be read at all.
+
+    The registered cell is computed on every captured fund-day. On the days in
+    ``EARLY_CLOSE_DAYS`` the comparison is not the one §36 defines, so the cell
+    is computed a second time without them. **Two cells that agree are one
+    reading. Two that differ are none**: the verdict then turns on a handful of
+    fund-days on which the instrument was pointed at the wrong instant, and it
+    is reported as unread instead of being given either name.
+    """
+    if cell_all == cell_at_the_close:
+        return "read"
+    return (f"unread: `{cell_all}` with the early-close days counted and "
+            f"`{cell_at_the_close}` without them")
 
 
 def _days_from_civil(y: int, m: int, d: int) -> int:
@@ -1612,10 +1656,15 @@ def _mid_at_close(rows: list, day: str, offset_s: int = 0,
             continue
         try:
             ts = int(r.get("ts_event"))
-            bid = int(r.get("bid_px_00")) * DB_PX_SCALE
-            ask = int(r.get("ask_px_00")) * DB_PX_SCALE
+            bid_raw = int(r.get("bid_px_00"))
+            ask_raw = int(r.get("ask_px_00"))
         except (TypeError, ValueError):
             continue
+        # A side at the undefined-price sentinel is missing, like a
+        # non-positive one, and the row is skipped (DB_UNDEF_PX).
+        if bid_raw == DB_UNDEF_PX or ask_raw == DB_UNDEF_PX:
+            continue
+        bid, ask = bid_raw * DB_PX_SCALE, ask_raw * DB_PX_SCALE
         if ts > mark or bid <= 0 or ask <= 0:
             continue
         # §42.4: the NBBO is a round-lot construct and a venue's level zero is
@@ -1659,6 +1708,8 @@ def nbbo_compare(dataset: str = DB_DATASET, offset_s: int = 0,
     registered = {(t, d) for t, days in rec["funds"].items() for d in days}
     seen = set()
     empty_days, header_only = 0, 0
+    early = {"n": 0, "exact": 0, "calm_n": 0, "calm_exact": 0,
+             "stress_n": 0, "stress_exact": 0}
     for p in files:
         day = p.name[4:-4]
         text = p.read_text(encoding="utf-8", errors="replace")
@@ -1690,6 +1741,11 @@ def nbbo_compare(dataset: str = DB_DATASET, offset_s: int = 0,
             k = "calm" if truth["calm"] else "stress"
             f[f"{k}_n"] += 1
             f[f"{k}_exact"] += 1 if exact else 0
+            if day in EARLY_CLOSE_DAYS:
+                early["n"] += 1
+                early["exact"] += 1 if exact else 0
+                early[f"{k}_n"] += 1
+                early[f"{k}_exact"] += 1 if exact else 0
             f["spread_1tick"] += 1 if abs(m["spread_cents"] - 1.0) < 1e-6 else 0
             # **§24's lesson, applied to this reading's own units.** A basis
             # point is not the natural quantum here; the half cent is, because
@@ -1744,21 +1800,38 @@ def nbbo_compare(dataset: str = DB_DATASET, offset_s: int = 0,
           f"**never compared {unmatched}**"
           + (f", header-only captures {header_only}" if header_only else ""))
 
-    if rate >= 0.99 and (sr is None or cr is None or sr >= 0.99):
-        cell = "passes"
-    elif rate < 0.90:
-        cell = "fails"
-    elif sr is not None and cr is not None and sr < cr - 0.02:
-        cell = "fails_on_stress_clustering"
-    else:
-        cell = "passes_on_subtest"
+    cell = overlap_cell(rate, cr, sr)
     print(f"§36.5  VERDICT: {cell}")
+
+    # The same three rates without the days on which 16:00 is not the close.
+    n2 = total_n - early["n"]
+    cn2, sn2 = cn - early["calm_n"], sn - early["stress_n"]
+    rate2 = (ex - early["exact"]) / n2 if n2 else None
+    cr2 = ((sum(f["calm_exact"] for f in per_fund.values())
+            - early["calm_exact"]) / cn2) if cn2 else None
+    sr2 = ((sum(f["stress_exact"] for f in per_fund.values())
+            - early["stress_exact"]) / sn2) if sn2 else None
+    cell2 = overlap_cell(rate2, cr2, sr2) if rate2 is not None else None
+    reading = gate_reading(cell, cell2) if cell2 is not None else "read"
+    print(f"§36.5  on the {len(EARLY_CLOSE_DAYS)} early-close days the mark is "
+          f"three hours after the close: {early['exact']}/{early['n']} exact "
+          f"there. Without them {ex - early['exact']}/{n2} = "
+          f"{rate2 if rate2 is None else round(rate2, 4)}, calm "
+          f"{cr2 if cr2 is None else round(cr2, 4)}, stress "
+          f"{sr2 if sr2 is None else round(sr2, 4)}: {cell2}")
+    print(f"§36.5  READING: {reading}")
 
     out = {"stage": "B9-A-6 (§36)", "diagnostic_only": False,
            "dataset": dataset, "offset_s": offset_s, "min_size": min_size,
            "exact_rate": rate, "n": total_n, "calm_rate": cr, "stress_rate": sr,
            "median_abs_bp": med_bp, "p90_abs_bp": p90_bp,
            "crossed_at_mark": crossed_n, "verdict": cell, "funds": per_fund,
+           "early_close": {
+               "days": list(EARLY_CLOSE_DAYS), "n": early["n"],
+               "exact": early["exact"], "n_without": n2,
+               "exact_rate_without": rate2, "calm_rate_without": cr2,
+               "stress_rate_without": sr2, "verdict_without": cell2},
+           "verdict_reading": reading,
            "registered_fund_days": len(registered), "never_compared": unmatched,
            "header_only_captures": header_only,
            "halfcent_steps": steps_all,
@@ -1811,6 +1884,7 @@ def nbbo_combine(datasets: list, offset_s: int = 0,
     # still a one-venue observation, and the combination can lock or cross a
     # book that no single venue showed. Both are now counted.
     venues_per_obs, crossed_n = {}, 0
+    early_n = early_exact = 0
     for day in rec["days"]:
         book = {}
         for ds, d in dirs.items():
@@ -1835,6 +1909,9 @@ def nbbo_combine(datasets: list, offset_s: int = 0,
             exact = abs(d_) < HALF_CENT_EQUAL
             total_n += 1
             exact_n += 1 if exact else 0
+            if day in EARLY_CLOSE_DAYS:
+                early_n += 1
+                early_exact += 1 if exact else 0
             step = str(int(round(abs(d_) / 0.005)))
             steps_all[step] = steps_all.get(step, 0) + 1
             f = per_fund.setdefault(sym, {"n": 0, "exact": 0, "calm_n": 0,
@@ -1874,6 +1951,13 @@ def nbbo_combine(datasets: list, offset_s: int = 0,
     print(f"§39.3  calm {cr and round(cr, 4)}  stress {sr and round(sr, 4)}")
     cell = ("passes" if rate >= 0.99 else
             "fails_and_stops" if rate < 0.99 else "x")
+    rate2 = ((exact_n - early_exact) / (total_n - early_n)
+             if total_n > early_n else None)
+    cell2 = None if rate2 is None else (
+        "passes" if rate2 >= 0.99 else "fails_and_stops")
+    print(f"§39.3  without the {len(EARLY_CLOSE_DAYS)} early-close days: "
+          f"{exact_n - early_exact}/{total_n - early_n} = "
+          f"{rate2 if rate2 is None else round(rate2, 4)}, {cell2}")
     print(f"§39.3  VERDICT: {cell}"
           + ("" if rate >= 0.99 else
              "  (§39.3's stopping rule: the combining stops at four venues. "
@@ -1884,6 +1968,12 @@ def nbbo_combine(datasets: list, offset_s: int = 0,
            "n": total_n, "calm_rate": cr, "stress_rate": sr,
            "halfcent_steps": steps_all, "venue_at_inside": venue_at_inside,
            "venues_per_observation": venues_per_obs, "crossed_combined": crossed_n,
+           "early_close": {"days": list(EARLY_CLOSE_DAYS), "n": early_n,
+                           "exact": early_exact,
+                           "exact_rate_without": rate2,
+                           "verdict_without": cell2},
+           "verdict_reading": (gate_reading(cell, cell2)
+                               if cell2 is not None else "read"),
            "verdict": cell, "funds": per_fund}
     (ROOT / "results" /
      f"b9_nbbo_combined{('_sz' + str(min_size)) if min_size else ''}.json"
@@ -1912,8 +2002,13 @@ def nbbo_export(dataset: str = DB_DATASET, offset_s: int = 0,
     if not rec:
         return {}
     ddir = nbbo_dir(dataset)
-    out, missing = {}, 0
+    out, missing, early = {}, 0, 0
     for day in rec["days"]:
+        if day in EARLY_CLOSE_DAYS:
+            # Absent, not filled, and counted apart from the venue's own gaps:
+            # the capture holds 16:00 and the close was at 13:00.
+            early += sum(1 for truth in rec["funds"].values() if day in truth)
+            continue
         mids = _mid_at_close(_read_day(ddir, day), day, offset_s, min_size)
         for sym, truth in rec["funds"].items():
             if day not in truth:
@@ -1925,7 +2020,9 @@ def nbbo_export(dataset: str = DB_DATASET, offset_s: int = 0,
             out.setdefault(sym, {})[day] = m["mid"] / truth[day]["nav"] - 1.0
     have = sum(len(v) for v in out.values())
     print(f"§40.3  reconstructed {have} fund-days from {dataset}, "
-          f"{missing} absent (absent, not filled)")
+          f"{missing} absent (absent, not filled), and {early} more on the "
+          f"{len(EARLY_CLOSE_DAYS)} early-close days, where the capture does "
+          f"not hold the close")
     for t in sorted(out):
         n_t = len(rec["funds"].get(t, {}))
         print(f"  {t:6s} {len(out[t]):4d}/{n_t:4d}")
@@ -1936,7 +2033,9 @@ def nbbo_export(dataset: str = DB_DATASET, offset_s: int = 0,
                    "premium table and its counts only; no verdict."
                ),
                "dataset": dataset, "offset_s": offset_s, "min_size": min_size,
-               "n_fund_days": have, "absent": missing, "premium": out}
+               "n_fund_days": have, "absent": missing,
+               "early_close_days": list(EARLY_CLOSE_DAYS),
+               "early_close_absent": early, "premium": out}
     RECON_OUT.write_text(json.dumps(payload, sort_keys=True,
                                     ensure_ascii=False, indent=1) + "\n",
                          encoding="utf-8", newline="\n")
@@ -2581,6 +2680,28 @@ def selftest() -> int:
           _m["XLF"]["ts"] == _base - 10**8)
     check("a crossed book is flagged rather than silently averaged",
           _m["XLE"]["crossed"] is True)
+    # The undefined-price sentinel on one side is a missing quote: the
+    # last good record before it stands, and a symbol with nothing else
+    # has no mid at all. Seeded as on Nasdaq 2025-07-03 (XLB, bid side)
+    # and 2025-12-24 (XLI, bid side, nothing earlier in the window).
+    _u = str(DB_UNDEF_PX)
+    _ms = _mid_at_close([
+        {"ts_event": str(_base - 2 * 10**9), "symbol": "XLB",
+         "bid_px_00": "92200000000", "ask_px_00": "92210000000"},
+        {"ts_event": str(_base - 10**8), "symbol": "XLB",
+         "bid_px_00": _u, "ask_px_00": "92240000000"},
+        {"ts_event": str(_base - 10**8), "symbol": "XLI",
+         "bid_px_00": _u, "ask_px_00": "172000000000"},
+        {"ts_event": str(_base - 10**8), "symbol": "JNK",
+         "bid_px_00": "96610000000", "ask_px_00": _u},
+    ], "2025-01-02")
+    check("a sentinel side is skipped and the last good record stands",
+          "XLB" in _ms and abs(_ms["XLB"]["mid"] - 92.205) < 1e-9
+          and _ms["XLB"]["crossed"] is False,
+          f"XLB {_ms.get('XLB')}")
+    check("a symbol whose only record carries the sentinel has no mid",
+          "XLI" not in _ms and "JNK" not in _ms,
+          f"keys {sorted(_ms)}")
     check("a row with no symbol is dropped, which is what the first three "
           "captures were made of",
           not _mid_at_close([{"ts_event": str(_base - 10**9),
@@ -2660,6 +2781,28 @@ def selftest() -> int:
           (lambda n: n.rsplit("-", 3)[-3] + "-" + n.rsplit("-", 3)[-2] + "-"
            + n.rsplit("-", 3)[-1][:-5])("pdhist-XLRE-2026-08-17.xlsx")
           == "2026-08-17")
+
+    print("§36.5's cells, and the days the mark is not the close")
+    check("the three early closes of 2025 are named, and an ordinary day is not",
+          set(EARLY_CLOSE_DAYS) == {"2025-07-03", "2025-11-28", "2025-12-24"}
+          and "2025-11-26" not in EARLY_CLOSE_DAYS)
+    check("the mark on an early-close day is still 16:00, which is the point: "
+          "nothing in a ten-second capture reaches 13:00",
+          mark_ns("2025-11-28") - mark_ns("2025-11-26") == 2 * 86400 * 10**9)
+    check("0.8975 is `fails`, and 0.9006 with level rates is the sub-test cell",
+          overlap_cell(0.8975, 0.90, 0.89) == "fails"
+          and overlap_cell(0.9006, 0.905, 0.896) == "passes_on_subtest")
+    check("a stress rate more than two points under the calm one is its own cell",
+          overlap_cell(0.95, 0.97, 0.94) == "fails_on_stress_clustering")
+    check("0.99 on all three is `passes`",
+          overlap_cell(0.995, 0.996, 0.994) == "passes")
+    check("two cells that agree are one reading",
+          gate_reading("fails", "fails") == "read")
+    check("**two cells that differ are none**: the gate is unread and is given "
+          "neither name",
+          gate_reading("fails", "passes_on_subtest").startswith("unread")
+          and "`fails`" in gate_reading("fails", "passes_on_subtest")
+          and "`passes_on_subtest`" in gate_reading("fails", "passes_on_subtest"))
 
     print(f"\n{len(fails)} failed" if fails else "\nall passed")
     return 1 if fails else 0

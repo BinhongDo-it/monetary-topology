@@ -22,8 +22,10 @@ of a contrast and validates the instrument.
 The prohibition that shapes every number here
 ---------------------------------------------
 
-``b4_directed_edges.md`` §5.2: **on a one-way edge the split degenerates**, so
-there is no cycle sum to report and a number produced by imputing the missing
+``b4_directed_edges.md`` §5.2: **on a one-way edge the split of that pair
+degenerates**, and under the registered model the frozen segments are sinks with
+no directed path back (B6-6b), so there is no cycle sum to report and a number
+produced by imputing the missing
 direction has imputed the quantity in dispute. B6-6c therefore reports a
 **potential difference** from ``directed.potential_interval``, never a holonomy.
 Calling that difference a premium would be the error ``b1_theorem.md`` §12.1

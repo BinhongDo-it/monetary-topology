@@ -24,6 +24,7 @@ from monetary_topology.network import (
     Network,
     NetworkConfig,
     NetworkSpec,
+    reachable_from,
     run_network,
 )
 from monetary_topology.plotting import (
@@ -269,7 +270,8 @@ def figure_8(rounds: int, seed: int) -> tuple[Path, dict]:
 
     jump = levels[1]
     ax.annotate(
-        f"one edge:\nfrom exact zero to {jump / max(levels):.0%} of the eventual level",
+        f"one edge:\nfrom {levels[0]:.1e}, on its way to zero, "
+        f"to {jump / max(levels):.0%} of the eventual level",
         xy=(1, jump),
         xytext=(0.30, 0.42),
         textcoords="axes fraction",
@@ -279,7 +281,8 @@ def figure_8(rounds: int, seed: int) -> tuple[Path, dict]:
     )
     annotate(
         ax,
-        f"Zero edges collapses exactly. Widening from one to "
+        f"Zero edges decays geometrically to zero ({levels[0]:.1e} over the last "
+        f"{TAIL} rounds).\nWidening from one to "
         f"{AUTONOMOUS_EDGES[-1]} adds x{levels[-1] / levels[1]:.2f}.\n"
         "The intermediary's other revenue comes from the households its own\n"
         "payroll pays, so it is not autonomous. This edge is, and it is the\n"
@@ -309,14 +312,14 @@ def evaluate(rounds: int, seeds: int, f6: dict, f7: dict, f8: dict) -> list[Crit
         Criterion(
             "A2-1  without issuance, volume and support move the same way",
             (off["volume"] - 1) * (off["support"] - 1) > 0,
-            f"volume x{off['volume']:.2f}, support x{off['support']:.3f}",
+            f"volume x{off['volume']:.2f}, effective support x{off['support']:.3f}",
         )
     )
     out.append(
         Criterion(
             "A2-2  with issuance, volume rises while support contracts",
             on["volume"] > 1 and on["support"] < 1,
-            f"volume x{on['volume']:.2f}, support x{on['support']:.3f}; "
+            f"volume x{on['volume']:.2f}, effective support x{on['support']:.3f}; "
             f"production layer falls to {f6['l2_flow_share_end_issuance']:.2%} "
             "of all circulation",
         )
@@ -352,6 +355,9 @@ def evaluate(rounds: int, seeds: int, f6: dict, f7: dict, f8: dict) -> list[Crit
             net._route, rs, out=np.zeros_like(net._route), where=rs > 0
         )
         net._wage_receivers = net._wage_receivers[net._wage_receivers != node]
+        # the cut changes what the graph permits, so the potential set the history
+        # reports is rebuilt from the cut graph; it feeds no flow and no criterion
+        net._potential_reached = reachable_from(net.adjacency, net.injection_node, 0.0)
         severed_final.append(float(net.run().holdings[-1, node]))
     out.append(
         Criterion(

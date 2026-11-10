@@ -3,7 +3,7 @@
   "complete": true,
   "not_yet_written": [],
   "cushion": {
-    "rule": "LIQ, measured, no floor",
+    "rule": "LIQ as published (the publisher's one-dollar floor included), no floor added",
     "source": "LIQ",
     "by_group": [
       {
@@ -12,7 +12,7 @@
         "zero": 1125,
         "zero_share": 0.022447472913382685,
         "mean_cushion": 7080.020332422132,
-        "months_of_bills": 2.7127063569323298
+        "months_of_bills": 2.628957540923216
       },
       {
         "group": "next40",
@@ -20,7 +20,7 @@
         "zero": 243,
         "zero_share": 0.006060454908220271,
         "mean_cushion": 50308.867941939345,
-        "months_of_bills": 15.651426466255929
+        "months_of_bills": 15.064122330156614
       },
       {
         "group": "next9",
@@ -28,7 +28,7 @@
         "zero": 0,
         "zero_share": 0.0,
         "mean_cushion": 258994.84426505215,
-        "months_of_bills": 56.41114164332754
+        "months_of_bills": 52.91738017534653
       },
       {
         "group": "top1",
@@ -36,19 +36,26 @@
         "zero": 0,
         "zero_share": 0.0,
         "mean_cushion": 1005748.2419354839,
-        "months_of_bills": 170.13694659453185
+        "months_of_bills": 151.42746153359312
       }
     ]
   },
   "delinquency_gradient": {
     "target": {
+      "_definitions": {
+        "rows": "implicate rows in the net-worth group",
+        "reporting_rows": "implicate rows in the group with LATE60 above zero",
+        "family_equivalents": "rows over five, the extract's implicates per family; the standard errors are taken on this",
+        "distinct_families": "SCF families with at least one implicate in the group; a family whose implicates rank into several groups is counted in each, so the four sum to more than the families in the file",
+        "distinct_families_reporting": "of distinct_families, those with LATE60 above zero on at least one of their implicates in the group"
+      },
       "rate": [
         0.08465600892649552,
         0.01626062100002599,
         0.0022216863424502436,
         0.0025914279991864258
       ],
-      "families": [
+      "family_equivalents": [
         1856.6,
         1474.6,
         694.4,
@@ -66,6 +73,18 @@
         11,
         5
       ],
+      "distinct_families": [
+        1908,
+        1571,
+        753,
+        595
+      ],
+      "distinct_families_reporting": [
+        195,
+        38,
+        4,
+        2
+      ],
       "standard_error": [
         0.006460436905235966,
         0.0032936047263232506,
@@ -78,33 +97,33 @@
         "seed": 7,
         "months_per_round": 1,
         "window": [
-          0.06724614776768076,
-          0.04198625361091742,
-          0.0041647385469689956,
+          0.08443303042275781,
+          0.06101205299332603,
+          0.005321610365571495,
           0.0034482758620689655
         ],
         "first_window": [
-          0.16669300671671275,
-          0.059268851479231,
+          0.18873962860529436,
+          0.06793505329216057,
           0.012956964368347987,
           0.0
         ],
         "whole_run": [
-          0.24444883445278545,
-          0.12461400537902181,
-          0.012956964368347987,
+          0.2729355985776373,
+          0.14109971112660624,
+          0.014113836186950486,
           0.017241379310344827
         ],
         "ever_missed": [
-          0.3606084551560648,
-          0.17671082777169042,
-          0.024294308190652477,
+          0.39004346108257604,
+          0.20051797987847395,
+          0.025682554372975473,
           0.034482758620689655
         ],
         "window_with_rent": [
-          0.07131568549980245,
-          0.04228508815619086,
-          0.0041647385469689956,
+          0.08830501777953378,
+          0.061310887538599465,
+          0.005321610365571495,
           0.0034482758620689655
         ],
         "decreasing": true,
@@ -114,33 +133,33 @@
         "seed": 7,
         "months_per_round": 3,
         "window": [
-          0.06578427499012249,
-          0.04502440482119733,
-          0.005090236001850995,
+          0.07953378111418412,
+          0.0583723478434107,
+          0.006015733456732994,
           0.0
         ],
         "first_window": [
-          0.1367048597392335,
-          0.038051598764817215,
+          0.15231133939154484,
+          0.04422751270046817,
           0.012956964368347987,
           0.0
         ],
         "whole_run": [
-          0.22165152113789016,
-          0.10055782448451041,
-          0.015039333641832485,
+          0.2444883445278546,
+          0.11141547962944516,
+          0.016196205460434984,
           0.017241379310344827
         ],
         "ever_missed": [
-          0.33935203476886605,
-          0.1583823089949198,
-          0.026376677464136973,
+          0.3648755432635322,
+          0.17681043928678156,
+          0.027764923646459973,
           0.034482758620689655
         ],
         "window_with_rent": [
-          0.07613591465823785,
-          0.045323239366470765,
-          0.005090236001850995,
+          0.09016199130778349,
+          0.058920211176411996,
+          0.006015733456732994,
           0.0
         ],
         "decreasing": true,
@@ -150,33 +169,33 @@
         "seed": 8,
         "months_per_round": 1,
         "window": [
-          0.06744369814302648,
-          0.04387887239764917,
-          0.0041647385469689956,
+          0.08636902410114579,
+          0.06370156390078693,
+          0.005321610365571495,
           0.0034482758620689655
         ],
         "first_window": [
-          0.1677597787435796,
-          0.059318657236776574,
+          0.18937178980640063,
+          0.06673971511106684,
           0.012956964368347987,
           0.0
         ],
         "whole_run": [
-          0.2464243382062426,
-          0.1269548759836637,
-          0.012956964368347987,
+          0.2754247333069933,
+          0.1416973802171531,
+          0.014113836186950486,
           0.017241379310344827
         ],
         "ever_missed": [
-          0.3608060055314105,
-          0.17860344655842214,
-          0.024294308190652477,
+          0.3902410114579218,
+          0.20106584321147525,
+          0.025682554372975473,
           0.034482758620689655
         ],
         "window_with_rent": [
-          0.07040695377321217,
-          0.044078095427831455,
-          0.0041647385469689956,
+          0.08941129988146977,
+          0.06390078693096922,
+          0.005321610365571495,
           0.0034482758620689655
         ],
         "decreasing": true,
@@ -186,33 +205,33 @@
         "seed": 8,
         "months_per_round": 3,
         "window": [
-          0.06760173844330304,
-          0.045323239366470765,
-          0.005090236001850995,
+          0.0785855393125247,
+          0.058920211176411996,
+          0.006015733456732994,
           0.0
         ],
         "first_window": [
-          0.1371789806400632,
-          0.03859946209781851,
+          0.1535756617937574,
+          0.044476541488196034,
           0.012956964368347987,
           0.0
         ],
         "whole_run": [
-          0.22386408534176214,
-          0.10155393963542185,
-          0.015039333641832485,
+          0.24760964045831688,
+          0.1129594581133579,
+          0.016196205460434984,
           0.017241379310344827
         ],
         "ever_missed": [
-          0.3425128407743975,
-          0.1607729853571073,
-          0.026376677464136973,
+          0.36677202686685106,
+          0.17969917322442475,
+          0.027764923646459973,
           0.034482758620689655
         ],
         "window_with_rent": [
-          0.07815092848676412,
-          0.0456220739117442,
-          0.005090236001850995,
+          0.08905570920584749,
+          0.059468074509413285,
+          0.006015733456732994,
           0.0
         ],
         "decreasing": true,
@@ -222,33 +241,33 @@
         "seed": 9,
         "months_per_round": 1,
         "window": [
-          0.05930462267878309,
-          0.04103994421755155,
-          0.0041647385469689956,
+          0.07661003555906756,
+          0.05797390178304612,
+          0.005321610365571495,
           0.0034482758620689655
         ],
         "first_window": [
-          0.15934413275385223,
-          0.050951289969120434,
+          0.1796128012643224,
+          0.0628548660225122,
           0.012956964368347987,
           0.0
         ],
         "whole_run": [
-          0.23212169103121297,
-          0.11176411993226416,
-          0.012956964368347987,
+          0.25859344132753853,
+          0.12531128598465982,
+          0.014113836186950486,
           0.017241379310344827
         ],
         "ever_missed": [
-          0.34879494271039113,
-          0.1661022014144835,
-          0.024294308190652477,
+          0.37566179375740816,
+          0.18736925988644287,
+          0.025682554372975473,
           0.034482758620689655
         ],
         "window_with_rent": [
-          0.06372975108652706,
-          0.041189361490188266,
-          0.0041647385469689956,
+          0.08079810351639669,
+          0.05812331905568284,
+          0.005321610365571495,
           0.0034482758620689655
         ],
         "decreasing": true,
@@ -258,33 +277,33 @@
         "seed": 9,
         "months_per_round": 3,
         "window": [
-          0.060845515606479654,
-          0.03785237573463492,
-          0.005090236001850995,
+          0.07218490715132359,
+          0.051200318756848294,
+          0.006015733456732994,
           0.0
         ],
         "first_window": [
-          0.13389964440932436,
-          0.03705548361390577,
+          0.15001975503753456,
+          0.04079091542982369,
           0.012956964368347987,
           0.0
         ],
         "whole_run": [
-          0.20347688660608454,
-          0.08696085267456918,
-          0.015039333641832485,
+          0.22619517977084155,
+          0.0989640402430521,
+          0.016196205460434984,
           0.017241379310344827
         ],
         "ever_missed": [
-          0.33220071118135125,
-          0.1474748480924395,
-          0.026376677464136973,
+          0.355116554721454,
+          0.1645084171730252,
+          0.027764923646459973,
           0.034482758620689655
         ],
         "window_with_rent": [
-          0.06811536941920189,
-          0.037951987249726066,
-          0.005090236001850995,
+          0.07909917028842355,
+          0.05129993027193944,
+          0.006015733456732994,
           0.0
         ],
         "decreasing": true,
@@ -349,13 +368,13 @@
   "seeds": "none; the population is a deterministic allocation",
   "baseline_stress": {
     "households": 100000,
-    "stressed": 11311,
-    "share": 0.11311,
+    "stressed": 11745,
+    "share": 0.11745,
     "by_group": [
-      9649,
-      1467,
-      170,
-      25
+      9991,
+      1551,
+      172,
+      31
     ],
     "group_sizes": [
       50117,
@@ -366,16 +385,33 @@
   },
   "baseline_no_shock": {
     "final": {
-      "CARD": 0.040611080077452295,
-      "AUTO": 0.01921676315318914,
+      "CARD": 0.04638668115761658,
+      "AUTO": 0.023461351062049652,
       "RENT": 0.0,
-      "MORTGAGE": 0.0014740095765723874,
-      "BASKET": 0.024887801259153654
+      "MORTGAGE": 0.001459725634614568,
+      "BASKET": 0.029591396755837975
     },
-    "displaced": 8653,
+    "displaced_all_tenures": 8859,
     "renters": 32098,
     "periods": 60,
-    "still_moving": true
+    "still_moving": true,
+    "displaced_by_tenure": {
+      "RENTER": 7479,
+      "MORTGAGED": 1380,
+      "OUTRIGHT": 0
+    },
+    "shelter_carriers_at_start": {
+      "RENTER": 32098,
+      "MORTGAGED": 40894
+    }
+  },
+  "liquid_composition": {
+    "rows": 22975,
+    "rows_with_a_prepaid_card_balance": 3482,
+    "rows_where_the_floor_of_one_dollar_binds": 235,
+    "rows_with_zero_published": 338,
+    "rows_with_zero_in_the_five_components": 573,
+    "rows_with_zero_in_the_four_accounts": 1333
   },
   "workers": 8,
   "path": {
@@ -385,7 +421,7 @@
     "months_per_round": 1
   },
   "renter_families": {
-    "why": "docs/a1d_prereg.md section 10, ruling \u4e19: RENTER_FLOOR counts model households, which are copies of implicates of families. Reported and scored on nothing",
+    "why": "docs/a1d_prereg.md section 10, ruling C: RENTER_FLOOR counts model households, which are copies of implicates of families. Reported and scored on nothing",
     "implicates": 5,
     "floor": 30,
     "by_group": [
@@ -393,14 +429,14 @@
         "group": "bottom50",
         "model_renters": 28776,
         "families": 1251,
-        "behind": 16811,
+        "behind": 17672,
         "clears_a_family_floor": true
       },
       {
         "group": "next40",
         "model_renters": 2888,
         "families": 150,
-        "behind": 740,
+        "behind": 949,
         "clears_a_family_floor": true
       },
       {
@@ -420,19 +456,112 @@
     ]
   },
   "first_default_shares": {
-    "card": 0.3067656691641617,
-    "auto": 0.07037103503970568,
-    "shelter": 0.1564224505361389,
-    "rent": 0.09650500246758491,
-    "mortgage": 0.059917448068553994,
-    "basket": 0.46644084525999374
+    "card": 0.31946271102391066,
+    "auto": 0.10200297535628813,
+    "shelter": 0.14710765184019317,
+    "rent": 0.09184795498156573,
+    "mortgage": 0.05525969685862746,
+    "basket": 0.43142666177960803
+  },
+  "first_default_shares_by_tenure": {
+    "_definitions": {
+      "share": "first defaults on the rung over the tenure's defaulting households",
+      "carriers_at_start": "households of the starting tenure that carried the rung when the run began, read before the run",
+      "per_carrier_at_start": "first defaults on the rung over carriers_at_start; the rate to read",
+      "exposed": "households of the starting tenure still carrying the rung when the run ended; displacement removes the shelter rung, so for rent and the mortgage this is fewer than carried it at the start",
+      "per_exposed": "first defaults on the rung over exposed, kept under its own name; a displaced household whose first default was its shelter rung is in that rung's numerator and no longer in its denominator"
+    },
+    "RENTER": {
+      "defaulting_households": 25514,
+      "share_card": 0.2667947009484989,
+      "per_exposed_card": 0.43534151957022255,
+      "exposed_card": 15636,
+      "per_carrier_at_start_card": 0.43534151957022255,
+      "carriers_at_start_card": 15636,
+      "share_auto": 0.12338324057380262,
+      "per_exposed_auto": 0.29647767941231873,
+      "exposed_auto": 10618,
+      "per_carrier_at_start_auto": 0.29647767941231873,
+      "carriers_at_start_auto": 10618,
+      "share_rent": 0.16696715528729325,
+      "per_exposed_rent": 0.29174085741679223,
+      "exposed_rent": 14602,
+      "per_carrier_at_start_rent": 0.13271854944233286,
+      "carriers_at_start_rent": 32098,
+      "share_mortgage": 0.0,
+      "per_exposed_mortgage": null,
+      "exposed_mortgage": 0,
+      "per_carrier_at_start_mortgage": null,
+      "carriers_at_start_mortgage": 0,
+      "share_basket": 0.44285490319040527,
+      "per_exposed_basket": 0.33179655840723554,
+      "exposed_basket": 34054,
+      "per_carrier_at_start_basket": 0.33179655840723554,
+      "carriers_at_start_basket": 34054
+    },
+    "MORTGAGED": {
+      "defaulting_households": 14294,
+      "share_card": 0.48894641108157266,
+      "per_exposed_card": 0.31518896004329394,
+      "exposed_card": 22174,
+      "per_carrier_at_start_card": 0.31518896004329394,
+      "carriers_at_start_card": 22174,
+      "share_auto": 0.07443682664054849,
+      "per_exposed_auto": 0.05757264217304259,
+      "exposed_auto": 18481,
+      "per_carrier_at_start_auto": 0.05757264217304259,
+      "carriers_at_start_auto": 18481,
+      "share_rent": 0.0,
+      "per_exposed_rent": null,
+      "exposed_rent": 0,
+      "per_carrier_at_start_rent": null,
+      "carriers_at_start_rent": 0,
+      "share_mortgage": 0.17930600251853926,
+      "per_exposed_mortgage": 0.07696696696696696,
+      "exposed_mortgage": 33300,
+      "per_carrier_at_start_mortgage": 0.06267423093852399,
+      "carriers_at_start_mortgage": 40894,
+      "share_basket": 0.2573107597593396,
+      "per_exposed_basket": 0.08993984447596225,
+      "exposed_basket": 40894,
+      "per_carrier_at_start_basket": 0.08993984447596225,
+      "carriers_at_start_basket": 40894
+    },
+    "OUTRIGHT": {
+      "defaulting_households": 6573,
+      "share_card": 0.15533242050813936,
+      "per_exposed_card": 0.13664346895074947,
+      "exposed_card": 7472,
+      "per_carrier_at_start_card": 0.13664346895074947,
+      "carriers_at_start_card": 7472,
+      "share_auto": 0.07895937927886809,
+      "per_exposed_auto": 0.0907025515554002,
+      "exposed_auto": 5722,
+      "per_carrier_at_start_auto": 0.0907025515554002,
+      "carriers_at_start_auto": 5722,
+      "share_rent": 0.0,
+      "per_exposed_rent": null,
+      "exposed_rent": 0,
+      "per_carrier_at_start_rent": null,
+      "carriers_at_start_rent": 0,
+      "share_mortgage": 0.0,
+      "per_exposed_mortgage": null,
+      "exposed_mortgage": 0,
+      "per_carrier_at_start_mortgage": null,
+      "carriers_at_start_mortgage": 0,
+      "share_basket": 0.7657082002129926,
+      "per_exposed_basket": 0.20090212358294746,
+      "exposed_basket": 25052,
+      "per_carrier_at_start_basket": 0.20090212358294746,
+      "carriers_at_start_basket": 25052
+    }
   },
   "scored_final": {
-    "CARD": 0.1810481023319624,
-    "AUTO": 0.08069867937164416,
-    "RENT": 0.0001508880010340859,
-    "MORTGAGE": 0.006914593692254822,
-    "BASKET": 0.06393154971658263
+    "CARD": 0.20159195433903612,
+    "AUTO": 0.12080709202589882,
+    "RENT": 0.0013213140335401516,
+    "MORTGAGE": 0.009975323494210361,
+    "BASKET": 0.0726804487051029
   },
   "free_parameters": [
     {
@@ -479,20 +608,20 @@
     {
       "name": "A1-2  the order is an output",
       "passed": false,
-      "void": false,
-      "detail": "first default among 44,578 defaulting households: card 0.3068, auto 0.0704, shelter 0.1564 (rent 0.0965, mortgage 0.0599), basket 0.4664. Among the 39,492 not short at baseline: card 0.3163, auto 0.0741, shelter 0.1647. The manuscript's sequence is what fails here, not the code"
+      "void": true,
+      "detail": "first default among 46,381 defaulting households: card 0.3195, auto 0.1020, shelter 0.1471 (rent 0.0918, mortgage 0.0553), basket 0.4314. Among the 34,828 defaulting households not short at baseline: card 0.3419, auto 0.1040, shelter 0.1309. VOID as registered: the estimator and the object do not line up. This share is a distribution across households, and a distribution is decided both by how hard a rung is and by how many households stand on it, while the pooled denominator is every defaulter. Rent is carried only by tenants and the mortgage only by borrowers, so those two rungs are divided by a head count that includes households which could not default on them. Volume One section 18 states its cascade about tenants. The ordering claim itself is carried by A1c, which reads the sequence inside one household and holds. The tenure-split shares and the per-carrier-at-start rates are reported beside this line and are what the section 18 reading needs"
     },
     {
       "name": "A1-3  K shape, ordinally",
       "passed": true,
       "void": false,
-      "detail": "mortgage 0.0069 < auto 0.0807 < card 0.1810. Over baseline: mortgage +0.0054, auto +0.0615, card +0.1404. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes"
+      "detail": "mortgage 0.0100 < auto 0.1208 < card 0.2016. Over baseline: mortgage +0.0085, auto +0.0973, card +0.1552. Attached gate: cost_now names no class; every pair is the same rule applied to per-class attributes"
     },
     {
       "name": "A1-6  the subprime gradient",
       "passed": true,
       "void": false,
-      "detail": "bottom 0.1345 against middle 0.0518, ratio x2.60. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them"
+      "detail": "bottom 0.1786 against middle 0.0973, ratio x1.84. Published at 30 days on balances and reported only: 2000 5.33, 2019 5.85, 2024 5.58, 2025 5.40. The model is at ninety days, so the ratio is beside them and not against them"
     },
     {
       "name": "A1-9  the representative arm is degenerate",
@@ -510,13 +639,13 @@
       "name": "A1d-1 the delinquency gradient, matched window",
       "passed": true,
       "void": false,
-      "detail": "LATE60 by net worth: bottom50 0.0847 (886 of 1,857 families), next40 0.0163 (155 of 1,475 families), next9 0.0022 (11 of 694 families), top1 0.0026 (5 of 569 families). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model on the last 12 periods over 6 sweep cells: seed 7x1 0.067/0.042/0.004/0.003; seed 7x3 0.066/0.045/0.005/0.000; seed 8x1 0.067/0.044/0.004/0.003; seed 8x3 0.068/0.045/0.005/0.000; seed 9x1 0.059/0.041/0.004/0.003; seed 9x3 0.061/0.038/0.005/0.000. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000: [25310, 20078, 4322, 290]. Reported and never scored, the other three windows on cell one: first 12 periods 0.167/0.059/0.013/0.000; whole run at sixty days 0.244/0.125/0.013/0.017; whole run on A1b-1's any-miss rule 0.361/0.177/0.024/0.034; last window including rent 0.071/0.042/0.004/0.003"
+      "detail": "LATE60 by net worth: bottom50 0.0847 (886 of 9,283 implicate rows, 1,856.6 family equivalents), next40 0.0163 (155 of 7,373 implicate rows, 1,474.6 family equivalents), next9 0.0022 (11 of 3,472 implicate rows, 694.4 family equivalents), top1 0.0026 (5 of 2,847 implicate rows, 569.4 family equivalents). Scored pairs: bottom50/next40, next40/next9. Reported and not scored: next9/top1 (0.13 sigma, expected events 0.8). Model on the last 12 periods over 6 sweep cells: seed 7x1 0.084/0.061/0.005/0.003; seed 7x3 0.080/0.058/0.006/0.000; seed 8x1 0.086/0.064/0.005/0.003; seed 8x3 0.079/0.059/0.006/0.000; seed 9x1 0.077/0.058/0.005/0.003; seed 9x3 0.072/0.051/0.006/0.000. Decreasing on every scored pair in every cell: True. Ordering matches the survey on those groups in every cell: True. Group sizes at 50,000: [25310, 20078, 4322, 290]. Reported and never scored, the other three windows on cell one: first 12 periods 0.189/0.068/0.013/0.000; whole run at sixty days 0.273/0.141/0.014/0.017; whole run on A1b-1's any-miss rule 0.390/0.201/0.026/0.034; last window including rent 0.088/0.061/0.005/0.003"
     },
     {
       "name": "A1d-2 the rent gradient, on net worth",
       "passed": false,
       "void": false,
-      "detail": "by net worth, sixty days: bottom50 0.5842 (28,776), next40 0.2562 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. Reported and not scored, by income: bottom50 0.7162 (23,585), next40 0.0877 (7,581), next9 0.0000 (897), top1 0.0000 (35). A measured cushion did not produce the monotonicity a label could not, so the non-monotonicity is a property of the data. docs/a1b_prereg.md section 8 has what the cells are made of"
+      "detail": "by net worth, sixty days: bottom50 0.6141 (28,776), next40 0.3286 (2,888), next9 0.0000 (397), top1 0.1351 (37) [NOT monotone]. Reported and not scored, by income: bottom50 0.7410 (23,585), next40 0.1516 (7,581), next9 0.0000 (897), top1 0.0000 (35). A measured cushion did not produce the monotonicity a label could not, so the non-monotonicity is a property of the data. docs/a1b_prereg.md section 8 has what the cells are made of"
     },
     {
       "name": "A1d-3 free parameters within the registered bound",

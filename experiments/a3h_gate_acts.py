@@ -32,6 +32,14 @@ are of the same order as the other channel's, the treatment acts, and a
 holonomy share indistinguishable from zero is then the theorem's prediction
 rather than an artefact.
 
+The other channel is the payment terms, and in this model they also admit the
+bidder pool that prices a tier (``A3Model._admitted_at_opening``). So the terms
+column below counts what the pricing pool does as well, and the loop-sum-only
+cell keeps the pool dispersed; the gate column and the gate-only cell are the
+opening allocation alone. This station runs that registered rule only. A3 P-C,
+A22 and A42 were each run under both admission rules, and their readings did
+not change.
+
 **A3-8' is read on seeds that did not exist when it was written.** It was
 registered on 2026-08-13 *after* the ordering had been seen at the registered
 point, and its own note forbids retroactive use: it governs the next stage, not
@@ -114,7 +122,8 @@ def main() -> int:
         return [r[k] for r in rows]
 
     print("what each channel does to the mechanism, between the two cells that")
-    print("differ only in that channel. **No holonomy is taken in this block.**\n")
+    print("differ in that channel's terms; the payment terms also set who is in")
+    print("the pricing pool. **No holonomy is taken in this block.**\n")
     print(f"  {'':>26} {'gate':>22} {'terms':>22}")
     for k, lab in (("nodes_with_a_different_cycle_count", "nodes moved"),
                    ("total_absolute_cycle_change", "total |d cycles|"),
@@ -140,16 +149,16 @@ def main() -> int:
     cells = {n: summarise(n, kw, seeds, models, baseline, population)
              for n, kw in CELLS.items()}
     lo, gt = cells["H1_only"], cells["H0_only"]
-    print("and now the holonomy, on the registered point:")
+    print("and now the divergence, on the registered point:")
     for n in ("both", "H1_only", "H0_only", "null"):
         c = cells[n]
         print(f"  {n:>9} gap {c['gap_mean']:>9.4f}   same sign across seeds "
               f"{str(c['same_sign_across_seeds']):>5}   range "
               f"[{c['gap_range'][0]:+.2f}, {c['gap_range'][1]:+.2f}]")
     print("\n  **A channel that moves the mechanism and contributes no stable")
-    print("  holonomy is the theorem's prediction**, and the other channel,")
-    print("  comparable in mechanical size, contributes a share that is stable")
-    print("  across every seed.")
+    print("  holonomy is the theorem's prediction**, and the payment-terms side,")
+    print("  which also sets who is in the pricing pool and is comparable in")
+    print("  mechanical size, contributes a gap that is stable across every seed.")
 
     # ---- the scoring block: seeds never drawn when A3-8' was written ----
     fmodels, fpop, _ = build_all(fresh, args.rounds)

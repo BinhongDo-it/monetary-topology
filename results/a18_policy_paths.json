@@ -12,17 +12,17 @@
       "passed": true
     },
     {
-      "detail": "floor 0.05, losses not recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.00247, 1.002847, 1.00437, 1.005045, 1.005278, 1.005522, 1.006029, 1.006804] | claims destroyed in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | floor 0.05, losses recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.00247, 1.002847, 1.00437, 1.005045, 1.005278, 1.005522, 1.006029, 1.006804] | claims destroyed in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | floor 0.20, losses not recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.000503, 1.000583, 1.001113, 16.172881, 16.552048, 17.449547, 17.520341, 17.56787] | claims destroyed in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | floor 0.20, losses recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.000503, 1.000583, 1.001113, 4.919208, 4.935358, 4.944073, 4.955125, 4.998082] | claims destroyed in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 10.0392, 10.072159, 10.089945, 10.112501]",
+      "detail": "floor 0.05, losses not recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.00247, 1.002847, 1.00437, 1.005045, 1.005278, 1.005522, 1.006029, 1.006804] | claims destroyed over the run [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | floor 0.05, losses recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.00247, 1.002847, 1.00437, 1.005045, 1.005278, 1.005522, 1.006029, 1.006804] | claims destroyed over the run [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | floor 0.20, losses not recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.000503, 1.000583, 1.001113, 16.172881, 16.552048, 17.449547, 17.520341, 17.56787] | claims destroyed over the run [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0] | floor 0.20, losses recognised: M/R over its opening [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.000503, 1.000583, 1.001113, 4.919208, 4.935358, 4.944073, 4.955125, 4.998082] | claims destroyed over the run [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1358.676304, 1378.713599, 1509.003499, 1518.667943, 1519.028057] | in the closing round [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 10.0392, 10.072159, 10.089945, 10.112501]",
       "name": "A18-6  does not recognising a loss accumulate anything",
       "passed": true
     },
     {
-      "detail": "floor 0.05 drawdown/none/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.000409, -7.1e-05, -5e-05, -4.1e-05, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 drawdown/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/none/none total_ratio: first move minus the control's [-20, -15, -8, -7, 0] | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 drawdown/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on+refill/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.000409, -7.1e-05, -5e-05, -4.1e-05, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 drawdown/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on+refill/none total_ratio: first move minus the control's [-20, -15, -8, -7, 0] | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 drawdown/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.000409, -7.1e-05, -5e-05, -4.1e-05, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 drawdown/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on/none total_ratio: first move minus the control's [-20, -15, -8, -7, 0] | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 drawdown/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/none/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 exit/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/none/none total_ratio: first move minus the control's [-20, -15, -8, -7, 0] | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 exit/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on+refill/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 exit/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on+refill/none total_ratio: first move minus the control's [-20, -15, -8, -7, 0] | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 exit/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 exit/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on/none total_ratio: first move minus the control's [-20, -15, -8, -7, 0] | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 exit/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.20 drawdown/none/endogenous total_ratio: first move minus the control's [-3, -3, 12, 49, 141] | largest jump minus the control's [-0.079996, -0.079988, -0.079072, -0.078496, -0.068694] | jump rounds [-1, -1, 91, 143, 274] | floor 0.20 drawdown/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/none/none total_ratio: first move minus the control's [-3, -3, -3, -3, -3] | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 drawdown/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on+refill/endogenous total_ratio: first move minus the control's [-3, -3, 12, 49, 141] | largest jump minus the control's [-0.079996, -0.079988, -0.079072, -0.078496, -0.068694] | jump rounds [-1, -1, 91, 143, 274] | floor 0.20 drawdown/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on+refill/none total_ratio: first move minus the control's [-3, -3, -3, -3, -3] | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 drawdown/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on/endogenous total_ratio: first move minus the control's [-3, -3, 12, 49, 141] | largest jump minus the control's [-0.079996, -0.079988, -0.079072, -0.078496, -0.068694] | jump rounds [-1, -1, 91, 143, 274] | floor 0.20 drawdown/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on/none total_ratio: first move minus the control's [-3, -3, -3, -3, -3] | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 drawdown/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/none/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [5, 5, 5, 5, 5] | floor 0.20 exit/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/none/none total_ratio: first move minus the control's [-3, -3, -3, -3, -3] | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 exit/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on+refill/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [5, 5, 5, 5, 5] | floor 0.20 exit/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on+refill/none total_ratio: first move minus the control's [-3, -3, -3, -3, -3] | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 exit/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [5, 5, 5, 5, 5] | floor 0.20 exit/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on/none total_ratio: first move minus the control's [-3, -3, -3, -3, -3] | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 exit/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0] | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1]",
+      "detail": "floor 0.05 drawdown/none/endogenous total_ratio: first move minus the control's [0, 0, 0, 0], on the 4 seeds where both moved; this arm never moved while the control did on 0, neither moved on 1 | largest jump minus the control's [-0.000409, -7.1e-05, -5e-05, -4.1e-05, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 drawdown/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/none/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 4, neither moved on 1 | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 drawdown/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on+refill/endogenous total_ratio: first move minus the control's [0, 0, 0, 0], on the 4 seeds where both moved; this arm never moved while the control did on 0, neither moved on 1 | largest jump minus the control's [-0.000409, -7.1e-05, -5e-05, -4.1e-05, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 drawdown/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on+refill/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 4, neither moved on 1 | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 drawdown/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on/endogenous total_ratio: first move minus the control's [0, 0, 0, 0], on the 4 seeds where both moved; this arm never moved while the control did on 0, neither moved on 1 | largest jump minus the control's [-0.000409, -7.1e-05, -5e-05, -4.1e-05, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 drawdown/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 drawdown/on/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 4, neither moved on 1 | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 drawdown/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-0.019203, -0.006482, 0.005575, 0.005599, 0.007175] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/none/endogenous total_ratio: first move minus the control's [0, 0, 0, 0], on the 4 seeds where both moved; this arm never moved while the control did on 0, neither moved on 1 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 exit/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/none/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 4, neither moved on 1 | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 exit/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on+refill/endogenous total_ratio: first move minus the control's [0, 0, 0, 0], on the 4 seeds where both moved; this arm never moved while the control did on 0, neither moved on 1 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 exit/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on+refill/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 4, neither moved on 1 | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 exit/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on/endogenous total_ratio: first move minus the control's [0, 0, 0, 0], on the 4 seeds where both moved; this arm never moved while the control did on 0, neither moved on 1 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [-1, 14, 14, 51, 137] | floor 0.05 exit/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.05 exit/on/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 4, neither moved on 1 | largest jump minus the control's [-0.001783, -0.001568, -0.000949, -0.00092, 0.0] | jump rounds [-1, -1, -1, -1, -1] | floor 0.05 exit/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [2, 2, 2, 2, 2] | floor 0.20 drawdown/none/endogenous total_ratio: first move minus the control's [12, 49, 141], on the 3 seeds where both moved; this arm never moved while the control did on 2, neither moved on 0 | largest jump minus the control's [-0.079996, -0.079988, -0.079072, -0.078496, -0.068694] | jump rounds [-1, -1, 91, 143, 274] | floor 0.20 drawdown/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/none/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 5, neither moved on 0 | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 drawdown/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on+refill/endogenous total_ratio: first move minus the control's [12, 49, 141], on the 3 seeds where both moved; this arm never moved while the control did on 2, neither moved on 0 | largest jump minus the control's [-0.079996, -0.079988, -0.079072, -0.078496, -0.068694] | jump rounds [-1, -1, 91, 143, 274] | floor 0.20 drawdown/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on+refill/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 5, neither moved on 0 | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 drawdown/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on/endogenous total_ratio: first move minus the control's [12, 49, 141], on the 3 seeds where both moved; this arm never moved while the control did on 2, neither moved on 0 | largest jump minus the control's [-0.079996, -0.079988, -0.079072, -0.078496, -0.068694] | jump rounds [-1, -1, 91, 143, 274] | floor 0.20 drawdown/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 drawdown/on/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 5, neither moved on 0 | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 drawdown/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [-7.651022, -7.649628, -7.645606, -7.548882, -7.542279] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/none/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [5, 5, 5, 5, 5] | floor 0.20 exit/none/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/none/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 5, neither moved on 0 | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 exit/none/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on+refill/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [5, 5, 5, 5, 5] | floor 0.20 exit/on+refill/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on+refill/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 5, neither moved on 0 | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 exit/on+refill/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on/endogenous total_ratio: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [5, 5, 5, 5, 5] | floor 0.20 exit/on/endogenous total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1] | floor 0.20 exit/on/none total_ratio: first move minus the control's [], on the 0 seeds where both moved; this arm never moved while the control did on 5, neither moved on 0 | largest jump minus the control's [-0.080499, -0.080499, -0.079072, -0.07879, -0.068694] | jump rounds [-1, -1, -1, -1, -1] | floor 0.20 exit/on/none total_volume: first move minus the control's [0, 0, 0, 0, 0], on the 5 seeds where both moved; this arm never moved while the control did on 0, neither moved on 0 | largest jump minus the control's [0.0, 0.0, 0.0, 0.0, 0.0] | jump rounds [1, 1, 1, 1, 1]",
       "name": "A18-3  quiet then release, a slow grind, or neither",
       "passed": true
     },
     {
-      "detail": "sampled at rounds (50, 100, 150, 200, 250) | floor 0.05 drawdown/none/endogenous total_ratio: [[1.001154, 1.001154, 1.002078, 1.00247, 1.00247], [1.003451, 1.004367, 1.005278, 1.005278, 1.005278]] | floor 0.05 drawdown/none/endogenous total_volume: [[67.39328, 67.821828, 67.36608, 67.748216, 67.631767], [67.639776, 67.633151, 67.657399, 67.980162, 67.750306]] | floor 0.05 drawdown/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/none/none total_volume: [[67.319161, 67.747208, 67.232962, 67.58889, 67.472809], [67.418734, 67.351578, 67.317045, 67.637727, 67.40973]] | floor 0.05 drawdown/on+refill/endogenous total_ratio: [[1.001154, 1.001154, 1.002078, 1.00247, 1.00247], [1.003451, 1.004367, 1.005278, 1.005278, 1.005278]] | floor 0.05 drawdown/on+refill/endogenous total_volume: [[67.39328, 67.821828, 67.36608, 67.748216, 67.631767], [67.639776, 67.633151, 67.657399, 67.980162, 67.750306]] | floor 0.05 drawdown/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/on+refill/none total_volume: [[67.319161, 67.747208, 67.232962, 67.58889, 67.472809], [67.418734, 67.351578, 67.317045, 67.637727, 67.40973]] | floor 0.05 drawdown/on/endogenous total_ratio: [[1.001154, 1.001154, 1.002078, 1.00247, 1.00247], [1.003451, 1.004367, 1.005278, 1.005278, 1.005278]] | floor 0.05 drawdown/on/endogenous total_volume: [[67.39328, 67.821828, 67.36608, 67.748216, 67.631767], [67.639776, 67.633151, 67.657399, 67.980162, 67.750306]] | floor 0.05 drawdown/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/on/none total_volume: [[67.319161, 67.747208, 67.232962, 67.58889, 67.472809], [67.418734, 67.351578, 67.317045, 67.637727, 67.40973]] | floor 0.05 exit/none/endogenous total_ratio: [[1.001351, 1.001369, 1.002389, 1.002834, 1.002847], [1.003803, 1.004911, 1.006029, 1.006029, 1.006029]] | floor 0.05 exit/none/endogenous total_volume: [[67.378785, 67.808354, 67.358951, 67.744373, 67.628769], [67.531506, 67.538015, 67.575099, 67.898441, 67.668912]] | floor 0.05 exit/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/none/none total_volume: [[67.292012, 67.719875, 67.205875, 67.561618, 67.445606], [67.288171, 67.22136, 67.186188, 67.507247, 67.279842]] | floor 0.05 exit/on+refill/endogenous total_ratio: [[1.001351, 1.001369, 1.002389, 1.002834, 1.002847], [1.003803, 1.004911, 1.006029, 1.006029, 1.006029]] | floor 0.05 exit/on+refill/endogenous total_volume: [[67.378785, 67.808354, 67.358951, 67.744373, 67.628769], [67.531506, 67.538015, 67.575099, 67.898441, 67.668912]] | floor 0.05 exit/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/on+refill/none total_volume: [[67.292012, 67.719875, 67.205875, 67.561618, 67.445606], [67.288171, 67.22136, 67.186188, 67.507247, 67.279842]] | floor 0.05 exit/on/endogenous total_ratio: [[1.001351, 1.001369, 1.002389, 1.002834, 1.002847], [1.003803, 1.004911, 1.006029, 1.006029, 1.006029]] | floor 0.05 exit/on/endogenous total_volume: [[67.378785, 67.808354, 67.358951, 67.744373, 67.628769], [67.531506, 67.538015, 67.575099, 67.898441, 67.668912]] | floor 0.05 exit/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/on/none total_volume: [[67.292012, 67.719875, 67.205875, 67.561618, 67.445606], [67.288171, 67.22136, 67.186188, 67.507247, 67.279842]] | floor 0.20 drawdown/none/endogenous total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.000113, 1.000407, 1.000583, 1.000583, 1.000583]] | floor 0.20 drawdown/none/endogenous total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.745747, 67.678322, 67.712564, 68.004684, 67.78621]] | floor 0.20 drawdown/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/none/none total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.738428, 67.652054, 67.674924, 67.966832, 67.748495]] | floor 0.20 drawdown/on+refill/endogenous total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.000113, 1.000407, 1.000583, 1.000583, 1.000583]] | floor 0.20 drawdown/on+refill/endogenous total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.745747, 67.678322, 67.712564, 68.004684, 67.78621]] | floor 0.20 drawdown/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/on+refill/none total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.738428, 67.652054, 67.674924, 67.966832, 67.748495]] | floor 0.20 drawdown/on/endogenous total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.000113, 1.000407, 1.000583, 1.000583, 1.000583]] | floor 0.20 drawdown/on/endogenous total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.745747, 67.678322, 67.712564, 68.004684, 67.78621]] | floor 0.20 drawdown/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/on/none total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.738428, 67.652054, 67.674924, 67.966832, 67.748495]] | floor 0.20 exit/none/endogenous total_ratio: [[3.814324, 6.576318, 9.337748, 12.098241, 14.860218], [3.611487, 6.134154, 8.65675, 11.177978, 13.700338]] | floor 0.20 exit/none/endogenous total_volume: [[62.269077, 62.59834, 62.11941, 62.299062, 62.231737], [64.004642, 63.985551, 64.056922, 64.158579, 64.171408]] | floor 0.20 exit/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 exit/none/none total_volume: [[5.360979, 5.360979, 5.360979, 5.360979, 5.360979], [5.575091, 5.575091, 5.575091, 5.575091, 5.575091]] | floor 0.20 exit/on+refill/endogenous total_ratio: [[3.814324, 5.08727, 5.08727, 5.08727, 5.08727], [3.611487, 5.071666, 5.071666, 5.071666, 5.071666]] | floor 0.20 exit/on+refill/endogenous total_volume: [[62.269077, 94.452947, 100.857892, 102.06671, 101.97645], [64.004642, 97.235781, 110.241028, 111.898912, 112.001798]] | floor 0.20 exit/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 exit/on+refill/none total_volume: [[5.360979, 5.360979, 5.360979, 5.360979, 5.360979], [5.575091, 5.575091, 5.575091, 5.575091, 5.575091]] | floor 0.20 exit/on/endogenous total_ratio: [[3.814324, 4.946114, 4.957002, 4.96916, 4.976519], [3.611487, 4.935821, 4.991377, 4.943434, 4.900385]] | floor 0.20 exit/on/endogenous total_volume: [[62.269077, 60.368182, 59.902687, 59.244338, 59.191633], [64.004642, 61.956616, 61.46353, 62.079494, 61.662679]] | floor 0.20 exit/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 exit/on/none total_volume: [[5.360979, 5.360979, 5.360979, 5.360979, 5.360979], [5.575091, 5.575091, 5.575091, 5.575091, 5.575091]]",
+      "detail": "sampled at rounds (50, 100, 150, 200, 250) | floor 0.05 drawdown/none/endogenous total_ratio: [[1.001154, 1.001154, 1.002078, 1.00247, 1.00247], [1.003451, 1.004367, 1.005278, 1.005278, 1.005278], [1.000934, 1.002472, 1.003923, 1.004489, 1.004489], [1.002055, 1.002982, 1.004149, 1.004149, 1.004149], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/none/endogenous total_volume: [[67.39328, 67.821828, 67.36608, 67.748216, 67.631767], [67.639776, 67.633151, 67.657399, 67.980162, 67.750306], [67.375637, 67.795648, 68.003451, 67.864472, 67.682696], [67.447282, 67.488044, 67.473311, 67.646222, 67.671242], [67.468521, 67.750905, 67.800329, 67.47816, 67.167761]] | floor 0.05 drawdown/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/none/none total_volume: [[67.319161, 67.747208, 67.232962, 67.58889, 67.472809], [67.418734, 67.351578, 67.317045, 67.637727, 67.40973], [67.316226, 67.636553, 67.750541, 67.575979, 67.395296], [67.317166, 67.297112, 67.208099, 67.37984, 67.404998], [67.468521, 67.750905, 67.800329, 67.47816, 67.167761]] | floor 0.05 drawdown/on+refill/endogenous total_ratio: [[1.001154, 1.001154, 1.002078, 1.00247, 1.00247], [1.003451, 1.004367, 1.005278, 1.005278, 1.005278], [1.000934, 1.002472, 1.003923, 1.004489, 1.004489], [1.002055, 1.002982, 1.004149, 1.004149, 1.004149], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/on+refill/endogenous total_volume: [[67.39328, 67.821828, 67.36608, 67.748216, 67.631767], [67.639776, 67.633151, 67.657399, 67.980162, 67.750306], [67.375637, 67.795648, 68.003451, 67.864472, 67.682696], [67.447282, 67.488044, 67.473311, 67.646222, 67.671242], [67.468521, 67.750905, 67.800329, 67.47816, 67.167761]] | floor 0.05 drawdown/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/on+refill/none total_volume: [[67.319161, 67.747208, 67.232962, 67.58889, 67.472809], [67.418734, 67.351578, 67.317045, 67.637727, 67.40973], [67.316226, 67.636553, 67.750541, 67.575979, 67.395296], [67.317166, 67.297112, 67.208099, 67.37984, 67.404998], [67.468521, 67.750905, 67.800329, 67.47816, 67.167761]] | floor 0.05 drawdown/on/endogenous total_ratio: [[1.001154, 1.001154, 1.002078, 1.00247, 1.00247], [1.003451, 1.004367, 1.005278, 1.005278, 1.005278], [1.000934, 1.002472, 1.003923, 1.004489, 1.004489], [1.002055, 1.002982, 1.004149, 1.004149, 1.004149], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/on/endogenous total_volume: [[67.39328, 67.821828, 67.36608, 67.748216, 67.631767], [67.639776, 67.633151, 67.657399, 67.980162, 67.750306], [67.375637, 67.795648, 68.003451, 67.864472, 67.682696], [67.447282, 67.488044, 67.473311, 67.646222, 67.671242], [67.468521, 67.750905, 67.800329, 67.47816, 67.167761]] | floor 0.05 drawdown/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 drawdown/on/none total_volume: [[67.319161, 67.747208, 67.232962, 67.58889, 67.472809], [67.418734, 67.351578, 67.317045, 67.637727, 67.40973], [67.316226, 67.636553, 67.750541, 67.575979, 67.395296], [67.317166, 67.297112, 67.208099, 67.37984, 67.404998], [67.468521, 67.750905, 67.800329, 67.47816, 67.167761]] | floor 0.05 exit/none/endogenous total_ratio: [[1.001351, 1.001369, 1.002389, 1.002834, 1.002847], [1.003803, 1.004911, 1.006029, 1.006029, 1.006029], [1.001236, 1.002861, 1.004373, 1.004957, 1.004957], [1.003813, 1.005315, 1.006566, 1.006566, 1.006566], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/none/endogenous total_volume: [[67.378785, 67.808354, 67.358951, 67.744373, 67.628769], [67.531506, 67.538015, 67.575099, 67.898441, 67.668912], [67.363657, 67.789211, 68.000928, 67.86312, 67.681352], [67.354604, 67.432976, 67.424566, 67.597144, 67.622288], [67.42962, 67.711678, 67.761214, 67.439114, 67.129044]] | floor 0.05 exit/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/none/none total_volume: [[67.292012, 67.719875, 67.205875, 67.561618, 67.445606], [67.288171, 67.22136, 67.186188, 67.507247, 67.279842], [67.284986, 67.605091, 67.719028, 67.544564, 67.364001], [67.113051, 67.092759, 67.004618, 67.175488, 67.20085], [67.42962, 67.711678, 67.761214, 67.439114, 67.129044]] | floor 0.05 exit/on+refill/endogenous total_ratio: [[1.001351, 1.001369, 1.002389, 1.002834, 1.002847], [1.003803, 1.004911, 1.006029, 1.006029, 1.006029], [1.001236, 1.002861, 1.004373, 1.004957, 1.004957], [1.003813, 1.005315, 1.006566, 1.006566, 1.006566], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/on+refill/endogenous total_volume: [[67.378785, 67.808354, 67.358951, 67.744373, 67.628769], [67.531506, 67.538015, 67.575099, 67.898441, 67.668912], [67.363657, 67.789211, 68.000928, 67.86312, 67.681352], [67.354604, 67.432976, 67.424566, 67.597144, 67.622288], [67.42962, 67.711678, 67.761214, 67.439114, 67.129044]] | floor 0.05 exit/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/on+refill/none total_volume: [[67.292012, 67.719875, 67.205875, 67.561618, 67.445606], [67.288171, 67.22136, 67.186188, 67.507247, 67.279842], [67.284986, 67.605091, 67.719028, 67.544564, 67.364001], [67.113051, 67.092759, 67.004618, 67.175488, 67.20085], [67.42962, 67.711678, 67.761214, 67.439114, 67.129044]] | floor 0.05 exit/on/endogenous total_ratio: [[1.001351, 1.001369, 1.002389, 1.002834, 1.002847], [1.003803, 1.004911, 1.006029, 1.006029, 1.006029], [1.001236, 1.002861, 1.004373, 1.004957, 1.004957], [1.003813, 1.005315, 1.006566, 1.006566, 1.006566], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/on/endogenous total_volume: [[67.378785, 67.808354, 67.358951, 67.744373, 67.628769], [67.531506, 67.538015, 67.575099, 67.898441, 67.668912], [67.363657, 67.789211, 68.000928, 67.86312, 67.681352], [67.354604, 67.432976, 67.424566, 67.597144, 67.622288], [67.42962, 67.711678, 67.761214, 67.439114, 67.129044]] | floor 0.05 exit/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.05 exit/on/none total_volume: [[67.292012, 67.719875, 67.205875, 67.561618, 67.445606], [67.288171, 67.22136, 67.186188, 67.507247, 67.279842], [67.284986, 67.605091, 67.719028, 67.544564, 67.364001], [67.113051, 67.092759, 67.004618, 67.175488, 67.20085], [67.42962, 67.711678, 67.761214, 67.439114, 67.129044]] | floor 0.20 drawdown/none/endogenous total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.000113, 1.000407, 1.000583, 1.000583, 1.000583], [1.0, 1.000065, 1.000356, 1.00041, 1.00041], [1.0, 1.0, 1.000503, 1.000503, 1.000503], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/none/endogenous total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.745747, 67.678322, 67.712564, 68.004684, 67.78621], [67.574484, 67.9245, 68.052495, 67.889102, 67.690607], [67.626354, 67.629788, 67.607274, 67.763826, 67.718237], [67.81296, 68.049641, 68.131866, 67.74584, 67.523543]] | floor 0.20 drawdown/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/none/none total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.738428, 67.652054, 67.674924, 67.966832, 67.748495], [67.574484, 67.920304, 68.029477, 67.862734, 67.664337], [67.626354, 67.629788, 67.57516, 67.731455, 67.6859], [67.81296, 68.049641, 68.131866, 67.74584, 67.523543]] | floor 0.20 drawdown/on+refill/endogenous total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.000113, 1.000407, 1.000583, 1.000583, 1.000583], [1.0, 1.000065, 1.000356, 1.00041, 1.00041], [1.0, 1.0, 1.000503, 1.000503, 1.000503], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/on+refill/endogenous total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.745747, 67.678322, 67.712564, 68.004684, 67.78621], [67.574484, 67.9245, 68.052495, 67.889102, 67.690607], [67.626354, 67.629788, 67.607274, 67.763826, 67.718237], [67.81296, 68.049641, 68.131866, 67.74584, 67.523543]] | floor 0.20 drawdown/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/on+refill/none total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.738428, 67.652054, 67.674924, 67.966832, 67.748495], [67.574484, 67.920304, 68.029477, 67.862734, 67.664337], [67.626354, 67.629788, 67.57516, 67.731455, 67.6859], [67.81296, 68.049641, 68.131866, 67.74584, 67.523543]] | floor 0.20 drawdown/on/endogenous total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.000113, 1.000407, 1.000583, 1.000583, 1.000583], [1.0, 1.000065, 1.000356, 1.00041, 1.00041], [1.0, 1.0, 1.000503, 1.000503, 1.000503], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/on/endogenous total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.745747, 67.678322, 67.712564, 68.004684, 67.78621], [67.574484, 67.9245, 68.052495, 67.889102, 67.690607], [67.626354, 67.629788, 67.607274, 67.763826, 67.718237], [67.81296, 68.049641, 68.131866, 67.74584, 67.523543]] | floor 0.20 drawdown/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 drawdown/on/none total_volume: [[67.670921, 68.031148, 67.581536, 67.91248, 67.782314], [67.738428, 67.652054, 67.674924, 67.966832, 67.748495], [67.574484, 67.920304, 68.029477, 67.862734, 67.664337], [67.626354, 67.629788, 67.57516, 67.731455, 67.6859], [67.81296, 68.049641, 68.131866, 67.74584, 67.523543]] | floor 0.20 exit/none/endogenous total_ratio: [[3.814324, 6.576318, 9.337748, 12.098241, 14.860218], [3.611487, 6.134154, 8.65675, 11.177978, 13.700338], [3.811927, 6.564195, 9.318253, 12.071111, 14.823932], [3.801947, 6.542747, 9.281863, 12.021679, 14.765099], [3.602131, 6.201902, 8.803583, 11.402322, 14.004221]] | floor 0.20 exit/none/endogenous total_volume: [[62.269077, 62.59834, 62.11941, 62.299062, 62.231737], [64.004642, 63.985551, 64.056922, 64.158579, 64.171408], [62.736536, 62.978981, 63.19351, 63.101845, 62.977874], [62.243767, 62.356306, 62.178979, 62.160182, 62.44129], [59.411351, 59.451543, 59.687097, 59.311962, 59.216492]] | floor 0.20 exit/none/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 exit/none/none total_volume: [[5.360979, 5.360979, 5.360979, 5.360979, 5.360979], [5.575091, 5.575091, 5.575091, 5.575091, 5.575091], [5.369815, 5.369815, 5.369815, 5.369815, 5.369815], [7.711178, 7.711178, 7.711178, 7.711178, 7.711178], [5.85059, 5.85059, 5.85059, 5.85059, 5.85059]] | floor 0.20 exit/on+refill/endogenous total_ratio: [[3.814324, 5.08727, 5.08727, 5.08727, 5.08727], [3.611487, 5.071666, 5.071666, 5.071666, 5.071666], [3.811927, 5.089166, 5.089166, 5.089166, 5.089166], [3.801947, 5.073734, 5.073734, 5.073734, 5.073734], [3.602131, 5.05371, 5.05371, 5.05371, 5.05371]] | floor 0.20 exit/on+refill/endogenous total_volume: [[62.269077, 94.452947, 100.857892, 102.06671, 101.97645], [64.004642, 97.235781, 110.241028, 111.898912, 112.001798], [62.736536, 95.068911, 102.341801, 102.825936, 102.6158], [62.243767, 94.679073, 101.957989, 102.779717, 103.043164], [59.411351, 92.514118, 103.491691, 103.896131, 103.636455]] | floor 0.20 exit/on+refill/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 exit/on+refill/none total_volume: [[5.360979, 5.360979, 5.360979, 5.360979, 5.360979], [5.575091, 5.575091, 5.575091, 5.575091, 5.575091], [5.369815, 5.369815, 5.369815, 5.369815, 5.369815], [7.711178, 7.711178, 7.711178, 7.711178, 7.711178], [5.85059, 5.85059, 5.85059, 5.85059, 5.85059]] | floor 0.20 exit/on/endogenous total_ratio: [[3.814324, 4.946114, 4.957002, 4.96916, 4.976519], [3.611487, 4.935821, 4.991377, 4.943434, 4.900385], [3.811927, 4.942495, 4.96673, 4.977007, 4.900434], [3.801947, 4.911157, 4.906816, 4.904586, 4.904291], [3.602131, 4.992154, 4.974088, 4.953776, 4.937054]] | floor 0.20 exit/on/endogenous total_volume: [[62.269077, 60.368182, 59.902687, 59.244338, 59.191633], [64.004642, 61.956616, 61.46353, 62.079494, 61.662679], [62.736536, 60.787468, 60.172129, 60.100256, 60.385001], [62.243767, 59.711927, 59.533859, 59.49751, 59.769171], [59.411351, 57.077229, 57.069787, 57.67343, 57.363503]] | floor 0.20 exit/on/none total_ratio: [[1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0, 1.0]] | floor 0.20 exit/on/none total_volume: [[5.360979, 5.360979, 5.360979, 5.360979, 5.360979], [5.575091, 5.575091, 5.575091, 5.575091, 5.575091], [5.369815, 5.369815, 5.369815, 5.369815, 5.369815], [7.711178, 7.711178, 7.711178, 7.711178, 7.711178], [5.85059, 5.85059, 5.85059, 5.85059, 5.85059]]",
       "name": "A18-4  the paths, sampled",
       "passed": true
     },
@@ -98,6 +98,8 @@
       "frozen_holdings_jump_size": 0.042278,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 6,
+      "issuance_total": 0.247049,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/endogenous",
@@ -155,7 +157,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -185,6 +188,8 @@
       "frozen_holdings_jump_size": 0.112219,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 9,
+      "issuance_total": 0.527799,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/endogenous",
@@ -242,7 +247,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -272,6 +278,8 @@
       "frozen_holdings_jump_size": 0.048883,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 12,
+      "issuance_total": 0.50449,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/endogenous",
@@ -329,7 +337,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -359,6 +368,8 @@
       "frozen_holdings_jump_size": 0.074178,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 12,
+      "issuance_total": 0.43695,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/endogenous",
@@ -416,7 +427,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -446,6 +458,8 @@
       "frozen_holdings_jump_size": 0.045606,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/endogenous",
@@ -503,7 +517,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -533,6 +548,8 @@
       "frozen_holdings_jump_size": 0.042278,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/none",
@@ -590,7 +607,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -620,6 +638,8 @@
       "frozen_holdings_jump_size": 0.112219,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/none",
@@ -677,7 +697,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -707,6 +728,8 @@
       "frozen_holdings_jump_size": 0.048883,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/none",
@@ -764,7 +787,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -794,6 +818,8 @@
       "frozen_holdings_jump_size": 0.074178,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/none",
@@ -851,7 +877,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -881,6 +908,8 @@
       "frozen_holdings_jump_size": 0.045606,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/none/none",
@@ -938,7 +967,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -968,6 +998,8 @@
       "frozen_holdings_jump_size": 0.042278,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 6,
+      "issuance_total": 0.247049,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/endogenous",
@@ -1025,7 +1057,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -1055,6 +1088,8 @@
       "frozen_holdings_jump_size": 0.112219,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 9,
+      "issuance_total": 0.527799,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/endogenous",
@@ -1112,7 +1147,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -1142,6 +1178,8 @@
       "frozen_holdings_jump_size": 0.048883,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 12,
+      "issuance_total": 0.50449,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/endogenous",
@@ -1199,7 +1237,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -1229,6 +1268,8 @@
       "frozen_holdings_jump_size": 0.074178,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 12,
+      "issuance_total": 0.43695,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/endogenous",
@@ -1286,7 +1327,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -1316,6 +1358,8 @@
       "frozen_holdings_jump_size": 0.045606,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/endogenous",
@@ -1373,7 +1417,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -1403,6 +1448,8 @@
       "frozen_holdings_jump_size": 0.042278,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/none",
@@ -1460,7 +1507,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -1490,6 +1538,8 @@
       "frozen_holdings_jump_size": 0.112219,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/none",
@@ -1547,7 +1597,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -1577,6 +1628,8 @@
       "frozen_holdings_jump_size": 0.048883,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/none",
@@ -1634,7 +1687,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -1664,6 +1718,8 @@
       "frozen_holdings_jump_size": 0.074178,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/none",
@@ -1721,7 +1777,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -1751,6 +1808,8 @@
       "frozen_holdings_jump_size": 0.045606,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on+refill/none",
@@ -1808,7 +1867,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -1838,6 +1898,8 @@
       "frozen_holdings_jump_size": 0.042278,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 6,
+      "issuance_total": 0.247049,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/endogenous",
@@ -1895,7 +1957,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -1925,6 +1988,8 @@
       "frozen_holdings_jump_size": 0.112219,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 9,
+      "issuance_total": 0.527799,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/endogenous",
@@ -1982,7 +2047,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2012,6 +2078,8 @@
       "frozen_holdings_jump_size": 0.048883,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 12,
+      "issuance_total": 0.50449,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/endogenous",
@@ -2069,7 +2137,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2099,6 +2168,8 @@
       "frozen_holdings_jump_size": 0.074178,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 12,
+      "issuance_total": 0.43695,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/endogenous",
@@ -2156,7 +2227,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2186,6 +2258,8 @@
       "frozen_holdings_jump_size": 0.045606,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/endogenous",
@@ -2243,7 +2317,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -2273,6 +2348,8 @@
       "frozen_holdings_jump_size": 0.042278,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/none",
@@ -2330,7 +2407,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -2360,6 +2438,8 @@
       "frozen_holdings_jump_size": 0.112219,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/none",
@@ -2417,7 +2497,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -2447,6 +2528,8 @@
       "frozen_holdings_jump_size": 0.048883,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/none",
@@ -2504,7 +2587,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -2534,6 +2618,8 @@
       "frozen_holdings_jump_size": 0.074178,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/none",
@@ -2591,7 +2677,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -2621,6 +2708,8 @@
       "frozen_holdings_jump_size": 0.045606,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.05,
       "policy": "drawdown/on/none",
@@ -2678,7 +2767,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2708,6 +2798,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 8,
+      "issuance_total": 0.284668,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/endogenous",
@@ -2765,7 +2857,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2795,6 +2888,8 @@
       "frozen_holdings_jump_size": 0.163241,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 10,
+      "issuance_total": 0.602911,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/endogenous",
@@ -2852,7 +2947,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2882,6 +2978,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 12,
+      "issuance_total": 0.552245,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/endogenous",
@@ -2939,7 +3037,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -2969,6 +3068,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 17,
+      "issuance_total": 0.680444,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/endogenous",
@@ -3026,7 +3127,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -3056,6 +3158,8 @@
       "frozen_holdings_jump_size": 0.017758,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/endogenous",
@@ -3113,7 +3217,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -3143,6 +3248,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/none",
@@ -3200,7 +3307,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -3230,6 +3338,8 @@
       "frozen_holdings_jump_size": 0.163241,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/none",
@@ -3287,7 +3397,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -3317,6 +3428,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/none",
@@ -3374,7 +3487,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -3404,6 +3518,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/none",
@@ -3461,7 +3577,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -3491,6 +3608,8 @@
       "frozen_holdings_jump_size": 0.017758,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/none/none",
@@ -3548,7 +3667,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -3578,6 +3698,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 8,
+      "issuance_total": 0.284668,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/endogenous",
@@ -3635,7 +3757,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -3665,6 +3788,8 @@
       "frozen_holdings_jump_size": 0.163241,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 10,
+      "issuance_total": 0.602911,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/endogenous",
@@ -3722,7 +3847,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -3752,6 +3878,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 12,
+      "issuance_total": 0.552245,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/endogenous",
@@ -3809,7 +3937,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -3839,6 +3968,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 17,
+      "issuance_total": 0.680444,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/endogenous",
@@ -3896,7 +4027,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -3926,6 +4058,8 @@
       "frozen_holdings_jump_size": 0.017758,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/endogenous",
@@ -3983,7 +4117,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4013,6 +4148,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/none",
@@ -4070,7 +4207,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4100,6 +4238,8 @@
       "frozen_holdings_jump_size": 0.163241,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/none",
@@ -4157,7 +4297,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4187,6 +4328,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/none",
@@ -4244,7 +4387,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4274,6 +4418,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/none",
@@ -4331,7 +4477,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4361,6 +4508,8 @@
       "frozen_holdings_jump_size": 0.017758,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on+refill/none",
@@ -4418,7 +4567,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -4448,6 +4598,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 8,
+      "issuance_total": 0.284668,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/endogenous",
@@ -4505,7 +4657,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -4535,6 +4688,8 @@
       "frozen_holdings_jump_size": 0.163241,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 10,
+      "issuance_total": 0.602911,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/endogenous",
@@ -4592,7 +4747,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -4622,6 +4778,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 12,
+      "issuance_total": 0.552245,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/endogenous",
@@ -4679,7 +4837,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -4709,6 +4868,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 17,
+      "issuance_total": 0.680444,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/endogenous",
@@ -4766,7 +4927,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -4796,6 +4958,8 @@
       "frozen_holdings_jump_size": 0.017758,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/endogenous",
@@ -4853,7 +5017,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4883,6 +5048,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.042278,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/none",
@@ -4940,7 +5107,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -4970,6 +5138,8 @@
       "frozen_holdings_jump_size": 0.163241,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.051023,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/none",
@@ -5027,7 +5197,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -5057,6 +5228,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.048883,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/none",
@@ -5114,7 +5287,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -5144,6 +5318,8 @@
       "frozen_holdings_jump_size": 0.0,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 0.326915,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/none",
@@ -5201,7 +5377,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -5231,6 +5408,8 @@
       "frozen_holdings_jump_size": 0.017758,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 0.045606,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.05,
       "policy": "exit/on/none",
@@ -5288,7 +5467,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -5318,6 +5498,8 @@
       "frozen_holdings_jump_size": 1.857672,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/endogenous",
@@ -5375,7 +5557,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -5405,6 +5588,8 @@
       "frozen_holdings_jump_size": 2.016852,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 3,
+      "issuance_total": 0.058294,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/endogenous",
@@ -5462,7 +5647,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -5492,6 +5678,8 @@
       "frozen_holdings_jump_size": 1.815526,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 6,
+      "issuance_total": 0.111333,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/endogenous",
@@ -5549,7 +5737,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -5579,6 +5768,8 @@
       "frozen_holdings_jump_size": 1.438822,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 1,
+      "issuance_total": 0.050294,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/endogenous",
@@ -5636,7 +5827,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -5666,6 +5858,8 @@
       "frozen_holdings_jump_size": 1.978242,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/endogenous",
@@ -5723,7 +5917,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -5753,6 +5948,8 @@
       "frozen_holdings_jump_size": 1.857672,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/none",
@@ -5810,7 +6007,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -5840,6 +6038,8 @@
       "frozen_holdings_jump_size": 2.016852,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/none",
@@ -5897,7 +6097,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -5927,6 +6128,8 @@
       "frozen_holdings_jump_size": 1.815526,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/none",
@@ -5984,7 +6187,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6014,6 +6218,8 @@
       "frozen_holdings_jump_size": 1.438822,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/none",
@@ -6071,7 +6277,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6101,6 +6308,8 @@
       "frozen_holdings_jump_size": 1.978242,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/none/none",
@@ -6158,7 +6367,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -6188,6 +6398,8 @@
       "frozen_holdings_jump_size": 1.857672,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/endogenous",
@@ -6245,7 +6457,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -6275,6 +6488,8 @@
       "frozen_holdings_jump_size": 2.016852,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 3,
+      "issuance_total": 0.058294,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/endogenous",
@@ -6332,7 +6547,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -6362,6 +6578,8 @@
       "frozen_holdings_jump_size": 1.815526,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 6,
+      "issuance_total": 0.111333,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/endogenous",
@@ -6419,7 +6637,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -6449,6 +6668,8 @@
       "frozen_holdings_jump_size": 1.438822,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 1,
+      "issuance_total": 0.050294,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/endogenous",
@@ -6506,7 +6727,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -6536,6 +6758,8 @@
       "frozen_holdings_jump_size": 1.978242,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/endogenous",
@@ -6593,7 +6817,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6623,6 +6848,8 @@
       "frozen_holdings_jump_size": 1.857672,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/none",
@@ -6680,7 +6907,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6710,6 +6938,8 @@
       "frozen_holdings_jump_size": 2.016852,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/none",
@@ -6767,7 +6997,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6797,6 +7028,8 @@
       "frozen_holdings_jump_size": 1.815526,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/none",
@@ -6854,7 +7087,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6884,6 +7118,8 @@
       "frozen_holdings_jump_size": 1.438822,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/none",
@@ -6941,7 +7177,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -6971,6 +7208,8 @@
       "frozen_holdings_jump_size": 1.978242,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on+refill/none",
@@ -7028,7 +7267,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -7058,6 +7298,8 @@
       "frozen_holdings_jump_size": 1.857672,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/endogenous",
@@ -7115,7 +7357,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -7145,6 +7388,8 @@
       "frozen_holdings_jump_size": 2.016852,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 3,
+      "issuance_total": 0.058294,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/endogenous",
@@ -7202,7 +7447,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -7232,6 +7478,8 @@
       "frozen_holdings_jump_size": 1.815526,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 6,
+      "issuance_total": 0.111333,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/endogenous",
@@ -7289,7 +7537,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -7319,6 +7568,8 @@
       "frozen_holdings_jump_size": 1.438822,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 1,
+      "issuance_total": 0.050294,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/endogenous",
@@ -7376,7 +7627,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -7406,6 +7658,8 @@
       "frozen_holdings_jump_size": 1.978242,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/endogenous",
@@ -7463,7 +7717,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -7493,6 +7748,8 @@
       "frozen_holdings_jump_size": 1.857672,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/none",
@@ -7550,7 +7807,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -7580,6 +7838,8 @@
       "frozen_holdings_jump_size": 2.016852,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/none",
@@ -7637,7 +7897,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -7667,6 +7928,8 @@
       "frozen_holdings_jump_size": 1.815526,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/none",
@@ -7724,7 +7987,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -7754,6 +8018,8 @@
       "frozen_holdings_jump_size": 1.438822,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/none",
@@ -7811,7 +8077,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -7841,6 +8108,8 @@
       "frozen_holdings_jump_size": 1.978242,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "drawdown",
       "need_multiple": 0.2,
       "policy": "drawdown/on/none",
@@ -7898,7 +8167,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -7928,6 +8198,8 @@
       "frozen_holdings_jump_size": 7.886315,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 298,
+      "issuance_total": 1656.787006,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/endogenous",
@@ -7985,7 +8257,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -8015,6 +8288,8 @@
       "frozen_holdings_jump_size": 8.218873,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 298,
+      "issuance_total": 1517.288131,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/endogenous",
@@ -8072,7 +8347,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -8102,6 +8378,8 @@
       "frozen_holdings_jump_size": 7.990549,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 298,
+      "issuance_total": 1652.034054,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/endogenous",
@@ -8159,7 +8437,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -8189,6 +8468,8 @@
       "frozen_holdings_jump_size": 8.323044,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 298,
+      "issuance_total": 1644.954717,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/endogenous",
@@ -8246,7 +8527,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -8276,6 +8558,8 @@
       "frozen_holdings_jump_size": 7.870745,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 298,
+      "issuance_total": 1555.204774,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/endogenous",
@@ -8333,7 +8617,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -8363,6 +8648,8 @@
       "frozen_holdings_jump_size": 7.886315,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/none",
@@ -8420,7 +8707,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -8450,6 +8738,8 @@
       "frozen_holdings_jump_size": 8.218873,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/none",
@@ -8507,7 +8797,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -8537,6 +8828,8 @@
       "frozen_holdings_jump_size": 7.990549,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/none",
@@ -8594,7 +8887,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -8624,6 +8918,8 @@
       "frozen_holdings_jump_size": 8.323044,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/none",
@@ -8681,7 +8977,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -8711,6 +9008,8 @@
       "frozen_holdings_jump_size": 7.870745,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/none/none",
@@ -8768,7 +9067,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -8798,6 +9098,8 @@
       "frozen_holdings_jump_size": 7.886315,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 298,
+      "issuance_total": 2775.141997,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/endogenous",
@@ -8855,7 +9157,8 @@
       "written_off_jump_round": 72,
       "written_off_jump_size": 10.059676,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 2366.415017
     },
     {
       "authority": "endogenous",
@@ -8885,6 +9188,8 @@
       "frozen_holdings_jump_size": 8.218873,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 298,
+      "issuance_total": 2704.263903,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/endogenous",
@@ -8942,7 +9247,8 @@
       "written_off_jump_round": 78,
       "written_off_jump_size": 10.052461,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 2297.0973
     },
     {
       "authority": "endogenous",
@@ -8972,6 +9278,8 @@
       "frozen_holdings_jump_size": 7.990549,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 298,
+      "issuance_total": 2776.140186,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/endogenous",
@@ -9029,7 +9337,8 @@
       "written_off_jump_round": 72,
       "written_off_jump_size": 10.052818,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 2367.223537
     },
     {
       "authority": "endogenous",
@@ -9059,6 +9368,8 @@
       "frozen_holdings_jump_size": 8.323044,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 298,
+      "issuance_total": 2767.416321,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/endogenous",
@@ -9116,7 +9427,8 @@
       "written_off_jump_round": 72,
       "written_off_jump_size": 10.014428,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 2360.042894
     },
     {
       "authority": "endogenous",
@@ -9146,6 +9458,8 @@
       "frozen_holdings_jump_size": 7.870745,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 298,
+      "issuance_total": 2704.659525,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/endogenous",
@@ -9203,7 +9517,8 @@
       "written_off_jump_round": 77,
       "written_off_jump_size": 10.010296,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 2299.288524
     },
     {
       "authority": "none",
@@ -9233,6 +9548,8 @@
       "frozen_holdings_jump_size": 7.886315,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/none",
@@ -9290,7 +9607,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -9320,6 +9638,8 @@
       "frozen_holdings_jump_size": 8.218873,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/none",
@@ -9377,7 +9697,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -9407,6 +9728,8 @@
       "frozen_holdings_jump_size": 7.990549,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/none",
@@ -9464,7 +9787,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -9494,6 +9818,8 @@
       "frozen_holdings_jump_size": 8.323044,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/none",
@@ -9551,7 +9877,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -9581,6 +9908,8 @@
       "frozen_holdings_jump_size": 7.870745,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on+refill/none",
@@ -9638,7 +9967,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "endogenous",
@@ -9668,6 +9998,8 @@
       "frozen_holdings_jump_size": 7.886315,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 298,
+      "issuance_total": 1910.948868,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/endogenous",
@@ -9725,7 +10057,8 @@
       "written_off_jump_round": 283,
       "written_off_jump_size": 10.133949,
       "written_off_monotone": false,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 1519.028057
     },
     {
       "authority": "endogenous",
@@ -9755,6 +10088,8 @@
       "frozen_holdings_jump_size": 8.218873,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 298,
+      "issuance_total": 1758.484455,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/endogenous",
@@ -9812,7 +10147,8 @@
       "written_off_jump_round": 143,
       "written_off_jump_size": 10.128677,
       "written_off_monotone": false,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 1358.676304
     },
     {
       "authority": "endogenous",
@@ -9842,6 +10178,8 @@
       "frozen_holdings_jump_size": 7.990549,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 298,
+      "issuance_total": 1913.075264,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/endogenous",
@@ -9899,7 +10237,8 @@
       "written_off_jump_round": 156,
       "written_off_jump_size": 10.129687,
       "written_off_monotone": false,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 1518.667943
     },
     {
       "authority": "endogenous",
@@ -9929,6 +10268,8 @@
       "frozen_holdings_jump_size": 8.323044,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 298,
+      "issuance_total": 1902.539298,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/endogenous",
@@ -9986,7 +10327,8 @@
       "written_off_jump_round": 257,
       "written_off_jump_size": 10.133669,
       "written_off_monotone": false,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 1509.003499
     },
     {
       "authority": "endogenous",
@@ -10016,6 +10358,8 @@
       "frozen_holdings_jump_size": 7.870745,
       "frozen_holdings_monotone": false,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 298,
+      "issuance_total": 1774.226139,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/endogenous",
@@ -10073,7 +10417,8 @@
       "written_off_jump_round": 93,
       "written_off_jump_size": 10.124647,
       "written_off_monotone": false,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 1378.713599
     },
     {
       "authority": "none",
@@ -10103,6 +10448,8 @@
       "frozen_holdings_jump_size": 7.886315,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.857672,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/none",
@@ -10160,7 +10507,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -10190,6 +10538,8 @@
       "frozen_holdings_jump_size": 8.218873,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.216894,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/none",
@@ -10247,7 +10597,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -10277,6 +10628,8 @@
       "frozen_holdings_jump_size": 7.990549,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 1.906956,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/none",
@@ -10334,7 +10687,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -10364,6 +10718,8 @@
       "frozen_holdings_jump_size": 8.323044,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.129306,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/none",
@@ -10421,7 +10777,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     },
     {
       "authority": "none",
@@ -10451,6 +10808,8 @@
       "frozen_holdings_jump_size": 7.870745,
       "frozen_holdings_monotone": true,
       "frozen_holdings_open": 2.250459,
+      "issuance_rounds": 0,
+      "issuance_total": 0.0,
       "mode": "exit",
       "need_multiple": 0.2,
       "policy": "exit/on/none",
@@ -10508,7 +10867,8 @@
       "written_off_jump_round": -1,
       "written_off_jump_size": 0.0,
       "written_off_monotone": true,
-      "written_off_open": 0.0
+      "written_off_open": 0.0,
+      "written_off_total": 0.0
     }
   ],
   "stage": "A18"

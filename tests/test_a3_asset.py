@@ -413,13 +413,18 @@ def test_prices_are_monotone_and_do_not_oscillate() -> None:
 def test_the_pricing_pool_ignores_the_current_price() -> None:
     """Stated as a property rather than left to the monotonicity test.
 
-    ``_clears_at_opening`` must not consult ``self.price``, or the feedback
-    returns by a different route.
+    ``_admitted_at_opening`` must not consult ``self.price``, or the feedback
+    returns by a different route. It is the set the price is formed from:
+    the opening pool and every round's ``_update_prices`` read it.
+    ``_clears_at_opening``, the hard gate on the gate terms at the same
+    opening prices, is held to the same property.
     """
     model = A3Model(A3Config(asset=AssetSpec(), network=NetworkConfig(seed=0)))
-    before = model._clears_at_opening().copy()
+    before = model._admitted_at_opening().copy()
+    before_gate = model._clears_at_opening().copy()
     model.price = model.price * 1000.0
-    assert (model._clears_at_opening() == before).all()
+    assert (model._admitted_at_opening() == before).all()
+    assert (model._clears_at_opening() == before_gate).all()
     assert not (model._clears() == before).all(), "the acquisition gate does move"
 
 

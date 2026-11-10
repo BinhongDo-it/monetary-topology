@@ -1,19 +1,27 @@
 {
   "carrier": "the stratified carrier. The complete graph is excluded: in-degree there takes one value so the hub set is not defined, and the one reading that moved was the identity starved = nodes - hubs",
+  "clocks": {
+    "close": "holdings[-1], the claims after the last round",
+    "init": "the claims before round one",
+    "open": "holdings[0], after round one",
+    "post": "the claims after the run; equal to close on this model",
+    "registered": "open-close; init-post is printed beside it"
+  },
   "criteria": [
     {
-      "detail": "need=0.050: 1929 shape 3/4 | frozen share at close [0.002915, 0.003247, 0.003269] | starved [76] | need=0.200: 1929 shape 0/4 | frozen share at close [0.941636, 0.9422, 0.943988, 0.945421] | starved [153, 154] | creditor by depth: [(0.05, 0, 1), (0.2, 0, 1)] | debtor by depth: [(0.05, 1, 1), (0.2, 0, 1)] | mutual by depth: [(0.05, 1, 1), (0.2, 0, 1)] | off by depth: [(0.05, 1, 1), (0.2, 0, 1)]",
+      "detail": "not evaluated: coverage 8 rows over 160 registered cells, missing 152, foreign 0, doubled 0",
       "name": "A16-8  where along the floor the composition effect lives",
-      "passed": true
+      "passed": false,
+      "void": true
     }
   ],
-  "diagnostic_only": true,
-  "diagnostic_reason": "the station is not closed",
   "elasticity": 0.5,
   "f2i": 30,
   "plan": {
     "carrier": "the stratified carrier. The complete graph is excluded: in-degree there takes one value so the hub set is not defined, and the one reading that moved was the identity starved = nodes - hubs",
+    "cells_in_both": 40,
     "configurations": 19,
+    "distinct_models": 500,
     "f2i": 30,
     "need_multiples": [
       0.05,
@@ -21,6 +29,7 @@
       0.5,
       1.0
     ],
+    "need_scan_runs": 160,
     "rounds": 300,
     "runs_total": 380,
     "seeds": [
@@ -36,11 +45,14 @@
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": true,
       "debt_paid": 1840.894931,
       "debt_share_of_volume": 0.082996,
       "frozen_share_close": 0.002915,
       "gini_close": 0.883878,
+      "gini_init": 0.736851,
       "gini_open": 0.871105,
+      "gini_post": 0.883878,
       "hub_nodes": [
         12,
         13,
@@ -68,18 +80,25 @@
       "survivors": 124,
       "survivors_are_the_hubs": false,
       "top10_close": 0.819857,
+      "top10_init": 0.680187,
       "top10_open": 0.790138,
+      "top10_post": 0.819857,
       "top1_close": 0.16649,
-      "top1_open": 0.162478
+      "top1_init": 0.143948,
+      "top1_open": 0.162478,
+      "top1_post": 0.16649
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": true,
       "debt_paid": 988.946662,
       "debt_share_of_volume": 0.046513,
       "frozen_share_close": 0.003269,
       "gini_close": 0.877088,
+      "gini_init": 0.736851,
       "gini_open": 0.866121,
+      "gini_post": 0.877088,
       "hub_nodes": [
         12,
         13,
@@ -107,18 +126,25 @@
       "survivors": 124,
       "survivors_are_the_hubs": false,
       "top10_close": 0.809976,
+      "top10_init": 0.680187,
       "top10_open": 0.78402,
+      "top10_post": 0.809976,
       "top1_close": 0.137641,
-      "top1_open": 0.145022
+      "top1_init": 0.143948,
+      "top1_open": 0.145022,
+      "top1_post": 0.137641
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": true,
       "debt_paid": 1031.490014,
       "debt_share_of_volume": 0.048403,
       "frozen_share_close": 0.003269,
       "gini_close": 0.879,
+      "gini_init": 0.736851,
       "gini_open": 0.86706,
+      "gini_post": 0.879,
       "hub_nodes": [
         12,
         13,
@@ -146,18 +172,25 @@
       "survivors": 124,
       "survivors_are_the_hubs": false,
       "top10_close": 0.812965,
+      "top10_init": 0.680187,
       "top10_open": 0.784307,
+      "top10_post": 0.812965,
       "top1_close": 0.148371,
-      "top1_open": 0.151983
+      "top1_init": 0.143948,
+      "top1_open": 0.151983,
+      "top1_post": 0.148371
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": false,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
       "frozen_share_close": 0.003247,
       "gini_close": 0.879621,
+      "gini_init": 0.736851,
       "gini_open": 0.867736,
+      "gini_post": 0.879621,
       "hub_nodes": [],
       "hubs": 10,
       "in_degree_at_k": 38.0,
@@ -174,18 +207,25 @@
       "survivors": 124,
       "survivors_are_the_hubs": false,
       "top10_close": 0.814498,
+      "top10_init": 0.680187,
       "top10_open": 0.786891,
+      "top10_post": 0.814498,
       "top1_close": 0.147534,
-      "top1_open": 0.151547
+      "top1_init": 0.143948,
+      "top1_open": 0.151547,
+      "top1_post": 0.147534
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": true,
       "debt_paid": 1668.437591,
       "debt_share_of_volume": 0.081244,
       "frozen_share_close": 0.9422,
       "gini_close": 0.597425,
+      "gini_init": 0.736851,
       "gini_open": 0.871105,
+      "gini_post": 0.597425,
       "hub_nodes": [
         12,
         13,
@@ -213,18 +253,25 @@
       "survivors": 46,
       "survivors_are_the_hubs": false,
       "top10_close": 0.251325,
+      "top10_init": 0.680187,
       "top10_open": 0.790138,
+      "top10_post": 0.251325,
       "top1_close": 0.025139,
-      "top1_open": 0.162478
+      "top1_init": 0.143948,
+      "top1_open": 0.162478,
+      "top1_post": 0.025139
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": true,
       "debt_paid": 1194.199631,
       "debt_share_of_volume": 0.061115,
       "frozen_share_close": 0.943988,
       "gini_close": 0.597867,
+      "gini_init": 0.736851,
       "gini_open": 0.866121,
+      "gini_post": 0.597867,
       "hub_nodes": [
         12,
         13,
@@ -252,18 +299,25 @@
       "survivors": 47,
       "survivors_are_the_hubs": false,
       "top10_close": 0.251806,
+      "top10_init": 0.680187,
       "top10_open": 0.78402,
+      "top10_post": 0.251806,
       "top1_close": 0.025189,
-      "top1_open": 0.145022
+      "top1_init": 0.143948,
+      "top1_open": 0.145022,
+      "top1_post": 0.025189
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": true,
       "debt_paid": 1197.650203,
       "debt_share_of_volume": 0.063315,
       "frozen_share_close": 0.945421,
       "gini_close": 0.598662,
+      "gini_init": 0.736851,
       "gini_open": 0.86706,
+      "gini_post": 0.598662,
       "hub_nodes": [
         12,
         13,
@@ -291,18 +345,25 @@
       "survivors": 46,
       "survivors_are_the_hubs": false,
       "top10_close": 0.252189,
+      "top10_init": 0.680187,
       "top10_open": 0.784307,
+      "top10_post": 0.252189,
       "top1_close": 0.025227,
-      "top1_open": 0.151983
+      "top1_init": 0.143948,
+      "top1_open": 0.151983,
+      "top1_post": 0.025227
     },
     {
       "claims_conserved": true,
       "debt_blocked_rounds": 0,
+      "debt_flowed": false,
       "debt_paid": 0.0,
       "debt_share_of_volume": 0.0,
       "frozen_share_close": 0.941636,
       "gini_close": 0.596915,
+      "gini_init": 0.736851,
       "gini_open": 0.867736,
+      "gini_post": 0.596915,
       "hub_nodes": [],
       "hubs": 10,
       "in_degree_at_k": 38.0,
@@ -319,9 +380,13 @@
       "survivors": 46,
       "survivors_are_the_hubs": false,
       "top10_close": 0.251179,
+      "top10_init": 0.680187,
       "top10_open": 0.786891,
+      "top10_post": 0.251179,
       "top1_close": 0.025126,
-      "top1_open": 0.151547
+      "top1_init": 0.143948,
+      "top1_open": 0.151547,
+      "top1_post": 0.025126
     }
   ],
   "stage": "A16"

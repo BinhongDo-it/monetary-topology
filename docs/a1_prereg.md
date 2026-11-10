@@ -761,7 +761,9 @@ criteria are reported as unbuilt rather than failed.
 
 *The registered dispersion cannot be drawn at the published means.* The service
 share is a Beta draw and a Beta with mean `m` cannot have a coefficient of
-variation above `sqrt((1 - m) / m)`. At the published inputs the bottom half's
+variation above `sqrt((1 - m) / m)`, the limit at concentration zero. The model
+draws only at a concentration of 2 or more, where the cap is
+`sqrt((1 - m) / (3m))`. At the published inputs the bottom half's
 mortgaged households spend `0.862` of their disposable on debt service and its
 renters `0.940`, which cap the dispersion at `0.231` and `0.146`. The registered
 `0.25` sits above both, and what it produced was not a wide distribution but two
@@ -811,8 +813,9 @@ one, which is the check that the machinery does nothing when told to.
 
 **The dispersion is now derived rather than registered, and the value is
 `0.089`.** A Beta at mean `m` cannot carry a coefficient of variation above
-`sqrt((1 - m) / m)`, so the spread a stage can ask for is bounded by its own
-tightest cell. The main arm supports `0.146`, bound by the bottom half's renters
+`sqrt((1 - m) / m)`, and at the concentration floor of 2 that the model keeps, the
+cap is `sqrt((1 - m) / (3m))`, so the spread a stage can ask for is bounded by its
+own tightest cell. The main arm supports `0.146`, bound by the bottom half's renters
 at a mean of `0.940`. The permutation arm supports `0.089`, bound by the cell of
 next-9%-by-wealth households who sit in the bottom half by income, at a mean of
 `0.977`. The experiment computes both, prints them with the binding cell named,

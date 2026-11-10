@@ -1,44 +1,89 @@
 {
+ "cpf_housing_grant": {
+  "2022": {
+   "cpf_grant_households": 8397,
+   "registrations_prorated": 24506,
+   "registrations_q1_q4": 27896,
+   "registrations_q2_q4": 20962,
+   "share_high": 0.4006,
+   "share_low": 0.301,
+   "share_prorated": 0.3426
+  },
+  "2023": {
+   "cpf_grant_households": 11000,
+   "registrations_prorated": 23323,
+   "registrations_q1_q4": 26735,
+   "registrations_q2_q4": 19756,
+   "share_high": 0.5568,
+   "share_low": 0.4114,
+   "share_prorated": 0.4716
+  }
+ },
+ "ehg": {
+  "2019-Q3..2024-Q2": {
+   "ehg_resale_households": 28920,
+   "registrations": 137419,
+   "share": 0.2105
+  },
+  "2019-Q4..2024-Q2": {
+   "ehg_resale_households": 28920,
+   "registrations": 131155,
+   "share": 0.2205
+  }
+ },
+ "pr_households_share_of_resale": {
+  "2011": 0.27,
+  "2021": 0.07
+ },
  "rows": {
   "2018": {
-   "everyone_else": 17061,
    "first_timer_families": 4500,
-   "first_timer_family_share": 0.2087,
+   "first_timer_family_share": 0.1948,
    "first_timer_median_income": 6200,
-   "resale_transactions": 21561
+   "not_first_timer_families": 18599,
+   "price_records": 21561,
+   "registered_applications": 23099
   },
   "2019": {
-   "everyone_else": 17186,
    "first_timer_families": 5000,
-   "first_timer_family_share": 0.2254,
+   "first_timer_family_share": 0.2108,
    "first_timer_median_income": 6500,
-   "resale_transactions": 22186
+   "not_first_timer_families": 18714,
+   "price_records": 22186,
+   "registered_applications": 23714
   },
   "2020": {
-   "everyone_else": 17633,
    "first_timer_families": 5700,
-   "first_timer_family_share": 0.2443,
+   "first_timer_family_share": 0.2303,
    "first_timer_median_income": 6400,
-   "resale_transactions": 23333
+   "not_first_timer_families": 19048,
+   "price_records": 23333,
+   "registered_applications": 24748
   },
   "2021": {
-   "everyone_else": 23287,
    "first_timer_families": 5800,
-   "first_timer_family_share": 0.1994,
+   "first_timer_family_share": 0.187,
    "first_timer_median_income": 7000,
-   "resale_transactions": 29087
+   "not_first_timer_families": 25217,
+   "price_records": 29087,
+   "registered_applications": 31017
   },
   "2022 Q1-Q3": {
-   "everyone_else": 16298,
    "first_timer_families": 4100,
-   "first_timer_family_share": 0.201,
+   "first_timer_family_share": 0.1925,
    "first_timer_median_income": 7500,
-   "resale_transactions": 20398
+   "not_first_timer_families": 17199,
+   "price_records": 20398,
+   "registered_applications": 21299
   }
  },
  "sources": {
-  "denominator": "data.gov.sg d_8b84c4ee58e3cfc0ece0d773c8ca6abc, monthly totals by registration month",
-  "numerator": "MND written answer, PQ 2568, 9 Jan 2023, Table 1A",
+  "cpf_housing_grant": "HDB update, 25 Feb 2024 (The Straits Times, 26 Feb 2024): more than 11,000 households, 14 Feb to Dec 2023, up 31 percent on 2022",
+  "denominator": "data.gov.sg d_02aa4bb51bc674f3a2d0b9bb6911d934, registered resale applications by quarter and flat type",
+  "ehg": "MND-HDB joint press release, 19 Aug 2024, paragraph 9",
+  "numerator": "MND written answer, PQ 2568, 9 Jan 2023, Table 1A (first-timer families; data include applicants who took an HDB loan)",
+  "pr_households": "MND written answer, 8 Nov 2022",
+  "price_records": "data.gov.sg d_8b84c4ee58e3cfc0ece0d773c8ca6abc, monthly counts by registration month; excludes non-market-price transactions",
   "private_owner_rule": "MND written answer, 13 Jul 2015"
  },
  "stage": "B130-side-buyers"

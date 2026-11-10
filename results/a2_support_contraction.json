@@ -66,12 +66,12 @@
     {
       "name": "A2-1  without issuance, volume and support move the same way",
       "passed": true,
-      "detail": "volume x0.87, support x0.729"
+      "detail": "volume x0.87, effective support x0.729"
     },
     {
       "name": "A2-2  with issuance, volume rises while support contracts",
       "passed": true,
-      "detail": "volume x44.87, support x0.402; production layer falls to 0.51% of all circulation"
+      "detail": "volume x44.87, effective support x0.402; production layer falls to 0.51% of all circulation"
     },
     {
       "name": "A2-3  the sign flip holds across graph seeds",

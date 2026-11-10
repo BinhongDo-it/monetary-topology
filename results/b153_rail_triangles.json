@@ -1,0 +1,7816 @@
+{
+ "brackets": {
+  "bracket_any_all_legs": {
+   "A_only": {
+    "beyond_floor": 761022,
+    "by_k": {
+     "1": {
+      "neg": 77525,
+      "pos": 514720,
+      "zero_band": 2187
+     },
+     "2": {
+      "neg": 36452,
+      "pos": 120573,
+      "zero_band": 1121
+     },
+     "3": {
+      "neg": 6050,
+      "pos": 5702,
+      "zero_band": 53
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 50845,
+      "neg": 40,
+      "pos": 55393,
+      "zero_band": 14
+     },
+     "CRL": {
+      "k1": 1388,
+      "neg": 114,
+      "pos": 1950,
+      "zero_band": 6
+     },
+     "ECT": {
+      "k1": 135,
+      "neg": 63,
+      "pos": 1333,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 16255,
+      "neg": 15025,
+      "pos": 31202,
+      "zero_band": 311
+     },
+     "FRS": {
+      "k1": 222,
+      "neg": 56,
+      "pos": 676,
+      "zero_band": 0
+     },
+     "GWR": {
+      "k1": 66115,
+      "neg": 21357,
+      "pos": 51534,
+      "zero_band": 454
+     },
+     "HUL": {
+      "k1": 204,
+      "neg": 86,
+      "pos": 458,
+      "zero_band": 16
+     },
+     "IEC": {
+      "k1": 45,
+      "neg": 1220,
+      "pos": 1397,
+      "zero_band": 0
+     },
+     "IWC": {
+      "k1": 4,
+      "neg": 23,
+      "pos": 413,
+      "zero_band": 0
+     },
+     "IXC": {
+      "k1": 483,
+      "neg": 741,
+      "pos": 1509,
+      "zero_band": 12
+     },
+     "LBR": {
+      "k1": 11114,
+      "neg": 2767,
+      "pos": 22656,
+      "zero_band": 89
+     },
+     "LER": {
+      "k1": 11706,
+      "neg": 2095,
+      "pos": 12489,
+      "zero_band": 97
+     },
+     "LRC": {
+      "k1": 10877,
+      "neg": 0,
+      "pos": 11413,
+      "zero_band": 24
+     },
+     "LTS": {
+      "k1": 3186,
+      "neg": 0,
+      "pos": 3936,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 5052,
+      "neg": 2321,
+      "pos": 5471,
+      "zero_band": 29
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 38579,
+      "neg": 6433,
+      "pos": 42571,
+      "zero_band": 207
+     },
+     "NSE": {
+      "k1": 38590,
+      "neg": 12080,
+      "pos": 45125,
+      "zero_band": 559
+     },
+     "NTH": {
+      "k1": 61605,
+      "neg": 15364,
+      "pos": 77642,
+      "zero_band": 481
+     },
+     "PGM": {
+      "k1": 5998,
+      "neg": 0,
+      "pos": 5998,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 1159,
+      "neg": 0,
+      "pos": 1249,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 10912,
+      "neg": 4,
+      "pos": 11110,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 2451,
+      "neg": 0,
+      "pos": 2451,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 13105,
+      "neg": 30,
+      "pos": 13270,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 99696,
+      "neg": 16637,
+      "pos": 85321,
+      "zero_band": 245
+     },
+     "SCR": {
+      "k1": 88243,
+      "neg": 3356,
+      "pos": 85568,
+      "zero_band": 245
+     },
+     "SMR": {
+      "k1": 8778,
+      "neg": 626,
+      "pos": 9032,
+      "zero_band": 57
+     },
+     "SWT": {
+      "k1": 43775,
+      "neg": 9988,
+      "pos": 49108,
+      "zero_band": 431
+     },
+     "TPE": {
+      "k1": 3796,
+      "neg": 9601,
+      "pos": 10606,
+      "zero_band": 78
+     }
+    },
+    "cells": {
+     "neg": 120027,
+     "pos": 640995,
+     "zero_band": 3361
+    },
+    "control_no_noncarrier": {
+     "n": 586954,
+     "neg_share_k1": 0.148194,
+     "neg_share_k2plus": 0.310664,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 3349,
+    "exact_zero_by_k": {
+     "1": 2187,
+     "2": 1113,
+     "3": 49
+    },
+    "n": 764383,
+    "n_by_k": {
+     "1": 594432,
+     "2": 158146,
+     "3": 11805
+    },
+    "neg_share_k1": 0.130419,
+    "neg_share_k2plus": 0.250084,
+    "quantiles": {
+     "p01": -1490,
+     "p05": -500,
+     "p25": 130,
+     "p50": 280,
+     "p75": 410,
+     "p95": 930,
+     "p99": 2350
+    },
+    "setters_on_these_triangles": 30,
+    "share_beyond_floor": 0.995603,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 7950,
+      "pos": 31472,
+      "zero_band": 327
+     },
+     "n": 39749
+    },
+    "top20_abs_delta": [
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "UPWEY (UPW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DIDCOT PARKWAY (DID)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "NEATH (NTH)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "DIDCOT PARKWAY (DID)",
+      "d": "NEATH (NTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "DIDCOT PARKWAY (DID)",
+      "d": "SWANSEA (SWA)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "DIDCOT PARKWAY (DID)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "SWANSEA (SWA)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "TROWBRIDGE (TRO)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "TROWBRIDGE (TRO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "TROWBRIDGE (TRO)",
+      "d": "UPWEY (UPW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "TROWBRIDGE (TRO)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "TROWBRIDGE (TRO)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "TROWBRIDGE (TRO)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5937,
+     "k2plus_share_higher": 2121,
+     "k2plus_share_lower": 1636,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.203142,
+     "pooled_neg_share_k2plus": 0.24127,
+     "pooled_triangles_k1": 169497,
+     "pooled_triangles_k2plus": 123306,
+     "through_flows_with_both": 9694
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 77812,
+      "pos": 515133,
+      "zero_band": 2189
+     },
+     "2": {
+      "neg": 36759,
+      "pos": 121958,
+      "zero_band": 1129
+     },
+     "3": {
+      "neg": 6050,
+      "pos": 5748,
+      "zero_band": 53
+     }
+    },
+    "cells": {
+     "neg": 120621,
+     "pos": 642839,
+     "zero_band": 3371
+    },
+    "exact_zero": 3359
+   },
+   "cluster_leg_triangles": 387830,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "any",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": 90881,
+   "pairs_unpriced": 8382,
+   "triangles_counted": 766831,
+   "triangles_priced": 766831,
+   "triangles_total": 877680
+  },
+  "bracket_any_through_leg": {
+   "A_only": {
+    "beyond_floor": 531682,
+    "by_k": {
+     "1": {
+      "neg": 43952,
+      "pos": 385682,
+      "zero_band": 1568
+     },
+     "2": {
+      "neg": 12590,
+      "pos": 81994,
+      "zero_band": 527
+     },
+     "3": {
+      "neg": 1004,
+      "pos": 6460,
+      "zero_band": 6
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 27343,
+      "neg": 22,
+      "pos": 29188,
+      "zero_band": 12
+     },
+     "CRL": {
+      "k1": 848,
+      "neg": 10,
+      "pos": 1076,
+      "zero_band": 6
+     },
+     "ECT": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 13,
+      "zero_band": 0
+     },
+     "FCC": {
+      "k1": 14796,
+      "neg": 9022,
+      "pos": 27415,
+      "zero_band": 223
+     },
+     "FRS": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 21,
+      "zero_band": 0
+     },
+     "GWR": {
+      "k1": 51579,
+      "neg": 13464,
+      "pos": 41615,
+      "zero_band": 372
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 6,
+      "pos": 116,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 107,
+      "neg": 498,
+      "pos": 1056,
+      "zero_band": 0
+     },
+     "IWC": {
+      "k1": 0,
+      "neg": 5,
+      "pos": 332,
+      "zero_band": 0
+     },
+     "IXC": {
+      "k1": 343,
+      "neg": 375,
+      "pos": 1062,
+      "zero_band": 5
+     },
+     "LBR": {
+      "k1": 10792,
+      "neg": 1646,
+      "pos": 17665,
+      "zero_band": 39
+     },
+     "LER": {
+      "k1": 9397,
+      "neg": 1601,
+      "pos": 10111,
+      "zero_band": 80
+     },
+     "LRC": {
+      "k1": 7257,
+      "neg": 0,
+      "pos": 10915,
+      "zero_band": 20
+     },
+     "LTS": {
+      "k1": 2906,
+      "neg": 0,
+      "pos": 3592,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 2002,
+      "neg": 509,
+      "pos": 2651,
+      "zero_band": 15
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 34394,
+      "neg": 4243,
+      "pos": 38004,
+      "zero_band": 175
+     },
+     "NSE": {
+      "k1": 25724,
+      "neg": 4652,
+      "pos": 31736,
+      "zero_band": 283
+     },
+     "NTH": {
+      "k1": 12850,
+      "neg": 945,
+      "pos": 24588,
+      "zero_band": 64
+     },
+     "PGM": {
+      "k1": 2399,
+      "neg": 0,
+      "pos": 2399,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 305,
+      "neg": 0,
+      "pos": 334,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 4348,
+      "neg": 4,
+      "pos": 4364,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 1207,
+      "neg": 0,
+      "pos": 1207,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 6817,
+      "neg": 0,
+      "pos": 7262,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 79075,
+      "neg": 7984,
+      "pos": 74781,
+      "zero_band": 131
+     },
+     "SCR": {
+      "k1": 88696,
+      "neg": 2984,
+      "pos": 85475,
+      "zero_band": 237
+     },
+     "SMR": {
+      "k1": 8364,
+      "neg": 582,
+      "pos": 8174,
+      "zero_band": 52
+     },
+     "SWT": {
+      "k1": 37932,
+      "neg": 6854,
+      "pos": 42709,
+      "zero_band": 340
+     },
+     "TPE": {
+      "k1": 1607,
+      "neg": 2140,
+      "pos": 6161,
+      "zero_band": 47
+     }
+    },
+    "cells": {
+     "neg": 57546,
+     "pos": 474136,
+     "zero_band": 2101
+    },
+    "control_no_noncarrier": {
+     "n": 439554,
+     "neg_share_k1": 0.111093,
+     "neg_share_k2plus": 0.208345,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 2097,
+    "exact_zero_by_k": {
+     "1": 1568,
+     "2": 525,
+     "3": 4
+    },
+    "n": 533783,
+    "n_by_k": {
+     "1": 431202,
+     "2": 95111,
+     "3": 7470
+    },
+    "neg_share_k1": 0.101929,
+    "neg_share_k2plus": 0.13252,
+    "quantiles": {
+     "p01": -1020,
+     "p05": -270,
+     "p25": 170,
+     "p50": 290,
+     "p75": 450,
+     "p95": 1420,
+     "p99": 3900
+    },
+    "setters_on_these_triangles": 30,
+    "share_beyond_floor": 0.996064,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 5654,
+      "pos": 30826,
+      "zero_band": 270
+     },
+     "n": 36750
+    },
+    "top20_abs_delta": [
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WOKING (WOK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "AXMINSTER (AXM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "AXMINSTER (AXM)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WOKING (WOK)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WOKING (WOK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "CRANBROOK (DEVON) (CBK)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WOKING (WOK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "FENITON (FNT)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WOKING (WOK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "HONITON (HON)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WOKING (WOK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "PINHOE (PIN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WOKING (WOK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WHIMPLE (WHM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "CRANBROOK (DEVON) (CBK)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WOKING (WOK)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "HONITON (HON)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WOKING (WOK)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "PINHOE (PIN)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WOKING (WOK)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "WESTBURY (WSB)",
+      "d": "WHIMPLE (WHM)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WOKING (WOK)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "SWT"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "UPWEY (UPW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "MELKSHAM (MKM)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "FROME (FRO)",
+      "d": "MELKSHAM (MKM)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 4714,
+     "k2plus_share_higher": 775,
+     "k2plus_share_lower": 1181,
+     "median_splits_k1": 5.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.163761,
+     "pooled_neg_share_k2plus": 0.125707,
+     "pooled_triangles_k1": 83054,
+     "pooled_triangles_k2plus": 66496,
+     "through_flows_with_both": 6670
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 43952,
+      "pos": 386123,
+      "zero_band": 1568
+     },
+     "2": {
+      "neg": 12590,
+      "pos": 82235,
+      "zero_band": 527
+     },
+     "3": {
+      "neg": 1004,
+      "pos": 6460,
+      "zero_band": 6
+     }
+    },
+    "cells": {
+     "neg": 57546,
+     "pos": 474818,
+     "zero_band": 2101
+    },
+    "exact_zero": 2097
+   },
+   "cluster_leg_triangles": 246699,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "anyperm",
+    "through_route": "any",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": 70210,
+   "pairs_unpriced": 29053,
+   "triangles_counted": 534465,
+   "triangles_priced": 534465,
+   "triangles_total": 877680
+  },
+  "bracket_no_cross_london": {
+   "A_only": {
+    "beyond_floor": 441613,
+    "by_k": {
+     "1": {
+      "neg": 38689,
+      "pos": 344621,
+      "zero_band": 1402
+     },
+     "2": {
+      "neg": 8133,
+      "pos": 47580,
+      "zero_band": 238
+     },
+     "3": {
+      "neg": 1314,
+      "pos": 1276,
+      "zero_band": 9
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 24751,
+      "neg": 0,
+      "pos": 24893,
+      "zero_band": 0
+     },
+     "CRL": {
+      "k1": 704,
+      "neg": 10,
+      "pos": 690,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 6062,
+      "neg": 1765,
+      "pos": 8039,
+      "zero_band": 77
+     },
+     "GWR": {
+      "k1": 45656,
+      "neg": 12535,
+      "pos": 35708,
+      "zero_band": 313
+     },
+     "IEC": {
+      "k1": 120,
+      "neg": 1075,
+      "pos": 2672,
+      "zero_band": 0
+     },
+     "IWC": {
+      "k1": 0,
+      "neg": 4,
+      "pos": 54,
+      "zero_band": 0
+     },
+     "IXC": {
+      "k1": 283,
+      "neg": 217,
+      "pos": 656,
+      "zero_band": 6
+     },
+     "LBR": {
+      "k1": 10767,
+      "neg": 1685,
+      "pos": 17537,
+      "zero_band": 40
+     },
+     "LER": {
+      "k1": 7894,
+      "neg": 1101,
+      "pos": 7945,
+      "zero_band": 56
+     },
+     "LRC": {
+      "k1": 6602,
+      "neg": 0,
+      "pos": 6662,
+      "zero_band": 12
+     },
+     "LTS": {
+      "k1": 2346,
+      "neg": 0,
+      "pos": 2688,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 1405,
+      "neg": 185,
+      "pos": 2085,
+      "zero_band": 13
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 30267,
+      "neg": 3699,
+      "pos": 31025,
+      "zero_band": 143
+     },
+     "NSE": {
+      "k1": 18294,
+      "neg": 2918,
+      "pos": 18851,
+      "zero_band": 193
+     },
+     "NTH": {
+      "k1": 10186,
+      "neg": 539,
+      "pos": 15082,
+      "zero_band": 25
+     },
+     "PGM": {
+      "k1": 2127,
+      "neg": 0,
+      "pos": 2127,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 202,
+      "neg": 0,
+      "pos": 202,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3284,
+      "neg": 4,
+      "pos": 3280,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 962,
+      "neg": 0,
+      "pos": 962,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 5398,
+      "neg": 4,
+      "pos": 5618,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 74484,
+      "neg": 8529,
+      "pos": 68939,
+      "zero_band": 125
+     },
+     "SCR": {
+      "k1": 89078,
+      "neg": 3728,
+      "pos": 85113,
+      "zero_band": 237
+     },
+     "SMR": {
+      "k1": 8338,
+      "neg": 633,
+      "pos": 8074,
+      "zero_band": 54
+     },
+     "SWT": {
+      "k1": 33970,
+      "neg": 6043,
+      "pos": 37041,
+      "zero_band": 314
+     },
+     "TPE": {
+      "k1": 1418,
+      "neg": 3462,
+      "pos": 7420,
+      "zero_band": 35
+     }
+    },
+    "cells": {
+     "neg": 48136,
+     "pos": 393477,
+     "zero_band": 1649
+    },
+    "control_no_noncarrier": {
+     "n": 374194,
+     "neg_share_k1": 0.10947,
+     "neg_share_k2plus": 0.233926,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 1647,
+    "exact_zero_by_k": {
+     "1": 1402,
+     "2": 238,
+     "3": 7
+    },
+    "n": 443262,
+    "n_by_k": {
+     "1": 384712,
+     "2": 55951,
+     "3": 2599
+    },
+    "neg_share_k1": 0.100566,
+    "neg_share_k2plus": 0.161349,
+    "quantiles": {
+     "p01": -1660,
+     "p05": -340,
+     "p25": 170,
+     "p50": 280,
+     "p75": 390,
+     "p95": 880,
+     "p99": 1710
+    },
+    "setters_on_these_triangles": 27,
+    "share_beyond_floor": 0.99628,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 4276,
+      "pos": 25199,
+      "zero_band": 227
+     },
+     "n": 29702
+    },
+    "top20_abs_delta": [
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PENZANCE (PNZ)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PENZANCE (PNZ)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "REDRUTH (RED)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "REDRUTH (RED)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST ERTH (SER)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST ERTH (SER)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "TRURO (TRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "TRURO (TRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PAR (PAR)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PAR (PAR)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST AUSTELL (SAU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST AUSTELL (SAU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "CAMBORNE (CBN)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "HAYLE (HYL)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 3544,
+     "k2plus_share_higher": 546,
+     "k2plus_share_lower": 821,
+     "median_splits_k1": 5.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.17651,
+     "pooled_neg_share_k2plus": 0.121054,
+     "pooled_triangles_k1": 62291,
+     "pooled_triangles_k2plus": 37066,
+     "through_flows_with_both": 4911
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 38689,
+      "pos": 344621,
+      "zero_band": 1402
+     },
+     "2": {
+      "neg": 8133,
+      "pos": 47580,
+      "zero_band": 238
+     },
+     "3": {
+      "neg": 1314,
+      "pos": 1276,
+      "zero_band": 9
+     }
+    },
+    "cells": {
+     "neg": 48136,
+     "pos": 393477,
+     "zero_band": 1649
+    },
+    "exact_zero": 1647
+   },
+   "cluster_leg_triangles": 171150,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "noxlon",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": 66107,
+   "pairs_unpriced": 33156,
+   "triangles_counted": 443262,
+   "triangles_priced": 443262,
+   "triangles_total": 877680
+  }
+ },
+ "config": {
+  "anyperm_route_codes": [
+   "00000",
+   "01000"
+  ],
+  "brackets": {
+   "bracket_any_all_legs": {
+    "route": "any"
+   },
+   "bracket_any_through_leg": {
+    "route": "anyperm",
+    "through_route": "any"
+   },
+   "bracket_no_cross_london": {
+    "route": "noxlon"
+   }
+  },
+  "cluster_rule": "lowest fare among point-to-point, fare-group and cluster flows",
+  "compatible_route_rule": "each leg on the first calling sequence (sorted) yielding the triangle; route include/exclude locations met by the stations called at or passed; routes without locations only as NOT VIA LONDON off London; ONLY routes not admitted; cross-London flows only when an end or the path is in London",
+  "dedupe": "station triple",
+  "default_ruled": "2026-10-27: routes compatible with the train; the no-condition route set is the knob point route_anyperm",
+  "fares_issue": "RJFAF917",
+  "floor": "1.5 x grid of 5 pence",
+  "g_three_leg_cap_seconds": 0.5,
+  "generation_date": "20261013",
+  "knob_points": {
+   "dedupe_flows": {
+    "dedupe": "flows"
+   },
+   "default": {},
+   "floor_1x": {
+    "floor_mult": 1.0
+   },
+   "floor_3x": {
+    "floor_mult": 3.0
+   },
+   "p2p_first": {
+    "p2p_first": true
+   },
+   "route_00000_only": {
+    "route": "00000"
+   },
+   "route_anyperm": {
+    "route": "anyperm"
+   },
+   "route_relaxed": {
+    "route": "relaxed"
+   },
+   "ticket_SOS": {
+    "ticket": "SOS"
+   },
+   "ticket_min": {
+    "ticket": "min"
+   }
+  },
+  "live_records_only": true,
+  "nfo_overlay": false,
+  "restriction_codes": "blank only",
+  "retail_check_source": {
+   "file": "data/raw/rail_fares/b153_arm0_retail_20261027.json (local)",
+   "read_on": "2026-10-27, built-in browser, no verification page shown",
+   "rows": 15,
+   "source": "https://www.nationalrail.co.uk/journey-planner/ (single, 1 adult, no railcard, standard, travel date 2026-10-28, departures from 07:00)"
+  },
+  "route": "compatible",
+  "routeing_issue": "RJRG1095",
+  "ticket": "SDS",
+  "timetable_issue": "RJTTF988",
+  "triangle_rule": "o boards, b alights and boards, d alights, one public train"
+ },
+ "coverage": {
+  "calling_sequences": 17520,
+  "calls_without_station": 20181,
+  "clusters_live": 2473,
+  "crs_not_in_locations": 0,
+  "crs_not_in_locations_first20": [],
+  "crs_with_several_nlc": 0,
+  "crs_with_several_nlc_first20": [],
+  "default_robust_triangles": 646704,
+  "default_train_pricing": {
+   "admitted_after_path_check": 572294,
+   "rejected_on_path": 138228,
+   "route_coded_admitted": 492350
+  },
+  "fare_toc_records": 63,
+  "flow_file": {
+   "fare": 7780689,
+   "fare_SDS_indexed": 378134,
+   "fare_SDS_on_not_live_flow": 14434,
+   "fare_SDS_restricted_skipped": 86,
+   "fare_SDS_usage_A": 290636,
+   "fare_SDS_usage_G": 87498,
+   "fare_SOS_indexed": 120844,
+   "fare_SOS_on_not_live_flow": 2507,
+   "fare_SOS_restricted_skipped": 2,
+   "fare_SOS_usage_A": 93126,
+   "fare_SOS_usage_G": 27718,
+   "flow": 723590,
+   "flow_live": 695296,
+   "flow_not_live": 28294
+  },
+  "locations_live": 4970,
+  "msn_tiplocs": 3317,
+  "nfo": {
+   "composite_Y": 3,
+   "live_no_railcard": 99
+  },
+  "nfo_composite_pairs_touched_route_anyperm": 0,
+  "noncarrier_setter_codes": [
+   "ANG",
+   "ATO",
+   "CSV",
+   "DBA",
+   "DCR",
+   "GER",
+   "LUL",
+   "MML",
+   "NLR",
+   "NOT",
+   "NTT",
+   "PGM",
+   "PLB",
+   "PMR",
+   "PSC",
+   "PSY",
+   "PTW",
+   "PUB",
+   "PWM",
+   "PWY",
+   "RCL",
+   "RCV",
+   "RNE",
+   "RNW",
+   "RWW",
+   "TAC",
+   "TLK",
+   "WAB",
+   "WGN",
+   "WSM",
+   "WSX"
+  ],
+  "not_london_route_codes": 1,
+  "routes_by_kind": {
+   "ONLY_with_locations": 24,
+   "ONLY_without_locations": 145,
+   "other_with_locations": 601,
+   "other_without_locations": 617
+  },
+  "routes_live": 1387,
+  "station_pairs": 99263,
+  "station_pairs_unpriced_route_anyperm": 29053,
+  "station_pairs_unpriced_route_anyperm_by_reason": {
+   "SDS only on flows whose route code names a route": 20671,
+   "SOS and no SDS": 6288,
+   "no live fare on any station, fare-group or cluster code": 1712,
+   "other ticket types only": 382
+  },
+  "stations": 3131,
+  "timetable": {
+   "BS": 516498,
+   "BS_open": 427719,
+   "BS_stp_C": 88779,
+   "BS_stp_N": 145605,
+   "BS_stp_O": 154417,
+   "BS_stp_P": 127697,
+   "LT": 427719
+  },
+  "tiplocs_called_without_station": 46,
+  "tiplocs_called_without_station_first20": [
+   "BARKGLT",
+   "BDICK",
+   "BENTMET",
+   "BREWRYS",
+   "BRNSTLT",
+   "BRNSTPS",
+   "BROADFO",
+   "BRUXMID",
+   "CANNA",
+   "CIVI",
+   "COLL",
+   "COLONSY",
+   "DGNHELT",
+   "DYCLJN",
+   "EIGG",
+   "EPHT",
+   "GLNTNJN",
+   "HAMDLUL",
+   "KNSGHST",
+   "KYLEAKN"
+  ],
+  "triangles": 877680
+ },
+ "criteria": [
+  {
+   "detail": "52 extracted members hashed, 0 differ from the manifest; RJFAF917.FFL: 8504279 records against header 8504279, end line present; RJFAF917.FSC: 43751 records against header 43751, end line present; RJFAF917.TOC: 149 records against header 149, end line present; RJFAF917.TTY: 4203 records against header 4203, end line present; MCA: 516498 schedules, 427719 not cancelled, 427719 closed by LT, 0 unclosed, 0 orphan LT",
+   "kind": "instrument",
+   "name": "B153-1",
+   "passed": true
+  },
+  {
+   "detail": "15 retail legs over 5 triangles: Anytime Day Single equal to the default-point price 14, different 0 []; legs where retail shows no Anytime Day Single: shown price held by the feed at the lower of SDS and SOS on the same train 1 ['k3 through (NOT-ELR), feed ticket SOS'], not held 0 []. State: every retail Anytime Day Single equals the default-point price; any leg without one has its shown price at the lower of SDS and SOS on the same train",
+   "kind": "instrument",
+   "mapping": {
+    "a leg without a retail Anytime Day Single whose shown price the feed does not hold at the lower of SDS and SOS": "FAIL",
+    "a retail Anytime Day Single differs from the default-point price": "FAIL",
+    "every retail Anytime Day Single equals the default-point price; any leg without one has its shown price at the lower of SDS and SOS on the same train": "PASS",
+    "no retail rows, or a listed triangle without its three legs": "no verdict"
+   },
+   "name": "B153-2",
+   "passed": true,
+   "state": "every retail Anytime Day Single equals the default-point price; any leg without one has its shown price at the lower of SDS and SOS on the same train"
+  },
+  {
+   "below_chain_first20": [
+    {
+     "destination": "HEATHROW BUS",
+     "origin": "BOUNDARY ZONE 2",
+     "route": "00948",
+     "setter": "ATO"
+    },
+    {
+     "destination": "HEATHROW BUS",
+     "origin": "BOUNDARY ZONE 5",
+     "route": "00948",
+     "setter": "ATO"
+    },
+    {
+     "destination": "R608",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00000",
+     "setter": "IEC"
+    },
+    {
+     "destination": "TRAMLINK",
+     "origin": "BOUNDARY ZONE 2",
+     "route": "00628",
+     "setter": "ATO"
+    },
+    {
+     "destination": "CHEDDINGTON",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00200",
+     "setter": "LBR"
+    },
+    {
+     "destination": "AVONMOUTH",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00800",
+     "setter": "GWR"
+    },
+    {
+     "destination": "HADDENHAM & T PY",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00265",
+     "setter": "NCH"
+    },
+    {
+     "destination": "MILTON KEYNES C",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00200",
+     "setter": "LBR"
+    },
+    {
+     "destination": "HEATHROW BUS",
+     "origin": "BOUNDARY ZONE 4",
+     "route": "00948",
+     "setter": "ATO"
+    },
+    {
+     "destination": "CLIFTON DOWN",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00800",
+     "setter": "GWR"
+    },
+    {
+     "destination": "MONTPELIER",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00800",
+     "setter": "GWR"
+    },
+    {
+     "destination": "Q310",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "Q308",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "Q321",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "Q323",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "Q322",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "SEVERN BEACH",
+     "origin": "ZONE U1245 LONDN",
+     "route": "00800",
+     "setter": "GWR"
+    },
+    {
+     "destination": "Q449",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "Q722",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    },
+    {
+     "destination": "Q723",
+     "origin": "ZONE U2345 LONDN",
+     "route": "00902",
+     "setter": "NSE"
+    }
+   ],
+   "detail": "live G flows 87498: exact two-leg sum 22386; exact three-leg sum 1500; below the cheapest chain of two or more flows of any length in the file 17575; not met at two or three legs and not below the cheapest chain 352; three-leg search cut by its 0.5 s cap 148; no chain in the file 2; at or above the cheapest chain and outside the seeded three-leg sample of 2000 (pool 47535) 45535. State: some G fare below every chain of flow fares in the file. Below-chain flows by setter: {'ATO': 159, 'ECT': 857, 'FCC': 699, 'GWR': 2843, 'IEC': 187, 'IWC': 7, 'IXC': 126, 'LBR': 81, 'LER': 595, 'LTS': 689, 'NCH': 309, 'NSC': 846, 'NSE': 1147, 'NTH': 1257, 'PWY': 65, 'RMS': 287, 'RWB': 1082, 'SCR': 3601, 'SMR': 588, 'SWT': 2096, 'TPE': 54}",
+   "kind": "known_answer",
+   "mapping": {
+    "every G fare met by an exact two- or three-leg sum": "PASS",
+    "no G flow": "no verdict",
+    "no fare below every chain, some untested at four legs or more": "no verdict",
+    "some G fare below every chain of flow fares in the file": "FAIL"
+   },
+   "name": "B153-3",
+   "passed": false,
+   "state": "some G fare below every chain of flow fares in the file"
+  },
+  {
+   "detail": "696531 triangles supplied by A flows only; beyond the floor 693464 (0.995597); cells {'neg': 104021, 'pos': 589443, 'zero_band': 3067}; exact zero 3059; quantiles {'p01': -1600, 'p05': -500, 'p25': 140, 'p50': 280, 'p75': 410, 'p95': 890, 'p99': 1600}",
+   "grid": "B",
+   "kind": "rival",
+   "mapping": {
+    "A-flow triangles exist, none beyond the floor": "FAIL, grid C",
+    "A-flow triangles exist, some beyond the floor": "PASS, grid B",
+    "no A-flow triangle": "None, grid unread"
+   },
+   "name": "B153-4",
+   "passed": true,
+   "rival_entailment": "f(o, d) = phi(d) - phi(o) = [phi(b) - phi(o)] + [phi(d) - phi(b)] = f(o, b) + f(b, d), so delta = 0; each fare rounded to the grid g moves by at most g/2, so |delta| <= 1.5 g.",
+   "rival_holds_share": 0.004403,
+   "rival_premise": "The fare is a scalar defined on stations along the direction of travel: f(x, y) = phi(y) - phi(x).",
+   "rival_shape": "point prediction (zero within the rounding floor)"
+  },
+  {
+   "detail": "cells {'neg': 104219, 'pos': 590012, 'zero_band': 3077} sum to 697308 triangles. One-sided readings: subadditivity (delta >= 0) holds on 593089, fails on 104219; the through-ticket-carries-more-rights reading (delta <= 0) holds on 107296, fails on 590012. On one-setter (k = 1) triangles supplied by A flows: {'neg': 75680, 'pos': 486052, 'zero_band': 2191}. State: cells sum to the count and both signs clear the floor at k = 1",
+   "kind": "own_reading",
+   "mapping": {
+    "a cell missing or the cells do not sum to the count": "FAIL",
+    "cells sum to the count and both signs clear the floor at k = 1": "PASS",
+    "cells sum to the count and one sign or none clears the floor at k = 1": "FAIL",
+    "no triangle, or no k = 1 triangle": "no verdict"
+   },
+   "name": "B153-5",
+   "passed": true,
+   "state": "cells sum to the count and both signs clear the floor at k = 1"
+  },
+  {
+   "detail": "state: all points lower; share of delta < -floor (k = 1, k >= 2) per knob point: {'default': (0.134203, 0.21372), 'ticket_SOS': (0.293286, 0.330954), 'ticket_min': (0.144961, 0.26209), 'p2p_first': (0.13424, 0.215363), 'floor_1x': (0.134203, 0.21372), 'floor_3x': (0.130619, 0.20777), 'dedupe_flows': (0.103889, 0.194554), 'route_anyperm': (0.108482, 0.17704), 'route_relaxed': (0.112396, 0.186902), 'route_00000_only': (0.120269, 0.363104)}; brackets (not knob values, not in the verdict): {'bracket_any_all_legs': (0.130419, 0.250084, 'lower'), 'bracket_any_through_leg': (0.101929, 0.13252, 'lower'), 'bracket_no_cross_london': (0.100566, 0.161349, 'lower')}",
+   "kind": "own_reading",
+   "mapping": {
+    "all points lower": "PASS",
+    "all points not lower": "FAIL",
+    "direction flips or a cell is empty": "no verdict"
+   },
+   "name": "B153-6",
+   "passed": true,
+   "state": "all points lower"
+  },
+  {
+   "detail": "Railcard arm not run in this pass; the arms on the undiscounted fare ran first. No verdict.",
+   "kind": "known_answer",
+   "name": "B153-7",
+   "passed": null
+  },
+  {
+   "detail": "config keys ['anyperm_route_codes', 'brackets', 'cluster_rule', 'compatible_route_rule', 'dedupe', 'default_ruled', 'fares_issue', 'floor', 'g_three_leg_cap_seconds', 'generation_date', 'knob_points', 'live_records_only', 'nfo_overlay', 'restriction_codes', 'retail_check_source', 'route', 'routeing_issue', 'ticket', 'timetable_issue', 'triangle_rule']; coverage keys ['calling_sequences', 'calls_without_station', 'clusters_live', 'crs_not_in_locations', 'crs_not_in_locations_first20', 'crs_with_several_nlc', 'crs_with_several_nlc_first20', 'default_robust_triangles', 'default_train_pricing', 'fare_toc_records', 'flow_file', 'locations_live', 'msn_tiplocs', 'nfo', 'nfo_composite_pairs_touched_route_anyperm', 'noncarrier_setter_codes', 'not_london_route_codes', 'routes_by_kind', 'routes_live', 'station_pairs', 'station_pairs_unpriced_route_anyperm', 'station_pairs_unpriced_route_anyperm_by_reason', 'stations', 'timetable', 'tiplocs_called_without_station', 'tiplocs_called_without_station_first20', 'triangles']",
+   "kind": "bookkeeping",
+   "name": "B153-8",
+   "passed": true
+  }
+ ],
+ "g_flow_zero_domain": {
+  "below_chain_by_setter": {
+   "ATO": 159,
+   "ECT": 857,
+   "FCC": 699,
+   "GWR": 2843,
+   "IEC": 187,
+   "IWC": 7,
+   "IXC": 126,
+   "LBR": 81,
+   "LER": 595,
+   "LTS": 689,
+   "NCH": 309,
+   "NSC": 846,
+   "NSE": 1147,
+   "NTH": 1257,
+   "PWY": 65,
+   "RMS": 287,
+   "RWB": 1082,
+   "SCR": 3601,
+   "SMR": 588,
+   "SWT": 2096,
+   "TPE": 54
+  },
+  "below_chain_classes": {
+   "below_reproduced": 17575,
+   "class_order": [
+    "next-round fares: an exact two-leg sum once flows starting after the generation date are read",
+    "an Anytime Single (SOS) leg: an exact two-leg sum over SDS and SOS fares",
+    "a restricted leg: an exact two-leg sum once SDS fares carrying a restriction code are read",
+    "another standard-class single leg: an exact two-leg sum over every standard-class single ticket",
+    "set below every sum of components in the file (no variant gives an exact two-leg sum)"
+   ],
+   "classes": {
+    "a restricted leg: an exact two-leg sum once SDS fares carrying a restriction code are read": 0,
+    "an Anytime Single (SOS) leg: an exact two-leg sum over SDS and SOS fares": 1,
+    "another standard-class single leg: an exact two-leg sum over every standard-class single ticket": 6360,
+    "next-round fares: an exact two-leg sum once flows starting after the generation date are read": 40,
+    "set below every sum of components in the file (no variant gives an exact two-leg sum)": 11174
+   },
+   "examples": {
+    "an Anytime Single (SOS) leg: an exact two-leg sum over SDS and SOS fares": [
+     {
+      "destination": "SQWAR ALBAN SQ",
+      "gap_band_pence": "(200, 500]",
+      "origin": "cluster Q460",
+      "route": "00645",
+      "setter": "GWR"
+     }
+    ],
+    "another standard-class single leg: an exact two-leg sum over every standard-class single ticket": [
+     {
+      "destination": "HEATHROW BUS",
+      "gap_band_pence": "(200, 500]",
+      "origin": "BOUNDARY ZONE 4",
+      "route": "00948",
+      "setter": "ATO"
+     },
+     {
+      "destination": "EASTMID DESIGNER",
+      "gap_band_pence": "(50, 200]",
+      "origin": "GAINSBORO CEN/LR",
+      "route": "00000",
+      "setter": "SMR"
+     },
+     {
+      "destination": "EAST M AIR LGE",
+      "gap_band_pence": "(50, 200]",
+      "origin": "NEWARK CAS/NGATE",
+      "route": "00000",
+      "setter": "SMR"
+     },
+     {
+      "destination": "MIRA TECH PARK",
+      "gap_band_pence": "(200, 500]",
+      "origin": "BIRMINGHAM STNS",
+      "route": "01000",
+      "setter": "IXC"
+     },
+     {
+      "destination": "GLASGOW AIR XBUS",
+      "gap_band_pence": "(50, 200]",
+      "origin": "FALKIRK GTON/HGH",
+      "route": "00000",
+      "setter": "SCR"
+     }
+    ],
+    "next-round fares: an exact two-leg sum once flows starting after the generation date are read": [
+     {
+      "destination": "cluster Q315",
+      "gap_band_pence": "(50, 200]",
+      "origin": "ZONE U23*  LONDN",
+      "route": "00902",
+      "setter": "NSE"
+     },
+     {
+      "destination": "STIRLING",
+      "gap_band_pence": "(50, 200]",
+      "origin": "HEATHROW UNDERGD",
+      "route": "00705",
+      "setter": "ECT"
+     },
+     {
+      "destination": "CROY",
+      "gap_band_pence": "(200, 500]",
+      "origin": "ZONE U123* LONDN",
+      "route": "00705",
+      "setter": "ECT"
+     },
+     {
+      "destination": "PITLOCHRY",
+      "gap_band_pence": "> 500",
+      "origin": "HEATHROW UNDERGD",
+      "route": "00705",
+      "setter": "ECT"
+     },
+     {
+      "destination": "DUNDEE",
+      "gap_band_pence": "(200, 500]",
+      "origin": "HEATHROW UNDERGD",
+      "route": "00705",
+      "setter": "ECT"
+     }
+    ],
+    "set below every sum of components in the file (no variant gives an exact two-leg sum)": [
+     {
+      "destination": "HEATHROW BUS",
+      "gap_band_pence": "(200, 500]",
+      "origin": "BOUNDARY ZONE 2",
+      "route": "00948",
+      "setter": "ATO"
+     },
+     {
+      "destination": "HEATHROW BUS",
+      "gap_band_pence": "(200, 500]",
+      "origin": "BOUNDARY ZONE 5",
+      "route": "00948",
+      "setter": "ATO"
+     },
+     {
+      "destination": "cluster R608",
+      "gap_band_pence": "(50, 200]",
+      "origin": "ZONE U1245 LONDN",
+      "route": "00000",
+      "setter": "IEC"
+     },
+     {
+      "destination": "TRAMLINK",
+      "gap_band_pence": "(200, 500]",
+      "origin": "BOUNDARY ZONE 2",
+      "route": "00628",
+      "setter": "ATO"
+     },
+     {
+      "destination": "CHEDDINGTON",
+      "gap_band_pence": "(0, 50]",
+      "origin": "ZONE U1245 LONDN",
+      "route": "00200",
+      "setter": "LBR"
+     }
+    ]
+   },
+   "flows": 17575,
+   "remainder": {
+    "by_gap_band_pence": {
+     "(0, 50]": 863,
+     "(200, 500]": 4843,
+     "(50, 200]": 4877,
+     "> 500": 591
+    },
+    "ends": {
+     "an end is a cluster code": 2804,
+     "both ends are location codes": 8370
+    },
+    "fare_over_cheapest_chain_quantiles": {
+     "p01": 0.595122,
+     "p05": 0.719241,
+     "p25": 0.854701,
+     "p50": 0.915385,
+     "p75": 0.960784,
+     "p95": 0.988571,
+     "p99": 0.995859
+    },
+    "route": {
+     "a route code naming a route": 6196,
+     "no-condition route (00000, 01000)": 4978
+    },
+    "setter": {
+     "ECT": 692,
+     "FCC": 452,
+     "GWR": 2624,
+     "LER": 466,
+     "LTS": 599,
+     "NCH": 305,
+     "NSC": 626,
+     "NSE": 1107,
+     "NTH": 1011,
+     "SCR": 324,
+     "SMR": 275,
+     "SWT": 1858
+    },
+    "start_month": {
+     "202503": 1849,
+     "202506": 2227,
+     "202509": 490,
+     "202512": 1134,
+     "202601": 472,
+     "202602": 306,
+     "202603": 506,
+     "202604": 543,
+     "202606": 391,
+     "202607": 2406,
+     "202609": 419,
+     "202610": 192
+    },
+    "two_leg_junction": {
+     "a junction exists, no two-leg sum equals the fare": 11155,
+     "no two-leg junction in the file": 19
+    }
+   },
+   "seconds": 278.4,
+   "standard_single_tickets": 1632,
+   "variants": {
+    "a restricted leg: an exact two-leg sum once SDS fares carrying a restriction code are read": {
+     "cheapest_chain_reaches_fare": 12,
+     "exact_two_leg": 0,
+     "exact_two_leg_at_fare_plus_grid": 0,
+     "first_class_here": 0,
+     "first_class_leg_tickets": {},
+     "index_code_pairs": 439141,
+     "seconds": 36.1
+    },
+    "an Anytime Single (SOS) leg: an exact two-leg sum over SDS and SOS fares": {
+     "cheapest_chain_reaches_fare": 463,
+     "exact_two_leg": 1,
+     "exact_two_leg_at_fare_plus_grid": 0,
+     "first_class_here": 1,
+     "first_class_leg_tickets": {
+      "SOS + SDS": 1
+     },
+     "index_code_pairs": 557251,
+     "seconds": 69.7
+    },
+    "another standard-class single leg: an exact two-leg sum over every standard-class single ticket": {
+     "cheapest_chain_reaches_fare": 14454,
+     "exact_two_leg": 6380,
+     "exact_two_leg_at_fare_plus_grid": 1133,
+     "first_class_here": 6360,
+     "first_class_leg_tickets": {
+      "BDS + FYA": 423,
+      "BDS + SDS": 1734,
+      "FYA + BDS": 398,
+      "S01 + SDS": 131,
+      "S03 + SDS": 87,
+      "S05 + SDS": 112,
+      "SDS + BDS": 1537,
+      "SDS + S01": 143,
+      "SDS + S03": 108,
+      "SDS + S04": 117,
+      "SDS + S05": 137,
+      "SDS + TKS": 96,
+      "SDS + ZZY": 233,
+      "TKS + SDS": 108,
+      "ZZY + SDS": 400
+     },
+     "index_code_pairs": 570243,
+     "seconds": 79.6
+    },
+    "next-round fares: an exact two-leg sum once flows starting after the generation date are read": {
+     "cheapest_chain_reaches_fare": 1038,
+     "exact_two_leg": 40,
+     "exact_two_leg_at_fare_plus_grid": 120,
+     "first_class_here": 40,
+     "first_class_leg_tickets": {
+      "SDS + SDS": 40
+     },
+     "index_code_pairs": 440006,
+     "seconds": 48.7
+    }
+   }
+  },
+  "below_chain_first20": [
+   {
+    "destination": "HEATHROW BUS",
+    "origin": "BOUNDARY ZONE 2",
+    "route": "00948",
+    "setter": "ATO"
+   },
+   {
+    "destination": "HEATHROW BUS",
+    "origin": "BOUNDARY ZONE 5",
+    "route": "00948",
+    "setter": "ATO"
+   },
+   {
+    "destination": "R608",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00000",
+    "setter": "IEC"
+   },
+   {
+    "destination": "TRAMLINK",
+    "origin": "BOUNDARY ZONE 2",
+    "route": "00628",
+    "setter": "ATO"
+   },
+   {
+    "destination": "CHEDDINGTON",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00200",
+    "setter": "LBR"
+   },
+   {
+    "destination": "AVONMOUTH",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00800",
+    "setter": "GWR"
+   },
+   {
+    "destination": "HADDENHAM & T PY",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00265",
+    "setter": "NCH"
+   },
+   {
+    "destination": "MILTON KEYNES C",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00200",
+    "setter": "LBR"
+   },
+   {
+    "destination": "HEATHROW BUS",
+    "origin": "BOUNDARY ZONE 4",
+    "route": "00948",
+    "setter": "ATO"
+   },
+   {
+    "destination": "CLIFTON DOWN",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00800",
+    "setter": "GWR"
+   },
+   {
+    "destination": "MONTPELIER",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00800",
+    "setter": "GWR"
+   },
+   {
+    "destination": "Q310",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "Q308",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "Q321",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "Q323",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "Q322",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "SEVERN BEACH",
+    "origin": "ZONE U1245 LONDN",
+    "route": "00800",
+    "setter": "GWR"
+   },
+   {
+    "destination": "Q449",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "Q722",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   },
+   {
+    "destination": "Q723",
+    "origin": "ZONE U2345 LONDN",
+    "route": "00902",
+    "setter": "NSE"
+   }
+  ],
+  "cells": {
+   "below_chain": 17575,
+   "capped": 148,
+   "exact2": 22386,
+   "exact3": 1500,
+   "no_chain": 2,
+   "not_searched": 45535,
+   "untested_4plus": 352
+  },
+  "cells_by_end_kind": {
+   "below_chain | an end is a cluster code": 3817,
+   "below_chain | both ends are location codes": 13758,
+   "capped | an end is a cluster code": 105,
+   "capped | both ends are location codes": 43,
+   "exact3 | an end is a cluster code": 934,
+   "exact3 | both ends are location codes": 566,
+   "no_chain | an end is a cluster code": 2,
+   "not_searched | an end is a cluster code": 28129,
+   "not_searched | both ends are location codes": 17406,
+   "untested_4plus | an end is a cluster code": 195,
+   "untested_4plus | both ends are location codes": 157
+  },
+  "counts": {
+   "exact": 22386,
+   "miss_G_above_cheapest_two_leg_sum": 43001,
+   "miss_G_below_cheapest_two_leg_sum": 22075,
+   "miss_G_equal_cheapest_two_leg_sum": 0,
+   "no_exact_sum": 65076,
+   "no_junction": 36
+  },
+  "g_flows": 87498,
+  "no_exact_two_leg_by_setter": {
+   "ATO": 295,
+   "CRL": 26,
+   "ECT": 1498,
+   "FCC": 3146,
+   "GWR": 25452,
+   "IEC": 367,
+   "IWC": 7,
+   "IXC": 179,
+   "LBR": 473,
+   "LER": 2054,
+   "LRC": 80,
+   "LTS": 822,
+   "NCH": 1148,
+   "NSC": 2863,
+   "NSE": 5284,
+   "NTH": 2203,
+   "PWY": 65,
+   "RMS": 295,
+   "RWB": 2631,
+   "SCR": 7821,
+   "SMR": 781,
+   "SWT": 6497,
+   "TPE": 1089
+  },
+  "three_leg_cap_seconds": 0.5,
+  "three_leg_pool": 47535,
+  "three_leg_searched": 2000,
+  "three_leg_seed": 7,
+  "two_leg_classes": {
+   "exact2": 22386,
+   "miss": 65076,
+   "nojunction": 36
+  }
+ },
+ "points": {
+  "dedupe_flows": {
+   "A_only": {
+    "beyond_floor": 526037,
+    "by_k": {
+     "1": {
+      "neg": 45914,
+      "pos": 394476,
+      "zero_band": 1562
+     },
+     "2": {
+      "neg": 14185,
+      "pos": 66940,
+      "zero_band": 545
+     },
+     "3": {
+      "neg": 2590,
+      "pos": 1932,
+      "zero_band": 31
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 30153,
+      "neg": 25,
+      "pos": 31815,
+      "zero_band": 4
+     },
+     "CRL": {
+      "k1": 652,
+      "neg": 22,
+      "pos": 748,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 9509,
+      "neg": 5044,
+      "pos": 16805,
+      "zero_band": 138
+     },
+     "GWR": {
+      "k1": 44659,
+      "neg": 11570,
+      "pos": 37062,
+      "zero_band": 305
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 238,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 179,
+      "neg": 889,
+      "pos": 1073,
+      "zero_band": 4
+     },
+     "IWC": {
+      "k1": 2,
+      "neg": 14,
+      "pos": 66,
+      "zero_band": 2
+     },
+     "IXC": {
+      "k1": 377,
+      "neg": 483,
+      "pos": 949,
+      "zero_band": 8
+     },
+     "LBR": {
+      "k1": 8962,
+      "neg": 1638,
+      "pos": 14143,
+      "zero_band": 54
+     },
+     "LER": {
+      "k1": 11032,
+      "neg": 1829,
+      "pos": 11422,
+      "zero_band": 65
+     },
+     "LRC": {
+      "k1": 11537,
+      "neg": 0,
+      "pos": 12125,
+      "zero_band": 30
+     },
+     "LTS": {
+      "k1": 2994,
+      "neg": 0,
+      "pos": 3570,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 3281,
+      "neg": 1310,
+      "pos": 3967,
+      "zero_band": 25
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 27676,
+      "neg": 2768,
+      "pos": 29254,
+      "zero_band": 150
+     },
+     "NSE": {
+      "k1": 21859,
+      "neg": 4364,
+      "pos": 25592,
+      "zero_band": 281
+     },
+     "NTH": {
+      "k1": 44557,
+      "neg": 6037,
+      "pos": 52761,
+      "zero_band": 242
+     },
+     "PGM": {
+      "k1": 2660,
+      "neg": 0,
+      "pos": 2660,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 892,
+      "neg": 0,
+      "pos": 902,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 2982,
+      "neg": 4,
+      "pos": 2978,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 2254,
+      "neg": 0,
+      "pos": 2254,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 7375,
+      "neg": 2,
+      "pos": 7420,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 74800,
+      "neg": 10994,
+      "pos": 67095,
+      "zero_band": 173
+     },
+     "SCR": {
+      "k1": 87966,
+      "neg": 3217,
+      "pos": 84512,
+      "zero_band": 237
+     },
+     "SMR": {
+      "k1": 7466,
+      "neg": 511,
+      "pos": 7768,
+      "zero_band": 56
+     },
+     "SWT": {
+      "k1": 36245,
+      "neg": 7274,
+      "pos": 40910,
+      "zero_band": 302
+     },
+     "TPE": {
+      "k1": 1769,
+      "neg": 4694,
+      "pos": 5145,
+      "zero_band": 56
+     }
+    },
+    "cells": {
+     "neg": 62689,
+     "pos": 463348,
+     "zero_band": 2138
+    },
+    "control_no_noncarrier": {
+     "n": 433932,
+     "neg_share_k1": 0.113906,
+     "neg_share_k2plus": 0.294085,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 2130,
+    "exact_zero_by_k": {
+     "1": 1562,
+     "2": 539,
+     "3": 29
+    },
+    "n": 528175,
+    "n_by_k": {
+     "1": 441952,
+     "2": 81670,
+     "3": 4553
+    },
+    "neg_share_k1": 0.103889,
+    "neg_share_k2plus": 0.194554,
+    "quantiles": {
+     "p01": -1260,
+     "p05": -330,
+     "p25": 160,
+     "p50": 280,
+     "p75": 390,
+     "p95": 830,
+     "p99": 1550
+    },
+    "setters_on_these_triangles": 28,
+    "share_beyond_floor": 0.995952,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 7047,
+      "pos": 30397,
+      "zero_band": 300
+     },
+     "n": 37744
+    },
+    "top20_abs_delta": [
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "UPWEY (UPW)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "SWT",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "SWT",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5288,
+     "k2plus_share_higher": 1398,
+     "k2plus_share_lower": 1810,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.194993,
+     "pooled_neg_share_k2plus": 0.172778,
+     "pooled_triangles_k1": 92439,
+     "pooled_triangles_k2plus": 60951,
+     "through_flows_with_both": 8496
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 45966,
+      "pos": 394592,
+      "zero_band": 1564
+     },
+     "2": {
+      "neg": 14251,
+      "pos": 67257,
+      "zero_band": 551
+     },
+     "3": {
+      "neg": 2590,
+      "pos": 1950,
+      "zero_band": 31
+     }
+    },
+    "cells": {
+     "neg": 62807,
+     "pos": 463799,
+     "zero_band": 2146
+    },
+    "exact_zero": 2138
+   },
+   "cluster_leg_triangles": 199707,
+   "config": {
+    "dedupe": "flows",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "compatible",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": null,
+   "robust_triangles": 646704,
+   "train_pricing": {
+    "admitted_after_path_check": 572294,
+    "rejected_on_path": 138228,
+    "route_coded_admitted": 492350
+   },
+   "triangles_counted": 528752,
+   "triangles_priced": 697308,
+   "triangles_total": 877680
+  },
+  "default": {
+   "A_only": {
+    "beyond_floor": 693464,
+    "by_k": {
+     "1": {
+      "neg": 75680,
+      "pos": 486052,
+      "zero_band": 2191
+     },
+     "2": {
+      "neg": 24436,
+      "pos": 100276,
+      "zero_band": 835
+     },
+     "3": {
+      "neg": 3905,
+      "pos": 3115,
+      "zero_band": 41
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 43487,
+      "neg": 55,
+      "pos": 46294,
+      "zero_band": 8
+     },
+     "CRL": {
+      "k1": 1316,
+      "neg": 106,
+      "pos": 1758,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 15364,
+      "neg": 9533,
+      "pos": 29313,
+      "zero_band": 239
+     },
+     "GWR": {
+      "k1": 62016,
+      "neg": 19846,
+      "pos": 48475,
+      "zero_band": 428
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 238,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 218,
+      "neg": 1373,
+      "pos": 1629,
+      "zero_band": 6
+     },
+     "IWC": {
+      "k1": 2,
+      "neg": 14,
+      "pos": 82,
+      "zero_band": 4
+     },
+     "IXC": {
+      "k1": 441,
+      "neg": 543,
+      "pos": 1218,
+      "zero_band": 10
+     },
+     "LBR": {
+      "k1": 11350,
+      "neg": 1908,
+      "pos": 17935,
+      "zero_band": 54
+     },
+     "LER": {
+      "k1": 11546,
+      "neg": 1933,
+      "pos": 12018,
+      "zero_band": 75
+     },
+     "LRC": {
+      "k1": 11537,
+      "neg": 0,
+      "pos": 12125,
+      "zero_band": 30
+     },
+     "LTS": {
+      "k1": 3186,
+      "neg": 0,
+      "pos": 3864,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 4594,
+      "neg": 1993,
+      "pos": 5175,
+      "zero_band": 29
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 38350,
+      "neg": 5919,
+      "pos": 40367,
+      "zero_band": 195
+     },
+     "NSE": {
+      "k1": 36712,
+      "neg": 9900,
+      "pos": 42452,
+      "zero_band": 498
+     },
+     "NTH": {
+      "k1": 58780,
+      "neg": 11765,
+      "pos": 67139,
+      "zero_band": 357
+     },
+     "PGM": {
+      "k1": 2974,
+      "neg": 0,
+      "pos": 2974,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 923,
+      "neg": 0,
+      "pos": 933,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3328,
+      "neg": 4,
+      "pos": 3324,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 2293,
+      "neg": 0,
+      "pos": 2293,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 10421,
+      "neg": 2,
+      "pos": 10467,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 96474,
+      "neg": 16555,
+      "pos": 84037,
+      "zero_band": 243
+     },
+     "SCR": {
+      "k1": 89587,
+      "neg": 3365,
+      "pos": 85979,
+      "zero_band": 243
+     },
+     "SMR": {
+      "k1": 8872,
+      "neg": 735,
+      "pos": 9359,
+      "zero_band": 70
+     },
+     "SWT": {
+      "k1": 45832,
+      "neg": 10150,
+      "pos": 48345,
+      "zero_band": 459
+     },
+     "TPE": {
+      "k1": 4206,
+      "neg": 8322,
+      "pos": 11536,
+      "zero_band": 113
+     }
+    },
+    "cells": {
+     "neg": 104021,
+     "pos": 589443,
+     "zero_band": 3067
+    },
+    "control_no_noncarrier": {
+     "n": 563306,
+     "neg_share_k1": 0.148077,
+     "neg_share_k2plus": 0.301985,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 3059,
+    "exact_zero_by_k": {
+     "1": 2191,
+     "2": 829,
+     "3": 39
+    },
+    "n": 696531,
+    "n_by_k": {
+     "1": 563923,
+     "2": 125547,
+     "3": 7061
+    },
+    "neg_share_k1": 0.134203,
+    "neg_share_k2plus": 0.21372,
+    "quantiles": {
+     "p01": -1600,
+     "p05": -500,
+     "p25": 140,
+     "p50": 280,
+     "p75": 410,
+     "p95": 890,
+     "p99": 1600
+    },
+    "setters_on_these_triangles": 28,
+    "share_beyond_floor": 0.995597,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 7047,
+      "pos": 30397,
+      "zero_band": 300
+     },
+     "n": 37744
+    },
+    "top20_abs_delta": [
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "UPWEY (UPW)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "SWT",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "SWT",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5274,
+     "k2plus_share_higher": 1429,
+     "k2plus_share_lower": 1793,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.227655,
+     "pooled_neg_share_k2plus": 0.195342,
+     "pooled_triangles_k1": 145022,
+     "pooled_triangles_k2plus": 94711,
+     "through_flows_with_both": 8496
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 75732,
+      "pos": 486172,
+      "zero_band": 2193
+     },
+     "2": {
+      "neg": 24582,
+      "pos": 100687,
+      "zero_band": 843
+     },
+     "3": {
+      "neg": 3905,
+      "pos": 3153,
+      "zero_band": 41
+     }
+    },
+    "cells": {
+     "neg": 104219,
+     "pos": 590012,
+     "zero_band": 3077
+    },
+    "exact_zero": 3069
+   },
+   "cluster_leg_triangles": 349909,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "compatible",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": null,
+   "robust_triangles": 646704,
+   "train_pricing": {
+    "admitted_after_path_check": 572294,
+    "rejected_on_path": 138228,
+    "route_coded_admitted": 492350
+   },
+   "triangles_counted": 697308,
+   "triangles_priced": 697308,
+   "triangles_total": 877680
+  },
+  "floor_1x": {
+   "A_only": {
+    "beyond_floor": 693464,
+    "by_k": {
+     "1": {
+      "neg": 75680,
+      "pos": 486052,
+      "zero_band": 2191
+     },
+     "2": {
+      "neg": 24436,
+      "pos": 100276,
+      "zero_band": 835
+     },
+     "3": {
+      "neg": 3905,
+      "pos": 3115,
+      "zero_band": 41
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 43487,
+      "neg": 55,
+      "pos": 46294,
+      "zero_band": 8
+     },
+     "CRL": {
+      "k1": 1316,
+      "neg": 106,
+      "pos": 1758,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 15364,
+      "neg": 9533,
+      "pos": 29313,
+      "zero_band": 239
+     },
+     "GWR": {
+      "k1": 62016,
+      "neg": 19846,
+      "pos": 48475,
+      "zero_band": 428
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 238,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 218,
+      "neg": 1373,
+      "pos": 1629,
+      "zero_band": 6
+     },
+     "IWC": {
+      "k1": 2,
+      "neg": 14,
+      "pos": 82,
+      "zero_band": 4
+     },
+     "IXC": {
+      "k1": 441,
+      "neg": 543,
+      "pos": 1218,
+      "zero_band": 10
+     },
+     "LBR": {
+      "k1": 11350,
+      "neg": 1908,
+      "pos": 17935,
+      "zero_band": 54
+     },
+     "LER": {
+      "k1": 11546,
+      "neg": 1933,
+      "pos": 12018,
+      "zero_band": 75
+     },
+     "LRC": {
+      "k1": 11537,
+      "neg": 0,
+      "pos": 12125,
+      "zero_band": 30
+     },
+     "LTS": {
+      "k1": 3186,
+      "neg": 0,
+      "pos": 3864,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 4594,
+      "neg": 1993,
+      "pos": 5175,
+      "zero_band": 29
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 38350,
+      "neg": 5919,
+      "pos": 40367,
+      "zero_band": 195
+     },
+     "NSE": {
+      "k1": 36712,
+      "neg": 9900,
+      "pos": 42452,
+      "zero_band": 498
+     },
+     "NTH": {
+      "k1": 58780,
+      "neg": 11765,
+      "pos": 67139,
+      "zero_band": 357
+     },
+     "PGM": {
+      "k1": 2974,
+      "neg": 0,
+      "pos": 2974,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 923,
+      "neg": 0,
+      "pos": 933,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3328,
+      "neg": 4,
+      "pos": 3324,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 2293,
+      "neg": 0,
+      "pos": 2293,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 10421,
+      "neg": 2,
+      "pos": 10467,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 96474,
+      "neg": 16555,
+      "pos": 84037,
+      "zero_band": 243
+     },
+     "SCR": {
+      "k1": 89587,
+      "neg": 3365,
+      "pos": 85979,
+      "zero_band": 243
+     },
+     "SMR": {
+      "k1": 8872,
+      "neg": 735,
+      "pos": 9359,
+      "zero_band": 70
+     },
+     "SWT": {
+      "k1": 45832,
+      "neg": 10150,
+      "pos": 48345,
+      "zero_band": 459
+     },
+     "TPE": {
+      "k1": 4206,
+      "neg": 8322,
+      "pos": 11536,
+      "zero_band": 113
+     }
+    },
+    "cells": {
+     "neg": 104021,
+     "pos": 589443,
+     "zero_band": 3067
+    },
+    "control_no_noncarrier": {
+     "n": 563306,
+     "neg_share_k1": 0.148077,
+     "neg_share_k2plus": 0.301985,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 3059,
+    "exact_zero_by_k": {
+     "1": 2191,
+     "2": 829,
+     "3": 39
+    },
+    "n": 696531,
+    "n_by_k": {
+     "1": 563923,
+     "2": 125547,
+     "3": 7061
+    },
+    "neg_share_k1": 0.134203,
+    "neg_share_k2plus": 0.21372,
+    "quantiles": {
+     "p01": -1600,
+     "p05": -500,
+     "p25": 140,
+     "p50": 280,
+     "p75": 410,
+     "p95": 890,
+     "p99": 1600
+    },
+    "setters_on_these_triangles": 28,
+    "share_beyond_floor": 0.995597,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 7047,
+      "pos": 30397,
+      "zero_band": 300
+     },
+     "n": 37744
+    },
+    "top20_abs_delta": [
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "UPWEY (UPW)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "SWT",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "SWT",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5274,
+     "k2plus_share_higher": 1429,
+     "k2plus_share_lower": 1793,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.227655,
+     "pooled_neg_share_k2plus": 0.195342,
+     "pooled_triangles_k1": 145022,
+     "pooled_triangles_k2plus": 94711,
+     "through_flows_with_both": 8496
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 75732,
+      "pos": 486172,
+      "zero_band": 2193
+     },
+     "2": {
+      "neg": 24582,
+      "pos": 100687,
+      "zero_band": 843
+     },
+     "3": {
+      "neg": 3905,
+      "pos": 3153,
+      "zero_band": 41
+     }
+    },
+    "cells": {
+     "neg": 104219,
+     "pos": 590012,
+     "zero_band": 3077
+    },
+    "exact_zero": 3069
+   },
+   "cluster_leg_triangles": 349909,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.0,
+    "p2p_first": false,
+    "route": "compatible",
+    "ticket": "SDS"
+   },
+   "floor_pence": 5.0,
+   "pairs_priced": null,
+   "robust_triangles": 646704,
+   "train_pricing": {
+    "admitted_after_path_check": 572294,
+    "rejected_on_path": 138228,
+    "route_coded_admitted": 492350
+   },
+   "triangles_counted": 697308,
+   "triangles_priced": 697308,
+   "triangles_total": 877680
+  },
+  "floor_3x": {
+   "A_only": {
+    "beyond_floor": 687610,
+    "by_k": {
+     "1": {
+      "neg": 73659,
+      "pos": 483827,
+      "zero_band": 6437
+     },
+     "2": {
+      "neg": 23692,
+      "pos": 99480,
+      "zero_band": 2375
+     },
+     "3": {
+      "neg": 3860,
+      "pos": 3092,
+      "zero_band": 109
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 43487,
+      "neg": 55,
+      "pos": 46292,
+      "zero_band": 10
+     },
+     "CRL": {
+      "k1": 1316,
+      "neg": 104,
+      "pos": 1756,
+      "zero_band": 10
+     },
+     "FCC": {
+      "k1": 15364,
+      "neg": 9261,
+      "pos": 29076,
+      "zero_band": 748
+     },
+     "GWR": {
+      "k1": 62016,
+      "neg": 19527,
+      "pos": 48169,
+      "zero_band": 1053
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 238,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 218,
+      "neg": 1371,
+      "pos": 1622,
+      "zero_band": 15
+     },
+     "IWC": {
+      "k1": 2,
+      "neg": 14,
+      "pos": 82,
+      "zero_band": 4
+     },
+     "IXC": {
+      "k1": 441,
+      "neg": 533,
+      "pos": 1204,
+      "zero_band": 34
+     },
+     "LBR": {
+      "k1": 11350,
+      "neg": 1857,
+      "pos": 17842,
+      "zero_band": 198
+     },
+     "LER": {
+      "k1": 11546,
+      "neg": 1831,
+      "pos": 11942,
+      "zero_band": 253
+     },
+     "LRC": {
+      "k1": 11537,
+      "neg": 0,
+      "pos": 12125,
+      "zero_band": 30
+     },
+     "LTS": {
+      "k1": 3186,
+      "neg": 0,
+      "pos": 3864,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 4594,
+      "neg": 1947,
+      "pos": 5147,
+      "zero_band": 103
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 38350,
+      "neg": 5779,
+      "pos": 40148,
+      "zero_band": 554
+     },
+     "NSE": {
+      "k1": 36712,
+      "neg": 9471,
+      "pos": 41848,
+      "zero_band": 1531
+     },
+     "NTH": {
+      "k1": 58780,
+      "neg": 11480,
+      "pos": 66822,
+      "zero_band": 959
+     },
+     "PGM": {
+      "k1": 2974,
+      "neg": 0,
+      "pos": 2974,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 923,
+      "neg": 0,
+      "pos": 933,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3328,
+      "neg": 4,
+      "pos": 3320,
+      "zero_band": 4
+     },
+     "PWY": {
+      "k1": 2293,
+      "neg": 0,
+      "pos": 2293,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 10421,
+      "neg": 2,
+      "pos": 10451,
+      "zero_band": 16
+     },
+     "RWB": {
+      "k1": 96474,
+      "neg": 16271,
+      "pos": 83660,
+      "zero_band": 904
+     },
+     "SCR": {
+      "k1": 89587,
+      "neg": 3084,
+      "pos": 85812,
+      "zero_band": 691
+     },
+     "SMR": {
+      "k1": 8872,
+      "neg": 667,
+      "pos": 9323,
+      "zero_band": 174
+     },
+     "SWT": {
+      "k1": 45832,
+      "neg": 9727,
+      "pos": 47934,
+      "zero_band": 1293
+     },
+     "TPE": {
+      "k1": 4206,
+      "neg": 8226,
+      "pos": 11408,
+      "zero_band": 337
+     }
+    },
+    "cells": {
+     "neg": 101211,
+     "pos": 586399,
+     "zero_band": 8921
+    },
+    "control_no_noncarrier": {
+     "n": 563306,
+     "neg_share_k1": 0.144122,
+     "neg_share_k2plus": 0.295495,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 3059,
+    "exact_zero_by_k": {
+     "1": 2191,
+     "2": 829,
+     "3": 39
+    },
+    "n": 696531,
+    "n_by_k": {
+     "1": 563923,
+     "2": 125547,
+     "3": 7061
+    },
+    "neg_share_k1": 0.130619,
+    "neg_share_k2plus": 0.20777,
+    "quantiles": {
+     "p01": -1600,
+     "p05": -500,
+     "p25": 140,
+     "p50": 280,
+     "p75": 410,
+     "p95": 890,
+     "p99": 1600
+    },
+    "setters_on_these_triangles": 28,
+    "share_beyond_floor": 0.987192,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 6809,
+      "pos": 30113,
+      "zero_band": 822
+     },
+     "n": 37744
+    },
+    "top20_abs_delta": [
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "UPWEY (UPW)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "SWT",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "SWT",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5349,
+     "k2plus_share_higher": 1370,
+     "k2plus_share_lower": 1777,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.22287,
+     "pooled_neg_share_k2plus": 0.189661,
+     "pooled_triangles_k1": 145022,
+     "pooled_triangles_k2plus": 94711,
+     "through_flows_with_both": 8496
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 73711,
+      "pos": 483947,
+      "zero_band": 6439
+     },
+     "2": {
+      "neg": 23830,
+      "pos": 99889,
+      "zero_band": 2393
+     },
+     "3": {
+      "neg": 3860,
+      "pos": 3130,
+      "zero_band": 109
+     }
+    },
+    "cells": {
+     "neg": 101401,
+     "pos": 586966,
+     "zero_band": 8941
+    },
+    "exact_zero": 3069
+   },
+   "cluster_leg_triangles": 349909,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 3.0,
+    "p2p_first": false,
+    "route": "compatible",
+    "ticket": "SDS"
+   },
+   "floor_pence": 15.0,
+   "pairs_priced": null,
+   "robust_triangles": 646704,
+   "train_pricing": {
+    "admitted_after_path_check": 572294,
+    "rejected_on_path": 138228,
+    "route_coded_admitted": 492350
+   },
+   "triangles_counted": 697308,
+   "triangles_priced": 697308,
+   "triangles_total": 877680
+  },
+  "p2p_first": {
+   "A_only": {
+    "beyond_floor": 692629,
+    "by_k": {
+     "1": {
+      "neg": 75705,
+      "pos": 486054,
+      "zero_band": 2192
+     },
+     "2": {
+      "neg": 24479,
+      "pos": 99750,
+      "zero_band": 811
+     },
+     "3": {
+      "neg": 3889,
+      "pos": 2752,
+      "zero_band": 41
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 43489,
+      "neg": 55,
+      "pos": 46258,
+      "zero_band": 10
+     },
+     "CRL": {
+      "k1": 776,
+      "neg": 10,
+      "pos": 1062,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 15364,
+      "neg": 9510,
+      "pos": 29009,
+      "zero_band": 230
+     },
+     "GWR": {
+      "k1": 62047,
+      "neg": 19724,
+      "pos": 48646,
+      "zero_band": 430
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 238,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 218,
+      "neg": 1375,
+      "pos": 1626,
+      "zero_band": 7
+     },
+     "IWC": {
+      "k1": 2,
+      "neg": 14,
+      "pos": 82,
+      "zero_band": 4
+     },
+     "IXC": {
+      "k1": 445,
+      "neg": 551,
+      "pos": 1224,
+      "zero_band": 10
+     },
+     "LBR": {
+      "k1": 11350,
+      "neg": 1905,
+      "pos": 17938,
+      "zero_band": 54
+     },
+     "LER": {
+      "k1": 11542,
+      "neg": 1976,
+      "pos": 11892,
+      "zero_band": 78
+     },
+     "LRC": {
+      "k1": 12041,
+      "neg": 0,
+      "pos": 12177,
+      "zero_band": 12
+     },
+     "LTS": {
+      "k1": 3186,
+      "neg": 0,
+      "pos": 3864,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 4594,
+      "neg": 1992,
+      "pos": 5177,
+      "zero_band": 28
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 38365,
+      "neg": 5878,
+      "pos": 40477,
+      "zero_band": 199
+     },
+     "NSE": {
+      "k1": 36754,
+      "neg": 9879,
+      "pos": 42818,
+      "zero_band": 489
+     },
+     "NTH": {
+      "k1": 58780,
+      "neg": 11690,
+      "pos": 67207,
+      "zero_band": 364
+     },
+     "PGM": {
+      "k1": 2974,
+      "neg": 0,
+      "pos": 2974,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 923,
+      "neg": 0,
+      "pos": 933,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3328,
+      "neg": 4,
+      "pos": 3324,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 2293,
+      "neg": 0,
+      "pos": 2293,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 10421,
+      "neg": 2,
+      "pos": 10467,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 96474,
+      "neg": 16850,
+      "pos": 83743,
+      "zero_band": 242
+     },
+     "SCR": {
+      "k1": 89587,
+      "neg": 3364,
+      "pos": 85984,
+      "zero_band": 239
+     },
+     "SMR": {
+      "k1": 8872,
+      "neg": 676,
+      "pos": 9418,
+      "zero_band": 70
+     },
+     "SWT": {
+      "k1": 45806,
+      "neg": 10306,
+      "pos": 48069,
+      "zero_band": 455
+     },
+     "TPE": {
+      "k1": 4206,
+      "neg": 8312,
+      "pos": 11542,
+      "zero_band": 117
+     }
+    },
+    "cells": {
+     "neg": 104073,
+     "pos": 588556,
+     "zero_band": 3044
+    },
+    "control_no_noncarrier": {
+     "n": 563162,
+     "neg_share_k1": 0.148119,
+     "neg_share_k2plus": 0.302068,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 3036,
+    "exact_zero_by_k": {
+     "1": 2192,
+     "2": 805,
+     "3": 39
+    },
+    "n": 695673,
+    "n_by_k": {
+     "1": 563951,
+     "2": 125040,
+     "3": 6682
+    },
+    "neg_share_k1": 0.13424,
+    "neg_share_k2plus": 0.215363,
+    "quantiles": {
+     "p01": -1610,
+     "p05": -500,
+     "p25": 140,
+     "p50": 280,
+     "p75": 410,
+     "p95": 900,
+     "p99": 1600
+    },
+    "setters_on_these_triangles": 28,
+    "share_beyond_floor": 0.995624,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 7211,
+      "pos": 30698,
+      "zero_band": 311
+     },
+     "n": 38220
+    },
+    "top20_abs_delta": [
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "UPWEY (UPW)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "SWT",
+       "GWR"
+      ]
+     },
+     {
+      "b": "DORCHESTER WEST (DCW)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "SWT",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "MAIDEN NEWTON (MDN)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5305,
+     "k2plus_share_higher": 1447,
+     "k2plus_share_lower": 1834,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.230685,
+     "pooled_neg_share_k2plus": 0.196546,
+     "pooled_triangles_k1": 143013,
+     "pooled_triangles_k2plus": 94090,
+     "through_flows_with_both": 8586
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 75901,
+      "pos": 486570,
+      "zero_band": 2194
+     },
+     "2": {
+      "neg": 24873,
+      "pos": 100237,
+      "zero_band": 819
+     },
+     "3": {
+      "neg": 3889,
+      "pos": 2784,
+      "zero_band": 41
+     }
+    },
+    "cells": {
+     "neg": 104663,
+     "pos": 589591,
+     "zero_band": 3054
+    },
+    "exact_zero": 3046
+   },
+   "cluster_leg_triangles": 341594,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": true,
+    "route": "compatible",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": null,
+   "robust_triangles": 646717,
+   "train_pricing": {
+    "admitted_after_path_check": 578656,
+    "rejected_on_path": 139053,
+    "route_coded_admitted": 497040
+   },
+   "triangles_counted": 697308,
+   "triangles_priced": 697308,
+   "triangles_total": 877680
+  },
+  "route_00000_only": {
+   "A_only": {
+    "beyond_floor": 66816,
+    "by_k": {
+     "1": {
+      "neg": 6495,
+      "pos": 47376,
+      "zero_band": 133
+     },
+     "2": {
+      "neg": 4117,
+      "pos": 7632,
+      "zero_band": 32
+     },
+     "3": {
+      "neg": 595,
+      "pos": 601,
+      "zero_band": 0
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 2233,
+      "neg": 0,
+      "pos": 2461,
+      "zero_band": 0
+     },
+     "CRL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 30,
+      "zero_band": 0
+     },
+     "FCC": {
+      "k1": 10,
+      "neg": 1448,
+      "pos": 2007,
+      "zero_band": 1
+     },
+     "GWR": {
+      "k1": 9311,
+      "neg": 3935,
+      "pos": 6263,
+      "zero_band": 29
+     },
+     "IEC": {
+      "k1": 110,
+      "neg": 412,
+      "pos": 206,
+      "zero_band": 0
+     },
+     "IXC": {
+      "k1": 162,
+      "neg": 137,
+      "pos": 243,
+      "zero_band": 0
+     },
+     "LBR": {
+      "k1": 5138,
+      "neg": 274,
+      "pos": 5259,
+      "zero_band": 14
+     },
+     "LER": {
+      "k1": 9,
+      "neg": 0,
+      "pos": 92,
+      "zero_band": 0
+     },
+     "LRC": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 6,
+      "zero_band": 0
+     },
+     "LTS": {
+      "k1": 1338,
+      "neg": 0,
+      "pos": 1420,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 0,
+      "neg": 4,
+      "pos": 9,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 141,
+      "neg": 538,
+      "pos": 941,
+      "zero_band": 6
+     },
+     "NSE": {
+      "k1": 947,
+      "neg": 854,
+      "pos": 2829,
+      "zero_band": 26
+     },
+     "NTH": {
+      "k1": 1029,
+      "neg": 129,
+      "pos": 1139,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 28,
+      "neg": 0,
+      "pos": 28,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "SCR": {
+      "k1": 27215,
+      "neg": 856,
+      "pos": 26334,
+      "zero_band": 25
+     },
+     "SMR": {
+      "k1": 2520,
+      "neg": 291,
+      "pos": 2287,
+      "zero_band": 23
+     },
+     "SWT": {
+      "k1": 3095,
+      "neg": 1318,
+      "pos": 2784,
+      "zero_band": 38
+     },
+     "TPE": {
+      "k1": 716,
+      "neg": 1011,
+      "pos": 1269,
+      "zero_band": 3
+     }
+    },
+    "cells": {
+     "neg": 11207,
+     "pos": 55609,
+     "zero_band": 165
+    },
+    "control_no_noncarrier": {
+     "n": 58949,
+     "neg_share_k1": 0.125524,
+     "neg_share_k2plus": 0.444352,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 165,
+    "exact_zero_by_k": {
+     "1": 133,
+     "2": 32,
+     "3": 0
+    },
+    "n": 66981,
+    "n_by_k": {
+     "1": 54004,
+     "2": 11781,
+     "3": 1196
+    },
+    "neg_share_k1": 0.120269,
+    "neg_share_k2plus": 0.363104,
+    "quantiles": {
+     "p01": -2050,
+     "p05": -870,
+     "p25": 150,
+     "p50": 270,
+     "p75": 420,
+     "p95": 1320,
+     "p99": 4010
+    },
+    "setters_on_these_triangles": 23,
+    "share_beyond_floor": 0.997537,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 1207,
+      "pos": 4869,
+      "zero_band": 29
+     },
+     "n": 6105
+    },
+    "top20_abs_delta": [
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PENZANCE (PNZ)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PENZANCE (PNZ)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "REDRUTH (RED)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "REDRUTH (RED)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST ERTH (SER)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST ERTH (SER)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "TRURO (TRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "TRURO (TRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PAR (PAR)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PAR (PAR)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST AUSTELL (SAU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST AUSTELL (SAU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "CAMBORNE (CBN)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "HAYLE (HYL)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 236,
+     "k2plus_share_higher": 69,
+     "k2plus_share_lower": 153,
+     "median_splits_k1": 4.0,
+     "median_splits_k2plus": 3.0,
+     "pooled_neg_share_k1": 0.209499,
+     "pooled_neg_share_k2plus": 0.249122,
+     "pooled_triangles_k1": 6506,
+     "pooled_triangles_k2plus": 3416,
+     "through_flows_with_both": 458
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 6495,
+      "pos": 47376,
+      "zero_band": 133
+     },
+     "2": {
+      "neg": 4117,
+      "pos": 7632,
+      "zero_band": 32
+     },
+     "3": {
+      "neg": 595,
+      "pos": 601,
+      "zero_band": 0
+     }
+    },
+    "cells": {
+     "neg": 11207,
+     "pos": 55609,
+     "zero_band": 165
+    },
+    "exact_zero": 165
+   },
+   "cluster_leg_triangles": 33316,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "00000",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": 29651,
+   "pairs_unpriced": 69612,
+   "triangles_counted": 66981,
+   "triangles_priced": 66981,
+   "triangles_total": 877680
+  },
+  "route_anyperm": {
+   "A_only": {
+    "beyond_floor": 484961,
+    "by_k": {
+     "1": {
+      "neg": 43283,
+      "pos": 354177,
+      "zero_band": 1529
+     },
+     "2": {
+      "neg": 14164,
+      "pos": 70577,
+      "zero_band": 374
+     },
+     "3": {
+      "neg": 1395,
+      "pos": 1365,
+      "zero_band": 9
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 26859,
+      "neg": 59,
+      "pos": 31293,
+      "zero_band": 8
+     },
+     "CRL": {
+      "k1": 848,
+      "neg": 16,
+      "pos": 1403,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 14133,
+      "neg": 8911,
+      "pos": 25009,
+      "zero_band": 206
+     },
+     "GWR": {
+      "k1": 46020,
+      "neg": 12993,
+      "pos": 36415,
+      "zero_band": 319
+     },
+     "IEC": {
+      "k1": 120,
+      "neg": 1075,
+      "pos": 2672,
+      "zero_band": 0
+     },
+     "IWC": {
+      "k1": 0,
+      "neg": 4,
+      "pos": 54,
+      "zero_band": 0
+     },
+     "IXC": {
+      "k1": 283,
+      "neg": 217,
+      "pos": 660,
+      "zero_band": 6
+     },
+     "LBR": {
+      "k1": 10767,
+      "neg": 1713,
+      "pos": 17586,
+      "zero_band": 40
+     },
+     "LER": {
+      "k1": 7894,
+      "neg": 1101,
+      "pos": 8009,
+      "zero_band": 56
+     },
+     "LRC": {
+      "k1": 6604,
+      "neg": 0,
+      "pos": 7406,
+      "zero_band": 12
+     },
+     "LTS": {
+      "k1": 2346,
+      "neg": 0,
+      "pos": 2712,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 1405,
+      "neg": 191,
+      "pos": 2089,
+      "zero_band": 13
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 30520,
+      "neg": 4007,
+      "pos": 31454,
+      "zero_band": 149
+     },
+     "NSE": {
+      "k1": 21517,
+      "neg": 5266,
+      "pos": 25094,
+      "zero_band": 307
+     },
+     "NTH": {
+      "k1": 10186,
+      "neg": 539,
+      "pos": 15082,
+      "zero_band": 25
+     },
+     "PGM": {
+      "k1": 2127,
+      "neg": 0,
+      "pos": 2127,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 202,
+      "neg": 0,
+      "pos": 202,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3284,
+      "neg": 4,
+      "pos": 3280,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 962,
+      "neg": 0,
+      "pos": 962,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 5398,
+      "neg": 4,
+      "pos": 5618,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 74484,
+      "neg": 8529,
+      "pos": 68939,
+      "zero_band": 125
+     },
+     "SCR": {
+      "k1": 89078,
+      "neg": 3728,
+      "pos": 85113,
+      "zero_band": 237
+     },
+     "SMR": {
+      "k1": 8338,
+      "neg": 633,
+      "pos": 8074,
+      "zero_band": 54
+     },
+     "SWT": {
+      "k1": 34082,
+      "neg": 6390,
+      "pos": 37332,
+      "zero_band": 314
+     },
+     "TPE": {
+      "k1": 1418,
+      "neg": 3462,
+      "pos": 7420,
+      "zero_band": 35
+     }
+    },
+    "cells": {
+     "neg": 58842,
+     "pos": 426119,
+     "zero_band": 1912
+    },
+    "control_no_noncarrier": {
+     "n": 401819,
+     "neg_share_k1": 0.118336,
+     "neg_share_k2plus": 0.282717,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 1910,
+    "exact_zero_by_k": {
+     "1": 1529,
+     "2": 374,
+     "3": 7
+    },
+    "n": 486873,
+    "n_by_k": {
+     "1": 398989,
+     "2": 85115,
+     "3": 2769
+    },
+    "neg_share_k1": 0.108482,
+    "neg_share_k2plus": 0.17704,
+    "quantiles": {
+     "p01": -1670,
+     "p05": -410,
+     "p25": 160,
+     "p50": 280,
+     "p75": 410,
+     "p95": 900,
+     "p99": 1690
+    },
+    "setters_on_these_triangles": 27,
+    "share_beyond_floor": 0.996073,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 4904,
+      "pos": 25649,
+      "zero_band": 237
+     },
+     "n": 30790
+    },
+    "top20_abs_delta": [
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PENZANCE (PNZ)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PENZANCE (PNZ)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "REDRUTH (RED)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "REDRUTH (RED)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST ERTH (SER)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST ERTH (SER)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "TRURO (TRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "TRURO (TRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PAR (PAR)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PAR (PAR)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "NAILSEA & BACKWELL (NLS)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST AUSTELL (SAU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YATTON (YAT)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ST AUSTELL (SAU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "CAMBORNE (CBN)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "LONDON PADDINGTON (PAD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "HAYLE (HYL)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "CAMBORNE (CBN)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "BRISTOL TEMPLE MEADS (BRI)",
+      "d": "HAYLE (HYL)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "LONDON PADDINGTON (PAD)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 3861,
+     "k2plus_share_higher": 745,
+     "k2plus_share_lower": 1094,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.20167,
+     "pooled_neg_share_k2plus": 0.162063,
+     "pooled_triangles_k1": 75212,
+     "pooled_triangles_k2plus": 58977,
+     "through_flows_with_both": 5700
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 43283,
+      "pos": 354573,
+      "zero_band": 1529
+     },
+     "2": {
+      "neg": 14170,
+      "pos": 70679,
+      "zero_band": 374
+     },
+     "3": {
+      "neg": 1395,
+      "pos": 1365,
+      "zero_band": 9
+     }
+    },
+    "cells": {
+     "neg": 58848,
+     "pos": 426617,
+     "zero_band": 1912
+    },
+    "exact_zero": 1910
+   },
+   "cluster_leg_triangles": 214934,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "anyperm",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "nfo_composite_pairs_touched": 0,
+   "pairs_priced": 70210,
+   "pairs_unpriced": 29053,
+   "triangles_counted": 487377,
+   "triangles_priced": 487377,
+   "triangles_total": 877680,
+   "unpriced_pairs_by_reason": {
+    "SDS only on flows whose route code names a route": 20671,
+    "SOS and no SDS": 6288,
+    "no live fare on any station, fare-group or cluster code": 1712,
+    "other ticket types only": 382
+   }
+  },
+  "route_relaxed": {
+   "A_only": {
+    "beyond_floor": 535030,
+    "by_k": {
+     "1": {
+      "neg": 48973,
+      "pos": 385103,
+      "zero_band": 1643
+     },
+     "2": {
+      "neg": 17332,
+      "pos": 79346,
+      "zero_band": 475
+     },
+     "3": {
+      "neg": 1627,
+      "pos": 2649,
+      "zero_band": 9
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 41975,
+      "neg": 165,
+      "pos": 45434,
+      "zero_band": 8
+     },
+     "CRL": {
+      "k1": 848,
+      "neg": 16,
+      "pos": 1463,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 14241,
+      "neg": 9153,
+      "pos": 27368,
+      "zero_band": 235
+     },
+     "GWR": {
+      "k1": 51158,
+      "neg": 15672,
+      "pos": 40880,
+      "zero_band": 322
+     },
+     "IEC": {
+      "k1": 120,
+      "neg": 1075,
+      "pos": 2672,
+      "zero_band": 0
+     },
+     "IWC": {
+      "k1": 0,
+      "neg": 4,
+      "pos": 54,
+      "zero_band": 0
+     },
+     "IXC": {
+      "k1": 287,
+      "neg": 268,
+      "pos": 686,
+      "zero_band": 8
+     },
+     "LBR": {
+      "k1": 10833,
+      "neg": 1803,
+      "pos": 17612,
+      "zero_band": 40
+     },
+     "LER": {
+      "k1": 9985,
+      "neg": 1836,
+      "pos": 10222,
+      "zero_band": 69
+     },
+     "LRC": {
+      "k1": 8653,
+      "neg": 0,
+      "pos": 9548,
+      "zero_band": 12
+     },
+     "LTS": {
+      "k1": 2346,
+      "neg": 0,
+      "pos": 2712,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 1562,
+      "neg": 276,
+      "pos": 2242,
+      "zero_band": 13
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 34091,
+      "neg": 5832,
+      "pos": 35177,
+      "zero_band": 194
+     },
+     "NSE": {
+      "k1": 22414,
+      "neg": 5921,
+      "pos": 28434,
+      "zero_band": 359
+     },
+     "NTH": {
+      "k1": 10186,
+      "neg": 539,
+      "pos": 15082,
+      "zero_band": 25
+     },
+     "PGM": {
+      "k1": 2127,
+      "neg": 0,
+      "pos": 2127,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 202,
+      "neg": 0,
+      "pos": 202,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3284,
+      "neg": 4,
+      "pos": 3280,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 962,
+      "neg": 0,
+      "pos": 962,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 5398,
+      "neg": 4,
+      "pos": 5618,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 74484,
+      "neg": 8529,
+      "pos": 68939,
+      "zero_band": 125
+     },
+     "SCR": {
+      "k1": 89078,
+      "neg": 3728,
+      "pos": 85113,
+      "zero_band": 237
+     },
+     "SMR": {
+      "k1": 8338,
+      "neg": 633,
+      "pos": 8074,
+      "zero_band": 54
+     },
+     "SWT": {
+      "k1": 41615,
+      "neg": 9012,
+      "pos": 45663,
+      "zero_band": 385
+     },
+     "TPE": {
+      "k1": 1418,
+      "neg": 3462,
+      "pos": 7420,
+      "zero_band": 35
+     }
+    },
+    "cells": {
+     "neg": 67932,
+     "pos": 467098,
+     "zero_band": 2127
+    },
+    "control_no_noncarrier": {
+     "n": 427805,
+     "neg_share_k1": 0.126152,
+     "neg_share_k2plus": 0.297997,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 2125,
+    "exact_zero_by_k": {
+     "1": 1643,
+     "2": 475,
+     "3": 7
+    },
+    "n": 537157,
+    "n_by_k": {
+     "1": 435719,
+     "2": 97153,
+     "3": 4285
+    },
+    "neg_share_k1": 0.112396,
+    "neg_share_k2plus": 0.186902,
+    "quantiles": {
+     "p01": -1880,
+     "p05": -440,
+     "p25": 160,
+     "p50": 280,
+     "p75": 410,
+     "p95": 900,
+     "p99": 1720
+    },
+    "setters_on_these_triangles": 27,
+    "share_beyond_floor": 0.99604,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 5493,
+      "pos": 26714,
+      "zero_band": 248
+     },
+     "n": 32455
+    },
+    "top20_abs_delta": [
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "FROME (FRO)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "FROME (FRO)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "UPWEY (UPW)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "SWT",
+       "GWR"
+      ]
+     },
+     {
+      "b": "UPWEY (UPW)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "SWT",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "BRUTON (BRU)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CASTLE CARY (CLC)",
+      "d": "BRUTON (BRU)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "WEYMOUTH (WEY)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "CHETNOLE (CNO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "DORCHESTER WEST (DCW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "THORNFORD (THO)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YETMINSTER (YET)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "DORCHESTER WEST (DCW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "UPWEY (UPW)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "WEYMOUTH (WEY)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "CASTLE CARY (CLC)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     },
+     {
+      "b": "YEOVIL PEN MILL (YVP)",
+      "d": "CASTLE CARY (CLC)",
+      "delta_band": "<= -5000",
+      "k": 1,
+      "o": "UPWEY (UPW)",
+      "setters": [
+       "GWR",
+       "GWR",
+       "GWR"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 4217,
+     "k2plus_share_higher": 930,
+     "k2plus_share_lower": 1335,
+     "median_splits_k1": 6.0,
+     "median_splits_k2plus": 4.0,
+     "pooled_neg_share_k1": 0.212253,
+     "pooled_neg_share_k2plus": 0.176258,
+     "pooled_triangles_k1": 91160,
+     "pooled_triangles_k2plus": 71208,
+     "through_flows_with_both": 6482
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 49117,
+      "pos": 385499,
+      "zero_band": 1643
+     },
+     "2": {
+      "neg": 17698,
+      "pos": 79448,
+      "zero_band": 475
+     },
+     "3": {
+      "neg": 1627,
+      "pos": 2649,
+      "zero_band": 9
+     }
+    },
+    "cells": {
+     "neg": 68442,
+     "pos": 467596,
+     "zero_band": 2127
+    },
+    "exact_zero": 2125
+   },
+   "cluster_leg_triangles": 253424,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "relaxed",
+    "ticket": "SDS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": 74055,
+   "pairs_unpriced": 25208,
+   "triangles_counted": 538165,
+   "triangles_priced": 538165,
+   "triangles_total": 877680
+  },
+  "ticket_SOS": {
+   "A_only": {
+    "beyond_floor": 19702,
+    "by_k": {
+     "1": {
+      "neg": 3608,
+      "pos": 8670,
+      "zero_band": 24
+     },
+     "2": {
+      "neg": 2333,
+      "pos": 4238,
+      "zero_band": 0
+     },
+     "3": {
+      "neg": 124,
+      "pos": 729,
+      "zero_band": 0
+     }
+    },
+    "by_through_setter": {
+     "IEC": {
+      "k1": 1230,
+      "neg": 95,
+      "pos": 1201,
+      "zero_band": 0
+     },
+     "IWC": {
+      "k1": 1619,
+      "neg": 1239,
+      "pos": 2000,
+      "zero_band": 17
+     },
+     "IXC": {
+      "k1": 7694,
+      "neg": 4152,
+      "pos": 9104,
+      "zero_band": 7
+     },
+     "SMR": {
+      "k1": 1759,
+      "neg": 579,
+      "pos": 1312,
+      "zero_band": 0
+     },
+     "TPE": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 20,
+      "zero_band": 0
+     }
+    },
+    "cells": {
+     "neg": 6065,
+     "pos": 13637,
+     "zero_band": 24
+    },
+    "control_no_noncarrier": {
+     "n": 19726,
+     "neg_share_k1": 0.293286,
+     "neg_share_k2plus": 0.330954,
+     "noncarrier_codes_on_these_triangles": []
+    },
+    "direction": "lower",
+    "exact_zero": 24,
+    "exact_zero_by_k": {
+     "1": 24,
+     "2": 0,
+     "3": 0
+    },
+    "n": 19726,
+    "n_by_k": {
+     "1": 12302,
+     "2": 6571,
+     "3": 853
+    },
+    "neg_share_k1": 0.293286,
+    "neg_share_k2plus": 0.330954,
+    "quantiles": {
+     "p01": -5620,
+     "p05": -3210,
+     "p25": -380,
+     "p50": 1150,
+     "p75": 3420,
+     "p95": 7900,
+     "p99": 12850
+    },
+    "setters_on_these_triangles": 7,
+    "share_beyond_floor": 0.998783,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 769,
+      "pos": 433,
+      "zero_band": 2
+     },
+     "n": 1204
+    },
+    "top20_abs_delta": [
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "PLYMOUTH (PLY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ABERDEEN (ABD)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "ABERDEEN (ABD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PLYMOUTH (PLY)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "STONEHAVEN (STN)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PLYMOUTH (PLY)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "PLYMOUTH (PLY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "STONEHAVEN (STN)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "EXETER ST DAVIDS (EXD)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "EXETER ST DAVIDS (EXD)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "EXETER ST DAVIDS (EXD)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "NEWTON ABBOT (NTA)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TIVERTON PARKWAY (TVP)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TOTNES (TOT)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "EXETER ST DAVIDS (EXD)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "NEWTON ABBOT (NTA)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TIVERTON PARKWAY (TVP)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TOTNES (TOT)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "NEWTON ABBOT (NTA)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "NEWTON ABBOT (NTA)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TIVERTON PARKWAY (TVP)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TIVERTON PARKWAY (TVP)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TOTNES (TOT)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TOTNES (TOT)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 158,
+     "k2plus_share_higher": 110,
+     "k2plus_share_lower": 82,
+     "median_splits_k1": 8.0,
+     "median_splits_k2plus": 8.0,
+     "pooled_neg_share_k1": 0.200939,
+     "pooled_neg_share_k2plus": 0.33463,
+     "pooled_triangles_k1": 4260,
+     "pooled_triangles_k2plus": 5400,
+     "through_flows_with_both": 350
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 3608,
+      "pos": 8670,
+      "zero_band": 24
+     },
+     "2": {
+      "neg": 2333,
+      "pos": 4238,
+      "zero_band": 0
+     },
+     "3": {
+      "neg": 124,
+      "pos": 729,
+      "zero_band": 0
+     }
+    },
+    "cells": {
+     "neg": 6065,
+     "pos": 13637,
+     "zero_band": 24
+    },
+    "exact_zero": 24
+   },
+   "cluster_leg_triangles": 19709,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "compatible",
+    "ticket": "SOS"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": null,
+   "robust_triangles": 13632,
+   "train_pricing": {
+    "admitted_after_path_check": 109387,
+    "rejected_on_path": 17789,
+    "route_coded_admitted": 108835
+   },
+   "triangles_counted": 19726,
+   "triangles_priced": 19726,
+   "triangles_total": 877680
+  },
+  "ticket_min": {
+   "A_only": {
+    "beyond_floor": 769858,
+    "by_k": {
+     "1": {
+      "neg": 86448,
+      "pos": 507577,
+      "zero_band": 2329
+     },
+     "2": {
+      "neg": 41485,
+      "pos": 125371,
+      "zero_band": 924
+     },
+     "3": {
+      "neg": 4853,
+      "pos": 4124,
+      "zero_band": 45
+     }
+    },
+    "by_through_setter": {
+     "ATO": {
+      "k1": 43487,
+      "neg": 55,
+      "pos": 46294,
+      "zero_band": 8
+     },
+     "CRL": {
+      "k1": 1316,
+      "neg": 106,
+      "pos": 1758,
+      "zero_band": 6
+     },
+     "FCC": {
+      "k1": 15364,
+      "neg": 9533,
+      "pos": 29313,
+      "zero_band": 239
+     },
+     "GWR": {
+      "k1": 62016,
+      "neg": 19846,
+      "pos": 48475,
+      "zero_band": 428
+     },
+     "HUL": {
+      "k1": 0,
+      "neg": 0,
+      "pos": 248,
+      "zero_band": 0
+     },
+     "IEC": {
+      "k1": 3927,
+      "neg": 2118,
+      "pos": 9117,
+      "zero_band": 16
+     },
+     "IWC": {
+      "k1": 1923,
+      "neg": 6550,
+      "pos": 6148,
+      "zero_band": 37
+     },
+     "IXC": {
+      "k1": 11467,
+      "neg": 14809,
+      "pos": 22980,
+      "zero_band": 81
+     },
+     "LBR": {
+      "k1": 11950,
+      "neg": 2346,
+      "pos": 18576,
+      "zero_band": 73
+     },
+     "LER": {
+      "k1": 13723,
+      "neg": 2897,
+      "pos": 13591,
+      "zero_band": 86
+     },
+     "LRC": {
+      "k1": 11537,
+      "neg": 0,
+      "pos": 12125,
+      "zero_band": 30
+     },
+     "LTS": {
+      "k1": 3186,
+      "neg": 0,
+      "pos": 3864,
+      "zero_band": 0
+     },
+     "NCH": {
+      "k1": 4437,
+      "neg": 1872,
+      "pos": 5155,
+      "zero_band": 29
+     },
+     "NIW": {
+      "k1": 112,
+      "neg": 0,
+      "pos": 112,
+      "zero_band": 0
+     },
+     "NSC": {
+      "k1": 38482,
+      "neg": 5955,
+      "pos": 40474,
+      "zero_band": 199
+     },
+     "NSE": {
+      "k1": 36712,
+      "neg": 9900,
+      "pos": 42453,
+      "zero_band": 498
+     },
+     "NTH": {
+      "k1": 58837,
+      "neg": 11852,
+      "pos": 67127,
+      "zero_band": 357
+     },
+     "PGM": {
+      "k1": 2974,
+      "neg": 0,
+      "pos": 2974,
+      "zero_band": 0
+     },
+     "PSY": {
+      "k1": 923,
+      "neg": 0,
+      "pos": 933,
+      "zero_band": 0
+     },
+     "PTW": {
+      "k1": 2,
+      "neg": 0,
+      "pos": 2,
+      "zero_band": 0
+     },
+     "PWM": {
+      "k1": 3328,
+      "neg": 4,
+      "pos": 3324,
+      "zero_band": 0
+     },
+     "PWY": {
+      "k1": 2293,
+      "neg": 0,
+      "pos": 2293,
+      "zero_band": 0
+     },
+     "RMS": {
+      "k1": 10421,
+      "neg": 2,
+      "pos": 10467,
+      "zero_band": 0
+     },
+     "RWB": {
+      "k1": 96474,
+      "neg": 16561,
+      "pos": 84167,
+      "zero_band": 243
+     },
+     "SCR": {
+      "k1": 89587,
+      "neg": 3369,
+      "pos": 86001,
+      "zero_band": 243
+     },
+     "SMR": {
+      "k1": 21834,
+      "neg": 6711,
+      "pos": 20050,
+      "zero_band": 153
+     },
+     "SWT": {
+      "k1": 45832,
+      "neg": 10150,
+      "pos": 48345,
+      "zero_band": 459
+     },
+     "TPE": {
+      "k1": 4210,
+      "neg": 8150,
+      "pos": 10706,
+      "zero_band": 113
+     }
+    },
+    "cells": {
+     "neg": 132786,
+     "pos": 637072,
+     "zero_band": 3298
+    },
+    "control_no_noncarrier": {
+     "n": 637228,
+     "neg_share_k1": 0.159057,
+     "neg_share_k2plus": 0.346833,
+     "noncarrier_codes_on_these_triangles": [
+      "ATO",
+      "PGM",
+      "PSY",
+      "PTW",
+      "PWM",
+      "PWY"
+     ]
+    },
+    "direction": "lower",
+    "exact_zero": 3290,
+    "exact_zero_by_k": {
+     "1": 2329,
+     "2": 918,
+     "3": 43
+    },
+    "n": 773156,
+    "n_by_k": {
+     "1": 596354,
+     "2": 167780,
+     "3": 9022
+    },
+    "neg_share_k1": 0.144961,
+    "neg_share_k2plus": 0.26209,
+    "quantiles": {
+     "p01": -2460,
+     "p05": -730,
+     "p25": 120,
+     "p50": 280,
+     "p75": 430,
+     "p95": 1110,
+     "p99": 3270
+    },
+    "setters_on_these_triangles": 28,
+    "share_beyond_floor": 0.995734,
+    "through_flows": {
+     "cells_of_min_split": {
+      "neg": 8903,
+      "pos": 30731,
+      "zero_band": 308
+     },
+     "n": 39942
+    },
+    "top20_abs_delta": [
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "PLYMOUTH (PLY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "ABERDEEN (ABD)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "ABERDEEN (ABD)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PLYMOUTH (PLY)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "STONEHAVEN (STN)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "PLYMOUTH (PLY)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "PLYMOUTH (PLY)",
+      "delta_band": ">= 5000",
+      "k": 1,
+      "o": "STONEHAVEN (STN)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IXC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "EXETER ST DAVIDS (EXD)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "EXETER ST DAVIDS (EXD)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "EXETER ST DAVIDS (EXD)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "NEWTON ABBOT (NTA)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TIVERTON PARKWAY (TVP)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TOTNES (TOT)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "GLASGOW CENTRAL (GLC)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "EXETER ST DAVIDS (EXD)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "NEWTON ABBOT (NTA)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TIVERTON PARKWAY (TVP)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "TOTNES (TOT)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "MOTHERWELL (MTH)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "NEWTON ABBOT (NTA)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "NEWTON ABBOT (NTA)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TIVERTON PARKWAY (TVP)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TIVERTON PARKWAY (TVP)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "GLASGOW CENTRAL (GLC)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TOTNES (TOT)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     },
+     {
+      "b": "SHEFFIELD (SHF)",
+      "d": "MOTHERWELL (MTH)",
+      "delta_band": ">= 5000",
+      "k": 2,
+      "o": "TOTNES (TOT)",
+      "setters": [
+       "IXC",
+       "IXC",
+       "IWC"
+      ]
+     }
+    ],
+    "within_through_flow": {
+     "equal": 5581,
+     "k2plus_share_higher": 2090,
+     "k2plus_share_lower": 2397,
+     "median_splits_k1": 7.0,
+     "median_splits_k2plus": 5.0,
+     "pooled_neg_share_k1": 0.241637,
+     "pooled_neg_share_k2plus": 0.23393,
+     "pooled_triangles_k1": 172039,
+     "pooled_triangles_k2plus": 127363,
+     "through_flows_with_both": 10068
+    }
+   },
+   "all_priced": {
+    "by_k": {
+     "1": {
+      "neg": 86500,
+      "pos": 507697,
+      "zero_band": 2331
+     },
+     "2": {
+      "neg": 41631,
+      "pos": 125782,
+      "zero_band": 932
+     },
+     "3": {
+      "neg": 4853,
+      "pos": 4162,
+      "zero_band": 45
+     }
+    },
+    "cells": {
+     "neg": 132984,
+     "pos": 637641,
+     "zero_band": 3308
+    },
+    "exact_zero": 3300
+   },
+   "cluster_leg_triangles": 425395,
+   "config": {
+    "dedupe": "stations",
+    "floor_mult": 1.5,
+    "p2p_first": false,
+    "route": "compatible",
+    "ticket": "min"
+   },
+   "floor_pence": 7.5,
+   "pairs_priced": null,
+   "train_pricing": {
+    "SDS": {
+     "admitted_after_path_check": 572294,
+     "rejected_on_path": 138228,
+     "route_coded_admitted": 492350
+    },
+    "SOS": {
+     "admitted_after_path_check": 109387,
+     "rejected_on_path": 17789,
+     "route_coded_admitted": 108835
+    },
+    "legs_from_SOS": 176560
+   },
+   "triangles_counted": 773933,
+   "triangles_priced": 773933,
+   "triangles_total": 877680
+  }
+ },
+ "retail_check_list": {
+  "cluster_leg": {
+   "b": "BRISTOL TEMPLE MEADS (BRI)",
+   "d": "NEATH (NTH)",
+   "k": 2,
+   "o": "DIDCOT PARKWAY (DID)",
+   "setters": [
+    "GWR",
+    "RWB",
+    "GWR"
+   ]
+  },
+  "exact_zero": {
+   "b": "DENBY DALE (DBD)",
+   "d": "BARNSLEY (BNY)",
+   "k": 3,
+   "o": "BROCKHOLES (BHS)",
+   "setters": [
+    "PWY",
+    "PSY",
+    "NTH"
+   ]
+  },
+  "k1": {
+   "b": "BATH SPA (BTH)",
+   "d": "TAUNTON (TAU)",
+   "k": 1,
+   "o": "DIDCOT PARKWAY (DID)",
+   "setters": [
+    "GWR",
+    "GWR",
+    "GWR"
+   ]
+  },
+  "k3": {
+   "b": "CHAPELTOWN (SOUTH YORKSHIR (CLN)",
+   "d": "ELSECAR (ELR)",
+   "k": 3,
+   "o": "NOTTINGHAM (NOT)",
+   "setters": [
+    "SMR",
+    "PSY",
+    "IEC"
+   ]
+  },
+  "most_negative": {
+   "b": "SWINDON (WILTS) (SWI)",
+   "d": "LLANELLI (LLE)",
+   "k": 1,
+   "o": "DIDCOT PARKWAY (DID)",
+   "setters": [
+    "GWR",
+    "GWR",
+    "GWR"
+   ]
+  }
+ },
+ "rule19_vs_20261014": {
+  "arm0_list": {
+   "same": true
+  },
+  "bracket_any_all_legs": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "bracket_any_all_legs"
+  },
+  "bracket_any_through_leg": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "bracket_any_through_leg"
+  },
+  "bracket_no_cross_london": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "bracket_no_cross_london"
+  },
+  "default": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "route_compatible"
+  },
+  "route_00000_only": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "route_00000_only"
+  },
+  "route_anyperm": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "default"
+  },
+  "route_relaxed": {
+   "fields_compared": 7,
+   "fields_differing": [],
+   "v2_point": "route_relaxed"
+  }
+ },
+ "stage": "B153"
+}

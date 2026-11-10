@@ -110,7 +110,7 @@
       "passed": true
     },
     {
-      "detail": "nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. Worst claim drift at machine precision, below 1e-06; fallback rounds 0",
+      "detail": "nodes on both sides of the transfer in one round, worst over seeds: levy=layer/rebate=layer 0; levy=layer/rebate=threshold 5; levy=threshold/rebate=layer 61; levy=threshold/rebate=threshold 0. The test on the mismatched pairs is that the overlap occurs in the run, not that it occurs in every round; rounds with nobody on both sides, of the rounds counted over all seeds: levy=layer/rebate=threshold 139 of 100000; levy=threshold/rebate=layer 209 of 100000. Worst claim drift at machine precision, below 1e-06; fallback rounds 0",
       "name": "A6-20",
       "passed": true
     },
@@ -2270,6 +2270,1390 @@
     0.8,
     0.95
   ],
+  "rebase_curve": {
+    "A6-22": true,
+    "A6-23": true,
+    "columns": {
+      "A exp laye/laye": {
+        "band": {
+          "contiguous": true,
+          "high": 0.01,
+          "interior": false,
+          "low": 0.001,
+          "non_empty": true,
+          "points": [
+            0.001,
+            0.003,
+            0.01
+          ]
+        },
+        "cells": {
+          "lambda=0.001": {
+            "absorption": 0.001,
+            "end_over_start": [
+              2.573135752,
+              2.507909999,
+              2.473069722,
+              2.511450449,
+              2.613312107
+            ],
+            "final_gap": [
+              158.4512008,
+              163.3237314,
+              159.2251741,
+              155.7429801,
+              162.918204
+            ],
+            "final_leak_factor": [
+              0.2050478304,
+              0.1952963142,
+              0.2034669406,
+              0.2106768574,
+              0.1960899023
+            ],
+            "final_x": [
+              1.584512008,
+              1.633237314,
+              1.592251741,
+              1.557429801,
+              1.62918204
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -4.102380485e-05,
+              -2.253017374e-05,
+              9.327816971e-05,
+              -2.684943768e-05,
+              -6.603976482e-06
+            ]
+          },
+          "lambda=0.003": {
+            "absorption": 0.003,
+            "end_over_start": [
+              1.431910831,
+              1.387630414,
+              1.402669921,
+              1.448572008,
+              1.393772699
+            ],
+            "final_gap": [
+              97.38980493,
+              99.45871351,
+              97.5085205,
+              97.05304143,
+              100.2454118
+            ],
+            "final_leak_factor": [
+              0.37760823,
+              0.3698761219,
+              0.3771602163,
+              0.3788820204,
+              0.3669777284
+            ],
+            "final_x": [
+              0.9738980493,
+              0.9945871351,
+              0.975085205,
+              0.9705304143,
+              1.002454118
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -4.633616407e-05,
+              -2.847297516e-05,
+              1.614338611e-05,
+              1.976339339e-05,
+              -2.457381323e-05
+            ]
+          },
+          "lambda=0.01": {
+            "absorption": 0.01,
+            "end_over_start": [
+              0.9859021686,
+              0.9640872251,
+              0.9864594613,
+              1.003969939,
+              0.9630498809
+            ],
+            "final_gap": [
+              36.91532355,
+              37.35392552,
+              36.78574449,
+              37.04451215,
+              37.73025878
+            ],
+            "final_leak_factor": [
+              0.6913194677,
+              0.6882939666,
+              0.6922158536,
+              0.6904269384,
+              0.6857085555
+            ],
+            "final_x": [
+              0.3691532355,
+              0.3735392552,
+              0.3678574449,
+              0.3704451215,
+              0.3773025878
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 1,
+            "seeds_below_start": 4,
+            "shape": "exp",
+            "tail_trend": [
+              -5.677480877e-06,
+              1.379810468e-05,
+              1.928462909e-05,
+              -4.810853842e-06,
+              1.580426853e-05
+            ]
+          },
+          "lambda=0.03": {
+            "absorption": 0.03,
+            "end_over_start": [
+              0.8972735275,
+              0.880424264,
+              0.9013900094,
+              0.9142728453,
+              0.8790926493
+            ],
+            "final_gap": [
+              12.99062148,
+              13.10877481,
+              12.93258476,
+              13.05097418,
+              13.23488394
+            ],
+            "final_leak_factor": [
+              0.8781777871,
+              0.8771408036,
+              0.8786876006,
+              0.8776479431,
+              0.8760353462
+            ],
+            "final_x": [
+              0.1299062148,
+              0.1310877481,
+              0.1293258476,
+              0.1305097418,
+              0.1323488394
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -4.963896122e-06,
+              1.151004695e-05,
+              1.694257993e-05,
+              -4.054116087e-06,
+              1.325022618e-05
+            ]
+          },
+          "lambda=0.1": {
+            "absorption": 0.1,
+            "end_over_start": [
+              0.8707065052,
+              0.8553758235,
+              0.8757027316,
+              0.8874407022,
+              0.8541683646
+            ],
+            "final_gap": [
+              3.964226731,
+              3.996218105,
+              3.944911429,
+              3.983461693,
+              4.033731203
+            ],
+            "final_leak_factor": [
+              0.9611332064,
+              0.9608257759,
+              0.9613188701,
+              0.9609483506,
+              0.960465408
+            ],
+            "final_x": [
+              0.03964226731,
+              0.03996218105,
+              0.03944911429,
+              0.03983461693,
+              0.04033731203
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -4.66860193e-06,
+              1.097274452e-05,
+              1.596720686e-05,
+              -3.838331298e-06,
+              1.245313185e-05
+            ]
+          }
+        },
+        "levy_base": "layer",
+        "rate": 0.005,
+        "rebate_base": "layer",
+        "shape": "exp"
+      },
+      "B exp thre/laye": {
+        "band": {
+          "contiguous": true,
+          "high": 0.01,
+          "interior": false,
+          "low": 0.001,
+          "non_empty": true,
+          "points": [
+            0.001,
+            0.003,
+            0.01
+          ]
+        },
+        "cells": {
+          "lambda=0.001": {
+            "absorption": 0.001,
+            "end_over_start": [
+              2.675527423,
+              2.319424859,
+              2.3464529,
+              2.628449592,
+              2.653402438
+            ],
+            "final_gap": [
+              233.4656783,
+              240.0051345,
+              261.356597,
+              229.0843295,
+              255.4060215
+            ],
+            "final_leak_factor": [
+              0.09684371527,
+              0.09071329551,
+              0.0732727888,
+              0.1011811004,
+              0.0777652804
+            ],
+            "final_x": [
+              2.334656783,
+              2.400051345,
+              2.61356597,
+              2.290843295,
+              2.554060215
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -1.080310663e-05,
+              -4.668120903e-05,
+              -6.91310103e-07,
+              -4.117730485e-06,
+              -7.912896229e-06
+            ]
+          },
+          "lambda=0.003": {
+            "absorption": 0.003,
+            "end_over_start": [
+              1.376942222,
+              1.355164736,
+              1.380771666,
+              1.423872049,
+              1.36832859
+            ],
+            "final_gap": [
+              93.13919293,
+              97.02456893,
+              96.0189072,
+              95.54393126,
+              98.57982952
+            ],
+            "final_leak_factor": [
+              0.3940049015,
+              0.3789899129,
+              0.3828204985,
+              0.3846431289,
+              0.3731412312
+            ],
+            "final_x": [
+              0.9313919293,
+              0.9702456893,
+              0.960189072,
+              0.9554393126,
+              0.9857982952
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -4.62105811e-05,
+              -2.535487788e-05,
+              3.367670798e-06,
+              2.700981538e-05,
+              -2.247931488e-05
+            ]
+          },
+          "lambda=0.01": {
+            "absorption": 0.01,
+            "end_over_start": [
+              0.9660729816,
+              0.9473977152,
+              0.9684277193,
+              0.9870375442,
+              0.9455295208
+            ],
+            "final_gap": [
+              32.89733592,
+              33.77490302,
+              32.96433025,
+              33.72028627,
+              33.92939753
+            ],
+            "final_leak_factor": [
+              0.7196621888,
+              0.7133743008,
+              0.7191802175,
+              0.7137640291,
+              0.7122730276
+            ],
+            "final_x": [
+              0.3289733592,
+              0.3377490302,
+              0.3296433025,
+              0.3372028627,
+              0.3392939753
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -5.563561955e-06,
+              1.309690263e-05,
+              1.91536398e-05,
+              -4.725877033e-06,
+              1.566347683e-05
+            ]
+          },
+          "lambda=0.03": {
+            "absorption": 0.03,
+            "end_over_start": [
+              0.8904968742,
+              0.8745929537,
+              0.8949647139,
+              0.9082355451,
+              0.8731090164
+            ],
+            "final_gap": [
+              11.46991992,
+              11.73713777,
+              11.4172533,
+              11.72318766,
+              11.78717806
+            ],
+            "final_leak_factor": [
+              0.8916343079,
+              0.8892548824,
+              0.8921040252,
+              0.8893789431,
+              0.888810008
+            ],
+            "final_x": [
+              0.1146991992,
+              0.1173713777,
+              0.114172533,
+              0.1172318766,
+              0.1178717806
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -4.902298537e-06,
+              1.137114265e-05,
+              1.687218887e-05,
+              -3.862956677e-06,
+              1.304504553e-05
+            ]
+          },
+          "lambda=0.1": {
+            "absorption": 0.1,
+            "end_over_start": [
+              0.8675348438,
+              0.8525895453,
+              0.8727258716,
+              0.8845804892,
+              0.8513628046
+            ],
+            "final_gap": [
+              3.494201107,
+              3.569935351,
+              3.474102159,
+              3.567066252,
+              3.588278838
+            ],
+            "final_leak_factor": [
+              0.9656614123,
+              0.9649303528,
+              0.9658555196,
+              0.964958038,
+              0.9647533672
+            ],
+            "final_x": [
+              0.03494201107,
+              0.03569935351,
+              0.03474102159,
+              0.03567066252,
+              0.03588278838
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -4.633566581e-06,
+              1.089885226e-05,
+              1.59254496e-05,
+              -3.822084497e-06,
+              1.235322809e-05
+            ]
+          }
+        },
+        "levy_base": "threshold",
+        "rate": 0.005,
+        "rebate_base": "layer",
+        "shape": "exp"
+      },
+      "C clip thre/thre": {
+        "band": {
+          "contiguous": true,
+          "high": 0.01,
+          "interior": true,
+          "low": 0.003,
+          "non_empty": true,
+          "points": [
+            0.003,
+            0.01
+          ]
+        },
+        "cells": {
+          "lambda=0.001": {
+            "absorption": 0.001,
+            "end_over_start": [
+              1.666782805,
+              0.1361494813,
+              1.622786009,
+              1.87133861,
+              1.237241273
+            ],
+            "final_gap": [
+              284.9369359,
+              385.6115023,
+              310.9747754,
+              273.190207,
+              314.3404112
+            ],
+            "final_leak_factor": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "final_x": [
+              2.849369359,
+              3.856115023,
+              3.109747754,
+              2.73190207,
+              3.143404112
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 4,
+            "seeds_below_start": 1,
+            "shape": "clip",
+            "tail_trend": [
+              -1.486444766e-05,
+              -3.315730767e-06,
+              1.170122237e-05,
+              -5.920966937e-06,
+              -0.0001377589191
+            ]
+          },
+          "lambda=0.003": {
+            "absorption": 0.003,
+            "end_over_start": [
+              2.497901706,
+              2.481667843,
+              2.632118136,
+              2.534080457,
+              2.859479278
+            ],
+            "final_gap": [
+              78.68397315,
+              80.32709844,
+              82.45548609,
+              79.26675955,
+              82.31657492
+            ],
+            "final_leak_factor": [
+              0.2131602685,
+              0.1967290156,
+              0.1754451391,
+              0.2073324045,
+              0.1768342508
+            ],
+            "final_x": [
+              0.7868397315,
+              0.8032709844,
+              0.8245548609,
+              0.7926675955,
+              0.8231657492
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "clip",
+            "tail_trend": [
+              -0.0001359725823,
+              -5.57221608e-05,
+              -2.209642183e-05,
+              7.07981259e-05,
+              2.171726716e-05
+            ]
+          },
+          "lambda=0.01": {
+            "absorption": 0.01,
+            "end_over_start": [
+              0.9927769405,
+              0.9741224595,
+              0.9949594782,
+              1.016013519,
+              0.9723334259
+            ],
+            "final_gap": [
+              32.41835738,
+              33.2944826,
+              32.56139773,
+              33.26053059,
+              33.47367436
+            ],
+            "final_leak_factor": [
+              0.6758164262,
+              0.667055174,
+              0.6743860227,
+              0.6673946941,
+              0.6652632564
+            ],
+            "final_x": [
+              0.3241835738,
+              0.332944826,
+              0.3256139773,
+              0.3326053059,
+              0.3347367436
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 1,
+            "seeds_below_start": 4,
+            "shape": "clip",
+            "tail_trend": [
+              -5.758728415e-06,
+              1.383932153e-05,
+              2.043974257e-05,
+              -4.987554396e-06,
+              1.662143118e-05
+            ]
+          },
+          "lambda=0.03": {
+            "absorption": 0.03,
+            "end_over_start": [
+              0.8925564826,
+              0.8765144211,
+              0.8970658615,
+              0.9102310548,
+              0.8748212235
+            ],
+            "final_gap": [
+              11.45397017,
+              11.72273604,
+              11.40182079,
+              11.70906536,
+              11.77376374
+            ],
+            "final_leak_factor": [
+              0.8854602983,
+              0.8827726396,
+              0.8859817921,
+              0.8829093464,
+              0.8822623626
+            ],
+            "final_x": [
+              0.1145397017,
+              0.1172273604,
+              0.1140182079,
+              0.1170906536,
+              0.1177376374
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "clip",
+            "tail_trend": [
+              -4.908170313e-06,
+              1.150314729e-05,
+              1.703092274e-05,
+              -3.836135768e-06,
+              1.300017668e-05
+            ]
+          },
+          "lambda=0.1": {
+            "absorption": 0.1,
+            "end_over_start": [
+              0.867650746,
+              0.8526057921,
+              0.8729266725,
+              0.8845074608,
+              0.851234019
+            ],
+            "final_gap": [
+              3.493815282,
+              3.569754901,
+              3.473519204,
+              3.56713825,
+              3.588551437
+            ],
+            "final_leak_factor": [
+              0.9650618472,
+              0.964302451,
+              0.965264808,
+              0.9643286175,
+              0.9641144856
+            ],
+            "final_x": [
+              0.03493815282,
+              0.03569754901,
+              0.03473519204,
+              0.0356713825,
+              0.03588551437
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "clip",
+            "tail_trend": [
+              -4.630749818e-06,
+              1.090214709e-05,
+              1.594026923e-05,
+              -3.922811603e-06,
+              1.234991612e-05
+            ]
+          }
+        },
+        "levy_base": "threshold",
+        "rate": 0.005,
+        "rebate_base": "threshold",
+        "shape": "clip"
+      },
+      "C exp rho=1": {
+        "band": {
+          "contiguous": true,
+          "high": 0.1,
+          "interior": false,
+          "low": 0.001,
+          "non_empty": true,
+          "points": [
+            0.001,
+            0.003,
+            0.01,
+            0.03,
+            0.1
+          ]
+        },
+        "cells": {
+          "lambda=0.001": {
+            "absorption": 0.001,
+            "end_over_start": [
+              1.087445962,
+              1.075724101,
+              1.09852938,
+              1.12227031,
+              1.069183076
+            ],
+            "final_gap": [
+              61.75774252,
+              63.96184042,
+              62.71236927,
+              63.61944885,
+              64.42928005
+            ],
+            "final_leak_factor": [
+              0.539249228,
+              0.527493675,
+              0.5341259039,
+              0.5293028644,
+              0.5250337144
+            ],
+            "final_x": [
+              0.6175774252,
+              0.6396184042,
+              0.6271236927,
+              0.6361944885,
+              0.6442928005
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -5.356370046e-05,
+              5.687573694e-06,
+              4.789108764e-05,
+              -2.187079888e-05,
+              1.820499946e-05
+            ]
+          },
+          "lambda=0.003": {
+            "absorption": 0.003,
+            "end_over_start": [
+              1.103583808,
+              1.081258843,
+              1.103338984,
+              1.132747387,
+              1.077935978
+            ],
+            "final_gap": [
+              61.45179992,
+              63.67601675,
+              62.4437836,
+              63.3192936,
+              64.14898299
+            ],
+            "final_leak_factor": [
+              0.5409015474,
+              0.5290035335,
+              0.5355624178,
+              0.5308939814,
+              0.5265074329
+            ],
+            "final_x": [
+              0.6145179992,
+              0.6367601675,
+              0.624437836,
+              0.633192936,
+              0.6414898299
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -2.850508004e-05,
+              -1.536616908e-05,
+              6.639344351e-06,
+              1.620272632e-05,
+              -1.700789871e-05
+            ]
+          },
+          "lambda=0.01": {
+            "absorption": 0.01,
+            "end_over_start": [
+              1.12954985,
+              1.109256168,
+              1.13092884,
+              1.159622512,
+              1.109064971
+            ],
+            "final_gap": [
+              60.42193544,
+              62.71756414,
+              61.55895199,
+              62.31812015,
+              63.19955958
+            ],
+            "final_leak_factor": [
+              0.5465008837,
+              0.5340981575,
+              0.5403222706,
+              0.5362358471,
+              0.5315300228
+            ],
+            "final_x": [
+              0.6042193544,
+              0.6271756414,
+              0.6155895199,
+              0.6231812015,
+              0.6319955958
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -7.283382713e-06,
+              1.512836619e-05,
+              2.305709263e-05,
+              -6.255872184e-06,
+              2.134604164e-05
+            ]
+          },
+          "lambda=0.03": {
+            "absorption": 0.03,
+            "end_over_start": [
+              1.207133081,
+              1.187166667,
+              1.205324345,
+              1.232968363,
+              1.186977056
+            ],
+            "final_gap": [
+              57.86261518,
+              60.21039122,
+              59.28454855,
+              59.78256187,
+              60.74477032
+            ],
+            "final_leak_factor": [
+              0.5606681106,
+              0.5476581984,
+              0.5527521965,
+              0.5500062601,
+              0.544739433
+            ],
+            "final_x": [
+              0.5786261518,
+              0.6021039122,
+              0.5928454855,
+              0.5978256187,
+              0.6074477032
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -1.229387254e-05,
+              1.534330625e-05,
+              2.653861208e-05,
+              -5.348809726e-06,
+              2.166972663e-05
+            ]
+          },
+          "lambda=0.1": {
+            "absorption": 0.1,
+            "end_over_start": [
+              1.446046412,
+              1.424559078,
+              1.425490136,
+              1.445330507,
+              1.425266358
+            ],
+            "final_gap": [
+              51.83394197,
+              53.53904001,
+              53.22659678,
+              53.27258883,
+              54.18615755
+            ],
+            "final_leak_factor": [
+              0.5955086172,
+              0.5854406894,
+              0.5872727198,
+              0.5870026831,
+              0.5816644316
+            ],
+            "final_x": [
+              0.5183394197,
+              0.5353904001,
+              0.5322659678,
+              0.5327258883,
+              0.5418615755
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -1.806278292e-05,
+              1.482310136e-05,
+              3.136971248e-05,
+              -3.066074857e-06,
+              2.382594659e-05
+            ]
+          }
+        },
+        "levy_base": "threshold",
+        "rate": "lambda",
+        "rebate_base": "threshold",
+        "shape": "exp"
+      },
+      "C exp thre/thre": {
+        "band": {
+          "contiguous": true,
+          "high": 0.01,
+          "interior": false,
+          "low": 0.001,
+          "non_empty": true,
+          "points": [
+            0.001,
+            0.003,
+            0.01
+          ]
+        },
+        "cells": {
+          "lambda=0.001": {
+            "absorption": 0.001,
+            "end_over_start": [
+              2.67782989,
+              2.327623158,
+              2.354255152,
+              2.630578907,
+              2.661067094
+            ],
+            "final_gap": [
+              233.1163954,
+              239.5997691,
+              260.6969153,
+              228.814281,
+              254.845128
+            ],
+            "final_leak_factor": [
+              0.09718256516,
+              0.09108176211,
+              0.07375775384,
+              0.1014547077,
+              0.07820268633
+            ],
+            "final_x": [
+              2.331163954,
+              2.395997691,
+              2.606969153,
+              2.28814281,
+              2.54845128
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -1.125928657e-05,
+              -4.496577311e-05,
+              -2.110347322e-07,
+              -4.641440072e-06,
+              -7.606980299e-06
+            ]
+          },
+          "lambda=0.003": {
+            "absorption": 0.003,
+            "end_over_start": [
+              1.376428151,
+              1.35455653,
+              1.380382877,
+              1.422779131,
+              1.367099187
+            ],
+            "final_gap": [
+              93.1122638,
+              97.00624934,
+              95.98415756,
+              95.54185167,
+              98.55615473
+            ],
+            "final_leak_factor": [
+              0.3941110179,
+              0.3790593487,
+              0.3829535503,
+              0.3846511279,
+              0.373229582
+            ],
+            "final_x": [
+              0.931122638,
+              0.9700624934,
+              0.9598415756,
+              0.9554185167,
+              0.9855615473
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 5,
+            "seeds_below_start": 0,
+            "shape": "exp",
+            "tail_trend": [
+              -4.811624085e-05,
+              -2.539387091e-05,
+              3.322052191e-06,
+              2.677721641e-05,
+              -2.235432581e-05
+            ]
+          },
+          "lambda=0.01": {
+            "absorption": 0.01,
+            "end_over_start": [
+              0.9659332162,
+              0.9471814233,
+              0.96846321,
+              0.9866565064,
+              0.9450806785
+            ],
+            "final_gap": [
+              32.89597114,
+              33.77562124,
+              32.95730987,
+              33.7220309,
+              33.93206797
+            ],
+            "final_leak_factor": [
+              0.7196720108,
+              0.7133691773,
+              0.7192307084,
+              0.7137515766,
+              0.7122540071
+            ],
+            "final_x": [
+              0.3289597114,
+              0.3377562124,
+              0.3295730987,
+              0.337220309,
+              0.3393206797
+            ],
+            "open_in_every_seed": true,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -5.542503596e-06,
+              1.309706946e-05,
+              1.915931413e-05,
+              -4.82115125e-06,
+              1.565059485e-05
+            ]
+          },
+          "lambda=0.03": {
+            "absorption": 0.03,
+            "end_over_start": [
+              0.8904390185,
+              0.8744304546,
+              0.8950215466,
+              0.9079890918,
+              0.8727566226
+            ],
+            "final_gap": [
+              11.46999486,
+              11.73783221,
+              11.41607026,
+              11.72390219,
+              11.7891804
+            ],
+            "final_leak_factor": [
+              0.8916336397,
+              0.8892487071,
+              0.8921145793,
+              0.8893725882,
+              0.8887922112
+            ],
+            "final_x": [
+              0.1146999486,
+              0.1173783221,
+              0.1141607026,
+              0.1172390219,
+              0.117891804
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -4.898046706e-06,
+              1.142108939e-05,
+              1.699024096e-05,
+              -3.861194112e-06,
+              1.304585217e-05
+            ]
+          },
+          "lambda=0.1": {
+            "absorption": 0.1,
+            "end_over_start": [
+              0.867481189,
+              0.8524400141,
+              0.8727633166,
+              0.8843313382,
+              0.8510694492
+            ],
+            "final_gap": [
+              3.494213913,
+              3.570130012,
+              3.47390157,
+              3.56754348,
+              3.58896161
+            ],
+            "final_leak_factor": [
+              0.9656612886,
+              0.9649284745,
+              0.965857457,
+              0.964953433,
+              0.9647467801
+            ],
+            "final_x": [
+              0.03494213913,
+              0.03570130012,
+              0.0347390157,
+              0.0356754348,
+              0.0358896161
+            ],
+            "open_in_every_seed": false,
+            "seeds_above_start": 0,
+            "seeds_below_start": 5,
+            "shape": "exp",
+            "tail_trend": [
+              -4.629428133e-06,
+              1.089889421e-05,
+              1.593253537e-05,
+              -3.9687211e-06,
+              1.234492828e-05
+            ]
+          }
+        },
+        "levy_base": "threshold",
+        "rate": 0.005,
+        "rebate_base": "threshold",
+        "shape": "exp"
+      }
+    },
+    "floor": 0.9,
+    "lambdas": [
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1
+    ],
+    "rate": 0.005,
+    "smoke": false
+  },
+  "rebate_sides": {
+    "cells": {
+      "levy=layer/rebate=layer": {
+        "both_sides_by_seed": [
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 0
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 1
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 2
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 3
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 4
+          }
+        ],
+        "claim_drift_under_the_bound": true,
+        "fallback_rounds": 0,
+        "fewest_both_sides": 0,
+        "levy_base": "layer",
+        "payee_range": [
+          180,
+          180
+        ],
+        "rebate_base": "layer",
+        "rounds_counted": 100000,
+        "rounds_with_none": 100000,
+        "worst_both_sides": 0
+      },
+      "levy=layer/rebate=threshold": {
+        "both_sides_by_seed": [
+          {
+            "fewest": 0,
+            "most": 2,
+            "rounds": 20000,
+            "rounds_with_none": 137,
+            "seed": 0
+          },
+          {
+            "fewest": 1,
+            "most": 2,
+            "rounds": 20000,
+            "rounds_with_none": 0,
+            "seed": 1
+          },
+          {
+            "fewest": 0,
+            "most": 1,
+            "rounds": 20000,
+            "rounds_with_none": 1,
+            "seed": 2
+          },
+          {
+            "fewest": 1,
+            "most": 4,
+            "rounds": 20000,
+            "rounds_with_none": 0,
+            "seed": 3
+          },
+          {
+            "fewest": 0,
+            "most": 5,
+            "rounds": 20000,
+            "rounds_with_none": 1,
+            "seed": 4
+          }
+        ],
+        "claim_drift_under_the_bound": true,
+        "fallback_rounds": 0,
+        "fewest_both_sides": 0,
+        "levy_base": "layer",
+        "payee_range": [
+          133,
+          183
+        ],
+        "rebate_base": "threshold",
+        "rounds_counted": 100000,
+        "rounds_with_none": 139,
+        "worst_both_sides": 5
+      },
+      "levy=threshold/rebate=layer": {
+        "both_sides_by_seed": [
+          {
+            "fewest": 0,
+            "most": 61,
+            "rounds": 20000,
+            "rounds_with_none": 10,
+            "seed": 0
+          },
+          {
+            "fewest": 0,
+            "most": 48,
+            "rounds": 20000,
+            "rounds_with_none": 19,
+            "seed": 1
+          },
+          {
+            "fewest": 0,
+            "most": 59,
+            "rounds": 20000,
+            "rounds_with_none": 101,
+            "seed": 2
+          },
+          {
+            "fewest": 1,
+            "most": 55,
+            "rounds": 20000,
+            "rounds_with_none": 0,
+            "seed": 3
+          },
+          {
+            "fewest": 0,
+            "most": 54,
+            "rounds": 20000,
+            "rounds_with_none": 79,
+            "seed": 4
+          }
+        ],
+        "claim_drift_under_the_bound": true,
+        "fallback_rounds": 0,
+        "fewest_both_sides": 0,
+        "levy_base": "threshold",
+        "payee_range": [
+          180,
+          180
+        ],
+        "rebate_base": "layer",
+        "rounds_counted": 100000,
+        "rounds_with_none": 209,
+        "worst_both_sides": 61
+      },
+      "levy=threshold/rebate=threshold": {
+        "both_sides_by_seed": [
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 0
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 1
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 2
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 3
+          },
+          {
+            "fewest": 0,
+            "most": 0,
+            "rounds": 20000,
+            "rounds_with_none": 20000,
+            "seed": 4
+          }
+        ],
+        "claim_drift_under_the_bound": true,
+        "fallback_rounds": 0,
+        "fewest_both_sides": 0,
+        "levy_base": "threshold",
+        "payee_range": [
+          123,
+          183
+        ],
+        "rebate_base": "threshold",
+        "rounds_counted": 100000,
+        "rounds_with_none": 100000,
+        "worst_both_sides": 0
+      }
+    },
+    "claim_drift_bound": 1e-06,
+    "claim_drift_under_the_bound": true,
+    "matched_clean": true,
+    "mismatched_overlap": true,
+    "passed": true,
+    "rate": 0.005,
+    "rounds": 20000,
+    "worst_fallback_rounds": 0
+  },
+  "recorded_float_convention": "in rebate_sides, rho_scaling and rebase_curve: ten significant digits; a non-zero size below 1e-12 is written as that phrase",
   "reduction_guard": {
     "mismatch_count": 0,
     "mismatches": [],
@@ -3312,6 +4696,167 @@
     0.001,
     0.01
   ],
+  "rho_scaling": {
+    "at_a_grid_end": false,
+    "cells": {
+      "lambda=0.001": {
+        "absorption": 0.001,
+        "at_grid_bottom": false,
+        "at_grid_top": false,
+        "levy_over_lambda": [
+          0.6802929514,
+          0.6910217198,
+          0.6794232035,
+          0.6812174989,
+          0.6977617351
+        ],
+        "rate_grid": [
+          0.000125,
+          0.00025,
+          0.0005,
+          0.001,
+          0.002,
+          0.004,
+          0.008
+        ],
+        "relaxation_times": 10.0,
+        "rho_grid": [
+          0.125,
+          0.25,
+          0.5,
+          1.0,
+          2.0,
+          4.0,
+          8.0
+        ],
+        "rho_star_median": 1.0,
+        "rho_star_per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rounds": 10000,
+        "unsolved_seeds": 0,
+        "x_growth_second_half": [
+          0.002030404432,
+          0.002194829208,
+          0.002190843962,
+          0.001961594353,
+          0.002104708962
+        ],
+        "x_settled": true
+      },
+      "lambda=0.003": {
+        "absorption": 0.003,
+        "at_grid_bottom": false,
+        "at_grid_top": false,
+        "levy_over_lambda": [
+          0.6758494504,
+          0.6870387431,
+          0.6746712535,
+          0.3743245308,
+          0.693189471
+        ],
+        "rate_grid": [
+          0.000375,
+          0.00075,
+          0.0015,
+          0.003,
+          0.006,
+          0.012,
+          0.024
+        ],
+        "relaxation_times": 10.002,
+        "rho_grid": [
+          0.125,
+          0.25,
+          0.5,
+          1.0,
+          2.0,
+          4.0,
+          8.0
+        ],
+        "rho_star_median": 1.0,
+        "rho_star_per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "rounds": 3334,
+        "unsolved_seeds": 0,
+        "x_growth_second_half": [
+          0.002068901197,
+          0.002083780539,
+          0.002119890436,
+          0.004119404936,
+          0.002144286525
+        ],
+        "x_settled": true
+      },
+      "lambda=0.01": {
+        "absorption": 0.01,
+        "at_grid_bottom": false,
+        "at_grid_top": false,
+        "levy_over_lambda": [
+          0.6616140353,
+          0.6722221589,
+          0.660738674,
+          0.3704077295,
+          0.6793373039
+        ],
+        "rate_grid": [
+          0.00125,
+          0.0025,
+          0.005,
+          0.01,
+          0.02,
+          0.04,
+          0.08
+        ],
+        "relaxation_times": 20.0,
+        "rho_grid": [
+          0.125,
+          0.25,
+          0.5,
+          1.0,
+          2.0,
+          4.0,
+          8.0
+        ],
+        "rho_star_median": 1.0,
+        "rho_star_per_seed": [
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0
+        ],
+        "rounds": 2000,
+        "unsolved_seeds": 0,
+        "x_growth_second_half": [
+          5.834309767e-05,
+          6.10698176e-05,
+          0.0001744189646,
+          -2.249668669e-05,
+          -2.547907155e-05
+        ],
+        "x_settled": true
+      }
+    },
+    "lambdas": [
+      0.001,
+      0.003,
+      0.01
+    ],
+    "passed": true,
+    "smoke": false,
+    "unsolved_total": 0,
+    "worst_step_apart": 0
+  },
   "rounds": 300,
   "seeds": 5,
   "shape_agreement": {

@@ -45,20 +45,30 @@
    "statement": "the directions ECB Occasional Paper 302 (p. 15) states for the start of the two-tier system read the same way on the balance sheets, Sep to Nov 2019"
   },
   {
-   "detail": "special rate period above first terms at every scan point; at 3 sd and quiet below 20 bn: special 1.0469 over 14 cells, first terms 0.3857 over 3 cells",
+   "detail": "special rate period above the terms before it at every scan point; at 3 sd and quiet below 20 bn: special 1.0469 over 14 cells, the terms before it 0.3857 over 3 cells; the fall in the TARGET balance per unit of dose 0.1177 against 1.0568, larger under the terms before it at 9 of 9 scan points read; the rest of the balance sheet per unit of dose 0.1018 against 0.4114",
    "kind": "own_reading",
    "name": "B112-3",
    "passed": true,
-   "statement": "the same-month share of a refinancing dose that stays in the borrowing country is higher while holding it pays (TLTRO III special rate period, from 2020-06-24) than under the first TLTRO III terms"
+   "statement": "the month's change in the borrowing country's reserves per unit of a refinancing dose is higher in the TLTRO III special rate period (2020-06-24 to 2022-06-23), when holding the borrowed reserves paid, than under the TLTRO III terms before it"
   },
   {
-   "detail": "11 dates, all sourced",
+   "detail": "12 dates, all sourced; every stated end date agrees with the next boundary",
    "kind": "bookkeeping",
    "name": "B112-4",
    "passed": true,
-   "statement": "every rule date and every regime boundary names the dated ECB text it was copied from"
+   "statement": "every rule date and every regime boundary names the dated ECB text it was copied from, and each boundary agrees with the end date in its regime's own text"
   }
  ],
+ "definitions": {
+  "dR": "the month's change in the country's reserves (L020000), euro billions",
+  "dT": "the month's change in the country's TARGET balance, euro billions",
+  "days_home, days_abroad": "365 x the year's average month-end reserves / the year's TARGET payments sent inside the national component, or to other components: the days of such payments the average balance comes to. A stock-to-flow ratio, not the time one unit stays",
+  "dose": "the month's change in the country's longer-term refinancing (A050200), euro billions",
+  "leak": "-dT / dose, the fall in the TARGET balance per unit of the dose",
+  "other": "dR - dose - dT, euro billions: everything else on the central bank's balance sheet that moved reserves in the month (its own purchases, banknotes, deposits of other residents, main refinancing operations)",
+  "other_per_dose": "other / dose",
+  "retention": "dR / dose, the change in reserves per unit of the dose. It equals 1 - leak + other_per_dose, and stands above 1 when the rest of the balance sheet adds reserves in the same month"
+ },
  "mapping": {
   "B112-2": {
    "as stated": "counts toward PASS",
@@ -68,8 +78,8 @@
   },
   "B112-3": {
    "mixed, or a regime without a cell at some scan point": "no verdict",
-   "special rate period above first terms at every scan point": "PASS",
-   "special rate period below first terms at every scan point": "FAIL"
+   "special rate period above the terms before it at every scan point": "PASS",
+   "special rate period below the terms before it at every scan point": "FAIL"
   }
  },
  "objects": {
@@ -804,18 +814,32 @@
   },
   "retention_by_regime": {
    "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+    "median_leak": 0.5234,
+    "median_other_per_dose": 0.0668,
     "median_retention": 0.5434,
     "n": 1
    },
-   "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+   "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+    "median_leak": 1.0568,
+    "median_other_per_dose": 0.4114,
     "median_retention": 0.3857,
     "n": 3
    },
+   "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+    "median_leak": null,
+    "median_other_per_dose": null,
+    "median_retention": null,
+    "n": 0
+   },
    "rate indexed to the average key rates from 2022-11-23, repayments": {
+    "median_leak": 0.1454,
+    "median_other_per_dose": -0.0688,
     "median_retention": 0.7827,
     "n": 18
    },
-   "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+   "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+    "median_leak": 0.1177,
+    "median_other_per_dose": 0.1018,
     "median_retention": 1.0469,
     "n": 14
    }
@@ -828,6 +852,8 @@
     "dose": 64.4894,
     "leak": 0.5234,
     "month": "2017-03",
+    "other": 4.3069,
+    "other_per_dose": 0.0668,
     "regime": "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark",
     "retention": 0.5434,
     "sd": 18.9004
@@ -839,7 +865,9 @@
     "dose": 104.2099,
     "leak": 0.6243,
     "month": "2020-03",
-    "regime": "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate",
+    "other": 42.8714,
+    "other_per_dose": 0.4114,
+    "regime": "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18",
     "retention": 0.7871,
     "sd": 31.9065
    },
@@ -850,7 +878,9 @@
     "dose": 9.1931,
     "leak": 1.0568,
     "month": "2020-04",
-    "regime": "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate",
+    "other": 1.2981,
+    "other_per_dose": 0.1412,
+    "regime": "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18",
     "retention": 0.0844,
     "sd": 1.8372
    },
@@ -861,7 +891,9 @@
     "dose": 6.5719,
     "leak": 1.3983,
     "month": "2020-05",
-    "regime": "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate",
+    "other": 5.1524,
+    "other_per_dose": 0.784,
+    "regime": "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18",
     "retention": 0.3857,
     "sd": 1.8372
    },
@@ -872,7 +904,9 @@
     "dose": 33.3678,
     "leak": 0.0017,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 4.8425,
+    "other_per_dose": 0.1451,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.1434,
     "sd": 6.8155
    },
@@ -883,7 +917,9 @@
     "dose": 1.6437,
     "leak": 0.1776,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 0.3136,
+    "other_per_dose": 0.1908,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.0132,
     "sd": 0.3949
    },
@@ -894,7 +930,9 @@
     "dose": 159.0981,
     "leak": -0.4962,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": -65.6198,
+    "other_per_dose": -0.4124,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.0837,
     "sd": 28.3458
    },
@@ -905,7 +943,9 @@
     "dose": 1.6465,
     "leak": 0.6814,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": -0.3089,
+    "other_per_dose": -0.1876,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 0.131,
     "sd": 0.411
    },
@@ -916,7 +956,9 @@
     "dose": 78.1334,
     "leak": 0.1359,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 40.5333,
+    "other_per_dose": 0.5188,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.3829,
     "sd": 14.6673
    },
@@ -927,7 +969,9 @@
     "dose": 105.2911,
     "leak": -0.6483,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": -59.7907,
+    "other_per_dose": -0.5679,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.0805,
     "sd": 31.9065
    },
@@ -938,7 +982,9 @@
     "dose": 8.643,
     "leak": 1.1998,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 5.3399,
+    "other_per_dose": 0.6178,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 0.4181,
     "sd": 1.8372
    },
@@ -949,7 +995,9 @@
     "dose": 81.7175,
     "leak": 0.0995,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": -11.282,
+    "other_per_dose": -0.1381,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 0.7624,
     "sd": 25.6748
    },
@@ -960,7 +1008,9 @@
     "dose": 10.3308,
     "leak": 1.0337,
     "month": "2020-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 12.3818,
+    "other_per_dose": 1.1985,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.1648,
     "sd": 2.1997
    },
@@ -971,7 +1021,9 @@
     "dose": 1.8649,
     "leak": 0.3143,
     "month": "2021-03",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 0.1857,
+    "other_per_dose": 0.0996,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 0.7852,
     "sd": 0.3949
    },
@@ -982,7 +1034,9 @@
     "dose": 10.8075,
     "leak": -1.0648,
     "month": "2021-03",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": -2.8118,
+    "other_per_dose": -0.2602,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.8047,
     "sd": 3.1445
    },
@@ -993,7 +1047,9 @@
     "dose": 74.0803,
     "leak": 0.6566,
     "month": "2021-03",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 41.4327,
+    "other_per_dose": 0.5593,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 0.9027,
     "sd": 18.9004
    },
@@ -1004,7 +1060,9 @@
     "dose": 2.6,
     "leak": -0.2299,
     "month": "2021-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": 0.2701,
+    "other_per_dose": 0.1039,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 1.3338,
     "sd": 0.3949
    },
@@ -1015,7 +1073,9 @@
     "dose": 1.08,
     "leak": -0.01,
     "month": "2021-06",
-    "regime": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23",
+    "other": -0.1553,
+    "other_per_dose": -0.1438,
+    "regime": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%",
     "retention": 0.8663,
     "sd": 0.3383
    },
@@ -1026,6 +1086,8 @@
     "dose": -1.6815,
     "leak": 0.797,
     "month": "2022-11",
+    "other": 0.1044,
+    "other_per_dose": -0.0621,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.1409,
     "sd": 0.411
@@ -1037,6 +1099,8 @@
     "dose": -58.727,
     "leak": 0.2788,
     "month": "2022-11",
+    "other": 12.5798,
+    "other_per_dose": -0.2142,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.507,
     "sd": 14.6673
@@ -1048,6 +1112,8 @@
     "dose": -11.304,
     "leak": 0.2514,
     "month": "2022-11",
+    "other": -4.7853,
+    "other_per_dose": 0.4233,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 1.1719,
     "sd": 3.1445
@@ -1059,6 +1125,8 @@
     "dose": -13.5798,
     "leak": 0.2014,
     "month": "2022-11",
+    "other": -1.4109,
+    "other_per_dose": 0.1039,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.9025,
     "sd": 2.1997
@@ -1070,6 +1138,8 @@
     "dose": -97.0366,
     "leak": -0.3547,
     "month": "2022-12",
+    "other": 25.7383,
+    "other_per_dose": -0.2652,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 1.0894,
     "sd": 14.6673
@@ -1081,6 +1151,8 @@
     "dose": -110.8508,
     "leak": 0.5453,
     "month": "2022-12",
+    "other": 26.2009,
+    "other_per_dose": -0.2364,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.2184,
     "sd": 31.9065
@@ -1092,6 +1164,8 @@
     "dose": -13.3,
     "leak": -0.3283,
     "month": "2022-12",
+    "other": 9.0342,
+    "other_per_dose": -0.6793,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.6491,
     "sd": 1.8372
@@ -1103,6 +1177,8 @@
     "dose": -10.0,
     "leak": 0.3865,
     "month": "2022-12",
+    "other": 5.2172,
+    "other_per_dose": -0.5217,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.0917,
     "sd": 3.1445
@@ -1114,6 +1190,8 @@
     "dose": -59.1036,
     "leak": -0.4156,
     "month": "2022-12",
+    "other": -18.986,
+    "other_per_dose": 0.3212,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 1.7369,
     "sd": 18.9004
@@ -1125,6 +1203,8 @@
     "dose": -11.2091,
     "leak": 0.0666,
     "month": "2022-12",
+    "other": 2.9504,
+    "other_per_dose": -0.2632,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.6701,
     "sd": 2.1997
@@ -1136,6 +1216,8 @@
     "dose": -58.8899,
     "leak": 0.1233,
     "month": "2023-06",
+    "other": 4.4508,
+    "other_per_dose": -0.0756,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.8011,
     "sd": 14.6673
@@ -1147,6 +1229,8 @@
     "dose": -116.6741,
     "leak": -0.0144,
     "month": "2023-06",
+    "other": 4.0775,
+    "other_per_dose": -0.0349,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.9794,
     "sd": 31.9065
@@ -1158,6 +1242,8 @@
     "dose": -11.7144,
     "leak": -0.1787,
     "month": "2023-06",
+    "other": 8.394,
+    "other_per_dose": -0.7166,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.4622,
     "sd": 1.8372
@@ -1169,6 +1255,8 @@
     "dose": -145.3447,
     "leak": 0.1675,
     "month": "2023-06",
+    "other": -15.5984,
+    "other_per_dose": 0.1073,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.9398,
     "sd": 18.9004
@@ -1180,6 +1268,8 @@
     "dose": -7.6043,
     "leak": 0.8638,
     "month": "2023-06",
+    "other": -0.1768,
+    "other_per_dose": 0.0232,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.1594,
     "sd": 2.1997
@@ -1191,6 +1281,8 @@
     "dose": -1.8,
     "leak": -0.0221,
     "month": "2024-03",
+    "other": 0.0252,
+    "other_per_dose": -0.014,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 1.0081,
     "sd": 0.3949
@@ -1202,6 +1294,8 @@
     "dose": -80.3148,
     "leak": -0.4281,
     "month": "2024-03",
+    "other": 26.4931,
+    "other_per_dose": -0.3299,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 1.0983,
     "sd": 18.9004
@@ -1213,6 +1307,8 @@
     "dose": -2.6,
     "leak": 0.4169,
     "month": "2024-06",
+    "other": -0.471,
+    "other_per_dose": 0.1812,
     "regime": "rate indexed to the average key rates from 2022-11-23, repayments",
     "retention": 0.7643,
     "sd": 0.3949
@@ -1222,20 +1318,34 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": 0.5234,
+      "median_other_per_dose": 0.0668,
       "median_retention": 0.5434,
       "n": 1
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.4114,
       "median_retention": 0.2263,
       "n": 7
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": -1.0175,
+      "median_other_per_dose": -0.674,
+      "median_retention": 1.3435,
+      "n": 1
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.0666,
+      "median_other_per_dose": -0.0621,
       "median_retention": 0.8357,
       "n": 31
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
-      "median_retention": 1.0821,
-      "n": 22
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1359,
+      "median_other_per_dose": 0.1451,
+      "median_retention": 1.0805,
+      "n": 21
      }
     },
     "noise_multiple": 2,
@@ -1244,20 +1354,34 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": 0.5234,
+      "median_other_per_dose": 0.0668,
       "median_retention": 0.5434,
       "n": 1
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.4114,
       "median_retention": 0.2263,
       "n": 7
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": -1.0175,
+      "median_other_per_dose": -0.674,
+      "median_retention": 1.3435,
+      "n": 1
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.0666,
+      "median_other_per_dose": -0.0621,
       "median_retention": 0.8357,
       "n": 31
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
-      "median_retention": 1.0821,
-      "n": 22
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1359,
+      "median_other_per_dose": 0.1451,
+      "median_retention": 1.0805,
+      "n": 21
      }
     },
     "noise_multiple": 2,
@@ -1266,20 +1390,34 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": 0.5234,
+      "median_other_per_dose": 0.0668,
       "median_retention": 0.5434,
       "n": 1
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.2275,
+      "median_other_per_dose": 0.5977,
       "median_retention": 0.1553,
       "n": 6
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": -1.0175,
+      "median_other_per_dose": -0.674,
+      "median_retention": 1.3435,
+      "n": 1
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.0666,
+      "median_other_per_dose": -0.0621,
       "median_retention": 0.8357,
       "n": 31
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
-      "median_retention": 1.0821,
-      "n": 22
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1359,
+      "median_other_per_dose": 0.1451,
+      "median_retention": 1.0805,
+      "n": 21
      }
     },
     "noise_multiple": 2,
@@ -1288,18 +1426,32 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": 0.5234,
+      "median_other_per_dose": 0.0668,
       "median_retention": 0.5434,
       "n": 1
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.4114,
       "median_retention": 0.3857,
       "n": 3
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": null,
+      "median_other_per_dose": null,
+      "median_retention": null,
+      "n": 0
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.1454,
+      "median_other_per_dose": -0.0688,
       "median_retention": 0.7827,
       "n": 18
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1177,
+      "median_other_per_dose": 0.1018,
       "median_retention": 1.0469,
       "n": 14
      }
@@ -1310,18 +1462,32 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": 0.5234,
+      "median_other_per_dose": 0.0668,
       "median_retention": 0.5434,
       "n": 1
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.4114,
       "median_retention": 0.3857,
       "n": 3
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": null,
+      "median_other_per_dose": null,
+      "median_retention": null,
+      "n": 0
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.1454,
+      "median_other_per_dose": -0.0688,
       "median_retention": 0.7827,
       "n": 18
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1177,
+      "median_other_per_dose": 0.1018,
       "median_retention": 1.0469,
       "n": 14
      }
@@ -1332,18 +1498,32 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": 0.5234,
+      "median_other_per_dose": 0.0668,
       "median_retention": 0.5434,
       "n": 1
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.4114,
       "median_retention": 0.3857,
       "n": 3
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": null,
+      "median_other_per_dose": null,
+      "median_retention": null,
+      "n": 0
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.1454,
+      "median_other_per_dose": -0.0688,
       "median_retention": 0.7827,
       "n": 18
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1177,
+      "median_other_per_dose": 0.1018,
       "median_retention": 1.0469,
       "n": 14
      }
@@ -1354,18 +1534,32 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": null,
+      "median_other_per_dose": null,
       "median_retention": null,
       "n": 0
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.1412,
       "median_retention": 0.0844,
       "n": 1
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": null,
+      "median_other_per_dose": null,
+      "median_retention": null,
+      "n": 0
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.0223,
+      "median_other_per_dose": -0.1626,
       "median_retention": 0.8334,
       "n": 10
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1568,
+      "median_other_per_dose": 0.1679,
       "median_retention": 1.1136,
       "n": 8
      }
@@ -1376,18 +1570,32 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": null,
+      "median_other_per_dose": null,
       "median_retention": null,
       "n": 0
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.1412,
       "median_retention": 0.0844,
       "n": 1
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": null,
+      "median_other_per_dose": null,
+      "median_retention": null,
+      "n": 0
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.095,
+      "median_other_per_dose": -0.1449,
       "median_retention": 0.7827,
       "n": 12
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.1776,
+      "median_other_per_dose": 0.1451,
       "median_retention": 1.0837,
       "n": 9
      }
@@ -1398,18 +1606,32 @@
    {
     "medians": {
      "TLTRO II: the MRO rate at allotment, as low as the deposit facility rate at allotment for banks that meet the lending benchmark": {
+      "median_leak": null,
+      "median_other_per_dose": null,
       "median_retention": null,
       "n": 0
      },
-     "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate": {
+     "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18": {
+      "median_leak": 1.0568,
+      "median_other_per_dose": 0.1412,
       "median_retention": 0.0844,
       "n": 1
      },
+     "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation": {
+      "median_leak": null,
+      "median_other_per_dose": null,
+      "median_retention": null,
+      "n": 0
+     },
      "rate indexed to the average key rates from 2022-11-23, repayments": {
+      "median_leak": 0.095,
+      "median_other_per_dose": -0.1449,
       "median_retention": 0.7827,
       "n": 12
      },
-     "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23": {
+     "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%": {
+      "median_leak": 0.3143,
+      "median_other_per_dose": 0.1451,
       "median_retention": 1.0837,
       "n": 9
      }
@@ -1418,6 +1640,52 @@
     "quiet_cut": 40.0
    }
   ],
+  "share_noise_pp": {
+   "AT": 0.2195,
+   "BE": 0.5445,
+   "BG": null,
+   "CY": 0.0227,
+   "DE": 0.9814,
+   "EE": 0.0156,
+   "ES": 0.4888,
+   "FI": 0.5286,
+   "FR": 0.9279,
+   "GR": 0.0705,
+   "HR": 0.0291,
+   "IE": 0.1437,
+   "IT": 0.6821,
+   "LT": 0.0278,
+   "LU": 0.4071,
+   "LV": 0.0188,
+   "MT": 0.015,
+   "NL": 0.8978,
+   "PT": 0.0943,
+   "SI": 0.014,
+   "SK": 0.0491
+  },
+  "share_noise_year_end_pp": {
+   "AT": 0.1999,
+   "BE": 0.8764,
+   "BG": null,
+   "CY": 0.0602,
+   "DE": 1.3164,
+   "EE": 0.0309,
+   "ES": 0.8316,
+   "FI": 0.7756,
+   "FR": 1.8286,
+   "GR": 0.1141,
+   "HR": null,
+   "IE": 0.2526,
+   "IT": 0.6963,
+   "LT": 0.0643,
+   "LU": 0.6542,
+   "LV": 0.0342,
+   "MT": 0.0289,
+   "NL": 1.0924,
+   "PT": 0.1263,
+   "SI": 0.0208,
+   "SK": 0.0456
+  },
   "shares_at_rules": {
    "2019-10": {
     "2019-09": {
@@ -2188,13 +2456,18 @@
   },
   {
    "from": "2019-09",
-   "source": "press releases 2019-06-06 and 2020-03-12",
-   "text": "TLTRO III as first set: 10 bp above the average MRO rate over the life, as low as the average deposit facility rate plus 10 bp; from 2020-03-17 also bridge LTROs at the average deposit facility rate"
+   "source": "press releases 2019-09-12 and 2020-03-12",
+   "text": "TLTRO III before the special rate period, allotted from 2019-09-19: the average MRO rate over the life, as low as the average deposit facility rate; also bridge LTROs at the average deposit facility rate, first settled 2020-03-18"
   },
   {
    "from": "2020-06",
    "source": "press releases 2020-04-30 and 2020-12-10",
-   "text": "special rate period from 2020-06-24: as low as 50 bp below the average deposit facility rate, extended to 2022-06-23"
+   "text": "special rate period, 2020-06-24 to 2022-06-23: as low as 50 bp below the average deposit facility rate over the period, and not higher than -1%"
+  },
+  {
+   "from": "2022-06",
+   "source": "press releases 2020-12-10 and 2022-10-27",
+   "text": "after the special rate period, 2022-06-24 to 2022-11-22: as low as the average deposit facility rate over the life of the operation"
   },
   {
    "from": "2022-11",

@@ -142,6 +142,11 @@ def triangle_window(c: K.Core):
     """
     dv = c.row["delinq"]
     mf = c.row["mod_flag"]
+    # `99` (ninety-nine months or more) is a known count and is left out
+    # here. On all six archives counting it moves no loan's first
+    # delinquent row and no first cure after a modification: no loan's
+    # first row is `99`, and a `99` month always follows earlier delinquent
+    # months.
     known = dv <= 98
     is_del = known & (dv != 0)
     is_cur = known & (dv == 0)

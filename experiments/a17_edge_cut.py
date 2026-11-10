@@ -25,6 +25,22 @@ Three arms, and the three thresholds sit in three different places.
               one node and the action taken on another**, which no other rule
               here does.
 
+What a cut removes, and what it leaves running. A cut deletes entries of the
+adjacency and rebuilds the discretionary routes from what is left. Two channels
+do not read the adjacency and carry on through every arm:
+
+  payroll     the fixed roster pays its fixed receivers each round
+              (``_rebuild_route`` leaves the wage mask alone, ``_wage_flow``
+              never looks at the adjacency). On the hub-ranked shock arm at
+              share 0.7, 73 to 75 per cent of all wages paid over the run go
+              along relations the cut has deleted.
+  issuance    the authority's rule is endogenous, and it issues each round
+              what the non-financial inflow has fallen below its opening level.
+
+So "the graph on its own" here is the discretionary graph with payroll and the
+authority still working. And ``run`` removes relations only: a cut moves no
+cash at the instant it happens, and no deposit is redeemed.
+
 The floor is off on every arm, and two probe measurements are why.
 
   With the cut trigger set at the floor, the nodes whose edges get cut are
@@ -126,6 +142,12 @@ class Criterion:
         return {"name": self.name, "passed": self.passed, "detail": self.detail}
 
 
+def r_sig(x: float) -> float:
+    """Six significant figures. The tail fields run down to 1e-24 and ``r``
+    rounds to six decimals, which would write every one of them as zero."""
+    return float("%.6e" % float(x))
+
+
 def gini(v: np.ndarray) -> float:
     x = np.sort(np.asarray(v, dtype=float))
     n = x.size
@@ -195,7 +217,8 @@ def one_run(mode: str | None, share: float, trigger: float, seed: int,
     n = h.holdings.shape[1]
     m = np.asarray(h.holdings, dtype=float).sum(axis=1)
     support = np.asarray(h.effective_support, dtype=float)
-    volume = float(np.asarray(h.total_volume, dtype=float).sum())
+    flow = np.asarray(h.total_volume, dtype=float)
+    volume = float(flow.sum())
     opening_degree = np.asarray(
         Network(base_config(seed, need)).adjacency, dtype=float).sum(axis=1)
     stranded = ~net._has_out
@@ -218,11 +241,15 @@ def one_run(mode: str | None, share: float, trigger: float, seed: int,
         "support_ratio": r(float(support[-TAIL:].mean() / support[0])),
         "support_open": r(float(support[0])),
         "support_close": r(float(support[-TAIL:].mean())),
-        # The degenerate-reading guard's raw material. When the graph has come
-        # apart the flow is near zero and the support statistic is a ratio of
-        # two small numbers, which can read above one. That is not the support
-        # set widening and A17-8 says so on the cells where it happens.
+        # A17-8's raw material. Support is read on the last TAIL rounds, so the
+        # flow it is read beside is the flow of those rounds, and the wages in
+        # it say whether anything but the fixed roster is still trading. The
+        # two shares of the control are filled in by ``attach_shares``.
+        "volume_tail": r_sig(float(flow[-TAIL:].sum())),
+        "wages_tail": r_sig(float(
+            np.asarray(h.wage_paid, dtype=float)[-TAIL:].sum())),
         "volume_share_of_control": None,
+        "volume_tail_share_of_control": None,
         "gini_open": r(gini(h.holdings[0])),
         "gini_close": r(gini(h.holdings[-1])),
         "top1_close": r(top_share(h.holdings[-1], max(1, n // 100))),
@@ -296,6 +323,25 @@ def run_grid(seeds=SEEDS, cfgs=None) -> list:
             for (mode, share, trig, need, tg) in cfgs for seed in seeds]
 
 
+def attach_shares(rows: list) -> list:
+    """Each row's flow over the floor-off control at the same seed, both windows.
+
+    The cumulative share is what A17-8 first named cells on; the tail share is
+    the window the support statistic is actually read in.
+    """
+    ctl = {x["seed"]: x for x in rows if x["mode"] == "off" and x["need"] == 0.0}
+    for x in rows:
+        c = ctl.get(x["seed"])
+        if c is None:
+            continue
+        x["volume_share_of_control"] = (
+            r_sig(x["volume"] / c["volume"]) if c["volume"] > 0 else None)
+        x["volume_tail_share_of_control"] = (
+            r_sig(x["volume_tail"] / c["volume_tail"])
+            if c["volume_tail"] > 0 else None)
+    return rows
+
+
 def criterion_a17_1(rows: list) -> Criterion:
     """Discipline 19, against A12's record rather than against this file.
 
@@ -339,7 +385,11 @@ def criterion_a17_2(rows: list) -> Criterion:
     quantities are printed.
     """
     fields = ("volume", "gini_close", "support_ratio", "m_ratio")
-    ok = True
+    # The pairs have to be the control's seeds, all of them. ``not any([])`` is
+    # true, so without this a gate whose two sides share no seed would pass.
+    expected = sorted({x["seed"] for x in rows
+                       if x["mode"] == "off" and x["need"] == 0.0})
+    ok = bool(expected)
     parts = []
     for trig, share in ((GATE_TRIGGER, 0.70), (GATE_TRIGGER_MILD, 0.30)):
         cut = [x for x in rows if x["mode"] == "self_cut"
@@ -355,9 +405,12 @@ def criterion_a17_2(rows: list) -> Criterion:
         bf = {x["seed"]: x for x in floor}
         seeds = sorted(set(bc) & set(bf))
         same = [all(bc[s][k] == bf[s][k] for k in fields) for s in seeds]
-        ok = ok and not any(same)
-        parts.append("threshold %g, share %.2f: identical on %d of %d seeds"
-                     % (trig, share, sum(same), len(seeds)))
+        complete = bool(seeds) and seeds == expected
+        ok = ok and complete and not any(same)
+        parts.append("threshold %g, share %.2f: identical on %d of %d seeds%s"
+                     % (trig, share, sum(same), len(seeds),
+                        "" if complete else "; paired seeds %s against the "
+                        "control's %s" % (seeds, expected)))
         for s in seeds:
             c, f = bc[s], bf[s]
             parts.append(
@@ -466,39 +519,151 @@ def criterion_a17_7(rows: list) -> Criterion:
         % (len(with_stranded), len(rows), pairs[:20]))
 
 
+#: A17-8's cut. A twentieth of the control's flow, unchanged from the guard's
+#: first version.
+THIN = 0.05
+
+#: Discretionary flow at or below this share of the control's tail is the
+#: residue of a trade that has ended. A37-7's line for "no trade left".
+ENDED = 1e-9
+
+
+def tail_state(x: dict, ctl_tail: float) -> str:
+    """What the last TAIL rounds of one row carry, from its own accounting.
+
+      no flow        nothing moved. E reads 0, the convention for an empty vector
+      payroll only   the fixed roster is the whole flow, so E reads the roster
+      residue        everything left is under ENDED of the control's tail
+      thin trade     discretionary flow is left, at a low level of activity
+    """
+    vt, wt = x["volume_tail"], x["wages_tail"]
+    if vt == 0.0:
+        return "no flow"
+    if abs(vt - wt) <= 1e-5 * vt:
+        return "payroll only"
+    if vt <= ENDED * ctl_tail:
+        return "residue"
+    return "thin trade"
+
+
 def criterion_a17_8(rows: list) -> Criterion:
-    """The degenerate-reading guard.
+    """Cells on thin flow, named on both windows, and what their support reads.
 
-    When the graph has come apart the flow is near zero and the support
-    statistic is a ratio of two small numbers, which is not a reading in either
-    direction. **The first version of this guard looked only upward**, because a
-    probe on a different graph had seen it read 2.51; on this carrier the same
-    cells read 0.0000 instead. A guard that names one direction of a degeneracy
-    passes silently on the other, so this one takes no view on the direction and
-    names every cell whose flow is under a twentieth of the control's.
+    The support statistic is E = (sum F)^2 / sum F^2. **It does not move when
+    every inflow is scaled by the same factor**, so a small flow does not make
+    it a ratio of two small numbers: scaling a thin cell's last 25 rounds by
+    1e-6 moves E by under 3e-14. What a thin cell's E reads is how the flow
+    that is left is spread, and the thing to say about it is what that flow is.
 
-    Structural. **The cells are named and their support numbers are not to be
-    read, whichever way they fell.**
+    Two windows. E is read on the last TAIL rounds, so a cell is named when its
+    cumulative flow **or** its last-TAIL flow is under THIN of the control's at
+    the same seed. Naming on the cumulative flow alone passes a cell that traded
+    for most of the run and stopped near the end.
+
+    Each named cell is given one of ``tail_state``'s four states. **The flag
+    reads the object**: it fails when a no-flow cell's E is anything but 0, a
+    payroll-only cell's E is not a whole number, or a cell with flow in its tail
+    reads E = 0. Each of those would mean the field does not hold what its code
+    says it holds.
     """
     ctl = {x["seed"]: x for x in rows if x["mode"] == "off" and x["need"] == 0.0}
-    flagged = []
+    named, bad = [], []
     for x in rows:
         if x["seed"] not in ctl or (x["mode"] == "off" and x["need"] == 0.0):
             continue
-        share_of_control = x["volume"] / ctl[x["seed"]]["volume"]
-        if share_of_control < 0.05:
-            flagged.append((x["mode"], x["share"], x["trigger"], x["need"],
-                            x["seed"], r(share_of_control), x["support_ratio"]))
-    ratios = sorted({f[6] for f in flagged})
-    return Criterion(
-        "A17-8  support readings taken on near-zero flow", True,
-        "%d cells run on under a twentieth of the control's flow, and the "
-        "support statistic on them is a ratio of two small numbers rather than "
-        "a reading, whichever way it happens to fall: the values it takes there "
-        "are %s against the control's %s | cells: %s"
-        % (len(flagged), ratios[:8],
+        c = ctl[x["seed"]]
+        if c["volume"] <= 0 or c["volume_tail"] <= 0:
+            bad.append("seed %d control has no flow" % x["seed"])
+            continue
+        cum = x["volume"] / c["volume"]
+        tail = x["volume_tail"] / c["volume_tail"]
+        if cum >= THIN and tail >= THIN:
+            continue
+        state = tail_state(x, c["volume_tail"])
+        e = x["support_close"]
+        key = (x["mode"], x["targeting"], x["share"], x["trigger"], x["need"],
+               x["seed"])
+        if state == "no flow" and e != 0.0:
+            bad.append("%s no flow but E %r" % (key, e))
+        if state == "payroll only" and abs(e - round(e)) > 1e-6:
+            bad.append("%s payroll only but E %r" % (key, e))
+        if state != "no flow" and e == 0.0:
+            bad.append("%s flow in the tail but E 0" % (key,))
+        named.append((state, "cumulative" if cum < THIN else "tail only",
+                      key, r_sig(cum), r_sig(tail), e))
+    counts = collections.Counter(n[0] for n in named)
+    window = collections.Counter(n[1] for n in named)
+    unique = len({n[2] for n in named})
+    roster = sorted({n[5] for n in named if n[0] == "payroll only"})
+    by_state = {s: sorted({n[5] for n in named if n[0] == s})
+                for s in ("residue", "thin trade")}
+    detail = (
+        "%d rows (%d distinct cells) run under %g of the control's flow on the "
+        "cumulative window or the last %d rounds: %d named on the cumulative "
+        "window, %d on the tail only | tail state: %s | E on them reads 0 where "
+        "nothing moved, the roster %s where payroll is the whole flow, %s on a "
+        "residue under %g of the control's tail, and %s on thin trade | "
+        "control E over its opening %s | tail-only cells: %s"
+        % (len(named), unique, THIN, TAIL, window["cumulative"],
+           window["tail only"], dict(sorted(counts.items())), roster,
+           by_state["residue"], ENDED, by_state["thin trade"],
            sorted({ctl[s]["support_ratio"] for s in ctl}),
-           sorted(flagged)[:10] or "none"))
+           sorted({(n[2], n[3], n[4]) for n in named
+                   if n[1] == "tail only"}) or "none"))
+    return Criterion(
+        "A17-8  what support reads on thin flow", not bad,
+        detail if not bad else " | ".join(bad[:8]))
+
+
+def selftest() -> int:
+    """Plant a wrong input under A17-2 and A17-8 and check each flag falls.
+
+    Reads the record on disk and runs no model.
+    """
+    rows = json.loads(RECORD.read_text(encoding="utf-8"))["runs"]
+    if any("volume_tail" not in x for x in rows):
+        print("  the record predates volume_tail: run the grid first")
+        return 1
+    failures = []
+
+    def expect(label, crit, want):
+        got = crit.passed
+        print("  [%s] %s: %s" % ("ok" if got == want else "WRONG", label,
+                                 "PASS" if got else "FAIL"))
+        if got != want:
+            failures.append(label)
+
+    expect("A17-2 on the record", criterion_a17_2(rows), True)
+    drop4 = [x for x in rows if not (x["mode"] == "off" and x["need"] > 0
+                                     and x["seed"] == 4)]
+    expect("A17-2 with seed 4 gone from the floor arm", criterion_a17_2(drop4),
+           False)
+    apart = [x for x in rows
+             if not (x["mode"] == "off" and x["need"] > 0 and x["seed"] < 3)
+             and not (x["mode"] == "self_cut" and x["seed"] >= 3)]
+    expect("A17-2 with the two sides sharing no seed", criterion_a17_2(apart),
+           False)
+
+    expect("A17-8 on the record", criterion_a17_8(rows), True)
+    ctl = {x["seed"]: x for x in rows if x["mode"] == "off" and x["need"] == 0.0}
+    for state, plant in (("no flow", 1.0), ("thin trade", 0.0),
+                         ("payroll only", 74.5)):
+        hit = next((i for i, x in enumerate(rows)
+                    if x["seed"] in ctl and x["mode"] != "off"
+                    and min(x["volume"] / ctl[x["seed"]]["volume"],
+                            x["volume_tail"] / ctl[x["seed"]]["volume_tail"])
+                    < THIN
+                    and tail_state(x, ctl[x["seed"]]["volume_tail"]) == state),
+                   None)
+        if hit is None:
+            print("  [--] no %s cell on the record to plant in" % state)
+            continue
+        bent = [dict(x) for x in rows]
+        bent[hit]["support_close"] = plant
+        expect("A17-8 with a %s cell's E set to %g" % (state, plant),
+               criterion_a17_8(bent), False)
+    print("\n  selftest %s" % ("failed: %s" % failures if failures else "ok"))
+    return 1 if failures else 0
 
 
 def main() -> int:
@@ -507,15 +672,20 @@ def main() -> int:
     ap.add_argument("--smoke", action="store_true",
                     help="one seed, writing to results/subset")
     ap.add_argument("--no-write", action="store_true")
+    ap.add_argument("--selftest", action="store_true",
+                    help="plant wrong inputs under A17-2 and A17-8, no model run")
     args = ap.parse_args()
 
     if args.plan:
         for k, v in plan().items():
             print("  %-18s %s" % (k, v))
         return 0
+    if args.selftest:
+        return selftest()
 
     seeds = (0,) if args.smoke else SEEDS
-    rows = run_grid(seeds=seeds) + run_grid(seeds=seeds, cfgs=GATE_CONFIGS)
+    rows = attach_shares(run_grid(seeds=seeds)
+                         + run_grid(seeds=seeds, cfgs=GATE_CONFIGS))
 
     crits = [criterion_a17_1(rows), criterion_a17_2(rows), criterion_a17_4(rows),
              criterion_a17_5(rows), criterion_a17_7(rows), criterion_a17_8(rows)]

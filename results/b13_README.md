@@ -14,10 +14,24 @@ value printed here, rendered to as many significant digits as the quote carries,
 is the quote. No tolerance is invented for that check, and the four numbers it
 cannot back are listed in the record's `numbers_not_read_off_a_product`.
 
-**Prices are raw PRICE9 throughout.** `1e9` is one tick, so the tables read in
-ticks. `λ` is in the instrument's own tick, and the tick differs by product
-(`1e9` for CL, RB, NG, GC; `5e9` for TTF, HG, MHG; `125e9` for QI), so **any
-quotation of a `λ` value has to carry the product with it.**
+**Prices are raw PRICE9 throughout, and the `λ` tables are printed in units of
+`1e9` raw for every product.** That is one tick for CL, RB, NG and GC, and the
+tables read in ticks there. The tick differs by product (`1e9` for CL, RB, NG,
+GC; `5e9` for TTF, HG, MHG; `125e9` for QI), so on the others a printed value is
+a multiple of the tick count: a printed −115 on TTF is −23 ticks, and a printed
+−250 on QI is −2 ticks. The files label those tables "in ticks"; the label was
+written for the first channel and is wrong for the other two. **Any quotation of
+a `λ` value has to carry the product, and the divisor, with it.** The script now
+prints the divisor in the label; the files here are the outputs as they were
+written and are not edited.
+
+**What a count of states counts, and how much of the capture.** The gate
+products count a state once for its bid and once for its offer, so their totals
+are one-sided readings and a state quoted on both sides is read twice; the
+verdict line's "states" means that. The runs on the trade capture read its
+first 6,000,000 packets, which span 92.37 seconds of a ten-minute file. The
+instrument listing behind the path count is read in full from the definitions
+capture.
 
 ---
 
@@ -49,7 +63,7 @@ on the offer side, ninety-two of them one tick.
 1. **`0.9547` is not the station's result.** This is a construction check on one
    instrument, run before the criterion was rewritten. The load-bearing
    criterion is the one-sided inequality in the out-of-sample files below, and
-   it returns **zero violations in 81,968 states**. A reproduction share and a
+   it returns **zero violations in 81,968 bid and offer readings**. A reproduction share and a
    violation count are different objects.
 2. **`2,442 of 34,923` is not a 7 per cent sample.** The comparison is defined
    only on events where the implied book was republished; on the others there is
@@ -68,7 +82,7 @@ here**, because that run's output was never saved, and the record says so.
 
 ## The load-bearing criterion, out of sample
 
-| file | channel | states | violations |
+| file | channel | bid and offer readings | violations |
 |---|---|---:|---:|
 | [`b13_gate0_oos_20230717.txt`](b13_gate0_oos_20230717.txt) | ch382, NYMEX energy | 63,168 | **0** |
 | [`b13_gate0_oos_ch386_NG.txt`](b13_gate0_oos_ch386_NG.txt) | ch386, natural gas | 5,336 | **0** |
@@ -82,7 +96,7 @@ line.** It asks whether the exchange's published implied price is ever *worse*
 than the two-leg derivation. `better` is not a defect and is not a near miss: it
 is the exchange finding a route the two-leg derivation does not have. On ch386
 and ch360 the `better` column is zero and the relation is an exact equality on
-every state, **18,800 of 18,800**. On ch382 it is an inequality with `better`
+every bid and offer reading, **18,800 of 18,800**. On ch382 it is an inequality with `better`
 populated. **Why the two channels differ is an open question** and the
 explanation first offered for it was withdrawn; see
 [`b13_path_multiplicity.txt`](b13_path_multiplicity.txt).
@@ -128,6 +142,25 @@ Index and friction always share parity, so on 54.4 per cent of states a zero
 index is not among the available values and a non-zero one there says nothing.
 Restricted to the states where zero was available: `CLU3-CLV3` takes it 716
 times out of 716, `RBU3-RBX3` 88 out of 1,978, `RBU3-RBV3` 155 out of 1,895.
+
+---
+
+## The tail of `rho`, and what the grid can show
+
+| file | what it is |
+|---|---|
+| [`b13_rho_tail_ch382.txt`](b13_rho_tail_ch382.txt) | `experiments/b13_rho_tail.py` on the ch382 two-classes cache: the upper tail of `rho`, the grid check, and the three registered branches per spread and cut |
+| [`b13_rho_tail_ch386.txt`](b13_rho_tail_ch386.txt) | the same on ch386 |
+
+These two are written by the tail script and are not among the ten copied files.
+**An empty tail is a reading only where the grid could have shown it.** Both
+orientations are whole ticks on one grid, so the index has the friction count's
+parity and stops two short of it strictly inside the band: the largest `rho` a
+state with friction count `k` can show is `(k−2)/k`. Each cell prints the states
+in the tail over the states whose `k` can represent the cut, and a letter: `A`
+approached, `E` empty and reachable, `X` not representable. `X` reads nothing.
+On ch382 no spread is approached at or above 0.8 except `RBU3-RBX3`, and for the six
+CL spreads the cuts from 0.9 up are `X`.
 
 ---
 

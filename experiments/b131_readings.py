@@ -25,7 +25,14 @@ Criteria (each has a planted error in --selftest that must make it fail):
   B131-5  own_reading   the cut point: household deposit FISIM, loan FISIM and their sum, 2021 and
                         2023, per country; change in the sum against the two changes
   B131-6  own_reading   where it goes: household deposit FISIM as a share of P3 and of GDP, and the
-                        2021 -> 2023 change of that deposit FISIM as a share of GDP
+                        2021 -> 2023 change of that deposit FISIM as a share of GDP. The change is a
+                        size, not the GDP effect: household producers' use is intermediate and
+                        imports are netted out. Imports of FISIM (P72F, rest of the world) are
+                        printed per country beside the change, and their 2023 level as a share of
+                        it. P72F sums both sides and every sector, and a side can be negative
+                        (LT and HR print negative totals), so it does not cap the imported part of
+                        household deposit FISIM and no floor is drawn from it. The euro area has
+                        no published P72F
   B131-8  own_reading   the feasible band for one shared scalar (highest sector deposit rate,
                         lowest sector loan rate; deposit rates weighted over overnight, agreed and
                         notice deposits by BSI month-end stocks), the office's reference rate implied
@@ -107,7 +114,8 @@ def dfr_annual() -> dict[int, float]:
 
 
 def mir_annual() -> dict:
-    """Annual mean of monthly MIR rates: (geo, item, sector) -> {year: rate}."""
+    """Annual mean of monthly MIR rates: (geo, item, sector) -> {year: rate}. A year counts only
+    with twelve distinct months that each carry a number; a row with an empty value is not a month."""
     rows = []
     o = pd.read_csv(RAW / "mir_outstanding.csv",
                     usecols=["REF_AREA", "BS_ITEM", "BS_COUNT_SECTOR", "TIME_PERIOD", "OBS_VALUE"])
@@ -121,9 +129,15 @@ def mir_annual() -> dict:
     m["geo"] = m.REF_AREA.map(lambda g: MIR_GEO.get(g, g))
     out = defaultdict(dict)
     for (g, it, s, y), grp in m.groupby(["geo", "BS_ITEM", "BS_COUNT_SECTOR", "year"]):
-        if len(grp) == 12:
+        if full_year(grp):
             out[(g, it, str(s))][y] = float(grp.OBS_VALUE.mean())
     return out
+
+
+def full_year(grp) -> bool:
+    """Twelve rows, twelve distinct months, every value a finite number."""
+    v = pd.to_numeric(grp.OBS_VALUE, errors="coerce")
+    return len(grp) == 12 and grp.TIME_PERIOD.nunique() == 12 and bool(np.isfinite(v).all())
 
 
 def bsi_annual() -> dict:
@@ -134,7 +148,7 @@ def bsi_annual() -> dict:
     b["geo"] = b.REF_AREA.map(lambda g: MIR_GEO.get(g, g))
     return {(g, it, str(s), y): float(grp.OBS_VALUE.mean())
             for (g, it, s, y), grp in b.groupby(["geo", "BS_ITEM", "BS_COUNT_SECTOR", "year"])
-            if len(grp) == 12}
+            if full_year(grp)}
 
 
 def notice_annual() -> dict:
@@ -143,7 +157,7 @@ def notice_annual() -> dict:
     n["year"] = n.TIME_PERIOD.str[:4].astype(int)
     n["geo"] = n.REF_AREA.map(lambda g: MIR_GEO.get(g, g))
     return {(g, y): float(grp.OBS_VALUE.mean()) for (g, y), grp in n.groupby(["geo", "year"])
-            if len(grp) == 12}
+            if full_year(grp)}
 
 
 def load_all() -> dict:
@@ -151,6 +165,7 @@ def load_all() -> dict:
             "bs": load_eurostat("nasa_10_f_bs_dep_loans.json"),
             "hh": load_eurostat("nasa_10_nf_tr_b6g_p3.json"),
             "s1": load_eurostat("nasa_10_nf_tr_s1.json"),
+            "trade": load_eurostat("nasa_10_nf_tr_fisim_trade.json"),
             "dfr": dfr_annual(), "mir": mir_annual(),
             "bsi": bsi_annual(), "r23": notice_annual()}
 
@@ -289,6 +304,9 @@ def c5(data, F):
 def c6(data, F):
     gdp = {(g, y): v for (dr, it, s, g, y), v in data["s1"].items() if it == "B1GQ"}
     p3 = {(g, y): v for (dr, it, s, g, y), v in data["hh"].items() if it == "P3"}
+    # exports of FISIM sit under S2 paid, imports under S2 received
+    exports = {(g, y): v for (dr, it, s, g, y), v in data["trade"].items() if it == "P62F" and dr == "PAID"}
+    imports = {(g, y): v for (dr, it, s, g, y), v in data["trade"].items() if it == "P72F" and dr == "RECV"}
     rows = {}
     for g in sorted({k[0] for k in F}):
         r = {}
@@ -297,17 +315,30 @@ def c6(data, F):
             if dep is None or (g, y) not in gdp or (g, y) not in p3:
                 continue
             r[str(y)] = {"dep_over_P3_pct": round(100 * dep / p3[(g, y)], 3),
-                         "dep_over_GDP_pct": round(100 * dep / gdp[(g, y)], 3)}
+                         "dep_over_GDP_pct": round(100 * dep / gdp[(g, y)], 3),
+                         "fisim_exports": exports.get((g, y)), "fisim_imports": imports.get((g, y))}
         if "2021" in r and "2023" in r:
             d = F[(g, "S14_S15", "dep", 2023)] - F[(g, "S14_S15", "dep", 2021)]
+            r["change_2021_2023"] = d
             r["change_2021_2023_over_GDP2023_pct"] = round(100 * d / gdp[(g, 2023)], 3)
+            imp = imports.get((g, 2023))
+            if imp is not None and d > 0:
+                r["imports2023_over_change"] = round(imp / d, 3)
         if r:
             rows[g] = r
-    passed = "EA21" in rows and "change_2021_2023_over_GDP2023_pct" in rows["EA21"]
+    ratios = {g: r["imports2023_over_change"] for g, r in rows.items()
+              if "imports2023_over_change" in r and g not in AGG}
+    negative = sorted(g for g, r in rows.items() if (r.get("2023", {}).get("fisim_imports") or 0) < 0)
+    passed = ("EA21" in rows and "change_2021_2023_over_GDP2023_pct" in rows["EA21"] and bool(ratios)
+              and all(np.isfinite(v) for v in ratios.values()))
     ea = rows.get("EA21", {})
+    show = "; ".join(f"{g} {ratios[g]}" for g in ("DE", "FR", "NL", "IT") if g in ratios)
     detail = (f"euro area: household deposit FISIM {ea.get('2021', {}).get('dep_over_P3_pct')} % of "
               f"P3 in 2021, {ea.get('2023', {}).get('dep_over_P3_pct')} % in 2023; the change is "
-              f"{ea.get('change_2021_2023_over_GDP2023_pct')} % of 2023 GDP")
+              f"{ea.get('change_2021_2023_over_GDP2023_pct')} % of 2023 GDP in size (no euro-area imports of "
+              f"FISIM are published). Whole-economy FISIM imports in 2023 against the change, {len(ratios)} "
+              f"countries: {show}, median {np.median(list(ratios.values())) if ratios else float('nan'):.3f}; both sides and every sector "
+              f"in one total, negative in {', '.join(negative) or 'none'}, so not a cap on the imported part")
     return passed, detail, rows
 
 
@@ -323,13 +354,13 @@ def c7(data, F):
             r21, r22 = mir.get((g, "L21", sc), {}).get(y), mir.get((g, "L22", sc), {}).get(y)
             a = bs.get(("NCO", s, "ASS", "F22", g, y))
             b = bs.get(("NCO", s, "ASS", "F29", g, y))
-            if None in (r21, r22, a, b) or a + b <= 0:
+            if not _num(r21, r22, a, b) or a + b <= 0:
                 dropped.append(f"{g} {s} {side} {y}")
                 continue
             pred = np.sign(dfr[y] - (r21 * a + r22 * b) / (a + b))
         else:
             rl = mir.get((g, "A20", sc), {}).get(y)
-            if rl is None:
+            if not _num(rl):
                 dropped.append(f"{g} {s} {side} {y}")
                 continue
             pred = np.sign(rl - dfr[y])
@@ -459,6 +490,13 @@ def selftest() -> None:
     F = fisim(data["d41"])
     assert not c5(data, {k: v for k, v in F.items() if k[0] != "EA21"})[0], "B131-5 needs the euro area"
     assert not c6(data, {k: v for k, v in F.items() if k[0] != "EA21"})[0], "B131-6 needs the euro area"
+    assert not c6(dict(data, trade={}), F)[0], "B131-6 needs the imports it prints beside the change"
+    de = c6(data, F)[2]["DE"]
+    want = data["trade"][("RECV", "P72F", "S2", "DE", 2023)] / (
+        F[("DE", "S14_S15", "dep", 2023)] - F[("DE", "S14_S15", "dep", 2021)])
+    assert abs(de["imports2023_over_change"] - want) < 1e-3, "the ratio is 2023 imports (S2 received) over the change"
+    swapped = dict(data, trade={(("RECV" if k[0] == "PAID" else "PAID"),) + k[1:]: v for k, v in data["trade"].items()})
+    assert c6(swapped, F)[2]["DE"]["2023"]["fisim_imports"] is None, "imports are read under S2 received only"
     bad = copy.deepcopy(data)
     bad["mir"] = {}
     assert not c7(bad, F)[0], "B131-7 must fail with no rates to compare"
@@ -473,6 +511,25 @@ def selftest() -> None:
     for y in [r0["year"]]:
         bad["mir"][(r0["geo"], "A20", code)][y] = -50.0
     assert bands(bad, F)[0]["band_high"] < bands(bad, F)[0]["band_low"], "a planted closed band must read closed"
+    # a year is twelve distinct months with a number each: an empty month, or a month twice, is not one
+    months = [f"2020-{m:02d}" for m in range(1, 13)]
+    year = pd.DataFrame({"TIME_PERIOD": months, "OBS_VALUE": [1.0] * 12})
+    assert full_year(year), "twelve numbered months must count as a year"
+    holed = year.copy()
+    holed.loc[3, "OBS_VALUE"] = float("nan")
+    assert not full_year(holed), "a month without a number must not count"
+    twice = year.copy()
+    twice.loc[11, "TIME_PERIOD"] = months[0]
+    assert not full_year(twice), "a month counted twice must not make a year"
+    # B131-7: a rate that is not a number is a missing input, not a disagreement
+    before = c7(data, F)[2]
+    for key in (("DE", "A20", "2250"), ("DE", "L21", "2250")):      # the loan side, then the deposit side
+        bad = copy.deepcopy(data)
+        bad["mir"][key] = {y: float("nan") for y in bad["mir"][key]}
+        after = c7(bad, F)[2]
+        assert after["dropped"] > before["dropped"] and after["disagree"] <= before["disagree"] \
+            and after["evaluated"] + after["dropped"] == before["evaluated"] + before["dropped"], \
+            f"B131-7 must drop a cell whose rate is not a number ({key[1]})"
     print("selftest ok: all eight flags pass on the data and each fails on its planted error")
 
 

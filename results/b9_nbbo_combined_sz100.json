@@ -1,5 +1,6 @@
 {
-  "calm_rate": 0.5512982900569982,
+  "calm_rate": 0.5554499366286438,
+  "crossed_combined": 2061,
   "datasets": [
     "ARCX.PILLAR",
     "XNAS.ITCH",
@@ -7,6 +8,17 @@
     "BATS.PITCH"
   ],
   "diagnostic_only": false,
+  "early_close": {
+    "days": [
+      "2025-07-03",
+      "2025-11-28",
+      "2025-12-24"
+    ],
+    "exact": 1,
+    "exact_rate_without": 0.5467988300292492,
+    "n": 15,
+    "verdict_without": "fails_and_stops"
+  },
   "exact_rate": 0.5456313827200518,
   "funds": {
     "JNK": {
@@ -50,12 +62,12 @@
       "stress_n": 201
     },
     "XLB": {
-      "calm_exact": 93,
-      "calm_n": 203,
+      "calm_exact": 97,
+      "calm_n": 202,
       "exact": 196,
       "n": 402,
-      "stress_exact": 103,
-      "stress_n": 199
+      "stress_exact": 99,
+      "stress_n": 200
     },
     "XLC": {
       "calm_exact": 65,
@@ -66,12 +78,12 @@
       "stress_n": 201
     },
     "XLE": {
-      "calm_exact": 123,
-      "calm_n": 203,
+      "calm_exact": 121,
+      "calm_n": 202,
       "exact": 252,
       "n": 402,
-      "stress_exact": 129,
-      "stress_n": 199
+      "stress_exact": 131,
+      "stress_n": 200
     },
     "XLF": {
       "calm_exact": 144,
@@ -90,11 +102,11 @@
       "stress_n": 200
     },
     "XLK": {
-      "calm_exact": 91,
+      "calm_exact": 93,
       "calm_n": 203,
       "exact": 190,
       "n": 403,
-      "stress_exact": 99,
+      "stress_exact": 97,
       "stress_n": 200
     },
     "XLP": {
@@ -114,11 +126,11 @@
       "stress_n": 200
     },
     "XLU": {
-      "calm_exact": 108,
+      "calm_exact": 112,
       "calm_n": 201,
       "exact": 215,
       "n": 401,
-      "stress_exact": 107,
+      "stress_exact": 103,
       "stress_n": 200
     },
     "XLV": {
@@ -130,11 +142,11 @@
       "stress_n": 200
     },
     "XLY": {
-      "calm_exact": 72,
+      "calm_exact": 76,
       "calm_n": 202,
       "exact": 152,
       "n": 402,
-      "stress_exact": 80,
+      "stress_exact": 76,
       "stress_n": 200
     }
   },
@@ -193,12 +205,17 @@
   "n": 6169,
   "offset_s": 0,
   "stage": "B9-A-6 four-venue (§39.3)",
-  "stress_rate": 0.5396878113583528,
+  "stress_rate": 0.5353468304015931,
   "venue_at_inside": {
     "ARCX.PILLAR": 9463,
     "BATS.PITCH": 477,
     "XNAS.ITCH": 1144,
     "XNYS.PILLAR": 1254
   },
-  "verdict": "fails_and_stops"
+  "venues_per_observation": {
+    "1": 3505,
+    "2": 2664
+  },
+  "verdict": "fails_and_stops",
+  "verdict_reading": "read"
 }

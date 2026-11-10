@@ -22,6 +22,12 @@ But the two channels A3-8 separates do not act on the same margin.
   cell, so it is dropped from the intersection, so the effect of excluding it
   is not in the estimand.
 
+(Restated 2026-10-20: in the model ``gate_spread`` reaches the opening
+allocation only. Who can buy at resale and who is in the bidder pool that
+prices a tier are both decided on the payment terms, so ``terms_spread`` also
+moves the extensive margin after the opening. ``a3h_gate_acts.py`` measured
+the gate acting mostly on the intensive margin, 2.2 nodes in and none out.)
+
 If that is what is happening, then the registered reading of the gate channel
 (``+1.409`` at the registered point, sign unstable across seeds at every cell of
 the §6.5 grid) is not evidence that the gate carries nothing. It is the reading
@@ -275,7 +281,9 @@ def main() -> int:
     print("  peripheral column is at or near zero in the **null** cell, then")
     print("  the peripheral tercile does not trade under any configuration and")
     print("  the gate is not what removed it. In that case the estimand's own")
-    print("  'peripheral' group is peripheral **among participants**, and the")
+    print("  'peripheral' group is the least central third of a set that also")
+    print("  holds the whole financial layer; its production-layer members are")
+    print("  peripheral **among participants**, and the")
     print("  bracket above says how narrow a slice of the centrality ranking")
     print("  that is. A narrow high band is a scope statement about A3-8 that")
     print("  holds whatever the gap comes out to.")
