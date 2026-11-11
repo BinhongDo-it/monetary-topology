@@ -50,7 +50,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.path.insert(0, r"E:\better economics")
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # safe_write.py sits one level above the repository
 
 REPO = Path(__file__).resolve().parents[1]
 RAW = REPO / "data" / "raw" / "b154"

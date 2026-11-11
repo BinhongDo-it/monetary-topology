@@ -68,7 +68,7 @@ import urllib.parse
 from datetime import datetime, timezone
 from pathlib import Path
 
-sys.path.insert(0, r"E:\better economics")
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # safe_write.py sits one level above the repository
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import b154_fetch as base  # noqa: E402  check(), get(), sha256_bytes(), set_aside(), now_utc()

@@ -25,7 +25,7 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, r"E:\better economics")
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))  # safe_write.py sits one level above the repository
 
 HERE = Path(__file__).resolve().parent.parent
 CELLS = HERE / "data" / "b149_regq_cells.json"

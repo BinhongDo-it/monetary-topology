@@ -3431,6 +3431,28 @@
    "stored": null,
    "url": "https://aquis-public-files.s3.eu-west-2.amazonaws.com/aqse/market_data/previous/pre_trade_transaction_prev.csv",
    "venue": "aquis"
+  },
+  {
+   "at": "2026-11-10T22:48:06",
+   "bytes": 45283609,
+   "label": "pre_trade_current",
+   "note": "",
+   "sha256": "5c91873b0304f8ffebd1080309560e6fece6bfe5934b4d5e0efc7e0a5cb1d3bb",
+   "status": 200,
+   "stored": "data/raw/eu_mifid/aquis/20261110/pre_trade_current_20261110_5c91873b0304.gz",
+   "url": "https://aquis-public-files.s3.eu-west-2.amazonaws.com/aqse/market_data/current/pre_trade_transaction_data.csv",
+   "venue": "aquis"
+  },
+  {
+   "at": "2026-11-10T22:48:09",
+   "bytes": 41304226,
+   "label": "pre_trade_previous",
+   "note": "identical content already on disk",
+   "sha256": "2765a4c62abe908695c1fc97664cb72949d3b9185f8a2b451e0f75137df24733",
+   "status": 200,
+   "stored": null,
+   "url": "https://aquis-public-files.s3.eu-west-2.amazonaws.com/aqse/market_data/previous/pre_trade_transaction_prev.csv",
+   "venue": "aquis"
   }
  ],
  "sha_seen": {
@@ -3473,6 +3495,7 @@
   "568b0d6e5a5047e72aa42a3f1eb41fee5999bc329007e15a454d7a3e8bb9c47d": "data/raw/eu_mifid/cboe/20260822/rts13_public_trade_data_cxe_2026-08-21_14.csv_20260822_568b0d6e5a50.gz",
   "59dac39a37e97551b58dbcd336dc60bcc476c89a4325a101f231c4e7feb760dd": "data/raw/eu_mifid/aquis/20261028/pre_trade_current_20261028_59dac39a37e9.gz",
   "5a737e3307dd392385a8e02141056745c66161c409fb801f4ee328f2e95f4869": "data/raw/eu_mifid/aquis/20260921/pre_trade_current_20260921_5a737e3307dd.gz",
+  "5c91873b0304f8ffebd1080309560e6fece6bfe5934b4d5e0efc7e0a5cb1d3bb": "data/raw/eu_mifid/aquis/20261110/pre_trade_current_20261110_5c91873b0304.gz",
   "5d1404bbb84849efd3ff08ee4b02c1b97885d4363abd6efdf2c434eb053c4763": "data/raw/eu_mifid/aquis/20261104/pre_trade_current_20261104_5d1404bbb848.gz",
   "61f035317206132553354e6c05679fd16ad6319b6525b437b940c433eed6e9f1": "data/raw/eu_mifid/cboe/20260822/rts13_public_trade_data_bxe_2026-08-21_14.csv_20260822_61f035317206.gz",
   "61f21a6b2628580a732ea93634499d6774ca5d49335857b564cbc6379ee034ac": "data/raw/eu_mifid/aquis/20260904/pre_trade_current_20260904_61f21a6b2628.gz",

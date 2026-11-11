@@ -100,11 +100,43 @@ table. The counting calculation reads the distinctions a rule explicitly
 assigns. The sections below keep these readings separate while following the
 same class and position structure across settings.
 
-Three recurring words locate the evidence. A **carrier** is the material read,
-such as a loan record, a conversion quote or a fee schedule. A **station** is a
-named investigation such as B8 or B43. A **measurement floor** is the
-resolution benchmark against which a numerical reading is checked. The
-illustrations here establish the arithmetic; the station records supply the
+**Words used on every page.** The terms above, together with these, are enough
+to read any section below. Terms that appear in only some sections are in the
+[Glossary](#glossary) at the end.
+
+- **Carrier.** The material a reading is taken from: a loan record, a published
+  conversion table, an exchange's order book, a fee schedule, a tax table.
+  [CARRIERS.md](../CARRIERS.md) lists every carrier read so far.
+- **Station.** One named investigation with a stable identifier, such as B8 or
+  B43. The identifier is a label and gives no reading order.
+- **Track.** The family a station belongs to, given by the first letter of its
+  identifier. **A** stations are mechanism models of a stratified payment
+  network. **B** stations are theorems and readings of market, administrative
+  and legal records. **C** stations read conversions an institution declares
+  between quantities where nothing is traded. E1 belongs to none of the three.
+- **Criterion.** One numbered check inside a station, such as `B8-3`.
+  [RESULTS.md](../RESULTS.md), the ledger, records every criterion with its
+  reading, passing and failing on the same terms. Cite a result by its
+  criterion identifier.
+- **Point prediction of zero.** The exact value the tested account requires. If
+  one scalar price per position generates every term, every loop sum and every
+  square sum is zero, whatever the contract along the way.
+- **Measurement floor.** The smallest non-zero value a given carrier and
+  instrument can resolve, measured on that carrier. A non-zero reading is
+  reported with how many times it clears this floor. A price floor written into
+  a rule is a different object; see binding set above.
+- **Zero calibration.** A second carrier run with the same instrument and the
+  same thresholds, to show whether a reading belongs to the first carrier or
+  would come out of the instrument anywhere. Bolivia (B15) is the zero
+  calibration for Cuba (B6).
+- **Zero domain.** A place where the framework requires its own quantity to be
+  exactly zero, where that quantity could have been non-zero, and where
+  neighbouring cases read non-zero. Measuring there tests a prohibition of the
+  framework.
+- **Scope.** What a criterion's reading licenses. It travels with every citation
+  of that criterion.
+
+The illustrations here establish the arithmetic; the station records supply the
 measurements and their scope.
 
 ---
@@ -1739,3 +1771,114 @@ packaging of each archive and what it does and does not carry.
 **How to cite anything here**: by criterion identifier, such as `B8-3` or `A5-6`,
 never by section number. Section numbers move and identifiers do not. Citing a
 passing criterion without its scope limits is a misreading of it.
+
+---
+
+## Glossary
+
+Terms used in some sections and not defined where they appear, in alphabetical
+order. The basic terms are in [The object in one picture](#the-object-in-one-picture).
+
+**Adjacency matrix.** The table of which pairs of agents or positions are joined
+by an edge. Who can reach whom is read off it, which is why the repository's
+opening sentence sets it against a quantity of money.
+
+**b_1, the first Betti number.** The number of independent cycles in a graph:
+edges minus vertices plus the number of connected pieces. A star or a tree has
+`b_1 = 0`, so in the class-and-position graph every obstruction on it is a square
+between classes (A3, B1).
+
+**Chain drift.** In index numbers, the amount by which indexes chained around a
+closed sequence of comparisons fail to return to the starting level. It is a
+loop sum on the graph of comparisons (B79).
+
+**Claim.** A monetary right to payment: money, a deposit, a loan, a bond. A claim
+and the resource it points at are two objects; the A track follows where claims
+accumulate and whether they still reach resources.
+
+**Class value.** The figure a written rule assigns to one class: a fee, a rate, a
+tax term. The counting law counts the distinct class values.
+
+**Coboundary, exact.** An edge field is exact, or a coboundary, when it equals
+`phi(j) - phi(i)` for some value `phi` on positions. Exactness means every loop
+sum is zero.
+
+**Cochain.** A number attached to each position (a 0-cochain) or to each edge (a
+1-cochain). A quantity "outside the cochain", such as an admission threshold in
+A3, is no edge term at all and cannot enter a loop sum.
+
+**Cohomology class, non-integrability.** The part of an edge field that no value
+on positions can generate. A field with a non-zero loop sum somewhere is
+non-integrable, and the surviving part is its cohomology class.
+
+**Collision.** Two differently written classes assigned the same value, which
+then merge into one group in the outcome, like the resident adult and child in
+the fee table above.
+
+**Diagnostic record.** A record marked as information that does not yet carry
+the station's reading. The mark says why.
+
+**Directed loop sum, sub-potential.** When a conversion runs one way only, the
+null object becomes a sub-potential: a value `phi` on positions with
+`w(i,j) <= phi(j) - phi(i)` on every one-way edge. One exists exactly when no
+directed cycle sums positive, a weaker requirement than exactness (B4).
+
+**Effective support.** The inverse Herfindahl index of where flow or claims sit,
+read as the number of agents that effectively take part (A2).
+
+**Fisher's circular test.** The requirement that an index chained around a loop
+of comparisons returns to 1. On the comparison graph it is exactness (B79).
+
+**Gate.** Two uses. In A3 the gate channel is an admission threshold on the
+asset: a holder's claims must reach a stated multiple of its price at the
+opening allocation. In a B station, a gate is a preliminary check or count that
+must be met before the main criteria are read (B14, C11-0).
+
+**GEKS, CPD.** Multilateral index methods. On the comparison graph each is the
+orthogonal projection of the observed field onto its exact part, and the
+residual it discards is the obstruction (B79, B81).
+
+**H⁰ and H¹.** Two kinds of statement. An H¹ statement is about loops: whether
+terms around a closed path cancel. An H⁰ statement is about reachability:
+whether any path leads back at all. A conversion that runs one way with no
+return path is an H⁰ fact, and a loop number reported there names it wrongly
+(B4, B6).
+
+**Layer.** In the A track, a group of agents more densely connected inside than
+across: financial, intermediate, production. A payment network is stratified
+when claims entering one layer mostly circulate inside it.
+
+**Ledger.** [RESULTS.md](../RESULTS.md), the record of every criterion.
+[INDEX.md](../INDEX.md) is generated from its headings.
+
+**Obstruction.** Whatever prevents one value per position from generating all the
+terms. It shows up as a non-zero loop sum or square sum.
+
+**Potential, scalar price vector.** One number per position, `phi(i)`, whose
+differences would generate every term. The account tested throughout is that
+such a vector exists.
+
+**Rank of the departure.** The number of independent directions in which
+observed prices depart from one price level per place (B38). One price level per
+place leaves no departure and makes every square zero.
+
+**Registration point.** The place where a programme writes down a holder's class
+or a position: a plant registration, a filing status, an eligibility record.
+When it expires or is refused, the edge it opened is gone (B36).
+
+**Single-index and two-index field.** A single-index field indexes terms by
+position only. A two-index field indexes them by class and position,
+`w_a(i,j)`. B1 shows that the loop question is a matter of notation on a
+single-index field and a real question on a two-index one.
+
+**Superseded.** A reading replaced by the repository's own later evidence. The
+record keeps both and names what replaced it.
+
+**Support set.** The agents or positions where activity actually occurs. A
+support set contracts when fewer of them remain reached.
+
+**Tier.** A band a written rule names, such as an income band or a consumption
+band. A tier that no position falls into produces no value (B46).
+
+**Wedge.** A gap a rule opens between two terms on the same conversion, such as a
+withholding tax that differs by holder (B21, B23).

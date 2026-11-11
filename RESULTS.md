@@ -27937,6 +27937,109 @@ Scope: 200 nodes, the arm with no mechanism, elasticity 0.5 outside the grid. Th
 arms with a floor, a write-off or a transfer are not scanned here; neither is the in-degree weighting of the
 upward edges as a switch of its own.
 
+## A58: the balance-sheet recession and zombie lending on one cell; what the creditors do with what they collect sets how much the first does
+
+**RUN: 2026-11-10. Script `experiments/a58_koo_zombie.py`, record `results/a58_koo_zombie.json`, which
+carries the configuration it ran under; `--tables` reprints both cells from the record. 1,500 runs, one per
+seed: A18's registered carrier (`drawdown`, f2i 30, e 0.5, 300 rounds, the endogenous issuance rule), the
+rescue funded by issuance, on A18_B's Japan cell (floor 0.20, rate 1.0) and the retention sweep's cell (floor
+0.50, rate 2.0), seeds 0 to 4. `network.py` is not changed; the opening debt is a ledger in the script's
+subclass. Nothing fetched. Every figure below is a median over the five seeds.**
+
+**Why the station exists.** Two accounts of Japan's 1990s and early 2000s describe mechanisms that ran at
+the same time: banks kept lending to firms that could not pay, along the lines they already lent on (Peek and
+Rosengren 2005; Caballero, Hoshi and Kashyap 2008), and firms with debt from the bubble paid it down while
+nobody borrowed what came back (Koo). The record cannot separate them. Here each is a switch, and the two are
+run alone and together on one cell.
+
+- **Zombie side**: A18_B's rescue along existing edges, retain 0, 0.5, 0.9, 0.95, 1.0. The rescue is never
+  repaid on any arm, so it means the same thing whether the debt is on or not.
+- **Deleveraging side**: at construction the intermediate block owes `D0` (50 or 100, against an opening stock
+  of 100) to the financial nodes each firm already pays upward, split evenly. Each round a firm repays a share
+  `k` (0.05 or 0.20) of what it owes before it spends; what it cannot pay stays owed. What the creditors collect
+  is then parked in one of two ways, never both: **holdings parking**, A18_E's switch, which moves a share
+  (0.20, 0.50) of everything a financial node holds out of circulation each round; or **collection parking**,
+  which moves a share (0.20, 0.50, 1.0) of each collected repayment out at once and leaves the rest of the
+  creditor's holdings circulating.
+
+| | criterion | reading |
+|---|---|---|
+| PASS | A58-0 `instrument` **with no opening debt the subclass is the model** (run by `--gate`) | 30 checks: both cells, zombie off and retain 0, 0.9, 1.0, seeds 0 to 2, and parking 0.20 with the rescue on; whole holdings path, 0 differ |
+| PASS | A58-1 `known_answer` **A18_B's two cells** | 40 of 40 recorded rows equal on the count below the line and M/R |
+| PASS | A58-2 `instrument` **the debt ledger closes and the rescue is never repaid** | opening debt less repaid less outstanding: largest `1.68e-14` of the opening debt; 0 runs repay the rescue |
+| PASS | A58-3 `own_reading` **deleveraging with holdings parking, alone, lowers the money that circulates** | against neither side on: median ratio 0.3694 over 80 pairs, lower in 80 |
+| PASS | A58-4 `own_reading` **every cell decomposed, every interaction given a state** | 1,200 of 1,200 cells have all four corners; the states are in the last table |
+| PASS | A58-5 `bookkeeping` **every planned run is in the record once** | 1,500 rows, 1,500 distinct, 1,500 planned |
+| PASS | A58-6 `own_reading` **deleveraging with collection parking, alone, lowers the money that circulates** | against neither side on: median ratio 0.9867 over 120 pairs, lower in 67; by opening debt 50: 0.9910, 100: 0.9836 |
+| PASS | A58-7 `instrument` **on the collection arm, everything parked is a parked collection** | 720 runs; parked stock at the close against collections parked: largest gap 0 |
+
+**Repayment that is spent again adds to circulation.** On the Japan cell, with a debt of 100 repaid at 0.20
+and nothing parked, the money in circulation rises from 100.05 to 134.57 and the count below the line falls
+from 152 to 76, the same sign as A18_D's repayment multiplier. On the other cell circulation rises the same way
+(134.51) and the count stays at 153.
+
+**Parking only the collections caps the damage at the debt.** With every collection parked, what sits outside
+circulation is what was repaid, about 45 for a debt of 50 and 91 for 100, and the count below the line returns
+to 152. Circulation ends a little under the no-debt run, because the issuance rule refills the gap: the stock
+goes from 100 to 187 while circulation stays near 96. Ratio of circulation to the run with neither side on, 20
+pairs each:
+
+| share of each collection parked | repaid at 0.05 | repaid at 0.20 |
+|---|---|---|
+| 0.20 | 1.0011, lower in 7 | 1.1471, lower in 0 |
+| 0.50 | 0.9761, lower in 20 | 1.0595, lower in 2 |
+| 1.0 | 0.9738, lower in 20 | 0.9586, lower in 18 |
+
+The part of each repayment that stays in circulation still adds to it, so the net effect of repaying is
+positive at low shares and turns negative when all of it is parked.
+
+**Parking whole holdings is a different object, and the debt's size hardly enters it.** With holdings
+parking at 0.20 the Japan cell circulates 52.67 with a debt of 100 and 52.76 with 50; at 0.50, 22.07 and 22.08.
+What sits outside is the issuance, 3,091 and 5,145, of which the debt is a small part.
+
+**Both sides on.** Debt 100 repaid at 0.20:
+
+| cell | retain | parking | below | circulating | parked | stock |
+|---|---|---|---|---|---|---|
+| Japan | 0 | none | 75 | 151.14 | 0 | 151.1 |
+| Japan | 0 | holdings 0.20 | 153 | 50.56 | 2,776.5 | 2,827.4 |
+| Japan | 0 | every collection | 77 | 126.98 | 91.7 | 217.9 |
+| Japan | 1.0 | none | 153 | 2,909.27 | 0 | 2,909.3 |
+| Japan | 1.0 | holdings 0.50 | 173 | 420.55 | 4,994.8 | 5,499.3 |
+| Japan | 1.0 | every collection | 153 | 2,873.69 | 93.8 | 2,968.3 |
+| sweep | 0 | none | 76 | 541.14 | 0 | 541.1 |
+| sweep | 0 | holdings 0.20 | 113 | 100.25 | 3,445.1 | 3,545.4 |
+| sweep | 0 | every collection | 76 | 536.42 | 97.6 | 630.9 |
+
+Holdings parking turns what the zombie side creates into a parked stock: at full retention the zombie side
+alone circulates 3,086 (M/R 30.9); with holdings parking at 0.50 circulation is 420.55 and 4,994.8 sits
+outside, so the stock grows and the circulating half does not. It also takes back the rescue: at retain 0 the
+count below the line is 77 with the zombie side alone and 153 with holdings parking at 0.20, against 152 with
+neither. Collection parking leaves the rescue where it was, at 77 and 76.
+
+**Interaction states.** Zero: the two sides add. Amplify: the interaction has the sign of their sum. Offset:
+the opposite sign. Other: the sum is zero and the joint move is not. The count below the line is an integer
+and zero means exactly zero; the other measures use `1e-9` of the base.
+
+| measure | arm (600 cells each) | zero | amplify | offset | other |
+|---|---|---|---|---|---|
+| count below the line | holdings parking | 71 | 84 | 437 | 8 |
+| | collection parking | 335 | 38 | 210 | 17 |
+| total volume | holdings | 0 | 173 | 427 | 0 |
+| | collection | 0 | 80 | 520 | 0 |
+| M/R and the circulating half | holdings | 0 | 74 | 526 | 0 |
+| | collection | 0 | 31 | 569 | 0 |
+
+**Reading.** The two sides run two loops on one graph: the rescue sends money down existing edges to nodes
+below the line, and deleveraging pulls it from firms back up to the financial layer. Where it goes from there
+sets the size of the second side. Spent again, repayment adds to circulation. Parked as it is collected, which
+is Koo's account, it removes what repaying would have added and lowers circulation by a few per cent, bounded
+by the debt and refilled by issuance, and the rescue keeps its effect. The pattern of new money piling up while
+circulation stays flat needs the financial layer to park what it holds, issuance included.
+
+Scope: one carrier, two cells, five seeds, the endogenous issuance rule only. The opening debt is owed by firms
+only; household debt is not built. Parking is one way.
+
 ## B143: where a statute draws the line of a price regulation, and which side of it gets a written price
 
 **RUN: 2026-10-09. Script `experiments/b143_price_control_line.py`, record
